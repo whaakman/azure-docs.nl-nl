@@ -94,7 +94,7 @@ In deze sectie helpt bij het implementeren van Microsoft voorbeeld Modbus-module
    }
    ```
 
-8. Selecteer **Volgende**.
+8. Selecteer **Next**.
 
 9. Selecteer in de stap **Implementatie beoordelen** de optie **Verzenden**.
 

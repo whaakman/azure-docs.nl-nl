@@ -275,7 +275,7 @@ Op basis van de voorgaande veronderstellingen, maak een 26-TiB StorSimple gelaag
 
     ![Back-up Exec-beheerconsole, selecteer storage-pagina](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
-3.  Voer de naam van een vertegenwoordiger, bijvoorbeeld: **zaterdag volledige**, en een beschrijving. Selecteer **Volgende**.
+3.  Voer de naam van een vertegenwoordiger, bijvoorbeeld: **zaterdag volledige**, en een beschrijving. Selecteer **Next**.
 
     ![Pagina back-up Exec management console, de naam en beschrijving](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145181"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415459"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
@@ -1307,7 +1307,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- Hier volgt de resultatenset.  
+  Hier volgt de resultatenset.  
   
 ```  
 [{  
@@ -1338,6 +1338,17 @@ ROUND(<numeric_expression>)
   
   Retourneert een numerieke expressie.  
   
+  **Opmerkingen**
+  
+  De afronding bewerking die wordt uitgevoerd, volgt middelpunt afronding weg van nul. Als de invoer is een numerieke expressie die precies twee gehele getallen tussen zijn het resultaat van het dichtstbijzijnde gehele getal weg van nul.  
+  
+  |<numeric_expression>|Afgerond|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0.5|1|
+  |6.5000|7||
+  
   **Voorbeelden**  
   
   Het volgende voorbeeld wordt de volgende positieve en negatieve getallen naar het dichtstbijzijnde gehele getal afgerond.  
@@ -1346,7 +1357,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- Hier volgt de resultatenset.  
+  Hier volgt de resultatenset.  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
@@ -3148,7 +3159,7 @@ GetCurrentDateTime ()
   |JJJJ|jaar in vier cijfers|
   |MM|maand in twee cijfers (01 = januari, enz.)|
   |DD|twee cijfers dag van maand (01 tot en met 31)|
-  |T|signifier voor begin van de tijdselementen|
+  |D|signifier voor begin van de tijdselementen|
   |hh|twee cijfers uur (00 en 23)|
   |mm|twee cijfers minuten (00 en 59)|
   |ss|twee cijfers seconden (00 en 59)|

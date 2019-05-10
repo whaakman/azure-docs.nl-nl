@@ -160,7 +160,7 @@ Nu uw pijplijnen werken als u verwacht, kunt u triggers om ze uit te voeren op d
     4. Voor **terugkeerpatroon**, voer een uitgebracht voor de trigger. In het volgende voorbeeld is het **dagelijkse** zodra. 
     5. Voor **End**, selecteer **geen End** of voer een datum en tijd na het selecteren van **op datum**. 
     6. Selecteer **geactiveerd** activeren van de trigger onmiddellijk nadat u de hele ADF-instellingen hebt gepubliceerd. 
-    7. Selecteer **Volgende**.
+    7. Selecteer **Next**.
 
    ![Trigger -> Nieuw/bewerken](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
     

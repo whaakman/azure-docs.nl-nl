@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148322"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409957"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob storage beheren
 
@@ -33,7 +33,7 @@ Houd rekening met het scenario waar een gegevensset opgehaald regelmatig toegang
 
 De levenscyclus van management-beleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2) accounts en Blob storage-accounts. U kunt een bestaande account voor algemeen gebruik (GPv1) upgraden naar een GPv2-account via een eenvoudig éénkliksproces in Azure portal. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie over opslagaccounts.  
 
-## <a name="pricing"></a>Prijzen 
+## <a name="pricing"></a>Prijs 
 
 De levenscyclus van management-functie is gratis. Klanten betalen voor de bewerkingskosten van de normale voor de [Blobs weergeven](https://docs.microsoft.com/rest/api/storageservices/list-blobs) en [Blob-laag instellen](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-aanroepen. Verwijderbewerking is gratis. Zie voor meer informatie over prijzen [prijzen voor blok-Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -87,7 +87,7 @@ U kunt definiëren en implementeren van beheer van de levenscyclus als onderdeel
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -157,7 +157,7 @@ Elke regel in het beleid heeft verschillende parameters:
 | Parameternaam | Parametertype | Opmerkingen | Vereist |
 |----------------|----------------|-------|----------|
 | naam           | String |Een de regelnaam mag maximaal 256 alfanumerieke tekens bestaan. De naam van regel is hoofdlettergevoelig.  Deze moet uniek zijn binnen een beleid. | True |
-| enabled | Boolean | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | False | 
+| enabled | Boolean | Een optionele Booleaanse waarde waarmee een regel voor het tijdelijk worden uitgeschakeld. Standaardwaarde is ' True ' als deze optie niet is ingesteld. | Onwaar | 
 | type           | Een enum-waarde | De huidige geldig type is `Lifecycle`. | True |
 | definitie     | Een object dat de levenscyclus van regel definieert | Elke definitie bestaat uit een filter en een actie. | True |
 
@@ -223,7 +223,7 @@ Levenscyclusbeheer biedt ondersteuning voor opslaglagen en verwijderen van blobs
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Ondersteuning voor blobs dat zich momenteel in de warme laag         | Niet ondersteund |
 | tierToArchive | Ondersteuning voor blobs dat zich momenteel in de opslaglaag hot of cool | Niet ondersteund |
-| delete        | Ondersteund                                   | Ondersteund     |
+| verwijderen        | Ondersteund                                   | Ondersteund     |
 
 >[!NOTE] 
 >Als u meer dan één actie op dezelfde blob definieert, is levensduurbeheer van de minst dure actie van toepassing op de blob. Bijvoorbeeld: actie `delete` is goedkoper dan actie `tierToArchive`. Actie `tierToArchive` is goedkoper dan actie `tierToCool`.

@@ -52,7 +52,7 @@ In dit artikel biedt stapsgewijze instructies over het gebruik van HDInsight-hul
 
      ![Maak een project foutopsporing](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-   d. Selecteer **Volgende**.     
+   d. Selecteer **Next**.     
  
 1. In de volgende **nieuw Project** venster de volgende handelingen uit:
 
@@ -64,7 +64,7 @@ In dit artikel biedt stapsgewijze instructies over het gebruik van HDInsight-hul
 
    c. In de **Spark-versie** vervolgkeuzelijst, de wizard Scala-project maken voor Spark-SDK en Scala-SDK de juiste versie kan worden geïntegreerd. Als de spark-cluster-versie lager dan 2.0 is, selecteert u **Spark 1.x**. Selecteer anders **2.x Spark.** In dit voorbeeld wordt **Spark 2.0.2 (Scala 2.11.8)** gebruikt.
 
-   d. Selecteer **Voltooien**.
+   d. Selecteer **Finish**.
 
 1. Selecteer **src** > **belangrijkste** > **scala** aan uw code in het project openen. In dit voorbeeld wordt de **SparkCore_wasbloTest** script.
 

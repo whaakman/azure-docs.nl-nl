@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026271"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518614"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Quickstart: Herkent digitale inkt met Ink herkenning REST-API en Java
 
@@ -30,13 +30,13 @@ De broncode voor deze Quick Start kunt u vinden op [GitHub](https://go.microsoft
 
 ## <a name="prerequisites"></a>Vereisten
 
-- De [Java&trade; ontwikkeling Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of hoger.
+- De [Java&trade; ontwikkeling Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of hoger.
 
 - Deze bibliotheken importeren vanuit de opslagplaats met Maven
     - [JSON-code in Java](https://mvnrepository.com/artifact/org.json/json) pakket
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) pakket
 
-- De voorbeeld ink lijn gegevens voor deze Quick Start kunt u vinden op [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+- De voorbeeld ink lijn gegevens voor deze Quick Start kunt u vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>Voer de toepassing en de reactie weergeven
 
-Voer de toepassing uit. Een geslaagde respons wordt geretourneerd in JSON-indeling. U kunt ook het JSON-antwoord vinden op [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Voer de toepassing uit. Een geslaagde respons wordt geretourneerd in JSON-indeling. U kunt ook het JSON-antwoord vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -143,8 +143,8 @@ Voer de toepassing uit. Een geslaagde respons wordt geretourneerd in JSON-indeli
 
 
 Als u wilt zien hoe de Ink-API in een digitale bij app werkt, bekijk de volgende voorbeeldtoepassingen op GitHub:
-* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#en Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [JavaScript-webbrowser-app](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java- en Android mobiele app](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [SWIFT- en iOS mobiele app](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [C# en Universal Windows Platform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# en Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Webbrowser-app (Javascript)](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Mobiele app (Java en Android)](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Mobiele app (Swift en iOS)](https://go.microsoft.com/fwlink/?linkid=2089805)

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445586"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466883"
 ---
 # <a name="add-an-email-action"></a>Een e-mailactie toevoegen
 
@@ -102,11 +102,11 @@ De volgende stappen laten zien hoe u instellen en de e-mailacties handmatig cont
 
 1. Klik op de **Office 365-connector**:
 
-    ![API-verbinding](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![API-verbinding](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Klik op de banner om te beginnen met het autorisatieproces:
 
-    ![autoriseren](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![autoriseren](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. Klik op **autoriseren**. U wordt gevraagd of u zich aanmeldt. Het account waarmee u zich aanmeldt moet de toepassing van het e-mailadres wordt gebruikt voor het verzenden van e-mailmeldingen:
 
@@ -116,7 +116,7 @@ De volgende stappen laten zien hoe u instellen en de e-mailacties handmatig cont
 
 1. Het e-mailadres waarvan de meldingen worden verzonden vanuit, klikt u op **bewerken API-verbinding**.
 
-    ![e-mailadres wijzigen](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![e-mailadres wijzigen](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>De installatie van de Outlook-rol eigenaar
 
@@ -142,7 +142,7 @@ De volgende stappen helpen u om te melden en e-mailacties instellen:
 
 Out-of-the-box, de oplossingsverbetering voor externe controle biedt een eenvoudige HTML-sjabloon voor actie e-mailberichten. De e-mailsjabloon maakt gebruik van waarden van de actie-instellingen voor e-mailbericht. Hier volgt een voorbeeld van de e-mailbericht:
 
-![Voorbeeld van e-mail](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![Voorbeeld van e-mail](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 De volgende stappen laten zien hoe u de HTML-e-mailsjabloon te bewerken. U kunt bijvoorbeeld bevatten meer informatie of toevoegen van aangepaste installatiekopieën:
 
@@ -164,7 +164,7 @@ De volgende stappen laten zien hoe u de HTML-e-mailsjabloon te bewerken. U kunt 
 
 1. Installatiekopieën of aangepaste tekst wilt toevoegen, moet u het bestand EmailTemplate.HTML rechtstreeks bijwerken.
 
-## <a name="throttling"></a>Beperking
+## <a name="throttling"></a>Beperken
 
 De oplossingsverbetering voor externe controle wordt Outlook gebruikt voor het verzenden van e-mailmeldingen. Outlook beperkt het aantal e-mailberichten verzonden naar [30 e-mailberichten per één minuut](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-mailclients die de e-mailberichten ontvangt mogelijk ook het aantal e-mailberichten ontvangen per minuut vertraging. Neem contact op met uw specifieke e-mailclient op beperkingen. Bij het instellen van e-mailmelding voor een regel, wordt de regel berekend gemiddelde waarden gedurende een periode van ten minste één minuut en niet direct waarden gebruiken:
 

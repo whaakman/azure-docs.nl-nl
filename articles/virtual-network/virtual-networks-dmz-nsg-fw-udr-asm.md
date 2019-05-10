@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363009"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410479"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Voorbeeld 3: Een perimeternetwerk ter bescherming van netwerken met een firewall, UDR en nsg's maken
 
@@ -203,7 +203,7 @@ Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
     -SubnetName $BESubnet -VirtualNetworkName $VNetName
 ```
 
-## <a name="firewall-rules"></a>Firewall-regels
+## <a name="firewall-rules"></a>Firewallregels
 
 Op de firewall, moet u maken van regels voor doorsturen. Omdat de firewall blokkeert of alle binnenkomende, uitgaande en intra-virtual-network-verkeer wordt doorgestuurd, moet u veel firewall-regels. Bovendien is de firewall voor het verwerken van al het binnenkomende verkeer naar de beveiligingsservice openbare IP-adres (op verschillende poorten). Om te voorkomen later dubbel, de aanbevolen procedures worden gevolgd door de diagrammen van de logische stromen voordat het instellen van de subnetten en firewall-regels. De volgende afbeelding is een logische weergave van de firewall-regels voor dit voorbeeld:
 
@@ -356,7 +356,7 @@ Hier volgen de details van elke regel vereist voor het voltooien van dit voorbee
 
     Vier RDP-regels maken:
 
-    | Regelnaam | Server | Service | De lijst van doel |
+    | Regelnaam | Server  | Service | De lijst van doel |
     | --- | --- | --- | --- |
     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
@@ -989,7 +989,7 @@ Voer deze PowerShell verbonden-script lokaal op een internet PC of de server.
 Dit XML-bestand opslaan met bijgewerkte locatie. Wijzig de `$NetworkConfigFile` variabele in het volledige script hierboven om de opgeslagen netwerk config-bestand te koppelen.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

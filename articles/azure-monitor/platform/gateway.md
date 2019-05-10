@@ -141,7 +141,7 @@ Volg deze stappen voor het installeren van een gateway met de wizard setup.
 
    b. Als de server waarop de gateway is geïnstalleerd communiceren via een proxy moet, voert u de proxy-adres waar de gateway nodig heeft om verbinding te maken. Geef bijvoorbeeld `http://myorgname.corp.contoso.com:80` op.  Als u dit veld leeg laat, wordt de gateway probeert rechtstreeks verbinding maakt met internet.  Als uw proxyserver verificatie is vereist, voert u een gebruikersnaam en wachtwoord.
 
-   c. Selecteer **Volgende**.
+   c. Selecteer **Next**.
 
    ![Schermopname van configuratie van de gatewayproxy](./media/gateway/gateway-wizard02.png)
 
@@ -268,7 +268,7 @@ Na het voltooien van de integratie met Log Analytics, verwijdert u de wijziging 
 
    ![Schermafbeelding van Operations Manager, waarin de proxy-serveradres](./media/gateway/scom02.png)
 
-1. Selecteer **Voltooien**. Uw Operations Manager-beheergroep is nu geconfigureerd voor communicatie via de gatewayserver aan de Log Analytics-service.
+1. Selecteer **Finish**. Uw Operations Manager-beheergroep is nu geconfigureerd voor communicatie via de gatewayserver aan de Log Analytics-service.
 
 ### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>Operations Manager, waarin specifieke agents wordt gebruikt een proxyserver configureren
 Voor grote of complexe omgevingen, kunt u alleen specifieke servers (of groepen) de Log Analytics-gateway-server te gebruiken.  Voor deze servers bijwerken u niet Operations Manager-agent rechtstreeks omdat deze waarde wordt overschreven door de algemene waarde voor de beheergroep.  In plaats daarvan de regel die wordt gebruikt om deze waarden onderdrukken.  

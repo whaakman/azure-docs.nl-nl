@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61417331"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415940"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
-Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en failover van een groep databases op een SQL-Database-server of alle databases in een beheerd exemplaar naar een andere regio (momenteel in openbare preview voor beheerd exemplaar). Hierbij de dezelfde onderliggende technologie als [actieve geo-replicatie](sql-database-active-geo-replication.md). U kunt failover handmatig starten of kunt u het delegeren aan de service SQL Database op basis van een door de gebruiker gedefinieerd beleid. De laatste optie kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
+Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en failover van een groep databases op een SQL-Database-server of alle databases in een beheerd exemplaar naar een andere regio. Hierbij de dezelfde onderliggende technologie als [actieve geo-replicatie](sql-database-active-geo-replication.md). U kunt failover handmatig starten of kunt u het delegeren aan de service SQL Database op basis van een door de gebruiker gedefinieerd beleid. De laatste optie kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
 
 > [!NOTE]
 > Bij het werken met één of gegroepeerde databases op een SQL-Database-server en u wilt dat meerdere secundaire replica's in de dezelfde of verschillende regio's, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md).
@@ -42,58 +42,45 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Failover-groep (mist)**
 
-  Een failovergroep is een groep databases die worden beheerd door één SQL Database-server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio.
+  Een failovergroep is een groep databases die worden beheerd door één SQL Database-server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio. Wanneer het account hebt gemaakt voor beheerde exemplaren, een failovergroep bevat alle gebruikersdatabases in het exemplaar en daarom alleen een failover-groepen kunnen worden geconfigureerd op een exemplaar.
 
-  - **SQL Database-servers**
+- **SQL Database-servers**
 
      Met SQL Database-servers, kunnen sommige of alle van de databases op één SQL Database-server in een failovergroep worden geplaatst. Een SQL Database-server ondersteunt ook meerdere failovergroepen op een enkele SQL-Database-server.
 
-  - **Beheerde exemplaren**
-  
-     Een failovergroep bevat alle gebruikersdatabases in het beheerde exemplaar met beheerd exemplaar, en daarom een beheerd exemplaar biedt alleen ondersteuning voor één failovergroep.
-
 - **Primary**
 
-  De SQL Database-server of een beheerd exemplaar dat als host fungeert voor de primaire databases in de failovergroep.
+  De SQL Database-server of het beheerde exemplaar dat als host fungeert voor de primaire databases in de failovergroep.
 
 - **Secondary**
 
-  De SQL Database-server of een beheerd exemplaar dat als host fungeert voor de secundaire databases in de failovergroep. De secundaire server kan niet in dezelfde regio als de primaire.
+  De SQL Database-server of het beheerde exemplaar dat als host fungeert voor de secundaire databases in de failovergroep. De secundaire server kan niet in dezelfde regio als de primaire.
 
 - **Individuele databases aan de failovergroep toe te voegen**
 
   U kunt verschillende individuele databases op dezelfde SQL-Database-server in dezelfde failover-groep plaatsen. Als u een individuele database aan de failovergroep toevoegt, wordt automatisch een secundaire database met behulp van dezelfde grootte edition en compute op de secundaire server gemaakt.  U hebt opgegeven die server bij de failovergroep is gemaakt. Als u een database die al een secundaire database in de secundaire server toevoegt, wordt deze koppeling voor geo-replicatie wordt overgenomen door de groep. Wanneer u een database die al een secundaire database in een server die geen deel uitmaakt van de failovergroep toevoegt, wordt een nieuwe secundaire gemaakt in de secundaire server.
   
-> [!IMPORTANT]
+  > [!IMPORTANT]
   > In een beheerd exemplaar, worden alle gebruikersdatabases worden gerepliceerd. Een subset van gebruikersdatabases voor de replicatie kan niet worden opgenomen in de failovergroep.
 
 - **Databases in elastische pool toevoegen aan de failovergroep**
 
   U kunt alle of enkele databases in een elastische pool in dezelfde failover-groep plaatsen. Als de primaire database zich in een elastische pool, wordt de secundaire server wordt automatisch gemaakt in de elastische pool met dezelfde naam (secundaire groep). U moet ervoor zorgen dat de secundaire server een elastische pool met de exacte naam en voldoende beschikbare capaciteit bevat voor het hosten van de secundaire databases die door de failovergroep wordt gemaakt. Als u een database in de groep die al een secundaire database in de secundaire groep toevoegt, wordt deze koppeling voor geo-replicatie wordt overgenomen door de groep. Wanneer u een database die al een secundaire database in een server die geen deel uitmaakt van de failovergroep toevoegt, wordt een nieuwe secundaire gemaakt in de secundaire groep.
   
-  - **Failover-listener voor lezen / schrijven**
+- **DNS-zone**
 
-  Een DNS CNAME-record gemaakt die naar de huidige primaire URL verwijst. Hierdoor kan de SQL-toepassingen voor lezen / schrijven transparant opnieuw verbinding maken met de primaire database als de primaire gewijzigd na een failover.
+  Een unieke ID die automatisch wordt gegenereerd wanneer een nieuw exemplaar wordt gemaakt. Een certificaat met meerdere domeinen (SAN) voor dit exemplaar is ingericht voor het verifiëren van de clientverbindingen met een instantie in de dezelfde DNS-zone. De twee beheerde exemplaren in de dezelfde failovergroep moeten de DNS-zone delen. 
+  
+  > [!NOTE]
+  > Een DNS-zone-ID is niet vereist voor failover-groepen gemaakt voor SQL Database-servers.
 
-  - **SQL Database-server DNS CNAME-record voor lezen / schrijven-listener**
+- **Failover-listener voor lezen / schrijven**
 
-     Op een SQL-Database-server, de DNS-CNAME-record voor de failovergroep die naar de huidige primaire URL verwijst heeft een onjuiste indeling als `<fog-name>.database.windows.net`.
-
-  - **Beheerd exemplaar DNS CNAME-record voor lezen / schrijven-listener**
-
-     In een Managed Instance, de DNS-CNAME-record voor de failovergroep die naar de huidige primaire URL verwijst heeft een onjuiste indeling als `<fog-name>.zone_id.database.windows.net`.
+  Een DNS CNAME-record gemaakt die naar de huidige primaire URL verwijst. Hierdoor kan de SQL-toepassingen voor lezen / schrijven transparant opnieuw verbinding maken met de primaire database als de primaire gewijzigd na een failover. Nadat de failovergroep is gemaakt op een SQL-Database-server, de DNS-CNAME-record voor de listener-URL is opgemaakt als `<fog-name>.database.windows.net`. Wanneer de failovergroep is gemaakt op een beheerd exemplaar, de DNS-CNAME-record voor de listener-URL is opgemaakt als `<fog-name>.zone_id.database.windows.net`.
 
 - **Failover-groep alleen-lezen-listener**
 
-  Een DNS CNAME-record gemaakt die verwijst naar de alleen-lezen-listener die naar de URL van de secundaire server verwijst. Hierdoor kan de alleen-lezen SQL-toepassingen op transparante wijze verbinding maken met de secundaire server met behulp van de opgegeven regels voor taakverdeling.
-
-  - **SQL Database-server DNS CNAME-record voor alleen-lezen-listener**
-
-     Op een SQL-Database-server, de DNS-CNAME-record voor de alleen-lezen-listener die naar de URL van de secundaire verwijst is opgemaakt als `'.secondary.database.windows.net`.
-
-  - **Beheerd exemplaar DNS CNAME-record voor alleen-lezen-listener**
-
-     In een Managed Instance, de DNS-CNAME-record voor de alleen-lezen-listener die naar de URL van de secundaire verwijst is opgemaakt als `<fog-name>.zone_id.database.windows.net`.
+  Een DNS CNAME-record gemaakt die verwijst naar de alleen-lezen-listener die naar de URL van de secundaire server verwijst. Hierdoor kan de alleen-lezen SQL-toepassingen op transparante wijze verbinding maken met de secundaire server met behulp van de opgegeven regels voor taakverdeling. Nadat de failovergroep is gemaakt op een SQL-Database-server, de DNS-CNAME-record voor de listener-URL is opgemaakt als `<fog-name>.secondary.database.windows.net`. Wanneer de failovergroep is gemaakt op een beheerd exemplaar, de DNS-CNAME-record voor de listener-URL is opgemaakt als `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Automatische failover-beleid**
 
@@ -113,7 +100,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Niet-geplande failover**
 
-   Niet-geplande of geforceerde failover wordt onmiddellijk de secundaire naar de primaire rol zonder een synchronisatie met de primaire verandert. Met deze bewerking leidt tot verlies van gegevens. Niet-geplande failover wordt gebruikt als een methode voor het herstellen tijdens storingen wanneer de primaire niet toegankelijk is. Als de oorspronkelijke primaire database weer online is, wordt automatisch opnieuw verbinding te maken zonder synchronisatie en een nieuwe secundaire geworden.
+   Niet-geplande of geforceerde failover wordt onmiddellijk de secundaire naar de primaire rol zonder een synchronisatie met de primaire verandert. Met deze bewerking leidt tot verlies van gegevens. Niet-geplande failover wordt gebruikt als een methode voor het herstellen tijdens storingen wanneer de primaire niet toegankelijk is. Als de oorspronkelijke primaire database weer online is, wordt automatisch opnieuw verbinding maken zonder synchronisatie en een nieuwe secundaire geworden.
 
 - **Handmatige failover**
 
@@ -127,7 +114,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   U kunt meerdere failover-groepen voor de dezelfde combinatie van servers voor het beheren van de schaal van failovers configureren. Elke groep failover-schakeling onafhankelijk van elkaar. Als uw toepassing met meerdere tenants maakt gebruik van elastische pools, kunt u deze mogelijkheid om primaire en secundaire databases in elke groep. Op deze manier die u de impact van een storing tot slechts de helft van de tenants beperken kunt.
 
-  > [!IMPORTANT]
+  > [!NOTE]
   > Beheerd exemplaar biedt geen ondersteuning voor meerdere failover-groepen.
   
 ## <a name="permissions"></a>Machtigingen
@@ -173,10 +160,10 @@ Bij het ontwerpen van een service met zakelijke continuïteit in gedachten, volg
 
   Als er een storing wordt gedetecteerd, SQL wacht gedurende de periode die u hebt opgegeven door **GracePeriodWithDataLossHours**. De standaardwaarde is 1 uur. Als u geen enkele gegevens verloren gaan, zorg ervoor dat ingesteld **GracePeriodWithDataLossHours** op een groot genoeg getal, zoals 24 uur. Gebruik handmatige voor de failovergroep voor failback van de secundaire naar de primaire.
 
-> [!IMPORTANT]
-> Elastische pools met 800 of minder dtu's en meer dan 250 databases met behulp van geo-replicatie mogelijk problemen met inbegrip van meer geplande failovers en verminderde prestaties.  Deze problemen zijn vaker optreden voor intensieve werkbelastingen schrijven wanneer geo-replicatie-eindpunten zijn ver uit elkaar liggen op basis van Geografie, of wanneer er meerdere secundaire eindpunten worden gebruikt voor elke database.  Symptomen van deze problemen worden aangegeven wanneer de vertraging van geo-replicatie na verloop van tijd toeneemt.  Deze vertraging kan worden bewaakt met behulp van [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Als deze problemen optreden, zijn oplossingen verhogen van het aantal pool-dtu's of verlaag het aantal databases in dezelfde groep geo-replicatie.
+  > [!IMPORTANT]
+  > Elastische pools met 800 of minder dtu's en meer dan 250 databases met behulp van geo-replicatie mogelijk problemen met inbegrip van meer geplande failovers en verminderde prestaties.  Deze problemen zijn vaker optreden voor intensieve werkbelastingen schrijven wanneer geo-replicatie-eindpunten zijn ver uit elkaar liggen op basis van Geografie, of wanneer er meerdere secundaire eindpunten worden gebruikt voor elke database.  Symptomen van deze problemen worden aangegeven wanneer de vertraging van geo-replicatie na verloop van tijd toeneemt.  Deze vertraging kan worden bewaakt met behulp van [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Als deze problemen optreden, zijn oplossingen verhogen van het aantal pool-dtu's of verlaag het aantal databases in dezelfde groep geo-replicatie.
 
-## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Aanbevolen procedures van het gebruik van failover-groepen met beheerde instanties
+## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Aanbevolen procedures van het gebruik van failover-groepen met beheerde exemplaren
 
 De automatische failover-groep moet worden geconfigureerd op de primaire instantie en verbindt dit met de secundaire-instantie in een andere Azure-regio.  Alle databases in het exemplaar wordt gerepliceerd naar de secundaire-exemplaar. Het volgende diagram illustreert een typische configuratie van een beheerd exemplaar en automatische-failovergroep met geografisch redundante cloudtoepassing.
 
@@ -185,13 +172,13 @@ De automatische failover-groep moet worden geconfigureerd op de primaire instant
 > [!IMPORTANT]
 > Automatische failover-groepen voor Managed Instance is in openbare preview.
 
-Als uw toepassing gebruikmaakt van beheerd exemplaar als de gegevenslaag, volgt u deze algemene richtlijnen bij het ontwerpen voor bedrijfscontinuïteit:
+Als uw toepassing gebruikmaakt van beheerde exemplaar als de gegevenslaag, volgt u deze algemene richtlijnen bij het ontwerpen voor bedrijfscontinuïteit:
 
 - **De secundaire exemplaar in de dezelfde DNS-zone als het primaire exemplaar maken**
 
-  Wanneer een nieuw exemplaar wordt gemaakt, wordt een unieke id automatisch gegenereerd als de DNS-Zone en opgenomen in de DNS-naam van het exemplaar. Een meerdere domeinen (SAN)-certificaat voor dit exemplaar is ingericht met het SAN-veld in de vorm van `zone_id.database.windows.net`. Dit certificaat kan worden gebruikt voor verificatie van de clientverbindingen met een exemplaar in de dezelfde DNS-zone. Om ervoor te zorgen van niet-onderbroken verbinding met het primaire exemplaar na een failover zowel de primaire en secundaire moet exemplaren in dezelfde DNS-zone. Wanneer uw toepassing gereed voor productie-implementatie is, het maken van een secundair exemplaar in een andere regio en zorg ervoor dat de DNS-zone met het primaire exemplaar deelt. Dit wordt gedaan door op te geven een `DNS Zone Partner` optionele parameter met de Azure-portal, PowerShell of de REST-API.
+  Om ervoor te zorgen van niet-onderbroken verbinding met het primaire exemplaar na een failover zowel de primaire en secundaire moet exemplaren in dezelfde DNS-zone. Het wordt gegarandeerd dat de hetzelfde certificaat voor meerdere domeinen (SAN) kan worden gebruikt voor het verifiëren van de clientverbindingen met een van de twee exemplaren in de failovergroep. Wanneer uw toepassing gereed voor productie-implementatie is, het maken van een secundair exemplaar in een andere regio en zorg ervoor dat de DNS-zone met het primaire exemplaar deelt. U kunt dit doen door op te geven een `DNS Zone Partner` optionele parameter met de Azure-portal, PowerShell of de REST-API. 
 
-  Zie voor meer informatie over het maken van de secundaire-exemplaar in de dezelfde DNS-zone als het primaire exemplaar [failover-groepen beheren met beheerde instanties (preview)](#powershell-managing-failover-groups-with-managed-instances-preview).
+  Zie voor meer informatie over het maken van de secundaire-exemplaar in de dezelfde DNS-zone als het primaire exemplaar [beheren van groepen met failover-instanties (preview) die worden beheerd](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Replicatieverkeer tussen de twee exemplaren inschakelen**
 
@@ -206,7 +193,7 @@ Als uw toepassing gebruikmaakt van beheerd exemplaar als de gegevenslaag, volgt 
 
 - **Gebruik van lezen / schrijven-listener voor OLTP-werkbelasting**
 
-  Bij het uitvoeren van OLTP-bewerkingen, gebruik `<fog-name>.zone_id.database.windows.net` als de server de URL en de verbindingen automatisch worden doorgestuurd naar de primaire. Deze URL wordt niet gewijzigd na de failover. De failover omvat het bijwerken van de DNS-record, zodat de clientverbindingen worden omgeleid naar de nieuwe primaire pas nadat de client-DNS-cache vernieuwd wordt. Omdat de secundaire-exemplaar de DNS-zone met de primaire deelt, kunnen de clienttoepassing opnieuw tot stand te brengen met hetzelfde SAN-certificaat is mogelijk.
+  Bij het uitvoeren van OLTP-bewerkingen, gebruik `<fog-name>.zone_id.database.windows.net` als de server de URL en de verbindingen automatisch worden doorgestuurd naar de primaire. Deze URL wordt niet gewijzigd na de failover. De failover omvat het bijwerken van de DNS-record, zodat de clientverbindingen worden omgeleid naar de nieuwe primaire pas nadat de client-DNS-cache vernieuwd wordt. Omdat de secundaire-exemplaar de DNS-zone met de primaire deelt, kunnen de clienttoepassing opnieuw verbinding maken met met behulp van de dezelfde SAN-certificaat is mogelijk.
 
 - **Rechtstreeks verbinding maken met secundaire geo-replicatie voor alleen-lezen query 's**
 
@@ -225,14 +212,14 @@ Als uw toepassing gebruikmaakt van beheerd exemplaar als de gegevenslaag, volgt 
 
   Als er een storing wordt gedetecteerd, SQL wordt lezen / schrijven-failover geactiveerd als er geen gegevens verloren gaan naar het beste van onze kennis. Anders, dat wordt gewacht totdat de periode die u hebt opgegeven door `GracePeriodWithDataLossHours`. Als u hebt opgegeven `GracePeriodWithDataLossHours`, worden voorbereid op verlies van gegevens. Tijdens onderbrekingen, omdat hiermee Azure in het algemeen beschikbaar. Als u geen enkele gegevens verloren gaan, zorg er dan voor dat GracePeriodWithDataLossHours ingesteld op een groot genoeg getal, zoals 24 uur.
 
-  De DNS-update van de listener voor lezen / schrijven gebeurt onmiddellijk nadat de failover wordt gestart. Met deze bewerking wordt niet leiden tot verlies van gegevens. Het proces van het schakelen tussen databaserollen kan echter maximaal vijf minuten onder normale omstandigheden duren. Totdat deze is voltooid, wordt nog steeds enkele databases in de nieuwe primaire instantie worden alleen-lezen. Als failover wordt gestart met behulp van PowerShell zijn de gehele bewerking is synchroon. Als deze is gestart met behulp van de Azure portal wordt de gebruikersinterface van de voltooiingsstatus aangegeven. Als deze is gestart met behulp van de REST-API, gebruikt u standaard Azure Resource Manager de polling-mechanisme voor het bewaken van de functie voor naverwerkingsbeheer.
+  De DNS-update van de listener voor lezen / schrijven gebeurt onmiddellijk nadat de failover wordt gestart. Met deze bewerking wordt niet leiden tot verlies van gegevens. Het proces van het schakelen tussen databaserollen kan echter maximaal vijf minuten onder normale omstandigheden duren. Totdat deze is voltooid, wordt nog steeds enkele databases in de nieuwe primaire instantie worden alleen-lezen. Als failover wordt gestart met behulp van PowerShell, wordt de gehele bewerking is synchroon. Als deze is gestart met behulp van de Azure portal, geven de gebruikersinterface van de voltooiingsstatus. Als deze is gestart met behulp van de REST-API, gebruikt u standaard Azure Resource Manager de polling-mechanisme voor het bewaken van de functie voor naverwerkingsbeheer.
 
   > [!IMPORTANT]
   > Gebruik voor de failovergroep handmatige voorverkiezingen uit te brengen om terug te gaan naar de oorspronkelijke locatie. Wanneer de onderbreking waardoor de failover is verholpen, kunt u uw primaire databases verplaatsen naar de oorspronkelijke locatie. Hiervoor moet u de handmatige failover van de groep te starten.
 
 ## <a name="failover-groups-and-network-security"></a>Failover-groepen en -netwerkbeveiliging
 
-Voor sommige toepassingen die de beveiligingsregels vereisen dat de netwerktoegang tot de gegevenslaag is beperkt tot een specifiek onderdeel of -onderdelen, zoals een virtuele machine, web service, enzovoort. Deze vereiste geeft enkele uitdagingen voor zakelijke continuïteit ontwerp en het gebruik van de failover-groepen. U moet rekening houden met de volgende opties bij het implementeren van dergelijke beperkte toegang.
+Voor sommige toepassingen die de beveiligingsregels vereisen dat de netwerktoegang tot de gegevenslaag is beperkt tot een specifiek onderdeel of -onderdelen, zoals een virtuele machine, web service, enzovoort. Deze vereiste geeft enkele uitdagingen voor zakelijke continuïteit ontwerp en het gebruik van de failover-groepen. Houd rekening met de volgende opties bij het implementeren van dergelijke beperkte toegang.
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Met behulp van failover-groepen en regels voor virtueel netwerk
 
@@ -264,27 +251,27 @@ De bovenstaande configuratie zorgt ervoor dat de automatische failover wordt de 
 > [!IMPORTANT]
 > Om te garanderen van bedrijfscontinuïteit voor regionale storingen moet u ervoor zorgen dat geografische redundantie voor zowel de front-end-onderdelen en de databases.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Geo-replicatie tussen beheerde instanties en hun VNets inschakelen
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Geo-replicatie tussen beheerde exemplaren en hun VNets inschakelen
 
-Bij het instellen van een failover-groepen tussen primaire en secundaire beheerde instanties in twee verschillende regio's, wordt elk exemplaar is geïsoleerd met behulp van een onafhankelijke VNet. Als u wilt toestaan replicatieverkeer tussen deze vnet's volgen, zorg ervoor dat wordt deze voorwaarden voldaan:
+Bij het instellen van een failovergroep tussen primaire en secundaire beheerde instanties in twee verschillende regio's, wordt elk exemplaar is geïsoleerd met behulp van een onafhankelijke VNet. Als u wilt toestaan replicatieverkeer tussen deze VNets Zorg ervoor dat aan deze vereisten wordt voldaan:
 
 1. De twee beheerde exemplaren moeten zich in verschillende Azure-regio's.
 2. Uw secundaire moet leeg zijn (geen gebruikersdatabases).
-3. De primaire en secundaire beheerde instanties moeten zich in dezelfde resourcegroep bevinden.
-4. De vnet's die de beheerde-instanties deel uit van moet zijn verbonden maken via een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Wereldwijde VNet-Peering wordt niet ondersteund.
+3. De primaire en secundaire beheerde exemplaren moeten zich in dezelfde resourcegroep bevinden.
+4. De vnet's die de beheerde exemplaren deel uit van moet zijn verbonden maken via een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Wereldwijde VNet-Peering wordt niet ondersteund.
 5. De twee beheerd exemplaar VNets geen overlappende IP-adressen.
-6. U moet het instellen van uw Netwerkbeveiligingsgroep groepen (NSG) dergelijke die 5022 poort en het bereik van 11000 ~ 12000 zijn open binnenkomende en uitgaande voor verbindingen van de andere beheerd exemplaar gestart subnet. Dit is om replicatieverkeer tussen de exemplaren
+6. U moet het instellen van uw Netwerkbeveiligingsgroep groepen (NSG) dergelijke die 5022 poort en het bereik van 11000 ~ 12000 binnenkomend en uitgaand zijn geopend voor verbindingen van het andere subnet gestart die worden beheerd. Dit is om replicatieverkeer tussen de exemplaren
 
-    > [!IMPORTANT]
-    > Onjuist geconfigureerde NSG security regels leidt tot kopieerbewerkingen vastgelopen database.
+   > [!IMPORTANT]
+   > Onjuist geconfigureerde NSG security regels leidt tot kopieerbewerkingen vastgelopen database.
 
-7. U moet voor het configureren van DNS-zone partner op secundaire exemplaar. Een DNS-zone is een eigenschap van een beheerd exemplaar. Staat voor het deel van de hostnaam die volgt op de naam van de Managed Instance en voorafgaat aan de `.database.windows.net` voorvoegsel. Het wordt als willekeurige tekenreeks gegenereerd tijdens het maken van de eerste Managed Instance in elk VNet. De DNS-zone kan niet worden gewijzigd na het maken van een beheerd exemplaar en alle beheerde instanties binnen hetzelfde subnet delen dezelfde waarde voor de DNS-zone. Voor beheerd exemplaar voor failover instellen, moet de primaire Managed Instance en de secundaire Managed Instance dezelfde waarde voor de DNS-zone delen. U doet dit door de parameter DnsZonePartner op te geven bij het maken van de secundaire Managed Instance. De DNS-zone partner eigenschap definieert het beheerd exemplaar voor het delen van een failovergroep exemplaar met. Door te geven in de resource-id van een ander beheerd exemplaar als de invoer van DnsZonePartner, neemt het beheerde exemplaar wordt gemaakt over dezelfde DNS-zone-waarde van de partner voor het beheerde exemplaar.
+7. De secundaire exemplaar is geconfigureerd met de juiste DNS-zone-ID. DNS-zone is een eigenschap van een beheerd exemplaar en de ID is opgenomen in het adres van de host-naam. De zone-ID wordt gegenereerd als een willekeurige tekenreeks als de eerste beheerde exemplaar wordt gemaakt in elk VNet dezelfde ID is toegewezen aan alle andere exemplaren in hetzelfde subnet. Wanneer toegewezen, kan de DNS-zone kan niet worden gewijzigd. Beheerde exemplaren opgenomen in het failover-groep met dezelfde moeten de DNS-zone delen. U doet dit door door te geven van de instantie van de primaire zone-ID als de waarde van parameter DnsZonePartner bij het maken van de secundaire-instantie. 
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Het upgraden of downgraden van een primaire database
 
 U kunt upgraden en downgraden van een primaire database op een andere compute-grootte (in dezelfde servicelaag, niet tussen algemeen gebruik en bedrijfskritiek) zonder te verbreken alle secundaire databases. Bij een upgrade uitvoert, wordt het aanbevolen dat u eerst een upgrade alle secundaire databases uitvoert en werk vervolgens de primaire. Wanneer de Downgrade uitvoert, de volgorde omgekeerd: eerst downgraden van de primaire en vervolgens gebruik maken van alle secundaire databases. Wanneer u upgraden en downgraden van de database naar een andere service-laag, worden deze aanbeveling wordt afgedwongen.
 
-Deze reeks wordt aanbevolen speciaal om te voorkomen dat het probleem waarbij de secundaire server op een lagere SKU wordt overbelast en moet opnieuw geseede tijdens een upgrade of downgrade. U kunt dit probleem ook voorkomen door de primaire ten koste van invloed op alle werkbelastingen voor lezen / schrijven op basis van de primaire alleen-lezen. 
+Deze reeks wordt aanbevolen speciaal om te voorkomen dat het probleem waarbij de secundaire server op een lagere SKU wordt overbelast en moet worden reseeded tijdens een upgrade of downgrade. U kunt dit probleem ook voorkomen door de primaire ten koste van invloed op alle werkbelastingen voor lezen / schrijven op basis van de primaire alleen-lezen. 
 
 > [!NOTE]
 > Het verdient aanbeveling niet downgraden van de secundaire database als u een secundaire database als onderdeel van de configuratie van de failover gemaakt. Dit is om te controleren of dat uw gegevenslaag heeft onvoldoende capaciteit voor het verwerken van uw reguliere werkbelasting nadat failover is geactiveerd.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277158"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415489"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Servers verwijderen en beveiliging uitschakelen
 
@@ -150,6 +150,12 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
 
 > [!NOTE]
 > In zowel de opties van de mobility-service wordt niet verwijderd van de beveiligde servers, moet u handmatig verwijderen. Als u van plan bent om de server opnieuw met dezelfde configuratieserver te beveiligen, kunt u doorgaan met het verwijderen van de mobility-service.
+
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Schakel de beveiliging voor een virtuele machine van Azure (Azure naar Azure)
+
+-  In **beveiligde Items** > **gerepliceerde Items**, met de rechtermuisknop op de machine > **replicatie uitschakelen**.
+> [!NOTE]
+> Mobility-service wordt niet verwijderd van de beveiligde servers, moet u handmatig verwijderen. Als u van plan bent de server opnieuw te beschermen, kunt u doorgaan met het verwijderen van de mobility-service.
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Schakel de beveiliging voor een Hyper-V virtuele machine (Hyper-V naar Azure)
 

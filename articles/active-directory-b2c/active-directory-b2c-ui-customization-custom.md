@@ -144,7 +144,7 @@ Als u wilt configureren voor UI-aanpassing, kopieert u de **ContentDefinition** 
 
 ## <a name="upload-your-updated-custom-policy"></a>Uploaden van uw bijgewerkte aangepast beleid
 
-1. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+1. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Identity-Ervaringsframework**.
 2. Klik op **alle beleidsregels**.

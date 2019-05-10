@@ -78,7 +78,7 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
 4. In de **opgeven Azure Data Lake Storage Gen1 verbinding** pagina, de volgende stappen uit:
    1. Selecteer uw Data Lake Storage Gen1 voor de accountnaam, en geef aan of het valideren van de **Tenant**.
    2. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
-   3. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
+   3. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Next**.
    
    > [!IMPORTANT]
    > In dit scenario maakt u een beheerde identiteit voor Azure-resources gebruikt voor verificatie van uw Data Lake Storage Gen1. Zorg ervoor dat u het MSI-bestand de juiste machtigingen in Azure Data Lake Storage Gen1 verlenen door [deze instructies](connector-azure-data-lake-store.md#managed-identity).

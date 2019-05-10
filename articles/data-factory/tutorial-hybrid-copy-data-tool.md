@@ -201,9 +201,9 @@ In deze sectie maakt u in uw Blob Storage een blobcontainer met de naam **adftut
 
     e. Voer bij **Gebruikersnaam** de naam in van de gebruiker die toegang heeft tot de on-premises SQL Server.
 
-    f. Voer het **wachtwoord** voor de gebruiker in. Selecteer **Voltooien**. 
+    f. Voer het **wachtwoord** voor de gebruiker in. Selecteer **Finish**. 
 
-1. Selecteer **Volgende**.
+1. Selecteer **Next**.
 
    ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
@@ -231,7 +231,7 @@ In deze sectie maakt u in uw Blob Storage een blobcontainer met de naam **adftut
 
    ![Geef het opslagaccount op.](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
 
-1. Selecteer in **Doelgegevensopslag** de optie **Volgende**. Selecteer in **Verbindingseigenschappen** voor **Azure Storage-service** de optie **Azure Blob Storage**. Selecteer **Volgende**. 
+1. Selecteer in **Doelgegevensopslag** de optie **Volgende**. Selecteer in **Verbindingseigenschappen** voor **Azure Storage-service** de optie **Azure Blob Storage**. Selecteer **Next**. 
 
    ![verbindingseigenschappen](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
 

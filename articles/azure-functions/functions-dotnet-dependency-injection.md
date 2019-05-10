@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
 ms.author: jehollan
-ms.openlocfilehash: 1ef688dff65dc11f875f76e2f9127bf89af2f2b9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074588"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408449"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Afhankelijkheidsinjectie gebruiken in .NET Azure Functions
 
@@ -65,7 +65,7 @@ De levensduur van een service binnen het bereik in een functie-app komt overeen 
 
 Singleton-levensduur-services worden aanbevolen voor verbindingen en -clients, bijvoorbeeld een `SqlConnection`, `CloudBlobClient`, of `HttpClient`.
 
-Weergeven of downloaden een [steekproef van de levensduur van de andere service](http://aka.ms/functions/di-sample).
+Weergeven of downloaden een [steekproef van de levensduur van de andere service](https://aka.ms/functions/di-sample).
 
 ## <a name="logging-services"></a>Van logboekregistratieservices
 

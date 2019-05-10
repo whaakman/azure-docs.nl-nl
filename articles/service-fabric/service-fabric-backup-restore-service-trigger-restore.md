@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310873"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413713"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Herstellen van back-ups in Azure Service Fabric
 
@@ -37,6 +37,20 @@ U kunt bijvoorbeeld configureren dat een service voor het back-up van de gegeven
 - Voor het activeren van een herstelbewerking de _Fault Analysis Service (FAS)_ moet zijn ingeschakeld voor het cluster.
 - De _back-up herstellen Service (BRS)_ de back-up gemaakt.
 - De herstelbewerking kan alleen worden geactiveerd op een partitie.
+- Installeer Microsoft.ServiceFabric.Powershell.Http-Module [In Preview-versie] voor het aanroepen van de configuratie.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Zorg ervoor dat het Cluster is verbonden met behulp van de `Connect-SFCluster` opdracht voordat u een configuratieaanvraag met Microsoft.ServiceFabric.Powershell.Http Module.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggered-restore"></a>Geactiveerde herstellen
 
@@ -50,6 +64,15 @@ Een terugzetbewerking kan worden geactiveerd voor het gebruik van de volgende sc
 Als een hele Service Fabric-cluster verloren gegaan is, kunt u de gegevens voor de partities van de betrouwbare Stateful service en betrouwbare actoren herstellen. De gewenste back-up kan worden geselecteerd in de lijst wanneer u [GetBackupAPI met details van de back-upopslag](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). De back-opsomming kan zijn voor een toepassing, service of partitie.
 
 Voor het volgende voorbeeld wordt ervan uitgegaan dat het verloren cluster hetzelfde cluster waarnaar wordt verwezen in [inschakelen periodieke back-up voor betrouwbare Stateful service en Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In dit geval `SampleApp` wordt geïmplementeerd met back-upbeleid ingeschakeld, en de back-ups zijn geconfigureerd voor Azure Storage.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
 
 Voer een PowerShell-script voor het gebruik van de REST-API om terug te keren een lijst van de back-ups gemaakt voor alle partities in de `SampleApp` toepassing. De API vereist dat de back-upopslag-gegevens om de beschikbare back-ups weer te geven.
 
@@ -142,12 +165,30 @@ Als de partitie-ID op alternatieve cluster `1c42c47f-439e-4e09-98b9-88b8f60800c6
 
 Voor _met de naam partitioneren_, de naamwaarde voor het identificeren van de doelpartitie in andere cluster wordt vergeleken.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+
+Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
+
 U het herstel op basis van de partitie van de back-cluster met behulp van de volgende aanvragen [herstellen API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
+
+$StorageInfo = @{
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
+    ContainerName = 'backup-container'
+    StorageKind = 'AzureBlobStore'
+}
+
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
     BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+    BackupStorage  = $StorageInfo
 }
 
 $body = (ConvertTo-Json $RestorePartitionReference) 
@@ -184,6 +225,16 @@ FailureError            :
 
 Voor de restore-API, geeft u de _BackupId_ en _back-uplocatie_ details. Het cluster heeft back-up waardoor de Service Fabric _back-up herstellen Service (BRS)_ identificeert de juiste opslaglocatie van de gekoppelde back-upbeleid.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
+
 ```powershell
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
@@ -201,6 +252,14 @@ U kunt de voortgang terugzetten volgen met behulp van TrackRestoreProgress.
 ## <a name="track-restore-progress"></a>Restore-voortgang bijhouden
 
 Een partitie van een betrouwbare Stateful service of een Reliable Actor accepteert slechts één aanvraag voor herstellen op een tijdstip. Een partitie accepteert alleen een andere aanvraag na de huidige restore-aanvraag is voltooid. Meerdere aanvragen van de terugzetbewerking kunnen worden geactiveerd in verschillende partities op hetzelfde moment.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+    Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"

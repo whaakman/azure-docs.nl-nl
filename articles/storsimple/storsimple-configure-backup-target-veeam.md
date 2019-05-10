@@ -276,11 +276,11 @@ Op basis van de voorgaande veronderstellingen, maak een 26-TiB StorSimple gelaag
 
     ![Veeam-beheerconsole, back-opslagplaats pagina](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  In de **nieuwe back-up-opslagplaats** dialoogvenster vak, voer een naam en beschrijving voor de opslagplaats. Selecteer **Volgende**.
+2.  In de **nieuwe back-up-opslagplaats** dialoogvenster vak, voer een naam en beschrijving voor de opslagplaats. Selecteer **Next**.
 
     ![Veeam management console, naam en beschrijving van pagina](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  Selecteer het type **Microsoft Windows server**. Selecteer de Veeam-server. Selecteer **Volgende**.
+3.  Selecteer het type **Microsoft Windows server**. Selecteer de Veeam-server. Selecteer **Next**.
 
     ![Veeam-beheerconsole, Selecteer type back-opslagplaats](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ Op basis van de voorgaande veronderstellingen, maak een 26-TiB StorSimple gelaag
 
     ![Veeam-beheerconsole, compatibiliteitsinstellingen voor opslag](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  In de **nieuwe back-up-opslagplaats** in het dialoogvenster, selecteer de **vPower NFS-service op de mount-server (aanbevolen) inschakelen** selectievakje. Selecteer **Volgende**.
+6.  In de **nieuwe back-up-opslagplaats** in het dialoogvenster, selecteer de **vPower NFS-service op de mount-server (aanbevolen) inschakelen** selectievakje. Selecteer **Next**.
 
     ![Veeam-beheerconsole, back-opslagplaats pagina](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0e5dc73c1f24ccbc2032cecbb857587eb20c6806
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026206"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409055"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Apparaat: Roobo Smart Audio Dev Kit
 
@@ -69,7 +69,7 @@ Zie voor meer informatie over ontwikkelingen, de [Roobo development guide](http:
 
 ## <a name="audio"></a>Audio
 
-Roobo voorziet in een hulpprogramma waarmee alle audio Flash-geheugen wordt vastgelegd. Het kan helpen bij het oplossen van problemen met audio. Een versie van het hulpprogramma is opgegeven voor de configuratie van elke development kit. Op de [Roobo site](http://ddk.roobo.com/), selecteer uw apparaat en selecteer vervolgens de **Roobo extra** koppelen aan de onderkant van de pagina.
+Roobo voorziet in een hulpprogramma waarmee alle audio Flash-geheugen wordt vastgelegd. Het kan helpen bij het oplossen van problemen met audio. Een versie van het hulpprogramma is opgegeven voor de configuratie van elke development kit. Op de [Roobo site](https://ddk.roobo.com/), selecteer uw apparaat en selecteer vervolgens de **Roobo extra** koppelen aan de onderkant van de pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
 

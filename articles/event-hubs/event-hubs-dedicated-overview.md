@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a5184b9980dd9f83764950445c10e8bdfea6d71a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4f721dc4fda5bef002c794d79dfd2f054f9eaf38
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203953"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511182"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Overzicht van Eventhubs Dedicated
 
@@ -54,27 +54,18 @@ De aanbieding Event Hubs Dedicated wordt in rekening gebracht tegen een vaste ma
 | --- |:---:|:---:|
 | Bandbreedte | 20 Doorvoereenheden (maximaal 40 Doorvoereenheden) | 20 Cu 's |
 | Naamruimten |  1 | 50 per Capaciteitseenheid |
-| Event Hubs |  10 | Geen limiet |
-| Ingangsgebeurtenissen | Betaal per miljoen gebeurtenissen | Inbegrepen |
+| Event Hubs |  10 | Geen limiet voor event hubs/onderwerpen |
+| Gebeurtenissen voor inkomend verkeer | Betaal per miljoen gebeurtenissen | Opgenomen |
 | Berichtgrootte | 1 Million Bytes | 1 Million Bytes |
-| Partities | 40 per naamruimte | 2000 per Capaciteitseenheid, 1024 per event hub |
-| Consumergroepen | 20 per Event Hub | Geen limiet per Capaciteitseenheid, 1000 per event hub |
-| Brokered Connections | 1000 opgenomen | 100 K inbegrepen |
-| Bewaartermijn voor berichten | 7 dagen, 84 GB inbegrepen per TU | 90 dagen, 10 TB, inbegrepen per Capaciteitseenheid |
-| Capture | Betalen per uur | Inbegrepen |
+| Partities | 40 per naamruimte | 2000 per Capaciteitseenheid |
+| Consumentengroepen | 20 per Event Hub | Geen limiet per Capaciteitseenheid, 1000 per event hub |
+| Brokered verbindingen | 1000 opgenomen | 100 K inbegrepen |
+| Bewaarperiode van bericht | 7 dagen, 84 GB inbegrepen per TU | 90 dagen, 10 TB, inbegrepen per Capaciteitseenheid |
+| Vastleggen | Betalen per uur | Opgenomen |
 
 ## <a name="how-to-onboard"></a>Hoe moet worden vrijgegeven
 
-De ervaring van de selfservice voor onboarding van Dedicated is beschikbaar als Preview, waarmee kunt u 1 CU-clusters in de volgende regio's:
-  - Canada - midden
-  - Europa -west
-  - US - centraal
-  - US - oost
-  - US - oost 2
-  - US - noord-centraal
-  - US - west
-
-We zijn actief toe te voegen nieuwe regio's, maar in de tussentijd als uw voorkeursregio niet in de lijst is, kunt u indienen een verzoek tot ondersteuning het [team van Event Hubs](https://ms.portal.azure.com/#create/Microsoft.Support) onder *technische > Event Hubs > quotum > voor aanvragen Toegewezen SKU*. De toegewezen planning is uniek in dat u een hoe u een onboarding uit de Event Hubs-productteam ondervindt om de implementatie van de flexibele die geschikt is voor u. 
+Voor Onboarding van Event Hubs Dedicated, neem contact op met de [team van Event Hubs](mailto:askeventhubs@microsoft.com). De toegewezen planning is uniek in dat u een hoe u een onboarding uit de Event Hubs-productteam ondervindt om de implementatie van de flexibele die geschikt is voor u. 
 
 ## <a name="faqs"></a>Veelgestelde vragen
 
@@ -86,19 +77,15 @@ Onderstaande tabel ziet u de benchmarkresultaten dat we tijdens onze testen bere
 
 | Nettolading vorm | Ontvangers | Binnenkomende bandbreedte| Binnenkomende berichten | Uitgaande bandbreedte | Uitgaande berichten | Totaal aantal Doorvoereenheden | Doorvoereenheden per Capaciteitseenheid |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batches van 100x1KB | 2 | 400 MB per seconde | 400 k berichten per seconde | 800 MB per seconde | 800 k berichten/sec | 400 Doorvoereenheden | 100 Doorvoereenheden | 
-| Batches van 10x10KB | 2 | 666 MB per seconde | 66.6 k berichten/sec | 1.33 GB/sec | 133 k berichten/sec | 666 Doorvoereenheden | 166 Doorvoereenheden |
-| Batches van 6x32KB | 1 | 1,05 GB/sec | 34 k berichten / sec | 1,05 GB/sec | 34 k berichten/sec | 1000 Doorvoereenheden | 250 Doorvoereenheden |
+| Batches van 100x1KB | 2 | 400 MB per seconde | 400 k berichten/sec. | 800 MB per seconde | 800 k berichten/sec. | 400 Doorvoereenheden | 100 Doorvoereenheden | 
+| Batches van 10x10KB | 2 | 666 MB per seconde | 66.6 k berichten/sec. | 1.33 GB/sec | 133 k berichten/sec. | 666 Doorvoereenheden | 166 Doorvoereenheden |
+| Batches van 6x32KB | 1 | 1,05 GB/sec | 34 k berichten / sec | 1,05 GB/sec | 34 k berichten/sec. | 1000 Doorvoereenheden | 250 Doorvoereenheden |
 
 In het testen, is de volgende criteria gebruikt:
 
 - Er is een speciale laag Event Hubs-cluster met vier capaciteitseenheden (Cu's) gebruikt. 
 - De event hub die wordt gebruikt voor gegevensopname heeft 200 partities. 
 - De gegevens die is opgenomen is ontvangen door twee ontvanger toepassingen ontvangen van alle partities.
-
-#### <a name="how-do-i-create-a-cluster-larger-than-1-cu"></a>Hoe maak ik een cluster groter is dan 1 Capaciteitseenheid?
-
-In de Preview-versie van de self-service voor stroomactiviteitvoortgang-ervaring, kunt u aanvragen voor het schalen van uw cluster nadat u het cluster hebt gemaakt. Na het maken van een 1 CU-cluster, neem contact op ondersteuning voor Event Hubs door indiening een [ondersteuningsaanvraag](https://ms.portal.azure.com/#create/Microsoft.Support) onder *technische > quotum > aanvraag voor schaal omhoog of omlaag toegewezen Cluster schalen*. In onze GA-versie, kunt u zich voor het schalen van uw cluster rechtstreeks via de portal. 
 
 #### <a name="can-i-scale-down-my-cluster"></a>Kan ik mijn cluster verkleinen?
 
@@ -107,7 +94,6 @@ Na het maken van clusters worden in rekening gebracht voor minimaal 4 gebruiksur
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>Hoe werkt Geo-DR met mijn cluster?
 
 U kunt geo-combinatie van een naamruimte in een cluster Dedicated-laag met een andere naamruimte in een cluster Dedicated-laag. We bevorderen niet koppelen met een naamruimte Dedicated-laag met een naamruimte in onze Standard-aanbieding, omdat de maximale doorvoer zullen niet compatibel zal dit leiden tot fouten. 
-
 
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Kan ik mijn Standard-naamruimten voor deel uitmaken van een cluster toegewezen laag migreren?
 We ondersteunen momenteel geen een geautomatiseerd proces voor het migreren van uw event hubs-gegevens van een Standard-naamruimte naar een speciaal een. Als u wilt migreren naar een cluster Dedicated-laag, raden wij Verwerkingsstop voor eventuele berichten links in de Standard-laag eventhubs en de verbindingseindpunten vervangen door die van de toegewezen naamruimte.

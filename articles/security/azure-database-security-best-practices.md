@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187766"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409809"
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
 Dit artikel wordt beschreven aanbevolen procedures voor beveiliging van de database.
@@ -40,7 +40,7 @@ Totdat u opgeeft welke computers zijn gemachtigd, verhinderen firewalls alle toe
 
 De volgende afbeelding ziet u waar u de firewall van een server in SQL-Database instellen:
 
-![Firewall-regels](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
+![Firewallregels](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
 
 De Azure SQL Database-service is alleen beschikbaar via TCP-poort 1433. Voor toegang tot een SQL-database van uw computer, moet u ervoor zorgen dat de firewall van uw clientcomputer uitgaande TCP-communicatie op TCP-poort 1433 toestaat. Blokkeer binnenkomende verbindingen op TCP-poort 1433 met behulp van firewallregels, als u geen deze verbindingen nodig voor andere toepassingen hebt.
 
@@ -71,7 +71,7 @@ Als u SQL Server-verificatie gebruikt, moet u:
 
 - De sterke referenties beheren zelf.
 - De referenties in de connection string worden beveiligd.
-- De referenties die zijn doorgegeven via het netwerk van de webserver naar de database (potentieel) beveiligen. Zie voor meer informatie [Procedure: Verbinding maken met SQL Server met SQL-verificatie in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- De referenties die zijn doorgegeven via het netwerk van de webserver naar de database (potentieel) beveiligen. Zie voor meer informatie, [het: Verbinding maken met SQL Server met SQL-verificatie in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Verificatie met Azure Active Directory (AD)*
 Azure AD-verificatie is een mechanisme van verbinding maken met Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure AD. Met Azure AD-verificatie, kunt u de identiteit van databasegebruikers en andere Microsoft-services op één centrale locatie kunt beheren. Centrale ID-beheer biedt één plek voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692915"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509971"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
 
@@ -68,7 +68,7 @@ Selecteer voor het oplossen van problemen met prestaties, **prestaties onderzoek
 
 ### <a name="go-to-details"></a>Naar de details gaan
 
-Selecteer **Ga naar details** verkennen van de end-to-end-transactie-ervaring is gereed om terug te het niveau van de call stack weergaven kan bieden.
+Selecteer **Ga naar details** verkennen van de transactie voor end-to-end-ervaring, weergaven op het niveau van call stack kan bieden.
 
 ![Schermafbeelding van de knop Ga voor meer informatie](media/app-map/go-to-details.png)
 
@@ -214,7 +214,7 @@ Een scenario waarin u mogelijk wilt overschrijven van de waarde voor cloudrolins
 
 Zie voor meer informatie over het onderdrukken van de naameigenschap van de cloud-rol met telemetrie initializers, [eigenschappen toevoegen: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Als u problemen bij het ophalen van Toepassingsoverzicht ondervindt naar behoren werkt, probeert u deze stappen:
 

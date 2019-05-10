@@ -10,13 +10,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: ea16efbb846f21ec7c3fa39b2efeac741d8f8ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/07/2019
+ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928360"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465185"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Openbare eindpunt in beheerd exemplaar voor Azure SQL Database configureren
 
@@ -97,11 +97,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Bron**     |IP-adres of servicetag         |<ul><li>Voor Azure-services zoals Power BI, selecteert u de Tag Azure Cloud Service</li> <li>Gebruik NAT IP-adres voor uw computer of virtuele machine van Azure</li></ul> |
     |**Poortbereiken van bron**     |*         |Laat deze * (alle) zoals bronpoorten meestal dynamisch toegewezen en als dergelijke onvoorspelbare zijn |
-    |**Destination**     |Alle         |Als alle verkeer toe te staan in het subnet van het beheerde exemplaar bestemming verlaten |
+    |**Destination**     |Elk         |Als alle verkeer toe te staan in het subnet van het beheerde exemplaar bestemming verlaten |
     |**Poortbereiken van doel**     |3342         |Bereik doelpoort voor 3342, dit de openbare TDS-eindpunt voor beheerd exemplaar is |
     |**Protocol**     |TCP         |Beheerd exemplaar maakt gebruik van TCP-protocol voor TDS |
     |**Actie**     |Toestaan         |Binnenkomend verkeer naar beheerd exemplaar via het openbare eindpunt toestaan |
-    |**Prioriteit**     |1300         |Zorg ervoor dat deze regel is een hogere prioriteit dan de **deny_all_inbound** regel |
+    |**prioriteit**     |1300         |Zorg ervoor dat deze regel is een hogere prioriteit dan de **deny_all_inbound** regel |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 

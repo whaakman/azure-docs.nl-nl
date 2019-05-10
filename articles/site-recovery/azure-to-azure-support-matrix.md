@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926594"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412757"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van virtuele Azure-machines van de ene regio naar een andere
 
@@ -47,7 +47,7 @@ U kunt repliceren en herstellen van virtuele machines tussen elke twee regio's b
 **Geografische cluster** | **Azure-regio's**
 -- | --
 Amerika | Canada-Oost, Canada-midden, Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2, VS-midden, Noord-centraal VS
-Europa | UK-West, UK-Zuid, Noord-Europa, West-Europa, Frankrijk-centraal, Frankrijk-Zuid
+Europa | UK-West, UK-Zuid, Noord-Europa, West-Europa, Frankrijk-centraal, Frankrijk-Zuid, Zuid-Afrika West, Zuid-Afrika (Noord)
 Azië | Zuid-India, centraal-India, Zuidoost-Azië, Oost-Azië, Japan-Oost, Japan-West, Korea centraal, Korea Zuid
 Australië   | Australië-Oost, Australië-Zuidoost, Australië-midden, Australië centraal 2
 Azure Government    | VS (overheid) Virginia, VS (overheid)-Iowa, VS (overheid)-Arizona, VS (overheid)-Texas, VS DOD Oost, VS DOD-centraal
@@ -156,6 +156,7 @@ Installatiekopieën van Azure-galerie - van derden gepubliceerd | Ondersteund | 
 Aangepaste installatiekopieën - van derden gepubliceerd | Ondersteund | Als de virtuele machine wordt uitgevoerd op een ondersteund besturingssysteem wordt ondersteund.
 Virtuele machines gemigreerd met behulp van Site Recovery | Ondersteund | Als een VM met VMware of fysieke machine is gemigreerd naar Azure met Site Recovery, moet u de oudere versie van mobiliteitsservice wordt uitgevoerd op de computer verwijderen en start de machine opnieuw voordat u naar een andere Azure-regio te repliceren.
 RBAC-beleidsregels | Niet ondersteund | Access control (RBAC)-beleidsregels op virtuele machines worden niet gerepliceerd naar de failover-VM in de doelregio op basis van rollen.
+Uitbreidingen | Niet ondersteund | Extensies worden niet gerepliceerd naar de failover-VM in de doelregio. Dit moet handmatig worden geïnstalleerd na een failover.
 
 ## <a name="replicated-machines---disk-actions"></a>Gerepliceerde machines - schijf-acties
 
@@ -244,7 +245,7 @@ Geverifieerde Proxy | Niet ondersteund | Als de virtuele machine van een geverif
 Site-naar-site-VPN-verbinding met on-premises<br/><br/>(met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site Recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET-naar-VNET-verbinding | Ondersteund | [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)  
 Service-eindpunten voor virtueel netwerk | Ondersteund | Zorg ervoor dat de vertrouwde Microsoft-services toegang hebben tot het opslagaccount als beperking van toegang tot het virtuele netwerk naar storage-accounts.
-Versneld netwerken | Ondersteund | Versneld netwerken moet zijn ingeschakeld op de bron-VM. [Meer informatie](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Versnelde netwerken | Ondersteund | Versneld netwerken moet zijn ingeschakeld op de bron-VM. [Meer informatie](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

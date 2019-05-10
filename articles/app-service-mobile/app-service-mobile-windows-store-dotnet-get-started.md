@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127978"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412791"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Een Windows-app maken met een Azure-back-end
 
@@ -39,7 +39,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 * Windows 10.
-* [Visual Studio Community 2017]
+* [Visual Studio Community].
 * Bekendheid met UWP-app-ontwikkeling. Raadpleeg de [UWP-documentatie](https://docs.microsoft.com/windows/uwp/) voor meer informatie over de [configuratie](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) die u nodig hebt om UWP-apps te bouwen.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
@@ -70,7 +70,7 @@ Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe cli
     Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure.
 
 > [!TIP]
-> U kunt het UWP-app-project aan dezelfde oplossing toevoegen als het serverproject, mits u de .NET-back-end gebruikt. Hierdoor kunt u zowel de app als de back-end makkelijker debuggen en testen in dezelfde Visual-Studio-oplossing. Als u een UWP-app-project aan de back-endoplossing wilt toevoegen, dient u Visual Studio 2017 te gebruiken.
+> U kunt het UWP-app-project aan dezelfde oplossing toevoegen als het serverproject, mits u de .NET-back-end gebruikt. Hierdoor kunt u zowel de app als de back-end makkelijker debuggen en testen in dezelfde Visual-Studio-oplossing. Als u wilt een UWP-app-project toevoegen aan de back endoplossing, moet u Visual Studio 2017 of later gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -86,4 +86,4 @@ Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe cli
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

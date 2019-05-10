@@ -1,6 +1,6 @@
 ---
 title: IoT-oplossingsversnellers referentiearchitectuur - Azure | Microsoft Docs
-description: Meer informatie over de Azure IoT-oplossing accelerators verwijzing intranetarchitectuur. De bestaande oplossingsversnellers gebruikmaken van deze verwijzende architectuur. U kunt ook de referentiearchitectuur gebruiken wanneer u uw eigen aangepaste IoT-oplossingen bouwen.
+description: Meer informatie over de architectuur van de accelerators verwijzing voor de Azure IoT-oplossing. De bestaande oplossingsversnellers gebruikmaken van deze verwijzende architectuur. U kunt ook de referentiearchitectuur gebruiken wanneer u uw eigen aangepaste IoT-oplossingen bouwen.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450297"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466471"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Inleiding tot de Azure IoT-referentiearchitectuur
 
@@ -38,7 +38,7 @@ De [Azure IoT-referentiearchitectuur](https://aka.ms/iotrefarchitecture) is een 
 
 De referentiearchitectuur identificeert de core subsystemen weer die wordt weergegeven in het volgende diagram:
 
-![Core subsystemen](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![Core subsystemen](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 De volgende secties wordt beschreven hoe de onderdelen van de oplossingsverbetering voor externe controle worden toegewezen aan de subsystemen core.
 

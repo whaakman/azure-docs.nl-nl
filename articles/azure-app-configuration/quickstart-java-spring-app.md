@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202227"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408562"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Quickstart: een Java Spring-app maken met App Configuration
 
@@ -37,11 +37,11 @@ Om te doen in deze Quick Start, installeert u een ondersteunde [Java Development
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **sleutel/waarde-Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
 
     | Sleutel | Value |
     |---|---|
-    | /application/config.message | Hello |
+    | /application/config.message | Hallo |
 
     Laat **Label** en **inhoudstype** voorlopig leeg.
 

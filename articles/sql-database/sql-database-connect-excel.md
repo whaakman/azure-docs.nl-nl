@@ -80,10 +80,10 @@ Om de verbindingsgegevens permanent opgeslagen, kunt u een ODC-bestand maken en 
 
       ![Nieuwe verbinding](media/sql-database-connect-excel/new-connection.png)
 
-2. In de **Wizard Gegevensverbinding**, typ de servernaam van uw en de referenties van uw SQL-Database. Selecteer **Volgende**. 
+2. In de **Wizard Gegevensverbinding**, typ de servernaam van uw en de referenties van uw SQL-Database. Selecteer **Next**. 
    1. Selecteer de database met uw gegevens uit de vervolgkeuzelijst. 
    2. Selecteer de tabel of weergave die u geïnteresseerd bent in. We hebben gekozen vGetAllCategories.
-   3. Selecteer **Volgende**. 
+   3. Selecteer **Next**. 
 
       ![Wizard Gegevensverbinding](media/sql-database-connect-excel/data-connection-wizard.png) 
 

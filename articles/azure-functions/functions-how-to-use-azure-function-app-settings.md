@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143196"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511253"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Over het beheren van een functie-app in Azure portal 
 
@@ -26,15 +26,23 @@ Als u wilt beginnen, gaat u naar de [Azure-portal](https://portal.azure.com) en 
 
 ![Overzicht van de functie-app in Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>Tabblad instellingen van de functie-app
+U kunt navigeren naar alles wat u nodig hebt voor het beheren van uw functie-app in het bijzonder op de overzichtspagina de **[toepassingsinstellingen](#settings)** en **[platformfuncties](#platform-features)**.
 
-![Overzicht van de functie-app in Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+## <a name="settings"></a>Toepassingsinstellingen
 
-De **instellingen** tabblad is waar u de runtimeversie van de functies die worden gebruikt door uw functie-app kunt bijwerken. Het is ook waar u de hostsleutels gebruikt om te beperken van HTTP-toegang tot alle functies die worden gehost door de functie-app beheren.
+De **toepassingsinstellingen** tabblad onderhoudt instellingen die worden gebruikt door uw functie-app.
 
-Functions ondersteunt zowel verbruik die als host fungeert als App Service-hostingplannen. Zie voor meer informatie, [Kies de juiste service-plan voor Azure Functions](functions-scale.md). Functions voor het abonnement Consumption beter te voorspellen kunt u platformgebruik beperken door in te stellen van een dagelijks gebruiksquotum in gigabyte-seconden. Wanneer het quotum voor het dagelijkse gebruik wordt bereikt, wordt de functie-app is gestopt. Een functie-app gestopt als gevolg van het bestedingsquotum van bereiken kan opnieuw worden ingeschakeld vanuit dezelfde context als het tot stand brengen van de dagelijkse bestedingsquotum. Zie de [Azure Functions-pagina met prijzen](https://azure.microsoft.com/pricing/details/functions/) voor meer informatie over facturering.   
+![Instellingen voor functie-app in Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-## <a name="platform-features-tab"></a>Tabblad voor platform-functies
+Deze instellingen, worden versleuteld opgeslagen en u moet selecteren **waarden weergeven** om de waarden in de portal te bekijken.
+
+Selecteer om een instelling toe **nieuwe toepassingsinstelling** en de nieuwe sleutel / waarde-paar toevoegen.
+
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+
+Wanneer u een functie-app lokaal ontwikkelt, worden deze waarden worden bijgehouden in het bestand local.settings.json project.
+
+## <a name="platform-features"></a>Platformfuncties
 
 ![Tabblad voor functie-app-platform-functies.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -46,7 +54,6 @@ Functie-apps uitvoeren in, en worden beheerd, door het Azure App Service-platfor
 De rest van dit onderwerp richt zich op de volgende App Service-functies in Azure portal die nuttig voor de functies zijn:
 
 + [App Service-editor](#editor)
-+ [Toepassingsinstellingen](#settings) 
 + [Console](#console)
 + [Geavanceerde hulpmiddelen (Kudu)](#kudu)
 + [Implementatie-opties](#deployment)
@@ -63,14 +70,6 @@ Zie voor meer informatie over het werken met App Service-instellingen [Azure App
 | ![Functie-app-App Service-editor.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | De App Service-editor is een geavanceerde portal-editor die u gebruiken kunt om JSON-configuratiebestanden en taxibedrijven codebestanden te wijzigen. Als u deze optie kiest, wordt een afzonderlijk browsertabblad met een basic-editor gestart. Hiermee kunt u integreren met de Git-opslagplaats, uitvoeren en fouten opsporen in code en functie-app-instellingen wijzigen. Deze editor bevat een uitgebreide ontwikkelomgeving voor uw functies in vergelijking met de standaardblade voor de functie-app.    |
 
 ![De App Service-editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>Toepassingsinstellingen
-
-| | |
-|-|-|
-| ![Toepassingsinstellingen voor functie-app.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | De App Service **toepassingsinstellingen** blade is waar u configureren en beheren van frameworkversies, foutopsporing op afstand, app-instellingen en verbindingsreeksen. Wanneer u uw functie-app met andere Azure- en services van derden integreren, kunt u deze instellingen hier wijzigen. Als u wilt verwijderen van een instelling, schuif naar de rechterkant en selecteer de **X** pictogram aan de rechterkant van de regel (niet weergegeven in de volgende afbeelding).
-
-![Toepassingsinstellingen configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Console
 

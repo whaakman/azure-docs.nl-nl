@@ -132,7 +132,7 @@ In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te vo
         >[!IMPORTANT]
         >Naam van het pakket moet overeenkomen met de naam van het pakket dat u hebt opgegeven in de Amazon-Portal voor ontwikkelaars.
     3. Controleren en bijwerken van de resterende waarden waar nodig. 
-    4. Selecteer **Voltooien**. 
+    4. Selecteer **Finish**. 
 
         ![Configureren van Android-project](./media/notification-hubs-kindle-get-started/new-android-studio-project.png)
 5. Download [Amazon ontwikkelaar-SDK voor Android](https://developer.amazon.com/sdk-download) bibliotheek naar de vaste schijf. Pak het SDK-zipbestand uit.
@@ -327,7 +327,7 @@ In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te vo
     6. Op de **onderdeel configureren** pagina, de volgende stappen uit:
         1. Selecteer **locatie wijzigen**
         2. Bevestig dat de map is ingesteld op: `src/main/assets`.
-        3. Selecteer **Voltooien**. 
+        3. Selecteer **Finish**. 
         
             ![Map voor assets configureren](./media/notification-hubs-kindle-get-started/configure-asset-folder.png)
 2. Toevoegen van een bestand met de naam **api_key.txt** naar de **activa** map. Vouw in de structuurweergave wordt weergegeven, **app**, vouw **src**, vouw **belangrijkste**, en met de rechtermuisknop op **activa**, wijst u **nieuw**, en selecteer vervolgens **bestand**. Voer **api_key.txt** voor de bestandsnaam. 3. 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946778"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510263"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Uw Bing Custom Search-instantie aanroepen vanuit de Portal
 
@@ -26,14 +26,14 @@ Nadat u uw aangepaste zoekervaring hebt geconfigureerd, kunt u deze uit testen b
 
 Nadat u bent aangemeld bij de Bing Custom Search [portal](https://customsearch.ai), selecteer uw exemplaar van de zoekopdracht en klikt u op de **productie** tabblad. Onder **eindpunten**, selecteert u een API-eindpunt (bijvoorbeeld Web-API). Uw abonnement bepaalt welke eindpunten worden weergegeven.
 
-Voer de parameterwaarden voor het eindpunt voor het maken van een zoekquery. Houd er rekening mee dat de parameters weergegeven in de portal kunnen worden gewijzigd, afhankelijk van het eindpunt dat u kiest. Zie de[Custom Search-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) voor meer informatie. 
+Voer de parameterwaarden voor het eindpunt voor het maken van een zoekquery. Houd er rekening mee dat de parameters weergegeven in de portal kunnen worden gewijzigd, afhankelijk van het eindpunt dat u kiest. Zie de[Custom Search-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) voor meer informatie. Wijzigen van het abonnement dat maakt gebruik van uw exemplaar van de search, de sleutel van het juiste abonnement toevoegen en bijwerken van de juiste parameters voor de markt en/of taal.
 
 Er zijn enkele belangrijke parameters hieronder:
 
 
 |Parameter  |Description  |
 |---------|---------|
-|Query’s uitvoeren     | De zoekterm die moet worden gezocht. Alleen beschikbaar voor Web, installatiekopie, Video en Automatische suggesties-eindpunten |
+|Query     | De zoekterm die moet worden gezocht. Alleen beschikbaar voor Web, installatiekopie, Video en Automatische suggesties-eindpunten |
 |Aangepaste configuratie-ID | De configuratie-ID van het geselecteerde exemplaar van de aangepaste zoekopdrachten. Dit veld is alleen-lezen. |
 |Market     | De markt die het resultaat zal zijn afkomstig uit. Alleen beschikbaar voor de eindpunten Web, installatiekopie, Video en gebruikersinterface die wordt gehost.        |
 |Abonnementssleutel | De abonnementssleutel om mee te testen. U kunt een sleutel in de vervolgkeuzelijst selecteren of een handmatig invoeren.          |

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998988"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408871"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>Zelfstudie: Integreren met Azure beheerde identiteiten
+# <a name="integrate-with-azure-managed-identities"></a>Integreren met Azure beheerde identiteiten
 
 Azure Active Directory [beheerde identiteiten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) vereenvoudigt het beheer van geheimen voor uw cloudtoepassing. Met een beheerde identiteit, kunt u uw code instellen met de service-principal die is gemaakt voor de Azure compute-service waarop het wordt uitgevoerd. U kunt een beheerde identiteit gebruiken in plaats van een afzonderlijke referenties die zijn opgeslagen in Azure Key Vault of een lokale verbindingsreeks. 
 
@@ -61,7 +61,7 @@ Als u een beheerde identiteit in de portal instelt, moet u eerst maken van een t
 
 1. In de [Azure-portal](https://aka.ms/azconfig/portal), selecteer **alle resources** en selecteert u de app-configuratiearchief, dat u in de Quick Start hebt gemaakt.
 
-2. Klik op **Toegangsbeheer (IAM)**.
+2. Selecteer **toegangsbeheer (IAM)**.
 
 3. Op de **toegang controleren** tabblad **toevoegen** in de **roltoewijzing toevoegen** UI-kaart.
 

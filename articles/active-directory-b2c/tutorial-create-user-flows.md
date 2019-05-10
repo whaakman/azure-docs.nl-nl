@@ -41,7 +41,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 De gebruikersstroom zich kunnen registreren en aanmelden verwerkt zowel registratie en aanmelding bij ervaringen met een configuratie voor één. Gebruikers van uw toepassing worden op het juiste pad zijn afhankelijk van de context geleid.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+2. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
 
     ![Schakel over naar de abonnementsmap](./media/tutorial-create-user-flows/switch-directories.png)
 

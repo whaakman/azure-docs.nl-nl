@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43ca5bbfd789c1c41826c9a13a0030b80c72d4bc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919717"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510658"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -179,7 +179,7 @@ Toegevoegde Linux-agents weer de status van **bijgewerkt** nadat een evaluatie i
 
 Om te bevestigen dat een Operations Manager-beheergroep met Azure Monitor-logboeken communiceert, Zie [valideren Operations Manager-integratie met Azure Monitor logboeken](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
-## <a name="data-collection"></a>Gegevensverzameling
+## <a name="data-collection"></a>Gegevens verzamelen
 
 ### <a name="supported-agents"></a>Ondersteunde agents
 
@@ -279,10 +279,10 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |
 |Updatepakketten     | Een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie.        |
-|Functiepakketten     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
+|Feature Ppacks     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
 |Servicepacks     | Een volledige reeks van hotfixes die op een toepassing worden toegepast.        |
 |Definitie-updates     | Een update voor antivirus- of andere definitiebestanden.        |
-|Hulpprogramma's     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
+|Hulpmiddelen     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
 |Updates     | Een update voor een toepassing of bestand dat momenteel wordt geïnstalleerd.        |
 
 ### <a name="linux"></a>Linux
@@ -290,7 +290,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 |Classificatie  |Description  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een probleem met de productspecifieke, productspecifieke beveiliging.         |
-|Andere Updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
+|Andere updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
 
 Voor Linux, updatebeheer, kunnen onderscheid maken tussen essentiële updates en beveiligingsupdates in de cloud bij het weergeven van gegevens voor de evaluatie vanwege gegevensverrijking in de cloud. Het toepassen van patches, gebruikmaakt van updatebeheer classificatie gegevens beschikbaar is op de computer. In tegenstelling tot andere distributies CentOS heeft geen deze informatie beschikbaar buiten het vak. Hebt u CentOS-machines die zijn geconfigureerd op een manier om terug te keren van beveiligingsgegevens voor de volgende opdracht, zich updatebeheer voor het patchen van op basis van classificaties.
 
@@ -634,7 +634,7 @@ Updatebeheer kunnen echter nog steeds melden die machine als niet-compatibele om
 
 Implementeren van updates op updateclassificatie werkt niet op CentOS buiten het vak. Voor de implementatie goed updates voor CentOS, selecteert u alle classificaties om te controleren of updates worden toegepast. Voor SUSE, selecteren *alleen* 'Andere updates' als de classificatie tot extra beveiliging leiden kan werkt ook wordt geïnstalleerd als beveiligingsupdates die betrekking hebben op zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit gedrag is een beperking van zypper. In sommige gevallen mogelijk u gevraagd de update-implementatie opnieuw uit te voeren. Om te controleren, controleert u de update-logboek.
 
-## <a name="remove-a-vm-for-update-management"></a>Verwijderen van een virtuele machine voor updatebeheer
+## <a name="remove-a-vm-from-update-management"></a>Een virtuele machine verwijderen uit het updatebeheer
 
 Een virtuele machine verwijderen uit het beheer van de Update:
 

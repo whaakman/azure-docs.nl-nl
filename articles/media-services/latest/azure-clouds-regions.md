@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733297"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409288"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Clouds en regio's in welke Azure Media Services v3 bestaat
 
@@ -35,10 +35,7 @@ Azure Media Services v3 is beschikbaar via Azure Resource Manager-manifest in gl
 
 ## <a name="regionsgeographieslocations"></a>Landen/regio's / locaties
 
-* [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Producten per regio](https://azure.microsoft.com/global-infrastructure/services/)
-* [Azure-geografieën](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Azure-locaties](https://azure.microsoft.com/global-infrastructure/locations/)
+[Regio's waarin de Azure Media Services-service is geïmplementeerd](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Regionaam 
 
@@ -98,6 +95,12 @@ De volgende eindpunten zijn belangrijk te weten bij het verbinden met Media Serv
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Verificatie | `https://login.chinacloudapi.cn/` |
 | Tokendoelgroep |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>Zie ook
+
+* [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Azure-geografieën](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure-locaties](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Volgende stappen
 

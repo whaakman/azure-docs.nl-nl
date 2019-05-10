@@ -67,7 +67,7 @@ In dit voorbeeld wijzigen we een Omleidings-URL door de location-header in het H
 
    - Voer de naam in voor het herschrijven instellen in de **naam** vak.
    - Selecteer een of meer van de regels die worden vermeld in de **die zijn gekoppeld routeringsregels** lijst. U kunt alleen de regels die nog niet gekoppeld aan andere sets herschrijven is selecteren. De regels die al gekoppeld aan andere sets herschrijven zijn worden grijs weergegeven.
-   - Selecteer **Volgende**.
+   - Selecteer **Next**.
    
      ![Naam en koppeling toevoegen](media/rewrite-http-headers-portal/name-and-association.png)
 

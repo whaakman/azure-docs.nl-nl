@@ -6,16 +6,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067416"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510979"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Lezen-replica's in Azure Database for PostgreSQL - één Server
 
-De functie lezen replica kunt u voor het repliceren van gegevens uit een Azure Database for PostgreSQL-server met een alleen-lezen-server. U kunt naar maximaal vijf replica's binnen dezelfde Azure-regio repliceren van de hoofd-server. Replica's worden asynchroon bijgewerkt met de systeemeigen Replicatietechnologie van de PostgreSQL-engine.
+De functie lezen replica kunt u voor het repliceren van gegevens uit een Azure Database for PostgreSQL-server met een alleen-lezen-server. U kunt vanaf de hoofd-server repliceren naar maximaal vijf replica's. Replica's worden asynchroon bijgewerkt met de systeemeigen Replicatietechnologie van de PostgreSQL-engine.
+
+> [!IMPORTANT]
+> U kunt een lezen replica maken in dezelfde regio als de hoofd-server of in een andere Azure-regio van uw keuze. Regio-overschrijdende replicatie is momenteel in openbare preview.
 
 Replica's zijn nieuwe servers die u die vergelijkbaar is met normale Azure Database for PostgreSQL-servers beheert. Voor elke replica hebt gelezen en u wordt gefactureerd voor de ingerichte Computing in vCores en opslag in GB / maand.
 
@@ -29,6 +32,8 @@ Een veelvoorkomend scenario is dat BI en analytische werkbelastingen gebruiken d
 Omdat de replica's zijn alleen-lezen, verlagen niet rechtstreeks schrijven-capaciteit Bezig te houden op de hoofddoelserver. Deze functie is niet gericht op schrijven-intensieve workloads.
 
 De functie lezen replica maakt gebruik van PostgreSQL asynchrone replicatie. De functie is niet bedoeld voor scenario's met synchrone replicatie. Er is een meetbare vertraging tussen het model en de replica. De gegevens op de replica wordt uiteindelijk consistent zijn met de gegevens op de hoofddoelserver. Gebruik deze functie voor workloads die deze vertraging aankan.
+
+Lezen-replica's kunnen u uw plan voor herstel na noodgevallen verbeteren. U moet eerst een replica in een andere Azure-regio van het model hebben. Als zich een noodgeval regio, kunt u replicatie naar die replica beëindigen en uw werkbelasting omleiden naar deze. Replicatie stoppen kunt de replica om te beginnen met het accepteren van schrijfbewerkingen, evenals leest. Meer informatie in de [replicatie stoppen](#stop-replication) sectie. 
 
 ## <a name="create-a-replica"></a>Een replica maken
 De hoofd-server moet de `azure.replication_support` parameter ingesteld op **REPLICA**. Als deze parameter wordt gewijzigd, is een server opnieuw opstarten vereist voor de wijziging door te voeren. (De `azure.replication_support` parameter wordt toegepast op alleen de lagen algemeen gebruik en geoptimaliseerd voor geheugen).
@@ -47,7 +52,7 @@ Wanneer u een replica maakt, overnemen niet het van de firewall-regels of VNet-s
 
 De replica neemt het beheerdersaccount van de hoofd-server. Alle gebruikersaccounts op de hoofd-server worden gerepliceerd naar de lezen-replica's. U kunt alleen verbinding maken met een replica lezen met behulp van de gebruikersaccounts die beschikbaar op de hoofd-server zijn.
 
-U kunt verbinding maken met de replica met behulp van de hostnaam en een geldig gebruikersaccount, zoals u zou voor een gewone Azure Database voor PostgreSQL-server doen. Voor een server met de naam **myreplica** met de gebruikersnaam van beheerder **myadmin**, u kunt verbinding maken met de replica met behulp van psql:
+U kunt verbinding maken met de replica met behulp van de hostnaam en een geldig gebruikersaccount, zoals u zou voor een gewone Azure Database voor PostgreSQL-server doen. Voor een server met de naam **mijn replica** met de gebruikersnaam van beheerder **myadmin**, u kunt verbinding maken met de replica met behulp van psql:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -63,7 +68,7 @@ Azure Database voor PostgreSQL biedt ook de **Replica Lag** metrische gegevens i
 De metrische gegevens wordt berekend op basis van de `pg_stat_wal_receiver` weergeven:
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp())
+EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 De Replica Lag ziet u de tijd sinds de laatste herhaalde transactie. Als er geen transacties plaatsvinden op de hoofd-server, geeft de metriek deze vertraging.
@@ -96,6 +101,8 @@ U kunt replicatie tussen een hoofd- en een replica stoppen. De actie bij stoppen
 > De zelfstandige server kan niet opnieuw worden gemaakt in een replica.
 > Voordat u replicatie op een replica lezen stoppen, controleert u of de replica de gegevens die u nodig hebt.
 
+Wanneer u replicatie stopt, verliest de replica alle koppelingen naar de vorige hoofd- en andere replica's. Er is geen automatische failover tussen een model en de replica. 
+
 Meer informatie over het [stop de replicatie naar een replica](howto-read-replicas-portal.md).
 
 
@@ -107,7 +114,7 @@ In deze sectie bevat een overzicht van de overwegingen over de functie lezen rep
 Voordat u een replica lezen, maken de `azure.replication_support` parameter moet worden ingesteld op **REPLICA** op de hoofd-server. Als deze parameter wordt gewijzigd, is een server opnieuw opstarten vereist voor de wijziging door te voeren. De `azure.replication_support` parameter wordt toegepast op alleen de lagen algemeen gebruik en geoptimaliseerd voor geheugen.
 
 ### <a name="new-replicas"></a>Nieuwe replica 's
-Een lezen replica wordt gemaakt als een nieuwe Azure Database for PostgreSQL-server. Een bestaande server kan niet worden gemaakt in een replica. Een replica lezen kan alleen worden gemaakt in dezelfde Azure-regio als het model. U kunt een replica van een andere lezen replica kan niet maken.
+Een lezen replica wordt gemaakt als een nieuwe Azure Database for PostgreSQL-server. Een bestaande server kan niet worden gemaakt in een replica. U kunt een replica van een andere lezen replica kan niet maken.
 
 ### <a name="replica-configuration"></a>Configuratie van de replica
 Een replica wordt gemaakt met behulp van de configuratie van de dezelfde server als het model. Nadat een replica is gemaakt, verschillende instellingen van de hoofdserver onafhankelijk van elkaar kunnen worden gewijzigd: compute genereren, vCores, opslag en back-up bewaarperiode. De prijscategorie kan ook afzonderlijk worden gewijzigd met uitzondering van of naar de Basic-laag.

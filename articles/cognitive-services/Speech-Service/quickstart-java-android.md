@@ -38,7 +38,7 @@ U moet een abonnementssleutel Speech Services voor het voltooien van deze Quicks
 
     ![Schermafbeelding van het welkomstscherm van Android Studio](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. De **Kies uw project** wizard wordt weergegeven, selecteert u **telefoons en tablets** en **lege activiteit** in de activiteit selecteren in het vak. Selecteer **Volgende**.
+1. De **Kies uw project** wizard wordt weergegeven, selecteert u **telefoons en tablets** en **lege activiteit** in de activiteit selecteren in het vak. Selecteer **Next**.
 
    ![Schermopname van het kiezen van de wizard voor uw project](media/sdk/qs-java-android-02-target-android-devices.png)
 

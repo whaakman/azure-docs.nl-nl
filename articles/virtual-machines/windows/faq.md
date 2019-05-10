@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095606"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466352"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Veelgestelde vragen over Windows Virtual Machines
-In dit artikel komen enkele veelgestelde vragen over Windows virtuele machines die in Azure met behulp van de Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Linux-versie van dit onderwerp, [Veelgestelde vragen over virtuele Linux-Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+In dit artikel komen enkele veelgestelde vragen over Windows virtuele machines die in Azure met behulp van de Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Linux-versie van dit onderwerp, [Veelgestelde vragen over virtuele Linux-Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Wat kan ik uitvoeren op een VM van Azure?
-Alle abonnees kunnen serversoftware uitvoeren op een virtuele machine van Azure. Zie voor meer informatie over het ondersteuningsbeleid voor actieve Microsoft-serversoftware in Azure [ondersteuning van Microsoft-serversoftware voor Azure Virtual Machines](https://support.microsoft.com/kb/2721672)
+Alle abonnees kunnen serversoftware uitvoeren op een virtuele machine van Azure. Zie voor meer informatie over het ondersteuningsbeleid voor actieve Microsoft-serversoftware in Azure [ondersteuning van Microsoft-serversoftware voor Azure Virtual Machines](https://support.microsoft.com/kb/2721672).
 
 Bepaalde versies van Windows 7, Windows 8.1 en Windows 10 zijn beschikbaar voor MSDN Azure-voordeel abonnees en abonnees van MSDN ontwikkelen en testen van betalen per gebruik, voor ontwikkelings- en taken. Zie het Engelstalige blogbericht [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/) voor meer informatie, zoals instructies en beperkingen. 
 
@@ -38,7 +38,7 @@ Azure Managed Disks is de aanbevolen product voor schijfopslag gebruiken met Azu
 Azure storage-accounts kunnen ook opslag bieden voor de schijf van het besturingssysteem en eventuele gegevensschijven. Elke schijf is een VHD-bestand dat wordt opgeslagen als een pagina-blob. Zie [deze pagina](https://azure.microsoft.com/pricing/details/storage/) voor prijsinformatie.
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Hoe krijg ik toegang tot mijn virtuele machine?
-Een externe verbinding maken met het Remote Desktop Connection (RDP) voor een Windows-VM. Zie voor instructies [hoe u verbinding maken met en meld u aan een virtuele Azure-machine waarop Windows wordt uitgevoerd bij](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Maximaal twee gelijktijdige verbindingen worden ondersteund, tenzij de server is geconfigureerd als een extern bureaublad-Services-sessiehost.  
+Een externe verbinding maken met het Remote Desktop Connection (RDP) voor een Windows-VM. Zie voor instructies [hoe u verbinding maken met en meld u aan met een Azure-machine waarop Windows wordt uitgevoerd](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Maximaal twee gelijktijdige verbindingen worden ondersteund, tenzij de server is geconfigureerd als een extern bureaublad-Services-sessiehost.  
 
 Als u problemen met extern bureaublad ondervindt, raadpleegt u [problemen oplossen met extern bureaublad-verbindingen met een Windows-gebaseerde virtuele Machine in Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
@@ -85,36 +85,26 @@ Ja. Naam van de resourcegroep mag maximaal 90 tekens lang zijn. Zie [Naming conv
 
 Gebruikersnamen kan maximaal 20 tekens lang zijn en mag niet eindigen op een punt ("."). 
 
-
 De volgende gebruikersnamen zijn niet toegestaan:
-<table>
-    <tr>
-        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">adm</td><td style="text-align:center">beheerder</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
-    </tr>   <tr>
-        <td style="text-align:center">beheerder</td><td style="text-align:center">aspnet</td><td style="text-align:center">Back-up</td><td style="text-align:center">console</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">David </td><td style="text-align:center">Gast</td><td style="text-align:center">John</td><td style="text-align:center">eigenaar</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">hoofdmap</td><td style="text-align:center">server</td><td style="text-align:center">sql</td><td style="text-align:center">ondersteuning</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">user</td><td style="text-align:center">Gebruiker1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">Gebruiker2</td><td style="text-align:center">gebruiker3</td><td style="text-align:center">Gebruiker4</td><td style="text-align:center">gebruiker5</td>
-    </tr>
-</table>
+
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
+
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Wat zijn de wachtwoordvereisten bij het maken van een virtuele machine?
-Wachtwoorden moeten tussen 12 en 123 tekens lang zijn en voldoen aan 3 van de volgende 4 complexiteitsvereisten voldoen:
+
+Er zijn verschillende wachtwoord-vereisten voor de lengte, afhankelijk van het hulpprogramma dat u gebruikt:
+ - Portal - 12-72 tekens
+ - PowerShell - tussen 8 en 123 tekens
+ - CLI - tussen 12 en 123
 
 * Lagere tekens bevatten
 * Bovenste tekens bevatten

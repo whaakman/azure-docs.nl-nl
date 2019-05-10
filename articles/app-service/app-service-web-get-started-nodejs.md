@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4dbd65a391bdc5726436ba461a34e1ca7cab87b0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c103e6cb3626750414ee5083dad3e34b6be4986c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129524"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408946"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Een Node.js-web-app maken in Azure
 
@@ -54,7 +54,7 @@ const port = process.env.PORT || 1337;
 
 App Service injecteert process.env.PORT in uw toepassing, zodat de code de variabele gebruikt om te weten naar welke poort moet worden geluisterd. 
 
-Navigeer in een terminalvenster naar de hoofdmap van het Node.js-voorbeeldproject (de map die _index.js_ bevat).
+Navigeer in een terminalvenster naar de **hoofdmap** van de Node.js-voorbeeldproject (de map waarin zich _index.js_).
 
 ## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
@@ -75,7 +75,19 @@ Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 > [!NOTE]
 > In Azure App Service wordt de app uitgevoerd in IIS met [iisnode](https://github.com/Azure/iisnode). Voor het uitvoeren van de app met iisnode staat er een web.config-bestand in de hoofdmap van de app. Dit bestand kan worden gelezen door IIS en de instellingen voor iisnode zijn beschreven in [de GitHub-opslagplaats voor iisnode](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+## <a name="create-a-project-zip-file"></a>Een ZIP-bestand van het project maken
+
+Zorg ervoor dat u bent nog steeds in de **hoofdmap** van het voorbeeldproject (de map waarin zich _index.js_). Maak een ZIP-archief van alle bestanden in uw project. De volgende opdracht maakt gebruik van het standaardhulpprogramma in de terminal:
+
+```
+# Bash
+zip -r myAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myAppFiles.zip
+```
+
+U kunt dit ZIP-bestand later uploaden naar Azure en dit implementeren in App Service.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -153,7 +165,7 @@ Open met een teksteditor het bestand `index.js` binnen de Node.js-app en breng e
 response.end("Hello Azure!");
 ```
 
-Navigeer in het lokale terminalvenster naar de hoofdmap van uw toepassing en maak een nieuw ZIP-bestand voor uw bijgewerkte project.
+Navigeer in het lokale terminalvenster naar van uw toepassing **hoofdmap** (de map waarin zich _index.js_), maak een nieuw zipbestand voor uw bijgewerkte project.
 
 ```azurecli-interactive
 # Bash

@@ -51,7 +51,7 @@ DevOps Projects maakt een CI/CD-pijplijn in Azure DevOps. U kunt een nieuwe Azur
 1. Selecteer het .NET Core-toepassingsframework.  
     Dit voorbeeld gebruikt een ASP.NET Core MVC-toepassing.
     
-2. Selecteer **Volgende**.  
+2. Selecteer **Next**.  
     Web App on Windows is het standaardimplementatiedoel.  Desgewenst kunt u ook kiezen voor Web App on Linux of Web App for Containers.  Het toepassingsframework, dat u eerder hebt gekozen, bepaalt welk type implementatiedoel hier beschikbaar is voor de Azure-service.  
     
 3. Laat de standaardservice ongewijzigd en selecteer **Volgende**.

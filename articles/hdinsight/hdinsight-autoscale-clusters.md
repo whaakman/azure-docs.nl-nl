@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146425"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413697"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatisch schalen van Azure HDInsight-clusters (preview)
 
@@ -21,16 +21,19 @@ Functie voor automatisch schalen van Azure HDInsight-cluster automatisch het aan
 
 ## <a name="cluster-compatibility"></a>Cluster-compatibiliteit
 
+> [!Important]
+> De functie voor automatisch schalen werkt alleen voor clusters die zijn gemaakt na de beschikbaarheid van de functie in mei 2019. Werkt niet voor bestaande clusters.
+
 De volgende tabel beschrijft de clustertypen en versies die compatibel met de functie voor automatisch schalen zijn.
 
-| Versie | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Versie | Spark | Hive | LLAP | Hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 zonder ESP | Ja | Ja | Nee | Nee | Nee | Nee | Nee |
 | HDInsight 4.0 zonder ESP | Ja | Ja | Nee | Nee | Nee | Nee | Nee |
 | HDInsight 3.6 met ESP | Ja | Ja | Nee | Nee | Nee | Nee | Nee |
 | HDInsight 3.6 met ESP | Ja | Ja | Nee | Nee | Nee | Nee | Nee |
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Hoe het werkt
 
 U kunt kiezen op basis van een load schalen of schalen op basis van een schema voor uw HDInsight-cluster. Schalen op basis van een Load, wijzigt het aantal knooppunten in uw cluster, binnen een bereik dat u instelt, zorg ervoor dat de optimale CPU-gebruik en de lopende kosten minimaliseren.
 
@@ -189,7 +192,7 @@ Als u wilt inschakelen voor automatisch schalen op een actieve cluster, selectee
 
 ## <a name="monitoring"></a>Bewaking
 
-### <a name="cluster-status"></a>De clusterstatus
+### <a name="cluster-status"></a>Clusterstatus
 
 De status van het cluster die worden vermeld in de Azure-portal kunt u automatisch schalen activiteiten controleren.
 
@@ -197,9 +200,9 @@ De status van het cluster die worden vermeld in de Azure-portal kunt u automatis
 
 Alle van de cluster-statusberichten die u kunt tegenkomen worden beschreven in de onderstaande lijst.
 
-| De clusterstatus | Uitleg |
+| Clusterstatus | Uitleg |
 |---|---|
-| In uitvoering | Het cluster wordt normaal uitgevoerd. Alle vorige voor automatisch schalen activiteiten zijn voltooid. |
+| Actief | Het cluster wordt normaal uitgevoerd. Alle vorige voor automatisch schalen activiteiten zijn voltooid. |
 | Bijwerken  | De clusterconfiguratie voor automatisch schalen wordt bijgewerkt.  |
 | HDInsight-configuratie  | Een cluster omhoog of bewerking omlaag schalen wordt uitgevoerd.  |
 | Fout bij bijwerken  | HDInsight er zijn problemen opgetreden tijdens het bijwerken van de configuratie voor automatisch schalen. Klanten kunnen kiezen voor probeert u de update of automatisch schalen uitschakelen.  |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448454"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464868"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller voor apparaatsimulatie
 
@@ -38,7 +38,7 @@ Apparaatsimulatie is gratis. Echter Apparaatsimulatie implementeert in uw Azure-
 
 Als u Apparaatsimulatie implementeren, krijgt u een voorbeeld-simulaties en proefapparaten. Deze voorbeelden kunt u informatie over het gebruik van Apparaatsimulatie. Uitvoeren om te beginnen, een [voorbeeld simulatie die 10 vrachtwagens simuleert](quickstart-device-simulation-deploy.md). U kunt ook [maken van uw eigen simulatie met behulp van een van de vele proefapparaten opgegeven](iot-accelerators-device-simulation-create-simulation.md).
 
-![Simulatieconfiguratie](media/iot-accelerators-device-simulation-overview/SampleSimulation.png)
+![Simulatieconfiguratie](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
 ## <a name="custom-simulated-devices"></a>Aangepaste gesimuleerde apparaten
 

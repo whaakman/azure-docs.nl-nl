@@ -40,6 +40,9 @@
     - name: Veilige implementatiemethoden gebruiken
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: Statuscontrole gebruiken in Configuratiebeheer
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: Problemen met sjabloonimplementatie oplossen
       href: resource-manager-tutorial-troubleshoot.md
 - name: Voorbeelden
@@ -62,6 +65,9 @@
     - name: Configuratiebeheer
       displayName: adm
       href: deployment-manager-overview.md
+    - name: Statuscontrole in Configuratiebeheer
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: Implementatiemodi
       href: deployment-modes.md
     - name: Verwijderen van resource

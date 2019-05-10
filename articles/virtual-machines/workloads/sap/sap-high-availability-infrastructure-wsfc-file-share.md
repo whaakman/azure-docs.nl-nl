@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637719"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409602"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Azure-infrastructuur voor hoge beschikbaarheid van SAP met behulp van een Windows failover cluster en de bestandsshare voor SAP ASCS/SCS-instanties voorbereiden
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637719"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -218,7 +219,7 @@ Voordat u de installatie begint, lees dan het volgende artikel:
 
 ## <a name="host-names-and-ip-addresses"></a>Host-namen en IP-adressen
 
-| Rol van de virtuele host-naam | Naam van virtuele host | Statisch IP-adres | Beschikbaarheidsset |
+| Rol van de virtuele host-naam | Naam van virtuele host | Vast IP-adres | Beschikbaarheidsset |
 | --- | --- | --- | --- |
 | Eerste cluster knooppunt ASCS/SCS-cluster | ascs-1 | 10.0.6.4 | ascs-als |
 | Tweede cluster knooppunt ASCS/SCS-cluster | ascs-2 | 10.0.6.5 | ascs-als |
@@ -235,7 +236,7 @@ Voordat u de installatie begint, lees dan het volgende artikel:
 **Tabel 2**: Exemplaardetails van de SAP ASCS/SCS
 
 
-| Rol van de virtuele host-naam | Naam van virtuele host | Statisch IP-adres | Beschikbaarheidsset |
+| Rol van de virtuele host-naam | Naam van virtuele host | Vast IP-adres | Beschikbaarheidsset |
 | --- | --- | --- | --- |
 | Eerste clusterknooppunt | sofs-1 | 10.0.6.10 | sofs-as |
 | Tweede clusterknooppunt | sofs-2 | 10.0.6.11 | sofs-as |
@@ -341,6 +342,16 @@ De Azure Resource Manager-sjabloon voor het implementeren van Scale-Out bestands
 _**Afbeelding 2**: UI-scherm voor de Scale-Out File Server Resource Manager-sjabloon zonder beheerde schijven_
 
 In de **Opslagaccounttype** Schakel **Premium Storage**. Alle andere instellingen zijn gelijk aan de instellingen voor beheerde schijven.
+
+## <a name="adjust-cluster-timeout-settings"></a>Cluster-time-outinstellingen aanpassen
+
+Nadat u de Scale-Out bestandsservercluster van Windows is geïnstalleerd, aan te passen drempelwaarden voor time-out voor de detectie van de failover naar een in Azure. De parameters moeten worden gewijzigd, worden beschreven in [afstemmen failover cluster netwerk drempelwaarden][tuning-failover-cluster-network-thresholds]. Ervan uitgaande dat de geclusterde virtuele machines zich in hetzelfde subnet bevinden, wijzigt u de volgende parameters voor deze waarden:
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+Deze instellingen zijn getest met klanten en bieden een goed compromis. Ze zijn flexibel genoeg, maar ze bieden ook snel genoeg failover in reële fouten of mislukken van de virtuele machine.
 
 ## <a name="next-steps"></a>Volgende stappen
 

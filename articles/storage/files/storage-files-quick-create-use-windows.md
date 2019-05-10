@@ -108,7 +108,7 @@ U hebt nu een nieuwe virtuele machine gemaakt en een gegevensschijf gekoppeld. U
 
    ![Een schermafbeelding van het dialoogvenster 'Netwerkverbinding maken'](./media/storage-files-quick-create-use-windows/mountonwindows10.png)
 
-1. Selecteer **Voltooien**.
+1. Selecteer **Finish**.
 1. Ga als volgt te werk in het dialoogvenster **Windows-beveiliging**:
 
    - Kopieer vanuit Kladblok de naam van het opslagaccount voorafgegaan door AZURE\ en plak deze in het dialoogvenster **Windows-beveiliging** als de gebruikersnaam. Als u de suggesties voor naamgeving in deze quickstart hebt gevolgd, kopieert u *AZURE\qsstorageacct*.

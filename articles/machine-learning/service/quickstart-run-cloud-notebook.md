@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149832"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510621"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken
 
 Een cloud-gebaseerde notebookserver maken en gebruiken.  In deze snelstartgids hebt u Python-code die de waarden in Logboeken uitvoeren de [werkruimte van Azure Machine Learning-service](concept-azure-machine-learning-architecture.md). De werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. 
 
 Deze quickstart laat zien hoe u een cloudresource maken in uw Azure Machine Learning-werkruimte, geconfigureerd met de Python-omgeving die nodig zijn om uit te voeren van Azure Machine Learning. Als u wilt gebruiken in plaats daarvan uw eigen omgeving, Zie [Quick Start: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning](quickstart-run-local-notebook.md).  
- 
+
 In deze snelstart voert u de volgende acties uit:
 
 * Maak een nieuwe cloud-gebaseerde notebookserver in uw werkruimte.
 * Start de Jupyter-webinterface.
 * Open een laptop met code voor een schatting van pi en logboeken voor fouten bij elke iteratie.
 * Uitvoeren van het notitieblok.
-* Bekijk de geregistreerde foutwaarden in uw werkruimte. Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd. 
+* Bekijk de geregistreerde foutwaarden in uw werkruimte. Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van informatie die in een script wordt gegenereerd.
 
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="create-a-workspace"></a>Een werkruimte maken
 
-- Een Azure Machine Learning-werkruimte.  [Maak uw werkruimte](setup-create-workspace.md#portal) als u dit niet hebt.
+Als u een Azure Machine Learning-service-werkruimte hebt, gaat u naar de [volgende sectie](#create-a-cloud-based-notebook-server). Anders wordt er nu een maken.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>Een cloud-gebaseerde notebookserver maken
 
@@ -57,7 +59,6 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
     ![Een nieuwe virtuele machine maken](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Wacht u ongeveer 4 en 5 minuten, totdat de status gewijzigd in **met**.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Jupyter-webinterface starten
 
@@ -92,7 +93,7 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
 1. De tweede codecel uitvoert. Als er instructies om te verifiëren, kopieert u de code en volg de koppeling aan te melden. Als u zich aanmeldt, wordt deze instelling in uw browser onthouden.  
 
-    ![Verifiëren](media/quickstart-run-cloud-notebook/authenticate.png)
+    ![Authenticeren](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. Wanneer u klaar bent, het aantal cellen __[2]__ wordt weergegeven.  Als u zich aanmeldt, ziet u een statusbericht verificatie is geslaagd.   Als u niet aanmelden, geen uitvoer voor deze cel niet zichtbaar is voor u, alleen het nummer wordt weergegeven om weer te geven dat de cel is uitgevoerd.
 
@@ -102,10 +103,9 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
     In de grootste codecel, ziet u `run.log` gebruikt op meerdere plaatsen. Elke `run.log` wordt de waarde toegevoegd aan uw werkruimte.
 
-
 ## <a name="view-logged-values"></a>Logboekwaarden weergeven
 
-1. De uitvoer van de cel `run` bevat een koppeling terug naar de Microsoft Azure-portal om de resultaten van het experiment in uw werkruimte weer te geven. 
+1. De uitvoer van de cel `run` bevat een koppeling terug naar de Microsoft Azure-portal om de resultaten van het experiment in uw werkruimte weer te geven.
 
     ![Experimenten bekijken](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ Voer een laptop die u maakt een schatting van pi en de fout vastgelegd in uw wer
 
 Omdat er in de code om pi te schatten gebruik wordt gemaakt van willekeurige waarden, worden er in uw plots andere waarden weergegeven.  
 
-## <a name="clean-up-resources"></a>Resources opschonen 
+## <a name="clean-up-resources"></a>Resources opschonen
 
 ### <a name="stop-the-notebook-vm"></a>De notebook VM stoppen
 

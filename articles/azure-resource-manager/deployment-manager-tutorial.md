@@ -13,19 +13,22 @@ ms.devlang: na
 ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880046"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466306"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (beperkte preview)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (openbare preview)
 
 Meer informatie over het gebruik van [Azure Deployment Manager](./deployment-manager-overview.md) om uw toepassingen in meerdere regio's te implementeren. Als u Deployment Manager wilt gebruiken, moet u twee sjablonen maken:
 
 * **Een topologiesjabloon**: beschrijft de Azure-resources die uw toepassingen vormen en waar ze moeten worden geïmplementeerd.
 * **Een implementatiesjabloon**: beschrijft de stappen die moeten worden genomen bij het implementeren van uw toepassingen.
+
+> [!IMPORTANT]
+> Als uw abonnement is gemarkeerd voor Canarische voor het testen van nieuwe functies van Azure, kunt u alleen Azure Deployment Manager gebruiken om te implementeren naar de Canary regio's. 
 
 Deze zelfstudie bestaat uit de volgende taken:
 
@@ -432,4 +435,4 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u Azure Deployment Manager gebruikt. Zie [de documentatie bij Azure Resource Manager](/azure/azure-resource-manager/) voor meer informatie.
+In deze zelfstudie hebt u geleerd hoe u Azure Deployment Manager gebruikt. Als u wilt integreren in Azure Deployment Manager statuscontrole, Zie [zelfstudie: Controle van gatewayservicestatus gebruiken in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).

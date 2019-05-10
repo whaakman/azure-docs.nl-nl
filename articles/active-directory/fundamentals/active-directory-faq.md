@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f29ab7b908184533885929040ca8eccf56cda92d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249556"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464417"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -210,4 +210,4 @@ Zie [Automate user provisioning and deprovisioning to SaaS applications with Azu
 - - -
 **V:  Kan ik een veilige LDAP-verbinding met Azure AD instellen?**
 
-**A:**  Nee. Azure AD biedt geen ondersteuning voor het LDAP-protocol. U kunt echter secure LDAP configureren met Azure AD Domain Services.
+**A:**  Nee. Azure AD biedt geen ondersteuning voor het Lightweight Directory Access Protocol (LDAP)-protocol. Het is echter mogelijk met gebruik van Azure AD Domain Services (Azure AD DS) met netwerkbeveiligingsgroepen via Azure Networking correct is geconfigureerd om LDAP-verbinding. Zie voor meer informatie, https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.

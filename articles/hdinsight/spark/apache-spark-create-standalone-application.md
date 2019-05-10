@@ -50,7 +50,7 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
    
     ![Scala-invoegtoepassing inschakelen](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
 
-3. Select **Install** voor de Scala-invoegtoepassing die in het nieuwe venster wordt weergegeven.  
+3. Selecteer **Install** voor de Scala-invoegtoepassing die in het nieuwe venster wordt weergegeven.  
  
     ![Scala-invoegtoepassing installeren](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
 
@@ -69,9 +69,9 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
       * **Maven**, voor de ondersteuning van de wizard Scala-project maken.
       * **SBT**, voor het beheren van de afhankelijkheden en het maken van het Scala-project.
 
-   ![Het dialoogvenster Nieuw project](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+   ![Het dialoogvenster New Project](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
 
-5. Selecteer **Volgende**.
+5. Selecteer **Next**.
 
 6. Geef in het venster **New project** de volgende gegevens op:  
 
@@ -80,11 +80,11 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
   	|Projectnaam| Voer een naam in.|  
   	|Project&nbsp;location| Voer de gewenste locatie in om uw project in op te slaan.|
   	|Project SDK| Als u IDEA voor het eerst gebruikt, is dit veld leeg.  Selecteer **New...** en ga naar uw JDK.|
-  	|Spark-versie|De wizard voor het maken van het project integreert de juiste versie voor Spark SDK en Scala SDK. Selecteer **Spark 1.x** als de Spark-clusterversie ouder is dan 2.0. Selecteer anders **Spark 2.x**. In dit voorbeeld wordt **Spark 2.3.0 (Scala 2.11.8)** gebruikt.|
+  	|Spark version|De wizard voor het maken van het project integreert de juiste versie voor Spark SDK en Scala SDK. Selecteer **Spark 1.x** als de Spark-clusterversie ouder is dan 2.0. Selecteer anders **Spark 2.x**. In dit voorbeeld wordt **Spark 2.3.0 (Scala 2.11.8)** gebruikt.|
 
     ![De Spark SDK selecteren](./media/apache-spark-create-standalone-application/hdi-new-project.png)
 
-7. Selecteer **Voltooien**.
+7. Selecteer **Finish**.
 
 ## <a name="create-a-standalone-scala-project"></a>Een zelfstandig Scala-project maken
 
@@ -100,14 +100,14 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
 
     ![Maven-project maken](./media/apache-spark-create-standalone-application/create-maven-project.png)
 
-6. Selecteer **Volgende**.
+6. Selecteer **Next**.
 
 7. Geef relevante waarden op voor **GroupId**, **ArtifactId** en **Version**. In deze zelfstudie worden de volgende waarden gebruikt:
 
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
 
-8. Selecteer **Volgende**.
+8. Selecteer **Next**.
 
 9. Controleer de instellingen en selecteer vervolgens **Next**.
 

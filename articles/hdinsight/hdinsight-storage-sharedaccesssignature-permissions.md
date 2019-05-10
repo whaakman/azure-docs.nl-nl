@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7fa46e3a5f0ed6504e4bc927caa0378d75fcc4a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f7f6fe31afe35d9ccfd6ee33617bd7e4fbe46b7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686989"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409548"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage Shared Access Signatures gebruiken om u te beperken van toegang tot gegevens in HDInsight
 
@@ -25,26 +25,32 @@ HDInsight heeft volledige toegang tot gegevens in de Azure Storage-accounts die 
 > [!WARNING]  
 > HDInsight moet hebben volledige toegang tot de standaardopslag voor het cluster.
 
-## <a name="requirements"></a>Vereisten
+## <a name="prerequisites"></a>Vereisten
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* Een Azure-abonnement.
 
-* Een Azure-abonnement
-* C# of Python. C#-voorbeeldcode wordt geleverd als een Visual Studio-oplossing.
+* Een SSH-client. Zie voor meer informatie [Verbinding maken met HDInsight (Apache Hadoop) via SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
-  * Visual Studio moet versie 2013, 2015 of 2017
-  * Python moet 2.7 of hoger zijn
+* Een bestaande [opslagcontainer](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-* Een Linux gebaseerde HDInsight-cluster of [Azure PowerShell] [ powershell] -als u een bestaande op basis van Linux-cluster hebt, kunt u Apache Ambari een handtekening voor gedeelde toegang toevoegen aan het cluster. Als dat niet het geval is, kunt u Azure PowerShell een cluster maken en toevoegen van een handtekening voor gedeelde toegang tijdens het maken van clusters.
+* Als u PowerShell gebruikt, moet u de [Az Module](https://docs.microsoft.com/powershell/azure/overview).
 
-    > [!IMPORTANT]  
-    > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+* Als die u wilt gebruiken Azure CLI en u nog niet hebt geïnstalleerd het, raadpleegt u [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+* Als u [Python](https://www.python.org/downloads/), versie 2.7 of hoger.
+
+* Als u C#, Visual Studio 2013 of hoger moet zijn.
+
+* De [URI-schema](./hdinsight-hadoop-linux-information.md#URI-and-scheme) voor uw opslagaccount. Dit zou zijn `wasb://` voor Azure Storage, `abfs://` voor Azure Data Lake Storage Gen2 of `adl://` voor Azure Data Lake Storage Gen1. Als veilige overdracht is ingeschakeld voor Azure Storage of Data Lake Storage Gen2, de URI zou worden `wasbs://` of `abfss://`respectievelijk Zie ook [veilige overdracht](../storage/common/storage-require-secure-transfer.md).
+
+* Een bestaand HDInsight-cluster om toe te voegen een handtekening voor gedeelde toegang aan. Als dat niet het geval is, kunt u Azure PowerShell een cluster maken en toevoegen van een handtekening voor gedeelde toegang tijdens het maken van clusters.
 
 * Het voorbeeld van de bestanden van [ https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature ](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Deze bibliotheek bevat de volgende items:
 
   * Een Visual Studio-project van een storage-container, het opgeslagen beleid en de SAS voor gebruik met HDInsight maken kunt
   * Een pythonscript waarmee u een storage-container, een opgeslagen beleid en een SAS voor gebruik met HDInsight maken kunt
-  * Een PowerShell-script dat kan een HDInsight-cluster maken en configureren voor het gebruik van de SAS.
+  * Een PowerShell-script dat kan een HDInsight-cluster maken en configureren voor het gebruik van de SAS. Er is een bijgewerkte versie gebruikt verderop.
+  * Een voorbeeld van bestand: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Shared Access Signatures
 
@@ -74,11 +80,136 @@ U wordt aangeraden dat u altijd opgeslagen toegangsbeleid gebruiken. Wanneer u b
 
 Zie voor meer informatie over handtekeningen voor gedeelde toegang [inzicht in het SAS-model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-### <a name="create-a-stored-policy-and-sas-using-c"></a>Een opgeslagen beleid en de SAS met C maken\#
+## <a name="create-a-stored-policy-and-sas"></a>Een opgeslagen beleid en een SAS maken
+
+Sla het SAS-token die wordt geproduceerd aan het einde van elke methode. Het token ziet er ongeveer als volgt:
+
+```output
+?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
+```
+
+### <a name="using-powershell"></a>PowerShell gebruiken
+
+Vervang `RESOURCEGROUP`, `STORAGEACCOUNT`, en `STORAGECONTAINER` met de juiste waarden voor uw bestaande storage-container. Wijzig de map naar `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` of herzien de `-File` parameter bevat het absolute pad voor `Set-AzStorageblobcontent`. Voer de volgende PowerShell-opdracht:
+
+```PowerShell
+$resourceGroupName = "RESOURCEGROUP"
+$storageAccountName = "STORAGEACCOUNT"
+$containerName = "STORAGECONTAINER"
+$policy = "myPolicyPS"
+
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
+# Get the access key for the Azure Storage account
+$storageAccountKey = (Get-AzStorageAccountKey `
+                                -ResourceGroupName $resourceGroupName `
+                                -Name $storageAccountName)[0].Value
+
+# Create an Azure Storage context
+$storageContext = New-AzStorageContext `
+                                -StorageAccountName $storageAccountName `
+                                -StorageAccountKey $storageAccountKey
+
+# Create a stored access policy for the Azure storage container
+New-AzStorageContainerStoredAccessPolicy `
+   -Container $containerName `
+   -Policy $policy `
+   -Permission "rl" `
+   -ExpiryTime "12/31/2025 08:00:00" `
+   -Context $storageContext
+
+# Get the stored access policy or policies for the Azure storage container
+Get-AzStorageContainerStoredAccessPolicy `
+    -Container $containerName `
+    -Context $storageContext
+
+# Generates an SAS token for the Azure storage container
+New-AzStorageContainerSASToken `
+    -Name $containerName `
+    -Policy $policy `
+    -Context $storageContext
+
+<# Removes a stored access policy from the Azure storage container
+Remove-AzStorageContainerStoredAccessPolicy `
+    -Container $containerName `
+    -Policy $policy `
+    -Context $storageContext
+#>
+
+# upload a file for a later example
+Set-AzStorageblobcontent `
+    -File "./sampledata/sample.log" `
+    -Container $containerName `
+    -Blob "samplePS.log" `
+    -Context $storageContext
+```
+
+### <a name="using-azure-cli"></a>Azure CLI gebruiken
+
+Het gebruik van variabelen in deze sectie is gebaseerd op een Windows-omgeving. Kleine variaties nodig voor de bash- of andere omgevingen.
+
+1. Vervang `STORAGEACCOUNT`, en `STORAGECONTAINER` met de juiste waarden voor uw bestaande storage-container.
+
+    ```azurecli
+    # set variables
+    set AZURE_STORAGE_ACCOUNT=STORAGEACCOUNT
+    set AZURE_STORAGE_CONTAINER=STORAGECONTAINER
+
+    #Login
+    az login
+
+    # If you have multiple subscriptions, set the one to use
+    # az account set --subscription SUBSCRIPTION
+
+    # Retrieve the primary key for the storage account
+    az storage account keys list --account-name %AZURE_STORAGE_ACCOUNT% --query "[0].{PrimaryKey:value}" --output table
+    ```
+
+2. Stel de opgehaalde primaire sleutel aan een variabele voor later gebruik. Vervang `PRIMARYKEY` met de opgehaalde waarde in de vorige stap en voer de volgende opdracht:
+
+    ```azurecli
+    #set variable for primary key
+    set AZURE_STORAGE_KEY=PRIMARYKEY
+    ```
+
+3. Wijzig de map naar `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` of herzien de `--file` parameter bevat het absolute pad voor `az storage blob upload`. Voer de resterende opdrachten uit:
+
+    ```azurecli
+    # Create stored access policy on the containing object
+    az storage container policy create --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT% --expiry 2025-12-31 --permissions rl
+
+    # List stored access policies on a containing object
+    az storage container policy list --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # Generate a shared access signature for the container
+    az storage container generate-sas --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # Reversal
+    # az storage container policy delete --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # upload a file for a later example
+    az storage blob upload --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT% --name sampleCLI.log --file "./sampledata/sample.log"
+    ```
+
+### <a name="using-python"></a>Python gebruiken
+
+Open de `SASToken.py` -bestand en vervang `storage_account_name`, `storage_account_key`, en `storage_container_name` met de juiste waarden voor uw bestaande storage-container en voer het script.
+
+U moet mogelijk om uit te voeren `pip install --upgrade azure-storage` als u het foutbericht `ImportError: No module named azure.storage`.
+
+### <a name="using-c"></a>C# gebruiken
 
 1. Open de oplossing in Visual Studio.
 
-2. Klik in Solution Explorer met de rechtermuisknop op de **SASToken** project en selecteer **eigenschappen**.
+2. Klik in Solution Explorer met de rechtermuisknop op de **SASExample** project en selecteer **eigenschappen**.
 
 3. Selecteer **instellingen** en voeg waarden toe voor de volgende items:
 
@@ -90,109 +221,142 @@ Zie voor meer informatie over handtekeningen voor gedeelde toegang [inzicht in h
 
    * FileToUpload: Het pad naar een bestand dat is geüpload naar de container.
 
-4. Voer het project. Informatie die vergelijkbaar is met de volgende tekst wordt weergegeven wanneer de SAS is gegenereerd:
-
-        Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-
-    Sla de SAS-token van beleid, opslagaccountnaam en containernaam. Deze waarden worden gebruikt wanneer het storage-account koppelen aan uw HDInsight-cluster.
-
-### <a name="create-a-stored-policy-and-sas-using-python"></a>Maken van een opgeslagen beleid en de SAS met behulp van Python
-
-1. Open het bestand SASToken.py en wijzigt u de volgende waarden:
-
-   * beleid\_naam: De naam moet worden gebruikt voor het opgeslagen beleid te maken.
-
-   * opslag\_account\_naam: De naam van uw opslagaccount.
-
-   * opslag\_account\_sleutel: De sleutel voor het opslagaccount.
-
-   * opslag\_container\_naam: De container in het opslagaccount dat u wilt toegang te beperken.
-
-   * voorbeeld\_bestand\_pad: Het pad naar een bestand dat is geüpload naar de container.
-
-2. Voer het script uit. Wanneer het script is voltooid, wordt de SAS-token die vergelijkbaar is met de volgende tekst weergegeven:
-
-        sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-
-    Sla de SAS-token van beleid, opslagaccountnaam en containernaam. Deze waarden worden gebruikt wanneer het storage-account koppelen aan uw HDInsight-cluster.
+4. Voer het project. Sla de SAS-token van beleid, opslagaccountnaam en containernaam. Deze waarden worden gebruikt wanneer het storage-account koppelen aan uw HDInsight-cluster.
 
 ## <a name="use-the-sas-with-hdinsight"></a>De SAS gebruiken met HDInsight
 
 Wanneer u een HDInsight-cluster maakt, moet u een primaire opslagaccount opgeven en kunt u eventueel extra opslagaccounts opgeven. Beide methoden van het toevoegen van opslag vereist volledige toegang tot de storage-accounts en de containers die worden gebruikt.
 
-Toevoegen als u een handtekening voor gedeelde toegang wilt beperken van toegang tot een container, een aangepaste vermelding voor de **core-site** configuratie van het cluster.
-
-* Voor **op basis van Windows** of **op basis van Linux** HDInsight-clusters, kunt u de vermelding toevoegen tijdens het maken van een cluster met behulp van PowerShell.
-* Voor **op basis van Linux** HDInsight-clusters, de configuratie na het maken van een cluster met behulp van Ambari wijzigen.
+Toevoegen als u een handtekening voor gedeelde toegang wilt beperken van toegang tot een container, een aangepaste vermelding voor de **core-site** configuratie van het cluster. Tijdens het maken van een cluster met behulp van PowerShell of na het maken van een cluster met behulp van Ambari, kunt u de vermelding toevoegen.
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Maken van een cluster dat gebruik maakt van de SAS
 
-Een voorbeeld van het maken van een HDInsight-cluster dat gebruik maakt van de SAS is opgenomen in de `CreateCluster` map van de opslagplaats. Als u wilt gebruiken, gebruikt u de volgende stappen uit:
+Vervang `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`, en `TOKEN` met de juiste waarden. Voer de PowerShell-opdrachten:
 
-1. Open de `CreateCluster\HDInsightSAS.ps1` -bestand in een teksteditor en wijzig de volgende waarden aan het begin van het document.
+```powershell
 
-    ```powershell
-    # Replace 'mycluster' with the name of the cluster to be created
-    $clusterName = 'mycluster'
-    # Valid values are 'Linux' and 'Windows'
-    $osType = 'Linux'
-    # Replace 'myresourcegroup' with the name of the group to be created
-    $resourceGroupName = 'myresourcegroup'
-    # Replace with the Azure data center you want to the cluster to live in
-    $location = 'North Europe'
-    # Replace with the name of the default storage account to be created
-    $defaultStorageAccountName = 'mystorageaccount'
-    # Replace with the name of the SAS container created earlier
-    $SASContainerName = 'sascontainer'
-    # Replace with the name of the SAS storage account created earlier
-    $SASStorageAccountName = 'sasaccount'
-    # Replace with the SAS token generated earlier
-    $SASToken = 'sastoken'
-    # Set the number of worker nodes in the cluster
-    $clusterSizeInNodes = 3
-    ```
+$clusterName = 'CLUSTERNAME'
+$resourceGroupName = 'RESOURCEGROUP'
 
-    Wijzig bijvoorbeeld `'mycluster'` op de naam van het cluster dat u wilt maken. De SAS-waarden moeten overeenkomen met de waarden uit de vorige stappen biedt bij het maken van een opslagaccount en SAS-token.
+# Replace with the Azure data center you want to the cluster to live in
+$location = 'eastus'
 
-    Nadat u de waarden hebt gewijzigd, sla het bestand.
+# Replace with the name of the default storage account TO BE CREATED
+$defaultStorageAccountName = 'DEFAULTSTORAGEACCOUNT'
 
-2. Open een nieuwe Azure PowerShell-prompt. Als u niet bekend met Azure PowerShell bent of nog niet hebt geïnstalleerd, raadpleegt u [installeren en configureren van Azure PowerShell][powershell].
+# Replace with the name of the SAS container CREATED EARLIER
+$SASContainerName = 'STORAGECONTAINER'
 
-1. Gebruik de volgende opdracht om te verifiëren bij uw Azure-abonnement achter de opdrachtprompt:
+# Replace with the name of the SAS storage account CREATED EARLIER
+$SASStorageAccountName = 'STORAGEACCOUNT'
 
-    ```powershell
+# Replace with the SAS token generated earlier
+$SASToken = 'TOKEN'
+
+# Default cluster size (# of worker nodes), version, and type
+$clusterSizeInNodes = "4"
+$clusterVersion = "3.6"
+$clusterType = "Hadoop"
+
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
     Connect-AzAccount
-    ```
+}
 
-    Wanneer u hierom wordt gevraagd, meldt u zich aan met het account voor uw Azure-abonnement.
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
-    Als uw account gekoppeld aan meerdere Azure-abonnementen is, moet u mogelijk gebruik `Select-AzSubscription` om te selecteren van het abonnement dat u wilt gebruiken.
+# Create an Azure Storage account and container
+New-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName `
+    -Location $location `
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 
-4. De opdrachtprompt en wijzig de mappen op de `CreateCluster` directory waarin het bestand HDInsightSAS.ps1. Gebruik vervolgens de volgende opdracht om uit te voeren van het script
+$defaultStorageAccountKey = (Get-AzStorageAccountKey `
+                                -ResourceGroupName $resourceGroupName `
+                                -Name $defaultStorageAccountName)[0].Value
 
-    ```powershell
-    .\HDInsightSAS.ps1
-    ```
+$defaultStorageContext = New-AzStorageContext `
+                                -StorageAccountName $defaultStorageAccountName `
+                                -StorageAccountKey $defaultStorageAccountKey
 
-    Als het script wordt uitgevoerd, geregistreerd in het logboek uitvoer naar de PowerShell-prompt als deze de resource-group en storage-accounts maakt. U wordt gevraagd om in te voeren van de HTTP-gebruiker voor het HDInsight-cluster. Dit account wordt gebruikt voor het beveiligen van toegang tot het cluster HTTP/s.
 
-    Als u een cluster op basis van Linux maakt, wordt u gevraagd om een SSH-gebruikersnaam voor account en wachtwoord. Dit account wordt gebruikt op afstand aan te melden het cluster.
+# Create a blob container. This holds the default data store for the cluster.
+New-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext 
 
-   > [!IMPORTANT]  
-   > Wanneer u hierom wordt gevraagd om de HTTP/s of SSH-gebruikersnaam en wachtwoord, moet u een wachtwoord dat voldoet aan de volgende criteria opgeven:
-   >
-   > * Moet ten minste 10 tekens lang zijn.
-   > * Moet ten minste één cijfer bevatten.
-   > * Moet ten minste één niet-alfanumeriek teken bevatten.
-   > * Moet ten minste één hoofdletters of kleine letter bevatten.
+# Cluster login is used to secure HTTPS services hosted on the cluster
+$httpCredential = Get-Credential `
+    -Message "Enter Cluster login credentials" `
+    -UserName "admin"
+
+# SSH user is used to remotely connect to the cluster using SSH clients
+$sshCredential = Get-Credential `
+    -Message "Enter SSH user credentials" `
+    -UserName "sshuser"
+
+# Create the configuration for the cluster
+$config = New-AzHDInsightClusterConfig 
+
+$config = $config | Add-AzHDInsightConfigValues `
+    -Spark2Defaults @{} `
+    -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
+
+# Create the HDInsight cluster
+New-AzHDInsightCluster `
+    -Config $config `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName `
+    -Location $location `
+    -ClusterSizeInNodes $clusterSizeInNodes `
+    -ClusterType $clusterType `
+    -OSType Linux `
+    -Version $clusterVersion `
+    -HttpCredential $httpCredential `
+    -SshCredential $sshCredential `
+    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultStorageContainer $clusterName
+
+<# REVERSAL
+Remove-AzHDInsightCluster `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName
+
+Remove-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext
+
+Remove-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName
+
+Remove-AzResourceGroup `
+    -Name $resourceGroupName
+#>
+```
+
+> [!IMPORTANT]  
+> Wanneer u hierom wordt gevraagd om de HTTP/s of SSH-gebruikersnaam en wachtwoord, moet u een wachtwoord dat voldoet aan de volgende criteria opgeven:
+>
+> * Moet ten minste 10 tekens lang zijn.
+> * Moet ten minste één cijfer bevatten.
+> * Moet ten minste één niet-alfanumeriek teken bevatten.
+> * Moet ten minste één hoofdletters of kleine letter bevatten.
 
 Het duurt even voor dit script om uit te voeren, meestal ongeveer 15 minuten. Wanneer het script is voltooid zonder fouten, is het cluster gemaakt.
 
 ### <a name="use-the-sas-with-an-existing-cluster"></a>Gebruik de SAS met een bestaand cluster
 
-Als u een bestaande op basis van Linux-cluster hebt, kunt u de SAS toevoegen de **core-site** configuratie met behulp van de volgende stappen uit:
+Als u een bestaand cluster hebt, kunt u de SAS toevoegen de **core-site** configuratie met behulp van de volgende stappen uit:
 
-1. Open de Ambari-Webinterface voor uw cluster. Het adres voor deze pagina is https://YOURCLUSTERNAME.azurehdinsight.net. Wanneer u hierom wordt gevraagd, verifiëren met het cluster via beheerdersnaam voor de (beheerder) en het wachtwoord die u hebt gebruikt tijdens het maken van het cluster.
+1. Open de Ambari-Webinterface voor uw cluster. Het adres voor deze pagina is `https://YOURCLUSTERNAME.azurehdinsight.net`. Wanneer u hierom wordt gevraagd, verifiëren met het cluster via beheerdersnaam voor de (beheerder) en het wachtwoord die u hebt gebruikt tijdens het maken van het cluster.
 
 2. Selecteer in de linkerkant van de Ambari-Webgebruikersinterface, **HDFS** en selecteer vervolgens de **Peeringconfiguraties** tabblad in het midden van de pagina.
 
@@ -200,10 +364,10 @@ Als u een bestaande op basis van Linux-cluster hebt, kunt u de SAS toevoegen de 
 
 4. Vouw de **aangepaste core-site** sectie en blader naar het einde en selecteer de **eigenschap toevoegen...**  koppeling. Gebruik de volgende waarden voor de **sleutel** en **waarde** velden:
 
-   * **Sleutel**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Waarde**: De SAS die wordt geretourneerd door de C# of Python-toepassing die u eerder hebt uitgevoerd
+   * **sleutel**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+   * **Waarde**: De SAS die wordt geretourneerd door een van de methoden die eerder is uitgevoerd.
 
-     Vervang **CONTAINERNAME** met de containernaam van de die u gebruikt met de C# of SAS-toepassing. Vervang **STORAGEACCOUNTNAME** met de opslagaccountnaam die u hebt gebruikt.
+     Vervang `CONTAINERNAME` met de container servernaam die u gebruikt in combinatie met de C# of SAS-toepassing. Vervang `STORAGEACCOUNTNAME` met de opslagaccountnaam die u hebt gebruikt.
 
 5. Klik op de **toevoegen** klikken om deze sleutel en waarde opslaan en klik vervolgens op de **opslaan** om op te slaan van de configuratiewijzigingen. Wanneer u hierom wordt gevraagd, een beschrijving van de wijziging ('toe te voegen toegang tot de SAS-opslag' bijvoorbeeld) toevoegen en klik vervolgens op **opslaan**.
 
@@ -220,40 +384,44 @@ Als u een bestaande op basis van Linux-cluster hebt, kunt u de SAS toevoegen de 
 
 ## <a name="test-restricted-access"></a>Testen met beperkte toegang
 
-Als u wilt controleren of u toegang hebt beperkt, SSH verbinding maken met het cluster te gebruiken. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+Gebruik de volgende stappen uit om te controleren dat u alleen lezen en de lijst met items in de SAS-storage-account kunt.
 
-Eenmaal verbinding hebben met het cluster, gebruikt u de volgende stappen uit om te controleren of dat u alleen lezen en de lijst met items in de SAS-storage-account kunt:
+1. Verbinding maken met het cluster. Vervang `CLUSTERNAME` met de naam van uw cluster en voer de volgende opdracht:
 
-1. Als u de inhoud van de container, gebruik de volgende opdracht achter de opdrachtprompt: 
-
-    ```bash
-    hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Vervang **SASCONTAINER** met de naam van de container voor de SAS-storage-account hebben gemaakt. Vervang **SASACCOUNTNAME** met de naam van het opslagaccount die wordt gebruikt voor de SAS.
+2. Als u de inhoud van de container, gebruik de volgende opdracht achter de opdrachtprompt:
+
+    ```bash
+    hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```
+
+    Vervang `SASCONTAINER` met de naam van de container voor de SAS-storage-account hebben gemaakt. Vervang `SASACCOUNTNAME` met de naam van het opslagaccount die wordt gebruikt voor de SAS.
 
     De lijst bevat het bestand geüpload wanneer de container en de SAS zijn gemaakt.
 
-2. Gebruik de volgende opdracht om te controleren of u kunt de inhoud van het bestand lezen. Vervang de **SASCONTAINER** en **SASACCOUNTNAME** zoals in de vorige stap. Vervang **FILENAME** met de naam van het bestand dat wordt weergegeven in de voorgaande opdracht:
+3. Gebruik de volgende opdracht om te controleren of u kunt de inhoud van het bestand lezen. Vervang de `SASCONTAINER` en `SASACCOUNTNAME` zoals in de vorige stap. Vervang `sample.log` met de naam van het bestand dat wordt weergegeven in de voorgaande opdracht:
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
     Met deze opdracht worden de inhoud van het bestand.
 
-3. Gebruik de volgende opdracht om te downloaden van het bestand naar het lokale bestandssysteem:
+4. Gebruik de volgende opdracht om te downloaden van het bestand naar het lokale bestandssysteem:
 
     ```bash
-    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
     Met deze opdracht wordt het bestand gedownload naar een lokaal bestand met de naam **testbestand.txt**.
 
-4. Gebruik de volgende opdracht voor het uploaden van het lokale bestand naar een nieuw bestand met de naam **testupload.txt** op de SAS-opslag:
+5. Gebruik de volgende opdracht voor het uploaden van het lokale bestand naar een nieuw bestand met de naam **testupload.txt** op de SAS-opslag:
 
     ```bash
-    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     ```
 
     U ontvangt een bericht dat lijkt op de volgende tekst:
@@ -263,32 +431,10 @@ Eenmaal verbinding hebben met het cluster, gebruikt u de volgende stappen uit om
     Deze fout treedt op omdat de opslaglocatie lezen + alleen lijst wijkt. Gebruik de volgende opdracht om de gegevens op de standaardopslag voor het cluster, die kan worden bewerkt:
 
     ```bash
-    hdfs dfs -put testfile.txt wasb:///testupload.txt
+    hdfs dfs -put testfile.txt wasbs:///testupload.txt
     ```
 
     Deze tijd voltooid de bewerking is.
-
-## <a name="troubleshooting"></a>Problemen oplossen
-
-### <a name="a-task-was-canceled"></a>Een taak is geannuleerd
-
-**Symptomen**: Bij het maken van een cluster met behulp van het PowerShell-script, wordt de volgende strekking weergegeven:
-
-    New-AzHDInsightCluster : A task was canceled.
-    At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzHDInsightCluster `
-    +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
-        + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
-
-**Oorzaak**: Deze fout kan optreden als u de SSH-gebruiker een wachtwoord voor de beheerder/HTTP-gebruiker voor het cluster, of (voor Linux gebaseerde clusters) gebruikt.
-
-**Oplossing**: Gebruik een wachtwoord dat voldoet aan de volgende criteria:
-
-* Moet ten minste 10 tekens lang zijn.
-* Moet ten minste één cijfer bevatten.
-* Moet ten minste één niet-alfanumeriek teken bevatten.
-* Moet ten minste één hoofdletters of kleine letter bevatten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -298,4 +444,3 @@ U hebt geleerd hoe u beperkte toegang opslag toevoegen aan uw HDInsight-cluster,
 * [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
 * [MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-[powershell]: /powershell/azureps-cmdlets-docs

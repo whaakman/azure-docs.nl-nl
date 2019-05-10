@@ -11,7 +11,7 @@ ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60195972"
@@ -127,7 +127,7 @@ Selecteer op de pagina **Bron voorbereiden** de optie **+ Configuratieserver**.
 
     1. Selecteer onder **Voordat u begint** de optie **De configuratieserver en processerver installeren**. Selecteer vervolgens **Volgende**.
     2. Selecteer in **Softwarelicentie van derden** de optie **Ik ga akkoord met de licentieovereenkomst van de derde partij**, en selecteer vervolgens **Volgende**.
-    3. Selecteer in **Registratie** de optie **Bladeren** en ga naar de locatie waar u het registratiesleutelbestand voor de kluis hebt opgeslagen. Selecteer **Volgende**.
+    3. Selecteer in **Registratie** de optie **Bladeren** en ga naar de locatie waar u het registratiesleutelbestand voor de kluis hebt opgeslagen. Selecteer **Next**.
     4. Selecteer in **Internetinstellingen** de optie **Rechtstreeks verbinding maken met Azure Site Recovery zonder proxyserver**. Selecteer vervolgens **Volgende**.
     5. Op de pagina **Controle op vereisten** worden controles voor verschillende items uitgevoerd. Wanneer dit is voltooid, selecteert u **Volgende**.
     6. Geef in **MySQL-configuratie** de vereiste wachtwoorden op. Selecteer vervolgens **Volgende**.

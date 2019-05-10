@@ -87,7 +87,7 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
 
     a. Selecteer **HDInsight** > **Spark in HDInsight (Scala)**.
 
-    b. Selecteer **Volgende**.
+    b. Selecteer **Next**.
 1. In de volgende **nieuw Project** in het dialoogvenster de volgende handelingen uit en selecteer vervolgens **voltooien**:
 
     - Geef een projectnaam en locatie op.

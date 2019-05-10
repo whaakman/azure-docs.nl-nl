@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020345"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465603"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
@@ -24,7 +24,7 @@ ms.locfileid: "65020345"
 
 **Nieuwe functies**
 
-* Sleutelwoord ontdekken functionaliteit (KWS) is beschikbaar voor Windows en Linux. KWS functionaliteit mogelijk in combinatie met elk type zijn microfoon, officiële KWS, maar ondersteunen is momenteel beperkt tot de microfoon matrices gevonden in de Azure Kinect DK-hardware of de SDK van de apparaten spraak.
+* Wake word (sleutelwoord ontdekken/KWS)-functionaliteit is nu beschikbaar voor Windows en Linux. KWS functionaliteit mogelijk in combinatie met elk type zijn microfoon, officiële KWS, maar ondersteunen is momenteel beperkt tot de microfoon matrices gevonden in de Azure Kinect DK-hardware of de SDK van de apparaten spraak.
 * Woordgroep hint functionaliteit is beschikbaar via de SDK. Zie voor meer informatie, [hier](how-to-phrase-lists.md).
 * Conversatie transcriptie functionaliteit is beschikbaar via de SDK. Zie [hier](conversation-transcription-service.md).
 * Ondersteuning voor virtuele voice-first-assistenten met behulp van het kanaal directe regel spraak toevoegen.
@@ -58,7 +58,7 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 **Nieuwe functies** 
 
 * De SDK biedt nu ondersteuning voor de Text to Speech-service als een beta-versie. Dit wordt ondersteund in Windows en Linux-bureaublad van C++ en C#. Raadpleeg voor meer informatie de [Text to Speech overzicht](text-to-speech.md#get-started-with-text-to-speech).
-* De SDK biedt nu ondersteuning voor MP3- en Opus/Ogg audiobestanden als invoerbestanden stream. Deze functie is alleen beschikbaar op Linux via C++ en C# en is momenteel in de bètafase (meer informatie [hier](how-to-use-compressed-audio-input-streams.md)).
+* De SDK biedt nu ondersteuning voor MP3- en Opus/OGG audiobestanden als invoerbestanden stream. Deze functie is alleen beschikbaar op Linux via C++ en C# en is momenteel in de bètafase (meer informatie [hier](how-to-use-codec-compressed-audio-input-streams.md)).
 * De spraak-SDK voor Java, .NET core, C++ en Objective-C hebben opgedaan met ondersteuning voor macOS. De Objective-C-ondersteuning voor macOS is momenteel in de bètafase bevindt.
 * iOS: De spraak-SDK voor iOS (Objective-C) is nu ook gepubliceerd als een CocoaPod.
 * JavaScript: Ondersteuning voor niet-standaard microfoon als een apparaat voor invoer.
@@ -119,7 +119,7 @@ De volgende nieuwe inhoud is beschikbaar in onze [voorbeeldopslagplaats](https:/
   * De SDK is nu gebouwd op basis van de iOS SDK versie 12.1.
   * De SDK biedt nu ondersteuning voor iOS versie 9.2 en hoger.
   * Referentiedocumentatie voor verbeteren en op te lossen verschillende namen van eigenschappen.
-* Javascript
+* JavaScript
   * Ondersteuning toevoegen voor het verbindingsobject.
   * Type definitiebestanden voor gebundelde JavaScript toevoegen
   * Eerste ondersteuning en de implementatie voor woordgroep hints.
@@ -151,7 +151,7 @@ Dit is een alleen-JavaScript-versie. Er zijn geen functies zijn toegevoegd. De v
 
 * Python
   * De bètaversie van Python-ondersteuning (3.5 en hoger) is beschikbaar in deze versie. Zie voor meer informatie, here](quickstart-python.md).
-* Javascript
+* JavaScript
   * De spraak-SDK voor JavaScript is open-source. De broncode is beschikbaar op [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * We bieden nu ondersteuning voor Node.js, kunt u meer informatie vinden [hier](quickstart-js-node.md).
   * De lengtebeperking voor audio-sessies is verwijderd, opnieuw verbinden gebeurt automatisch onder de dekking.

@@ -140,6 +140,8 @@
           href: azure-files-dynamic-pv.md
         - name: Azure Files - statisch
           href: azure-files-volume.md
+        - name: NFS Server - statisch
+          href: azure-nfs-volume.md
     - name: Netwerk configureren
       items:
         - name: Een bestaand virtueel netwerk maken of gebruiken

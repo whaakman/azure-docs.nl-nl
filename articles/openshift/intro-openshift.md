@@ -7,14 +7,14 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 6121c0f654a61a147e84f0697f3ddb06b7c5db92
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081043"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466172"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,9 +38,9 @@ Azure Red Hat OpenShift-knooppunten worden uitgevoerd op Azure virtual machines.
 
 ## <a name="virtual-networks-and-ingress"></a>Virtual Networks en inkomend verkeer
 
-U kunt een Azure Red Hat OpenShift-cluster in een bestaand virtueel netwerk kunt implementeren. In deze configuratie elke pod in het cluster een IP-adres in het virtuele netwerk is toegewezen en kan rechtstreeks communiceren met andere schillen in het cluster en andere knooppunten in het virtuele netwerk. Schillen kunnen ook verbinding maken met andere services in een gekoppeld virtueel netwerk, en on-premises netwerken via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) of site-naar-site (S2S) VPN-verbindingen.
+U kunt een cluster Azure Red Hat OpenShift verbinden met een bestaand virtueel netwerk via peering. In deze configuratie schillen via verbinding kunnen maken met andere services in een gekoppeld virtueel netwerk, en on-premises netwerken [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) of site-naar-site (S2S) VPN-verbindingen.
 
-Zie voor meer informatie, [maken van een cluster Microsoft Red Hat OpenShift op Azure](tutorial-create-cluster.md).
+Zie [van een cluster virtuele netwerk verbinden met een bestaand virtueel netwerk](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) voor meer informatie.
 
 ## <a name="kubernetes-certification"></a>Kubernetes-certificering
 

@@ -77,7 +77,7 @@ Als u wilt migreren SSIS-projecten /-pakketten naar Azure SQL Database-server of
 
     ![Implementatiepagina-Wizard-bron selecteren](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-source-page.png)
  
-8.  Selecteer **Volgende**.
+8.  Selecteer **Next**.
 9.  Op de **doel selecteren** pagina, geeft u de doellocatie voor uw project.
 
        a. Voer in het tekstvak Server, de volledig gekwalificeerde naam van de Azure SQL Database-server (< servernaam >. database.windows.net) of de naam van de Azure SQL Database Managed Instance (< server_name.dns_prefix >. database.windows.net).
@@ -95,7 +95,7 @@ Als u wilt migreren SSIS-projecten /-pakketten naar Azure SQL Database-server of
 
     ![Implementatie-pagina Wizard valideren](media/how-to-migrate-ssis-packages/dms-deployment-wizard-validate-page.png)
 
-11. Selecteer **Volgende**.
+11. Selecteer **Next**.
 
 12. Op de **bekijken** pagina, Controleer uw implementatie-instellingen.
 

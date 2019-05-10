@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
-ms.openlocfilehash: a9613f0839735457cf172fdacb0ef6a943ca27de
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7e9aebd3a49182f84e05473da9ed166499f34a28
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020778"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465711"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Quickstart: Nabootsen van gesproken tekst in C++ op Windows met behulp van de spraak-SDK
+
+Snelstartgidsen zijn ook beschikbaar voor [spraakherkenning](quickstart-cpp-windows.md) en [spraakomzetting](quickstart-translate-speech-cpp-windows.md).
 
 In dit artikel maakt u een C++-consoletoepassing voor Windows. U gebruikt de Cognitive Services [spraak SDK](speech-sdk.md) te bootsen spraak vanuit tekst in realtime en de gesproken tekst te spelen op uw PC's spreker. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717410"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408779"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Voorbereiden van de Azure-infrastructuur voor SAP HA met behulp van een Windows-failovercluster en een gedeelde schijf voor SAP ASCS/SCS
 
@@ -33,7 +33,7 @@ ms.locfileid: "60717410"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -389,7 +389,7 @@ Als u wilt de vereiste DNS IP-adressen instellen, voert u de volgende stappen ui
 
 In ons voorbeeld is de DNS-service geïnstalleerd en geconfigureerd op deze virtuele machines van Windows:
 
-| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Statisch IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Vast IP-adres |
 | --- | --- | --- | --- |
 | Eerste DNS-server |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
 | Tweede DNS-server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
@@ -427,7 +427,7 @@ Nadat u de virtuele machines te gebruiken in uw cluster implementeert, moet u st
 
 In ons voorbeeld hebben we deze virtuele machines en statische IP-adressen:
 
-| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Statisch IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Vast IP-adres |
 | --- | --- | --- | --- |
 | Eerste SAP application server-exemplaar |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
 | Tweede instantie van SAP-toepassingsserver |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
@@ -460,7 +460,7 @@ Een statisch IP-adres voor de interne Azure load balancer instellen:
 
 In ons voorbeeld hebben we twee interne Azure load balancers die deze statische IP-adressen:
 
-| Interne Azure load balancer-rol | Naam van de interne Azure load balancer | Statisch IP-adres |
+| Interne Azure load balancer-rol | Naam van de interne Azure load balancer | Vast IP-adres |
 | --- | --- | --- |
 | SAP ASCS/SCS-exemplaar van interne load balancer |pr1-lb-ascs |10.0.0.43 |
 | SAP DBMS interne load balancer |pr1-lb-dbms |10.0.0.33 |
@@ -526,7 +526,7 @@ Als u gebruiken van verschillende aantallen voor de SAP ASCS of SCS wilt, moet u
 2. Voor alle load balancer-regels die deel uitmaken van het SAP ASCS of SCS-exemplaar, kunt u deze waarden wijzigen:
 
    * Name
-   * Poort
+   * Port
    * Back-end-poort
 
    Bijvoorbeeld, als u het standaardnummer van de ASCS-instantie wijzigen van 00 tot en met 31 wilt, moet u de aanbrengen voor alle poorten die worden vermeld in tabel 1.
@@ -551,7 +551,7 @@ Azure Load Balancer heeft een interne load balancer die wordt gesloten verbindin
 
 Als u wilt toevoegen de registervermeldingen op beide clusterknooppunten van de SAP ASCS/SCS-exemplaar, eerst deze Windows registervermeldingen toevoegen op beide clusterknooppunten Windows voor SAP ASCS/SCS:
 
-| Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Naam van de variabele |`KeepAliveTime` |
 | Type variabele |REG_DWORD (decimaal) |
@@ -562,7 +562,7 @@ Als u wilt toevoegen de registervermeldingen op beide clusterknooppunten van de 
 
 Voegt u deze Windows-register-item op beide clusterknooppunten Windows voor SAP ASCS/SCS:
 
-| Pad | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Naam van de variabele |`KeepAliveInterval` |
 | Type variabele |REG_DWORD (decimaal) |
@@ -739,8 +739,9 @@ Een cluster bestandsshare-witness configureren, moet deze taken uitvoeren:
 
 Nadat u het Windows-failovercluster hebt geïnstalleerd, moet u bepaalde drempelwaarden wijzigen zodat ze detectie van failover naar een in Azure aan te passen. De parameters moeten worden gewijzigd, worden beschreven in [afstemmen failover cluster netwerk drempelwaarden][tuning-failover-cluster-network-thresholds]. Ervan uitgaande dat de twee virtuele machines die gezamenlijk de configuratie van het Windows-cluster voor ASCS/SCS zich in hetzelfde subnet bevinden, wijzig de volgende parameters voor deze waarden:
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 Deze instellingen zijn getest met klanten en bieden een goed compromis. Ze zijn flexibel genoeg, maar ze bieden ook failover die snel genoeg in reële fouten in een SAP-software of in een knooppunt of de VM mislukken.
 

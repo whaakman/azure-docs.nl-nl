@@ -131,7 +131,7 @@ Uw Azure SQL Database is nu gereed.
 
        ![HDInsight-Metastore-instellingen](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-12. Selecteer **Volgende**.
+12. Selecteer **Next**.
 13. Op de **samenvatting** venster **maken** om uw cluster te implementeren.
 
 ### <a name="verify-ssh-tunneling-setup"></a>Controleer of de SSH-tunneling van setup

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 8d421adfae335a976485ed463a69484a74be5b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0623a7aff15184822ee8abde0b3c751f8a105b5b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729525"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463584"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Veelgestelde vragen over virtuele Linux-Machines
 In dit artikel komen enkele veelgestelde vragen over Linux virtuele machines die in Azure met behulp van de Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Windows-versie van dit onderwerp, [Veelgestelde vragen over Windows Virtual Machines](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -36,7 +36,7 @@ Azure Managed Disks is de aanbevolen product voor schijfopslag gebruiken met Azu
 Azure storage-accounts kunnen ook opslag bieden voor de schijf van het besturingssysteem en eventuele gegevensschijven. Elke schijf is een VHD-bestand dat wordt opgeslagen als een pagina-blob. Zie [deze pagina](https://azure.microsoft.com/pricing/details/storage/) voor prijsinformatie.
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Hoe krijg ik toegang tot mijn virtuele machine?
-Een externe verbinding voor aanmelding bij de virtuele machine, met behulp van Secure Shell (SSH) tot stand brengen. Zie de instructies voor het verbinding maken [van Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [van Linux- en Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). SSH biedt standaard ondersteuning voor maximaal tien gelijktijdige verbindingen. U kunt dit aantal verhogen door het configuratiebestand te bewerken.
+Een externe verbinding aan te melden op de virtuele machine, met behulp van Secure Shell (SSH) tot stand brengen. Zie de instructies voor het verbinding maken [van Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [van Linux- en Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). SSH biedt standaard ondersteuning voor maximaal tien gelijktijdige verbindingen. U kunt dit aantal verhogen door het configuratiebestand te bewerken.
 
 Als u problemen ondervindt, bekijk dan [oplossen Secure Shell (SSH)-verbindingen](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -64,36 +64,26 @@ Gebruikersnamen moet 1 en 32 tekens lang zijn.
 
 De volgende gebruikersnamen zijn niet toegestaan:
 
-<table>
-    <tr>
-        <td style="text-align:center">beheerder </td><td style="text-align:center"> beheerder </td><td style="text-align:center"> user </td><td style="text-align:center"> Gebruiker1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> Gebruiker2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> gebruiker3</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">Back-up </td><td style="text-align:center"> console </td><td style="text-align:center"> David </td><td style="text-align:center"> Gast</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> eigenaar </td><td style="text-align:center"> hoofdmap </td><td style="text-align:center"> server</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">sql </td><td style="text-align:center"> ondersteuning </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Gebruiker4 </td><td style="text-align:center"> gebruiker5</td>
-    </tr>
-</table>
-
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Wat zijn de wachtwoordvereisten bij het maken van een virtuele machine?
-Wachtwoorden moeten 6-72 tekens lang zijn en aan 3 van de volgende 4 complexiteitsvereisten voldoen:
+
+Er zijn verschillende wachtwoord-vereisten voor de lengte, afhankelijk van het hulpprogramma dat u gebruikt:
+ - Portal - 12-72 tekens
+ - PowerShell - tussen 8 en 123 tekens
+ - CLI - tussen 12 en 123
+ 
+
+Wachtwoorden moeten voldoen aan 3 van de volgende 4 complexiteitsvereisten voldoen:
 
 * Lagere tekens bevatten
 * Bovenste tekens bevatten

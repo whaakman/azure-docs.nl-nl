@@ -245,7 +245,7 @@ De Azure File Sync-agent is een downloadbaar pakket waardoor Windows Server met 
 1. Sluit het PowerShell-venster als u dat nog niet hebt gedaan.
 1. Accepteer de standaardwaarden in de **Storage Sync Agent Setup Wizard**.
 1. Selecteer **Installeren**.
-1. Selecteer **Voltooien**.
+1. Selecteer **Finish**.
 
 U hebt de Azure Sync-service geïmplementeerd en de agent geïnstalleerd op de VM met Windows Server 2016 Datacenter. U moet de VM nu registreren bij de opslagsynchronisatieservice.
 

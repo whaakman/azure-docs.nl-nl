@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.date: 04/29/2019
+ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "61424906"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510791"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Over het maken en beheren lezen-replica's in Azure Database for MySQL met behulp van de Azure portal
 
-In dit artikel leert u hoe u kunt maken en beheren van meer replica's binnen dezelfde Azure-regio als het model in de Azure Database for MySQL-service met behulp van de Azure portal. De functie is momenteel in openbare preview.
+In dit artikel leert u hoe u kunt maken en beheren van lezen-replica's in de Azure Database for MySQL-service met behulp van de Azure portal.
+
+> [!IMPORTANT]
+> U kunt een lezen replica maken in dezelfde regio als de hoofd-server of in een andere Azure-regio van uw keuze. Regio-overschrijdende replicatie is momenteel in openbare preview.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,9 +41,15 @@ Een lezen-replica-server kan worden gemaakt met behulp van de volgende stappen u
 
    ![Azure Database voor MySQL - replicatie](./media/howto-read-replica-portal/add-replica.png)
 
-5. Voer een naam voor de replica-server en klikt u op **OK** om te bevestigen van het maken van de replica.
+5. Voer een naam voor de replica-server.
 
-   ![Azure Database voor MySQL - replica maken](./media/howto-read-replica-portal/create-replica.png)
+    ![Azure Database voor MySQL - naam van de Replica](./media/howto-read-replica-portal/replica-name.png)
+
+6. Selecteer de locatie voor de replica-server. U kunt een replica maken in een Azure-regio. De standaardlocatie is hetzelfde als de hoofd-server
+
+    ![Azure Database voor MySQL - locatie van de Replica](./media/howto-read-replica-portal/replica-location.png)
+
+7. Selecteer **OK** om te bevestigen van het maken van de replica.
 
 > [!NOTE]
 > Lezen-replica's worden gemaakt met de configuratie van de dezelfde server als de master. De configuratie van de replica-server kan worden gewijzigd nadat deze is gemaakt. Het wordt aanbevolen dat de configuratie van de replica-server moet worden opgeslagen op de waarden gelijk zijn aan of groter zijn dan het model om te controleren of dat de replica kan houden met de master.
@@ -115,7 +124,7 @@ Als een hoofd-server verwijderen uit de Azure-portal, gebruikt u de volgende sta
 
 2. Onder de **bewaking** sectie van de zijbalk Selecteer **metrische gegevens**:
 
-3. Selecteer **vertraging van replicatie in een paar seconden** in de vervolgkeuzelijst met beschikbare metrische gegevens. 
+3. Selecteer **vertraging van replicatie in een paar seconden** in de vervolgkeuzelijst met beschikbare metrische gegevens.
 
    ![Selecteer de vertraging van replicatie](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 

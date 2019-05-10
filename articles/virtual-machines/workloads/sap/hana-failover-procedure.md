@@ -89,7 +89,7 @@ De volgende stappen laten zien hoe om te herstellen van de productie-instantie v
 
    ![Het logboek initialiseren gebied instellen](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
-1. Selecteer **Voltooien**.
+1. Selecteer **Finish**.
 
    ![Het terugzetten van de DR voltooien](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 

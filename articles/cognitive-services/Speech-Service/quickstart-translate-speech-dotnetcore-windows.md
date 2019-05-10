@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: b0b0c256db3cc93e515b38bf7daad72b082d2d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa516c5050bfd53add761bea56c74a58057263c7
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621081"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465688"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Quickstart: spraak omzetten met de spraak-SDK voor .NET Core
+
+Snelstartgidsen zijn ook beschikbaar voor [spraak-naar-tekst](quickstart-csharp-dotnet-windows.md) en [tekst naar spraak](quickstart-text-to-speech-dotnet-windows.md).
 
 In deze quickstart maakt u een eenvoudige .NET Core-toepassing waarmee spraak van gebruikers via de microfoon van de computer wordt vastgelegd, waarna de spraak wordt omgezet en de omgezette tekst in realtime wordt getranscribeerd naar de opdrachtregel. Deze toepassing is bedoeld om te worden uitgevoerd op Windows 64-bits en is gemaakt met het [Speech-SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
 

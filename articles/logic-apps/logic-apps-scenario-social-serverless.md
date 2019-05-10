@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60508006"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464437"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Streaming customer insights-dashboard maken met Azure Logic Apps en Azure Functions
 
@@ -98,6 +98,9 @@ Als u wilt testen eenvoudig uw logische app, in Logic App Designer, kies **Trigg
 Naar de vorige weergave uitvoeringsgeschiedenis in Visual Studio of de Azure-portal: 
 
 * Open Visual Studio Cloud Explorer. Uw logische app zoeken, opent u het snelmenu van de app. Selecteer **Open uitvoeringsgeschiedenis**.
+
+  > [!NOTE]
+  > Voor Visual Studio 2019, kunnen Cloud Explorer Logic App Designer openen in Azure portal, maar kan nog ingesloten Logic App Designer openen of uitvoeringsgeschiedenis.
 
 * In de Azure-portal zoeken uw logische app. Kies in het menu van uw logische app **overzicht**. 
 

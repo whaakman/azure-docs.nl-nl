@@ -6,7 +6,7 @@ ms.date: 2/20/2019
 ms.author: erhopf
 ms.openlocfilehash: 9469fd6a1ffc61e90948178b105abd9f83e55fde
 ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65020691"
@@ -25,7 +25,7 @@ ms.locfileid: "65020691"
 
    ![Schermopname van het dialoogvenster Nieuw project, met Java-project gemarkeerd](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. De wizard Nieuw Java-project wordt gestart. Voer in het veld **Projectnaam** **quickstart** in en kies **JavaSE-1.8** als uitvoeringsomgeving. Selecteer **Voltooien**.
+1. De wizard Nieuw Java-project wordt gestart. Voer in het veld **Projectnaam** **quickstart** in en kies **JavaSE-1.8** als uitvoeringsomgeving. Selecteer **Finish**.
 
    ![Schermopname van de wizard Nieuw Java-project](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-03-create-java-project.png)
 

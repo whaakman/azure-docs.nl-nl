@@ -95,9 +95,9 @@ Er zijn twee manieren om gegevens te laden in Azure Data Explorer met behulp van
     * Geef de **toegangssleutel-ID** waarde.
     * Geef de **geheime toegangssleutel** waarde.
     * Selecteer **verbinding testen** voor het testen van de gekoppelde service-verbinding die u hebt gemaakt.
-    * Selecteer **Voltooien**.
+    * Selecteer **Finish**.
 
-1. In de **brongegevensarchief** pagina, ziet u de nieuwe AmazonS31-verbinding. Selecteer **Volgende**.
+1. In de **brongegevensarchief** pagina, ziet u de nieuwe AmazonS31-verbinding. Selecteer **Next**.
 
    ![De verbinding gemaakt van brongegevensarchief](media/data-factory-load-data/source-data-store-created-connection.png)
 
@@ -105,7 +105,7 @@ Er zijn twee manieren om gegevens te laden in Azure Data Explorer met behulp van
 
     1. Blader naar de map/bestand dat u wilt kopiëren. Selecteer de map/bestand.
     1. Selecteer de flattenhierarchy zoals vereist. Houd **binaire kopie** uitgeschakeld.
-    1. Selecteer **Volgende**.
+    1. Selecteer **Next**.
 
     ![Het invoerbestand of de invoermap kiezen](media/data-factory-load-data/source-choose-input-file.png)
 
@@ -165,7 +165,7 @@ Azure Data Explorer nieuwe gekoppelde service is gemaakt om te kopiëren van de 
 1. Op de pagina **Instellingen** doet u het volgende:
     * Stel de relevante **fault tolerantie-instellingen**.
     * **Prestatie-instellingen**: Schakel fasering is niet van toepassing. **Geavanceerde instellingen** enkele overwegingen kosten. Laat de eigenschap omdat als er geen specifieke behoeften.
-    * Selecteer **Volgende**.
+    * Selecteer **Next**.
 
     ![Instellingen van de gegevens kopiëren](media/data-factory-load-data/copy-data-settings.png)
 
