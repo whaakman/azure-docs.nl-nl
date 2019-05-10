@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205064"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507010"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -42,7 +42,7 @@ Zie voor meer informatie over de concepten die betrokken zijn bij de implementat
 
 ## <a name="prerequisites-for-deployment"></a>Vereisten voor implementatie
 
-- Een model. Als u geen een getraind model hebt, kunt u het model en afhankelijkheidsbestanden die zijn opgegeven in [in deze zelfstudie](http://aka.ms/azml-deploy-cloud).
+- Een model. Als u geen een getraind model hebt, kunt u het model en afhankelijkheidsbestanden die zijn opgegeven in [in deze zelfstudie](https://aka.ms/azml-deploy-cloud).
 
 - De [Azure CLI-extensie voor Machine Learning-service](reference-azure-machine-learning-cli.md), of de [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
@@ -458,7 +458,7 @@ Azure Machine Learning-Computing doelen worden gemaakt en beheerd door de Azure 
 Lees voor een overzicht van batch Deductie met Azure Machine Learning-Computing, de [hoe u Batch voorspellingen uitvoeren](how-to-run-batch-predictions.md) artikel.
 
 ## <a id="iotedge"></a> Deductie op IoT Edge
-Ondersteuning voor het implementeren van de rand is in preview. Zie voor meer informatie de [Azure Machine Learning implementeren als een IoT Edge-module](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) artikel.
+Ondersteuning voor het implementeren van de rand is in preview. Zie voor meer informatie de [Azure Machine Learning implementeren als een IoT Edge-module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Problemen met implementatie oplossen](how-to-troubleshoot-deployment.md)

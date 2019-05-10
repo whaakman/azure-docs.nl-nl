@@ -181,7 +181,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 8. Selecteer **Set up**.
 
-9. Selecteer **Volgende**.
+9. Selecteer **Next**.
 
 10. Er wordt nu gevraagd of u federatiegegevens wilt downloaden via een URL of wilt uploaden uit een bestand. Selecteer de optie **From URL**.
 
@@ -193,13 +193,13 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 13. Wanneer het downloaden is voltooid **,** wordt er een bevestigingsberichtweergegeven.
 
-14. Selecteer **Volgende**.
+14. Selecteer **Next**.
 
 15. Sla de optie **Test login** maar even over en klik op de knop **Next**.
 
 16. Selecteer **windowsaccountname** in de vervolgkeuzelijst **Claim to use**.
 
-17. Selecteer **Voltooien**.
+17. Selecteer **Finish**.
 
 18. U keert nu terug naar het scherm **Edit general settings**. Scrol omlaag naar de onderkant van de pagina en selecteer **OK** om de configuratie op te slaan.
 

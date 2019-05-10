@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993151"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507929"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor virtuele Linux-machines
 
@@ -46,7 +46,7 @@ Met geplande gebeurtenissen, kan uw toepassing detecteren wanneer onderhoud zal 
 
 Geplande gebeurtenissen biedt gebeurtenissen in de volgende gevallen gebruik:
 
-- [Platform gestart onderhoud](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (bijvoorbeeld virtuele machine opnieuw opstarten, live migratie of geheugen behoud van updates voor host)
+- [Platform gestart onderhoud](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (bijvoorbeeld virtuele machine opnieuw opstarten, live migratie of geheugen behoud van updates voor host)
 - Gedegradeerde hardware
 - Gebruiker gestart onderhoud (bijvoorbeeld, als gebruiker opnieuw wordt opgestart of implementeert een virtuele machine opnieuw)
 - [Verwijdering van de VM met lage prioriteit](https://azure.microsoft.com/blog/low-priority-scale-sets) in schaal ingesteld
@@ -55,7 +55,7 @@ Geplande gebeurtenissen biedt gebeurtenissen in de volgende gevallen gebruik:
 
   Metadata-Service wordt aangegeven dat informatie over het uitvoeren van virtuele machines met behulp van een REST-eindpunten die toegankelijk is vanuit de virtuele machine. De informatie is beschikbaar via een IP-adres nonroutable zodat deze niet zichtbaar buiten de virtuele machine wordt gemaakt.
 
-### <a name="scope"></a>Bereik
+### <a name="scope"></a>Scope
 Geplande gebeurtenissen worden geleverd aan:
 
 - Zelfstandige virtuele Machines.
@@ -79,7 +79,7 @@ De geplande gebeurtenissen-service is samengesteld. Versies zijn verplicht. de h
 | - | - | - | - | 
 | 2017-11-01 | Algemene beschikbaarheid | Alle | <li> Er is ondersteuning toegevoegd voor de VM met lage prioriteit verwijdering type gebeurtenis 'Voorrang nemen'<br> | 
 | 2017-08-01 | Algemene beschikbaarheid | Alle | <li> Voorafgegaan onderstrepingsteken verwijderd uit de namen van voorbeeldresources voor IaaS-VM 's<br><li>Metagegevens-header vereiste afgedwongen voor alle aanvragen | 
-| 2017-03-01 | Preview | Alle | <li>Eerste release
+| 2017-03-01 | Voorbeeld | Alle | <li>Eerste release
 
 
 > [!NOTE] 
@@ -132,7 +132,7 @@ In het geval waarbij er geplande gebeurtenissen, het antwoord bevat een matrix v
 | Gebeurtenis-id | Unieke id voor deze gebeurtenis. <br><br> Voorbeeld: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Type gebeurtenis | Impact die deze gebeurtenis is veroorzaakt. <br><br> Waarden: <br><ul><li> `Freeze`: De virtuele Machine is gepland voor een paar seconden onderbreken. CPU- en -connectiviteit wordt mogelijk onderbroken, maar er is geen invloed op geheugen of geopende bestanden.<li>`Reboot`: De virtuele Machine is gepland voor opnieuw opstarten (niet-permanent geheugen is verloren gegaan). <li>`Redeploy`: De virtuele Machine is gepland om te verplaatsen naar een ander knooppunt (tijdelijke schijven zijn verloren). <li>`Preempt`: De VM met lage prioriteit wordt verwijderd (tijdelijke schijven zijn verloren).|
 | ResourceType | Het type resource dat deze gebeurtenis is van invloed op. <br><br> Waarden: <ul><li>`VirtualMachine`|
-| Resources| Lijst met resources die deze gebeurtenis is van invloed op. De lijst kan worden gegarandeerd machines van maximaal één bevatten [updatedomein](manage-availability.md), maar deze bevat mogelijk niet alle machines in de UD. <br><br> Voorbeeld: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Bronnen| Lijst met resources die deze gebeurtenis is van invloed op. De lijst kan worden gegarandeerd machines van maximaal één bevatten [updatedomein](manage-availability.md), maar deze bevat mogelijk niet alle machines in de UD. <br><br> Voorbeeld: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | De status van deze gebeurtenis. <br><br> Waarden: <ul><li>`Scheduled`: Deze gebeurtenis is gepland om te starten na de tijd die is opgegeven de `NotBefore` eigenschap.<li>`Started`: Deze gebeurtenis is gestart.</ul> Geen `Completed` of soortgelijke status ooit wordt aangeboden. De gebeurtenis wordt niet meer worden geretourneerd wanneer de gebeurtenis is voltooid.
 | NotBefore| De tijd waarna deze gebeurtenis kunt starten. <br><br> Voorbeeld: <br><ul><li> Ma, 19 Sep 2016 18:29:47 GMT  |
 

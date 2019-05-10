@@ -1,23 +1,21 @@
 ---
 title: Stroomactiviteit gegevens uitvoeren in Azure Data Factory | Microsoft Docs
-description: De activiteit execute gegevensstroom wordt uitgevoerd gegevensstromen.
+description: Het uitvoeren van de gegevens stromen van binnen een data factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557569"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236674"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Stroomactiviteit gegevens uitvoeren in Azure Data Factory
 De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing (sandbox) pijplijnuitvoeringen en geactiveerde pijplijnuitvoeringen gebruiken.
@@ -59,15 +57,13 @@ Kies de compute-omgeving voor deze uitvoering van de gegevensstroom. De standaar
 
 ![Fouten opsporen in knop](media/data-flow/debugbutton.png "knop foutopsporing")
 
-Gebruik de gegevens stromen foutopsporing gebruikmaken van een verwarmde cluster voor het testen van uw gegevensstromen interactief in een pijplijn foutopsporing uitvoeren. Gebruik de optie Pipleine foutopsporing voor het testen van uw gegevensstromen binnen een pijplijn.
+Gebruik de gegevens stromen foutopsporing gebruikmaken van een verwarmde cluster voor het testen van uw gegevensstromen interactief in een pijplijn foutopsporing uitvoeren. Gebruik de optie pijplijn fouten opsporen in uw gegevensstromen binnen een pijplijn testen.
 
-### <a name="compute-type"></a>Rekentype
+### <a name="run-on"></a>Uitvoeren op
 
-U kunt kiezen voor algemene doeleinden, geoptimaliseerd voor berekenen of geoptimaliseerd voor geheugen, al naar gelang de vereisten van uw gegevensstroom.
+Dit is een verplicht veld waarmee wordt gedefinieerd welke Integration Runtime moet worden gebruikt voor de uitvoering van de activiteit gegevens stromen. Data Factory gebruikt standaard de standaard automatisch oplossen Azure Integration runtime. U kunt echter uw eigen Azure-Integratieruntimes die specifieke regio's definiëren, compute-type, kerngeheugens en TTL-waarde voor de uitvoering van de activiteit van de gegevensstroom maken.
 
-### <a name="core-count"></a>Aantal kernen
-
-Kies hoeveel cores u wilt toewijzen aan de taak. Voor kleinere taken werkt minder cores beter.
+De standaardinstelling voor uitvoeringen gegevensstroom is 8 kernen reken-en algemene met een TTL-waarde van 60 minuten.
 
 ### <a name="staging-area"></a>Faseringsgebied
 
@@ -82,6 +78,8 @@ Als u geparameteriseerde gegevenssets gebruikt, zorg er dan voor dat de paramete
 ### <a name="debugging-parameterized-data-flows"></a>Foutopsporing met parameters gegevensstromen
 
 U kunt alleen fouten opsporen gegevensstromen met geparameteriseerde gegevenssets van de pijplijn foutopsporing uitvoeren met behulp van de activiteit execute gegevensstroom. Interactieve debug-sessies in ADF-gegevensstroom op dit moment werken niet met geparameteriseerde gegevenssets. Uitvoeringen van pijplijn en foutopsporing wordt uitgevoerd, werkt met parameters.
+
+Er is een goede gewoonte om te maken van de gegevensstroom met een statische gegevensset zodat u beschikt over de metagegevens van de volledige kolom doorgifte beschikbaar op het moment van ontwerp. Vervolgens de statische gegevensset vervangen door een gegevensset voor dynamische parameters, wanneer u uw stroom gegevenspijplijn operationeel maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 

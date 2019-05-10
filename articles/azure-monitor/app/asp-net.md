@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691558"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472043"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -29,7 +29,7 @@ Voor de Setup zijn maar een paar klikken nodig in Visual Studio. U kunt kosten b
 Als u Application Insights wilt toevoegen aan uw ASP.NET-website, moet u het volgende doen:
 
 - [Installeer Visual Studio 2017 voor Windows ](https://www.visualstudio.com/downloads/) met de volgende workloads:
-    - ASP.NET-ontwikkeling en webontwikkeling
+    - ASP.NET- en webontwikkelworkload (de optionele componenten niet uitschakelen)
     - Azure-ontwikkeling
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.

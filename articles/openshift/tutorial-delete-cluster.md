@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/06/2019
-ms.openlocfilehash: ce4142bdcdfb7a9ab687bb60dca91d6aab00c7bd
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 679be645f3c97d30df65c9f410d286d243bca73b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080714"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466577"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Zelfstudie: Een Azure Red Hat OpenShift-cluster verwijderen
 
@@ -27,7 +27,7 @@ In deel drie van de serie leert u het volgende:
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
 > * [Een Azure Red Hat OpenShift-cluster maken](tutorial-create-cluster.md)
-> * [Een Azure Red Hat OpenShift-cluster schalen](tutorial-scale-cluster.md)
+> * [De schaal van een Azure Red Hat OpenShift-cluster wijzigen](tutorial-scale-cluster.md)
 > * Een Azure Red Hat OpenShift-cluster verwijderen
 
 ## <a name="prerequisites"></a>Vereisten
@@ -78,4 +78,4 @@ In dit deel van de zelfstudie hebt u het volgende geleerd:
 > [!div class="checklist"]
 > * Een Azure Red Hat OpenShift-cluster verwijderen
 
-Meer informatie over het gebruik van OpenShift met de officiële [Red Hat OpenShift-documentatie](https://access.redhat.com/documentation/openshift_dedicated/3/)
+Meer informatie over het gebruik van OpenShift met de officiële [Red Hat OpenShift-documentatie](https://docs.openshift.com/aro/welcome/index.html)

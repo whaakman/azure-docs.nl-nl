@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: cf1ea32e9b023db2e1a066c2baa6adf46ab51066
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152748"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415648"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Zelfstudie: Video's analyseren met Media Services v3 met behulp van .NET
 
@@ -100,7 +100,7 @@ Bij het coderen of verwerken van inhoud in Media Services is het een gangbaar pa
 
 #### <a name="transform"></a>Transformeren
 
-Bij het maken van een nieuw [transformatie](https://docs.microsoft.com/rest/api/media/transforms)-exemplaar, moet u opgeven wat u als uitvoer wilt maken. De vereiste parameter is een **TransformOutput**-object, zoals weergegeven in de bovenstaande code. Elke **transformatie-uitvoer** bevat een **voorinstelling**. **Voorinstelling** bevat stapsgewijze instructies van de video- en/of audioverwerkingen die moeten worden gebruikt voor het genereren van de gewenste **TransformOutput**. In dit voorbeeld wordt de voorinstelling **VideoAnalyzerPreset** gebruikt en de taal ('en-US') wordt doorgegeven aan de constructor. Met deze voorinstelling kunt u meerdere audio- en video-inzichten uit een video extraheren. U kunt de voorinstelling **AudioAnalyzerPreset** gebruiken als u meerdere audio-inzichten wilt extraheren uit een video. 
+Bij het maken van een nieuwe [transformeren](https://docs.microsoft.com/rest/api/media/transforms) exemplaar, moet u opgeven wat u wilt dat als een uitvoer produceren **TransformOutput** is een vereiste parameter. Elke **transformatie-uitvoer** bevat een **voorinstelling**. **Voorinstelling** bevat stapsgewijze instructies van de video- en/of audioverwerkingen die moeten worden gebruikt voor het genereren van de gewenste **TransformOutput**. In dit voorbeeld wordt de **VideoAnalyzerPreset** definitie wordt gebruikt en de taal ("en-US") wordt doorgegeven aan de constructor (`new VideoAnalyzerPreset("en-US")`). Met deze voorinstelling kunt u meerdere audio- en video-inzichten uit een video extraheren. U kunt de voorinstelling **AudioAnalyzerPreset** gebruiken als u meerdere audio-inzichten wilt extraheren uit een video. 
 
 Bij het maken van een **transformatie** moet u controleren of er al een bestaat met de methode **Ophalen** zoals weergegeven in de volgende code.  In Media Services-v3 retourneert de methode **Ophalen** van entiteiten **null** als de entiteit (een hoofdlettergevoelige controle van de naam).
 

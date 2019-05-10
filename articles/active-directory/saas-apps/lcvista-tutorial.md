@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 819f7d12f0554145295a0ec4f1eff7cb404d552d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60259100"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406984"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Zelfstudie: Azure Active Directory-integratie met LCVista
 
@@ -29,7 +29,7 @@ LCVista integreren met Azure AD biedt u de volgende voordelen:
 
 * U kunt beheren in Azure AD die toegang tot LCVista heeft.
 * U kunt uw gebruikers worden automatisch aangemeld LCVista (Single Sign-On) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -61,27 +61,27 @@ Voor het configureren van de integratie van LCVista in Azure AD, moet u LCVista 
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
 4. Typ in het zoekvak **LCVista**, selecteer **LCVista** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
      ![LCVista in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met LCVista op basis van een testgebruiker met de naam **Britta Simon**.
 Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in LCVista tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met LCVista, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Configureren van eenmalige aanmelding LCVista](#configure-lcvista-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. **[Maken van de testgebruiker LCVista](#create-lcvista-test-user)**  : als u wilt een equivalent van Britta Simon in LCVista die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -91,7 +91,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met LCVista, moet u de v
 
 1. In de [Azure-portal](https://portal.azure.com/)op de **LCVista** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -114,7 +114,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met LCVista, moet u de v
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+    ![De downloadkoppeling certificaat](common/metadataxml.png)
 
 6. Op de **LCVista instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
 
@@ -124,7 +124,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met LCVista, moet u de v
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
 ### <a name="configure-lcvista-single-sign-on"></a>LCVista voor eenmalige aanmelding configureren
 
@@ -140,17 +140,17 @@ Voor het configureren van Azure AD eenmalige aanmelding met LCVista, moet u de v
 
     c. Open de Metadata-XML-bestand dat u hebt gedownload vanuit Azure portal in Kladblok, Kopieer de waarde **X509Certificate** en plak deze in de **x509 certificaat** sectie.
 
-    d. In de **voornaam kenmerk** tekstvak, plak de waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. In de **voornaam kenmerk** tekstvak, plak de waarde `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. In de **laatste naamkenmerk** tekstvak, plak de waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. In de **laatste naamkenmerk** tekstvak, plak de waarde `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. In de **e kenmerk** tekstvak, plak de waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. In de **e kenmerk** tekstvak, plak de waarde `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    g. In de **kenmerk Username** tekstvak, plak de waarde `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    g. In de **kenmerk Username** tekstvak, plak de waarde `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. Klik op **Opslaan** om de instellingen op te slaan.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -203,7 +203,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-lcvista-test-user"></a>LCVista testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in LCVista. Werken met [LCVista Client ondersteuningsteam](https://lcvista.com/contact) om toe te voegen de gebruikers in het LCVista-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in LCVista. Werken met [LCVista Client ondersteuningsteam](https://lcvista.com/contact) om toe te voegen de gebruikers in het LCVista-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

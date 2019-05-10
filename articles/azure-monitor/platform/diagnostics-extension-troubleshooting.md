@@ -6,14 +6,14 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395047"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471787"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics oplossen van problemen
 Dit artikel bevat informatie over probleemoplossing die relevant is voor het gebruik van Azure Diagnostics. Zie voor meer informatie over Azure diagnostics [overzicht van Azure Diagnostics](diagnostics-extension-overview.md).
@@ -29,7 +29,7 @@ Dit artikel bevat informatie over probleemoplossing die relevant is voor het geb
 Hieronder vindt u de paden naar enkele belangrijke logboeken en artefacten. We verwijzen naar deze informatie in de rest van het document.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| Artefact | Pad |
+| Artefact | `Path` |
 | --- | --- |
 | **Azure Diagnostics-configuratiebestand** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Logboekbestanden** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ Hieronder vindt u de paden naar enkele belangrijke logboeken en artefacten. We v
 | **Het logboekbestand MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Virtuele machines
-| Artefact | Pad |
+| Artefact | `Path` |
 | --- | --- |
 | **Azure Diagnostics-configuratiebestand** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Logboekbestanden** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -48,7 +48,7 @@ Hieronder vindt u de paden naar enkele belangrijke logboeken en artefacten. We v
 | **Het configuratiebestand Monitoring agent** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Statusbestand** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure Diagnostics-extensie-pakket** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **Pad naar het hulpprogramma logboek verzameling** | C:\WindowsAzure\Packages |
+| **Pad naar het hulpprogramma logboek verzameling** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **Het logboekbestand MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Metrische gegevens worden niet weergegeven in de Azure-portal
@@ -232,7 +232,7 @@ De invoegtoepassing wordt de volgende afsluitcodes geretourneerd:
 
 | Afsluitcode | Description |
 | --- | --- |
-| 0 |Geslaagd. |
+| 0 |Voltooid. |
 | -1 |Algemene fout. |
 | -2 |De rcf kan bestand niet laden.<p>Deze interne fout moet alleen gebeuren als het startprogramma voor guest agent-invoegtoepassing handmatig onjuist wordt aangeroepen op de virtuele machine. |
 | -3 |Kan het configuratiebestand van de diagnostische gegevens niet laden.<p><p>Oplossing: Dit wordt veroorzaakt door een configuratiebestand niet doorgegeven schemavalidatie is. De oplossing is voor een configuratiebestand dat compatibel is met het schema. |

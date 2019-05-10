@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d297addbeffcc530ba676e4132f9f0ebdceac3c9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461495"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467001"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Quickstart: Spraak herkennen met de spraak-SDK voor .NET Framework (Windows)
 
+Snelstartgidsen zijn ook beschikbaar voor [tekst naar spraak](quickstart-text-to-speech-dotnet-windows.md) en [spraakomzetting](quickstart-translate-speech-dotnetframework-windows.md).
+
+Indien gewenst, kies een andere programmeertaal en/of de omgeving:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Gebruik deze handleiding om een spraakconsoletoepassing voor -naar-tekst te maken met .NET Framework voor Windows en de Speech-SDK. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.

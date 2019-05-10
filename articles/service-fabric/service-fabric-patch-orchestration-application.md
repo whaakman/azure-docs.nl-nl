@@ -14,25 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773363"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471763"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
-
-> [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
-> * [Linux](service-fabric-patch-orchestration-application-linux.md)
->
->
-
 
 > 
 > [!IMPORTANT]
 > De versie 1.2. * uit een ondersteuning op 30 April 2019. Voer een upgrade uit naar de nieuwste versie.
+
+> 
+> [!IMPORTANT]
+> Patch Orchestration-toepassing in linux is afgeschaft. Ga naar [schaalset voor virtuele Azure-machine afbeelding van automatische besturingssysteemupgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) voor het indelen van updates op linux.
 
 
 [Afbeelding van automatische besturingssysteemupgrades schaalset van virtuele machine van Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is de aanbevolen procedure voor uw besturingssystemen gevuld in Azure bewaren en de Patch Orchestration-toepassing (POA) is een wrapper rond Service Fabrics RepairManager systemen service waarmee configuratie op basis van OS patch plannen voor niet-Azure gehoste clusters. POA is niet vereist voor niet-Azure gehoste clusters, maar het patchinstallatie door de domeinen bijwerken plannen is vereist voor het vullen van Service Fabric-clusters hosts zonder uitvaltijd.
@@ -356,7 +353,7 @@ A. Nee, Patch orchestration-app kan niet worden gebruikt om patch cluster met é
 
 - De patch orchestration app verzamelt telemetrie om gebruik en prestaties te houden. Van de toepassing telemetrie volgt de instelling van de Service Fabric-runtime telemetrie (dit is standaard ingeschakeld).
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Een knooppunt komt niet back-up maken van status
 

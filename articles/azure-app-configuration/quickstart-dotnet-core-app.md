@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b8937b22054e55c8bfe7bc4c7726dc5bae5de6d8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0bf4aff8e0bae3e84e6383ec560dbfe67e30b994
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730455"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408727"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Maken van een .NET Core-app met App-configuratie
 
@@ -39,7 +39,7 @@ Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotn
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **sleutel/waarde-Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
 
     | Sleutel | Value |
     |---|---|
@@ -61,7 +61,7 @@ U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.co
 
 1. Voeg een verwijzing naar de `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-pakket met de volgende opdracht:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. Voer de volgende opdracht om te herstellen van pakketten voor uw project:
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728030"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506632"
 ---
 # <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
 
@@ -36,7 +36,7 @@ We horen graag van onze klanten, zodat we ons richten kunnen op het oplossen van
 | --- | --- |
 | Enkele veelvoorkomende HTTP-headers zijn niet opgegeven in de REST-API. |Als u Media Services-toepassingen ontwikkelen met behulp van de REST-API, vindt u dat sommige algemene HTTP-header-velden (met inbegrip van CLIENT-REQUEST-ID REQUEST-ID en de RETURN-CLIENT-REQUEST-ID) worden niet ondersteund. De headers worden toegevoegd in een toekomstige update. |
 | Percentage codering is niet toegestaan. |Media Services wordt de waarde van de eigenschap IAssetFile.Name bij het bouwen van URL's voor de streaming-inhoud (bijvoorbeeld `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Om deze reden is niet procent codering toegestaan. De waarde van de eigenschap Name geen van de volgende [procent-encoding-gereserveerde tekens](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] '. Ook kunnen er slechts één '. ' voor de bestandsnaamextensie. |
-| De methode ListBlobs die deel uitmaakt van de Azure Storage SDK versie 3.x mislukt. |Media Services genereert een SAS-URL's op basis van de [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) versie. Als u gebruikmaken van de Storage-SDK blobs vermelden in een blob-container wilt, gebruikt u de [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) methode die deel uitmaakt van de opslag-SDK-versie 2.x. |
+| De methode ListBlobs die deel uitmaakt van de Azure Storage SDK versie 3.x mislukt. |Media Services genereert een SAS-URL's op basis van de [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) versie. Als u gebruikmaken van de Storage-SDK blobs vermelden in een blob-container wilt, gebruikt u de [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) methode die deel uitmaakt van de opslag-SDK-versie 2.x. |
 | De Media Services beperking mechanisme Hiermee beperkt u het Resourcegebruik voor toepassingen die overmatige aanvragen naar de service versturen. De service kan de 'Service niet beschikbaar' 503 HTTP-statuscode geretourneerd. |Zie voor meer informatie, de beschrijving van de 503 HTTP-statuscode in [Media Services-foutcodes](media-services-encoding-error-codes.md). |
 | Wanneer u query uitvoeren op entiteiten, wordt een limiet van 1000 entiteiten in één keer omdat de openbare versie 2-REST queryresultaten tot 1000 resultaten beperkt geretourneerd. |Gebruik overslaan en nemen (.NET) / top (REST), zoals beschreven in [in dit voorbeeld .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) en [dit REST-API-voorbeeld](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Sommige clients kunnen afkomstig zijn via een probleem met herhaald label in het manifest Smooth Streaming. |Zie voor meer informatie, [in deze sectie](media-services-deliver-content-overview.md#known-issues). |

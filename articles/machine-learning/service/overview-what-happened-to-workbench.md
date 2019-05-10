@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8081be7f411b38d2418d893654a5691bd1ad7cc1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023655"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470635"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Wat is er gebeurd met Azure Machine Learning Workbench?
 
@@ -62,13 +62,13 @@ Het werkruimtedashboard van de portal wordt alleen ondersteund in Microsoft Edge
 
 [![Online-portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-Gebruik de nieuwe CLI en SDK om uw modellen te trainen en de uitvoeringsgeschiedenis bij te houden. Ga voor meer informatie naar de zelfstudie [ een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
+Start uw modellen trainen en de uitvoeringsgeschiedenis met behulp van de nieuwe SDK en CLI bij te houden. Ga voor meer informatie naar de zelfstudie [ een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
 ## <a name="can-i-still-prep-data"></a>Kan ik nog steeds gegevens voorbereiden?
 
 Uw bestaande gegevensvoorbereidingsbestanden zijn niet overdraagbaar naar de nieuwste versie omdat Machine Learning Workbench niet meer bestaat. U kunt echter nog steeds u een gegevensset van elke grootte voorbereiden voor modellering.   
 
-Met gegevenssets van elke grootte kunt u de [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) gebruiken om uw gegevens snel voor te bereiden voorafgaand aan het modelleren door Python-code te schrijven. 
+Met gegevenssets van elke grootte, kunt u de [pakket voor gegevensvoorbereiding van Azure Machine Learning](https://aka.ms/data-prep-sdk) snel uw gegevens voorafgaand aan het maken van modellering voorbereiden door Python-code te schrijven. 
 
 U kunt [deze zelfstudie](tutorial-data-prep.md) volgen voor meer informatie over het gebruik van de Azure Machine Learning Data Prep SDK.
 

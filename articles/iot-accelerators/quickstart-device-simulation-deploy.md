@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 0fcd688c9e5164522a482a4375c524a97a48d400
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105681"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467836"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Quickstart: een IoT-apparaatsimulatie in Azure implementeren en uitvoeren
 
@@ -36,7 +36,7 @@ Klik op de tegel **Apparaatsimulatie**:
 
 Klik op **Nu proberen** op de pagina waar Apparaatsimulatie wordt beschreven:
 
-![Klik op Nu proberen](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+![Klik op Nu proberen](./media/quickstart-device-simulation-deploy/devicesimulationpdp1.png)
 
 Voer een unieke **Oplossingsnaam** in op de pagina **Apparaatsimulatieoplossing maken**.
 
@@ -58,7 +58,7 @@ Klik op **Accepteren** om de machtigingsaanvraag te accepteren. Het oplossingsda
 
 Bij eerste opening ziet u het Apparaatsimulatie-dashboard met een **Aan de slag**-handleiding. Klik op de eerste tegel om een voorbeeldsimulatie te openen. Als u de **Aan de slag**-handleiding sluit, kunt u de **Eenvoudige voorbeeldsimulatie** openen vanuit het dashboard door op de tegel ervan te klikken:
 
-![Dashboard van de oplossing](./media/quickstart-device-simulation-deploy/GettingStarted.png)
+![Dashboard van de oplossing](./media/quickstart-device-simulation-deploy/gettingstarted1.png)
 
 ## <a name="sample-simulation"></a>Voorbeeldsimulatie
 
@@ -72,7 +72,7 @@ Omdat het een voorbeeldsimulatie is, kan deze niet worden bewerkt. De simulatie 
 | Telemetriefrequentie | 10 seconden                  |
 | Simulatieduur | Voor onbepaalde tijd uitvoeren            |
 
-![Simulatieconfiguratie](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![Simulatieconfiguratie](./media/quickstart-device-simulation-deploy/samplesimulation1.png)
 
 ## <a name="run-the-simulation"></a>De simulatie uitvoeren
 

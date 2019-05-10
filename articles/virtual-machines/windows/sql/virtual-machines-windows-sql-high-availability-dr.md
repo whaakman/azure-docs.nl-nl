@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 8a9d4699ba625f575cdcba2a85af900a7c04843e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 379d3076559643b1445412074ed689e2e94a5ab2
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924462"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408814"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Maximale beschikbaarheid en herstel na noodgeval voor SQL Server in SQL Server Virtual Machine
 
@@ -59,7 +59,7 @@ U kunt een oplossing voor noodherstel voor SQL Server-databases in Azure met beh
 | Technologie | Voorbeeldarchitecturen |
 | --- | --- |
 | **Beschikbaarheidsgroepen** |De beschikbaarheidsreplica is uitgevoerd in meerdere datacenters in Azure VM's voor herstel na noodgevallen. Deze oplossing regio-overschrijdende beveiligt tegen uitval van het volledige site. <br/> ![Beschikbaarheidsgroepen](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Binnen een regio moet alle replica's binnen dezelfde cloudservice en hetzelfde VNet. Omdat elke regio een apart VNet, vereisen deze oplossingen een VNet naar VNet-connectiviteit. Zie voor meer informatie, [configureren van een VNet-naar-VNet-verbinding met de Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Zie voor gedetailleerde instructies [configureren van een beschikbaarheidsgroep van SQL Server op Azure Virtual Machines in verschillende regio's](virtual-machines-windows-portal-sql-availability-group-dr.md).|
-| **Databasespiegeling** |Principal en gespiegelde en servers die worden uitgevoerd in verschillende datacenters voor herstel na noodgevallen. U moet implementeren met behulp van certificaten. <br/>![Databasespiegeling](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
+| **Databasespiegeling** |Principal en gespiegelde en servers die worden uitgevoerd in verschillende datacenters voor herstel na noodgevallen. U moet implementeren met behulp van certificaten. SQL Server-database mirroring wordt niet ondersteund voor SQL Server 2008 of SQL Server 2008 R2 op een Azure-VM. <br/>![Databasespiegeling](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Back-up en herstel met Azure Blob Storage-Service** |Productiedatabases back-ups rechtstreeks naar de blob-opslag in een ander datacenter voor herstel na noodgevallen.<br/>![Back-up en herstel](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Zie voor meer informatie, [back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Repliceren en failover-SQL-Server naar Azure met Azure Site Recovery** |Productie SQL Server van een Azure-datacenter gerepliceerd rechtstreeks naar Azure Storage van andere Azure-datacenter voor herstel na noodgevallen.<br/>![Repliceren met Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>Zie voor meer informatie, [SQL Server beveiligen met behulp van SQL Server-noodherstel en Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 
@@ -70,7 +70,7 @@ U kunt een oplossing voor noodherstel voor SQL Server-databases in een hybride I
 | Technologie | Voorbeeldarchitecturen |
 | --- | --- |
 | **Beschikbaarheidsgroepen** |Sommige beschikbaarheidsreplica's die worden uitgevoerd in Azure VM's en andere replica's met on-premises voor herstel na noodgevallen voor cross-site. De productiesite mag on-premises of in een Azure-datacenter.<br/>![Beschikbaarheidsgroepen](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Omdat alle beschikbare replica's moeten zich in hetzelfde failovercluster, moet het cluster beide netwerken (een meerdere subnetten failover-cluster) omvatten. Deze configuratie moet een VPN-verbinding tussen Azure en de on-premises netwerk.<br/><br/>Voor succesvolle noodherstel van uw databases, moet u ook een replicadomeincontroller op de site voor noodherstel installeren.<br/><br/>Het is mogelijk een Azure-replica toevoegen aan een bestaande AlwaysOn-beschikbaarheidsgroep met de Wizard Replica toevoegen in SSMS. Zie de zelfstudie voor meer informatie: De AlwaysOn-beschikbaarheidsgroep uitbreiden naar Azure. |
-| **Databasespiegeling** |Een partner die worden uitgevoerd in een Azure-VM en de andere actieve on-premises voor cross-site-noodherstel met behulp van certificaten. Partners hoeft niet in hetzelfde Active Directory-domein en er is geen VPN-verbinding is vereist.<br/>![Databasespiegeling](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Een andere database mirroring scenario omvat een partner die worden uitgevoerd in een Azure-VM en de andere actieve on-premises in hetzelfde Active Directory-domein voor herstel na noodgevallen voor cross-site. Een [VPN-verbinding tussen de Azure-netwerk en de on-premises netwerk](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) is vereist.<br/><br/>Voor succesvolle noodherstel van uw databases, moet u ook een replicadomeincontroller op de site voor noodherstel installeren. |
+| **Databasespiegeling** |Een partner die worden uitgevoerd in een Azure-VM en de andere actieve on-premises voor cross-site-noodherstel met behulp van certificaten. Partners hoeft niet in hetzelfde Active Directory-domein en er is geen VPN-verbinding is vereist.<br/>![Databasespiegeling](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Een andere database mirroring scenario omvat een partner die worden uitgevoerd in een Azure-VM en de andere actieve on-premises in hetzelfde Active Directory-domein voor herstel na noodgevallen voor cross-site. Een [VPN-verbinding tussen de Azure-netwerk en de on-premises netwerk](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) is vereist.<br/><br/>Voor succesvolle noodherstel van uw databases, moet u ook een replicadomeincontroller op de site voor noodherstel installeren. SQL Server-database mirroring wordt niet ondersteund voor SQL Server 2008 of SQL Server 2008 R2 op een Azure-VM. |
 | **Back-upfunctie** |Een server die wordt uitgevoerd in een Azure-VM en de andere actieve on-premises voor herstel na noodgevallen voor cross-site. Back-upfunctie hangt af van het Windows delen van bestanden, zodat een VPN-verbinding tussen de Azure-netwerk en de on-premises-netwerk vereist is.<br/>![Back-upfunctie](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Voor succesvolle noodherstel van uw databases, moet u ook een replicadomeincontroller op de site voor noodherstel installeren. |
 | **Back-up en herstel met Azure Blob Storage-Service** |On-premises productiedatabases back-ups rechtstreeks op de Azure blob-opslag voor herstel na noodgevallen.<br/>![Back-up en herstel](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Zie voor meer informatie, [back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Repliceren en failover-SQL-Server naar Azure met Azure Site Recovery** |On-premises productie SQL-Server gerepliceerd rechtstreeks naar Azure Storage voor herstel na noodgevallen.<br/>![Repliceren met Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>Zie voor meer informatie, [SQL Server beveiligen met behulp van SQL Server-noodherstel en Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
@@ -137,7 +137,7 @@ Zie de informatie in voor de beste prestaties van SQL Server wordt uitgevoerd op
 
 Zie voor andere onderwerpen met betrekking tot SQL Server wordt uitgevoerd in Azure VM's, [SQL Server op Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-### <a name="other-resources"></a>Meer informatie
+### <a name="other-resources"></a>Andere resources
 * [Een nieuwe Active Directory-forest installeren in Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Failover-Cluster voor beschikbaarheidsgroepen in virtuele Azure-machine maken](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 

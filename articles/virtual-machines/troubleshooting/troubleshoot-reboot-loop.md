@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318982"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472296"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Windows lus voor opnieuw opstarten op een Azure VM
 Dit artikel beschrijft de lus opnieuw opstarten die kan optreden op een Windows virtuele Machine (VM) in Microsoft Azure.
@@ -102,6 +102,8 @@ Dit probleem op te lossen [maakt u een back-up van de besturingssysteemschijf](.
 De virtuele machine herstellen naar de laatste bekende juiste configuratie, volg de stappen in [Azure Windows VM starten met de laatst bekende juiste configuratie](https://support.microsoft.com/help/4016731/).
 
 ### <a name="solution-for-cause-3"></a>Oplossing voor oorzaak 3
+>[!NOTE]
+>De volgende procedure moet alleen worden gebruikt als laatste resource. Tijdens het terugzetten vanuit regback mogelijk toegang herstellen naar de machine, het besturingssysteem wordt niet beschouwd als stabiel omdat er gegevens verloren gaan in het register tussen de tijdstempel van de component en de huidige dag. U moet een nieuwe virtuele machine maken en plannen om gegevens te migreren.
 
 1. Zodra de schijf is gekoppeld aan een virtuele machine voor probleemoplossing, zorg ervoor dat de schijf is gemarkeerd als **Online** in de Schijfbeheer-console.
 
@@ -113,5 +115,4 @@ De virtuele machine herstellen naar de laatste bekende juiste configuratie, volg
 
 5. [Maak een nieuwe VM op basis van de besturingssysteemschijf](../windows/create-vm-specialized.md).
 
->[!NOTE]
->De volgende procedure moet alleen worden gebruikt als laatste resource. Tijdens het terugzetten vanuit regback mogelijk toegang herstellen naar de machine, het besturingssysteem wordt niet beschouwd als stabiel omdat er gegevens verloren gaan in het register tussen de tijdstempel van de component en de huidige dag. U moet een nieuwe virtuele machine maken en plannen om gegevens te migreren.
+

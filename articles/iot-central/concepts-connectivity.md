@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887455"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467812"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -107,7 +107,7 @@ Een belangrijke scenario IoT Central kunnen is bedoeld voor OEM's voor de massa 
 
 Het volgende diagram geeft een overzicht van deze stroom:
 
-![Verbindingsinstellingen](media/concepts-connectivity/device-connection-flow.png)
+![Verbindingsinstellingen](media/concepts-connectivity/device-connection-flow1.png)
 
 De volgende stappen wordt dit proces in meer detail beschreven. De stappen verschillen enigszins, afhankelijk van of u van SAS- of x.509-certificaten voor verificatie van apparaten gebruikmaakt:
 

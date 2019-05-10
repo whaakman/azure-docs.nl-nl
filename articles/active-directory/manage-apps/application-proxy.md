@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292590"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506642"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Externe toegang tot on-premises toepassingen via de toepassingsproxy van Azure Active Directory 
 
@@ -44,6 +44,8 @@ Proxy voor servicetoepassing werkt met:
 
 Application Proxy biedt ondersteuning voor eenmalige aanmelding. Zie voor meer informatie over de ondersteunde methoden [kiezen van een methode voor eenmalige aanmelding](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
+De toepassingsproxy wordt aanbevolen voor externe externe gebruikers toegang geven tot interne bronnen. Toepassingsproxy vervangt de noodzaak voor een VPN of een omgekeerde proxy. Het is niet bedoeld voor interne gebruikers op het bedrijfsnetwerk bevinden.  Interne gebruikers die gebruikmaken van onnodig Application Proxy kunnen leiden tot onverwachte of ongewenste prestatieproblemen.
+
 ## <a name="how-application-proxy-works"></a>De werking van de toepassingsproxy
 
 Het volgende diagram laat zien hoe Azure AD en Application Proxy werken samen voor single sign-on bij on-premises toepassingen.
@@ -57,7 +59,7 @@ Het volgende diagram laat zien hoe Azure AD en Application Proxy werken samen vo
 5. De connector stuurt de aanvraag naar de on-premises toepassing.  
 6. Het antwoord is verzonden via de connector en de service voor toepassingsproxy voor de gebruiker.
 
-| Onderdeel | Beschrijving |
+| Onderdeel | Description |
 | --------- | ----------- |
 | Eindpunt  | Het eindpunt is een URL of een [eindgebruikersportal](end-user-experiences.md). Gebruikers kunnen toepassingen terwijl buiten uw netwerk bereiken door het openen van een externe URL. Gebruikers in uw netwerk kunnen de toepassing openen via een URL of een eindgebruikersportal. Wanneer gebruikers naar een van deze eindpunten gaat, worden ze verifiëren in Azure AD en vervolgens worden gerouteerd via de connector op de on-premises toepassing.|
 | Azure AD | Azure AD voert de verificatie met behulp van de tenant-directory die zijn opgeslagen in de cloud. |

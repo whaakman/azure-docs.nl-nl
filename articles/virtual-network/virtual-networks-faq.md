@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205720"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508409"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -67,7 +67,9 @@ Ja. Zie voor meer informatie over het openbare IP-adresbereiken [maken van een v
 Ja. Zie [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) voor meer informatie. Subnet-adresruimten elkaar niet overlappen elkaar.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Zijn er beperkingen voor het gebruik van IP-adressen binnen deze subnetten?
-Ja. In Azure worden vijf IP-adressen gereserveerd in elk subnet. De eerste en laatste IP-adressen van elk subnet zijn gereserveerd voor protocolconformiteit en de x.x.x.1 x.x.x.3-adressen van elk subnet, die worden gebruikt voor Azure-services.
+Ja. In Azure worden vijf IP-adressen gereserveerd in elk subnet. Dit zijn x.x.x.0 x.x.x.3 en het laatste adres van het subnet.    
+- x.x.x.0 en het laatste adres van het subnet is gereserveerd voor conformiteit van protocol.
+- x.x.x.1 x.x.x.3 is gereserveerd in elk subnet voor Azure-services.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Hoe klein en hoe groot kunnen zijn VNets en subnetten?
 Het kleinste ondersteunde subnet /29 en de grootste/8 die is (met behulp van definities van de CIDR-subnetmasker).
@@ -238,17 +240,17 @@ Als de twee virtuele netwerken zich in verschillende regio's (wereldwijde VNet-P
 De volgende bronnen gebruiken Basic Load Balancers, wat betekent dat u aan hen kan niet communiceren via het wereldwijde VNet-Peering:
 - Virtuele machines achter de basisversie van Load Balancers
 - VM-Schaalsets met basisversie van Load Balancers 
-- Redis Cache 
+- Redis-cache 
 - Application Gateway (v1) SKU
 - Service Fabric
 - SQL MI
-- API-Managemenet
+- API Management
 - Active Directory Domain Services (ADDS)
 - Logic Apps
 - HD Insight
 -   Azure Batch
 - AKS
-- App Service-omgeving
+- App Service Environment
 
 U kunt verbinding maken met deze resource via ExpressRoute of VNet-naar-VNet via VNet-Gateways.
 
@@ -281,6 +283,9 @@ Nee. Transitieve peering wordt niet ondersteund. U moet het peer-VNetA en c. voo
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Zijn er bandbreedtebeperkingen voor peering-verbindingen?
 Nee. VNet-peering, lokaal of globaal, legt bandbreedtebeperkingen voor. Bandbreedte wordt alleen beperkt door de virtuele machine of de compute-resource.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Hoe kan ik VNet-Peering problemen oplossen?
+Hier volgt een [gids voor problemen oplossen] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) kunt u proberen.
 
 ## <a name="virtual-network-tap"></a>Virtual Network TAP
 

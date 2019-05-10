@@ -14,24 +14,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: f768582e8ef32bc654a2f797c5c7a481a26fb643
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 012f4e479a5b8ea2e3ddea1bfde70ab10ee4e834
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734180"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467049"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hoe u Windows-installatiekopieën voor virtuele machines maken in Azure met Packer
 Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie die u de distributie van Windows en versie van het besturingssysteem definieert. Installatiekopieën kunnen bevatten vooraf geïnstalleerde toepassingen en configuraties. De Azure Marketplace bevat vele installatiekopieën die eerste en derde partij voor de meest voorkomende OS en omgevingen met toepassingen, of maak uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u de open-source-hulpprogramma [Packer](https://www.packer.io/) om te definiëren en maken van aangepaste installatiekopieën in Azure.
 
 In dit artikel is laatste over het gebruik van 21-2/2019 getest door de [Az PowerShell-module](https://docs.microsoft.com/powershell/azure/install-az-ps) versie 1.3.0 en [Packer](https://www.packer.io/docs/install/index.html) versie 1.3.4.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+> [!NOTE]
+> Azure heeft nu een service, Azure Image Builder (preview), voor het definiëren en het maken van uw eigen aangepaste installatiekopieën. Azure Image Builder is gebouwd op Packer, zodat u ook uw bestaande Packer provisioner shellscripts met het gebruiken kunt. Als u wilt aan de slag met Azure Image Builder, Zie [een Windows-VM maken met Azure Image Builder](image-builder.md).
 
 ## <a name="create-azure-resource-group"></a>Azure-resourcegroep maken
 Tijdens het bouwproces maakt Packer tijdelijke Azure-resources zoals het samenstellen van de bron-VM. Om vast te leggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het bouwproces Packer wordt opgeslagen in deze resourcegroep.
 
-Maak een resourcegroep met [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Maak een resourcegroep met behulp van de opdracht [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurepowershell
 $rgName = "mypackerGroup"
@@ -248,6 +249,4 @@ Als u wilt zien van uw virtuele machine, die de IIS-installatie van de provision
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit voorbeeld gebruikt u Packer om u te maken van een VM-installatiekopie met IIS is al geïnstalleerd. U kunt deze VM-installatiekopie samen met bestaande werkstromen voor de implementatie, zoals uw app implementeren in virtuele machines die zijn gemaakt op basis van de installatiekopie met Azure DevOps-Services, Ansible, Chef of Puppet.
-
-Zie voor aanvullende Packer voorbeeldsjablonen voor andere Windows-versies, [deze GitHub-opslagplaats](https://github.com/hashicorp/packer/tree/master/examples/azure).
+U kunt ook bestaande Packer provisioner scripts met [Azure Image Builder](image-builder.md).

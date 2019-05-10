@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: bf5126360140580282ebc1cb2bf73e1afa4d8829
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920531"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407594"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -158,8 +158,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 |Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|uit|De tekenreeks die moet worden gezocht.|Ja|N/A|
-|tot|De vervangende tekenreeks. Geef een nul lengte van de vervangende tekenreeks als u wilt verwijderen van de zoektekenreeks.|Ja|N/A|
+|from|De tekenreeks die moet worden gezocht.|Ja|N/A|
+|aan|De vervangende tekenreeks. Geef een nul lengte van de vervangende tekenreeks als u wilt verwijderen van de zoektekenreeks.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -375,7 +375,7 @@ De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [Liquid](
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>JSON converteren naar SOAP met behulp van een vloeistof sjabloon
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>

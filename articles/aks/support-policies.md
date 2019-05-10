@@ -1,163 +1,164 @@
 ---
-title: Ondersteuning voor Azure Kubernetes Service (AKS)-beleid
-description: Meer informatie over het ondersteuningsbeleid van Azure Kubernetes Service (AKS), gedeelde verantwoordelijkheid, Alpha-voorbeeld/bèta-functies.
+title: Ondersteuningsbeleid voor Azure Kubernetes Service (AKS)
+description: Meer informatie over Azure Kubernetes Service (AKS) ondersteuningsbeleid, gedeelde verantwoordelijkheid en functies die zich in de Preview-versie (of alpha of bèta).
 services: container-service
 author: jnoller
 ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: f173fc7c794729eae8c60cceefa88d153800a816
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032466"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506688"
 ---
-# <a name="azure-kubernetes-service-aks-support-policies"></a>Ondersteuning voor Azure Kubernetes Service (AKS)-beleid
+# <a name="support-policies-for-azure-kubernetes-service"></a>Ondersteuningsbeleid voor Azure Kubernetes Service
 
-Dit artikel bevat informatie over AKS technische ondersteuning van beleid, beperkingen en meer informatie, waaronder het beheer voor worker-knooppunt, beheerd besturingselement vlak onderdelen, open-source-onderdelen van derden en beveiliging / patch-beheer.
+In dit artikel bevat informatie over beleid voor technische ondersteuning en beperkingen voor Azure Kubernetes Service (AKS). Het artikel wordt ook uitgelegd worker-knooppunt management, beheerde besturingselement vlak onderdelen, open-source-onderdelen van derden en beveiligings- of patch management.
 
-## <a name="service-updates--releases"></a>Service-updates en versies
+## <a name="service-updates-and-releases"></a>Service-updates en versies
 
-* Zie voor release-informatie, de [AKS releaseopmerkingen][1]
-* Zie voor functies in public preview [AKS-Preview-functies en verwante projecten][2]
+* Release-informatie, Zie [AKS opmerkingen bij de release](https://github.com/Azure/AKS/releases).
+* Zie voor meer informatie over functies in preview [AKS preview-functies en verwante projecten](https://github.com/Azure/AKS/blob/master/previews.md).
 
-## <a name="what-is-managed"></a>Wat wordt 'beheerd'
+## <a name="managed-features-in-aks"></a>Functies in AKS beheerd
 
-In tegenstelling tot IaaS cloud basisonderdelen zoals compute of netwerken, die beschikbaar maakt op laag niveau besturingselementen en opties voor het aanpassen voor gebruikers en biedt daardoor, de AKS-service biedt een gebruiksklare Kubernetes-implementatie die staat voor de algemene set configuraties en mogelijkheden die nodig zijn voor Kubernetes. Klanten die gebruikmaken van deze service hebben een beperkt aantal aanpassingen-, implementatie- en andere opties. Dit betekent ook klanten hoeven geen zorgen te maken of rechtstreeks beheren van de Kubernetes-cluster (s).
+Basis-infrastructuur als een service (IaaS)-cloud-onderdelen, zoals rekencapaciteit of netwerkonderdelen, geeft gebruikers toegang tot op laag niveau besturingselementen en opties voor het aanpassen. AKS biedt daarentegen een kant-en Kubernetes-implementatie waarmee klanten de algemene set configuraties en mogelijkheden die ze nodig hebben. AKS-klanten hebben beperkte aanpassing-, implementatie- en andere opties. Deze klanten hoeft te bekommeren of Kubernetes-clusters rechtstreeks beheren.
 
-Met AKS, wordt de klant een volledig beheerde **controlelaag** : waar het besturingselement vlak bevat alle onderdelen en services die nodig zijn om te werken en Kubernetes-clusters bieden aan eindgebruikers. Alle Kubernetes-onderdelen worden onderhouden en beheerd door Microsoft.
+Met AKS, wordt de klant een volledig beheerde *controlelaag*. Het besturingselement vlak bevat alle van de onderdelen en services die de klant moet werken en Kubernetes-clusters bieden aan eindgebruikers. Alle Kubernetes-onderdelen worden onderhouden en beheerd door Microsoft.
 
-Met de beheerde **controlelaag** de volgende onderdelen worden beheerd en bewaakt door Microsoft:
+Microsoft beheert en bewaakt de volgende onderdelen via het deelvenster Beheer:
 
-* Kubelet / Kubernetes API (s)
-* Etcd of een compatibel sleutel/waarde-archief – zoals quality of service, schaalbaarheid en runtime
-* DNS-services (bijvoorbeeld kube-DNS-/ CoreDNS)
-* Kubernetes-Proxy/netwerken
+* Kubelet- of Kubernetes API-servers
+* Etcd of een compatibel sleutel / waarde-archief, Quality of Service (QoS), schaalbaarheid en runtime te leveren
+* DNS-services (bijvoorbeeld kube-DNS- of CoreDNS)
+* Kubernetes-proxy of netwerken
 
-AKS is niet een 100% beheerd **cluster** oplossing. Bepaalde onderdelen (zoals worker-knooppunten) zijn bepaalde **gedeelde verantwoordelijkheden** gevallen waarin bewerkingen voor het onderhouden van het AKS-cluster gebruikersinteractie is vereist. Bijvoorbeeld: worker-knooppunt OS security patch-toepassing.
+AKS is een volledig beheerde oplossing niet. Sommige onderdelen, zoals worker-knooppunten, *gedeelde verantwoordelijkheid*, waar gebruikers moeten ten behoeve van het AKS-cluster. Invoer van de gebruiker is vereist, bijvoorbeeld een patch worker-knooppunt besturingssysteem (OS) beveiliging toe te passen.
 
- **Beheerde**, betekent dat Microsoft en het AKS-team heeft geïmplementeerd, werkt en is verantwoordelijk voor de beschikbaarheid en de functionaliteit van deze services. **Deze onderdelen kunnen niet worden gewijzigd door klanten**. Aanpassing is beperkt tot een consistent en schaalbaar gebruikerservaring te waarborgen. Zie voor een volledig aanpasbare oplossing [AKS-Engine](https://github.com/Azure/aks-engine).
+De services zijn *beheerd* in de zin dat Microsoft en het AKS-team wordt geïmplementeerd, werkt, en is verantwoordelijk voor de servicebeschikbaarheid en -functionaliteit. Klanten kunnen deze beheerde onderdelen niet wijzigen. Microsoft beperkt aanpassen om te controleren of een consistent en schaalbaar gebruikerservaring. Zie voor een volledig aanpasbare oplossing [AKS Engine](https://github.com/Azure/aks-engine).
 
 > [!NOTE]
-> Het is belangrijk te weten dat Azure Kubernetes Service worker-knooppunten in de Azure Portal als gewone Azure IaaS-Resources weergegeven, hoewel deze virtuele Machines worden geïmplementeerd in een aangepaste Azure-resourcegroep (voorafgegaan door MC\\*). Een gebruiker kan de bewerking alter, SSH naar ze net als bij normale virtuele machines (u kunt echter niet, wijzigen de OS-basisinstallatiekopie, en wijzigingen kunnen niet behouden tijdens een update of opnieuw opstarten), en u kunt aan andere Azure-resource zijn gekoppeld, of ze anders te wijzigen. **Hierdoor van buiten-band-beheer en aanpassingen betekent echter dat het AKS-cluster zelf hebben worden kan. Vermijd worker-knooppunt wijziging, tenzij geleid door Microsoft Support.**
+> AKS worker-knooppunten worden in de Azure-portal weergegeven als gewone Azure IaaS-resources. Maar deze virtuele machines worden geïmplementeerd in een aangepaste Azure-resourcegroep (voorafgegaan door MC\\*). Het is mogelijk om te wijzigen van AKS worker-knooppunten. Bijvoorbeeld, u kunt Secure Shell (SSH) wijzigen AKS worker-knooppunten van de manier waarop u normale virtuele machines wijzigen (u kunt echter niet, wijzigen de OS-basisinstallatiekopie, en wijzigingen kunnen niet behouden tijdens een update of opnieuw opstarten), en kunt u andere Azure-resources koppelen aan AKS worker-knooppunten. Maar wanneer u wijzigingen aanbrengt *buiten-band-beheer en aanpassingen,* het AKS-cluster kan worden hebben. Vermijd worker-knooppunten wijzigen, tenzij Microsoft Support zorgt ervoor dat u wijzigingen kunt aanbrengen.
 
-## <a name="what-is-shared-responsibility"></a>Wat is er gedeelde verantwoordelijkheid
+## <a name="shared-responsibility"></a>Gedeelde verantwoordelijkheid
 
-Tijdens de aanmaak van de cluster maakt AKS u een aantal worker-knooppunten van een Kubernetes gedefinieerd door de klant. Deze knooppunten, zoals aangegeven zijn waarin klanten workloads worden uitgevoerd. Klanten kunnen eigenaar en weergeven of wijzigen van deze worker-knooppunten.
+Als u een cluster maakt, definieert de klant de worker-knooppunten voor Kubernetes AKS maakt. Klant-workloads worden uitgevoerd op deze knooppunten. Klanten kunnen eigenaar en weergeven of wijzigen van de worker-knooppunten.
 
-Omdat deze knooppunten zijn persoonlijke code wordt uitgevoerd en gevoelige gegevens opslaan, Microsoft-ondersteuning heeft **beperkte toegang** aan de klant op alle clusterknooppunten. Microsoft-ondersteuning niet Meld u aan bij, opdrachten uit te voeren of weergeven van Logboeken voor deze knooppunten zonder uitdrukkelijke klant machtiging en/of hulp om foutopsporing opdrachten uitvoeren, zoals beschreven door het ondersteuningsteam.
+Omdat de klant clusterknooppunten persoonlijke code uitvoeren en opslaan van gevoelige gegevens, kunnen ze in beperkte mate Microsoft Support openen. Microsoft Support kan niet aanmelden bij, voert u opdrachten in of weergeven van Logboeken voor deze knooppunten zonder toestemming van de snelle klant of hulp.
 
-Vanwege de gevoelige aard van deze worker-knooppunten neemt Microsoft uiterst voorzichtig te beperken van het beheer 'achter de schermen' van deze knooppunten. Zelfs als de Kubernetes-knooppunten, etcd en andere onderdelen is mislukt (beheerd door Microsoft) master blijft uw workload in veel gevallen worden uitgevoerd. Als worker-knooppunten worden gewijzigd zonder zorg, kan deze leiden tot verlies van gegevens en/of de werkbelasting en genereren van het cluster hebben.
+Omdat de worker-knooppunten zijn gevoelig, neemt Microsoft uiterst nauwkeurig beheer van hun achtergrond beperken. In veel gevallen blijft uw werkbelasting uitvoeren, zelfs als de Kubernetes-master knooppunten, etcd en andere Microsoft-beheerde onderdelen is mislukt. Ondoordacht gewijzigde worker-knooppunten kunnen leiden tot verlies van gegevens en workloads en het cluster hebben kunnen weergeven.
 
-## <a name="azure-kubernetes-service-support-coverage"></a>Ondersteuning van Azure Kubernetes Service
+## <a name="aks-support-coverage"></a>AKS ondersteuningsdekking
 
-**Microsoft biedt technische ondersteuning voor het volgende:**
+Microsoft biedt technische ondersteuning voor het volgende:
 
-* Verbinding met alle onderdelen van Kubernetes geleverd en ondersteund door de Kubernetes-service (zoals de API-server)
-* Beheer, actieve tijdsduur, QoS en bewerkingen van Kubernetes besturingselement vlak services (Kubernetes Master knooppunten, API-Server, etcd, kube-DNS-voorbeeld.
-* Etcd ondersteuning biedt automatische, transparante back-ups van gegevens van alle etcd elke 30 minuten na noodgevallen plannen en cluster herstel van de gebruikersstatus. Deze back-ups zijn niet beschikbaar voor klanten/gebruikers rechtstreeks en worden gebruikt om te controleren of de betrouwbaarheid van gegevens en consistentie
-* Alle integratiepunten in het Azure Cloud Provider-stuurprogramma voor Kubernetes, zoals de integratie met andere Azure-services zoals netwerktaakverdelers, permanente Volumes, Networking (Kubernetes en Azure CNI)
-* Vragen of problemen rondom de aanpassing van besturingselement vlak-onderdelen, zoals de Kubernetes API-server, etcd en kube-dns.
-* Problemen met over onderwerpen over netwerken, zoals Azure CNI, Kubenet of andere problemen met toegang en -functionaliteit (DNS-resolutie, pakketverlies, routering, enzovoort).
-  * Netwerkscenario's ondersteund bevatten Kubenet (basis) en geavanceerde netwerken (Azure CNI) binnen het cluster en de bijbehorende onderdelen, de connectiviteit met andere Azure-services en toepassingen. Bovendien worden inkomend domeincontrollers en inkomend/load balancer-configuratie, prestaties van het netwerk en latentie ondersteund door Microsoft.
+* Connectiviteit met alle Kubernetes-onderdelen die de Kubernetes-service biedt en ondersteunt, zoals de API-server.
+* Beheer, actieve tijdsduur van QoS en bewerkingen van Kubernetes besturingselement vlak services (Kubernetes-hoofdknooppunten, API-server, etcd en kube-dns).
+* Etcd. Ondersteuning biedt automatische, transparante back-ups van gegevens van alle etcd elke 30 minuten na noodgevallen plannen en cluster herstel van de gebruikersstatus. Deze back-ups zijn niet rechtstreeks beschikbaar aan klanten of gebruikers. Ze Zorg ervoor dat de betrouwbaarheid van gegevens en consistentie.
+* Alle integratiepunten in het stuurprogramma van de Azure-cloud-provider voor Kubernetes. Het gaat hierbij om integratie in andere Azure-services zoals netwerktaakverdelers, permanente volumes of netwerken (Kubernetes en Azure CNI).
+* Vragen of problemen met het aanpassen van het besturingselement vlak-onderdelen, zoals de Kubernetes API-server, etcd en kube-dns.
+* Onderwerpen over netwerken, zoals Azure CNI, kubenet, of andere toegang tot het netwerk en de functionaliteit van problemen. Problemen kunnen omvatten DNS-resolutie, pakketverlies, routering, enzovoort. Microsoft biedt ondersteuning voor verschillende scenario's voor netwerken:
+  * Kubenet (basis) en geavanceerde netwerken (Azure CNI) binnen het cluster en onderdelen die zijn gekoppeld
+  * Connectiviteit met andere Azure-services en toepassingen
+  * Ingress-controllers en inkomend verkeer of load balancer-configuraties
+  * Prestaties van het netwerk en latentie
 
-**Microsoft biedt geen technische ondersteuning voor het volgende:**
+Microsoft biedt geen technische ondersteuning voor het volgende:
 
-* Advies / 'Procedures' Gebruik Kubernetes vragen, bijvoorbeeld over het maken van aangepaste inkomend controllers, vragen over de werkbelasting van toepassing en andere-partij/OSS-pakketten of hulpprogramma's zijn niet inbegrepen.
-  * Advies tickets voor AKS-cluster functionaliteit, aanpassing, afstemmingsacties – bijvoorbeeld Kubernetes problemen/How-to-tos zijn binnen het bereik.
-* Van derden open-source-projecten niet is opgegeven als onderdeel van het Kubernetes vlak bepalen of geïmplementeerd met AKS-clusters, zoals Istio, Helm, Envoy en anderen.
-  * Voor van derden open-source-projecten, zoals Helm en Kured, wordt aanbevolen inspanning ondersteuning geboden voor voorbeelden en toepassingen in Microsoft-documentatie en waar dat van derden open-source-hulpprogramma kan worden geïntegreerd met de Kubernetes Azure-cloud-provider of andere AKS-specifieke fouten.
-* Gesloten-source-software van derden: dit kunnen bijvoorbeeld beveiligingsscans hulpprogramma's, netwerken, apparaten of software.
-* Problemen met 'meerdere cloud' of de leverancier van meerdere build-outs worden niet ondersteund, bijvoorbeeld een leveranciersoplossing federatieve meerdere openbare cloud uitvoeren wordt niet ondersteund.
-* Specifieke netwerk-aanpassingen, dan die zijn beschreven in de officiële [AKS-documentatie][3].
+* Vragen over het gebruik van Kubernetes. Microsoft Support biedt geen advies over het maken van aangepaste inkomend domeincontrollers, gebruiken werkbelastingen van toepassingen of software van derden of open-source-pakketten of hulpprogramma's toe te passen.
   > [!NOTE]
-  > Problemen en fouten over Netwerkbeveiligingsgroepen wordt ondersteund. Ondersteuning kan bijvoorbeeld beantwoord vragen over nsg's niet kan worden bijgewerkt of onverwachte NSG of Load Balancer-gedrag.
+  > Microsoft Support kunt advies geven over AKS clusterfunctionaliteit, aanpassen en afstemmen (voor bijvoorbeeld problemen met de bewerkingen van Kubernetes en procedures).
+* Van derden open-source-projecten die niet zijn opgegeven als onderdeel van de Kubernetes besturingselement vlak of geïmplementeerd met AKS-clusters. Deze projecten advies inwinnen Istio, Helm, Envoy of anderen.
+  > [!NOTE]
+  > Microsoft kan best-effort ondersteuning bieden voor open source-projecten van derden, zoals Helm en Kured. Wanneer de open-source-hulpprogramma van derden kan worden geïntegreerd met de Kubernetes Azure-cloud-provider of andere fouten AKS-specifieke, biedt Microsoft ondersteuning voor voorbeelden en toepassingen van Microsoft-documentatie.
+* Gesloten-source-software van derden. Deze software kunt opnemen security scanprogramma's en netwerken apparaten of software.
+* Problemen met het multicloud of productondersteuning build-outs. Microsoft biedt geen bijvoorbeeld ondersteuning voor problemen met betrekking tot het uitvoeren van een federatieve multipublic leverancier cloudoplossing.
+* Aanpassingen dan die zijn vermeld in het netwerk de [AKS-documentatie](https://docs.microsoft.com/azure/aks/).
+  > [!NOTE]
+  > Microsoft biedt ondersteuning voor problemen en fouten met betrekking tot netwerkbeveiligingsgroepen (nsg's). Microsoft Support kunnen bijvoorbeeld beantwoord vragen over een NSG niet bijwerken of een onverwacht NSG of load balancer-gedrag.
 
-## <a name="azure-kubernetes-service-support-coverage-worker-nodes"></a>Dekking voor Azure Kubernetes Service-ondersteuning (Worker-knooppunten)
+## <a name="aks-support-coverage-for-worker-nodes"></a>AKS ondersteuningsdekking voor worker-knooppunten
 
-### <a name="microsoft-responsibilities-for-azure-kubernetes-service-worker-nodes"></a>De verantwoordelijkheden van Microsoft voor Azure Kubernetes Service worker-knooppunten
+### <a name="microsoft-responsibilities-for-aks-worker-nodes"></a>De verantwoordelijkheden van Microsoft voor AKS worker-knooppunten
 
-Zoals aangegeven de `shared responsibility` sectie, Kubernetes worker-knooppunten kunnen worden onderverdeeld in een gemeenschappelijke verantwoordelijkheid-model, waarbij:
+Microsoft en klanten vertellen over verantwoordelijk is voor Kubernetes worker-knooppunten waar:
 
-* Biedt de basisbesturingssysteemkopie met vereiste toevoegingen (zoals controle- en netwerkinfrastructuur van agents)
-* Automatische patches voor besturingssystemen te leveren aan de worker-knooppunten
-* Automatisch herstel van problemen met Kubernetes besturingselement vlak onderdelen die worden uitgevoerd op de worker-knooppunten, zoals:
-  * kube-proxy
+* De OS-basisinstallatiekopie vereist toevoegingen (zoals controle- en netwerkinfrastructuur van agents).
+* De worker-knooppunten ontvangen automatisch patches voor het besturingssysteem.
+* Problemen met het Kubernetes besturingselement vlak onderdelen die worden uitgevoerd op de worker-knooppunten automatisch worden hersteld. Onderdelen zijn onder andere het volgende:
+  * Kube-proxy
   * VPN-tunnels die communicatiepaden aan de Kubernetes-master onderdelen
-  * kubelet
-  * docker/moby daemon
+  * Kubelet
+  * Docker of Moby daemon
 
 > [!NOTE]
-> Als een besturingselement vlak-component niet operationeel zijn op een worker-knooppunt is, moet het AKS-team mogelijk opnieuw opstarten van het gehele worker-knooppunt op te lossen. Dit is gedaan namens een gebruiker en niet wordt uitgevoerd, tenzij een uitbreiding van de klant wordt gemaakt (vervaldatum voor de toegang tot de actieve werkbelasting van klanten en de gegevens). Wanneer mogelijk AKS personeel werkt om alle vereiste opnieuw opstarten niet-toepassing die invloed hebben op.
+> Op een worker-knooppunt, als een besturingselement vlak van het onderdeel niet operationeel is, het AKS-team moet mogelijk opnieuw opstarten van het gehele worker-knooppunt. Vanwege hun beperkte toegang tot de actieve werkbelasting van de klant en gegevens, het AKS-team opnieuw wordt opgestart een worker-knooppunt alleen als de klant het probleem escaleert. Waar mogelijk, werkt het AKS-team om te voorkomen dat een opnieuw opstarten vereist die betrekking hebben op de toepassing.
 
-### <a name="customer-responsibilities-for-azure-kubernetes-service-worker-nodes"></a>De verantwoordelijkheden van de klant voor Azure Kubernetes Service worker-knooppunten
+### <a name="customer-responsibilities-for-aks-worker-nodes"></a>De verantwoordelijkheden van de klant voor AKS worker-knooppunten
 
-**Microsoft is niet:**
+Microsoft, niet automatisch opnieuw opgestart worker-knooppunten om toe te passen op serverniveau OS-patches. Hoewel patches voor het besturingssysteem worden geleverd aan de worker-knooppunten, de *klant* is verantwoordelijk voor het opnieuw opstarten van de worker-knooppunten om de wijzigingen te laten. Gedeelde tapewisselaars daemons zoals solid-state hybride-station (SSHD) en andere onderdelen op het niveau van het systeem of het besturingssysteem wordt automatisch gevuld.
 
-- Automatisch opnieuw opstarten worker-knooppunten voor OS patches te laten treden niveau **(op dit moment Zie hieronder).**
-
-Patches voor besturingssystemen worden geleverd aan de worker-knooppunten, maar het is de **verantwoordelijkheid van de klant** opnieuw op te starten van de worker-knooppunten voor de wijzigingen worden doorgevoerd. Deze automatische patches bevat gedeelde tapewisselaars daemons zoals SSHD en andere onderdelen van system/OS-niveau.
-
-Voor upgrades van Kubernetes, **, zijn klanten verantwoordelijk voor het uitvoeren van de upgrade** via het Configuratiescherm van Azure of Azure CLI. Dit geldt voor updates die beveiligings- of functionaliteit verbeteringen in Kubernetes.
+Klanten zijn verantwoordelijk voor het uitvoeren van upgrades voor Kubernetes. Ze kunnen upgrades via het Configuratiescherm van Azure of Azure CLI uitvoeren. Dit geldt voor updates die beveiligings-of functionaliteit verbeteringen in Kubernetes.
 
 > [!NOTE]
-> AKS is een `managed service` de doelstellingen van het einde van de service zijn verantwoordelijk voor patches, updates, logboekverzameling en meer zodat deze een meer volledig beheerd en zonder service verwijderen. Deze items (knooppunt opnieuw wordt opgestart, automatisch bijgewerkt) kunnen worden verwijderd in toekomstige releases vergroten voor onze mogelijkheden om u te end-to-end management.
+> Omdat AKS is een *beheerde service*, de end-doelen verwijdert de verantwoordelijkheid voor updates, patches en verzamelen om de service management meer voltooid en zonder. Als de capaciteit van de service voor het beheer van end-to-end toeneemt, kunnen sommige functies (bijvoorbeeld knooppunt opnieuw wordt opgestart en automatische toepassing van patches) weglaten in toekomstige releases.
 
 ### <a name="security-issues-and-patching"></a>Beveiligingsproblemen met zich mee en patching uit handen
 
-In sommige gevallen (zoals CVEs), een beveiligingsfout vindt u in een of meer van de onderdelen van de AKS-service. In dergelijke scenario's wordt AKS patch uitvoeren voor alle betrokken clusters te indien mogelijk het probleem beperken of upgraderichtlijnen bieden aan gebruikers.
+Als een beveiligingsfout in een of meer onderdelen van AKS wordt gevonden, wordt het AKS-team patch uitvoeren voor alle betrokken clusters om het probleem te beperken. U kunt ook krijgt het team gebruikers richtlijnen voor upgrades.
 
-Voor worker-knooppunten beïnvloed door deze een beveiligingsrisico als een patch zonder enige uitvaltijd van het probleem beschikbaar is, de AKS-team zal deze correctie toepassen en meldingen verzenden naar gebruikers van de wijziging.
+Voor worker-knooppunten dat een security fout is van invloed op, als een patch zonder enige uitvaltijd beschikbaar is, wordt het AKS-team dat patch toe te passen en meldingen verzenden naar gebruikers van de wijziging.
 
-Als een beveiligingspatch is bedoeld voor worker-knooppunt opnieuw wordt opgestart, Microsoft ontvangt de klant van deze vereiste en de klant is verantwoordelijk voor het uitvoeren van het opnieuw opstarten of bijwerken voor het ophalen van de patch voor de cluster. Als gebruikers de patches op basis van de AKS-richtlijnen niet van toepassing, wordt het cluster blijft kwetsbaar voor de oorzaak van deze.
+Wanneer een beveiligingspatch worker-knooppunt opnieuw wordt opgestart vereist, stuurt Microsoft de klanten van deze vereiste. De klant is verantwoordelijk voor het opnieuw opstarten of bij te werken om op te halen van de cluster-patch. Als gebruikers zijn niet van toepassing de patches op basis van AKS richtlijnen, blijft het cluster kwetsbaar voor beveiligingsproblemen.
 
 ### <a name="node-maintenance-and-access"></a>Onderhoud van knooppunt- en toegangsbeheer
 
-Omdat de worker-knooppunten zijn een gedeelde verantwoordelijkheid en onder het eigendom van klanten, klanten kunnen zich aanmelden bij deze werknemers en uitvoeren van mogelijk schadelijke wijzigingen, zoals kernel-updates verwijderen van pakketten en het installeren van nieuwe pakketten.
+Worker-knooppunten zijn van een gedeelde verantwoordelijkheid en zijn eigendom van klanten. Als gevolg hiervan hebben klanten de mogelijkheid om zich aanmelden bij hun worker-knooppunten en potentieel schadelijke wijzigingen zoals het kernel-updates en het installeren of verwijderen van pakketten.
 
-Als klanten destructieve acties of acties besturingselement vlak onderdelen om te gaan offline uitvoeren of anders worden niet-functionele, de AKS-service wordt deze fout detecteren en automatisch herstel voor het herstellen van het worker-knooppunt naar de vorige werkende uitvoeren status.
+Als klanten destructieve wijzigingen aanbrengen of ervoor zorgen dat besturingselement vlak onderdelen gaat offline of niet meer functioneert, AKS detecteert van deze fout en het worker-knooppunt naar de vorige werkende status wordt automatisch hersteld.
 
-Klanten kunnen zich aanmelden bij en alter worker-knooppunten, maar het is *afgeraden* omdat hierdoor het cluster hebben.
+Hoewel klanten kunnen zich aanmelden bij en worker-knooppunten wijzigen, wordt dit afgeraden, omdat wijzigingen een cluster hebben aanbrengen kunnen.
 
-## <a name="network-ports-access-and-network-security-groups"></a>Netwerk-poorten, toegang en Netwerkbeveiligingsgroepen
+## <a name="network-ports-access-and-nsgs"></a>Netwerk-poorten, toegang en nsg 's
 
-Als een beheerde service heeft AKS specifieke vereisten voor netwerken en connectiviteit. Deze vereisten zijn minder flexibel dan de normale IaaS-onderdelen. In tegenstelling tot andere IaaS-onderdelen, kunnen bepaalde bewerkingen (zoals het aanpassen van netwerkbeveiligingsgroepsregels, specifieke poorten blokkeren, URL in een whitelist opnemen, enzovoort) weergeven van uw cluster hebben (bijvoorbeeld firewallregels blokkeert uitgaande poort 443).
-
-> [!NOTE]
-> Volledig vergrendelen van uitgaande gegevens (bijvoorbeeld expliciete domein/poort in de whitelist) van het cluster is niet een ondersteund scenario is AKS op dit moment. De lijst met URL's en poorten kan worden gewijzigd zonder waarschuwing en kan worden opgegeven door het ondersteuningsteam van Azure via een ticket. De opgegeven lijst is alleen voor klanten die u bereid bent te accepteren die *de beschikbaarheid van uw cluster op elk gewenst moment kan worden beïnvloed.*
-
-## <a name="alphabeta-kubernetes-features-not-supported"></a>Alpha/bèta Kubernetes-functies (niet ondersteund)
-
-AKS ondersteunt alleen stabiel-functies binnen de upstream Kubernetes-project. Alpha/bèta-functies die beschikbaar zijn in upstream Kubernetes worden niet ondersteund, tenzij anders wordt gecommuniceerd en beschreven.
-
-Er zijn twee mogelijke situaties waar Alpha of bèta-functies kunnen worden geïmplementeerd voordat de algemene beschikbaarheid:
-
-* Klanten hebben voldoet aan de AKS-product, ondersteuning of IT-teams en expliciet wordt gevraagd om deze nieuwe functies te proberen.
-* Deze functies zijn [ingeschakeld via een Functievlag] [ 2] (expliciete opt-in)
-
-## <a name="preview-features--feature-flags"></a>Preview-functies / functie vlaggen
-
-Voor functies en functionaliteit waarvoor uitgebreide tests, community en feedback van gebruikers, brengt Microsoft nieuwe preview-functies of onderdelen achter een functievlag. Deze functies moeten worden overwogen voorlopige versie / Bèta, en zijn blootgesteld aan gebruikers geven een kans om uit deze nieuwe functies te proberen.
-
-Echter de volgende preview- / functievlag functies zijn niet bedoeld voor gebruik in productie-API's, gedragswijzigingen, oplossingen voor problemen en andere wijzigingen kunnen worden aangebracht die kunnen resulteren in instabiel clusters en uitvaltijd. Ondersteuning voor deze functies is beperkt tot fout/probleem melden. Schakel geen deze functies op productiesystemen of abonnementen.
+Als een beheerde service heeft AKS specifieke vereisten voor netwerken en connectiviteit. Deze vereisten zijn minder flexibel dan de vereisten voor normale IaaS-onderdelen. In AKS, kunnen bewerkingen, zoals het aanpassen van NSG-regels, blokkeren van een specifieke poort (bijvoorbeeld met behulp van firewallregels waarmee uitgaande poort 443), en in de whitelist URL's uw cluster hebben.
 
 > [!NOTE]
-> Bij de Azure preview-functies inschakelen kracht **abonnement** niveau. Installeer preview-functies niet op de productie-abonnement, zoals het gedrag van standaard-API die invloed hebben op de normale werking kunt wijzigen.
+> Op dit moment kunt AKS u niet volledig vergrendelen uitgaande verkeer van uw cluster (bijvoorbeeld expliciete domein of in de whitelist aan poort). De lijst met URL's en poorten is kan worden gewijzigd zonder waarschuwing. U kunt de bijgewerkte lijst krijgen door het maken van een Azure-ondersteuningsticket. De lijst is alleen voor klanten die u bereid bent te accepteren dat de beschikbaarheid van het cluster kan worden getroffen *op elk gewenst moment.*
+
+## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Niet-ondersteunde functies voor alpha- en Bètaservices Kubernetes
+
+AKS ondersteunt alleen stabiel functies binnen de upstream Kubernetes-project. Tenzij anders wordt gedocumenteerd, biedt geen ondersteuning alpha- en Bètaservices functies die beschikbaar in de upstream Kubernetes-project zijn voor AKS.
+
+In twee scenario's, kunnen alpha of bèta-functies worden geïmplementeerd voordat ze algemeen beschikbaar:
+
+* Klanten hebben voldoet aan de AKS-product, ondersteuning of IT-teams en wordt gevraagd om deze nieuwe functies te proberen.
+* Deze functies zijn [ingeschakeld door een functievlag](https://github.com/Azure/AKS/blob/master/previews.md). Klanten moeten expliciet meldt zich aan deze functies gebruiken.
+
+## <a name="preview-features-or-feature-flags"></a>Preview-functies of functie vlaggen
+
+Microsoft brengt voor de functies en functionaliteit waarvoor uitgebreide testen en feedback van gebruikers, nieuwe preview-functies of onderdelen achter een functievlag. Houd rekening met deze functies als voorlopige versie of bèta-functies.
+
+Preview-functies of onderdelen van de functie-vlag zijn niet bedoeld voor productie. Doorlopende wijzigingen in API's en gedrag, oplossingen voor problemen en andere wijzigingen kunnen resulteren in instabiel clusters en uitvaltijd.
+
+Functies in public preview zijn vallen onder 'best effort'-ondersteuning als deze functies beschikbaar als preview zijn en niet bedoeld voor productie en worden ondersteund door de technische ondersteuning AKS teams alleen tijdens kantooruren. Raadpleeg voor meer informatie:
+
+* [Veelgestelde vragen over ondersteuning van Azure](https://azure.microsoft.com/en-us/support/faq/)
+
+> [!NOTE]
+> Preview-functies van kracht vanaf de Azure *abonnement* niveau. Installeer geen preview-functies op een productie-abonnement. Een productie-abonnement kunt preview-functies API standaardgedrag wijzigen en van invloed zijn op normale bewerkingen.
 
 ## <a name="upstream-bugs-and-issues"></a>Upstream bugs en problemen
 
-Gezien de snelheid van de ontwikkeling in de upstream Kubernetes-project, zijn er altijd fouten optreden die niet kunnen worden gevuld of gewerkt oplossing binnen het AKS-systeem en in plaats daarvan moeten groter patches upstream projecten (zoals Kubernetes, knooppunt/Worker besturingssystemen en Kernels). AKS/Azure personeel zijn onderdelen die we bezit hebt (zoals de Azure-Cloud-Provider), doorgegeven aan het verhelpen van het probleem upstream in de community.
+Gezien de snelheid van de ontwikkeling in de upstream Kubernetes-project, ontstaan fouten altijd. Sommige van deze fouten kan niet worden hersteld of gewerkt om binnen het AKS-systeem. Oplossingen voor problemen moeten in plaats daarvan grotere patches upstream projecten (zoals Kubernetes, knooppunt- of werkrollen besturingssystemen en kernels). Voor de onderdelen die Microsoft eigenaar is van (zoals de Azure-cloud-provider), zijn AKS en Azure personeel doorgevoerd naar de upstream-problemen oplossen in de community.
 
-Voor gevallen waarin een probleem met de technische ondersteuning hoofdmap veroorzaakt voor een of meer upstream bugs, ondersteuning voor AKS en engineering doet de volgende items:
+Wanneer een probleem met de technische ondersteuning is de hoofdmap wordt veroorzaakt door een of meer upstream bugs, wordt de AKS-ondersteuning en -engineering-teams:
 
-* Identificeer en koppeling van de upstream-fouten met een ondersteunende informatie over waarom dit heeft gevolgen voor uw cluster en/of de werkbelasting. Klanten wordt geleverd met koppelingen naar de vereiste opslagplaatsen/problemen bekijken van de problemen en zien wanneer een nieuwe Kubernetes/andere release bevat de fix(es)
-* Mogelijke tijdelijke oplossingen of oplossingen: In sommige gevallen is het mogelijk om te werken om het probleem: in dit geval een "[bekend probleem](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue)" wordt ingediend voor de AKS-opslagplaats waarin wordt uitgelegd:
-  * Het probleem en een koppeling naar een upstream bugs
-  * De tijdelijke oplossing, en meer informatie over upgraden/andere persistentie van de oplossing
-  * Ruwe tijdlijnen voor opname op basis van de upstream vrijgeeffrequentie
-
-[1]: https://github.com/Azure/AKS/releases
-[2]: https://github.com/Azure/AKS/blob/master/previews.md
-[3]: https://docs.microsoft.com/azure/aks/
+* Identificeer en koppeling van de upstream-fouten met een ondersteunende informatie op basis waarvan wordt uitgelegd waarom dit probleem is van invloed op uw cluster of de werkbelasting. Klanten ontvangen koppelingen naar de vereiste opslagplaatsen, zodat ze kunnen bekijken van de problemen en zien wanneer een nieuwe release oplossingen biedt.
+* Mogelijke tijdelijke oplossingen of oplossingen bieden. Als het probleem kan grotendeels worden opgevangen, een [bekende probleem](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue) wordt ingediend in de AKS-opslagplaats. De indiening bekend probleem wordt beschreven:
+  * Het probleem, inclusief koppelingen naar upstream bugs.
+  * De tijdelijke oplossing en de details over een upgrade of een andere persistentie van de oplossing.
+  * Ruwe tijdlijnen voor de opname van het probleem, op basis van de upstream worden uitgerold.

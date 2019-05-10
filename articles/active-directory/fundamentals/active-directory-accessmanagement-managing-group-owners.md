@@ -12,20 +12,20 @@ ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2541a1d76b56f92b250fb422951769db7877213e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd684e1bd48f877a74280b33b4df65d7baaa0fe7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249822"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507174"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Toevoegen of verwijderen van eigenaren van groepen in Azure Active Directory
-Azure Active Directory (Azure AD)-beveiligingsgroepen zijn eigendom van en beheerd door eigenaren van groepen. Eigenaren van groepen worden toegewezen voor het beheren van een groep en de bijbehorende leden van een resource-eigenaar (beheerder). Groepseigenaren hoeven te worden leden van de groep. Nadat de Groepseigenaar van een is toegewezen, kunt alleen de eigenaar van een resource toevoegen of eigenaren verwijderen.
+Azure Active Directory (Azure AD)-beveiligingsgroepen zijn eigendom van en beheerd door eigenaren van groepen. Eigenaren van groepen gebruikers of service-principals en kunnen voor het beheren van de groep met inbegrip van het lidmaatschap. Alleen bestaande eigenaren van groepen of beheren van de groep administrators kunnen onwers groep toewijzen. Groepseigenaren hoeven te worden leden van de groep.
 
-In sommige gevallen besluiten u als de beheerder toe te wijzen een eigenaar van de groep. In dit geval kunt u de eigenaar van de groep worden. Bovendien kunnen eigenaren van andere eigenaren toewijzen aan de groep, tenzij u dit hebt beperkt in de instellingen voor de.
+Wanneer een groep geen eigenaar heeft, nog beheer van de groep administrators kunnen steeds voor het beheren van de groep.
 
 ## <a name="add-an-owner-to-a-group"></a>Eigenaar toevoegen aan een groep
-Aanvullende groepseigenaren toevoegen aan een groep met behulp van Azure AD.
+Hieronder worden instructies voor het toevoegen van een gebruiker als een eigenaar aan een groep met behulp van de Azure AD-portal. Als u wilt een service-principal als eigenaar van een groep toevoegt, volgt u de instructies om dit te doen met behulp van [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
 
 ### <a name="to-add-a-group-owner"></a>De Groepseigenaar van een toevoegen
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com) met het account van een globale administrator voor de map.

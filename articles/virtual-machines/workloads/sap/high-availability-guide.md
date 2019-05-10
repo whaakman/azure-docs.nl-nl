@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaaaa5c2fe87b419bf38d6e6522ef745476ac1ad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 226986fb7c41c19b58f0163414628ad08ddeda15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204946"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409984"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hoge beschikbaarheid voor SAP NetWeaver op virtuele Azure-machines
 
@@ -881,7 +881,7 @@ Als u wilt de vereiste DNS IP-adressen instellen, moet u de volgende stappen uit
 
 In ons voorbeeld is de DNS-service geïnstalleerd en geconfigureerd op deze virtuele machines van Windows:
 
-| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Statisch IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Vast IP-adres |
 | --- | --- | --- | --- |
 | Eerste DNS-server |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
 | Tweede DNS-server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
@@ -919,7 +919,7 @@ Nadat u de virtuele machines te gebruiken in uw cluster implementeert, moet u st
 
 In ons voorbeeld hebben we deze virtuele machines en statische IP-adressen:
 
-| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Statisch IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Vast IP-adres |
 | --- | --- | --- | --- |
 | Eerste exemplaar van de SAP-toepassingsserver |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
 | Tweede instantie van SAP-toepassingsserver |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
@@ -952,7 +952,7 @@ Een statisch IP-adres voor de interne Azure load balancer instellen:
 
 In ons voorbeeld hebben we twee interne Azure load balancers die deze statische IP-adressen:
 
-| Interne Azure load balancer-rol | Naam van de interne Azure load balancer | Statisch IP-adres |
+| Interne Azure load balancer-rol | Naam van de interne Azure load balancer | Vast IP-adres |
 | --- | --- | --- |
 | SAP ASCS/SCS-exemplaar van interne load balancer |pr1-lb-ascs |10.0.0.43 |
 | SAP DBMS interne load balancer |pr1-lb-dbms |10.0.0.33 |
@@ -1018,7 +1018,7 @@ Als u gebruiken van verschillende aantallen voor de SAP ASCS of SCS wilt, moet u
 2. Voor alle load balancer-regels die deel uitmaken van het SAP ASCS of SCS-exemplaar, kunt u deze waarden wijzigen:
 
    * Name
-   * Poort
+   * Port
    * Back-end-poort
 
    Bijvoorbeeld, als u het standaardnummer van de ASCS-instantie wijzigen van 00 tot en met 31 wilt, moet u de aanbrengen voor alle poorten die worden vermeld in tabel 1.
@@ -1229,9 +1229,10 @@ Een cluster bestandsshare-witness configureren, moet deze taken uitvoeren:
 
    _**Afbeelding 38:** Bevestigen dat u het cluster hebt geconfigureerd_
 
-Na de installatie van het Windows-failovercluster is, moeten de wijzigingen worden aangebracht aan de sommige drempelwaarden aan te passen van detectie van failover naar een in Azure. De parameters moeten worden gewijzigd, worden beschreven in deze blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Ervan uitgaande dat de twee virtuele machines die de configuratie van het Windows-Cluster voor ASCS/SCS bouwen die zich in hetzelfde subnet bevinden, moeten de volgende parameters worden gewijzigd in deze waarden:
-- SameSubNetDelay = 2
-- SameSubNetThreshold = 15
+Na de installatie van het Windows-failovercluster is, moeten de wijzigingen worden aangebracht aan de sommige drempelwaarden aan te passen van detectie van failover naar een in Azure. De parameters moeten worden gewijzigd, worden beschreven in deze blog: [ https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834 ](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). Ervan uitgaande dat de twee virtuele machines die de configuratie van het Windows-Cluster voor ASCS/SCS bouwen die zich in hetzelfde subnet bevinden, moeten de volgende parameters worden gewijzigd in deze waarden:  
+- SameSubNetDelay = 2000  
+- SameSubNetThreshold = 15  
+- RoutingHistoryLength = 30  
 
 Deze instellingen zijn getest met klanten en een goed compromis om robuuste op de een-zijde opgegeven. Aan de andere kant zijn deze instellingen voorzien in snel genoeg failover in reële fouten in SAP-software of knooppunt/VM-fout. 
 

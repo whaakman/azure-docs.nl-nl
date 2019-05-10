@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 04/09/2018
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad739041ebd20f9940e305efb19807df4c73cb8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725799"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471673"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Vaststellen en oplossen van problemen in uw Time Series Insights-omgeving
 
@@ -24,11 +24,11 @@ In dit artikel worden enkele problemen beschreven die in uw Azure Time Series In
 
 ## <a name="video"></a>Video
 
-### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>In deze video behandelen we veelvoorkomende problemen van Time Series Insights-klanten en oplossingen:</br>
+### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Meer informatie over algemene Time Series Insights klant uitdagingen en oplossingen.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-one-no-data-is-shown"></a>Probleem een: Er zijn geen gegevens worden weergegeven
+## <a name="problem-no-data-is-shown"></a>Probleem: Er zijn geen gegevens worden weergegeven.
 
 Er zijn geen gegevens in de [Azure Time Series Insights explorer](https://insights.timeseries.azure.com) voor enkele veelvoorkomende redenen optreden:
 
@@ -40,17 +40,17 @@ Azure Time Series Insights biedt alleen ondersteuning voor JSON-gegevens. Zie vo
 
 * Voor een IoT-hub in Azure IoT Hub, moet u de sleutel die is **service verbinding maken met** machtigingen. Een van de **iothubowner** of **service** beleidsregels werken omdat ze beide **service verbinding maken met** machtigingen.
 
-   ![IoT Hub-service verbindingsmachtigingen](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   [![IoT Hub-service verbindingsmachtigingen](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Voor een event hub in Azure Event Hubs, moet u de sleutel die is **luisteren** machtigingen. Een van de **lezen** of **beheren** beleidsregels werken omdat ze beide **luisteren** machtigingen.
 
-   ![Event hub listen-machtigingen](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
+   [![Event hub listen-machtigingen](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Oorzaak C: de consumergroep opgegeven is niet exclusief voor Time Series Insights
 
 Als u een IoT-hub of een event hub registreert, is het belangrijk om te stellen de consumergroep die u wilt gebruiken om de gegevens te lezen. Deze consumergroep *kan niet worden gedeeld*. Als de consumergroep wordt gedeeld, de onderliggende IoT-hub of event hub automatisch en willekeurig verbreekt verbinding met een van de lezers. Geef een unieke consumergroep voor Time Series Insights om uit te lezen.
 
-## <a name="problem-two-some-data-is-shown-but-data-is-missing"></a>Probleem twee: sommige gegevens worden weergegeven, maar er ontbreken gegevens
+## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Probleem: sommige gegevens worden weergegeven, maar er ontbreken gegevens
 
 Wanneer gegevens slechts gedeeltelijk wordt weergegeven en de gegevens wordt weergegeven om te worden vertraging, moet u rekening houden met verschillende mogelijkheden.
 
@@ -69,13 +69,13 @@ De beperkingslimiet wordt afgedwongen op basis van de SKU-type van de omgeving e
 
 De volgende afbeelding toont een Time Series Insights-omgeving met een SKU van S1 en een capaciteit van 3. Kan het binnenkomende 3 miljoen gebeurtenissen per dag.
 
-![Huidige omgeving SKU-capaciteit](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
+![Huidige omgeving SKU-capaciteit](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)] (media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Als voorbeeld wordt ervan uitgegaan dat deze omgeving berichten van een event hub neemt. De volgende afbeelding toont de frequentie van de inkomende gegevens:
 
-![Voorbeeld van de inkomende tarief voor een event hub](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
+[![Voorbeeld van de inkomende tarief voor een event hub](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
 
-Het dagelijkse tarief voor inkomend verkeer is ~ 67,000 berichten. Dit tarief wordt omgezet in ongeveer 46 berichten per minuut. Als de event hub-bericht is samengevoegd tot één gebeurtenis Time Series Insights, plaats beperking niet. Als de event hub-bericht is samengevoegd tot 100 Time Series Insights-gebeurtenissen, moeten 4,600 gebeurtenissen per minuut worden opgenomen. Een S1 SKU-omgeving met een capaciteit van 3 kan alleen 2100 ingangsgebeurtenissen per minuut (1 miljoen gebeurtenissen per dag = 700 gebeurtenissen per minuut op basis van drie eenheden = 2100 gebeurtenissen per minuut). U ziet een vertraging vanwege een beperking voor deze instelling. 
+Het dagelijkse tarief voor inkomend verkeer is ~ 67,000 berichten. Dit tarief wordt omgezet in ongeveer 46 berichten per minuut. Als de event hub-bericht is samengevoegd tot één gebeurtenis Time Series Insights, plaats beperking niet. Als de event hub-bericht is samengevoegd tot 100 Time Series Insights-gebeurtenissen, moeten 4,600 gebeurtenissen per minuut worden opgenomen. Een S1 SKU-omgeving met een capaciteit van 3 kan alleen 2100 ingangsgebeurtenissen per minuut (1 miljoen gebeurtenissen per dag = 700 gebeurtenissen per minuut op basis van drie eenheden = 2100 gebeurtenissen per minuut). U ziet een vertraging vanwege een beperking voor deze instelling.
 
 Zie voor een grondig inzicht in hoe logische afvlakken werkt, [ondersteund JSON-vormen](./how-to-shape-query-json.md).
 
@@ -85,24 +85,24 @@ Om op te lossen de vertraging, vergroot u de SKU-capaciteit van uw omgeving. Zie
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Oorzaak B: initiële opname van historische gegevens inkomend verkeer wordt vertraagd
 
-Als u een bestaande gebeurtenisbron verbindt, is het waarschijnlijk dat uw IoT-hub of event hub al gegevens bevat. De omgeving wordt gestart binnenhalen van gegevens vanaf het begin van de bewaarperiode van de bron van de gebeurtenis-bericht. Dit is de standaardverwerking en kan niet worden overschreven. U kunt betrekken beperking. Beperking kan duren voor meer informatie zoals het historische gegevens worden opgenomen.
+Als u een bestaande gebeurtenisbron verbindt, is het waarschijnlijk dat uw IoT-hub of event hub al gegevens bevat. De omgeving wordt gestart binnenhalen van gegevens vanaf het begin van de bewaarperiode van de bron van de gebeurtenis-bericht. De standaardverwerking van deze kan niet worden overschreven. U kunt betrekken beperking. Beperking kan duren voor meer informatie zoals het historische gegevens worden opgenomen.
 
 #### <a name="recommended-resolutions-for-large-initial-ingestion"></a>Aanbevolen oplossingen voor grote eerste gegevensopname
 
 Om op te lossen de vertraging:
 
-1. Verhoog de SKU-capaciteit voor de maximaal toegestane waarde (in dit geval 10). Nadat u de capaciteit verhoogt, wordt het proces inkomend verkeer wordt gestart om af te vangen veel sneller. U betaalt voor de grotere capaciteit. Om te visualiseren hoe snel u hebt vastgelegd, vindt u de beschikbaarheidsgrafiek in de [Verkenner van Time Series Insights](https://insights.timeseries.azure.com). 
+1. Verhoog de SKU-capaciteit voor de maximaal toegestane waarde (in dit geval 10). Nadat u de capaciteit verhoogt, wordt het proces inkomend verkeer wordt gestart om af te vangen veel sneller. U betaalt voor de grotere capaciteit. Om te visualiseren hoe snel u hebt vastgelegd, vindt u de beschikbaarheidsgrafiek in de [Verkenner van Time Series Insights](https://insights.timeseries.azure.com).
 
 2. Wanneer de vertraging is bijgewerkt, verlaagt u de SKU-capaciteit op de snelheid van de normale inkomend verkeer.
 
-## <a name="problem-three-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Probleem drie: instelling van de naam van de mijn gebeurtenisbron timestamp eigenschap werkt niet
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Probleem: instelling van mijn gebeurtenisbron timestamp eigenschap name niet werkt
 
 Zorg ervoor dat de timestamp eigenschapsnaam en waarde aan de volgende regels voldoet:
 
 * Naam van de tijdstempeleigenschap is hoofdlettergevoelig.
 * De waarde van de timestamp eigenschap die afkomstig zijn uit uw gebeurtenisbron als een JSON-tekenreeks moet de indeling hebben _jjjj-MM-ddTUU. FFFFFFFK_. Een voorbeeld is **2008-04-12T12:53Z**.
 
-De eenvoudigste manier om ervoor te zorgen dat de naam van de tijdstempeleigenschap is vastgelegd en correct werkt, is met de Verkenner van Time Series Insights. Selecteer een bepaalde tijd nadat u de naam van de tijdstempeleigenschap ingevoerd in de Time Series Insights explorer, met behulp van de grafiek. Met de rechtermuisknop op de selectie en selecteer vervolgens de **gebeurtenissen onderzoeken** optie. 
+De eenvoudigste manier om ervoor te zorgen dat de naam van de tijdstempeleigenschap is vastgelegd en correct werkt, is met de Verkenner van Time Series Insights. Selecteer een bepaalde tijd nadat u de naam van de tijdstempeleigenschap ingevoerd in de Time Series Insights explorer, met behulp van de grafiek. Met de rechtermuisknop op de selectie en selecteer vervolgens de **gebeurtenissen onderzoeken** optie.
 
 De eerste kolomkop moet de naam van de tijdstempeleigenschap. Naast het woord **Timestamp**, ziet u **($ts)**.
 

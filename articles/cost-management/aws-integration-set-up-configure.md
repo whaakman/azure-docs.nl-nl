@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205706"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409201"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instellen en configureren van AWS-kosten en gebruik rapport-integratie
 
@@ -38,7 +38,7 @@ Gebruik de **rapporten** pagina van de facturering en Cost Management console in
 7. Voor **ondersteuning inschakelen voor**, er is geen selectie is vereist.
 8. Voor **instellingen voor gegevensvernieuwing**, selecteer **automatisch vernieuwen van uw kosten &amp; gebruiksrapport wanneer kosten worden gedetecteerd voor de vorige maanden met gesloten facturen**.
 9. Klik op **volgende**.
-10. Voor **Amazon S3-bucket**, typ de naam van de Amazon S3-bucket waar u rapporten die worden geleverd aan en klikt u op **controleren**. De bucket moet de juiste machtigingen om geldig te zijn hebben. Zie voor meer informatie over het toevoegen van machtigingen aan de bucket [instelling Bucket en toegangsmachtigingen Object](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. Voor **Amazon S3-bucket**, typ de naam van de Amazon S3-bucket waar u rapporten die worden geleverd aan en klikt u op **controleren**. De bucket moet de juiste machtigingen om geldig te zijn hebben. Zie voor meer informatie over het toevoegen van machtigingen aan de bucket [instelling Bucket en toegangsmachtigingen Object](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. Voor **rapport padvoorvoegsel**, typt u het rapport pad-voorvoegsel dat u wilt dat moet worden toegevoegd aan de naam van uw rapport.
 12. Voor **compressie**, selecteer **GZIP**.
 13. Klik op **volgende**.

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: df94290c5e62b898b6490c78ef0ae1ee79437240
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1c8886cada80c02e99782159099aa626da35fc50
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716948"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466867"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Gegevens modelleren in Azure Time Series Insights-Preview
 
@@ -29,12 +29,12 @@ Lees voor meer informatie over het gebruik van de update [Azure Time Series Insi
 
 1. Ga naar het deelvenster van de selectie van Time Series-modellen en selecteer **typen** in het menu. Het deelvenster zich kunt richten op de typen Time Series modellen samenvouwen.
 
-    ![Portal_one][1]
+    [![Maken van één type](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
 
 1. Selecteer **Toevoegen**.
 1. Alle gegevens die betrekking hebben op de typen en selecteer de invoer **maken**. Deze actie wordt gemaakt van typen in de omgeving.
 
-    ![Portal_two][2]
+    [![Een type toevoegen](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Bulksgewijs uploaden van een of meer typen
 
@@ -42,19 +42,21 @@ Lees voor meer informatie over het gebruik van de update [Azure Time Series Insi
 1. Selecteer het bestand dat de nettolading van het type bevat.
 1. Selecteer **Uploaden**.
 
-    ![Portal_three][3]
+    [![JSON uploaden](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Één type bewerken
 
-Selecteer het type en selecteer **bewerken**. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
+1. Selecteer het type en selecteer **bewerken**. 
+1. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
 
-![Portal_four][4]
+    [![Een type bewerken](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Een type verwijderen
 
-Selecteer het type en selecteer **verwijderen**. Als er geen exemplaren gekoppeld aan de typen zijn, wordt deze verwijderd.
+1. Selecteer het type en selecteer **verwijderen**.
+1. Als er geen exemplaren gekoppeld aan de typen zijn, wordt deze verwijderd.
 
-![Portal_five][5]
+    [![Een type verwijderen](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
 
 ## <a name="hierarchies"></a>Hiërarchieën
 
@@ -62,19 +64,19 @@ Selecteer het type en selecteer **verwijderen**. Als er geen exemplaren gekoppel
 
 1. Ga naar het deelvenster van de selectie van Time Series-modellen en selecteer **hiërarchieën** in het menu. Het deelvenster zich kunt richten op de modellen van Time Series-hiërarchieën samenvouwen.
 
-    ![Portal_six][6]
+    [![Selecteer hiërarchieën](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
 
 1. Selecteer **Toevoegen**.
 
-    ![Portal_seven][7]
+    [![Een hiërarchie toevoegen](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
 
 1. Selecteer **niveau toevoegen** in het rechter deelvenster.
 
-    ![Portal_eight][8]
+    [![Een niveau toevoegen](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
 
 1. Voer de Hiërarchiedetails van de en selecteer **maken**.
 
-    ![Portal_nine][9]
+    [![Een niveau maken](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Bulksgewijs uploaden van een of meer hiërarchieën
 
@@ -82,31 +84,33 @@ Selecteer het type en selecteer **verwijderen**. Als er geen exemplaren gekoppel
 1. Selecteer het bestand met de nettolading van de hiërarchie.
 1. Selecteer **Uploaden**.
 
-    ![Portal_ten][10]
+    [![Bulksgewijs uploaden hiërarchieën](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Een enkele hiërarchie bewerken
 
-Selecteer de hiërarchie en **bewerken**. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
+1. Selecteer de hiërarchie en **bewerken**.
+1. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
 
-![Portal_eleven][11]
+    [![Een enkele hiërarchie bewerken](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Een hiërarchie verwijderen
 
-Selecteer de hiërarchie en **verwijderen**. Als er geen exemplaren gekoppeld aan de hiërarchie zijn, wordt deze verwijderd.
+1. Selecteer de hiërarchie en **verwijderen**. 
+1. Als er geen exemplaren gekoppeld aan de hiërarchie zijn, wordt deze verwijderd.
 
-![Portal_twelve][12]
+    [![Een hiërarchie verwijderen](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
 
-## <a name="instances"></a>Exemplaren
+## <a name="instances"></a>Instantie
 
 ### <a name="create-a-single-instance"></a>Een enkele instantie maken
 
 1. Ga naar het deelvenster van de selectie van Time Series-modellen en selecteer **exemplaren** in het menu. Het deelvenster om zich te richten op de modellen van Time Series-instanties samenvouwen.
 
-    ![Portal_thirteen][13]
+    [![Een enkele instantie maken](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
 
 1. Selecteer **Toevoegen**.
 
-    ![Portal_fourteen][14]
+    [![Een exemplaar toevoegen](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
 
 1. Geef de exemplaardetails, selecteer het type en hiërarchie-koppeling en selecteer **maken**.
 
@@ -115,19 +119,16 @@ Selecteer de hiërarchie en **verwijderen**. Als er geen exemplaren gekoppeld aa
 1. Selecteer **uploaden JSON**.
 1. Selecteer het bestand met de nettolading van de exemplaren.
 
-    ![Portal_fifteen][15]
+    [![Bulksgewijs uploaden van een of meer exemplaren](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
 
 1. Selecteer **Uploaden**.
 
 ### <a name="edit-a-single-instance"></a>Een enkele instantie bewerken
 
-Selecteer het exemplaar en selecteer **bewerken**. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
+1. Selecteer het exemplaar en selecteer **bewerken**. 
+1. De benodigde wijzigingen aanbrengen en selecteer **opslaan**.
 
-![Portal_sixteen][16]
-
-### <a name="delete-an-instance"></a>Een exemplaar verwijderen
-
-Selecteer het exemplaar en selecteer **verwijderen**. Als er geen gebeurtenissen gekoppeld aan de exemplaren zijn, wordt deze verwijderd.
+    [![Een enkele instantie bewerken](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -136,21 +137,3 @@ Selecteer het exemplaar en selecteer **verwijderen**. Als er geen gebeurtenissen
 - Lees voor meer informatie over de Preview-versie [visualiseren van gegevens in de Verkenner van Azure Time Series Insights Preview](./time-series-insights-update-explorer.md).
 
 - Lees voor meer informatie over ondersteunde JSON-vormen, [ondersteund JSON-vormen](./time-series-insights-send-events.md#json).
-
-<!-- Images -->
-[1]: media/v2-update-how-to-tsm/portal_one.png
-[2]: media/v2-update-how-to-tsm/portal_two.png
-[3]: media/v2-update-how-to-tsm/portal_three.png
-[4]: media/v2-update-how-to-tsm/portal_four.png
-[5]: media/v2-update-how-to-tsm/portal_five.png
-[6]: media/v2-update-how-to-tsm/portal_six.png
-[7]: media/v2-update-how-to-tsm/portal_seven.png
-[8]: media/v2-update-how-to-tsm/portal_eight.png
-[9]: media/v2-update-how-to-tsm/portal_nine.png
-[10]: media/v2-update-how-to-tsm/portal_ten.png
-[11]: media/v2-update-how-to-tsm/portal_eleven.png
-[12]: media/v2-update-how-to-tsm/portal_twelve.png
-[13]: media/v2-update-how-to-tsm/portal_thirteen.png
-[14]: media/v2-update-how-to-tsm/portal_fourteen.png
-[15]: media/v2-update-how-to-tsm/portal_fifteen.png
-[16]: media/v2-update-how-to-tsm/portal_sixteen.png

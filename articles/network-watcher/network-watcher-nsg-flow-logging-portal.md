@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 550755b1215dd25045845d78ab3d6248ef840062
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705944"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467428"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met behulp van de Microsoft Azure-portal
 
@@ -93,6 +93,9 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
     | Resourcegroep | Selecteer **Bestaande gebruiken** en vervolgens **myResourceGroup** |
 
     Het maken van het opslagaccount kan ongeveer een minuut duren. Ga pas verder met de resterende stappen wanneer het opslagaccount is gemaakt. Als u een bestaand opslagaccount wilt gebruiken in plaats van er een te maken, zorg er dan voor dat u een opslagaccount selecteert waarvoor **Alle netwerken** (standaard) is geselecteerd voor **Firewalls en virtuele netwerken**, onder de **Instellingen** voor het opslagaccount.
+    
+    > [!NOTE]
+    > Microsoft.Insight en de Microsoft.Network-providers worden momenteel ondersteund voor Azure Storage, logboeken Stroomlogboeken is echter nog steeds niet volledig toegevoegd. Inschakelen van logboekregistratie voor Stroomlogboeken **alle netwerken** moet nog wel worden geselecteerd totdat deze functie volledig toegevoegd is. 
 4. Selecteer in de linkerbovenhoek van de portal de optie **Alle services**. Typ *Network Watcher* in het vak **Filteren**. Selecteer **Network Watcher** in de zoekresultaten.
 5. Selecteer onder **LOGBOEKEN** de optie **NSG-stroomlogboeken**, zoals wordt weergegeven in de volgende afbeelding:
 
@@ -200,11 +203,11 @@ De waarde voor **mac** in de vorige uitvoer is het MAC-adres van de netwerkinter
 | Voorbeeldgegevens | Wat de gegevens voorstellen   | Uitleg                                                                              |
 | ---          | ---                    | ---                                                                                      |
 | 1542110377   | Tijdstempel             | Het tijdstempel van wanneer de stroom heeft plaatsgevonden, in de indeling UNIX-EPOCHE. In het vorige voorbeeld is de datum omgezet in 1 mei 2018 op 2:59:05 PM GMT.                                                                                    |
-| 10.0.0.4  | IP-adres van bron      | Het IP-adres van de bron waaruit de stroom afkomstig is. 10.0.0.4 is het privé-IP-adres van de VM die u hebt gemaakt in [Een virtuele machine maken](#create-a-vm).
+| 10.0.0.4  | IP-adres van de bron      | Het IP-adres van de bron waaruit de stroom afkomstig is. 10.0.0.4 is het privé-IP-adres van de VM die u hebt gemaakt in [Een virtuele machine maken](#create-a-vm).
 | 13.67.143.118     | IP-adres van doel | Het IP-adres van het doel waarvoor de stroom is bestemd.                                                                                  |
 | 44931        | Bronpoort            | De bronpoort waaruit de stroom afkomstig is.                                           |
 | 443         | Doelpoort       | De doelpoort waarvoor de stroom is bestemd. Aangezien het verkeer was bestemd voor poort 443, is de stroom verwerkt op basis van de regel met de naam **UserRule_default-allow-rdp** in het logboekbestand.                                                |
-| T            | Protocol               | Hiermee wordt aangegeven of het protocol van de stroom TCP (T) of UDP (U).                                  |
+| D            | Protocol               | Hiermee wordt aangegeven of het protocol van de stroom TCP (T) of UDP (U).                                  |
 | O            | Direction              | Hiermee wordt aangegeven of het verkeer inkomend (I) of uitgaand (O) was.                                     |
 | A            | Bewerking                 | Hiermee wordt aangegeven of het verkeer was toegelaten (A) of geweigerd (D).  
 | C            | Stroomstatus **Alleen Versie 2** | Legt de status van de stroom vast. Mogelijke statussen zijn **B**: Begin, wanneer een stroom wordt gemaakt. Er worden geen statistische gegevens geleverd. **C**: Continu, voor een actieve stroom. Statistische gegevens worden geleverd met intervallen van 5 minuten. **E**: Eind, wanneer een stroom is beëindigd. Er worden statistische gegevens geleverd. |

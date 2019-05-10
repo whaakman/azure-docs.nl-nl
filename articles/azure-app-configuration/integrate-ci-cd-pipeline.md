@@ -12,14 +12,22 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a8b77cea34344062c981d8f452094cffabe1e568
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 26bd49af7245d6e6dde3162a2e1d95c54f13e35b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572492"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415951"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integreren met een CI/CD-pijplijn
+
+Dit artikel beschrijft de verschillende manieren van het gebruik van gegevens van Azure App-configuratie in een continue integratie en continue implementatie.
+
+## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>App-configuratie gebruiken in uw Azure DevOps-pijplijn
+
+Als u een Azure DevOps-pijplijn hebt, kunt u sleutel-waarden ophalen uit de App-configuratie en stelt deze in als variabelen. De [Azure App-configuratie DevOps-extensie](https://go.microsoft.com/fwlink/?linkid=2091063) is een invoegtoepassing-module die deze functionaliteit biedt. Gewoon de instructies voor het gebruik van de extensie in een build of vrijgeven van de takenreeks.
+
+## <a name="deploy-app-configuration-data-with-your-application"></a>Gegevens van App-configuratie met uw toepassing implementeren
 
 Uw toepassing kan niet worden uitgevoerd als deze is afhankelijk van Azure App-configuratie en niet meer bereikbaar is. U kunt de tolerantie van uw toepassing te maken met een dergelijke gebeurtenis, maar onwaarschijnlijk is dat er zou gebeuren verbeteren. Om dit te doen, de huidige configuratiegegevens voor het pakket naar een bestand dat lokaal geïmplementeerd met de toepassing en geladen tijdens het opstarten. Deze aanpak zorgt ervoor dat uw toepassing standaardwaarden voor de instelling ten minste heeft. Deze waarden worden overschreven door nieuwe wijzigingen in een configuratie van apps wanneer deze beschikbaar is.
 
@@ -29,13 +37,13 @@ Het volgende voorbeeld ziet u hoe u met de configuratie van de App gegevens als 
 
 Een code-editor kunt u de stappen in deze zelfstudie doet. [Visual Studio Code](https://code.visualstudio.com/) is een uitstekende optie beschikbaar is op Windows, macOS en Linux-platforms.
 
-## <a name="prerequisites"></a>Vereisten
+### <a name="prerequisites"></a>Vereisten
 
 Als u lokaal hebt gemaakt, downloadt en installeert de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) als u dat nog niet gedaan hebt.
 
 Hiervoor een build cloud met Azure DevOps bijvoorbeeld, zorg ervoor dat de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) in uw build-systeem is geïnstalleerd.
 
-## <a name="export-an-app-configuration-store"></a>Opslaan van de configuratie van een app exporteren
+### <a name="export-an-app-configuration-store"></a>Opslaan van de configuratie van een app exporteren
 
 1. Open uw *.csproj* bestand en voeg het volgende script toe:
 
@@ -64,7 +72,7 @@ Hiervoor een build cloud met Azure DevOps bijvoorbeeld, zorg ervoor dat de [Azur
             .UseStartup<Startup>();
     ```
 
-## <a name="build-and-run-the-app-locally"></a>De app lokaal compileren en uitvoeren
+### <a name="build-and-run-the-app-locally"></a>De app lokaal compileren en uitvoeren
 
 1. Stel een omgevingsvariabele met de naam **ConnectionString**, en stel deze in op de toegangssleutel voor het opslaan van de app-configuratie. Als u de Windows-opdrachtprompt, voer de volgende opdracht uit en start opnieuw op de opdrachtprompt om toe te staan van de wijziging door te voeren:
 

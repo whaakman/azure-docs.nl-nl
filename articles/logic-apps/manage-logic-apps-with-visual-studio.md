@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
-ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/07/2019
+ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136502"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467407"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Logische apps beheren met Visual Studio
 
@@ -36,8 +36,7 @@ Hoewel u maken kunt, bewerken, beheren en implementeren van logische apps in de 
   Deze snelstart maakt gebruik van Visual Studio Community 2017, dit is gratis.
 
     > [!IMPORTANT]
-    > Wanneer u Visual Studio 2019 of 2017 installeert, zorg ervoor dat u selecteert de **Azure-ontwikkeling** werkbelasting.
-    > Zie voor meer informatie, [beheren van resources die zijn gekoppeld aan uw Azure-accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Wanneer u Visual Studio 2019 of 2017 installeert, zorg ervoor dat u selecteert de **Azure-ontwikkeling** werkbelasting. Voor Visual Studio 2019, Cloud Explorer Logic App Designer kunt openen in de Azure-portal, maar kan nog niet ingesloten Logic App Designer openen. Zie voor meer informatie, [beheren van resources die zijn gekoppeld aan uw Azure-accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
     Cloud Explorer voor Visual Studio 2015 installeren [Cloud Explorer van Visual Studio Marketplace downloaden](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Zie voor meer informatie, [beheren van resources die zijn gekoppeld aan uw Azure-Accounts in de Cloud Explorer van Visual Studio (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
@@ -105,6 +104,9 @@ U kunt logische apps eerder hebt gemaakt en geïmplementeerd via Azure portal of
 U kunt logische apps downloaden de [Azure-portal](https://portal.azure.com) en slaat u ze als [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) sjablonen. U kunt vervolgens lokaal bewerken de sjablonen met Visual Studio en aanpassen van logische apps voor verschillende implementatieomgevingen. Automatisch downloaden van logische apps *parameterizes* hun definities in [Resource Manager-sjablonen](../azure-resource-manager/resource-group-overview.md#template-deployment), die ook JavaScript Object Notation (JSON) gebruiken.
 
 1. In Visual Studio Cloud Explorer openen en zoek en selecteer de logische app die u wilt downloaden van Azure.
+
+   > [!NOTE]
+   > Voor Visual Studio 2019, Cloud Explorer Logic App Designer kunt openen in de Azure-portal, maar de ingesloten Logic App Designer voor het downloaden van uw logische app nog niet openen.
 
 2. Selecteer in het snelmenu van die app, **openen met Logic App-Editor**.
 
@@ -187,7 +189,7 @@ Als u wilt uw logische app verwijderen uit de Azure portal, in Cloud Explorer he
 > [!NOTE]
 > Wanneer u een logische app verwijdert, worden geen nieuwe uitvoeringen gemaakt. Alle uitvoeringen die bezig zijn en wachten op uitvoering worden geannuleerd. Als u duizenden uitvoeringen hebt, kan de annulering een aanzienlijke tijd in beslag nemen. 
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Als u uw logische app-project in de ontwerper van logische Apps opent, krijgt u mogelijk niet de optie voor het selecteren van uw Azure-abonnement. In plaats daarvan uw logische app wordt geopend met een Azure-abonnement dat is niet de versie die u wilt gebruiken. Dit probleem treedt op omdat nadat u een logische app .json-bestand hebt geopend, Visual Studio de eerste geselecteerde abonnement voor toekomstig gebruik in de cache opgeslagen. U lost dit probleem, probeert u een van deze stappen:
 

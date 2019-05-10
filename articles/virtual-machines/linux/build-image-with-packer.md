@@ -13,17 +13,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/03/2018
+ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543089"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467751"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hoe u Linux-installatiekopieën voor virtuele machines maken in Azure met Packer
 Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie die u de Linux-distributie en de versie van het besturingssysteem definieert. Installatiekopieën kunnen bevatten vooraf geïnstalleerde toepassingen en configuraties. De Azure Marketplace bevat vele installatiekopieën die eerste en derde partij voor de meest voorkomende distributies en omgevingen met toepassingen, of kunt u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u met het open-source-hulpprogramma [Packer](https://www.packer.io/) om te definiëren en maken van aangepaste installatiekopieën in Azure.
+
+> [!NOTE]
+> Azure heeft nu een service, Azure Image Builder (preview), voor het definiëren en het maken van uw eigen aangepaste installatiekopieën. Azure Image Builder is gebouwd op Packer, zodat u ook uw bestaande Packer provisioner shellscripts met het gebruiken kunt. Als u wilt aan de slag met Azure Image Builder, Zie [een Linux-VM maken met Azure Image Builder](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Azure-resourcegroep maken
@@ -232,6 +235,4 @@ Nu kunt u een webbrowser openen en `http://publicIpAddress` in de adresbalk invo
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit voorbeeld gebruikt u Packer om u te maken van een installatiekopie van een virtuele machine met NGINX is al geïnstalleerd. U kunt deze VM-installatiekopie samen met bestaande werkstromen voor de implementatie, zoals uw app implementeren in virtuele machines die zijn gemaakt op basis van de installatiekopie met Ansible, Chef en Puppet.
-
-Zie voor aanvullende Packer voorbeeldsjablonen voor andere Linux-distributies, [deze GitHub-opslagplaats](https://github.com/hashicorp/packer/tree/master/examples/azure).
+U kunt ook bestaande Packer provisioner scripts met [Azure Image Builder](image-builder.md).

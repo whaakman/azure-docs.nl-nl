@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689400"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409770"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -391,17 +391,10 @@ Algemene standaardbeperkingen en maximale beperkingen van Azure-abonnementen kun
 ## <a name="possible-scenarios"></a>Mogelijke scenario 's
 SAP wordt vaak gebruikt als een van de meest essentiële toepassingen binnen ondernemingen. De architectuur en bewerkingen van deze toepassingen is voornamelijk complex en het is belangrijk ervoor te zorgen dat u voldoet aan de vereisten voor beschikbaarheid en prestaties.
 
-Ondernemingen hebben dus om na te denken zorgvuldig over welke toepassingen kunnen worden uitgevoerd in een openbare cloudomgeving, onafhankelijk van de gekozen cloudprovider.
+Ondernemingen hebben dus om na te denken zorgvuldig over welke cloudprovider om te kiezen voor het uitvoeren van dergelijke bedrijven essentiële bedrijfsprocessen op. Azure is het ideaal publieke cloudplatform voor bedrijven essentiële SAP-toepassingen en bedrijfsprocessen. Gezien de brede variëteit aan Azure-infrastructuur, kunnen bijna alle bestaande SAP NetWeaver en S/4HANA-systemen worden gehost in Azure vandaag nog. Azure biedt virtuele machines met vele Terabytes aan geheugen en meer dan 200 CPU's. Naast de die Azure biedt [HANA grote instanties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), waardoor scale-out HANA implementaties van maximaal 24 TB en scale-out ANA implementaties van maximaal 120 TB. 
 
-Mogelijke systeemtypes voor het implementeren van SAP NetWeaver-toepassingen in de openbare cloud omgevingen worden hieronder vermeld:
 
-1. Middelgrote productiesystemen
-2. Ontwikkeling van systemen
-3. Testen van systemen
-4. Prototypesystemen
-5. Learning / demonstratie-systemen
-
-Als u wilt implementeren SAP-systemen in Azure IaaS of IaaS in het algemeen, is het belangrijk om te begrijpen van de belangrijke verschillen tussen de aanbiedingen van traditionele uitbesteders of hosters en IaaS-producten. Terwijl de traditionele hoster of outsourcer past zich aan de infrastructuur (type netwerk, opslag en server) voor de werkbelasting die een klant wil hosten, maar het is in plaats daarvan de verantwoordelijkheid van de klant de juiste werkbelasting voor IaaS-implementaties te kiezen.
+Als u wilt implementeren SAP-systemen in Azure IaaS of IaaS in het algemeen, is het belangrijk om te begrijpen van de belangrijke verschillen tussen de aanbiedingen van traditionele uitbesteders of hosters en IaaS-producten. Terwijl de traditionele hoster of outsourcer past zich aan de infrastructuur (type netwerk, opslag en server) voor de werkbelasting die een klant wil hosten, is het in plaats daarvan de klant of partner verantwoordelijkheid voor beschrijving van de werkbelasting en kies de juiste Azure onderdelen van virtuele machines, opslag en netwerk voor IaaS-implementaties.
 
 Klanten moeten als een eerste stap om te controleren of de volgende items:
 
@@ -422,11 +415,13 @@ De meeste van deze gegevens vindt [hier (Linux)] [ virtual-machines-sizes-linux]
 
 Houd er rekening mee dat de limieten die worden vermeld in de bovenstaande koppeling zijn bovenste limieten. Dit betekent niet dat de limieten voor het gebruik van de resources, kan bijvoorbeeld IOP's worden opgegeven onder alle omstandigheden. De uitzonderingen zijn echter de resources CPU en geheugen van een gekozen VM-type. Voor de virtuele machine die worden ondersteund door SAP, zijn de resources CPU en geheugen gereserveerd en als zodanig beschikbaar zijn op elk gewenst moment in de tijd voor gebruik binnen de virtuele machine.
 
-De Microsoft Azure-platform, zoals andere IaaS-platformen is een multitenant-platform. Als gevolg hiervan worden opslag, netwerk en andere resources gedeeld tussen tenants. Intelligente beperken en quota logica wordt gebruikt om te voorkomen dat een tenant die invloed hebben op de prestaties van een andere tenant (ruis) op ingrijpende wijze. Hoewel logica in Azure probeert te houden van afwijkingen in de bandbreedte is vaak kleine, maximaal gedeelde platforms groter afwijkingen in de beschikbaarheid van de resource/bandbreedte dan veel klanten in hun on-premises implementaties worden gebruikt om te introduceren. Als gevolg hiervan kunt u ervaren verschillende niveaus van bandbreedte met betrekking tot het netwerk of opslag i/o (het volume, evenals latentie) minuut minuut. De kans dat een SAP-systeem op Azure grotere afwijkingen dan in een on-premises systeem optreden kan moet worden gehouden.
+De Microsoft Azure-platform is een multitenant-platform. Als gevolg hiervan worden opslag, netwerk en andere resources gedeeld tussen tenants. Intelligente beperken en quota logica wordt gebruikt om te voorkomen dat een tenant die invloed hebben op de prestaties van een andere tenant (ruis) op ingrijpende wijze. Met name voor de certificering van het Azure-platform voor SAP HANA, moet Microsoft om te bewijzen dat de isolatie van resources voor gevallen waarin meerdere virtuele machines op dezelfde host regelmatig naar SAP uitvoeren kunnen. Hoewel logica in Azure probeert te houden van afwijkingen in de bandbreedte die is doorgaans kleine, maximaal gedeelde platforms in te voeren van grotere afwijkingen in de beschikbaarheid van de resource/bandbreedte dan klanten in hun on-premises implementaties tegenkomen. De kans dat een SAP-systeem op Azure grotere afwijkingen dan in een on-premises systeem optreden kan moet worden gehouden.
 
-Een laatste stap is het evalueren van de vereisten voor beschikbaarheid. Dit kan gebeuren dat de onderliggende Azure-infrastructuur moet worden bijgewerkt en dat of de hosts met virtuele machines opnieuw worden opgestart. In dergelijke gevallen zou VM's op deze hosts worden uitgeschakeld en opnieuw opgestart ook. De timing van dergelijke onderhoud wordt uitgevoerd tijdens niet-core tijdens kantooruren voor een bepaalde regio, maar het mogelijke venster van een paar uur gedurende welke een wordt opnieuw opgestart relatief groot is. Er zijn verschillende technologieën in het Azure-platform die kunnen worden geconfigureerd om te beperken van sommige of alle van de impact van dergelijke updates. Toekomstige verbeteringen van de Azure-platform, DBMS-systemen en SAP toepassing zijn ontworpen voor het minimaliseren van de impact van dergelijke opnieuw wordt opgestart.
+Een laatste stap is het evalueren van de vereisten voor beschikbaarheid. Dit kan gebeuren dat de onderliggende Azure-infrastructuur moet worden bijgewerkt en dat of de hosts met virtuele machines opnieuw worden opgestart. Microsoft de verschillende aanvragen in documenten [onderhoud voor virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Om te beperken de zeldzame gevallen moet waarbij virtuele machines worden gedwongen opnieuw op te starten, maar nog belangrijker gevallen moet u patch als gast-OS of DBMS-onderdelen, u voor het ontwikkelen van de concepten van een geldig hoge beschikbaarheid voor uw SAP-systemen voor productie. Deze vereiste is niet anders uit dan bij de vereisten die u on-premises te maken krijgt. Microsoft breidt streven het Azure-platform om te beperken hoeveel downtime het gevolg van platformwijzigingen. 
 
 Als u wilt implementeren naar Azure een SAP-systeem, de on-premises SAP-systemen besturingssysteem, Database, en SAP-toepassingen moeten worden weergegeven op de ondersteuningsmatrix voor Azure voor SAP, past binnen de Azure-resources infrastructuur kunt bieden en die kunnen werken met de beschikbaarheid van SLA's Microsoft Azure-aanbiedingen. Als deze systemen worden geïdentificeerd, moet u besluiten op een van de volgende twee implementatiescenario's.
+
+
 
 
 
@@ -587,7 +582,7 @@ Als u het gedeelte van de DS-serie VM's in zijn uitgecheckt [in dit artikel (Lin
 
 Meer informatie over Premium Storage vindt u hier: <https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
-#### <a name="azure-storage-accounts"></a>Azure Storage Accounts
+#### <a name="azure-storage-accounts"></a>Azure-opslagaccounts
 
 Bij het implementeren van services of virtuele machines in Azure, kan de implementatie van VHD's en VM-installatiekopieën worden georganiseerd in eenheden die Azure Storage-Accounts genoemd. Wanneer u een Azure-implementatie plant, moet u zorgvuldig rekening houden met de beperkingen van Azure. Op de een-zijde is er een beperkt aantal Storage-Accounts per Azure-abonnement. Hoewel elke Azure Storage-Account een groot aantal VHD-bestanden bevatten kan, moet u er een vaste limiet is op de totale IOP's per Opslagaccount. Bij het implementeren van honderden VM's SAP DBMS-systemen aanzienlijke i/o-aanroepen maakt, is het aanbevolen voor het distribueren van hoge IOPS DBMS-VM's tussen meerdere Azure-Opslagaccounts. Wees voorzichtig niet aan de huidige limiet van Azure Storage-Accounts per abonnement. Omdat opslag een essentieel onderdeel van de implementatie van de database voor een SAP-systeem, dit concept wordt besproken in de al waarnaar wordt verwezen in meer detail [DBMS-Implementatiehandleiding][dbms-guide].
 
@@ -1337,7 +1332,7 @@ Kan het nodig zijn de firewall te configureren op uw virtuele machines waarmee i
 > ![Windows][Logo_Windows] Windows
 >
 > De Windows Firewall in een Azure geïmplementeerde VM is standaard ingeschakeld. U nu wilt toestaan dat de SAP-poort moet worden geopend, anders de SAP-gebruikersinterface is niet mogelijk om verbinding te maken.
-> Om dit te doen:
+> Dit kunt u op de volgende manier doen:
 >
 > * Configuratiescherm\systeem en beveiliging\windows Firewall te openen **geavanceerde instellingen**.
 > * Nu met de rechtermuisknop op de regels voor binnenkomende verbindingen en ervoor kiest **nieuwe regel**.
@@ -1634,7 +1629,7 @@ In de tabel onder normale SAP worden communicatiepoorten weergegeven. Het is in 
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Service | Poortnaam | Voorbeeld `<nn`> = 01 | Standaardbereik (min-max.) | Opmerking |
+| Service | Poortnaam | Voorbeeld `<nn`> = 01 | Standaardbereik (min-max.) | Opmerkingen plaatsen |
 | --- | --- | --- | --- | --- |
 | Functie voor berichtverzending |sapdp`<nn>` Zie * |3201 |3200 - 3299 |SAP-Webdispatcher, die worden gebruikt door SAP GUI voor Windows en Java |
 | -Berichtenserver |sapms`<sid`> Zie ** |3600 |gratis sapms`<anySID`> |beveiligings-id = SAP-systeem-ID |
@@ -1663,7 +1658,7 @@ Instellen van uw on-premises TCP/IP op basis van netwerkprinters in een Azure VM
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Om dit te doen:
+> Dit kunt u op de volgende manier doen:
 >
 > * Sommige netwerkprinters worden geleverd met een configuratiewizard Hierdoor is het eenvoudig om in te stellen de printer in een Azure-VM. Als er geen wizardsoftware met de printer is gedistribueerd, wordt de handmatige manier voor het instellen van de printer is het maken van een nieuwe TCP/IP-printerpoort.
 > * Open het Configuratiescherm -> apparaten en Printers > een printer toevoegen

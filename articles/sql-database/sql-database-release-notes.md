@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717428"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406589"
 ---
 # <a name="sql-database-release-notes"></a>Opmerkingen bij de release van SQL-Database
 
@@ -25,6 +25,7 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 
 | Functie | Details |
 | ---| --- |
+| Serverloze compute-laag | Zie voor meer informatie, [serverloze SQL-Database (preview)](sql-database-serverless.md).|
 | Taken voor Elastic Database | Zie voor meer informatie, [maken, configureren en beheren van elastische taken](elastic-jobs-overview.md) |
 | Elastische transacties | [Over clouddatabases gedistribueerde transacties](sql-database-elastic-transactions-overview.md) |
 | Elastische query’s | Zie voor meer informatie, [elastische query's-overzicht](sql-database-elastic-query-overview.md) |
@@ -45,6 +46,16 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 |SQL Analytics|Zie voor meer informatie, [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Tijdzone-ondersteuning voor beheerde exemplaren|Zie voor meer informatie, [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>Mei 2019
+
+### <a name="service-improvements"></a>Verbeteringen van de services
+
+| Verbeteringen van de services | Details |
+| --- | --- |
+|Hyperscale-servicelaag| Zie voor meer informatie, [grootschalige servicelaag voor maximaal 100 TB](sql-database-service-tier-hyperscale.md).|
+|Serverloze compute-laag| Zie voor meer informatie, [serverloze SQL-Database (preview)](sql-database-serverless.md).|
+
 
 ## <a name="april-2019"></a>April 2019
 

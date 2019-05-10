@@ -12,15 +12,15 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7c330846cd907f35bb23ae5e453383d7c35222e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024006"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471878"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Laden en lezen van gegevens met de Azure Machine Learning Data Prep SDK
-In dit artikel leert u verschillende methoden voor het laden van gegevens met behulp van de Azure Machine Learning Data Prep SDK. Referentiedocumentatie voor de SDK, Zie de [overzicht](https://aka.ms/data-prep-sdk). De SDK biedt ondersteuning voor meerdere gegevensopname-functies, waaronder:
+In dit artikel leert u verschillende methoden voor het laden van gegevens met behulp van de Azure Machine Learning Data Prep SDK.  De SDK biedt ondersteuning voor meerdere gegevensopname-functies, waaronder:
 
 * Laden uit veel bestandstypen met het parseren van de parameter Deductie (codering, scheidingsteken, headers)
 * Type converteren met behulp van Deductie tijdens het laden van bestand
@@ -28,12 +28,13 @@ In dit artikel leert u verschillende methoden voor het laden van gegevens met be
 
 > [!Important]
 > Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) voor gegevens verkennen en de voorbereiding. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van data-sets in AI-oplossingen voor gegevensvoorbereiding.
+> Als u de `azureml-dataprep` pakket maken van een gegevensstroom met uw transformaties in plaats van de `azureml-datasets` pakket voor het maken van een gegevensset, kunt u zich niet voor later gebruik van momentopnamen of versioned gegevenssets.
 
 De volgende tabel ziet u een selectie van functies die worden gebruikt voor het laden van gegevens uit algemene bestandstypen.
 
 | Bestandstype | Function | Koppeling |
 |-------|-------|-------|
-|Alle|`auto_read_file()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Elk|`auto_read_file()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 |Text|`read_lines()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-lines-path--filepath--header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 |CSV|`read_csv()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none-----azureml-dataprep-api-dataflow-dataflow)|
 |Excel|`read_excel()`|[Verwijzing](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
@@ -315,5 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie de SDK [overzicht](https://aka.ms/data-prep-sdk) voor ontwerppatronen en voorbeelden van het gebruik
 * Zie de SDK van Azure Machine Learning Data Prep [zelfstudie](tutorial-data-prep.md) voor een voorbeeld van een specifiek scenario oplossen

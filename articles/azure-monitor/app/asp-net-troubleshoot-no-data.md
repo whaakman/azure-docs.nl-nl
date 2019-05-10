@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691198"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471854"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -42,7 +42,7 @@ ms.locfileid: "60691198"
 * Niet alle typen .NET-project worden ondersteund door de hulpprogramma's. Web- en WCF-projecten worden ondersteund. Voor andere projecttypen zoals toepassingen voor desktop- of service, kunt u nog steeds [een Application Insights SDK handmatig toevoegen aan uw project](../../azure-monitor/app/windows-desktop.md).
 * Zorg ervoor dat u hebt [Visual Studio 2013 Update 3 of hoger](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Dit is vooraf geïnstalleerd met analyses voor ontwikkelaars-hulpprogramma's, waardoor de Application Insights-SDK.
 * Selecteer **extra**, **extensies en Updates** en controleert u of **Developer Analytics Tools** is geïnstalleerd en ingeschakeld. Als dit het geval is, klikt u op **Updates** om te zien of er een update beschikbaar is.
-* Open het dialoogvenster Nieuw Project en kies ASP.NET-webtoepassing. Als u de optie van de Application Insights ziet, klikt u vervolgens de hulpprogramma's geïnstalleerd. Als dat niet het geval is, probeert te verwijderen en vervolgens opnieuw de Application Insights-hulpprogramma's te installeren.
+* Open het dialoogvenster Nieuw Project en kies ASP.NET-webtoepassing. Als u de optie van de Application Insights ziet, klikt u vervolgens de hulpprogramma's geïnstalleerd. Als dat niet het geval is, probeert te verwijderen en vervolgens de Developer Analytics Tools opnieuw te installeren.
 
 ## <a name="q02"></a>Application Insights toevoegen is mislukt
 *Wanneer ik Application Insights toevoegen aan een bestaand project, zie ik een foutbericht weergegeven.*
@@ -85,7 +85,7 @@ FIX:
 * Selecteer **extra**, **extensies en Updates** en controleert u of **Developer Analytics tools** is geïnstalleerd en ingeschakeld. Als dit het geval is, klikt u op **Updates** om te zien of er een update beschikbaar is.
 * Met de rechtermuisknop op uw project in Solution Explorer. Als u de opdracht ziet **Application Insights > Application Insights configureren**, gebruiken om te verbinden met uw project de resource in de Application Insights-service.
 
-Anders, dat het projecttype rechtstreeks wordt niet ondersteund door de Application Insights-hulpprogramma's. Als u wilt uw telemetrie weergeven, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com), kiest u de Application Insights in de linker navigatiebalk en selecteer uw toepassing.
+Anders, dat het projecttype rechtstreeks wordt niet ondersteund door de hulpprogramma's voor analyses voor ontwikkelaars. Als u wilt uw telemetrie weergeven, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com), kiest u de Application Insights in de linker navigatiebalk en selecteer uw toepassing.
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>'Toegang geweigerd' op de Application Insights openen vanuit Visual Studio
 *De opdracht 'Open Application Insights' kom ik bij de Azure-portal, maar ik krijg de foutmelding 'toegang geweigerd'.*

@@ -9,24 +9,30 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 11/21/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728156"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467531"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
-Als u een aangepaste weergave in de verkenner van Time Series Insights wilt delen, kunt u via programmacode een geparameteriseerde URL van de aangepaste weergave maken.
+Voor het delen van een aangepaste weergave in Time Series Insights Explorer, kunt u via programmacode een geparameteriseerde URL van de aangepaste weergave maken.
 
-De verkenner van Time Series Insights ondersteunt URL-queryparameters om weergaven in de omgeving rechtstreeks op geven via de URL.  U kunt bijvoorbeeld via de URL een doelomgeving, een zoekpredicaat en de gewenste tijdspanne opgeven. Wanneer een gebruiker op de aangepaste URL klikt, biedt de interface een directe koppeling naar dat asset in de Time Series Insights-portal.  Beleid voor gegevenstoegang wordt toegepast. 
+De Verkenner van Time Series Insights ondersteunt URL-queryparameters om weergaven in de ervaring van rechtstreeks vanuit de URL opgeven. U kunt bijvoorbeeld via de URL een doelomgeving, een zoekpredicaat en de gewenste tijdspanne opgeven. Wanneer een gebruiker op de aangepaste URL klikt, biedt de interface een directe koppeling naar dat asset in de Time Series Insights-portal. Beleid voor gegevenstoegang wordt toegepast.
+
+> [!TIP]
+> * Bekijk de gratis [Time Series Insights-demo](https://insights.timeseries.azure.com/samples).
+> * Lees het bijbehorende [Time Series Insights Explorer](./time-series-insights-explorer.md) documentatie.
 
 ## <a name="environment-id"></a>Omgevings-id
 
-De parameter `environmentId=<guid>` geeft de id van de doelomgeving op.  Dit is een onderdeel van de FQDN voor gegevenstoegang en u kunt deze vinden in de rechterbovenhoek van het omgevingsoverzicht in de Azure-portal.  Dit is alles wat voorafgaat aan `env.timeseries.azure.com`. Een voorbeeld van de parameter voor omgevings-id is `?environmentId=10000000-0000-0000-0000-100000000108`.
+De parameter `environmentId=<guid>` geeft de id van de doelomgeving op. Het is een onderdeel van de FQDN voor gegevenstoegang en u vindt deze in de rechterbovenhoek van het omgevingsoverzicht in Azure portal. Dit is alles wat voorafgaat aan `env.timeseries.azure.com`.
+
+Een voorbeeld van de parameter voor omgevings-id is `?environmentId=10000000-0000-0000-0000-100000000108`.
 
 ## <a name="time"></a>Time
 
@@ -34,11 +40,10 @@ U kunt absolute of relatieve tijdwaarden opgeven met een geparameteriseerde URL.
 
 ### <a name="absolute-time-values"></a>Absolute tijdwaarden
 
-Voor absolute tijdwaarden gebruikt u de parameters `from=<integer>` en `to=<integer>`. 
+Voor absolute tijdwaarden gebruikt u de parameters `from=<integer>` en `to=<integer>`.
 
-`from=<integer>` is een waarde in JavaScript-milliseconden voor de begintijd van de tijdspanne voor zoeken.
-
-`to=<integer>` is een waarde in JavaScript-milliseconden voor de eindtijd van de tijdspanne voor zoeken. 
+* `from=<integer>` is een waarde in JavaScript-milliseconden voor de begintijd van de tijdspanne voor zoeken.
+* `to=<integer>` is een waarde in JavaScript-milliseconden voor de eindtijd van de tijdspanne voor zoeken.
 
 Zie [Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html) om te kijken hoe u de JavaScript-milliseconden voor een datum bepaalt.
 
@@ -48,78 +53,75 @@ Voor een relatieve tijdwaarde gebruikt u `relativeMillis=<value>`, waarbij *valu
 
 `&relativeMillis=3600000` geeft bijvoorbeeld de afgelopen 60 minuten aan gegevens weer.
 
-Geaccepteerde waarden komen overeen met het menu **quick time** in de Time Series Insights-verkenner en omvatten de volgende:
+Geaccepteerde waarden komen overeen met de Verkenner van Time Series Insights **snelle time** in het menu en omvatten:
 
-- 1800000 (afgelopen 30 minuten)
-- 3600000 (afgelopen 60 minuten)
-- 10800000 (afgelopen 3 uur)
-- 21600000 (afgelopen 6 uur)
-- 43200000 (afgelopen 12 uur)
-- 86400000 (afgelopen 24 uur)
-- 604800000 (afgelopen 7 dagen)
-- 2592000000 (afgelopen 30 dagen)
+* `1800000` (Afgelopen 30 minuten)
+* `3600000` (Afgelopen 60 minuten)
+* `10800000` (Afgelopen 3 uur)
+* `21600000` (Afgelopen 6 uur)
+* `43200000` (Afgelopen 12 uur)
+* `86400000` (Afgelopen 24 uur)
+* `604800000` (Afgelopen 7 dagen)
+* `2592000000` (Afgelopen 30 uur)
 
 ### <a name="optional-parameters"></a>Optionele parameters
 
-Met de parameter `timeSeriesDefinitions=<collection of term objects>` geeft u de onderdelen van een Time Series Insights-weergave op waarbij:
+De `timeSeriesDefinitions=<collection of term objects>` parameter geeft u de voorwaarden van een Time Series Insights-weergave:
 
-- "naam": "\<string >"
-  - De naam van het *onderdeel*.
-- "splitBy": "\<string >"
-  - De naam van de kolom waarop moet worden *gesplitst*.
-- "%{measurename/": "\<string >"
-  - De kolomnaam van de *meting*.
-- "predicate":"\<string>"
-  - De *where*-component voor filteren aan de serverzijde.
-- "useSum":"true"
-  - Dit is een optionele parameter waarin het gebruik van een som voor uw meting wordt aangegeven.  Houd er rekening mee dat als "Events" de geselecteerde meting is, standaard "count" wordt geselecteerd.  Als "Events" niet is geselecteerd, wordt standaard "average" geselecteerd.  
+| Parameter | URL-Item | Description |
+| --- | --- | --- |
+| **name** | `\<string>` | De naam van het *onderdeel*. |
+| **splitBy** | `\<string>` | De naam van de kolom waarop moet worden *gesplitst*. |
+| **measureName** | `\<string>` | De kolomnaam van de *meting*. |
+| **predicate** | `\<string>` | De *where*-component voor filteren aan de serverzijde. |
+| **useSum** | `true` | Een optionele parameter waarmee het gebruik van een som voor uw meting. </br>  Opmerking: als `Events` is van de geselecteerde maateenheid count is standaard geselecteerd.  </br>  Als `Events` is niet ingeschakeld, gemiddelde is standaard geselecteerd. |
 
-De parameter multiChartStack=<true/false> maakt stapeling in het diagram mogelijk en de parameter multiChartSameScale=<true/false> maakt dezelfde schaling van de Y-as mogelijk voor verschillende onderdelen binnen een optionele parameter.  
+* De `multiChartStack=<true/false>` sleutel / waarde-paar maakt in de grafiek.
+* De `multiChartSameScale=<true/false>` sleutel / waarde-paar biedt dezelfde schaal voor y-as voor termen binnen een optionele parameter.  
+* De `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kunt u aan te passen de interval van de schuifregelaar voor een gedetailleerdere of een soepelere, meer geaggregeerde weergave van de grafiek.  
+* De `timezoneOffset=<integer>` parameter kunt u instellen dat de tijdzone voor de grafiek om te worden weergegeven als een UTC-verschuiving.
 
-- multiChartStack=false
-  - True is standaard ingeschakeld. Gebruik dus false voor stapeling.
-- multiChartStack=false&multiChartSameScale=true 
-  - Stapelen moet zijn ingeschakeld om dezelfde schaling van de Y-as te gebruiken voor verschillende onderdelen.  Standaard is false ingesteld, dus als u true doorgeeft, wordt deze functionaliteit ingeschakeld.  
-  
-De `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kunt u aan te passen de interval van de schuifregelaar voor een gedetailleerdere of een soepelere, meer geaggregeerde weergave van de grafiek.  
-- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
-  - Eenheden = dagen, uren, minuten, seconden en milliseconden.  Gebruik altijd een hoofdletter voor de eenheid.
-  - Definieer het aantal eenheden door het gewenste gehele getal voor timeBucketSize op te geven.  Rond af naar 7 dagen.  
-  
-De `timezoneOffset=<integer>` parameter kunt u instellen dat de tijdzone voor de grafiek om te worden weergegeven als een UTC-verschuiving.  
-  - `timezoneOffset=-<integer>`
-    - Het gehele getal is altijd in milliseconden.  
-    - Deze functionaliteit verschilt enigszins van wat wordt ingeschakeld in de TSI-verkenner, waarin u lokaal (browsertijd) of UTC kunt kiezen.  
- 
+| Klantlicenties | Description |
+| --- | --- |
+| `multiChartStack=false` | `true` is standaard ingeschakeld zodat doorgeven `false` stapelen. |
+| `multiChartStack=false&multiChartSameScale=true` | Stapelen moet zijn ingeschakeld om dezelfde schaling van de Y-as te gebruiken voor verschillende onderdelen.  Er `false` standaard, dus geven 'true' schakelt deze functionaliteit. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Eenheden = dagen, uren, minuten, seconden en milliseconden.  Gebruik altijd een hoofdletter voor de eenheid. </br> Definieer het aantal eenheden door het gewenste gehele getal voor timeBucketSize op te geven.  Rond af naar 7 dagen.  |
+| `timezoneOffset=-<integer>` | Het gehele getal is altijd in milliseconden. </br> Deze functionaliteit verschilt enigszins van wat wordt ingeschakeld in de TSI-verkenner, waarin u lokaal (browsertijd) of UTC kunt kiezen. |
+
 ### <a name="examples"></a>Voorbeelden
 
-Als u bijvoorbeeld definities van een tijdreeks als een URL-parameter wilt toevoegen, kunt u het volgende gebruiken:
+Time series-definities toevoegen aan een omgeving TSI als een URL-parameter, toevoegen:
 
-```https
+```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-Met deze voorbeelddefinities voor een tijdreeks voor 
+Gebruik het voorbeeld van de tijd reeks definities voor:
 
-- omgevings-id
-- afgelopen 60 minuten met gegevens
-- onderdelen (F1PressureID, F2TempStation en F3VibrationPL) die de optionele parameters vormen
- 
-kunt u de volgende geparameteriseerde URL voor een weergave maken:
+* De omgevings-ID
+* De afgelopen 60 minuten aan gegevens
+* De voorwaarden (F1PressureID, F2TempStation en F3VibrationPL) die deel uitmaken van de volgende optionele parameters
 
-```https
+u kunt de volgende geparameteriseerde URL voor een weergave maken:
+
+```plaintext
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-Als u de verkenner van Time Series Insights had gebruikt om de weergave samen te stellen die wordt beschreven door de voorgaande URL, zou deze er als volgt uitzien:
+> [!TIP]
+> Zie de Explorer live [met behulp van de URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-![Onderdelen in Time Series Insights-verkenner](media/parameterized-url/url1.png)
+De URL die hierboven worden beschreven en de TSI-Verkenner-weergave is gebaseerd:
 
-De volledige weergave (inclusief het diagram) zou er als volgt uitzien:
+[![Time Series Insights explorer voorwaarden](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
-![Diagramweergave](media/parameterized-url/url2.png)
+De volledige weergave (inclusief het diagram):
+
+[![Grafiek weergeven](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [query gegevens met C# ](time-series-insights-query-data-csharp.md).
+* Meer informatie over het [query gegevens met C# ](time-series-insights-query-data-csharp.md).
+
+* Meer informatie over de [Time Series Insights Explorer](./time-series-insights-explorer.md).

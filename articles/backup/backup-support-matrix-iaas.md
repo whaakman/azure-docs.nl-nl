@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685934"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471649"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -41,9 +41,9 @@ Meer informatie over back-up [met behulp van een back-upserver](backup-architect
 **Actie** | **Ondersteuning**
 --- | ---
 Back-up inschakelen wanneer u een virtuele Windows Azure-machine maken | Ondersteund voor:  WindowsServer 2019 (Datacenter/Datacenter-Core), WindowsServer 2016 (Datacenter/Datacenter-Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM en SP1)
-Back-up inschakelen wanneer u een Linux-VM maken | Ondersteund voor:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+Back-up inschakelen wanneer u een Linux-VM maken | Ondersteund voor:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (TNS), 14.04 (TNS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Maak een back-up van een virtuele machine wordt die afgesloten of offline virtuele machine | Ondersteund.<br/><br/> Is een crash-consistente momentopname alleen, niet toepassingsconsistent is.
-Back-up van schijven na de migratie naar schijven beheerde | Ondersteund.<br/><br/> Back-ups blijven werken. Geen actie vereist.
+Back-up van schijven na de migratie naar schijven beheerde | Ondersteund.<br/><br/> Back-ups blijven werken. U hoeft geen actie te ondernemen.
 Back-up van beheerde schijven na het inschakelen van de groep resourcevergrendeling | Wordt niet ondersteund.<br/><br/> Azure Backup kan de oudere herstelpunten voor de resource niet verwijderen en back-ups mislukken na het verstrijken van de maximumlimiet van herstelpunten wordt gestart.
 Back-upbeleid voor een virtuele machine wijzigen | Ondersteund.<br/><br/> De virtuele machine wordt een back-worden gemaakt met behulp van het schema en de retentie-instellingen in het nieuwe beleid. Als de retentie-instellingen worden uitgebreid, worden de bestaande herstelpunten gemarkeerd en bewaard. Als ze worden beperkt, wordt de bestaande herstelpunten worden verwijderd in de eerstvolgende opschoontaak en uiteindelijk verwijderd.
 Een back-uptaak annuleren | Ondersteund tijdens het verwerken van de momentopname.<br/><br/> Niet ondersteund wanneer de momentopname worden overgebracht naar de kluis.
@@ -94,7 +94,7 @@ De maximale vervaltijd voor een herstelpunt | Geen limiet.
 Maximale frequentie van back-up naar de kluis (Azure VM-extensie) | Eenmaal per dag.
 Maximale frequentie van back-up naar de kluis (MARS-agent) | Drie back-ups per dag.
 Maximale back-upfrequentie naar DPM/MABS | Om de 15 minuten voor SQL Server.<br/><br/> Eenmaal per uur voor andere werkbelastingen.
-Bewaarperiode van herstelpunt | Dagelijks, wekelijks, maandelijks en jaarlijks.
+Bewaarperiode van het herstelpunt | Dagelijks, wekelijks, maandelijks en jaarlijks.
 Maximale bewaarperiode | Afhankelijk van back-upfrequentie.
 Herstelpunten op DPM-/MABS-schijf | 64 voor bestandsservers en 448 voor appservers.<br/><br/> Tapeherstelpunten zijn onbeperkt voor on-premises DPM.
 
@@ -150,6 +150,7 @@ Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit de [Azur
 Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit een aangepaste installatiekopie (derde) |   Ondersteund.<br/><br/> De virtuele machine moet worden uitgevoerd als een ondersteund besturingssysteem.<br/><br/> Tijdens het herstellen van bestanden op de virtuele machine, kunt u alleen naar een compatibel besturingssysteem (niet een besturingssysteem ouder of hoger) herstellen.
 Maak een back-up van virtuele machines die worden gemigreerd naar Azure  | Ondersteund.<br/><br/> Als u wilt back-up van de virtuele machine, moet de VM-agent worden geïnstalleerd op de gemigreerde machine.
 Back-up van Multi-VM-consistentie | Azure Backup biedt geen consistentie van gegevens en toepassingen op meerdere virtuele machines.
+Back-ups met [diagnostische instellingen](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | niet ondersteund. <br/><br/> Als het herstellen van de Azure-VM met de diagnostische instellingen is geactiveerd met behulp van [nieuw](backup-azure-arm-restore-vms.md#create-a-vm) optie vervolgens de herstelbewerking is mislukt.
 
 
 ## <a name="vm-storage-support"></a>Ondersteuning voor VM-opslag
@@ -230,8 +231,8 @@ Backup biedt ondersteuning voor de compressie van het back-verkeer, zoals sameng
 
 **Machine** | **Comprimeren naar MABS/DPM (TCP)** | **Comprimeren naar de kluis (HTTPS)**
 --- | --- | ---
-On-premises Windows-machines zonder DPM/MABS | N.v.t. | ![Ja][green]
-Azure-VM's | N.v.t. | N.v.t.
+On-premises Windows-machines zonder DPM/MABS | N.V.T. | ![Ja][green]
+Azure-VM's | N.V.T. | N.V.T.
 On-premises/Azure VM's met DPM | ![Ja][green] | ![Ja][green]
 On-premises/Azure VM's met MABS | ![Ja][green] | ![Ja][green]
 

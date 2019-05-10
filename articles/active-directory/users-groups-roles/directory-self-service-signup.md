@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472249"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501903"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Wat is selfserviceregistratie voor Azure Active Directory?
 
@@ -52,7 +52,7 @@ Een beheerder kan deze mogelijkheden met de volgende parameters van de Azure AD-
 AllowEmailVerifiedUsers en AllowAdHocSubscriptions zijn hele adreslijst-instellingen die kunnen worden toegepast op een beheerde of een niet-beheerde adreslijst. Hier volgt een voorbeeld waarin:
 
 * Beheren van een map met een geverifieerde domeinnaam bijvoorbeeld contoso.com
-* U B2B-samenwerking vanuit een andere map gebruiken om uit te nodigen van een gebruiker die nog niet bestaat (userdoesnotexist@contoso.com) in de basismap van constoso.com
+* U B2B-samenwerking vanuit een andere map gebruiken om uit te nodigen van een gebruiker die nog niet bestaat (userdoesnotexist@contoso.com) in de basismap van contoso.com
 * De basismap heeft de AllowEmailVerifiedUsers ingeschakeld
 
 Als de vorige voorwaarden voldaan wordt, klikt u vervolgens een gebruiker lid wordt gemaakt in de basismap en een gastgebruiker B2B is gemaakt in de uitnodigende map.

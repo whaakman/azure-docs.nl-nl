@@ -259,7 +259,7 @@ U kunt controleren welke modules worden uitgevoerd op een apparaat met de opdrac
 
 3. Selecteer **Modules instellen**.
 
-4. Selecteer **Volgende**.
+4. Selecteer **Next**.
 
 5. In de **routes opgeven** pagina, moet u hebt een standaardroute dat alle berichten van alle modules naar IoT Hub verzendt. Voeg anders de volgende code toe en selecteer **Volgende**.
 

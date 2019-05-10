@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429010"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406959"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory integreren met E Verkoopmanager Remix
 
@@ -47,7 +47,7 @@ Azure AD-integratie configureren met E Sales Manager Remix, moet u de volgende i
 
 Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -63,7 +63,7 @@ Als u wilt de integratie van Azure AD configureren met E Sales Manager Remix, E 
 
 1. In de [Azure-portal](https://portal.azure.com), selecteert u in het linkerdeelvenster **Azure Active Directory**. 
 
-    ![De knop Azure Active Directory][1]
+    ![De Azure Active Directory-knop][1]
 
 1. Selecteer **Bedrijfstoepassingen** > **Alle toepassingen**.
 
@@ -71,13 +71,13 @@ Als u wilt de integratie van Azure AD configureren met E Sales Manager Remix, E 
     
 1. Als u wilt een nieuwe toepassing toevoegen, selecteert u **nieuwe toepassing** aan de bovenkant van het venster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
 1. Typ in het zoekvak **E Sales Manager Remix**, selecteer **E Sales Manager Remix** in de lijst met resultaten en selecteer vervolgens **toevoegen**.
 
     ![E Sales Manager Remix in de lijst met resultaten](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met E Sales Manager Remix, op basis van een testgebruiker met de naam "Britta Simon."
 
@@ -85,7 +85,7 @@ Voor eenmalige aanmelding om te werken, moet Azure AD identificatie van de gebru
 
 Als u wilt configureren en Azure AD eenmalige aanmelding met E Sales Manager Remix testen, voert u de bouwstenen die u in de volgende vijf secties:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
 Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw toepassing E Sales Manager Remix door het volgende te doen:
 
@@ -158,7 +158,7 @@ Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van
     
     b. In de **samenwerking item** sectie in de vervolgkeuzelijst, selecteer **e**.
 
-    c. In de **samenwerking item** vak, plak de waarde van de claim die u eerder hebt gekopieerd vanuit Azure portal (dat wil zeggen, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. In de **samenwerking item** vak, plak de waarde van de claim die u eerder hebt gekopieerd vanuit Azure portal (dat wil zeggen, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. In de **verlener (entiteits-ID)** vak, plak de id-waarde die u eerder hebt gekopieerd uit de **E Sales Manager Remix domein en URL's** sectie van de Azure portal.
 
@@ -174,11 +174,11 @@ Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van
 > Als u de app instelt, vindt u een beknopte versie van de voorgaande instructies in de [Azure-portal](https://portal.azure.com). Nadat u hebt toegevoegd in de app de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad, en vervolgens toegang tot de ingesloten in de documentatie bij de **configuratie** sectie aan de onderkant. Zie voor meer informatie over de functie ingesloten documentatie [documentatie over Azure AD embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 In deze sectie maakt maken u testgebruiker Britta Simon in Azure portal door het volgende te doen:
 
-![Een Azure AD-testgebruiker maken][100]
+![Maak een testgebruiker Azure AD][100]
 
 1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**.
 
@@ -186,7 +186,7 @@ In deze sectie maakt maken u testgebruiker Britta Simon in Azure portal door het
 
 1. Selecteer voor een lijst van de huidige gebruikers, **gebruikers en groepen** > **alle gebruikers**.
 
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
 1. Aan de bovenkant van de **alle gebruikers** venster **toevoegen**.
 
@@ -250,11 +250,11 @@ In deze sectie maakt inschakelen u gebruiker Britta Simon gebruiken Azure eenmal
 
 1. Selecteer in het linkerdeelvenster **gebruikers en groepen**.
 
-    ![De koppeling Gebruikers en groepen][202]
+    ![De koppeling 'Gebruikers en groepen'][202]
 
 1. Selecteer **toevoegen** en klikt u op de **toevoegen toewijzing** venster **gebruikers en groepen**.
 
-    ![Het deelvenster Toewijzing toevoegen][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
 1. In de **gebruikers en groepen** venster in de **gebruikers** in de lijst met **Britta Simon**.
 
@@ -270,7 +270,7 @@ Wanneer u de tegel E Sales Manager Remix in het toegangsvenster selecteert, moet
 
 Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

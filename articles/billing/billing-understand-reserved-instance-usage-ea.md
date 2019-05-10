@@ -1,90 +1,155 @@
 ---
-title: Gebruik Azure reserveringen voor Enterprise begrijpen | Microsoft Docs
+title: Meer informatie over Azure reserveringen gebruik voor Enterprise Agreements
 description: Informatie over het lezen van uw gebruik voor meer informatie over hoe de Azure-reservering voor uw Enterprise-inschrijving wordt toegepast.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+author: bandersmsft
+manager: yashar
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d85dd1c21f952261e838c01843e15dafcc0e931
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370657"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415758"
 ---
-# <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informatie over Azure-reservering gebruik voor uw Enterprise-inschrijving
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Kosten voor Enterprise Agreement-reservering en gebruiksgegevens ophalen
 
-Gebruik de **ReservationId** van [op de pagina reserveringen](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) en het gebruiksbestand van de [EA-portal](https://ea.azure.com) om te evalueren van het gebruik van uw reservering. U ziet ook het gebruik van de reservering in de samenvatting van gebruik van [EA-portal](https://ea.azure.com).
+Kosten van de reservering en gebruiksgegevens zijn beschikbaar voor Enterprise Agreement-klanten in de Azure portal en de REST-API's. In dit artikel helpt u bij:
 
-Als u de reservering in een context van de betalen per gebruik facturering hebt gekocht, Zie [begrijpen reservering gebruik voor uw abonnement op gebruiksbasis.](billing-understand-reserved-instance-usage.md)
+- Reservering kopen gegevens ophalen
+- Reservering te voorzichtige gebruiksgegevens ophalen
+- Afgeschreven kosten voor reservering
+- Terugstorting voor het gebruik van de reservering
+- Reservering besparing berekenen
 
-## <a name="usage-for-reserved-virtual-machines-instances"></a>Gebruik voor gereserveerde VM-instanties
+Marketplace-kosten worden geconsolideerd in gegevens over het gebruik. U weergeven kosten in rekening gebracht voor de eerste partij gebruik, het gebruik van marketplace en aankopen van één gegevensbron.
 
-Voor de volgende secties wordt ervan uitgegaan dat u een Windows Standard_D1_v2 VM worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
+## <a name="reservation-charges-in-azure-usage-data"></a>Kosten voor reservering in gebruik van Azure-gegevens
 
-| Veld | Value |
-|---| --- |
-|ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
-|Hoeveelheid |1|
-|SKU | Standard_D1|
-|Regio | eastus |
+Gegevens is onderverdeeld in twee afzonderlijke gegevenssets: _Werkelijke kosten_ en _afgeschreven kosten_. Hoe worden deze twee gegevenssets verschillen:
 
-De hardware-gedeelte van de virtuele machine wordt behandeld, omdat de geïmplementeerde virtuele machine komt overeen met de kenmerken van de reservering. Als u wilt zien welke Windows-software wordt niet gedekt door de reservering, Zie [softwarekosten voor Azure gereserveerde VM-exemplaren Windows](billing-reserved-instance-windows-software-costs.md).
+**Werkelijke kosten** -gegevens levert aan afstemmen op uw maandelijkse factuur. Deze gegevens hebben een reservering kopen kosten. Heeft nul EffectivePrice voor het gebruik dat de reserveringskorting hebt ontvangen.
 
-### <a name="usage-in-csv-file-for-reserved-vm-instances"></a>Gebruik in CSV-bestand voor gereserveerde VM-instanties
+**Afgeschreven kosten** -de resource EffectiveCost die de reserveringskorting krijgt is de naar rato kosten van de gereserveerde instantie. De gegevensset heeft ook niet-gebruikte reservering kosten. De som van de reservering kosten en niet-gebruikte reservering biedt de dagelijkse afgeschreven kosten van de reservering.
 
-U kunt het zakelijke gebruik van CSV-bestand downloaden van de Enterprise portal. In het CSV-bestand filteren op **aanvullende informatie** en typt u in uw **ReservationID**. De volgende schermafbeelding ziet u de velden met betrekking tot de reservering:
+Vergelijking van twee gegevenssets:
 
-![Enterprise Agreement (EA)-csv voor Azure-reservering](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+| Gegevens | Werkelijke kosten-gegevensset | Afgeschreven kosten-gegevensset |
+| --- | --- | --- |
+| Aankopen in de reservering | Beschikbaar in deze weergave.<br>  Voor dit gegevensfilter over ChargeType = &quot;aankoop&quot;. <br> Raadpleeg ReservationID of ReservationName weten welke reservering is bedoeld voor de kosten in rekening gebracht.  | Niet van toepassing op deze weergave. <br> Aankoop kosten zijn niet opgegeven in de afgeschreven gegevens. |
+| EffectivePrice | De waarde is nul voor gebruik dat opgehaald van de reserveringskorting. | De waarde is de kosten per uur Pro rata berekend van de reservering voor gebruik met de reserveringskorting. |
+| Niet-gebruikte reservering (biedt het aantal uren dat de reservering niet is gebruikt in een dag en de monetaire waarde van de verspilling) | Niet van toepassing in deze weergave. | Beschikbaar in deze weergave.<br> Als u deze gegevens, filteren op ChargeType = &quot;UnusedReservation&quot;.<br>  Raadpleeg ReservationID of ReservationName weten welke reservering is gebruikt. Dit is de hoeveelheid van de reservering is verloren voor die dag.  |
+| Prijs per eenheid (prijs van de bron van de prijslijst) | Beschikbaar | Beschikbaar |
 
-1. **ReservationId** in **aanvullende informatie** veld vertegenwoordigt de reservering die wordt toegepast op de virtuele machine.
-2. **ConsumptionMeter** is de meter-ID voor de virtuele machine.
-3. **ID meten** is de meter reservering met de kosten van $0. De kosten van de actieve virtuele machine wordt betaald door de gereserveerde VM-instantie.
-4. Standard_D1 is één vCPU VM en de virtuele machine wordt geïmplementeerd zonder Azure Hybrid Benefit. Zodat deze meter bevat informatie over de extra kosten in rekening gebracht van de Windows-software. De meter die overeenkomt met de D-serie 1-core VM Zie [softwarekosten voor Azure gereserveerde VM-exemplaren Windows](billing-reserved-instance-windows-software-costs.md).  Hebt u Azure Hybrid Benefit, worden deze extra kosten wordt niet toegepast.
+Andere informatie die beschikbaar zijn in gebruik van Azure-gegevens is gewijzigd:
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Gebruik voor SQL-Database en Cosmos DB gereserveerde capaciteitsreserveringen
+- Product- en informatie van de Meter - Azure niet vervangen door de oorspronkelijk verbruikte meter de ReservationId en ReservationName, als deze eerder hebt gedaan.
+- ReservationId en ReservationName - ze hun eigen velden in de gegevens zijn. Het gebruikt voorheen alleen onder aanvullende informatie beschikbaar.
+- ProductOrderId - de reserveringsorder-ID, als een eigen veld toegevoegd.
+- ProductOrderName - de naam van het product van de aangeschafte reservering.
+- Term - twaalf maanden of 36 maanden.
+- RINormalizationRatio - onder aanvullende informatie beschikbaar. Dit is de waarde waar de reservering wordt toegepast op de record gebruik. Als grootte-instantieflexibiliteit op voor de reservering is ingeschakeld, kunt klikt u vervolgens deze toepassen op andere grootten. De waarde geeft de verhouding tussen de reservering is toegepast op voor de record van het gebruik.
 
-De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor het beschrijven van het gebruiksrapport. U kunt dezelfde stappen voor het ophalen van gebruik van Azure Cosmos DB is het ook gebruiken.
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Azure-verbruik en de reservering gebruiksgegevens met behulp van API ophalen
 
-Wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
+U kunt de gegevens met behulp van de API ophalen of het downloaden van Azure portal.
 
-| Veld | Value |
-|---| --- |
-|ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
-|Hoeveelheid |2|
-|Product| SQL Database Gen 4 (2 Kerngeheugens)|
-|Regio | eastus |
+U belt de [Usage Details API](/rest/api/consumption/usagedetails/list) met API-versie &quot;2019-04-01-preview&quot; om op te halen van de nieuwe gegevens. Zie voor meer informatie over terminologie [gebruiksvoorwaarden](billing-understand-your-usage.md). De aanroeper moet een Enterprise-beheerder voor de enterprise overeenkomst met de [EA-portal](https://ea.azure.com). Alleen-lezen beheerders van de onderneming kunt ook de gegevens ophalen.
 
-### <a name="usage-in-csv-file"></a>Gebruik in CSV-bestand
+De gegevens zijn niet beschikbaar in [rapportage-API's voor klanten met Enterprise - informatie over het gebruik](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**, en kies de vereiste **Metercategorie** -Azure SQL database of Azure Cosmos DB. De volgende schermafbeelding ziet u de velden met betrekking tot de reservering.
+Hier volgt een voorbeeld van de aanroep naar de API:
 
-![Enterprise Agreement (EA)-csv voor SQL-Database gereserveerde capaciteit](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
+```
+https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+```
 
-1. **ReservationId** in de **aanvullende informatie** veld is de reservering die wordt toegepast op de SQL-Database-resource.
-2. **ConsumptionMeter** is de meter-ID voor de SQL-Database-resource.
-3. **ID meten** is de meter reservering met de kosten van $0. Een SQL-Database-resource die in aanmerking voor de reservering komt bevat deze meter-ID in het CSV-bestand.
+Zie voor meer informatie over {enrollmentId} en {billingPeriodId}, de [informatie over het gebruik – lijst](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) -API-artikel.
 
-## <a name="usage-summary-page-in-enterprise-portal"></a>De overzichtspagina voor gebruik in Enterprise portal
+Informatie over metrische gegevens en filter in de volgende tabel kunt voor reservering van veelvoorkomende problemen oplossen.
 
-Het gebruik van uw Azure-reservering wordt ook weergegeven in de samenvatting van gebruik van Enterprise portal: ![Samenvatting van gebruik van Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+| **Type van de gegevens van de API** | API-aanroep actie |
+| --- | --- |
+| **Alle kosten (gebruik en aankopen)** | {Metriek} vervangen door ActualCost |
+| **Gebruik dat de reserveringskorting is** | {Metriek} vervangen door ActualCost<br>{Filter} vervangen door: properties/reservationId%20ne%20 |
+| **Gebruik dat is de reserveringskorting niet ophalen** | {Metriek} vervangen door ActualCost<br>{Filter} vervangen door: properties/reservationId%20eq%20 |
+| **Afgeschreven kosten (gebruik en aankopen)** | {Metriek} vervangen door AmortizedCost |
+| **Rapport voor niet-gebruikte reservering** | {Metriek} vervangen door AmortizedCost<br>{Filter} vervangen door: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Aankopen in de reservering** | Vervang {metriek} door {filter} ActualCostReplace door: properties/ChargeType%20eq%20'Purchase'  |
+| **Restituties** | {Metriek} vervangen door ActualCost<br>{Filter} vervangen door: properties/ChargeType%20eq%20'Refund' |
 
-1. Niet in rekening gebracht voor de hardware-onderdeel van de virtuele machine als deze wordt omspannen door reservering. Voor de reservering van een SQL-Database, ziet u een regel met **servicenaam** gereserveerde capaciteitsgebruik als Azure SQL-Database.
-2. In dit voorbeeld hebt u geen Azure Hybrid Benefit, zodat u kosten in voor de Windows-software die is gebruikt in combinatie met de virtuele machine gebracht rekening.
+## <a name="download-the-usage-csv-file-with-new-data"></a>Het gebruik van CSV-bestand met nieuwe gegevens downloaden
+
+Als u een EA-beheerder bent, kunt u het CSV-bestand met nieuwe gegevens over het gebruik van Azure-portal kunt downloaden. Deze gegevens niet beschikbaar is via de [EA-portal](https://ea.azure.com).
+
+In de Azure-portal, gaat u naar [kostenbeheer en facturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+
+1. Selecteer het account van de facturering.
+2. Klik op **gebruik en kosten**.
+3. Klik op **Downloaden**.  
+![Voorbeeld van het downloaden van het bestand met CSV-gebruiksgegevens in Azure portal](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. In **Download Usage + kosten** onder **gebruik Details versie 2** , selecteer **alle kosten (gebruik en aankopen)** en klik op downloaden. Herhaal dit voor **afgeschreven kosten in rekening gebracht (gebruik en aankopen)**.
+
+De CSV-bestanden die u downloadt bevatten werkelijke kosten en de afgeschreven kosten.
+
+## <a name="common-cost-and-usage-tasks"></a>Algemene taken voor kosten en gebruik
+
+De volgende secties worden algemene taken die de meeste mensen gebruiken om hun reservering kosten en gebruik de gegevens weer te geven.
+
+### <a name="get-reservation-purchase-costs"></a>Reservering kopen kosten ophalen
+
+Reservering kopen kosten zijn beschikbaar in de werkelijke kosten van gegevens. Filteren op _ChargeType = aankoop_. Raadpleeg ProductOrderID om te bepalen welke de aanschaf is voor reserveringsorder.
+
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>Weinig gebruikte reserveringshoeveelheid en kosten
+
+Afgeschreven kosten-gegevens ophalen en filteren op _ChargeType_ _UnusedReservation =_. U profiteert van de dagelijkse ongebruikte gereserveerde hoeveelheid en de kosten. U kunt de gegevens voor een reservering of een order met behulp van reservering filteren _ReservationId_ en _ProductOrderId_ velden, respectievelijk. Als een reservering 100 is % gebruikt, heeft de record een aantal van 0.
+
+### <a name="amortize-reservation-costs"></a>Afgeschreven kosten voor reservering
+
+Gegevens van de afgeschreven kosten en filter voor het gebruik van een reservering _ProductOrderID_ dagelijkse afgeschreven kosten ophalen voor een reservering.
+
+### <a name="chargeback-for-a-reservation"></a>Terugstorting voor een reservering
+
+U kunt terugstorting reservering gebruiken met andere organisaties door abonnementen, resourcegroepen of tags. Afgeschreven kosten biedt monetaire waarde van het gebruik van een reservering op de volgende gegevenstypen:
+
+- Resources (zoals een virtuele machine)
+- Resourcegroep
+- Tags
+- Abonnement
+
+### <a name="get-the-blended-rate-for-chargeback"></a>Het gecombineerde tarief voor terugstorting ophalen
+
+Om te bepalen het gecombineerde tarief, de afgeschreven kosten-gegevens ophalen en samenvoegen van de totale kosten. Voor virtuele machines, kunt u MeterName of ServiceType informatie uit AdditionalInfo JSON-gegevens. De totale kosten door het aantal dat wordt gebruikt voor het ophalen van de gecombineerde snelheid verdelen.
+
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Audit optimale reservering bijvoorbeeld de flexibiliteit van de grootte gebruiken
+
+Meerdere hoeveelheid met de _RINormalizationRatio_, van aanvullende informatie. De resultaten aangeven hoeveel uur gebruik van de reservering is toegepast op de record gebruik.
+
+### <a name="determine-reservation-savings"></a>Reservering besparingen bepalen
+
+De kosten Amortized gegevens ophalen en filteren van gegevens voor een gereserveerde instantie. Vervolgens:
+
+1. De geschatte kosten van de betalen per gebruik. Vermenigvuldigt u de _PrijsPerEenheid_ waarde met _hoeveelheid_ waarden om op te halen de geschatte kosten van betalen per gebruik, als de reserveringskorting is niet van toepassing op het gebruik.
+2. De kosten voor reservering ophalen. Som de _kosten_ waarden om op te halen van de geldwaarde van wat u hebt betaald voor de gereserveerde instantie. Dit omvat de kosten die worden gebruikt en niet-gebruikte van de reservering.
+3. Kosten van de reservering van de geschatte kosten voor betalen per gebruik om op te halen van de geschatte besparing aftrekken.
+
+## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Aankopen in de reservering en afschrijving in Azure kostenanalyse
+
+Kosten van gereserveerde instantie is beschikbaar in [Azure cost analysis preview-modus](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). De gegevensweergave kosten is standaard voor de werkelijke kosten. U kunt overschakelen naar de afgeschreven kosten. Hier volgt een voorbeeld.
+
+![Voorbeeld van waar u de afgeschreven kosten selecteren in kostenanalyse](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+
+Toepassen van filters om te zien van uw kosten met een type reservering of kosten in rekening gebracht. Groeperen op de Reserveringsnaam voor de kosten voor onderverdeeld op basis van reserveringen.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -97,4 +162,3 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 - [Begrijpen hoe de reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
-

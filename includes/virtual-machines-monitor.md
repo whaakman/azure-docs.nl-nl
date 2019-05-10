@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473962"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65404927"
 ---
 U kunt profiteren van veel mogelijkheden voor het bewaken van uw virtuele machines te verzamelen, weergeven en analyseren van diagnostische en logboekgegevens. Eenvoudige doen [bewaking](../articles/azure-monitor/overview.md) van uw virtuele machine, kunt u het scherm overzicht voor de virtuele machine in Azure portal. U kunt [extensies](../articles/virtual-machines/windows/extensions-features.md) voor het configureren van diagnostische gegevens op uw VM's voor het verzamelen van aanvullende metrische gegevens. U kunt ook meer geavanceerde controle-opties, zoals gebruiken [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) en [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -23,7 +23,7 @@ U kunt instellen en controleren van de verzameling van [diagnostische gegevens](
 
     Als VM's opstart, wordt de diagnostische boot-agent opstarten uitvoer vastgelegd en opgeslagen in Azure storage. Deze gegevens kunnen worden gebruikt om opstartproblemen met virtuele machines op te lossen. Diagnostische gegevens over opstarten zijn niet automatisch ingeschakeld wanneer u een virtuele machine van opdrachtregelprogramma's maken. Voordat u diagnostische gegevens over opstarten inschakelt, moet een opslagaccount worden gemaakt voor het opslaan van de opstartlogboeken. Als u diagnostische gegevens over opstarten in Azure portal inschakelt, wordt automatisch een opslagaccount voor u gemaakt.
 
-    Als u kunt diagnostische gegevens over opstarten niet hebt ingeschakeld, wanneer de virtuele machine is gemaakt, kunt u altijd inschakelen dit later met behulp van [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics), of een [Azure Resource Manager-sjabloon](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
+    Als u kunt diagnostische gegevens over opstarten niet hebt ingeschakeld, wanneer de virtuele machine is gemaakt, kunt u altijd inschakelen dit later met behulp van [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic), of een [Azure Resource Manager-sjabloon](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
 - **Het verzamelen van Gast OS diagnostische gegevens inschakelen.** Wanneer u een virtuele machine maakt, hebt u de mogelijkheid op het instellingenscherm Gast OS diagnostische gegevens inschakelen. Wanneer u het verzamelen van diagnostische gegevens, schakel de [IaaSDiagnostics-extensie voor Linux](../articles/virtual-machines/linux/diagnostic-extension.md) of de [IaaSDiagnostics-extensie voor Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) wordt toegevoegd aan de virtuele machine, waarmee u voor het verzamelen van aanvullende de gegevens voor de schijf, de CPU en geheugen.
 
@@ -33,7 +33,7 @@ U kunt instellen en controleren van de verzameling van [diagnostische gegevens](
 
 U kunt maken [waarschuwingen](../articles/azure-monitor/platform/alerts-overview.md) op basis van specifieke maatstaven voor prestaties. Voorbeelden van de problemen die u kunt worden gewaarschuwd bij zijn bij het gemiddelde CPU-gebruik een bepaalde drempelwaarde overschrijdt of beschikbare vrije schijfruimte onder een bepaalde hoeveelheid komt. Waarschuwingen kunnen worden geconfigureerd in de [Azure-portal](../articles/azure-monitor/platform/alerts-classic-portal.md), met [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), of de [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
-## <a name="azure-service-health"></a>Azure Service Health
+## <a name="azure-service-health"></a>Azure-servicestatus
 
 [Azure Service Health](../articles/service-health/service-health-overview.md) biedt gepersonaliseerde begeleiding en ondersteuning bij problemen in Azure-services gevolgen voor u, en helpt bij het voorbereiden voor toekomstige gepland onderhoud. Azure Service Health waarschuwt u en uw teams met behulp van gerichte en flexibele meldingen.
 

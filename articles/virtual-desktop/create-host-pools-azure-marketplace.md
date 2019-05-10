@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924979"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236777"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Zelfstudie: Een hostpool maken met Azure Marketplace
 
@@ -70,7 +70,7 @@ Voor de blade van de informatie in de virtuele Windows-bureaublad-tenant:
 
 1. Voer de **virtuele Windows-bureaublad-tenantnaam groep** voor de tenant-groep met uw tenant. Als u geen naam van een specifieke tenant gepland, laat u het als standaardwaarde.
 2. Voer de **virtuele Windows-bureaublad-tenantnaam** voor de tenant maakt u deze groep host in.
-3. Geef het type van de referenties die u wilt gebruiken om te verifiëren als de virtuele Windows-bureaublad-tenant de eigenaar van de extern bureaublad-services. Als u selecteert **Service-principal**, moet u ook opgeven de **Azure AD-tenant-ID** die zijn gekoppeld aan de service-principal.
+3. Geef het type van de referenties die u wilt gebruiken om te verifiëren als de virtuele Windows-bureaublad-tenant de eigenaar van de extern bureaublad-services. Als u de [service-principals en roltoewijzingen maken met PowerShell zelfstudie](./create-service-principal-role-powershell.md), selecteer **Service-principal**. Nu moet u opgeven de **Azure AD-tenant-ID** van de Azure Active Directory met de service-principal.
 4. Voer een van beide de referenties voor het beheerdersaccount van de tenant. Alleen service-principals met de wachtwoordreferenties van een worden ondersteund.
 5. Selecteer **OK**.
 

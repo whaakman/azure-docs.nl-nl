@@ -10,23 +10,22 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7d9827b11136370bcb401073a4d9cc4871c1cc9
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714124"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472791"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Het schalen van uw Time Series Insights-omgeving
 
-In dit artikel wordt beschreven hoe u uw Time Series Insights-omgeving met behulp van de Azure-portal van de capaciteit van uw omgeving wijzigen. Capaciteit is de vermenigvuldigingsfactor die wordt toegepast op de gegevens, capaciteit en kosten die gepaard gaan met de geselecteerde SKU. 
+In dit artikel wordt beschreven hoe u uw Time Series Insights-omgeving met behulp van de Azure-portal van de capaciteit van uw omgeving wijzigen. Capaciteit is de vermenigvuldigingsfactor die wordt toegepast op de gegevens, capaciteit en kosten die gepaard gaan met de geselecteerde SKU.
 
-De Azure-portal kunt u meer of minder capaciteit binnen een bepaalde prijs-SKU. 
+De Azure-portal kunt u meer of minder capaciteit binnen een bepaalde prijs-SKU.
 
-Echter, de prijscategorie wijzigen SKU is niet toegestaan. Bijvoorbeeld, kan niet een omgeving met een S1 prijs-SKU worden geconverteerd naar een S2 of vice versa. 
-
+Echter, de prijscategorie wijzigen SKU is niet toegestaan. Bijvoorbeeld, kan niet een omgeving met een S1 prijs-SKU worden geconverteerd naar een S2 of vice versa.
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU inkomend tarieven en -capaciteit
 
@@ -45,19 +44,20 @@ Echter, de prijscategorie wijzigen SKU is niet toegestaan. Bijvoorbeeld, kan nie
 Capaciteiten schalen lineair, dus een S1 SKU met capaciteit 2 biedt ondersteuning voor 2 GB (2 miljoen) gebeurtenissen per dag inkomend verkeer en 60 GB (60 miljoen gebeurtenissen) per maand.
 
 ## <a name="change-the-capacity-of-your-environment"></a>De capaciteit van uw omgeving wijzigen
-1. Zoek in de Azure-portal en selecteer uw Time Series Insights-omgeving. 
 
-2. Selecteer in het menu voor uw Time Series Insights-omgeving, **configureren**.
+1. Zoek in de Azure-portal en selecteer uw Time Series Insights-omgeving.
 
-   ![configure.png](media/scale-your-environment/configure.png)
+1. Selecteer in het menu voor uw Time Series Insights-omgeving, **configureren**.
 
-3. Pas de **capaciteit** schuifregelaar om de capaciteit die voldoet aan de vereisten voor de tarieven voor inkomend verkeer en opslagcapaciteit te selecteren. U ziet dat de **gegevens**, **opslagcapaciteit**, en **geschatte kosten** update dynamisch om weer te geven van de gevolgen van de wijziging. 
+   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
-   ![Schuifregelaar](media/scale-your-environment/slider.png)
+1. Pas de **capaciteit** schuifregelaar om de capaciteit die voldoet aan de vereisten voor de tarieven voor inkomend verkeer en opslagcapaciteit te selecteren. U ziet dat de **gegevens**, **opslagcapaciteit**, en **geschatte kosten** update dynamisch om weer te geven van de gevolgen van de wijziging.
 
-   U kunt ook het nummer van de capaciteit vermenigvuldiger typen in het tekstvak aan de rechterkant van de schuifregelaar. 
+   [![Schuifregelaar](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
-4. Selecteer **opslaan** voor het schalen van de omgeving. De voortgangsindicator wordt weergegeven nadat de wijziging doorgevoerd, tijdelijk wordt. 
+   U kunt ook het nummer van de capaciteit vermenigvuldiger typen in het tekstvak aan de rechterkant van de schuifregelaar.
+
+1. Selecteer **opslaan** voor het schalen van de omgeving. De voortgangsindicator wordt weergegeven nadat de wijziging doorgevoerd, tijdelijk wordt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

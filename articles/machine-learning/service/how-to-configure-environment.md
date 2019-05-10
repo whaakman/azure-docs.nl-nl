@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024961"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471612"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -299,7 +299,7 @@ Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.datab
 
 1. Kies **slechts één** optie (Er is geen andere SDK-installatie worden ondersteund)
 
-   |SDK&nbsp;package&nbsp;extras|Bron|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Voor Databricks| Uploaden van Python EI of PyPI | azureml-sdk[databricks]|
    |Voor Databricks - met-<br> geautomatiseerde ML-mogelijkheden| Uploaden van Python EI of PyPI | azureml-sdk[automl_databricks]|
@@ -396,5 +396,5 @@ U kunt het configuratiebestand op drie manieren maken:
 
 - [Een model te trainen](tutorial-train-models-with-aml.md) op Azure Machine Learning met de MNIST-gegevensset
 - Weergave de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) verwijzing
-- Meer informatie over de [SDK voor Azure Machine Learning-Dataprep](https://aka.ms/data-prep-sdk)
+- Meer informatie over de [pakket voor gegevensvoorbereiding van Azure Machine Learning](https://aka.ms/data-prep-sdk)
 - 

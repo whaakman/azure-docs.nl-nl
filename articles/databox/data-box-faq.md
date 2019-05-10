@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/25/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: c9cef479c1d4af55ae58c61a07ff1d5348ed7183
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868261"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473269"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Veelgestelde vragen
 
@@ -36,12 +36,12 @@ De vragen en antwoorden zijn in de volgende categorieën onderverdeeld:
 A.  De service Azure Data Box is bedoeld voor offlinegegevensopname. Deze service beheert een scala aan producten met verschillende opslagcapaciteiten, die allemaal speciaal geschikt zijn voor gegevenstransport. 
 
 ### <a name="q-what-is-azure-data-box"></a>V. Wat is Azure Data Box?
-A. Met Azure Data Box kunt u terabytes aan gegevens snel, goedkoop en veilig naar en vanuit Azure overdragen. U kunt het Data Box-apparaat bestellen via de Azure-portal. Microsoft verzendt een opslagapparaat met een bruikbare capaciteit van 80 TB via een regionale koerier. 
+A. Azure Data Box kunt een snelle, voordelige, en een veilige overdracht van terabytes aan gegevens in Azure. U kunt het Data Box-apparaat bestellen via de Azure-portal. Microsoft verzendt een opslagapparaat met een bruikbare capaciteit van 80 TB via een regionale koerier. 
 
 Nadat u het apparaat hebt ontvangen, kunt u het snel instellen via de lokale webinterface. Kopieer de gegevens van uw servers naar het apparaat en stuur het terug naar Azure. In het Azure-datacenter worden uw gegevens automatisch geüpload van de schijven naar Azure. Het volledige proces wordt gevolgd door de Data Box-service in de Azure-portal.
 
 ### <a name="q-when-should-i-use-data-box"></a>V. Wanneer moet ik Data Box gebruiken?
-A. Als u 40-500 TB aan gegevens naar Azure wilt overdragen, hebt u baat bij het gebruik van Data Box. Gebruik voor gegevens die kleiner zijn dan 40 TB Data Box Disk. Meld u aan voor Data Box Heavy bij gegevens die groter zijn dan 500 TB.
+A. Als u 40-500 TB aan gegevens naar Azure wilt overdragen, hebt u baat bij het gebruik van Data Box. Gebruik Data Box-schijf voor gegevens grootten < 40 TB, en voor gegevens > 500 TB grootte, zich aanmelden voor [Data Box zware](data-box-heavy-overview.md).
 
 ### <a name="q-what-is-the-price-of-data-box"></a>V. Wat kost Data Box?
 A. Data Box is verkrijgbaar tegen een nominaal bedrag voor 10 dagen. Als u het productmodel selecteert terwijl u een bestelling in de Azure-portal maakt, zullen de kosten voor het apparaat worden weergegeven. De verzending is ook gratis, maar er zijn wel kosten verbonden aan de Azure-opslag. Ga voor meer informatie naar [Prijzen van Azure Data Box](https://azure.microsoft.com/pricing/details/storage/databox/). 

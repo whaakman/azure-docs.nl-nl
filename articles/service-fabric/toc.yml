@@ -643,8 +643,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: Patch uitvoeren voor clusterknooppunten (Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: Patch uitvoeren voor clusterknooppunten (Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: Schijfversleuteling inschakelen (Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: Schijfversleuteling inschakelen (Linux)

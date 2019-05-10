@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d7b9673101ed3b6ff85a9981ba061bc870762b1
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194215"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405685"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -126,7 +126,7 @@ Gebruik de informatie in de volgende tabel om te configureren van een andere vir
 |Instelling  |Value  |
 |---------|---------|
 |Subnet|**Workload-SN**|
-|Openbare IP|**Geen**|
+|Openbaar IP|**Geen**|
 |Openbare poorten voor inkomend verkeer|**Geen**|
 
 ## <a name="deploy-the-firewall"></a>De firewall implementeren
@@ -143,7 +143,7 @@ Implementeer de firewall in het VNet.
    |Abonnement     |\<uw abonnement\>|
    |Resourcegroep     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
-   |Location     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
+   |Locatie     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
    |Een virtueel netwerk kiezen     |**Gebruik bestaande**: **Test-FW-VN**|
    |Openbaar IP-adres     |**Nieuwe maken**. Het openbare IP-adres moet van het type Standaard-SKU zijn.|
 
@@ -236,12 +236,12 @@ Test nu de firewall om te controleren of deze werkt zoals verwacht.
 1. Controleer in de Azure-portal de netwerkinstellingen voor de virtuele machine **Srv-Work** en noteer het privé-IP-adres.
 2. Verbinding maken met een extern bureaublad **Srv-springen** virtuele machine en meld u aan. Open vanuit een extern bureaublad verbinding met de **Srv-werk** privé IP-adres.
 
-3. Open Internet Explorer en blader naar http://www.google.com.
+3. Open Internet Explorer en blader naar https://www.google.com.
 4. Selecteer **OK** > **sluiten** op de beveiligingswaarschuwingen van Internet Explorer.
 
    U ziet de startpagina van Google.
 
-5. Blader naar http://www.microsoft.com.
+5. Blader naar https://www.microsoft.com.
 
    U zou nu door de firewall moeten worden geblokkeerd.
 

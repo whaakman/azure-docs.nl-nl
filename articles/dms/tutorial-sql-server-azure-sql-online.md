@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: 266e4a16a69d7200fbe8b58bc20339b6979db877
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136642"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415906"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Zelfstudie: SQL Server online migreren naar een individuele of pooldatabase in Azure SQL Database met behulp van DMS
 
@@ -54,22 +54,22 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
     > Als u SQL Server Integration Services (SSIS) gebruikt en de catalogusdatabase voor uw SSIS-projecten/-pakketten (SSISDB) wilt migreren van SQL Server naar Azure SQL Database, wordt de doel-SSISDB automatisch namens u gemaakt en beheerd wanneer u SSIS in Azure Data Factory (ADF) inricht. Zie het artikel [Pakketten van SQL Server Integration Services migreren naar Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) voor meer informatie over het migreren van SSIS-pakketten.
 
 - Download en installeer de [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 of hoger.
-- Maak een Azure Virtual Network (VNET) voor de Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel. Dit geeft site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Een Azure Virtual Network (VNet) maken voor de Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel, waarmee u site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Zie voor meer informatie over het maken van een VNet, de [documentatie voor Virtual Network](https://docs.microsoft.com/azure/virtual-network/), en met name de artikelen met vindt u meer details.
 
     > [!NOTE]
-    > Tijdens de installatie van de VNET, als u ExpressRoute gebruikt met het naar Microsoft-netwerkpeering, voeg de volgende service [eindpunten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) aan het subnet waarin de service worden ingericht:
+    > Tijdens de installatie van de VNet, als u ExpressRoute gebruikt met het naar Microsoft-netwerkpeering, voeg de volgende service [eindpunten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) aan het subnet waarin de service worden ingericht:
     > - Doel-database-eindpunt (bijvoorbeeld SQL-eindpunt, Cosmos DB-eindpunt, enzovoort)
     > - Opslageindpunt
     > - Service bus-eindpunt
     >
     > Deze configuratie is nodig omdat de Azure Database Migration Service beschikt niet over de verbinding met internet.
 
-- Zorg ervoor dat uw VNET netwerkbeveiligingsgroepsregels de volgende poorten voor binnenkomende communicatie naar Azure Database Migration Service niet blokkeren: 443, 53, 9354, 445, 12000. Zie voor meer informatie over verkeer filteren van Azure VNET NSG het artikel [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Zorg ervoor dat uw VNet netwerkbeveiligingsgroepsregels de volgende poorten voor binnenkomende communicatie naar Azure Database Migration Service niet blokkeren: 443, 53, 9354, 445, 12000. Zie het artikel voor meer informatie over Azure VNet NSG wordt verkeer gefilterd, [netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configureer uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open uw Windows-firewall voor toegang voor de Azure Database Migration Service tot de SQL Server-bron, die standaard TCP-poort 1433 gebruikt.
 - Als u meerdere benoemde SQL Server-exemplaren uitvoert met behulp van dynamische poorten, kunt u desgewenst de SQL Browser Service inschakelen en toegang tot de UDP-poort 1434 via uw firewalls toestaan, zodat de Azure Database Migration Service verbinding kan maken met een benoemd exemplaar op uw bronserver.
 - Wanneer u een firewallapparaat gebruikt voor de brondatabase(s), moet u mogelijk firewallregels toevoegen om voor de Azure Database Migration Service toegang tot de brondatabase(s) voor de migratie toe te staan.
-- Maak een [firewallregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) op serverniveau voor de Azure SQL Database-server om voor de Azure Database Migration Service toegang tot de doeldatabase toe te staan. Geef het subnetbereik van het VNET op dat wordt gebruikt voor de Azure Database Migration Service.
+- Maak een [firewallregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) op serverniveau voor de Azure SQL Database-server om voor de Azure Database Migration Service toegang tot de doeldatabase toe te staan. Geef het subnetbereik van het VNet gebruikt voor de Azure Database Migration Service.
 - Zorg ervoor dat de referenties waarmee verbinding wordt gemaakt met het SQL Server-bronexemplaar [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)-machtigingen hebben.
 - Zorg ervoor dat de referenties waarmee verbinding wordt gemaakt met het Azure SQL Database-doelexemplaar CONTROL DATABASE-machtiging hebben op de Azure SQL-doeldatabases.
 - De versie van de SQL-bronserver moet SQL Server 2005 of hoger zijn. Zie het artikel [Hoe de versie, de editie en het updateniveau van de SQL-server en de bijbehorende onderdelen worden bepaald](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an) om te bepalen welke versie van uw SQL Server-exemplaar wordt uitgevoerd.
@@ -86,6 +86,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
      ```
+
     >Als in de resultaten bij een of meer tabellen 'is_tracked_by_cdc' wordt weergegeven als '0', schakelt u Change Data Capture voor de database en de specifieke tabellen in met behulp van de procedure die wordt beschreven in het artikel [Change Data Capture in- en uitschakelen (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
 
 - Configureer de rol van de distributeur voor de SQL-bronserver.
@@ -99,6 +100,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
     EXEC @installed = sys.sp_MS_replication_installed;
     SELECT @installed as installed;
     ```
+
     Als het resultaat een foutbericht retourneert waarin wordt voorgesteld om replicatieonderdelen te installeren, installeert u de SQL-serverreplicatieonderdelen volgens de procedure in het artikel [SQL Server-replicatie installeren](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-replication?view=sql-server-2017).
 
     Als de replicatie al is geïnstalleerd, controleert u of de distributierol is geconfigureerd op de SQL-bronserver met behulp van de onderstaande T-SQL-opdracht.
@@ -118,6 +120,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
     select * from sys.triggers
     DISABLE TRIGGER (Transact-SQL)
     ```
+
     Zie het artikel [TRIGGER UITSCHAKELEN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017) voor meer informatie. 
 
 ## <a name="assess-your-on-premises-database"></a>Uw on-premises resources evalueren
@@ -160,6 +163,7 @@ Wanneer u tevreden bent over de evaluatie en overtuigd bent dat de geselecteerde
 
 > [!NOTE]
 > Voordat u een migratieproject in DMA maakt, moet u ervoor zorgen dat u al een Azure SQL-database hebt ingericht zoals is vermeld in de vereisten. Voor deze zelfstudie wordt ervan uitgegaan dat de naam van de Azure SQL Database **AdventureWorksAzure** is, maar u kunt elke naam die u wenst opgeven.
+
 > [!IMPORTANT]
 > Als u SSIS gebruikt, biedt DMA momenteel geen ondersteuning voor de migratie van de bron-SSISDB, maar u kunt uw SSIS-projecten/-pakketten opnieuw implementeren naar de doel-SSISDB die wordt gehost door Azure SQL Database. Zie het artikel [Pakketten van SQL Server Integration Services migreren naar Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) voor meer informatie over het migreren van SSIS-pakketten.
 
@@ -208,7 +212,7 @@ Voor het migreren van de **AdventureWorks2012** schema aan een individuele datab
 
 3. Zoek naar migratie en selecteer rechts van **Microsoft.DataMigration** de optie **Registreren**.
 
-    ![Resourceprovider registreren](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)    
+    ![Resourceprovider registreren](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)
 
 ## <a name="create-an-instance"></a>Een instantie maken
 
@@ -224,11 +228,11 @@ Voor het migreren van de **AdventureWorks2012** schema aan een individuele datab
 
 4. Selecteer het abonnement waarin u het Azure Database Migration Service-exemplaar wilt maken. 
 
-5. Selecteer een bestaand virtueel netwerk (VNET) of maak een nieuwe.
+5. Selecteer een bestaand VNet of maak een nieuwe.
 
-    Het VNET biedt de Azure Database Migration Service toegang tot de bron-SQL Server en het doel-Azure SQL Database-exemplaar.
+    Het VNet biedt de Azure Database Migration Service toegang tot de bron-SQL Server en de doel-Azure SQL Database-exemplaar.
 
-    Zie het artikel voor meer informatie over het maken van een VNET in de Azure-portal [Een virtueel netwerk maken met de Azure-portal](https://aka.ms/DMSVnet).
+    Zie het artikel voor meer informatie over het maken van een VNet in Azure portal [een virtueel netwerk maken met de Azure-portal](https://aka.ms/DMSVnet).
 
 6. Selecteer een prijscategorie.
 

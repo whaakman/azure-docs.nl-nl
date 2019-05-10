@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118975"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467722"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
@@ -74,10 +74,10 @@ Vanaf eind maart 2019, toegewezen HSM is beschikbaar in de 14 regio's die hieron
 * Azië - oost
 * Europa - noord
 * Europa -west
-* Verenigd Koninkrijk Zuid
-* Verenigd Koninkrijk West
+* VK Zuid
+* VK West
 * Canada - midden
-* Canada - oost
+* Canada Oost
 * Australië - oost
 * Australië - zuidoost
 
@@ -233,7 +233,7 @@ Microsoft heeft niet de mogelijkheid om te verbinden met HSM's die zijn toegewez
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>V: Wat gebeurt er als ik wil mijn HSM opnieuw opstarten?
 
- De HSM is een optie voor het opnieuw opstarten van vanaf de opdrachtregel en moet worden opgemerkt dat de optie 'hard opstarten' moet worden gebruikt. Als dit niet om een bepaalde reden lukt, kunnen verhogen met Microsoft ondersteuning aan te vragen en we het apparaat fysiek opnieuw opgestart. 
+De HSM is een optie voor het opnieuw opstarten van vanaf de opdrachtregel, we echter problemen ondervindt met opnieuw opstarten blijft hangen af en toe en daarom die wordt aanbevolen voor de veiligste start opnieuw op het verhogen van een ondersteuningsaanvraag met Microsoft om het apparaat fysiek opnieuw opgestart. 
 
 ## <a name="cryptography-and-standards"></a>Cryptografie en standaarden
 

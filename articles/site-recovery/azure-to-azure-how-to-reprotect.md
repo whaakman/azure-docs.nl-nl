@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791230"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472164"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Azure-VM's opnieuw beveiligen een failover naar de primaire regio
 
@@ -68,7 +68,7 @@ Wanneer u activeert een taak opnieuw beveiligen en de doel-VM zich bevindt, gebe
 1. De doel-kant die VM wordt uitgeschakeld als deze wordt uitgevoerd.
 2. Als de virtuele machine gebruikmaakt van beheerde schijven, een kopie van de oorspronkelijke schijven worden gemaakt met '-ASRReplica' achtervoegsel. De oorspronkelijke schijven worden verwijderd. De '-ASRReplica' kopieën worden gebruikt voor replicatie.
 3. Als de virtuele machine is niet-beheerde schijven gebruikt, zijn de doel-VM-gegevensschijven losgekoppeld en gebruikt voor replicatie. Een kopie van de besturingssysteemschijf is gemaakt en die op de virtuele machine is gekoppeld. Een schijf met het oorspronkelijke besturingssysteem is losgekoppeld en gebruikt voor replicatie.
-4. Alleen de wijzigingen tussen de bronschijf en de doelschijf worden gesynchroniseerd. De verschillen zijn berekend door het vergelijken van beide schijven en vervolgens overgedragen. Dit duurt een paar uur te voltooien.
+4. Alleen de wijzigingen tussen de bronschijf en de doelschijf worden gesynchroniseerd. De verschillen zijn berekend door het vergelijken van beide schijven en vervolgens overgedragen. De geschatte tijd Controleer dit hieronder vinden.
 5. Nadat de synchronisatie is voltooid, wordt de replicatie van verschillen begint en maakt een herstelpunt in overeenstemming met het replicatiebeleid.
 
 Wanneer u een taak opnieuw beveiligen activeert en de doel-VM en de schijven nog niet bestaan, gebeurt het volgende:
@@ -76,6 +76,21 @@ Wanneer u een taak opnieuw beveiligen activeert en de doel-VM en de schijven nog
 2. Als de virtuele machine is niet-beheerde schijven gebruikt, worden replicaschijven gemaakt in het doelopslagaccount.
 3. De volledige schijven worden gekopieerd van de mislukte via regio naar de nieuwe doelregio.
 4. Nadat de synchronisatie is voltooid, wordt de replicatie van verschillen begint en maakt een herstelpunt in overeenstemming met het replicatiebeleid.
+
+#### <a name="estimated-time--to-do-the-reprotection"></a>Geschatte tijd voor het opnieuw beveiligen 
+
+In de meeste gevallen niet Azure Site Recovery worden gerepliceerd van de volledige gegevens naar de bronregio. Hieronder vindt u de voorwaarden waarmee wordt bepaald hoeveel gegevens kan worden gerepliceerd:
+
+1.  Als de bron-VM-gegevens verwijderd, beschadigd of niet toegankelijk als gevolg van een of andere reden, zoals resourcegroep is wijzigen/verwijderen tijdens volledige IR opnieuw beveiligen vervolgens gebeurt omdat er geen gegevens beschikbaar in de regio van de gegevensbron te gebruiken.
+2.  Als de bron-VM-gegevens toegankelijk zijn alleen verschillen de berekend door het vergelijken van beide schijven en vervolgens overgedragen. Controleer de onderstaande tabel om op te halen van de geschatte tijd 
+
+|** Voorbeeld situatie ** | ** Gebruikte tijd voor het opnieuw beveiligen ** |
+|--- | --- |
+|Regio van de gegevensbron is 1 virtuele machine met 1 TB standard Disk<br/>-Alleen 127 GB aan gegevens wordt gebruikt en de rest van de schijf is leeg<br/>-Schijftype is standaard 60 MiB/S-doorvoer<br/>-Er zijn geen gegevens wijzigen na een failover| Bij benadering de tijd 45 minuten – 1,5 uur<br/> -Site Recovery verschijnen tijdens het opnieuw beveiligen de controlesom van de volledige gegevens waarmee 127 GB / 45 MB ~ 45 minuten<br/>-Enige overhead tijd is vereist voor Site Recovery voor automatisch schalen die 20-30 minuten<br/>-Er zijn geen kosten voor uitgaand verkeer |
+|Regio van de gegevensbron is 1 virtuele machine met 1 TB standard Disk<br/>-Alleen 127 GB aan gegevens wordt gebruikt en de rest van de schijf is leeg<br/>-Schijftype is standaard 60 MiB/S-doorvoer<br/>-Gegevens worden gewijzigd na een failover 45 GB| Geschatte tijd 1 uur – 2 uur<br/>-Site Recovery verschijnen tijdens het opnieuw beveiligen de controlesom van de volledige gegevens waarmee 127 GB / 45 MB ~ 45 minuten<br/>-Transfer tijd voor het toepassen van wijzigingen van 45 GB die 45 GB / 45 MBps ~ 17 minuten<br/>-Kosten voor uitgaand verkeer geldt alleen voor 45 GB aan gegevens niet voor de controlesom|
+ 
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

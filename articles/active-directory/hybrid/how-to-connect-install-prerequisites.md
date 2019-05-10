@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4bf8df2374d373ad36eada8a7de08be76396a76
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f7219578932a259f48b0109d433dcba9ff28d1f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190808"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508051"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -51,6 +51,9 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 * Azure AD Connect kan niet worden geïnstalleerd op Small Business Server of Windows Server Essentials voordat 2019 (Windows Server Essentials 2019 wordt ondersteund). De server moet gebruikmaken van Windows Server standard of hoger.
 * Azure AD Connect installeert op een domeincontroller wordt niet aanbevolen vanwege de procedures voor beveiliging en meer beperkende instellingen die kunnen voorkomen dat Azure AD Connect correct installeren
 * De Azure AD Connect-server moet een volledige GUI geïnstalleerd hebben. Het is **niet ondersteund** te installeren op server core.
+>[!IMPORTANT]
+>Azure AD Connect installeert op small business server, server essentials of serverkern wordt niet ondersteund.
+
 * Azure AD Connect moet worden geïnstalleerd op Windows Server 2008 R2 of hoger. Deze server moet domein toegevoegd en is mogelijk een domeincontroller of lidserver.
 * Als u Azure AD Connect op Windows Server 2008 R2 installeert, Controleer of de meest recente hotfixes toepassen van Windows Update. De installatie kan niet beginnen met een niet-gepatchte server.
 * Als u van plan bent om de functie te gebruiken **Wachtwoordsynchronisatie**, en vervolgens de Azure AD Connect-server moet zich op Windows Server 2008 R2 SP1 of hoger.
@@ -135,7 +138,7 @@ Zie voor meer informatie als u problemen met de connectiviteit, [connectiviteits
 Azure AD Connect, is afhankelijk van Microsoft PowerShell en .NET Framework 4.5.1. U moet deze versie of een latere versie is geïnstalleerd op uw server. Afhankelijk van uw versie van Windows Server, het volgende doen:
 
 * Windows Server 2012R2
-  * Microsoft PowerShell is standaard geïnstalleerd. Geen actie vereist.
+  * Microsoft PowerShell is standaard geïnstalleerd. U hoeft geen actie te ondernemen.
   * .NET framework 4.5.1 en latere releases worden aangeboden via Windows Update. Zorg ervoor dat u de meest recente updates hebt geïnstalleerd met Windows Server in het Configuratiescherm.
 * Windows Server 2008 R2 en Windows Server 2012
   * De nieuwste versie van Microsoft PowerShell is beschikbaar in **Windows Management Framework 4.0**, beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).

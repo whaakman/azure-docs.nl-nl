@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724398"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236316"
 ---
 # <a name="manage-your-application-preferences"></a>Uw Toepassingsvoorkeuren voor de beheren
 
@@ -23,13 +23,16 @@ IoT Central biedt de flexibiliteit voor het aanpassen van uw toepassingen aanpas
 
 ## <a name="changing-language"></a>Taal wijzigen
 
-IoT Central wordt ondersteund in meerdere talen. U kunt uw voorkeurstaal schakelen met behulp van de **taalkiezer** op het Instellingenpictogram op de bovenste navigatiebalk. Nadat u uw taal hebt gewijzigd, wordt met IoT Central onthoudt uw selectie en past deze voor al uw toepassingen. Houd er rekening mee dat aanpassingen in de toepassing die afbeeldingen dashboard niet zijn gelokaliseerd.
+IoT Central wordt ondersteund in meerdere talen. U kunt uw voorkeurstaal schakelen met behulp van de **taalkiezer** op het Instellingenpictogram op de bovenste navigatiebalk. Nadat u uw taal hebt gewijzigd, wordt met IoT Central onthoudt uw selectie en past deze voor al uw toepassingen. Aanpassing in de toepassing die afbeeldingen dashboard niet zijn gelokaliseerd.
 
 ## <a name="changing-theme"></a>Thema wijzigen
 
-We hebben ondersteuning voor zowel donker thema en lichte thema. Terwijl het lichte thema de standaardinstelling is, kunt u dit wijzigen door het Instellingenpictogram op de bovenste navigatiebalk te selecteren.
+We hebben ondersteuning voor zowel donker thema en lichte thema. Terwijl het lichte thema de standaardinstelling is, kunt u het thema wijzigen door het Instellingenpictogram op de bovenste navigatiebalk te selecteren.
 
 ![Themakiezer IoT Central](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> De optie te kiezen tussen het lichte en donkere thema's is niet beschikbaar als de beheerder een aangepast thema voor de toepassing heeft geconfigureerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

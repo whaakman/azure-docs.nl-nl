@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470216"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466288"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificeren en oplossen van problemen toewijzing voor een groep in Azure Active Directory
 
@@ -107,9 +107,15 @@ Als u Exchange Online gebruikt, kunnen sommige gebruikers in uw tenant niet corr
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Zie voor meer informatie over dit probleem [foutbericht 'Proxy-adres is al in gebruik' in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Het artikel bevat ook informatie over [verbinding maken met Exchange Online met behulp van externe PowerShell](https://technet.microsoft.com/library/jj984289.aspx). In dit artikel voor meer informatie Zie [op hoe het kenmerk proxyAddresses wordt gevuld in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+> Zie voor meer informatie over dit probleem [foutbericht 'Proxy-adres is al in gebruik' in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Het artikel bevat ook informatie over [verbinding maken met Exchange Online met behulp van externe PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
 
 Nadat u eventuele problemen proxy-adres voor de betrokken gebruikers oplossen, zorg er dan voor dat forceren licentie-verwerking op de groep om ervoor te zorgen dat de licenties die nu kunnen worden toegepast.
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD-e-Mail en ProxyAddresses-kenmerk wijzigen
+
+**Probleem:** Tijdens het bijwerken van licentietoewijzing op een groep of een gebruiker, ziet u dat het Azure AD e-Mail en ProxyAddresses-kenmerk van sommige gebruikers zijn gewijzigd.
+
+Bijgewerkt licentietoewijzing over de oorzaken van een gebruiker het proxyadres berekening wordt geactiveerd, kan die gebruikerskenmerken wijzigen. Zie voor informatie over de precieze oorzaak van de wijziging en het probleem wordt opgelost, in dit artikel op [hoe het kenmerk proxyAddresses wordt gevuld in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Wat gebeurt er wanneer er meer dan één productlicentie op een groep?
 

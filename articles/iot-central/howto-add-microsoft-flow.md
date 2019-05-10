@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693597"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468002"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Werkstromen bouwen met de IoT Central-connector in Microsoft Flow
 
@@ -43,7 +43,7 @@ Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen i
 
 1. Hier ziet u een lijst met werkstromen tha u toegang hebt tot en zijn gekoppeld aan deze regel IoT Central. Klik op **sjablonen verkennen** of **New > maken op basis van sjabloon** en u kunt kiezen uit een van de beschikbare sjablonen. 
 
-    ![Beschikbare sjablonen voor Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![Beschikbare sjablonen voor Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. U wordt gevraagd om aan te melden bij de connectors in de sjabloon die u hebt gekozen. Nadat de connectors zijn aangemeld, komt u terecht in de ontwerper om aan te maken van uw werkstroom. De werkstroom heeft een IoT Central activeringsopdracht met uw toepassing en de regel al ingevuld.
 
@@ -52,7 +52,7 @@ Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen i
     > [!NOTE]
     > Selecteer de **meer** tekst in het venster met dynamische inhoud om op te halen van de meting en eigenschap waarden die de regel geactiveerd.
 
-    ![Flow actie met deelvenster met dynamische open bewerken](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![Flow actie met deelvenster met dynamische open bewerken](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. Wanneer u klaar bent voor het bewerken van de actie selecteren **opslaan**. U wordt omgeleid naar de pagina overzicht van uw werkstroom. Hier ziet u de uitvoeringsgeschiedenis en delen met andere collega's.
 
@@ -79,7 +79,7 @@ Deze sectie leest u hoe u een nieuw apparaat in IoT Central maken op de push-bew
 
 1. Selecteer het veld met de naam van apparaat. Kies in het deelvenster met dynamische inhoud **apparaatnaam**. Deze waarde wordt doorgegeven vanuit de invoer van de gebruiker krijgt via de mobiele app en de naam van het nieuwe apparaat in IoT Central. In dit voorbeeld is de enige vereiste veld de naam van het apparaat, aangegeven door de rode asterisk. Sjabloon voor een ander apparaat mogelijk meerdere vereiste velden die moeten worden ingevuld om een nieuwe apparaat te maken.
 
-    ![Stroom dynamische actiedeelvenster apparaat maken](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![Stroom dynamische actiedeelvenster apparaat maken](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (Optioneel) Vul in de andere velden naar wens voor het maken van het nieuwe apparaten.
 
@@ -110,7 +110,7 @@ Deze sectie leest u hoe u instellingen voor apparaten en de eigenschappen in IoT
 
 1. U kunt de naam van het apparaat bijwerken. Voor het bijwerken van een van de eigenschappen en instellingen van het apparaat, moet u de sjabloon van het apparaat van het apparaat dat u bijwerken wilt de **apparaat sjabloon** vervolgkeuzelijst. De actie-tegel wordt uitgebreid om weer te geven van alle eigenschappen en instellingen die u kunt bijwerken.
 
-    ![Werkstroom voor apparaat-stroom updates](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![Werkstroom voor apparaat-stroom updates](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. Selecteer elk van de eigenschappen en instellingen die u wilt bijwerken. Kies in het deelvenster met dynamische inhoud, de bijbehorende invoer door de trigger. In dit voorbeeld wordt de locatiewaarde omlaag doorgegeven aan het bijwerken van de locatie-eigenschap van het apparaat.
 
@@ -126,7 +126,7 @@ Krijgt u informatie over de apparaten met behulp van de ID de **Azure IoT Centra
 
 U krijgt informatie zoals de naam van apparaat, sjabloon de naam van apparaat, eigenschapswaarden en waarden voor de instellingen moeten worden doorgegeven aan latere acties in uw werkstroom. Hier volgt een voorbeeldwerkstroom die de waarde van de naam van de klant-eigenschap van een apparaat doorgeeft aan Microsoft Teams.
 
-   ![Werkstroom voor flow get-apparaten](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![Werkstroom voor flow get-apparaten](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Een opdracht uitvoeren op een apparaat in een werkstroom
@@ -137,7 +137,7 @@ U kunt een opdracht uitvoeren op een apparaat dat is opgegeven door de ID met be
     
 U kunt de opdracht uit te voeren en de parameters van de opdracht doorgeven door deze actie kunt kiezen. Hier volgt een voorbeeldwerkstroom die de opdracht van een apparaat opnieuw opstarten op een knop in de mobiele Microsoft Flow-app wordt uitgevoerd.
 
-   ![Werkstroom voor flow get-apparaten](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![Werkstroom voor flow get-apparaten](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Een apparaat in een werkstroom verwijderen
 
@@ -149,7 +149,7 @@ Hier volgt een voorbeeldwerkstroom die Hiermee verwijdert u een apparaat op de p
 
    ![Werkstroom voor de apparaten van stroom verwijderen](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Als u problemen bij het maken van een verbinding met de Azure IoT Central-connector ondervindt, volgen hier enkele tips om u te helpen.
 

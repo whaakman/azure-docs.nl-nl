@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550905"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466559"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (Private Preview) inschakelen
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (openbare preview) inschakelen
 
 Voor het implementeren van uw service in veel regio's en zorg ervoor dat deze wordt uitgevoerd zoals verwacht in elke regio, kunt u Azure Deployment Manager gebruiken voor de coördinatie van een gefaseerde implementatie van de service. Net zoals u zou voor elke Azure-implementatie doen, definieert u de resources voor uw service in [Resource Manager-sjablonen](resource-group-authoring-templates.md). Na het maken van de sjablonen, kunt u Deployment Manager gebruiken om te beschrijven van de topologie voor uw service en hoe deze moet worden geïmplementeerd.
 
@@ -200,7 +200,9 @@ In de sjabloon rollout maakt u een artefact bron voor de binaire bestanden die u
 
 ### <a name="steps"></a>Stappen
 
-U kunt een stap uit te voeren voor of na de implementatiebewerking definiëren. Op dit moment alleen de `wait` stap beschikbaar is. De stap wacht onderbreekt de implementatie voordat u doorgaat. Hiermee kunt u controleren of uw service wordt uitgevoerd zoals verwacht voordat u de volgende eenheid van de service implementeert. Het volgende voorbeeld ziet de algemene indeling van een stap wacht.
+U kunt een stap uit te voeren voor of na de implementatiebewerking definiëren. Op dit moment alleen de `wait` stap en de 'statuscontrole' beschikbaar zijn. 
+
+De stap wacht onderbreekt de implementatie voordat u doorgaat. Hiermee kunt u controleren of uw service wordt uitgevoerd zoals verwacht voordat u de volgende eenheid van de service implementeert. Het volgende voorbeeld ziet de algemene indeling van een stap wacht.
 
 ```json
 {
@@ -219,7 +221,7 @@ U kunt een stap uit te voeren voor of na de implementatiebewerking definiëren. 
 
 Maakt gebruik van de duur van de eigenschap [ISO 8601-norm](https://en.wikipedia.org/wiki/ISO_8601#Durations). Het vorige voorbeeld bevat een wachttijd van één minuut.
 
-Zie voor meer informatie, [stappen sjabloonverwijzing](/azure/templates/Microsoft.DeploymentManager/steps).
+Zie voor meer informatie over de stap van de status controleren, [ ]() en [ ]() voor meer informatie, Zie [stappen sjabloonverwijzing](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Implementaties
 

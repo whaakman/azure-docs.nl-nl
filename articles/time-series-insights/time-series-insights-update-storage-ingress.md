@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe6848caad7cdac98d6717b7cea4860e7ce2db8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725735"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405719"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview
 
@@ -51,7 +51,7 @@ Time Series Insights Parquet gekozen omdat deze efficiënte gegevenscompressie b
 
 Zie voor een beter begrip van de Parquet-indeling, [Parquet documentatie](https://parquet.apache.org/documentation/latest/).
 
-## <a name="event-structure-in-parquet"></a>Gebeurtenisstructuur in Parquet
+### <a name="event-structure-in-parquet"></a>Gebeurtenisstructuur in Parquet
 
 Time Series Insights maakt en slaat kopieën van de blobs in de volgende twee indelingen:
 
@@ -79,18 +79,18 @@ Time Series Insights-gebeurtenissen worden toegewezen aan de inhoud van de Parqu
 
 ## <a name="partitions"></a>Partities
 
-Elke Time Series Insights Preview-omgeving moet de eigenschap van een Time Series-ID en een Timestamp-eigenschap die unieke identificatie hebben. Uw Time Series-ID fungeert als een logische partitie voor uw gegevens en een natuurlijke grens van de Time Series Insights Preview-omgeving biedt voor het distribueren van gegevens over fysieke partities. Beheer van fysieke partitie wordt beheerd door de Time Series Insights Preview in Azure storage-account.
+Elke Time Series Insights Preview-omgeving moet hebben een **Time Series-ID** eigenschap en een **Timestamp** eigenschap die wordt geïdentificeerd. Uw Time Series-ID fungeert als een logische partitie voor uw gegevens en een natuurlijke grens van de Time Series Insights Preview-omgeving biedt voor het distribueren van gegevens over fysieke partities. Beheer van fysieke partitie wordt beheerd door de Time Series Insights Preview in Azure storage-account.
 
 Time Series Insights maakt gebruik van dynamische partitioneren opslag-en queryprestaties optimaliseren door verwijderen en opnieuw maken van partities. De Preview tijd Series Insights partitioneren algoritme probeert om te voorkomen dat één fysieke partitie gegevens voor meerdere, afzonderlijke, logische partities. Met andere woorden, houdt het algoritme voor partitionering u alle gegevens specifieke naar een één Time Series-ID uitsluitend aanwezig zijn in Parquet-bestanden zonder wordt interleaved met andere Time Series-id. Het algoritme voor dynamische partitioneren ook wil behouden de oorspronkelijke volgorde van gebeurtenissen in een één Time Series-ID.
 
 In eerste instantie wordt gelijktijdig met inkomend verkeer, de gegevens zijn gepartitioneerd door het tijdstempel zodat een enkele, logische partitie binnen een bepaald tijdsinterval kan worden verdeeld over meerdere fysieke partities. Een enkele fysieke partitie bevat mogelijk ook veel of alle logische partities. Vanwege de beperkingen van het blob-grootte, zelfs met optimale partitionering, één logische partitie in beslag kan nemen meerdere fysieke partities.
 
 > [!NOTE]
-> De Timestamp-waarde is standaard het bericht *Wachtrijduur* in de geconfigureerde gebeurtenisbron. 
+> De Timestamp-waarde is standaard het bericht *Wachtrijduur* in de geconfigureerde gebeurtenisbron.
 
 Als u historische gegevens of berichten batchgewijs uploaden bent, moet u de waarde die u wilt opslaan met uw gegevens om de Timestamp eigenschap die is toegewezen aan de juiste tijdstempel toewijzen. De tijdstempeleigenschap is hoofdlettergevoelig. Zie voor meer informatie, [Tijdreeksmodel](./time-series-insights-update-tsm.md).
 
-## <a name="physical-partitions"></a>Fysieke partities
+### <a name="physical-partitions"></a>Fysieke partities
 
 Een fysieke partitie is een blok-blob die opgeslagen in uw storage-account. De werkelijke grootte van de blobs kan verschillen omdat de grootte is afhankelijk van het push-tarief. We verwachten echter blobs ongeveer 20 MB tot 50 MB groot zijn. Dit kan worden uitgegaan onder leiding van de Time Series Insights-team om te selecteren van 20 MB aan de grootte van de prestaties van query's optimaliseren. Deze grootte kan na verloop van tijd, afhankelijk van de grootte en de snelheid van binnenkomende gegevens wijzigen.
 
@@ -99,7 +99,7 @@ Een fysieke partitie is een blok-blob die opgeslagen in uw storage-account. De w
 > * Azure-blobs worden af en toe opnieuw gepartitioneerd voor betere prestaties doordat verwijderen en opnieuw maken.
 > * De dezelfde Time Series Insights-gegevens kunnen ook worden gebruikt in twee of meer blobs.
 
-## <a name="logical-partitions"></a>Logische partities
+### <a name="logical-partitions"></a>Logische partities
 
 Een logische partitie is een partitie in een fysieke partitie waarin alle gegevens die zijn gekoppeld aan een sleutelwaarde van één partitie. Time Series Insights Preview partities logisch elke blob op basis van twee eigenschappen:
 
@@ -110,9 +110,9 @@ Time Series Insights Preview biedt goed presterende query's die zijn gebaseerd o
 
 Het is belangrijk om te selecteren van een juiste ID in de reeks tijd, omdat het is een onveranderbare eigenschap. Zie voor meer informatie, [kiezen Time Series-id's](./time-series-insights-update-how-to-id.md).
 
-## <a name="your-azure-storage-account"></a>Uw Azure storage-account
+## <a name="azure-storage"></a>Azure Storage
 
-### <a name="storage"></a>Storage
+### <a name="your-storage-account"></a>Uw Storage-account
 
 Wanneer u een betalen per gebruik Time Series Insights-omgeving maakt, maakt u twee resources: een Time Series Insights-omgeving en een Azure Storage voor algemeen gebruik V1-account waar de gegevens worden opgeslagen. We hebben gekozen Azure-opslag voor algemeen gebruik V1 van de standaardbron maken vanwege de interoperabiliteit, de prijs en prestaties. 
 
@@ -132,37 +132,25 @@ Het is raadzaam voor toegang tot gegevens die zijn opgeslagen in de Verkenner va
 
 U kunt toegang tot uw gegevens op drie algemene manieren:
 
-* Vanuit de Verkenner van Time Series Insights Preview.
-* Van de API's van Time Series Insights Preview-versie.
-* Rechtstreeks vanuit Azure storage-account.
-
-#### <a name="from-the-time-series-insights-preview-explorer"></a>Vanuit de Verkenner van Time Series Insights Preview
-
-U kunt gegevens exporteren als een CSV-bestand van de Verkenner van Time Series Insights Preview. Zie voor meer informatie, [Verkenner van Time Series Insights Preview](./time-series-insights-update-explorer.md).
-
-#### <a name="from-the-time-series-insights-preview-apis"></a>Van de API's van Time Series Insights Preview-versie
-
-De API-eindpunt kan worden bereikt op `/getRecorded`. Zie voor meer informatie over deze API, [Time Series Query](./time-series-insights-update-tsq.md).
+* Vanuit de Verkenner van Time Series Insights Preview: u kunt gegevens exporteren als een CSV-bestand van de Verkenner van Time Series Insights Preview. Zie voor meer informatie, [Verkenner van Time Series Insights Preview](./time-series-insights-update-explorer.md).
+* Van de Time Series Insights Preview-API's: de API-eindpunt kan worden bereikt op `/getRecorded`. Zie voor meer informatie over deze API, [Time Series Query](./time-series-insights-update-tsq.md).
+* Rechtstreeks vanuit een Azure storage-account (Zie hieronder).
 
 #### <a name="from-an-azure-storage-account"></a>Uit Azure storage-account
 
 * U moet leestoegang tot de account die u toegang tot uw Time Series Insights-gegevens. Zie voor meer informatie, [toegang tot de resources van uw opslagaccount beheren](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
-
 * Zie voor meer informatie over het direct manieren om gegevens te lezen uit Azure Blob storage [om gegevens te verplaatsen naar en van uw opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
 * Gegevens exporteren uit Azure storage-account:
-
     * Controleer eerst of uw account voldoet aan de vereisten voor het exporteren van gegevens. Zie voor meer informatie, [opslag importeren en exporteren van vereisten](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
-
     * Zie voor meer informatie over andere manieren voor het exporteren van gegevens uit uw Azure storage-account, [importeren en exporteren van gegevens uit blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
 
 ### <a name="data-deletion"></a>Gegevens verwijderen
 
 Geen blobs niet verwijderen omdat Time Series Insights Preview metagegevens over de blobs erin houdt.
 
-## <a name="ingress"></a>Inkomend verkeer
+## <a name="time-series-insights-data-ingress"></a>Opname van Time Series Insights-gegevens
 
-### <a name="time-series-insights-ingress-policies"></a>Time Series Insights inkomend beleid
+### <a name="ingress-policies"></a>Beleid voor inkomend verkeer
 
 Time Series Insights Preview biedt ondersteuning voor de dezelfde bronnen van gebeurtenissen en de bestandstypen die op dit moment Time Series Insights ondersteunt.
 
@@ -184,10 +172,10 @@ Time Series Insights Preview gegevens met behulp van een strategie voor optimali
 
 > [!IMPORTANT]
 > * De Time Series Insights-versie voor algemene beschikbaarheid (GA) maken beschikbaar voor gegevens in 60 seconden van een gebeurtenisbron te maken. 
-> * Tijdens de Preview-versie, verwacht een langere periode voordat de gegevens beschikbaar worden gesteld. 
+> * Tijdens de Preview-versie, verwacht een langere periode voordat de gegevens beschikbaar worden gesteld.
 > * Als u een aanzienlijke latentie ondervinden, moet u contact met ons opnemen.
 
-### <a name="scale"></a>Schalen
+### <a name="scale"></a>Schaal aanpassen
 
 Time Series Insights Preview biedt ondersteuning voor de schaal van een eerste inkomend verkeer van maximaal 6 Mega Bytes per seconde (Mbps) per omgeving. Uitgebreide ondersteuning voor vergroten/verkleinen wordt momenteel is. We willen onze documentatie bij zodat deze verbeteringen bijwerken
 

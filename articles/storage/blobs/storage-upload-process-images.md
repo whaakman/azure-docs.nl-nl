@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: 242f3cb6cb9d957d13ecb133c4bfc59a01132ab1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 26b92db330c882aaf258b6e24560cbf2f7930a5f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142292"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237120"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Zelfstudie: Afbeeldingsgegevens uploaden in de cloud met Azure Storage
 
@@ -131,7 +131,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 App Service ondersteunt diverse manieren om inhoud in een web-app te implementeren. In deze zelfstudie implementeert u de web-app vanaf een [openbare GitHub-voorbeeldopslagplaats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp) (Engelstalig). Configureer GitHub-implementatie naar de webtoepassing met de opdracht [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
-Het voorbeeldproject bevat een [ASP.NET MVC](https://www.asp.net/mvc)-app. De app accepteert een afbeelding, slaat deze op in een opslagaccount en geeft afbeeldingen weer vanuit een miniaturencontainer. De web-app gebruikt de naamruimten [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) en [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) van de Azure Storage-clientbibliotheek voor interactie met Azure Storage.
+Het voorbeeldproject bevat een [ASP.NET MVC](https://www.asp.net/mvc)-app. De app accepteert een afbeelding, slaat deze op in een opslagaccount en geeft afbeeldingen weer vanuit een miniaturencontainer. De web-app gebruikt de [Microsoft.WindowsAzure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob), en de Microsoft.WindowsAzure.Storage.Auth naamruimten van de Azure storage-clientbibliotheek voor interactie met Azure storage.
 
 ```azurecli-interactive
 az webapp deployment source config --name $webapp \
@@ -213,7 +213,7 @@ Selecteer het gebied **Upload photos** als u een bestand wilt selecteren en uplo
 
 ![App ImageResizer](media/storage-upload-process-images/figure1.png)
 
-In de voorbeeldcode wordt de taak `UploadFiletoStorage` in bestand *Storagehelper.cs* gebruikt om de afbeeldingen door middel van de methode [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) te uploaden naar de container *images* in het opslagaccount. Het volgende codevoorbeeld bevat de taak `UploadFiletoStorage`.
+In de voorbeeldcode wordt de taak `UploadFiletoStorage` in bestand *Storagehelper.cs* gebruikt om de afbeeldingen door middel van de methode [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) te uploaden naar de container *images* in het opslagaccount. Het volgende codevoorbeeld bevat de taak `UploadFiletoStorage`.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -244,11 +244,11 @@ In de vorige taak zijn de volgende klassen en methoden gebruikt:
 
 |Klasse  |Methode  |
 |---------|---------|
-|[StorageCredentials](/dotnet/api/microsoft.windowsazure.storage.auth.storagecredentials?view=azure-dotnet)     |         |
-|[CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet)    |  [CreateCloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet)       |
-|[CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet)     |[GetContainerReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet)         |
-|[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet)        |
-|[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
+|[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)     |         |
+|[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)    |  [CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)       |
+|[CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)     |[GetContainerReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getcontainerreference)         |
+|[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer)    | [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference)        |
+|[CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)     | [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.file.cloudfile.uploadfromstreamasync)        |
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
 

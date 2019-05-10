@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097136"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466521"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
@@ -68,10 +68,9 @@ Selecteren om toe te voegen een nieuwe meting met telemetrie, **+ nieuwe meting*
 
 > [!NOTE]
 > De veldnamen in de sjabloon van het apparaat moeten overeenkomen met de namen van eigenschappen in de bijbehorende apparaatcode in volgorde voor de meting telemetrie moet worden weergegeven in de toepassing wanneer een echt apparaat is verbonden. Doe hetzelfde bij het configureren van instellingen voor apparaateigenschappen opdrachten, en als u doorgaat met het definiëren van de sjabloon van het apparaat in de volgende secties.
+PNG bijvoorbeeld, kunt u een nieuwe meting van de temperatuur-telemetrie toevoegen:
 
-U kunt bijvoorbeeld een nieuwe meting van de temperatuur-telemetrie toevoegen:
-
-| Weergavenaam        | Veldnaam    |  Eenheden    | Min.   |Max.|
+| Weergavenaam        | Veldnaam    |  Eenheden    | Min.   |Max|
 | --------------------| ------------- |-----------|-------|---|
 | Temperatuur         | temp          |  degC     |  0    |100|
 
@@ -161,7 +160,7 @@ Er zijn twee categorieën eigenschappen:
 
 U kunt bijvoorbeeld de laatste onderhouden datum voor het apparaat toevoegen als een nieuwe **datum** eigenschap (een eigenschap van de toepassing) op de **eigenschappen** tabblad:
 
-| Weergavenaam  | Veldnaam | Initiële waarde   |
+| Weergavenaam  | Veldnaam | Beginwaarde   |
 | --------------| -----------|-----------------|
 | Laatste servicebeurt      | lastServiced        | 01/29/2019     |
 
@@ -190,7 +189,7 @@ U kunt een locatie-eigenschap maken als een eigenschap van de toepassing met beh
 
 3. Configureer **weergavenaam**, **veldnaam**, en (optioneel) **beginwaarde** voor de locatie.
 
-    | Weergavenaam  | Veldnaam | Initiële waarde |
+    | Weergavenaam  | Veldnaam | Beginwaarde |
     | --------------| -----------|---------| 
     | Installatie-adres | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -239,7 +238,7 @@ Bijvoorbeeld, u kunt toevoegen van een nieuwe **Echo** opdracht door het selecte
 | --------------| -----------|---------------- | --------- |
 | Opdracht Echo  | echo       |  30             | tekst      |
 
-!['-Opdracht configureren' formulier met details voor echo](./media/howto-set-up-template/commandsecho.png)
+!['-Opdracht configureren' formulier met details voor echo](./media/howto-set-up-template/commandsecho1.png)
 
 Nadat u hebt geselecteerd **opslaan**, wordt de **Echo** opdracht wordt weergegeven als een tegel en is gereed om te worden gebruikt vanuit de **Device Explorer** wanneer uw echt apparaat verbinding maakt. De veldnamen van de opdracht moeten overeenkomen met de namen van eigenschappen in de bijbehorende apparaatcode om opdrachten uit om te worden uitgevoerd.
 
@@ -255,7 +254,7 @@ Het dashboard is waar een operator voor informatie over een apparaat kunt gaan. 
 
 Bijvoorbeeld, u kunt toevoegen een **instellingen en eigenschappen** tegel om weer te geven van een selectie van de huidige waarden van instellingen en eigenschappen van het selecteren van de **Dashboard** tabblad en de tegel uit de bibliotheek:
 
-!['Apparaatdetails configureren' formulier met details voor instellingen en eigenschappen](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+!['Apparaatdetails configureren' formulier met details voor instellingen en eigenschappen](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Nu wanneer een operator het dashboard in bekijkt de **Device Explorer**, zien ze de tegel.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49d06c05af085624a0d495a65e139d3857a13fc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712618"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470228"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
@@ -177,10 +177,10 @@ sudo yum install servicefabricsdkcommon
 
 De Service Fabric-runtime die wordt geleverd met de installatie omvat de pakketten in de volgende tabel. 
 
- | | DotNetCore | Java | Python | Node.js | 
+ | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit van npm | meest recente |
-RHEL | - | OpenJDK 1.8 | Implicit van npm | meest recente |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit van npm | nieuwste |
+RHEL | - | OpenJDK 1.8 | Implicit van npm | nieuwste |
 
 ## <a name="set-up-a-local-cluster"></a>Een lokaal cluster instellen
 Start een lokaal cluster nadat de installatie is voltooid.
@@ -334,7 +334,6 @@ Voer de volgende opdrachten uit om de Service Fabric SDK's te verwijderen.
 * [Een Linux-ontwikkelomgeving voorbereiden in Windows](service-fabric-local-linux-cluster-windows.md)
 * [Uw toepassingen beheren met behulp van de Service Fabric-CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Verschillen tussen Service Fabric in Windows en Linux](service-fabric-linux-windows-differences.md)
-* [Besturingssysteempatches automatiseren in uw Linux-cluster](service-fabric-patch-orchestration-application-linux.md)
 * [Aan de slag met Service Fabric-CLI](service-fabric-cli.md)
 
 <!-- Links -->

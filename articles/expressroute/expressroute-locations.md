@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.author: pareshmu
-ms.openlocfilehash: 96839a42eb9dbd947b36522122a28ef81946a99c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 63d6d1419b0a70a0bcf3532a13d6f7491b792593
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191192"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467712"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -83,7 +83,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Londen, Silicon Valley, Singapore, Sydney, Tokio, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Ondersteund |Ondersteund |Montreal, Toronto, Quebec |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Ondersteund |Ondersteund |Amsterdam, Hongkong, Londen, Newport(Wales), Sao Paulo, Silicon Valley, Singapore, Sydney, Tokio, Washington DC |
-| **C3ntro** |Binnenkort beschikbaar |Binnenkort beschikbaar |Miami |
+| **C3ntro** |Binnenkort |Binnenkort |Miami |
 | **CDC** | Ondersteund | Ondersteund | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Ondersteund |Ondersteund |Las Vegas, New York, San Antonio, Silicon Valley, Tokio, Toronto |
 | **Chief Telecom** |Ondersteund |Ondersteund |Taipei |
@@ -92,12 +92,12 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Ondersteund |Ondersteund |Amsterdam, Dublin, Londen, Parijs, Singapore2, Tokio |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Ondersteund |Ondersteund |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Ondersteund |Ondersteund |Chicago, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Ondersteund |Ondersteund |Amsterdam2|
+| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Ondersteund |Ondersteund |Amsterdam2, Frankfurt|
 | **eir** |Ondersteund |Ondersteund |Dublin|
 | **Epsilon Global Communications** |Ondersteund |Ondersteund |Singapore, Singapore2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Ondersteund |Ondersteund |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Hongkong, Londen, London2, Los Angeles, Melbourne, Miami, New York, Osaka, Parijs, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokio, Toronto, Washington DC |
 | **Etisalat VAE** |Ondersteund |Ondersteund |Dubai|
-| **euNetworks** |Ondersteund |Ondersteund |Amsterdam, Dublin, Londen |
+| **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Ondersteund |Ondersteund |Amsterdam, Dublin, Londen |
 | **FarEasTone** |Ondersteund |Ondersteund |Taipei|
 | **GÉANT** |Ondersteund |Ondersteund |Amsterdam |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Ondersteund| Ondersteund | Chennai, Mumbai |
@@ -107,7 +107,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Ondersteund |Ondersteund |Kaapstad, Johannesburg, Londen |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Ondersteund |Ondersteund |Amsterdam, Amsterdam2, Dublin, Frankfurt, London, Marseille, Paris, Zurich |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Ondersteund |Ondersteund | Amsterdam, London2, Silicon Valley, Toronto |
-| **Jisc** |Ondersteund |Ondersteund |Londen |
+| **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Ondersteund |Ondersteund |Londen |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Ondersteund |Ondersteund |Seoul |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Ondersteund |Ondersteund |Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Ondersteund | Ondersteund | Amsterdam | 
@@ -136,7 +136,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Ondersteund |Ondersteund |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Ondersteund |Ondersteund |Londen |
 | **Telenor** |Ondersteund |Ondersteund |Amsterdam, Londen |
-| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Ondersteund | Ondersteund |Amsterdam, Chicago, Dallas, London, Washington DC |
+| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Ondersteund | Ondersteund |Amsterdam, Chicago, Dallas, London, Paris, Washington DC |
 | **Telmex Uninet**| Ondersteund | Ondersteund | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Ondersteund |Ondersteund |Melbourne, Singapore, Sydney |
 | **[Telus](https://www.telus.com)** |Ondersteund |Ondersteund |Montreal, Toronto |
