@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773464"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233095"
 ---
 # <a name="configure-prerequisites"></a>Vereisten configureren
 
@@ -39,8 +39,8 @@ Deze optie is de eenvoudigste, maar deze ook beperkte aanpassingsmogelijkheden. 
 - **Schijftype**: Beheerde schijven worden gebruikt.
 - **Netwerken**: Ondersteuning voor nieuwe of bestaande netwerk en aangepaste CIDR-bereik.
 - **CNS**: CNS kan worden ingeschakeld.
-- **Metrische gegevens**: Metrische gegevens kan worden ingeschakeld.
-- **Logboekregistratie**: Logboekregistratie kan worden ingeschakeld.
+- **Metrische gegevens**: Hawkular metrische gegevens kan worden ingeschakeld.
+- **Logboekregistratie**: EFK logboekregistratie kan worden ingeschakeld.
 - **Azure Cloud Provider**: Standaard ingeschakeld, kan worden uitgeschakeld.
 
 Klik in de linkerbovenhoek van de Azure-portal, op **een resource maken**, voert u 'openshift containerplatform' in het zoekvak en drukt u op Enter.
@@ -81,7 +81,7 @@ Voer waarden in voor de invoerparameters en klikt u op **OK**.
 
 | Invoerparameter | Beschrijving van de parameter |
 |-----------------------|-----------------|
-| Voorvoegsel van OCP-Cluster | De beheerder moet worden gemaakt op alle VM-exemplaren |
+| Voorvoegsel van OCP-Cluster | Voorvoegsel gebruikt voor het configureren van hostnamen voor alle knooppunten van het cluster. Tussen 1 en 20 tekens |
 | De grootte van de master-knooppunt | Accepteer de standaard-VM-grootte of klik op **grootte wijzigen** om te selecteren van een andere VM-grootte.  Selecteer de juiste VM-grootte voor uw werkbelasting |
 | De grootte van de infrastructuur-knooppunt | Accepteer de standaard-VM-grootte of klik op **grootte wijzigen** om te selecteren van een andere VM-grootte.  Selecteer de juiste VM-grootte voor uw werkbelasting |
 | Aantal knooppunten van de toepassing | Accepteer de standaard-VM-grootte of klik op **grootte wijzigen** om te selecteren van een andere VM-grootte.  Selecteer de juiste VM-grootte voor uw werkbelasting |

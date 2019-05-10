@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a355d18de875ad980e0c2b6c564d3379c2b90ee7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186ecf055cdf7b10690fdb4cbc574778a841b85a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154287"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464809"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -42,6 +42,15 @@ In Azure portal kunt u nu:
 + De mogelijkheid de config.json-bestand te downloaden van de pagina overzicht van de werkruimte van de Azure Machine Learning-service is toegevoegd.
 + Ondersteuning voor het maken werkruimte van Machine Learning-service van Azure Databricks-werkruimte 
 
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning-SDK voor Python v1.0.33
++ **Nieuwe functies**
+  + De _Workspace.create_ methode accepteert nu standaard clusterconfiguraties voor CPU en GPU-clusters.
+  + Als het maken van de werkruimte is mislukt, worden afhankelijke resources verwijderd.
+  + Standaard Azure Container Registry SKU is overgeschakeld naar basic.
+  + Azure Container Registry wordt lazily, gemaakt wanneer dat nodig is voor het maken van uitvoeren of de afbeelding.
+  + Ondersteuning voor omgevingen voor training wordt uitgevoerd.
 
 ### <a name="notebook-virtual-machine"></a>Laptop virtuele Machine 
 

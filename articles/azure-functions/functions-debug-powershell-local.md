@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 554b7b7f401ec7cdb1ae08839550b81d797764f2
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530329"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230072"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Lokaal fouten opsporen in PowerShell Azure Functions
 
@@ -97,7 +97,7 @@ Met `Wait-Debugger` aanwezig is, kunt u nu de functies die met behulp van Visual
 
 Als u wilt fouten opsporen in uw PowerShell-functies in Visual Studio Code, moet u de volgende extensies hebben voor Visual Studio Code:
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 De extensies PowerShell en Azure Functions laden na de installatie van een bestaande functie-app-project. U kunt ook [een Functions-project maken](functions-create-first-function-vs-code.md).
@@ -189,7 +189,7 @@ Noteer de `ProcessId` voor het item in de tabel met de `ProcessName` als `dotnet
 Voer vervolgens het volgende codefragment:
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

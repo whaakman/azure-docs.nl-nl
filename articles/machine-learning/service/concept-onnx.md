@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bda1af8095e7026c79b7d8ffe45b39f6cbb3508
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028693"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442418"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>U kunt ONNX en Azure Machine Learning: Maken en ML-modellen te versnellen
 
@@ -30,7 +30,7 @@ Microsoft en een community van partners die zijn ONNX gemaakt als een open stand
 
 De ONNX-Runtime wordt gebruikt op grote schaal Microsoft-services zoals Bing, Office en Cognitive Services. Prestaties zijn afhankelijk van een aantal factoren, maar deze Microsoft-services hebben gezien een __2 x prestatieverbetering te bereiken op CPU gemiddeld__. U kunt ONNX-Runtime wordt ook gebruikt als onderdeel van Windows-ML op honderden miljoenen apparaten. Met Azure Machine Learning-services kunt u de runtime. Met behulp van ONNX-Runtime, kunt u profiteren van de uitgebreide productiekwaliteit optimalisaties, testen en de voortdurende verbeteringen.
 
-[![U kunt ONNX flow diagram van training, conversieprogramma's en -implementatie](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![U kunt ONNX flow diagram van training, conversieprogramma's en -implementatie](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>U kunt ONNX-modellen
 

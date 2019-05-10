@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: aahi
-ms.openlocfilehash: 5dcec0d5f313b1c746c0674d0f9bf4d30ed19e5c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026310"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233610"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installeren en uitvoeren van containers voor de detectie van afwijkingen
 
@@ -49,11 +49,8 @@ U moet eerst invullen en verzenden de [Anomaliedetectie Detector Container aanvr
 
 ## <a name="the-host-computer"></a>De hostcomputer
 
-De **host** is de computer met de docker-container. Het kan zijn dat een computer op uw locatie of een docker die als host fungeert de service in Azure, waaronder:
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-* [Azure Container Instances](https://docs.microsoft.com/container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 <!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
@@ -168,11 +165,11 @@ Gebruikmaken van de host https://localhost:5000, voor de container met API's.
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](anomaly-detector-container-configuration.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 De detectie van afwijkingen containers verzenden factuurgegevens naar Azure, met behulp van een _Anomaliedetectie Detector_ resource voor uw Azure-account. 
 

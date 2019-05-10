@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Bewerkingen op een afbeelding uitvoeren - Java'
+title: Bewerkingen op een afbeelding uitvoeren - Java
 titlesuffix: Azure Cognitive Services
 description: Ontdek een eenvoudige Java Swing-app die gebruikmaakt van de Computer Vision-API in Azure Cognitive Services. Voer OCR uit, maak miniaturen en werk met visuele kenmerken in een afbeelding.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
+ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
-ms.date: 09/21/2017
-ms.openlocfilehash: 4f6af31ba6b04ddbecb7cb42cebe345b6af720ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2019
+ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201428"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232630"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Zelfstudie: Computer Vision-API - Java
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Computer Vision-functies gebruiken met de REST-API en Java
 
 In deze zelfstudie leert u de functies van de Computer Vision-REST API in Azure Cognitive Services.
 
@@ -34,7 +34,7 @@ In deze zelfstudie wordt uitgelegd hoe u Computer Vision kunt gebruiken voor de 
 > * Gedrukte tekst in een afbeelding lezen (OCR)
 > * Handgeschreven tekst in een afbeelding lezen (OCR)
 
-De Java Swing-formuliertoepassing is al geschreven, maar heeft nog geen functionaliteit. In deze zelfstudie kunt u de specifieke code toevoegen aan de Computer Vision-REST API om de functionaliteit van de toepassing te voltooien.
+De formulier Java Swing toepassing al is geschreven, maar er is geen functionaliteit heeft. In deze zelfstudie kunt u de specifieke code toevoegen aan de Computer Vision-REST API om de functionaliteit van de toepassing te voltooien.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,13 +42,13 @@ De Java Swing-formuliertoepassing is al geschreven, maar heeft nog geen function
 
 Deze zelfstudie is ontwikkeld met de NetBeans-IDE. Hierbij gaat het om precies te zijn om de **Java SE**-versie van NetBeans, die u hier [ kunt downloaden](https://netbeans.org/downloads/index.html).
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Abonneren op Computer Vision-API en een abonnementssleutel ophalen 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Abonneren op Computer Vision-API en een abonnementssleutel ophalen
 
-Voordat u het voorbeeld maakt, moet u zich abonneren op de Computer Vision-API, die deel uitmaakt van Azure Cognitive Services. Zie [Abonnementen](https://azure.microsoft.com/try/cognitive-services/) voor gedetailleerde informatie over het abonnement en sleutelbeheer. In deze zelfstudie kan zowel de primaire als de secundaire sleutel worden gebruikt. 
+Voordat u het voorbeeld maakt, moet u zich abonneren op de Computer Vision-API die deel uitmaakt van Azure Cognitive Services. Zie [Abonnementen](https://azure.microsoft.com/try/cognitive-services/) voor gedetailleerde informatie over het abonnement en sleutelbeheer. In deze zelfstudie kan zowel de primaire als de secundaire sleutel worden gebruikt.
 
-## <a name="acquire-the-incomplete-tutorial-project"></a>Het onvolledige zelfstudieproject verkrijgen
+## <a name="acquire-incomplete-tutorial-project"></a>In deze les onvolledig verkrijgen
 
-### <a name="download-the-tutorial-project"></a>Het zelfstudieproject downloaden
+### <a name="download-the-project"></a>Het project downloaden
 
 1. Ga naar de opslagplaats [Cognitive Services Java Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial).
 1. Klik op de knop **Klonen of Downloaden**.
@@ -78,7 +78,7 @@ Importeer het bestand **cognitive-services-java-computer-vision-tutorial-master.
 
 1. Sluit de zelfstudietoepassing af.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>De code van de zelfstudie toevoegen aan het project
+## <a name="add-tutorial-code-to-the-project"></a>Zelfstudie code toevoegen aan het project
 
 De Java Swing-toepassing bestaat uit zes tabbladen. Elk tabblad toont een andere functie van Computer Vision (analyse, OCR, enzovoort). De zes zelfstudiesecties zijn niet onderling afhankelijk, dus u kunt één sectie, alle zes de secties of een subset toevoegen. U kunt de secties in elke gewenste volgorde toevoegen.
 
@@ -88,7 +88,7 @@ De functie Analyseren van Computer Vision scant een afbeelding op meer dan 2000 
 
 Gebruik de volgende stappen uit om de functie Analyseren van de zelfstudietoepassing uit te voeren:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Voeg de code van de gebeurtenis-handler voor de knop analyseren
 
 De gebeurtenis-handlermethode **analyzeImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **AnalyzeImage** aan om de afbeelding te analyseren. Wanneer **AnalyzeImage** terugkeert, geeft de methode het opgemaakte JSON-antwoord weer in het tekstgebied **Antwoord**. De methode haalt vervolgens het eerste bijschrift uit het **JSONObject** en geeft het bijschrift weer, samen met het betrouwbaarheidskans dat het bijschrift juist is.
 
@@ -202,7 +202,7 @@ Kopieer en plak de methode **AnalyzeImage** naar een positie net onder de method
     }
  ```
 
-#### <a name="run-the-application"></a>De toepassing uitvoeren
+#### <a name="run-the-analyze-function"></a>De functie analyseren uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Voer een URL in naar een afbeelding die u wilt analyseren en klik vervolgens op de knop **Afbeelding analyseren** om de afbeelding te analyseren en het resultaat te bekijken.
 
@@ -326,7 +326,7 @@ Kopieer en plak de methode **LandmarkImage** naar een positie net onder de metho
     }
 ```
 
-#### <a name="run-the-application"></a>De toepassing uitvoeren
+#### <a name="run-the-landmark-function"></a>De functie oriëntatiepunt uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **Oriëntatiepunt**, voer een URL naar een afbeelding van een oriëntatiepunt in, klik vervolgens op de knop **afbeelding analyseren** om een afbeelding te analyseren, en bekijk het resultaat.
 
@@ -336,7 +336,7 @@ De functie Beroemdheden van de Computer Vision analyseert een afbeelding op bero
 
 Gebruik de volgende stappen uit om de functie Beroemdheden van de zelfstudietoepassing uit te voeren:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>De code van de gebeurtenis-handler voor de beroemdheden-knop
 
 De gebeurtenis-handlermethode **celebritiesImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **CelebritiesImage** aan om de afbeelding te analyseren. Wanneer **CelebritiesImage** terugkeert, geeft de methode het opgemaakte JSON-antwoord weer in het tekstgebied **Antwoord** weer. De methode haalt vervolgens de eerste naam van een beroemdheid uit het **JSONObject** en toont deze in het venster, samen met het betrouwbaarheidskans dat de beroemdheid correct is geïdentificeerd.
 
@@ -450,7 +450,7 @@ Kopieer en plak de methode **CelebritiesImage** naar een positie net onder de me
     }
 ```
 
-#### <a name="run-the-application"></a>De toepassing uitvoeren
+#### <a name="run-the-celebrities-function"></a>Voer de beroemdheden-functie
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **Beroemdheden**, voer een URL naar een afbeelding van een beroemdheid in, klik vervolgens op de knop **Afbeelding analyseren** om een afbeelding te analyseren, en bekijk het resultaat.
 
@@ -460,7 +460,7 @@ Met de functie Miniatuur van Computer Vision wordt een miniatuur van een afbeeld
 
 Gebruik de volgende stappen uit om de functie Miniatuur van de zelfstudietoepassing uit te voeren:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>De code van de gebeurtenis-handler voor de miniatuur knop toevoegen
 
 De gebeurtenis-handlermethode **thumbnailImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **getThumbnailImage** aan om de miniatuur te maken. Wanneer **getThumbnailImage** terugkeert, geeft de methode de gegenereerde miniatuur weer.
 
@@ -573,7 +573,7 @@ Kopieer en plak de volgende methode **getThumbnailImage** naar een positie net o
     }
 ```
 
-#### <a name="run-the-application"></a>De toepassing uitvoeren
+#### <a name="run-the-thumbnail-function"></a>De miniaturen functie uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **Miniatuur**, voer een URL in naar een afbeelding, klik vervolgens op de knop **Miniatuur genereren** om een afbeelding te analyseren, en bekijk het resultaat.
 
@@ -583,7 +583,7 @@ De functie voor optische tekenherkenning (OCR) van Computer Vision analyseert ee
 
 Gebruik de volgende stappen uit om de functie OCR van de zelfstudietoepassing uit te voeren:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>De code van de gebeurtenis-handler voor de OCR-knop
 
 De gebeurtenis-handlermethode **ocrImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **OcrImage** aan om de afbeelding te analyseren. Wanneer **OcrImage** terugkeert, geeft de methode de herkende tekst weer als opgemaakte JSON in het tekstgebied **Antwoord**.
 
@@ -684,7 +684,7 @@ Kopieer en plak de volgende methode **OcrImage** naar een positie net onder de m
     }
 ```
 
-#### <a name="run-the-application"></a>De toepassing uitvoeren
+#### <a name="run-the-ocr-function"></a>De functie OCR uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **OCR**, voer een URL in naar een afbeelding van gedrukte tekst, klik vervolgens op de knop **Afbeelding lezen** om de afbeelding te analyseren, en bekijk het resultaat.
 
@@ -694,7 +694,7 @@ De functie Handschriftherkenning van Computer Vision analyseert een afbeelding v
 
 Gebruik de volgende stappen uit om de functie Handschriftherkenning van de zelfstudietoepassing uit te voeren:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>De code van de gebeurtenis-handler toevoegen voor de formulierknop
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>De code van de gebeurtenis-handler voor het aanpassen van handschriftherkenning knop toevoegen
 
 De gebeurtenis-handlermethode **handwritingImageButtonActionPerformed** wist het formulier, geeft de in de URL opgegeven afbeelding weer en roept vervolgens de methode **HandwritingImage** aan om de afbeelding te analyseren. Wanneer **HandwritingImage** terugkeert, geeft de methode de herkende tekst weer als opgemaakte JSON in het tekstgebied **Antwoord**.
 
@@ -842,11 +842,12 @@ Kopieer en plak de volgende methode **HandwritingImage** naar een positie net on
     }
 ```
 
-#### <a name="run-the-application"></a>De toepassing uitvoeren
+#### <a name="run-the-handwriting-function"></a>De functie handschriftherkenning uitvoeren
 
 Druk op **F6** om de toepassing uit te voeren. Plaats uw abonnementssleutel in het veld **Abonnementssleutel** en controleer in **Abonnementregio** of u de juiste regio gebruikt. Klik op het tabblad **Handgeschreven tekst lezen**, voer een URL in naar een afbeelding van handgeschreven tekst, klik vervolgens op de knop **Afbeelding lezen** om een afbeelding te analyseren, en bekijk het resultaat.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zelfstudie voor Computer Vision API C&#35;](CSharpTutorial.md)
-- [Zelfstudie voor de Computer Vision-API met Python](PythonTutorial.md)
+In deze handleiding gebruikt u de Computer Vision REST-API met behulp van Java voor het testen van veel van de analysefuncties beschikbaar installatiekopie. Vervolgens, Zie de documentatie voor meer informatie over de API's die betrokken zijn.
+
+- [Computer Vision-REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

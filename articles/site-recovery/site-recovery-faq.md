@@ -8,16 +8,21 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
-ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278905"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413926"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
-In dit artikel bevat een overzicht van de veelgestelde vragen over Azure Site Recovery. 
+In dit artikel bevat een overzicht van de veelgestelde vragen over Azure Site Recovery.</br>
+Voor bepaalde query's op verschillende ASR scenario verwijzen we u scenario Veelgestelde vragen over de specifieke.<br>
 
+- [Herstel van virtuele Azure-machine na noodgevallen naar Azure](azure-to-azure-common-questions.md)
+- [Herstel van virtuele VMware-machine na noodgevallen naar Azure](vmware-azure-common-questions.md)
+- [Noodherstel voor Hyper-V-VM naar Azure](hyper-v-azure-common-questions.md)
+ 
 ## <a name="general"></a>Algemeen
 
 ### <a name="what-does-site-recovery-do"></a>Wat doet Site Recovery?
@@ -55,7 +60,7 @@ We bieden ondersteuning voor Azure Pack, Cloud Platform System en System Center 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Worden implementaties van één Azure Pack en één VMM-server ondersteund?
 Ja, kunt u Hyper-V-machines repliceren naar Azure, of tussen sites van serviceproviders.  Houd er rekening mee dat als u tussen sites van serviceproviders repliceert, Azure-runbookintegratie niet beschikbaar is.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 
 ### <a name="where-can-i-find-pricing-information"></a>Waar vind ik informatie over prijzen?
 Beoordeling [prijzen voor Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) details.

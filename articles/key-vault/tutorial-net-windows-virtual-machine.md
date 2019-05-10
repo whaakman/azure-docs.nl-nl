@@ -2,19 +2,19 @@
 title: 'Zelfstudie: Azure Key Vault gebruikt met een Windows-machine in .NET | Microsoft Docs'
 description: In deze zelfstudie configureert u een ASP.NET core-toepassing een geheim lezen uit uw key vault.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 7fdd2f1832995d279f58af52f96270f7aa3bb5a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c88977f465de6d9b89bd2d9c4cf67402fe6f563f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686162"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228152"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met een Windows-machine in .NET
 
@@ -81,7 +81,7 @@ U uw zojuist gemaakte resource-groep in deze zelfstudie.
 Voor het maken van een key vault in de resourcegroep die u in de vorige stap hebt gemaakt, moet u de volgende informatie leveren:
 
 * Key vault-naam: een reeks van 3 tot 24 tekens die mag alleen cijfers (0-9), letters (a-z, A-Z) en afbreekstreepjes (-)
-* Naam van de resourcegroep
+* Resourcegroepnaam
 * Locatie: **US - west**
 
 ```azurecli

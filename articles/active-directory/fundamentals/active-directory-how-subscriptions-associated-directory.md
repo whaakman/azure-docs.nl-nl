@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918402"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463635"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 
@@ -64,8 +64,8 @@ Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitv
 
     De map wordt gewijzigd voor het abonnement en u krijgt een bericht weergegeven.
 
-    ![Bericht over directory wijzigen](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. Gebruik de **directorywisselaar** om naar de nieuwe adreslijst te gaan. Het kan maximaal 10 minuten duren voordat alles goed wordt weergegeven.
+    ![Bericht over directory wijzigen](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. Gebruik de **directorywisselaar** om naar de nieuwe adreslijst te gaan. Duurt enkele uren voor van alles goed wordt weergegeven. Als het lijkt alsof duurt te lang, moet u controleren of de **filter globale abonnementen** voor het abonnement verplaatst, om te controleren of het niet alleen verborgen.
 
     ![Overschakelen naar directorypagina, met voorbeeldgegevens](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

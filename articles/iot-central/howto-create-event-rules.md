@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c98136e2f45965834fa1c538a5929eee14b24466
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2bce535d8612eca565970d4c530a27efb356334
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886191"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464541"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maken van een regel voor gebeurtenissen en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -31,19 +31,19 @@ De apparaat-sjabloon moet ten minste één gebeurtenis meting gedefinieerd hebbe
 
 1. Als u dit nog niet hebt nog geen regels gemaakt, ziet u het volgende scherm:
 
-    ![Nog geen regels](media/howto-create-event-rules/Rules_Landing_Page.png)
+    ![Nog geen regels](media/howto-create-event-rules/rules_landing_page1.png)
 
 1. Op de **regels** tabblad **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
 1. Kies de **gebeurtenis** tegel om een gebeurtenis bewaking van de regel te maken.
 
-    ![Regeltypen](media/howto-create-event-rules/Rule_Types.png)
+    ![Regeltypen](media/howto-create-event-rules/rule_types1.png)
 
 1. Voer een naam die u helpt bij het identificeren van de regel in de sjabloon van dit apparaat.
 
 1. Om in te schakelen direct de regel voor alle apparaten die zijn gemaakt met deze sjabloon, in-/ uitschakelen **regel inschakelen voor alle apparaten van deze sjabloon**.
 
-    ![Details van de regel](media/howto-create-event-rules/Rule_Detail.png)
+    ![Details van de regel](media/howto-create-event-rules/rule_detail1.png)
 
     De regel wordt automatisch toegepast op alle apparaten die onder de apparaat-sjabloon.
 
@@ -55,7 +55,7 @@ Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
 1. Kies de gebeurtenis die u wilt bewaken in de vervolgkeuzelijst meting. In dit voorbeeld **ventilator Motor fout** gebeurtenis is geselecteerd.
 
-   ![Voorwaarde](media/howto-create-event-rules/Condition_Filled_Out.png)
+   ![Voorwaarde](media/howto-create-event-rules/condition_filled_out1.png)
 
 1. (Optioneel) u kunt ook instellen **aantal** als **aggregatie** en de bijbehorende drempelwaarde opgeven.
 
@@ -64,7 +64,7 @@ Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
      Bijvoorbeeld, als u waarschuwen wilt wanneer er meer dan drie apparaatgebeurtenissen binnen 5 minuten, selecteert u de gebeurtenis en de statistische functie "aantal", operator, als "groter is dan" en "drempelwaarde' als 3. Stel 'Aggregatie periode' van '5 minuten'. De regel wordt geactiveerd wanneer er meer dan drie gebeurtenissen worden verzonden door het apparaat binnen 5 minuten. De evaluatiefrequentie regel is hetzelfde als de **cumulatieve tijdvenster**, wat betekent dat, in dit voorbeeld wordt de regel is geëvalueerd om de 5 minuten.
 
-     ![Gebeurtenis voorwaarde toevoegen](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     ![Gebeurtenis voorwaarde toevoegen](media/howto-create-event-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >Meer dan één gebeurtenis meting kan worden toegevoegd onder **voorwaarde**. Wanneer meerdere voorwaarden zijn opgegeven, moeten aan de voorwaarden worden voldaan om de regel te activeren. Elke voorwaarde wordt impliciet gekoppeld door een 'En'-component. Wanneer u statistische functie gebruikt, moet elke meting worden geaggregeerd.
@@ -75,14 +75,14 @@ Deze sectie leest u over het instellen van acties moet worden uitgevoerd wanneer
 
 1. Kies de **+** naast **acties**. U ziet hier de lijst met beschikbare acties.
 
-    ![Actie toevoegen](media/howto-create-event-rules/Add_Action.png)
+    ![Actie toevoegen](media/howto-create-event-rules/add_action1.png)
 
 1. Kies de **e** actie, voer een geldig e-mailadres in de **naar** veld en geeft u een opmerking in de hoofdtekst van het e-mailbericht moet worden weergegeven wanneer de regel wordt geactiveerd.
 
     > [!NOTE]
     > E-mailberichten worden alleen verzonden naar de gebruikers die zijn toegevoegd aan de toepassing en ten minste één keer hebben aangemeld. Meer informatie over [Gebruikersbeheer](howto-administer.md) in Azure IoT Central.
 
-   ![Actie configureren](media/howto-create-event-rules/Configure_Action.png)
+   ![Actie configureren](media/howto-create-event-rules/configure_action1.png)
 
 1. Als u wilt de regel niet opslaan, kiest u **opslaan**. De regel meteen live binnen een paar minuten en start de bewaking van de gebeurtenissen worden verzonden naar uw toepassing. Wanneer de voorwaarde die is opgegeven in de regel overeenkomt, wordt de geconfigureerde e-mailactie geactiveerd door de regel.
 

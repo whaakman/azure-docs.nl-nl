@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 654528ed6137ee62ea22d552d36fda5ac5331adc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688660"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233441"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Kennismaking met de gebruikersinterface van Azure IoT Central
 
@@ -32,7 +32,6 @@ Als _operator_ gebruikt u de gebruikersinterface van Azure IoT Central om uw Azu
 - Uw apparaten te configureren.
 - Problemen met uw apparaten op te lossen.
 - Nieuwe apparaten inrichten.
-
 
 ## <a name="use-the-left-navigation-menu"></a>Gebruik het linkernavigatiemenu
 
@@ -57,6 +56,9 @@ Voor de gebruikersinterface kunt u kiezen tussen een licht thema of een donker t
 
 ![Een thema voor de gebruikersinterface kiezen](media/overview-iot-central-tour/themes.png)
 
+> [!NOTE]
+> De optie te kiezen tussen het lichte en donkere thema's is niet beschikbaar als de beheerder een aangepast thema voor de toepassing heeft geconfigureerd.
+
 ## <a name="dashboard"></a>Dashboard
 
 ![Dashboard](media/overview-iot-central-tour/homepage.png)
@@ -78,7 +80,7 @@ Op de Device Explorer-pagina worden de _apparaten_ in uw Azure IoT Central-toepa
 
 Op de pagina _Apparaatsets_ worden de apparaatsets getoond die door de maker zijn gemaakt. Een apparaatset is een verzameling verwante apparaten. Een maker definieert een query om de apparaten te identificeren die in een apparaatset zijn opgenomen. U gebruikt apparaatsets wanneer u de analytische gegevens in uw toepassing aanpast. Raadpleeg voor meer informatie het artikel [Use device sets in your Azure IoT Central application](howto-use-device-sets.md) (Apparaatsets gebruiken in uw Azure IoT Central-toepassing).
 
-## <a name="analytics"></a>Analyse
+## <a name="analytics"></a>Analytische gegevens
 
 ![Analysepagina](media/overview-iot-central-tour/analytics.png)
 

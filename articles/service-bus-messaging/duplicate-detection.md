@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120854"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413647"
 ---
 # <a name="duplicate-detection"></a>Detectie van duplicaten
 
@@ -35,6 +35,9 @@ Toepassingsbeheer van de id is het essentieel is, omdat alleen dat de toepassing
 Voor een bedrijfsproces waarin meerdere berichten worden verzonden tijdens het verwerken van de context van een toepassing, de *MessageId* mogelijk een samenstelling van de id van de context op toepassingsniveau, zoals een aankoopordernummer en de onderwerp van het bericht, bijvoorbeeld **12345.2017/betaling**.
 
 De *MessageId* kunnen altijd worden sommige GUID, maar de id voor het bedrijfsproces verankering levert voorspelbare herhaalbaarheid, die vereist is voor een effectief gebruik te maken van de functie voor detectie van duplicaten.
+
+> [!NOTE]
+> Als de detectie van duplicaten is ingeschakeld en de sleutel-ID of partitie sesion niet zijn ingesteld, wordt de bericht-ID gebruikt als de partitiesleutel. Als de bericht-ID is ook niet is ingesteld, wordt een bericht-ID voor het bericht automatisch genereren door bibliotheken voor .NET en AMQP. Zie voor meer informatie, [gebruik van sleutels van de partitie](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Duplicaatdetectie inschakelen
 

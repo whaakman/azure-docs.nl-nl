@@ -6,15 +6,15 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 05/06/2019
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: a91afdbeaa2ced37b237b4f2b80a8dbbe2c4a05c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cb1d06872f7eae04bac934220da9d58982d0f4b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717222"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233728"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Zelfstudie: De JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken
 
@@ -32,6 +32,7 @@ Specifiek, vindt u meer over:
 > [!NOTE]
 > * De zelfstudie wordt gebruikgemaakt van een gratis, gehoste, [Time Series Insights web demo](https://insights.timeseries.azure.com/clientsample).
 > * De bronbestanden van de Time Series Insights-voorbeeld-app vindt u in de [voorbeeldopslagplaats in GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * Lees de [TSI-client-referentiedocumentatie](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
 ## <a name="video"></a>Video
 
@@ -60,8 +61,6 @@ In deze zelfstudie wordt een gratis, gehoste, Time Series Insights-voorbeeldapp 
    [![TSI Client voorbeeld hoofdpagina na het aanmelden](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
 
 ### <a name="page-source-and-structure"></a>Paginabron en -structuur
-
-<div id="page-source-and-structure"></div>
 
 Eerst gaan we bekijken de [HTML en JavaScript-broncode](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) van de gegenereerde web-wisselbaar geheugen:
 
@@ -119,6 +118,9 @@ De [Time Series Insights-voorbeeldtoepassing](https://insights.timeseries.azure.
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
+> [!TIP]
+> Zie voor meer informatie over Microsoft ondersteund ADAL-bibliotheken, de [ADAL referentiedocumentatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
+
 ### <a name="control-identification"></a>Identificatie van besturingselementen
 
 In het opgegeven voorbeeld `<div>` elementen zijn gerangschikt in de bovenliggende `<body>` element voor een praktische indeling voor alle grafiekbesturingselementen in de weergegeven op de pagina.
@@ -163,7 +165,7 @@ Invullen en rendering van besturingselementen kolomdiagram kunt u een algemeen p
    | `splitByObject`   | De tekenreekseigenschap die u wilt splitsen (optioneel; kan null zijn). | `{property: 'Station', type: 'String'}` |
    | `color`         | De kleur van de objecten die u wilt weergeven. | `'pink'` |
    | `alias`           | Een beschrijvende naam voor de samenvoegingsexpressie. | `'Factory3Temperature'` |
-   | `contextMenuActions` | Een matrix van acties die moeten worden gebonden aan de tijdreeksobjecten in een visualisatie (optioneel). | Zie voor meer informatie de sectie [pop-contextmenu's](#contextMenu) |
+   | `contextMenuActions` | Een matrix van acties die moeten worden gebonden aan de tijdreeksobjecten in een visualisatie (optioneel). | Zie voor meer informatie de sectie [pop-contextmenu's](#pop-up-context-menus) |
 
 1. Roep een TSI-query aan met de API's van `TsiClient.Server` om de samengevoegde gegevens op te vragen:
 
@@ -255,8 +257,6 @@ De ruitvormige markeringen/pop-upvensters, waarmee incidenten worden aangegeven,
 
 ### <a name="pop-up-context-menus"></a>Pop-upcontextmenu's
 
-<div id="contextMenu"></div>
-
 Een andere geavanceerde functies is de mogelijkheid om te maken van aangepaste contextmenu (Klik met de rechtermuisknop pop-upmenu's). Aangepaste contextmenu's zijn handig voor het inschakelen van acties en logische vervolgstappen binnen het bereik van uw toepassing.
 
 Code Bekijk rustig de `// Example 13/14/15` opmerking. Deze code geeft in eerste instantie een lijndiagram onder de titel `"Line Chart with Context Menu to Create Pie/Bar Chart"` en de grafiek is gebonden aan de `<div>` element met de HTML-code `id` waarde `chart13`.
@@ -321,3 +321,8 @@ Of de bronbestanden van TSI voorbeeld van toepassing op:
 
 > [!div class="nextstepaction"]
 > [Opslagplaats TSI voorbeeld-app](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
+
+Lees de TSI-client-API-referentiedocumentatie:
+
+> [!div class="nextstepaction"]
+> [TSI-API-referentiedocumentatie](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)

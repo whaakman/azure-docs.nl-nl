@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734572"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465533"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Accountfilters en asset filters definiëren  
 
@@ -90,7 +90,7 @@ Eigenschap van de filtervoorwaarden bijhouden beschrijven tracktypen, waarden (i
 
 ## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
 
-U kunt een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. De [dynamische packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dyanamic manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
+U kunt een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. De [dynamische packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dynamische manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
 
 ## <a name="definition-example"></a>Voorbeeld van de definitie
 

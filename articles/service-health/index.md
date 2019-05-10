@@ -7,12 +7,12 @@ ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506891"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441656"
 ---
 # <a name="azure-service-health-documentation"></a>Documentatie over Azure Service Health
 
@@ -25,6 +25,11 @@ U bent wellicht bekend met de pagina **[Azure-status](https://status.azure.com)*
 **[Azure Resource Health](resource-health-overview.md)** geeft informatie over de status van uw afzonderlijke cloudresources, zoals een specifiek exemplaar van een virtuele machine. Met Azure Monitor kunt u ook waarschuwingen configureren om u op de hoogte te stellen van beschikbaarheidswijzigingen in uw cloudresources. Als u Azure Resource Health met Azure Monitor combineert, bent u op elk moment beter op de hoogte van de beschikbaarheid van uw resources en beoordeelt u snel of een probleem aan uw zijde voorkomt of dat het gerelateerd is aan een gebeurtenis in een Azure-platform.
 
 Samen bieden deze functies u een uitgebreid overzicht van de status van Azure met de granulariteit die voor u het meest relevant is.
+
+### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>Een overzicht bekijken van de Azure-statuspagina, Azure Service Health en Azure Resource Health
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
 
 <ul class="panelContent cardsFTitle">
     <li>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a1c1bafd0a575b01e9774e79a98515d34646f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28378b4b769e0d0e70a82a45baac0872d1476036
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471793"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413619"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Periodieke back-up en herstel in Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -56,7 +56,21 @@ Service Fabric biedt een set API's voor het bereiken van de volgende functionali
 ## <a name="prerequisites"></a>Vereisten
 * Service Fabric-cluster met Fabric versie 6.2 en hoger. Het cluster moet worden ingesteld op Windows Server. Verwijzen naar dit [artikel](service-fabric-cluster-creation-for-windows-server.md) voor stappen om vereiste pakket te downloaden.
 * X.509-certificaat voor het versleutelen van geheimen die nodig zijn voor het verbinding maken met opslag voor het opslaan van back-ups. Raadpleeg [artikel](service-fabric-windows-cluster-x509-security.md) te weten hoe u aan te schaffen of te maken van een zelfondertekend X.509-certificaat.
-* Betrouwbare Stateful van service Fabric-toepassing die is gebouwd met behulp van Service Fabric SDK versie 3.0 of hoger. Voor toepassingen die gericht is op .NET Core 2.0, toepassing moet worden gemaakt met behulp van Service Fabric SDK versie 3.1 of hoger.
+
+* Betrouwbare Stateful van service Fabric-toepassing die is gebouwd met behulp van Service Fabric SDK versie 3.0 of hoger. Voor toepassingen die gericht is op .net Core 2.0, toepassing moet worden gemaakt met behulp van Service Fabric SDK versie 3.1 of hoger.
+* Installeer Microsoft.ServiceFabric.Powershell.Http-Module [In Preview-versie] voor het aanroepen van de configuratie.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+* Zorg ervoor dat het Cluster is verbonden met behulp van de `Connect-SFCluster` opdracht voordat u een configuratieaanvraag met Microsoft.ServiceFabric.Powershell.Http Module.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
 
 ## <a name="enabling-backup-and-restore-service"></a>Back-up en herstel-service inschakelen
 U moet eerst om in te schakelen de _back-up en herstellen van service_ in uw cluster. De sjabloon ophalen voor het cluster dat u wilt implementeren. U kunt de [-voorbeeldsjablonen](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Schakel de _back-up en herstellen van service_ met de volgende stappen uit:
@@ -114,6 +128,16 @@ Eerste stap is het maken van back-upbeleid met een beschrijving van back-upschem
 
 Voor back-upopslag-bestandsshare maken en ReadWrite toegang geven tot deze bestandsshare voor alle machines in Service Fabric-knooppunt. In dit voorbeeld wordt ervan uitgegaan dat de share met de naam `BackupStore` aanwezig is op `StorageServer`.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+
+New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -FileShare -Path '\\StorageServer\BackupStore' -Basic -RetentionDuration '10.00:00:00'
+
+```
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
+
 Voer de volgende PowerShell-script voor het aanroepen van vereiste REST-API voor het maken van nieuw beleid.
 
 ```powershell
@@ -152,6 +176,14 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### <a name="enable-periodic-backup"></a>Periodieke back-up inschakelen
 Na het definiëren van beleid om te voldoen aan de beveiligingsvereisten voor gegevens van de toepassing, moet het back-upbeleid gekoppeld aan de toepassing. Afhankelijk van vereiste, kan het back-upbeleid zijn gekoppeld aan een toepassing, service of een partitie.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
 Voer de volgende PowerShell-script voor het aanroepen van vereiste REST-API om te koppelen van back-upbeleid met de naam `BackupPolicy1` gemaakt in de hierboven genoemde stap met toepassing `SampleApp`.
 
 ```powershell
@@ -167,13 +199,21 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### <a name="verify-that-periodic-backups-are-working"></a>Controleren of de periodieke back-ups zijn werkt
 
-Nadat de back-up voor de toepassing is ingeschakeld, wordt alle partities die behoren tot betrouwbare Stateful services en Reliable Actors onder de toepassing ophalen van een back-up periodiek aan de hand van de gekoppelde back-upbeleid gestart. 
+Nadat de back-up voor de toepassing is ingeschakeld, wordt alle partities die behoren tot betrouwbare Stateful services en Reliable Actors onder de toepassing ophalen van een back-up periodiek aan de hand van de gekoppelde back-upbeleid gestart.
 
 ![Partitie BackedUp statusgebeurtenis][0]
 
 ### <a name="list-backups"></a>Lijst met back-ups
 
 Back-ups die zijn gekoppeld aan alle partities die behoren tot een betrouwbare Stateful services en Reliable Actors van de toepassing kunnen worden geïnventariseerd met behulp van _GetBackups_ API. Afhankelijk van vereiste, kunnen de back-ups voor de toepassing, service of een partitie worden opgesomd.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+    Get-SFApplicationBackupList -ApplicationId WordCount     
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
 
 Voer de volgende PowerShell-script voor het aanroepen van de HTTP-API voor het inventariseren van de back-ups gemaakt voor alle partities in de `SampleApp` toepassing.
 
@@ -185,6 +225,7 @@ $response = Invoke-WebRequest -Uri $url -Method Get
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+
 Voorbeeld van uitvoer voor de bovenstaande uitvoeren:
 
 ```
@@ -231,7 +272,7 @@ FailureError            :
 - Back-up herstellen-service kan niet zijn beschikbaar op het cluster is beveiligd met gMSA op basis van beveiliging.
 
 ## <a name="limitation-caveats"></a>Beperking / voorbehouden
-- Er is geen Service-Fabric gebouwd in PowerShell-cmdlets.
+- Service Fabric PowerShell-cmdlets zijn in preview-modus.
 - Er is geen ondersteuning voor Service Fabric-clusters op Linux.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703571"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233599"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die worden ondersteund door Azure Security Center
 
@@ -70,7 +70,7 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||
+|Server |Windows||Linux||
 |----|----|----|----|----|
 |Omgeving|Azure|Niet-Azure|Azure|Niet-Azure|
 |VMBA dagelijks geconstateerde waarschuwingen|✔|✔|✔ (op ondersteunde versies)|✔|
@@ -78,9 +78,9 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |Windows Defender ATP-integratie|✔ (op ondersteunde versies)|✔|X|X|
 |Ontbrekende patches.|✔|✔|✔|✔|
 |Beveiligingsconfiguraties|✔|✔|✔|✔|
-|Eindpuntbeveiliging|✔|✔|X|X|
+|Endpoint Protection|✔|✔|X|X|
 |JIT-VM-toegang|✔|X|✔|X|
-|Adaptieve toepassingsbesturingselementen|✔|X|X|X|
+|Besturingselementen voor adaptieve toepassingen|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |Schijfversleuteling|✔|X|✔|X|
 |Implementatie van derden|✔|X|✔|X|
@@ -96,7 +96,7 @@ De volgende tabel bevat een matrix met:
  - U kunt of Azure Security Center gebruiken voor het installeren van elke oplossing voor u.
  - Welke endpoint protection solutions Security Center kan detecteren. Als een van deze oplossingen voor eindpuntbeveiliging wordt gedetecteerd, wordt in Security Center niet aanbevolen een installeren.
 
-| Eindpuntbeveiliging| Platformen | Security Center-installatie | Security Center Discovery |
+| Endpoint Protection| Platforms | Security Center-installatie | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| Nee, ingebouwd in besturingssysteem| Ja |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (Zie opmerking hieronder) | Via extensie | Ja |
@@ -114,7 +114,7 @@ De volgende tabel bevat een matrix met:
 ## <a name="supported-paas-features"></a>Ondersteunde PaaS-functies 
 
 
-|Service|Aanbevelingen|Detectie van bedreigingen|
+|Service|Aanbevelingen|Detectie van dreigingen|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -122,10 +122,10 @@ De volgende tabel bevat een matrix met:
 |Azure Blob storage-accounts *|✔| ✔|
 |App-services|✔| ✔|
 |Cloud Services|✔| X|
-|VNets|✔| N.v.t.|
-|Subnetten|✔| N.v.t.|
-|NIC’s|✔| ✔|
-|NSG's|✔| N.v.t.|
+|VNets|✔| N.V.T.|
+|Subnetten|✔| N.V.T.|
+|NIC's|✔| ✔|
+|NSG's|✔| N.V.T.|
 |Abonnement|✔| ✔|
 
 \* Deze functies worden momenteel ondersteund in openbare preview. 

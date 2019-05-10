@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services-pakketten en de oorsprong fouten | Microsoft Docs
-description: Dit onderwerp beschrijft de fouten die u van de service Azure Media Services-pakketten kan ontvangen.
+description: Dit onderwerp beschrijft de fouten die u van de service Azure Media Services Streaming-eindpunt (waarop ontvangen kan).
 author: Juliako
 manager: femila
 editor: ''
@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204167"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411373"
 ---
-# <a name="media-services-packaging-errors"></a>Fouten voor Media Services-pakketten 
+# <a name="streaming-endpoint-origin-errors"></a>Streaming-eindpunt (oorsprong)-fouten 
 
-In dit onderwerp beschrijft de fouten die u van de Azure Media Services ontvangt mogelijk [verpakking service](streaming-endpoint-concept.md).
+In dit onderwerp beschrijft de fouten die u van de Azure Media Services ontvangt mogelijk [Streaming-eindpunt service](streaming-endpoint-concept.md).
 
 ## <a name="400-bad-request"></a>400-Ongeldige aanvraag
 
@@ -48,7 +48,7 @@ De aanvraag is niet toegestaan vanwege een van de volgende redenen:
 |MPE_ENC_ENCRYPTION_REQUIRED |0x8088021E |Versleuteling is vereist voor de inhoud, beleid voor de levering is vereist voor de indeling van de uitvoer. |
 |MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY |0x8088024D |Versleuteling is niet ingesteld in de instellingen voor delivery. |
 
-## <a name="404-not-found"></a>404 – Niet gevonden
+## <a name="404-not-found"></a>404 Niet gevonden
 
 De bewerking wordt geprobeerd om te reageren op een resource die niet meer bestaat. Bijvoorbeeld: de resource mogelijk al verwijderd.
 

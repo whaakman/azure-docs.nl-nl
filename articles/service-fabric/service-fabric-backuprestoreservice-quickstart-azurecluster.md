@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 4d4bc69f00f86bc81c353ef0cc40f37f000ba6c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bce408215cef540604a72109bc5b29ebc3359e7
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472184"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413807"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Periodieke back-up en herstel in Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -59,8 +59,30 @@ Service Fabric biedt een set API's voor het bereiken van de volgende functionali
 * X.509-certificaat voor het versleutelen van geheimen die nodig zijn voor het verbinding maken met opslag voor het opslaan van back-ups. Raadpleeg [artikel](service-fabric-cluster-creation-via-arm.md) wilt weten hoe ophalen of maken van een X.509-certificaat.
 * Betrouwbare Stateful van service Fabric-toepassing die is gebouwd met behulp van Service Fabric SDK versie 3.0 of hoger. Voor toepassingen die gericht is op .NET Core 2.0, toepassing moet worden gemaakt met behulp van Service Fabric SDK versie 3.1 of hoger.
 * Azure Storage-account voor het opslaan van back-ups van de toepassing maken.
+* Installeer Microsoft.ServiceFabric.Powershell.Http-Module [In Preview-versie] voor het aanroepen van de configuratie.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+* Zorg ervoor dat het Cluster is verbonden met behulp van de `Connect-SFCluster` opdracht voordat u een configuratieaanvraag met Microsoft.ServiceFabric.Powershell.Http Module.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
 
 ## <a name="enabling-backup-and-restore-service"></a>Back-up en herstel-service inschakelen
+
+### <a name="using-azure-portal"></a>Azure Portal gebruiken
+
+Schakel `Include backup restore service` selectievakje onder `+ Show optional settings` in `Cluster Configuration` tabblad.
+
+![Ervoor zorgen dat back-up terugzetten met Portal][1]
+
+
+### <a name="using-azure-resource-manager-template"></a>Met behulp van Azure Resource Manager-sjabloon
 U moet eerst om in te schakelen de _back-up en herstellen van service_ in uw cluster. De sjabloon ophalen voor het cluster dat u wilt implementeren. Kunt u ofwel de [-voorbeeldsjablonen](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) of een Resource Manager-sjabloon maken. Schakel de _back-up en herstellen van service_ met de volgende stappen uit:
 
 1. Controleer of de `apiversion` is ingesteld op **`2018-02-01`** voor de `Microsoft.ServiceFabric/clusters` resource, en als dat niet het geval is, werken zoals wordt weergegeven in het volgende codefragment:
@@ -117,6 +139,18 @@ Eerste stap is het maken van back-upbeleid met een beschrijving van back-upschem
 
 Gebruik de Azure Storage-account hierboven gemaakt voor back-upopslag. Container `backup-container` is geconfigureerd voor het opslaan van back-ups. Een container met deze naam wordt gemaakt, als deze nog niet, tijdens het back-up uploaden bestaat. Vullen `ConnectionString` met een geldige verbindingsreeks voor de Azure Storage-account, vervangen `account-name` met de naam van uw opslagaccount, en `account-key` met sleutel van uw opslagaccount.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+Voer de volgende PowerShell-cmdlets voor het maken van nieuwe back-upbeleid. Vervang `account-name` met de naam van uw opslagaccount, en `account-key` met sleutel van uw opslagaccount.
+
+```powershell
+
+New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container' -Basic -RetentionDuration '10.00:00:00'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van PowerShell
+
 Voer de volgende PowerShell-script voor het aanroepen van vereiste REST-API voor het maken van nieuw beleid. Vervang `account-name` met de naam van uw opslagaccount, en `account-key` met sleutel van uw opslagaccount.
 
 ```powershell
@@ -148,6 +182,7 @@ $body = (ConvertTo-Json $BackupPolicy)
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
+
 ```
 
 > [!IMPORTANT]
@@ -155,6 +190,15 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### <a name="enable-periodic-backup"></a>Periodieke back-up inschakelen
 Na het definiëren van back-upbeleid om te voldoen aan de beveiligingsvereisten voor gegevens van de toepassing, moet het back-upbeleid gekoppeld aan de toepassing. Afhankelijk van vereiste, kan het back-upbeleid zijn gekoppeld aan een toepassing, service of een partitie.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+
+Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+
+```
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van PowerShell
 
 Voer de volgende PowerShell-script voor het aanroepen van vereiste REST-API om te koppelen van back-upbeleid met de naam `BackupPolicy1` gemaakt in de hierboven genoemde stap met toepassing `SampleApp`.
 
@@ -179,6 +223,15 @@ Nadat de back-up op het toepassingsniveau van de is ingeschakeld, wordt alle par
 
 Back-ups die zijn gekoppeld aan alle partities die behoren tot een betrouwbare Stateful services en Reliable Actors van de toepassing kunnen worden geïnventariseerd met behulp van _GetBackups_ API. Back-ups kunnen worden opgesomd voor een toepassing, service of een partitie.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+    
+Get-SFApplicationBackupList -ApplicationId WordCount
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van PowerShell
+
 Voer de volgende PowerShell-script voor het aanroepen van de HTTP-API voor het inventariseren van de back-ups gemaakt voor alle partities in de `SampleApp` toepassing.
 
 ```powershell
@@ -189,6 +242,7 @@ $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7e
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+
 Voorbeeld van uitvoer voor de bovenstaande uitvoeren:
 
 ```
@@ -230,15 +284,17 @@ FailureError            :
 ```
 
 ## <a name="limitation-caveats"></a>Beperking / voorbehouden
-- Er is geen Service-Fabric gebouwd in PowerShell-cmdlets.
+- Service Fabric PowerShell-cmdlets zijn in preview-modus.
 - Er is geen ondersteuning voor Service Fabric-clusters op Linux.
 
 ## <a name="known-issues"></a>Bekende problemen
 - Zorg ervoor dat de bewaartermijn is geconfigureerd voor minder dan 24 dagen. 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Understanding periodieke back-upconfiguratie](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Naslaginformatie over REST API voor back-up terugzetten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+[1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
 

@@ -131,7 +131,7 @@
           items:
             - name: Een suggester maken
               href: index-add-suggesters.md
-            - name: Suggesties of automatisch aanvullen toevoegen
+            - name: 'Voorbeelden (suggesties, automatisch aanvullen)'
               href: search-autocomplete-tutorial.md
         - name: Synoniemen
           items:

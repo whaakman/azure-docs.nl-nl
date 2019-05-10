@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d1de50e6b1b673a2613a893c19633bbd4bd43fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835359"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409268"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor IBM Db2
 
@@ -158,7 +158,7 @@ ms.locfileid: "60835359"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "60835359"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -364,7 +364,7 @@ Voor de schijven die de Db2-opslagpaden voor uw mappen sapdata en saptmp bevat, 
 
 Voor Azure-VM uit de M-serie, kan de latentie schrijven naar de transactielogboeken worden teruggebracht door factoren, vergeleken met Azure Premium Storage-prestaties bij het gebruik van Azure Write Accelerator. Daarom moet u Azure Write Accelerator implementeren voor de virtuele harde schijven die het volume voor de transactielogboeken Db2 vormen. Meer informatie vindt u in het document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
-### <a name="backuprestore"></a>Back-up maken/terugzetten
+### <a name="backuprestore"></a>Back-up maken/herstellen
 De back-up/herstel-functionaliteit voor IBM Db2 voor LUW wordt ondersteund op dezelfde manier als op de standaard Windows Server-besturingssystemen en Hyper-V.
 
 U moet ervoor zorgen dat er een geldige database back-upstrategie in plaats. 

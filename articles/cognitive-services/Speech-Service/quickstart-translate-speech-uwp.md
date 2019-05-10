@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 6195d9c978ccb7d9ff16454cbff9f46dbe08dbb8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 123a05012db1494799bf523bda2972a18c8f2ff4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871761"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465626"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Quickstart: Spraak omzetten met de Speech SDK voor C# (UWP)
+
+Snelstartgidsen zijn ook beschikbaar voor [spraak-naar-tekst](quickstart-csharp-uwp.md) en [stem op de eerste virtuele assistent](quickstart-virtual-assistant-csharp-uwp.md).
 
 In deze quickstart maakt u een eenvoudige UWP-toepassing (Universeel Windows-platform) waarmee spraak van gebruikers via de microfoon van de computer wordt vastgelegd, waarna de spraak wordt omgezet en de omgezette tekst in realtime wordt getranscribeerd naar de opdrachtregel. Deze toepassing is bedoeld om te worden uitgevoerd op Windows 64-bits en is gemaakt met het [Speech-SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
 

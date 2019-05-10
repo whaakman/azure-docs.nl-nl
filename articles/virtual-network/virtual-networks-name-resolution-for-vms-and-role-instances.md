@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925240"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411363"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
@@ -169,11 +169,11 @@ Als het doorsturen van query's naar Azure niet passen aan uw behoeften, kunt u u
 * Worden beveiligd tegen toegang via internet, om bedreigingen die door externe agents.
 
 > [!NOTE]
-> Voor de beste prestaties wanneer u Azure-VM's als DNS-servers, moet IPv6 worden uitgeschakeld. Een [openbaar IP-adres](virtual-network-public-ip-address.md) moet worden toegewezen aan elke virtuele machine van de DNS-server. Voor analyse van prestaties en optimalisatie van wanneer u van Windows Server als uw DNS-server gebruikmaakt, Zie [naam resolutie-prestaties van een recursieve Windows DNS-Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> Voor de beste prestaties wanneer u Azure-VM's als DNS-servers, moet IPv6 worden uitgeschakeld. Een [openbaar IP-adres](virtual-network-public-ip-address.md) moet worden toegewezen aan elke virtuele machine van de DNS-server. Voor analyse van prestaties en optimalisatie van wanneer u van Windows Server als uw DNS-server gebruikmaakt, Zie [naam resolutie-prestaties van een recursieve Windows DNS-Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 
-### <a name="web-apps"></a>Web-apps
+### <a name="web-apps"></a>Web Apps
 Stel dat u wilt uitvoeren van naamomzetting van uw web-app gebouwd met behulp van App Service is gekoppeld aan een virtueel netwerk, op virtuele machines in hetzelfde virtuele netwerk. Naast het instellen van een aangepaste DNS-server die een DNS-doorstuurserver waarmee query's worden doorgestuurd naar Azure (virtueel IP-adres 168.63.129.16), heeft de volgende stappen uitvoeren:
 1. Integratie van virtuele netwerken voor uw web-app inschakelen als nog niet gedaan, zoals beschreven in [uw app integreren met een virtueel netwerk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. In de Azure-portal voor het App Service-plan die als host fungeert voor de web-app, selecteer **netwerk synchroniseren** onder **netwerken**, **Virtual Network-integratie**.

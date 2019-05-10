@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 934dfd3334b6f433c7acdf9816a3fb5e24f0430f
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872012"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233539"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Detectie van afwijkingen en prognoses in Azure Data Explorer
 
@@ -119,7 +119,7 @@ demo_make_series2
 
 ## <a name="summary"></a>Samenvatting
 
-In dit document worden systeemeigen Azure-Data Explorer-functies voor time series-anomaliedetectie en prognoses, die aanzienlijk beter zijn de fundamentele ontleding model waarop deze gebaseerd. Elke oorspronkelijke tijdreeks is opgesplitst, worden afwijkingen gedetecteerd, en prognose uitgevoerd. De tijd reeks anomaliedetectie detectie worden gevolgd en voorspeld functies worden gebruikt voor bijna realtime bewakingsscenario's, zoals foutenopsporing, Voorspellend onderhoud, en de vraag en prognoses te laden.
+In dit document worden systeemeigen Azure Data Explorer-functies voor time series-anomaliedetectie worden gevolgd en voorspeld. Elke oorspronkelijke tijdreeks is opgesplitst in seizoensgebonden, trend en resterende onderdelen voor het detecteren van afwijkingen en/of te voorspellen. Deze functies kunnen worden gebruikt voor bijna realtime bewakingsscenario's, zoals foutenopsporing, Voorspellend onderhoud, en de vraag en prognoses te laden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

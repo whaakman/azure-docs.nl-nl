@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60854036"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415574"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Zelfstudie: Een ASP.NET-app bouwen in Azure met SQL Database
 
@@ -44,7 +44,7 @@ In deze zelfstudie leert u het volgende:
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-U moet <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> met de **ASP.NET- en webontwikkelworkload** installeren.
+Installeer <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> met de **ASP.NET en webontwikkeling** werkbelasting.
 
 Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual Studio door te klikken op **Hulpprogramma's** > **Hulpprogramma's en functies ophalen**.
 

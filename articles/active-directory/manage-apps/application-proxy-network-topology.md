@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443409"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231511"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Netwerk-topologie overwegingen bij het gebruik van Azure Active Directory-toepassingsproxy
 
@@ -39,7 +39,7 @@ Wanneer een toepassing wordt gepubliceerd via Azure AD-toepassingsproxy, wordt v
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Tenantlocatie en de service voor toepassingsproxy
 
-Wanneer u zich aanmeldt voor een Azure AD-tenant, worden de regio van uw tenant wordt bepaald door het land dat u opgeeft. Wanneer u toepassingsproxy hebt ingeschakeld, worden de exemplaren van de toepassingsproxy voor uw tenant gekozen of gemaakt in dezelfde regio als uw Azure AD-tenant, of de dichtstbijzijnde regio.
+Wanneer u zich aanmeldt voor een Azure AD-tenant, worden de regio van uw tenant wordt bepaald door het land/de regio die u opgeeft. Wanneer u toepassingsproxy hebt ingeschakeld, worden de exemplaren van de toepassingsproxy voor uw tenant gekozen of gemaakt in dezelfde regio als uw Azure AD-tenant, of de dichtstbijzijnde regio.
 
 Bijvoorbeeld, als het land of regio van uw Azure AD-tenant het Verenigd Koninkrijk is, gebruiken alle uw Application Proxy connectors service-exemplaren in EU-datacenters. Wanneer uw gebruikers toegang tot toepassingen gepubliceerde, hun verkeer wordt gerouteerd via de Application Proxy-service-exemplaren in deze locatie.
 
@@ -78,7 +78,7 @@ Als u een specifieke VPN of ExpressRoute-verbinding tussen Azure en uw bedrijfsn
 
 ## <a name="focus-your-optimization-strategy"></a>Richt u uw strategie voor optimalisatie
 
-Er is weinig die u voor het beheren van de verbinding tussen uw gebruikers en de service voor toepassingsproxy kunt uitvoeren. Gebruikers kunnen toegang krijgen tot uw apps via een netwerk thuis, een restaurant of een ander land. In plaats daarvan kunt u de verbindingen van de service voor toepassingsproxy om de Application Proxy connectors voor de apps te optimaliseren. Houd rekening met het opnemen van de volgende patronen in uw omgeving.
+Er is weinig die u voor het beheren van de verbinding tussen uw gebruikers en de service voor toepassingsproxy kunt uitvoeren. Gebruikers kunnen toegang krijgen tot uw apps via een netwerk thuis, een restaurant of een ander land/regio. In plaats daarvan kunt u de verbindingen van de service voor toepassingsproxy om de Application Proxy connectors voor de apps te optimaliseren. Houd rekening met het opnemen van de volgende patronen in uw omgeving.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Patroon 1: De connector dicht bij de toepassing plaatsen
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 9aadfd1f3685466c8c0beb6dff3bb8d063f4bfd8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: e971fd160a43be088f6d3c4a9fb6fddc7dd769b0
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137407"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415674"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Zelfstudie: RDS MySQL migreren naar Azure Database for MySQL online met behulp van DMS
 
@@ -24,7 +24,6 @@ U kunt Azure Database Migration Service gebruiken voor het migreren van database
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
->
 > * De voorbeeldschema migreren met behulp van de opdrachtregelprogramma's mysqldump en mysql.
 > * Maak een instantie van Azure Database Migration Service.
 > * Een migratieproject maken met behulp van Azure Database Migration Service.
@@ -55,7 +54,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Download en installeer de [MySQL **werknemers** voorbeelddatabase](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Maak een instantie van [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
-* Een Azure Virtual Network (VNet) maken voor Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel, waarmee u site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Een Azure Virtual Network (VNet) maken voor Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel, waarmee u site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Zie voor meer informatie over het maken van een VNet, de [documentatie voor Virtual Network](https://docs.microsoft.com/azure/virtual-network/), en met name de artikelen met vindt u meer details.
 * Zorg ervoor dat uw VNet netwerkbeveiligingsgroepsregels de volgende poorten voor binnenkomende communicatie naar Azure Database Migration Service niet blokkeren: 443, 53, 9354, 445 en 12000. Zie het artikel voor meer informatie over Azure VNet NSG wordt verkeer gefilterd, [netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configureer uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open uw Windows-firewall voor Azure Database Migration Service toegang tot de bron MySQL-server, die standaard TCP-3306 poort.

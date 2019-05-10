@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870146"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233902"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Zelfstudie: App-groepen beheren voor Windows Virtual Desktop Preview
 
@@ -73,7 +73,7 @@ Voordat u begint, [downloaden en importeren van de Windows virtuele bureaublad P
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u uw app-groepen hebt gemaakt, kunt u service-principals maken en rollen toewijzen aan uw gebruikers. Als u wilt weten hoe u dit doet, Zie de zelfstudie voor informatie over het maken van service-principals en roltoewijzingen met PowerShell.
+In deze zelfstudie hebt u geleerd hoe u app-groepen maken, deze vullen met RemoteApps en gebruikers toewijzen aan de app-groep. Voor meer informatie over hoe u zich aanmeldt bij Windows virtueel bureaublad, blijven het verbinding maken met Windows virtuele bureaublad uitleg.
 
-> [!div class="nextstepaction"]
-> [Service-principals en roltoewijzingen maken met PowerShell](create-service-principal-role-powershell.md)
+- [Verbinding maken met de extern bureaublad-client op Windows 7 en Windows 10](connect-windows-7-and-10.md)
+- [Verbinding maken met de webclient Windows Virtual Desktop Preview](connect-web.md)

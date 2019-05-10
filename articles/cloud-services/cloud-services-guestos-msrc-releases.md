@@ -11,17 +11,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
-ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623065"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465557"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
+
+## <a name="april-2019-guest-os"></a>April 2019 Guest OS
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 19-04 | [4493509] | Windows 10-beveiliging | 6.6 | 9 april 2019 |
+| Rel 19-04 | [4493470] | Windows 10-beveiliging | 5.30 | 9 april 2019 |
+| Rel 19-04 | [4493467] | Windows-beveiliging | 4.65 | 9 april 2019 |
+| Rel 19-04 | [4493450] | Windows-beveiliging | 3.72 | 9 april 2019 |
+| Rel 19-04 | [4493448] | Windows-beveiliging | 2.85 | 9 april 2019 |
+| Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | 9 april 2019 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 april 2019 |
+| Rel 19-04 | [KB4490628] | Servicing Stack Update | 2.85 | 12 maart 2019 |
+| Rel 19-04 | [KB4474419] | SHA2-ondersteuning | 2.85 | 12 maart 2019 |
+| Rel 19-04 | [KB4489878] | Totalisering van maart niet voor beveiliging | 2.85 | 12 maart 2019 |
+| Rel 19-04 | [KB4489891] | Totalisering van maart niet voor beveiliging | 3.72 | 12 maart 2019 |
+| Rel 19-04 | [KB4489881] | Totalisering van maart niet voor beveiliging | 4.65 | 12 maart 2019 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>Maart 2019 Guest OS
 
@@ -890,7 +920,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-075 |[3072633] |Beveiligingslekken in OLE kunnen leiden tot misbruik van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
 | MS15-076 |[3067505] |Beveiligingslek in Windows Remote Procedure Call kan leiden tot misbruik van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
 | MS15-077 |[3077657] |Beveiligingslek in ATM-lettertype stuurprogramma kan leiden tot misbruik van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
-| N.v.t. |[3057154] |Update voor het gebruik van DES-versleuteling beperken |4.22, 3.29, 2.41 |14 juli 2015 |
+| N.V.T. |[3057154] |Update voor het gebruik van DES-versleuteling beperken |4.22, 3.29, 2.41 |14 juli 2015 |
 
 ## <a name="june-2015-guest-os"></a>Het Gastbesturingssysteem juni 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -923,7 +953,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-040 |[3045711] |Beveiligingslek in AD FS kan leiden tot vrijgeven van informatie |4.20, 3.27, 2.39 |17 april 2015 |
 | MS15-041 |[3048010] |Beveiligingslek in .NET Framework kan leiden tot vrijgeven van informatie |4.20, 3.27, 2.39 |17 april 2015 |
 | MS15-042 |[3047234] |Beveiligingslek in Windows Hyper-V kan leiden tot Denial of Service |4.20, 3.27, 2.39 |17 april 2015 |
-| N.v.t. |[3045755] |Update voor het verbeteren van PKU2U-verificatie |4.20, 3.27, 2.39 |17 april 2015 |
+| N.V.T. |[3045755] |Update voor het verbeteren van PKU2U-verificatie |4.20, 3.27, 2.39 |17 april 2015 |
 
 ## <a name="april-2015-guest-os"></a>April 2015-Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |

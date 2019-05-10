@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 2358cb2ea411a0077f34798183da30bd32ae067b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925131"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233491"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Machine learning-mogelijkheden in Azure Data Explorer
 
@@ -96,7 +96,7 @@ demo_clustering1
 | 2016-08-23 15:00:58.2222707 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007007   | 8215dcf6-2de0-42bd-9c90-181c70486c9c |
 | 2016-08-23 15:00:59.9382620 | scus   | su3       | 90d3d2fc7ecc430c9621ece335651a01 | 10007006   | 451e3c4c-0808-4566-a64d-84d85cf30978 |
 
-### <a name="use-autocluster-for-single-record-set-clustering"></a>Gebruik `autocluster()` voor één record clustering instellen
+### <a name="use-autocluster-for-single-record-set-clustering"></a>Autocluster() gebruiken voor één record clustering instellen
 
 Hoewel er minder dan duizend uitzonderingen zijn, is het nog steeds moeilijk te vinden van algemene segmenten, als er meerdere waarden in elke kolom. U kunt [ `autocluster()` ](/azure/kusto/query/autoclusterplugin) invoegtoepassing om direct een kleine lijst met algemene segmenten te vinden van de interessante binnen twee minuten van de piek-clusters zoals te zien is in de volgende query:
 
@@ -120,7 +120,7 @@ U ziet in de bovenstaande resultaten die het meest dominante segment 65.74% van 
 
 Autocluster maakt gebruik van een eigen algoritme voor meerdere dimensies analysemodel en interessante segmenten extraheren. 'Interessante' betekent dat elk segment aanzienlijke dekking van de set records en de set functies heeft. De segmenten zijn ook opgedeeld, wat betekent dat elke gebeurtenis aanzienlijk verschillen van de andere wordt. Het is mogelijk dat een of meer van deze segmenten relevant zijn voor het RCA-proces. Om te beperken segment onderzoek, extraheert autocluster slechts een klein segment-lijst.
 
-### <a name="use-basket-for-single-record-set-clustering"></a>Gebruik `basket()` voor één record clustering instellen
+### <a name="use-basket-for-single-record-set-clustering"></a>Basket() gebruiken voor één record clustering instellen
 
 U kunt ook de [ `basket()` ](/azure/kusto/query/basketplugin) invoegtoepassing zoals te zien is in de volgende query:
 
