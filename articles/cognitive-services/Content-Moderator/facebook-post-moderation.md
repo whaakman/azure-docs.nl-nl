@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
-ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699527"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233802"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Zelfstudie: Gemiddeld Facebook-berichten en opdrachten met Azure Content Moderator
 
@@ -28,11 +28,14 @@ In deze zelfstudie ontdekt u hoe u:
 > * Azure-functies maken die luisteren naar HTTP-gebeurtenissen van Content Moderator en Facebook.
 > * Koppel een Facebook-pagina aan de Content Moderator met behulp van een Facebook-toepassing.
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 Het volgende diagram illustreert elk onderdeel van dit scenario:
 
 ![Diagram van Content Moderator ontvangen van gegevens uit Facebook via 'FBListener' en het verzenden van gegevens via "CMListener"](images/tutorial-facebook-moderation.png)
+
+> [!IMPORTANT]
+> In 2018, Facebook geïmplementeerd een meer strikt gaan van Facebook-Apps. Niet mogelijk voor het voltooien van de stappen in deze zelfstudie als uw app is niet gecontroleerd en goedgekeurd door het team van de beoordeling Facebook.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -59,68 +62,71 @@ Test uw werkstroom met behulp van de **werkstroom uitvoeren** knop.
 
 ## <a name="create-azure-functions"></a>Azure-functies maken
 
-Aanmelden bij de [Azure Portal](https://portal.azure.com/) en volg deze stappen:
+Aanmelden bij de [Azure-portal](https://portal.azure.com/) en volg deze stappen:
 
 1. Maak een Azure-functie-app zoals wordt weergegeven op de pagina [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
-2. Ga naar de zojuist gemaakte functie-App.
-3. In de App, gaat u naar de **platformfuncties** tabblad en selecteer **toepassingsinstellingen**. In de **toepassingsinstellingen** sectie van de volgende pagina, Ga naar de onderkant van de lijst en klikt u op **nieuwe instelling toevoegen**. De volgende sleutel/waarde-paren toevoegen
+1. Ga naar de zojuist gemaakte functie-App.
+1. In de App, gaat u naar de **platformfuncties** tabblad en selecteer **configuratie**. In de **toepassingsinstellingen** sectie van de volgende pagina, selecteer **nieuwe toepassingsinstelling** om toe te voegen van de volgende sleutel/waarde-paren:
     
     | Naam van de App-instelling | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | De id van het Content Moderator-team  | 
-    | cm:SubscriptionKey | Uw abonnementssleutel voor Content Moderator: zie [Referenties](review-tool-user-guide/credentials.md) | 
-    | cm:Region | De naam van uw Content Moderator-regio, zonder de spaties. Zie de vorige opmerking. |
+    | cm:SubscriptionKey | Uw abonnementssleutel voor Content Moderator: zie [Referenties](review-tool-user-guide/credentials.md) |
+    | cm:Region | De naam van uw Content Moderator-regio, zonder de spaties. |
     | cm:ImageWorkflow | De naam van de werkstroom om uit te voeren voor afbeeldingen |
     | cm:TextWorkflow | De naam van de werkstroom om uit te voeren voor tekst |
-    | cm:CallbackEndpoint | URL voor de CMListener-functie-app die u verderop in deze handleiding maakt |
-    | fb:VerificationToken | Het geheime token, wordt ook gebruikt om u te abonneren op de feed met Facebook-gebeurtenissen |
-    | fb:PageAccessToken | Het toegangstoken voor de Facebook Graph-API verloopt niet en maakt het mogelijk de functie voor het verbergen/verwijderen van berichten namens u uit te voeren. |
+    | cm:CallbackEndpoint | URL voor de CMListener functie-App die u verderop in deze handleiding maken gaat |
+    | fb:VerificationToken | Een token voor geheim dat u hebt gemaakt, gebruikt om u te abonneren op de gebeurtenissen feed Facebook |
+    | fb:PageAccessToken | Het toegangstoken voor de Facebook Graph-API verloopt niet en maakt het mogelijk de functie voor het verbergen/verwijderen van berichten namens u uit te voeren. U krijgt deze in een latere stap. |
 
     Klik op de **opslaan** knop aan de bovenkant van de pagina.
 
-1. Met behulp van de **+** knop in het linkerdeelvenster om de nieuwe functie-deelvenster.
+1. Ga terug naar de **platformfuncties** tabblad. Gebruik de **+** knop in het linkerdeelvenster om de **nieuwe functie** deelvenster. De functie die u gaat maken, worden gebeurtenissen ontvangen van Facebook.
 
     ![Azure Functions-deelvenster met de knop van de functie toevoegen gemarkeerd.](images/new-function.png)
-
-    Klik vervolgens op **+ nieuwe functie** aan de bovenkant van de pagina. Deze functie ontvangt gebeurtenissen van Facebook. Maak deze functie met de volgende stappen:
 
     1. Klik op de tegel met de melding dat **Http-trigger**.
     1. Voer de naam **FBListener** in. Stel **Autorisatieniveau** in op **Functie**.
     1. Klik op **Create**.
     1. Vervang de inhoud van de **run.csx** met de inhoud van **FbListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
 1. Maak een nieuwe **Http-trigger** functie met de naam **CMListener**. Deze functie ontvangt gebeurtenissen van Content Moderator. Vervang de inhoud van de **run.csx** met de inhoud van **CMListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
 ---
 
 ## <a name="configure-the-facebook-page-and-app"></a>De Facebook-pagina en -app configureren
+
 1. Maak een Facebook-app.
 
     ![Facebook-pagina voor ontwikkelaars](images/facebook-developer-app.png)
 
     1. Navigeer naar de [site voor Facebook-ontwikkelaars](https://developers.facebook.com/)
-    2. Klik op **My Apps**.
-    3. Voeg een nieuw app toe.
+    1. Klik op **My Apps**.
+    1. Voeg een nieuw app toe.
     1. een andere naam
     1. Selecteer **Webhooks -> Set Up**
     1. Selecteer **pagina** in de vervolgkeuzelijst en selecteer **abonneren op dit object**
     1. Geef **FBListener Url** op als de Callback URL en het **Verify Token** dat u hebt geconfigureerd onder **Function App Settings**
     1. Als u zich hebt geabonneerd, bladert u omlaag naar de feed en selecteert u **subscribe**.
+    1. Klik op de **testen** knop van de **feed** rij voor het verzenden van een testbericht naar uw Azure-functie FBListener in, klik op de **verzenden naar MijnServer** knop. Hier ziet u de aanvraag wordt ontvangen op uw FBListener.
 
-2. Maak een Facebook-pagina.
+1. Maak een Facebook-pagina.
+
+    > [!IMPORTANT]
+    > In 2018, Facebook geïmplementeerd een meer strikt gaan van Facebook-apps. Niet mogelijk om uit te voeren secties 2, 3 en 4 als uw app is niet gecontroleerd en goedgekeurd door het team van de beoordeling Facebook.
 
     1. Navigeer naar [Facebook](https://www.facebook.com/bookmarks/pages) en maak een **nieuwe Facebook-pagina**.
-    2. Volg deze stappen om toe te staan dat de Facebook-app toegang heeft tot deze pagina:
+    1. Volg deze stappen om toe te staan dat de Facebook-app toegang heeft tot deze pagina:
         1. Navigeer naar de [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
-        2. Selecteer **Application**.
-        3. Selecteer **Page Access Token**, verstuur een **Get**-aanvraag.
-        4. Klik op de **Page ID** in het antwoord.
-        5. Voeg de **/subscribed_apps** toe aan de URL en verstuur een **Get**-aanvraag (leeg antwoord).
-        6. Verstuur een **Post**-aanvraag. U krijgt het antwoord als **success: true**.
+        1. Selecteer **Application**.
+        1. Selecteer **Page Access Token**, verstuur een **Get**-aanvraag.
+        1. Klik op de **Page ID** in het antwoord.
+        1. Voeg de **/subscribed_apps** toe aan de URL en verstuur een **Get**-aanvraag (leeg antwoord).
+        1. Verstuur een **Post**-aanvraag. U krijgt het antwoord als **success: true**.
 
 3. Maak een Graph API-toegangstoken dat niet verloopt.
 

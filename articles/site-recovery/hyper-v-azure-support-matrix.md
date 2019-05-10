@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: ea9f6a65ae804d4d2e5004ff4e2c61a2a85b976d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748982"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235872"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure
 
@@ -33,8 +33,8 @@ Hyper-V zonder Virtual Machine Manager | U kunt herstel na noodgevallen naar Azu
 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
-Hyper-V (uitgevoerd zonder Virtual Machine Manager) | Windows Server 2016 (inclusief server core-installatie), Windows Server 2012 R2 met de meest recente updates | Als u Windows Server 2012 R2 met al hebt geconfigureerd / of SCVMM 2012 R2 met Azure Site Recovery en werk het besturingssysteem, kunt u de richtlijnen [documentatie.](upgrade-2012R2-to-2016.md) 
-Hyper-V (die wordt uitgevoerd met Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Als Virtual Machine Manager wordt gebruikt, moeten Windows Server 2016-hosts worden beheerd in Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (uitgevoerd zonder Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (inclusief server core-installatie), Windows Server 2012 R2 met de meest recente updates | Als u Windows Server 2012 R2 met al hebt geconfigureerd / of SCVMM 2012 R2 met Azure Site Recovery en werk het besturingssysteem, kunt u de richtlijnen [documentatie.](upgrade-2012R2-to-2016.md) 
+Hyper-V (die wordt uitgevoerd met Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Als Virtual Machine Manager wordt gebruikt, moeten Windows Server 2019 hosts worden beheerd in Virtual Machine Manager 2019. Hosts met Windows Server 2016 moeten op dezelfde manier worden beheerd in Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Gerepliceerde VM 's
@@ -76,7 +76,7 @@ Gast-VM-netwerk: Multi-NIC | Ja | Ja
 
 **Onderdeel** | **Hyper-V met Virtual Machine Manager** | **Hyper-V zonder Virtual Machine Manager**
 --- | --- | ---
-ExpressRoute van Azure | Ja | Ja
+Azure ExpressRoute | Ja | Ja
 ILB | Ja | Ja
 ELB | Ja | Ja
 Azure Traffic Manager | Ja | Ja
@@ -92,7 +92,7 @@ Versneld netwerken | Nee | Nee
 
 **Storage** | **Hyper-V met Virtual Machine Manager** | **Hyper-V zonder Virtual Machine Manager**
 --- | --- | --- 
-NFS | N.v.t. | N.v.t.
+NFS | N.V.T. | N.V.T.
 SMB 3.0 | Ja | Ja
 SAN (ISCSI) | Ja | Ja
 Multipath (MPIO). Getest met:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM voor CLARiiON | Ja | Ja
@@ -101,15 +101,15 @@ Multipath (MPIO). Getest met:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/>
 
 **Storage** | **Hyper-V met Virtual Machine Manager** | **Hyper-V zonder Virtual Machine Manager**
 --- | --- | ---
-VMDK | N.v.t. | N.v.t.
+VMDK | N.V.T. | N.V.T.
 VHD/VHDX | Ja | Ja
 2e generatie virtuele machine | Ja | Ja
 EFI/UEFI| Ja | Ja
 Gedeelde clusterschijf | Nee | Nee
 Versleutelde schijf | Nee | Nee
-NFS | N.v.t. | N.v.t.
+NFS | N.V.T. | N.V.T.
 SMB 3.0 | Nee | Nee
-RDM | N.v.t. | N.v.t.
+RDM | N.V.T. | N.V.T.
 Disk >1 TB | Ja, maximaal 4095 GB | Ja, maximaal 4095 GB
 Disk: 4K logische en fysieke sector | Niet ondersteund: Generatie 1/Gen 2 | Niet ondersteund: Generatie 1/Gen 2
 Disk: 4K logische en fysieke sector van 512 bytes | Ja |  Ja

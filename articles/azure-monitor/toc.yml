@@ -131,6 +131,8 @@
           href: platform/alerts-common-schema.md
         - name: Actieregels
           href: platform/alerts-action-rules.md
+        - name: Wijzigingsanalyse
+          href: app/change-analysis.md
     - name: Gegevens visualiseren
       href: visualizations.md
     - name: Partnerintegraties

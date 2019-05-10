@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073358"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232772"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -94,7 +94,7 @@ Premium-bestandsshares (preview) worden ingericht op basis van een vaste GiB/IOP
 
 Alle shares kunnen beste vermogen burst maximaal drie IOP's per GiB van ingerichte opslag gedurende 60 minuten of langer, afhankelijk van de grootte van de share. Nieuwe shares beginnen met het volledige burst-tegoed op basis van de ingerichte capaciteit.
 
-Bestandsshares moeten worden ingericht in stappen van 1 GiB. Minimale grootte is 100 GiB, de volgende grootte is 101 GIB enzovoort.
+Bestandsshares moeten worden ingericht in stappen van 1 GiB. Minimale grootte is 100 GiB, de volgende grootte is 101 GiB enzovoort.
 
 > [!TIP]
 > Basislijn IOPS = 1 * GiB ingericht. (Tot maximaal 100.000 IOP's).

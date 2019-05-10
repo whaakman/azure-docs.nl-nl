@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150352"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233699"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer services.
@@ -127,9 +127,9 @@ De volgende beperkingen gelden wanneer u Azure Resource Manager en Azure-resourc
 #### <a name="shared-image-gallery-limits"></a>Galerie met installatiekopieën van limieten gedeeld
 
 Er zijn limieten per abonnement, voor het implementeren van resources met behulp van gedeelde Afbeeldingsgalerieën:
-- 10 gedeelde afbeeldingsgalerieën per abonnement per regio
-- 200 definities van de installatiekopie, per abonnement per regio
-- 2000 versies van een installatiekopie, per abonnement per regio
+- 100 gedeelde afbeeldingsgalerieën per abonnement per regio
+- 1000 definities van de installatiekopie, per abonnement per regio
+- 10.000 versies van een installatiekopie, per abonnement per regio
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limieten voor virtuele-machineschaalsets
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

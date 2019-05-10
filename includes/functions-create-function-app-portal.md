@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 1cecafb013b5d22557961e98935fc9a2fee2a79b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2bfca370e8e89d98f700c8c5adfd29129e810d9b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198989"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416277"
 ---
 1. Selecteer de **een resource maken** knop gevonden in de linkerbovenhoek van Azure portal, klikt u vervolgens selecteren **Compute** > **functie-App**.
 
@@ -41,4 +41,4 @@ ms.locfileid: "65198989"
 
     ![Instellingen voor nieuwe functie-apps definiëren](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-5. Selecteer **Naar de resource gaan** om uw nieuwe functie-app te bekijken.
+5. Selecteer **Naar de resource gaan** om uw nieuwe functie-app te bekijken. U kunt ook selecteren **vastmaken aan dashboard**. Vast te maken, maakt het eenvoudiger om terug te keren naar de resource voor deze functie-app in uw dashboard.

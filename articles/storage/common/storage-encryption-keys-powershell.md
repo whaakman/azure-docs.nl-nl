@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0eeae1451e77d9000c87b1aff7ad73323e74f7ee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154130"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233690"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configureren van de klant beheerde sleutels voor Azure Storage-versleuteling van PowerShell
 
@@ -75,7 +75,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 Azure Storage-versleuteling gebruikt standaard Microsoft beheerde sleutels. In deze stap configureert u uw Azure Storage-account voor het gebruik van de klant beheerde sleutels en geeft u de code om te koppelen aan de storage-account.
 
-Bel [Set AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) om bij te werken instellingen voor codering van de storage-account. Vergeet niet dat de tijdelijke aanduiding voor waarden tussen vierkante haken vervangen door uw eigen waarden en voor het gebruik van de variabelen die zijn gedefinieerd in de vorige voorbeelden.
+Bel [Set AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) om bij te werken instellingen voor codering van de storage-account. Vergeet niet dat de tijdelijke aanduiding voor waarden tussen vierkante haken vervangen door uw eigen waarden en voor het gebruik van de variabelen die zijn gedefinieerd in de vorige voorbeelden.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -88,7 +88,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="update-the-key-version"></a>De belangrijkste versie bijwerken
 
-Wanneer u een nieuwe versie van een sleutel maakt, moet u het opslagaccount voor het gebruik van de nieuwe versie bijwerken. Eerst, aan te roepen [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) naar de meest recente versie van de sleutel. Roep vervolgens [Set AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) om bij te werken de versleutelingsinstellingen van de storage-account voor het gebruik van de nieuwe versie van de sleutel, zoals wordt weergegeven in de vorige sectie.
+Wanneer u een nieuwe versie van een sleutel maakt, moet u het opslagaccount voor het gebruik van de nieuwe versie bijwerken. Eerst, aan te roepen [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) naar de meest recente versie van de sleutel. Roep vervolgens [Set AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) om bij te werken de versleutelingsinstellingen van de storage-account voor het gebruik van de nieuwe versie van de sleutel, zoals wordt weergegeven in de vorige sectie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

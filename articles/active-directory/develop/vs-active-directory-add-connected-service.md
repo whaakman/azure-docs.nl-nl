@@ -14,25 +14,25 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250928"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414013"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Toevoegen van een Azure Active Directory met behulp van Connected Services in Visual Studio
 
 Met behulp van Azure Active Directory (Azure AD), kunt u eenmalige aanmelding (SSO) voor ASP.NET MVC-web-apps of Active Directory-verificatie te ondersteunen in Web-API-services. Uw gebruikers kunnen hun accounts uit Azure Active Directory gebruiken om verbinding maken met uw webtoepassingen met Azure AD-verificatie. De voordelen van Azure AD-verificatie met Web-API opnemen verbeterde gegevensbeveiliging wanneer blootstellen van een API vanuit een webtoepassing. Met Azure AD hoeft u niet voor het beheren van een afzonderlijke verificatiesysteem met een eigen account en de gebruiker.
 
-In dit artikel en de bijbehorende artikelen vindt u informatie van het gebruik van de Visual Studio Connected Service-functie voor Active Directory. De mogelijkheid is beschikbaar in Visual Studio 2017 en Visual Studio 2015.
+In dit artikel en de bijbehorende artikelen vindt u informatie van het gebruik van de Visual Studio Connected Service-functie voor Active Directory. De mogelijkheid is beschikbaar in Visual Studio 2015 en hoger.
 
 De verbonden Active Directory-service wordt op dit moment geen ondersteuning voor ASP.NET Core-toepassingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Azure-account: als u een Azure-account niet hebt, kunt u [zich registreren voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-- **Visual Studio 2015** of hoger. [Download Visual Studio 2017 nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2015** of hoger. [Download Visual Studio nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Verbinding maken met Azure Active Directory met het dialoogvenster Connected Services
 

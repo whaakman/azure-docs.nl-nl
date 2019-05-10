@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ed6fd0a4a1de3fb02b3d8583c0e5c0cecac211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351752"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507975"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Apparaat terugschrijven inschakelen
 > [!NOTE]
@@ -31,6 +31,7 @@ ms.locfileid: "60351752"
 
 De volgende documentatie bevat informatie over het inschakelen van de functie apparaat terugschrijven van wachtwoorden in Azure AD Connect. Write-back van apparaat wordt gebruikt in de volgende scenario's:
 
+* Schakel [Windows Hello voor bedrijven met behulp van de implementatie van hybride certificaat vertrouwen](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Inschakelen van voorwaardelijke toegang op basis van apparaten naar AD FS (2012 R2 of hoger) toepassingen (relying party trusts) die zijn beveiligd.
 
 Dit biedt extra beveiliging en zekerheid dat de toegang tot toepassingen te tot vertrouwde apparaten krijgen. Zie voor meer informatie over voorwaardelijke toegang, [risico beheren met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) en [instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../../active-directory/active-directory-device-registration-on-premises-setup.md).
@@ -84,7 +85,7 @@ Write-back van apparaat, moet nu goed werkt. Let erop dat duurt tot 3 uur voor a
 ## <a name="enable-conditional-access"></a>Voorwaardelijke toegang inschakelen (Engelstalig artikel)
 Gedetailleerde instructies voor het inschakelen van dit scenario zijn beschikbaar binnen [instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>Het selectievakje terugschrijven is nog steeds uitgeschakeld
 Als het selectievakje voor write-back van apparaat is niet ingeschakeld, zelfs als u de bovenstaande stappen hebt gevolgd, de volgende stappen leidt u door wat de installatiewizard wordt gecontroleerd voordat u het selectievakje is ingeschakeld.
 
@@ -124,7 +125,7 @@ Controleer of de configuratie in Active Directory:
 
 ![Problemen op, Controleer de machtigingen op de configuratie van apparaatregistratie](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Aanvullende informatie
+## <a name="additional-information"></a>Aanvullende gegevens
 * [Risico beheren met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)
 * [Instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 

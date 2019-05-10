@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911541"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234082"
 ---
 # <a name="azure-security-center-data-security"></a>Gegevensbeveiliging in Azure Security Center
 Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reageren, verzamelt en verwerkt Azure Security Center gegevens over beveiliging, zoals configuratie-informatie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en nog veel meer. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service.
@@ -42,16 +42,22 @@ Azure Security Center analyseert gegevens uit de volgende bronnen om inzicht in 
 
 **Gegevensgebruik**: Microsoft maakt gebruik van patronen en bedreigingsinformatie gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; We doen in overeenstemming met de privacyverplichtingen beschreven in onze [privacyverklaring](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
-## <a name="data-location"></a>Gegevenslocatie
+## <a name="data-location"></a>Locatie van gegevens
 
 **Uw werkruimte(n)**: Een werkruimte is opgegeven voor de volgende geografische gebieden en gegevens die zijn verzameld uit uw Azure virtual machines, met inbegrip van crashdumps en bepaalde typen waarschuwingsgegevens, worden opgeslagen in de dichtstbijzijnde werkruimte.
 
-| Geografisch gebied van virtuele machine                        | Geografisch gebied van werkruimte |
-|-------------------------------|---------------|
-| Verenigde Staten, Brazilië, Canada | Verenigde Staten |
-| Europa, Verenigd Koninkrijk        | Europa        |
-| Azië en Stille Oceaan, Japan, India    | Azië en Stille Oceaan  |
-| Australië                     | Australië     |
+| Geografisch gebied van virtuele machine                              | Geografisch gebied van werkruimte |
+|-------------------------------------|---------------|
+| Verenigde Staten, Brazilië, Zuid-Afrika | Verenigde Staten |
+| Canada                              | Canada        |
+| Europa (met uitzondering van Verenigd Koninkrijk)   | Europa        |
+| Verenigd Koninkrijk                      | Verenigd Koninkrijk |
+| Azië (behalve India, Japan, Korea, China)   | Azië en Stille Oceaan  |
+| Zuid-Korea                              | Azië en Stille Oceaan  |
+| India                               | India         |
+| Japan                               | Japan         |
+| China                               | China         |
+| Australië                           | Australië     |
 
 
 Momentopnamen van de VM-schijf worden opgeslagen in hetzelfde opslagaccount als de VM-schijf.

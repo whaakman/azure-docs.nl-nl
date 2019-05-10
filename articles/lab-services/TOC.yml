@@ -64,26 +64,34 @@
   items:
     - name: Leslokaallabs
       items:
-        - name: Lab-accounts beheren
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: Leslokaallabs beheren
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: Sjablonen instellen en publiceren
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: Gebruik configureren en beheren
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: Leslokaallabs openen
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: Schema's maken en beheren
-          href: classroom-labs/how-to-create-schedules.md
-        - name: Een omgeving met meerdere VM's binnen een VM-sjabloon maken
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: Uw labs verbinden met een gepeerd virtueel netwerk
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: Een galerie met gedeelde installatiekopieën koppelen en gebruiken
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: Verbinding met Extern bureaublad inschakelen voor Linux
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: Labaccounts maken en configureren
+          items:
+            - name: Labaccounts maken en beheren
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: Labaccounts configureren
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: Uw labs verbinden met een gepeerd virtueel netwerk
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: Een gedeelde installatiekopiegalerie toevoegen of loskoppelen
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: 'Leslokaallabs maken, configureren en gebruiken'
+          items:
+            - name: Leslokaallabs maken en beheren
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: Sjablonen instellen en publiceren
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: Gebruik configureren en beheren
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: Leslokaallabs openen
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Schema's maken en beheren
+              href: classroom-labs/how-to-create-schedules.md
+            - name: Een omgeving met meerdere VM's binnen een VM-sjabloon maken
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: Een gedeelde installatiekopiegalerie gebruiken
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: Verbinding met Extern bureaublad inschakelen voor Linux
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: DevTest Labs
       items:
         - name: Resourcegroep opgeven voor virtuele machines van het lab
@@ -166,12 +174,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: Omgevingen integreren in uw Azure DevOps CI-/CD-pijplijn
               href: integrate-environments-devops-pipeline.md
+            - name: Services op basis van Platform-as-a-Service (PaaS) gebruiken
+              href: use-paas-services.md
         - name: Toegang tot labs beveiligen
           items:
             - name: Eigenaars en gebruikers van een lab toevoegen
               href: devtest-lab-add-devtest-user.md
             - name: Machtigingen aanpassen met behulp van aangepaste rollen
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Toevoegen van een labgebruiker automatiseren
+              href: automate-add-lab-user.md
         - name: Een lab configureren
           items:
             - name: Beleid en planningen instellen

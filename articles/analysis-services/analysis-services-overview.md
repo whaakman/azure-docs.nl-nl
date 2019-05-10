@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 443d6ca86f8ac40bd2df186fd189a333cb7b7425
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61066091"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416026"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -46,7 +46,7 @@ Deze laag wordt aanbevolen voor evaluatie-, ontwikkelings- en testscenario's. E�
 |D1    |    20     |    3     |
 
 
-### <a name="basic-tier"></a>Basislaag
+### <a name="basic-tier"></a>Basic-laag
 
 Deze-laag wordt aanbevolen voor productieoplossingen met kleinere tabellarische modellen, een beperkt aantal gelijktijdige gebruikers en eenvoudige vereisten voor gegevensvernieuwing. Uitschalen van queryreplica’s *is niet beschikbaar* voor deze laag. Perspectieven, meerdere partities en functies van het tabellarische DirectQuery-model *worden niet ondersteund* in deze laag.  
 
@@ -55,7 +55,7 @@ Deze-laag wordt aanbevolen voor productieoplossingen met kleinere tabellarische 
 |B1    |    40     |    10     |
 |B2    |    80     |    20     |
 
-### <a name="standard-tier"></a>Standaardlaag
+### <a name="standard-tier"></a>Standard-laag
 
 Deze laag is de meest geschikte voor essentiële productietoepassingen waarvoor elastische gebruikersgelijktijdigheid is vereist en waarvan de gegevensmodellen snel groter worden. Deze laag ondersteunt geavanceerde gegevensvernieuwing voor bijna real-time gegevensmodelupdates en ondersteunt alle tabellarische modelleringsfuncties.
 
@@ -97,7 +97,7 @@ Azure Analysis Services wordt ondersteund in regio's in de hele wereld. Onderste
 |Regio  | Ondersteunde abonnementen | Queryreplica's (alleen Standard-abonnementen) |
 |---------|---------|:---------:|
 |Europa - noord     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Verenigd Koninkrijk Zuid     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|VK Zuid     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa -west     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Europa -west    |   S8, S9  |  1  |
 
@@ -126,7 +126,7 @@ U kunt een querypool maken met maximaal zeven extra queryreplica's (acht in tota
 
 Net zoals bij het wijzigen van lagen, kunt u queryreplica's uitschalen als dat nodig is. Dit kan in de portal of met behulp van REST-API's. Zie [Azure Analysis Services uitschalen](analysis-services-scale-out.md) voor meer informatie.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 
 Totale kosten zijn afhankelijk van een aantal factoren; bijvoorbeeld uw gekozen regio, laag, queryreplica's en onderbreken/hervatten. Gebruik de calculator voor [Prijzen voor Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) om typische prijzen voor uw regio te bepalen. Dit hulpprogramma berekent prijzen voor één single-serverexemplaar voor één regio. Denk eraan dat queryreplica's worden gefactureerd tegen hetzelfde tarief als de server. 
 
@@ -200,7 +200,7 @@ Ga naar het [Microsoft Vertrouwenscentrum](https://www.microsoft.com/trustcenter
 
 Ontwikkel en implementeer modellen met de gratis [SQL Server Data Tools (SSDT) voor Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). SSDT bevat Analysis Services-projectsjablonen waarmee u snel aan de slag kunt gaan. Bovendien biedt SSDT voor tabellaire modellen met compatibiliteitsniveau 1400 nu ook de innovatieve queryfunctie Get Data en mashup-functionaliteit. Als u al bekend bent met Get Data in Power BI Desktop en Excel 2016, weet u hoe eenvoudig het is om voor gegevensbronnen query's te maken die naadloos aansluiten bij uw behoeften. 
 
-Als u Visual Studio 2017 gebruikt, zijn Microsoft Analysis Services-projecten beschikbaar als een gratis installeerbaar VSIX-pakket. [Downloaden van Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Als u Visual Studio 2017 of hoger, Microsoft Analysis Services-projecten beschikbaar als een gratis installeerbare VSIX-pakket zijn. [Downloaden van Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

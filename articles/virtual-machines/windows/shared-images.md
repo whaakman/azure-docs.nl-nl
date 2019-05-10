@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a3c035715de736b816027b08a1e242e6a65d1f13
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a44f7d9c18e406850e2dbfb091088be0b8c2113
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148747"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235891"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Een gedeelde afbeeldingengalerie maken met Azure PowerShell 
 
@@ -44,7 +44,9 @@ De galerie met installatiekopieën van gedeelde functie heeft meerdere resourcet
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Als u wilt het voorbeeld in dit artikel hebt voltooid, moet u een bestaande beheerde installatiekopie hebben. U kunt volgen [zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure PowerShell](tutorial-custom-images.md) maken indien nodig. Wanneer het uitvoeren van dit artikel vervangen door de resourcegroep en VM-namen van waar nodig.
+Als u wilt het voorbeeld in dit artikel hebt voltooid, moet u een bestaande beheerde installatiekopie hebben. U kunt volgen [zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure PowerShell](tutorial-custom-images.md) maken indien nodig. Als de beheerde installatiekopie een gegevensschijf bevat, mag de grootte van de gegevensschijf niet meer dan 1 TB.
+
+Wanneer het uitvoeren van dit artikel vervangen door de resourcegroep en VM-namen van waar nodig.
 
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
@@ -72,6 +74,7 @@ New-AzVm `
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+[Azure Image Builder (preview)](image-builder-overview.md) kunt versie het maken van installatiekopieën automatiseren, kunt u deze ook gebruiken om bij te werken en [maken van een nieuwe versie van de installatiekopie van een bestaande installatiekopieversie](image-builder-gallery-update-image-version.md). 
 
 U kunt ook de galerie met installatiekopieën van gedeelde resources met behulp van sjablonen maken. Er zijn verschillende Azure-Snelstartsjablonen beschikbaar: 
 

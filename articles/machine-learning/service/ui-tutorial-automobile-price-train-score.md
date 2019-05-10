@@ -2,19 +2,19 @@
 title: 'Zelfstudie: De prijs op met de visuele interface voorspellen'
 titleSuffix: Azure Machine Learning service
 description: Informatie over het trainen, score, en een machine learning-model met behulp van een visuele slepen en neerzetten-interface implementeren. In deze zelfstudie is deel één van een serie van twee op lineaire regressie gebruiken prijzen van auto's voorspellen.
-author: peterlu
-ms.author: peterlu
+author: peterclu
+ms.author: peterclu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 1dc905b2ac89667dcb5800b0f539cb3e9f3acdcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 352f695f186b656ad0f6471d8ede905d53ad5274
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026870"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234100"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Zelfstudie: De prijs op met de visuele interface voorspellen
 
@@ -35,7 +35,7 @@ In [deel twee](ui-tutorial-automobile-price-deploy.md) van de serie zelfstudies 
 > Een voltooide versie van deze zelfstudie is beschikbaar als een voorbeeldexperiment.
 > Op de pagina experimenten, gaat u naar **nieuwe toevoegen** > **voorbeeld 1: regressie: Auto's prijs Prediction(Basic)**
 
-> [!VIDEO https://www.youtube.com/embed/VDKpDNX96aA]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Build-zero-code-machine-learning-models-with-Azure-Machine-Learning-service/player]
 
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken

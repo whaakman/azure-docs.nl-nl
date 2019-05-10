@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143274"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235741"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL-Database zonder server (preview)
 
@@ -35,7 +35,7 @@ Een database in de serverloze computerlaag is door het compute-bereik dat kan wo
 - `MinVcore` en `MaxVcore` configureerbare parameters die het bereik van de rekencapaciteit die beschikbaar zijn voor de database te definiëren. Geheugen en i/o-limieten zijn in verhouding met het vCore-bereik dat is opgegeven.  
 - De vertraging autopause is een configureerbare parameter waarmee wordt gedefinieerd welke periode die de database inactief zijn moet voordat deze automatisch is onderbroken. De database wordt automatisch hervat wanneer de volgende aanmelding plaatsvindt.
 
-### <a name="pricing"></a>Prijzen
+### <a name="pricing"></a>Prijs
 
 - De totale factuur voor een database zonder servers is de som van de compute-factuur en de factuur voor opslag.
 Facturering voor compute is gebaseerd op de hoeveelheid vCores gebruikt en het geheugen dat per seconde wordt gebruikt.
@@ -72,9 +72,9 @@ De volgende tabel vergelijkt serverloze compute-laag met de ingerichte Computing
 
 ## <a name="purchasing-model-and-service-tier"></a>Model en de servicelaag aanschaffen
 
-SQL-Database zonder server is momenteel alleen ondersteund in de categorie Algemeen gebruik op 5 generatie hardware in de vcore model kopen.
+SQL-Database zonder server is momenteel alleen ondersteund in de categorie Algemeen gebruik op 5 generatie hardware in de vCore model kopen.
 
-## <a name="autoscaling"></a>Automatisch schalen
+## <a name="autoscaling"></a>Automatisch schaal aanpassen
 
 ### <a name="scaling-responsiveness"></a>Reactiesnelheid schalen
 
@@ -102,7 +102,7 @@ Autoresume wordt geactiveerd als een van de volgende voorwaarden voldaan op elk 
 |Functie|Autoresume trigger|
 |---|---|
 |Verificatie en autorisatie|Aanmelden|
-|Detectie van bedreigingen|Threat detection-instellingen in-/ uitschakelen op het niveau van de database of server<br>Threat detection-instellingen op het niveau van de database of server wijzigen|
+|Detectie van dreigingen|Threat detection-instellingen in-/ uitschakelen op het niveau van de database of server<br>Threat detection-instellingen op het niveau van de database of server wijzigen|
 |Gegevensdetectie en -classificatie|Toevoegen, wijzigen, verwijderen of de gevoeligheidslabels weergeven|
 |Controleren|Controle records weergeven.<br>Bij te werken of weergeven van controlebeleid|
 |Gegevensmaskering|Toevoegen, wijzigen, verwijderen of gegevensmaskering regels weergeven|
@@ -111,7 +111,7 @@ Autoresume wordt geactiveerd als een van de volgende voorwaarden voldaan op elk 
 |Autotuning|Toepassings- en controle van autotuning aanbevelingen, zoals automatisch indexeren|
 |Database kopiëren|-Database als kopie maken<br>Exporteren naar een BACPAC-bestand|
 |SQL data sync|Synchronisatie tussen hub en lid van de databases die worden uitgevoerd op een configureerbaar schema of handmatig worden uitgevoerd|
-|Metagegevens van een bepaalde database wijzigen|Nieuwe database labels toe te voegen<br>Maximale vcores, min vcores, autopause vertraging wijzigen|
+|Metagegevens van een bepaalde database wijzigen|Nieuwe database labels toe te voegen<br>Maximale vCores, min vCores, autopause vertraging wijzigen|
 |SQL Server Management Studio (SSMS)|Met behulp van SSMS versie 18 en openen van een nieuw queryvenster voor elke database op de server wordt elke database automatisch onderbroken op dezelfde server hervat. Dit probleem treedt niet als met behulp van SSMS versie 17.9.1 met IntelliSense uitgeschakelde.|
 
 ### <a name="connectivity"></a>Connectiviteit
@@ -139,9 +139,9 @@ Het maken van een nieuwe database of het verplaatsen van dat een bestaande datab
 
    |Servicelaag|COMPUTE-grootte|
    |---|---|
-   |Algemeen doel|GP_S_Gen5_1|
-   |Algemeen doel|GP_S_Gen5_2|
-   |Algemeen doel|GP_S_Gen5_4|
+   |Algemeen gebruik|GP_S_Gen5_1|
+   |Algemeen gebruik|GP_S_Gen5_2|
+   |Algemeen gebruik|GP_S_Gen5_4|
 
 2. (Optioneel) Geef de minimale vCores en autopause vertraging als u wilt wijzigen, hun standaardwaarden. De volgende tabel toont de beschikbare waarden voor deze parameters.
 
@@ -227,7 +227,7 @@ De resourcegroep van de gebruiker de binnenste meeste resource management-grens 
 
 ### <a name="metrics"></a>Metrische gegevens
 
-|Entiteit|Gegevens|Description|Eenheden|
+|Entiteit|Metric|Description|Eenheden|
 |---|---|---|---|
 |App-pakket|app_cpu_percent|Percentage van de vCores die worden gebruikt door de app ten opzichte van maximale vCores toegestaan voor de app.|Percentage|
 |App-pakket|app_cpu_billed|De hoeveelheid rekenkracht in rekening gebracht voor de app tijdens de rapportageperiode. Het aankoopbedrag tijdens deze periode is het product van deze metrische gegevens en de vCore-prijs per eenheid.<br>Waarden van deze metrische gegevens worden bepaald door het samenvoegen van na verloop van tijd gebruikt voor het maximum van CPU en geheugen gebruikt per seconde.<br>Als het aantal gebruikte kleiner dan het minimum aan nodige ingericht zoals ingesteld door de min-vCores en min-geheugen, is en vervolgens het minimum aan nodige ingericht wordt in rekening gebracht.  Als u wilt vergelijken CPU met geheugen voor factureringsdoeleinden, geheugen genormaliseerd in eenheden van vCores door schaling aanpassen van de hoeveelheid geheugen in GB met 3 GB per vCore.|vCore seconden|
@@ -260,7 +260,7 @@ Get-AzSqlDatabase `
 
 Zie voor de resourcelimieten, [Serverloze compute-laag](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 De hoeveelheid rekenkracht in rekening gebracht per seconde is het maximum van CPU-gebruik en het geheugen gebruikt per seconde. Als de hoeveelheid CPU gebruikt en gebruikt geheugen kleiner dan het minimum aan nodige ingericht voor elk is, klikt u vervolgens het ingerichte bedrag wordt in rekening gebracht. Als u wilt vergelijken CPU met geheugen voor factureringsdoeleinden, geheugen genormaliseerd in eenheden van vCores door schaling aanpassen van de hoeveelheid geheugen in GB met 3 GB per vCore.
 

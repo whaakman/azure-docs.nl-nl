@@ -99,6 +99,10 @@
           href: howto-administer.md
         - name: Installatiekopie voorbereiden en uploaden
           href: howto-prepare-images.md
+        - name: Toepassingsdashboard configureren
+          href: howto-configure-homepage.md
+        - name: De gebruikersinterface van de toepassing aanpassen
+          href: howto-customize-ui.md
         - name: Beheren vanuit de Azure-portal
           href: howto-manage-iot-central-from-portal.md
         - name: Beheren vanuit Azure CLI
@@ -106,9 +110,7 @@
         - name: Beheren vanuit Azure PowerShell
           href: howto-manage-iot-central-from-powershell.md
         - name: Een toepassing maken en beheren als een CSP
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: Toepassingsdashboard configureren
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: Personalisatie
       items:
         - name: Persoonlijke dashboards maken

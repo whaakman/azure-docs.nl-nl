@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: adf99b941a775f105d8c65da3ac6c11dc7257120
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993123"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416282"
 ---
 Azure werkt periodiek een platform voor het verbeteren van de betrouwbaarheid, prestaties en beveiliging van de host-infrastructuur voor virtuele machines. Deze updates kunnen variëren van het patchen van software-onderdelen in de hosting-omgeving, netwerkonderdelen, upgraden naar het buiten gebruik stellen van hardware. De meeste van deze updates bevatten geen invloed hebben op de gehoste virtuele machines. Er zijn echter gevallen waar updates hebben invloed en Azure kiest de minste krachtige methode voor updates:
 
 - Als een niet-rebootful-update mogelijk is, dat de virtuele machine wordt onderbroken terwijl de host is bijgewerkt of ze actief is gemigreerd naar een reeds bijgewerkte host.
 
-- Als u onderhoud moet worden opgestart, krijgt u een kennisgeving van wanneer het onderhoud is gepland. Azure biedt ook een bepaalde periode waar u kunt beginnen het onderhoud zelf op een tijdstip die bij u past. Tijdvenster voor automatisch onderhoud is meestal vier weken, tenzij het wordt dringend worden onderhoud uit te voeren. Azure investeert ook in om te beperken van de gevallen wanneer de virtuele machines moeten opnieuw worden opgestart voor het onderhoud van de geplande platform. 
+- Als u onderhoud moet worden opgestart, krijgt u een kennisgeving van wanneer het onderhoud is gepland. Azure biedt ook een bepaalde periode waar u kunt beginnen het onderhoud zelf op een tijdstip die bij u past. Tijdvenster voor automatisch onderhoud is doorgaans 30 dagen, tenzij het wordt dringend worden onderhoud uit te voeren. Azure investeert ook in om te beperken van de gevallen wanneer de virtuele machines moeten opnieuw worden opgestart voor het onderhoud van de geplande platform. 
 
 Deze pagina wordt beschreven hoe Azure presteert voor beide typen onderhoud. Zie voor meer informatie over niet-geplande gebeurtenissen (uitval), de beschikbaarheid van virtuele machines voor beheren [Windows](../articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -29,13 +29,13 @@ Zie voor 'procedures' informatie over het beheren van gepland onderhoud 'Melding
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>Onderhoud niet opnieuw opstarten vereist
 
-Het doel voor het onderhoud van de meest niet-nul-impact waarvoor opnieuw opstarten niet is minder dan tien seconden onderbreken voor de virtuele machine. Azure wordt de updatemechanisme dat minste impact op klanten virtuele machines hebben gekozen. In bepaalde gevallen worden geheugen behouden onderhoud mechanismen gebruikt die de virtuele machine gedurende maximaal 30 seconden onderbroken en behoudt u het geheugen in RAM-geheugen. De virtuele machine wordt vervolgens hervat en wordt de klok automatisch gesynchroniseerd. Azure is steeds met behulp van technologieën voor livemigratie en verbeteren van geheugen onderhoud mechanisme voor het verminderen van de onderbrekingsduur te behouden.  
+Zoals hierboven, moeten de meeste platform-updates worden uitgevoerd zonder gevolgen voor de klant-VM's. Bij nul impact-update niet mogelijk is kiest Azure het mechanisme voor updates die minimaal impactful klant virtuele machines. Meerderheid van deze gevolgen voor niet-nul-onderhoud zorgt ervoor dat kleiner is dan 10 seconden onderbreken voor de virtuele machine. In bepaalde gevallen worden geheugen behouden onderhoud mechanismen gebruikt die de virtuele machine gedurende maximaal 30 seconden onderbroken en behoudt u het geheugen in RAM-geheugen. De virtuele machine wordt vervolgens hervat en wordt de klok automatisch gesynchroniseerd. Onderhoud met statusbehoud geheugen werkt voor meer dan 90% Azure VM's met uitzondering van G, M, N en H-serie. Azure is steeds met behulp van technologieën voor livemigratie en verbeteren van geheugen onderhoud mechanisme voor het verminderen van de onderbrekingsduur te behouden.  
 
 Deze onderhoudsbewerkingen niet rebootful zijn toegepast foutdomein door foutdomein en voortgang is gestopt als er health waarschuwingssignalen worden ontvangen. 
 
 Sommige toepassingen wordt mogelijk beïnvloed door deze typen updates. Als de virtuele machine actief gemigreerd naar een andere host is, kunnen een lichte prestatievermindering in de aanloop naar de virtuele machine onderbreken minuten ziet u enkele gevoelige werkbelastingen. Dergelijke toepassingen kunnen profiteren van geplande gebeurtenissen voor [Windows](../articles/virtual-machines/windows/scheduled-events.md) of [Linux](../articles/virtual-machines/linux/scheduled-events.md) voorbereiden voor onderhoud van VM's en hebben geen invloed tijdens het onderhoud van Azure. Azure is ook Bezig met onderhoud beheren van functies voor zeer gevoelige toepassingen. 
 
-## <a name="live-migration"></a>Live migratie
+### <a name="live-migration"></a>Live migratie
 
 Livemigratie is een niet-rebootful-bewerking geheugen voor de virtuele machine de bestandsservergegevens en resulteert in een beperkte onderbreken of te blokkeren langdurig is doorgaans niet meer dan 5 seconden. Vandaag de dag alle infrastructuur als een Service (IaaS) virtuele Machines, afgezien van G, M, N en H-serie, komen in aanmerking voor livemigratie. Dit komt overeen met meer dan 90% van de IaaS-VM's geïmplementeerd op de Azure-vloot. 
 

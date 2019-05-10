@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cba01b5ad5c2cfea32f1faa6cb67c5ce7ee98fcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 136141f5b598fd080edf3254fd01200f2742c763
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024904"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235828"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
@@ -90,7 +90,7 @@ U kunt met Azure Machine Learning, geautomatiseerde ML gebruiken om te maken van
 ## <a name="automated-ml-across-microsoft"></a>Geautomatiseerde ML overal bij Microsoft
 
 Geautomatiseerde ML is ook beschikbaar in andere Microsoft-oplossingen, zoals:
-+ In .NET-apps met behulp van Visual Studio en Visual Studio Code met [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ In .NET-apps met behulp van Visual Studio en Visual Studio Code met [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
 + [Op HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), waar u uw geautomatiseerde ML trainingstaken op Spark in HDInsight-clusters parallel uitschalen. 
 + [In Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 

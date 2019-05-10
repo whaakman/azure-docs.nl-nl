@@ -15,14 +15,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: fc248292e2323d44a353473be87c2b0f1be8ea12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d125e0c0818efbc6ec8f317122859411a37a0d20
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880150"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232749"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar specifieke gebruikers van Android-toepassingen met Azure Notification Hubs
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Zelfstudie: Push-melding voor gebruikers van de specifieke Android-toepassing met behulp van Azure Notification Hubs en Google Cloud Messaging (afgeschaft)
+
+> [!WARNING]
+> Vanaf 10 April 2018, is Google afgeschaft in Google Cloud Messaging (GCM). De GCM server en client-API's zijn afgeschaft en wordt verwijderd zodra 29 mei 2019. Zie voor meer informatie, [GCM en FCM Frequently Asked Questions](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -141,7 +144,7 @@ De volgende stap is het bijwerken van de Android-toepassing die u hebt gemaakt i
     ```xml
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
-    <string name="loginButton">1. Log in</string>
+    <string name="loginButton">1. Sign in</string>
     <string name="send_button">2. Send Notification</string>
     <string name="notification_message_hint">Notification message</string>
     <string name="notification_message_tag_hint">Recipient username</string>
@@ -257,7 +260,7 @@ De volgende stap is het bijwerken van de Android-toepassing die u hebt gemaakt i
     }
     ```
 
-    Dit onderdeel implementeert de REST-aanroepen die nodig zijn om contact op te nemen met de app-back-end, om registratie voor pushmeldingen mogelijk te maken. Daarnaast wordt de *registrationIds* die is gemaakt door de meldingshub, lokaal opgeslagen. Zie [Registering from your App Backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) (Registreren vanuit uw app-back-end) voor meer informatie. De klasse maakt gebruik van een verificatietoken dat wordt opgeslagen in de lokale opslag wanneer u op de knop **Log in** klikt.
+    Dit onderdeel implementeert de REST-aanroepen die nodig zijn om contact op te nemen met de app-back-end, om registratie voor pushmeldingen mogelijk te maken. Daarnaast wordt de *registrationIds* die is gemaakt door de meldingshub, lokaal opgeslagen. Zie [Registering from your App Backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) (Registreren vanuit uw app-back-end) voor meer informatie. Het maakt gebruik van een verificatietoken die zijn opgeslagen in de lokale opslag wanneer u klikt op de **aanmelden** knop.
 4. Verwijder in uw klasse het private-veld voor `NotificationHub` of maak er een commentaar van. Voeg vervolgens een veld toe voor de klasse `RegisterClient` en een tekenreeks voor het eindpunt van uw ASP.NET-back-end. Zorg ervoor dat u `<Enter Your Backend Endpoint>` vervangt door het eindpunt van de back-end dat u eerder hebt vastgesteld. Bijvoorbeeld `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -319,7 +322,7 @@ De volgende stap is het bijwerken van de Android-toepassing die u hebt gemaakt i
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Voeg vervolgens de volgende methoden toe voor het afhandelen van het klikken op de knop **Log in** en het verzenden van pushmeldingen.
+9. Vervolgens voegt u de volgende methoden voor het afhandelen van de **aanmelden** knop klikt u op gebeurtenissen en het verzenden van pushmeldingen.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -401,7 +404,7 @@ De volgende stap is het bijwerken van de Android-toepassing die u hebt gemaakt i
     }
     ```
 
-    De `login`-handler voor de knop **Log in** genereert een eenvoudig verificatietoken op basis van de gebruikersnaam en het wachtwoord die zijn ingevoerd (of ieder ander token dat door uw verificatieschema wordt gebruikt) en gebruikt vervolgens `RegisterClient` om de back-end aan te roepen voor registratie.
+    De `login` -handler voor de **Meld u aan** knop genereert een basisverificatie token met behulp van de ingevoerde gebruikersnaam en wachtwoord (vertegenwoordigt een token maakt gebruik van uw verificatieschema) en vervolgens hierbij `RegisterClient` om aan te roepen de back-end voor registratie.
 
     De methode `sendPush` roept de back-end aan om een beveiligde melding te activeren naar de gebruiker, op basis van de gebruikerstag. De Platform Notification Service die door `sendPush` wordt benaderd, is afhankelijk van de `pns`-tekenreeks die wordt doorgegeven.
 
@@ -467,7 +470,7 @@ De volgende stap is het bijwerken van de Android-toepassing die u hebt gemaakt i
 
 1. Voer de toepassing uit op een apparaat of in een emulator met Android Studio.
 2. Voer in de Android-app een gebruikersnaam en wachtwoord in. Deze moeten beide dezelfde tekenreekswaarde zijn en ze mogen geen spaties of speciale tekens bevatten.
-3. Klik in de Android-app op **Log in**. Wacht tot u het pop-upbericht **Logged in and registered** ziet. De knop **Send Notification** kan nu worden gekozen.
+3. Klik in de Android-app op **aanmelden**. Wacht tot u het pop-upbericht **Logged in and registered** ziet. De knop **Send Notification** kan nu worden gekozen.
 
     ![][A2]
 4. Klik op de wisselknoppen om alle platforms in te schakelen waarop u de app hebt uitgevoerd en een gebruiker hebt geregistreerd.

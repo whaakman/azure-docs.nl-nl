@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615865"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232478"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Automation-scenario's voor het beheer van facturering en kosten
 
@@ -52,7 +52,7 @@ U kunt de facturering gebruiken en kosten van beheer-API's in verschillende scen
 | Aanbevelingen voor reserveringen |                           |                  |           X          |                  |                    |           |
 | Reserveringsdetails         |                           |                  |           X          |         X        |                    |           |
 | Reserveringssamenvattingen       |                           |                  |           X          |         X        |                    |           |
-| Gebruiksgegevens               |             X             |         X        |           X          |         X        |          X         |     X     |
+| Gebruiksdetails               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Facturering-punten             |             X             |         X        |           X          |         X        |                    |           |
 | Facturen                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -84,10 +84,10 @@ Web Direct- en Enterprise-klanten kunnen alle de volgende API's gebruiken, tenzi
 
 -   [API voor gebruik zonder restricties](/previous-versions/azure/reference/mt219003(v=azure.100)): Informatie over het gebruik van onbewerkte ophalen voordat Azure een meting/kosten in rekening gebracht heeft.
 
-### <a name="billing"></a>Billing
--   [Facturering perioden API](https://docs.microsoft.com/rest/api/billing/billingperiods): Een factureringsperiode kunt analyseren, samen met de factuur id's voor die periode bepalen. Factuur-id's kunt u met de API voor facturen.
+### <a name="billing"></a>Facturering
+-   [Facturering perioden API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Een factureringsperiode kunt analyseren, samen met de factuur id's voor die periode bepalen. Factuur-id's kunt u met de API voor facturen.
 
--   [API-facturen](https://docs.microsoft.com/rest/api/billing/invoices): Haal de download-URL voor een factuur voor een factureringsperiode in PDF-formulier.
+-   [API-facturen](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): Haal de download-URL voor een factuur voor een factureringsperiode in PDF-formulier.
 
 ### <a name="enterprise-consumption"></a>Enterprise-verbruik
 De volgende API's zijn alleen voor Enterprise:
@@ -126,7 +126,7 @@ Deze API's bieden fundamentele verschillende gegevens:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Wat is het verschil tussen de factuur-API en de Details Usage API?
 Deze API's bieden een andere weergave van dezelfde gegevens:
 
-- De [factuur API](https://docs.microsoft.com/rest/api/billing/invoices) is bedoeld voor Web Direct klanten alleen. Dit zorgt voor een maandelijkse samenvoeging van uw factuur op basis van de totale kosten in rekening gebracht voor elk metertype. 
+- De [factuur API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) is bedoeld voor Web Direct klanten alleen. Dit zorgt voor een maandelijkse samenvoeging van uw factuur op basis van de totale kosten in rekening gebracht voor elk metertype. 
 
 - De [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails) biedt een gedetailleerde weergave van de gebruikskosten /-records voor elke dag. Enterprise en het Web Direct-klanten kunnen gebruiken.
 

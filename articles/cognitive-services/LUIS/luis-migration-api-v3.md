@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d0b5537f31edf330b54b91ddf7268338df0c0a6b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148261"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233545"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Preview: Migreren naar API-versie 3.x voor LUIS-apps
 
@@ -43,10 +43,6 @@ De volgende functies van LUIS **niet ondersteund** in de API V3:
 * Bing Spell Check-versie 7
 
 [Referentiedocumentatie](https://aka.ms/luis-api-v3) is beschikbaar voor V3.
-
-## <a name="prebuilt-domains-with-new-models-and-language-coverage"></a>Vooraf gemaakte domeinen met nieuwe modellen en taal-dekking
-
-Controleer de [V3 API-lijst met vooraf gemaakte domeinen](luis-reference-prebuilt-domains.md). Deze domeinen zijn volledig, zowel in het model en de taal-dekking. 
 
 ## <a name="prebuilt-entities-with-new-json"></a>Vooraf gemaakte entiteiten met nieuwe JSON
 

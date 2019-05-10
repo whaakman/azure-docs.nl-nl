@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: peterlu
+author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502410"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234039"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Opnieuw trainen en implementeren van een klassieke Studio-webservice
 
@@ -46,7 +46,7 @@ U kunt toevoegen scoring-eindpunten met behulp van de voorbeeldcode in dit [GitH
 
 1. In Machine Learning Studio, klikt u op de linkernavigatiekolom op Web Services.
 1. Klik aan de onderkant van het dashboard van de webservice op **beheren eindpunten preview**.
-1. Klik op **Add**.
+1. Klik op **Toevoegen**.
 1. Typ een naam en beschrijving voor het nieuwe eindpunt. Selecteer het niveau van logboekregistratie en of de voorbeeldgegevens is ingeschakeld. Zie voor meer informatie over logboekregistratie, [logboekregistratie inschakelen voor Machine Learning-webservices](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Het getrainde model van het toegevoegde eindpunt bijwerken

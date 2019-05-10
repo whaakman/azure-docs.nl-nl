@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025240"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502077"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -32,9 +32,7 @@ De machine learning-werkstroom volgt in het algemeen in deze reeks:
 1. **Verzenden van de scripts** naar de geconfigureerde compute-doel om uit te voeren in die omgeving. Tijdens de training, de scripts kunnen lezen of schrijven naar **gegevensopslag**. En worden de records van de uitvoering van opgeslagen als **wordt uitgevoerd** in de **werkruimte** en gegroepeerd onder **experimenten**.
 1. **Query uitvoeren op het experiment** geregistreerde voor metrische gegevens van de huidige en eerdere uitvoeringen. Als de metrische gegevens een gewenste resultaat geven, lus terug naar stap 1 en ze opnieuw testen op uw scripts.
 1. Nadat een goede uitvoering wordt gevonden, registreert u het persistente model in de **model register**.
-1. Ontwikkel een scoring-script.
-1. **Een installatiekopie maken** en registreren in de **installatiekopieregisters**.
-1. **De installatiekopie implementeert** als een **webservice** in Azure.
+1. Een scoring-script dat gebruikmaakt van het model te ontwikkelen en **het model implementeren** als een **webservice** in Azure of naar een **IoT Edge-apparaat**.
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ De werkruimte is de resource op het hoogste niveau voor Azure Machine Learning-s
 
 De werkruimte houdt een lijst met compute-doelen die u gebruiken kunt voor uw model te trainen. Het houdt ook een geschiedenis bij van de training wordt uitgevoerd, met inbegrip van Logboeken, metrische gegevens, uitvoer en een momentopname van uw scripts. U kunt deze informatie gebruiken om te bepalen welke run training levert het beste model.
 
-U registreren modellen bij de werkruimte. U een geregistreerde model en scoring-scripts gebruiken om een installatiekopie te maken. Vervolgens kunt u de installatiekopie naar Azure Container Instances, Azure Kubernetes Service, of naar een veld-programmable gate array (FPGA) implementeren als een HTTP op basis van REST-eindpunt. U kunt ook de installatiekopie naar een Azure IoT Edge-apparaat implementeren als een module.
+U registreren modellen bij de werkruimte. U een geregistreerde model en scoring-scripts gebruiken een model implementeren in Azure Container Instances, Azure Kubernetes Service, of op een veld-programmable gate array (FPGA) als een HTTP op basis van REST-eindpunt. U kunt ook de installatiekopie naar een Azure IoT Edge-apparaat implementeren als een module. Intern, is een docker-installatiekopie gemaakt voor het hosten van de geïmplementeerde installatiekopie. Indien nodig, kunt u uw eigen installatiekopie opgeven.
 
 U kunt meerdere werkruimten maken en elke werkruimte kan worden gedeeld door meerdere personen. Wanneer u een werkruimte deelt, kunt u toegang tot deze kunt beheren door het toewijzen van gebruikers aan de volgende rollen:
 
@@ -94,7 +92,7 @@ Modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model
 
 Als u het model registreert, kunt u aanvullende metagegevenstags bieden en vervolgens de codes gebruiken wanneer u een voor modellen zoekopdracht.
 
-U kunt modellen die worden gebruikt door een installatiekopie niet verwijderen.
+U kunt modellen die worden gebruikt door een actieve implementatie niet verwijderen.
 
 Zie voor een voorbeeld van het registreren van een model [een model van de installatiekopie classificatie met Azure Machine Learning te trainen](tutorial-train-models-with-aml.md).
 
@@ -159,7 +157,7 @@ Als u wilt een model te trainen, moet u de map waarin het trainingsscript en de 
 
 Zie [Zelfstudie: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
-## <a name="run"></a>Voer
+## <a name="run"></a>Uitvoeren
 
 Een uitvoering is een record met de volgende informatie:
 
@@ -208,11 +206,11 @@ Houdt het installatiekopieregister van de installatiekopieën die zijn gemaakt o
 
 ## <a name="deployment"></a>Implementatie
 
-Een implementatie is een instantie van uw installatiekopie in een van beide een webservice die kan worden gehost in de cloud of een IoT-module voor implementaties van geïntegreerde apparaat.
+Een implementatie is een instantie van uw model in een van beide een webservice die kan worden gehost in de cloud of een IoT-module voor implementaties van geïntegreerde apparaat.
 
 ### <a name="web-service"></a>Webservice
 
-Een geïmplementeerde webservice kunt gebruiken voor Azure Container Instances, Azure Kubernetes Service of FPGA's. U maken de service van een afbeelding die uw model, scripts en bijbehorende bestanden bevat. De afbeelding heeft een gelijke, HTTP-eindpunt dat scoring aanvragen die worden verzonden naar de webservice ontvangt.
+Een geïmplementeerde webservice kunt gebruiken voor Azure Container Instances, Azure Kubernetes Service of FPGA's. U maakt de service van uw model, scripts en bijbehorende bestanden. Deze worden ingekapseld in een afbeelding, waarmee u de runtime-omgeving voor de webservice. De afbeelding heeft een gelijke, HTTP-eindpunt dat scoring aanvragen die worden verzonden naar de webservice ontvangt.
 
 Azure helpt u bij de implementatie van uw web-service controleren door het verzamelen van telemetrie van Application Insights- of model telemetrie, als u ervoor hebt gekozen om in te schakelen van deze functie. De telemetriegegevens die zijn alleen toegankelijk is voor u en deze opgeslagen in uw Application Insights en storage-account instanties.
 

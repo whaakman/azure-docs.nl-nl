@@ -462,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: Bestaand VNet en subnet configureren voor beheerd exemplaar
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: Het subnet verwijderen na verwijdering van een beheerd exemplaar
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: Aangepaste DNS configureren
           href: sql-database-managed-instance-custom-dns.md
         - name: Netwerkconfiguratie synchroniseren
