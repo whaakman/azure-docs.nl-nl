@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
-ms.author: nacanuma
+origin.date: 09/17/2018
+ms.date: 05/10/2019
+ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 805b773795e7c8a96fe1b94abecd860475a4c7a1
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: a00bc7a05af9e329494a11f9bee444827cbebf38
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993293"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198979"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Instellen van uw webserver of project
 
@@ -63,7 +64,7 @@ Instructies in deze handleiding zijn gebaseerd op Node.js en Visual Studio 2017,
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.js"></script>
+       <script src="https://secure.aadcdn.parter.microsoftonline-p.cn/lib/1.0.0-preview.4/js/msal.js"></script>
    </head>
    <body>
        <h2>Welcome to MSAL.js Quickstart</h2><br/>
@@ -79,3 +80,4 @@ Instructies in deze handleiding zijn gebaseerd op Node.js en Visual Studio 2017,
 
    > [!TIP]
    > U kunt de versie van MSAL.js in bovenstaande script vervangen door de meest recente releaseversie onder [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+

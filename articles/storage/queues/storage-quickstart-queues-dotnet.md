@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: c7edc64e6bacfc1ea9c2184e57a384152e02190a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142491"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232591"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Quickstart: .NET gebruiken om een wachtrij te creëren in Azure Storage
 
@@ -145,7 +145,7 @@ We gaan nu de voorbeeldcode verkennen, zodat u begrijpt hoe deze werkt.
 
 ### <a name="try-parsing-the-connection-string"></a>Probeer de verbindingsreeks te parseren
 
-Het voorbeeld controleert eerst of de omgevingsvariabele een verbindingsreeks bevat die kan worden geparseerd om een [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)-object te maken dat naar het opslagaccount wijst. Het voorbeeld gebruikt de [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse)-methode om te controleren of de verbindingsreeks geldig is. Als **TryParse** lukt, wordt de variabele *storageAccount* geïnitialiseerd en **true** geretourneerd.
+Het voorbeeld controleert eerst of de omgevingsvariabele een verbindingsreeks bevat die kan worden geparseerd om een [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)-object te maken dat naar het opslagaccount wijst. Het voorbeeld gebruikt de [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse)-methode om te controleren of de verbindingsreeks geldig is. Als **TryParse** lukt, wordt de variabele *storageAccount* geïnitialiseerd en **true** geretourneerd.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored

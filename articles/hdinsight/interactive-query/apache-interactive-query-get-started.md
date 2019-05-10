@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/22/2018
-ms.openlocfilehash: c7cee3dfd3b091d75f4dadcaa62513fddf0c0e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/07/2019
+ms.openlocfilehash: 9636157182e8b40914bde2515c5b295d0480255a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692136"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510987"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Interactive Query gebruiken met HDInsight
 Interactive Query (ook wel genoemd Apache Hive LLAP of [met lage latentie analytische verwerking](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is een Azure HDInsight [clustertype](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactieve query's ondersteunt in-memory caching, waardoor Apache Hive-query's sneller en nog veel meer interactieve.
@@ -34,10 +34,6 @@ Voor het uitvoeren van Hive-query's, hebt u de volgende opties:
 * Microsoft Power BI gebruiken
 
     Zie [visualiseren interactieve Query Apache Hive-gegevens met Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) Zie [big-gegevens visualiseren met Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
- 
-* Apache Zeppelin gebruiken
-
-    Zie [gebruik Apache Zeppelin Apache Hive-query's uitvoeren in Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
 
 * Visual Studio gebruiken
 
@@ -61,7 +57,7 @@ Voor het uitvoeren van Hive-query's, hebt u de volgende opties:
 
 Zoek de verbindingsreeks Java Database Connectivity (JDBC):
 
-1. Aanmelden bij de Apache Ambari met behulp van de volgende URL: https://\<clusternaam\>. AzureHDInsight.net.
+1. Aanmelden bij de Apache Ambari met behulp van de volgende URL: `https://<cluster name>.AzureHDInsight.net`.
 2. Selecteer in het menu links **Hive**.
 3. Als de URL kopiëren, selecteert u het pictogram van het Klembord:
    

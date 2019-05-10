@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 04/23/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8413c75a683ff135b3442da6c6a94787ed0866ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441059"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441460"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Kerberos-beperkte overdracht configuraties voor Application Proxy oplossen
 
@@ -177,7 +177,7 @@ Als u nog steeds kan niet wordt uitgevoerd, moet op Microsoft ondersteuning u ka
 
 ## <a name="other-scenarios"></a>Andere scenario's
 
-- Azure Application Proxy een Kerberos-ticket-aanvragen voordat de aanvraag wordt verzonden naar een toepassing. Sommige toepassingen van derden, zoals Tableau Server tevreden niet over deze methode voor verificatie. Deze toepassingen wordt verwacht dat de meer traditionele onderhandelingen moet plaatsvinden. De eerste aanvraag is anoniem, waarmee de toepassing om te reageren met de verificatietypen ondersteunt via een 401.
+- Azure Application Proxy een Kerberos-ticket-aanvragen voordat de aanvraag wordt verzonden naar een toepassing. Sommige toepassingen van derden tevreden niet over deze methode voor verificatie. Deze toepassingen wordt verwacht dat de meer traditionele onderhandelingen moet plaatsvinden. De eerste aanvraag is anoniem, waarmee de toepassing om te reageren met de verificatietypen ondersteunt via een 401.
 
 - Multihop-verificatie wordt doorgaans gebruikt in scenario's waarin een toepassing is gelaagd, met een back-end en een front-end, waarbij zowel verificatie, zoals SQL Server Reporting Services is vereist. Zie het ondersteuningsartikel voor het configureren van het scenario multihop [Kerberos-beperkte overdracht kan vereisen Protocolovergang in Multihop-scenario's](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 

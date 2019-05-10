@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130420"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192408"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Aan de slag met Azure Cosmos DB Table-API en Azure Table storage met behulp van de .NET SDK
 
@@ -135,7 +135,7 @@ Als u het NuGet-pakket, de volgende stappen uit:
 
 ## <a name="create-a-table"></a>Een tabel maken 
 
-Met behulp van de [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtableclient?redirectedfrom=MSDN&view=azure-dotnet)-klasse kunt u tabellen en entiteiten ophalen die zijn opgeslagen in de Table Storage. Omdat we niet alle tabellen in de Cosmos DB Table-API-account hebt, gaan we toevoegen de `CreateTableAsync` methode de **Common.cs** klasse om een tabel te maken:
+Met behulp van de [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient)-klasse kunt u tabellen en entiteiten ophalen die zijn opgeslagen in de Table Storage. Omdat we niet alle tabellen in de Cosmos DB Table-API-account hebt, gaan we toevoegen de `CreateTableAsync` methode de **Common.cs** klasse om een tabel te maken:
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)
@@ -168,7 +168,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 ## <a name="define-the-entity"></a>De entiteit definiëren 
 
-Entiteiten worden toegewezen aan C# objecten met behulp van een aangepaste klasse die is afgeleid van [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert.
+Entiteiten worden toegewezen aan C# objecten met behulp van een aangepaste klasse die is afgeleid van [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert.
 
 Klik met de rechtermuisknop op uw project **CosmosTableSamples**. Selecteer **toevoegen**, **nieuwe map** en noem deze **Model**. Voeg een klasse met de naam in de map Model **CustomerEntity.cs** en voeg de volgende code eraan toe.
 
@@ -194,11 +194,11 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-Deze code definieert een entiteitsklasse die gebruikmaakt van de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel. De entiteit wordt in de tabel op unieke wijze geïdentificeerd door diens partitie- en rijsleutel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels, maar gebruik van verschillende partitiesleutels maakt een grotere schaalbaarheid van parallelle bewerkingen. Entiteiten worden opgeslagen in tabellen moeten zijn van een ondersteund type, bijvoorbeeld zijn afgeleid van de [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet) klasse. De entiteitseigenschappen die u in een tabel wilt opslaan, moeten openbare eigenschappen van het type zijn. Bovendien moeten ze zowel het ophalen als het instellen van waarden ondersteunen. Bovendien moet uw entiteitstype beschikbaar maken een parameterloze constructor bevatten.
+Deze code definieert een entiteitsklasse die gebruikmaakt van de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel. De entiteit wordt in de tabel op unieke wijze geïdentificeerd door diens partitie- en rijsleutel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels, maar gebruik van verschillende partitiesleutels maakt een grotere schaalbaarheid van parallelle bewerkingen. Entiteiten worden opgeslagen in tabellen moeten zijn van een ondersteund type, bijvoorbeeld zijn afgeleid van de [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity) klasse. De entiteitseigenschappen die u in een tabel wilt opslaan, moeten openbare eigenschappen van het type zijn. Bovendien moeten ze zowel het ophalen als het instellen van waarden ondersteunen. Bovendien moet uw entiteitstype beschikbaar maken een parameterloze constructor bevatten.
 
 ## <a name="insert-or-merge-an-entity"></a>Invoegen of samenvoegen van een entiteit
 
-Het volgende codevoorbeeld maakt een entiteitsobject en toegevoegd aan de tabel. De methode InsertOrMerge binnen de [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) klasse wordt gebruikt voor het invoegen of een entiteit samenvoegt. De [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtable.executeasync?view=azure-dotnet) methode wordt aangeroepen voor het uitvoeren van de bewerking. 
+Het volgende codevoorbeeld maakt een entiteitsobject en toegevoegd aan de tabel. De methode InsertOrMerge binnen de [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) klasse wordt gebruikt voor het invoegen of een entiteit samenvoegt. De [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) methode wordt aangeroepen voor het uitvoeren van de bewerking. 
 
 Klik met de rechtermuisknop op uw project **CosmosTableSamples**. Selecteer **toevoegen**, **Nieuw Item** en toevoegen van een klasse met de naam **SamplesUtils.cs**. Deze klasse bevat de code die zijn vereist om uit te voeren CRUD-bewerkingen op de entiteiten. 
 
@@ -237,7 +237,7 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
 
 ### <a name="get-an-entity-from-a-partition"></a>Een entiteit uit een partitie ophalen
 
-U kunt verkrijgen van de entiteit van een partitie met behulp van de methode ophalen onder de [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) klasse. Het volgende codevoorbeeld haalt de partitiesleutel sleutelrij, e-mailadres en telefoonnummer van een klantentiteit. In dit voorbeeld worden ook de basis van aanvraageenheden gebruikt om op te vragen de entiteit afgedrukt. Om te vragen voor een entiteit, toevoegen de volgende code om **SamplesUtils.cs** bestand: 
+U kunt verkrijgen van de entiteit van een partitie met behulp van de methode ophalen onder de [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) klasse. Het volgende codevoorbeeld haalt de partitiesleutel sleutelrij, e-mailadres en telefoonnummer van een klantentiteit. In dit voorbeeld worden ook de basis van aanvraageenheden gebruikt om op te vragen de entiteit afgedrukt. Om te vragen voor een entiteit, toevoegen de volgende code om **SamplesUtils.cs** bestand: 
 
 ```csharp
 public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)

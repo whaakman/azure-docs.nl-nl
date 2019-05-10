@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 17806abe60236a9c9face1ee16e1d9982975fff6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64734691"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509844"
 ---
 Opslag geoptimaliseerde VM-grootten bieden een snelle doorvoer van schijfgegevens en IO- en zijn ideaal voor Big Data, SQL, NoSQL-databases, gegevensopslag en grote transactionele databases.  Voorbeelden zijn onder meer Cassandra, MongoDB, Cloudera en Redis. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals lokale opslag en doorvoer netwerkbandbreedte voor elke grootte geoptimaliseerde.
 
@@ -40,8 +40,8 @@ Premium Storage opslaan in cache: Niet ondersteund
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
 | Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MILJOEN / 8000    | 32,000/640 | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20.000   | 80,000/1,400 | 32 | 8 / 32,000 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 16,600+ |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20.000   | 80,000/1,400 | 32 | 8 / 16,000+ |
 
 <sup>1</sup> Lsv2-serie VM's hebben een standaardschijf van de basis van tijdelijke resource SCSI voor gebruik van een wisselbestand/wisselen bestand besturingssystemen (D: op Windows, /dev/sdb op Linux). Deze schijf biedt 80 GiB van opslag, 4000 IOPS en 80 MBps overdrachtssnelheid voor elke 8 vcpu's (bijvoorbeeld Standard_L80s_v2 biedt 800 GiB 40.000 IOPS en 800 MBPS). Dit zorgt ervoor dat de NVMe-stations kunnen volledig worden toegewezen aan het gebruik. Deze schijf is een tijdelijke en alle gegevens gaan verloren op stoppen/toewijzing ongedaan maken.
 

@@ -1,41 +1,41 @@
 ---
-title: Conversatie transcriptie Service - spraakservices
+title: Conversatie Transcriptie - spraakservices
 titleSuffix: Azure Cognitive Services
-description: De conversatie transcriptie-Service is een geavanceerde functie van de spraakservices waarin realtime spraakherkenning, sprekeridentificatie en diarization worden gecombineerd. Conversatie transcriptie Service is ideaal voor het te transcriberen vergaderingen, de mogelijkheid om u te onderscheiden van sprekers, dit laat u weten hoe en wanneer, waardoor deelnemers zich kunt richten op de vergadering en snel voor de volgende stappen volgen in deze. Deze functie verbetert tevens de toegankelijkheid. Met transcriptie, kunt u deelnemers met gehoorproblemen actief betrekken.
+description: Conversatie transcriptie is een geavanceerde functie van de spraakservices waarin realtime spraakherkenning, sprekeridentificatie en diarization worden gecombineerd. Conversatie transcriptie is perfect voor te transcriberen vergaderingen, de mogelijkheid om u te onderscheiden van sprekers, dit laat u weten hoe en wanneer, waardoor deelnemers zich kunt richten op de vergadering en snel voor de volgende stappen volgen in deze. Deze functie verbetert tevens de toegankelijkheid. Met transcriptie, kunt u deelnemers met gehoorproblemen actief betrekken.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 2c3269a9e57c0392e152fedfb640b9fae91a4989
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025933"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190288"
 ---
-# <a name="what-is-the-conversation-transcription-service"></a>Wat is de conversatie transcriptie Service?
+# <a name="what-is-conversation-transcription"></a>Wat is conversatie transcriptie?
 
-De conversatie transcriptie-Service is een geavanceerde functie van de spraakservices waarin realtime spraakherkenning, sprekeridentificatie en diarization worden gecombineerd. Conversatie transcriptie Service is ideaal voor het te transcriberen vergaderingen, de mogelijkheid om u te onderscheiden van sprekers, dit laat u weten hoe en wanneer, waardoor deelnemers zich kunt richten op de vergadering en snel voor de volgende stappen volgen in deze. Deze functie verbetert tevens de toegankelijkheid. Met transcriptie, kunt u deelnemers met gehoorproblemen actief betrekken.   
+Conversatie transcriptie is een geavanceerde functie van de spraakservices waarin realtime spraakherkenning, sprekeridentificatie en diarization worden gecombineerd. Conversatie transcriptie is perfect voor te transcriberen vergaderingen, de mogelijkheid om u te onderscheiden van sprekers, dit laat u weten hoe en wanneer, waardoor deelnemers zich kunt richten op de vergadering en snel voor de volgende stappen volgen in deze. Deze functie verbetert tevens de toegankelijkheid. Met transcriptie, kunt u deelnemers met gehoorproblemen actief betrekken.   
 
-Conversatie transcriptie Service biedt een nauwkeurige herkenning met aanpasbare spraakmodellen die u aanpassen kunt om te begrijpen van de branche en bedrijfsspecifieke vocabulaire. U kunt bovendien conversatie transcriptie Service met de SDK van de apparaten spraak voor het optimaliseren van de ervaring voor meerdere microfoon apparaten worden gekoppeld.
+Conversatie transcriptie biedt nauwkeurige herkenning met aanpasbare spraakmodellen die u aanpassen kunt om te begrijpen van de branche en bedrijfsspecifieke vocabulaire. U kunt bovendien transcriptie conversatie met de SDK van de apparaten spraak voor het optimaliseren van de ervaring voor meerdere microfoon apparaten worden gekoppeld.
 
 >[!NOTE]
-> Op dit moment wordt conversatie transcriptie Service aanbevolen voor kleine vergaderingen. Als u wilt uitbreiden van de conversatie transcriptie-Service voor grote vergaderingen op schaal, neem dan contact met ons.
+> Op dit moment wordt conversatie transcriptie aanbevolen voor kleine vergaderingen. Als u wilt uitbreiden van de conversatie transcriptie voor grote vergaderingen op schaal, neem dan contact met ons.
 
-In dit diagram ziet u de hardware, software en services die met de conversatie transcriptie Service samen.
+In dit diagram ziet u de hardware, software en services die met de conversatie transcriptie samen.
 
-![Het importeren van conversatie transcriptie servicediagram](media/scenarios/conversation-transcription-service.png)
+![Het importeren van conversatie transcriptie Diagram](media/scenarios/conversation-transcription-service.png)
 
 >[!IMPORTANT]
 > Er is een circulaire zeven Microfoonmatrix met specifieke geometrie-configuratie vereist. Zie voor meer informatie-specificatie en -ontwerp, [Microsoft Speech Device SDK microfoon](https://aka.ms/cts/microphone). Zie voor meer informatie of een development kit aanschaffen, [Microsoft Speech apparaat-SDK ophalen](https://aka.ms/cts/getsdk).
 
 ## <a name="get-started-with-conversation-transcription"></a>Aan de slag met de conversatie transcriptie
 
-Er zijn drie stappen die u nodig hebt om aan te nemen aan de slag met de conversatie transcriptie Service.
+Er zijn drie stappen die u nodig hebt om aan te nemen aan de slag met de conversatie transcriptie.
 
 1. Toon voorbeelden van gebruikers verzamelen.
 2. Genereren van gebruikersprofielen met behulp van de gebruiker stem-voorbeelden
@@ -54,19 +54,19 @@ Vervolgens moet u voor het verzenden van de audio-opnamen u hebt verzameld voor 
 Voor het maken van een gebruikersprofiel, moet u gebruiken de `GenerateVoiceSignature` API. Details van de specificatie en voorbeeldcode zijn beschikbaar:
 
 > [!NOTE]
-> De conversatie transcriptie-Service is momenteel beschikbaar in de volgende regio's: `centralus` en `eastasia`.
+> Conversatie transcriptie is momenteel beschikbaar in 'en-US' en 'zh-CN' in de volgende regio's: `centralus` en `eastasia`.
 
 * [REST-specificatie](https://aka.ms/cts/signaturegenservice)
-* [Conversatie transcriptie Service gebruiken](https://aka.ms/cts/howto)
+* [Het gebruik van de conversatie transcriptie](https://aka.ms/cts/howto)
 
 ## <a name="transcribe-and-identify-speakers"></a>Transcriberen en identificeren van luidsprekers
 
-De conversatie transcriptie-Service wordt verwacht dat meerdere kanalen audiostreams en gebruikersprofielen als invoer voor het genereren van transcripties en sprekers te identificeren. Audio- en profielgegevens worden verzonden naar de conversatie transcriptie Service met behulp van de SDK van de apparaten spraak. Zoals eerder vermeld, worden een circulaire zeven Microfoonmatrix en de SDK van de apparaten spraak vereist voor het gebruik van de conversatie transcriptie-Service.
+Conversatie transcriptie wordt verwacht dat meerdere kanalen audiostreams en gebruikersprofielen als invoer voor het genereren van transcripties en sprekers te identificeren. Audio- en profielgegevens worden verzonden naar de conversatie transcriptie service met behulp van de SDK van de apparaten spraak. Zoals eerder gezegd, een circulaire zeven Microfoonmatrix en de SDK van de apparaten spraak overstappen naar conversatie transcriptie.
 
 >[!NOTE]
 > Zie voor meer informatie-specificatie en -ontwerp, [Microsoft Speech Device SDK microfoon](https://aka.ms/cts/microphone). Zie voor meer informatie of een development kit aanschaffen, [Microsoft Speech apparaat-SDK ophalen](https://aka.ms/cts/getsdk).
 
-Zie voor meer informatie over het gebruik van de conversatie transcriptie Service met de SDK van de apparaten spraak, [conversatie transcriptie service gebruiken](https://aka.ms/cts/howto).
+Zie voor meer informatie over het gebruik van de conversatie transcriptie met de SDK van de apparaten spraak, [over het gebruik van de conversatie transcriptie](https://aka.ms/cts/howto).
 
 ## <a name="next-steps"></a>Volgende stappen
 

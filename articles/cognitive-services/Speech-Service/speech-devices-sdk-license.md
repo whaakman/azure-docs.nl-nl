@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 43f783617c36d30aa1fd65cce580bb5e666afed1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5973cfc955cfce0ec1b073ac96bd68f07f093087
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021482"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409114"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Gebruiksrechtovereenkomst voor spraak Devices SDK
 
@@ -32,7 +32,7 @@ Deze licentiebepalingen zijn een overeenkomst tussen u en Microsoft Corporation 
 
     (a) algemeen. U kunt installeren en gebruiken van een willekeurig aantal exemplaren van de software kunt ontwikkelen en testen van uw toepassingen, uitsluitend voor dit doel hierboven vermeld en anderszins voor uw interne zakelijke doeleinden.
 
-    (b) Software, van derden. De software kan toepassingen van derden die u in licentie onder deze overeenkomst of onder hun eigen voorwaarden gegeven zijn bevatten. Licentie-voorwaarden, kennisgevingen en bevestigingen, indien aanwezig, voor de toepassingen van derden mogelijk toegankelijk online op http://aka.ms/thirdpartynotices of in een kennisgevingsbestand. Zelfs als dergelijke toepassingen worden beheerst door andere overeenkomsten, disclaimer, beperkingen met betrekking tot en uitsluitingen van schade hieronder ook voor zover toegestaan door toepasselijk recht gelden.
+    (b) Software, van derden. De software kan toepassingen van derden die u in licentie onder deze overeenkomst of onder hun eigen voorwaarden gegeven zijn bevatten. Licentie-voorwaarden, kennisgevingen en bevestigingen, indien aanwezig, voor de toepassingen van derden mogelijk toegankelijk online op https://aka.ms/thirdpartynotices of in een kennisgevingsbestand. Zelfs als dergelijke toepassingen worden beheerst door andere overeenkomsten, disclaimer, beperkingen met betrekking tot en uitsluitingen van schade hieronder ook voor zover toegestaan door toepasselijk recht gelden.
 
     c) concurrerende Benchmarking. Als u een directe concurrent bent en u toegang tot of gebruik van de software ten behoeve van concurrerende benchmarking, analyses of intelligence verzamelen, u vervallen aan Microsoft, haar dochterondernemingen en haar gelieerde ondernemingen (inclusief prospectief) alle concurrerend gebruik, toegang en benchmarking test beperkingen in de voorwaarden van uw software voor zover uw gebruiksvoorwaarden zijn, of erop te zijn, beperkender is dan de voorwaarden van Microsoft. Als u niet doet doet afstand van dergelijke ogenschijnlijke beperkingen in de voorwaarden van uw software, moet u zijn niet toegestaan voor toegang tot of gebruik van deze software en wordt niet hebt gedaan.
 
@@ -74,13 +74,13 @@ Deze licentiebepalingen zijn een overeenkomst tussen u en Microsoft Corporation 
 
     e) delen, publiceren, distribueren, of lenen (met uitzondering van de te distribueren code, afhankelijk van de bovenstaande voorwaarden), Geef op de software als een zelfstandige gehoste oplossing voor gebruik door anderen of de software of deze overeenkomst over te dragen aan enige derde partij.
 
-1. EXPORTBEPERKINGEN. U moet voldoen aan alle nationale en internationale exportwetten en regels die gelden voor de software, waaronder beperkingen met betrekking tot bestemmingen, eindgebruikers en eindgebruik. Bezoek voor meer informatie over de exportbeperkingen http://aka.ms/exporting.
+1. EXPORTBEPERKINGEN. U moet voldoen aan alle nationale en internationale exportwetten en regels die gelden voor de software, waaronder beperkingen met betrekking tot bestemmingen, eindgebruikers en eindgebruik. Bezoek voor meer informatie over de exportbeperkingen https://aka.ms/exporting.
 
 1. ONDERSTEUNINGSSERVICES. Microsoft is niet verplicht onder deze overeenkomst voor het leveren van ondersteuningsservices voor de software. Alle ondersteuning wordt geleverd, wordt "as is", "met alle gebreken' en zonder garantie van welke aard dan ook.
 
 1. UPDATES. De software kan periodiek controleren op updates, en download en installeer ze voor u. U mogelijk ontvangt alleen updates van Microsoft of geautoriseerde bronnen. Microsoft moet mogelijk bijwerken van uw systeem om te voorzien van updates. U gaat ermee akkoord om deze automatische updates zonder aanvullende kennisgeving te ontvangen. Updates kunnen niet opnemen of ondersteuning voor alle bestaande softwarefuncties, services of randapparatuur.
 
-1. BINDENDE ARBITRAGE EN AFSTANDSVERKLARING VERKLARING VAN AFSTAND. Deze sectie geldt als u woont (of een bedrijf de hoofdzetel is in) de Verenigde Staten.  Als u en Microsoft een geschil hebben, u en Microsoft gaat ermee akkoord om te proberen voor 60 dagen informele manier omzetten. Als u en Microsoft kan niet worden u en Microsoft ermee aan bindende individuele arbitrage de American arbitrage Association onder de Federal arbitrage Act ("FAA'), en niet naar gerechtelijke procedure voor een beoordelen of de jury. In plaats daarvan bepaalt een neutrale bemiddelaar. Klasse actie rechtszaken, collectieve arbitragezaken, persoonlijke advocaat algemene acties en een andere procedure waarbij iemand in de hoedanigheid van vertegenwoordiger optreedt zijn niet toegestaan; evenmin afzonderlijke procedures zonder toestemming van alle partijen te combineren. De volledige Arbitrageovereenkomst bevat meer voorwaarden en loopt http://aka.ms/arb-agreement-1. U en Microsoft gaat u akkoord met deze voorwaarden.
+1. BINDENDE ARBITRAGE EN AFSTANDSVERKLARING VERKLARING VAN AFSTAND. Deze sectie geldt als u woont (of een bedrijf de hoofdzetel is in) de Verenigde Staten.  Als u en Microsoft een geschil hebben, u en Microsoft gaat ermee akkoord om te proberen voor 60 dagen informele manier omzetten. Als u en Microsoft kan niet worden u en Microsoft ermee aan bindende individuele arbitrage de American arbitrage Association onder de Federal arbitrage Act ("FAA'), en niet naar gerechtelijke procedure voor een beoordelen of de jury. In plaats daarvan bepaalt een neutrale bemiddelaar. Klasse actie rechtszaken, collectieve arbitragezaken, persoonlijke advocaat algemene acties en een andere procedure waarbij iemand in de hoedanigheid van vertegenwoordiger optreedt zijn niet toegestaan; evenmin afzonderlijke procedures zonder toestemming van alle partijen te combineren. De volledige Arbitrageovereenkomst bevat meer voorwaarden en loopt https://aka.ms/arb-agreement-1. U en Microsoft gaat u akkoord met deze voorwaarden.
 
 1. BEËINDIGING. Onverminderd alle overige rechten, kan Microsoft deze Overeenkomst beëindigen als u niet om te voldoen aan een van de voorwaarden of voorwaarden. In dat geval moet u alle exemplaren van de software en alle onderdelen van vernietigen.
 

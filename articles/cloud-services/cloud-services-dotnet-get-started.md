@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68801f888df55924791188a3f4ff5b718798c9f3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60521106"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510572"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -36,7 +36,7 @@ De toepassing is een bulletinboard voor advertenties. Gebruikers maken een adver
 De toepassing maakt gebruik van het [wachtrijgerichte werkpatroon](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) om de CPU te ontlasten bij het maken van miniatuurweergaven voor een back-endproces (een CPU-intensieve bewerking).
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternatieve architectuur: App Service en WebJobs
-Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Het is ook mogelijk om de front-end uit te voeren in [Azure App Service](/azure/app-service/) en de functie [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) te gebruiken voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](../app-service/overview-compare.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
+Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Het is ook mogelijk om de front-end uit te voeren in [Azure App Service](/azure/app-service/) en de functie [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) te gebruiken voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
 
 ## <a name="what-youll-learn"></a>Wat u leert
 * De computer klaarmaken voor het ontwikkelen van Azure door de Azure SDK te installeren.
@@ -741,7 +741,7 @@ Deze code leest de database om de afbeeldings-URL op te halen, converteert de af
 >
 >
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 Voor het geval u tegen problemen aanloopt terwijl u de instructies in deze zelfstudie volgt, vindt u hier een aantal veelvoorkomende fouten en aanwijzingen om deze op te lossen.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException

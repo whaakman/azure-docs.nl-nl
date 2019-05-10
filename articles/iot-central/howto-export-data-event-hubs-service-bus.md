@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730225"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464000"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Uw gegevens in Azure IoT Central exporteren
 
@@ -64,14 +64,14 @@ Nu dat u een Event Hubs-Service Bus-doel hebt voor het exporteren van gegevens, 
     > [!Note]
     > Als er geen continue Export van gegevens in het menu links, bent u niet een beheerder in uw app. Neem contact op met een beheerder voor het instellen van het exporteren van gegevens.
 
-    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_menu.PNG)
+    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_menu1.png)
 
 3. Selecteer de **+ nieuw** knop in de rechterbovenhoek. Kies een van de **Azure Event Hubs** of **Azure Service Bus** als de bestemming of het exporteren. 
 
     > [!NOTE] 
     > Het maximum aantal uitvoer per app is vijf. 
 
-    ![Maken van nieuwe voortdurende gegevensexport](media/howto-export-data/export_new.PNG)
+    ![Maken van nieuwe voortdurende gegevensexport](media/howto-export-data/export_new1.png)
 
 4. Selecteer in de vervolgkeuzelijst uw **Event Hubs-naamruimte/Service Bus-naamruimte**. U kunt ook de laatste optie kiezen in de lijst die is **een verbindingsreeks invoeren**. 
 
@@ -81,7 +81,7 @@ Nu dat u een Event Hubs-Service Bus-doel hebt voor het exporteren van gegevens, 
     > [!NOTE] 
     > Voor zeven dagen proefversie apps, de enige manier om het configureren van doorlopende gegevens exporteren, is via een verbindingsreeks. Dit komt doordat zeven dagen proefversie apps nog geen een gekoppelde Azure-abonnement.
 
-    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_create.PNG)
+    ![Nieuwe cde Event Hub maken](media/howto-export-data/export_create1.png)
 
 5. (Optioneel) Als u ervoor hebt gekozen **een verbindingsreeks invoeren**, een nieuwe verschijnt u plak de verbindingsreeks. Om op te halen van de verbindingsreeks voor uw:
     - Eventhubs of Service Bus, gaat u naar de naamruimte in Azure portal.
@@ -95,7 +95,7 @@ Nu dat u een Event Hubs-Service Bus-doel hebt voor het exporteren van gegevens, 
 
 6. Als u wilt inschakelen voortdurende gegevensexport, zorg ervoor dat **gegevensexport** is **op**. Selecteer **Opslaan**.
 
-  ![Voortdurende gegevensexport configureren](media/howto-export-data/export_list.PNG)
+    ![Voortdurende gegevensexport configureren](media/howto-export-data/export_list1.png)
 
 7. Na een paar minuten verschijnt uw gegevens in uw gekozen bestemming.
 

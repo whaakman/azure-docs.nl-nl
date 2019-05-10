@@ -2,18 +2,19 @@
 title: Bewaken, diagnosticeren en oplossen van Azure Storage | Microsoft Docs
 description: Gebruik functies zoals opslaganalyse, logboekregistratie aan clientzijde en andere hulpprogramma's van derden te identificeren, onderzoeken en oplossen van problemen met betrekking tot Azure Storage.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103840"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192172"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -425,7 +426,7 @@ Als de **percentthrottlingerror aan** metrische gegevens geven een toename in he
 Een toename van **percentthrottlingerror aan** vaak optreedt op hetzelfde moment als een toename van het aantal aanvragen voor opslag, of wanneer u in eerste instantie bent laden van uw toepassing testen. Dit kan ook zelf in de client als '503 Server bezet' of '500 time-out van de bewerking' http-statusberichten-opslagbewerkingen manifest.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Tijdelijke toename in percentthrottlingerror aan
-Als er pieken in de waarde van **percentthrottlingerror aan** die overeenkomen met perioden met veel activiteit voor de toepassing, het implementeren van een (niet-lineaire) uitstel strategie voor exponentieel voor nieuwe pogingen in uw client. Back-off nieuwe pogingen de onmiddellijke belasting van de partitie te verminderen en zodat uw toepassing te gebruiken om pieken in verkeer. Zie voor meer informatie over het implementeren van beleid voor opnieuw proberen met behulp van de Storage-clientbibliotheek [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+Als er pieken in de waarde van **percentthrottlingerror aan** die overeenkomen met perioden met veel activiteit voor de toepassing, het implementeren van een (niet-lineaire) uitstel strategie voor exponentieel voor nieuwe pogingen in uw client. Back-off nieuwe pogingen de onmiddellijke belasting van de partitie te verminderen en zodat uw toepassing te gebruiken om pieken in verkeer. Zie voor meer informatie over het implementeren van beleid voor opnieuw proberen met behulp van de Storage-clientbibliotheek [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
 
 > [!NOTE]
 > U ziet ook pieken in de waarde van **percentthrottlingerror aan** die niet samenvallen met perioden met veel activiteit voor de toepassing: de meest waarschijnlijke oorzaak hier is de storage-service voor het verplaatsen van partities voor het verbeteren van de taakverdeling.
@@ -625,7 +626,7 @@ Als dit probleem regelmatig optreedt, moet u onderzoeken waarom de client is mis
 ### <a name="the-client-is-receiving-409-messages"></a>De client ontvangt berichten van HTTP 409 (Conflict)
 De volgende tabel ziet u een extraheren uit het logboek serverzijde voor twee clientbewerkingen: **DeleteIfExists** gevolgd door onmiddellijk **CreateIfNotExists** met behulp van de naam van de dezelfde blob-container. Elke clientbewerking resulteert in twee aanvragen verzonden naar de server eerst een **GetContainerProperties** verzoek om te controleren of de container bestaat, gevolgd door de **DeleteContainer** of  **CreateContainer** aanvraag.
 
-| Tijdstempel | Bewerking | Resultaat | Containernaam | Clientaanvraag-id |
+| Timestamp | Bewerking | Resultaat | Containernaam | Clientaanvraag-id |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
@@ -737,7 +738,7 @@ De volgende procedure beschrijft hoe u om vast te leggen gedetailleerde pakketge
 4. Een filter toe te voegen de **vastleggen Filter** tekstvak. Bijvoorbeeld, **hosten contosoemaildist.table.core.windows.net** configureert Wireshark om vast te leggen alleen pakketten die zijn verzonden naar of van de service-eindpunt van de tabel in de **contosoemaildist** storage-account. Bekijk de [volledige lijst met Filters vastleggen](https://wiki.wireshark.org/CaptureFilters).
 
    ![][6]
-5. Klik op **Start**. Wireshark nu vastlegt alle de pakketten verzenden naar of van het eindpunt van table service tijdens het gebruik van uw clienttoepassing op uw lokale computer.
+5. Klik op **Starten**. Wireshark nu vastlegt alle de pakketten verzenden naar of van het eindpunt van table service tijdens het gebruik van uw clienttoepassing op uw lokale computer.
 6. Wanneer u klaar bent, op de Klik in het hoofdmenu **vastleggen** en vervolgens **stoppen**.
 7. Als u wilt de vastgelegde gegevens opslaat in een bestand voor het vastleggen van Wireshark, klik in het hoofdmenu op **bestand** en vervolgens **opslaan**.
 

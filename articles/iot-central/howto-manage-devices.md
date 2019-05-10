@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364113"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464198"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Beheer van apparaten in uw Azure IoT Central-toepassing
 
@@ -66,7 +66,7 @@ Bulk-apparaten in uw toepassing registreren:
 
 1. Selecteer **importeren**.
 
-    ![Actie importeren](./media/howto-manage-devices/BulkImport1.png)
+    ![Actie importeren](./media/howto-manage-devices/bulkimport1a.png)
 
 1. Selecteer het CSV-bestand met de lijst van apparaat-id's moeten worden geïmporteerd.
 
@@ -74,7 +74,7 @@ Bulk-apparaten in uw toepassing registreren:
 
 1. Nadat het importeren is voltooid, wordt een bericht wordt weergegeven op het raster apparaat.
 
-    ![Importeren geslaagd](./media/howto-manage-devices/BulkImport3.png)
+    ![Importeren geslaagd](./media/howto-manage-devices/bulkimport3a.png)
 
 Als het apparaat mislukt importeren, ziet u een foutbericht weergegeven in het raster apparaat. Er wordt een logboekbestand voor het vastleggen van alle fouten gegenereerd die u kunt downloaden.
 
@@ -86,13 +86,13 @@ Als u apparaten registreren met het starten van de import onder **niet-gekoppeld
 
 1. Kies in het linkerdeelvenster **niet-gekoppelde apparaten**:
 
-    ![Niet-gekoppelde apparaten](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![Niet-gekoppelde apparaten](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Selecteer de apparaten die u wilt koppelen aan een sjabloon:
 
 1. Selecteer **koppelen**:
 
-    ![Apparaten koppelen](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![Apparaten koppelen](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Kies de sjabloon uit de lijst met beschikbare sjablonen en selecteer **koppelen**.
 
@@ -113,7 +113,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 
 1. Selecteer de apparaten die u wilt exporteren en selecteer vervolgens de **exporteren** actie.
 
-    ![Exporteren](./media/howto-manage-devices/Export1.png)
+    ![Exporteren](./media/howto-manage-devices/export1a.png)
 
 1. Het exportproces start. U kunt de status aan de bovenkant van het raster volgen.
 
@@ -121,7 +121,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 
 1. Selecteer de **bericht** voor het downloaden van het bestand naar een lokale map op de schijf.
 
-    ![Exporteren geslaagd](./media/howto-manage-devices/Export2.png)
+    ![Exporteren geslaagd](./media/howto-manage-devices/export2a.png)
 
 1. Het geëxporteerde CSV-bestand bevat de volgende kolommen: apparaat-ID, de naam van apparaat, apparaatsleutels en X509 certificaatvingerafdrukken:
 

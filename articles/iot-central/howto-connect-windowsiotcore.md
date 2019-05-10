@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886610"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510326"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -98,17 +98,17 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 
 Numerieke instellingen
 
-| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
+| `Display name` | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Snelheid van ventilator    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>Properties
 
-| Type            | Weergavenaam | Veldnaam | Gegevenstype |
+| Type            | `Display name` | Veldnaam | Gegevenstype |
 | --------------- | ------------ | ---------- | --------- |
 | Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
 | Text            | Locatie     | location   | N/A       |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe u een Raspberry Pi verbinden met uw Azure IoT Central-toepassing, de voorgestelde volgende stap is te leren hoe u [instellen van een sjabloon aangepast apparaat](howto-set-up-template.md) voor uw eigen IoT-apparaat.
+Nu dat u hebt geleerd hoe u een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing, de voorgestelde volgende stap is te leren hoe u [instellen van een sjabloon aangepast apparaat](howto-set-up-template.md) voor uw eigen IoT-apparaat.

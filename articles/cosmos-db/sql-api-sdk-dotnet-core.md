@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: bae180e2ceae6fe0768a5f7951c18dc5147870fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626822"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510644"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -50,6 +50,20 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 * Ondersteuning voor stromen.
 * Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd.
 
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* De SDK-versie van System.Net.Http overeenkomt met wat is gedefinieerd in het NuGet-pakket
+* Vergroot de grootte van de decimale precisie voor LINQ-query's.
+* Toegevoegde nieuwe klassen CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType en PartitionKeyDefinitionVersion
+* Toegevoegde TimeToLivePropertyPath naar DocumentCollection
+* Toegevoegde CompositeIndexes en SpatialIndexes naar IndexPolicy
+* Toegevoegde versie PartitionKeyDefinition
+* Geen op PartitionKey toegevoegd
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * Toegevoegde IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection en MaxTcpConnectionsPerEndpoint naar ConnectionPolicy.
+ 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
 * Verbeteringen voor diagnosefuncties in
@@ -237,6 +251,8 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https:/
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |05 mei 2019 |--- |
+| [2.3.0](#2.3.0) |04 april 2019 |--- |
 | [2.2.3](#2.2.3) |11 maart 2019 |--- |
 | [2.2.2](#2.2.2) |06 februari 2019 |--- |
 | [2.2.1](#2.2.1) |December 24 mei 2018 |--- |

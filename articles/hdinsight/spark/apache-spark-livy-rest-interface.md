@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570498"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228103"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API gebruiken voor het verzenden van externe taken naar een HDInsight Spark-cluster
 
@@ -153,13 +153,7 @@ Voer de volgende stappen uit:
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Updates voor de configuratie van Livy vanaf versie 3.5 voor HDInsight
 
-HDInsight 3.5-clusters en uitschakelen hierboven standaard gebruik van lokale paden naar bestanden met voorbeeldgegevens toegang of JAR-bestanden. We raden u aan het gebruik van de `wasb://` pad in plaats daarvan voor toegang tot JAR-bestanden of voorbeeldgegevens bestanden uit het cluster. Als u gebruiken, lokaal pad wilt, moet u de Ambari-configuratie dienovereenkomstig bijgewerkt. Dit doet u als volgt:
-
-1. Ga naar de Ambari-portal voor het cluster. De Ambari-Webinterface is beschikbaar op uw HDInsight-cluster op https://**CLUSTERNAME**. azurehdidnsight.net, waarbij CLUSTERNAME de naam van uw cluster is.
-
-2. Klik in de linkernavigatiebalk op **Livy**, en klik vervolgens op **Peeringconfiguraties**.
-
-3. Onder **livy-standaard** toevoegen van de naam van de eigenschap `livy.file.local-dir-whitelist` en stel de waarde voor **'/'** als u wilt toestaan dat volledige toegang tot bestandssysteem. Als u toestaan dat alleen toegang tot een specifieke map wilt, geeft u het pad naar die map als de waarde.
+HDInsight 3.5-clusters en uitschakelen hierboven standaard gebruik van lokale paden naar bestanden met voorbeeldgegevens toegang of JAR-bestanden. We raden u aan het gebruik van de `wasb://` pad in plaats daarvan voor toegang tot JAR-bestanden of voorbeeldgegevens bestanden uit het cluster. 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Indienen van Livy-taken voor een cluster in een Azure-netwerk
 

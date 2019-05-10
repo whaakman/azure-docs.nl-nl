@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716770"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506696"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -46,7 +46,7 @@ De volgende JSON ziet u bijvoorbeeld een beleid dat beperkt welke resources zijn
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -70,7 +70,7 @@ Alle voorbeelden van Azure Policy lopen [voorbeelden voor Azure Policy](../sampl
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="mode"></a>Modus
+## <a name="mode"></a>modus
 
 De **modus** bepaalt welke resourcetypen voor een beleid wordt geëvalueerd. De ondersteunde modi zijn:
 
@@ -114,7 +114,7 @@ U kunt bijvoorbeeld een beleidsdefinitie voor het beperken van de locaties waar 
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -229,6 +229,10 @@ Een voorwaarde wordt geëvalueerd of een **veld** of de **waarde** accessor aan 
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 Wanneer u de **zoals** en **notlike zijn** voorwaarden bieden u een jokerteken `*` in de waarde.
@@ -416,15 +420,25 @@ Zie voor meer informatie over elk effect, de volgorde van de evaluatie, eigensch
 
 ### <a name="policy-functions"></a>Beleidsfuncties
 
-Alle [Resource Manager-sjabloonfuncties](../../../azure-resource-manager/resource-group-template-functions.md) zijn beschikbaar voor gebruik binnen een beleidsregel, met uitzondering van de volgende functies:
+Alle [Resource Manager-sjabloonfuncties](../../../azure-resource-manager/resource-group-template-functions.md) zijn beschikbaar voor gebruik binnen een beleidsregel, met uitzondering van de volgende functies en de gebruiker gedefinieerde functies:
 
 - copyIndex()
 - Deployment()
 - lijst met *
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+De volgende functies zijn beschikbaar voor gebruik in een beleidsregel, maar verschillen van gebruik in een Azure Resource Manager-sjabloon:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [vereist] geheel getal - het aantal dagen dat wordt toegevoegd
+- utcNow() - in tegenstelling tot een Resource Manager-sjabloon, dit kan worden gebruikt buiten defaultValue.
+  - Retourneert een tekenreeks die is ingesteld op de huidige datum en tijd in datum/tijd van universele ISO 8601-notatie is jjjj-MM-ddTHH:mm:ss.fffffffZ'
 
 Bovendien de `field` functie is beschikbaar voor de regels. `field` wordt voornamelijk gebruikt met **AuditIfNotExists** en **DeployIfNotExists** verwijzing velden op de resource die worden geëvalueerd. Een voorbeeld van het gebruik kan worden weergegeven de [DeployIfNotExists voorbeeld](effects.md#deployifnotexists-example).
 

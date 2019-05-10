@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916665"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508438"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
 Microsoft Azure Traffic Manager kunt u bepalen hoe netwerkverkeer wordt gedistribueerd naar implementaties van toepassingen die worden uitgevoerd in verschillende datacenters. U configureren elke implementatie van toepassing als een 'eindpunt' in Traffic Manager. Bij het Traffic Manager een DNS-aanvraag ontvangt, kiest deze een eindpunt beschikbaar om te retourneren in de DNS-antwoord. Traffic manager wordt de basis van de keuze van de huidige status van endpoint en de verkeersrouteringsmethode. Zie voor meer informatie, [hoe Traffic Manager werkt](traffic-manager-how-it-works.md).
 
 Er zijn drie typen van ondersteund door Traffic Manager-eindpunt:
 * **Azure-eindpunten** worden gebruikt voor services die worden gehost in Azure.
-* **Externe eindpunten** worden gebruikt voor IPv4/IPv6-adressen of voor services die worden gehost buiten Azure waarmee u kunt on-premises zijn of met een andere hosting provider.
+* **Externe eindpunten** worden gebruikt voor IPv4/IPv6-adressen, FQDN's, of voor services die worden gehost buiten Azure waarmee u kunt on-premises zijn of met een andere hosting provider.
 * **Geneste eindpunten** worden gebruikt voor het combineren van Traffic Manager-profielen voor het maken van meer flexibele routering van verkeer schema's voor de ondersteuning van de behoeften van grotere, complexere implementaties.
 
 Er is geen beperking op hoe de eindpunten van verschillende typen worden gecombineerd in één Traffic Manager-profiel. Elk profiel kan elke combinatie van eindpunttypen bevatten.
@@ -46,7 +46,7 @@ Wanneer u Azure-eindpunten, detecteert de Traffic Manager als een 'Classic' IaaS
 
 ## <a name="external-endpoints"></a>Externe eindpunten
 
-Externe eindpunten worden gebruikt voor beide IPv4/IPv6-adressen of voor services die buiten Azure. Gebruik van IPv4/IPv6-adres-eindpunten kunt traffic manager om te controleren of de status van de eindpunten van zonder een DNS-naam voor deze. Traffic Manager kan als gevolg hiervan, reageren op query's met A/AAAA-records wanneer dat eindpunt in een antwoord geretourneerd. Services buiten Azure zijn bijvoorbeeld een service die wordt gehost on-premises of aan een andere provider. Externe eindpunten kunnen afzonderlijk worden gebruikt of in combinatie met Azure-eindpunten in dezelfde Traffic Manager-profiel, met uitzondering van eindpunten die zijn opgegeven als IPv4 of IPv6-adressen die alleen externe eindpunten kunnen worden. Azure-eindpunten met externe eindpunten combineren, kunt verschillende scenario's:
+Externe eindpunten worden gebruikt voor beide IPv4/IPv6-adressen, FQDN's, of voor services die buiten Azure. Gebruik van IPv4/IPv6-adres-eindpunten kunt traffic manager om te controleren of de status van de eindpunten van zonder een DNS-naam voor deze. Traffic Manager kan als gevolg hiervan, reageren op query's met A/AAAA-records wanneer dat eindpunt in een antwoord geretourneerd. Services buiten Azure zijn bijvoorbeeld een service die wordt gehost on-premises of aan een andere provider. Externe eindpunten kunnen afzonderlijk worden gebruikt of in combinatie met Azure-eindpunten in dezelfde Traffic Manager-profiel, met uitzondering van eindpunten die zijn opgegeven als IPv4 of IPv6-adressen die alleen externe eindpunten kunnen worden. Azure-eindpunten met externe eindpunten combineren, kunt verschillende scenario's:
 
 * Verbeterde redundantie bieden voor een bestaande on-premises toepassing in beide een actief-actief of actief-passief-failover-model met behulp van Azure. 
 * Verkeer routeren naar eindpunten waarop geen een DNS-naam die is gekoppeld. Bovendien de algehele DNS-lookup-latentie verminderen door het verwijderen van de noodzaak om uit te voeren van een tweede DNS-query om een IP-adres van een DNS-naam die wordt geretourneerd. 

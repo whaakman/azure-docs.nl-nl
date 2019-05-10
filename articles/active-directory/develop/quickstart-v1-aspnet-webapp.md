@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191029"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231149"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Quickstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -38,7 +38,7 @@ Aan het einde van deze quickstart worden via de toepassing aanmeldingen van werk
 
 Controleer voor u aan de slag gaat of u voldoet aan deze vereisten:
 
-* Visual Studio 2015 Update 3 of Visual Studio 2019 zijn geïnstalleerd. Is dit niet het geval? [Visual Studio 2019 gratis downloaden](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 Update 3 of hoger hebben geïnstalleerd. Is dit niet het geval? [Visual Studio 2019 gratis downloaden](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scenario: Gebruikers aanmelden vanaf werk- en schoolaccounts in de ASP.NET-app
 
@@ -70,9 +70,10 @@ Als u in plaats hiervan het Visual Studio-project uit dit voorbeeld wilt downloa
 ## <a name="step-2-create-your-aspnet-project"></a>Stap 2: Uw ASP.NET-project maken
 
 1. Ga in Visual Studio naar **Bestand > Nieuw > Project**.
-2. Selecteer onder **Visual C#\Web** de optie **ASP.NET-webtoepassing (.NET Framework)**.
-3. Geef de toepassing een naam en selecteer **OK**.
-4. Selecteer **Leeg** en schakel vervolgens het selectievakje in om **MVC**-verwijzingen toe te voegen.
+2. Voor **projecttype**, selecteer **Web**en selecteer vervolgens **ASP.NET-webtoepassing (.NET Framework)**.
+3. De naam van uw toepassing en selecteer **maken**.
+4. Selecteer **leeg** en selecteer vervolgens **MVC** onder **mappen toevoegen & core verwijzingen** om toe te voegen van MVC-verwijzingen.
+5. Selecteer **Maken**.
 
 ## <a name="step-3-add-authentication-components"></a>Stap 3: Onderdelen voor verificatie toevoegen
 
@@ -125,7 +126,7 @@ Ga als volgt te werk om een *opstartklasse* van OWIN-middleware maken:
 Maak een nieuwe controller om de methoden voor aanmelden en afmelden beschikbaar te maken.
 
 1.  Klik met de rechtermuisknop op de map **Controllers** en selecteer **Toevoegen > Controller**
-2.  Selecteer **MVC-controller (.NET-versie) – Leeg**.
+2.  Selecteer **MVC-controller {versie} – Leeg**.
 3.  Selecteer **Toevoegen**.
 4.  Noem deze `HomeController` en selecteer **Toevoegen**.
 5.  Voeg **OWIN**-naamruimten toe aan de klasse:
@@ -292,7 +293,7 @@ Selecteer de hyperlink om de claims van de gebruiker te zien. Hiermee gaat u naa
 |---|---|---|
 | Naam | {Volledige naam van gebruiker} | Voor- en achternaam van de gebruiker |
 | Gebruikersnaam | <span>user@domain.com</span> | De gebruikersnaam die is gebruikt om de aangemelde gebruiker te identificeren |
-| Onderwerp| {Onderwerp} |Een tekenreeks voor het aanduiden van de gebruiker zich aanmelden op het web |
+| Onderwerp| {Subject} |Een tekenreeks voor het aanduiden van de gebruiker zich aanmelden op het web |
 | Tenant-id | {GUID} | Een *GUID* om de Azure AD-organisatie van de gebruiker uniek te vertegenwoordigen |
 
 Daarnaast ziet u een tabel met alle gebruikersclaims uit de verificatieaanvraag. Zie [Lijst met claims in id-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) voor een lijst met alle claims in een id-token en de bijbehorende uitleg.

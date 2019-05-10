@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148703"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414030"
 ---
 # <a name="azure-media-services-v3-overview"></a>Overzicht van Azure Media Services v3
 
@@ -48,7 +48,8 @@ Met Media Services kunt u diverse mediawerkstromen bouwen in de cloud. Hier volg
 
 Informatie over coderen en verpakken van content, video-streaming op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.
 
-Controleer voordat u begint met het ontwikkelen, [basisconcepten](concepts-overview.md)<br/>
+> [!TIP]
+> Voordat u begint met het ontwikkelen, controleren:<br/>* [Basisconcepten](concepts-overview.md) (incudes belangrijke concepten: verpakking, codering, beveiligen, enz.)<br/>* [Ontwikkelen met Media Services v3 API's](media-services-apis-overview.md) (bevat informatie over het verkrijgen van toegang tot API's voor naamgeving, enz.)
 
 ### <a name="quickstarts"></a>Snelstartgidsen  
 
@@ -86,9 +87,5 @@ Bekijk de [Azure Media Services-community](media-services-community.md) artikel 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Hoe ga ik aan de slag met v3? 
-
-> [!div class="nextstepaction"]
-> [Meer informatie over basisconcepten](concepts-overview.md)<br/>
-> [Ontwikkelen met de Media Services v3-API met behulp van SDK 's](developers-guide.md) 
+[Meer informatie over basisconcepten](concepts-overview.md)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570832"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228181"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 
@@ -61,7 +61,7 @@ In Canada Microsoft maakt gebruik van de volgende SMS korte codes:
 
 Microsoft garandeert niet consistent, SMS of spraak op basis van multi-factor Authentication vragen levering met hetzelfde getal. Uit oogpunt van onze gebruikers, kan Microsoft toevoegen of verwijderen van korte-codes op elk gewenst moment wanneer we aanpassingen van de route voor het verbeteren van de SMS-mailbezorging. Microsoft biedt geen ondersteuning voor korte-codes voor landen/regio's behalve de Verenigde Staten en Canada.
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 De meeste vragen over facturering kunnen worden beantwoord door te verwijzen naar een de [pagina met prijzen van multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) of de documentatie over [over het verkrijgen van Azure multi-factor Authentication](concept-mfa-licensing.md).
 
@@ -146,11 +146,11 @@ Als uw organisatie geen oudere clients, moet u uw gebruikers te maken van app-wa
 
 **V: Mijn gebruikers zeggen dat ze niet soms de SMS-bericht ontvangen of ze tweerichtings-SMS-berichten beantwoorden maar de verificatie een optreedt time-out.**
 
-Levering van SMS-berichten en de ontvangst van antwoorden in SMS in twee richtingen niet gegarandeerd omdat er hebt factoren die van invloed zijn op de betrouwbaarheid van de service. Deze factoren omvatten het land van de bestemming, de mobiele telefoon-provider en de signaalsterkte.
+Levering van SMS-berichten en de ontvangst van antwoorden in SMS in twee richtingen niet gegarandeerd omdat er hebt factoren die van invloed zijn op de betrouwbaarheid van de service. Deze factoren omvatten de bestemming land/regio, de mobiele telefoon-provider en de signaalsterkte.
 
 Als uw gebruikers vaak problemen ondervindt met het ontvangen van SMS-berichten, laat ook de mobiele app of automatische oproep methode te gebruiken. De mobiele app kan meldingen zowel via mobiel en Wi-Fi-verbindingen ontvangen. Bovendien de mobiele app kunt verificatiecodes worden gegenereerd, zelfs wanneer het apparaat geen signaal helemaal heeft. De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), en [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-Als u de SMS-berichten gebruiken moet, wordt u aangeraden eenrichtings-SMS in plaats van SMS in twee richtingen indien mogelijk. SMS in één richting is betrouwbaarder en voorkomt dat gebruikers waarvoor globale SMS kosten worden berekend vanaf het beantwoorden van een SMS-bericht is verzonden vanaf een ander land.
+Als u de SMS-berichten gebruiken moet, wordt u aangeraden eenrichtings-SMS in plaats van SMS in twee richtingen indien mogelijk. SMS in één richting is betrouwbaarder en voorkomt dat gebruikers waarvoor globale SMS kosten worden berekend vanaf het beantwoorden van een SMS-bericht is verzonden vanaf een ander land/regio.
 
 **V: Kan ik de hoeveelheid tijd dat mijn gebruikers hoeven in te voeren van de verificatiecode van een SMS-bericht, voordat het systeem een optreedt time-out wijzigen?**
 

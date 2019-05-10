@@ -67,7 +67,7 @@ HDInsight Spark-clusters bieden geen ondersteuning voor de Spark-Phoenix-connect
 
 **Risicobeperking:**
 
-In plaats daarvan moet u de Spark-HBase-connector gebruiken. Zie voor instructies [over het gebruik van Spark-HBase-connector](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+In plaats daarvan moet u de Spark-HBase-connector gebruiken. Zie voor instructies [over het gebruik van Spark-HBase-connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemen met de Jupyter-notebooks
 Hieronder vindt u enkele bekende problemen met betrekking tot de Jupyter-notebooks.

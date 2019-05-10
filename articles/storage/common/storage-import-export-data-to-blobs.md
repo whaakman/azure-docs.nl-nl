@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479300"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409369"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -114,7 +114,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 4. In **verzendinfo retourneren**:
 
    - Selecteer de provider die in de vervolgkeuzelijst. Als u een luchtvaartmaatschappij dan FedEx/DHL gebruiken wilt, kiest u een bestaande optie in de vervolgkeuzelijst. Neem contact op met Azure Data Box Operations-team op `adbops@microsoft.com` met de informatie met betrekking tot de provider die u wilt gebruiken.
-   - Voer een geldige provider account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven terug naar u verzenden zodra uw import-taak voltooid is. Als u een accountnummer hebt, maakt u een [FedEx](https://www.fedex.com/us/oadr/) of [DHL](http://www.dhl.com/) doorberekend aan.
+   - Voer een geldige provider account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven terug naar u verzenden zodra uw import-taak voltooid is. Als u een accountnummer hebt, maakt u een [FedEx](https://www.fedex.com/us/oadr/) of [DHL](https://www.dhl.com/) doorberekend aan.
    - Geef een volledig en geldig contact op met de naam, telefoon, e-mailadres, adres, stad, postcode, staat/provincie en land/regio. 
         
        > [!TIP] 

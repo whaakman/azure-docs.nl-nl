@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190181"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227921"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -32,7 +32,7 @@ Azure AD kunt single sign-on bij apparaten, apps en services vanaf elke locatie 
 - Meervoudige verificatie vereisen voor gebruikers die toegang krijgen tot een service wanneer ze buiten het bedrijfsnetwerk bevinden vallen.
 - Blokkeert de toegang voor gebruikers met toegang tot een service van specifieke landen of regio's.
 
-Een locatie is een label voor een netwerklocatie bevindt die een vertegenwoordigt een benoemde locatie of multi-factor authentication IP-adressen vertrouwde.
+Een locatie is een label voor een netwerklocatie bevindt die een vertegenwoordigt een benoemde locatie of multi-factor authentication vertrouwde IP-adressen.
 
 ## <a name="named-locations"></a>Benoemde locaties
 
@@ -54,7 +54,7 @@ Een benoemde locatie heeft de volgende onderdelen:
 
 - **Als vertrouwde locatie markeren** -een vlag die u kunt instellen voor een benoemde locatie om aan te geven van een vertrouwde locatie bevindt. Vertrouwde locaties zijn meestal netwerkgebieden die worden beheerd door uw IT-afdeling. Naast de voorwaardelijke toegang benoemde locaties vertrouwde worden ook gebruikt door Azure Identity Protection en Azure AD-beveiligingsrapporten te verminderen [fout-positieven](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Landen/regio's** -deze optie kunt u een of meer land of regio voor het definiëren van een benoemde locatie selecteren.
-- **Onbekende gebieden opnemen** -enkele IP-adressen zijn niet toegewezen aan een bepaald land. Deze optie kunt u kiezen of deze IP-adressen op de locatie met de naam moeten worden opgenomen. Gebruik deze instelling wanneer het beleid met behulp van de locatie met de naam van toepassing op onbekende locaties.
+- **Onbekende gebieden opnemen** -enkele IP-adressen zijn niet toegewezen aan een bepaald land of regio. Deze optie kunt u kiezen of deze IP-adressen op de locatie met de naam moeten worden opgenomen. Gebruik deze instelling wanneer het beleid met behulp van de locatie met de naam van toepassing op onbekende locaties.
 
 Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. Organisaties kunnen maximaal 90 benoemde locaties configureren, elk geconfigureerd met maximaal 12000 IP-adresbereiken.
 
@@ -67,9 +67,9 @@ Als een beleid is geconfigureerd om toe te passen op 'Een willekeurige locatie',
 
 ## <a name="trusted-ips"></a>Goedgekeurde IP-adressen
 
-U kunt ook configureren met IP-adresbereiken van uw organisatie lokaal intranet in voor de [instellingen voor multi-factor authentication-service](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Deze functie kunt u maximaal 50 IP-adresbereiken configureren. Er zijn de IP-adresbereiken in CIDR-indeling. Zie voor meer informatie, [vertrouwde IP-adressen](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+U kunt ook configureren met IP-adresbereiken van uw organisatie lokaal intranet in voor de [instellingen voor multi-factor authentication-service](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Deze functie kunt u maximaal 50 IP-adresbereiken configureren. Er zijn de IP-adresbereiken in CIDR-indeling. Zie voor meer informatie, [goedgekeurde IP-adressen](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Als u hebt vertrouwde IP-adressen geconfigureerd, worden ze weergegeven als **MFA goedgekeurde IP-Adressen** in de lijst met locaties voor de locatievoorwaarde.
+Als u goedgekeurde IP-adressen geconfigureerd hebt, worden ze weergegeven als **MFA goedgekeurde IP-Adressen** in de lijst met locaties voor de locatievoorwaarde.
 
 ### <a name="skipping-multi-factor-authentication"></a>Meervoudige verificatie overslaan
 

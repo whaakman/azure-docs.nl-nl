@@ -9,12 +9,12 @@ ms.date: 09/14/2017
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: db366fea96967559c65559864ff8e367fa12ad65
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: dbaaade278073613a62eaf350146360651350244
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142592"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510230"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure Queue storage bewerkingen uitvoeren met Azure PowerShell
 
@@ -51,7 +51,7 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Een resourcegroep maken
+## <a name="create-resource-group"></a>Resourcegroep maken
 
 Maak een resourcegroep met de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
@@ -62,7 +62,7 @@ $resourceGroup = "howtoqueuesrg"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>Een opslagaccount maken
+## <a name="create-storage-account"></a>Opslagaccount maken
 
 Een standaardopslagaccount voor algemeen gebruik te maken met het gebruik van lokaal redundante opslag (LRS) [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Krijg de opslagaccountcontext op waarin het opslagaccount dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven.
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Een bericht toevoegen aan een wachtrij
 
-Bewerkingen die invloed hebben op de werkelijke berichten in de wachtrij gebruiken de .NET-opslagclientbibliotheek zoals weergegeven in PowerShell. Een bericht toevoegen aan een wachtrij, maak een nieuw exemplaar van het berichtobject [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.-ctor?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueueMessage__ctor_System_Byte___) klasse. Daarna roept u de methode [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) aan. Een CloudQueueMessage kan worden gemaakt op basis van een tekenreeks (in UTF-8-indeling) of een bytematrix.
+Bewerkingen die invloed hebben op de werkelijke berichten in de wachtrij gebruiken de .NET-opslagclientbibliotheek zoals weergegeven in PowerShell. Een bericht toevoegen aan een wachtrij, maak een nieuw exemplaar van het berichtobject [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) klasse. Daarna roept u de methode [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) aan. Een CloudQueueMessage kan worden gemaakt op basis van een tekenreeks (in UTF-8-indeling) of een bytematrix.
 
 Het volgende voorbeeld ziet u hoe u een bericht toevoegen aan de wachtrij.
 
@@ -131,7 +131,7 @@ Berichten worden gelezen in volgorde van de beste probeer first in first out. Di
 
 Dit **de time-out voor onzichtbaarheid** wordt gedefinieerd hoe lang het bericht onzichtbaar blijft voordat deze beschikbaar zijn voor de verwerking van het opnieuw. De standaardwaarde is 30 seconden. 
 
-Uw code leest een bericht uit de wachtrij in twee stappen. Wanneer u aanroepen de [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_GetMessage_System_Nullable_System_TimeSpan__Microsoft_WindowsAzure_Storage_Queue_QueueRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode, krijgt u het volgende bericht in de wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Als u klaar bent met het bericht verwijderen uit de wachtrij, wilt u aanroepen de [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?redirectedfrom=MSDN&view=azure-dotnet#overloads) methode. 
+Uw code leest een bericht uit de wachtrij in twee stappen. Wanneer u aanroepen de [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) methode, krijgt u het volgende bericht in de wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Als u klaar bent met het bericht verwijderen uit de wachtrij, wilt u aanroepen de [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) methode. 
 
 In het volgende voorbeeld wordt u via de drie Wachtrijberichten lezen en vervolgens wacht 10 seconden (de time-out voor onzichtbaarheid). En u opnieuw de drie berichten de berichten worden verwijderd lezen na het lezen van deze door aan te roepen **DeleteMessage**. Als u probeert te lezen van de wachtrij de berichten zijn verwijderd, wordt u $queueMessage als NULL geretourneerd.
 

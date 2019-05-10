@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: e526908f5ba9feea53b1c1abebbbfc1bd9a51c54
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d567074a0038915cc43a585b34c9c71ccf3eb1b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147953"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465000"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Instellen van Secure Sockets Layer (SSL)-codering en -verificatie voor Apache Kafka in Azure HDInsight
 
@@ -57,9 +57,6 @@ Gebruik de volgende gedetailleerde instructies om de broker-installatie te volto
     # Create a new directory 'ssl' and change into it
     mkdir ssl
     cd ssl
-
-    # Export
-    export SRVPASS=MyServerPassword123
     ```
 
 1. De initiële installatie van dezelfde uitvoeren op elk van de brokers (worker-knooppunten 0, 1 of 2).
@@ -68,9 +65,6 @@ Gebruik de volgende gedetailleerde instructies om de broker-installatie te volto
     # Create a new directory 'ssl' and change into it
     mkdir ssl
     cd ssl
-
-    # Export
-    export MyServerPassword123=MyServerPassword123
     ```
 
 1. Uitvoeren op elk van de worker-knooppunten, de volgende stappen uit met behulp van het onderstaande codefragment.
@@ -142,10 +136,10 @@ Als u wilt de wijziging van de configuratie hebt voltooid, moet u de volgende st
     sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.key.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.keystore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.key.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
 1. Om te verifiëren of de wijzigingen zijn aangebracht correct desgewenst kunt u controleren dat de volgende regels zijn aanwezig in de Kafka `server.properties` bestand.
@@ -153,13 +147,14 @@ Als u wilt de wijziging van de configuratie hebt voltooid, moet u de volgende st
     ```bash
     advertised.listeners=PLAINTEXT://10.0.0.11:9092,SSL://10.0.0.11:9093
     ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks
-    ssl.keystore.password=<server_password>
-    ssl.key.password=<server_password>
+    ssl.keystore.password=MyServerPassword123
+    ssl.key.password=MyServerPassword123
     ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks
-    ssl.truststore.password=<server_password>
+    ssl.truststore.password=MyServerPassword123
     ```
 
 1. Start opnieuw op alle Kafka-brokers.
+1. Start de client beheerder met de producent en consument opties om te controleren dat zowel producenten en consumenten op poort 9093 werkt.
 
 ## <a name="client-setup-with-authentication"></a>Clientinstallatie (met behulp van verificatie)
 
@@ -169,39 +164,37 @@ Als u wilt de wijziging van de configuratie hebt voltooid, moet u de volgende st
 Voer de volgende stappen uit om de clientinstallatie te voltooien:
 
 1. Aanmelden bij de clientcomputer (hn1).
-1. Exporteer het wachtwoord van de client. Vervang `<client_password>` met de werkelijke beheerderswachtwoord op de clientcomputer Kafka.
 1. Maak een java keystore en een ondertekend certificaat krijgen voor de broker. Kopieer vervolgens het certificaat naar de virtuele machine waarop de CA wordt uitgevoerd.
 1. Schakel over naar de CA-computer (hn0) om te ondertekenen certificaat van de client.
 1. Ga naar de clientcomputer (hn1) en navigeer naar de `~/ssl` map. Kopieer het ondertekende certificaat naar de client-computer.
 
 ```bash
-export CLIPASS=<client_password>
 cd ssl
 
 # Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
 
-keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass $CLIPASS -keypass $CLIPASS -dname "CN=mylaptop1" -alias my-local-pc1 -storetype pkcs12
+keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -dname "CN=mylaptop1" -alias my-local-pc1 -storetype pkcs12
 
-keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS
+keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123"
 
 # Copy the cert to the CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
 # Switch to the CA machine (hn0) to sign the client certificate.
 cd ssl
-openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:<server_password>
+openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
 # Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store
-keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 
 # Import CA cert to key store
-keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 
 # Import signed client (cert client-cert-signed1) to keystore
-keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
 Ten slotte, bekijkt u het bestand `client-ssl-auth.properties` met de opdracht `cat client-ssl-auth.properties`. Het moet beschikken over de volgende regels:
@@ -209,10 +202,10 @@ Ten slotte, bekijkt u het bestand `client-ssl-auth.properties` met de opdracht `
 ```bash
 security.protocol=SSL
 ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
-ssl.truststore.password=<client_password>
+ssl.truststore.password=MyClientPassword123
 ssl.keystore.location=/home/sshuser/ssl/kafka.client.keystore.jks
-ssl.keystore.password=<client_password>
-ssl.key.password=<client_password>
+ssl.keystore.password=MyClientPassword123
+ssl.key.password=MyClientPassword123
 ```
 
 ## <a name="client-setup-without-authentication"></a>Installatie van de client (zonder verificatie)
@@ -220,7 +213,6 @@ ssl.key.password=<client_password>
 Als u geen verificatie nodig hebt, worden de stappen voor het instellen van SSL-versleuteling zijn:
 
 1. Aanmelden bij de clientcomputer (hn1) en navigeer naar de `~/ssl` map
-1. Exporteer het wachtwoord van de client. Vervang `<client_password>` met de werkelijke beheerderswachtwoord op de clientcomputer Kafka.
 1. Kopieer het ondertekende certificaat naar de client-computer van de CA-computer (wn0).
 1. De CA-certificaat importeren in de truststore
 1. De CA-certificaat importeren in de sleutelopslag
@@ -228,17 +220,16 @@ Als u geen verificatie nodig hebt, worden de stappen voor het instellen van SSL-
 Deze stappen worden weergegeven in het volgende codefragment.
 
 ```bash
-export CLIPASS=<client_password>
 cd ssl
 
 # Copy signed cert to client machine
 scp -i ~/kafka-security.pem sshuser@wn0-umakaf:/home/sshuser/ssl/ca-cert .
 
 # Import CA cert to truststore
-keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 
 # Import CA cert to keystore
-keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
 Ten slotte, bekijkt u het bestand `client-ssl-auth.properties` met de opdracht `cat client-ssl-auth.properties`. Het moet beschikken over de volgende regels:
@@ -246,7 +237,7 @@ Ten slotte, bekijkt u het bestand `client-ssl-auth.properties` met de opdracht `
 ```bash
 security.protocol=SSL
 ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
-ssl.truststore.password=<client_password>
+ssl.truststore.password=MyClientPassword123
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

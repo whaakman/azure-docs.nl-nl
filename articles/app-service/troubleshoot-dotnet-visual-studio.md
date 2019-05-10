@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838425"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412819"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Problemen met een app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -42,7 +42,7 @@ In deze zelfstudie werkt met de ontwikkelomgeving, het webproject en de App Serv
 
 De codevoorbeelden die wordt weergegeven in deze zelfstudie zijn voor een C# MVC-webtoepassing, maar de procedures voor probleemoplossing zijn hetzelfde voor Visual Basic- en Web Forms-toepassingen.
 
-De zelfstudie wordt ervan uitgegaan dat u Visual Studio 2017. 
+De zelfstudie wordt ervan uitgegaan dat u Visual Studio 2019. 
 
 De streaminglogboeken functie werkt alleen voor toepassingen die zijn gericht op .NET Framework 4 of hoger.
 

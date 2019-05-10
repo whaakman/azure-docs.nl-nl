@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 90a39693778e01da76baf19765be8801f55813b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683059"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408688"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Een ASP.NET Core-app maken met Azure-app-configuratie
 
@@ -41,7 +41,7 @@ Als u wilt doen in deze Quick Start, installeert de [.NET Core SDK](https://dotn
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **sleutel/waarde-Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
 
     | Sleutel | Value |
     |---|---|
@@ -66,7 +66,7 @@ U gebruikt de [.NET Core-opdrachtregelinterface (CLI)](https://docs.microsoft.co
 
 Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/security/app-secrets) aan uw project. Dit hulpprogramma slaat gevoelige gegevens voor ontwikkeltaken op buiten de projectstructuur. Deze aanpak voorkomt dat er per ongeluk appgeheimen worden gedeeld in de broncode.
 
-- Open het bestand *.csproj*. Voeg een `UserSecretsId` element zoals hieronder, en vervang de waarde door uw eigen, dit meestal een GUID is. Sla het bestand op.
+- Open de *.csproj* bestand. Voeg een `UserSecretsId` element zoals hieronder, en vervang de waarde door uw eigen, dit meestal een GUID is. Sla het bestand op.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -88,7 +88,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
 1. Voeg een verwijzing naar de `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-pakket met de volgende opdracht:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. Voer de volgende opdracht om te herstellen van pakketten voor uw project:
 
@@ -102,7 +102,7 @@ Voeg de [Secret Manager hulpprogramma](https://docs.microsoft.com/aspnet/core/se
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    Secret Manager wordt alleen gebruikt om de web-app lokaal testen. Wanneer de app is geïmplementeerd, bijvoorbeeld naar [Azure App Service](https://azure.microsoft.com/services/app-service/web), gebruikt u een toepassing die u instelt, bijvoorbeeld, **verbindingsreeksen** in App Service. U kunt deze instelling gebruiken in plaats van de verbindingsreeks met Secret Manager.
+    Secret Manager wordt alleen gebruikt om de web-app lokaal testen. Wanneer de app wordt geïmplementeerd op [Azure App Service](https://azure.microsoft.com/services/app-service/web), bijvoorbeeld, u een toepassingsinstelling **verbindingsreeksen** in App Service in plaats van met Secret Manager voor het opslaan van de verbindingsreeks.
 
     Dit geheim wordt geopend met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam van de met de configuratie-API op alle ondersteunde platforms. Zie [configuratie omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 

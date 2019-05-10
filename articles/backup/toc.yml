@@ -205,6 +205,8 @@
           href: restore-sql-database-azure-vm.md
         - name: Back-ups van SQL Server-databases beheren
           href: manage-monitor-sql-database-backup.md
+    - name: Back-ups maken van SAP HANA-databases in virtuele Azure-machines
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: Back-ups maken van Windows Server-bestanden en -mappen

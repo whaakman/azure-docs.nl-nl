@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67016582149824c8deb83b54102190a57bd19383
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028798"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442373"
 ---
 # <a name="decision-forest-regression-module"></a>Beslissingsforest met regressie-module
 
@@ -25,7 +25,7 @@ Gebruik deze module om een regressiemodel dat op basis van een ensembles van bes
 
 Nadat u het model hebt geconfigureerd, moet u het model met behulp van een gegevensset met gelabelde trainen en het [Train Model](./train-model.md) module.  Het getrainde model kan vervolgens worden gebruikt om voorspellingen te doen. 
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Hoe het werkt
 
 Beslisbomen zijn niet-parametrische modellen die een reeks eenvoudige tests voor elk exemplaar een binaire gegevens van de boomstructuur doorlopen uitvoeren totdat een leafknooppunt (besluit) is bereikt.
 
@@ -39,7 +39,7 @@ Beslisbomen hebben deze voordelen:
 
 Dit regressiemodel bestaat uit een ensembles van beslissingsstructuren. Elke structuur in een forest van de beslissing regressie voert een distributie Gaussiaans als een voorspelling. Een aggregatie wordt uitgevoerd via de ensembles van structuren een Gaussiaans-distributie die het dichtst bij de gecombineerde verdeling van alle structuren vinden in het model.
 
-Raadpleeg dit artikel voor meer informatie over het theoretische framework voor deze algoritme en de uitvoering ervan: [Besluit Forests: Een geünificeerd Framework voor classificatie, regressie, dichtheid schatting, inlaatspruitstuk Learning en leren met semi supervisie ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Raadpleeg dit artikel voor meer informatie over het theoretische framework voor deze algoritme en de uitvoering ervan: [Besluit Forests: Een geünificeerd Framework voor classificatie, regressie, dichtheid schatting, inlaatspruitstuk Learning en leren met semi supervisie](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Besluit Forest regressiemodel configureren
 
@@ -53,7 +53,7 @@ Raadpleeg dit artikel voor meer informatie over het theoretische framework voor 
 
     - **Repliceren**: Bij replicatie wordt elke structuur getraind op exact dezelfde invoer gegevens. Het bepalen van welke splitsing predicaat wordt gebruikt voor elk knooppunt willekeurige blijft en de structuren worden diverse.
 
-         Voor meer informatie over het trainingsproces met de **repliceren** Zie [besluit Forests voor Computer Vision en medische analyse van de afbeelding. Criminisi en J. Shotton. Springer 2013.](http://research.microsoft.com/projects/decisionforests/).
+         Voor meer informatie over het trainingsproces met de **repliceren** Zie [besluit Forests voor Computer Vision en medische analyse van de afbeelding. Criminisi en J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
 
 3. Geef op hoe u het model te trainen, door in te stellen de **trainer aanmaakmodus** optie.
 

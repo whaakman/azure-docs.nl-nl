@@ -3,15 +3,15 @@ title: Lokaal ontwikkelen met de Azure Cosmos-Emulator
 description: Met behulp van de Azure Cosmos-emulator gebruikt, kunt u ontwikkelen en testen van uw toepassing lokaal voor gratis, zonder dat het maken van een Azure-abonnement.
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: ac2510b97e083cbbcd6529feb6f02fa17455fcb8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 03/14/2019
+ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925508"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205793"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Gebruik de Azure Cosmos-emulator gebruikt voor lokale ontwikkeling en testen
 
@@ -243,7 +243,7 @@ Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te 
 | GetStatus |Hiermee haalt u de status van de Azure Cosmos-Emulator. De status wordt aangegeven door de afsluitcode: 1 = starten, 2 = wordt uitgevoerd, 3 = gestopt. Een negatieve afsluitcode geeft aan dat er een fout is opgetreden. Er wordt geen andere uitvoer geproduceerd. | CosmosDB.Emulator.exe /GetStatus| |
 | Afsluiten| De Azure Cosmos-Emulator wordt afgesloten.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Specificeert het pad waarin de gegevensbestanden worden opgeslagen. Standaardwaarde is % LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<gegevenspad\> | \<gegevenspad\>: Een toegankelijk pad |
-|Poort | Specificeert het poortnummer dat moet worden gebruikt voor de emulator. Standaardwaarde is 8081. |CosmosDB.Emulator.exe /Port=\<poort\> | \<poort\>: Enkel poortnummer |
+|Port | Specificeert het poortnummer dat moet worden gebruikt voor de emulator. Standaardwaarde is 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<poort\>: Enkel poortnummer |
 | MongoPort | Specificeert het poortnummer dat moet worden gebruikt MongoDB compatibiliteit-API. Standaardwaarde is 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongopoort\>: Enkel poortnummer|
 | CassandraPort | Hiermee geeft u het poortnummer dat moet worden gebruikt voor het Cassandra-eindpunt. Standaardwaarde is 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Enkel poortnummer |
 | ComputePort | Het poortnummer dat moet worden gebruikt voor de Compute Interop-gatewayservice opgegeven. Poort test HTTP-eindpunt van de Gateway wordt berekend als ComputePort + 79. Daarom kan moet ComputePort en ComputePort + 79 open zijn en beschikbaar. De standaardwaarden zijn 8900, 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Enkel poortnummer |
@@ -264,12 +264,12 @@ Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te 
 | DisableRateLimiting |Geeft aan dat het beperkingsgedrag van de aanvraagsnelheid is uitgeschakeld. |CosmosDB.Emulator.exe /DisableRateLimiting | |
 | NoUI | De gebruikersinterface van de emulator niet weergeven. | CosmosDB.Emulator.exe /NoUI | |
 | NoExplorer | Geen Data Explorer weergeven bij het opstarten. |CosmosDB.Emulator.exe /NoExplorer | | 
-| PartitionCount | Hiermee geeft u het maximum aantal gepartitioneerde containers. Zie [wijzigen van het aantal containers](#set-partitioncount) voor meer informatie. | CosmosDB.Emulator.exe /PartitionCount=\<aantal partities\> | \<aantal partities\>: Maximum aantal toegestane één partitie containers. Standaardwaarde is 25. Maximaal toegestaan is 250.|
-| DefaultPartitionCount| Hiermee geeft u het aantal partities voor een gepartitioneerde container. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<standaardaantal partities\> | \<defaultpartitioncount\> standaardwaarde is 25.|
+| PartitionCount | Hiermee geeft u het maximum aantal gepartitioneerde containers. Zie [wijzigen van het aantal containers](#set-partitioncount) voor meer informatie. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<aantal partities\>: Maximum aantal toegestane één partitie containers. Standaardwaarde is 25. Maximaal toegestaan is 250.|
+| DefaultPartitionCount| Hiermee geeft u het aantal partities voor een gepartitioneerde container. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> standaardwaarde is 25.|
 | AllowNetworkAccess | Geeft toegang tot de emulator via een netwerk. U moet ook /Key=\<sleutelreeks\> of /KeyFile=\<bestandsnaam\> doorgeven om netwerktoegang in te schakelen. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> of  CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
 | NoFirewall | Firewall-regels niet worden aangepast wanneer /AllowNetworkAccess optie wordt gebruikt. |CosmosDB.Emulator.exe /NoFirewall | |
 | GenKeyFile | Een nieuwe autorisatiesleutel genereren en opslaan in het opgegeven bestand. De gegenereerde sleutel kan worden gebruikt met de opties/Key of/KeyFile. | CosmosDB.Emulator.exe /GenKeyFile=\<pad naar sleutelbestand\> | |
-| Consistentie | Het standaard consistentieniveau voor het account instellen. | CosmosDB.Emulator.exe /Consistency=\<consistentie\> | \<consistentie\>: De waarde moet een van de volgende [consistentieniveaus](consistency-levels.md) zijn: Sessie, Sterk, Mogelijk of Gebonden veroudering. De standaardwaarde is Sessie. |
+| Consistentie | Het standaard consistentieniveau voor het account instellen. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<consistentie\>: De waarde moet een van de volgende [consistentieniveaus](consistency-levels.md) zijn: Sessie, Sterk, Mogelijk of Gebonden veroudering. De standaardwaarde is Sessie. |
 | ? | Het helpbericht weergeven.| | |
 
 ## <a id="set-partitioncount"></a>Het aantal containers wijzigen
@@ -414,7 +414,7 @@ U opent de Data Explorer door naar de volgende URL in uw browser te gaan. Het ei
     https://<emulator endpoint provided in response>/_explorer/index.html
 
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Gebruik de volgende tips voor het oplossen van problemen die met de Azure Cosmos-Emulator optreden:
 

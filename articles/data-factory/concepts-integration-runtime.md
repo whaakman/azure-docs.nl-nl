@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 05/07/2019
 ms.author: abnarain
-ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261978"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232423"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integration Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
 
+- **Gegevensstroom**: Voer een [gegevensstroom](concepts-data-flow-overview.md) in beheerde Azure compute-omgeving.  
 - **Gegevensverplaatsing**: Gegevens kopiëren naar gegevensarchieven in openbare netwerken en gegevensopslag in een particulier netwerk (on-premises of virtueel particulier netwerk). Deze optie biedt ondersteuning voor ingebouwde connectors, indelingsconversie, kolomtoewijzing en hoogwaardige en schaalbare gegevensoverdracht.
-- **Verzending van de activiteit**:  Verzenden en controleren transformatieactiviteiten die worden uitgevoerd op verschillende rekenservices zoals Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server en meer.
+- **Verzending van de activiteit**:  Verzenden en controleren transformatieactiviteiten die worden uitgevoerd op verschillende rekenservices zoals Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server en meer.
 - **SSIS-pakketuitvoering**: Systeemeigen SQL Server Integration Services (SSIS)-pakketten uitvoeren in een beheerde Azure compute-omgeving.
 
-In de Data Factory definieert een activiteit de actie die moet worden uitgevoerd. Een gekoppelde service definieert een doelgegevensarchief of een rekenservice. Een Integration Runtime vormt de brug tussen de activiteit en de gekoppelde services.  Er wordt naar verwezen door de gekoppelde service en biedt de rekenomgeving waarop de activiteit wordt uitgevoerd of waaruit deze wordt opgehaald.  Op deze manier kan de activiteit optimaal worden uitgevoerd in de regio die het dichtst mogelijk bij het doelgegevensarchief of de rekenservice ligt, terwijl wordt voldaan aan vereisten rondom beveiliging en naleving.
+In de Data Factory definieert een activiteit de actie die moet worden uitgevoerd. Een gekoppelde service definieert een doelgegevensarchief of een rekenservice. Een Integration Runtime vormt de brug tussen de activiteit en de gekoppelde services.  Het wordt verwezen door de gekoppelde service of de activiteit, en biedt de compute-omgeving waarin de activiteit op wordt uitgevoerd of wordt verzonden. Op deze manier kan de activiteit optimaal worden uitgevoerd in de regio die het dichtst mogelijk bij het doelgegevensarchief of de rekenservice ligt, terwijl wordt voldaan aan vereisten rondom beveiliging en naleving.
 
 ## <a name="integration-runtime-types"></a>Typen Integration Runtime
 Data Factory biedt drie typen Integration Runtime. Kies het type dat het beste aansluit op de mogelijkheden voor de gegevensintegratie en de behoeften op het gebied van de netwerkomgeving.  Deze drie typen zijn:
@@ -39,7 +40,7 @@ De volgende tabel beschrijft de mogelijkheden en de netwerkondersteuning voor de
 
 IR-type | Openbaar netwerk | Privénetwerk
 ------- | -------------- | ---------------
-Azure | Gegevensverplaatsing<br/>Verzending van de activiteit | &nbsp;
+Azure | Gegevensstroom<br/>Gegevensverplaatsing<br/>Verzending van de activiteit | &nbsp;
 Zelf-hostend | Gegevensverplaatsing<br/>Verzending van de activiteit | Gegevensverplaatsing<br/>Verzending van de activiteit
 Azure-SSIS | Uitvoering van SSIS-pakket | Uitvoering van SSIS-pakket
 
@@ -50,20 +51,24 @@ Het volgende diagram toont hoe verschillende typen Integration Runtime gecombine
 ## <a name="azure-integration-runtime"></a>Azure Integration Runtime
 Een Azure Integration Runtime is geschikt voor:
 
+- Gegevensoverdrachten worden uitgevoerd in Azure 
 - Het uitvoeren van kopieeractiviteit tussen gegevensarchieven in de cloud
-- Verzenden van de volgende transformatieactiviteiten in openbare netwerken: HDInsight Hive-activiteit, HDInsight Pig-activiteit, HDInsight MapReduce-activiteit, HDInsight Spark-activiteit, HDInsight Streaming-activiteit, Machine Learning Batch Execution-activiteit, Machine Learning Update Resource-activiteiten, Stored Procedure-activiteit Data Lake Analytics U-SQL-activiteit, aangepaste .NET-activiteit, webactiviteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens.
+- Verzenden van de volgende transformatieactiviteiten in openbare netwerken: Databricks-Notebook / Jar / Python-activiteit, HDInsight Hive-activiteit, HDInsight Pig-activiteit, HDInsight MapReduce-activiteit, HDInsight Spark-activiteit, HDInsight Streaming-activiteit, Machine Learning Batch Execution-activiteit, Machine Learning Update Resource activiteiten, Stored Procedure-activiteit, Data Lake Analytics U-SQL-activiteit, aangepaste .NET-activiteit, webactiviteit, opzoekactiviteit en Ophaalactiviteit voor metagegevens.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-netwerkomgeving
-Azure Integration Runtime ondersteunt verbindingen met gegevensarchieven en rekenservices in openbare netwerken met openbaar toegankelijke eindpunten. Gebruik een zelf-hostende Integration Runtime voor een Azure Virtual Network-omgeving.
+Azure Integration Runtime ondersteunt verbindingen met gegevensarchieven en compute-services met openbaar toegankelijke eindpunten. Gebruik een zelf-hostende Integration Runtime voor een Azure Virtual Network-omgeving.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Azure IR-rekenresource en -schalen
 Azure Integration Runtime biedt een volledig beheerde, serverloze rekenresource in Azure.  U hoeft zich geen zorgen te maken over het inrichten van de infrastructuur, de software-installatie, patchen of capaciteitsschaling.  Bovendien betaalt u alleen voor het werkelijke gebruik.
 
-Azure Integration Runtime biedt de systeemeigen rekenkracht om gegevens te verplaatsen tussen gegevensarchieven in de cloud op een veilige, betrouwbare en krachtige manier.  U kunt instellen hoeveel eenheden voor gegevensintegratie worden gebruikt in de kopieeractiviteit. De rekenkracht van de Azure IR wordt flexibel opgeschaald om aan uw behoeften te voldoen, zonder dat u de grootte van de Azure Integration Runtime expliciet hoeft aan te passen.
+Azure Integration Runtime biedt de systeemeigen rekenkracht om gegevens te verplaatsen tussen gegevensarchieven in de cloud op een veilige, betrouwbare en krachtige manier.  U kunt instellen hoeveel eenheden voor gegevensintegratie worden gebruikt in de kopieeractiviteit. De rekenkracht van de Azure IR wordt flexibel opgeschaald om aan uw behoeften te voldoen, zonder dat u de grootte van de Azure Integration Runtime expliciet hoeft aan te passen. 
 
 Verzending van de activiteit is een lichte bewerking om de activiteit naar de doelrekenservice te routeren. U hoeft de rekenkracht niet op te schalen voor dit scenario.
 
 Zie voor informatie over het maken en configureren van een Azure-IR 'Azure IR maken en configureren' bij de gidsen. 
+
+> [!NOTE] 
+> Azure integratieruntime heeft eigenschappen die betrekking hebben op de gegevensstroom runtime, waarin het onderliggende rekeninfrastructuur die zouden worden gebruikt voor het uitvoeren van de gegevensstromen op. 
 
 ## <a name="self-hosted-integration-runtime"></a>Zelf-hostende Integration Runtime
 Een zelf-hostende IR is geschikt voor:
@@ -112,7 +117,13 @@ U kunt een bepaalde locatie van een Azure IR instellen, in welk geval de gegeven
 Als u ervoor kiest de Azure IR voor automatisch oplossen te gebruiken (de standaardwaarde), gebeurt het volgende, 
 
 - Voor kopieeractiviteit probeert ADF om automatisch uw sink- en brongegevensopslag te detecteren om de beste locatie te vinden in dezelfde regio, indien beschikbaar, of in de dichtstbijzijnde regio in dezelfde geografie. Indien niet detecteerbaar, wordt de regio van de data factory gebruikt.
+
 - Voor de uitvoering van de activiteit Lookup/GetMetadata en verzending van transformatie-activiteiten gebruikt ADF de IR in de regio van de data factory.
+
+- Voor de gegevensstroom, ADF de IR gebruikt in de regio voor gegevensfactory. 
+
+  > [!TIP] 
+  > Een goede gewoonte is om te controleren of de gegevensstroom wordt uitgevoerd in dezelfde regio als de bijbehorende gegevensarchieven (indien mogelijk). U kunt dit bereiken door automatisch oplossen Azure IR (als opslaglocatie voor gegevens is hetzelfde als Data Factory-locatie) of door het maken van een nieuw exemplaar van Azure IR in dezelfde regio als uw gegevensarchieven en vervolgens de gegevensstroom erop wordt uitgevoerd. 
 
 U kunt controleren welke IR-locatie van kracht wordt tijdens het uitvoeren van activiteiten in de weergave voor het controleren van de pijplijnactiviteit in de gebruikersinterface of nettolading voor het controleren van activiteiten.
 
@@ -153,8 +164,13 @@ De activiteit Lookup en GetMetadata wordt uitgevoerd voor de integratieruntime d
 
 Elke transformatieactiviteit heeft een gekoppelde doelrekenservice die naar een Integration Runtime verwijst. Vanuit dit exemplaar van de Integration Runtime wordt de transformatieactiviteit verzonden.
 
+### <a name="data-flow-activity"></a>Gegevens Stroomactiviteit controleren
+
+Stroomactiviteit gegevens wordt uitgevoerd in de integratieruntime zijn gekoppeld. 
+
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:
 
+- [Azure integratieruntime maken](create-azure-integration-runtime.md)
 - [Zelf-hostende integratie-runtime maken](create-self-hosted-integration-runtime.md)
 - [Een Azure-SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). In dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Database Managed Instance en toevoegen van de IR aan een virtueel netwerk. 

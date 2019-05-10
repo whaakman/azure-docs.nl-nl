@@ -5,19 +5,18 @@ services: functions
 keywords: OpenAPI, Swagger, cloud-apps, cloud-services,
 author: ggailey777
 manager: jeconnoc
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 255a7c9d0b9da15176fca90c6934a84fa0f863ed
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141566"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501857"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Een OpenAPI-definitie voor een functie maken met Azure API Management
 
@@ -133,13 +132,9 @@ U hebt nu een functie die de kosteneffectiviteit van noodreparaties bepaalt. Ver
 
 U nu kunt de OpenAPI-definitie genereren.
 
-1. Selecteer de functie-app en selecteer vervolgens **platformfuncties**, **alle instellingen**
+1. Vervolgens selecteert u de functie-app in **platformfuncties**, kiest u **API Management** en selecteer **nieuw** onder **API Management**.
 
-    ![Test de functie in de Azure Portal](media/functions-openapi-definition/select-all-settings-openapi.png)
-
-1. Schuif naar beneden en kies vervolgens **API Management** > **nieuw** te maken van een nieuw API Management-exemplaar.
-
-    ![Functie](media/functions-openapi-definition/link-apim-openapi.png)
+    ![API Management kiezen in de functies van het Platform](media/functions-openapi-definition/select-all-settings-openapi.png)
 
 1. Gebruik de API Management-instellingen zoals opgegeven in de tabel onder de afbeelding.
 
@@ -150,11 +145,10 @@ U nu kunt de OpenAPI-definitie genereren.
     | **Naam** | Wereldwijd unieke naam | Een naam is gegenereerd op basis van de naam van uw functie-app. |
     | **Abonnement** | Uw abonnement | Het abonnement waaronder deze nieuwe resource wordt gemaakt. |  
     | **[Resourcegroep](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Dezelfde resource als uw functie-app die u moet ophalen. |
-    | **Locatie** | US - west | Kies de locatie VS-West |
+    | **Locatie** | US - west | Kies de locatie VS-West. |
     | **Naam van de organisatie** | Contoso | De naam van de organisatie in de portal voor ontwikkelaars en voor e-mailmeldingen gebruikt. |
     | **E-mailadres van de beheerder** | uw e-mailadres | E-mailadres dat systeemmeldingen van API Management hebt ontvangen. |
-    | **Prijscategorie** | Verbruik (preview-versie) | Zie voor volledige informatie over prijsinformatie de [API Management-pagina met prijzen](https://azure.microsoft.com/pricing/details/api-management/) |
-    | **Application Insights** | Uw exemplaar | Gebruik de dezelfde Application Insights die wordt gebruikt door uw functie-app. |
+    | **Prijscategorie** | Verbruik (preview-versie) | Gebruik laag is in preview en is niet beschikbaar in alle regio's. Zie voor volledige informatie over prijsinformatie de [API Management-pagina met prijzen](https://azure.microsoft.com/pricing/details/api-management/) |
 
 1. Kies **maken** te maken van de API Management-instantie kan enkele minuten duren.
 
@@ -178,27 +172,20 @@ Voordat u de API-definitie gebruiken, moet u controleren of deze werkt.
 
 1. Voer waarden in voor **uur** en **capaciteit**
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. Klik op **verzenden**, bekijk vervolgens de HTTP-antwoord.
 
     ![Test function-API](media/functions-openapi-definition/test-function-api-openapi.png)
 
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Een maken functie in Azure
-> * Genereren van een OpenAPI-definitie met Azure API Management
-> * De definitie testen door het aanroepen van de functie
-
-Ga naar het volgende onderwerp voor meer informatie over API Management.
-
 > [!div class="nextstepaction"]
-> [API Management](../api-management/api-management-key-concepts.md)
+> [Meer informatie over API Management](../api-management/api-management-key-concepts.md)

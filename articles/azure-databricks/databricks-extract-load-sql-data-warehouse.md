@@ -7,18 +7,17 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/07/2019
+ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239320"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203357"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Azure Databricks
 
-In deze zelfstudie voert u een ETL-bewerking (Extraction, Transformation, and Loading) uit met behulp van Azure Databricks. U haalt gegevens op uit Azure Data Lake Storage Gen2 en draagt deze over naar Azure Databricks, voert transformaties uit op de gegevens in Azure Databricks, waarna u de getransformeerde gegevens in Azure SQL Data Warehouse laadt.
+In deze zelfstudie voert u een ETL-bewerking (Extraction, Transformation, and Loading) uit met behulp van Azure Databricks. U gegevens ophalen uit Azure Data Lake Storage Gen2 naar Azure Databricks, voert transformaties uit op de gegevens in Azure Databricks en de getransformeerde gegevens laden in Azure SQL Data Warehouse.
 
 Voor de stappen in deze zelfstudie wordt gebruik gemaakt van de SQL Data Warehouse-connector voor Azure Databricks om gegevens over te dragen naar Azure Databricks. Op zijn beurt gebruikt deze connector Azure Blob Storage als tijdelijke opslag voor de gegevens die worden overgebracht tussen een Azure Databricks-cluster en Azure SQL Data Warehouse.
 
@@ -48,13 +47,13 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Voltooi deze taken voordat u aan deze zelfstudie begint:
 
-* Maak een Azure SQL-datawarehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Zie [Quickstart: Een Azure SQL Data Warehouse maken](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Maak een Azure SQL-datawarehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Zie [Quickstart: Maken en het opvragen van een Azure SQL datawarehouse in Azure portal](../sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Maak een databasehoofdsleutel voor de Azure SQL-datawarehouse. Zie [Een databasehoofdsleutel maken](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Zie [Quickstart: Een Azure Blob Storage-account maken](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Zie [Quickstart: Blobs uploaden, downloaden, en lijst met de Azure-portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Een Azure Data Lake Storage Gen2-opslagaccount maken. Zie [maken van een account met Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Een Azure Data Lake Storage Gen2-opslagaccount maken. Zie [Quickstart: Maken van een storage-account van Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Een service-principal maken. Raadpleeg [Uitleg: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -355,6 +354,11 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > In dit voorbeeld wordt de `forward_spark_azure_storage_credentials` vlag, waardoor SQL Data Warehouse voor toegang tot gegevens uit blob storage met behulp van een toegangssleutel. Dit is de enige ondersteunde methode voor verificatie.
+   >
+   > Als uw Azure Blob-opslag beperkt is tot het selecteren van virtuele netwerken, vereist SQL Data Warehouse [beheerde Service-identiteit in plaats van toegangssleutels](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Dit zorgt ervoor dat de fout "deze aanvraag is niet geautoriseerd deze bewerking uit te voeren."
 
 6. Maak verbinding met de SQL-database en controleer of u de database **SampleTable** ziet.
 

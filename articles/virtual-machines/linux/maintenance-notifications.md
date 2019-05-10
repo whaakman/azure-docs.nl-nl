@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: b1764eaf3f496b52bdd73afb5489843ab15cacbd
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 40ae8f0fb9c0c5980c4db1471b2bbad56a57d486
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993047"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410484"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Meldingen gepland onderhoud verwerken voor virtuele Linux-machines
 
@@ -27,13 +27,13 @@ Van tijd tot tijd voert Azure updates uit om de betrouwbaarheid, prestaties en v
 
 - Als het onderhoud niet opnieuw worden opgestart vereist, gebruikt Azure in-place migratie voor de virtuele machine wordt onderbroken terwijl de host is bijgewerkt. Deze onderhoudsbewerkingen niet rebootful zijn toegepast foutdomein door foutdomein en voortgang is gestopt als er health waarschuwingssignalen worden ontvangen.
 
-- Als u onderhoud moet worden opgestart, krijgt u een kennisgeving van wanneer het onderhoud is gepland. In dergelijke gevallen krijgt u een bepaalde periode waar u het onderhoud zelf beginnen kunt, wanneer het voor u werkt.
+- Als u onderhoud moet worden opgestart, krijgt u een kennisgeving van wanneer het onderhoud is gepland. In dergelijke gevallen krijgt u een tijdvenster op dat doorgaans 30 dagen waar u het onderhoud kan starten, wanneer het voor u werkt.
 
 
 Gepland onderhoud die worden opgestart moet is in vaste blokken gepland. Elk blok heeft een ander bereik (regio's).
 
 - Een golf begint met een melding aan klanten. Standaard wordt melding verzonden naar de eigenaar van het abonnement en mede-eigenaren. U kunt meer ontvangers en opties zoals e-mail, SMS en webhooks, toevoegen aan de meldingen met behulp van Azure [waarschuwingen voor activiteitenlogboeken](../../azure-monitor/platform/activity-logs-overview.md).  
-- Op het moment van de melding een *selfservice venster* beschikbaar wordt gesteld. Tijdens dit venster die meestal vier weken, merkt u welke van uw virtuele machines zijn opgenomen in deze wave en onderhoud op basis van uw eigen behoeften planning proactief te starten.
+- Op het moment van de melding een *selfservice venster* beschikbaar wordt gesteld. Tijdens dit venster die doorgaans 30 dagen, merkt u welke van uw virtuele machines zijn opgenomen in deze wave en onderhoud op basis van uw eigen behoeften planning proactief te starten.
 - Nadat het venster zelf een *geplande onderhoudsvenster* begint. Op een bepaald moment tijdens dit venster Azure plant en het vereiste onderhoud is van toepassing op uw virtuele machine. 
 
 Het doel voor het hebben van twee windows is dat u voldoende tijd is voor onderhoud starten en opnieuw opstarten van uw virtuele machine en als Azure automatisch onderhoud wordt gestart.

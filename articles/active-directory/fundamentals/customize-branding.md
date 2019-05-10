@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247795"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441637"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Huisstijl van uw organisatie Azure Active Directory-aanmelden pagina toevoegen
 Het logo en de aangepaste kleurenschema's van uw organisatie gebruiken om een consistent uiterlijk-en-werking op uw Azure Active Directory (Azure AD) aanmeldingspagina's. Uw aanmeldingspagina's worden weergegeven wanneer gebruikers zich aanmelden bij uw organisatie op basis van een web-apps, zoals Office 365, dat gebruikmaakt van Azure AD als id-provider.
@@ -70,7 +70,7 @@ Uw aangepaste huisstijl niet onmiddellijk weergegeven wanneer uw gebruikers gaat
 
         - **De achtergrondkleur van de aanmeldingspagina.** De hexadecimale kleur opgeven (bijvoorbeeld wit is #FFFFFF) die wordt weergegeven in plaats van uw achtergrondafbeelding in situaties met een lage bandbreedte verbinding. We raden u aan met behulp van de primaire kleur van uw logo in banner of de kleur van uw organisatie.
 
-        - **Afbeelding met vierkant logo.** Selecteer een PNG (bij voorkeur) of JPG-afbeelding van het logo van uw organisatie worden weergegeven aan gebruikers tijdens de installatieprocedure voor de nieuwe Windows 10 Enterprise-apparaten. Deze installatiekopie wordt alleen gebruikt voor Windows-verificatie en wordt alleen weergegeven op tenants die gebruikmaken van [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) voor implementatie of voor wachtwoordinvoer pagina's in andere Windows-10-ervaringen.
+        - **Afbeelding met vierkant logo.** Selecteer een PNG (bij voorkeur) of JPG-afbeelding van het logo van uw organisatie worden weergegeven aan gebruikers tijdens de installatieprocedure voor de nieuwe Windows 10 Enterprise-apparaten. Deze installatiekopie wordt alleen gebruikt voor Windows-verificatie en wordt alleen weergegeven op tenants die gebruikmaken van [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) voor implementatie of voor wachtwoordinvoer pagina's in andere Windows-10-ervaringen. In sommige gevallen kan deze ook weergegeven in het dialoogvenster.
         
             De installatiekopie mag niet groter zijn dan 240 x 240 pixels groot en een bestandsgrootte van minder dan 10 KB als ze beschikken. U wordt aangeraden een transparante afbeelding gebruikt, omdat de achtergrond mogelijk niet overeen met de achtergrond van het logo. Het beste ook niet toe te voegen opvulling rond de afbeelding of het ervoor kan zorgen dat uw logo kleine zoeken.
     

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad69c4108d747c44eccf37b81adf2c7c615cb58
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156844"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410720"
 ---
 # <a name="create-a-custom-voice"></a>Maken van een aangepaste spraak
 
-In [gegevens voorbereiden voor aangepaste spraak](how-to-custom-voice-prepare-data.md), we de verschillende gegevenstypen die u gebruiken kunt voor het trainen van een aangepaste spraak- en de verschillende vereisten die worden beschreven. Als u uw gegevens hebt voorbereid, kunt u beginnen met uploaden ze naar de [aangepaste spraak portal](http://aka.ms/custom-voice-portal), of via de API voor aangepaste spraak training. Hier beschrijven we de stappen voor het trainen van een aangepaste gesproken via de portal.
+In [gegevens voorbereiden voor aangepaste spraak](how-to-custom-voice-prepare-data.md), we de verschillende gegevenstypen die u gebruiken kunt voor het trainen van een aangepaste spraak- en de verschillende vereisten die worden beschreven. Als u uw gegevens hebt voorbereid, kunt u beginnen met uploaden ze naar de [aangepaste spraak portal](https://aka.ms/custom-voice-portal), of via de API voor aangepaste spraak training. Hier beschrijven we de stappen voor het trainen van een aangepaste gesproken via de portal.
 
 > [!NOTE]
 > Deze pagina wordt ervan uitgegaan dat u hebt gelezen [aan de slag met aangepaste spraak](how-to-custom-voice.md) en [gegevens voorbereiden voor aangepaste spraak](how-to-custom-voice-prepare-data.md), en een aangepaste spraak-project hebt gemaakt.
@@ -28,7 +28,7 @@ Controleer de talen die worden ondersteund voor aangepaste spraak: [taal voor aa
 
 ## <a name="upload-your-datasets"></a>Uw gegevenssets uploaden
 
-Als u klaar om uw gegevens te uploaden bent, gaat u naar de [aangepaste spraak portal](http://aka.ms/custom-voice-portal). Maak of Selecteer een aangepaste spraak-project. Het project moet delen geslacht eigenschappen als de gegevens en de juiste taal/landinstelling doel te gebruiken voor uw stemtraining. Selecteer bijvoorbeeld `en-GB` als de audio-opnamen hebt gedaan met een groot-Brittannië accent in het Engels.
+Als u klaar om uw gegevens te uploaden bent, gaat u naar de [aangepaste spraak portal](https://aka.ms/custom-voice-portal). Maak of Selecteer een aangepaste spraak-project. Het project moet delen geslacht eigenschappen als de gegevens en de juiste taal/landinstelling doel te gebruiken voor uw stemtraining. Selecteer bijvoorbeeld `en-GB` als de audio-opnamen hebt gedaan met een groot-Brittannië accent in het Engels.
 
 Ga naar de **gegevens** tabblad en klik op **gegevens uploaden**. Selecteer het juiste gegevenstype die overeenkomt met wat u hebt voorbereid in de wizard.
 
@@ -47,7 +47,7 @@ De volgende tabel ziet u de verwerking van statussen voor geïmporteerde gegeven
 | Status | Betekenis |
 | ----- | ------- |
 | Verwerken | Uw gegevensset is ontvangen en wordt verwerkt. |
-| Geslaagd | Uw gegevensset is gevalideerd en kan nu worden gebruikt om een stem-model bouwen. |
+| Voltooid | Uw gegevensset is gevalideerd en kan nu worden gebruikt om een stem-model bouwen. |
 | Mislukt | Uw gegevensset is tijdens de verwerking van vanwege verschillende redenen, bijvoorbeeld bestandsfouten, problemen met gegevens of netwerkproblemen is mislukt. |
 
 Nadat de validatie is voltooid, ziet u het totale aantal overeenkomende uitingen voor elk van uw gegevenssets in de **uitingen** kolom. Als het gegevenstype dat u hebt geselecteerd lange-audio segmentering vereist, geeft deze kolom alleen de uitingen die we hebben gesegmenteerd voor u die een op basis van uw Transcripten of via de service transcriptie van spraak. Verder kunt u downloaden van de gegevensset die is gevalideerd om de resultaten van de details van de uitingen die zijn geïmporteerd en hun toewijzing Transcripten weer te geven. Hint: lange-audio segmentatie kan meer dan een uur gegevensverwerking duren.
@@ -89,7 +89,7 @@ De status die wordt weergegeven, geeft het proces van het converteren van uw geg
 | Status | Betekenis |
 | ----- | ------- |
 | Verwerken | Uw stem-model wordt gemaakt. |
-| Geslaagd | Het model van uw stem is gemaakt en kan worden geïmplementeerd. |
+| Voltooid | Het model van uw stem is gemaakt en kan worden geïmplementeerd. |
 | Mislukt | Het model van uw stem is uitgevoerd in training vanwege verschillende redenen, bijvoorbeeld niet waren herkend problemen of netwerkproblemen. |
 
 Tijd training, is afhankelijk van het volume van audiogegevens verwerkt. Typische tijden variëren van informatie over-30 minuten voor honderden uitingen tot 20.000 uitingen 40 uur. Als uw modeltraining is voltooid, kunt u starten om deze te testen.

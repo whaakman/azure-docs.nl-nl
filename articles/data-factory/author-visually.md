@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60592888"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507823"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -60,7 +60,7 @@ Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen 
 
 | Instelling | Description | Value |
 |:--- |:--- |:--- |
-| **Type opslagplaats** | Het type van de codeopslagplaats Azure-opslagplaatsen.<br/>**Opmerking**: GitHub wordt momenteel niet ondersteund. | Azure-opslagplaatsen Git |
+| **Type opslagplaats** | Het type van de codeopslagplaats Azure-opslagplaatsen.<br/> | Azure-opslagplaatsen Git |
 | **Azure Active Directory** | De naam van uw Azure AD-tenant. | `<your tenant name>` |
 | **Organisatie van de Azure-opslagplaatsen** | De naam van uw Azure-opslagplaatsen-organisatie. U vindt de naam van uw Azure-opslagplaatsen organisatie op `https://{organization name}.visualstudio.com`. U kunt [aanmelden bij uw organisatie Azure-opslagplaatsen](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en -opslagplaatsen en projecten weergegeven. | `<your organization name>` |
 | **ProjectName** | De naam van uw Azure-opslagplaatsen-project. U vindt de naam van uw Azure-opslagplaatsen project op `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |

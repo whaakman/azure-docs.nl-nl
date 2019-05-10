@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620735"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442396"
 ---
 # <a name="service-health"></a>Service Health
 Status van de service biedt u een aanpasbaar dashboard houdt de status van uw Azure-services in de regio's waar u ze gebruiken. In dit dashboard, kunt u actieve gebeurtenissen, zoals problemen van de serviceonderbreking gepland onderhoud of relevante statusadvies bijhouden. Wanneer gebeurtenissen niet-actief worden, krijgen ze in de geschiedenis van uw geplaatst voor maximaal 90 dagen. Ten slotte kunt u de Service Health-dashboard maken en beheren van waarschuwingen van de health service die u proactief te waarschuwen wanneer er problemen met de service van invloed zijn op u.
@@ -60,5 +60,7 @@ Service Health om weer te geven uw bedrijfskritische abonnementen, regio's en re
 ## <a name="configure-service-health-alerts"></a>Service health waarschuwingen configureren
 Status van de service kan worden geïntegreerd met Azure Monitor om u te waarschuwen via e-mails, SMS-berichten en webhook-meldingen wanneer er gevolgen zijn voor uw bedrijfskritische resources. Instellen van een waarschuwing voor activiteitenlogboek voor de betreffende service health-gebeurtenis. Deze waarschuwing gerouteerd naar de juiste mensen in uw organisatie met behulp van Actiegroepen. Zie voor meer informatie, [waarschuwingen configureren voor servicestatus](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
-# <a name="next-steps"></a>Volgende stappen
-Stel waarschuwingen in zodat u een melding van statusproblemen ontvangt. Zie voor meer informatie, [waarschuwingen configureren voor Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## <a name="next-steps"></a>Volgende stappen
+Stel waarschuwingen in zodat u een melding van statusproblemen ontvangt. Zie voor meer informatie, [aanbevolen procedures voor het instellen van waarschuwingen van Azure Service Health](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

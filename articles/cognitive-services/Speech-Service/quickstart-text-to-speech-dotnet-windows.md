@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
-ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b7addd369d5e26554dd4300e65bee66b8a62768
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620442"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465565"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Quickstart: Bootsen spraak met de spraak-SDK voor .NET Framework (Windows)
+
+Snelstartgidsen zijn ook beschikbaar voor [spraakherkenning](quickstart-csharp-dotnet-windows.md) en [spraakomzetting](quickstart-translate-speech-dotnetframework-windows.md).
 
 Deze handleiding gebruiken om een Text to Speech-consoletoepassing met behulp van .NET framework voor Windows en de SDK van de spraakherkenning te maken. Wanneer u klaar bent, kunt u bootsen spraak vanuit tekst en de stem van de spreker in realtime hoort.
 

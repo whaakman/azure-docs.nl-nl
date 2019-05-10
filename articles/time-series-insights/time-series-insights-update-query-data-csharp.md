@@ -1,5 +1,5 @@
 ---
-title: Opvragen van gegevens uit een Azure Time Series Insights GA-omgeving met C# code | Microsoft Docs
+title: Opvragen van gegevens uit een Azure Time Series Insights Preview-omgeving met C# code | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u gegevens uit een Azure Time Series Insights-omgeving op te vragen door een aangepaste app, geschreven in de C# (C-sharp) .NET-taal coderen.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,16 +12,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e8b8d47b04d7d0b93bc699064ee414bf4429c4a
+ms.openlocfilehash: ebd5cb92b510da56446ca9e559b03a56cb2af7cf
 ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510199"
+ms.locfileid: "65515277"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Opvragen van gegevens uit de Azure Time Series Insights GA omgeving gebruikenC#
+# <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Gegevens vanuit de Azure Time Series Insights Preview-omgeving met op te vragenC#
 
-Dit C# voorbeeld ziet u hoe u gegevens opvraagt uit de omgeving Azure Time Series Insights algemeen beschikbaar. 
+Dit C# voorbeeld ziet u hoe u gegevens opvraagt uit de Azure Time Series Insights Preview-omgeving.
 
 Er worden enkele eenvoudige voorbeelden voor het gebruik van de API-query gegeven:
 
@@ -31,18 +31,17 @@ Er worden enkele eenvoudige voorbeelden voor het gebruik van de API-query gegeve
 1. Er worden gebeurtenissamenvoegingsgegevens opgevraagd voor de belangrijkste omgeving als voorbeeld van een web socket-aanvraag. Er worden gegevens opgevraagd voor het volledige tijdsbereik van de beschikbaarheid.
 
 > [!NOTE]
-> De voorbeeldcode is beschikbaar op [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
-
-## <a name="project-dependencies"></a>Afhankelijkheden van project
-
-NuGet-pakketten toevoegen `Microsoft.IdentityModel.Clients.ActiveDirectory` en `Newtonsoft.Json`.
+> Deze voorbeeldcode is ook beschikbaar op [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
 
 ## <a name="c-example"></a>C#-voorbeeld
 
-[!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs)]
+[!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
+
+> [!NOTE]
+> Het bovenstaande codevoorbeeld kan worden uitgevoerd zonder te wijzigen van de standaardwaarden van de omgeving.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees voor meer informatie over het uitvoeren van query's, de [Query API-verwijzing](/rest/api/time-series-insights/ga-query-api).
+- Lees voor meer informatie over het uitvoeren van query's, de [Query API-verwijzing](/rest/api/time-series-insights/preview-query).
 
 - Lees hoe naar [verbinding maken met een JavaScript-app met één pagina](tutorial-create-tsi-sample-spa.md) voor Time Series Insights.

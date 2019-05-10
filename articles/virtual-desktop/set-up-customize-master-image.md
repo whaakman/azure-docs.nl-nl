@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: aff96931f95442c67d08521e72952dd79dad44e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58471dc539f72c49b041638e928dda751f4bf5a2
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870220"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410601"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Een VHD-hoofdinstallatiekopie voorbereiden en aanpassen
 
@@ -101,7 +101,7 @@ De volgende XML-voorbeeld wordt de Insiders-versie, ook wel bekend als Fast Insi
 
 ```xml
 <Configuration>
-    <Add OfficeClientEdition="64" SourcePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
+    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
         <Product ID="O365ProPlusRetail">
             <Language ID="en-US" />
             <Language ID="MatchOS" Fallback = "en-US"/>
@@ -125,7 +125,7 @@ De volgende XML-voorbeeld wordt de Insiders-versie, ook wel bekend als Fast Insi
         </Product>
     </Add>
     <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
+    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
     <Display Level="None" AcceptEULA="TRUE" />
     <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
     <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
@@ -210,7 +210,7 @@ Dit is het installeren van OneDrive in de modus per computer:
 6. Voer deze opdracht voor het configureren van OneDrive om te beginnen bij aanmelding voor alle gebruikers:
 
     ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
+    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. Schakel **gebruikersaccount op de achtergrond configureren** door het uitvoeren van de volgende opdracht uit.

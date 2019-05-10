@@ -1,6 +1,6 @@
 ---
-title: PaaS-implementaties beveiligen | Microsoft Docs
-description: " Informatie over de beveiligingsvoordelen van PaaS ten opzichte van andere service-modellen in de cloud en informatie over aanbevolen procedures voor het beveiligen van uw Azure PaaS-implementatie. "
+title: Best practices voor beveiligde implementaties van PaaS - Microsoft Azure
+description: Informatie over aanbevolen procedures voor het ontwerpen, bouwen, en beheren van beveiligde toepassingen op Azure in de cloud en informatie over de beveiligingsvoordelen van PaaS ten opzichte van andere cloud service-modellen.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107435"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231115"
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
 
@@ -29,6 +29,8 @@ Dit artikel bevat informatie die u helpt:
 - Evalueren van de beveiligingsvoordelen van het platform als een service (PaaS) en een andere cloud service-modellen
 - De focus van de beveiliging niet wijzigen van een centraal netwerk in een aanpak die perimeter-identiteit gebaseerde beveiliging
 - Algemene PaaS best practices voor aanbevelingen voor beveiliging implementeren
+
+[Ontwikkelen van beveiligde toepassingen op Azure](abstract-develop-secure-apps.md) is een algemene handleiding voor de beveiligingsvragen en -besturingselementen die u in elke fase van de software development lifecycle overwegen moet bij het ontwikkelen van toepassingen voor de cloud.
 
 ## <a name="cloud-security-advantages"></a>Voordelen van cloud-beveiliging
 Er zijn beveiligingsvoordelen wordt in de cloud. In een on-premises-omgeving, kunnen organisaties hebben nog niet vervulde verantwoordelijkheden en beperkte resources beschikbaar te investeren in de beveiliging, die zorgt voor een omgeving waarin aanvallers kunnen gebruikmaken van beveiligingsproblemen op alle lagen.
@@ -155,6 +157,10 @@ Gebruik [Azure Application Insights](https://azure.microsoft.com/documentation/s
 
 Application Insights heeft uitgebreide hulpmiddelen voor interactie met de gegevens die worden verzameld. Application Insights slaat zijn gegevens op in een gemeenschappelijke opslagplaats. Deze kan profiteren van de gedeelde-functionaliteit, zoals waarschuwingen, dashboards en geavanceerde analyse met de Kusto-query-taal.
 
+## <a name="perform-security-penetration-testing"></a>Indringingstests beveiliging uitvoeren
+Valideren van beveiligingen is net zo belangrijk als alle andere functionaliteit testen. Controleer [indringingstests](azure-security-pen-testing.md) standaard deel uitmaken van uw build- en implementatieproces. Plannen van regelmatige tests en scannen op geïmplementeerde toepassingen van beveiligingsproblemen en controleren voor open poorten, eindpunten en aanvallen.
+
+Fuzzy testen is een methode voor het programma fouten (fouten) vinden door te geven van een verkeerd ingedeelde invoergegevens naar program interfaces (toegangspunten) die parseren en deze gegevens gebruiken. [Risico voor de beveiliging van het Microsoft Detection](https://www.microsoft.com/en-us/security-risk-detection/) is een cloud-gebaseerde hulpprogramma die u gebruiken kunt om te zoeken naar bugs en andere beveiligingsproblemen in de software voordat u deze naar Azure implementeren. Het hulpprogramma is ontworpen om af te vangen beveiligingslekken voordat u software implementeert, zodat u niet hoeven te vullen van een bug, behandelt crashes of reageren op een aanval nadat de software is uitgebracht.
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -163,9 +169,11 @@ In dit artikel richten we ons op beveiligingsvoordelen van een Azure PaaS-implem
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database en Azure SQL datawarehouse](security-paas-applications-using-sql.md)
 - [Azure Storage](security-paas-applications-using-storage.md)
-- Azure Cache voor Redis
+- Azure-cache voor Redis
 - Azure Service Bus
 - Web Application Firewalls
+
+Zie [ontwikkelen van beveiligde toepassingen op Azure](abstract-develop-secure-apps.md) voor vragen over de beveiliging en besturingselementen die u in elke fase van de software development lifecycle overwegen moet bij het ontwikkelen van toepassingen voor de cloud.
 
 Zie [Azure-beveiliging aanbevolen procedures en patronen](security-best-practices-and-patterns.md) voor meer best practices voor beveiliging moeten worden gebruikt wanneer bent u het ontwerpen, implementeren en beheren van uw cloudoplossingen met behulp van Azure.
 

@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023714"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510590"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Geautomatiseerde ML experimenten in Python configureren
 
-In deze handleiding informatie over het definiëren van verschillende configuratie-instellingen van uw geautomatiseerde voor machine learning gebruikt met de [Azure Machine Learning-SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Geautomatiseerde machine learning, kiest een algoritme en hyperparameters voor u en genereert een model dat gereed is voor implementatie. Er zijn diverse opties, kunt u geautomatiseerde machine learning-experimenten configureren.
+In deze handleiding informatie over het definiëren van verschillende configuratie-instellingen van uw geautomatiseerde voor machine learning gebruikt met de [Azure Machine Learning-SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Geautomatiseerde machine learning, kiest een algoritme en hyperparameters voor u en genereert een model dat gereed is voor implementatie. Er zijn diverse opties, kunt u geautomatiseerde machine learning-experimenten configureren.
 
 Voor voorbeelden van een geautomatiseerde voor machine learning gebruikt, raadpleegt u [zelfstudie: Een model classificatie met geautomatiseerde machine learning te trainen](tutorial-auto-train-models.md) of [trainen van modellen met geautomatiseerde machine learning in de cloud](how-to-auto-train-remote.md).
 
@@ -299,7 +299,7 @@ U kunt uw resultaten weergeven in een widget of een inline als u zich in een not
 ### <a name="classification-metrics"></a>Classificatie metrische gegevens
 De volgende metrische gegevens worden opgeslagen in elke iteratie van een classificatietaak.
 
-|Gegevens|Description|Berekening|Extra Parameters
+|Metric|Description|Berekening|Extra Parameters
 --|--|--|--|
 AUC_Macro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Macro is het rekenkundige gemiddelde van de AUC voor elke categorie.  | [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "macro"|
 AUC_Micro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Micro wordt wereldwijd berekend door het echt positieven en fout-positieven van elke klasse te combineren| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "micro"|
@@ -325,7 +325,7 @@ weighted_accuracy|Gewogen nauwkeurigheid is nauwkeurigheid waarin het gewicht ge
 ### <a name="regression-and-time-series-forecasting-metrics"></a>Regressie en -tijd reeks prognose van metrische gegevens
 De volgende metrische gegevens worden opgeslagen in elke iteratie een regressie of prognoses taak.
 
-|Gegevens|Description|Berekening|Extra Parameters
+|Metric|Description|Berekening|Extra Parameters
 --|--|--|--|
 explained_variance|Uitgelegd afwijking is de verhouding die een wiskundige model gebruikersaccounts voor de variant van een bepaalde verzameling. Het is dat het percentage variantie van de oorspronkelijke gegevens om de afwijking van de fouten te verlagen. Wanneer het gemiddelde van de fouten 0 is, is het gelijk aan de afwijking van uitgelegd.|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Geen|
 r2_score|R2 is de coëfficiënt bepalen of de procent vermindering in gekwadrateerde fouten ten opzichte van een basislijn-model dat u het gemiddelde weergeeft. Wanneer het gemiddelde van de fouten 0 is, is het gelijk aan de afwijking van uitgelegd.|[Berekening](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Geen|

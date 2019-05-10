@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60552061"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230111"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Veelgestelde vragen over Azure Cache voor Redis
 Informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Cache voor Redis.
@@ -105,10 +105,10 @@ Elke Azure-Cache voor Redis-aanbieding biedt verschillende niveaus van **grootte
 Hieronder vindt u overwegingen voor het kiezen van een Cache-aanbieding.
 
 * **Geheugen**: De lagen basis en standaard bieden 250 MB: 53 GB. De Premium-laag biedt tot 530 GB. Zie voor meer informatie, [Azure Cache voor Redis-prijsstelling](https://azure.microsoft.com/pricing/details/cache/).
-* **Prestaties van het netwerk**: Hebt u een werkbelasting die hoge doorvoer is vereist, biedt het Premium-laag van meer bandbreedte in vergelijking met de Standard- of Basic. Binnen elke laag hebben grotere grootte caches ook meer bandbreedte vanwege de onderliggende virtuele machine die als host fungeert voor de cache. Zie de [na de tabel](#cache-performance) voor meer informatie.
+* **Prestaties van het netwerk**: Hebt u een werkbelasting die hoge doorvoer is vereist, biedt het Premium-laag van meer bandbreedte in vergelijking met de Standard- of Basic. Binnen elke laag hebben grotere grootte caches ook meer bandbreedte vanwege de onderliggende virtuele machine die als host fungeert voor de cache. Zie voor meer informatie de [na de tabel](#cache-performance).
 * **Doorvoer**: De Premium-laag biedt de maximaal beschikbare doorvoer. Als de cacheserver of de client de bandbreedtelimieten is bereikt, ontvangt u mogelijk time-outs op de client. Zie de volgende tabel voor meer informatie.
 * **Hoge beschikbaarheid/SLA**: Azure Redis-Cache garandeert dat een Standard of Premium-cache beschikbaar ten minste 99,9% van de tijd is. Zie voor meer informatie over onze SLA [Azure Cache voor Redis-prijsstelling](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). De SLA heeft alleen betrekking op connectiviteit met de Cache-eindpunten. De SLA heeft geen betrekking op beveiliging tegen verlies van gegevens. U wordt aangeraden de functie in de persistentie voor Redis-gegevens in de Premium-laag gebruik te maken om tolerantie tegen verlies van gegevens.
-* **Redis-Gegevenspersistentie**: De Premium-laag kunt u het behoud van de cachegegevens in een Azure Storage-account. Alle de gegevens worden opgeslagen in een cache basis/standaard alleen in het geheugen. Als er mag er onderliggende infrastructuurfouten verlies van gegevens. U wordt aangeraden de functie in de persistentie voor Redis-gegevens in de Premium-laag gebruik te maken om tolerantie tegen verlies van gegevens. Azure Redis-Cache biedt RDB en (binnenkort beschikbaar) AOF opties in de Redis-persistentie. Zie voor meer informatie, [persistentie voor een Premium Azure Cache voor Redis configureren](cache-how-to-premium-persistence.md).
+* **Redis-Gegevenspersistentie**: De Premium-laag kunt u het behoud van de cachegegevens in een Azure Storage-account. Alle de gegevens worden opgeslagen in een cache basis/standaard alleen in het geheugen. De onderliggende infrastructuur problemen kan leiden tot verlies van gegevens. U wordt aangeraden de functie in de persistentie voor Redis-gegevens in de Premium-laag gebruik te maken om tolerantie tegen verlies van gegevens. Azure Redis-Cache biedt RDB en (binnenkort beschikbaar) AOF opties in de Redis-persistentie. Zie voor meer informatie, [persistentie voor een Premium Azure Cache voor Redis configureren](cache-how-to-premium-persistence.md).
 * **Redis-Cluster**: Voor het maken van caches groter dan 53 GB, of gegevens over meerdere Redis-knooppunten, kunt u Redis-clustering, die beschikbaar is in de Premium-laag. Elk knooppunt bestaat uit een primaire/replica-cache paar voor maximale beschikbaarheid. Zie voor meer informatie, [configureren voor een Premium Azure Cache voor Redis clustering](cache-how-to-premium-clustering.md).
 * **Verbeterde beveiliging en isolatie**: Azure Virtual Network (VNET)-implementatie biedt verbeterde beveiliging en isolatie voor uw Azure-Cache voor Redis, evenals subnetten, toegangsbeheerbeleid en andere functies voor het verder beperken van toegang. Zie voor meer informatie, [het configureren van Virtual Network-ondersteuning voor een Premium Azure Cache voor Redis](cache-how-to-premium-vnet.md).
 * **Redis configureren**: U kunt Redis voor Keyspace-meldingen configureren in de Standard- en Premium-lagen.
@@ -129,25 +129,26 @@ De volgende tabel ziet u de waarden van maximale bandbreedte tijdens het testen 
 
 We kunnen de volgende conclusies te trekken uit deze tabel:
 
-* Doorvoer voor de caches die even groot is hoger in de Premium-laag in vergelijking met de Standard-laag. Bijvoorbeeld, met een 6 GB-Cache is de doorvoer van P1 180.000 RPS in vergelijking met 100.000 voor C3.
-* Met Redis-clustering, verhoogt doorvoer lineair toe als u het aantal shards (knooppunten) in het cluster vergroten. Als u een cluster P4 van 10 shards maken, klikt u vervolgens de beschikbare doorvoer is bijvoorbeeld 400.000 * 10 = 4 miljoen RPS.
+* Doorvoer voor de caches die even groot is hoger in de Premium-laag in vergelijking met de Standard-laag. Bijvoorbeeld, met een 6 GB-Cache is de doorvoer van P1 180.000 aanvragen per seconde (RPS) in vergelijking met 100.000 RPS voor C3.
+* Met Redis-clustering, verhoogt doorvoer lineair toe als u het aantal shards (knooppunten) in het cluster vergroten. Bijvoorbeeld, als u een cluster P4 van 10 shards maken, klikt u vervolgens de beschikbare doorvoer is 400.000 * 10 = 4 miljoen RPS.
 * Doorvoer voor grotere sleutelgrootten is hoger in de Premium-laag in vergelijking met de Standard-laag.
 
 | Prijscategorie | Grootte | CPU-kernen | Beschikbare bandbreedte | De grootte van 1 KB | De grootte van 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standaard cachegrootte** | | |**Megabits per seconde (Mb/s) / MB per seconde (MB/s)** |**Aanvragen per seconde (RPS) niet-SSL** |**Aanvragen per seconde (RPS) SSL** |
-| C0 |250 MB |Gedeeld |100 / 12.5 |15.000 |7.500 |
-| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
-| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
-| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
-| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| C0 | 250 MB | Gedeeld | 100 / 12.5  |  15.000 |   7,500 |
+| C1 |   1 GB | 1      | 500 / 62.5  |  38,000 |  20,720 |
+| C2 | 2,5 GB | 2      | 500 / 62.5  |  41,000 |  37,000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100.000 |  90,000 |
+| C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55,000 |
+| C5 |  26 GB | 4      | 1,000 / 125 | 102,000 |  93,000 |
+| C6 |  53 GB | 8      | 2,000 / 250 | 126,000 | 120,000 |
 | **Premium-cachegrootte** | |**CPU-kernen per shard** | **Megabits per seconde (Mb/s) / MB per seconde (MB/s)** |**Aanvragen per seconde (RPS) niet-SSL, per shard** |**Aanvragen per seconde (RPS) SSL, per shard** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
-| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
-| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
+| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172,000 |
+| P2 |  13 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P3 |  26 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373,000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
 
 Voor instructies over het instellen van een beveiligde tunnel of downloaden van de Redis-hulpprogramma's zoals `redis-benchmark.exe`, Zie de [hoe kan ik Redis-opdrachten uitvoeren?](#cache-commands) sectie.
 
@@ -162,22 +163,22 @@ Zoek uw Azure-Cache voor Redis in dezelfde regio als de clienttoepassing van uw 
 Azure voor de prijzen voor Redis-Cache is [hier](https://azure.microsoft.com/pricing/details/cache/). De pagina met prijzen bevat als een uurtarief prijzen. Caches worden in rekening gebracht op basis van per minuut vanaf het moment dat de cache wordt gemaakt tot het moment dat een cache wordt verwijderd. Er bestaat geen optie voor het stoppen of onderbreken van een cache in rekening.
 
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Kan ik Azure Cache gebruiken voor Redis met Azure Government-Cloud, Azure China-Cloud of Microsoft Azure Duitsland?
-Ja, is Azure Redis Cache beschikbaar in Azure Government-Cloud, Azure China-Cloud en Microsoft Azure Duitsland. De URL's voor het raadplegen en beheren van Azure Cache voor Redis verschillen in deze clouds vergeleken met de openbare Azure-Cloud. 
+Ja, is Azure Redis Cache beschikbaar in Azure Government-Cloud, Azure China 21Vianet Cloud en Microsoft Azure Duitsland. De URL's voor het raadplegen en beheren van Azure Cache voor Redis verschillen in deze clouds vergeleken met de openbare Azure-Cloud.
 
 | Cloud   | DNS-achtervoegsel voor Redis            |
 |---------|---------------------------------|
-| Public  | *.redis.cache.windows.net       |
-| Amerikaanse overheid  | *.redis.cache.usgovcloudapi.net |
+| Openbaar  | *.redis.cache.windows.net       |
+| VS (overheid)  | *.redis.cache.usgovcloudapi.net |
 | Duitsland | *.redis.cache.cloudapi.de       |
 | China   | *.redis.cache.chinacloudapi.cn  |
 
 Zie de volgende koppelingen voor meer informatie over overwegingen bij het gebruik van Azure Cache voor Redis met andere clouds.
 
 - [Databases in Azure Government - Azure Redis-Cache](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure China-Cloud - Azure Redis-Cache](https://www.azure.cn/home/features/redis-cache/)
+- [Azure China 21Vianet Cloud - Azure Redis-Cache](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)
 
-Zie voor meer informatie over het gebruik van Azure Cache voor Redis met PowerShell in Azure Government-Cloud, Azure China-Cloud en Microsoft Azure Duitsland [verbinding maken met andere clouds - Azure-Cache voor PowerShell Redis](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+Zie voor meer informatie over het gebruik van Azure Cache voor Redis met PowerShell in Azure Government-Cloud, Azure China 21Vianet Cloud en Microsoft Azure Duitsland [verbinding maken met andere clouds - Azure-Cache voor PowerShell Redis](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
@@ -257,7 +258,7 @@ U kunt de opdrachten die wordt vermeld op [Redis-opdrachten](https://redis.io/co
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Waarom niet Azure voor Redis-Cache hebt u een MSDN-klassebibliotheekverwijzing zoals enkele van de andere Azure-services?
-Microsoft Azure Cache voor Redis is gebaseerd op de populaire open source Azure Cache voor Redis- en kan worden geopend door een groot aantal verschillende [Redis-clients](https://redis.io/clients) voor veel programmeertalen. Elke client heeft een eigen API waarmee aanroepen naar de Azure-Cache voor het gebruik van Redis-exemplaar [Redis-opdrachten](https://redis.io/commands).
+Microsoft Azure Cache voor Redis is gebaseerd op de populaire open source Azure Cache voor Redis. Deze kunnen worden geopend vanaf een groot aantal verschillende [Redis-clients](https://redis.io/clients) voor veel programmeertalen. Elke client heeft een eigen API waarmee aanroepen naar de Azure-Cache voor het gebruik van Redis-exemplaar [Redis-opdrachten](https://redis.io/commands).
 
 Omdat elke client anders is, er is niet een gecentraliseerde klassenverwijzing op MSDN en elke client een eigen naslagdocumentatie onderhoudt. Naast de naslagdocumentatie zijn er verschillende zelfstudies waarin wordt beschreven hoe u aan de slag met Azure Cache voor Redis met behulp van verschillende talen en clients in de cache. Voor toegang tot deze zelfstudies, Zie [over het gebruik van Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en de artikelen op hetzelfde niveau in de tabel van inhoud.
 
@@ -277,7 +278,7 @@ Zie voor meer informatie over het gebruik van Azure Cache voor Redis als de cach
 
 ### <a name="what-are-redis-databases"></a>Wat zijn Redis-databases?
 
-Redis-Databases zijn slechts een logische scheiding van gegevens binnen de dezelfde Redis-exemplaar. Het cachegeheugen wordt gedeeld tussen alle databases en de werkelijke hoeveelheid geheugen verbruik van een bepaalde database, is afhankelijk van de sleutels/waarden die zijn opgeslagen in de database. Bijvoorbeeld heeft een cache C6 53 GB geheugen. U kunt ervoor kiezen om alle 53 GB in een database of kunt u het splitsen tussen meerdere databases. 
+Redis-Databases zijn slechts een logische scheiding van gegevens binnen de dezelfde Redis-exemplaar. Het cachegeheugen wordt gedeeld tussen alle databases en de werkelijke hoeveelheid geheugen verbruik van een bepaalde database, is afhankelijk van de sleutels/waarden die zijn opgeslagen in de database. Een cache C6 heeft bijvoorbeeld 53 GB geheugen. U kunt ervoor kiezen om alle 53 GB in een database of kunt u het splitsen tussen meerdere databases. 
 
 > [!NOTE]
 > Wanneer u een Premium Azure Cache voor Redis Clustering is ingeschakeld, wordt alleen database 0 beschikbaar is. Deze beperking is een ingebouwde Redis-beperking en is niet specifiek voor Azure Cache voor Redis. Zie voor meer informatie, [heb ik wijzigingen aanbrengen in mijn clienttoepassing voor het gebruik van clustering nodig?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
@@ -309,7 +310,7 @@ Zie voor instructies over het downloaden van de Redis-hulpprogramma's, de [hoe k
 * De ConnectionMultiplexer opnieuw gebruiken: Maak een nieuw wachtwoord voor elke aanvraag geen. De `Lazy<ConnectionMultiplexer>` patroon [hieronder](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) wordt aanbevolen.
 * Werkt beste redis met lagere waarden, dus houd rekening met hakken grotere gegevens in meerdere sleutels. In [deze Redis-discussie](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb wordt beschouwd als grote. Lezen [in dit artikel](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) voor een voorbeeld-probleem dat kan worden veroorzaakt door grote waarden.
 * Configureer uw [ThreadPool instellingen](#important-details-about-threadpool-growth) om te voorkomen dat de time-outs.
-* Gebruik ten minste de connectTimeout standaard 5 seconden. Dit interval krijgt StackExchange.Redis voldoende tijd om de verbinding, in het geval van een netwerk blip opnieuw te maken.
+* Gebruik ten minste de connectTimeout standaard 5 seconden. Dit interval biedt StackExchange.Redis voldoende tijd om de verbinding in het geval van een netwerk blip opnieuw maken.
 * Houd rekening met de prestatiekosten in verband met verschillende bewerkingen die u uitvoert. Bijvoorbeeld, de `KEYS` opdracht is een bewerking O(n) en moeten worden vermeden. De [redis.io site](https://redis.io/commands/) vindt u informatie over de complexiteit van de tijd voor elke bewerking die wordt ondersteund. Klik op elke opdracht om te zien van de complexiteit voor elke bewerking.
 
 #### <a name="configuration-and-concepts"></a>Configuratie en concepten
@@ -328,9 +329,9 @@ Zie voor instructies over het downloaden van de Redis-hulpprogramma's, de [hoe k
 <a name="cache-redis-commands"></a>
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Wat zijn enkele overwegingen bij het gebruik van algemene Redis-opdrachten?
-* U moet bepaalde Redis-opdrachten die erg lang duren om uit te voeren, zonder kennis van de impact van deze opdrachten niet uitvoeren.
-  * Bijvoorbeeld, niet worden uitgevoerd de [sleutels](https://redis.io/commands/keys) opdracht in de productieomgeving, zoals het lang duren kan om terug te keren afhankelijk van het aantal sleutels. Redis is een server met één thread en opdrachten één bewerking tegelijk worden verwerkt. Als u andere opdrachten na sleutels hebt, wordt deze niet verwerkt totdat Redis de opdracht sleutels verwerkt. De [redis.io site](https://redis.io/commands/) vindt u informatie over de complexiteit van de tijd voor elke bewerking die wordt ondersteund. Klik op elke opdracht om te zien van de complexiteit voor elke bewerking.
-* Belangrijkste formaat, moet ik gebruiken kleine sleutelwaarden of grote sleutelwaarden? In het algemeen is het afhankelijk is van het scenario. Als uw scenario grotere sleutels vereist, kunt u de ConnectionTimeout aanpassen en waarden opnieuw en pas uw logica voor opnieuw proberen. Lagere waarden worden vanuit het oogpunt server Redis waargenomen om betere prestaties.
+
+* Vermijd het gebruik van bepaalde Redis-opdrachten die erg lang duren om uit te voeren, tenzij u volledig op de hoogte zijn van de impact van deze opdrachten. Bijvoorbeeld, niet worden uitgevoerd de [sleutels](https://redis.io/commands/keys) opdracht in de productieomgeving. Afhankelijk van het aantal sleutels, kan het lang duren om terug te keren. Redis is een server met één thread en opdrachten één bewerking tegelijk worden verwerkt. Als u andere opdrachten na sleutels hebt, wordt deze niet verwerkt totdat Redis de opdracht sleutels verwerkt. De [redis.io site](https://redis.io/commands/) vindt u informatie over de complexiteit van de tijd voor elke bewerking die wordt ondersteund. Klik op elke opdracht om te zien van de complexiteit voor elke bewerking.
+* Belangrijkste formaat, moet ik gebruiken kleine sleutelwaarden of grote sleutelwaarden? Dit is afhankelijk van het scenario. Als uw scenario grotere sleutels vereist, kunt u de ConnectionTimeout aanpassen en vervolgens waarden opnieuw en pas uw logica voor opnieuw proberen. Vanuit het oogpunt server Redis resulteren lagere waarden in betere prestaties.
 * Deze overwegingen betekenen niet dat u kunt hogere waarden in Redis; opslaan u moet rekening houden met de volgende overwegingen. Latentie zal hoger zijn. Hebt u een set gegevens die groter is en één die kleiner is, kunt u meerdere exemplaren van ConnectionMultiplexer, elk met een andere set waarden voor time-outs en opnieuw hebt geconfigureerd zoals beschreven in de vorige [doen de StackExchange.Redis configuratie-opties doen](#cache-configuration) sectie.
 
 <a name="cache-benchmarking"></a>
@@ -356,19 +357,19 @@ De volgende opdrachten vindt u een voorbeeld van het gebruik van redis-benchmark
 <a name="threadpool"></a>
 
 ### <a name="important-details-about-threadpool-growth"></a>Belangrijke informatie over de groei van de ThreadPool
-De CLR-ThreadPool heeft twee soorten threads - "Werknemer" en "poort i/o-voltooiing' (ook wel Voltooiingspoort) threads.
+De CLR-ThreadPool heeft twee soorten threads - "Werknemer" en "poort i/o-voltooiing' (Voltooiingspoort) threads.
 
 * Werkthreads worden gebruikt voor bewerkingen, zoals de verwerking van de `Task.Run(…)`, of `ThreadPool.QueueUserWorkItem(…)` methoden. Deze threads worden ook gebruikt door verschillende onderdelen in de CLR wanneer werk moet worden uitgevoerd op een achtergrond-thread.
-* Voltooiingspoort threads worden gebruikt als asynchrone i/o gebeurt (bijvoorbeeld lezen vanaf het netwerk).
+* Voltooiingspoort threads worden gebruikt als asynchrone i/o-, bijvoorbeeld wanneer gebeurt lezen van het netwerk.
 
 De thread-groep biedt nieuwe werkthreads of threads voor i/o-voltooiing op aanvraag (zonder een beperking) totdat de instelling 'Minimale' voor elk type thread is bereikt. Het minimum aantal threads is standaard ingesteld op het aantal processors op een systeem.
 
-Wanneer het aantal bestaande (bezet) threads de 'minimale' aantal threads raakt, wordt de snelheid waarmee deze nieuwe threads op één thread per 500 milliseconden injects vertraging in de ThreadPool. Normaal gesproken als uw systeem een ' burst ' van het werk dat u hoeft een thread Voltooiingspoort wordt, worden verwerkt die zeer snel. Echter, als de omvang van het werk is hoger dan de geconfigureerde instelling van de 'Minimale', zullen er enige vertraging bij het verwerken van deel van het werk als de ThreadPool gewacht op een van twee dingen gebeuren.
+Wanneer het aantal bestaande (bezet) threads de 'minimale' aantal threads raakt, wordt de snelheid waarmee deze nieuwe threads op één thread per 500 milliseconden injects vertraging in de ThreadPool. Normaal gesproken als uw systeem een ' burst ' van het werk dat u hoeft een thread Voltooiingspoort wordt, worden verwerkt die snel. Echter, als de omvang van het werk is hoger dan de geconfigureerde instelling van de 'Minimale', zullen er enige vertraging bij het verwerken van deel van het werk als de ThreadPool gewacht op een van twee dingen gebeuren.
 
 1. Een bestaande thread beschikbaar om het werk te verwerken.
-2. Er zijn geen bestaande thread wordt gratis voor 500ms, zodat een nieuwe thread is gemaakt.
+2. Er zijn geen bestaande thread wordt gratis 500 ms, zodat een nieuwe thread is gemaakt.
 
-In feite, betekent dit dat als het aantal actieve threads groter dan de Min-threads is, waarschijnlijk het geval betaalt u een vertraging 500ms voordat het netwerkverkeer wordt verwerkt door de toepassing. Het is ook belangrijk te weten dat als een bestaande thread niet langer zijn dan 15 seconden (op basis van wat ik me herinneren) actief blijft, wordt deze worden opgeschoond en deze cyclus van de groei en inkrimping kunt herhalen.
+In feite, betekent dit dat als het aantal actieve threads groter dan de Min-threads is, waarschijnlijk het geval betaalt u een vertraging 500 ms voordat het netwerkverkeer wordt verwerkt door de toepassing. Het is ook belangrijk te weten dat als een bestaande thread niet langer zijn dan 15 seconden (op basis van wat ik me herinneren) actief blijft, wordt deze worden opgeschoond en deze cyclus van de groei en inkrimping kunt herhalen.
 
 Als we kijken naar het foutbericht van een voorbeeld van StackExchange.Redis (1.0.450 bouwen of hoger), ziet u deze nu worden afgedrukt ThreadPool statistieken (Zie de Voltooiingspoort- en WERKROLLEN informatie hieronder).
 
@@ -377,25 +378,38 @@ Als we kijken naar het foutbericht van een voorbeeld van StackExchange.Redis (1.
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-In het vorige voorbeeld ziet u dat voor Voltooiingspoort thread 6 actieve threads worden en het systeem is geconfigureerd om toe te staan van 4 minimumaantal threads. In dit geval de client zou hebben waarschijnlijk gezien twee 500 ms vertragingen omdat 6 > 4.
+In het vorige voorbeeld ziet u dat voor Voltooiingspoort thread er zes actieve threads en het systeem is geconfigureerd om toe te staan van vier minimumaantal threads. In dit geval de client zou hebben waarschijnlijk gezien twee 500 ms vertragingen, omdat 6 > 4.
 
 Houd er rekening mee dat StackExchange.Redis time-outs bereiken kunnen als groei van de Voltooiingspoort of WORKER threads wordt beperkt.
 
 ### <a name="recommendation"></a>Aanbeveling
-Deze informatie verstrekt, wordt aangeraden dat klanten de minimale configuratiewaarde voor Voltooiingspoort en WORKER threads ingesteld op iets groter is dan de standaardwaarde. We kan geen niet-gedifferentieerde richtlijnen op deze waarde moet omdat de juiste waarde voor één toepassing te hoog/laag voor een andere toepassing is op te geven. Deze instelling kan ook invloed op de prestaties van andere onderdelen van complexe toepassingen, zodat elke klant nodig heeft voor het afstemmen van deze instelling op hun specifieke behoeften. Een goed startpunt is 200 of 300, en vervolgens testen en indien nodig aanpassen.
+
+Deze informatie verstrekt, wordt aangeraden dat klanten de minimale configuratiewaarde voor Voltooiingspoort en WORKER threads ingesteld op iets groter is dan de standaardwaarde. We kan geen niet-gedifferentieerde richtlijnen op deze waarde moet omdat de juiste waarde voor één toepassing is waarschijnlijk te hoog of laag voor een andere toepassing op te geven. Deze instelling kan ook invloed op de prestaties van andere onderdelen van complexe toepassingen, zodat elke klant nodig heeft voor het afstemmen van deze instelling op hun specifieke behoeften. Een goed startpunt is 200 of 300, en vervolgens testen en indien nodig aanpassen.
 
 Hoe u deze instelling wilt configureren:
 
-* In ASP.NET, gebruikt u de ["minIoThreads" of "minWorkerThreads" configuratie-instelling] [ "minIoThreads" configuration setting] onder de `<processModel>` configuratie-element in web.config. Als u in Azure WebSites uitvoert, wordt deze instelling niet beschikbaar via de configuratieopties. Echter nog steeds moet u kunnen deze instelling via een programma niet te configureren (Zie hieronder) van uw methode Application_Start in global.asax.cs.
+* Het is raadzaam deze instelling via een programma wijzigen met behulp van de [ThreadPool.SetMinThreads (...) ](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) methode in `global.asax.cs`. Bijvoorbeeld:
 
-  > [!NOTE] 
-  > De waarde die is opgegeven in deze configuratie-element is een *per kern* instelling. Bijvoorbeeld, als u wilt dat uw instelling minIOThreads 200 tijdens runtime en een 4-core-machine hebt, gebruikt u `<processModel minIoThreads="50"/>`.
-  >
-
-* Buiten ASP.NET en Azure WebSites global.asax, gebruikt u de [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) DE API.
+```cs
+private readonly int minThreads = 200;
+void Application_Start(object sender, EventArgs e)
+{
+    // Code that runs on application startup
+    AreaRegistration.RegisterAllAreas();
+    RouteConfig.RegisterRoutes(RouteTable.Routes);
+    BundleConfig.RegisterBundles(BundleTable.Bundles);
+    ThreadPool.SetMinThreads(minThreads, minThreads);
+}
+```
 
   > [!NOTE]
-  > De waarde gespecificeerd door deze API is een algemene instelling, die betrekking hebben op het hele AppDomain. Als u een 4-core-machine hebt en wilt minWorkerThreads en minIOThreads ingesteld op 50 per CPU tijdens runtime, zou u ThreadPool.SetMinThreads (200, 200).
+  > De waarde gespecificeerd door deze methode is een algemene instelling, die betrekking hebben op het hele AppDomain. Bijvoorbeeld, als u een 4-core-machine hebt en wilt instellen *minWorkerThreads* en *minIoThreads* tot 50 per CPU tijdens runtime, zou u **ThreadPool.SetMinThreads (200, 200)**.
+
+* Het is ook mogelijk om op te geven van het minimumaantal threads instellen met behulp van de [ *minIoThreads* of *minWorkerThreads* configuratie-instelling](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) onder de `<processModel>` configuratie-element in `Machine.config`, zich meestal in `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Het aantal minimumthreads instellen op deze manier wordt in het algemeen niet aanbevolen, omdat het een instelling voor het hele systeem.**
+
+  > [!NOTE]
+  > De waarde die is opgegeven in deze configuratie-element is een *per kern* instelling. Als u een 4-core-machine hebt en u wilt bijvoorbeeld uw *minIoThreads* is ingesteld op 200 tijdens runtime, zou u `<processModel minIoThreads="50"/>`.
+  >
 
 <a name="server-gc"></a>
 
@@ -455,14 +469,14 @@ Hier volgen enkele veelvoorkomende reden voor een cache-verbinding verbreken.
 >
 >
 
-### <a name="azure-cache-for-redis"></a>Azure Cache voor Redis
+### <a name="azure-cache-for-redis"></a>Azure-cache voor Redis
 Azure Redis-Cache is algemeen beschikbaar in groottes tot 53 GB en is voor een beschikbaarheids-SLA van 99,9%. De nieuwe [premium-laag](cache-premium-tier-intro.md) biedt groottes tot 530 GB en ondersteuning voor clustering, VNET en persistentie, met een SLA van 99,9%.
 
 Azure Redis-Cache geeft klanten de mogelijkheid om te gebruiken van een beveiligde, toegewezen Cache van Azure voor Redis, beheerd door Microsoft. Met deze aanbieding krijgt u gebruikmaken van de uitgebreide reeks functies en het ecosysteem geleverd door Redis en betrouwbare hosting en controle van Microsoft.
 
-Redis is in tegenstelling tot traditionele caches die omgaan met sleutel / waarde-paren, vaak gebruikt voor de zeer goed presterende gegevenstypen. Redis ook ondersteunt atomische bewerkingen op deze typen, zoals het toevoegen van een tekenreeks; de waarde in een hash; verhogen pushen naar een lijst. set intersection, union en verschil; of voor het verkrijgen van het lid met de hoogste classificatie in een gesorteerde set. Andere functies bieden ondersteuning voor transacties, pub/sub, Lua-scripting, sleutels met beperkte time-to-live, en configuratie-instellingen waardoor Redis zich gedraagt meer, zoals een traditionele cache.
+Redis is in tegenstelling tot traditionele caches die betrekking hebben op alleen met sleutel / waarde-paren, vaak gebruikt voor de zeer goed presterende gegevenstypen. Redis ook ondersteunt atomische bewerkingen op deze typen, zoals het toevoegen van een tekenreeks; de waarde in een hash; verhogen pushen naar een lijst. set intersection, union en verschil; of voor het verkrijgen van het lid met de hoogste classificatie in een gesorteerde set. Andere functies bieden ondersteuning voor transacties, pub/sub, Lua-scripting, sleutels met beperkte time-to-live, en configuratie-instellingen waardoor Redis zich gedraagt meer, zoals een traditionele cache.
 
-Een ander belangrijk aspect voor Redis succes is het gebaseerd op deze in orde zijn, levendige open-source-ecosysteem. Dit wordt weergegeven in de diverse set met Redis-clients is beschikbaar in meerdere talen. Dit ecosysteem en een breed scala aan clients kunnen Azure-Cache voor Redis moet worden gebruikt bij bijna elke werklast die u in Azure wilt bouwen.
+Een ander belangrijk aspect op Redis geslaagd is het gebaseerd op deze in orde zijn, levendige-open-source-ecosysteem. Dit wordt weergegeven in de diverse set met Redis-clients is beschikbaar in meerdere talen. Dit ecosysteem en een breed scala aan clients kunnen Azure-Cache voor Redis moet worden gebruikt bij bijna elke werklast die u in Azure wilt bouwen.
 
 Zie voor meer informatie over aan de slag met Azure Cache voor Redis [hoe u met Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en [Azure Cache voor Redis-documentatie](index.md).
 

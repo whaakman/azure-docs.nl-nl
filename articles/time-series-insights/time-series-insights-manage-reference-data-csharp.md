@@ -10,35 +10,40 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9d0743e30c4ae32c052a9f27c9fa22b1036aead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681731"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510030"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Referentiegegevens voor een Azure Time Series Insights-omgeving beheren met behulp van C#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>GA referentiegegevens voor een Azure Time Series Insights-omgeving beheren met behulp vanC#
 
 Dit artikel wordt een voorbeeld van C#-project kunt u compileren voor het beheren van referentiegegevens voor een Azure Time Series Insights-omgeving beschreven.
 
 ## <a name="prerequisites"></a>Vereisten
+
 De volgende stappen voltooien voordat u compileren en uitvoeren van de voorbeeldcode:
+
 1. [Een referentiegegevensset maken](time-series-insights-add-reference-data-set.md).
 
-2. Configureer het autorisatie-toegangstoken voor de toepassing. Zorg ervoor dat het token is verkregen via de Azure Active Directory-API. U moet deze wordt doorgegeven token in de `Authorization` -header van elke API-queryaanvraag. 
- 
+1. Configureer het autorisatie-toegangstoken voor de toepassing. Zorg ervoor dat het token is verkregen via de Azure Active Directory-API. U moet deze wordt doorgegeven token in de `Authorization` -header van elke API-queryaanvraag.
+
    Zie voor meer informatie over het instellen van niet-interactieve toepassingen [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md).
 
-3. De voorbeeldcode ter vervanging van de voorbeeld-constanten, aangewezen op bewerken **DUMMY #**, in de buurt van het begin van de code. 
+1. De voorbeeldcode ter vervanging van de voorbeeld-constanten, aangewezen op bewerken **DUMMY #**, in de buurt van het begin van de code.
 
-Deze voorbeeldcode is ook beschikbaar op [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+> [!NOTE]
+> De voorbeeldcode voor algemene beschikbaarheid aan weergeven [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
 
-## <a name="project-references"></a>Projectverwijzingen
-NuGet-pakketten toevoegen `Microsoft.IdentityModel.Clients.ActiveDirectory` en `Newtonsoft.Json` voor dit voorbeeld. 
+## <a name="project-dependencies"></a>Afhankelijkheden van project
 
-## <a name="c-sample-code"></a>C#-voorbeeldcode 
+NuGet-pakketten toevoegen `Microsoft.IdentityModel.Clients.ActiveDirectory` en `Newtonsoft.Json` voor dit voorbeeld.
+
+## <a name="c-sample-code"></a>C#-voorbeeldcode
+
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -134,7 +139,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-        },
+    },
         ""properties"": [""BladeCount""]
     }]
 }";

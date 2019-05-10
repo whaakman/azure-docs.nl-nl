@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924794"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410051"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestaties afstemmen voor virtuele Azure-machines
 
@@ -256,7 +256,7 @@ Omdat een grotere MTU een grotere MSS betekent, kunt u zich afvragen of het verh
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Versnelde netwerken en aan de ontvangstzijde
 
-#### <a name="accelerated-networking"></a>Versneld netwerken
+#### <a name="accelerated-networking"></a>Versnelde netwerken
 
 Virtuele machine-netwerkfuncties zijn in het verleden CPU intensieve op zowel de Gast-VM en de hypervisorhost. Elk pakket dat passages via de host wordt verwerkt in software door de host CPU, met inbegrip van alle virtuele netwerk inkapselen en uitpakken. Dus meer gaat het verkeer dat via de host, hoe hoger CPU-belasting. En als de host CPU Bezig met andere bewerkingen is, die ook van invloed op netwerkdoorvoer en latentie. Azure lost dit probleem met versneld netwerken.
 
@@ -276,7 +276,7 @@ Voor het gebruik van versneld netwerken, moet u expliciet inschakelen op elke to
 
 Ontvangen aan clientzijde die schalen (RSS) is een technologie voor het stuurprogramma van network die het ontvangen van het netwerkverkeer efficiënter distribueert door te distribueren verwerking over meerdere CPU's ontvangen in een systeem met meerdere processors. RSS kan simpel gezegd is een systeem meer ontvangen verkeer verwerken, omdat alle beschikbare CPU's wordt gebruikt in plaats van slechts één. Zie voor meer technische informatie van RSS [Inleiding tot aan de ontvangstzijde](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-Voor de beste prestaties wanneer versneld netwerken is ingeschakeld op een virtuele machine, moet u RSS inschakelen. RSS biedt ook voordelen op virtuele machines die geen gebruik van versnelde netwerken. Zie voor een overzicht van hoe u om te bepalen of RSS is ingeschakeld en het inschakelen ervan [netwerkdoorvoer optimaliseren voor Azure virtual machines](http://aka.ms/FastVM).
+Voor de beste prestaties wanneer versneld netwerken is ingeschakeld op een virtuele machine, moet u RSS inschakelen. RSS biedt ook voordelen op virtuele machines die geen gebruik van versnelde netwerken. Zie voor een overzicht van hoe u om te bepalen of RSS is ingeschakeld en het inschakelen ervan [netwerkdoorvoer optimaliseren voor Azure virtual machines](https://aka.ms/FastVM).
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT en TIME_WAIT assassination
 
@@ -316,7 +316,7 @@ De maximale doorvoer is van toepassing op de virtuele machine. Doorvoer wordt ni
 
 - **Protocol**: Al het uitgaande verkeer via alle protocollen telt voor de limiet.
 
-Zie voor meer informatie, [netwerkbandbreedte van de virtuele machine](http://aka.ms/AzureBandwidth).
+Zie voor meer informatie, [netwerkbandbreedte van de virtuele machine](https://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Prestatieoverwegingen voor Internet
 

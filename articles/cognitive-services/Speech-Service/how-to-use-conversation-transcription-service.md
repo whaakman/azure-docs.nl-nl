@@ -1,21 +1,21 @@
 ---
 title: Meerdere deelnemers gesprekken met de spraak-SDK - spraakservices transcriberen
 titleSuffix: Azure Cognitive Services
-description: Informatie over het gebruik van conversatie transcriptie service met de spraak-SDK. Beschikbaar voor C++, C#, en Java.
+description: Informatie over het gesprek transcriptie gebruiken met de spraak-SDK. Beschikbaar voor C++, C#, en Java.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: jhakulin
-ms.openlocfilehash: 73ab4cfa92a1efc49dea16ba2941cf16b7a1cf3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9de4faf18c54f7c7582ef5a8ab0648629d4f48e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025790"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190151"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcriberen meerdere deelnemers gesprekken met de spraak-SDK
 
@@ -24,7 +24,7 @@ De spraak-SDK **ConversationTranscriber** -API kunt u vergaderingen/gesprekken t
 ## <a name="limitations"></a>Beperkingen
 
 * Conversatie transcriber wordt ondersteund voor C++, C#, en Java in Windows, Linux- en Android.
-* De DevKit ROOBO is de ondersteunde hardware-omgeving voor het maken van conversaties dat circulaire meerdere microfoon matrix die efficiënt kan worden gebruikt door de conversatie transcriptie-service voor de sprekeridentificatie biedt. [Zie voor meer informatie, spraak Devices SDK](speech-devices-sdk.md). 
+* De DevKit ROOBO is de ondersteunde hardware-omgeving voor het maken van conversaties dat circulaire meerdere microfoon matrix die efficiënt kan worden gebruikt door de conversatie transcriptie-service voor de sprekeridentificatie biedt. [Zie voor meer informatie, spraak Devices SDK](speech-devices-sdk.md).
 * Spraak SDK-ondersteuning is beperkt tot gebruik voor pull-audio en push-modus-streams met acht kanalen van PCM-audio.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -78,7 +78,7 @@ class Program
 
 Om te transcriberen gesprekken met meerdere deelnemers, maken de `ConversationTranscriber` -object dat gekoppeld aan de `AudioConfig` object gemaakt voor de conversatie-sessie en stream audio met behulp van `PullAudioInputStream` of `PushAudioInputStream`.
 
-Stel dat u een ConversationTranscriber klasse genaamd hebt `MyConversationTranscriber`. Uw code ziet er als volgt: 
+Stel dat u een ConversationTranscriber klasse genaamd hebt `MyConversationTranscriber`. Uw code ziet er als volgt:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -97,7 +97,7 @@ public class MyConversationTranscriber
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
-        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback 
+        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             // Creates a conversation transcriber using audio stream input.

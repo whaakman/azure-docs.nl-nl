@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: c1b86199f13454f4785a6737b25e489d45dd53f8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b62a2690e5879e45a14d0b06a38e8c5171dda14e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026842"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442327"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Voorbeeld van de Jupyter-notebooks laten zien hoe u gegevens met Open gegevenssets duidelijker maken 
 Het voorbeeld van de Jupyter-notebooks voor gegevenssets die Azure Open laten zien hoe u open gegevenssets laden en gebruik ze voor de demogegevens duidelijker maken. Technieken zijn onder meer gebruik van Apache Spark en Pandas om gegevens te verwerken.
@@ -29,7 +29,7 @@ Het voorbeeld van de Jupyter-notebooks voor gegevenssets die Azure Open laten zi
 ## <a name="join-demo-data-with-noaa-isd-data"></a>Demogegevens met NOAA RBD gegevens samenvoegen 
 |Notebook        | Description                                    |
 |----------------|------------------------------------------------|
-|[Demogegevens met weergegevens - Pandas samenvoegen ](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Neem deel aan een gegevensset 1 maand demo van sensor locaties met, serverlogs, weer in een Pandas dataframe.  |
+|[Demogegevens met weergegevens - Pandas samenvoegen](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Neem deel aan een gegevensset 1 maand demo van sensor locaties met, serverlogs, weer in een Pandas dataframe.  |
 |[Demogegevens met weergegevens: Spark samenvoegen](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Neem deel aan een gegevensset demo van sensor locaties met, serverlogs, weer in een Spark dataframe. |
 
 ## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Gegevens van de NYC taxi met NOAA RBD gegevens samenvoegen 

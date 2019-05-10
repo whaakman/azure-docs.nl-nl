@@ -14,16 +14,18 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3934dbb01c3b9f3219c5e649d97371850b8daadc
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656605"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230622"
 ---
-# <a name="what-is-api-management"></a>Wat is API Management?
+# <a name="about-api-management"></a>Meer informatie over API Management
 
-API Management (APIM) helpt organisaties bij het publiceren van API's naar externe, partner- en interne ontwikkelaars om het potentieel van hun gegevens en services te ontsluiten. Veel bedrijven willen hun activiteiten uitbreiden als een digitaal platform, waarbij nieuwe kanalen worden gemaakt, nieuwe klanten worden gevonden en grotere betrokkenheid met bestaande klanten wordt bereikt. API Management beschikt over de competenties die belangrijk zijn voor een geslaagd API-programma via ontwikkelaarsbetrokkenheid, zakelijke inzichten, analytische gegevens, beveiliging en bescherming. U kunt Azure API Management gebruiken om elke back-end te nemen en een volwaardig API-programma te starten dat hierop is gebaseerd.
+API Management (APIM) is een manier om consistente en moderne API-gateways voor bestaande back-endservices maken.
+
+API Management helpt organisaties bij het publiceren van API's naar externe, partner- en interne ontwikkelaars om het potentieel van hun gegevens en services te ontsluiten. Veel bedrijven willen hun activiteiten uitbreiden als een digitaal platform, waarbij nieuwe kanalen worden gemaakt, nieuwe klanten worden gevonden en grotere betrokkenheid met bestaande klanten wordt bereikt. API Management beschikt over de competenties die belangrijk zijn voor een geslaagd API-programma via ontwikkelaarsbetrokkenheid, zakelijke inzichten, analytische gegevens, beveiliging en bescherming. U kunt Azure API Management gebruiken om elke back-end te nemen en een volwaardig API-programma te starten dat hierop is gebaseerd.
 
 Dit artikel bevat een overzicht van veelvoorkomende scenario's met APIM.  Het bevat ook een kort overzicht van de belangrijkste onderdelen van het APIM-systeem. Het artikel biedt vervolgens een meer gedetailleerd overzicht van elk onderdeel.
 

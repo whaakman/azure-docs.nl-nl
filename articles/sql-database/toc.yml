@@ -284,6 +284,8 @@
               href: transparent-data-encryption-azure-sql.md
             - name: TDE met BYOK (Bring Your Own Key)
               href: transparent-data-encryption-byok-azure-sql.md
+        - name: Beveiligingskenmerken
+          href: sql-database-security-attributes.md
     - name: Schaalbaarheid
       items:
         - name: Overzicht van schaalbaarheid

@@ -1,21 +1,24 @@
 ---
-title: Meer replica's voor Azure Database voor PostgreSQL vanuit de Azure CLI beheren
-description: Meer informatie over het beheren van Azure Database for PostgreSQL lezen replica's van de Azure CLI.
+title: Meer replica's voor Azure Database voor PostgreSQL - één Server van de Azure CLI beheren
+description: Informatie over het beheren van lezen-replica's in Azure Database voor PostgreSQL - één Server van de Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420237"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510239"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Maken en beheren van meer replica's van de Azure CLI
 
 In dit artikel leert u hoe u maken en beheren van lezen-replica's in Azure Database for PostgreSQL via Azure CLI. Zie voor meer informatie over meer replica's, de [overzicht](concepts-read-replicas.md).
+
+> [!NOTE]
+> Nog biedt niet maken replica's in een andere regio van de hoofd-server ondersteuning voor Azure CLI. Gebruik voor het maken van een replica van de regio-overschrijdende de [Azure-portal](howto-read-replicas-portal.md).
 
 ## <a name="prerequisites"></a>Vereisten
 - Een [Azure Database for PostgreSQL-server](quickstart-create-server-up-azure-cli.md) moet de hoofd-server.

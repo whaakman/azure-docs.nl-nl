@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: d8e095303161002d10914ca7c3213ac0c6894e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a287a8da884290e94e9ac1c864abe28e47d53d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467121"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508147"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Voorbeeld - automatisch schalen van een cluster om te voldoen aan de eisen van de toepassing in Azure Kubernetes Service (AKS)
 
 Als u wilt bijhouden toepassingsbehoeften in Azure Kubernetes Service (AKS), moet u mogelijk het aantal knooppunten waarop uw workloads aanpassen. Het clusteronderdeel automatisch schalen kunt van schillen in uw cluster kan niet worden gepland vanwege resourcebeperkingen bekijken. Wanneer er problemen zijn gedetecteerd, wordt het aantal knooppunten verhoogd om te voldoen aan de vraag van de toepassing. Knooppunten ook regelmatig gecontroleerd op een gebrek aan schillen, uitgevoerd met het aantal knooppunten vervolgens weer afneemt indien nodig. Deze mogelijkheid automatisch omhoog of omlaag te schalen het aantal knooppunten in uw AKS-cluster maakt u een efficiënte en voordelige-cluster.
 
-Dit artikel laat u het inschakelen en beheren van het cluster automatisch schalen in een AKS-cluster.
+Dit artikel laat u het inschakelen en beheren van het cluster automatisch schalen in een AKS-cluster. Automatisch schalen van cluster moet alleen in Preview-versie van AKS-clusters met een groep met één knooppunt worden getest.
 
 > [!IMPORTANT]
 > AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
@@ -59,6 +59,12 @@ Wanneer u klaar bent, vernieuwt u de registratie van de *Microsoft.ContainerServ
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+
+## <a name="limitations"></a>Beperkingen
+
+De volgende beperkingen zijn van toepassing wanneer u maken en beheren van AKS-clusters die gebruikmaken van virtuele-machineschaalsets:
+
+* De HTTP-aanvraag routering invoegtoepassing kan niet worden gebruikt.
 
 ## <a name="about-the-cluster-autoscaler"></a>Over het cluster automatisch schalen
 
@@ -101,7 +107,6 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

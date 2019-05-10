@@ -15,16 +15,21 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd2e30f7ae96ff38b0ded11c158fcef636e3a26
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 147ee2450a6a67f8ca02149105533401d038a53a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448800"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191086"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Zelfstudie: Een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage via een toegangssleutel
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+
+
+> [!IMPORTANT] 
+> Azure Storage biedt nu ondersteuning voor Azure AD-verificatie. Als een best practice gebruiken [Azure AD-verificatie](tutorial-vm-windows-access-storage.md) in plaats van toegangssleutels. 
+
 
 Deze zelfstudie laat zien hoe u toegangssleutels voor opslagaccounts kunt ophalen met een door het systeem toegewezen beheerde identiteit voor een virtuele Windows-machine (VM). U kunt toegangssleutels voor opslag gebruiken zoals u gewend bent bij opslagbewerkingen, bijvoorbeeld bij het gebruik van de Storage-SDK. Voor deze zelfstudie uploaden en downloaden we blobs met behulp van PowerShell voor Azure Storage. U leert het volgende:
 
@@ -155,7 +160,7 @@ U kunt de blob die u zojuist hebt geüpload, ook downloaden met de `Get-AzStorag
 Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
-Reactie:
+Antwoord:
 
 ```powershell
 ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob

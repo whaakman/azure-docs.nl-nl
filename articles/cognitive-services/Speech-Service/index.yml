@@ -234,7 +234,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Voorbeelden van Service-SDK’s</a><br/>'
+          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Voorbeelden voor de Speech-SDK</a><br/>'
           - html: '<a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Voorbeelden van Apparaat-SDK’s</a><br/>'
   - title: Naslaginformatie
     items:

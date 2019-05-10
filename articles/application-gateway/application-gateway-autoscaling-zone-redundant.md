@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202913"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510825"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisch schalen en Zone-redundante Application Gateway 
 
@@ -37,7 +37,7 @@ De nieuwe v2-SKU bevat de volgende verbeteringen:
 
 De Standard_v2 en WAF_v2 SKU is beschikbaar in de volgende regio's: Noord-centraal VS, Zuid-centraal VS, VS-West, VS-West 2, VS-Oost, VS-Oost 2, VS-midden, Noord-Europa, West-Europa, Zuidoost-Azië, Frankrijk-centraal, VK West, Japan-Oost, Japan-West. Extra regio's wordt in de toekomst worden toegevoegd.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 
 Met de v2-SKU, het prijsmodel wordt aangedreven door verbruik en niet meer is gekoppeld aan het aantal instanties of grootten. De prijzen van v2 SKU bestaat uit twee onderdelen:
 
@@ -62,7 +62,7 @@ COMPUTE-eenheid richtlijnen:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-De [pagina met prijzen](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) wordt bijgewerkt naar aanleiding van regionale prijzen op 14 mei 2019. Facturering is gepland om te beginnen op 1 juni 2019.
+De [pagina met prijzen](https://azure.microsoft.com/pricing/details/application-gateway/) wordt bijgewerkt naar aanleiding van regionale prijzen op 14 mei 2019. Facturering is gepland om te beginnen op 1 juni 2019.
 
 **Voorbeeld 1**
 
@@ -93,7 +93,7 @@ Prijs per eenheid voor capaciteit 744(hours) = * Max (compute-eenheid Max(25/50 
 
 Totale prijs = $267.84 + $85.71 $353.55 =
 
-De [pagina met prijzen](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) wordt bijgewerkt naar aanleiding van regionale prijzen op 14 mei 2019. Facturering is gepland om te beginnen op 1 juni 2019.
+De [pagina met prijzen](https://azure.microsoft.com/pricing/details/application-gateway/) wordt bijgewerkt naar aanleiding van regionale prijzen op 14 mei 2019. Facturering is gepland om te beginnen op 1 juni 2019.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Application Gateway en WAF v2 schalen
 
@@ -108,11 +108,11 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
 
 |                                                   | V1-SKU   | v2-SKU   |
 | ------------------------------------------------- | -------- | -------- |
-| Automatisch schalen                                       |          | &#x2713; |
+| Automatisch schaal aanpassen                                       |          | &#x2713; |
 | Zoneredundantie                                   |          | &#x2713; |
 | Statische VIP                                        |          | &#x2713; |
 | Azure Kubernetes Service (AKS) ingangscontroller |          | &#x2713; |
-| Integratie van Azure Sleutelkluis                       |          | &#x2713; |
+| Integratie van Azure Key Vault                       |          | &#x2713; |
 | Herschrijf de headers van HTTP (S)                           |          | &#x2713; |
 | URL-gebaseerde routering                                 | &#x2713; | &#x2713; |
 | Hosting van meerdere sites                             | &#x2713; | &#x2713; |
@@ -138,7 +138,7 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
 |Gebruiker gedefinieerde Route (UDR) op Application Gateway-subnet|Niet ondersteund|
 |NSG voor binnenkomende poortbereik| -65200 tot en met 65535 voor Standard_v2 SKU<br>-65503 tot 65534 voor standaard-SKU.<br>Zie voor meer informatie de [Veelgestelde vragen over](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestatielogboeken in Azure diagnostics|Wordt niet ondersteund.<br>Metrische gegevens van Azure moet worden gebruikt.|
-|Billing|De facturering is gepland om te beginnen op 1 juni 2019.|
+|Facturering|De facturering is gepland om te beginnen op 1 juni 2019.|
 |FIPS-modus|Deze worden momenteel niet ondersteund.|
 |Alleen ILB-modus|Dit wordt momenteel niet ondersteund. Openbare en samen ILB-modus wordt ondersteund.|
 |Integratie van het netwerk controleren|Wordt niet ondersteund.|

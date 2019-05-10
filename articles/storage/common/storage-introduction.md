@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 175cc03dac21280a5e3ef3ec130cb94bc800f540
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153903"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510944"
 ---
 # <a name="introduction-to-azure-storage"></a>Kennismaking met Azure Storage
 
@@ -77,7 +77,7 @@ Stel dat u uw klanten in de gelegenheid wilt stellen om afbeeldingen te uploaden
 
 Raadpleeg de [Inleiding tot Azure Queues](../queues/storage-queues-introduction.md) voor meer informatie over Azure Queues.
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>Tabelopslag
 
 Azure Table Storage maakt nu deel uit van Cosmos DB. Voor documentatie over Azure Table Storage raadpleegt u [Overzicht van Azure Table Storage](../tables/table-storage-overview.md). Naast de bestaande Azure Table Storage-service is er een nieuwe Azure Cosmos DB tabel-API die voor doorvoer geoptimaliseerde tabellen, wereldwijde distributie en automatische secundaire indexen biedt. Bekijk [Azure Cosmos DB: tabel-API](https://aka.ms/premiumtables) voor meer informatie en om de nieuwe premium versie uit te proberen.
 
@@ -134,7 +134,7 @@ Zie voor meer informatie over herstel na noodgevallen [Herstel na noodgevallen e
 
 Er zijn verschillende mogelijkheden om gegevens te verplaatsen van of naar Azure Storage. Welke optie u kiest, is afhankelijk van de grootte van de gegevensset en de bandbreedte van het netwerk. Zie [Een Azure-oplossing kiezen voor gegevensoverdracht](storage-choose-data-transfer-solution.md) voor meer informatie.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 
 Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/) voor gedetailleerde informatie over prijzen voor Azure Storage.
 
@@ -158,7 +158,7 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure Storage-gegevensverplaatsing-API en bibliotheekverwijzingen
 * [REST-API van Storage Import/Export-service](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [Clientbibliotheek van opslaggegevensverplaatsing voor .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+* [Clientbibliotheek van opslaggegevensverplaatsing voor .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Hulpprogramma's
 * [Azure PowerShell-cmdlets voor Storage](https://docs.microsoft.com/powershell/module/az.storage)

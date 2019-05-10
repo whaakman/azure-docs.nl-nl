@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896418"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510150"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging-integratie
 
@@ -37,7 +37,7 @@ De aanvraag moet de volgende velden:
 |----------------------|------------------------------------------------------|
 | requestId            | Client wordt geleverd GUID                                |
 | voornaam            | De voornaam van de gebruiker                              |
-| achternaam             | De achternaam van de gebruiker                               |
+| lastName             | De achternaam van de gebruiker                               |
 | emailAddress         | E-mailadres van de gebruiker                           |
 | externalId           | Azure AD-object-ID van de gebruiker                      |
 | connectionId         | De unieke id voor de blockchain-verbinding |
@@ -116,7 +116,7 @@ De aanvraag moet de volgende velden:
 | requestId            | Client wordt geleverd GUID |
 | userChainIdentifier  | Adres van de gebruiker die is gemaakt op de blockchain-netwerk. In Ethereum, is dit adres van de gebruiker **van keten** adres. |
 | applicationName      | Naam van de toepassing |
-| versie              | De versie van de toepassing. Vereist als er meerdere versies van de toepassing ingeschakeld. Anders wordt de versie is optioneel. Zie voor meer informatie over versiebeheer van de toepassing [Azure Blockchain Workbench toepassing versiebeheer](version-app.md). |
+| version              | De versie van de toepassing. Vereist als er meerdere versies van de toepassing ingeschakeld. Anders wordt de versie is optioneel. Zie voor meer informatie over versiebeheer van de toepassing [Azure Blockchain Workbench toepassing versiebeheer](version-app.md). |
 | workflowName         | Naam van de werkstroom |
 | parameters           | Invoer van de parameters voor het contract maken |
 | connectionId         | De unieke id voor de blockchain-verbinding |
@@ -220,7 +220,7 @@ De aanvraag moet de volgende velden:
 | requestId                | Client wordt geleverd GUID |
 | userChainIdentifier      | Adres van de gebruiker die is gemaakt op de blockchain-netwerk. In Ethereum, is dit adres van de gebruiker **van keten** adres. |
 | contractLedgerIdentifier | Adres van het contract op het grootboek |
-| versie                  | De versie van de toepassing. Vereist als er meerdere versies van de toepassing ingeschakeld. Anders wordt de versie is optioneel. Zie voor meer informatie over versiebeheer van de toepassing [Azure Blockchain Workbench toepassing versiebeheer](version-app.md). |
+| version                  | De versie van de toepassing. Vereist als er meerdere versies van de toepassing ingeschakeld. Anders wordt de versie is optioneel. Zie voor meer informatie over versiebeheer van de toepassing [Azure Blockchain Workbench toepassing versiebeheer](version-app.md). |
 | workflowFunctionName     | Naam van de Werkstroomfunctie |
 | parameters               | Invoer van de parameters voor het contract maken |
 | connectionId             | De unieke id voor de blockchain-verbinding |
@@ -331,7 +331,7 @@ Als de aanvraag mislukt is, wordt informatie over de fout zijn opgenomen in als 
 **Foutcode 5000: Interne serverfout**
 - Uitzondering berichten
 
-## <a name="event-notifications"></a>Gebeurtenismeldingen
+## <a name="event-notifications"></a>Meldingen van gebeurtenissen
 
 Meldingen van gebeurtenissen kunnen worden gebruikt om gebruikers- en downstream-systemen van gebeurtenissen die in Blockchain Workbench en de blockchain-netwerk die is verbonden plaatsvinden met te informeren. Meldingen van gebeurtenissen kunnen worden gebruikt in de code of met hulpprogramma's voor Logic Apps en Flow gebruikt om de stroom van gegevens aan downstream-systemen te activeren.
 
@@ -406,8 +406,8 @@ Bevat informatie over afzonderlijke blokken. De *BlockMessage* bevat een sectie 
 |--------------------|-------------|
 | transactionId      | De unieke id voor de transactie binnen Azure Blockchain Workbench |
 | TransactionHash    | De hash van de transactie op het grootboek |
-| uit               | De unieke id van het grootboek voor oorsprong van de transactie |
-| tot                 | De unieke id van het grootboek voor het doel van de transactie |
+| from               | De unieke id van het grootboek voor oorsprong van de transactie |
+| aan                 | De unieke id van het grootboek voor het doel van de transactie |
 | ProvisioningStatus | Hiermee geeft u de huidige status van het inrichtingsproces voor de transactie. Mogelijke waarden zijn: </br>0: de transactie is gemaakt door de API in de database</br>1: de transactie is verzonden naar het grootboek</br>2: de transactie is doorgevoerd naar het grootboek</br>3 of 4: de transactie kan niet worden doorgevoerd naar het grootboek</br>5 - de transactie is doorgevoerd naar het grootboek |
 
 Voorbeeld van een *BlockMessage* van Blockchain Workbench:
@@ -468,8 +468,8 @@ Bevat informatie over een contract. Het bericht bevat een sectie met eigenschapp
 |--------------------|-------------|
 | transactionId | De unieke id voor de transactie binnen Azure Blockchain Workbench |
 | TransactionHash | De hash van de transactie op het grootboek |
-| uit | De unieke id van het grootboek voor oorsprong van de transactie |
-| tot | De unieke id van het grootboek voor het doel van de transactie |
+| from | De unieke id van het grootboek voor oorsprong van de transactie |
+| aan | De unieke id van het grootboek voor het doel van de transactie |
 
 #### <a name="contract-properties"></a>Contract-eigenschappen
 
@@ -596,8 +596,8 @@ Bevat informatie wanneer een overeenkomst-functie is aangeroepen, zoals de naam 
 |--------------------|-------------|
 | transactionId      | De unieke id voor de transactie binnen Azure Blockchain Workbench |
 | TransactionHash    | De hash van de transactie op het grootboek |
-| uit               | De unieke id van het grootboek voor oorsprong van de transactie |
-| tot                 | De unieke id van het grootboek voor het doel van de transactie |
+| from               | De unieke id van het grootboek voor oorsprong van de transactie |
+| aan                 | De unieke id van het grootboek voor het doel van de transactie |
 
 Voorbeeld van een *EventMessage ContractFunctionInvocation* van Blockchain Workbench:
 
@@ -644,7 +644,7 @@ Bevat informatie wanneer een toepassing wordt geüpload naar de Workbench, zoals
 |------|-------------|
 | eventName | **ApplicationIngestion** |
 | applicationId | De unieke id voor de toepassing in Azure Blockchain Workbench |
-| applicationName | De naam van de toepassing |
+| applicationName | Toepassingsnaam |
 | applicationDisplayName | Weergavenaam van toepassing |
 | applicationVersion | Toepassingsversie |
 | applicationDefinitionLocation | URL op waar het configuratiebestand van de toepassing zich bevindt |
@@ -838,7 +838,7 @@ Bevat informatie wanneer een gebruiker een rol in Workbench, zoals wie de toewij
 |------|-------------|
 | eventName | **RoleAssignment** |
 | applicationId | De unieke id voor de toepassing in Azure Blockchain Workbench |
-| applicationName | De naam van de toepassing |
+| applicationName | Toepassingsnaam |
 | applicationDisplayName | Weergavenaam van toepassing |
 | applicationVersion | Toepassingsversie |
 | applicationRole        | Informatie over de [toepassingsrol](#roleassignment-application-role) |

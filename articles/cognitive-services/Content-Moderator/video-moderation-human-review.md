@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098198"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228126"
 ---
 # <a name="video-moderation-with-human-review"></a>Videotoezicht met menselijke beoordeling
 
@@ -28,52 +28,53 @@ Video classificatie geautomatiseerd wordt ofwel met afbeelding getrainde modelle
 ## <a name="shot-detection"></a>Opnamedetectie
 
 Bij het uitvoeren van de details van de classificatie, kunt u aanvullende video intelligence meer flexibiliteit bij het analyseren van video's. In plaats van alleen de frames die worden uitgevoerd, biedt van Microsoft-service voor videotoezicht shot-niveau te. U hebt nu de optie voor het analyseren van uw video's op het niveau van de schermopname en het niveau van het kader.
- 
+
 ## <a name="key-frame-detection"></a>Detectie van sleutel
 
 In plaats van frames met regelmatige tussenpozen worden uitgevoerd, wordt de service voor videotoezicht identificeert en mogelijk alleen volledige (goed) frames levert. De functie kunt efficiënt frame genereren voor de analyse erotische en ongepaste frame-niveau.
 
 Een gedeeltelijk antwoord met potentiële foto's, belangrijke frames en erotische en ongepaste scores ziet u het volgende uittreksel:
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>Visualisatie voor onlinebeoordelingen door mensen
 
@@ -101,10 +102,7 @@ Video's hebben doorgaans voice over die beheer ook nodig voor aanstootgevende sp
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met de [videotoezicht snelstartgids](video-moderation-api.md). 
-
-Meer informatie over het genereren van [video bekijkt](video-reviews-quickstart-dotnet.md) voor uw menselijke revisoren van de gecontroleerde uitvoer.
-
-Voeg [videotranscriptie beoordeelt](video-transcript-reviews-quickstart-dotnet.md) op uw video beoordelingen.
-
-Bekijk de gedetailleerde zelfstudie over het ontwikkelen van een [videotoezicht oplossing voltooien](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Aan de slag met de [videotoezicht snelstartgids](video-moderation-api.md).
+- Meer informatie over het genereren van [video bekijkt](video-reviews-quickstart-dotnet.md) voor uw menselijke revisoren van de gecontroleerde uitvoer.
+- Voeg [videotranscriptie beoordeelt](video-transcript-reviews-quickstart-dotnet.md) op uw video beoordelingen.
+- Bekijk de gedetailleerde zelfstudie over het ontwikkelen van een [videotoezicht oplossing voltooien](video-transcript-moderation-review-tutorial-dotnet.md).

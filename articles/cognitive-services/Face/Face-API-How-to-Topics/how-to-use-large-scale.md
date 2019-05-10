@@ -8,44 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 52631d0b25527d204baa11a90401b60e437137a0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35ab2d36a5d6c9977398fdbc16ba22eb1d9656a4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691047"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229848"
 ---
 # <a name="example-how-to-use-the-large-scale-feature"></a>Voorbeeld: De functie voor grootschalige verwerking gebruiken
 
-Deze handleiding is een geavanceerd artikel over de migratie van code om een bestaande PersonGroup en FaceList omhoog te schalen naar LargePersonGroup en LargeFaceList.
-Deze handleiding toont u het migratieproces, waarbij ervan wordt uitgegaan dat u basiskennis hebt van het gebruik van PersonGroup en FaceList.
-Voor meer informatie over basisbewerkingen raadpleegt u andere zelfstudies, zoals [Gezichten in een afbeelding identificeren](HowtoIdentifyFacesinImage.md),
+Deze handleiding is een geavanceerde artikel over het omhoog schalen van bestaande **PersonGroup** en **FaceList** naar **LargePersonGroup** en **LargeFaceList**respectievelijk. In deze handleiding ziet u het migratieproces en wordt ervan uitgegaan dat een enigszins bekend bent met **PersonGroup**, **FaceList**, wordt de [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) bewerking en de gezichtsherkenning functies. Zie de [Gezichtsherkenning-](../concepts/face-recognition.md) conceptuele guide voor meer informatie over deze.
 
-De Face-API heeft onlangs twee functies vrijgegeven voor grootschalige scenario's: LargePersonGroup en LargeFaceList, gezamenlijk aangeduid als grootschalige bewerkingen.
-LargePersonGroup kan maximaal 1.000.000 personen bevatten met een maximum van 248 gezichten en LargeFaceList kan tot 1.000.000 gezichten bevatten.
+LargePersonGroup en LargeFaceList gezamenlijk worden aangeduid als grootschalige bewerkingen. LargePersonGroup mag maximaal 1.000.000 personen, elk met een maximum van 248 gezichten en LargeFaceList mag maximaal 1.000.000 gezichten. De grootschalige bewerkingen zijn vergelijkbaar met de conventionele PersonGroup en FaceList maar enkele belangrijke verschillen vanwege de nieuwe architectuur. 
 
-De grootschalige bewerkingen zijn vergelijkbaar met de conventionele PersonGroup en FaceList, maar er zijn enkele belangrijke verschillen vanwege de nieuwe architectuur.
-Deze handleiding toont u het migratieproces, waarbij ervan wordt uitgegaan dat u basiskennis hebt van het gebruik van PersonGroup en FaceList.
 De voorbeelden zijn geschreven in C# met de Face-API-clientbibliotheek.
 
-Als u Face-zoekprestaties voor Identification en FindSimilar op grote schaal wilt inschakelen, moet u LargeFaceList en LargePersonGroup voorbereiden door een Train-bewerking uit te voeren.
-De trainingstijd varieert van seconden tot ongeveer een half uur, afhankelijk van de werkelijke capaciteit.
-Tijdens de trainingsperiode is het nog steeds mogelijk Identification en FindSimilar uit te voeren als er al eerder een geslaagde training is uitgevoerd.
-Het nadeel is echter dat de nieuw toegevoegde personen/gezichten niet worden weergegeven in het resultaat totdat er een nieuwe grootschalige training na de migratie is uitgevoerd.
+> [!NOTE]
+> Als u Face-zoekprestaties voor Identification en FindSimilar op grote schaal wilt inschakelen, moet u LargeFaceList en LargePersonGroup voorbereiden door een Train-bewerking uit te voeren. De trainingstijd varieert van seconden tot ongeveer een half uur, afhankelijk van de werkelijke capaciteit. Tijdens de trainingsperiode is het nog steeds mogelijk Identification en FindSimilar uit te voeren als er al eerder een geslaagde training is uitgevoerd. Het nadeel is echter dat de nieuw toegevoegde personen/gezichten niet worden weergegeven in het resultaat totdat er een nieuwe grootschalige training na de migratie is uitgevoerd.
 
-## <a name="concepts"></a>Concepten
-
-U moet bekend bent met de volgende concepten voordat u voortaan:
-
-- LargePersonGroup: Een verzameling personen met een maximale capaciteit van 1.000.000.
-- LargeFaceList: Een verzameling gezichten met een maximale capaciteit van 1.000.000.
-- Trainen: Een vooraf uitgevoerd proces om de prestaties van Identification/FindSimilar te waarborgen.
-- Identification: Een of meer gezichten in een PersonGroup of LargePersonGroup identificeren.
-- FindSimilar: Soortgelijke gezichten zoeken in een FaceList of LargeFaceList.
-
-## <a name="step-1-authorize-the-api-call"></a>Stap 1: De API-aanroep autoriseren
+## <a name="step-1-initialize-the-client-object"></a>Stap 1: Het clientobject initialiseren
 
 Als u gebruikmaakt van de Face-API-clientbibliotheek, worden de abonnementssleutel en het abonnementseindpunt doorgegeven via de constructor van de klasse FaceServiceClient. Bijvoorbeeld:
 
@@ -59,22 +42,21 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 De abonnementssleutel met het bijbehorende eindpunt kan worden verkregen vanuit de Marketplace-pagina van uw Azure Portal.
 Zie [Abonnementen](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## <a name="step-2-code-migration-in-action"></a>Stap 2: Migratie van de code in actie
+## <a name="step-2-code-migration"></a>Stap 2: Code migreren
 
-In deze sectie richten we ons alleen op de migratie van de PersonGroup/FaceList-implementatie naar LargePersonGroup/LargeFaceList.
-Hoewel het ontwerp en de interne implementatie van LargePersonGroup/LargeFaceList en PersonGroup/FaceList verschillen, zijn de API-interfaces vergelijkbaar voor back-compatibiliteit.
+In deze sectie richten we ons alleen op de migratie van de PersonGroup/FaceList-implementatie naar LargePersonGroup/LargeFaceList. Hoewel LargePersonGroup/LargeFaceList van PersonGroup/FaceList in ontwerp en de interne implementatie verschilt, zijn de API-interfaces vergelijkbaar voor achterwaartse compatibiliteit.
 
 Gegevensmigratie wordt niet ondersteund, u moet de LargePersonGroup/LargeFaceList opnieuw maken.
 
-## <a name="step-21-migrate-persongroup-to-largepersongroup"></a>Stap 2.1: PersonGroup migreren naar LargePersonGroup
+### <a name="migrate-persongroup-to-largepersongroup"></a>PersonGroup migreren naar LargePersonGroup
 
-De migratie van PersonGroup naar LargePersonGroup is gemakkelijk omdat ze precies dezelfde bewerkingen op groepsniveau delen.
+De migratie van PersonGroup naar LargePersonGroup is eenvoudig, omdat ze precies dezelfde op groepsniveau bewerkingen delen.
 
 Voor de implementatie van PersonGroup/Person hoeft u alleen de API-paden of de SDK-klasse/module te wijzigen van LargePersonGroup en LargePersonGroup Person.
 
-Zie [Gezichten toevoegen](how-to-add-faces.md) als referentie voor de gegevensmigratie.
+U moet alle gezichten en personen van de PersonGroup toevoegen aan de nieuwe LargePersonGroup. Zie [over het toevoegen van gezichten](how-to-add-faces.md) ter referentie.
 
-## <a name="step-22-migrate-facelist-to-largefacelist"></a>Stap 2.2: FaceList migreren naar LargeFaceList
+### <a name="migrate-facelist-to-largefacelist"></a>FaceList migreren naar LargeFaceList
 
 | FaceList-API's | LargeFaceList-API's |
 |:---:|:---:|
@@ -82,14 +64,11 @@ Zie [Gezichten toevoegen](how-to-add-faces.md) als referentie voor de gegevensmi
 | Verwijderen | Verwijderen |
 | Ophalen | Ophalen |
 | Lijst | Lijst |
-| Update | Update |
+| Bijwerken | Bijwerken |
 | - | Trainen |
 | - | Trainingsstatus ophalen |
 
-De bovenstaande tabel bevat een vergelijking van bewerkingen tussen FaceList en LargeFaceList op lijstniveau.
-Zoals weergegeven, wordt LargeFaceList geleverd met nieuwe bewerkingen (Trainen en Trainingsstatus ophalen) als uitbreiding op FaceList.
-Het trainen van LargeFaceList is een voorwaarde voor de [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)-bewerking, terwijl Trainen daarentegen niet is vereist voor FaceList.
-Het volgende codefragment is een Help-functie tijdens het wachten op de training van een LargeFaceList.
+De bovenstaande tabel bevat een vergelijking van bewerkingen tussen FaceList en LargeFaceList op lijstniveau. Zoals weergegeven, wordt LargeFaceList geleverd met nieuwe bewerkingen (Trainen en Trainingsstatus ophalen) als uitbreiding op FaceList. Het trainen van LargeFaceList is een voorwaarde voor de [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)-bewerking, terwijl Trainen daarentegen niet is vereist voor FaceList. Het volgende codefragment is een Help-functie tijdens het wachten op de training van een LargeFaceList.
 
 ```CSharp
 /// <summary>
@@ -139,7 +118,7 @@ private static async Task TrainLargeFaceList(
 }
 ```
 
-De standaardprocedure voor gezichten toevoegen en FindSimilar in FaceList was vroeger als volgt
+Voorheen er standaardgebruik van FaceList met het toevoegen van gezichten en FindSimilar als volgt uit:
 
 ```CSharp
 // Create a FaceList.
@@ -172,7 +151,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-Na de migratie naar LargeFaceList is het als volgt
+Wanneer u deze naar LargeFaceList migreert, moet deze worden de volgende:
 
 ```CSharp
 // Create a LargeFaceList.
@@ -209,13 +188,11 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-Zoals hierboven beschreven, worden het gegevensbeheer en het onderdeel FindSimilar bijna op dezelfde manier uitgevoerd.
-De enige uitzondering hierop is dat eerst een nieuwe Train-bewerking moet worden voltooid in LargeFaceList voordat FindSimilar werkt.
+Zoals hierboven beschreven, worden het gegevensbeheer en het onderdeel FindSimilar bijna op dezelfde manier uitgevoerd. De enige uitzondering hierop is dat eerst een nieuwe Train-bewerking moet worden voltooid in LargeFaceList voordat FindSimilar werkt.
 
 ## <a name="step-3-train-suggestions"></a>Stap 3: Suggesties van de trein
 
-Hoewel door de Train-bewerking [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) en [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) sneller worden uitgevoerd, is de trainingstijd aanzienlijk langer bij een grote schaal.
-De geschatte trainingstijd in verschillende schalen wordt in de volgende tabel vermeld:
+Hoewel door de Train-bewerking [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) en [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) sneller worden uitgevoerd, is de trainingstijd aanzienlijk langer bij een grote schaal. De geschatte trainingstijd in verschillende schalen wordt in de volgende tabel vermeld:
 
 | Schaal (gezichten of personen) | Geschatte trainingstijd |
 |:---:|:---:|
@@ -228,20 +205,13 @@ Wij bevelen enkele strategieën aan om beter gebruik te kunnen maken van de func
 
 ## <a name="step-31-customize-time-interval"></a>Stap 3.1: Tijdsinterval aanpassen
 
-Zoals wordt weergegeven in `TrainLargeFaceList()`, is er `timeIntervalInMilliseconds` om het oneindige proces voor controle van de trainingsstatus uit te stellen.
-Als u een langer interval gebruikt voor LargeFaceList met meer gezichten, vermindert u het aantal oproepen en de kosten.
-Het tijdsinterval moet worden aangepast op basis van de verwachte capaciteit van LargeFaceList.
+Zoals wordt weergegeven in `TrainLargeFaceList()`, is er `timeIntervalInMilliseconds` om het oneindige proces voor controle van de trainingsstatus uit te stellen. Als u een langer interval gebruikt voor LargeFaceList met meer gezichten, vermindert u het aantal oproepen en de kosten. Het tijdsinterval moet worden aangepast op basis van de verwachte capaciteit van LargeFaceList.
 
-Dezelfde strategie geldt ook voor LargePersonGroup.
-Bij het trainen van een LargePersonGroup met 1.000.000 personen, bijvoorbeeld de `timeIntervalInMilliseconds` mogelijk 60.000 (interval van 1 minuut).
+De strategie voor dezelfde geldt ook voor LargePersonGroup. Bij het trainen van een LargePersonGroup met 1.000.000 personen, bijvoorbeeld de `timeIntervalInMilliseconds` mogelijk 60.000 (interval van 1 minuut).
 
 ## <a name="step-32-small-scale-buffer"></a>Stap 3.2 Kleinschalige buffer
 
-Personen/gezichten in LargePersonGroup/LargeFaceList zijn alleen doorzoekbaar wanneer ze zijn getraind.
-In een dynamisch scenario worden voortdurend nieuwe personen/gezichten toegevoegd, die onmiddellijk doorzoekbaar moeten zijn, maar de training kan langer duren dan gewenst.
-Als u dit probleem wilt verhelpen, kunt u een extra kleinschalige LargePersonGroup/LargeFaceList voor alleen de toegevoegde vermeldingen gebruiken als buffer.
-Deze tijdelijke buffer kan sneller worden getraind vanwege de veel kleinere omvang en is daarom vrijwel meteen doorzoekbaar.
-Gebruik deze buffer in combinatie met de training van de master LargePersonGroup/LargeFaceList door de mastertraining met een langere interval uit te voeren, bijvoorbeeld een maal daags om middernacht.
+Personen/gezichten in LargePersonGroup/LargeFaceList zijn alleen doorzoekbaar wanneer ze zijn getraind. In een dynamisch scenario worden voortdurend nieuwe personen/gezichten toegevoegd, die onmiddellijk doorzoekbaar moeten zijn, maar de training kan langer duren dan gewenst. Als u dit probleem wilt verhelpen, kunt u een extra kleinschalige LargePersonGroup/LargeFaceList voor alleen de toegevoegde vermeldingen gebruiken als buffer. Deze tijdelijke buffer kan sneller worden getraind vanwege de veel kleinere omvang en is daarom vrijwel meteen doorzoekbaar. Gebruik deze buffer in combinatie met de training van de master LargePersonGroup/LargeFaceList door de mastertraining met een langere interval uit te voeren, bijvoorbeeld een maal daags om middernacht.
 
 Voorbeeld van een werkstroom:
 1. Maak een master LargePersonGroup/LargeFaceList (masterverzameling) en een buffer LargePersonGroup/LargeFaceList (bufferverzameling). De bufferverzameling is alleen voor nieuw toegevoegde personen/gezichten.
@@ -253,13 +223,9 @@ Voorbeeld van een werkstroom:
 
 ## <a name="step-33-standalone-training"></a>Stap 3.3 zelfstandige training
 
-Als een relatief lange latentie aanvaardbaar is, is het niet nodig om de Train-bewerking te triggeren direct na het toevoegen van nieuwe gegevens.
-De Train-bewerking kan ook worden gescheiden van de hoofdlogica en op regelmatige tijden worden geactiveerd.
-Deze strategie is geschikt voor dynamische scenario's met aanvaardbare latentie en kan worden toegepast op statische scenario's om de frequentie van trainingen nog verder te beperken.
+Als een relatief lange latentie aanvaardbaar is, is het niet nodig om de Train-bewerking te triggeren direct na het toevoegen van nieuwe gegevens. De Train-bewerking kan ook worden gescheiden van de hoofdlogica en op regelmatige tijden worden geactiveerd. Deze strategie is geschikt voor dynamische scenario's met aanvaardbare latentie en kan worden toegepast op statische scenario's om de frequentie van trainingen nog verder te beperken.
 
-Stel dat er een `TrainLargePersonGroup`-functie is vergelijkbaar met `TrainLargeFaceList`.
-Een typische implementatie van de zelfstandige Training voor LargePersonGroup door het aanroepen van de [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx)-
-klasse `System.Timers` is:
+Stel dat er een `TrainLargePersonGroup`-functie is vergelijkbaar met `TrainLargeFaceList`. Een typische implementatie van de zelfstandige Training op LargePersonGroup door het aanroepen van de [ `Timer` ](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) in klasse `System.Timers` zou zijn:
 
 ```CSharp
 private static void Main()

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317053"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228390"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Beheerde identiteiten voor Azure Service Bus-resources 
 
@@ -29,7 +29,7 @@ Met beheerde identiteiten beheert het Azure-platform deze runtime-identiteit. U 
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-rollen en machtigingen
 
-U kunt alleen een beheerde identiteit toevoegen aan de rollen 'Eigenaar' of 'Medewerker' van een Service Bus-naamruimte. Deze biedt de volledige controle van de identiteit op alle entiteiten in de naamruimte. Beheer van bewerkingen die wijzigen van de naamruimte-topologie in eerste instantie zijn ondersteund echter alleen maar Azure Resource Manager. Het is niet via de systeemeigen Service Bus REST-beheerinterface. Deze ondersteuning betekent ook dat u de .NET Framework-client niet gebruiken [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object in een beheerde identiteit.
+U kunt alleen een beheerde identiteit toevoegen aan de rollen 'Eigenaar' of 'Medewerker' van een Service Bus-naamruimte. Deze biedt de volledige controle van de identiteit op alle entiteiten in de naamruimte. Beheer van bewerkingen die wijzigen van de naamruimte-topologie in eerste instantie zijn ondersteund echter alleen maar Azure Resource Manager. Het is niet via de systeemeigen Service Bus REST-beheerinterface. Deze ondersteuning betekent ook dat u de .NET Framework-client niet gebruiken [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) of de standaard .NET- [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objecten in een beheerde identiteit.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus gebruiken met beheerde identiteiten voor Azure-resources
 

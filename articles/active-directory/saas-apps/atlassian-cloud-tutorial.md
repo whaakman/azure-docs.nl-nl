@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2018
+ms.date: 05/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49d44fa0926afac917ae0ba355d37f13a354f432
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b8b9076c0a4b1fddda4ab0bcfe9f104d7dcf8a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887931"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191132"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Atlassian Cloud
 
@@ -29,7 +30,7 @@ De integratie van Atlassian Cloud met Azure AD biedt de volgende voordelen:
 
 * U kunt in Azure AD beheren wie toegang heeft tot Atlassian Cloud.
 * U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Atlassian Cloud (eenmalige aanmelding).
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -38,7 +39,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Voor het configureren van de Azure AD-integratie met Atlassian Cloud hebt u het volgende nodig:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
 * Abonnement op Atlassian Cloud waarvoor eenmalige aanmelding is ingeschakeld
 * Als u eenmalige aanmelding van Security Assertion Markup Language (SAML) wilt instellen voor Atlassian Cloud-producten, moet u Atlassian Access instellen. Meer informatie over [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
@@ -62,27 +63,27 @@ Als u de integratie van Atlassian Cloud met Azure AD wilt configureren, voegt u 
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
 4. Typ **Atlassian Cloud** in het zoekvak, selecteer **Atlassian Cloud** in het deelvenster met resultaten en klik vervolgens op **Toevoegen** om de toepassing toe te voegen.
 
      ![Atlassian Cloud in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
 In dit gedeelte gaat u Azure AD-eenmalige aanmelding bij Atlassian Cloud configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
 Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerd gebruiker in Atlassian Cloud tot stand is gebracht.
 
 Als u Azure AD-eenmalige aanmelding met Atlassian Cloud wilt configureren en testen, moet u de volgende bouwstenen uitvoeren:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Atlassian Cloud-eenmalige aanmelding configureren](#configure-atlassian-cloud-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. **[Een testgebruiker voor Atlassian Cloud maken](#create-atlassian-cloud-test-user)**: een tegenhanger voor Britta Simon definiëren in Atlassian Cloud die is gekoppeld aan de Azure AD-versie van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -92,7 +93,7 @@ Voer de volgende stappen uit om Azure AHD-eenmalige aanmelding te configureren v
 
 1. Ga in [Azure Portal](https://portal.azure.com/) naar de overzichtspagina van de integratie voor **Atlassian Cloud** en selecteer **Eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -102,7 +103,7 @@ Voer de volgende stappen uit om Azure AHD-eenmalige aanmelding te configureren v
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
+4. In het gedeelte **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
     ![Informatie over eenmalige aanmelding voor het [Application Name]-domein en de -URL's](common/idp-relay.png)
 
@@ -115,7 +116,7 @@ Voer de volgende stappen uit om Azure AHD-eenmalige aanmelding te configureren v
     d. In het tekstvak **Relaystatus** typt u een URL met de volgende notatie: `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > De bovenstaande waarden zijn niet echt. Werk deze waarden bij met de werkelijke id en antwoord-URL. U kunt de echte waarden ophalen in het Atlassian Cloud-scherm SAML-configuratie. Dit wordt verderop in de zelfstudie uitgelegd.
+    > De bovenstaande waarden zijn niet echt. Werk deze waarden bij met de werkelijke id en antwoord-URL. U krijgt deze echte waarden uit de **SAML-configuratie van Atlassian Cloud** scherm die later in wordt uitgelegd de **configureren Atlassian Cloud Single Sign-On** van de zelfstudie.
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
@@ -132,7 +133,7 @@ Voer de volgende stappen uit om Azure AHD-eenmalige aanmelding te configureren v
 
 7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De link om het certificaat te downloaden](common/certificatebase64.png)
+    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
 8. Kopieer in de sectie **Atlassian Cloud instellen** de juiste URL('s) overeenkomstig wat u nodig hebt.
 
@@ -142,42 +143,50 @@ Voer de volgende stappen uit om Azure AHD-eenmalige aanmelding te configureren v
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
 ### <a name="configure-atlassian-cloud-single-sign-on"></a>Eenmalige aanmelding configureren voor Atlassian Cloud
 
-1. Als u eenmalige aanmelding wilt configureren voor uw toepassing meldt u zich met beheerdersreferenties aan bij de Atlassian-portal.
+1. Voor het automatiseren van de configuratie in Atlassian Cloud, die u wilt installeren **mijn Apps beveiligde aanmelding browserextensie** door te klikken op **de extensie installeren**.
 
-2. U moet uw domein verifiëren voordat u eenmalige aanmelding configureert. Zie het document [Atlassian-domeinverificatie](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) voor meer informatie.
+    ![Mijn apps-extensie](common/install-myappssecure-extension.png)
 
-3. Selecteer **Eenmalige aanmelding op basis van SAML** in het linkerdeelvenster. Abonneer u op Atlassian Identity Manager als u dat nog niet had gedaan.
+2. Na het toevoegen van uitbreiding naar de browser, klikt u op **Setup Atlassian Cloud** wordt u doorgeleid naar de cloudtoepassing Atlassian. Geef de beheerdersreferenties voor aanmelding bij Atlassian Cloud daar. In de browserextensie wordt de toepassing automatisch voor u geconfigureerd en worden stappen 3-7 geautomatiseerd.
+
+    ![Configuratie voor de installatie](common/setup-sso.png)
+
+3. Als u Atlassian Cloud handmatig instellen wilt, opent u een nieuw browservenster en meld u in uw site van het bedrijf Atlassian Cloud als beheerder en voer de volgende stappen uit:
+
+4. U moet uw domein verifiëren voordat u eenmalige aanmelding configureert. Zie het document [Atlassian-domeinverificatie](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) voor meer informatie.
+
+5. Selecteer **Eenmalige aanmelding op basis van SAML** in het linkerdeelvenster. Abonneer u op Atlassian Identity Manager als u dat nog niet had gedaan.
 
     ![Eenmalige aanmelding configureren](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-4. Doe het volgende in het venster **SAML-configuratie toevoegen**:
+6. Doe het volgende in het venster **SAML-configuratie toevoegen**:
 
     ![Eenmalige aanmelding configureren](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-    a. In het vak **Entiteits-id id-provider** plakt u de SAML-identiteits-id die u uit Azure Portal hebt gekopieerd.
+    a. In de **id-provider entiteit-ID** vak, plak de **Azure AD-id** die u hebt gekopieerd vanuit Azure portal.
 
-    b. In het vak **SSO-URL id-provider** plakt u de SAML-service-URL voor eenmalige aanmelding die u uit Azure Portal hebt gekopieerd.
+    b. In de **id-provider voor eenmalige aanmelding URL** vak, plak de **aanmeldings-URL** die u hebt gekopieerd vanuit Azure portal.
 
     c. Open het certificaat dat u uit Azure Portal hebt gedownload als TXT-bestand, kopieer de waarde (zonder de regels *Begin certificaat* en *Einde certificaat*) en plak deze in het vak **Openbaar X509-certificaat**.
 
     d. Klik op **Configuratie opslaan**.
 
-5. Om er zeker van te zijn dat u de juiste URL's hebt ingesteld, werkt u de Azure AD-instellingen bij door het volgende te doen:
+7. Om er zeker van te zijn dat u de juiste URL's hebt ingesteld, werkt u de Azure AD-instellingen bij door het volgende te doen:
 
     ![Eenmalige aanmelding configureren](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    a. Kopieer in het SAML-venster de **SP-id**. Ga dan naar Azure Portal, open **Domein en URL's** van Atlassian Cloud en plak de waarde in het vak **Id**.
+    a. Kopieer in het SAML-venster de **SP identiteit-ID** en klikt u op de Azure-portal, onder Atlassian Cloud **SAML-basisconfiguratie**, plak deze in de **id** vak.
 
-    b. Kopieer in het SAML-venster de **URL voor Assertion Consumer Service van de SP**. Ga dan naar Azure Portal, open **Domein en URL's** van Atlassian Cloud en plak de waarde in het vak **Antwoord-URL**. De aanmeldings-URL is de tenant-URL van uw Atlassian Cloud.
+    b. Kopieer in het SAML-venster de **SP URL van de Bevestigingsconsumerservice** en klikt u op de Azure-portal, onder Atlassian Cloud **SAML-basisconfiguratie**, plak deze in de **antwoord-URL**vak. De aanmeldings-URL is de tenant-URL van uw Atlassian Cloud.
 
     > [!NOTE]
     > Als u een bestaande klant bent, selecteert u na het bijwerken van de **SP-id** en de **URL voor Assertion Consumer Service van de SP** in Azure Portal de optie **Ja, configuratie bijwerken**. Als u een nieuwe klant bent, kunt u deze stap overslaan.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
