@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924963"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236654"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Een hostpool maken met PowerShell
 
@@ -100,17 +100,6 @@ Doe het volgende op elke virtuele machine voor het registreren van de virtuele b
    - Download de [Windows Virtual PC-Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Met de rechtermuisknop op het gedownloade installatieprogramma, selecteert u **eigenschappen**, selecteer **opheffen van blokkeringen**en selecteer vervolgens **OK**. Hierdoor kunnen uw systeem te vertrouwen van het installatieprogramma.
    - Voer het installatieprogramma.
-4. Installeer of activeren van de virtuele Windows-bureaublad side-by-side-stack. De stappen zijn verschillend, afhankelijk van welke versie van het besturingssysteem de virtuele machine wordt gebruikt.
-   - Als uw virtuele machine besturingssysteem Windows Server 2016:
-     - Download de [virtuele Windows-bureaublad side-by-side stack](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - Met de rechtermuisknop op het gedownloade installatieprogramma, selecteert u **eigenschappen**, selecteer **opheffen van blokkeringen**en selecteer vervolgens **OK**. Hierdoor kunnen uw systeem te vertrouwen van het installatieprogramma.
-     - Voer het installatieprogramma.
-   - Als uw virtuele machine besturingssysteem Windows 10 1809 of hoger of WindowsServer 2019 of hoger:
-     - Download de [script](https://go.microsoft.com/fwlink/?linkid=2084268) activeren van de side-by-side-stack.
-     - Met de rechtermuisknop op het gedownloade script, selecteert u **eigenschappen**, selecteer **opheffen van blokkeringen**en selecteer vervolgens **OK**. Hierdoor kunnen uw systeem te vertrouwen van het script.
-     - Uit de **Start** zoeken naar Windows PowerShell ISE, in het menu met de rechtermuisknop en selecteer vervolgens **als administrator uitvoeren**.
-     - Selecteer **bestand**, klikt u vervolgens **openen...** , en vervolgens de PowerShell-script uit de gedownloade bestanden te zoeken en te openen.
-     - Selecteer de knop play groen het script uit te voeren.
 
 >[!IMPORTANT]
 >Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

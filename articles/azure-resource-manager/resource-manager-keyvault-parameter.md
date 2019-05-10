@@ -1,33 +1,68 @@
 ---
 title: Key Vault-geheim met Azure Resource Manager-sjabloon | Microsoft Docs
 description: Laat zien hoe een geheim uit key vault als een parameter doorgeven tijdens implementatie.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2019
+ms.date: 05/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b92a8a3b8aacd1f665725643314858fe92ad3c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: e47a087e27b6a8ade947e36ded762ce2e518ca25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233765"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507999"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault gebruiken voor veilige parameterwaarde doorgeven tijdens implementatie
 
-In plaats van hiervoor een beveiligde waarde (zoals een wachtwoord) rechtstreeks in uw parameterbestand, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md) tijdens een implementatie. Haalt u de waarde door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde zelf wordt nooit getoond, omdat u alleen verwijst naar de sleutelkluis-id. De key vault kan bestaan in een ander abonnement dan de resourcegroep die u implementeert.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+In plaats van hiervoor een beveiligde waarde (zoals een wachtwoord) rechtstreeks in uw sjabloon of de parameter-bestand, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md) tijdens een implementatie. Haalt u de waarde door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde zelf wordt nooit getoond, omdat u alleen verwijst naar de sleutelkluis-id. De key vault kan bestaan in een ander abonnement dan de resourcegroep die u naar implementeert.
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Sleutelkluizen en geheimen implementeren
 
-Het maken van Sleutelkluizen en geheimen toevoegen, Zie:
+Instellen voor toegang tot een key vault tijdens de sjabloonimplementatie van de, `enabledForTemplateDeployment` voor de sleutelkluis te `true`.
+
+De volgende Azure CLI en Azure PowerShell-voorbeelden laten zien hoe de key vault maken en een geheim toevoegen.
+
+```azurecli
+az group create --name $resourceGroupName --location $location
+az keyvault create \
+  --name $keyVaultName \
+  --resource-group $resourceGroupName \
+  --location $location \
+  --enabled-for-template-deployment true
+az keyvault secret set --vault-name $keyVaultName --name "ExamplePassword" --value "hVFkk965BuUv"
+```
+
+```azurepowershell
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzKeyVault `
+  -VaultName $keyVaultName `
+  -resourceGroupName $resourceGroupName `
+  -Location $location `
+  -EnabledForTemplateDeployment
+$secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
+$secret = Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'ExamplePassword' -SecretValue $secretvalue
+```
+
+Als de eigenaar van de key vault hebt u automatisch toegang tot het maken van geheimen. Als de gebruiker die werken met geheimen niet de eigenaar van de key vault, verleent u toegang met:
+
+```azurecli
+az keyvault set-policy \
+  --upn $userPrincipalName \
+  --name $keyVaultName \
+  --secret-permissions set delete get list
+```
+
+```azurepowershell
+$userPrincipalName = "<Email Address of the deployment operator>"
+
+Set-AzKeyVaultAccessPolicy `
+  -VaultName $keyVaultName `
+  -UserPrincipalName $userPrincipalName `
+  -PermissionsToSecrets set,delete,get,list
+```
+
+Zie voor meer informatie over het maken van sleutelkluizen en geheimen toevoegen:
 
 - [Instellen en ophalen van een geheim met behulp van CLI](../key-vault/quick-create-cli.md)
 - [Instellen en ophalen van een geheim met behulp van Powershell](../key-vault/quick-create-powershell.md)
@@ -35,35 +70,9 @@ Het maken van Sleutelkluizen en geheimen toevoegen, Zie:
 - [Instellen en ophalen van een geheim met behulp van .NET](../key-vault/quick-create-net.md)
 - [Instellen en ophalen van een geheim met behulp van Node.js](../key-vault/quick-create-node.md)
 
-Er zijn enkele aanvullende overwegingen en vereisten bij het integreren van Key Vault met de sjabloonimplementatie van Resource Manager:
-
-- `enabledForTemplateDeployment` is een eigenschap van de sleutelkluis. Toegang tot de geheimen in deze Key Vault van Resource Manager-implementatie, `enabledForTemplateDeployment` moet `true`. 
-- Als u niet de eigenaar van de key vault, moet de eigenaar van de instellingen voor beveiligingsbeleid voor u om toe te voegen geheimen sleutelkluis bijwerken.
-
-De volgende Azure CLI en Azure PowerShell-voorbeelden laten zien hoe dit werkt:
-
-```azurecli
-# Create a Key Vault
-az keyvault create \
-  --name $keyVaultName \
-  --resource-group $resourceGroupName \
-  --location $location \
-  --enabled-for-template-deployment true
-az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-```
-
-```azurepowershell
-New-AzKeyVault `
-  -VaultName $keyVaultName `
-  -resourceGroupName $resourceGroupName `
-  -Location $location `
-  -EnabledForTemplateDeployment
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-```
-
 ## <a name="grant-access-to-the-secrets"></a>Toegang verlenen tot de geheimen
 
-Er moet de gebruiker de sjabloon implementeert de `Microsoft.KeyVault/vaults/deploy/action` machtiging voor het bereik waarin de Key Vault met inbegrip van de resourcegroep en de Key Vault. De [eigenaar](../role-based-access-control/built-in-roles.md#owner) en [Inzender](../role-based-access-control/built-in-roles.md#contributor) beide rollen deze toegang verlenen. Als u de Sleutelkluis maakt, bent u de eigenaar, zodat u de machtiging hebt. Als de Key Vault met een ander abonnement is, moet de eigenaar van de Key Vault grand de toegang.
+Er moet de gebruiker de sjabloon implementeert de `Microsoft.KeyVault/vaults/deploy/action` toestemming voor het bereik van de resourcegroep en de sleutelkluis. De [eigenaar](../role-based-access-control/built-in-roles.md#owner) en [Inzender](../role-based-access-control/built-in-roles.md#contributor) beide rollen deze toegang verlenen. Als u de sleutelkluis hebt gemaakt, u kunt de eigenaar van de zodat u de machtiging hebt.
 
 De volgende procedure laat zien over het maken van een rol met de minimale machtigingen en de gebruiker toewijzen
 
@@ -89,14 +98,23 @@ De volgende procedure laat zien over het maken van een rol met de minimale macht
 
 2. De nieuwe rol met behulp van het JSON-bestand maken:
 
-    ```azurepowershell
-    $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
-    $userPrincipalName = "<Email Address of the deployment operator>"
-    New-AzRoleDefinition -InputFile "<PathToTheJSONFile>" 
-    New-AzRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    ```azurecli
+    az role definition create --role-definition "<PathToRoleFile>"
+    az role assignment create \
+      --role "Key Vault resource manager template deployment operator" \
+      --assignee $userPrincipalName \
+      --resource-group $resourceGroupName
     ```
 
-    De `New-AzRoleAssignment` voorbeeld wijst u de aangepaste rol die aan de gebruiker op het niveau van de resourcegroep.  
+    ```azurepowershell
+    New-AzRoleDefinition -InputFile "<PathToRoleFile>" 
+    New-AzRoleAssignment `
+      -ResourceGroupName $resourceGroupName `
+      -RoleDefinitionName "Key Vault resource manager template deployment operator" `
+      -SignInName $userPrincipalName
+    ```
+
+    De voorbeelden wordt de aangepaste rol toewijzen aan de gebruiker op het niveau van de resourcegroep.  
 
 Wanneer u een Key Vault met de sjabloon voor een [beheerde toepassingen](../managed-applications/overview.md), u moet toegang verlenen tot de **toestel Resource Provider** service-principal. Zie voor meer informatie, [toegang tot Key Vault-geheim bij het implementeren van Azure Managed Applications](../managed-applications/key-vault-access.md).
 
@@ -106,18 +124,75 @@ Met deze methode, verwijst u naar de key vault in het parameterbestand, niet de 
 
 ![Statische-ID een diagram van Resource Manager sleutelkluis-integratie](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Zelfstudie: Azure Key Vault integreren in de implementatie van Resource Manager-sjabloon](./resource-manager-tutorial-use-key-vault.md) maakt gebruik van deze methode. De zelfstudie implementeert een virtuele machine wat een administrator-wachtwoord bevat. De parameter password is ingesteld op een beveiligde tekenreeks:
+[Zelfstudie: Azure Key Vault integreren in de implementatie van Resource Manager-sjabloon](./resource-manager-tutorial-use-key-vault.md) maakt gebruik van deze methode.
 
-![Resource Manager sleutelkluis-integratie-sjabloonbestand met statische-ID](./media/resource-manager-keyvault-parameter/resource-manager-key-vault-static-id-template-file.png)
+De volgende sjabloon implementeert een SQL-server met een administrator-wachtwoord. De parameter password is ingesteld op een beveiligde tekenreeks. Maar de sjabloon niet wordt opgegeven waarop deze waarde is gebaseerd.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminLogin": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "sqlServerName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('sqlServerName')]",
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "administratorLogin": "[parameters('adminLogin')]",
+        "administratorLoginPassword": "[parameters('adminPassword')]",
+        "version": "12.0"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
+```
 
 Maak nu een parameterbestand voor de voorgaande sjabloon. Geef een parameter die overeenkomt met de naam van de parameter in de sjabloon in het parameterbestand. De waarde van parameter verwijst naar het geheim uit key vault. U verwijst naar het geheim door door te geven van de resource-id van de key vault en de naam van het geheim:
 
-![Resource Manager sleutelkluis-integratie-parameterbestand met statische-ID](./media/resource-manager-keyvault-parameter/resource-manager-key-vault-static-id-parameter-file.png)
+De key vault-geheim moet al bestaan in de volgende parameter-bestand, en u een statische waarde opgeven voor de resource-ID.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminLogin": {
+            "value": "exampleadmin"
+        },
+        "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+              },
+              "secretName": "ExamplePassword"
+            }
+        },
+        "sqlServerName": {
+            "value": "<your-server-name>"
+        }
+    }
+}
+```
 
 Als u moet een versie van het geheim dan de huidige versie te gebruiken, gebruikt de `secretVersion` eigenschap.
 
 ```json
-"secretName": "examplesecret",
+"secretName": "ExamplePassword",
 "secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024587"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472486"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource met een set vaardigheden in Azure Search koppelen 
 
@@ -60,7 +60,7 @@ U betaalt alleen voor de vaardigheden die de Cognitive Services-API's aanroepen.
 
    ![Een Cognitive Services-resource maken](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "een Cognitive Services-resource maken")
 
-1. Kies in de locatie, dezelfde regio als de Azure Search uitgaande bandbreedte om kosten te vermijden tussen regio's.
+1. Kies in de locatie, dezelfde regio als de Azure Search. Dit is vereist voor betere prestaties, maar ook ongeldig kosten voor uitgaande bandbreedte maken tussen regio's.
 
 1. Kies in de prijscategorie, **S0** om op te halen, de alles-in-één-verzameling van Cognitive Services-functies, met inbegrip van de visie en taal-functies die de vooraf gedefinieerde vaardigheden die worden gebruikt door Azure Search back-ups maken. 
 

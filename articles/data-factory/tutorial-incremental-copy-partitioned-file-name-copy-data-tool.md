@@ -104,7 +104,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     
     d. Onder **terugkeerpatroon**, voer **1 uur**. 
     
-    e. Selecteer **Volgende**. 
+    e. Selecteer **Next**. 
     
     De gebruikersinterface van Data Factory maakt een pijplijn met de opgegeven taaknaam. 
 

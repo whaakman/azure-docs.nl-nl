@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404688"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510526"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Problemen vaststellen en oplossen van problemen bij het gebruik van Azure Cosmos DB-Trigger in Azure Functions
 
@@ -27,17 +27,19 @@ De Azure Cosmos DB-Trigger en bindingen afhankelijk van de extensiepakketten via
 
 In dit artikel wordt altijd verwijzen naar Azure Functions V2 wanneer de runtime wordt vermeld, tenzij expliciet worden opgegeven.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>De Cosmos DB SDK los van de Trigger en bindingen verbruikt
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>De Azure Cosmos DB SDK onafhankelijk gebruiken
 
 De belangrijkste functionaliteit van het pakket met de uitbreiding is om ondersteuning te bieden voor de Azure Cosmos DB-trigger en bindingen. Dit omvat ook de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), dit is handig als u werken met Azure Cosmos DB via een programma wilt zonder gebruik te maken van de trigger en bindingen.
 
-Als wilt gebruiken de Azure Cosmos DB SDK, zorg ervoor dat u een andere NuGet-pakketverwijzing niet aan uw project toevoegen. In plaats daarvan **laat de SDK-verwijzing oplossen via de Azure Functions-uitbreidingspakket**.
+Als wilt gebruiken de Azure Cosmos DB SDK, zorg ervoor dat u een andere NuGet-pakketverwijzing niet aan uw project toevoegen. In plaats daarvan **laat de SDK-verwijzing oplossen via de Azure Functions-uitbreidingspakket**. De Azure Cosmos DB SDK los van de trigger en bindingen gebruiken
 
 Bovendien, als u handmatig het maken van uw eigen exemplaar van de [Azure Cosmos DB SDK-client](./sql-api-sdk-dotnet-core.md), u moet volgen het patroon dat u hoeft slechts één exemplaar van de client [met behulp van een Singleton-patroon benadering](../azure-functions/manage-connections.md#documentclient-code-example-c) . Dit proces zal voorkomen dat de mogelijke socket problemen in uw activiteiten.
 
-## <a name="common-known-scenarios-and-workarounds"></a>Algemene scenario's voor bekende en tijdelijke oplossingen
+## <a name="common-scenarios-and-workarounds"></a>Algemene scenario's en oplossingen
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Azure-functie is mislukt met foutbericht "een van beide de bronverzameling 'verzameling-naam' (in database 'database-naam') of de leaseverzameling 'verzameling2-naam' (in database 'database2-naam') bestaat niet. Beide verzamelingen moeten bestaan voordat de listener wordt gestart. Stel 'CreateLeaseCollectionIfNotExists' op 'true' voor het automatisch maken van de leaseverzameling "
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Azure functie mislukt met fout bericht verzameling bestaat niet
+
+Azure-functie is mislukt met foutbericht "een van beide de bronverzameling 'verzameling-naam' (in database 'database-naam') of de leaseverzameling 'verzameling2-naam' (in database 'database2-naam') bestaat niet. Beide verzamelingen moeten bestaan voordat de listener wordt gestart. Stel 'CreateLeaseCollectionIfNotExists' op 'true' voor het automatisch maken van de leaseverzameling "
 
 Dit betekent dat een of beide van de Azure Cosmos-containers die vereist zijn voor de trigger werkt niet bestaan of niet bereikbaar zijn voor de Azure-functie zijn. **De fout zich laat u weten welke Azure-Cosmos-database en containers is de trigger op zoek naar** op basis van uw configuratie.
 
@@ -78,7 +80,8 @@ Als sommige wijzigingen op de doelcomputer ontbreken, kan dit betekenen dat is e
 
 In dit scenario, de beste loop van de actie is het toevoegen van `try/catch blocks` in uw code en binnen de lussen die kunnen worden verwerkt de wijzigingen, voor het detecteren van een storing voor een bepaalde subset met objecten en deze dienovereenkomstig te verwerken (verzend dit naar een andere opslag voor verdere Probeer het opnieuw of analyse). 
 
-> **De Azure Cosmos DB-Trigger standaard wordt niet opnieuw te proberen een batch van wijzigingen Als er een onverwerkte uitzondering is** tijdens de uitvoering van uw code. Dit betekent dat de reden dat de wijzigingen niet op de bestemming ontvangen is omdat dat u niet kunnen ze verwerken.
+> [!NOTE]
+> De Azure Cosmos DB-Trigger wordt niet standaard opnieuw een batch van wijzigingen Als er een onverwerkte uitzondering opgetreden tijdens de uitvoering van uw code is. Dit betekent dat de reden dat de wijzigingen niet op de bestemming ontvangen is omdat dat u niet kunnen ze verwerken.
 
 Als u merkt dat sommige wijzigingen zijn niet helemaal ontvangen door de trigger, de meest voorkomende scenario is dat er wordt **die wordt uitgevoerd met een andere Azure-functie**. Dit kan een andere Azure-functie geïmplementeerd in Azure of een Azure-functie lokaal op worden uitgevoerd van een ontwikkelaar van de computer die is **exact dezelfde configuratie** (hetzelfde bewaakt en containers van de lease), en het stelen van deze Azure-functie een een subset van de te uw Azure-functie verwachten voor het verwerken van wijzigingen.
 

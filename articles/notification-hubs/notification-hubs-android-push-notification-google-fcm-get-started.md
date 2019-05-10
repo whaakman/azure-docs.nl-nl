@@ -58,7 +58,7 @@ U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u gee
 3. Voer de volgende stappen uit op de pagina **Configure your project**: 
     1. Voer bij **Name** een naam in voor de toepassing.
     2. Geef een locatie om voor het opslaan van de projectbestanden. 
-    3. Selecteer **Voltooien**. 
+    3. Selecteer **Finish**. 
 
         ![Het project configureren](./media/notification-hubs-android-push-notification-google-fcm-get-started/configure-project.png)
 

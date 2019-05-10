@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695406"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410955"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Inschakelen en extern bureaublad gebruiken voor virtuele Linux-machines in een lab in Azure Lab Services
 In dit artikel laat zien hoe de volgende taken uitvoeren:
@@ -64,7 +64,7 @@ Lab-eigenaar (docent) kan verbinding maken met een student virtuele machine bij 
 ## <a name="students-connecting-to-the-student-vm"></a>Verbinding maken met de virtuele machine van de cursist studenten
 Studenten kunnen RDP in hun virtuele Linux-machines na het lab-eigenaar (docent) **publiceert** de sjabloon voor virtuele machine met RDP en GUI-pakketten geïnstalleerd op de computer. Dit zijn de stappen: 
 
-1. Wanneer een student meldt zich aan bij de portal Labs rechtstreeks (`http://labs.azure.com`) of met behulp van een registratiekoppeling (`http://labs.azure.com/register/<registrationCode>`), een tegel voor elk lab de student toegang tot heeft wordt weergegeven. 
+1. Wanneer een student meldt zich aan bij de portal Labs rechtstreeks (`https://labs.azure.com`) of met behulp van een registratiekoppeling (`https://labs.azure.com/register/<registrationCode>`), een tegel voor elk lab de student toegang tot heeft wordt weergegeven. 
 2. Selecteer op de tegel **Start** als de virtuele machine is gestopt. 
 3. Selecteer **Verbinden**. Deze actie wordt het RDP-bestand naar uw machine gedownload. Opslaan en openen om te verbinden met de Linux-machine via RDP. 
 

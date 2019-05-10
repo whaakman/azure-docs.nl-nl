@@ -60,7 +60,7 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 1. Selecteer **Een database toevoegen** en selecteer **Volgende**.  
     Het toepassingsframework dat u in een vorige stap hebt gekozen, bepaalt welk type implementatiedoel hier beschikbaar is voor de Azure-service. 
     
-1. Selecteer **Volgende**.
+1. Selecteer **Next**.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps en een Azure-abonnement configureren
 

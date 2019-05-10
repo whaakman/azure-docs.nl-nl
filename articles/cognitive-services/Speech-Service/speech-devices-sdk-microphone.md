@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: c8bc11b8f81fe034ceaa93c7bd8a49771d9407f9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025777"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237000"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Spraak apparaten SDK microfoon matrix aanbevelingen
 
@@ -29,9 +29,11 @@ De volgende matrix geometrie worden aanbevolen voor gebruik met de Microsoft-Aud
 
 |          | Cirkelvormige matrix    |       |  Lineaire matrix              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 mic circulaire matrix](media/speech-devices-sdk/7-mic-c.png)|![4 mic circulaire matrix](media/speech-devices-sdk/4-mic-c.png)|![4 mic lineaire matrix](media/speech-devices-sdk/4-mic-l.png)|![2 mic lineaire matrix](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Microfoon  | 7                 | 4                 | 4              | 2              |
 | geometrie | 6 buitenste 1 Center, Radius = 42,5 mm, gelijkmatig is verdeeld| 3 buitenste 1 Center, Radius = 42,5 mm, gelijkmatig is verdeeld | Lengte = 120 mm afstand = 40 mm | Afstand = 40 mm |
+
+De volgorde van de microfoon kanalen moeten worden geplaatst op basis van de nummering weergegeven voor elk hierboven matrix, vanaf 0 verhogen.  De Microsoft-Audio-Stack is een aanvullende naslaginformatie gegevensstroom afspelen van geluid om uit te voeren echo annulering vereist.
 
 ## <a name="component-selection"></a>Selectie van onderdelen
 
@@ -110,4 +112,4 @@ Snelle USB-Audio klasse 2.0 moet worden ondersteund in alle audio microcontrolle
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> Meer informatie over de [spraak Devices SDK](speech-devices-sdk.md)
+> [Meer informatie over de SDK van de apparaten spraak](speech-devices-sdk.md)

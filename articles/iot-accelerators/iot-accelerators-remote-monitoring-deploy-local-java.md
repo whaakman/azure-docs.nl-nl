@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147448"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412737"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>De bewaking op afstand oplossingsversnellers implementeren lokaal - IntelliJ
 
@@ -100,9 +100,9 @@ De volgende stappen laten zien hoe u de bewaking op afstand microservices in Int
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-Als voorbeeld de volgende afbeelding toont de configuratie voor een service toe te voegen:
+Als u bijvoorbeeld de volgende afbeelding toont de configuratie voor een service toevoegen:
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>Samengestelde configuratie maken
@@ -111,14 +111,11 @@ Als voorbeeld de volgende afbeelding toont de configuratie voor een service toe 
 1. Voer de **naam** en **sbt taken toevoegen**
 1. Klik op **toepassen > Ok** om op te slaan, uw keuzes.
 
-Als u bijvoorbeeld de volgende afbeelding ziet u alle sbt taken toe te voegen aan één configuratie:
+Als u bijvoorbeeld de volgende afbeelding toont alle sbt taken toe te voegen aan één configuratie:
 
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. Klik op **uitvoeren** wilt bouwen en uitvoeren van de webservices op de lokale computer.
+Klik op **uitvoeren** wilt bouwen en uitvoeren van de webservices op de lokale computer.
 
 Elke webservice wordt een opdrachtprompt en web-browservenster geopend. Bij de opdrachtprompt, ziet u uitvoer van de service en het browservenster kunt u de status controleren. Sluit niet de opdracht prompts of webpagina's, met deze actie wordt de web-service gestopt.
 

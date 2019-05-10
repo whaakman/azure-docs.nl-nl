@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020437"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237071"
 ---
 # <a name="text-to-speech-rest-api"></a>Text to Speech REST-API
 
@@ -44,35 +44,35 @@ De `voices/list` eindpunt kunt u een volledige lijst van stemmen voor een specif
 
 | Regio | Eindpunt |
 |--------|----------|
-| Australië - oost | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Brazilië - zuid | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Canada - midden | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| US - centraal | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Azië - oost | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| US - oost | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| US - oost 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Frankrijk - centraal | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| India - centraal | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Japan - oost | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Korea - centraal | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| US - noord-centraal | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europa - noord | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| US - zuid-centraal | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Azië - zuidoost | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Verenigd Koninkrijk Zuid | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europa -west | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| US - west | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| US - west 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Australië - oost | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brazilië - zuid | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Canada - midden | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US - centraal | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Azië - oost | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US - oost | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US - oost 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Frankrijk - centraal | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| India - centraal | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan - oost | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Korea Centraal | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US - noord-centraal | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa - noord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US - zuid-centraal | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Azië - zuidoost | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| VK Zuid | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa -west | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US - west | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| US - west 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
 Deze tabel bevat de vereiste en optionele headers voor Text to Speech-aanvragen.
 
-| Header | Description | Vereiste / optioneel |
+| Koptekst | Description | Vereiste / optioneel |
 |--------|-------------|---------------------|
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Vereist |
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is een instantie niet vereist voor `GET` aanvragen naar dit eindpunt.
 
@@ -159,7 +159,7 @@ Deze regio's worden ondersteund voor tekst naar spraak met behulp van de REST-AP
 
 Deze tabel bevat de vereiste en optionele headers voor Text to Speech-aanvragen.
 
-| Header | Description | Vereiste / optioneel |
+| Koptekst | Description | Vereiste / optioneel |
 |--------|-------------|---------------------|
 | `Authorization` | Een verificatietoken voorafgegaan door het woord `Bearer`. Zie [Verificatie](#authentication) voor meer informatie. | Vereist |
 | `Content-Type` | Hiermee geeft u het type inhoud voor de opgegeven tekst. Waarde geaccepteerd: `application/ssml+xml`. | Vereist |
@@ -183,7 +183,7 @@ Dit is een lijst met ondersteunde audio-indelingen die worden verzonden in elke 
 > [!NOTE]
 > Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24khz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen.
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 De hoofdtekst van elk `POST` aanvraag wordt verzonden als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md). SSML kunt u de spraak- en taal van de kunstmatige spraak geretourneerd door de Text to Speech-service kiezen. Zie voor een volledige lijst van ondersteunde stemmen, [taalondersteuning](language-support.md#text-to-speech).
 

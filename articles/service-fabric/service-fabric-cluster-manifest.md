@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386717"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209706"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Configuratie-instellingen voor een zelfstandige Windows-cluster
 Dit artikel wordt beschreven configuratie-instellingen van een zelfstandig Azure Service Fabric-cluster die kan worden ingesteld in de *ClusterConfig.json* bestand. U gebruikt dit bestand om op te geven informatie over de knooppunten van het cluster, beveiligingsconfiguraties, evenals de netwerktopologie in termen van fout- en upgradedomeinen.  Na het wijzigen of configuratie-instellingen toe te voegen, kunt u een [maken van een zelfstandige cluster](service-fabric-cluster-creation-for-windows-server.md) of [upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -85,7 +85,7 @@ De sectie met eigenschappen in de ClusterConfig.json wordt gebruikt om het clust
 ### <a name="reliability"></a>Betrouwbaarheid
 Het concept van kunt reliabilityLevel definieert het aantal replica's of exemplaren van de Service Fabric-systeemservices die kunnen worden uitgevoerd op de primaire knooppunten van het cluster. Bepaalt de betrouwbaarheid van deze services en wordt daarmee het cluster. De waarde wordt berekend door het systeem gelijktijdig met cluster maken en bijwerken.
 
-### <a name="diagnostics"></a>Diagnostiek
+### <a name="diagnostics"></a>Diagnostische gegevens
 In de sectie diagnosticsStore kunt u parameters voor het inschakelen van diagnostische gegevens en het oplossen van fouten in de knooppunt- of -cluster, zoals wordt weergegeven in het volgende codefragment: 
 
 ```json
@@ -122,7 +122,7 @@ De Beveiligingssectie is vereist voor een veilige zelfstandige Service Fabric-cl
 }
 ```
 
-De metagegevens is een beschrijving van het beveiligde cluster en kan worden ingesteld op basis van uw installatie. De ClusterCredentialType en ServerCredentialType bepaalt het type dat door het cluster en de knooppunten implementeren. Ze kunnen worden ingesteld op *X509* voor beveiliging op basis van certificaten of *Windows* voor beveiliging op basis van Azure Active Directory. De rest van de Beveiligingssectie is gebaseerd op het type beveiliging. Zie voor meer informatie over het invullen van de rest van de Beveiligingssectie [beveiliging op basis van certificaten in een zelfstandige cluster](service-fabric-windows-cluster-x509-security.md) of [Windows-beveiliging in een zelfstandige cluster](service-fabric-windows-cluster-windows-security.md).
+De metagegevens is een beschrijving van het beveiligde cluster en kan worden ingesteld op basis van uw installatie. De ClusterCredentialType en ServerCredentialType bepaalt het type dat door het cluster en de knooppunten implementeren. Ze kunnen worden ingesteld op *X509* voor beveiliging op basis van certificaten of *Windows* voor beveiliging op basis van Active Directory. De rest van de Beveiligingssectie is gebaseerd op het type beveiliging. Zie voor meer informatie over het invullen van de rest van de Beveiligingssectie [beveiliging op basis van certificaten in een zelfstandige cluster](service-fabric-windows-cluster-x509-security.md) of [Windows-beveiliging in een zelfstandige cluster](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Knooppunttypen
 De sectie nodeTypes beschrijving van het type van de knooppunten die het cluster is. Ten minste één knooppunttype moet worden opgegeven voor een cluster, zoals wordt weergegeven in het volgende codefragment: 

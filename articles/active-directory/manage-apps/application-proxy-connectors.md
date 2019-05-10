@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb2a2aa8204ef442bbe3a0e6ff9018cd3f153910
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292996"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406495"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
@@ -29,14 +29,14 @@ Connectors zijn lichtgewicht agents die zich on-premises en de uitgaande verbind
 
 ## <a name="requirements-and-deployment"></a>Vereisten en implementatie
 
-Voor het implementeren van de toepassingsproxy is, moet u ten minste één connector, maar we raden aan twee of meer voor meer flexibiliteit. De connector installeren op een Windows Server 2012 R2 of 2016-machine. De connector moet communiceren met de Application Proxy-service en de on-premises toepassingen die u publiceert. 
+Voor het implementeren van de toepassingsproxy is, moet u ten minste één connector, maar we raden aan twee of meer voor meer flexibiliteit. De connector installeert op een computer met Windows Server 2012 R2 of hoger. De connector moet communiceren met de Application Proxy-service en de on-premises toepassingen die u publiceert. 
 
-### <a name="windows-server"></a>Windows-server
+### <a name="windows-server"></a>Windows server
 U moet een server met Windows Server 2012 R2 of hoger waarop kunt u de Application Proxy-connector installeren. De server moet verbinding maken met de services voor toepassingsproxy in Azure en de on-premises toepassingen die u wilt publiceren.
 
 De windows-server moet TLS 1.2 is ingeschakeld voordat u de Application Proxy-connector installeert. Bestaande connectors met een versie lager dan 1.5.612.0 blijven werken in eerdere versies van TLS tot nader order van kracht. TLS 1.2 inschakelen:
 
-1. Stel de volgende registersleutels in:
+1. De volgende registersleutels instellen:
     
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
@@ -103,7 +103,7 @@ Het is belangrijk om te controleren of dat u voldoende capaciteit tussen connect
 
 ## <a name="security-and-networking"></a>Beveiliging en netwerken
 
-Connectors kunnen overal worden geïnstalleerd op het netwerk waarmee ze voor het verzenden van aanvragen naar de Application Proxy-service. Wat is het belangrijk is dat de computer met de connector ook toegang tot uw apps. U kunt connectors installeren op uw bedrijfsnetwerk of op een virtuele machine die wordt uitgevoerd in de cloud. Connectors kunnen binnen een gedemilitariseerde zone (DMZ) uitgevoerd, maar het is niet nodig omdat al het verkeer uitgaand, zodat uw netwerk optimaal beveiligd blijft.
+Connectors kunnen overal worden geïnstalleerd op het netwerk waarmee ze voor het verzenden van aanvragen naar de Application Proxy-service. Wat is het belangrijk is dat de computer met de connector ook toegang tot uw apps. U kunt connectors installeren op uw bedrijfsnetwerk of op een virtuele machine die wordt uitgevoerd in de cloud. Connectors kunnen uitvoeren in een perimeternetwerk, ook wel bekend als een gedemilitariseerde-zone (DMZ), maar het is niet nodig omdat al het verkeer uitgaand, zodat uw netwerk optimaal beveiligd blijft.
 
 Connectors alleen verzenden uitgaande aanvragen. Het uitgaande verkeer wordt verzonden naar de Application Proxy-service en de gepubliceerde toepassingen. U hebt geen inkomende poorten openen omdat verkeer beide richtingen stroomt wanneer een sessie tot stand is gebracht. U hoeft ook te binnenkomende toegang via uw firewalls configureren. 
 

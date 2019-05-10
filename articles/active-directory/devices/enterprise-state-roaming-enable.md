@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d0be1dfd77035a3522ef8a6b3f4ac93ae20741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353834"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230931"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [productpagina van Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -46,9 +46,9 @@ Enterprise State Roaming gegevens worden gehost in een of meer [Azure-regio's](h
 
 Land/regio waarde | heeft de gegevens die worden gehost in
 ---------------------|-------------------------
-Een land EMEA zoals Frankrijk of Zambia | Een of meer van de Azure-regio's in Europa 
+Een EMEA-land/regio, zoals Frankrijk of Zambia | Een of meer van de Azure-regio's in Europa 
 Een Noord-Amerikaanse land/regio, zoals de Verenigde Staten of Canada | een of meer van de Azure-regio's binnen de VS
-Een land APAC zoals Australië en Nieuw-Zeeland | een of meer van de Azure-regio's in Azië
+Een APAC land/regio, zoals Australië en Nieuw-Zeeland | een of meer van de Azure-regio's in Azië
 Regio's Zuid-Amerika en Antarctica | een of meer Azure-regio's binnen de VS
 
 De waarde van het land/regio is ingesteld als onderdeel van het proces voor het maken van Azure AD directory en vervolgens kan niet worden gewijzigd. Als u meer informatie op uw locatie voor de gegevensopslag, een ticket indienen bij [ondersteuning van Azure](https://azure.microsoft.com/support/options/).
@@ -70,7 +70,7 @@ Volg deze stappen om een statusrapport voor synchronisatie van per gebruiker-app
   
    ![afbeelding van het apparaat synchroniseren kolomgegevens](./media/enterprise-state-roaming-enable/device-status-row.png)
 
-## <a name="data-retention"></a>Bewaartijd van gegevens
+## <a name="data-retention"></a>Bewaren van gegevens
 Gegevens die zijn gesynchroniseerd met de Microsoft-cloud met behulp van Enterprise State Roaming worden bewaard totdat deze handmatig wordt verwijderd of de desbetreffende gegevens blijkt dat het verouderd. 
 
 ### <a name="explicit-deletion"></a>Expliciet verwijderen

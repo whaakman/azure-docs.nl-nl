@@ -16,8 +16,8 @@
   items:
     - name: Locaties en partners
       href: virtual-wan-locations-partners.md
-    - name: Wereldwijde architectuur voor netwerkdoorvoer
-      href: virtual-wan-global-transit-architecture.md
+    - name: Wereldwijde architectuur voor doorvoernetwerk
+      href: virtual-wan-global-transit-network-architecture.md
     - name: Office 365-controlelaag in Virtual WAN
       href: virtual-wan-office365-overview.md
 - name: Handleidingen

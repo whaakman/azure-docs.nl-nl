@@ -197,7 +197,7 @@ In deze zelfstudie gaat u twee modules implementeren. De eerste is **tempSensor*
 
    De routes die u hier declareert bepalen de gegevensstroom die via het IoT Edge-apparaat gaat. De telemetriegegevens van tempSensor worden naar IoT Hub verzonden en naar de **temperatuurinvoer** die is geconfigureerd in de Stream Analytics-taak. De **waarschuwingsuitvoerberichten** worden verzonden naar IoT Hub en naar de tempSensor-module om de opdracht voor opnieuw instellen te activeren. 
 
-1. Selecteer **Volgende**.
+1. Selecteer **Next**.
 
 1. Selecteer in de stap **Implementatie beoordelen** de optie **Verzenden**.
 

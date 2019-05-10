@@ -42,12 +42,12 @@ In deze zelfstudie leert u het volgende:
 In de zelfstudie die u als onderdeel van de vereisten hebt voltooid, hebt u een webtoepassing in Azure AD B2C toegevoegd. Om te communiceren met het voorbeeld in deze zelfstudie, moet u een omleidings-URI toevoegen aan de toepassing in Azure AD B2C.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+2. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **Toepassingen** en selecteer vervolgens de toepassing *webapp1*.
 5. Voeg onder **Antwoord-URL** `http://localhost:6420` toe.
 6. Selecteer **Opslaan**.
-7. Noteer op de eigenschappenpagina de toepassings-ID die u gebruikt wanneer u de webtoepassing configureert.
+7. Noteer op de eigenschappenpagina de toepassings-id die u gebruikt wanneer u de webtoepassing configureert.
 8. Selecteer **Sleutels**, selecteer **Sleutel genereren** en selecteer **Opslaan**. Noteer de sleutel die u gebruikt wanneer u de webtoepassing configureert.
 
 ## <a name="configure-the-sample"></a>Configureren van het voorbeeld

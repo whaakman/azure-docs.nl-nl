@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025094"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470272"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
-In deze zelfstudie leert u hoe u gegevens voorbereidt voor regressiemodellering met de [Azure Machine Learning Data Prep SDK voor Python](https://aka.ms/data-prep-sdk). U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
+In deze zelfstudie leert u hoe u gegevens voorbereiden voor de regressie modelleren met behulp van de [pakket voor gegevensvoorbereiding van Azure Machine Learning](https://aka.ms/data-prep-sdk). U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
 
 Deze zelfstudie is **deel één van een serie van twee**. Nadat u deze serie met zelfstudies hebt voltooid, kunt u de kosten van een taxirit voorspellen door een model te trainen op gegevenskenmerken. Deze kenmerken zijn onder andere de dag en het tijdstip van ophalen, het aantal passagiers en de vertreklocatie.
 
@@ -187,7 +187,7 @@ green_df.head(5)
       <th>0</th>
       <td>2</td>
       <td>2013-08-01 08:14:37</td>
-      <td>2013-08-01 09:09:06</td>
+      <td>2013-08-01-09:09:06</td>
       <td>N</td>
       <td>0</td>
       <td>0</td>
@@ -200,8 +200,8 @@ green_df.head(5)
     <tr>
       <th>1</th>
       <td>2</td>
-      <td>2013-08-01 09:13:00</td>
-      <td>2013-08-01 11:38:00</td>
+      <td>2013-08-01-09:13:00 uur</td>
+      <td>2013-08-01-11:38:00 uur</td>
       <td>N</td>
       <td>0</td>
       <td>0</td>
@@ -215,7 +215,7 @@ green_df.head(5)
       <th>2</th>
       <td>2</td>
       <td>2013-08-01 09:48:00</td>
-      <td>2013-08-01 09:49:00</td>
+      <td>2013-08-01-09:49:00 uur</td>
       <td>N</td>
       <td>0</td>
       <td>0</td>
@@ -229,7 +229,7 @@ green_df.head(5)
       <th>3</th>
       <td>2</td>
       <td>2013-08-01 10:38:35</td>
-      <td>2013-08-01 10:38:51</td>
+      <td>2013-08-01-10:38:51</td>
       <td>N</td>
       <td>0</td>
       <td>0</td>
@@ -321,8 +321,8 @@ combined_df.keep_columns(columns=[
     <tr style="text-align: right;">
       <th></th>
       <th>Type</th>
-      <th>Min.</th>
-      <th>Max.</th>
+      <th>Min</th>
+      <th>Max</th>
       <th>Count</th>
       <th>Ontbrekend aantal</th>
       <th>Niet-ontbrekend aantal</th>
@@ -473,8 +473,8 @@ latlong_filtered_df.keep_columns(columns=[
     <tr style="text-align: right;">
       <th></th>
       <th>Type</th>
-      <th>Min.</th>
-      <th>Max.</th>
+      <th>Min</th>
+      <th>Max</th>
       <th>Count</th>
       <th>Ontbrekend aantal</th>
       <th>Niet-ontbrekend aantal</th>
@@ -607,8 +607,8 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
     <tr style="text-align: right;">
       <th></th>
       <th>Type</th>
-      <th>Min.</th>
-      <th>Max.</th>
+      <th>Min</th>
+      <th>Max</th>
       <th>Count</th>
       <th>Ontbrekend aantal</th>
       <th>Niet-ontbrekend aantal</th>
@@ -639,7 +639,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
       <td>6960,0</td>
       <td>0,014025</td>
       <td>0,0</td>
-      <td>0,0</td>
+      <td>0.0</td>
       <td></td>
       <td></td>
       <td></td>
@@ -730,8 +730,8 @@ time_split_df.head(5)
       <td>-73,937767</td>
       <td>40,758480</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>2,5</td>
+      <td>0.0</td>
+      <td>2.5</td>
     </tr>
     <tr>
       <th>1</th>
@@ -748,8 +748,8 @@ time_split_df.head(5)
       <td>-73,937927</td>
       <td>40,757843</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>2,5</td>
+      <td>0.0</td>
+      <td>2.5</td>
     </tr>
     <tr>
       <th>2</th>
@@ -766,8 +766,8 @@ time_split_df.head(5)
       <td>-73,937721</td>
       <td>40,758369</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>3,3</td>
+      <td>0.0</td>
+      <td>3.3</td>
     </tr>
     <tr>
       <th>3</th>
@@ -784,8 +784,8 @@ time_split_df.head(5)
       <td>-73,937790</td>
       <td>40,758358</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>3,3</td>
+      <td>0.0</td>
+      <td>3.3</td>
     </tr>
     <tr>
       <th>4</th>
@@ -802,8 +802,8 @@ time_split_df.head(5)
       <td>-73,937775</td>
       <td>40,758450</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>3,3</td>
+      <td>0.0</td>
+      <td>3.3</td>
     </tr>
   </tbody>
 </table>
@@ -932,8 +932,8 @@ transformed_features_df.head(5)
       <td>-73,937767</td>
       <td>40,758480</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>2,5</td>
+      <td>0.0</td>
+      <td>2.5</td>
     </tr>
     <tr>
       <th>1</th>
@@ -954,8 +954,8 @@ transformed_features_df.head(5)
       <td>-73,937927</td>
       <td>40,757843</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>2,5</td>
+      <td>0.0</td>
+      <td>2.5</td>
     </tr>
     <tr>
       <th>2</th>
@@ -976,8 +976,8 @@ transformed_features_df.head(5)
       <td>-73,937721</td>
       <td>40,758369</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>3,3</td>
+      <td>0.0</td>
+      <td>3.3</td>
     </tr>
     <tr>
       <th>3</th>
@@ -998,8 +998,8 @@ transformed_features_df.head(5)
       <td>-73,937790</td>
       <td>40,758358</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>3,3</td>
+      <td>0.0</td>
+      <td>3.3</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1020,8 +1020,8 @@ transformed_features_df.head(5)
       <td>-73,937775</td>
       <td>40,758450</td>
       <td>1</td>
-      <td>0,0</td>
-      <td>3,3</td>
+      <td>0.0</td>
+      <td>3.3</td>
     </tr>
   </tbody>
 </table>

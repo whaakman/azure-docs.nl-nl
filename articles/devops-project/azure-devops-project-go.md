@@ -46,7 +46,7 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 
 1. Selecteer de **Go**-voorbeeld-app en selecteer vervolgens **Volgende**.  
     
-1. **Eenvoudige Go-app** is het standaardframework. Selecteer **Volgende**.  
+1. **Eenvoudige Go-app** is het standaardframework. Selecteer **Next**.  
     Het app-framework dat u eerder hebt gekozen, bepaalt welk type implementatiedoelen voor de Azure-service hier beschikbaar is voor implementeren. 
     
 1. Verlaat de Azure-standaardservice en selecteer **Volgende**.

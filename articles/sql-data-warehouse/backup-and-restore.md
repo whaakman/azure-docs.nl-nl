@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679304"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236571"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 
@@ -83,7 +83,7 @@ De totale kosten voor uw primaire datawarehouse en gedurende zeven dagen van de 
 
 Als u geografisch redundante opslag gebruikt, ontvangt u een afzonderlijke opslag in rekening gebracht. De geografisch redundante opslag wordt in rekening gebracht op het tarief voor standard-geografisch redundante opslag met leestoegang (RA-GRS).
 
-Zie voor meer informatie over prijzen van SQL Data Warehouse, [prijzen van SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) en [kosten voor uitgaand verkeer](https://azure.microsoft.com/pricing/details/bandwidth/) bij het herstellen van cross-regio.
+Zie voor meer informatie over prijzen van SQL Data Warehouse, [SQL Data Warehouse prijzen]. Er zijn niet in rekening gebracht voor uitgaande gegevens bij het herstellen van verschillende regio's.
 
 ## <a name="restoring-from-restore-points"></a>Herstellen van herstelpunten
 

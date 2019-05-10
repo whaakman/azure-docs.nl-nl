@@ -1,32 +1,30 @@
 ---
-title: Breng uw eigen sleutel voor Apache Kafka op Azure HDInsight (Preview)
+title: Breng uw eigen sleutel voor Apache Kafka op Azure HDInsight
 description: In dit artikel wordt beschreven hoe u uw eigen sleutel uit Azure Key Vault gebruiken voor het versleutelen van gegevens die zijn opgeslagen in Apache Kafka in Azure HDInsight.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ce9df58e9640cab2e6ba50fce772f1e30739dc5a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 6108bfd9e39b37507ec7e113bf2c489e890f0ca0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714853"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233558"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Breng uw eigen sleutel voor Apache Kafka op Azure HDInsight
 
-Azure HDInsight biedt Bring Your Own Key (BYOK) ondersteuning voor Apache Kafka. Deze mogelijkheid kunt u de eigenaar en beheren van de sleutels die worden gebruikt om gegevens in rust te versleutelen. 
+Azure HDInsight biedt Bring Your Own Key (BYOK) ondersteuning voor Apache Kafka. Deze mogelijkheid kunt u de eigenaar en beheren van de sleutels die worden gebruikt om gegevens in rust te versleutelen.
 
-Alle beheerde schijven in HDInsight worden beveiligd met Azure Storage Service Encryption (SSE). Standaard worden de gegevens op deze schijven versleuteld door Microsoft beheerde sleutels. Als u BYOK inschakelt, geeft u de versleutelingssleutel voor HDInsight te gebruiken en beheren met behulp van Azure Key Vault. 
+Alle beheerde schijven in HDInsight worden beveiligd met Azure Storage Service Encryption (SSE). Standaard worden de gegevens op deze schijven versleuteld door Microsoft beheerde sleutels. Als u BYOK inschakelt, geeft u de versleutelingssleutel voor HDInsight te gebruiken en beheren met behulp van Azure Key Vault.
 
 BYOK-codering is een proces één stap is verwerkt tijdens het maken van een cluster zonder extra kosten. U hoeft alleen is HDInsight registreren als een beheerde identiteit met Azure Key Vault en de versleutelingssleutel toevoegen wanneer u uw cluster maakt.
 
 Alle berichten naar het Kafka-cluster (met inbegrip van replica's die door Kafka worden onderhouden) worden versleuteld met een symmetrische gegevens Gegevensversleutelingsleutel (DEK). De DEK is beveiligd met behulp van de sleutel versleuteling sleutel (KEK) van uw key vault. De processen van versleuteling en ontsleuteling worden volledig door Azure HDInsight afgehandeld. 
 
 U kunt de Azure portal of Azure CLI gebruiken veilig de om sleutels te rouleren in de key vault. Wanneer een sleutel draait, begint de HDInsight Kafka-cluster met behulp van de nieuwe sleutel binnen enkele minuten. De functies van de sleutelbeveiliging 'Voorlopig verwijderen' ter bescherming tegen ransomware-scenario's en onbedoelde verwijdering inschakelen. Sleutelkluizen zonder deze beveiligingsfunctie worden niet ondersteund.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Aan de slag met BYOK
 Maakt een BYOK Kafka-cluster ingeschakeld, wordt de volgende stappen doorlopen:
@@ -121,9 +119,9 @@ Maakt een BYOK Kafka-cluster ingeschakeld, wordt de volgende stappen doorlopen:
    No, all managed disks in the cluster are encrypted by the same key.
 
 **What happens if the cluster loses access to the key vault or the key?**
-   If the cluster loses access to the key, warnings will be shown in the Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, ambari warnings will go away and operations such as key rotation can be successfully performed.
+   If the cluster loses access to the key, warnings will be shown in the Apache Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, Ambari warnings will go away and operations such as key rotation can be successfully performed.
 
-   ![Kafka key access ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Kafka key access Ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **How can I recover the cluster if the keys are deleted?**
 

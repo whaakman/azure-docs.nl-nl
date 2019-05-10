@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872544"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235638"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Systeemvariabelen ondersteund door Azure Data Factory
 Dit artikel beschrijft de systeemvariabelen ondersteund door Azure Data Factory. U kunt deze variabelen gebruiken in expressies voor bij het definiëren van Data Factory-entiteiten.
@@ -45,6 +45,7 @@ Deze systeemvariabelen kunnen overal worden verwezen in de trigger JSON als de t
 
 ## <a name="tumbling-window-trigger-scope"></a>Tumblingvenstertrigger venster Trigger bereik
 Deze systeemvariabelen kunnen overal worden verwezen in de trigger JSON als de trigger van het type is: "TumblingWindowTrigger."
+(Opmerking: De tijdstempel is standaard ingeschakeld in ISO 8601-notatie)
 
 | De naam van variabele | Description |
 | --- | --- |

@@ -342,6 +342,8 @@
               items:
                 - name: Een token uit de cache ophalen
                   href: msal-net-acquire-token-silently.md
+                - name: De tokencache wissen
+                  href: msal-net-clear-token-cache.md
                 - name: Een exemplaar maken van een openbare client met opties
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Een exemplaar maken van een vertrouwelijke client met opties

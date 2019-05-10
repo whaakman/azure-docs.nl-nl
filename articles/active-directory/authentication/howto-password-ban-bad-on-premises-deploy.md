@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414819"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506875"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Wachtwoordbeveiliging in Azure AD implementeren
 
@@ -39,6 +39,9 @@ Nadat de functie voor een redelijke termijn in de controlemodus gestart is, kunt
 * Alle domeincontrollers die aan de DC-Agent service voor Windows Server 2012 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger. Deze vereiste betekent niet dat het Active Directory-domein of forest ook op Windows Server 2012-domein of forest functionele niveau zijn moet. Zoals vermeld in [ontwerpprincipes](concept-password-ban-bad-on-premises.md#design-principles), is er geen minimale DFL of FFL vereist voor een van beide de DC-agent of proxy software om uit te voeren.
 * Alle machines die aan de DC-agent-service geïnstalleerd moeten .NET 4.5 geïnstalleerd hebben.
 * Alle machines die aan de proxy service voor Windows Server 2012 R2 moet worden uitgevoerd in Azure AD wachtwoord protection is geïnstalleerd of hoger.
+   > [!NOTE]
+   > Proxy-service-implementatie is verplicht voor het implementeren van Azure AD-wachtwoordbeveiliging zelfs als de domeincontroller mogelijk uitgaande directe verbinding met internet. 
+   >
 * Alle computers waarop de Azure AD-wachtwoord beveiliging Proxy-service wordt geïnstalleerd, moeten .NET 4.7 geïnstalleerd hebben.
   .NET 4.7 moet al zijn geïnstalleerd op een volledig bijgewerkte Windows-Server. Als dit niet het geval is, downloaden en uitvoeren van het installatieprogramma gevonden op [het .NET Framework 4.7 offline-installatieprogramma voor Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Alle machines, met inbegrip van domeincontrollers die aan Azure AD wachtwoord beveiliging onderdelen worden geïnstalleerd moet hebben als de universele C-Runtime geïnstalleerd. U kunt de runtime ophalen door ervoor te zorgen dat u beschikt over alle updates van Windows Update. Of u deze in een specifieke update-pakket kunt ophalen. Zie voor meer informatie, [Update voor universele C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).

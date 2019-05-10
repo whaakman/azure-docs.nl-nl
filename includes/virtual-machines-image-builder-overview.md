@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160003"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416281"
 ---
 Installatiekopieën van gestandaardiseerde virtuele machines (VM) kunnen organisaties om te migreren naar de cloud en zorgen voor consistentie in de implementaties. Afbeeldingen bevatten doorgaans vooraf gedefinieerde beveiliging en configuratie-instellingen en software die nodig zijn. Instellen van uw eigen installatiekopieën pijplijn vereist tijd, infrastructuur en configuratie, maar met Azure VM Image Builder alleen bieden een eenvoudige configuratie met een beschrijving van uw installatiekopie, het verzenden naar de service en de installatiekopie is gebouwd en gedistribueerd.
  
@@ -20,7 +20,7 @@ De Azure VM Image Builder (Azure Image Builder) kunt u beginnen met een Windows 
 > Azure Image Builder is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-## <a name="preview-features"></a>Preview-functies
+## <a name="preview-features"></a>Evaluatiefuncties
 
 Voor de Preview-versie, worden deze functies worden ondersteund:
 
@@ -51,7 +51,7 @@ AIB ondersteunt basisinstallatiekopieën OS voor Azure Marketplace:
 - Windows 2019
 
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Hoe het werkt
 
 
 ![Concepttekening van een Azure-functie voor installatiekopieën maken](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -95,7 +95,7 @@ Tijdens het proces installatiekopie maken van bestanden worden gedownload en opg
  
 Image Builder maakt een virtuele machine met behulp van een D1v2 VM-grootte en de opslag en netwerken nodig voor de virtuele machine. Deze resources duurt voor de duur van het bouwproces en worden verwijderd nadat Image Builder is voltooid, de installatiekopie is gemaakt. 
  
-Azure Image Builder wordt de installatiekopie distribueren naar uw gekozen regio's, welke die kosten voor netwerk-uitgaand verkeer kunnen kosten.
+Azure Image Builder wordt de installatiekopie distribueren naar uw gekozen regio's, wat zich van kosten voor netwerk-uitgaand verkeer brengen kan.
  
 ## <a name="next-steps"></a>Volgende stappen 
  

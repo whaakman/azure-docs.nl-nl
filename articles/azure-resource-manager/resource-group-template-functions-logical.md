@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782987"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405655"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logische functies voor Azure Resource Manager-sjablonen
 
@@ -27,7 +27,7 @@ Resource Manager biedt verschillende functies voor het maken van vergelijkingen 
 * [bool](#bool)
 * [if](#if)
 * [niet](#not)
-* [or](#or)
+* [of](#or)
 
 ## <a name="and"></a>en
 
@@ -77,9 +77,9 @@ De uitvoer uit het vorige voorbeeld is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Onwaar |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Onwaar |
 
 ## <a name="bool"></a>bool
 
@@ -131,9 +131,9 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
-| falseString | Bool | False |
+| falseString | Bool | Onwaar |
 | trueInt | Bool | True |
-| falseInt | Bool | False |
+| falseInt | Bool | Onwaar |
 
 ## <a name="if"></a>if
 
@@ -145,7 +145,7 @@ Retourneert een waarde op basis van of u een voorwaarde is true of false.
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| voorwaarde |Ja |booleaans |De waarde moet worden gecontroleerd of dit waar of ONWAAR. |
+| condition |Ja |booleaans |De waarde moet worden gecontroleerd of dit waar of ONWAAR. |
 | trueValue |Ja | String, int, object of matrix |De waarde moet worden geretourneerd wanneer de voorwaarde waar is. |
 | falseValue |Ja | String, int, object of matrix |De waarde moet worden geretourneerd wanneer de voorwaarde onwaar is. |
 
@@ -196,7 +196,7 @@ De volgende [voorbeeldsjabloon](https://github.com/krnese/AzureDeploy/blob/maste
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -286,9 +286,9 @@ De uitvoer uit het vorige voorbeeld is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Onwaar |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Onwaar |
 
 De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) maakt gebruik van **niet** met [gelijk is aan](resource-group-template-functions-comparison.md#equals).
 
@@ -360,9 +360,9 @@ De uitvoer uit het vorige voorbeeld is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
+| andExampleOutput | Bool | Onwaar |
 | orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| notExampleOutput | Bool | Onwaar |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -81,24 +81,28 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: Procedures
       items:
-        - name: Compute beheren
-          href: data-box-edge-manage-compute.md
         - name: 'C#-module ontwikkelen'
           href: data-box-edge-create-iot-edge-module.md
-        - name: Shares beheren
-          href: data-box-edge-manage-shares.md
-        - name: Gebruikers beheren
-          href: data-box-edge-manage-users.md
-        - name: Bandbreedteschema's beheren
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: 'Energieopties, toegang en connectiviteit beheren'
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: Beheren met behulp van PowerShell
-          href: data-box-edge-connect-powershell-interface.md
+        - name: Beheren
+          items:
+            - name: Edge-rekenproces
+              href: data-box-edge-manage-compute.md
+            - name: Shares
+              href: data-box-edge-manage-shares.md
+            - name: Gebruikers
+              href: data-box-edge-manage-users.md
+            - name: Bandbreedteschema's
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: 'Energieopties, toegang en connectiviteit'
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: Via PowerShell
+              href: data-box-edge-connect-powershell-interface.md
         - name: Problemen oplossen
           href: data-box-edge-troubleshoot.md
         - name: Controleren
           href: data-box-edge-monitor.md
+        - name: Apparaat retourneren
+          href: data-box-edge-return-device.md
     - name: Releaseopmerkingen
       items:
         - name: Algemene beschikbaarheid

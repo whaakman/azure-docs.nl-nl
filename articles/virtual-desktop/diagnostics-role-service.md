@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870486"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234026"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Problemen met de diagnostische functie identificeren
 
@@ -118,7 +118,7 @@ De **-resultaat** parameter kan ook worden gecombineerd met andere optionele fil
 
 Fout bij scenario's zijn onderverdeeld in interne naar de service en externe virtuele Windows-bureaublad.
 
-* Intern probleem: Hiermee geeft u de scenario's die niet kunnen worden verholpen door de tenantbeheerder en moeten worden opgelost als Ondersteuningsprobleem. Wanneer een ticket verhogen bieden de activiteits-ID, de tenantnaam en de geschatte tijdsduur het probleem is opgetreden.
+* Intern probleem: Hiermee geeft u de scenario's die niet kunnen worden verholpen door de tenantbeheerder en moeten worden opgelost als een Ondersteuningsprobleem met. Als u feedback geven via de [Windows virtuele bureaublad Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), de activiteit-ID op te nemen en bij benadering periode van wanneer het probleem is opgetreden.
 * Probleem met de externe: betrekking op scenario's die kunnen worden opgelost door de systeembeheerder. Dit zijn externe met virtuele Windows-bureaublad.
 
 De volgende tabel geeft een lijst met veelvoorkomende fouten in die uw beheerders tegenkomen.

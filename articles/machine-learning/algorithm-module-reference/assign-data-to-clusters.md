@@ -10,46 +10,44 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b370c6ef5be311ed9c8df2737fa1b01144d61011
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1c2d2a02ecfb617551dd9174b87f363d57b151a8
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028768"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467201"
 ---
-# <a name="assign-data-to-clusters"></a>Gegevens toewijzen aan Clusters
+# <a name="module-assign-data-to-clusters"></a>Module: Gegevens toewijzen aan Clusters
 
-In dit artikel wordt beschreven hoe u de [gegevens toewijzen aan Clusters](assign-data-to-clusters.md) visuele interface, voor het genereren van voorspellingen met behulp van een clustering-model is getraind met behulp van de K-Means clustering-algoritme van de module.
+In dit artikel wordt beschreven hoe u de *gegevens toewijzen aan Clusters* module in de visuele interface van Azure Machine Learning. De module genereert voorspellingen via clustering-model dat is getraind met de *K-means clustering* algoritme.
 
-De module retourneert een gegevensset met de waarschijnlijke toewijzingen voor elke nieuwe gegevenspunt. 
+De gegevens toewijzen aan Clusters module retourneert een gegevensset met de waarschijnlijke toewijzingen voor elke nieuwe gegevenspunt. 
 
 
 ## <a name="how-to-use-assign-data-to-clusters"></a>Het gebruik van gegevens met Clusters toewijzen
   
-1.  Zoek een eerder getrainde clustering-model in de visuele interface. U kunt maken en trainen clustering-model met behulp van een van deze methoden:  
+1. Zoek in de visuele interface van Azure Machine Learning, een eerder getrainde clustering-model. U kunt maken en trainen clustering-model met behulp van een van de volgende methoden:  
   
-    - Configureren het K-means algoritme met behulp van de [K-Means Clustering](k-means-clustering.md) -module en klikt u vervolgens trainen het model met behulp van een gegevensset en de [Clustering-Model trainen](train-clustering-model.md) module.  
+    - De K-means clustering-algoritme configureren met behulp van de [K-Means Clustering](k-means-clustering.md) module en trainen het model met behulp van een gegevensset en de module Train Clustering-Model (dit artikel).  
   
-  
-    U kunt ook toevoegen met een bestaande getrainde clustering-model van de **opgeslagen modellen** groep in uw werkruimte.
+    - U kunt ook toevoegen met een bestaande getrainde clustering-model van de **opgeslagen modellen** groep in uw werkruimte.
 
-2. Het getrainde model koppelen aan de linkerinvoerpoort van [gegevens toewijzen aan Clusters](assign-data-to-clusters.md).  
+2. Het getrainde model koppelen aan de linkerinvoerpoort van **gegevens toewijzen aan Clusters**.  
 
-3. Koppel een nieuwe gegevensset als invoer. In deze gegevensset zijn labels optioneel. Over het algemeen is clustering een methode zonder supervisie learning zodat het is niet waarschijnlijk dat u categorieën vooraf weet.
+3. Koppel een nieuwe gegevensset als invoer. 
 
-    De ingevoerde kolommen moeten wel gelijk zijn aan de kolommen die werden gebruikt in training die de clustering-model of een fout optreedt.
+   In deze gegevensset zijn labels optioneel. Clustering is over het algemeen een methode zonder supervisie learning. U wordt niet aan de categorieën van tevoren weten. De ingevoerde kolommen moeten wel gelijk zijn aan de kolommen die werden gebruikt in training die de clustering-model of een fout optreedt.
 
     > [!TIP]
-    > Als u wilt verkleinen het aantal kolommen uitvoer van voorspellingen van de cluster, gebruikt u [Select Columns in Dataset](select-columns-in-dataset.md), en een subset van de kolommen selecteren. 
+    > Als u wilt verkleinen het aantal kolommen die zijn geschreven met de interface van de voorspellingen van het cluster, gebruikt u [kolommen selecteren in de gegevensset](select-columns-in-dataset.md), en een subset van de kolommen selecteren. 
     
-4. Laat de optie **controleren toevoegen of schakel het selectievakje voor alleen resultaat** ingeschakeld als u wilt dat de resultaten bevatten de volledige invoergegevensset, samen met een kolom die de resultaten (cluster-toewijzingen) waarmee wordt aangegeven.
+4. Laat de **controleren toevoegen of schakel het selectievakje voor alleen resultaat** selectievakje is ingeschakeld als u wilt dat de resultaten bevatten de volledige invoergegevensset, met inbegrip van een kolom waarin de resultaten (cluster-toewijzingen).
   
-    Als u deze optie uitschakelt, krijgen je weer toegang alleen de resultaten. Dit kan nuttig zijn bij het maken van voorspellingen als onderdeel van een webservice.
+    Als u dit selectievakje uitschakelt, worden alleen de resultaten worden geretourneerd. Deze optie kan nuttig zijn bij het maken van voorspellingen als onderdeel van een webservice.
   
 5.  Voer het experiment uit.  
   
 ### <a name="results"></a>Resultaten
 
- 
-+  Als u wilt weergeven van de waarden in de gegevensset, met de rechtermuisknop op de module, selecteert u **leiden tot gegevenssets**, en klikt u op **Visualize**.
++  Als u wilt weergeven van de waarden in de gegevensset, met de rechtermuisknop op de module, selecteert u **leiden tot gegevenssets**, en selecteer vervolgens **Visualize**.
 

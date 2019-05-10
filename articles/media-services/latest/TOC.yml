@@ -24,18 +24,13 @@
     - name: Live streamen - .NET
       href: stream-live-tutorial-with-api.md
     - name: Uw video analyseren - .NET
-      displayName: 'job, transform'
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
       href: analyze-videos-tutorial-with-api.md
     - name: Dynamisch versleutelen met AES-128 - .NET
       href: protect-with-aes128.md
     - name: Dynamisch versleutelen met DRM - .NET
+      displayName: 'PlayReady, Widevine'
       href: protect-with-drm.md
-- name: Voorbeelden
-  items:
-    - name: Azure-codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Azure-CLI
-      href: cli-samples.md
 - name: Concepten
   href: concepts-overview.md
   items:
@@ -52,6 +47,7 @@
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Transformaties en taken
           href: transforms-jobs-concept.md
+          displayName: 'preset, schema'
         - name: Indelingen voor Media Encoder Standard
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -75,7 +71,7 @@
         - name: Verpakking
           items:
             - name: Dynamische verpakking
-              displayName: packager
+              displayName: 'origin, packager'
               href: dynamic-packaging-overview.md
             - name: Dynamische manifesten
               href: filters-dynamic-manifest-overview.md
@@ -84,7 +80,7 @@
         - name: Inhoudsbeveiliging
           items:
             - name: Protocollen voor streaming en versleutelingstypen
-              displayName: Dynamic encryption
+              displayName: 'dynamic, encryption'
               href: content-protection-overview.md
             - name: Multi-DRM-systeem met toegangsbeheer
               href: design-multi-drm-system-with-access-control.md
@@ -97,7 +93,7 @@
                 - name: FairPlay-licentievereisten
                   href: fairplay-license-overview.md
         - name: Streaming-eindpunten/-oorsprong
-          displayName: 'origins, cdn'
+          displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Streaming-locators
           displayName: URLs
@@ -106,8 +102,8 @@
           href: streaming-policy-concept.md
         - name: Beleid voor inhoudssleutels
           href: content-key-policy-concept.md
-        - name: Oorspronkelijke foutcodes
-          href: origin-error-codes.md
+        - name: Foutcodes voor streaming-eindpunten
+          href: streaming-endpoint-error-codes.md
     - name: Live streamen
       items:
         - name: Overzicht
@@ -141,6 +137,7 @@
           href: use-azure-media-player.md
     - name: Ontwikkelen met v3-API's
       href: media-services-apis-overview.md
+      displayName: 'access, naming, long-running'
       items:
         - name: 'Entiteiten pagineren, filteren, ordenen'
           href: entities-overview.md
@@ -148,8 +145,8 @@
           href: rbac-overview.md
         - name: Foutcodes
           items:
-            - name: Oorspronkelijke foutcodes
-              href: origin-error-codes.md
+            - name: Foutcodes voor streaming-eindpunten
+              href: streaming-endpoint-error-codes.md
             - name: Foutcodes in taak
               href: job-error-codes.md
     - name: Hulp bij migratie van v2 naar v3
@@ -160,10 +157,14 @@
       items:
         - name: Een account maken - CLI
           href: create-account-cli-how-to.md
+        - name: De referenties voor het account opnieuw instellen - CLI
+          href: cli-reset-account-credentials.md
         - name: Toegang tot API's - CLI
           href: access-api-cli-how-to.md
         - name: Gereserveerde media-eenheden schalen - CLI
           href: media-reserved-units-cli-how-to.md
+        - name: Een asset maken - CLI
+          href: cli-create-asset.md
         - name: Ontwikkelen met REST
           items:
             - name: Verbinding maken met Postman
@@ -190,6 +191,14 @@
         - name: Uit een lokaal bestand - REST
           displayName: upload
           href: upload-files-rest-how-to.md
+        - name: Uit een lokaal bestand - CLI
+          href: cli-upload-file-asset.md
+    - name: Transformaties en taken maken
+      items:
+        - name: Transformaties maken - CLI
+          href: cli-create-transform.md
+        - name: Taken maken - CLI
+          href: cli-create-jobs.md
     - name: Inhoud coderen
       items:
         - name: HTTPS als taakinvoer - .NET
@@ -230,10 +239,15 @@
           href: filters-dynamic-manifest-rest-howto.md
         - name: Met CLI
           href: filters-dynamic-manifest-cli-howto.md
+    - name: Inhoud leveren
+      items:
+        - name: Een asset publiceren - CLI
+          href: cli-publish-asset.md
 - name: Naslaginformatie
   items:
     - name: OpenAPI-specificatie (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
+      displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
     - name: Azure-CLI
@@ -254,8 +268,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Foutcodes
       items:
-        - name: Oorspronkelijke foutcodes
-          href: origin-error-codes.md
+        - name: Foutcodes voor streaming-eindpunten
+          href: streaming-endpoint-error-codes.md
         - name: Foutcodes in taak
           href: job-error-codes.md
 - name: Resources
@@ -285,7 +299,7 @@
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: AMSE
+    - name: Azure Media Services Explorer
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: Releaseopmerkingen
       href: release-notes.md

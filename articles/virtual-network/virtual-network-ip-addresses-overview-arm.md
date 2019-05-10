@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726647"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236351"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -57,7 +57,7 @@ Openbare IP-adressen worden gemaakt met een van de volgende SKU's:
 >[!IMPORTANT]
 > Er moeten overeenkomende SKU's worden gebruikt voor resources van de load balancer en openbare IP-adressen. Het is niet mogelijk om een combinatie van resources uit de Basic-SKU en Standard-SKU te gebruiken. Het is evenmin mogelijk om zelfstandige virtuele machines, virtuele machines in een resource van een beschikbaarheidsset of resources uit schaalset met virtuele machines op beide SKU's tegelijk in te stellen.  In nieuwe ontwerpen is het raadzaam om resources uit de Standard-SKU te gebruiken.  Raadpleeg [Overzicht van load balancer uit Standard-SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie.
 
-#### <a name="basic"></a>Basic
+#### <a name="basic"></a>Basis
 
 Alle openbare IP-adressen die zijn gemaakt vóór de introductie van SKU's zijn openbare IP-adressen van de basis-SKU. Door de introductie van SKU's kunt u opgeven welke SKU het openbare IP-adres is. Basis-SKU-adressen:
 
@@ -105,11 +105,14 @@ Statische openbare IP-adressen worden vaak gebruikt in de volgende scenario's:
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS-hostnaamomzetting
-U kunt voor een openbare IP-resource een DNS-domeinnaamlabel opgeven, zodat *domeinnaamlabel*.*locatie*. cloudapp.azure.com verwijst naar het openbare IP-adres op de door Azure beheerde DNS-servers. Als u bijvoorbeeld een openbare IP-resource maakt met **contoso** als *domeinnaamlabel* op de Azure *-locatie***US - west**, wordt de FQDN-naam (Fully Qualified Domain Name) **contoso.westus.cloudapp.azure.com** omgezet in het openbare IP-adres van de resource. U kunt de FDQN gebruiken voor het maken van een aangepaste domein-CNAME-record die verwijst naar het openbare IP-adres in Azure. In plaats van of naast het gebruik van het DNS-naamlabel met het standaardachtervoegsel, kunt u de Azure DNS-service gebruiken om een DNS-naam met een aangepast achtervoegsel te configureren dat wordt omgezet naar het openbare IP-adres. Zie [Azure DNS gebruiken met een openbaar IP-adres van Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) voor meer informatie.
+U kunt voor een openbare IP-resource een DNS-domeinnaamlabel opgeven, zodat *domeinnaamlabel*.*locatie*. cloudapp.azure.com verwijst naar het openbare IP-adres op de door Azure beheerde DNS-servers. Als u bijvoorbeeld een openbare IP-resource maakt met **contoso** als *domeinnaamlabel* op de Azure *-locatie***US - west**, wordt de FQDN-naam (Fully Qualified Domain Name) **contoso.westus.cloudapp.azure.com** omgezet in het openbare IP-adres van de resource.
 
 > [!IMPORTANT]
 > Elk domeinnaamlabel dat wordt gemaakt, moet uniek zijn binnen de Azure-locatie.  
 >
+
+### <a name="dns-best-practices"></a>Aanbevolen procedures voor DNS
+Als u ooit migreren naar een andere regio wilt, kunt u de FQDN-naam van uw openbare IP-adres niet migreren. Als een best practice, kunt u de FQDN-naam te maken van een aangepast domein-CNAME-record die verwijst naar het openbare IP-adres in Azure. Als u verplaatsen naar een ander openbaar IP-adres wilt, wordt er een update van het CNAME-record in plaats van handmatig bijwerken van de FQDN-naam naar het nieuwe adres vereist. U kunt [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) of een externe DNS-provider voor uw DNS-Record. 
 
 ### <a name="virtual-machines"></a>Virtuele machines
 
@@ -134,7 +137,7 @@ De volgende tabel toont de specifieke eigenschap waarmee een openbaar IP-adres k
 | --- | --- | --- | --- |
 | Virtuele machine |Netwerkinterface |Ja |Ja |
 | Internetgerichte load balancer |Front-end-configuratie |Ja |Ja |
-| VPN-gateway |Gateway-IP-configuratie |Ja |Ja |
+| VPN-gateway |Gateway-IP-configuratie |Ja |Nee |
 | Toepassingsgateway |Front-end-configuratie |Ja (alleen V1) |Ja (alleen V2) |
 
 ## <a name="private-ip-addresses"></a>Privé-IP-adressen
@@ -187,7 +190,7 @@ De volgende tabel toont de specifieke eigenschap waarmee een privé-IP-adres kan
 ## <a name="limits"></a>Limits
 De limieten die zijn opgelegd voor IP-adressen, vindt u in de volledige set [limieten voor netwerken](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. De limieten gelden per regio en per abonnement. U kunt [contact opnemen met ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) als u op basis van uw bedrijfsbehoeften de standaardlimieten wilt verhogen tot de maximumlimieten.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 Openbare IP-adressen kunnen een kostprijs hebben. Voor meer informatie over prijzen voor IP-adressen in Azure raadpleegt u de pagina [Prijzen van IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="next-steps"></a>Volgende stappen

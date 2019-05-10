@@ -180,7 +180,7 @@ U kunt een standaard (wizard-indeling) of geavanceerde configuratieoptie voor he
 
     ![Geef gebruikersgroepen venster wilt toestaan of weigeren van toegang](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Selecteer **Volgende**.
+9. Selecteer **Next**.
 
 10. In de **IP-Filters opgeven** venster **volgende**.
 

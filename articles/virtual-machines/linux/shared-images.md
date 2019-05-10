@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 40ac8badfac3c004d3451c598d7cd2a17982a585
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f69b1aff28165b9bf37c49fe62d1fb5aada91285
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138919"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236405"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Een gedeelde afbeeldingengalerie maken met de Azure-CLI
 
@@ -61,6 +61,8 @@ az vm create\
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+[Azure Image Builder (preview)](image-builder-overview.md) kunt versie het maken van installatiekopieën automatiseren, kunt u deze ook gebruiken om bij te werken en [maken van een nieuwe versie van de installatiekopie van een bestaande installatiekopieversie](image-builder-gallery-update-image-version.md). 
+
 U kunt ook de galerie met installatiekopieën van gedeelde resources met behulp van sjablonen maken. Er zijn verschillende Azure-Snelstartsjablonen beschikbaar: 
 
 - [Een gedeelde galerie met installatiekopieën maken](https://azure.microsoft.com/resources/templates/101-sig-create/)

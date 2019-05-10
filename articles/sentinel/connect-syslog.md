@@ -4,7 +4,7 @@ description: Informatie over het verbinden met Azure Sentinel Syslog-gegevens.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 5dd59729-c623-4cb4-b326-bb847c8f094b
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9144f20eae5a925ad88054e972c99ae024bcefe3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 673b1df6094703bebcbfd9d82c1268c01d46e814
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714656"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233578"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Verbinding maken met de externe oplossing met behulp van Syslog
 
@@ -32,7 +32,7 @@ U kunt een on-premises apparaat die ondersteuning biedt voor Syslog naar Azure S
 > [!NOTE]
 > Als uw apparaat Syslog CEF ondersteunt, de verbinding volledig is en u moet deze optie kiest en volg de instructies in [verbinding te maken van gegevens van CEF](connect-common-event-format.md).
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Hoe het werkt
 
 Syslog-verbinding wordt gerealiseerd met behulp van een agent voor Linux. Standaard ontvangt de agent voor Linux gebeurtenissen van de Syslog-daemon via UDP, maar in gevallen waarin een Linux-machine worden verwacht voor het verzamelen van een groot aantal Syslog-gebeurtenissen, zoals wanneer een Linux-agent er gebeurtenissen van andere apparaten ontvangen is, de configuratie is gewijzigd in gebruik van TCP-transport tussen de Syslog-daemon en de agent.
 

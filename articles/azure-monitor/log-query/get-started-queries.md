@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519980"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415899"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Aan de slag met Azure Monitor logboeken-query 's
 
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Samenvatting: Rijgroepen samenvoegen
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Samenvatten op een time-kolom
 Resultaten groeperen kan ook worden gebaseerd op een time-kolom, of een andere continue waarde. Samenvatting van gewoon `by TimeGenerated` echter zou groepen maken voor elke één milliseconde gedurende het tijdsbereik, omdat dit unieke waarden zijn. 
 
-Voor het maken van groepen op basis van doorlopende waarden, het is raadzaam om het bereik in beheerbare eenheden met behulp van **bin**. De volgende query worden geanalyseerd *Perf* records die het meten van beschikbaar geheugen (*beschikbare megabytes (MB)*) op een specifieke computer. Het berekenen van de gemiddelde waarde voor elke periode als 1 uur, gedurende de afgelopen 7 dagen:
+Voor het maken van groepen op basis van doorlopende waarden, het is raadzaam om het bereik in beheerbare eenheden met behulp van **bin**. De volgende query worden geanalyseerd *Perf* records die het meten van beschikbaar geheugen (*beschikbare megabytes (MB)*) op een specifieke computer. De gemiddelde waarde van elke periode van één uur wordt berekend in de afgelopen 7 dagen:
 
 ```Kusto
 Perf 

@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159553"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511064"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Een installatiekopie maken en gebruiken van een gebruiker toegewezen beheerde identiteit voor toegang tot bestanden in Azure Storage 
 
 Azure ondersteunt het Image Builder met behulp van scripts of kopiëren van bestanden vanaf meerdere locaties, zoals GitHub en Azure storage enzovoort. Als u wilt gebruiken, moet zijn extern toegankelijk is voor Azure Image Builder, maar u kunt Azure Storage-blobs met behulp van SAS-Tokens kan beveiligen.
 
-In dit artikel laat zien hoe het maken van een aangepaste installatiekopie met behulp van de Azure VM Image Builder, waar de service wordt gebruikt een [beheerde identiteit gebruiker toegewezen](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) voor toegang tot bestanden in Azure storage voor de aanpassing van de installatiekopie, zonder u hoeft te maken de bestanden die openbaar toegankelijk is, of instellen van de SAS-tokens.
+In dit artikel laat zien hoe het maken van een aangepaste installatiekopie met behulp van de Azure VM Image Builder, waar de service wordt gebruikt een [beheerde identiteit gebruiker toegewezen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) voor toegang tot bestanden in Azure storage voor de aanpassing van de installatiekopie, zonder u hoeft te maken de bestanden die openbaar toegankelijk is, of instellen van de SAS-tokens.
 
 In het volgende voorbeeld maakt u twee resourcegroepen, één zal worden gebruikt voor de aangepaste installatiekopie en de andere fungeert als host voor een Azure Storage-Account, met een scriptbestand. Dit simuleert een echte leven-scenario, waarin u build-artefacten of afbeeldingsbestanden in verschillende opslagaccounts, buiten Image Builder kan hebben. U maakt een gebruiker toegewezen identiteit en klik vervolgens op verlenen die-machtigingen voor het scriptbestand lezen, maar u openbare toegang niet wordt ingesteld op dat bestand. U gebruikt vervolgens de Shell-systeemaanpasser downloaden en uitvoeren van script van de storage-account.
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>Maken van de gebruiker toegewezen beheerde identiteit
 
-De identiteit maken en toewijzen van machtigingen voor het opslagaccount van het script. Zie voor meer informatie, [User-Assigned beheerde identiteit](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+De identiteit maken en toewijzen van machtigingen voor het opslagaccount van het script. Zie voor meer informatie, [User-Assigned beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 

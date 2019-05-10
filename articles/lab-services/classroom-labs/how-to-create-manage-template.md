@@ -40,7 +40,7 @@ U kunt eerst instellen en publiceren van een sjabloon tijdens het maken van een 
     1. Selecteer een **grootte** voor virtuele machines (VM's) die in het lab worden gemaakt. 
     2. Selecteer de **regio** waarin de virtuele machines moeten worden gemaakt. 
     3. Selecteer de **VM-installatiekopie** die moet worden gebruikt voor het maken van virtuele machines in het lab. 
-    4. Selecteer **Volgende**.
+    4. Selecteer **Next**.
 
         ![VM-specificaties opgeven](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. Geef op de pagina **Referenties instellen** de standaardreferenties voor alle virtuele machines in het lab op. 

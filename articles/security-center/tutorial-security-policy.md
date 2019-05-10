@@ -3,7 +3,7 @@ title: Werken met beleidsregels voor veiligheid | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u aan het beveiligingsbeleid in Azure Security Center werken.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111507"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236299"
 ---
 # <a name="working-with-security-policies"></a>Werken met beveiligingsbeleid
 
@@ -110,6 +110,9 @@ Zie voor meer informatie over aanbevelingen [aanbevelingen voor beveiliging behe
    ![beleidsbeheer](./media/tutorial-security-policy/policy-management.png)
 
 2. Klik op het abonnement of beheergroep groep waarvoor u wilt uitschakelen van de aanbeveling.
+
+   > [!Note]
+   > Houd er rekening mee dat een beheergroep voorgeschreven beleid wordt toegepast op de abonnementen. Dus als u van een abonnement beleid uitschakelen en het abonnement behoort tot een beheergroep die nog steeds gebruikmaakt van hetzelfde beleid, blijft klikt u vervolgens voor het ontvangen van de aanbevelingen voor beleid. Het beleid nog steeds worden toegepast op het beheersniveau van en de aanbevelingen wordt nog steeds worden gegenereerd.
 
 1. Klik op het toegewezen beleid.
 
@@ -230,14 +233,14 @@ Dit voorbeeld ziet u hoe u een toewijzing verwijderen:
 |Systeemupdates |Ontbrekende systeemupdates bewaken in Azure Security Center |systemUpdatesMonitoringEffect|
 |Storage-versleuteling |Ontbrekende blobversleuteling voor opslagaccounts controleren |storageEncryptionMonitoringEffect|
 |Toegang tot het JIT-netwerk |Mogelijke Just In Time-netwerktoegang (JIT) bewaken in Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Adaptieve toepassingsbesturingselementen |Mogelijkheid voor de lijst met goedgekeurde apps bewaken in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Besturingselementen voor adaptieve toepassingen |Mogelijkheid voor de lijst met goedgekeurde apps bewaken in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Netwerkbeveiligingsgroepen |Ruime netwerktoegang bewaken in Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Beveiligingsconfiguraties |Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center |systemConfigurationsMonitoringEffect| 
-|Eindpuntbeveiliging |Ontbrekende Endpoint Protection bewaken in Azure Security Center |endpointProtectionMonitoringEffect |
+|Endpoint Protection |Ontbrekende Endpoint Protection bewaken in Azure Security Center |endpointProtectionMonitoringEffect |
 |Schijfversleuteling |Niet-versleutelde VM-schijven bewaken in Azure Security Center |diskEncryptionMonitoringEffect|
 |Evaluatie van beveiligingsproblemen |Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Web Application Firewall |Niet-beveiligde web-App in Azure Security Center bewaken |webApplicationFirewallMonitoringEffect |
-|Next Generation Firewall |Niet-beveiligde netwerkeindpunten bewaken in Azure Security Center| |
+|Firewall van volgende generatie |Niet-beveiligde netwerkeindpunten bewaken in Azure Security Center| |
 
 
 ### <a name="who-can-edit-security-policies"></a>Wie kan beveiligingsbeleid bewerken?

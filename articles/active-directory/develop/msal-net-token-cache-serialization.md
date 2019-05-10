@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f259d8438b7500d5d007bbb972f859e187ccd08a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f1e9a48b114d328e0405a2f03764df4ce29b166
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081029"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407060"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialisatie-tokencache in MSAL.NET
 Na een [token wordt verkregen](msal-acquire-cache-tokens.md), het is in de cache opgeslagen door Microsoft Authentication Library (MSAL).  Toepassingscode moet proberen op te halen van een token uit de cache voor het ophalen van een token via een andere methode.  In dit artikel wordt beschreven standaard en aangepaste serialisatie van de tokencache in MSAL.NET.
@@ -290,5 +290,5 @@ De volgende voorbeelden laten zien tokencache serialisatie.
 
 | Voorbeeld | Platform | Description|
 | ------ | -------- | ----------- |
-|[active-directory-dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET (WPF)-toepassing voor het aanroepen van de Microsoft Graph API. ![Topologie](media/msal-net-token-cache-serialization/topology.png)|
+|[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Windows Desktop .NET (WPF)-toepassing voor het aanroepen van de Microsoft Graph API. ![Topologie](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Bureaublad (Console) | Reeks oplossingen voor Visual Studio ter illustratie van de migratie van Azure AD v1.0-toepassingen (met behulp van ADAL.NET) naar Azure AD v2.0-toepassingen, ook met de naam geconvergeerde toepassingen (met behulp van MSAL.NET), met name [Token Cache-migratie](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

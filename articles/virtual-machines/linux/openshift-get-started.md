@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ebd10544331d3b7d887124542fe4ee2753c714
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542421"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233136"
 ---
 # <a name="openshift-in-azure"></a>OpenShift in Azure
 
@@ -34,15 +34,15 @@ OpenShift bevat Kubernetes voor containerindeling en beheer. Wordt toegevoegd sp
 
 Er zijn meerdere versies van OpenShift beschikbaar.  Van deze versies zijn slechts twee die momenteel beschikbaar voor klanten om te implementeren in Azure: OpenShift Container Platform en OKD (voorheen OpenShift Origin).
 
+## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+Microsoft Azure Red Hat OpenShift is een volledig beheerde van OpenShift uitvoeren in Azure. Deze service is gezamenlijk beheerd en ondersteund door Microsoft en Red Hat. Volledige documentatie [hier](https://docs.microsoft.com/azure/openshift/). 
+
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
 Containerplatform is een bedrijfsklare [commerciële versie](https://www.openshift.com) uit en wordt ondersteund door Red Hat. Met deze versie kunnen klanten de benodigde rechten voor OpenShift Container Platform aanschaffen en verantwoordelijk zijn voor installatie en beheer van de gehele infrastructuur.
 
 Omdat klanten 'eigenaar' van het platform, kunnen ze deze installeren in hun on-premises datacenter of in een openbare cloud (zoals Azure).
-
-## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
-
-Azure Red Hat OpenShift is een volledig beheerde van OpenShift uitvoeren in Azure. Deze service is gezamenlijk beheerd en ondersteund door Microsoft en Red Hat. Het cluster implementeert in Azure-abonnement van de klant. De service is gepland voor algemene beschikbaarheid rond mei 2019. Afzonderlijke documentatie voor de beheerde service zijn beschikbaar nadat de service is de algemene beschikbaarheid.
 
 ## <a name="okd"></a>OKD
 

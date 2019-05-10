@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201814"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508385"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs-concepten
 ## <a name="overview"></a>Overzicht
@@ -29,7 +29,7 @@ De volgende lijst bevat belangrijke DevTest Labs-concepten en definities:
 Een lab is de infrastructuur die een groep resources omvat, zoals virtuele Machines (VM's), waarmee u betere die bronnen beheren door limieten en quota's op te geven.
 
 ## <a name="virtual-machine"></a>Virtuele machine
-Een Azure-VM is een van verschillende typen [on-demand, schaalbare computerbronnen](https://docs.microsoft.com/azure/app-service/overview-compare) die Azure biedt. Azure-VM's bieden u de flexibiliteit van virtualisatie zonder te hoeven kopen en te onderhouden van de fysieke hardware die wordt uitgevoerd, maar u wel onderhouden van de virtuele machine moet door het uitvoeren van bepaalde taken, zoals het configureren, patchen en installeren van de software die wordt uitgevoerd op het is.
+Een Azure-VM is een van verschillende typen [on-demand, schaalbare computerbronnen](/azure/architecture/guide/technology-choices/compute-decision-tree) die Azure biedt. Azure-VM's bieden u de flexibiliteit van virtualisatie zonder te hoeven kopen en te onderhouden van de fysieke hardware die wordt uitgevoerd, maar u wel onderhouden van de virtuele machine moet door het uitvoeren van bepaalde taken, zoals het configureren, patchen en installeren van de software die wordt uitgevoerd op het is.
 
 [Overzicht van Windows-machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) biedt u informatie over wat u moet overwegen voordat u het maken van een virtuele machine, hoe u deze maakt en hoe u deze beheert.
 

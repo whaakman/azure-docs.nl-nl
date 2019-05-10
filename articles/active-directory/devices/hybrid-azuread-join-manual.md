@@ -518,7 +518,7 @@ In AD FS moet u een uitgiftetransformatieregel toevoegen die wordt doorgegeven v
 2. Klik met de rechtermuisknop op het object Relying Party-vertrouwensrelatie van het identiteitsplatform van Microsoft Office 365 en selecteer vervolgens **Claimregels bewerken**.
 3. Selecteer op het tabblad **Uitgiftetransformatieregels** de optie **Regel toevoegen**.
 4. Selecteer in de sjabloonlijst **Claimregel** de optie **Claim verzenden met een aangepaste regel**.
-5. Selecteer **Volgende**.
+5. Selecteer **Next**.
 6. Typ **Auth Method Claim Rule** in het vak **Naam claimregel**.
 7. Voer in het vak **Claimregel** de volgende regel in:
 

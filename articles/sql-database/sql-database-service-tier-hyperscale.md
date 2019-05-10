@@ -3,7 +3,7 @@ title: Overzicht van grootschalige voor Azure SQL Database | Microsoft Docs
 description: In dit artikel beschrijft de grootschalige service tier in het op vCore gebaseerde aankoopmodel in Azure SQL Database en wordt uitgelegd wat is het verschil met de Servicelagen voor algemeen gebruik en bedrijfskritiek.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,28 +11,27 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/04/2019
-ms.openlocfilehash: 5e323b28913e0ba259654d39f97e0436e6bff2db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/06/2019
+ms.openlocfilehash: 9455b8488bdf7c36c662a8f771e6b26d1a27b13e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786013"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236553"
 ---
-# <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Zeer grootschalige servicelaag (preview) voor maximaal 100 TB
+# <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Zeer grootschalige servicelaag voor maximaal 100 TB
 
 Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
-
 - Algemeen doel/Standard 
-- Business Critical/Premium
-- Hyperscale
+-  Grootschalig
+-  Business Critical/Premium
 
 De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier in het op vCore gebaseerde aankoopmodel. Deze servicelaag is een zeer schaalbare opslag en compute-prestatielaag die gebruikmaakt van de Azure-architectuur om te schalen om de opslag en rekenresources voor een Azure SQL-Database aanzienlijk buiten de grenzen beschikbaar voor de algemeen gebruik en het bedrijf Kritieke Servicelagen.
 
-> [!IMPORTANT]
-> Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de beperkte Azure-regio's. Zie voor een regiolijst volledig [grootschalige service beschikbare regio's voor een laag](#available-regions). Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden aangeraden u een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
+> 
 > [!NOTE]
-> Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel [algemeen](sql-database-service-tier-general-purpose.md) en [bedrijfskritiek](sql-database-service-tier-business-critical.md) Servicelagen. Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-purchase-models.md).
+> Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel [algemeen](sql-database-service-tier-general-purpose.md) en [bedrijfskritiek](sql-database-service-tier-business-critical.md) Servicelagen. Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-service-tiers.md).
+
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>Wat zijn de mogelijkheden voor grootschalige
 
@@ -66,17 +65,17 @@ Zeer grootschalige servicelaag is alleen beschikbaar in [vCore-model](sql-databa
 
 - **COMPUTE**:
 
-  De prijs van grootschalige compute-eenheid is per replica. De [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) prijs als u wilt lezen schaal replica's automatisch wordt toegepast. In openbare preview-versie maken we twee replica's per database zeer grootschalige standaard.
+  De prijs van grootschalige compute-eenheid is per replica. De [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) prijs als u wilt lezen schaal replica's automatisch wordt toegepast. We maken een primaire replica en een alleen-lezen replica per database zeer grootschalige standaard.  Gebruikers kunnen het totale aantal replica's, waaronder de primaire van 1-5 aanpassen.
 
 - **Opslag**:
 
-  U hoeft niet te geven van de maximale gegevensgrootte bij het configureren van een grootschalige-database. In de laag Hyperscale wordt opslag voor uw database in rekening gebracht op basis van daadwerkelijk gebruik. Opslag wordt dynamisch toegewezen tussen 5 GB en 100 TB, in stappen van 1 GB.  
+  U hoeft niet te geven van de maximale gegevensgrootte bij het configureren van een grootschalige-database. In de laag Hyperscale wordt opslag voor uw database in rekening gebracht op basis van daadwerkelijk gebruik. Opslag wordt automatisch toegewezen tussen 10 GB en 100 TB in stappen die dynamisch tussen 10GB en 40GB aangepast worden.  
 
 Zie voor meer informatie over de prijzen voor grootschalige [prijzen van Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
 ## <a name="distributed-functions-architecture"></a>Functies voor gedistribueerde architectuur
 
-In tegenstelling tot traditionele database-engines die beschikken over alle van de functies voor het beheer van gegevens in één locatie/proces gecentraliseerde (zelfs zodat aangeroepen gedistribueerde databases in de productieomgeving vandaag meerdere exemplaren van een monolithisch gegevensengine hebben), een database zeer grootschalige worden gescheiden de verwerking van query's-engine, waar de semantiek van verschillende gegevensengines afwijkt van de onderdelen die langdurige opslag en duurzaamheid voor de gegevens bieden. Op deze manier kunnen de opslagcapaciteit kan worden soepel uitgebreid zo ver nodig (eerste doel is 100 TB). Alleen-lezen replica's delen dezelfde compute-onderdelen, zodat geen kopiëren van gegevens is vereist voor het instellen van een nieuwe leesbare replica. De Preview-versie wordt slechts 1 kenmerk alleen-lezen replica ondersteund.
+In tegenstelling tot traditionele database-engines die beschikken over alle van de functies voor het beheer van gegevens in één locatie/proces gecentraliseerde (zelfs zodat aangeroepen gedistribueerde databases in de productieomgeving vandaag meerdere exemplaren van een monolithisch gegevensengine hebben), een database zeer grootschalige worden gescheiden de verwerking van query's-engine, waar de semantiek van verschillende gegevensengines afwijkt van de onderdelen die langdurige opslag en duurzaamheid voor de gegevens bieden. Op deze manier kunnen de opslagcapaciteit kan worden soepel uitgebreid zo ver nodig (eerste doel is 100 TB). Alleen-lezen replica's delen dezelfde opslagonderdelen, zodat geen kopiëren van gegevens is vereist voor het instellen van een nieuwe leesbare replica. 
 
 Het volgende diagram illustreert de verschillende soorten knooppunten in een grote database:
 
@@ -90,7 +89,7 @@ De compute-knooppunt is waar de relationele engine zich bevinden, zodat alle de 
 
 ### <a name="page-server-node"></a>Pagina server-knooppunt
 
-Pagina-servers zijn systemen voor een scale-out opslag-engine.  Elke pagina-server is verantwoordelijk voor een subset van de pagina's in de database.  Elke pagina server bepaalt nominaal, 1 terabyte aan gegevens. Er zijn geen gegevens worden gedeeld op meer dan één pagina server (buiten de replica's die worden bijgehouden voor redundantie en beschikbaarheid). De taak van een pagina-server is voor het bieden van database-pagina's uit naar de rekenknooppunten op aanvraag, en het behouden van de pagina's bijgewerkt als transacties gegevens bijwerken. Pagina-servers worden up-to-date gehouden door af te spelen records in logboek registreren vanuit de log-service. Pagina servers onderhouden ook caches op basis van SSD voor betere prestaties. Langdurige opslag van gegevenspagina's wordt opgeslagen in Azure Storage voor extra betrouwbaarheid.
+Pagina-servers zijn systemen voor een scale-out opslag-engine.  Elke pagina-server is verantwoordelijk voor een subset van de pagina's in de database.  Nominaal, elke pagina serverbesturingselementen tussen 128 GB en 1 TB aan gegevens. Er zijn geen gegevens worden gedeeld op meer dan één pagina server (buiten de replica's die worden bijgehouden voor redundantie en beschikbaarheid). De taak van een pagina-server is voor het bieden van database-pagina's uit naar de rekenknooppunten op aanvraag, en het behouden van de pagina's bijgewerkt als transacties gegevens bijwerken. Pagina-servers worden up-to-date gehouden door af te spelen records in logboek registreren vanuit de log-service. Pagina servers onderhouden ook caches op basis van SSD voor betere prestaties. Langdurige opslag van gegevenspagina's wordt opgeslagen in Azure Storage voor extra betrouwbaarheid.
 
 ### <a name="log-service-node"></a>Logboek-knooppunt
 
@@ -110,25 +109,26 @@ Met de mogelijkheid om snel automatisch instellen/uitschakelen als u meer alleen
 
 ## <a name="create-a-hyperscale-database"></a>Maak een grootschalige-database
 
-Een grote database kan worden gemaakt met de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Zeer grootschalige databases zijn alleen beschikbaar is met de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
+Een grote database kan worden gemaakt met de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Zeer grootschalige databases zijn alleen beschikbaar is met de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
 De volgende T-SQL-opdracht maakt een grootschalige-database. Moet u de editie en de service-doel in de `CREATE DATABASE` instructie.
 
 ```sql
 -- Create a HyperScale Database
-CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
+CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
+Hiermee maakt u een database zeer grootschalige op Gen5 hardware met 4 kernen.
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Een bestaande Azure SQL-Database migreren naar de servicelaag grootschalige
 
-U kunt uw bestaande Azure SQL-databases verplaatsen naar grootschalige met behulp van de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Dit is een eenrichtingsvertrouwensrelatie migratie in openbare preview. U kunt databases van grootschalige niet verplaatsen naar een andere servicelaag. U wordt aangeraden een kopie van uw productiedatabases en migreren naar grootschalige voor het testen van concepten (Proefverzamelingen).
+U kunt uw bestaande Azure SQL-databases verplaatsen naar grootschalige met behulp van de [Azure-portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) of [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Op dit moment is dit een eenzijdige migratie. U kunt databases van grootschalige niet verplaatsen naar een andere servicelaag. U wordt aangeraden een kopie van uw productiedatabases en migreren naar grootschalige voor het testen van concepten (Proefverzamelingen).
 
 De volgende T-SQL-opdracht is een database verplaatst naar de grootschalige service tier. Moet u de editie en de service-doel in de `ALTER DATABASE` instructie.
 
 ```sql
 -- Alter a database to make it a HyperScale Database
-ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
+ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 
@@ -140,27 +140,110 @@ In grote databases, de `ApplicationIntent` argument in de verbindingsreeks die i
 -- Connection string with application intent
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
+## <a name="disaster-recovery-for-hyperscale-databases"></a>Herstel na noodgevallen voor grote Databases
+### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Herstellen van een grootschalige-database naar een andere Geografie bevinden
+Als u een grootschalige Azure SQL Database-database herstellen naar een andere regio dan degene die dit momenteel wordt gehost wilt in, als onderdeel van een herstel na noodgevallen bewerking of inzoomen, verplaatsing of een andere reden is de primaire methode voor te doen van een geo-herstel van de database.  Dit omvat het precies dezelfde stappen als wat u kunt een andere AZURE SQL-database herstellen naar een andere regio:
+1. Als u nog geen een geschikte server bevat, moet u een SQL-Database-server maken in de doelregio.  Deze server moet eigendom zijn van hetzelfde abonnement als de oorspronkelijke (bron)-server.
+2. Volg de instructies in de [geo-herstel](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) onderwerp van de pagina op het herstellen van Azure SQL-Databases van automatische back-ups.
 
-## <a name="available-regions"></a>Beschikbare regio's
+#### <a name="notes-on-geo-restores-of-a-hyperscale-database"></a>Opmerkingen bij de geo-herstellen van een grootschalige-database
+Omdat de bron- en zich in verschillende regio's, delen niet de database opslag voor momentopnamen met de brondatabase zoals in niet-geo-herstellen extreem snel kunnen worden uitgevoerd.  In het geval van een geo-herstel van een grote database is dit een bewerking met de grootte van gegevens, zelfs als het doel in de gekoppelde regio van de opslag met geo-replicatie.  Dit betekent dat dat doen van een geo-herstel duurt lang in verhouding met de grootte van de database die wordt hersteld.  Als het doel in de gekoppelde regio, wordt de kopie zich in een datacenter, is aanzienlijk sneller dan een interlokale kopie via het internet, maar deze nog steeds kopieert u alle bits.
 
-Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de volgende Azure-regio's: VS-Oost 1, VS-Oost 2, West vs2, VS-midden, Noord CentralU S, West-Europa, Noord-Europa, Australië-Oost, Australië-Zuidoost, Zuidoost-Azië, Japan-Oost en Korea-centraal
+## <a name=regions></a>Beschikbare regio 's
+
+De Azure SQL Database grootschalige-laag is momenteel beschikbaar in de volgende regio's:
+
+- Australië - oost
+- Australië - zuidoost
+- Brazilië - zuid
+- Canada - midden
+- US - centraal
+- China - oost 2
+- China - noord 2
+- Azië - oost
+- US - oost
+- East Us 2
+- Frankrijk - centraal
+- Japan - oost
+- Japan - west
+- Korea Centraal
+- Korea - zuid
+- US - noord-centraal
+- Europa - noord
+- Zuid-Afrika - noord
+- US - zuid-centraal
+- Azië - zuidoost
+- VK Zuid
+- VK West
+- Europa -west
+- US - west
+- US - west 2
+
+Als u maken van zeer grootschalige database in een regio die niet wordt vermeld wilt als ondersteund, kunt u een onboarding-aanvraag via Azure portal verzenden. We werken om uit te breiden de lijst met ondersteunde regio's wordt dus controleer weer voor de meest recente regiolijst met.
+
+Om aan te vragen de mogelijkheid om te maken van zeer grootschalige databases in de regio's die niet wordt vermeld:
+
+1. Navigeer naar [Azure Help en ondersteuning-Blade](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+
+2. Klik op [ **nieuwe ondersteuningsaanvraag**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+
+    ![Azure Help en ondersteuning-Blade](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+
+3. Voor **probleemtype**, selecteer **limieten voor Service en -abonnement (quota)**
+
+4. Kies het abonnement dat u gebruikt voor het maken van de database (s)
+
+5. Voor **Quotumtype**, selecteer **SQL-database**
+
+6. Klik op **Next: Oplossingen**
+
+1. Klik op **vindt u informatie**
+
+    ![Probleemdetails](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+
+8. Kies **SQL-Database quotumtype**: **Andere quotumaanvraag**
+
+9. Vul in de volgende sjabloon:
+
+    ![Quotumgegevens](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+
+    Geef de volgende informatie in de sjabloon.
+
+    > Aanvraag voor het maken van Azure grootschalige SQL-Database in een nieuwe regio<br/> Regio: [Vul in de opgevraagde regio]  <br/>
+    > SKU/totaal rekenkernen, inclusief leesbare replica 's <br/>
+    > Aantal TB geschatte 
+    >
+
+10. Kies **Ernst C**
+
+11. Kies de juiste contactmethode en vul gegevens in.
+
+12. Klik op **opslaan** en **gaan**
 
 ## <a name="known-limitations"></a>Bekende beperkingen
+Dit zijn de huidige beperkingen aan de servicelaag grootschalige vanaf algemene beschikbaarheid.  We werken actief als u wilt verwijderen als veel van deze beperkingen mogelijk.
 
 | Probleem | Description |
 | :---- | :--------- |
-| Het deelvenster back-ups beheren voor een SQL Database server wordt niet weergegeven voor het zeer grootschalige databases worden gefilterd vanuit SQL server ->  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
+| Het deelvenster back-ups beheren voor een logische server wordt niet weergegeven voor het zeer grootschalige databases worden gefilterd vanuit SQL server ->  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
 | Terugzetten naar eerder tijdstip | Zodra een database wordt gemigreerd naar de servicelaag van grootschalige, wordt herstel naar een punt-in-tIme vóór de migratie wordt niet ondersteund.|
+| Herstellen van niet - flexibele DB Hypserscale en vice versa | U kunt een grootschalige-database niet terugzetten in een niet-flexibele-database, noch kunt u een niet-flexibele-database herstellen in een grootschalige-database.|
 | Als een databasebestand tijdens de migratie vanwege een actieve werkbelasting toeneemt en de 1 TB per bestand grens snijdt, mislukt de migratie | Oplossingen: <br> -Migreren van de database indien mogelijk, als er geen update-workload uitgevoerd.<br> -Probeer opnieuw de migratie, het slaagt, zolang de grens van 1 TB niet tijdens de migratie is overschreden.|
-| Managed Instance is momenteel niet ondersteund. | Momenteel niet ondersteund |
+| Beheerd exemplaar | Azure SQL Database Managed Instance is momenteel niet ondersteund met grootschalige databases. |
+| Elastische pools |  Elastische Pools worden momenteel niet ondersteund met SQL Database grootschalige.|
 | Migratie naar grootschalige is momenteel een enkelvoudige bewerking | Zodra een database wordt gemigreerd naar grootschalige, worden niet het rechtstreeks aan de servicelaag van een niet-flexibele gemigreerd. Op dit moment is de enige manier om een database migreren van grootschalige naar niet-flexibele te exporteren/importeren met behulp van een BACPAC-bestand.|
-| Migratie van databases met objecten in het geheugen wordt momenteel niet ondersteund. | Objecten in het geheugen moeten worden verwijderd en opnieuw als niet-In-Memory-objecten worden gemaakt voordat u een database migreren naar de grootschalige service tier.|
-| Bijhouden van gegevens is momenteel niet ondersteund. | Niet mogelijk het gebruik van bijhouden van gegevens met zeer grootschalige databasess.
+| Migratie van databases met objecten in het geheugen | Objecten in het geheugen moeten worden verwijderd en opnieuw als niet-In-Memory-objecten worden gemaakt voordat u een database migreren naar de grootschalige service tier.|
+| Bijhouden van gegevens | Niet mogelijk het gebruik van bijhouden van gegevens met zeer grootschalige databases. |
+| Geo-replicatie  | U configureren niet nog geo-replicatie voor Azure SQL Database grootschalige.  U kunt geo-herstellen (herstellen van de database in een andere Geografie bevinden, voor andere doeleinden of DR) uitvoeren |
+| TDE/Azure Sleutelkluis-integratie | Transparante versleuteling van de Database met behulp van Azure Key Vault (vaak aangeduid als Bring-Your-Own-Key of byok genoemd) wordt nog niet ondersteund voor Azure SQL Database zeer grootschalige, maar TDE met de Service beheerde sleutels wordt volledig ondersteund. |
+|Intelligente databasefuncties | 1. Index, Drop Index Advisor modellen zijn niet is getraind voor grote databases te maken. <br/>2. Schemaprobleem, DbParameterization - onlangs toegevoegd adviseurs worden niet ondersteund voor grootschalige Database.|
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor veelgestelde vragen op grote schaal, [Veelgestelde vragen over zeer grootschalige](sql-database-service-tier-hyperscale-faq.md).
-- Zie voor meer informatie over Servicelagen [Servicelagen](sql-database-purchase-models.md)
-- Zie [overzicht van de resource op een SQL-databaseserver beperkt](sql-database-resource-limits-database-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
+- Zie voor meer informatie over Servicelagen [Servicelagen](sql-database-service-tiers.md)
+- Zie [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor het aanschaffen van model-limieten voor één database [Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen](sql-database-vcore-resource-limits-single-databases.md).
 - Voor een functies en van de vergelijkingslijst, Zie [algemene SQL-functies](sql-database-features.md).

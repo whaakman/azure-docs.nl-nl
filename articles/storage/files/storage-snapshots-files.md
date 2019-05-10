@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7305c6a5047bd09f6c9bda018748643ff81fe893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708096"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235813"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van share-momentopnamen voor Azure Files 
 Azure Files biedt de mogelijkheid voor share-momentopnamen van bestandsshares. Momentopnamen vastleggen van de status van de share op dat punt in tijd delen. In dit artikel wordt beschreven welke mogelijkheden bieden voor momentopnamen van shares en hoe u kunt profiteren van deze in uw aangepaste situatie.
@@ -29,7 +29,7 @@ Stel dat u in een tekstbestand in een bestandsshare werkt. Nadat het tekstbestan
 ### <a name="general-backup-purposes"></a>Algemene back-updoeleinden
 Nadat u een bestandsshare maakt, kunt u periodiek een share-momentopname van de bestandsshare te gebruiken voor de back-up maken. Een momentopname, wanneer er periodiek gemaakt share kunt onderhouden van vorige versies van gegevens die kunnen worden gebruikt voor toekomstige controle vereisten of herstel na noodgevallen.
 
-## <a name="capabilities"></a>Functionaliteit
+## <a name="capabilities"></a>Mogelijkheden
 Momentopname van een share is een point-in-time, alleen-lezen kopie van uw gegevens. U kunt maken, verwijderen en momentopnamen beheren met behulp van de REST-API. Dezelfde mogelijkheden zijn ook beschikbaar in de client-bibliotheek, Azure CLI en Azure portal. 
 
 U kunt momentopnamen van een share weergeven met behulp van de REST-API en de SMB. U kunt de lijst met versies van de map of het bestand ophalen en u kunt een specifieke versie rechtstreeks als een station koppelen (alleen beschikbaar op Windows - Zie [limieten](#limits)). 
@@ -40,7 +40,7 @@ Share-momentopname-functie aangeboden op het niveau van delen. Het ophalen van w
 
 Een share-momentopname van een bestandsshare is identiek aan de basis-bestandsshare. Het enige verschil is dat een **datum-/** waarde wordt toegevoegd aan de share URI om aan te geven van de tijd waarop de share-momentopname is gemaakt. Bijvoorbeeld, als een bestandsshare-URI is http://storagesample.core.file.windows.net/myshare, de share-momentopname URI vergelijkbaar met is:
 ```
-http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Momentopnamen van shares blijft actief totdat ze expliciet worden verwijderd. Momentopname van een share kan niet de basis-bestandsshare outlive. U kunt de momentopnamen die zijn gekoppeld aan de basis-bestandsshare om bij te houden van uw huidige momentopnamen opsommen. 

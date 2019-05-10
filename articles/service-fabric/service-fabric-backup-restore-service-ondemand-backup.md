@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310890"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413937"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>On-demand back-ups in Azure Service Fabric
 
@@ -28,6 +28,22 @@ U kunt back-ups van betrouwbare Stateful services en Reliable Actors voor noodhe
 Azure Service Fabric bevat functies voor de [periodieke back-up van gegevens](service-fabric-backuprestoreservice-quickstart-azurecluster.md) en de back-up van gegevens op basis van behoefte. Back-up op aanvraag is handig, omdat deze biedt bescherming tegen de _gegevensverlies_/_gegevensbeschadiging_ vanwege geplande wijzigingen in de onderliggende service of de omgeving.
 
 De back-up op aanvraag-functies zijn nuttig voor het vastleggen van de status van de services voordat u een service of de bewerking voor service-omgeving voor het handmatig activeren. Bijvoorbeeld, als u een wijziging aanbrengt in de binaire bestanden bij het upgraden of downgraden van de service. In dat geval kunt u back-up op aanvraag beter beschermen van de gegevens tegen beschadiging door toepassing code bugs.
+## <a name="prerequisites"></a>Vereisten
+
+- Installeer Microsoft.ServiceFabric.Powershell.Http-Module [In Preview-versie] voor het aanroepen van de configuratie.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Zorg ervoor dat het Cluster is verbonden met behulp van de `Connect-SFCluster` opdracht voordat u een configuratieaanvraag met Microsoft.ServiceFabric.Powershell.Http Module.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggering-on-demand-backup"></a>Back-up op aanvraag activeren
 
@@ -38,6 +54,16 @@ Back-up op aanvraag is opslaggegevens vereist voor het uploaden van back-upbesta
 U kunt de periodieke back-upbeleid voor het gebruik van een partitie van een betrouwbare Stateful service of een Reliable Actor voor extra on-demand back-up naar de opslag configureren.
 
 Het volgende voorbeeld is de voortzetting van het scenario in [inschakelen periodieke back-up voor betrouwbare Stateful service en Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In dit geval u een back-upbeleid te gebruiken van een partitie inschakelen en een back-up wordt uitgevoerd op een frequentie instellen in Azure Storage.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
 
 Gebruik de [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API om in te stellen voor de on-demand back-up activeren voor partitie-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
@@ -52,6 +78,17 @@ Gebruik de [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric
 ### <a name="on-demand-backup-to-specified-storage"></a>On-demand back-up naar de opgegeven opslag
 
 U kunt on-demand back-up voor een partitie van een betrouwbare Stateful service of een Reliable Actor aanvragen. Geef de opslaggegevens als onderdeel van de back-upaanvraag op aanvraag.
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
 
 Gebruik de [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API om in te stellen voor de on-demand back-up activeren voor partitie-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Voeg de volgende Azure Storage-informatie:
 
@@ -79,6 +116,16 @@ U kunt de [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/
 Een partitie van een betrouwbare Stateful service of een Reliable Actor accepteert slechts één on-demand back-upaanvraag tegelijk. Een nieuwe aanvraag kan worden geaccepteerd nadat de huidige back-up op aanvraag-aanvraag is voltooid.
 
 Verschillende partities kunnen on-demand back-aanvragen op een moment activeren.
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell-Microsoft.ServiceFabric.Powershell.Http Module met
+
+```powershell
+
+Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+
+```
+#### <a name="rest-call-using-powershell"></a>Rest-aanroep met behulp van Powershell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"

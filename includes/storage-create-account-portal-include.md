@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/18/2018
+ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 3b770c3e51b17fa5d70abb03360e17e1073974d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842201ee20ef2e13c5179ccb5992a1ed98d36a3e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392198"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237865"
 ---
 Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, volgt u deze stappen:
 
@@ -33,7 +33,7 @@ Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, 
    |Implementatiemodel     |Resource Manager         |
    |Prestaties     |Standard         |
    |Soort account     |StorageV2 (general-purpose v2)         |
-   |Replicatie     |Lokaal redundante opslag (LRS)         |
+   |Replicatie     |Leestoegang geografisch redundante opslag (LRS)         |
    |Toegangslaag     |Warm         |
 
 1. Selecteer **Beoordelen en maken** om uw opslagaccountinstellingen te bekijken en het account te maken.

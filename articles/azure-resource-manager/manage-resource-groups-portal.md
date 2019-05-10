@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551217"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507233"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Resource Manager-resourcegroepen beheren met behulp van Azure portal
 
@@ -31,7 +31,7 @@ Andere artikelen over het beheren van resourcegroepen:
 
 ## <a name="what-is-a-resource-group"></a>Wat is een resourcegroep
 
-Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. De resourcegroep kan alle resources voor de oplossing bevatten of enkel de resources die u als groep wilt beheren. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is. Over het algemeen resources die aan dezelfde resourcegroep dezelfde levenscyclus delen, zodat u kunt eenvoudig implementeren, bijwerken en als een groep verwijderen toevoegen.
+Een resourcegroep is een container met verwante resources voor een Azure-oplossing. De resourcegroep kan alle resources voor de oplossing bevatten of enkel de resources die u als groep wilt beheren. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is. Over het algemeen resources die aan dezelfde resourcegroep dezelfde levenscyclus delen, zodat u kunt eenvoudig implementeren, bijwerken en als een groep verwijderen toevoegen.
 
 De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom u moet aangeven waar die metagegevens moeten worden opgeslagen als u een locatie voor de resourcegroep opgeeft. In verband met nalevingsvereisten moet u er mogelijk voor zorgen dat uw gegevens worden opgeslagen in een bepaalde regio.
 
@@ -108,64 +108,7 @@ U kunt tags toepassen op resourcegroepen en resources voor uw activa logische ma
 
 ## <a name="export-resource-groups-to-templates"></a>Resourcegroepen naar sjablonen exporteren
 
-Na het instellen van uw resourcegroep is, is het raadzaam om de Resource Manager-sjabloon voor de resourcegroep weer te geven. De sjabloon exporteren biedt twee voordelen:
-
-- Automatiseer toekomstige implementaties van de oplossing omdat de sjabloon de volledige infrastructuur bevat.
-- Meer informatie over de sjabloonsyntaxis van de door te kijken op JavaScript Object Notation (JSON) die uw oplossing aangeeft.
-
-Er zijn twee manieren om een sjabloon te exporteren:
-
-- U kunt de daadwerkelijke sjabloon die wordt gebruikt voor de implementatie van exporteren. De geëxporteerde sjabloon bevat alle parameters en variabelen precies zoals ze worden weergegeven in de oorspronkelijke sjabloon. Deze methode is handig als u resources via de portal hebt geïmplementeerd en u de sjabloon voor het maken van deze resources wilt zien. Deze sjabloon kan ongewijzigd worden gebruikt. 
-- U kunt een gegenereerde sjabloon die de huidige status van de resourcegroep exporteren. De geëxporteerde sjabloon is niet gebaseerd op een sjabloon die u voor implementatie gebruikt. In plaats daarvan wordt een sjabloon die een 'snapshot' of 'back-up van de resourcegroep is gemaakt. De geëxporteerde sjabloon heeft veel vastgelegde waarden en waarschijnlijk niet zoveel parameters als u doorgaans zou definiëren. Gebruik deze optie om resources aan dezelfde resourcegroep opnieuw te implementeren. Mogelijk moet u voor het gebruik van deze sjabloon voor een andere resourcegroep, aanzienlijk te wijzigen.
-
-### <a name="export-templates-from-deployment-history"></a>Sjablonen exporteren uit de implementatiegeschiedenis
-
-Deze methode exporteert u de sjablonen voor bepaalde implementaties. Als u de resources zijn gewijzigd vanuit de portal of de resource toegevoegd of verwijderd in meerdere implementaties, Zie [sjablonen exporteren uit resourcegroepen](#export-templates-from-resource-groups).
-
-1. Open de resourcegroep die u wilt exporteren.  Zie [resourcegroepen openen](#open-resource-groups).
-2. Selecteer in het linkerdeelvenster **implementaties**, of Selecteer de koppeling onder **implementaties**.  Op de volgende schermafbeelding ziet **4 geslaagd** omdat er vier gescheiden implementaties met vier verschillende namen. U ziet mogelijk **1 geslaagd**.
-
-    ![Azure resource group exporteren sjablonen](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Selecteer een van de implementaties in de lijst.
-4. Selecteer in het linkerdeelvenster **sjabloon**. Resource Manager haalt de volgende zes bestanden voor u op:
-
-   - **Sjabloon**: de sjabloon die de infrastructuur voor uw oplossing definieert. Toen u het opslagaccount via de portal maakte, heeft Resource Manager een sjabloon gebruikt om het te implementeren. De sjabloon is opgeslagen voor toekomstig gebruik.
-   - **Parameters**: een parameterbestand dat u kunt gebruiken om tijdens de implementatie waarden door te geven. Het bevat de waarden die u tijdens de eerste implementatie hebt opgegeven. U kunt deze waarden wijzigen wanneer u de sjabloon opnieuw gaat implementeren.
-   - **CLI** -een Azure-CLI-scriptbestand dat u gebruiken kunt om de sjabloon te implementeren.
-   - **PowerShell**: een Azure PowerShell-scriptbestand dat u kunt gebruiken om de sjabloon te implementeren.
-   - **.NET**: een .NET-klasse die u kunt gebruiken om de sjabloon te implementeren.
-   - **Ruby**: een Ruby-klasse die u kunt gebruiken om de sjabloon te implementeren.
-
-     De portal wordt standaard de sjabloon weergegeven.
-
-5. Selecteer **downloaden** een sjabloon exporteren naar uw lokale computer.
-
-    ![Azure resource group exporteren sjablonen](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>Sjablonen exporteren uit resourcegroepen
-
-Als u uw resources vanuit de portal hebt gewijzigd of toegevoegd of verwijderen van resources in meerdere implementaties, weergegeven bij het ophalen van een sjabloon uit de implementatiegeschiedenis niet in de huidige status van de resourcegroep. In deze sectie ziet u hoe u een sjabloon kunt exporteren die de huidige status van de resourcegroep voorstelt. Het is bedoeld als een momentopname van de resourcegroep die u gebruiken kunt om opnieuw aan dezelfde resourcegroep te implementeren. Als u wilt de geëxporteerde sjabloon gebruiken voor andere oplossingen, moet u deze aanzienlijk wijzigen.
-
-1. Open de resourcegroep die u wilt exporteren.  Zie [resourcegroepen openen](#open-resource-groups).
-2. Selecteer in het linkerdeelvenster **sjabloon exporteren**. Resource Manager haalt de volgende zes bestanden voor u op:
-
-   - **Sjabloon**: de sjabloon die de infrastructuur voor uw oplossing definieert. Toen u het opslagaccount via de portal maakte, heeft Resource Manager een sjabloon gebruikt om het te implementeren. De sjabloon is opgeslagen voor toekomstig gebruik.
-   - **Parameters**: een parameterbestand dat u kunt gebruiken om tijdens de implementatie waarden door te geven. Het bevat de waarden die u tijdens de eerste implementatie hebt opgegeven. U kunt deze waarden wijzigen wanneer u de sjabloon opnieuw gaat implementeren.
-   - **CLI** -een Azure-CLI-scriptbestand dat u gebruiken kunt om de sjabloon te implementeren.
-   - **PowerShell**: een Azure PowerShell-scriptbestand dat u kunt gebruiken om de sjabloon te implementeren.
-   - **.NET**: een .NET-klasse die u kunt gebruiken om de sjabloon te implementeren.
-   - **Ruby**: een Ruby-klasse die u kunt gebruiken om de sjabloon te implementeren.
-
-     De portal wordt standaard de sjabloon weergegeven.
-3. Selecteer **downloaden** een sjabloon exporteren naar uw lokale computer.
-
-Sommige geëxporteerde sjablonen moeten sommige bewerkingen voordat ze kunnen worden gebruikt. Zie voor meer informatie over het ontwikkelen van sjablonen, de [zelfstudies met stapsgewijze instructies](/azure/azure-resource-manager/).
-
-### <a name="export-template-before-deploying"></a>Sjabloon exporteren voordat u implementeert
-
-U kunt de portal gebruiken voor het definiëren van een resource.  Voordat u de resource implementeert, kunt u weergeven en exporteren van een sjabloon. Zie voor instructies [Quickstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md).
+Zie voor meer informatie over het exporteren van sjablonen [één of meerdere resources exporteren naar de sjabloon - Portal](export-template-portal.md).
 
 ### <a name="fix-export-issues"></a>Problemen met exports oplossen
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819294"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236948"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -430,6 +430,7 @@ Zie deze laptops voor voorbeelden van training met diverse compute-doelen:
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Zelfstudie: Een model te trainen](tutorial-train-models-with-aml.md) maakt gebruik van een beheerde compute-doel voor een model te trainen.
+* Meer informatie over het [efficiënt afstemmen van hyperparameters](how-to-tune-hyperparameters.md) om betere modellen te bouwen.
 * Zodra u een getraind model hebt, meer [hoe en waar u kunt modellen implementeren](how-to-deploy-and-where.md).
 * Weergave de [RunConfiguration klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK-referentie.
 * [Azure Machine Learning-service gebruiken met Azure Virtual Networks](how-to-enable-virtual-network.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111386"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235766"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center
 Dit document bevat informatie over het gebruik van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
@@ -67,16 +67,16 @@ Onder aan deze pagina ziet u de details voor elke waarschuwing. Als u wilt sorte
 
 ### <a name="alert-severity"></a>Ernst van waarschuwingen
 
-> [!NOTE]
-> Ernst van waarschuwing is anders weergegeven in de portal en de REST-API, worden de verschillen vermeld in de onderstaande lijst.
-
 -   **Hoge**: Er is een hoge kans dat de resource is aangetast. U ziet in het meteen. Security Center heeft een hoge betrouwbaarheid in zowel de kwade bedoelingen en in de bevindingen gebruikt voor het uitgeven van de waarschuwing. Bijvoorbeeld, een waarschuwing die wordt gedetecteerd tijdens de uitvoering van een bekende schadelijke hulpprogramma zoals Mimikatz, een veelgebruikt hulpprogramma gebruikt voor de diefstal van referenties. 
--   **Gemiddeld (laag in de REST-API)**: Dit is waarschijnlijk een verdachte activiteit die aangeven mogelijk dat een resource is aangetast.
+-   **Gemiddeld**: Dit is waarschijnlijk een verdachte activiteit die aangeven mogelijk dat een resource is aangetast.
 Vertrouwen in de analytische of zoeken van Security Center is normaal en het vertrouwen van de kwade bedoelingen gemiddeld in hoog is. Dit zijn meestal machine learning- of afwijkingen op basis van detecties. Bijvoorbeeld, een teken in poging vanaf een afwijkende locatie.
--   **Laag (informatie in de REST-API)**: Dit is mogelijk een goedaardig positief of een geblokkeerde-aanval. 
+-   **Lage**: Dit is mogelijk een goedaardig positief of een geblokkeerde-aanval. 
     - Security Center is niet zeker genoeg dat de bedoeling schadelijke is en mogelijk is de activiteit onschuldig uitziet. Logboek wissen is bijvoorbeeld een actie die optreden kan als een aanvaller wil verbergen hun sporen te wissen, maar in veel gevallen is een routine-bewerking uitgevoerd door beheerders.
     - Security Center niet meestal laat u weten wanneer aanvallen is geblokkeerd, tenzij het een interessante geval is dat we raden dat u kijken. 
--   **Informatief (stil in de REST-API)**: U ziet alleen informatieve waarschuwingen als u inzoomen op een beveiligingsincident, of als u de REST-API gebruiken met een specifieke waarschuwing-ID. Een incident is normaal gesproken bestaat uit een aantal waarschuwingen, waarvan sommige kunnen worden weergegeven op hun eigen worden alleen ter informatie, maar in de context van de andere waarschuwingen mogelijk daling van nader bekijken. 
+-   **Informatief**: U ziet alleen informatieve waarschuwingen als u inzoomen op een beveiligingsincident, of als u de REST-API gebruiken met een specifieke waarschuwing-ID. Een incident is normaal gesproken bestaat uit een aantal waarschuwingen, waarvan sommige kunnen worden weergegeven op hun eigen worden alleen ter informatie, maar in de context van de andere waarschuwingen mogelijk daling van nader bekijken.  
+
+> [!NOTE]
+> Als u de **2015-06-01-preview** API-versie, en er verschillen in welke alarm ernst typen worden toegepast op welke scenario's zijn, van wat wordt weergegeven boven.  
 
 ### <a name="filtering-alerts"></a>Waarschuwingen filteren
 U kunt waarschuwingen filteren op basis van datum, status en ernst. Het filteren van waarschuwingen kan nuttig zijn wanneer u minder beveiligingswaarschuwingen wilt weergeven. U kunt u bijvoorbeeld concentreren op de beveiligingswaarschuwingen van de afgelopen 24 uur, omdat u een mogelijke inbreuk in het systeem onderzoekt.

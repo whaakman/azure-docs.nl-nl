@@ -55,9 +55,9 @@ In deze sectie maakt maken u een Scala-voorbeeldproject met behulp van IntelliJ 
       * **Maven**: Voor ondersteuning van Scala maken van het project wizard.
       * **SBT**: Voor het beheren van afhankelijkheden en ontwikkelen voor het Scala-project.
 
-   ![Het dialoogvenster Nieuw project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Het dialoogvenster New Project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
-2. Selecteer **Volgende**.
+2. Selecteer **Next**.
 3. In de volgende **nieuw Project** dialoogvenster vak, voer de volgende stappen uit:
 
    1. In de **projectnaam** voert u de projectnaam van een.
@@ -68,7 +68,7 @@ In deze sectie maakt maken u een Scala-voorbeeldproject met behulp van IntelliJ 
       ![IntelliJ Scala eigenschappen-project maken](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
-4. Selecteer **Voltooien**.
+4. Selecteer **Finish**.
 5. Als de **Project** weergave nog niet is geopend, drukt u op **Alt + 1** om dit te openen.
 6. In **Projectverkenner**, vouw het project en selecteer vervolgens **src**.
 7. Met de rechtermuisknop op **src**, wijst u **nieuw**, en selecteer vervolgens **Scala klasse**.

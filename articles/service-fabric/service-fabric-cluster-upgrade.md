@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711596"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472768"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Upgraden en het bijwerken van een Azure Service Fabric-cluster
 
@@ -99,7 +99,7 @@ U kunt de aangepaste statusbeleid opgeven of de huidige instellingen op de blade
 Veel verschillende configuratie-instellingen kunnen worden aangepast op een cluster, zoals het betrouwbaarheidsniveau dat van de cluster- en knooppunt-eigenschappen. Lees voor meer informatie, [infrastructuurinstellingen voor Service Fabric-cluster](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Patch uitvoeren voor het besturingssysteem in de clusterknooppunten
-De patch orchestration-toepassing (POA) is een Service Fabric-toepassing waarmee het besturingssysteem op een Service Fabric-cluster zonder uitvaltijd patches worden geautomatiseerd. De [Patch Orchestration-toepassing voor Windows](service-fabric-patch-orchestration-application.md) of [Patch Orchestration-toepassing voor Linux](service-fabric-patch-orchestration-application-linux.md) kan worden geïmplementeerd in uw cluster om patches te installeren op een gecoördineerde manier terwijl de services beschikbare voortdurend. 
+De patch orchestration-toepassing (POA) is een Service Fabric-toepassing waarmee het besturingssysteem op een Service Fabric-cluster zonder uitvaltijd patches worden geautomatiseerd. De [Patch Orchestration-toepassing voor Windows](service-fabric-patch-orchestration-application.md) kan worden geïmplementeerd in uw cluster om patches te installeren op een gecoördineerde manier terwijl de services die beschikbaar zijn voortdurend.
 
 
 ## <a name="next-steps"></a>Volgende stappen

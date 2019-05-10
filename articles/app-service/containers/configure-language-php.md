@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920436"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407592"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Een Linux-PHP-app configureren voor Azure App Service
 
@@ -187,7 +187,7 @@ Maak een map in `/home/site` met de naam `ini`, maakt u een *.ini* -bestand in d
 > In de ingebouwde Linux-containers in App Service, */home* wordt gebruikt als permanente gedeelde opslag. 
 >
 
-Bijvoorbeeld, wijzig de waarde van [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) Voer de volgende opdrachten uit:
+Bijvoorbeeld, wijzig de waarde van [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) Voer de volgende opdrachten uit:
 
 ```bash
 cd /home/site
@@ -228,7 +228,7 @@ De wijzigingen van kracht, start de app opnieuw.
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Wanneer een werkende PHP-app zich anders in App Service gedraagt of fouten heeft, probeert u het volgende:
 

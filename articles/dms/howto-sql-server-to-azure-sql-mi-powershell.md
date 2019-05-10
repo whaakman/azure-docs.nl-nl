@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867925"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233727"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>On-premises SQL Server migreren naar een beheerd exemplaar voor Azure SQL Database met behulp van Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2016** database hersteld naar een on-premises exemplaar van SQL Server 2005 of hoger met een Azure SQL-Database beheerd exemplaar met behulp van Microsoft Azure PowerShell. U databases kunt migreren vanaf een on-premises SQL Server-exemplaar naar een beheerd exemplaar voor Azure SQL Database met behulp van de `Az.DataMigration` module in Microsoft Azure PowerShell.
@@ -86,7 +86,7 @@ Het volgende voorbeeld wordt een service met de naam *MyDMS* in de resourcegroep
 > Het onderstaande codefragment wordt een offline migratie, die niet nodig heeft een exemplaar van Azure Database Migration Service op basis van een Premium-SKU. Voor een online migratie, moet de waarde van de parameter - Sku bevatten een Premium-SKU.
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 
@@ -413,7 +413,7 @@ Nadat de migratie voltooid is, kunt u de Azure Database Migration Service-exempl
 Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 Zie voor informatie over aanvullende migreren scenario's (bron-/ doelparen), de Microsoft [handleiding voor databasemigratie](https://datamigration.microsoft.com/).
 

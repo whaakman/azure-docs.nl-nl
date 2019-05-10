@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 797d0cdb8d164955991de321d8df22e43f5c6a40
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024326"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467063"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. De query wordt uitgevoerd op een door de gebruiker gedefinieerde index.
@@ -44,7 +44,7 @@ Functionaliteit wordt beschikbaar gemaakt via een eenvoudige [REST API](/rest/ap
 | AI&nbsp;verrijking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Functies |
 |-------------------|----------|
 |AI verrijkt documenten | [**Cognitieve zoekopdrachten** ](cognitive-search-concept-intro.md) voor analyse van afbeeldingen en tekst kan worden toegepast op een indexering pijplijn om tekstinformatie te extraheren uit de onbewerkte inhoud. Enkele voorbeelden van [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) zijn: optische tekenherkenning (waardoor gescande JPEG-bestanden doorzoekbaar worden), herkenning van entiteiten (waarmee een organisatie, naam of locatie kan worden geïdentificeerd), en herkenning van sleuteltermen. U kunt ook [aangepaste vaardigheden coderen](cognitive-search-create-custom-skill-example.md) om ze te koppelen aan een pijplijn. |
-| Opgeslagen enrichments voor analyse en verbruik| [**Kennis Store** ](knowledge-store-concept-intro.md) is een uitbreiding op basis van AI worden geïndexeerd. Met Azure-opslag als een back-end bespaart u enrichments gemaakt tijdens het indexeren. Deze artefacten kunnen worden gebruikt om u te helpen bij het ontwerpen van betere kennis en vaardigheden of vorm en structuur buiten het proces of niet-eenduidige gegevens maken. U kunt projecties van deze structuren kunt maken die specifieke werkbelastingen doel of de gebruikers. U kunt ook rechtstreeks de opgehaalde gegevens analyseren, of deze te laden in andere apps.<br/><br/> |
+| Opgeslagen enrichments voor analyse en verbruik| [**Kennis Store (preview)** ](knowledge-store-concept-intro.md) is een uitbreiding op basis van AI worden geïndexeerd. Met Azure-opslag als een back-end bespaart u enrichments gemaakt tijdens het indexeren. Deze artefacten kunnen worden gebruikt om u te helpen bij het ontwerpen van betere kennis en vaardigheden of vorm en structuur buiten het proces of niet-eenduidige gegevens maken. U kunt projecties van deze structuren kunt maken die specifieke werkbelastingen doel of de gebruikers. U kunt ook rechtstreeks de opgehaalde gegevens analyseren, of deze te laden in andere apps.<br/><br/> |
 
 | Data&nbsp;import/indexing | Functies |
 |----------------------------------|----------|
@@ -57,7 +57,7 @@ Functionaliteit wordt beschikbaar gemaakt via een eenvoudige [REST API](/rest/ap
 |-------------------|----------|
 | Hulpprogramma's voor het ontwikkelen van prototypen en voor controle | In de portal kunt u de [**wizard Gegevens importeren**](search-import-data-portal.md) gebruiken om indexeerfuncties te configureren, Index Designer om een index te bouwen, en [**Search Explorer**](search-explorer.md) om query’s te testen en scoreprofielen te verfijnen. U kunt ook elke gewenste index openen om het bijbehorende schema te bekijken. |
 | Controle en diagnose | [**Inschakelen van bewakingsfuncties** ](search-monitor-usage.md) verder gaan dan de metrische gegevens-in een oogopslag die altijd zichtbaar in de portal. Metrische gegevens over query’s per seconde, latentie en beperkingen worden vastgelegd en gerapporteerd op portalpagina’s zonder dat hiervoor extra configuratie is vereist. <br/><br/>[**Zoekverkeer** ](search-traffic-analytics.md) is een ander controleprogramma alternatief, waarbij serverzijde en clientzijde gegevens worden verzameld en geanalyseerd om te ontgrendelen inzicht in wat gebruikers in het zoekvak typt. |
-| Versleuteling aan de serverzijde | [**Beheerd door Microsoft versleuteling-at-rest** ](search-security-overview.md#encrypted-transmission-and-storage) is gratis ingebouwd in de interne opslaglaag en is onherroepelijk. (Optioneel) u kunt vormen een aanvulling op de standaard-versleuteling met [ **door de klant beheerde versleutelingssleutels**](search-security-manage-encryption-keys.md). Sleutels die u maakt en beheert in Azure Key Vault worden gebruikt voor het versleutelen van indexen en synoniem-kaarten in Azure Search. |
+| Versleuteling aan de serverzijde | [**Beheerd door Microsoft versleuteling-at-rest** ](search-security-overview.md#encrypted-transmission-and-storage) is gratis ingebouwd in de interne opslaglaag en is onherroepelijk. (Optioneel) u kunt vormen een aanvulling op de standaard-versleuteling met [ **door de klant beheerde versleutelingssleutels (preview)**](search-security-manage-encryption-keys.md). Sleutels die u maakt en beheert in Azure Key Vault worden gebruikt voor het versleutelen van indexen en synoniem-kaarten in Azure Search. |
 | Infrastructuur | Het **maximaal beschikbare platform** zorgt ervoor dat de zoekservice uiterst betrouwbaar is. [Azure Search biedt een SLA voor 99,9% beschikbaarheid](https://azure.microsoft.com/support/legal/sla/search/v1_0/) als er naar behoren is geschaald.<br/><br/> Azure Search is een end-to-end oplossing die **volledig beheerd en schaalbaar** is en vereist geen enkel infrastructuurbeheer. De service kan worden aangepast aan uw persoonlijke behoeften door in twee dimensies te schalen voor het verwerken van meer documentopslag, een hogere querybelasting, of beide.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Het gebruik van Azure Search

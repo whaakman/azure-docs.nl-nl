@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128919"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416079"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Een Xamarin.Forms-app maken met Azure
 
@@ -34,9 +34,9 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
-* Visual Studio-hulpprogramma's voor Xamarin in Visual Studio 2017 of Visual Studio voor Mac. Zie de [Xamarin-installatiepagina][Install Xamarin] voor instructies.
+* Visual Studio Tools voor Xamarin, in Visual Studio 2017 of hoger, of Visual Studio voor Mac. Zie de [Xamarin-installatiepagina][Install Xamarin] voor instructies.
 
-* (optioneel) Als u een iOS-app wilt maken, is een Mac met Xcode 9.0 of hoger vereist. U kunt Visual Studio voor Mac gebruiken voor het ontwikkelen van iOS-apps of Visual Studio 2017 (als de Mac beschikbaar is op het netwerk).
+* (optioneel) Als u een iOS-app wilt maken, is een Mac met Xcode 9.0 of hoger vereist. Visual Studio voor Mac kan worden gebruikt voor het ontwikkelen van iOS-apps, of Visual Studio 2017 of later kan worden gebruikt (zolang de Mac beschikbaar op het netwerk is).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Een nieuwe back-end voor Mobile Apps maken
 
@@ -64,13 +64,13 @@ De Visual Studio-hulpprogramma's voor Xamarin zijn vereist voor het openen van d
 
    Er wordt nu een project gedownload dat een clienttoepassing bevat die is verbonden met uw mobiele app. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
 
-3. Pak het project uit dat u hebt gedownload en open het in Visual Studio 2017.
+3. Pak het project dat u hebt gedownload uit en opent u het in Visual Studio.
 
    ![Uitgepakt project in Visual Studio][8]
 
 4. Volg de onderstaande instructies om de Android- of Windows-projecten uit te voeren en het iOS-project als er een Mac-netwerkcomputer beschikbaar is.
 
-### <a name="visual-studio-for-mac"></a>Visual Studio voor Mac
+### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
 1. Ga naar de [Azure Portal].
 
@@ -100,7 +100,7 @@ In deze sectie voert u het Xamarin.Android-project uit. Als u niet met Android-a
 
 4. Druk op **F5** of klik op de knop **Start** om het project te maken en de app te starten in een Android-emulator.
 
-### <a name="visual-studio-for-mac"></a>Visual Studio voor Mac
+### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
 1. Klik met de rechtermuisknop op het Android-project en selecteer vervolgens **Set As Startup Project**.
 
@@ -132,7 +132,7 @@ In deze sectie voert u het Xamarin.iOS-project uit voor iOS-apparaten. Als u nie
 
 4. Selecteer de toets **F5** om het project te bouwen en de app te starten in de iPhone-emulator.
 
-### <a name="visual-studio-for-mac"></a>Visual Studio voor Mac
+### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
 1. Klik met de rechtermuisknop op het iOS-project en selecteer vervolgens **Set As Startup Project**.
 
@@ -179,7 +179,7 @@ Hierdoor wordt er een POST-aanvraag verzonden naar de nieuwe back-end voor Mobil
 > U vindt de code die toegang geeft tot de back-end voor Mobile Apps, in het C#-bestand **TodoItemManager.cs** van het portable class library-project van uw oplossing.
 >
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Als u er problemen zijn met het bouwen van de oplossing, voert u NuGet Package Manager uit om bij te werken naar de nieuwste versie van `Xamarin.Forms` en werkt u in het Android-project de `Xamarin.Android`-ondersteuningspakketten bij. Quick Start-projecten bevatten mogelijk niet altijd de nieuwste versies.
 

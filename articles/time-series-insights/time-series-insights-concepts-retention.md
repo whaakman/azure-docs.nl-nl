@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/09/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: b230ac48cf2ca14c9ed988f869b5abba3e347215
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696672"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406358"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Inzicht in Gegevensretentie in Time Series Insights
 
@@ -24,13 +24,14 @@ Dit artikel beschrijft de twee instellingen die van invloed zijn op het bewaren 
 
 ## <a name="video"></a>Video
 
-### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>In deze video behandelen we bewaren van Time Series Insights-gegevens en het plannen voor deze.</br>
+### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>De volgende video geeft een overzicht van Time Series Insights het bewaren van gegevens en het plannen voor deze.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-Elke TSI-omgeving heeft een instelling die regelt **gegevensretentietijd**. De waarde omvat van 1 tot 400 dagen. De gegevens worden verwijderd op basis van de omgeving capaciteit of bewaring opslagduur (1-400), afhankelijk van wat het eerste komt.
+Elk van uw Azure Time Series-omgevingen heeft een instelling die regelt **gegevensretentietijd**. De waarde omvat van 1 tot 400 dagen. De gegevens worden verwijderd op basis van de opslagcapaciteit van de omgeving of de bewaartermijn, afhankelijk van wat het eerste komt.
 
-Elke TSI-omgeving heeft een instelling voor extra **-limiet voor opslag overschreden gedrag**. Deze instelling wordt bepaald gedrag van inkomend verkeer en opschonen na het verstrijken van de maximale capaciteit van een omgeving. Er zijn twee gedrag kiezen uit:
+Bovendien uw Azure Time Series-omgeving heeft een **-limiet voor opslag overschreden gedrag** instelling. Deze besturingselementen inkomend verkeer en gedrag opschonen na het verstrijken van de maximale capaciteit van een omgeving. Er zijn twee gedrag om de verkeersbelasting te configureren:
+
 - **Verwijderen van oude gegevens** (standaard)  
 - **Inkomende gegevens onderbreken**
 
@@ -45,16 +46,16 @@ Vergelijk het gedrag voor het bewaren van gegevens:
 
 - Dit gedrag is het standaardgedrag voor TSI-omgevingen en stands hetzelfde gedrag TSI omgevingen heeft optrad omdat deze gestart openbare preview.  
 - Dit gedrag wordt aanbevolen wanneer gebruikers willen altijd hun *meest recente gegevens* in hun omgeving TSI. 
-- Dit gedrag *schoont* gegevens eenmaal in de omgeving van limieten (bewaartijd, grootte of count, afhankelijk van wat het eerste komt) zijn bereikt. Bewaarperiode is standaard ingesteld op 30 dagen. 
+- Dit gedrag *schoont* gegevens eenmaal in de omgeving van limieten (bewaartijd, grootte of count, afhankelijk van wat het eerste komt) zijn bereikt. Bewaarperiode is standaard ingesteld op 30 dagen.
 - De oudste opgenomen gegevens wordt eerst (FIFO-aanpak) verwijderd.
 
 ### <a name="example-one"></a>Voorbeeld van een
 
-Houd rekening met een Voorbeeldomgeving met retentie gedrag **doorgaan inkomend verkeer en verwijderen van oude gegevens**: In dit voorbeeld **gegevensretentietijd** is ingesteld op 400 dagen. **Capaciteit** is ingesteld op de S1-eenheid, waarmee 30 GB van de totale capaciteit bevat.   Stel de binnenkomende gegevens worden bij elkaar opgeteld tot 500 MB per dag op gemiddelde. Deze omgeving kan alleen 60 dagen aan gegevens toekennen aan het aantal inkomende gegevens, omdat de maximale capaciteit is bereikt op 60 dagen bewaren. De binnenkomende gegevens worden bij elkaar opgeteld als: 500 MB elke dag x 60 dagen = 30 GB.
+Houd rekening met een Voorbeeldomgeving met retentie gedrag **doorgaan inkomend verkeer en verwijderen van oude gegevens**:
 
-In dit voorbeeld op de 61st dag wordt de omgeving de meest recente gegevens worden weergegeven, maar Hiermee verwijdert u de oudste gegevens die ouder zijn dan 60 dagen. Het opschonen van Logboeken maakt ruimte voor de nieuwe gegevensstromen in, zodat nieuwe gegevens kunnen verder worden onderzocht. 
+**Bewaartijd van gegevens** is ingesteld op 400 dagen. **Capaciteit** is ingesteld op de S1-eenheid, waarmee 30 GB van de totale capaciteit bevat.   Stel de binnenkomende gegevens worden bij elkaar opgeteld tot 500 MB per dag op gemiddelde. Deze omgeving kan alleen 60 dagen aan gegevens toekennen aan het aantal inkomende gegevens, omdat de maximale capaciteit is bereikt op 60 dagen bewaren. De binnenkomende gegevens worden bij elkaar opgeteld als: 500 MB elke dag x 60 dagen = 30 GB.
 
-Als de gebruiker wil gegevens langer bewaren, ze kunnen de grootte van de omgeving verhogen door meer eenheden toe te voegen of minder gegevens te pushen.  
+Op de 61st dag wordt de omgeving de meest recente gegevens worden weergegeven, maar Hiermee verwijdert u de oudste gegevens die ouder zijn dan 60 dagen. Het opschonen van Logboeken maakt ruimte voor de nieuwe gegevensstromen in, zodat nieuwe gegevens kunnen verder worden onderzocht. Als de gebruiker wil gegevens langer bewaren, ze kunnen de grootte van de omgeving verhogen door meer eenheden toe te voegen of minder gegevens te pushen.  
 
 ### <a name="example-two"></a>Voorbeeld 2
 
@@ -64,16 +65,19 @@ Wanneer er dagelijks tarief dat inkomend verkeer van deze omgeving groter is dan
 
 ## <a name="pause-ingress"></a>Ingress onderbreken
 
-- Dit gedrag is zo ontworpen dat de gegevens is niet verwijderd als het aantal en grootte limieten zijn bereikt voordat de bewaarperiode.  
-- Dit gedrag biedt extra tijd voor de gebruikers de capaciteit van hun omgeving vergroten voordat gegevens wordt leeggemaakt vanwege de bewaarperiode van inbreuk
-- Dit gedrag helpt te beveiligen tegen verlies van gegevens, maar maakt u een kans op het verlies van gegevens van uw meest recente gegevens als inkomend buiten de bewaarperiode van uw gebeurtenisbron is onderbroken.
-- Echter, als de maximale capaciteit van een omgeving is bereikt, de omgeving wordt onderbroken binnenkomende gegevens totdat aanvullende acties worden uitgevoerd: 
-   - Verhoogt u de maximale capaciteit van de omgeving. Zie voor meer informatie, [uw Time Series Insights-omgeving schalen](time-series-insights-how-to-scale-your-environment.md) om toe te voegen meer schaaleenheden.
+- De **onderbreken inkomend** instelling is ontworpen om te controleren of de gegevens is niet verwijderd als het aantal en grootte limieten zijn bereikt voordat de bewaarperiode.  
+- **Onderbreken van inkomend verkeer** vindt u meer tijd voor de gebruikers de capaciteit van hun omgeving vergroten voordat gegevens wordt leeggemaakt vanwege de bewaarperiode van inbreuk
+- Het beschermt tegen verlies van gegevens maar een kans op het verlies van gegevens van uw meest recente gegevens kunt maken als het inkomende gegevens buiten de bewaarperiode van uw gebeurtenisbron is onderbroken.
+- Echter, als de maximale capaciteit van een omgeving is bereikt, de omgeving wordt onderbroken binnenkomende gegevens totdat de volgende aanvullende acties uitgevoerd:
+
+   - Verhoogt u de maximale capaciteit van de omgeving om toe te voegen meer schaaleenheden, zoals beschreven in [uw Time Series Insights-omgeving schalen](time-series-insights-how-to-scale-your-environment.md).
    - De bewaarperiode is bereikt en de gegevens is verwijderd, waardoor de omgeving dan de maximale capaciteit.
 
 ### <a name="example-three"></a>Voorbeeld 3
 
-Houd rekening met een omgeving met retentie gedrag is geconfigureerd voor het **onderbreken inkomend**. In dit voorbeeld wordt de **bewaartermijn voor gegevens** is geconfigureerd voor 60 dagen. **Capaciteit** is ingesteld op 3 eenheden van S1. Wordt ervan uitgegaan dat deze omgeving heeft invoer van 2 GB aan gegevens per dag. Inkomend verkeer is in deze omgeving worden onderbroken als de maximale capaciteit is bereikt. De omgeving bevat dezelfde gegevensset op dat moment totdat inkomend verkeer wordt hervat of totdat de 'continue inkomend' is ingeschakeld (dit zou oudere gegevens ruimte te maken voor nieuwe gegevens opschonen). 
+Houd rekening met een omgeving met retentie gedrag is geconfigureerd voor het **onderbreken inkomend**. In dit voorbeeld wordt de **bewaartermijn voor gegevens** is geconfigureerd voor 60 dagen. **Capaciteit** is ingesteld op 3 eenheden van S1. Wordt ervan uitgegaan dat deze omgeving heeft invoer van 2 GB aan gegevens per dag. Inkomend verkeer is in deze omgeving worden onderbroken als de maximale capaciteit is bereikt.
+
+Op dat moment wordt de omgeving bevat dezelfde gegevensset tot inkomend verkeer wordt hervat of tot **blijven inkomend** is ingeschakeld (die zou oudere gegevens te scheppen voor nieuwe gegevens opschonen).
 
 Inkomend verkeer hervat wanneer:
 
@@ -85,12 +89,12 @@ Inkomend verkeer hervat wanneer:
 
 Overweeg aan te passen in de betrokken Event Hubs, de **bewaarperiode van bericht** eigenschap om gegevensverlies te minimaliseren wanneer onderbreken inkomend verkeer in Time Series Insights plaatsvindt.
 
-![Bewaartermijn voor berichten van Event hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)
+[![Bewaartermijn voor berichten van Event hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Als er geen eigenschappen zijn geconfigureerd op de bron van gebeurtenis (timeStampPropertyName), standaard TSI het tijdstempel van de aankomst in de event hub als de x-as. Als timeStampPropertyName is geconfigureerd voor een ander, wordt de omgeving voor de geconfigureerde timeStampPropertyName in het gegevenspakket eruitziet wanneer gebeurtenissen worden geparseerd. 
+Als er geen eigenschappen die zijn geconfigureerd op de bron van gebeurtenis (`timeStampPropertyName`), TSI standaard ingesteld op de tijdstempel van de aankomst in de event hub als de x-as. Als `timeStampPropertyName` is geconfigureerd voor iets anders, de omgeving zoekt de geconfigureerde `timeStampPropertyName` in het gegevenspakket wanneer gebeurtenissen worden geparseerd.
 
 Als u uw omgeving moet omhoog te schalen om te voorzien in extra capaciteit of te verhogen van de lengte van retentie, Zie [uw Time Series Insights-omgeving schalen](time-series-insights-how-to-scale-your-environment.md) voor meer informatie.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Raadpleeg voor informatie over het overschakelen van retentie gedrag [configuratie van de bewaartermijn in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Lees voor informatie over het configureren van of het wijzigen van instellingen voor het bewaren van gegevens, [configuratie van de bewaartermijn in Time Series Insights](time-series-insights-how-to-configure-retention.md).

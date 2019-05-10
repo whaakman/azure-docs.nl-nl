@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190762"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231092"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Overzicht van Microsoft identity-platform (v2.0)
 
@@ -43,7 +43,7 @@ U kunt met Microsoft identity-platform, één keer code schrijven en bereik elke
 
 ## <a name="getting-started"></a>Aan de slag
 
-Werken met identiteit beschikt niet over moeten worden, moeilijk. Kies een scenario waarin op u van toepassing, elk pad scenario heeft een snelstartgids en een overzichtspagina waarmee u omhoog en binnen enkele minuten:
+Werken met identiteiten hoeft niet moeilijk te zijn. Kies een scenario waarin op u van toepassing, elk pad scenario heeft een snelstartgids en een overzichtspagina waarmee u omhoog en binnen enkele minuten:
 
 - [Bouw een app met één pagina](scenario-spa-overview.md)
 - [Bouw een web-app waarmee gebruikers worden aangemeld](scenario-web-app-sign-user-overview.md)
@@ -56,7 +56,7 @@ Werken met identiteit beschikt niet over moeten worden, moeilijk. Kies een scena
 
 De volgende tabel geeft een overzicht van de algemene verificatie-app-scenario's: gebruik als referentie bij het integreren van de Microsoft identity-platform met uw app.
 
-[![Toepassingsscenario's in Microsoft identity-platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
+[![Toepassingsscenario's in Microsoft identity-platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 

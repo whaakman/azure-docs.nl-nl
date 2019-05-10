@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875951"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234058"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Gegevens kopiëren van een HTTP-eindpunt met behulp van Azure Data Factory
 
@@ -217,8 +217,8 @@ Het kopiëren van gegevens van HTTP in **ORC/Avro/JSON/binaire indeling**, de vo
 | requestMethod | De HTTP-methode. Toegestane waarden zijn **ophalen** (standaard) en **Post**. | Nee |
 | additionalHeaders | Extra kopteksten die HTTP-aanvraag. | Nee |
 | requestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |
-| Indeling | Als u wilt ophalen van gegevens uit de HTTP-eindpunt als-is zonder parseren en kopieer de gegevens in een store op basis van bestanden, gaat de **indeling** sectie in de invoer en uitvoer gegevenssetdefinities.<br/><br/>Als u de inhoud van de HTTP-reactie parseren tijdens het kopiëren wilt, worden de volgende indeling bestandstypen ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Onder **indeling**, stel de **type** eigenschap op een van deze waarden. Zie voor meer informatie, [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling](supported-file-formats-and-compression-codecs.md#parquet-format). |Nee |
-| Compressie | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Ondersteunde typen: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus:  **Optimale** en **snelste**. |Nee |
+| format | Als u wilt ophalen van gegevens uit de HTTP-eindpunt als-is zonder parseren en kopieer de gegevens in een store op basis van bestanden, gaat de **indeling** sectie in de invoer en uitvoer gegevenssetdefinities.<br/><br/>Als u de inhoud van de HTTP-reactie parseren tijdens het kopiëren wilt, worden de volgende indeling bestandstypen ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Onder **indeling**, stel de **type** eigenschap op een van deze waarden. Zie voor meer informatie, [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [Parquet-indeling](supported-file-formats-and-compression-codecs.md#parquet-format). |Nee |
+| compression | Geef het type en het niveau van compressie voor de gegevens. Zie voor meer informatie, [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Ondersteunde typen: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus:  **Optimale** en **snelste**. |Nee |
 
 > [!NOTE]
 > De ondersteunde grootte van HTTP-verzoek nettolading is ongeveer 500 KB. Als de grootte van de nettolading die u wilt doorgeven aan uw webeindpunt groter dan 500 KB is, kunt u overwegen de nettolading in kleinere chunks batchverwerking.
@@ -287,7 +287,7 @@ Het kopiëren van gegevens van HTTP in **Parquet of gescheiden tekstopmaak**, ve
 | maxConcurrentConnections | Het nummer van de verbindingen gelijktijdig verbinding maken met opslag-store. Geef alleen als u wilt beperken, de gelijktijdige verbinding met het gegevensarchief. | Nee       |
 
 > [!NOTE]
-> Voor Parquet/gescheiden tekstopmaak **HttpSource** type activiteit kopieerbron vermeld in de volgende sectie wordt nog steeds ondersteund als-is voor voor achterwaartse compatibiliteit. U gebruik van dit nieuwe model voortaan worden voorgesteld, en de gebruikersinterface ontwerpen ADF is overgeschakeld naar deze nieuwe typen genereren.
+> Voor Parquet/gescheiden tekstopmaak **HttpSource** type activiteit kopieerbron vermeld in de volgende sectie wordt nog steeds ondersteund als-is voor achterwaartse compatibiliteit. U gebruik van dit nieuwe model voortaan worden voorgesteld, en de gebruikersinterface ontwerpen ADF is overgeschakeld naar deze nieuwe typen genereren.
 
 **Voorbeeld:**
 

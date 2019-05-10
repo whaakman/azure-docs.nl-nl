@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025256"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506974"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwing met de REST-API
 
@@ -201,42 +201,9 @@ Hier volgt een C#-codevoorbeeld om aan de slag gaat, [RestApiSample op GitHub](h
 1.  Klonen of downloaden van de opslagplaats. Open de oplossing RestApiSample.
 2.  Zoek de regel **client. BaseAddress =...** en geef uw [basis-URL](#base-url).
 
-De voorbeeldcode kunt interactieve aanmelding, gebruikersnaam en wachtwoord, of [service-principal](#service-principal).
+De voorbeeldcode gebruikt [service-principal](#service-principal) verificatie.
 
-#### <a name="interactive-login-or-usernamepassword"></a>Interactieve aanmelding of gebruikersnaam en wachtwoord
-
-Deze vorm van verificatie vereist een Azure-toepassing worden gemaakt met de vereiste API-machtigingen toegewezen. 
-
-1.  Klik in Azure portal op **een resource maken** > **Azure Active Directory** > **App-registraties**  >   **Nieuwe toepassing registreren**.
-
-    ![Nieuwe toepassing registreren](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  In **maken**, typ een naam en selecteer **systeemeigen** toepassingstype. Voor **omleidings-URI**, voer **urn: ietf:wg:oauth:2.0:oob**, en klik vervolgens op **maken**.
-
-    ![Instellingen](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  Selecteer uw app en kopieer en sla de **toepassings-ID**.
-
-    ![Toepassings-ID kopiëren](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  In **instellingen**, klikt u op **vereiste machtigingen** > **toevoegen**.
-
-    ![API-toegang toevoegen](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  In **Select an API**, type **Azure Analysis Services** in het zoekvak en selecteer vervolgens het.
-
-    ![API selecteren](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  Selecteer **lezen en schrijven van alle modellen**, en klik vervolgens op **Selecteer**. Wanneer beide zijn ingeschakeld, klikt u op **gedaan** om toe te voegen van de machtigingen. Het duurt enkele minuten worden doorgegeven.
-
-    ![Selecteer lezen en schrijven van alle modellen](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  Zoek in het codevoorbeeld wordt de **UpdateToken()** methode. Bekijk de inhoud van deze methode.
-8.  Zoek **tekenreeks clientID =...** , en voer vervolgens de **toepassings-ID** u hebt gekopieerd in stap 3.
-9.  Voet het voorbeeld uit.
-
-#### <a name="service-principal"></a>Service-principal
+### <a name="service-principal"></a>Service-principal
 
 Zie [service-principal - Azure portal maken](../active-directory/develop/howto-create-service-principal-portal.md) en [een service-principal toevoegen aan de serverbeheerdersrol](analysis-services-addservprinc-admins.md) voor meer informatie over het instellen van een service-principal en de benodigde machtiging in Azure als toewijzen . Nadat u de stappen hebt gevolgd, moet u de volgende aanvullende stappen uitvoeren:
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331878"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506856"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Over clouddatabases gedistribueerde transacties
 
@@ -99,7 +99,7 @@ Elastische transacties voor SQL-database worden ook ondersteund coördineren van
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Installatie van .NET voor Azure Cloud Services
 
-Azure biedt verschillende aanbiedingen bij host .NET-toepassingen. Een vergelijking van de verschillende aanbiedingen is beschikbaar in [vergelijking van Azure App Service, Cloud Services en virtuele Machines](../app-service/overview-compare.md). Als het gastbesturingssysteem van de aanbieding kleiner dan .NET 4.6.1 vereist voor de elastische transacties is, moet u het gastbesturingssysteem upgraden naar 4.6.1 worden geïnstalleerd. 
+Azure biedt verschillende aanbiedingen bij host .NET-toepassingen. Een vergelijking van de verschillende aanbiedingen is beschikbaar in [vergelijking van Azure App Service, Cloud Services en virtuele Machines](/azure/architecture/guide/technology-choices/compute-decision-tree). Als het gastbesturingssysteem van de aanbieding kleiner dan .NET 4.6.1 vereist voor de elastische transacties is, moet u het gastbesturingssysteem upgraden naar 4.6.1 worden geïnstalleerd. 
 
 Voor Azure App Services, worden upgrades voor het gastbesturingssysteem momenteel niet ondersteund. Voor Azure Virtual Machines, meld u aan bij de VM en voer het installatieprogramma voor de nieuwste .NET framework. Voor Azure Cloud Services moet u bijvoorbeeld de installatie van een nieuwere versie van .NET in de opstarttaken van uw implementatie. De concepten en stappen worden beschreven in [.NET installeren op een Cloudservicerol](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

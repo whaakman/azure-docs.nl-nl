@@ -12,19 +12,19 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023794"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471839"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Gegevens transformeren met de Azure Machine Learning Data Prep SDK
 
-In dit artikel leert u verschillende methoden voor het transformeren van gegevens met behulp van de Azure Machine Learning Data Prep SDK. De SDK biedt de functies die u eenvoudig kunnen aan kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden. Referentiedocumentatie voor de SDK, Zie de [overzicht](https://aka.ms/data-prep-sdk).
+In dit artikel leert u verschillende methoden voor het transformeren van gegevens met de `azureml-dataprep` pakket. Het pakket biedt functies die u eenvoudig kunnen aan kolommen toevoegen, filteren ongewenste rijen of kolommen en rekenen ontbrekende waarden. Zie de documentatie van de volledige verwijzing voor de [azureml-dataprep-pakket](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) uw gegevens, een momentopname van de gegevens transformeren en opslaan van definities van de gegevensset is samengesteld. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen voor gegevensvoorbereiding.
+> Als u een nieuwe oplossing bouwt, kunt u de [Azure Machine Learning gegevenssets](how-to-explore-prepare-data.md) (preview) uw gegevens, een momentopname van de gegevens transformeren en opslaan van definities van de gegevensset is samengesteld. Gegevenssets is de volgende versie van de SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen voor gegevensvoorbereiding. Als u de `azureml-dataprep` pakket maken van een gegevensstroom met uw transformaties in plaats van de `azureml-datasets` pakket voor het maken van een gegevensset, kunt u zich niet voor later gebruik van momentopnamen of versioned gegevenssets.
 
 Deze procedure ziet u voorbeelden voor de volgende taken:
 
@@ -286,10 +286,10 @@ dflow.head(5)
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Store_and_fwd_flag|RateCodeID|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |0|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|Geen|
-|1|2013-08-01 08:14:37|2013-08-01 09:09:06|N|1|0|0|0|0|1|.00|0|0|21,25|
-|2|2013-08-01 09:13:00|2013-08-01 11:38:00|N|1|0|0|0|0|2|.00|0|0|75|
-|3|2013-08-01-09:48:00 uur|2013-08-01 09:49:00|N|5|0|0|0|0|1|.00|0|1|2.1|
-|4|2013-08-01-10:38:35|2013-08-01 10:38:51|N|1|0|0|0|0|1|.00|0|0|3.25|
+|1|2013-08-01 08:14:37|2013-08-01-09:09:06|N|1|0|0|0|0|1|.00|0|0|21,25|
+|2|2013-08-01-09:13:00 uur|2013-08-01-11:38:00 uur|N|1|0|0|0|0|2|.00|0|0|75|
+|3|2013-08-01-09:48:00 uur|2013-08-01-09:49:00 uur|N|5|0|0|0|0|1|.00|0|1|2.1|
+|4|2013-08-01-10:38:35|2013-08-01-10:38:51|N|1|0|0|0|0|1|.00|0|0|3.25|
 
 ### <a name="filtering-columns"></a>Kolommen filteren
 
@@ -496,9 +496,8 @@ dflow.head(2)
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|1.0|
-|1|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|0,0|
+|1|ALABAMA|Jefferson County|Jefferson regio, Alabama|1.019200e + 10|0.0|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie de SDK [overzicht](https://aka.ms/data-prep-sdk) voor ontwerppatronen en voorbeelden van het gebruik
 * Zie de SDK van Azure Machine Learning Data Prep [zelfstudie](tutorial-data-prep.md) voor een voorbeeld van een specifiek scenario oplossen

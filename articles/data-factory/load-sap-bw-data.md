@@ -68,7 +68,7 @@ In de Azure-portal, gaat u naar uw data factory. Selecteer **Author & Monitor** 
 
    3. Selecteer **verbinding testen** de instellingen controleren en selecteer vervolgens **voltooien**.
 
-   4. Een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
+   4. Een nieuwe verbinding wordt gemaakt. Selecteer **Next**.
 
 5. Op de **Open Hub bestemmingen Selecteer** pagina, Open Hub bestemmingen die beschikbaar in uw SAP BW zijn bladeren. Selecteer de OHD wilt kopiëren van gegevens uit en selecteer vervolgens **volgende**.
 

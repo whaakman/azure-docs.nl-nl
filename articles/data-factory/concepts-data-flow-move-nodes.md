@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: d82b32e876144a626333f3df1481c5fce9862067
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c41ab1c0c8a26488c476d187fbc1bcac2e624ac8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61268630"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472015"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Toewijzing van gegevensknooppunten stroom verplaatsen
 
@@ -24,7 +24,7 @@ Het ontwerpoppervlak gegevensstroom van Azure Data Factory is een oppervlak "bou
 
 Dus zonder een paradigma slepen en neerzetten, de manier om een knooppunt transformatie 'verplaatsen' is te wijzigen van de stroom inkomende. In plaats daarvan, verplaatst u transformaties om door te wijzigen van de 'binnenkomende stream'.
 
-In Azure Data Factory-gegevensstroom vertegenwoordigen stromen de stroom van gegevens. De instellingen voor transformatie in het deelvenster ziet u een veld 'Binnenkomende stoom'. Hiermee wordt aangegeven welke binnenkomende gegevensstroom is deze transformatie. U kunt de fysieke locatie van de transformatie-knooppunt in de grafiek wijzigen door te klikken op de naam van de binnenkomende Stream en selecteren van een andere stroom van gegevens. De huidige transformatie samen met alle volgende transformaties voor deze stroom wordt vervolgens naar de nieuwe locatie verplaatsen.
+In Azure Data Factory-gegevensstroom vertegenwoordigen stromen de stroom van gegevens. De instellingen voor transformatie in het deelvenster ziet u een veld 'Binnenkomende Stream'. Hiermee wordt aangegeven welke binnenkomende gegevensstroom is deze transformatie. U kunt de fysieke locatie van de transformatie-knooppunt in de grafiek wijzigen door te klikken op de naam van de binnenkomende Stream en selecteren van een andere stroom van gegevens. De huidige transformatie samen met alle volgende transformaties voor deze stroom wordt vervolgens naar de nieuwe locatie verplaatsen.
 
 Als u een transformatie met een of meer transformaties nadat deze zijn verplaatst, wordt de nieuwe locatie in de gegevensstroom worden gekoppeld via een nieuwe vertakking.
 

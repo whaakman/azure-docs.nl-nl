@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935730"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233917"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Informatie over prijzen van Data Factory met behulp van voorbeelden
 
 In dit artikel wordt uitgelegd en ziet u het prijsmodel met gedetailleerde voorbeelden van Azure Data Factory.
+
+> [!NOTE]
+> De prijzen in de volgende voorbeelden hieronder zijn hypothetische en zijn niet bedoeld als werkelijke prijzen impliceren.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Gegevens kopiëren van AWS S3 naar Azure Blob-opslag per uur
 
@@ -122,13 +125,13 @@ Om uit te voeren van het scenario, moet u een pijplijn maken met de volgende ite
   - Pipeline-activiteit = $0,00003 (tijdens voor 1 minuut van de uitvoeringstijd. $ 0,002/uur op Azure Integration Runtime)
   - Externe Pipeline-activiteit = $0.000041 (tijdens 10 minuten van de uitvoeringstijd. $0.00025/uur op Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Toewijzing van gegevens voor foutopsporing op stroom gebruiken voor een normale werkdag
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Toewijzing van gegevens voor foutopsporing op stroom gebruiken voor een normale workday (Preview-prijs)
 
 Als een technicus van gegevens bent u verantwoordelijk voor het ontwerpen, bouwen en testen van toewijzing gegevens stromen elke dag. U Meld u aan bij de ADF UI in de ochtend en schakelt de foutopsporingsmodus voor gegevens stromen. De standaard-TTL voor foutopsporing sessies is 60 minuten. U werken gedurende de dag, gedurende 10 uur, zodat uw foutopsporingssessie nooit verloopt. Daarom zijn uw kosten in rekening gebracht voor de dag:
 
 **10 (uren) x 8 (kernen) x $0.112 $8.96 =**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformeer gegevens in blob-archief met het toewijzen van gegevensstromen
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformeer gegevens in blob-archief met het toewijzen van gegevensstromen (Preview-prijs)
 
 In dit scenario wilt u het transformeren van gegevens in Blob Store visueel in ADF toewijzing gegevens stromen op een planning per uur.
 

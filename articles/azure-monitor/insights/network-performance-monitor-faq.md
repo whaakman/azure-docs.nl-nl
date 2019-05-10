@@ -1,6 +1,6 @@
 ---
 title: Veelgestelde vragen - oplossing in Azure Network Performance Monitor | Microsoft Docs
-description: In dit artikel bevat de antwoorden op veelgestelde vragen over NPM in Azure. Netwerk Netwerkprestatiemeter (NPM) helpt die u bij het controleren van de prestaties van uw netwerken, bijna in realtime, detecteren en zoek op het netwerk knelpunten.
+description: In dit artikel bevat de antwoorden op veelgestelde vragen over Network Performance Monitor in Azure. Netwerk Netwerkprestatiemeter (NPM) helpt u de prestaties van uw netwerken bijna in realtime controleren en het opsporen en zoek op het netwerk knelpunten.
 services: log-analytics
 documentationcenter: ''
 author: vinynigam
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401444"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232668"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
@@ -36,24 +36,24 @@ Meer informatie over de verschillende mogelijkheden ondersteund door [Network Pe
 ### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>Wat zijn de vereisten voor het beheerplatform voor de knooppunten die moeten worden gebruikt voor het bewaken via NPM?
 Hieronder ziet u de Platformvereisten voor NPM van verschillende mogelijkheden:
 
-- De Prestatiemeter en Connectiviteitsmonitor voor Service-mogelijkheden van NPM ondersteuning voor zowel Windows-server (2008 SP1 of hoger) en Windows-desktops/client-besturingssystemen (Windows 10, Windows 8.1, Windows 8 en Windows 7). 
+- De Prestatiemeter en Connectiviteitsmonitor voor Service-mogelijkheden van NPM ondersteuning voor zowel Windows server en Windows-desktops/client-besturingssystemen. Windows server OS-versies die ondersteund zijn 2008 SP1 of hoger. Windows-desktops/client-versies die ondersteund zijn voor Windows 10, Windows 8.1, Windows 8 en Windows 7. 
 - NPM van ExpressRoute-bewaking mogelijkheid ondersteunt alleen Windows server (2008 SP1 of hoger) besturingssysteem.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Kan ik Linux-machines als de bewaking van knooppunten in NPM gebruiken?
-De mogelijkheid voor het bewaken van netwerken met behulp van op basis van Linux-knooppunten is momenteel in preview. Contact opnemen met uw Account Manager voor meer informatie. Nadat u de werkruimte-ID opgeeft, we gaan en de mogelijkheid inschakelen. Linux-agents bewakingsmogelijkheid alleen voor de NPM van Prestatiemeter functionaliteit bieden, en zijn niet beschikbaar voor de Connectiviteitsmonitor voor Service- en ExpressRoute-bewaking mogelijkheden
+De mogelijkheid voor het bewaken van netwerken met behulp van op basis van Linux-knooppunten is momenteel in preview. Contact opnemen met uw Account Manager voor meer informatie. Linux-agents bewakingsmogelijkheid alleen voor de NPM van Prestatiemeter functionaliteit bieden, en zijn niet beschikbaar voor de Connectiviteitsmonitor voor Service- en ExpressRoute-bewaking mogelijkheden
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Wat zijn de vereisten van de grootte van de knooppunten moet worden gebruikt voor het bewaken via NPM?
-Voor het uitvoeren van de NPM-oplossing op knooppunt VM's voor het bewaken van netwerken, moet de knooppunten ten minste 500 MB geheugen en één kern. U hoeft niet te gebruiken van afzonderlijke knooppunten voor het uitvoeren van NPM. De oplossing kunt uitvoeren op de knooppunten waarop andere werkbelastingen die erop worden uitgevoerd. De oplossing heeft de mogelijkheid om te stoppen van het bewakingsproces in het geval het maakt gebruik van meer dan 5% CPU.
+Voor het uitvoeren van de NPM-oplossing op knooppunt VM's voor het bewaken van netwerken, moet de knooppunten ten minste 500 MB geheugen en één kern. U hoeft niet te gebruiken van afzonderlijke knooppunten voor het uitvoeren van NPM. De oplossing kunt uitvoeren op de knooppunten waarop andere werkbelastingen die erop worden uitgevoerd. De oplossing heeft de mogelijkheid om te stoppen van het bewakingsproces als hierbij meer dan 5% CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Voor het gebruik van NPM, moet ik verbinding maken met mijn knooppunten als agent toewijzen of via System Center Operations Manager?
-Zowel de Prestatiemeter en de Connectiviteitsmonitor voor Service-mogelijkheden ondersteunen knooppunten [verbonden als Direct Agents](../../azure-monitor/platform/agent-windows.md) , evenals [verbonden zijn via Operations Manager](../../azure-monitor/platform/om-agents.md).
+Zowel de Prestatiemeter en de Connectiviteitsmonitor voor Service-mogelijkheden ondersteunen knooppunten [verbonden als Direct Agents](../../azure-monitor/platform/agent-windows.md) en [verbonden zijn via Operations Manager](../../azure-monitor/platform/om-agents.md).
 
 Voor ExpressRoute-bewaking functionaliteit, die moeten de Azure-knooppunten worden verbonden als Direct Agents alleen. Azure knooppunten die zijn verbonden via Operations Manager worden niet ondersteund. Voor on-premises knooppunten, worden de knooppunten verbonden als Direct Agents en via Operations Manager ondersteund voor het bewaken van een ExpressRoute-circuit.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Welk protocol TCP-en ICMP zo worden gekozen voor het bewaken van?
 Als u uw netwerk met behulp van Windows server-gebaseerde knooppunten worden bewaakt, raden wij aan u TCP als protocol voor bewaking omdat het biedt betere nauwkeurigheid. 
 
-ICMP wordt aanbevolen voor Windows-desktops /-client op basis van een besturingssysteem knooppunten. Dit platform is niet toegestaan voor TCP-gegevens worden verzonden via onbewerkte sockets, dat gebruikmaakt van NPM voor het detecteren van de netwerktopologie.
+ICMP wordt aanbevolen voor Windows-desktops /-client op basis van een besturingssysteem knooppunten. Dit platform does'nt TCP-gegevens worden verzonden via onbewerkte sockets, dat gebruikmaakt van NPM voor het detecteren van de topologie van netwerk toestaan.
 
 U kunt meer informatie krijgen over de relatieve voordelen van elk protocol [hier](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -71,8 +71,8 @@ Het script configureert alleen Windows Firewall lokaal. Als u hebt de firewall o
 ### <a name="how-many-agents-should-i-use"></a>Het aantal agents moet ik gebruiken?
 U moet ten minste één agent gebruiken voor elk subnet dat u wilt bewaken.
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Wat is het maximum aantal agents dat ik kan gebruiken of ik Zie-fout "... u uw configuratie-limiet hebt bereikt"?
-NPM beperkt het aantal IP-adressen aan 5000 IP-adressen per werkruimte. Als een knooppunt zowel IPv4 als IPv6-adressen heeft, wordt dit meegeteld als 2 IP-adressen voor dat knooppunt. Daarom kan bepaalt deze limiet van 5000 IP-adressen de bovengrens voor het aantal agents. U kunt de inactieve agents verwijderen uit knooppunten tabblad in NPM >> configureren. NPM onderhoudt ook geschiedenis van alle de IP-adressen die ooit zijn toegewezen aan de virtuele machine die als host fungeert de agent en deze ook tellen als afzonderlijke IP-adressen die bijdragen aan dat de bovengrens van 5000 IP-adressen. Aan vrij te maken van IP-adressen voor uw werkruimte, kunt u de pagina knooppunten te verwijderen van de IP-adressen die zich niet in gebruik.
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Wat is het maximum aantal agents dat ik kan gebruiken of ik Zie-fout '... u hebt uw limiet configuratie worden bereikt"?
+NPM beperkt het aantal IP-adressen aan 5000 IP-adressen per werkruimte. Als een knooppunt zowel IPv4 als IPv6-adressen heeft, wordt dit meegeteld als 2 IP-adressen voor dat knooppunt. Daarom kan bepaalt deze limiet van 5000 IP-adressen de bovengrens voor het aantal agents. U kunt de inactieve agents verwijderen uit knooppunten tabblad in NPM >> configureren. NPM onderhoudt ook geschiedenis van alle de IP-adressen die ooit zijn toegewezen aan de virtuele machine die als host fungeert voor de agent en elk wordt geteld als afzonderlijke IP-adres een bijdrage levert aan die limiet van 5000 IP-adressen. Aan vrij te maken van IP-adressen voor uw werkruimte, kunt u de pagina knooppunten te verwijderen van de IP-adressen die zich niet in gebruik.
 
 ## <a name="monitoring"></a>Bewaking
 
@@ -139,13 +139,23 @@ NPM kunt bewaken van uw ExpressRoute-circuits die zich in een Azure-regio. Voor 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Waarom zijn een aantal de hops gemarkeerd als niet-geïdentificeerde in de weergave van de topologie van netwerk?
-Een aangepaste versie van traceroute NPM gebruikt voor het detecteren van de topologie van de bronagent naar de bestemming. Een niet-geïdentificeerde hop vertegenwoordigt de netwerk-hop reageert niet op de bronagent traceroute aanvraag. Als 3 opeenvolgende netwerkhops niet op traceroute van de agent reageren, wordt de oplossing de niet-reagerende hops als niet-geïdentificeerde markeert en probeert niet meer hops detecteren.
+Een aangepaste versie van traceroute NPM gebruikt voor het detecteren van de topologie van de bronagent naar de bestemming. Een niet-geïdentificeerde hop vertegenwoordigt de netwerk-hop reageert niet op de bronagent traceroute aanvraag. Als drie opeenvolgende netwerkhops niet op traceroute van de agent reageren, wordt de oplossing de niet-reagerende hops als niet-geïdentificeerde markeert en probeert niet meer hops detecteren.
 
 Een hop reageert niet op een traceroute in een of meer van de onderstaande scenario's:
 
 * De routers zijn geconfigureerd om hun identiteit niet weer te geven.
 * De netwerkapparaten zijn niet ICMP_TTL_EXCEEDED verkeer wordt toegestaan.
 * Een firewall wordt geblokkeerd door het antwoord ICMP_TTL_EXCEEDED van het netwerkapparaat.
+
+### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>Waarom wordt Mijn koppeling weergeven die niet in orde, maar de topologie niet 
+NPM bewaakt end-to-end-verlies en latentie topologie met verschillende intervallen. Verlies en latentie worden gemeten om de vijf seconden en samengevoegd om de drie minuten (voor Prestatiemeter en Express Route-Monitor) terwijl topologie wordt berekend met behulp van traceroute om de tien minuten. Bijvoorbeeld, tussen de 3:44 en 4:04 topologie kan worden bijgewerkt drie keer (3:44, 3:54, 4:04), maar verlies en latentie over zeven keer worden bijgewerkt (3:44, 3:47, 3:50, 3:53, 3:56 van 3:59, 4:02). De topologie die is gegenereerd op 3:54 wordt weergegeven voor het verlies en latentie die wordt berekend op 3:56 van 3:59 en 4:02. Stel dat u ontvangt een waarschuwing dat uw circuit ER niet in orde werd op 3:59. U aanmelden bij NPM en probeer het instellen van de tijd van de topologie op 3:59. NPM, worden de topologie die is gegenereerd op 3:54 weergegeven. Voor meer informatie over de laatste bekende topologie van uw netwerk, vergelijkt de velden TimeProcessed (tijd op welke verlies en latentie is berekend) en TracerouteCompletedTime (tijd op welke topologie is berekend). 
+
+### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>Wat is het verschil tussen de velden E2EMedianLatency en AvgHopLatencyList in de tabel NetworkMonitoring
+E2EMedianLatency is de latentie bijgewerkt om de drie minuten nadat elke 10 minuten op basis van traceroute aggregeren van de resultaten van de TCP-ping-tests, terwijl AvgHopLatencyList is bijgewerkt. Voor meer informatie over de precieze tijd waarop E2EMedianLatency is berekend, moet u het veld TimeProcessed gebruiken. Voor meer informatie over de precieze tijd bij welke traceroute voltooid en bijgewerkte AvgHopLatencyList, gebruikt u het veld TracerouteCompletedTime
+
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Waarom verschilt hop-by-hop '-latentie van HopLatencyValues 
+HopLatencyValues zijn bron naar eindpunt.
+Bijvoorbeeld: Hops - A, B, C. AvgHopLatency - 10,15,20. Dit betekent dat de bron naar een latentie = 10, bron voor B latentie = 15 en bron voor C latentie is 20. Gebruikersinterface wordt A-B hop-latentie als 5 in de topologie berekend
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>De oplossing toont 100% verlies, maar er een verbinding tussen de bron en bestemming is
 Dit kan gebeuren als de firewall van de host of de tussenliggende firewall (netwerkfirewall of Azure NSG) de communicatie tussen de bronagent en de bestemming via de poort die wordt gebruikt blokkeren is voor het bewaken van NPM (standaard de poort is 8084, tenzij de de klant is gewijzigd. dit).
@@ -199,7 +209,7 @@ Dit kan gebeuren als een of meer ingesteld op true is:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>In de Connectiviteitsmonitor voor Service-capaciteit, de reactietijd van de service is NA maar wegvallend netwerk, evenals de latentie geldig zijn
 Dit kan gebeuren als de doelservice niet een web-App is, maar de test is geconfigureerd als een Webtest. De Testconfiguratie van de bewerken en de test kiezen als het netwerk in plaats van Web.
 
-## <a name="miscellaneous"></a>Diversen
+## <a name="miscellaneous"></a>Overig
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Is er een prestatie-impact op het knooppunt wordt gebruikt voor het bewaken van?
 NPM-proces is geconfigureerd om te stoppen als deze gebruikmaakt van meer dan 5% van de host CPU-resources. Dit is om ervoor te zorgen dat u blijven de knooppunten voor hun gebruikelijke werkbelastingen gebruiken kunt zonder gevolgen voor prestaties.

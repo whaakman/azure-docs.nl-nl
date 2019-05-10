@@ -69,7 +69,7 @@ Met deze methode is vereist dat u een verificator-app op uw telefoon of tablet i
    ![Vak voor het invoeren van een PINCODE](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Nadat de pincode is voltooid, schakelt u **sluiten**. Op dit moment is uw verificatie voltooid.
-9. Het is raadzaam dat u uw mobiele telefoonnummer invoeren in het geval u geen toegang meer tot uw mobiele app. Geef uw land/regio in de vervolgkeuzelijst en voer uw mobiele telefoonnummer in het vak naast de naam van het land/regio. Selecteer **Volgende**.
+9. Het is raadzaam dat u uw mobiele telefoonnummer invoeren in het geval u geen toegang meer tot uw mobiele app. Geef uw land/regio in de vervolgkeuzelijst en voer uw mobiele telefoonnummer in het vak naast de naam van het land/regio. Selecteer **Next**.
 10. Op dit moment wordt u gevraagd voor het instellen van app-wachtwoorden voor niet-browsertoepassingen zoals Outlook 2010 of ouder bent, of de systeemeigen e-mail-app voor Apple-apparaten. Dit is omdat sommige apps bieden geen ondersteuning voor verificatie in twee stappen. Als u deze apps niet gebruikt, klikt u op **gedaan** en de rest van de stappen overslaan.
 11. Als u deze apps gebruikt, wordt het app-wachtwoord kopiëren opgegeven en plak deze in uw toepassing in plaats van uw normale wachtwoord. U kunt hetzelfde appwachtwoord voor meerdere apps gebruiken. Voor meer informatie [hulp bij app-wachtwoorden].
 12. Klik op **Gereed**.

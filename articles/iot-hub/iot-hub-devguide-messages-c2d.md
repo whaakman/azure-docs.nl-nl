@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0c1b877a9468ce9c3b851bce62cb87c64c04260
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363525"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472741"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Cloud-naar-apparaat-berichten verzenden vanuit IoT Hub
 
@@ -71,10 +71,11 @@ Een veelgebruikte manier om te profiteren van verlopen van berichten en te voork
 
 ## <a name="message-feedback"></a>Bericht feedback
 
-Als u een cloud-naar-apparaat bericht verzendt, kan de service de levering van per bericht feedback over de laatste status van dat bericht aanvragen.
+Als u een cloud-naar-apparaat bericht verzendt, kan de service de levering van per bericht feedback over de laatste status van dat bericht aanvragen. Dit wordt gedaan door in te stellen de `iothub-ack` eigenschap van de toepassing in het C2D-bericht wordt verzonden naar een van de volgende waarden:
 
-| ACK-eigenschap | Gedrag |
+| De waarde van de eigenschap ACK | Gedrag |
 | ------------ | -------- |
+| **none**     | IoT Hub genereert geen een feedbackbericht (standaardinstelling). |
 | **positieve** | Als het cloud-naar-apparaat bericht bereikt de **voltooid** staat, IoT-Hub genereert een feedbackbericht. |
 | **negatief zijn** | Als het cloud-naar-apparaat bericht bereikt de **dode lettered** staat, IoT-Hub genereert een feedbackbericht. |
 | **Volledige**     | IoT Hub genereert een feedbackbericht in beide gevallen. |

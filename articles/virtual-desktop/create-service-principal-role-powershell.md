@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146147"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236942"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Zelfstudie: Service-principals en roltoewijzingen maken met PowerShell
 
@@ -38,7 +38,7 @@ Voordat u service-principals en roltoewijzingen maken kunt, moet u drie dingen d
     Install-Module AzureAD
     ```
 
-2. Voer de volgende cmdlets met de waarden in de aanhalingstekens vervangen door de waarden die relevant zijn voor uw sessie.
+2. Voer de volgende cmdlets met de waarden in de aanhalingstekens vervangen door de waarden die relevant zijn voor uw sessie. Als u zojuist hebt gemaakt de tenant van uw virtuele Windows-bureaublad van de [een tenant maken in de zelfstudie voor virtuele Windows-bureaublad](./tenant-setup-azure-active-directory.md), gebruikt u 'Standaard-Tenant groeperen' als de naam van uw tenant.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ Dit zijn de drie referenties die te noteren en de cmdlets die u moet uitvoeren o
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een service-principal maken en bij het aanmelden bij virtuele Windows-bureaublad. Voor meer informatie over hoe u zich aanmeldt bij Windows virtueel bureaublad, blijven het verbinding maken met Windows virtuele bureaublad uitleg.
+Nadat u hebt gemaakt van de service-principal en een rol in uw tenant virtuele Windows-bureaublad toegewezen, kunt u deze kunt gebruiken om een host-pool te maken. Voor meer informatie over pools host, verder met de zelfstudie voor het maken van een host van toepassingen in virtuele Windows-bureaublad.
 
-- [Verbinding maken vanaf Windows 10 of Windows 7](connect-windows-7-and-10.md)
-- [Verbinding maken via een webbrowser](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Zelfstudie voor virtuele Windows-bureaublad host pool](./create-host-pools-azure-marketplace.md)

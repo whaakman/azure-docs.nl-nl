@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587826"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236760"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
@@ -59,12 +59,12 @@ Gezien de frequentie van de wachtwoorden worden geraden, phished, met schadelijk
 
 Veel organisaties gebruiken de traditionele complexiteit (waarvoor speciale tekens, cijfers, hoofdletters en kleine letters) en de regels voor het verlopen van wachtwoorden. [Van Microsoft research](https://aka.ms/passwordguidance) heeft laten zien dit beleid ervoor zorgen dat gebruikers wachtwoorden moeten kiezen die gemakkelijker zijn te achterhalen.
 
-Azure AD [dynamische uitgesloten wachtwoorden](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) functie gedrag van het huidige aanvaller gebruikt om te voorkomen dat gebruikers van het instellen van wachtwoorden die eenvoudig kunnen worden geraden. Deze mogelijkheid is altijd ingeschakeld wanneer gebruikers zijn gemaakt in de cloud, maar is nu ook beschikbaar voor hybride organisaties wanneer ze implementeren [beveiliging van Azure AD-wachtwoord voor Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD-wachtwoordbeveiliging voorkomen dat gebruikers deze algemene wachtwoorden kiezen en kan worden uitgebreid voor het blokkeren van wachtwoord met aangepaste trefwoorden die u opgeeft. U kunt bijvoorbeeld voorkomen dat uw gebruikers kiezen wachtwoorden met productnamen van uw bedrijf of een lokale sport-team.
+Azure AD [dynamische uitgesloten wachtwoorden](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) functie gedrag van het huidige aanvaller gebruikt om te voorkomen dat gebruikers van het instellen van wachtwoorden die eenvoudig kunnen worden geraden. Deze mogelijkheid is altijd ingeschakeld wanneer gebruikers zijn gemaakt in de cloud, maar is nu ook beschikbaar voor hybride organisaties wanneer ze implementeren [beveiliging van Azure AD-wachtwoord voor Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD-wachtwoordbeveiliging voorkomen dat gebruikers deze algemene wachtwoorden kiezen en kan worden uitgebreid voor het blokkeren van wachtwoord met aangepaste trefwoorden die u opgeeft. U kunt bijvoorbeeld voorkomen dat uw gebruikers kiezen wachtwoorden met productnamen van uw bedrijf of een lokale sport-team.
 
 Microsoft raadt aan om vast te stellen het volgende moderne wachtwoordbeleid op basis van [richtlijnen van het NIST](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Vereisen dat wachtwoorden hebben ten minste 8 tekens. Meer is niet noodzakelijkerwijs beter, omdat ze ervoor zorgen gebruikers dat kunnen kiezen een voorspelbare wachtwoord, wachtwoorden opslaan in bestanden of schrijf ze op.
-2. Vervaldatum regels, die gebruikers eenvoudig gegiste wachtwoorden zoals vergroten uitschakelen **Summer2018!**
+2. Vervaldatum regels, die gebruikers eenvoudig gegiste wachtwoorden zoals vergroten uitschakelen **Spring2019!**
 3. Schakel teken samenstelling vereisten en te voorkomen dat gebruikers vaak aangevallen wachtwoorden kiezen als ze ervoor zorgen gebruikers een dat voor voorspelbare teken vervangingen in wachtwoorden.
 
 U kunt [PowerShell om te voorkomen dat wachtwoorden verlopen](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) voor gebruikers als u een identiteit in Azure AD rechtstreeks maken. Hybride organisaties moeten deze beleidsregels met behulp van implementeren [instellingen voor Groepsbeleid domein](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) of [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -166,7 +166,7 @@ Azure AD Identity Protection biedt twee belangrijke rapporten, moet u dagelijks 
 
 ### <a name="audit-apps-and-consented-permissions"></a>Audit-apps en toegestane machtigingen
 
-Gebruikers kunnen worden misleidt om te navigeren naar een website waarmee is geknoeid of apps die toegang tot de informatie en gebruiker profielgegevens, zoals hun e-mail krijgt. Een kwaadwillende actor kunt de toegestane machtigingen voor het versleutelen van de inhoud van hun postvak en vraag een ransom om weer te krijgen van uw postvakgegevens ontvangen. [Beheerders moeten bekijken en controleren](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) de machtigingen die door gebruikers.
+Gebruikers kunnen worden misleidt om te navigeren naar een website waarmee is geknoeid of apps die toegang tot de informatie en gebruiker profielgegevens, zoals hun e-mail krijgt. Een kwaadwillende actor kunt de toegestane machtigingen voor het versleutelen van de inhoud van hun postvak en vraag een ransom om weer te krijgen van uw postvakgegevens ontvangen. [Beheerders moeten bekijken en controleren](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de machtigingen die door gebruikers.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Stap 5: inschakelen door eindgebruikers zelfhulp
 

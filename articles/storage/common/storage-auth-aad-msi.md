@@ -9,12 +9,12 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: daa3bd49fcb9970a4a4a026f764cc195423e83d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154366"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507897"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Verifiëren van toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources
 
@@ -48,7 +48,7 @@ Om aanvragen te verifiëren op basis van Blob en Queue storage met een beheerde 
 
 De App-verificatie-clientbibliotheek beheert automatisch verificatie. De bibliotheek maakt gebruik van de referenties van de ontwikkelaar om te verifiëren tijdens de lokale ontwikkeling. Met de ontwikkelaarsreferenties van tijdens het ontwikkelen van lokale is veiliger omdat u niet hoeft te maken van Azure AD-referenties of referenties tussen ontwikkelaars delen. Wanneer de oplossing later wordt geïmplementeerd naar Azure, schakelt u de bibliotheek automatisch met referenties van de toepassing.
 
-Voor het gebruik van de App-verificatiebibliotheek in een Azure Storage-toepassing, installeert u de meest recente preview-pakket van [Nuget]((https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)), evenals de meest recente versie van de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Voeg de volgende **met behulp van** instructies gebruikt om uw code uit:
+Voor het gebruik van de App-verificatiebibliotheek in een Azure Storage-toepassing, installeert u de meest recente preview-pakket van [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), evenals de meest recente versie van de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Voeg de volgende **met behulp van** instructies gebruikt om uw code uit:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;

@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61098467"
@@ -99,7 +99,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     
     d. Onder **terugkeerpatroon**, voer **15 minuten**. 
     
-    e. Selecteer **Volgende**. 
+    e. Selecteer **Next**. 
     
     De gebruikersinterface van Data Factory maakt een pijplijn met de opgegeven taaknaam. 
 
@@ -147,7 +147,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     
     ![Het uitvoerbestand of de uitvoermap kiezen](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
     
-    b. Selecteer **Volgende**.
+    b. Selecteer **Next**.
     
      ![Het uitvoerbestand of de uitvoermap kiezen](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/click-next-after-output-folder.png)
     

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067808"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236013"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -44,7 +44,7 @@ Het vCore-gebaseerde service lagen voornamelijk worden onderscheiden, is afhanke
 - De servicelaag grootschalige is geoptimaliseerd voor zeer grote databaseworkloads.
 - De laag bedrijfskritiek-service is geschikt voor workloads van bedrijven waar i/o-latentie is een prioriteit.
 
-| | Resourcetype | Algemeen doel |  Hyperscale | Bedrijfskritiek |
+| | Resourcetype | Algemeen gebruik |  Grootschalig | Bedrijfskritiek |
 |:---|:---:|:---:|:---:|:---:|:---:|
 | **Het meest geschikt voor** |Alle|  Meeste zakelijke workloads. Aanbiedingen budget documentgeoriënteerde met gelijke taakverdeling reken- en opties. | Data-toepassingen met capaciteitsvereisten voor grote hoeveelheden gegevens en de mogelijkheid om opslag van automatisch schalen en schaal compute soepel. | OLTP-toepassingen met hoge Transactiesnelheid en de laagste latentie i/o. Biedt de hoogste veerkracht tijdens storingen met behulp van verschillende geïsoleerde replica's.|
 |  **Resourcetype** ||Individuele database / elastische pool / beheerd exemplaar | Individuele database | Individuele database / elastische pool / beheerd exemplaar |
@@ -73,11 +73,7 @@ De servicelaag van grootschalige is voornamelijk bedoeld voor klanten die hebben
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Welke regio's ondersteunen momenteel zeer grootschalige
 
-De Azure SQL Database grootschalige-laag is momenteel beschikbaar in de volgende regio's:
-
-Australië-Oost, Australië-Zuidoost, Brazilië-Zuid, Canada centraal, VS-midden, Oost-Azië, VS-Oost, Oost-VS 2, Frankrijk-centraal, Japan-Oost, Japan-West, Noord-centraal VS, Noord-Europa, Zuid-Afrika (Noord), Zuid-centraal VS, Zuidoost-Azië, VK Zuid, UK-West, West-Europa , VS-west, VS-West 2
-
-Zie [overzicht van Azure SQL Database zeer grootschalige](sql-database-service-tier-hyperscale-faq.md) voor de procedure als u toegang hebben in een andere regio moet.
+De Azure SQL Database grootschalige-laag is momenteel beschikbaar in de regio's die worden vermeld onder [overzicht van Azure SQL Database zeer grootschalige](sql-database-service-tier-hyperscale.md#regions).
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Ik kan meerdere grootschalige databases per logische server maken
 

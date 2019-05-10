@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
-ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884755"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415712"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -30,7 +30,7 @@ Statuscontroles ondersteuning voor meerdere protocollen. De beschikbaarheid van 
 | | Standaard SKU | Basis-SKU |
 | --- | --- | --- |
 | [Test-typen](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Test omlaag gedrag](#probedown) | Alle tests, gaan alle TCP-stromen. | Alle tests omlaag beëindigen voor alle TCP-stromen. | 
+| [Test omlaag gedrag](#probedown) | Alle tests, gaan alle TCP-stromen. | Alle tests omlaag verlopen voor alle TCP-stromen. | 
 
 > [!IMPORTANT]
 > Load Balancer statuscontroles zijn afkomstig uit het IP-adres 168.63.129.16 en niet voor tests markeert u uw exemplaar moeten worden geblokkeerd.  Beoordeling [bron-IP-adres-test](#probesource) voor meer informatie.
@@ -178,7 +178,7 @@ Load Balancer maakt gebruik van een gedistribueerde testinterval service voor de
 
 De tag AzureLoadBalancer service identificeert deze bron-IP-adres in uw [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) en health test verkeer standaard is toegestaan.
 
-Naast het Load Balancer-tests gebruiken de volgende bewerkingen voor dit IP-adres:
+Naast de Load Balancer-tests, de [volgende bewerkingen gebruikt dit IP-adres](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Kan de VM-Agent om te communiceren met het platform om aan te geven is in een status 'Gereed'
 - Communicatie met de virtuele DNS-server voor gefilterde naamomzetting voor klanten die geen aangepaste DNS-servers definieert mogelijk maakt.  Dit filter zorgt ervoor dat klanten alleen de hostnamen van de implementatie kunnen omzetten.

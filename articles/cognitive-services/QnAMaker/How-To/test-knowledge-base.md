@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875701"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472109"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Test uw knowledge base interactief in QnA Maker
 
@@ -24,14 +24,10 @@ Testen van uw kennisdatabase QnA Maker is een belangrijk onderdeel van een itera
 
 ## <a name="test-answer-matching"></a>Test antwoorden vergelijken
 
-1.  Toegang tot uw knowledge base door het selecteren van de naam ervan op de **mijn knowledge bases** pagina.
-2.  Voor toegang tot het deelvenster van de dia-out Test, selecteer **Test** in het bovenste gedeelte van uw toepassing.
-
-    ![Test-Toegangsvenster](../media/qnamaker-how-to-test-kb/access-test.png)
-
-3.  Voer een query in het tekstvak in en selecteer Enter.
-
-4.  De best overeenkomende antwoord in de kennisdatabase wordt geretourneerd als antwoord.
+1. Toegang tot uw knowledge base door het selecteren van de naam ervan op de **mijn knowledge bases** pagina.
+1. Voor toegang tot het deelvenster van de dia-out Test, selecteer **Test** in het bovenste gedeelte van uw toepassing.
+1. Voer een query in het tekstvak in en selecteer Enter.
+1. De best overeenkomende antwoord in de kennisdatabase wordt geretourneerd als antwoord.
 
 ## <a name="clear-test-panel"></a>Deelvenster wissen testen
 
@@ -65,14 +61,20 @@ U kunt andere vormen van een vraag toevoegen aan een bepaald antwoord. Typ de al
 
 ## <a name="add-a-new-answer"></a>Een nieuw antwoord toevoegen
 
-U kunt een nieuw antwoord toevoegen als een van de bestaande antwoorden die zijn afgestemd onjuist zijn of het antwoord niet in het knowledge base bestaat (geen goede overeenkomst gevonden in de KB). De nieuwe antwoord op de huidige vraag invoeren in het tekstvak in en druk op enter om deze te voegen. 
+U kunt een nieuw antwoord toevoegen als een van de bestaande antwoorden die zijn afgestemd onjuist zijn of het antwoord niet in het knowledge base bestaat (geen goede overeenkomst gevonden in de KB). 
 
-Selecteer **opslaan en trainen** om vast te leggen dit antwoord. Een nieuwe set met vraag-antwoord is nu is toegevoegd aan uw knowledge base.
+Aan de onderkant van de lijst met antwoorden in het tekstvak in te voeren van een nieuw antwoord gebruiken en druk op enter om deze te voegen. 
 
-![Nieuwe vraag en antwoord-paar toevoegen](../media/qnamaker-how-to-test-kb/add-answer.png)
+Selecteer **opslaan en trainen** om vast te leggen dit antwoord. Een nieuwe set met vraag-antwoord is nu is toegevoegd aan uw knowledge base. 
 
 > [!NOTE]
 > Alleen alle wijzigingen aan uw knowledge base opgeslagen wanneer u op de **opslaan en trainen** knop.
+
+## <a name="test-the-published-knowledge-base"></a>De gepubliceerde knowledge base testen
+
+In het deelvenster kunt u de gepubliceerde versie van het knowledge base testen. Nadat u de KB hebt gepubliceerd, selecteert u de **gepubliceerd KB** vak en verzenden van een query voor het ophalen van resultaten van de gepubliceerde KB.
+
+![Testen op basis van een gepubliceerde KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

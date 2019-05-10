@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: 0f1b5f424a71aeccd4b1e57129c0f5b22ff158af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159388"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470390"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Zelfstudie: Comeet werving Software configureren voor het automatisch inrichten van gebruikers
 
@@ -47,15 +47,15 @@ Voordat u Software voor Comeet werving configureert voor het automatisch gebruik
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, selecteer in het navigatievenster aan de linkerkant **Azure Active Directory**.
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
+    ![De Azure Active Directory-knop](common/select-azuread.png)
 
 2. Ga naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
-    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+    ![De blade Enterprise-toepassingen](common/enterprise-applications.png)
 
 3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het deelvenster.
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![De knop nieuwe toepassing](common/add-new-app.png)
 
 4. Voer in het zoekvak **Comeet werving Software**, selecteer **Comeet werving Software** in het deelvenster voor resultaten en klik vervolgens op de **toevoegen** om toe te voegen van de toepassing.
 
@@ -84,7 +84,7 @@ Deze sectie handleidingen u via de stappen voor het configureren van de Azure AD
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Het configureren van automatisch gebruikers inrichten voor Comeet werving Software in Azure AD:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en selecteer **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Comeet werving Software**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer **bedrijfstoepassingen**en selecteer vervolgens **alle toepassingen**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
@@ -104,8 +104,7 @@ Deze sectie handleidingen u via de stappen voor het configureren van de Azure AD
 
 6. In de [Comeet werven van Software-beheerconsole](https://app.comeet.co/), gaat u naar **Comeet > Instellingen > verificatie > Microsoft Azure**, en kopieer de **geheim Token voor uw bedrijf**waarde die moet worden de **geheim Token** veld in Azure AD.
 
-    ![Comeet werving softwarelevering](./media/comeetrecruitingsoftware-provisioning-tutorial/secret-token-1.png)
-    
+    ![Comeet werving softwarelevering](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
 7. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met Comeet werving Software. Als de verbinding is mislukt, zorg ervoor dat uw account Comeet werving Software beheerdersmachtigingen heeft en probeer het opnieuw.
 
@@ -119,11 +118,11 @@ Deze sectie handleidingen u via de stappen voor het configureren van de Azure AD
 
 10. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers aan Comeet**.
 
-    ![Comeet werving softwarelevering](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mappings.png)
+    ![Comeet werving gebruikerstoewijzingen Software](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
 11. Controleer de kenmerken van de gebruiker die worden gesynchroniseerd vanuit Azure AD met Comeet werving Software in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in Comeet werving Software voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
 
-    ![Comeet werving softwarelevering](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mapping-attributes.png)
+    ![Organisatie voor personeelswerving Software groepskenmerken comeet](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Als u wilt configureren bereikfilters, raadpleegt u de volgende instructies in de [Scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -147,7 +146,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 
 * Comeet werving Software biedt momenteel geen ondersteuning voor groepen.
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
@@ -156,7 +155,3 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 
 * [Meer informatie over het controleren van Logboeken en rapporten over het inrichten van activiteit ophalen](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png
