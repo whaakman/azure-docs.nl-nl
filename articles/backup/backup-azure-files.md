@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60643173"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518911"
 ---
 # <a name="back-up-azure-file-shares"></a>Een back-up maken van Azure-bestandsshares
 In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
@@ -56,7 +56,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u al een Azure-bestandsshare hebt g
 
     ![Kies Azure-bestandsshare als back-updoel](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Klik op **Back-up** om de Azure-bestandsshare naar de Recovery Services-kluis te configureren. 
+3. Klik op **Back-up** om de Azure-bestandsshare naar de Recovery Services-kluis te configureren.
 
    ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/set-backup-goal.png)
 
@@ -77,7 +77,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u al een Azure-bestandsshare hebt g
     Wanneer er een back-upbeleid is ingesteld, wordt er een momentopname van de bestandsshares genomen op het geplande tijdstip en wordt het herstelpunt gedurende de gekozen periode bewaard.
 
 ## <a name="create-an-on-demand-backup"></a>Een back-up op aanvraag maken
-Misschien wilt u zo nu en dan een momentopname van of herstelpunt voor een back-up maken buiten de tijden die zijn vastgelegd in het back-upbeleid. Een veelvoorkomend moment voor het genereren van een back-up op aanvraag, is vlak nadat u het back-upbeleid hebt geconfigureerd. Afhankelijk van de planning in het back-upbeleid, kan het uren of dagen duren totdat er een momentopname wordt gemaakt. Als u uw gegevens wilt beschermen totdat het back-upbeleid actief wordt, start u een back-up op aanvraag. Het is vaak vereist om een back-up op aanvraag te maken voordat u geplande wijzigingen in uw bestandsshares doorvoert.
+Misschien wilt u zo nu en dan een momentopname van of herstelpunt voor een back-up maken buiten de tijden die zijn vastgelegd in het back-upbeleid. Een veelvoorkomend moment voor het genereren van een back-up op aanvraag, is vlak nadat u het back-upbeleid hebt geconfigureerd. Afhankelijk van de planning in het back-upbeleid, kan het uren of dagen duren totdat er een momentopname wordt gemaakt. Als u uw gegevens wilt beschermen totdat het back-upbeleid actief wordt, start u een back-up op aanvraag. Het maken van een On-demand back-up is vaak vereist voordat u geplande wijzigingen in uw bestandsshares aanbrengen.
 
 ### <a name="to-create-an-on-demand-backup"></a>Een back-up op aanvraag maken
 
@@ -123,10 +123,12 @@ U kunt de voortgang van alle taken bijhouden op de pagina **Back-uptaken**.
 De pagina **Back-uptaken** openen:
 
 - Open de Recovery Services-kluis die u wilt controleren en klik in het menu Recovery Services-kluis op **Taken** en vervolgens op **Back-uptaken**.
+
    ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/open-backup-jobs.png)
 
     De lijst met back-uptaken en de status van deze taken wordt weergegeven.
-   ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Selecteer de taak die u wilt controleren](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>Een nieuw beleid maken
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: edjez
-ms.openlocfilehash: 2a62fd288f9118882e5cd9899ab572d4b247fc5a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a197531a7c78823271c0a5fa5413b76746f63a9a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158537"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507020"
 ---
 # <a name="install-and-run-personalizer-containers"></a>Installeren en Personalizer containers uitvoeren
 
@@ -178,11 +178,11 @@ De container biedt een volledige set met documentatie voor de eindpunten, evenal
 >  http://localhost:5000/swagger
 >  ```
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 Het verzenden van de containers Personalizer Service factuurgegevens naar Azure, met behulp van een _Personalizer Service_ resource voor uw Azure-account. 
 
-Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens niet naar Microsoft. 
+Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen.  
 
 De `docker run` opdracht maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
 

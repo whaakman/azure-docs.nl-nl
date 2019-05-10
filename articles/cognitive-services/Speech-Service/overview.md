@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: db32124cb4262745bcb2217224124ec444ccc97e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: HT
+ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236851"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510732"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
 
@@ -63,7 +63,7 @@ We bieden snelstartgidsen in de populairste programmeertalen, elk ontworpen dat 
 Nadat u een kans om de spraak-Services te gebruiken hebt, Probeer onze zelfstudie u hoe u leert voor het herkennen van intenties van gesproken inhoud met behulp van de SDK van spraak en LUIS.
 
 * [Zelfstudie: Intents van gesproken inhoud met de spraak-SDK en LUIS, herkennenC#](how-to-recognize-intents-from-speech-csharp.md)
-* [Zelfstudie: Bouw een Flask-app voor tekst vertalen, sentiment analyseren en bootsen vertaalde tekst naar spraak, REST](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+* [Zelfstudie: Bouw een Flask-app voor tekst vertalen, sentiment analyseren en bootsen vertaalde tekst naar spraak, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Voorbeeldcode ophalen
 

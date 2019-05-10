@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408819"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518992"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Zelfstudie: Dynamische configuratie in een ASP.NET Core-app gebruiken
 
@@ -63,6 +63,9 @@ Als u deze zelfstudie wilt, installeert de [.NET Core SDK](https://dotnet.micros
     ```
 
     De tweede parameter in de `.Watch` methode is het polling-interval waarmee de client-bibliotheek voor ASP.NET-query's opslaan van de configuratie van een app. De clientbibliotheek controleert of het specifieke configuratie-instellingen om te bekijken of eventuele wijzigingen zijn opgetreden.
+    
+    > [!NOTE]
+    > Het standaard polling-interval voor de `Watch` uitbreidingsmethode is 30 seconden als niet is opgegeven.
 
 2. Voeg een *Settings.cs*-bestand toe dat een nieuwe `Settings`-klasse definieert en implementeert.
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4aeb9f924ba9af55485dce8babfacdbb0d0110f4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143243"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520282"
 ---
 # <a name="personalizer-settings"></a>Instellingen voor personalizer
 
@@ -25,7 +25,7 @@ Configuratie van de service omvat hoe beloningen in de service wordt behandeld, 
 
 Maak een resource Personalizer voor elke feedback-lus. 
 
-1. Meld u aan bij de [Azure-portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). De vorige koppeling gaat u naar de **maken** pagina voor de service Personlizer. 
+1. Meld u aan bij de [Azure-portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). De vorige koppeling gaat u naar de **maken** pagina voor de service Personalizer. 
 1. Voer de servicenaam van uw, selecteert u een abonnement, locatie, dat is prijscategorie, en resourcegroep.
 1. Selecteer de bevestiging en selecteer **maken**.
 
@@ -35,7 +35,7 @@ Maak een resource Personalizer voor elke feedback-lus.
 1. Uw Personalizer bron vinden. 
 1. In de **resourcebeheer** sectie, selecteer **instellingen**.
 
-    Voordat u de Azure-portal te verlaten, Kopieer een van de resource-sleutels van de **sleutels** pagina. U moet deze optie om te gebruiken de [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
+    Voordat u de Azure-portal te verlaten, Kopieer een van de resource-sleutels van de **sleutels** pagina. U moet deze optie om te gebruiken de [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Instellingen voor de feedback-lus op basis van de use-case beloning configureren
 
@@ -69,7 +69,7 @@ Nadat u deze instelling wijzigt, zorg ervoor dat u selecteert **opslaan**.
 
 Nadat u deze instelling wijzigt, zorg ervoor dat u selecteert **opslaan**.
 
-### <a name="data-retention"></a>Bewaartijd van gegevens
+### <a name="data-retention"></a>Bewaren van gegevens
 
 **Bewaartermijn voor gegevens** Hiermee stelt u het aantal dagen Personalizer houdt gegevenslogboeken. Afgelopen gegevens logboeken zijn vereist om uit te voeren [offline evaluaties](concepts-offline-evaluation.md), die worden gebruikt voor meet de effectiviteit van Personalizer en optimaliseren van Learning beleid.
 

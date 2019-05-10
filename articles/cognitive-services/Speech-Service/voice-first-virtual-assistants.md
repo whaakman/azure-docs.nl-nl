@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138166"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523480"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Over aangepaste spraak op de eerste virtuele assistenten Preview-versie
 
@@ -24,7 +24,7 @@ Aangepaste virtuele assistenten met behulp van Azure Speech Services meer mogeli
 
    ![Conceptueel diagram van de service-stroom van rechtstreekse regel spraak orchestration](media/voice-first-virtual-assistants/overview.png "stroom van de spraak-kanaal")
 
-Directe regel spraak- en de bijbehorende functionaliteit voor aangepaste gesproken de eerste virtuele assistenten zijn een ideale aanvulling op de [Virtual Assistant Solution](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) en [sjabloon van de onderneming](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Hoewel directe regel spraak met een compatibele bot werken kunt, bieden deze resources een herbruikbare basislijn voor conversatie ervaringen van hoge kwaliteit, evenals algemene ondersteunende vaardigheden en -modellen voor snel aan de slag.
+Directe regel spraak- en de bijbehorende functionaliteit voor aangepaste gesproken de eerste virtuele assistenten zijn een ideale aanvulling op de [Virtual Assistant Solution](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) en [sjabloon van de onderneming](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Hoewel directe regel spraak met een compatibele bot werken kunt, bieden deze resources een herbruikbare basislijn voor conversatie ervaringen van hoge kwaliteit, evenals algemene ondersteunende vaardigheden en -modellen voor snel aan de slag.
 
 ## <a name="core-features"></a>Belangrijkste functies
 
@@ -43,7 +43,7 @@ Voorbeeldcode voor het maken van een stem op de eerste virtuele assistent is bes
 * [Snelstartgids: voice-first virtuele assistenten (C#)](quickstart-virtual-assistant-csharp-uwp.md)
 * [Snelstartgids: stem op de eerste virtuele assistenten (Java)](quickstart-virtual-assistant-java-jre.md)
 
-## <a name="customization"></a>Aanpassing
+## <a name="customization"></a>Aanpassen
 
 Stem op de eerste virtuele assistenten gebouwd met behulp van Azure Speech Services kunnen gebruiken het volledige bereik van aanpassingsopties die beschikbaar zijn voor [spraak-naar-tekst](speech-to-text.md), [tekst naar spraak](text-to-speech.md), en [aangepaste trefwoord selectie](speech-devices-sdk-create-kws.md).
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a527b928edacc202301f53dbf7852f8446b3aa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff1d9089f3fb2f3ebf3022b54c442e8338ab983b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280152"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Zelfstudie: Azure Active Directory-integratie met Edcor
 
@@ -120,13 +120,13 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met Edcor te c
 
     b. Azure AD-id
 
-    c. Afmeldings-URL
+    c. URL voor afmelden
 
 ### <a name="configure-edcor-single-sign-on"></a>Eenmalige aanmelding configureren voor Edcor
 
-Als u eenmalige aanmelding aan de zijde van **Edcor** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Microsoft Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Edcor](http://www.edcor.com/contact-us-2/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Als u eenmalige aanmelding aan de zijde van **Edcor** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Microsoft Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Edcor](https://www.edcor.com/contact-us/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
@@ -179,7 +179,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 ### <a name="create-edcor-test-user"></a>Edcor-testgebruiker maken
 
-In deze sectie gaat u in Edcor een gebruiker maken met de naam Britta Simon. Neem contact op met het  [Edcor-ondersteuningsteam](http://www.edcor.com/contact-us-2/) om de gebruikers toe te voegen in het Edcor-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie gaat u in Edcor een gebruiker maken met de naam Britta Simon. Neem contact op met het  [Edcor-ondersteuningsteam](https://www.edcor.com/contact-us/) om de gebruikers toe te voegen in het Edcor-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
@@ -187,9 +187,9 @@ In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met 
 
 Wanneer u op de tegel Edcor in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Edcor waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 

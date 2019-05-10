@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196028"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522369"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1, v2-Migratiehandleiding LUIS-apps
-De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
+De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356) en [ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) API's. 
 
 ## <a name="new-azure-regions"></a>Nieuwe Azure-regio 's
 LUIS heeft nieuwe [regio's](https://aka.ms/LUIS-regions) opgegeven voor de APIs LUIS. LUIS, biedt een andere portal voor regiogroepen. De toepassing moet worden gemaakt in dezelfde regio die u verwacht te vragen. Toepassingen kunnen de regio's niet automatisch gemigreerd. U exporteert de app vanuit één regio en vervolgens importeren in een andere waarde voor deze beschikbaar zijn in een nieuwe regio.
@@ -169,6 +169,6 @@ Zie [LUIS-API-responscodes](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruik de v2-API-documentatie voor het bijwerken van bestaande REST-naar LUIS aanroepen [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
+Gebruik de v2-API-documentatie voor het bijwerken van bestaande REST-naar LUIS aanroepen [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356) en [ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) API's. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

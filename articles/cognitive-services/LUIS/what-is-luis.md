@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309440"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522010"
 ---
 # <a name="what-is-language-understanding-luis"></a>Wat is Language Understanding (LUIS)?
 
@@ -53,7 +53,7 @@ Een LUIS-app bevat een specifiek domeinmodel voor natuurlijke taal. U kunt de LU
 * **Aangepaste entiteiten** LUIS biedt u verschillende manieren om uw eigen aangepaste intenties en entiteiten te definiëren, zoals machine-learned-entiteiten, specifieke of letterlijke entiteiten, of een combinatie van machine-learned en letterlijke entiteiten.
 
 ## <a name="build-the-luis-model"></a>Het LUIS-model opbouwen
-U bouwt het model op met de [ontwerp](https://aka.ms/luis-authoring-apis)-API's of met de LUIS-portal.
+U bouwt het model op met de [ontwerp](https://go.microsoft.com/fwlink/?linkid=2092087)-API's of met de LUIS-portal.
 
 Om te beginnen definieert u categorieën gebruikersintenties, ook wel kortweg  **[intenties](luis-concept-intent.md)** genoemd. Voor elke intentie zijn voorbeelden van **[uitingen](luis-concept-utterance.md)** van gebruikers vereist. Elke uiting kan verschillende gegevens bevatten. Deze moeten worden geëxtraheerd met **[entiteiten](luis-concept-entity-types.md)**. 
 
@@ -65,7 +65,7 @@ Om te beginnen definieert u categorieën gebruikersintenties, ook wel kortweg  *
 
 ## <a name="query-prediction-endpoint"></a>Eindpunt queryvoorspelling
 
-Nadat het model is gemaakt en gepubliceerd naar het eindpunt, worden uitingen door de clienttoepassing verzonden naar de gepubliceerde API voor voorspelling van het [eindpunt](https://aka.ms/luis-endpoint-apis). Het model wordt door de API op de tekst toegepast voor analyse. De API reageert met de voorspellingsresultaten in JSON-indeling.  
+Nadat het model is gemaakt en gepubliceerd naar het eindpunt, worden uitingen door de clienttoepassing verzonden naar de gepubliceerde API voor voorspelling van het [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356). Het model wordt door de API op de tekst toegepast voor analyse. De API reageert met de voorspellingsresultaten in JSON-indeling.  
 
 Het minimale JSON-antwoord van het eindpunt bevat de query-uiting en de belangrijkste score-intentie. Ook andere gegevens kunnen worden geëxtraheerd, zoals de entiteit **Type contactpersoon**. 
 
@@ -126,6 +126,6 @@ Een nieuwe LUIS-app met een [vooraf gedefinieerd](luis-get-started-create-app.md
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

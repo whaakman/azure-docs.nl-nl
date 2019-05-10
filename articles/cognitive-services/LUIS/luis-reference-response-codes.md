@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598030"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522973"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Algemene API-responscodes en hun betekenis
 
-De [ontwerpen](https://aka.ms/luis-authoring-apis) en [eindpunt](https://aka.ms/luis-endpoint-apis) API's geven de HTTP-responscodes. Terwijl antwoordberichten informatie die specifiek zijn voor een aanvraag bevatten, is de HTTP-antwoordstatuscode algemeen. 
+De [ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) en [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356) API's geven de HTTP-responscodes. Terwijl antwoordberichten informatie die specifiek zijn voor een aanvraag bevatten, is de HTTP-antwoordstatuscode algemeen. 
 
 ## <a name="common-status-codes"></a>Algemene statuscodes
-De volgende tabel bevat enkele van de meest voorkomende HTTP-antwoord-statuscodes voor de [ontwerpen](https://aka.ms/luis-authoring-apis) en [eindpunt](https://aka.ms/luis-endpoint-apis) API's:
+De volgende tabel bevat enkele van de meest voorkomende HTTP-antwoord-statuscodes voor de [ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) en [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356) API's:
 
 |Code|API|Uitleg|
 |:--|--|--|

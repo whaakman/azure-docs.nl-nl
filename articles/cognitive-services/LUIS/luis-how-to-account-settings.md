@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195819"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523524"
 ---
 # <a name="manage-account-and-authoring-key"></a>Account en het ontwerpen van sleutel beheren
 
@@ -24,7 +24,7 @@ De twee belangrijkste stukjes informatie voor een LUIS-account zijn het gebruike
 
 ## <a name="authoring-key"></a>Sleutel ontwerpen
 
-Deze één, specifiek ontwerpen sleutel, op de **instellingen** pagina, kunt u de auteur van al uw apps uit de [LUIS](luis-reference-regions.md) portal, evenals de [API's ontwerpen](https://aka.ms/luis-authoring-api). Als uw gemak de authoring sleutel is toegestaan om een [beperkt](luis-boundaries.md) nummer van het eindpunt van query's per maand.
+Deze één, specifiek ontwerpen sleutel, op de **instellingen** pagina, kunt u de auteur van al uw apps uit de [LUIS](luis-reference-regions.md) portal, evenals de [API's ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087). Als uw gemak de authoring sleutel is toegestaan om een [beperkt](luis-boundaries.md) nummer van het eindpunt van query's per maand.
 
 [![Pagina instellingen van LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

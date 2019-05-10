@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236942"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523318"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Zelfstudie: Service-principals en roltoewijzingen maken met PowerShell
 
@@ -38,10 +38,9 @@ Voordat u service-principals en roltoewijzingen maken kunt, moet u drie dingen d
     Install-Module AzureAD
     ```
 
-2. Voer de volgende cmdlets met de waarden in de aanhalingstekens vervangen door de waarden die relevant zijn voor uw sessie. Als u zojuist hebt gemaakt de tenant van uw virtuele Windows-bureaublad van de [een tenant maken in de zelfstudie voor virtuele Windows-bureaublad](./tenant-setup-azure-active-directory.md), gebruikt u 'Standaard-Tenant groeperen' als de naam van uw tenant.
+2. Voer de volgende cmdlets met de waarden in de aanhalingstekens vervangen door de waarden die relevant zijn voor uw sessie.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -68,8 +67,7 @@ Voer de volgende PowerShell-cmdlets voor de verbinding met virtuele Windows-bure
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Meld u aan met de service-principal

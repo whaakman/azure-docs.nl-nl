@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c43d3738b23037432ecdfe3aa872950f6a7b863e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3395283e6228d7203b2e835961914e2f167fa451
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812793"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522401"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>ALTER utterance gegevens vóór of tijdens de voorspelling
 LUIS biedt methoden voor het bewerken van de utterance vóór of tijdens de voorspelling. Het gaat hierbij spelling, en het verhelpen van problemen met de tijdzone voor prebuild datetimeV2 oplossen. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigeren van spelfouten in utterance
-Maakt gebruik van LUIS [Bing spellingcontrole controleren-API-versie 7](https://azure.microsoft.com/services/cognitive-services/spell-check/) te corrigeren van spelfouten in de utterance. LUIS moet de sleutel die is gekoppeld aan die service. De sleutel maken en vervolgens de sleutel toevoegen als een queryreeksparameter aan de [eindpunt](https://aka.ms/luis-endpoint-apis). 
+Maakt gebruik van LUIS [Bing spellingcontrole controleren-API-versie 7](https://azure.microsoft.com/services/cognitive-services/spell-check/) te corrigeren van spelfouten in de utterance. LUIS moet de sleutel die is gekoppeld aan die service. De sleutel maken en vervolgens de sleutel toevoegen als een queryreeksparameter aan de [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356). 
 
 U kunt ook corrigeren van spelfouten in de **Test** door het deelvenster [invoeren van de sleutel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). De sleutel wordt opgeslagen als een variabele van sessie in de browser voor het deelvenster Test. De sleutel toevoegen aan het deelvenster Test in elke spelling gecorrigeerd gewenste browsersessie. 
 
@@ -56,14 +56,14 @@ De Bing spell check-API die wordt gebruikt in LUIS biedt geen ondersteuning voor
 Wanneer een LUIS-app maakt gebruik van de vooraf gedefinieerde datetimeV2 entiteit, kan een datum / tijdwaarde in het antwoord voorspelling worden geretourneerd. De tijdzone van de aanvraag wordt gebruikt om te bepalen van de juiste datum/tijd om terug te keren. Als de aanvraag afkomstig is van een bot of een andere gecentraliseerde toepassing voorafgaand aan LUIS, corrigeer dan de tijdzone die LUIS gebruikt. 
 
 ### <a name="endpoint-querystring-parameter"></a>Eindpunt querystring-parameter
-De tijdzone wordt verholpen door het toevoegen van de tijdzone van de gebruiker naar de [eindpunt](https://aka.ms/luis-endpoint-apis) met behulp van de `timezoneOffset` param. De waarde van `timezoneOffset` moet de positief of negatief getal in minuten, voor het wijzigen van de tijd.  
+De tijdzone wordt verholpen door het toevoegen van de tijdzone van de gebruiker naar de [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356) met behulp van de `timezoneOffset` param. De waarde van `timezoneOffset` moet de positief of negatief getal in minuten, voor het wijzigen van de tijd.  
 
 |Param|Waarde|
 |--|--|
 |`timezoneOffset`|positief of negatief getal, in minuten|
 
 ### <a name="daylight-savings-example"></a>Voorbeeld van de zomer-en besparingen
-Als u de geretourneerde vooraf gedefinieerde datetimeV2 om aan te passen voor zomer-en wintertijd, moet u de `timezoneOffset` querystring-parameter met een +/-waarde in minuten voor de [eindpunt](https://aka.ms/luis-endpoint-apis) query.
+Als u de geretourneerde vooraf gedefinieerde datetimeV2 om aan te passen voor zomer-en wintertijd, moet u de `timezoneOffset` querystring-parameter met een +/-waarde in minuten voor de [eindpunt](https://go.microsoft.com/fwlink/?linkid=2092356) query.
 
 60 minuten toevoegen: 
 

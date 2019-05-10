@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195972"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519235"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -115,7 +115,11 @@ Selecteer op de pagina **Beveiligingsdoel** de volgende waarden:
 
 Wanneer u gereed bent, selecteert u **OK** om naar de volgende sectie te gaan.
 
-### <a name="2-prepare-source"></a>2: Bron voorbereiden
+### <a name="2-select-deployment-planning"></a>2: Implementatieplanning selecteren
+
+Selecteer in **Hebt u de implementatieplanning uitgevoerd?** de optie **Dat doe ik later**. Selecteer vervolgens **OK**.
+
+### <a name="3-prepare-source"></a>3: Bron voorbereiden
 
 Selecteer op de pagina **Bron voorbereiden** de optie **+ Configuratieserver**.
 
@@ -140,7 +144,7 @@ Selecteer op de pagina **Bron voorbereiden** de optie **+ Configuratieserver**.
 
 Wanneer u klaar bent met het instellen van de configuratieserver, gaat u terug naar de portal en selecteert u de server die u zojuist hebt gemaakt als **configuratieserver**. Selecteer **OK** om naar 3: Doel voorbereiden te gaan.
 
-### <a name="3-prepare-target"></a>3: Doel voorbereiden
+### <a name="4-prepare-target"></a>4: Doel voorbereiden
 
 In deze sectie voert u gegevens in over de resources die u eerder in deze zelfstudie hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).
 
@@ -149,8 +153,7 @@ In deze sectie voert u gegevens in over de resources die u eerder in deze zelfst
 3. Met Site Recovery wordt gecontroleerd of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt. Als het goed is, zijn dit de resources die u eerder in deze zelfstudie hebt gemaakt in [Azure-resources voorbereiden](#prepare-azure-resources).
 4. Wanneer u gereed bent, selecteert u **OK**.
 
-
-### <a name="4-prepare-replication-settings"></a>4: Replicatie-instellingen voorbereiden
+### <a name="5-prepare-replication-settings"></a>5: Replicatie-instellingen voorbereiden
 
 Voordat u replicatie kunt inschakelen, moet u replicatiebeleid maken.
 
@@ -158,12 +161,7 @@ Voordat u replicatie kunt inschakelen, moet u replicatiebeleid maken.
 2. Voer bij **Naam** in **myReplicationPolicy**.
 3. Laat de rest van de standaardinstellingen ongewijzigd en selecteer **OK** om het beleid te maken. Het nieuwe beleid wordt automatisch gekoppeld aan de configuratieserver.
 
-### <a name="5-select-deployment-planning"></a>5: Implementatieplanning selecteren
-
-Selecteer in **Hebt u de implementatieplanning uitgevoerd?** de optie **Dat doe ik later**. Selecteer vervolgens **OK**.
-
 Wanneer u alle vijf de secties onder **Infrastructuur voorbereiden** hebt voltooid, selecteert u **OK**.
-
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 

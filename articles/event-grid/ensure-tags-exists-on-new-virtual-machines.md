@@ -8,14 +8,14 @@ manager: ''
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 05/10/2019
 ms.author: eamono
-ms.openlocfilehash: d0764131f0e7e321a87ed383636606b2124ef7d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562669"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521433"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Zelfstudie: Azure Automation integreren met Event Grid en Microsoft-Teams
 
@@ -52,10 +52,13 @@ Voor het volgen van deze zelfstudie is een [Azure Automation-account](../automat
 
 4. Selecteer **Importeren** en noem het runbook **Watch VMWrite**.
 
-5. Nadat het is geïmporteerd, selecteert u **Bewerken** om de runbookbron weer te geven. Selecteer de knop **Publiceren**.
+5. Nadat het is geïmporteerd, selecteert u **Bewerken** om de runbookbron weer te geven. 
+6. Bijwerken van de regel 74 van het script te gebruiken `Tag` in plaats van `Tags`.
 
-> [!NOTE]
-> In regel 74 van het script moet de regel zijn gewijzigd in `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. De parameter `-Tags` is nu `-Tag`.
+    ```powershell
+    Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
+    ```
+7. Selecteer de knop **Publiceren**.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Een optionele Microsoft Teams-webhook maken
 
@@ -67,7 +70,7 @@ Voor het volgen van deze zelfstudie is een [Azure Automation-account](../automat
 
 3. Voer **AzureAutomationIntegration** in voor de naam en selecteer **Maken**.
 
-4. Kopieer de webhook naar het klembord en sla deze op. De webhook-URL wordt gebruikt voor het verzenden van gegevens naar Microsoft Teams.
+4. De webhook-URL naar het Klembord kopiëren en opslaan. De webhook-URL wordt gebruikt voor het verzenden van gegevens naar Microsoft Teams.
 
 5. Selecteer **Gereed** om de webhook op te slaan.
 
@@ -96,14 +99,16 @@ Voor het volgen van deze zelfstudie is een [Azure Automation-account](../automat
 2. Klik op **+ Gebeurtenisabonnement**.
 
 3. Configureer het abonnement met de volgende gegevens:
+    1. Selecteer **Azure-abonnementen** voor **Onderwerptype**.
+    2. Schakel het selectievakje **Abonneren op alle gebeurtenistypen** uit.
+    3. Voer **AzureAutomation** in voor de naam.
+    4. Schakel in de vervolgkeuzelijst **Gedefinieerde gebeurtenistypen** alle opties uit behalve **Schrijven resource gelukt**.
 
-   * Selecteer **Azure-abonnementen** voor **Onderwerptype**.
-   * Schakel het selectievakje **Abonneren op alle gebeurtenistypen** uit.
-   * Voer **AzureAutomation** in voor de naam.
-   * Schakel in de vervolgkeuzelijst **Gedefinieerde gebeurtenistypen** alle opties uit behalve **Schrijven resource gelukt**.
-   * Selecteer **Webhook** voor **Eindpunttype**.
-   * Klik op **Een eindpunt selecteren**. Plak op de pagina **Webhook selecteren** die wordt geopend, de webhook-URL die u hebt gemaakt voor het runbook Watch-VMWrite.
-   * Voer onder **FILTERS** het abonnement en de resourcegroep in waarin u wilt zoeken naar de nieuwe virtuele machines die zijn gemaakt. Dit ziet er als volgt uit: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+        > [!NOTE] 
+        > Azure Resource Manager biedt momenteel onderscheid maken tussen maken en bijwerken, zodat het implementeren van deze zelfstudie voor alle Microsoft.Resources.ResourceWriteSuccess gebeurtenissen in uw Azure-abonnement tot een groot aantal aanroepen leiden kan.
+    1. Selecteer **Webhook** voor **Eindpunttype**.
+    2. Klik op **Een eindpunt selecteren**. Plak op de pagina **Webhook selecteren** die wordt geopend, de webhook-URL die u hebt gemaakt voor het runbook Watch-VMWrite.
+    3. Voer onder **FILTERS** het abonnement en de resourcegroep in waarin u wilt zoeken naar de nieuwe virtuele machines die zijn gemaakt. Dit ziet er als volgt uit: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Selecteer **Maken** om het Event Grid-abonnement op te slaan.
 

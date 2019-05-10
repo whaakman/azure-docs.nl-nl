@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467428"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523944"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met behulp van de Microsoft Azure-portal
 
@@ -95,7 +95,7 @@ Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist.
     Het maken van het opslagaccount kan ongeveer een minuut duren. Ga pas verder met de resterende stappen wanneer het opslagaccount is gemaakt. Als u een bestaand opslagaccount wilt gebruiken in plaats van er een te maken, zorg er dan voor dat u een opslagaccount selecteert waarvoor **Alle netwerken** (standaard) is geselecteerd voor **Firewalls en virtuele netwerken**, onder de **Instellingen** voor het opslagaccount.
     
     > [!NOTE]
-    > Microsoft.Insight en de Microsoft.Network-providers worden momenteel ondersteund voor Azure Storage, logboeken Stroomlogboeken is echter nog steeds niet volledig toegevoegd. Inschakelen van logboekregistratie voor Stroomlogboeken **alle netwerken** moet nog wel worden geselecteerd totdat deze functie volledig toegevoegd is. 
+    > Microsoft.Insight en de Microsoft.Network-providers worden momenteel ondersteund als vertrouwde Microsoft-Services voor Azure Storage, logboeken Stroomlogboeken is echter nog steeds niet volledig toegevoegd. Inschakelen van logboekregistratie voor Stroomlogboeken **alle netwerken** moet nog wel worden geselecteerd totdat deze functie volledig toegevoegd is. 
 4. Selecteer in de linkerbovenhoek van de portal de optie **Alle services**. Typ *Network Watcher* in het vak **Filteren**. Selecteer **Network Watcher** in de zoekresultaten.
 5. Selecteer onder **LOGBOEKEN** de optie **NSG-stroomlogboeken**, zoals wordt weergegeven in de volgende afbeelding:
 

@@ -1,7 +1,7 @@
 ---
 title: Installeren en uitvoeren van container - formulier-herkenning
 titleSuffix: Azure Cognitive Services
-description: Informatie over het gebruik van de container formulier herkenning formulier-en tabelgegevens parseren.
+description: Meer informatie over het gebruik van de Form Recognizer-container voor het parseren van formulier- en tabelgegevens.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143022"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507819"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installeren en formulier herkenning containers uitvoeren
 Formulier herkenning van toepassing is machine learning-technologie om te identificeren en extraheren van sleutel / waarde-paren en tabellen uit formulieren. Het wordt gekoppeld aan waarden en items in de tabel toe en vervolgens voert gestructureerde gegevens vindt u de relaties in het oorspronkelijke bestand. U kunt uw aangepaste formulier herkenning-model met behulp van een eenvoudige REST-API om te kunnen de complexiteit en eenvoudig integreren in uw automation-werkstroomproces of andere toepassing aanroepen. Maximaal vijf documenten (of een leeg formulier) zijn nodig, dus u resultaten snel, nauwkeurig krijgt kunt en die zijn afgestemd op uw specifieke inhoud, zonder zware handmatige tussenkomst of uitgebreide data science expertise. Deze hoeven niet labeling van gegevens of gegevens aantekening.
@@ -261,7 +261,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-De container biedt REST-eindpunt API's vindt u [hier](https://docs.microsoft.com/azure/cognitive-services/formrecognizer-service/rest-apis#formrecognier-api) en voorbeelden vindt [hier](https://azure.microsoft.com/resources/samples/cognitive-formrecognizer).
+De container biedt REST-eindpunt API's vindt u [hier](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -275,7 +275,7 @@ De container biedt REST-eindpunt API's vindt u [hier](https://docs.microsoft.com
 
 Wanneer u de container uitvoert, wordt de container gebruikt **stdout** en **stderr** naar uitvoerinformatie die is het handig om het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container.
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 Het verzenden van de containers formulier herkenning factuurgegevens naar Azure, met behulp van een _formulier herkenning_ resource voor uw Azure-account.
 

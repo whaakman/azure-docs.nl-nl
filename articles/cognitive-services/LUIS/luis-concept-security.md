@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813642"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522481"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Ontwerp- en eindpunt gebruikerstoegang
 Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een openbare app is eindpunt toegang beschikbaar voor iedereen die hun eigen account LUIS en heeft de openbare app-ID. 
 
 ## <a name="access-to-authoring"></a>Toegang tot het ontwerpen
-Toegang tot de app uit de [LUIS](luis-reference-regions.md#luis-website) website of de [API's ontwerpen](https://aka.ms/luis-authoring-apis) wordt bepaald door de eigenaar van de app. 
+Toegang tot de app uit de [LUIS](luis-reference-regions.md#luis-website) website of de [API's ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087) wordt bepaald door de eigenaar van de app. 
 
 De eigenaar en alle deelnemers hebt toegang tot het ontwerpen van de app. 
 

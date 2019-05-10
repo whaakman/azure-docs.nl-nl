@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8e6991201b3cda5699849ac00cc92217c6b7bf72
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236777"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524017"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Zelfstudie: Een hostpool maken met Azure Marketplace
 
@@ -68,7 +68,7 @@ Voor de virtuele machineblade:
 
 Voor de blade van de informatie in de virtuele Windows-bureaublad-tenant:
 
-1. Voer de **virtuele Windows-bureaublad-tenantnaam groep** voor de tenant-groep met uw tenant. Als u geen naam van een specifieke tenant gepland, laat u het als standaardwaarde.
+1. Voer de **virtuele Windows-bureaublad-tenantnaam groep** voor de tenant-groep met uw tenant. Laat de standaardwaarde, tenzij u een specifieke zijn opgegeven groepsnaam van de tenant.
 2. Voer de **virtuele Windows-bureaublad-tenantnaam** voor de tenant maakt u deze groep host in.
 3. Geef het type van de referenties die u wilt gebruiken om te verifiëren als de virtuele Windows-bureaublad-tenant de eigenaar van de extern bureaublad-services. Als u de [service-principals en roltoewijzingen maken met PowerShell zelfstudie](./create-service-principal-role-powershell.md), selecteer **Service-principal**. Nu moet u opgeven de **Azure AD-tenant-ID** van de Azure Active Directory met de service-principal.
 4. Voer een van beide de referenties voor het beheerdersaccount van de tenant. Alleen service-principals met de wachtwoordreferenties van een worden ondersteund.
@@ -94,12 +94,6 @@ Voer de volgende cmdlet om aan te melden bij de virtuele Windows-bureaublad-omge
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Stelt de context op de virtuele Windows-bureaublad tenant-groep die u hebt opgegeven in de Azure Marketplace bieden met de volgende cmdlet. Als u de tenant virtuele Windows-bureaublad waarde als de standaardwaarde in de Azure Marketplace-aanbieding, kunt u deze stap overslaan.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Nadat u hebt deze twee dingen gedaan, kunt u gebruikers kunt toevoegen aan de groep bureaubladtoepassing met deze cmdlet:

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710617"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522497"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Voorbeeld-uitingen testen in LUIS
 
@@ -46,7 +46,7 @@ Alle eindpunt testen telt mee voor uw quotum voor het gebruik.
 Als u op basis van een eindpunt testen en niet dat de utterance geregistreerd wilt, moet u gebruiken de `logging=false` configuratie query-tekenreeks.
 
 ## <a name="where-to-find-utterances"></a>Waar vind ik uitingen
-LUIS slaat alle geregistreerde uitingen in het querylogboek, beschikbaar voor downloaden op de [LUIS](luis-reference-regions.md) website **Apps** lijstpagina, evenals de LUIS [API's ontwerpen](https://aka.ms/luis-authoring-apis). 
+LUIS slaat alle geregistreerde uitingen in het querylogboek, beschikbaar voor downloaden op de [LUIS](luis-reference-regions.md) website **Apps** lijstpagina, evenals de LUIS [API's ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087). 
 
 Alle uitingen LUIS zeker is worden weergegeven in de **[bekijken eindpunt uitingen](luis-how-to-review-endpoint-utterances.md)** pagina van de [LUIS](luis-reference-regions.md) website. 
 
