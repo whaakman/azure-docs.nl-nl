@@ -6,20 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: 2a904cfb049af413887798c8aab449561bc2b73f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026968"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471746"
 ---
 # <a name="how-to-get-started-with-knowledge-store"></a>Aan de slag met kennis Store
 
 [Kennis Store](knowledge-store-concept-intro.md) is een nieuwe previewfunctie in Azure Search die wordt opgeslagen als AI enrichments gemaakt in een pijplijn indexering voor knowledge-gegevensanalyse in andere apps. U kunt ook opgeslagen enrichments gebruiken om te begrijpen en verfijnen van een Azure Search-pijplijn voor indexering.
 
-Een store kennis wordt gedefinieerd door een set vaardigheden. Voor reguliere's voor Azure Search-zoekopdracht in volledige tekst, is het leveren van het doel van een set vaardigheden AI enrichments zodat inhoud meer doorzoekbaar. Voor knowledge store scenario's, is de rol van een set vaardigheden maken en vullen met meerdere gegevensstructuren voor knowledge gegevensanalyse.
+Een store kennis wordt gedefinieerd door een set vaardigheden. Voor reguliere's voor Azure Search-zoekopdracht in volledige tekst, is het leveren van het doel van een set vaardigheden AI enrichments zodat inhoud meer doorzoekbaar. Voor scenario's voor gegevensanalyse kennis, is de rol van een set vaardigheden het maken, vullen, en meerdere gegevensstructuren voor analyse of opslaan modelleren in andere apps en -processen.
 
 In deze oefening begint u met voorbeeldgegevens, services en hulpprogramma's voor meer informatie over de algemene werkstroom voor het maken en gebruiken van de store van uw eerste kennis, met nadruk op de definitie van de vaardigheden.
 
@@ -29,13 +29,13 @@ De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick 
 
 + [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken. 
 
-+ [Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor het opslaan van de voorbeeldgegevens. Uw store kennis aanwezig in Azure storage.
++ [Een Azure storage-account maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor het opslaan van de voorbeeldgegevens. Uw store kennis aanwezig in Azure storage. 
 
-+ [Een Cognitive Services-resource maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) op de betalen per gebruik S0-laag voor broad-spectrum toegang tot het volledige bereik van de vaardigheden die in AI enrichments gebruikt.
++ [Een Cognitive Services-resource maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) op de betalen per gebruik S0-laag voor broad-spectrum toegang tot het volledige bereik van de vaardigheden die in AI enrichments gebruikt. Deze resource en wordt uw Azure Search-service moet zich in dezelfde regio bevinden.
 
 + [Postman bureaublad-app](https://www.getpostman.com/) voor het verzenden van aanvragen naar Azure Search.
 
-+ [Postman-verzameling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw) met voorbereide aanvragen voor het maken van een gegevensbron, index, vaardigheden en indexeerfunctie. Er zijn verschillende objectdefinities te lang om op te nemen in dit artikel. U moet deze verzameling om te zien van de definities van de index en vaardigheden in hun geheel ophalen.
++ [Postman-verzameling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw) met voorbereide aanvragen voor het maken van een gegevensbron, index, vaardigheden en indexeerfunctie. Er zijn verschillende objectdefinities te lang om op te nemen in dit artikel. U moet deze verzameling om te zien van de definities van de index en vaardigheden in hun geheel ophalen.
 
 + [Voorbeeldgegevens Caselaw](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) die afkomstig zijn van de [Caselaw toegang Project](https://case.law/bulk/download/) downloadpagina openbare grote hoeveelheden gegevens. De oefening gebruikt met name de eerste 10 documenten van het downloaden van de eerste (Arkansas). We een voorbeeld van een 10-document geüpload naar GitHub voor deze oefening.
 
@@ -55,7 +55,7 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 
 1. [Meld u aan bij Azure portal](https://portal.azure.com), gaat u naar uw Azure storage-account, klikt u op **Blobs**, en klik vervolgens op **+ Container**.
 
-1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. U kunt het niveau van de openbare toegang instellen op een van de geldige waarden.
+1. [Maak een blobcontainer](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) voorbeeldgegevens bevatten. De container de naam "caselaw-test" gebruiken. U kunt het niveau van de openbare toegang instellen op een van de geldige waarden.
 
 1. Nadat de container is gemaakt, opent u het en selecteer **uploaden** op de opdrachtbalk.
 
@@ -66,19 +66,19 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 
 ## <a name="set-up-postman"></a>Postman instellen
 
-Start Postman en stel een HTTP-aanvraag in. Als u niet bekend met dit hulpprogramma bent, raadpleegt u [verkennen Azure Search REST API's met Postman](search-fiddler.md).
+Start Postman en de Caselaw Postman-verzameling importeren. U kunt ook instellen op een reeks HTTP-aanvragen. Als u niet bekend met dit hulpprogramma bent, raadpleegt u [verkennen Azure Search REST API's met Postman](search-fiddler.md).
 
-+ Aanvraagmethode voor elke aanroep in dit scenario is **POST**.
++ Aanvraagmethode voor elke aanroep in dit scenario is **plaatsen** of **POST**.
 + Aanvraagheaders (2) omvatten het volgende: "Content-type' ingesteld op 'application/json', 'api-key' ingesteld op 'admin key' (admin key is een tijdelijke aanduiding voor de primaire sleutel van uw zoekopdracht) respectievelijk. 
 + De aanvraagtekst is waar u de werkelijke inhoud van de aanroep van plaatsen. 
 
   ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/postmanoverview.png)
 
-We gebruiken Postman voor vier API-aanroepen naar uw zoekservice, het maken van een gegevensbron, een index, een set vaardigheden en een indexeerfunctie. De gegevensbron bevat een verwijzing naar uw opslagaccount en JSON-gegevens. Uw zoekservice maakt de verbinding bij het importeren van de gegevens.
+We gebruiken Postman voor vier API-aanroepen naar uw zoekservice, het maken van een gegevensbron, een index, een set vaardigheden en een indexeerfunctie - in die volgorde. De gegevensbron bevat een verwijzing naar uw Azure storage-account en JSON-gegevens. Uw zoekservice maakt de verbinding bij het importeren van de gegevens.
 
 [Maken van een set vaardigheden](#create-skillset) wordt de focus van dit scenario: Hiermee geeft u de stappen verrijking en hoe gegevens worden opgeslagen in een winkel kennis.
 
-URL-eindpunt moet opgeven, een api-versie en elke aanroep moeten retourneren een **201-gemaakt**. De preview-api-versie voor het maken van een set vaardigheden met ondersteuning voor het opslaan van kennis is `2019-05-06-Preview`.
+URL-eindpunt moet opgeven, een api-versie en elke aanroep moeten retourneren een **201-gemaakt**. De preview-api-versie voor het maken van een set vaardigheden met ondersteuning voor het opslaan van kennis is `2019-05-06-Preview` (hoofdlettergevoelig).
 
 De volgende API-aanroepen van de REST-client uitvoeren.
 
@@ -101,10 +101,10 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/data
         "type": "azureblob",
         "subtype": null,
         "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
         },
         "container": {
-            "name": "<your blob container name>",
+            "name": "<YOUR-BLOB-CONTAINER-NAME>",
             "query": null
         },
         "dataChangeDetectionPolicy": null,
@@ -318,24 +318,23 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/skil
    }
    ```
 
-3. Stel eerst `cognitiveServices` en `knowledgeStore` sleutel en de verbindingsreeks. In het voorbeeld zijn deze tekenreeksen gevonden na de definitie van de vaardigheden aan het einde van de aanvraagtekst.
+3. Stel eerst `cognitiveServices` en `knowledgeStore` sleutel en de verbindingsreeks. In het voorbeeld zijn deze tekenreeksen gevonden na de definitie van de vaardigheden aan het einde van de aanvraagtekst. Gebruik een Cognitive Services-resource, ingericht op de S0-laag, zich in dezelfde regio als de Azure Search.
 
     ```json
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "<your cognitive services resource name>",
-        "key": "<your cognitive services key>"
+        "description": "YOUR-SAME-REGION-S0-COGNITIVE-SERVICES-RESOURCE",
+        "key": "YOUR-COGNITIVE-SERVICES-KEY"
     },
     "knowledgeStore": {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+        "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
 3. Controleer de vaardigheden verzameling, met name de vaardigheden Shaper op regels 85 en 170, respectievelijk. De kwalificatie Shaper is belangrijk omdat deze de gegevensstructuren die u wilt gebruiken voor knowledge analysestructuur ophaalprotocol. Tijdens de uitvoering van vaardigheden, deze structuren zijn alleen in het geheugen, maar als u naar de volgende stap gaat, ziet u hoe deze uitvoer naar een winkel kennis voor verder onderzoek kan worden opgeslagen.
 
-   Het volgende codefragment is afkomstig van regel 207. 
+   Het volgende codefragment is afkomstig van regel 217. 
 
     ```json
-    {
     "name": "Opinions",
     "source": null,
     "sourceContext": "/document/casebody/data/opinions/*",
@@ -361,44 +360,46 @@ Het eindpunt van deze aanroep is `https://[service name].search.windows.net/skil
                     "name": "EntityType",
                     "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
                 }
-             ]
-          }
-     ]
-   }
+            ]
+        }
+    ]
    . . .
    ```
 
-3. Controleer de `projections` -element in `knowledgeStore`, beginnend op regel 253. Projecties opgeven de samenstelling van de store kennis. Projecties worden in paren met tabellen-objecten, maar momenteel maar één keer opgegeven. Zoals u in de eerste projectie ziet `tables` is opgegeven maar `objects` niet. In de tweede is het tegenovergestelde.
+3. Controleer de `projections` -element in `knowledgeStore`, beginnend op regel 262. Projecties opgeven de samenstelling van de store kennis. Projecties worden in paren met tabellen-objecten, maar momenteel maar één keer opgegeven. Zoals u in de eerste projectie ziet `tables` is opgegeven maar `objects` niet. In de tweede is het tegenovergestelde.
 
    Tabellen wordt gemaakt in de tabelopslag voor elke tabel die u maakt in Azure-opslag, en elk object Hiermee haalt u een container in Blob-opslag.
 
-   Objecten bevatten doorgaans de volledige expressie van een verrijking. Tabellen bevatten doorgaans gedeeltelijke enrichments, in de combinaties die u ervoor zorgen dat specifieke doeleinden. In dit voorbeeld ziet u een tabel gevallen, maar niet weergegeven andere tabellen, zoals entiteiten, volgens de taak en adviezen zijn.
+   BLOB-objecten bevatten doorgaans de volledige expressie van een verrijking. Tabellen bevatten doorgaans gedeeltelijke enrichments, in de combinaties die u ervoor zorgen dat specifieke doeleinden. In dit voorbeeld ziet u een tabel aanvragen en een tabel met adviezen, maar niet weergegeven, zijn andere tabellen, zoals entiteiten, advocaten, volgens de taak en partijen.
 
     ```json
     "projections": [
-    {
-        "tables": [
-            {
-              "tableName": "Opinions",
-              "generatedKeyName": "OpinionId",
-              "source": "/document/Case/OpinionsSnippets/*"
-            },
-          . . . 
-        ],
-        "objects": []
-    },
-    {
-        "tables": [],
-        "objects": [
-            {
-                "storageContainer": "enrichedcases",
-                "key": "/document/CaseFull/Id",
-                "source": "/document/CaseFull"
-            }
-          ]
+        {
+            "tables": [
+                {
+                    "tableName": "Cases",
+                    "generatedKeyName": "CaseId",
+                    "source": "/document/Case"
+                },
+                {
+                    "tableName": "Opinions",
+                    "generatedKeyName": "OpinionId",
+                    "source": "/document/Case/OpinionsSnippets/*"
+                }
+            ],
+            "objects": []
+        },
+        {
+            "tables": [],
+            "objects": [
+                {
+                    "storageContainer": "enrichedcases",
+                    
+                    "source": "/document/CaseFull"
+                }
+            ]
         }
-      ]
-    }
+    ]
     ```
 
 5. Verzend de aanvraag. Het antwoord moet zijn **201** en er ongeveer als volgt het volgende voorbeeld wordt het eerste deel van het antwoord weergegeven.

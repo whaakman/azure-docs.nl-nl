@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943925"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410437"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Een Deep Learning virtuele Machine op Azure inrichten 
 
@@ -52,7 +52,7 @@ Hier volgen de stappen voor het maken van een exemplaar van de Deep Learning Vir
 
    1. **Instellingen voor**: Selecteer een van de NC-serie (NC, NCv2, NCv3) of de ND-serie GPU VM-grootten die voldoet aan de vereisten van het functionele en kostenbeperkingen. Maak een opslagaccount voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
    
-   1. **Summary**: Controleer of alle informatie die u hebt ingevoerd juist is.
+   1. **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is.
 
    1. **Kopen**: Klik op **kopen** om te beginnen met het inrichten. Er wordt een koppeling gegeven naar de voorwaarden van de transactie. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
 
@@ -68,7 +68,7 @@ Nadat de virtuele machine is gemaakt, kunt u extern bureaublad in met behulp van
 
 ### <a name="linux-edition"></a>Linux-editie
 
-Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de [ **basisbeginselen** ](#basics) sectie van stap 3 voor de tekst shell-interface. Zie voor meer informatie over SSH-verbindingen met virtuele Azure-machines, [installeren en configureren van extern bureaublad verbinding maken met een Linux-VM in Azure](/azure/virtual-machines/linux/use-remote-desktop). Op een Windows-client, kunt u een SSH-clienthulpprogramma, zoals downloaden [Putty](http://www.putty.org). Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren. 
+Nadat de virtuele machine is gemaakt, kunt u zich aanmelden toe met behulp van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de [ **basisbeginselen** ](#basics) sectie van stap 3 voor de tekst shell-interface. Zie voor meer informatie over SSH-verbindingen met virtuele Azure-machines, [installeren en configureren van extern bureaublad verbinding maken met een Linux-VM in Azure](/azure/virtual-machines/linux/use-remote-desktop). Op een Windows-client, kunt u een SSH-clienthulpprogramma, zoals downloaden [Putty](https://www.putty.org). Als u liever een grafische desktop (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren. 
 
 > [!NOTE]
 > De client X2Go beter dan X11 doorsturen bij onze tests uitgevoerd. Het is raadzaam om met behulp van de client X2Go voor een grafische interface voor het bureaublad.

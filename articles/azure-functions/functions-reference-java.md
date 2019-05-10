@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922927"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507201"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -66,7 +66,7 @@ U kunt meer dan één functie plaatsen in een project. Plaats uw functies in afz
 
  Azure functions worden aangeroepen door een trigger, zoals een HTTP-aanvraag, een timer of een update van gegevens. Uw functie heeft nodig om deze trigger en alle andere invoer voor het produceren van een of meer uitvoerwaarden te verwerken.
 
-Gebruik de Java-aantekeningen opgenomen in de [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) pakket invoer en uitvoer binden aan uw methoden. Zie voor meer informatie [Java-referentiedocumenten](/java/api/com.microsoft.azure.functions.annotation).
+Gebruik de Java-aantekeningen opgenomen in de [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) pakket invoer en uitvoer binden aan uw methoden. Zie voor meer informatie, [Java-referentiedocumenten](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
 > Moet u een Azure Storage-account in uw [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) Azure Storage-Blob, wachtrij of tabel triggers lokaal uitvoeren.
@@ -112,6 +112,37 @@ Dit is de gegenereerde bijbehorende `function.json` door de [azure-functions-mav
 Download en gebruik de [Azul Zulu Enterprise voor Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8-JDK van [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) voor lokale ontwikkeling van Java-functie-apps. Azure Functions maakt gebruik van de runtime Azul Java 8-JDK wanneer u uw functie-apps implementeren in de cloud.
 
 [Ondersteuning van Azure](https://azure.microsoft.com/support/) voor problemen met de functie JDK en apps is beschikbaar met een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
+
+## <a name="customize-jvm"></a>JVM aanpassen
+
+Functions kunt u de Java virtual machine (JVM) gebruikt voor het uitvoeren van uw Java-functies aanpassen. De [volgende JVM-opties](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) worden standaard gebruikt:
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+U krijgt u een extra argumenten in een app-instelling met de naam `JAVA_OPTS`. U kunt app-instellingen toevoegen aan uw functie-app geïmplementeerd in Azure in een van de volgende manieren:
+
+### <a name="azure-portal"></a>Azure Portal
+
+In de [Azure-portal](https://portal.azure.com), gebruikt u de [toepassingsinstellingen tabblad](functions-how-to-use-azure-function-app-settings.md#settings) om toe te voegen de `JAVA_OPTS` instelling.
+
+### <a name="azure-cli"></a>Azure-CLI
+
+De [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) opdracht kan worden gebruikt om in te stellen `JAVA_OPTS`, zoals in het volgende voorbeeld:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+In dit voorbeeld wordt een ' headless '-modus. Vervang `<APP_NAME>` met de naam van uw functie-app en `<RESOURCE_GROUP> ` met de resourcegroep.
+
+> [!WARNING]  
+> Bij uitvoering in een [verbruiksabonnement](functions-scale.md#consumption-plan), u moet toevoegen de `WEBSITE_USE_PLACEHOLDER` instellen met een waarde van `0`.  
+Deze instelling neemt de tijden koude start voor Java-functies.
 
 ## <a name="third-party-libraries"></a>Bibliotheken van derden 
 
@@ -189,7 +220,7 @@ Deze functie is aangeroepen met een HTTP-aanvraag.
 - De nettolading van de HTTP-aanvraag wordt doorgegeven als een `String` voor het argument `inputReq`
 - Een vermelding wordt opgehaald uit de Azure-tabelopslag en wordt doorgegeven als `TestInputData` aan het argument `inputData`.
 
-Voor het ontvangen van een batch van de invoer, kunt u binden aan `String[]`, `POJO[]`, `List<String>` of `List<POJO>`.
+Voor het ontvangen van een batch van de invoer, kunt u binden aan `String[]`, `POJO[]`, `List<String>`, of `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -263,7 +294,7 @@ Gebruiken voor het verzenden van meerdere uitvoerwaarden `OutputBinding<T>` gede
     }
 ```
 
-Boven de functie wordt aangeroepen op een HttpRequest en schrijft u meerdere waarden naar de Azure-wachtrij
+Deze functie wordt aangeroepen op een HttpRequest en schrijft u meerdere waarden naar de Azure-wachtrij.
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>Het HttpRequestMessage en HttpResponseMessage
 
@@ -363,7 +394,7 @@ De logboekbestanden downloaden als een ZIP-bestand met de Azure CLI, een nieuwe 
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-U moet bestandssysteem logboekregistratie in de Azure Portal of Azure CLI voor het uitvoeren van deze opdracht hebt ingeschakeld.
+U moet bestandssysteem logboekregistratie in Azure portal of Azure CLI voor het uitvoeren van deze opdracht hebt ingeschakeld.
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
 

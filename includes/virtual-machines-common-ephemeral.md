@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159163"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468353"
 ---
 Kortstondige OS-schijven worden gemaakt op de lokale opslag van de virtuele Machine (VM) en niet persistent gemaakt met de externe Azure-opslag. Tijdelijke besturingssysteemschijven werken goed bij staatloze werkbelastingen moeten waarbij toepassingen zijn gevoelig voor afzonderlijke VM-fouten, maar zijn meer betrokken zijn bij de tijd die nodig is voor grootschalige implementaties of tijd aan de installatiekopie van de afzonderlijke VM-exemplaren terugzetten. Het is ook geschikt voor toepassingen die zijn geïmplementeerd met behulp van het klassieke implementatiemodel naar het Resource Manager-implementatiemodel. Met een kortstondige besturingssysteemschijf, zou u merkt lagere latentie voor lezen/schrijven naar de besturingssysteemschijf en snellere VM terugzetten. Bovendien kortstondige besturingssysteemschijf gratis is, worden er geen opslagkosten voor de besturingssysteemschijf. 
  
@@ -30,7 +30,7 @@ Belangrijke verschillen tussen permanente en tijdelijke besturingssysteemschijve
 |                             | Permanente OS-schijf                          | Kortstondige besturingssysteemschijf                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | De maximale grootte voor de besturingssysteemschijf      | 2 TiB                                                                                        | In de cache-grootte voor de VM-grootte of 2TiB, afhankelijk van wat kleiner - is [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), en [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| VM-grootten ondersteund          | Alle                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| VM-grootten ondersteund          | Alle                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Ondersteuning voor het type van schijven           | Beheerde en onbeheerde schijf met besturingssysteem                                                                | Alleen beheerde OS-schijf                                                               |
 | Ondersteuning voor regio              | Alle regio 's                                                                                  | Alle regio 's                              |
 | Gegevenspersistentie            | OS-schijfgegevens geschreven naar de schijf met besturingssysteem zijn opgeslagen in Azure Storage                                  | Gegevens geschreven naar de schijf met besturingssysteem wordt opgeslagen in de lokale VM-opslag en is niet persistent gemaakt met Azure Storage. |
@@ -48,13 +48,13 @@ Zelf registreren voor de Preview-versie van kortstondige OS-schijven met behulp 
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Om te controleren als u bent geregistreerd voor de Preview-versie:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>CLI
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 Om te controleren als u bent geregistreerd voor de Preview-versie:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

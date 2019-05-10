@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024301"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472725"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -46,7 +46,7 @@ De volgende tabel bevat de beschikbare categorieën. Andere bronnen van laaggege
 |Laag | Capaciteit |
 |-----|-------------|
 |Gratis | Gedeeld met andere abonnees. Niet-schaalbare, beperkt tot 3 indexen en 50 MB opslag. |
-|Basic | Toegewezen computerbronnen voor productieworkloads op kleinere schaal. Een partitie van 2 GB en maximaal drie replica's. |
+|Basis | Toegewezen computerbronnen voor productieworkloads op kleinere schaal. Een partitie van 2 GB en maximaal drie replica's. |
 |Standard 1 (S1) | Van S1 op van toegewezen machines met meer capaciteit voor de opslag en verwerking op ieder niveau. Partitiegrootte is 25 GB per partitie (maximaal 300 GB per service) voor S1. |
 |Standard 2 (S2) | Lijkt naar S1 uitvoert, maar met 100 GB/partities (max 1,2 TB per service) |
 |Standard 3 (S3) | 200 GB per partitie (max 2,4 TB per service) |
@@ -89,7 +89,7 @@ In rekening gebracht voor uitgaande gegevens als services zich in verschillende 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI-verrijkt indexeren met cognitieve Services
 
-Voor [AI indexeren met cognitieve Services](cognitive-search-concept-intro.md), moet u van plan bent voor het koppelen van een factureerbare Cognitive Services-resource op de S0 prijscategorie voor de verwerking van betalen per gebruik. Er is geen 'vaste prijs' die is gekoppeld aan het koppelen van Cognitive Services. U betaalt alleen voor de verwerking die u nodig hebt.
+Voor [AI indexeren met cognitieve Services](cognitive-search-concept-intro.md), moet u van plan bent voor het koppelen van een factureerbare Cognitive Services-resource, in dezelfde regio als de Azure Search, op de S0-prijscategorie voor de verwerking van betalen per gebruik. Er is geen 'vaste prijs' die is gekoppeld aan het koppelen van Cognitive Services. U betaalt alleen voor de verwerking die u nodig hebt.
 
 Afbeelding extractie tijdens documenten kraken is een Azure Search-kosten in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis. 
 

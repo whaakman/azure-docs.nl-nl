@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/24/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146046"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501965"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -55,7 +55,7 @@ Er zijn bepaalde machtigingen die een gebruiker hebben moet tot het starten/stop
 
 Het starten/stoppen van VM's uit uur oplossing implementeren in een Automation-Account en de Log Analytics is de gebruiker die de oplossing implementeren op de volgende machtigingen vereist de **resourcegroep**. Zie voor meer informatie over rollen, [aangepaste rollen voor Azure-resources](../role-based-access-control/custom-roles.md).
 
-| Machtiging | Bereik|
+| Machtiging | Scope|
 | --- | --- |
 | Microsoft.Automation/automationAccounts/read | Resourcegroep |
 | Microsoft.Automation/automationAccounts/variables/write | Resourcegroep |
@@ -75,14 +75,14 @@ Het starten/stoppen van VM's uit uur oplossing implementeren in een Automation-A
 | Microsoft.Resources/subscriptions/resourceGroups/read | Resourcegroep |
 | Microsoft.Resources/deployments/* | Resourcegroep |
 
-### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nieuw Automation-Account en een nieuwe Log Analytics-werkruimte
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nieuw Automation-Account en een nieuwe Log Analytics-werkruimte
 
 Als u wilt implementeren, het starten/stoppen van VM's buiten kantooruren moet oplossing voor een nieuwe Automation-Account en de Log Analytics-werkruimte de gebruiker die de oplossing implementeert de machtigingen die zijn gedefinieerd in de vorige sectie, evenals de volgende machtigingen:
 
 - CO-beheerder van abonnement: dit is nodig om het klassieke uitvoeren als-Account maken
 - Deel uitmaken van de **toepassingsontwikkelaar** rol. Zie voor meer informatie over het configureren van uitvoeren als-Accounts [machtigingen voor het configureren van uitvoeren als-accounts](manage-runas-account.md#permissions).
 
-| Machtiging |Bereik|
+| Machtiging |Scope|
 | --- | --- |
 | Microsoft.Authorization/roleAssignments/read | Abonnement |
 | Microsoft.Authorization/roleAssignments/write | Abonnement |
@@ -90,6 +90,30 @@ Als u wilt implementeren, het starten/stoppen van VM's buiten kantooruren moet o
 | Microsoft.Automation/automationAccounts/certificates/read | Resourcegroep |
 | Microsoft.Automation/automationAccounts/write | Resourcegroep |
 | Microsoft.OperationalInsights/workspaces/write | Resourcegroep |
+
+### <a name="region-mappings"></a>Regio-toewijzingen
+
+Bij het inschakelen van VM's starten/stoppen buiten kantooruren, worden alleen bepaalde regio's worden ondersteund voor het koppelen van een Log Analytics-werkruimte en een Automation-Account.
+
+De volgende tabel bevat de ondersteunde toewijzingen:
+
+|**Log Analytics-werkruimte regio**|**Azure Automation Region**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|West-Europa|West-Europa|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP en EastUS toewijzingen voor Log Analytics-werkruimten op Automation-Accounts zijn niet een exacte toewijzing van regio naar regio, maar is de juiste toewijzing.
+
+<sup>2</sup> vanwege beperkingen van de capaciteit van de regio is niet beschikbaar bij het maken van nieuwe resources. Dit geldt ook voor Automation-Accounts en Log Analytics-werkruimten. Bestaande gekoppelde resources in de regio moeten echter nog steeds werken.
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
@@ -101,6 +125,7 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
 
    > [!NOTE]
    > U kunt het ook maken vanaf elke locatie in de Azure-portal door te klikken op **een resource maken**. Typ in de Marketplace-pagina, een trefwoord zoals **Start** of **starten/stoppen**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. U kunt ook Typ trefwoorden in een of meer van de volledige naam van de oplossing en druk op Enter. Selecteer **VM's starten/stoppen buiten kantooruren** uit de lijst met zoekresultaten.
+
 2. In de **VM's starten/stoppen buiten kantooruren** pagina voor de geselecteerde oplossing, Controleer de samenvattingsinformatie en klik vervolgens op **maken**.
 
    ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
@@ -334,7 +359,7 @@ Wanneer u een zoekopdracht in Logboeken waarmee categorierecords met uitvoert **
 
 De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords die worden verzameld met deze oplossing.
 
-|Query’s uitvoeren | Description|
+|Query | Description|
 |----------|----------|
 |Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|

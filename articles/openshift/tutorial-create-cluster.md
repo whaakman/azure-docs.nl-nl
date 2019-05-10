@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/06/2019
-ms.openlocfilehash: 5bc71a2d0f29fed163fb5c93ebd27df7f66a1325
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/08/2019
+ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080756"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466183"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Zelfstudie: Een Azure Red Hat OpenShift-cluster maken
 
@@ -27,7 +27,7 @@ In deel één van de serie, leert u hoe u:
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
 > * Een Azure Red Hat OpenShift-cluster maken
-> * [Een Azure Red Hat OpenShift-cluster schalen](tutorial-scale-cluster.md)
+> * [De schaal van een Azure Red Hat OpenShift-cluster wijzigen](tutorial-scale-cluster.md)
 > * [Een Azure Red Hat OpenShift-cluster verwijderen](tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Vereisten
@@ -35,7 +35,7 @@ In deze zelfstudiereeks leert u het volgende:
 Voor u met deze zelfstudie begint:
 
 Zorg ervoor dat u hebt [uw ontwikkelomgeving instellen](howto-setup-environment.md), waaronder:
-- Installatie van de meest recente CLI
+- Installatie van de meest recente CLI (versie 2.0.64 of hoger)
 - Het maken van een tenant
 - Het maken van een Azure-toepassing-object
 - Het maken van een Active Directory-gebruiker aanmelden bij apps die worden uitgevoerd op het cluster gebruikt.
@@ -101,7 +101,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Optioneel: Virtueel netwerk van het cluster verbinden met een bestaand virtueel netwerk
 
-Als u niet nodig hebt om het virtuele netwerk (VNET) van het cluster dat u maakt een bestaand VNET verbinding te maken, moet u deze stap overslaan.
+Als u niet nodig hebt om het virtuele netwerk (VNET) van het cluster dat u maken met een bestaande VNET via peering verbinding te maken, moet u deze stap overslaan.
 
 Haal eerst de id van het bestaande VNET. De id van het formulier zijn: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 
@@ -132,7 +132,7 @@ Na een paar minuten `az openshift create` wordt voltooid en retourneert een JSON
 
 ## <a name="step-3-sign-in-to-the-openshift-console"></a>Stap 3: Meld u aan bij de console van OpenShift
 
-Nu u kunt zich aanmeldt bij de OpenShift-console voor het nieuwe cluster. De [OpenShift-webconsole](https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html) kunt u visualiseren, bladeren en de inhoud van uw OpenShift-projecten te beheren.
+U bent nu klaar om aan te melden bij de OpenShift-console voor het nieuwe cluster. De [OpenShift-webconsole](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) kunt u visualiseren, bladeren en de inhoud van uw OpenShift-projecten te beheren.
 
 We zich moet aanmelden als de [nieuwe Azure AD-gebruiker](howto-aad-app-configuration.md#create-a-new-active-directory-user) u hebt gemaakt voor het testen. Om dit te doen, moet u een nieuwe browsersessie die nog niet in cache opgeslagen de identiteit die u normaal gesproken kunt aanmelden bij de Azure-portal.
 
@@ -147,13 +147,13 @@ Meld u aan met de gebruiker en het wachtwoord die u hebt gemaakt in [maken van e
 
 U bent nu aangemeld bij de clusterconsole.
 
-[Schermafbeelding van de console van de cluster OpenShift](./media/aro-console.png)
+![Schermafbeelding van de console van de cluster OpenShift](./media/aro-console.png)
 
- Vindt u meer informatie over [met behulp van de console OpenShift](https://docs.openshift.com/dedicated/getting_started/developers_console.html) te maken en installatiekopieën ingebouwd in de [Red Hat OpenShift](https://docs.openshift.com/dedicated/welcome/index.html) documentatie.
+ Meer informatie over [met behulp van de console OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) te maken en installatiekopieën ingebouwd in de [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) documentatie.
 
 ## <a name="step-4-install-the-openshift-cli"></a>Stap 4: Installeer de CLI OpenShift
 
-De [OpenShift CLI](https://docs.openshift.com/dedicated/cli_reference/get_started_cli.html) (of *OC extra*) bieden opdrachten voor het beheren van uw toepassingen en hulpprogramma's op lagere niveaus voor interactie met de verschillende onderdelen van uw cluster OpenShift.
+De [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (of *OC extra*) bieden opdrachten voor het beheren van uw toepassingen en hulpprogramma's op lagere niveaus voor interactie met de verschillende onderdelen van uw cluster OpenShift.
 
 Klik op het vraagteken in de rechterbovenhoek van de naam van uw aanmelding in de console van OpenShift en selecteer **opdrachtregelprogramma's**.  Ga als volgt de **nieuwste Release** koppeling downloaden en installeren van de ondersteunde oc CLI voor Linux, MacOS of Windows.
 
@@ -175,4 +175,4 @@ In dit deel van de zelfstudie hebt u het volgende geleerd:
 
 Ga door naar de volgende zelfstudie:
 > [!div class="nextstepaction"]
-> [Een Azure Red Hat OpenShift-cluster schalen](tutorial-scale-cluster.md)
+> [De schaal van een Azure Red Hat OpenShift-cluster wijzigen](tutorial-scale-cluster.md)

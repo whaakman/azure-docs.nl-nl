@@ -1,19 +1,17 @@
 ---
 title: Azure Data Factory gegevensstroom toewijzing maken
-description: Azure Data Factory gegevensstroom toewijzing maken
-author: WenJason
-ms.author: v-jay
-ms.reviewer: douglasl
+description: Over het maken van een Azure Data Factory toewijzing gegevensstroom
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-origin.date: 02/12/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/12/2019
+ms.openlocfilehash: 366ed60534544ebbf889e2f72fe703f9b821f871
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883707"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235667"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Gegevensstroom van Azure Data Factory maken
 
@@ -21,9 +19,9 @@ ms.locfileid: "60883707"
 
 Toewijzing van gegevens stromen in ADF bieden een manier om gegevens te transformeren op schaal zonder codering vereist. U kunt een taak voor gegevenstransformatie in de ontwerpfunctie van de gegevens door een reeks transformaties ontwerpen. Beginnen met een willekeurig aantal bron transformaties gevolgd door de stappen voor gegevenstransformatie. Voltooi uw gegevensstroom met sink op grond van de resultaten in een doel.
 
-Aan de slag door eerst een nieuwe V2-Gegevensfactory maken vanuit Azure Portal. Nadat uw nieuwe gegevensfactory is gemaakt, klikt u op de tegel 'Maken en controleren' om te starten van de gebruikersinterface van Data Factory.
+Aan de slag door eerst een nieuwe V2-Gegevensfactory maken vanuit Azure portal. Nadat uw nieuwe gegevensfactory is gemaakt, klikt u op de tegel 'Maken en controleren' om te starten van de gebruikersinterface van Data Factory.
 
-![Opties voor Flow](media/data-flow/v2dataflowportal.png "gegevensstroom maken")
+![Opties voor Flow](media/data-flow/v2portal.png "gegevensstroom maken")
 
 Zodra u zich in de gebruikersinterface van Data Factory, kunt u de voorbeeld-gegevens stromen kunt gebruiken. De voorbeelden zijn beschikbaar in de galerie met ADF. In ADF, maken 'Pijplijn van sjabloon' en selecteer de categorie gegevensstroom in de galerie met sjablonen.
 
@@ -37,7 +35,7 @@ U wordt gevraagd om in te voeren van de gegevens van uw Azure Blob Storage-accou
 
 ## <a name="create-new-data-flow"></a>Nieuwe gegevensstroom te maken
 
-Gebruik de Resource maken "plusteken" knop in de UI ADF gegevens stromen maken
+Gebruik de Resource maken "plusteken" knop in de UI ADF gegevens stromen maken.
 
 ![Opties voor Flow](media/data-flow/newresource.png "nieuwe Resource")
 

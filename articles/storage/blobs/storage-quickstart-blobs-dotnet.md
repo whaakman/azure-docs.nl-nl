@@ -6,15 +6,15 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 05/09/2019
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2728ac93abd18f929dc6e82cfb471ce33fe8866f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191057"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508024"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Quickstart: .NET gebruiken om te een blob maken in objectopslag
 
@@ -24,7 +24,7 @@ In deze snelstart leert u hoe u de Azure Storage-clientbibliotheek voor .NET kun
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Download en installeer vervolgens .NET Core 2.0 voor uw besturingssysteem. Als u Windows uitvoert, kunt u desgewenst Visual Studio installeren en .NET Framework gebruiken. U kunt ook een editor installeren die u wilt gebruiken bij uw besturingssysteem.
+Vervolgens downloaden en installeren van .NET Core 2.1 voor uw besturingssysteem. Als u Windows uitvoert, kunt u desgewenst Visual Studio installeren en .NET Framework gebruiken. U kunt ook een editor installeren die u wilt gebruiken bij uw besturingssysteem.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -288,8 +288,8 @@ Zie de volgende aanvullende bronnen voor .NET-ontwikkeling met Blob-opslag:
 
 ### <a name="binaries-and-source-code"></a>Binaire bestanden en broncode
 
-- Download het NuGet-pakket voor de nieuwste versie van de [.NET-clientbibliotheek](https://www.nuget.org/packages/WindowsAzure.Storage/) voor Azure Storage.
-- Bekijk de [broncode van de .NET-clientbibliotheek](https://github.com/Azure/azure-storage-net) op GitHub.
+- Download het NuGet-pakket voor de meest recente versie van de [.NET-clientbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) voor Azure Blob Storage.
+- Weergave de [broncode van de Microsoft Azure Storage Blob SDK voor .NET](https://github.com/Azure/azure-storage-net/tree/master/Blob) op GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Naslaginformatie en voorbeelden voor de .NET-clientbibliotheek
 
@@ -300,10 +300,10 @@ Zie de volgende aanvullende bronnen voor .NET-ontwikkeling met Blob-opslag:
 
 In deze snelstart hebt u geleerd hoe u blobs kunt uploaden, downloaden en er een lijst van maken met behulp van .NET.
 
-Ga door naar [Afbeeldingsgegevens uploaden in de cloud met Azure Storage](storage-upload-process-images.md) om te leren hoe u een web-app kunt maken waarmee u een afbeelding kunt uploaden naar Blob-opslag.
+Voor meer informatie over het maken van een web-app die een afbeelding kunt naar Blob-opslag uploaden, gaat u verder naar:
 
 > [!div class="nextstepaction"]
-> [Instructies voor bewerkingen in Blob-opslag](storage-dotnet-how-to-use-blobs.md)
+> [Uploaden en verwerken van een installatiekopie](storage-upload-process-images.md)
 
 - Zie voor meer informatie over .NET Core [Aan de slag met .NET in 10 minuten](https://www.microsoft.com/net/learn/get-started/).
 - Zie [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/) voor meer informatie over een voorbeeld van een toepassing die u kunt implementeren vanuit Visual Studio voor Windows.

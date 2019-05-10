@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74cb1b3ec4e0570aa4316e6f45e99719f36815d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150700"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472053"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>.NET/.NET Core in Application Insights traceerlogboeken verkennen
 
@@ -172,13 +172,13 @@ U kunt doen, bijvoorbeeld:
 >Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger, gebruikt de *adaptieve steekproeven* functie kan werken en slechts een gedeelte van uw telemetrie te verzenden. [Meer informatie over steekproeven.](../../azure-monitor/app/sampling.md)
 >
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 ### <a name="how-do-i-do-this-for-java"></a>Hoe moet ik dit doen voor Java?
 Gebruik de [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Er bestaat geen optie Application Insights in het contextmenu project
-* Zorg ervoor dat de Application Insights-hulpprogramma's is geïnstalleerd op de ontwikkelcomputer. In Visual Studio **extra** > **extensies en Updates**, zoek naar **Application Insights-hulpprogramma's**. Als dit niet op de **geïnstalleerde** tabblad, open de **Online** tabblad en installeer deze.
-* Dit wordt mogelijk een projecttype dat biedt geen ondersteuning voor Application Insights-hulpprogramma's. Gebruik [handmatige installatie](#manual-installation).
+* Zorg ervoor dat Developer Analytics Tools is geïnstalleerd op de ontwikkelcomputer. In Visual Studio **extra** > **extensies en Updates**, zoek naar **Developer Analytics Tools**. Als dit niet op de **geïnstalleerde** tabblad, open de **Online** tabblad en installeer deze.
+* Dit wordt mogelijk een projecttype dat biedt geen ondersteuning voor Devloper Analytics-hulpprogramma's. Gebruik [handmatige installatie](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Er is geen log-adapter-optie in het configuratieprogramma
 * Installeer eerst het framework voor logboekregistratie.

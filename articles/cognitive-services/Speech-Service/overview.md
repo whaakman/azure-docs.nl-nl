@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: db32124cb4262745bcb2217224124ec444ccc97e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020990"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236851"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
 
@@ -30,36 +30,40 @@ Deze functies zijn vormen van de Azure-Services voor spraak. Gebruik de koppelin
 |---------|---------|-------------|-----|------|
 | [Spraak-naar-tekst](speech-to-text.md) | Spraak-naar-tekst | Spraak-naar-tekst transcribes audiostreams naar tekst in realtime die uw toepassingen, hulpprogramma's of apparaten kunnen gebruiken of weergeven. Gebruik spraak-naar-tekst met [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) worden afgeleid van de gebruiker intents van getranscribeerde spraak- en act op gesproken opdrachten. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch transcriptie](batch-transcription.md) | Batch transcriptie kunt asynchrone transcriptie van spraak-naar-tekst van grote hoeveelheden gegevens. Dit is een REST gebaseerde service die gebruikmaakt van hetzelfde eindpunt als aanpassing en Modelbeheer. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
-| | [Conversatie transcriptie Service](conversation-transcription-service.md) | Maakt een realtime spraakherkenning, sprekeridentificatie en diarization. Dit is ideaal voor het te vergaderingen in met de mogelijkheid om onderscheid sprekers te transcriberen. | Ja | Nee |
-| | [Aanpassing](#customize-your-speech-experience) | Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
+| | [Conversatie transcriptie](conversation-transcription-service.md) | Maakt een realtime spraakherkenning, sprekeridentificatie en diarization. Dit is ideaal voor het te vergaderingen in met de mogelijkheid om onderscheid sprekers te transcriberen. | Ja | Nee |
+| | [Aangepaste Spraakmodellen maken](#customize-your-speech-experience) | Als u van spraak-naar-tekst voor de opname- en schrijffouten in een unieke omgeving gebruikmaakt, kunt u maken en trainen aangepaste akoestische, taal en de uitspraak modellen adres omgevingsgeluid of branchespecifieke vocabulaire. | Nee | [Ja](https://westus.cris.ai/swagger/ui/index) |
 | [Tekst naar spraak](text-to-speech.md) | Tekst naar spraak | Tekst naar spraak converteert invoertekst naar menselijke kunstmatige spraak. Kies uit de standard stemmen en neurale stemmen (Zie [taalondersteuning](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Aanpassing](#customize-your-speech-experience) | Maak aangepaste spraakstijlen uniek is voor uw merk of product. | Nee | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Maken van aangepaste stemmen](#customize-your-speech-experience) | Maak aangepaste spraakstijlen uniek is voor uw merk of product. | Nee | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Spraakomzetting](speech-translation.md) | Spraakomzetting | Spraakomzetting kan realtime, meerdere talen vertaling van spraak naar uw toepassingen, hulpprogramma's en apparaten. Deze service voor spraak-naar-spraak- en spraak-naar-tekst vertalen gebruiken. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nee |
+| [Stem op de eerste virtuele assistent](voice-first-virtual-assistants.md) | Stem op de eerste virtuele assistent | Aangepaste virtuele assistenten met behulp van Azure Speech Services meer mogelijkheden bieden ontwikkelaars voor het maken van de natuurlijke, menselijke conversatie-interfaces voor hun toepassingen en ervaringen. De Bot Framework directe regel spraak kanaal verbetert deze mogelijkheden door te geven van een gecoördineerde, gecoördineerd toegangspunt een compatibel bot waarmee spraak in spraak van interactie met lage latentie en hoge betrouwbaarheid. | [Ja](voice-first-virtual-assistants.md) | Nee |
 
 ## <a name="news-and-updates"></a>Nieuws en updates
 
 Meer informatie over wat is er nieuw in de Azure-Services voor spraak.
 
+* Mei 2019 - documentatie is nu beschikbaar voor [conversatie transcriptie](conversation-transcription-service.md), [Call Center transcriptie](call-center-transcription.md), en [stem op de eerste virtuele assistenten](voice-first-virtual-assistants.md).
 * Mei 2019 - Speech SDK 1.5.0 uitgebracht. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
 * April 2019 - die zijn uitgebracht spraak SDK 1.4.0 met ondersteuning voor tekst naar spraak (bèta) voor C++ C#, en Java in Windows en Linux. Bovendien de SDK biedt nu ondersteuning voor MP3- en Opus/Ogg audio-indelingen voor C++ en C# op Linux. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
 * Maart 2019 - is een nieuw eindpunt voor spraak die als resultaat een volledige lijst met beschikbare stemmen in een bepaalde regio geeft nu beschikbaar. Bovendien worden nieuwe regio's worden nu ondersteund voor TTS. Zie voor meer informatie, [Text to Speech-API reference (REST)](rest-text-to-speech.md).
-* Februari 2019 - die zijn uitgebracht spraak SDK 1.3.0 met ondersteuning voor [Unity (bèta)](quickstart-csharp-unity.md). Ondersteuning toegevoegd voor de `AudioInput` klasse, kunt u de streamingbron van audio kiezen. Zie voor een volledige lijst van verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
-* December 2018 - die zijn uitgebracht spraak SDK 1.2.0 met ondersteuning voor [Python](quickstart-python.md) en [Node.js](quickstart-js-node.md), en als Ubuntu 18.04 LTS. Zie voor meer informatie, [opmerkingen bij de Release](releasenotes.md).
 
 ## <a name="try-speech-services"></a>Speech Services proberen
 
 We bieden snelstartgidsen in de populairste programmeertalen, elk ontworpen dat u de uitvoering van code in minder dan 10 minuten. Deze tabel bevat de meest populaire snelstartgidsen voor elke functie. Extra talen en platforms verkennen met behulp van de navigatiebalk aan de linkerkant.
 
-| Spraak-naar-tekst (SDK) | Vertaling (SDK) | Text to Speech (REST) | Text to Speech (SDK) |
-|-------------------|-------------------|-----------------------|-----------------------|
-| [C#, .NET core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
-| [JavaScript (Browser)](quickstart-js-browser.md) | [C#, .NET core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
-| [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
+| Spraak-naar-tekst (SDK) | Text to Speech (SDK) | Vertaling (SDK) |
+|----------------------|----------------------|-------------------|
+| [C#, .NET core (Windows)](quickstart-csharp-dotnet-windows.md) | [C#, .NET framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) |
+| [JavaScript (Browser)](quickstart-js-browser.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#, .NET core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
+| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#, .NET framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
+| [Java (Windows, Linux)](quickstart-java-jre.md) | | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) |
+
+> [!NOTE]
+> Spraak-naar-tekst en spraak ook hebben REST-eindpunten en bijbehorende snelstartgidsen.
 
 Nadat u een kans om de spraak-Services te gebruiken hebt, Probeer onze zelfstudie u hoe u leert voor het herkennen van intenties van gesproken inhoud met behulp van de SDK van spraak en LUIS.
 
 * [Zelfstudie: Intents van gesproken inhoud met de spraak-SDK en LUIS, herkennenC#](how-to-recognize-intents-from-speech-csharp.md)
+* [Zelfstudie: Bouw een Flask-app voor tekst vertalen, sentiment analyseren en bootsen vertaalde tekst naar spraak, REST](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Voorbeeldcode ophalen
 

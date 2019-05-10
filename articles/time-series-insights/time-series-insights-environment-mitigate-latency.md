@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f73013b399dd2ca3d549e2ac2ec4ffba65b81
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685154"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471727"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Controleren en om te verminderen latentie in Azure Time Series Insights Aanvraagbeperkingen minimaliseren
 
@@ -34,25 +34,25 @@ U bent waarschijnlijk om latentie en beperkingen wanneer u:
 
 ## <a name="video"></a>Video
 
-### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>In deze video behandelen we gedrag voor inkomend verkeer van Time Series Insights-gegevens en het plannen voor deze.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Meer informatie over het gedrag voor inkomend verkeer van Time Series Insights-gegevens en het plannen voor deze.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Latentie en aanvraagbeperking en waarschuwingen bewaken
 
-Waarschuwingen kunnen u helpen te helpen opsporen en corrigeren van latentieproblemen met veroorzaakt door uw omgeving. 
+Waarschuwingen kunnen u helpen te helpen opsporen en corrigeren van latentieproblemen met veroorzaakt door uw omgeving.
 
-1. Klik in de Azure-portal op **metrische gegevens**. 
+1. Klik in de Azure-portal op **metrische gegevens**.
 
-   ![Metrische gegevens](media/environment-mitigate-latency/add-metrics.png)
+   [![Metrische gegevens](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-2. Klik op **Waarschuwing voor metrische gegevens toevoegen**.  
+1. Klik op **Waarschuwing voor metrische gegevens toevoegen**.  
 
-    ![Metrische waarschuwing toevoegen](media/environment-mitigate-latency/add-metric-alert.png)
+   [![Metrische waarschuwing toevoegen](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 Van daaruit kunt u waarschuwingen met behulp van de volgende metrische gegevens configureren:
 
-|Gegevens  |Description  |
+|Metric  |Description  |
 |---------|---------|
 |**Inkomend verkeer ontvangen Bytes**     | Telling van onbewerkte bytes lezen uit bronnen van gebeurtenissen. Onbewerkte aantal omvat gewoonlijk de naam van de eigenschap en waarde.  |  
 |**Inkomende gegevens ontvangen ongeldig berichten**     | Aantal ongeldige berichten lezen van alle bronnen van Azure Event Hubs of Azure IoT Hub gebeurtenissen.      |
@@ -64,19 +64,19 @@ Van daaruit kunt u waarschuwingen met behulp van de volgende metrische gegevens 
 
 ![Latentie](media/environment-mitigate-latency/latency.png)
 
-Als u wordt beperkt, ziet u een waarde voor de *tijdsinterval inkomend verkeer ontvangen bericht*, melding van het aantal seconden achter TSI afkomstig van de werkelijke tijd het bericht is komt binnen via de bron van de gebeurtenis (met uitzondering van indexering tijd van appx. 30 tot 60 seconden).  *Inkomend verkeer ontvangen aantal berichten Lag* moet ook een waarde, zodat u kunt om te bepalen hoeveel berichten achter u zijn.  De eenvoudigste manier om het weer op de hoogte is om de capaciteit van uw omgeving in een grootte die u kunt strijden tegen het verschil te vergroten.  
+* Als u wordt beperkt, ziet u een waarde voor de *tijdsinterval inkomend verkeer ontvangen bericht*, melding van het aantal seconden achter uw TSI afkomstig van de werkelijke tijd het bericht is komt binnen via de bron van de gebeurtenis (met uitzondering van indexering tijd van appx. 30 tot 60 seconden).  *Inkomend verkeer ontvangen aantal berichten Lag* moet ook een waarde, zodat u kunt om te bepalen hoeveel berichten achter u zijn.  De eenvoudigste manier om het weer op de hoogte is om de capaciteit van uw omgeving in een grootte die u kunt strijden tegen het verschil te vergroten.  
 
-Als u een omgeving met één eenheid S1 en Zie dat er een vertraging van vijf miljoen bericht is, kan u bijvoorbeeld de grootte van uw omgeving aan zes eenheden voor rond een dag te verhogen.  U kunt verhogen nog verder catch van sneller.  De periode achterstallige is vaak het geval bij het inrichten in eerste instantie van een omgeving, met name wanneer u verbinding maken met een gebeurtenisbron die al gebeurtenissen in het of wanneer u bulksgewijs uploaden van grote hoeveelheden historische gegevens.
+  Als u een omgeving met één eenheid S1 en Zie dat er een vertraging 5.000.000 bericht is, kan u bijvoorbeeld de grootte van uw omgeving aan zes eenheden voor rond een dag te verhogen.  U kunt verhogen nog verder catch van sneller. De periode achterstallige is vaak het geval bij het inrichten in eerste instantie van een omgeving, met name wanneer u verbinding maken met een gebeurtenisbron die al gebeurtenissen in het of wanneer u bulksgewijs uploaden van grote hoeveelheden historische gegevens.
 
-Een andere methode is het instellen van een **opgeslagen Ingangsgebeurtenissen** waarschuwing > = een drempelwaarde iets onder de capaciteit van de totale omgeving voor een periode van twee uur.  Deze waarschuwing krijgt u inzicht in als u voortdurend zijn op capaciteit, waarmee een grote kans dat de latentie wordt aangegeven.  
+* Een andere methode is het instellen van een **opgeslagen Ingangsgebeurtenissen** waarschuwing > = een drempelwaarde iets onder de capaciteit van de totale omgeving voor een periode van twee uur.  Deze waarschuwing krijgt u inzicht in als u voortdurend zijn op capaciteit, waarmee een grote kans dat de latentie wordt aangegeven. 
 
-Bijvoorbeeld, als u hebt drie S1-eenheden ingericht (of 2100 gebeurtenissen per minuut opnamecapaciteit), kunt u instellen een **opgeslagen Ingangsgebeurtenissen** voor waarschuwing > = 1900 gebeurtenissen gedurende 2 uur. Als u voortdurend van meer dan deze drempelwaarde, en daarom de waarschuwing wordt geactiveerd, bent u waarschijnlijk onder-ingericht.  
+  Bijvoorbeeld, als u hebt drie S1-eenheden ingericht (of 2100 gebeurtenissen per minuut opnamecapaciteit), kunt u instellen een **opgeslagen Ingangsgebeurtenissen** voor waarschuwing > = 1900 gebeurtenissen gedurende 2 uur. Als u voortdurend van meer dan deze drempelwaarde, en daarom de waarschuwing wordt geactiveerd, bent u waarschijnlijk onder-ingericht.  
 
-Ook als u vermoedt u wordt beperkt dat, u kunt vergelijken met uw **inkomend verkeer ontvangen berichten** met uw gebeurtenis bron berichten de egressed.  Als u inkomend verkeer naar uw Event Hub is groter dan uw **inkomend verkeer ontvangen berichten**, uw Time Series Insights zijn waarschijnlijk wordt beperkt.
+* Als u vermoedt u wordt beperkt dat, kunt u vergelijken uw **inkomend verkeer ontvangen berichten** met uw gebeurtenis bron berichten de egressed.  Als u inkomend verkeer naar uw Event Hub is groter dan uw **inkomend verkeer ontvangen berichten**, uw Time Series Insights zijn waarschijnlijk wordt beperkt.
 
 ## <a name="improving-performance"></a>Prestaties verbeteren
 
-Als u wilt beperken of ondervindt latentie verminderen, is de beste manier om deze te corrigeren om de capaciteit van uw omgeving te vergroten. 
+Als u wilt beperken of ondervindt latentie verminderen, is de beste manier om deze te corrigeren om de capaciteit van uw omgeving te vergroten.
 
 U kunt voorkomen dat latentie en beperkingen door het correct configureren van uw omgeving voor de hoeveelheid gegevens die u wilt analyseren. Zie voor meer informatie over het toevoegen van capaciteit voor uw omgeving [schalen van uw omgeving](time-series-insights-how-to-scale-your-environment.md).
 

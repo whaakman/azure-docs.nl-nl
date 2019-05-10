@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483640"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236752"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
-Een Azure storage-account bevat al uw Azure Storage-gegevensobjecten: blobs, bestanden, wachtrijen, tabellen en schijven. Gegevens in uw Azure storage-account zijn duurzame en maximaal beschikbare, veilige, zeer schaalbare en toegankelijk is vanaf overal ter wereld via HTTP of HTTPS.
+Een Azure storage-account bevat al uw Azure Storage-gegevensobjecten: blobs, bestanden, wachtrijen, tabellen en schijven. Het opslagaccount biedt een unieke naamruimte voor uw Azure Storage-gegevens die toegankelijk is vanaf overal ter wereld via HTTP of HTTPS. Gegevens in uw Azure storage-account zijn duurzame en maximaal beschikbaar, veilig en zeer schaalbare.
 
 Zie voor meer informatie over het maken van een Azure storage-account, [een opslagaccount maken](storage-quickstart-create-account.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
-ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 011ce61f9ac0656db8804c203000f54a7146afe0
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596293"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408202"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -32,7 +32,7 @@ Azure maakt automatisch systeemroutes en wijst de routes toe aan elk subnet in e
 Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand verkeer van een subnet wordt verzonden naar een IP-adres binnen het adresvoorvoegsel van een route, is de route met het voorvoegsel de route die door Azure wordt gebruikt. Lees [hoe Azure een route selecteert](#how-azure-selects-a-route) wanneer meerdere routes dezelfde voorvoegsels bevatten, of overlappende voorvoegsels. Wanneer er een virtueel netwerk wordt gemaakt, maakt Azure automatisch de volgende standaardsysteemroutes voor elk subnet in het virtuele netwerk:
 
 
-|Bron |Adresvoorvoegsels                                        |Volgend hoptype  |
+|Source |Adresvoorvoegsels                                        |Volgend hoptype  |
 |-------|---------                                               |---------      |
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
@@ -57,10 +57,10 @@ De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routee
 
 Azure voegt aanvullende standaardsysteemroutes toe voor verschillende mogelijkheden van Azure, maar alleen als u de mogelijkheden inschakelt. Afhankelijk van de mogelijkheid, voegt Azure optionele standaardroutes toe naar specifieke subnetten in het virtuele netwerk of naar alle subnetten in een virtueel netwerk. Dit zijn de aanvullende systeemroutes en 'volgende hoptypen' die Azure kan toevoegen wanneer u verschillende mogelijkheden inschakelt:
 
-|Bron                 |Adresvoorvoegsels                       |Volgend hoptype|Subnet binnen het virtuele netwerk waarnaar een route wordt toegevoegd|
+|Source                 |Adresvoorvoegsels                       |Volgend hoptype|Subnet binnen het virtuele netwerk waarnaar een route wordt toegevoegd|
 |-----                  |----                                   |---------                    |--------|
 |Standaard                |Uniek voor het virtuele netwerk, bijvoorbeeld: 10.1.0.0/16|VNet-peering                 |Alle|
-|Gateway van een virtueel netwerk|Voorvoegsels geadverteerd van on-premises via BGP of geconfigureerd in de lokale netwerkgateway     |Gateway van een virtueel netwerk      |Alle|
+|Virtuele netwerkgateway|Voorvoegsels geadverteerd van on-premises via BGP of geconfigureerd in de lokale netwerkgateway     |Virtuele netwerkgateway      |Alle|
 |Standaard                |Meerdere                               |VirtualNetworkServiceEndpoint|Alleen het subnet waarvoor een service-eindpunt is ingeschakeld.|
 
 - **VNet-peering (virtueel netwerk)**: Wanneer u een VNet-peering maakt tussen twee virtuele netwerken, wordt er een route toegevoegd voor elk adresbereik in de adresruimte van elk virtueel netwerk waarvoor een peering wordt gemaakt. Meer informatie over [peering van virtuele netwerken](virtual-network-peering-overview.md).  
@@ -104,7 +104,7 @@ De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen
 
 |Volgend hoptype                   |Azure CLI en PowerShell (Resource Manager) |Azure CLI (klassiek) en PowerShell (klassiek)|
 |-------------                   |---------                                       |-----|
-|Gateway van een virtueel netwerk         |VirtualNetworkGateway                           |VPNGateway|
+|Virtuele netwerkgateway         |VirtualNetworkGateway                           |VPNGateway|
 |Virtueel netwerk                 |VNetLocal                                       |VNETLocal (niet beschikbaar in de klassieke CLI in de asm-modus)|
 |Internet                        |Internet                                        |Internet (niet beschikbaar in de klassieke CLI in de asm-modus)|
 |Virtueel apparaat               |VirtualAppliance                                |VirtualAppliance|
@@ -139,10 +139,10 @@ Als meerdere routes hetzelfde adresvoorvoegsel bevatten, selecteert Azure het ro
 Een routetabel bevat bijvoorbeeld de volgende routes:
 
 
-|Bron   |Adresvoorvoegsels  |Volgend hoptype           |
+|Source   |Adresvoorvoegsels  |Volgend hoptype           |
 |---------|---------         |-------                 |
 |Standaard  | 0.0.0.0/0        |Internet                |
-|Gebruiker     | 0.0.0.0/0        |Gateway van een virtueel netwerk |
+|Gebruiker     | 0.0.0.0/0        |Virtuele netwerkgateway |
 
 Wanneer verkeer bestemd is voor een IP-adres buiten de adresvoorvoegsels van alle andere routes in de routetabel, selecteert Azure de route met de bron **Gebruiker** omdat door de gebruiker gedefinieerde routes een hogere prioriteit hebben dan standaardsysteemroutes.
 
@@ -205,7 +205,7 @@ De pijlen geven de richting van het verkeer aan.
 
 De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 
-|Id  |Bron |Status  |Adresvoorvoegsels    |Volgend hoptype          |IP-adres van volgende hop|Naam van door gebruiker gedefinieerde route| 
+|Id  |Source |Status  |Adresvoorvoegsels    |Volgend hoptype          |IP-adres van volgende hop|Naam van door gebruiker gedefinieerde route| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Standaard|Ongeldig|10.0.0.0/16         |Virtueel netwerk        |                   |              |
 |2   |Gebruiker   |Actief |10.0.0.0/16         |Virtueel apparaat      |10.0.100.4         |Within-VNet1  |
@@ -214,7 +214,7 @@ De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 |5   |Standaard|Ongeldig|10.2.0.0/16         |VNet-peering           |                   |              |
 |6   |Gebruiker   |Actief |10.1.0.0/16         |Geen                   |                   |ToVNet2-1-Drop|
 |7   |Gebruiker   |Actief |10.2.0.0/16         |Geen                   |                   |ToVNet2-2-Drop|
-|8   |Standaard|Ongeldig|10.10.0.0/16        |Gateway van een virtueel netwerk|[X.X.X.X]          |              |
+|8   |Standaard|Ongeldig|10.10.0.0/16        |Virtuele netwerkgateway|[X.X.X.X]          |              |
 |9   |Gebruiker   |Actief |10.10.0.0/16        |Virtueel apparaat      |10.0.100.4         |To-On-Prem    |
 |10  |Standaard|Actief |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Standaard|Ongeldig|0.0.0.0/0           |Internet               |                   |              |
@@ -225,7 +225,7 @@ Hier volgt een uitleg van elke route-id:
 1. Azure heeft deze route automatisch toegevoegd voor alle subnetten in *Virtual-network-1*omdat 10.0.0.0/16 het enige adresbereik is dat is gedefinieerd in de adresruimte voor het virtuele netwerk. Als de door de gebruiker gedefinieerde route in route ID2 niet zou zijn gemaakt, zou verkeer dat wordt verzonden naar een adres tussen 10.0.0.1 en 10.0.255.254 worden gerouteerd binnen het virtuele netwerk omdat het voorvoegsel langer is dan 0.0.0.0/0 en niet overeenkomt met de adresvoorvoegsels van een van de andere routes. Azure heeft de status automatisch gewijzigd van *Actief* in *Ongeldig* op het moment dat ID2, een door de gebruiker gedefinieerde route, werd toegevoegd. De reden hiervoor is dat de route hetzelfde voorvoegsel heeft als de standaardroute, en door de gebruiker gedefinieerde routes hebben prioriteit boven standaardroutes. De status van deze route is nog steeds *Actief* voor *Subnet2*, omdat de routetabel waarin die door de gebruiker gedefinieerde route zich bevindt, ID2, niet is gekoppeld aan *Subnet2*.
 2. Azure heeft deze route toegevoegd op het moment dat een door de gebruiker gedefinieerde route voor het adresvoorvoegsel 10.0.0.0/16 werd gekoppeld aan het subnet *Subnet1* in het virtuele netwerk *Virtual-network-1*. In de door de gebruiker gedefinieerde route is 10.0.100.4 ingesteld als het IP-adres van het virtuele apparaat omdat het adres het privé IP-adres is dat is toegewezen aan het virtuele apparaat. De routetabel van deze route is niet gekoppeld aan *Subnet2* en wordt dus niet weergegeven in de routetabel voor *Subnet2*. Deze route overschrijft de standaardroute voor het adresvoorvoegsel 10.0.0.0/16 (ID1), waarmee verkeer dat is geadresseerd aan 10.0.0.1 en 10.0.255.254 automatisch binnen het virtuele netwerk wordt doorgestuurd via het 'volgende hoptype' Virtueel netwerk. Deze route bestaat om te voldoen aan [vereiste](#requirements) 3; al het uitgaande verkeer geforceerd omleiden via een virtueel apparaat.
 3. Azure heeft deze route toegevoegd op het moment dat een door de gebruiker gedefinieerde route voor het adresvoorvoegsel 10.0.0.0/24 werd gekoppeld aan het subnet *Subnet1*. Verkeer dat is bestemd voor adressen tussen 10.0.0.1 en 10.0.0.254 blijft binnen het subnet en wordt niet doorgestuurd naar het virtuele apparaat dat is opgegeven in de vorige regel (ID2). De reden hiervoor is dat deze route een langer voorvoegsel heeft dan de route ID2. Deze route is niet gekoppeld aan *Subnet2* en wordt dus niet weergegeven in de routetabel voor *Subnet2*. In feite vervangt deze route de route ID2 voor verkeer binnen *Subnet1*. Deze route bestaat om te voldoen aan [vereiste](#requirements) 3.
-4. Azure heeft de routes in de id's 4 en 5 automatisch toegevoegd voor alle subnetten in *Virtual-network-1* op het moment dat het virtuele netwerk via peering werd gekoppeld met *Virtual-network-2.* *Virtual-network-2* heeft twee adresbereiken in de bijbehorende adresruimte: 10.1.0.0/16 en 10.2.0.0/16. Daarom is in Azure voor elk bereik een route toegevoegd. Als de door de gebruiker gedefinieerde routes in route-id's 6 en 7 niet zouden zijn gemaakt, zou verkeer dat wordt verzonden naar een adres tussen 10.1.0.1-10.1.255.254 en 10.2.0.1-10.2.255.254 worden gerouteerd naar het via peering gekoppelde virtuele netwerk omdat het voorvoegsel langer is dan 0.0.0.0/0 en niet overeenkomt met de adresvoorvoegsels van een van de andere routes. Azure heeft de status automatisch gewijzigd van *Actief* in *Ongeldig* op het moment dat de routes in id's 6 en 7 werden toegevoegd. De reden hiervoor is dat deze routes hetzelfde voorvoegsel hebben als de routes in id's 4 en 5, en door de gebruiker gedefinieerde routes hebben prioriteit boven standaardroutes. De status van de routes in id's 4 en 5 is nog steeds *Actief* voor *Subnet2*, omdat de routetabel waarin die door de gebruiker gedefinieerde routes zich bevinden, niet is gekoppeld aan *Subnet2*. Er is een peering van virtuele netwerken gemaakt om te voldoen aan [vereiste](#requirements) 1.
+4. Azure heeft de routes in de id's 4 en 5 automatisch toegevoegd voor alle subnetten in *Virtual-network-1* op het moment dat het virtuele netwerk via peering werd gekoppeld met *Virtual-network-2.* *Virtual-network-2* heeft twee adresbereiken in de bijbehorende adresruimte: 10.1.0.0/16 en 10.2.0.0/16. Daarom is in Azure voor elk bereik een route toegevoegd. Als de door de gebruiker gedefinieerde routes in route-id's 6 en 7 niet zouden zijn gemaakt, zou verkeer dat wordt verzonden naar een adres tussen 10.1.0.1-10.1.255.254 en 10.2.0.1-10.2.255.254 worden gerouteerd naar het via peering gekoppelde virtuele netwerk omdat het voorvoegsel langer is dan 0.0.0.0/0 en niet overeenkomt met de adresvoorvoegsels van een van de andere routes. Azure heeft de status automatisch gewijzigd van *Actief* in *Ongeldig* op het moment dat de routes in id's 6 en 7 werden toegevoegd. De reden hiervoor is dat deze routes hetzelfde voorvoegsel hebben als de routes in id's 4 en 5, en door de gebruiker gedefinieerde routes hebben prioriteit boven standaardroutes. De status van de routes in id's 4 en 5 zijn nog steeds *Active* voor *Subnet2*, omdat de routetabel waarin die de gebruiker gedefinieerde routes in id's 6 en 7 werkt, niet is gekoppeld aan *Subnet2*. Er is een peering van virtuele netwerken gemaakt om te voldoen aan [vereiste](#requirements) 1.
 5. Zie de uitleg voor ID4.
 6. Azure heeft deze route en de route in ID7 toegevoegd op het moment dat door de gebruiker gedefinieerde routes voor de adresvoorvoegsels 10.1.0.0/16 en 10.2.0.0/16 werden gekoppeld aan het subnet *Subnet1*. Verkeer dat is bestemd voor adressen tussen 10.1.0.1-10.1.255.254 en 10.2.0.1-10.2.255.254 wordt verwijderd door Azure, en wordt dus niet doorgestuurd naar de via peering gekoppelde virtuele netwerken. De reden hiervoor is dat door de gebruiker gedefinieerde routes standaardroutes vervangen. De routes worden niet gekoppeld aan *Subnet2* en worden dus niet weergegeven in de routetabel voor *Subnet2*. De routes overschrijven de routes ID4 en ID5 voor verkeer dat *Subnet1* verlaat. De routes ID6 en ID7 bestaan om te voldoen aan [vereiste](#requirements) 3; verkeer verwijderen dat is bestemd voor het andere virtuele netwerk.
 7. Zie de uitleg voor ID6.
@@ -239,12 +239,12 @@ Hier volgt een uitleg van elke route-id:
 
 De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
 
-|Bron  |Status  |Adresvoorvoegsels    |Volgend hoptype             |IP-adres van volgende hop|
+|Source  |Status  |Adresvoorvoegsels    |Volgend hoptype             |IP-adres van volgende hop|
 |------- |-------|------              |-------                   |--------           
 |Standaard |Actief |10.0.0.0/16         |Virtueel netwerk           |                   |
 |Standaard |Actief |10.1.0.0/16         |VNet-peering              |                   |
 |Standaard |Actief |10.2.0.0/16         |VNet-peering              |                   |
-|Standaard |Actief |10.10.0.0/16        |Gateway van een virtueel netwerk   |[X.X.X.X]          |
+|Standaard |Actief |10.10.0.0/16        |Virtuele netwerkgateway   |[X.X.X.X]          |
 |Standaard |Actief |0.0.0.0/0           |Internet                  |                   |
 |Standaard |Actief |10.0.0.0/8          |Geen                      |                   |
 |Standaard |Actief |100.64.0.0/10       |Geen                      |                   |

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: be3cedc4b496f4f64a52217099f64092dfb49228
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 35e57dfcc7b1fd6f8de265ab75de29dedd8fdfc2
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149848"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501651"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Gebruik de CLI-extensie voor Azure Machine Learning-service
 
@@ -36,7 +36,11 @@ De CLI is geen vervanging voor de SDK van Azure Machine Learning. Het is een aan
 
 * De [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-## <a name="install-the-extension"></a>De extensie installeren
+## <a name="full-reference-docs"></a>Volledige naslaginformatie docs
+
+Zoek de [referentiedocumenten voor de azure-cli-ml-extensie van Azure CLI volledige](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
+
+## <a name="install-the-extension"></a>De uitbreiding installeren
 
 Gebruik de volgende opdracht voor het installeren van de Machine Learning CLI-extensie:
 
@@ -45,7 +49,7 @@ az extension add -n azure-cli-ml
 ```
 
 > [!TIP]
-> Van de voorbeeldbestanden die u met de onderstaande opdrachten gebruiken kunt vindt [hier](http://aka.ms/azml-deploy-cloud).
+> Van de voorbeeldbestanden die u met de onderstaande opdrachten gebruiken kunt vindt [hier](https://aka.ms/azml-deploy-cloud).
 
 Wanneer u hierom wordt gevraagd, selecteert u `y` voor het installeren van de extensie.
 
@@ -55,7 +59,7 @@ Om te controleren of de extensie is geïnstalleerd, gebruikt u de volgende opdra
 az ml -h
 ```
 
-## <a name="remove-the-extension"></a>De extensie verwijderen
+## <a name="remove-the-extension"></a>Verwijder de extensie
 
 Als u wilt verwijderen van de CLI-extensie, gebruik de volgende opdracht:
 
@@ -82,9 +86,12 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken voor het beheren van re
     Zie voor meer informatie, [az ml-werkruimte maken](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
 + Een configuratie van de werkruimte koppelen aan een map om in te schakelen contextuele awareness CLI.
+
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+
+    Deze opdracht maakt u een `.azureml` submap dat voorbeeld runconfig en conda-omgeving bevat. Het bevat ook een `config.json` -bestand dat wordt gebruikt om te communiceren met uw Azure Machine Learning-werkruimte.
 
     Zie voor meer informatie, [az ml-map koppelen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
@@ -121,6 +128,13 @@ De volgende opdrachten laten zien hoe u de CLI gebruiken voor het beheren van re
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
+    > [!TIP]
+    > De `az ml folder attach` opdracht maakt u een `.azureml` submap, die twee voorbeeld runconfig bestanden bevat. 
+    >
+    > Als u een Python-script waarmee u een configuratieobject uitvoeren via een programma maakt hebt, kunt u [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) als een runconfig opslaan.
+    >
+    > Zie voor meer voorbeeld runconfig bestanden, [ https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml ](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml).
+
     Zie voor meer informatie, [az ml verzenden-script uitvoeren](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
 * Een lijst van experimenten bekijken:
@@ -156,9 +170,26 @@ De volgende opdrachten laten zien hoe u een getraind model registreert en implem
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
     ```
 
+    Hier volgt een voorbeeld `inferenceconfig.json` document:
+
+    ```json
+    {
+    "entryScript": "score.py",
+    "runtime": "python",
+    "condaFile": "myenv.yml",
+    "extraDockerfileSteps": null,
+    "sourceDirectory": null,
+    "enableGpu": false,
+    "baseImage": null,
+    "baseImageRegistry": null
+    }
+    ```
+
     Zie voor meer informatie, [az ml-model implementeren](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Opdrachten voor de Machine Learning CLI-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
+
+* [Trainen en implementeren van machine learning-modellen met behulp van Azure-pijplijnen](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)

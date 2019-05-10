@@ -67,27 +67,29 @@
                 - name: Schijfversleuteling met VMMS-extensievolgorde
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: Bijlage voor schijfversleuteling
-              href: azure-security-disk-encryption-appendix.md
-            - name: Veelgestelde vragen over schijfversleuteling
-              href: azure-security-disk-encryption-faq.md
-            - name: Problemen oplossen
-              href: azure-security-disk-encryption-tsg.md
-            - name: Azure Disk Encryption met Azure AD-app (vorige versie)
-              displayName: active directory
-              items:
-                - name: Vereisten voor schijfversleuteling met de Azure AD-app
+                  href: azure-security-disk-encryption-appendix.md
+                - name: Veelgestelde vragen over schijfversleuteling
+                  href: azure-security-disk-encryption-faq.md
+                - name: Problemen oplossen
+                  href: azure-security-disk-encryption-tsg.md
+                - name: Azure Disk Encryption met Azure AD-app (vorige versie)
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: Schijfversleuteling met de Azure AD-app voor virtuele Windows-machines
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: Schijfversleuteling met de Azure AD-app voor virtuele Linux-machines
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: Vereisten voor schijfversleuteling met de Azure AD-app
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: Schijfversleuteling met de Azure AD-app voor virtuele Windows-machines
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: Schijfversleuteling met de Azure AD-app voor virtuele Linux-machines
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Beveiliging voor Azure Storage
       href: security-storage-overview.md
     - name: Gids voor opslagbeveiliging
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Klanten-lockbox
+      href: azure-customer-lockbox-overview.md
 - name: Platform en infrastructuur
   items:
     - name: Beveiligingsinfrastructuur
