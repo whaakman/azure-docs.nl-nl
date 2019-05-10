@@ -67,7 +67,7 @@
     - name: Facturering en abonnementen
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
     - name: Hosting-vergelijkingen
-      href: 'https://docs.microsoft.com/azure/app-service/overview-compare'
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: Wat is App Service?
       href: 'https://docs.microsoft.com/azure/app-service/overview'
     - name: Virtuele machines

@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: Inzicht in gegevensretentie
           href: time-series-insights-concepts-retention.md
+        - name: Ontwikkelen
+          items:
+            - name: Verifiëren en autoriseren
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'Gegevens opvragen met C#'
+              href: time-series-insights-query-data-csharp.md
+            - name: 'Referentiegegevens beheren in C#'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: Een aangepaste weergave delen
+              href: time-series-insights-parameterized-urls.md
     - name: Azure Time Series Insights preview
       items:
         - name: Uw omgeving plannen
@@ -54,16 +64,12 @@
           href: time-series-insights-update-tsq.md
         - name: Gegevens visualiseren in de verkenner - preview
           href: time-series-insights-update-explorer.md
-    - name: Ontwikkelen
-      items:
-        - name: Verifiëren en autoriseren
-          href: time-series-insights-authentication-and-authorization.md
-        - name: 'Gegevens opvragen met C#'
-          href: time-series-insights-query-data-csharp.md
-        - name: 'Referentiegegevens beheren in C#'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: Een aangepaste weergave delen
-          href: time-series-insights-parameterized-urls.md
+        - name: Ontwikkelen
+          items:
+            - name: Verifiëren en autoriseren
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'Gegevens opvragen met C#'
+              href: time-series-insights-update-query-data-csharp.md
 - name: Handleidingen
   items:
     - name: Gegevenstoegang verlenen

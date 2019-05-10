@@ -9,7 +9,7 @@
     - name: Over App Service-omgevingen
       href: environment/intro.md
     - name: Hostingopties vergelijken
-      href: overview-compare.md
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Snelstartgidsen
   expanded: true
   items:

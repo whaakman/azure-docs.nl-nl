@@ -124,6 +124,8 @@
         - name: Continue integratie met Azure DevOps Services
           href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
           maintainContext: true
+    - name: Sjabloon exporteren
+      href: export-template-portal.md
     - name: Beheren
       items:
         - name: Resourcegroepen beheren
