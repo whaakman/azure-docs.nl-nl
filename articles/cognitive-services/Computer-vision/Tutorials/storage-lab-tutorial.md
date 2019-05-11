@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202007"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541531"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Zelfstudie: Computer Vision gebruiken voor het genereren van afbeeldingsmetagegevens te genereren in Azure Storage
 
@@ -40,17 +40,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-a-computer-vision-resource"></a>Een Computer Vision-resource maken
 
-U moet een Computer Vision-resource maken voor uw Azure-account. Deze resource beheert uw toegang tot de Azure Computer Vision-service.
+U moet een Computer Vision-resource maken voor uw Azure-account. Deze resource beheert uw toegang tot de Azure Computer Vision-service. 
 
-1. Meld u aan bij de [Azure-portal](https://ms.portal.azure.com) en klik op **Een resource maken**. Klik vervolgens op **AI + Machine Learning** en op **Computer Vision**.
+1. Volg de instructies in [maken van een Azure Cognitive Services-resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) om een Computer Vision-resource te maken.
 
-    ![Een nieuw Computer Vision-API-abonnement maken](../Images/new-vision-api.png)
-
-1. Voer in het dialoogvenster 'vision-api-key' in in het veld **Naam** en selecteer **F0** als de **prijscategorie**. Selecteer dezelfde **locatie** die u hebt geselecteerd bij het instellen van uw Azure Storage-account. Selecteer bij **Resourcegroep** **Bestaande gebruiken** en kies hier ook dezelfde resourcegroep. Schakel het selectievakje bij **I confirm** (Ik bevestig dit) in en klik vervolgens op **Maken**.
-
-    ![Abonneer u op de Computer Vision-API](../Images/create-vision-api.png)
-
-1. Ga terug naar het menu van uw resourcegroep en klik op het Computer Vision-API-abonnement dat u zojuist hebt gemaakt. Kopieer de URL onder **Eindpunt** naar een plaats waar u de URL eenvoudig en snel weer kunt ophalen. Klik vervolgens op **Toegangssleutels weergeven**.
+1. Vervolgens gaat u naar het menu voor de resourcegroep en klik op de Computer Vision-API-abonnement dat u zojuist hebt gemaakt. Kopieer de URL onder **Eindpunt** naar een plaats waar u de URL eenvoudig en snel weer kunt ophalen. Klik vervolgens op **Toegangssleutels weergeven**.
 
     ![Azure portal op de pagina met de eindpunt-URL en toegang tot sleutels koppeling-die worden beschreven](../Images/copy-vision-endpoint.png)
 

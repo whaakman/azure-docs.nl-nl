@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 36f98a8dea2a732a7f8504b160da895637366fc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f5c87457f5d19b107f5722bc8c6a95174555332a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471906"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546354"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en extraheren van gegevens met behulp van REST-API met cURL
 
@@ -24,10 +24,10 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-* U hebt u toegang tot de Preview-versie formulier herkenning beperkte toegang. Voor toegang tot de Preview-versie, vul het en verzenden de [toegangsaanvraag voor herkenning van Cognitive Services-formulier](https://aka.ms/FormRecognizerRequestAccess) formulier. 
-* U moet [cURL](https://curl.haxx.se/windows/) hebben.
-* U moet een abonnementssleutel hebben voor de herkenning van het formulier. Volg de instructies in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) abonneren op formulier-herkenning en haal uw sleutel.
-* U moet een minimale set van vijf vormen van hetzelfde type hebben. U kunt een [voorbeeldgegevensset](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start.
+- U hebt u toegang tot de Preview-versie formulier herkenning beperkte toegang. Voor toegang tot de Preview-versie, vul het en verzenden de [toegangsaanvraag voor herkenning van Cognitive Services-formulier](https://aka.ms/FormRecognizerRequestAccess) formulier.
+- U moet [cURL](https://curl.haxx.se/windows/) hebben.
+- U moet een abonnementssleutel hebben voor de herkenning van het formulier. Volg de instructies voor één service-abonnement in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) abonneren op formulier-herkenning en haal uw sleutel. Gebruik niet meerdere service-abonnement, als dit niet het formulier herkenning service bevat.
+- U moet een minimale set van vijf vormen van hetzelfde type hebben. U kunt een [voorbeeldgegevensset](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start.
 
 ## <a name="train-a-form-recognizer-model"></a>Een formulier herkenning-model te trainen
 

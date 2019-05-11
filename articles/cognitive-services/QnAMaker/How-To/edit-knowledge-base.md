@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61374416"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541566"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Een kennisdatabase in QnA Maker bewerken
 
@@ -72,8 +72,7 @@ Alternatieve vragen toevoegen aan een bestaande QnA-paar voor het verbeteren van
 
 ## <a name="add-metadata"></a>metagegevens toevoegen
 
-
-De metagegevens van paren toevoegen door de metagegevens-pictogram te selecteren. Een paar metagegevens bestaat uit één sleutel en één waarde.
+Metagegevens paren toevoegen door eerst te selecteren **weergaveopties**, vervolgens de optie **metagegevens weergeven**. U ziet nu de kolommen met metagegevens. Selecteer vervolgens de **+** zich bij het toevoegen van een combinatie van metagegevens. Deze paar bestaat uit één sleutel en één waarde.
 
 ![Metagegevens toevoegen](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

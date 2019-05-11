@@ -5,21 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893007"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544951"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Zelfstudie: builds van containerinstallatiekopieën in de cloud automatiseren bij het doorvoeren van broncode
 
-Naast een [quick-taak](container-registry-tutorial-quick-task.md) biedt ACR Tasks ondersteuning voor geautomatiseerde builds van Docker-containerinstallatiekopieën met de *build-taak*. In deze zelfstudie leert u hoe u de Azure CLI gebruikt om een taak te maken die builds van installatiekopieën automatisch activeert in de cloud wanneer u broncode naar een Git-opslagplaats doorvoert.
+Naast een [snelle taak](container-registry-tutorial-quick-task.md), ACR taken biedt ondersteuning voor geautomatiseerde Docker-containerinstallatiekopie in de cloud maakt wanneer u broncode aan een Git-opslagplaats.
 
-In deze zelfstudie, het tweede deel in de serie, leert u het volgende:
+In deze zelfstudie, uw ACR-taak bouwt en een enkele container-installatiekopie opgegeven in een docker-bestand wanneer u broncode aan een Git-opslagplaats pushes. Maakt een [taak meerdere stappen](container-registry-tasks-multi-step.md) die gebruikmaakt van een YAML-bestand voor het definiëren van de stappen voor het bouwen, pushen, en (optioneel) testen van meerdere containers op code doorvoeren, Zie [zelfstudie: De werkstroom van een container met meerdere stappen in de cloud worden uitgevoerd wanneer u broncode](container-registry-tutorial-multistep-task.md). Zie voor een overzicht van de ACR-taken, [besturingssysteem automatiseren en framework patchen met ACR-taken](container-registry-tasks-overview.md)
+
+In deze zelfstudie:
 
 > [!div class="checklist"]
 > * Een taak maken
@@ -33,51 +35,13 @@ In deze zelfstudie wordt ervan uitgegaan dat u de stappen in de [vorige zelfstud
 
 Als u de Azure CLI lokaal wilt gebruiken, moet u Azure CLI versie **2.0.46** of hoger hebben geïnstalleerd  en zijn aangemeld met [az login][az-login]. Voer `az --version` uit om de versie te bekijken. Als u de CLI wilt installeren of upgraden, raadpleegt u [Azure CLI installeren][azure-cli].
 
-## <a name="prerequisites"></a>Vereisten
+[!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-### <a name="get-sample-code"></a>Voorbeeldcode ophalen
-
-In deze zelfstudie wordt ervan uitgegaan dat u de stappen in de [vorige zelfstudie](container-registry-tutorial-quick-task.md) hebt voltooid en dat u de voorbeeldopslagplaats hebt gesplitst en gekloond. Als u dit nog niet hebt gedaan, voert u de stappen in de sectie [Vereisten](container-registry-tutorial-quick-task.md#prerequisites) van de vorige zelfstudie uit voordat u doorgaat.
-
-### <a name="container-registry"></a>Containerregister
-
-U moet een Azure-containerregister in uw Azure-abonnement hebben om deze zelfstudie te voltooien. Als u een register nodig hebt, raadpleegt u de [vorige zelfstudie](container-registry-tutorial-quick-task.md) of [Quickstart: een containerregister maken met de Azure-CLI](container-registry-get-started-azure-cli.md).
-
-## <a name="overview-of-acr-tasks"></a>Overzicht van de ACR-taken
-
-Een taak definieert de eigenschappen van een geautomatiseerde build, met inbegrip van de locatie van de broncode van de containerinstallatiekopie en de gebeurtenis die de build activeert. Als een in de taak gedefinieerde gebeurtenis optreedt, zoals het doorvoeren van gegevens naar een Git-opslagplaats, initieert ACR Tasks een build van een containerinstallatiekopie in de cloud. Het stuurt dan vervolgens standaard een met succes gebouwde installatiekopie naar het Azure-containerregister dat is opgegeven in de taak.
-
-ACR Tasks ondersteunt momenteel de volgende triggers:
-
-* Doorvoeren naar een Git-opslagplaats
-* Basisinstallatiekopieën bijwerken
-
-In deze zelfstudie wordt met uw ACR-taak één containerinstallatiekopie gemaakt en gepusht, die is opgegeven in een Dockerfile. ACR-taken kunnen ook uitgevoerd [taken meerdere stappen](container-registry-tasks-multi-step.md), met behulp van een YAML-bestand voor het definiëren van de stappen voor het bouwen, push en eventueel meerdere containers te testen.
-
-## <a name="create-a-build-task"></a>Een build-taak maken
-
-In deze sectie maakt u eerst een persoonlijk toegangstoken (PAT) van een GitHub voor gebruik met ACR Tasks. Vervolgens maakt u een taak die een build activeert wanneer code wordt doorgevoerd naar uw fork van de opslagplaats.
-
-### <a name="create-a-github-personal-access-token"></a>Een persoonlijk toegangstoken van GitHub maken
-
-Om een build op een doorvoer naar een Git-opslagplaats te activeren, heeft ACR Tasks een persoonlijk toegangstoken (PAT) nodig voor toegang tot de opslagplaats. Volg deze stappen om een PAT te genereren in GitHub:
-
-1. Navigeer naar de pagina PAT maken op GitHub op https://github.com/settings/tokens/new
-1. Geef een korte **beschrijving** voor het token op, bijvoorbeeld 'Demo ACR Tasks'
-1. Onder **opslagplaats** schakelt u **opslagplaats:status** en **public_repo** in
-
-   ![Schermafbeelding van de pagina Persoonlijk toegangstoken genereren in GitHub][build-task-01-new-token]
-
-1. Selecteer de knop **Token genereren** (u wordt mogelijk gevraagd om uw wachtwoord te bevestigen)
-1. Kopieer en bewaar het gegenereerde token in een **beveiligde locatie** (u gebruikt dit token bij het definiëren van een taak in de volgende sectie)
-
-   ![Schermafbeelding van het gegeneerde persoonlijke toegangstoken in GitHub][build-task-02-generated-token]
-
-### <a name="create-the-build-task"></a>De build-taak maken
+## <a name="create-the-build-task"></a>De build-taak maken
 
 Nu u de stappen hebt voltooid die nodig zijn om ACR Tasks in te schakelen om toewijzingsstatus te lezen en webhooks te maken in een opslagplaats, kunt u een taak maken die een build van een containerinstallatiekopie activeert op doorvoeracties naar de opslagplaats.
 
-Vul eerst deze shell-omgevingsvariabelen met waarden die geschikt zijn voor uw omgeving. Hoewel deze stap strikt genomen niet vereist is, vereenvoudigt u hiermee de uitvoering van meerregelige Azure CLI-opdrachten in deze zelfstudie. Als u deze omgevingsvariabelen niet invult, moet u elke bijbehorende waarde handmatig vervangen wanneer deze wordt weergegeven in de voorbeeldopdrachten.
+Vul eerst deze shell-omgevingsvariabelen met waarden die geschikt zijn voor uw omgeving. Hoewel deze stap strikt genomen niet vereist is, vereenvoudigt u hiermee de uitvoering van meerregelige Azure CLI-opdrachten in deze zelfstudie. Als u deze omgevingsvariabelen niet vullen, moet u handmatig elke waarde vervangen waar deze wordt weergegeven in de voorbeeldopdrachten.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -85,7 +49,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Maak nu de taak door de volgende [az acr task create][az-acr-task-create]-opdracht uit te voeren:
+Maak nu de taak door het uitvoeren van de volgende [az acr-taak maken] [ az-acr-task-create] opdracht:
 
 ```azurecli-interactive
 az acr task create \
@@ -106,14 +70,6 @@ Deze taak geeft aan dat elke keer dat code wordt doorgevoerd naar de *master*-ve
 De uitvoer van een geslaagde [az acr task create][az-acr-task-create]-opdracht is vergelijkbaar met het volgende:
 
 ```console
-$ az acr task create \
->     --registry $ACR_NAME \
->     --name taskhelloworld \
->     --image helloworld:{{.Run.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
->     --branch master \
->     --file Dockerfile \
->     --git-access-token $GIT_PAT
 {
   "agentConfiguration": {
     "cpu": 2
@@ -326,12 +282,11 @@ In deze zelfstudie leert u hoe u een taak gebruikt om builds van containerinstal
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login
 
-<!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
+
+

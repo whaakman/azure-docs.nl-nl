@@ -1,5 +1,5 @@
 ---
-title: Een knowledge base maken
+title: Een Knowledge Base maken
 titleSuffix: QnA Maker API - Azure Cognitive Services
 description: Gebruik de QnA Maker API-serviceportal, om toe te voegen een kennisdatabase met chit chat maken. Hierdoor wordt uw app deelnemen. Toevoegen van een vooraf gevulde set van de bovenste chit-chat in uw KB als uitgangspunt voor van uw bot chit-chat en bespaart u tijd en kosten van het schrijven van deze helemaal.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61373505"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541800"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Quickstart: Een kennisdatabase met behulp van de portal QnA Maker API maken
 
@@ -50,7 +50,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
     - Uploaden van bestanden voor gegevens die u opgehaald wilt. Zie de [informatie over de prijzen](https://aka.ms/qnamaker-pricing) om te zien hoeveel documenten kunnen toevoegen.
     - Als u vragen en antwoorden supereenvoudig handmatig toevoegen wilt, kunt u overslaan **stap 4** weergegeven in de vorige afbeelding.
 
-1. Voeg **Chit chat** aan uw KB. Kies chit chatondersteuning voor uw bot toevoegen door een van de 3 wensen te kiezen. 
+1. Voeg **Chit chat** aan uw KB. Kies chit chat-ondersteuning voor uw bot toevoegen door te kiezen uit een van de wensen. 
 
     ![Chit chat toevoegen aan KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 

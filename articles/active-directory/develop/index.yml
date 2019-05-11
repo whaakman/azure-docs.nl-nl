@@ -6,7 +6,7 @@ metadata:
   description: 'Leer hoe u met het Microsoft Identity Platform apps bouwt waarbij gebruikers zich veilig kunnen aanmelden met alle Microsoft-identiteiten en waarmee tokens worden opgehaald voor het aanroepen van Microsoft Graph, andere Microsoft-API''s of API''s die door ontwikkelaars zijn gemaakt.'
   services: active-directory
   author: CelesteDG
-  manager: mtillman
+  manager: CelesteDG
   ms.service: active-directory
   ms.subservice: develop
   ms.tgt_pltfrm: na

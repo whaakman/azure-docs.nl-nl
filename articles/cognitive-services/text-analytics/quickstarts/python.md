@@ -10,21 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/09/2019
 ms.author: aahi
-ms.openlocfilehash: 9d6dfb79d02df3eebe33e67743ceaf97fc0a2a77
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: fb411b7e36d8658c5f46294a3b7025c3e93928e7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519355"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540118"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Met behulp van de Python-REST-API voor het aanroepen van de Text Analytics-Cognitive Service 
 <a name="HOLTop"></a>
 
 Gebruik deze Quick Start om te beginnen met het analyseren van de taal met de Text Analytics REST-API en Python. In dit artikel ziet u hoe u aan [taal detecteren](#Detect), [stemming analyseren](#SentimentAnalysis), [Extraheer sleuteluitdrukkingen](#KeyPhraseExtraction), en [gekoppelde entiteiten identificeren](#Entities).
-
-U kunt dit voorbeeld vanaf de opdrachtregel of als een Jupyter-notebook uitvoert op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
@@ -42,13 +38,7 @@ Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor tec
     pip install --upgrade requests
     ```
 
-* Als u de notebook Binder lokaal uitvoert, moet u mogelijk om bij te werken [IPython](https://ipython.org/install.html):
-    
-    ```console
-    pip install --upgrade IPython
-    ```
-
-* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 
 ## <a name="create-a-new-python-application"></a>Een nieuwe Python-toepassing maken

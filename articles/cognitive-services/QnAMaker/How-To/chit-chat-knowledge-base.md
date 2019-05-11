@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153686"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541007"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Chit chat toevoegen aan een kennisdatabase
 
@@ -24,17 +24,19 @@ Chit chat toe te voegen aan uw bot kunt u meer beschrijvende en aantrekkelijke. 
 
 Deze gegevensset heeft ongeveer 100 scenario's van chit chat in de stem van meerdere personen, zoals Professional, gebruiksvriendelijke en Witty. Kies de persona die van uw bot stem het beste past. De aanvraag voor een gebruiker worden gegeven, probeert QnA Maker moet deze overeenkomen met de meest bekende chit-chat QnA.  
 
-Enkele voorbeelden van de verschillende persoonlijkheden staan hieronder. U ziet de persoonlijkheid gegevenssets, samen met details van de persoonlijkheden [hier](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+Enkele voorbeelden van de verschillende persoonlijkheden staan hieronder. U ziet alle persoonlijkheid [gegevenssets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) , samen met details van de wensen.
+
+Voor de gebruikersquery van `When is your birthday?`, elke persoonlijkheid heeft een opgemaakte reactie:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Gebruikersquery|Professioneel|Beschrijvende|Witty|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|Persoonlijkheid|Voorbeeld|
+|--|--|
+|Professioneel|Leeftijd aan mij echt is niet van toepassing.|
+|Beschrijvende|Ik hoef niet echt een leeftijd.|
+|Witty|Ik ben leeftijd is gratis.|
+|Caring|Ik heb een leeftijd.|
+|Enthousiaste|Ik ben een bot, zodat ik heb een leeftijd.|
+||
 
 > [!NOTE]
 > Chit chatsupport is alleen beschikbaar in het Engels. 

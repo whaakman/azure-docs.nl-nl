@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61379199"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541510"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best practices van een kennisdatabase QnA Maker
 De [kennisdatabase ontwikkelingscyclus](../Concepts/development-lifecycle-knowledge-base.md) helpt u over het beheren van uw KB van begin tot einde. Gebruik deze aanbevolen procedures te verbeteren van uw knowledge base en biedt betere resultaten van uw toepassing/chat bot-eindgebruikers.
@@ -39,18 +39,20 @@ Voeg zo veel alternatieve vragen als u nodig hebt, maar de wijzigingen eenvoudig
 De beste antwoorden vindt u eenvoudige antwoorden, maar niet te eenvoudig zoals Ja en geen antwoorden. Als het antwoord moet aan andere bronnen koppelen of een rijke ervaring met koppelingen en media bieden, gebruikt u [tagging](../how-to/metadata-generateanswer-usage.md) om u te onderscheiden welk type antwoord die u verwacht, die code met de query voor de versie van het juiste antwoord vervolgens verzendt.
 
 ## <a name="chit-chat"></a>Chit Chat
-Chit chat toevoegen aan uw bot, maak uw bot aantrekkelijke, en meer conversatie met kleine hoeveelheid werk. U kunt eenvoudig chit chat gegevenssets voor 3 vooraf gedefinieerde persoonlijkheden toevoegen bij het maken van uw KB en deze op elk gewenst moment wijzigen. Meer informatie over het [chit chat toevoegen aan uw KB](../How-To/chit-chat-knowledge-base.md). 
+Chit chat toevoegen aan uw bot, maak uw bot aantrekkelijke, en meer conversatie met kleine hoeveelheid werk. U kunt eenvoudig chit chat gegevenssets uit vooraf gedefinieerde persoonlijkheden toevoegen bij het maken van uw KB en deze op elk gewenst moment wijzigen. Meer informatie over het [chit chat toevoegen aan uw KB](../How-To/chit-chat-knowledge-base.md). 
 
 ### <a name="choosing-a-personality"></a>Een persoonlijkheid kiezen
-Chit chat wordt ondersteund voor 3 vooraf gedefinieerde persoonlijkheden: 
+Chit chat wordt ondersteund voor verschillende vooraf gedefinieerde persoonlijkheden: 
 
-|Persoonlijkheden|
-|--|
-|De medewerker|
-|De vriend|
-|De Comic|
+|Persoonlijkheid |QnA Maker-gegevensset-bestand |
+|---------|-----|
+|Professioneel |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Beschrijvende |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Witty |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Caring |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Enthousiaste |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-De antwoorden variëren van formele tot informele en vast. U kunt de persoonlijkheid die dichtst is afgestemd op de toon die u wilt gebruiken voor uw bot moet selecteren. U kunt de gegevenssets weergeven en kies een die als basis voor uw bot fungeert en pas vervolgens de antwoorden. 
+De antwoorden variëren van formele tot informele en vast. U kunt de persoonlijkheid die dichtst is afgestemd op de toon die u wilt gebruiken voor uw bot moet selecteren. U vindt de [gegevenssets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), en kies een die als basis voor uw bot fungeert, en pas vervolgens de antwoorden. 
 
 ### <a name="edit-bot-specific-questions"></a>Bot-specifieke vragen bewerken
 Er zijn enkele bot-specifieke vragen die deel uitmaken van de gegevensset chit chat en algemene antwoorden zijn is ingevuld. Wijzig deze vragen te beantwoorden om de details van uw bot beste weer te geven. 
