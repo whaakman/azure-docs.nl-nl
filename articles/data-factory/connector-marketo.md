@@ -49,8 +49,8 @@ De volgende eigenschappen worden ondersteund voor Marketo gekoppelde service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Marketo** | Ja |
 | endpoint | Het eindpunt van de Marketo-server. (dat wil zeggen 123-ABC-321.mktorest.com)  | Ja |
-| ClientId | De client-Id van uw Marketo-service.  | Ja |
-| ClientSecret | Het clientgeheim van uw Marketo-service. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientId | De client-Id van uw Marketo-service.  | Ja |
+| clientSecret | Het clientgeheim van uw Marketo-service. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
