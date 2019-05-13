@@ -56,10 +56,10 @@ De volgende eigenschappen worden ondersteund voor MongoDB gekoppelde service:
 |:--- |:--- |:--- |
 | type |De eigenschap type moet worden ingesteld op: **MongoDb** |Ja |
 | server |IP-adres of de hostnaam de naam van de MongoDB-server. |Ja |
-| poort |TCP-poort die de MongoDB-server wordt gebruikt om te luisteren naar clientverbindingen. |Nee (de standaardinstelling is 27017) |
+| port |TCP-poort die de MongoDB-server wordt gebruikt om te luisteren naar clientverbindingen. |Nee (de standaardinstelling is 27017) |
 | databaseName |De naam van de MongoDB-database die u wilt openen. |Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de MongoDB-database.<br/>Toegestane waarden zijn: **Basic**, en **anonieme**. |Ja |
-| gebruikersnaam |Gebruikersaccount voor toegang tot MongoDB. |Ja (als basisverificatie wordt gebruikt). |
+| username |Gebruikersaccount voor toegang tot MongoDB. |Ja (als basisverificatie wordt gebruikt). |
 | password |Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja (als basisverificatie wordt gebruikt). |
 | authSource |De naam van de MongoDB-database die u wilt gebruiken om te controleren of uw referenties voor verificatie. |Nee. Standaard wordt het beheerdersaccount en de database die is opgegeven met behulp van de eigenschap databaseName gebruiken voor basisverificatie. |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |
@@ -176,14 +176,14 @@ Het kopiëren van gegevens van MongoDB, worden de volgende toewijzingen van Mong
 
 | MongoDB-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Binair bestand |Byte[] |
+| Binary |Byte[] |
 | Boolean |Boolean |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| Reeks |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalized afvlakken in kolommen met '_' als geneste scheidingsteken |
 
