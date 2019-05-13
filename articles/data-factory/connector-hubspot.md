@@ -45,8 +45,8 @@ De volgende eigenschappen worden ondersteund voor HubSpot gekoppelde service:
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Hubspot** | Ja |
-| ClientId | De client-ID die is gekoppeld aan uw toepassing Hubspot.  | Ja |
-| ClientSecret | Het clientgeheim die zijn gekoppeld aan uw toepassing Hubspot. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientId | De client-ID die is gekoppeld aan uw toepassing Hubspot.  | Ja |
+| clientSecret | Het clientgeheim die zijn gekoppeld aan uw toepassing Hubspot. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessToken | Het toegangstoken verkregen bij het verifiëren van uw OAuth-integratie in eerste instantie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | refreshToken | Het vernieuwingstoken dat is verkregen bij het verifiëren van uw OAuth-integratie in eerste instantie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
