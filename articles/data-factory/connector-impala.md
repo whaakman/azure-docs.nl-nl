@@ -46,10 +46,10 @@ De volgende eigenschappen worden ondersteund voor Impala service gekoppelde.
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **Impala**. | Ja |
 | host | De IP-adres of de hostnaam naam van de Impala-server (dat wil zeggen, 192.168.222.160).  | Ja |
-| poort | De TCP-poort die de Impala-server wordt gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 21050.  | Nee |
+| port | De TCP-poort die de Impala-server wordt gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 21050.  | Nee |
 | authenticationType | Het verificatietype te gebruiken. <br/>Toegestane waarden zijn **anoniem**, **SASLUsername**, en **UsernameAndPassword**. | Ja |
-| gebruikersnaam | De gebruikersnaam die wordt gebruikt voor toegang tot de Impala-server. De standaardwaarde is anoniem wanneer u SASLUsername gebruikt.  | Nee |
-| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker wanneer u UsernameAndPassword gebruikt. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| username | De gebruikersnaam die wordt gebruikt voor toegang tot de Impala-server. De standaardwaarde is anoniem wanneer u SASLUsername gebruikt.  | Nee |
+| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker wanneer u UsernameAndPassword gebruikt. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is **false**.  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met vertrouwde CA-certificaten gebruikt om te controleren of de server wanneer u verbinding via SSL maakt. Deze eigenschap kan alleen worden ingesteld als u SSL op zelfgehoste Cloudintegratieruntime. De standaardwaarde is de cacerts.pem-bestand met de integratieruntime geïnstalleerd.  | Nee |
 | useSystemTrustStore | Hiermee bepaalt u of u een CA-certificaat uit het archief van de vertrouwensrelatie systeem- of uit een opgegeven PEM-bestand. De standaardwaarde is **false**.  | Nee |
