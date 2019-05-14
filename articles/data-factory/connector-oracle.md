@@ -279,25 +279,25 @@ Wanneer u gegevens van en naar Oracle kopiëren, worden de volgende toewijzingen
 
 | Oracle-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
-| BBESTAND |Byte[] |
+| BFILE |Byte[] |
 | BLOB |Byte[]<br/>(alleen ondersteund op Oracle 10g en hoger) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimaal getal, tekenreeks (als precisie > 28) |
-| GEHEEL GETAL ZIJN |Decimaal getal, tekenreeks (als precisie > 28) |
+| FLOAT |Decimal, String (als precisie > 28) |
+| INTEGER |Decimal, String (als precisie > 28) |
 | LONG |String |
-| LANGE ONBEWERKTE |Byte[] |
+| LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| AANTAL |Decimaal getal, tekenreeks (als precisie > 28) |
+| NUMBER |Decimal, String (als precisie > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
 | TIMESTAMP |DateTime |
-| TIJDSTEMPEL MET DE LOKALE TIJDZONE |String |
-| TIJDSTEMPEL MET TIJDZONE |String |
-| GEHEEL GETAL ZONDER TEKEN |Aantal |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 
