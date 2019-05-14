@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0b47ffd77ee23f997bb7de2ea41f83c2854cba72
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068675"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550895"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB beheren
 
@@ -22,6 +22,9 @@ In Azure Cosmos DB worden gegevens zijn geïndexeerd met het volgende [indexerin
 - met behulp van een van de SDK 's
 
 Een [indexeren beleidsupdates](index-policy.md#modifying-the-indexing-policy) activeert een transformatie index. De voortgang van deze transformatie kan ook worden bijgehouden in de SDK's.
+
+> [!NOTE]
+> Als onderdeel van de SDK en Portal-upgrade, zijn we in het beleid van de index om uit te lijnen met een nieuwe indexindeling dat we hebben geïmplementeerd voor nieuwe containers ontwikkeling. Met deze nieuwe indeling, worden alle primitieve gegevenstypen geïndexeerd als bereik met de volledige precisie (-1). Daarom zijn de typen van de index en de precisie niet beschikbaar in de gebruiker niet meer. Gebruikers in de toekomst moet gewoon paden naar de sectie includedPaths toevoegen en indexKinds en precisie genegeerd. Deze wijziging heeft geen invloed op prestaties en u kunt doorgaan met het indexeringsbeleid met dezelfde syntaxis bijwerken. U kunt echter ook doorgaan met alle voorbeelden in de documentatie van onze bestaande index Groepsbeleid bij te werken.
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
