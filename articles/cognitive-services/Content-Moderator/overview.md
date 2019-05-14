@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129431"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551328"
 ---
 # <a name="what-is-azure-content-moderator"></a>Wat is Azure Content Moderator?
 
-De Azure Content Moderator-API is een cognitieve service waarmee tekst, afbeeldingen en video-inhoud van materiaal wordt gecontroleerd op mogelijk aanstootgevende, riskante of anderszins ongewenst inhoud. Wanneer dergelijk materiaal wordt gevonden, past de service de relevante labels (vlaggen) op de inhoud toe. Uw app kan gelabelde inhoud vervolgens afhandelen om te voldoen aan de regelgeving of om een beoogde omgeving voor gebruikers te beheren. Zie de sectie [Content Moderator-API's](#content-moderator-apis) voor meer informatie over wat de verschillende inhoudsvlaggen betekenen.
+De Azure Content Moderator-API is een cognitieve service waarmee tekst, afbeeldingen en video-inhoud van materiaal wordt gecontroleerd op mogelijk aanstootgevende, riskante of anderszins ongewenst inhoud. Wanneer dergelijk materiaal wordt gevonden, past de service de relevante labels (vlaggen) op de inhoud toe. Uw app kan gelabelde inhoud vervolgens afhandelen om te voldoen aan de regelgeving of om een beoogde omgeving voor gebruikers te beheren. Zie de [beheer-API's](#moderation-apis) sectie voor meer informatie over wat de inhoud van de verschillende vlaggen geven.
 
 ## <a name="where-it-is-used"></a>Toepassingen van Content Moderator
 
@@ -35,22 +35,32 @@ Hieronder vindt u enkele scenario's waarin een softwareontwikkelaar of -team Con
 
 De Content Moderator-service bestaat uit verschillende webservice-API's die beschikbaar zijn via zowel REST-aanroepen als een SDK voor .NET. Hiertoe behoort ook het hulpprogramma voor menselijke beoordeling, waarmee menselijke revisoren de service kunnen verbeteren of de toezichtfunctie kunnen aanpassen.
 
-![Blokdiagram voor Content Moderator met de Moderation-API's, Review-API's en het hulpprogramma voor menselijke beoordeling](images/content-moderator-block-diagram.png)
+## <a name="moderation-apis"></a>Beheer-API's
 
-### <a name="content-moderator-apis"></a>Content Moderator-API's
+De Content Moderator-service bevat beheer-API's, die inhoud voor materiaal dat is mogelijk ongepast of aanstootgevend controleren.
 
-De Content Moderator-service omvat API's voor de volgende scenario's.
+![diagram voor Content Moderator afbeeldingstoezicht-API's blokkeren](images/content-moderator-mod-api.png)
 
-| API-groep | Beschrijving |
+De volgende tabel beschrijft de verschillende typen afbeeldingstoezicht-API's.
+
+| API-groep | Description |
 | ------ | ----------- |
 |[**Teksttoezicht**](text-moderation-api.md)| Tekst voor aanstootgevende inhoud, seksueel expliciet of suggestieve inhoud, grof taalgebruik en persoonlijke gegevens scant.|
 |[**Aangepaste terminologielijsten**](try-terms-list-api.md)| Hiermee wordt tekst niet alleen vergeleken met de ingebouwde termen maar ook met een aangepaste terminologielijst. U kunt aangepaste lijsten gebruiken om inhoud te blokkeren of toe te staan volgens uw eigen beleidsregels voor inhoud.|  
 |[**Afbeeldingstoezicht**](image-moderation-api.md)| Hiermee worden afbeeldingen gescand op erotische of racistische inhoud, wordt tekst in afbeeldingen gedetecteerd met de OCR-functie (optische tekenherkenning) en worden gezichten gedetecteerd.|
 |[**Aangepaste afbeeldingslijsten**](try-image-list-api.md)| Hiermee worden afbeeldingen vergeleken met een aangepaste lijst van afbeeldingen. U kunt aangepaste afbeeldingslijsten gebruiken om te filteren op exemplaren van veelvoorkomende terugkerende inhoud die u niet opnieuw wilt classificeren.|
 |[**Videotoezicht**](video-moderation-api.md)| Hiermee worden video's gescand op erotische of racistische inhoud en worden tijdmarkeringen voor deze inhoud geretourneerd.|
-|[**API's bekijken**](try-review-api-job.md)| Gebruik de bewerkingen [Taken](try-review-api-job.md), [Beoordelingen](try-review-api-review.md) en [Werkstroom](try-review-api-workflow.md) om werkstromen voor menselijke beoordeling met het hulpprogramma voor menselijke beoordeling te maken en te automatiseren. De werkstroom-API is nog niet beschikbaar in de .NET SDK.|
 
-### <a name="review-tool"></a>Beoordelingsprogramma
+## <a name="review-apis"></a>Beoordelings-API's
+
+De beoordeling-API's kunt u uw pijplijn toezicht integreren met menselijke revisoren. Gebruik de [taken](review-api.md#jobs), [beoordelingen](review-api.md#reviews), en [werkstroom](review-api.md#workflows) bewerkingen om te maken en automatiseer werkstromen met human-in-the-loop de [beoordelingsprogramma](#the-review-tool) () Zie hieronder).
+
+> [!NOTE]
+> De werkstroom-API is nog niet beschikbaar in de .NET SDK, maar kan worden gebruikt met de REST-eindpunt.
+
+![Blokdiagram voor Content Moderator API's bekijken](images/content-moderator-rev-api.png)
+
+## <a name="the-review-tool"></a>Het beoordelingsprogramma
 
 De Content Moderator-service bevat ook de webgebaseerde [beoordelingsprogramma](Review-Tool-User-Guide/human-in-the-loop.md), die als host fungeert voor de inhoud beoordelingen voor menselijke moderators te verwerken. De service wordt niet getraind door menselijke invoer, maar de combinatie van het werk van de service en de menselijke beoordelingsteams zorgt voor een juiste balans tussen de efficiëntie en de nauwkeurigheid. Het beoordelingsprogramma biedt ook een gebruiksvriendelijke front-end voor een verscheidenheid aan Content Moderator-resources.
 

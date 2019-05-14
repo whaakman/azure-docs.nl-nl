@@ -59,6 +59,8 @@
     - name: VM-typen en -groottes
       href: sizes.md
       items:
+        - name: VM's uit de tweede generatie
+          href: generation-2.md
         - name: Algemeen doel
           href: sizes-general.md
           displayName: Dsv3 Dv3 DSv2 Dv2 Av2

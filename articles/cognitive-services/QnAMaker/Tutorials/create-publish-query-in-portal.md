@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149960"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594163"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Zelfstudie: Een kennisdatabase maken vanuit de QnA Maker portal
 
@@ -68,7 +68,7 @@ Voor deze zelfstudie moet u beschikken over een bestaande [QnA Maker-service](..
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |De inhoud van de veelgestelde vragen bij die URL zijn ingedeeld met een vraag gevolgd door een antwoord. QnA Maker kan deze indeling interpreteren om vragen en de bijbehorende antwoorden te extraheren.|
     |File |_niet gebruikt in deze zelfstudie_|Hiermee worden bestanden voor vragen en antwoorden geüpload. |
-    |De persoonlijkheid 'Heen- en weergepraat'|Beschrijvende|Dit biedt een vriendelijke en informele persoonlijkheid voor veelgestelde vragen en antwoorden. U kunt deze vragen en antwoorden later bewerken. |
+    |De persoonlijkheid 'Heen- en weergepraat'|Beschrijvende|Dit biedt een vriendelijke en casual [persoonlijkheid](../Concepts/best-practices.md#chit-chat) op veelgestelde vragen en antwoorden. U kunt deze vragen en antwoorden later bewerken. |
 
     ![Stap 4 van het proces voor het maken van een KB](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

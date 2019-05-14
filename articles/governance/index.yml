@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: governance
   ms.topic: landing-page
-  ms.date: 09/18/2018
+  ms.date: 05/07/2019
   ms.author: dacoulte
 abstract:
   description: 'Azure Governance is een verzameling concepten en services die zijn ontworpen om het beheer van verschillende Azure-resources op schaal mogelijk te maken. Deze services bieden de mogelijkheid om uw abonnementen op een logische manier te ordenen en te structureren, herbruikbare systeemeigen Azure-pakketten van resources maken en implementeren en om uw resources te definiëren, controleren en herstellen. Gebruik deze pagina om meer te leren over deze concepten en services en hoe u deze vandaag nog in uw omgeving inschakelt en gebruikt.'
@@ -53,16 +53,16 @@ sections:
               alt: Blueprints
               src: ./media/blueprints-illustration.svg
             title: Blueprints
-  - title: Implementaties
+  - title: Cloud Adoption Framework
   - items:
       - type: list
         style: cards
         className: cardsZ
         columns: 3
         items:
-          - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-            html: '<p>In het verleden namen bedrijven het eigendom van en de verantwoordelijkheid voor alle technologieniveaus voor hun rekening, van infrastructuur tot software. De cloud biedt nu de mogelijkheid om de manier waarop bedrijven technologie gebruiken, te transformeren door resources naar wens in te richten en te gebruiken.</p>'
-            title: Een bedrijfscloud implementeren
-          - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-            html: '<p>Hiermee kunnen beheerders ervoor zorgen dat werkbelastingen voldoen aan de minimale governancevereisten van een organisatie, zonder dat bedrijfsgroepen en ontwikkelaars in de weg worden gezeten.<br /><br /></p>'
-            title: Enterprise Scaffold
+          - href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+            html: '<p>Het Cloud Adoption Framework biedt technische richtlijnen voor Microsoft Azure. Aangezien klanten mogelijk nog geen cloudleverancier hebben gekozen, biedt dit framework waar mogelijk cloudagnostische richtlijnen voor moeilijkere beslissingen.</p>'
+            title: Overzicht
+          - href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
+            html: '<p>Voor organisaties met bestaand beleid omtrent on-premises IT-omgevingen, vult cloudgovernance dat bedrijfsbeleid aan.<br /><br /></p>'
+            title: Governance-overzicht

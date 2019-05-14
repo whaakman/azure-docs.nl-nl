@@ -13,7 +13,7 @@
       items:
         - name: Een index laden en er query's op uitvoeren
           href: search-get-started-portal.md
-        - name: Verrijken met AI (Cognitive Search)
+        - name: Verrijken met AI (cognitief zoeken)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       items:
@@ -33,7 +33,7 @@
       href: search-indexer-tutorial.md
     - name: Azure JSON-blobs indexeren
       href: search-semi-structured-data.md
-    - name: Verrijken met AI (Cognitive Search)
+    - name: Verrijken met AI (cognitief zoeken)
       items:
         - name: REST
           href: cognitive-search-tutorial-blob.md
@@ -131,7 +131,7 @@
           items:
             - name: Een suggester maken
               href: index-add-suggesters.md
-            - name: 'Voorbeelden (suggesties, automatisch aanvullen)'
+            - name: Suggesties of automatisch aanvullen toevoegen
               href: search-autocomplete-tutorial.md
         - name: Synoniemen
           items:

@@ -88,7 +88,7 @@ Naam van de Azure portal marketplace:
 |1-4 vCPU, VM-licentie |4d902611-eed7-4060-a33e-3c7fdbac6406|1|D4s_v3|
 |5 + vCPU VM-licentie|6dfb482b-23ea-487f-810c-e66360f025de|2.333333333|D8s_v3|
 
-### <a name="red-hat-enterprise-linux-with-ha"></a>Red Hat Enterprise Linux met HA
+### <a name="red-hat-enterprise-linux-with-ha"></a>Red Hat Enterprise Linux met hoge beschikbaarheid
 
 Namen van de Azure portal marketplace:
 

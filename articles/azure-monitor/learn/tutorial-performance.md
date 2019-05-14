@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7eae71411a1a3772dbdbaa289a32cbc69fca0e5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f906ab5db35ce8b239eceac9cdc8244f230f5a77
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364887"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596026"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Prestatieproblemen vinden en diagnosticeren met behulp van Azure Application Insights
 
@@ -32,7 +32,7 @@ Azure Application Insights verzamelt telemetrie van uw toepassing om de werking 
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-- Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+- Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET-ontwikkeling en webontwikkeling
     - Azure-ontwikkeling
 - Implementeer een .NET-toepassing in Azure en [schakel de Application Insights-SDK](../../azure-monitor/app/asp-net.md)in.
@@ -87,7 +87,7 @@ Application Insights Analytics biedt een uitgebreide querytaal voor het analyser
 
 2. Application Insights Analytics wordt geopend met een query voor elk van de weergaven in het deelvenster.  U kunt deze query’s zó uitvoeren, of ze aanpassen aan uw behoeften.  De eerste query laat de duur van deze bewerking gedurende een bepaalde periode zien.
 
-    ![Analyse](media/tutorial-performance/server-analytics.png)
+    ![Analytische gegevens](media/tutorial-performance/server-analytics.png)
 
 
 ## <a name="identify-slow-client-operations"></a>Trage clientbewerkingen identificeren
@@ -115,7 +115,7 @@ Net als de gegevens die worden verzameld voor serverprestaties, maakt Applicatio
 
 2. Application Insights Analytics wordt geopend met een query voor elk van de weergaven in het deelvenster. De eerste query laat de duur zien van verschillende paginaweergaven gedurende een bepaalde periode.
 
-    ![Analyse](media/tutorial-performance/client-analytics.png)
+    ![Analytische gegevens](media/tutorial-performance/client-analytics.png)
 
 3.  Smart Diagnostics is een functie van Application Insights Analytics die unieke patronen in de gegevens identificeert.  Wanneer u op de Smart Diagnostics-stip in het lijndiagram klikt, wordt dezelfde query uitgevoerd zonder de records die de anomalie hebben veroorzaakt.  Details van deze records worden weergegeven in de commentaarsectie van de query, zodat u de eigenschappen van die paginaweergaven kunt identificeren die de overmatige duur veroorzaken.
 

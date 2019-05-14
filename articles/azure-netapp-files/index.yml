@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/10/2019
 abstract:
-  description: 'Informatie over hoe u met Azure NetApp Files NetApp-accounts, capaciteitspools en volumes maakt en beheert, exportbeleid configureert, een volume koppelt voor een virtuele machine en momentopnamen beheert. <p>Voor Azure NetApp Files is het vereist dat u deel uitmaakt van het openbare preview-programma. U moet ook toegang krijgen tot de Azure Resource Provider voor Microsoft.NetApp. Raadpleeg <a href="azure-netapp-files-register">registreren voor Azure NetApp Files</a> om een verzoek in te dienen voor deelname aan het openbare preview-programma.</p>'
+  description: 'Informatie over hoe u met Azure NetApp Files NetApp-accounts, capaciteitspools en volumes maakt en beheert, exportbeleid configureert, een volume koppelt voor een virtuele machine en momentopnamen beheert. <p>Als u Azure NetApp Files wilt gebruiken, hebt u toegang nodig tot de Azure NetApp Files-service. Raadpleeg <a href="azure-netapp-files-register#waitlist"> Een wachtlijstverzoek indienen</a> om toegang te vragen.</p>'
 sections:
   - title: QuickStarts van vijf minuten
     items:

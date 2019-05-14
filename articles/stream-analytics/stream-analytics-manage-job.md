@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7bd97d6ab197a061a33620b590e41acb486d934
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480389"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606839"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Gegevens van telefoongesprekken met Stream Analytics analyseren en de resultaten visualiseren in een Power BI-dashboard
 
@@ -118,7 +118,7 @@ Voordat u de app TelcoGenerator start, moet u deze configureren voor het verzend
    |**Record**  |**Definitie**  |
    |---------|---------|
    |CallrecTime    |  Het tijdstempel voor de begintijd van de oproep.       |
-   |SwitchNum     |  Het schakelnummer van de oproep. In dit voorbeeld zijn de schakelnummers tekenreeksen die staan voor het land van herkomst (VS, China, UK, Duitsland of Australië).       |
+   |SwitchNum     |  Het schakelnummer van de oproep. In dit voorbeeld zijn de switches tekenreeksen die staan voor het land/de regio van herkomst (VS, China, UK, Duitsland of Australië).       |
    |CallingNum     |  Het telefoonnummer van de beller.       |
    |CallingIMSI     |  De International Mobile Subscriber Identity (IMSI). Dit is een unieke id van de beller.       |
    |CalledNum     |   Het telefoonnummer van de ontvanger.      |
@@ -161,7 +161,7 @@ In de volgende stap definieert u een invoerbron voor de taak om gegevens te kunn
    |---------|---------|---------|
    |Invoeralias     |  CallStream       |  Geef een beschrijvende naam op om uw invoer te identificeren. De invoeralias mag alleen alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten en moet 3 tot 63 tekens lang zijn.       |
    |Abonnement    |   \<Uw abonnement\>      |   Selecteer het Azure-abonnement waarvoor u de event hub hebt gemaakt. De event hub kan zich in dezelfde of een ander abonnement als de Stream Analytics-taak bevinden.       |
-   |Event hub-naamruimte    |  myEventHubsNS       |  Selecteer de event hub-naamruimte die u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare event hub-naamruimten worden weergegeven in de vervolgkeuzelijst.       |
+   |Event Hub-naamruimte    |  myEventHubsNS       |  Selecteer de event hub-naamruimte die u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare event hub-naamruimten worden weergegeven in de vervolgkeuzelijst.       |
    |Event Hub-naam    |   MyEventHub      |  Selecteer de event hub die u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare event hubs worden weergegeven in de vervolgkeuzelijst.       |
    |Naam van het Event Hub-beleid   |  Mypolicy       |  Selecteer het door de event hub gedeelde toegangsbeleid dat u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare beleidsregels voor event hubs worden weergegeven in de vervolgkeuzelijst.       |
 
@@ -212,7 +212,7 @@ In dit voorbeeld worden binnen vijf seconden door dezelfde gebruiker frauduleuze
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Als u wilt controleren op frauduleuze gesprekken, voert u een self-join uit voor de streaminggegevens op basis van de waarde `CallRecTime`. U kunt vervolgens zoeken naar gespreksrecords waarvan de `CallingIMSI`-waarde (het nummer waarmee de oproep is uitgevoerd) hetzelfde is, maar waarvan de `SwitchNum`-waarde (land van herkomst) verschilt. Wanneer u een JOIN-bewerking voor streaminggegevens gebruikt, moet de join enkele beperkingen bevatten met betrekking tot hoe ver de overeenkomende rijen in tijd kunnen worden gescheiden. Omdat er sprake is van een eindeloze gegevensstroom, worden de tijdsgrenzen voor de relatie opgegeven binnen de **ON**-component van de join met behulp van de functie [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Als u wilt controleren op frauduleuze gesprekken, voert u een self-join uit voor de streaminggegevens op basis van de waarde `CallRecTime`. U kunt vervolgens zoeken naar records waarin de `CallingIMSI` waarde (het oorspronkelijke aantal) is hetzelfde, maar de `SwitchNum` waarde (land/regio van herkomst) verschilt. Wanneer u een JOIN-bewerking voor streaminggegevens gebruikt, moet de join enkele beperkingen bevatten met betrekking tot hoe ver de overeenkomende rijen in tijd kunnen worden gescheiden. Omdat er sprake is van een eindeloze gegevensstroom, worden de tijdsgrenzen voor de relatie opgegeven binnen de **ON**-component van de join met behulp van de functie [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
 
    Deze query is net als een normale SQL-join, met als enig verschil de functie **DATEDIFF**. De in deze query gebruikte functie **DATEDIFF** is specifiek voor Streaming Analytics en moet worden opgenomen in de `ON...BETWEEN`-component.
 

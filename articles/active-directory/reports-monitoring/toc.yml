@@ -9,52 +9,38 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Rapporten
-      items:
-        - name: Een aanmeldrapport downloaden
-          href: quickstart-download-sign-in-report.md
-        - name: Een controlerapport downloaden
-          href: quickstart-download-audit-report.md
-        - name: Benoemde locaties configureren
-          href: quickstart-configure-named-locations.md
-        - name: Inhoudspakket voor Power BI installeren
-          href: quickstart-install-power-bi-content-pack.md
-    - name: Bewaking
-      items:
-        - name: Logboeken naar opslagaccount doorsturen
-          href: quickstart-azure-monitor-route-logs-to-storage-account.md
+    - name: Een aanmeldrapport downloaden
+      href: quickstart-download-sign-in-report.md
+    - name: Een controlerapport downloaden
+      href: quickstart-download-audit-report.md
+    - name: Benoemde locaties configureren
+      href: quickstart-configure-named-locations.md
+    - name: Inhoudspakket voor Power BI installeren
+      href: quickstart-install-power-bi-content-pack.md
+    - name: Logboeken naar opslagaccount doorsturen
+      href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Zelfstudies
   items:
-    - name: Rapporten
-      items:
-        - name: Toegang krijgen tot de API voor rapportage met behulp van certificaten
-          href: tutorial-access-api-with-certificates.md
-    - name: Bewaking
-      items:
-        - name: Logboeken naar Event Hub streamen
-          href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-        - name: Activiteitenlogboeken met Splunk integreren
-          href: tutorial-integrate-activity-logs-with-splunk.md
+    - name: Toegang krijgen tot de API voor rapportage met behulp van certificaten
+      href: tutorial-access-api-with-certificates.md
+    - name: Logboeken naar Event Hub streamen
+      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: Concepten
   items:
-    - name: Rapporten
-      items:
-        - name: Auditlogboeken
-          href: concept-audit-logs.md
-        - name: Aanmeldingslogboeken
-          href: concept-sign-ins.md
-        - name: Riskante aanmeldingen
-          href: concept-risky-sign-ins.md
-        - name: Risicogebeurtenissen
-          href: concept-risk-events.md
-        - name: Gebruikers die risico lopen
-          href: concept-user-at-risk.md
-        - name: API's voor rapportage
-          href: concept-reporting-api.md
-    - name: Bewaking
-      items:
-        - name: Azure AD-logboeken in Azure Monitor
-          href: concept-activity-logs-azure-monitor.md
+    - name: Auditlogboeken
+      href: concept-audit-logs.md
+    - name: Aanmeldingslogboeken
+      href: concept-sign-ins.md
+    - name: Riskante aanmeldingen
+      href: concept-risky-sign-ins.md
+    - name: Risicogebeurtenissen
+      href: concept-risk-events.md
+    - name: Gebruikers die risico lopen
+      href: concept-user-at-risk.md
+    - name: API's voor rapportage
+      href: concept-reporting-api.md
+    - name: Azure AD-logboeken in Azure Monitor
+      href: concept-activity-logs-azure-monitor.md
 - name: Handleidingen
   expanded: true
   items:
@@ -74,16 +60,18 @@
           href: howto-use-azure-monitor-workbooks.md
     - name: Bewaking
       items:
-        - name: Activiteitenlogboeken integreren met Azure Monitor-logboeken
-          href: howto-integrate-activity-logs-with-log-analytics.md
         - name: Activiteitenlogboeken analyseren in Azure Monitor-logboeken
           href: howto-analyze-activity-logs-log-analytics.md
         - name: De logboekanalyseweergaven voor Azure AD installeren en gebruiken
           href: howto-install-use-log-analytics-views.md
-        - name: Activiteitenlogboeken met SumoLogic integreren
-          href: howto-integrate-activity-logs-with-sumologic.md
+        - name: Activiteitenlogboeken integreren met Azure Monitor-logboeken
+          href: howto-integrate-activity-logs-with-log-analytics.md
         - name: Activiteitenlogboeken met ArcSight integreren
           href: howto-integrate-activity-logs-with-arcsight.md
+        - name: Activiteitenlogboeken met Splunk integreren
+          href: howto-integrate-activity-logs-with-splunk.md
+        - name: Activiteitenlogboeken met SumoLogic integreren
+          href: howto-integrate-activity-logs-with-sumologic.md
     - name: Problemen oplossen
       items:
         - name: Ontbrekende controlegegevens
@@ -97,25 +85,21 @@
 - name: Naslaginformatie
   expanded: true
   items:
-    - name: Rapporten
-      items:
-        - name: API-verwijzing voor auditlogboeken
-          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
-        - name: API-verwijzing voor aanmeldlogboeken
-          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
-        - name: Activiteiten controleren
-          href: reference-audit-activities.md
-        - name: Beleid voor gegevensretentie
-          href: reference-reports-data-retention.md
-        - name: Wachttijden voor rapportage
-          href: reference-reports-latencies.md
-        - name: Foutcodes voor aanmelding
-          href: reference-sign-ins-error-codes.md
-        - name: Veelgestelde vragen
-          href: reports-faq.md
-    - name: Bewaking
-      items:
-        - name: Schema van auditlogboek
-          href: reference-azure-monitor-audit-log-schema.md
-        - name: Schema van aanmeldingslogboek
-          href: reference-azure-monitor-sign-ins-log-schema.md
+    - name: API-verwijzing voor auditlogboeken
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+    - name: API-verwijzing voor aanmeldlogboeken
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+    - name: Activiteiten controleren
+      href: reference-audit-activities.md
+    - name: Beleid voor gegevensretentie
+      href: reference-reports-data-retention.md
+    - name: Wachttijden voor rapportage
+      href: reference-reports-latencies.md
+    - name: Foutcodes voor aanmelding
+      href: reference-sign-ins-error-codes.md
+    - name: Veelgestelde vragen
+      href: reports-faq.md
+    - name: Schema van auditlogboek
+      href: reference-azure-monitor-audit-log-schema.md
+    - name: Schema van aanmeldingslogboek
+      href: reference-azure-monitor-sign-ins-log-schema.md

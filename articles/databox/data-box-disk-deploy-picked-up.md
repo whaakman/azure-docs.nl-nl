@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150750"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603087"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box Disk terugsturen en de gegevensupload naar Azure controleren
 
@@ -56,7 +56,7 @@ De volgende stappen uitvoeren als het apparaat in de Verenigde Staten of Canada 
 2. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
 3. Een ophalen met UPS plannen. Ophalen van objecten plannen:
 
-    - Aanroepen van de lokale Noodvoeding (landspecifieke gratis telefoonnummer).
+    - Aanroepen van de lokale Noodvoeding (land/regio-specifieke gratis telefoonnummer).
     - In uw aanroep citeren de omgekeerde verzending traceringsnummer zoals wordt weergegeven in het afgedrukte label.
     - Als het volgnummer niet wordt vermeld, moet UPS u een extra kosten betalen tijdens het ophalen.
     - In plaats van de planning van het ophalen, kunt u ook de Data Box-schijf op de dichtstbijzijnde afgiftelocatie teruglopen.
@@ -78,7 +78,7 @@ De volgende stappen uitvoeren als het apparaat in Europa worden geretourneerd.
 
 2. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
 3. Als u het apparaat in Europa met DHL retourneert, dient u een ophaalverzoek in door op de website van DHL het verzendnummer op te geven.
-4. Ga naar de DHL Express-website voor uw land/regio en kies onder **Snel naar > Boek een retour**.
+4. Ga naar de land/regio DHL Express-website en kies **boek van een verzameling Courier > eReturn verzending**.
 
     ![DHL retourverzending](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
@@ -157,7 +157,7 @@ Nadat de kopie is voltooid, wordt de orderstatus bijgewerkt naar **Voltooid**.
 
 ![Gegevens kopiëren voltooid](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Controleer of uw gegevens zich in de opslagaccount(s) bevinden voordat u deze uit de bron verwijdert. Uw gegevens, kunnen zich in:
+Controleer of uw gegevens zich in de opslagaccounts bevinden voordat u deze uit de bron verwijdert. Uw gegevens, kunnen zich in:
 
 - Uw Azure-Opslagaccount (s). Als u de gegevens naar Data Box kopieert, worden de gegevens naar een van de volgende paden in uw Azure Storage-account geüpload, afhankelijk van het gegevenstype.
 

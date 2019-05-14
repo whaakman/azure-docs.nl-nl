@@ -1,6 +1,6 @@
 ---
 title: Stream-video's met Azure Media Services - Node.js | Microsoft Docs
-description: Volg de stappen in deze snelstartgids om een nieuw Azure Media Services-account te maken, een bestand te coderen en dit vervolgens te streamen naar Azure Media Player.
+description: Volg de stappen in deze zelfstudie om te maken van een nieuwe Azure Media Services-account, een bestand coderen en streamen met Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,24 @@ editor: ''
 keywords: azure media services, streamen
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 22b7f2380b509daa4cb9931d6fc57c1297628e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e4172cd149726e28e0c7dff435ec1f7a59ee169
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61233151"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550171"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Quickstart: Videobestanden streamen - Node.js
+# <a name="tutorial-stream-video-files---nodejs"></a>Zelfstudie: Videobestanden streamen - Node.js
 
-Deze snelstartgids laat zien hoe u met Azure Media Services eenvoudig video's kunt coderen en streamen naar allerlei verschillende browsers en apparaten. De invoerinhoud kan worden opgegeven met HTTPS-URL's, SAS-URL's of paden naar bestanden in Azure Blob-opslag.
-Met het voorbeeld in dit onderwerp wordt inhoud gecodeerd die u toegankelijk maakt via een HTTPS-URL. Op dit moment biedt AMS v3 geen ondersteuning voor gesegmenteerde overdrachtscodering via HTTPS-URL's.
+Deze zelfstudie leert u hoe eenvoudig het is om te coderen en streamen van video's op een groot aantal browsers en apparaten met Azure Media Services. De invoerinhoud kan worden opgegeven met HTTPS-URL's, SAS-URL's of paden naar bestanden in Azure Blob-opslag.
 
-Als u deze snelstartgids hebt voltooid, weet u hoe u een video kunt streamen.  
+Het voorbeeld in dit artikel worden de inhoud die u toegankelijk zijn via een HTTPS-URL gecodeerd. Op dit moment biedt AMS v3 geen ondersteuning voor gesegmenteerde overdrachtscodering via HTTPS-URL's.
+
+Aan het einde van de zelfstudie zich kunt u een video te streamen.  
 
 ![De video afspelen](./media/stream-files-nodejs-quickstart/final-video.png)
 
@@ -71,7 +72,7 @@ In het voorbeeld worden de volgende acties uitgevoerd:
 
 Nadat het is uitgevoerd, ziet u soortgelijke uitvoer:
 
-![Voer](./media/stream-files-nodejs-quickstart/run.png)
+![Uitvoeren](./media/stream-files-nodejs-quickstart/run.png)
 
 ## <a name="test-with-azure-media-player"></a>Testen met Azure Media Player
 
@@ -90,7 +91,7 @@ Azure Media Player kan worden gebruikt voor testdoeleinden, maar mag niet worden
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de resources in de resourcegroep niet meer nodig hebt, met inbegrip van het Media Services-account en de opslagaccounts die u hebt gemaakt voor deze snelstartgids, verwijdert u de resourcegroep.
+Als u niet meer nodig van de resources in de resourcegroep hebt, met inbegrip van de Media Services en storage-accounts die u hebt gemaakt voor deze zelfstudie, moet u de resourcegroep verwijderen.
 
 Voer de volgende CLI-opdracht uit:
 

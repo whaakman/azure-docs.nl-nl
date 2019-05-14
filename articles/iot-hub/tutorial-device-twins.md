@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
 ms.custom: mvc
-ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85f1c051f13484ea8e14a6ae8402067b613fe2bc
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088074"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597544"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -43,7 +43,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Node.js. Node.js v4.x.x of hoger moet zijn geïnstalleerd op uw ontwikkelcomputer.
+De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Node.js. U moet Node.js v10.x.x of hoger op uw ontwikkelcomputer.
 
 U kunt Node.js voor meerdere platforms downloaden van [nodejs.org](https://nodejs.org).
 

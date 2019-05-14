@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Een model te trainen en extraheren van gegevens met cURL - formulier-herkenning'
+title: 'Quickstart: Een model te trainen en ophalen van gegevens met behulp van cURL - formulier-herkenning'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstartgids gebruikt u het formulier herkenning REST-API met cURL naar een model te trainen en extraheer gegevens uit formulieren.
+description: In deze snelstartgids hebt u het formulier herkenning REST-API gebruiken met cURL naar een model te trainen en extraheer gegevens uit formulieren.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,35 +9,35 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: f5c87457f5d19b107f5722bc8c6a95174555332a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4a030e1bf35f38b6aba859eb538eb7d7580d255d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546354"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603121"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en extraheren van gegevens met behulp van REST-API met cURL
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en ophalen van gegevens met behulp van de REST-API met cURL
 
-In deze snelstartgids gebruikt u het formulier-herkenning REST-API met cURL te trainen en te beoordelen van formulieren om uit te pakken sleutel / waarde-paren en tabellen.
+In deze snelstartgids gebruikt u de REST-API van Azure formulier herkenning met cURL te trainen en te beoordelen van formulieren om uit te pakken sleutel / waarde-paren en tabellen.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
-
-- U hebt u toegang tot de Preview-versie formulier herkenning beperkte toegang. Voor toegang tot de Preview-versie, vul het en verzenden de [toegangsaanvraag voor herkenning van Cognitive Services-formulier](https://aka.ms/FormRecognizerRequestAccess) formulier.
-- U moet [cURL](https://curl.haxx.se/windows/) hebben.
-- U moet een abonnementssleutel hebben voor de herkenning van het formulier. Volg de instructies voor één service-abonnement in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) abonneren op formulier-herkenning en haal uw sleutel. Gebruik niet meerdere service-abonnement, als dit niet het formulier herkenning service bevat.
-- U moet een minimale set van vijf vormen van hetzelfde type hebben. U kunt een [voorbeeldgegevensset](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start.
+Als u wilt deze snelstartgids hebt voltooid, moet u het volgende hebben:
+- Toegang tot de Preview-versie formulier herkenning beperkte toegang. Voor toegang tot de Preview-versie, invullen en verzenden de [formulier herkenning toegangsaanvraag](https://aka.ms/FormRecognizerRequestAccess) formulier.
+- [cURL](https://curl.haxx.se/windows/) geïnstalleerd.
+- Een abonnementssleutel voor de herkenning van het formulier. Volg de instructies voor één service-abonnement in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) abonneren op formulier-herkenning en haal uw sleutel. Gebruik niet een abonnement op meerdere services, omdat de service formulier herkenning zijn niet inbegrepen.
+- Een set van ten minste vijf vormen van hetzelfde type. U kunt een [voorbeeldgegevensset](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start.
 
 ## <a name="train-a-form-recognizer-model"></a>Een formulier herkenning-model te trainen
 
-Eerst moet u een set trainingsgegevens. U kunt gegevens in een Azure-Blob of uw eigen lokale trainingsgegevens gebruiken. U moet minimaal vijf voorbeeldformulieren (PDF-documenten en/of afbeeldingen) van de dezelfde soort/structuur als uw belangrijkste invoergegevens hebben. U kunt ook een leeg formulier; gebruiken de bestandsnaam van het formulier bevat het woord 'lege'.
+Eerst moet u een set trainingsgegevens. U kunt gegevens in een Azure-blob of uw eigen lokale trainingsgegevens gebruiken. U moet minimaal vijf voorbeeldformulieren (PDF-documenten en/of afbeeldingen) van de dezelfde soort/structuur als uw belangrijkste invoergegevens hebben. Of u een leeg formulier kunt gebruiken. De bestandsnaam van het formulier nodig heeft om het woord 'lege'.
 
-Als u wilt een formulier herkenning-model met behulp van de documenten in uw Azure Blob-container te trainen, aanroepen de **trainen** API door het uitvoeren van de volgende cURL-opdracht. Voordat u de opdracht uitvoert, moet u de volgende wijzigingen aanbrengen:
+Als u wilt een formulier herkenning-model te trainen met behulp van de documenten in uw Azure blob-container, Roep de **trainen** API door het uitvoeren van de cURL-opdracht die volgt. Voordat u de opdracht uitvoert, moet u deze wijzigingen:
 
-* Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze op het overzichtstabblad van formulier herkenning resource.
-* Vervang `<SAS URL>` met een Azure Blob Storage-container gedeelde toegang krijgen tot signature (SAS)-URL waar de trainingsgegevens zich bevindt.  
-* Vervang `<subscription key>` door uw abonnementssleutel.
+1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
+1. Vervang `<SAS URL>` met een Azure Blob storage-container gedeelde toegang krijgen tot signature (SAS)-URL van de locatie van de trainingsgegevens.  
+1. Vervang `<subscription key>` door uw abonnementssleutel.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -84,17 +84,18 @@ U ontvangt een `200 (Success)` -antwoord met de volgende JSON-uitvoer:
 }
 ```
 
-Noteer de `"modelId"` waarde; u deze nodig heeft voor de volgende stappen uit.
+Houd er rekening mee de `"modelId"` waarde. U hebt deze nodig in de volgende stappen.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Sleutel / waarde-paren en tabellen onttrekken aan formulieren
 
-Vervolgens maakt u een document analyseert en sleutel / waarde-paren en tabellen ophalen uit deze. Roep de **Model - analyseren** API door het uitvoeren van de volgende cURL-opdracht. Voordat u de opdracht uitvoert, moet u de volgende wijzigingen aanbrengen:
+Vervolgens u een document analyseren en extraheren van sleutel / waarde-paren en tabellen uit. Roep de **Model - analyseren** API door het uitvoeren van de cURL-opdracht die volgt. Voordat u de opdracht uitvoert, moet u deze wijzigingen:
 
-* Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze in uw formulier herkenning resource **overzicht** tabblad.
-* Vervang `<modelID>` met de model-ID die u hebt ontvangen in de vorige stap van het model te trainen.
-* Vervang `<path to your form>` met het pad naar het formulier.
-* Vervang `<subscription key>` door uw abonnementssleutel.
-* Vervang `<file type>` met het bestandstype. ondersteunde typen PDF-, afbeelding/jpeg, afbeelding/png.
+1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
+1. Vervang `<modelID>` met de model-ID die u in de vorige sectie hebt ontvangen.
+1. Vervang `<path to your form>` met het pad van het formulier.
+1. Vervang `<file type>` met het bestandstype. Ondersteunde typen: pdf-, afbeelding/jpeg, afbeelding/png.
+1. Vervang `<subscription key>` door uw abonnementssleutel.
+
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
@@ -102,7 +103,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<mode
 
 ### <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagde respons wordt geretourneerd in JSON en de uitgepakte sleutel / waarde-paren en tabellen in het formulier vertegenwoordigt.
+Een geslaagde reactie is geretourneerd in JSON. Staat voor de sleutel / waarde-paren en tabellen die zijn geëxtraheerd uit het formulier:
 
 ```bash
 {
@@ -427,7 +428,7 @@ Een geslaagde respons wordt geretourneerd in JSON en de uitgepakte sleutel / waa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze handleiding gebruikt u de Form-herkenning REST API's met cURL een model te trainen en voer deze uit in het geval van een voorbeeld. Vervolgens, Zie de documentatie om te verkennen van de Form-herkenning API dieper op.
+In deze snelstartgids gebruikt u het formulier herkenning REST-API met cURL een model te trainen en voer deze uit in een voorbeeldscenario. Vervolgens, Zie de documentatie om te verkennen van de Form-herkenning API dieper op.
 
 > [!div class="nextstepaction"]
 > [REST-API-referentiedocumentatie](https://aka.ms/form-recognizer/api)

@@ -9,12 +9,12 @@ ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 2a050f8bc5d2437c7cdbadcf3296c2ef6d4659dc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728636"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606293"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Zelfstudie: Aangepaste gebeurtenissen naar Azure Relay Hybrid Connections routeren met behulp van Azure CLI en Event Grid
 
@@ -80,7 +80,7 @@ U ziet dat er een [vervaldatum](concepts.md#event-subscription-expiration) is in
 
 U hebt een toepassing nodig die gebeurtenissen uit de hybride verbinding kan ophalen. Het [voorbeeld van een hybride verbindingsconsumer voor C# van Microsoft Azure Event Grid](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) voert die bewerking uit. U hebt de vereiste stappen al uitgevoerd.
 
-1. Zorg ervoor dat u Visual Studio 2017 versie 15.5 of hoger hebt.
+1. Zorg ervoor dat u Visual Studio 2019 of hoger hebt.
 
 1. Kloon de opslagplaats naar uw lokale computer.
 

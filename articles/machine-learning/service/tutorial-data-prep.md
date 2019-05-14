@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470272"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604489"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
@@ -38,7 +38,7 @@ In deze zelfstudie hebt u:
 Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorlopen, of gebruik de onderstaande instructies om het notebook op te halen en uit te voeren op Azure Notebooks of uw eigen notebookserver. U hebt het volgende nodig om het notebook uit te voeren:
 
 * Een Python 3.6 notebook-server met het volgende geïnstalleerd:
-    * De Azure Machine Learning Data Prep SDK voor Python
+    *  azureml-dataprep-pakket van de Azure Machine Learning-SDK voor Python
 * Het notebook voor de zelfstudie
 
 * Gebruik een [cloud notebook-server in uw werkruimte](#azure) 
@@ -56,8 +56,8 @@ Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De [
 
 Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u het notebook **tutorials/regression-part1-data-prep.ipynb** uit.
 
-1. Volledige installatie van de stappen in [ [Azure Machine Learning Python-quickstart](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) om een Miniconda-omgeving te maken.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
-1. Installeer de Data Prep SDK in uw omgeving met `pip install azureml-dataprep`.
+1. Volledige installatie van de stappen in [Azure Machine Learning Python-quickstart](setup-create-workspace.md#sdk) om een Miniconda-omgeving te maken.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
+1. Installeren van de azureml-dataprep in uw omgeving met `pip install azureml-dataprep`.
 1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
 
     ```
@@ -639,7 +639,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
       <td>6960,0</td>
       <td>0,014025</td>
       <td>0,0</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td></td>
       <td></td>
       <td></td>
@@ -730,7 +730,7 @@ time_split_df.head(5)
       <td>-73,937767</td>
       <td>40,758480</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -748,7 +748,7 @@ time_split_df.head(5)
       <td>-73,937927</td>
       <td>40,757843</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -766,7 +766,7 @@ time_split_df.head(5)
       <td>-73,937721</td>
       <td>40,758369</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -784,7 +784,7 @@ time_split_df.head(5)
       <td>-73,937790</td>
       <td>40,758358</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -802,7 +802,7 @@ time_split_df.head(5)
       <td>-73,937775</td>
       <td>40,758450</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>3.3</td>
     </tr>
   </tbody>
@@ -932,7 +932,7 @@ transformed_features_df.head(5)
       <td>-73,937767</td>
       <td>40,758480</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -954,7 +954,7 @@ transformed_features_df.head(5)
       <td>-73,937927</td>
       <td>40,757843</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>2.5</td>
     </tr>
     <tr>
@@ -976,7 +976,7 @@ transformed_features_df.head(5)
       <td>-73,937721</td>
       <td>40,758369</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -998,7 +998,7 @@ transformed_features_df.head(5)
       <td>-73,937790</td>
       <td>40,758358</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>3.3</td>
     </tr>
     <tr>
@@ -1020,7 +1020,7 @@ transformed_features_df.head(5)
       <td>-73,937775</td>
       <td>40,758450</td>
       <td>1</td>
-      <td>0.0</td>
+      <td>0,0</td>
       <td>3.3</td>
     </tr>
   </tbody>

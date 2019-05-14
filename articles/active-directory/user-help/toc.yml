@@ -28,9 +28,10 @@
       href: user-help-auth-app-overview.md
     - name: De app downloaden en installeren
       href: user-help-auth-app-download-install.md
-    - name: Een overzicht van accounts toevoegen
-      href: user-help-auth-app-add-account-overview.md
+    - name: Accounts toevoegen
       items:
+        - name: Overzicht
+          href: user-help-auth-app-add-account-overview.md
         - name: Een werk- of schoolaccount toevoegen
           href: user-help-auth-app-add-work-school-account.md
         - name: Een persoonlijke Microsoft-account toevoegen
@@ -63,9 +64,10 @@
       href: user-help-security-info-overview.md
     - name: Beveiligingsgegevens toevoegen tijdens aanmelding
       href: security-info-setup-signin.md
-    - name: Overzicht van methoden om beveiligingsgegevens toe te voegen of bij te werken
-      href: security-info-add-update-methods-overview.md
+    - name: Methoden om beveiligingsgegevens toe te voegen of bij te werken
       items:
+        - name: Overzicht
+          href: security-info-add-update-methods-overview.md
         - name: Een verificator-app instellen
           href: security-info-setup-auth-app.md
         - name: Sms-berichten instellen

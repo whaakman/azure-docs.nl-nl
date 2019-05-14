@@ -1,25 +1,25 @@
 ---
 title: Configureren voor meerdere masters in Azure Cosmos DB
-description: Leer hoe u meerdere masters kunt configureren in uw toepassingen in Azure Cosmos DB
+description: Informatie over het configureren van meerdere masters in uw toepassingen in Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: rimman
-ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 86f5d64391dd5312d8c51a5b639b790e62b6710d
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054589"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560263"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Meerdere masters configureren in uw toepassingen die Azure Cosmos DB gebruiken
+# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configureren van meerdere masters in uw toepassingen die gebruikmaken van Azure Cosmos DB
 
-Meerdere masters als functie wilt gebruiken in uw toepassing, moet u schrijfbewerkingen in meerdere regio's inschakelen en configureren van de multihoming-functie in Azure Cosmos DB. Multihoming is geconfigureerd door in te stellen van de regio waar de toepassing is geïmplementeerd.
+Voor het gebruik van de functie voor meerdere masters in uw toepassing, moet u schrijfbewerkingen in meerdere regio's inschakelen en configureren van de multihoming-functie in Azure Cosmos DB. Voor het configureren van multihoming, stelt u de regio waar de toepassing is geïmplementeerd.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-Om in te schakelen van meerdere masters in uw toepassingen set `UseMultipleWriteLocations` true en configureren van `SetCurrentLocation` naar de regio waarin de toepassing wordt geïmplementeerd en Azure Cosmos DB is gerepliceerd.
+Instellen om in te schakelen meerdere masters in uw toepassing, `UseMultipleWriteLocations` naar `true`. Stel ook `SetCurrentLocation` naar de regio waar de toepassing wordt geïmplementeerd en waarin de Azure Cosmos DB is gerepliceerd:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -33,7 +33,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a id="netv3"></a>.NET SDK v3 (preview)
 
-Om meerdere masters in uw toepassingen in te schakelen, moet u `UseCurrentRegion` configureren naar de regio waarin de toepassing wordt geïmplementeerd en Cosmos DB wordt gerepliceerd.
+Instellen om in te schakelen meerdere masters in uw toepassing, `UseCurrentRegion` naar de regio waar de toepassing wordt geïmplementeerd en waar Cosmos DB worden gerepliceerd:
 
 ```csharp
 CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
@@ -43,7 +43,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>Java Async SDK
 
-Om in te schakelen van meerdere masters in uw toepassingen set `policy.setUsingMultipleWriteLocations(true)` en configureer `policy.setPreferredLocations` naar de regio waarin de toepassing wordt geïmplementeerd en Cosmos DB is gerepliceerd.
+Instellen om in te schakelen meerdere masters in uw toepassing, `policy.setUsingMultipleWriteLocations(true)` en stel `policy.setPreferredLocations` naar de regio waar de toepassing wordt geïmplementeerd en waar Cosmos DB worden gerepliceerd:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -58,9 +58,9 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a id="javascript"></a>Node.js, JavaScript, TypeScript SDK
+## <a id="javascript"></a>Node.js, JavaScript en TypeScript-SDK 's
 
-Om meerdere masters in uw toepassingen in te schakelen, moet u `connectionPolicy.UseMultipleWriteLocations` op Waar instellen en `connectionPolicy.PreferredLocations` configureren naar de regio waarin de toepassing wordt geïmplementeerd en Cosmos DB wordt gerepliceerd.
+Instellen om in te schakelen meerdere masters in uw toepassing, `connectionPolicy.UseMultipleWriteLocations` naar `true`. Stel ook `connectionPolicy.PreferredLocations` naar de regio waar de toepassing wordt geïmplementeerd en waar Cosmos DB worden gerepliceerd:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -77,7 +77,7 @@ const client = new CosmosClient({
 
 ## <a id="python"></a>Python SDK
 
-Om meerdere masters in uw toepassingen in te schakelen, moet u `connection_policy.UseMultipleWriteLocations` op Waar instellen en `connection_policy.PreferredLocations` configureren naar de regio waarin de toepassing wordt geïmplementeerd en Cosmos DB wordt gerepliceerd.
+Instellen om in te schakelen meerdere masters in uw toepassing, `connection_policy.UseMultipleWriteLocations` naar `true`. Stel ook `connection_policy.PreferredLocations` naar de regio waar de toepassing wordt geïmplementeerd en waarin een Cosmos DB is gerepliceerd.
 
 ```python
 connection_policy = documents.ConnectionPolicy()
@@ -89,14 +89,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt vervolgens de volgende artikelen lezen:
+Lees de volgende artikelen:
 
-* [Sessietokens gebruiken om de consistentie te beheren in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
+* [Sessie-tokens gebruiken voor het beheren van consistentie in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
 * [Conflictsoorten en oplossingsbeleid in Azure Cosmos DB](conflict-resolution-policies.md)
 * [Hoge beschikbaarheid in Azure Cosmos DB](high-availability.md)
 * [Consistentieniveaus in Azure Cosmos DB](consistency-levels.md)
-* [Het juiste consistentieniveau kiezen in Azure Cosmos DB](consistency-levels-choosing.md)
+* [Kies de juiste consistentieniveau in Azure Cosmos DB](consistency-levels-choosing.md)
 * [Compromissen tussen consistentie, beschikbaarheid en prestaties in Azure Cosmos DB](consistency-levels-tradeoffs.md)
 * [Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus](consistency-levels-tradeoffs.md)
 * [Wereldwijd schalen ingerichte doorvoer](scaling-throughput.md)
-* [Wereldwijde distributie - achter de schermen](global-dist-under-the-hood.md)
+* [Wereldwijde distributie: Kijkje achter de schermen](global-dist-under-the-hood.md)

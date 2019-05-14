@@ -118,8 +118,8 @@
       href: functions-networking-options.md
     - name: IP-adressen
       href: ip-addresses.md
-    - name: On-premises functies
-      href: functions-runtime-overview.md
+    - name: Functies in Kubernetes
+      href: functions-kubernetes-keda.md
 - name: Handleidingen
   items:
     - name: Ontwikkelen
@@ -142,6 +142,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: Fouten opsporen in lokale PowerShell-functies
           href: functions-debug-powershell-local.md
+        - name: Afhankelijkheidsinjectie
+          href: functions-dotnet-dependency-injection.md
         - name: Verbindingen beheren
           href: manage-connections.md
         - name: Foutafhandeling
@@ -173,6 +175,7 @@
       items:
         - name: Een functie-app beheren
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: De runtimeversie instellen
           href: set-runtime-version.md
         - name: Handmatig een uitbreiding registreren

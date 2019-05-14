@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90357c13003820a25ee52aab5cda83029c9d85ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61367159"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601551"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Gebruik Application Insights om inzicht te krijgen in de wijze waarop klanten van uw app gebruikmaken
 
@@ -35,7 +35,7 @@ Azure Application Insights verzamelt gebruiksgegevens om u meer inzicht te geven
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-- Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+- Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET-ontwikkeling en webontwikkeling
     - Azure-ontwikkeling
 - Download en installeer de [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -59,11 +59,11 @@ In het deelvenster **Gebruikers** kunt u op verschillende manieren inzicht krijg
 
     ![Tijdsbereik wijzigen](media/tutorial-users/TimeRange.png)
 
-4. Klik op de vervolgkeuzelijst **Splitsen op basis van** om een uitsplitsing op basis van een gebruikerseigenschap aan de grafiek toe te voegen.  Selecteer **Land of regio**.  De grafiek bevat dezelfde gegevens, maar laat een uitsplitsing zien van het aantal gebruikers per land.
+4. Klik op de vervolgkeuzelijst **Splitsen op basis van** om een uitsplitsing op basis van een gebruikerseigenschap aan de grafiek toe te voegen.  Selecteer **Land of regio**.  De grafiek bevat de dezelfde gegevens maar kunt u om een uitsplitsing van het aantal gebruikers voor elk land/regio weer te geven.
 
     ![Land of regio-grafiek](media/tutorial-users/CountryorRegion.png)
 
-5. Plaats de cursor op verschillende balken in het diagram en merk op dat het aantal voor elk land alleen geldt voor het tijdvenster dat door die balk wordt weergegeven.
+5. Plaats de cursor over verschillende balken in de grafiek en houd er rekening mee dat het aantal voor elk land/regio alleen het tijdvenster wordt vertegenwoordigd door die voor de balk weergeeft.
 6. Bekijk de kolom **Insights** aan de rechterkant voor analyse van uw gebruikersgegevens.  Dit levert informatie op zoals het aantal unieke sessies gedurende de periode en records met gemeenschappelijke eigenschappen die significant zijn voor de gebruikersgegevens 
 
     ![Insights-kolom](media/tutorial-users/insights.png)

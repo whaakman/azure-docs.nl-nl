@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/08/2019
-ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 05/13/2019
+ms.openlocfilehash: dda5df0e5b9b9509482cb6dcdcda242b4daa230f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466183"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596346"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Zelfstudie: Een Azure Red Hat OpenShift-cluster maken
 
@@ -32,13 +32,17 @@ In deze zelfstudiereeks leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
+> [!IMPORTANT]
+> In deze zelfstudie is versie 2.0.65 van de Azure CLI vereist.
+
 Voor u met deze zelfstudie begint:
 
 Zorg ervoor dat u hebt [uw ontwikkelomgeving instellen](howto-setup-environment.md), waaronder:
-- Installatie van de meest recente CLI (versie 2.0.64 of hoger)
-- Het maken van een tenant
-- Het maken van een Azure-toepassing-object
-- Het maken van een Active Directory-gebruiker aanmelden bij apps die worden uitgevoerd op het cluster gebruikt.
+- Installatie van de meest recente CLI (versie 2.0.65 of hoger)
+- Het maken van een tenant als u er nog geen hebt
+- Het maken van een Azure-toepassing-object als u er nog niet hebt
+- Het maken van een beveiligingsgroep
+- Het maken van een Active Directory-gebruiker zich aanmeldt bij het cluster.
 
 ## <a name="step-1-sign-in-to-azure"></a>Stap 1: Aanmelden bij Azure
 
@@ -52,36 +56,34 @@ az login
 
 ## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Stap 2: Een Azure Red Hat OpenShift-cluster maken
 
-Stel in het opdrachtvenster Bash de volgende variabelen:
+Stel in een Bash-opdrachtvenster de volgende variabelen:
 
 > [!IMPORTANT]
-> De naam van het cluster mag alleen kleine letters bevatten of maken van een cluster mislukt.
+> Kies een naam op voor de u-cluster die uniek is en het maken van alle kleine letters of het cluster zal mislukken.
 
 ```bash
 CLUSTER_NAME=<cluster name in lowercase>
 ```
 
- Gebruik dezelfde naam voor het cluster dat u hebt gekozen in stap 6 van [maken van nieuwe app-registratie](howto-aad-app-configuration.md#create-a-new-app-registration).
+Kies een locatie om uw cluster te maken. Zie voor een lijst van azure-regio's die ondersteuning biedt voor OpenShift op Azure, [ondersteunde regio's](supported-resources.md#azure-regions). Bijvoorbeeld: `LOCATION=eastus`.
 
 ```bash
 LOCATION=<location>
 ```
 
-Kies een locatie om uw cluster te maken. Zie voor een lijst van azure-regio's die ondersteuning biedt voor OpenShift op Azure, [ondersteunde regio's](supported-resources.md#azure-regions). Bijvoorbeeld: `LOCATION=eastus`.
-
-Stel `FQDN` aan de volledig gekwalificeerde naam van het cluster. Deze naam bestaat uit de naam van het cluster, de locatie en `.cloudapp.azure.com` toegevoegd aan het einde. Dit is hetzelfde als de aanmeldings-URL u hebt gemaakt in stap 6 van [maken van nieuwe app-registratie](howto-aad-app-configuration.md#create-a-new-app-registration). Bijvoorbeeld:  
-
-```bash
-FQDN=$CLUSTER_NAME.$LOCATION.cloudapp.azure.com
-```
-
-Stel `APPID` op de waarde die u hebt opgeslagen in stap 9 van [maken van een nieuwe app-registratie](howto-aad-app-configuration.md#create-a-new-app-registration).  
+Stel `APPID` op de waarde die u hebt opgeslagen in stap 5 van [maken van een Azure AD-app-registratie](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
 
 ```bash
 APPID=<app ID value>
 ```
 
-Stel `SECRET` op de waarde die u hebt opgeslagen in stap 6 van [maken van een clientgeheim](howto-aad-app-configuration.md#create-a-client-secret).  
+'Groeps-id' ingesteld op de waarde die u hebt opgeslagen in stap 10 van [maken van een Azure AD-beveiligingsgroep](howto-aad-app-configuration.md#create-an-azure-ad-security-group).
+
+```bash
+GROUPID=<group ID value>
+```
+
+Stel `SECRET` op de waarde die u hebt opgeslagen in stap 8 van [maken van een clientgeheim](howto-aad-app-configuration.md#create-a-client-secret).  
 
 ```bash
 SECRET=<secret value>
@@ -117,33 +119,59 @@ Bijvoorbeeld: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceG
 
 ### <a name="create-the-cluster"></a>Het cluster maken
 
-U bent nu klaar om een cluster te maken.
+U bent nu klaar om een cluster te maken. De volgende maakt het cluster in de opgegeven Azure AD-tenant, geeft u het object voor Azure AD-app en het geheim te gebruiken als een beveiligings-principal en de beveiligingsgroep die de leden die beheerderstoegang tot het cluster hebben bevat.
 
- Als u het virtuele netwerk van het cluster geen verbinding met een bestaand virtueel netwerk, laat u de afsluitende `--vnet-peer-id $VNET_ID` parameter in het volgende voorbeeld.
+Als u **niet** peering van het cluster met een virtueel netwerk, gebruik de volgende opdracht:
 
 ```bash
-az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --fqdn $FQDN --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --vnet-peer-id $VNET_ID
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-Na een paar minuten `az openshift create` wordt voltooid en retourneert een JSON-antwoord met de clusterdetails van uw.
+Als u **zijn** peering van het cluster met een virtueel netwerk, gebruik de volgende opdracht die wordt toegevoegd de `--vnet-peer` vlag:
+ 
+```bash
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
+```
 
 > [!NOTE]
-> Als er een fout optreedt met de naam van de host is niet beschikbaar, is het mogelijk omdat de clusternaam van uw niet uniek is. Probeer de registratie van uw oorspronkelijke app verwijderen en opnieuw uitvoeren van de stappen in [maken een nieuwe app-registratie] (howto-aad-app-configuration.md#create-a-new-app-registration) (als de laatste stap van het maken van een nieuwe gebruiker, omdat u al hebt gemaakt) met een andere clusternaam op.
+> Als er een fout optreedt met de naam van de host is niet beschikbaar, is het mogelijk omdat de clusternaam van uw niet uniek is. Probeer de registratie van uw oorspronkelijke app verwijderen en opnieuw uitvoeren van de stappen met een andere clusternaam op in [maken een nieuwe app-registratie] (howto-aad-app-configuration.md#create-a-new-app-registration), weg van de stap voor het maken van een nieuwe groep van gebruikers en beveiligingsgroepen.
 
-## <a name="step-3-sign-in-to-the-openshift-console"></a>Stap 3: Meld u aan bij de console van OpenShift
+Na een paar minuten `az openshift create` wordt voltooid.
+
+### <a name="get-the-sign-in-url-for-your-cluster"></a>Het teken in de URL voor uw cluster ophalen
+
+Haal de URL aan te melden met uw cluster met de volgende opdracht:
+
+```bash
+az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
+```
+
+Zoek de `publicHostName` in de uitvoer, bijvoorbeeld: `"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
+
+Het teken in de URL voor uw cluster zal worden `https://` gevolgd door de `publicHostName` waarde.  Bijvoorbeeld: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  U gebruikt deze URI in de volgende stap als onderdeel van de omleidings-URI van app-registratie.
+
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>Stap 3: De omleidings-URI van de registratie in app bijwerken
+
+Nu dat u het teken in de URL voor het cluster hebt, stelt u de app-registratie-omleiding gebruikersinterface:
+
+1. Open de [blade App-registraties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview).
+2. Klik op uw app-registratie-object.
+3. Klik op **Voeg een omleidings-URI**.
+4. Zorg ervoor dat **TYPE** is **Web** en stel de **OMLEIDINGS-URI** met behulp van het volgende patroon: `https://<public host name>/oauth2callback/Azure%20AD`. Bijvoorbeeld: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
+5. Klik op **Opslaan**
+
+## <a name="step-4-sign-in-to-the-openshift-console"></a>Stap 4: Meld u aan bij de console van OpenShift
 
 U bent nu klaar om aan te melden bij de OpenShift-console voor het nieuwe cluster. De [OpenShift-webconsole](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) kunt u visualiseren, bladeren en de inhoud van uw OpenShift-projecten te beheren.
 
-We zich moet aanmelden als de [nieuwe Azure AD-gebruiker](howto-aad-app-configuration.md#create-a-new-active-directory-user) u hebt gemaakt voor het testen. Om dit te doen, moet u een nieuwe browsersessie die nog niet in cache opgeslagen de identiteit die u normaal gesproken kunt aanmelden bij de Azure-portal.
+U moet een nieuwe browsersessie die nog niet in cache opgeslagen de identiteit die u normaal gesproken kunt aanmelden bij de Azure-portal.
 
 1. Open een *incognito* venster (Chrome) of *InPrivate* venster (Microsoft Edge).
-2. Navigeer naar de aanmeldings-URL die u hebt gemaakt in stap 6 van [maken van een nieuwe app-registratie](howto-aad-app-configuration.md#create-a-new-app-registration). Bijvoorbeeld: https://constoso.eastus.cloudapp.azure.com
+2. Navigeer naar de aanmeldings-URL die u hierboven, opgehaald, bijvoorbeeld: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`
 
-> [!NOTE]
-> De OpenShift-console gebruikt een zelfondertekend certificaat.
-> Wanneer u hierom wordt gevraagd in uw browser, de waarschuwing negeren en accepteren van de 'niet-vertrouwd' certificaat.
+Meld u aan met behulp van de naam van de gebruiker die u hebt gemaakt in stap 3 van [maken van een nieuwe Azure Active Directory-gebruiker](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user).
 
-Meld u aan met de gebruiker en het wachtwoord die u hebt gemaakt in [maken van een nieuwe Active Directory-gebruiker](howto-aad-app-configuration.md#create-a-new-active-directory-user) wanneer de **machtigingen aangevraagd** dialoogvenster wordt weergegeven, selecteert u **toestemming namens uw organisatie**  en vervolgens **accepteren**.
+Een **machtigingen aangevraagd** dialoogvenster wordt weergegeven. Klik op **toestemming namens uw organisatie** en klik vervolgens op **accepteren**.
 
 U bent nu aangemeld bij de clusterconsole.
 
@@ -151,7 +179,7 @@ U bent nu aangemeld bij de clusterconsole.
 
  Meer informatie over [met behulp van de console OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) te maken en installatiekopieën ingebouwd in de [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) documentatie.
 
-## <a name="step-4-install-the-openshift-cli"></a>Stap 4: Installeer de CLI OpenShift
+## <a name="step-5-install-the-openshift-cli"></a>Stap 5: Installeer de CLI OpenShift
 
 De [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (of *OC extra*) bieden opdrachten voor het beheren van uw toepassingen en hulpprogramma's op lagere niveaus voor interactie met de verschillende onderdelen van uw cluster OpenShift.
 

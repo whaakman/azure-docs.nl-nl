@@ -487,7 +487,7 @@ Algerije, Argentinië, Australië, Oostenrijk, Bahrein, Belarus, België, Brazil
 
 1.  Navigeer in de Cloud Partner-Portal naar de SKU die u wilt toevoegen van nieuwe landen/regio's.  Binnen de 'SKU-Details' naar ' Land/regio beschikbaarheid' en klikt u op "Bepaalde regio's."
 
-    ![Regio’s selecteren](media/marketplace-publishers-guide/FAQ-choose-geo.png)
+    ![Regio's selecteren](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
 1.  Een lijst weergegeven met alle beschikbare landen/regio's om aan te verkopen.  Klik op het selectievakje in naast elk land/de regio die u beschikbaar wilt stellen deze SKU. Klik op 'OK'.
 

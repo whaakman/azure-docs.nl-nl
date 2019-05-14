@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Een model te trainen en extraheren van gegevens met behulp van REST-API met Python - formulier-herkenning'
+title: 'Quickstart: Een model te trainen en gegevens ophalen met behulp van de REST-API met Python - formulier herkenning'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids gebruikt u het formulier herkenning REST-API met Python een model te trainen en extraheer gegevens uit formulieren.
 author: PatrickFarley
@@ -9,34 +9,32 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bbc285c35c010c9c0a38e9b3d6938c5dd3b76fe4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 39ff12a853b38b843a73f4a87a24db0292d1accd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544856"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601609"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Quickstart: Een formulier herkenning-model te trainen en extraheren van gegevens met behulp van REST-API met Python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Een formulier herkenning-model te trainen en gegevens ophalen met behulp van de REST-API met Python
 
-In deze snelstartgids gebruikt u formulier herkenning van REST-API met Python te trainen en te beoordelen van formulieren om uit te pakken sleutel / waarde-paren en tabellen.
+In deze snelstartgids gebruikt u de Azure formulier herkenning REST-API met Python te trainen en te beoordelen van formulieren om uit te pakken sleutel / waarde-paren en tabellen.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
-
-- U moet toegang krijgen tot de Preview-versie formulier herkenning beperkte toegang. Voor toegang tot de Preview-versie, vul het en verzenden de [toegangsaanvraag voor herkenning van Cognitive Services-formulier](https://aka.ms/FormRecognizerRequestAccess) formulier. 
-- [Python](https://www.python.org/downloads/) moet geïnstalleerd zijn als u het voorbeeld lokaal wilt uitvoeren.
-- U moet een abonnementssleutel hebben voor de herkenning van het formulier. Volg de instructies voor één service-abonnement in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) abonneren op formulier-herkenning en haal uw sleutel. Gebruik niet meerdere service-abonnement, als dit niet het formulier herkenning service bevat.
-- U moet een minimale set van vijf vormen van hetzelfde type hebben. U kunt een [voorbeeldgegevensset](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start.
+Als u wilt deze snelstartgids hebt voltooid, moet u het volgende hebben:
+- Toegang tot de Preview-versie formulier herkenning beperkte toegang. Voor toegang tot de Preview-versie, invullen en verzenden de [formulier herkenning toegangsaanvraag](https://aka.ms/FormRecognizerRequestAccess) formulier.
+- [Python](https://www.python.org/downloads/) geïnstalleerd (als u het voorbeeld lokaal uitvoeren wilt).
+- Een abonnementssleutel voor de herkenning van het formulier. Volg de instructies voor één service-abonnement in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) abonneren op formulier-herkenning en haal uw sleutel. Gebruik niet een abonnement op meerdere services, omdat de service formulier herkenning zijn niet inbegrepen.
+- Een set van ten minste vijf vormen van hetzelfde type. U kunt een [voorbeeldgegevensset](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start.
 
 ## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-Als u wilt maken en het voorbeeld uitvoert, moet u de volgende wijzigingen aanbrengen aan het onderstaande codefragment:
-
-1. Vervang de waarde van `<subscription_key>` door uw abonnementssleutel.
-1. Vervang de waarde van `<Endpoint>` met de eindpunt-URL voor de herkenning van formulier-resource in de Azure-regio waar u de abonnementssleutels van uw hebt verkregen.
-1. Vervang `<SAS URL>` met een Azure Blob Storage-container gedeelde toegang krijgen tot signature (SAS)-URL waar de trainingsgegevens zich bevindt.  
-
+Als u wilt maken en het voorbeeld uitvoert, moet u deze wijzigingen aanbrengen in het volgende codefragment:
+1. Vervang `<Endpoint>` met de eindpunt-URL voor de herkenning van formulier-resource in de Azure-regio waar u de abonnementssleutels van uw hebt verkregen.
+1. Vervang `<SAS URL>` met een Azure Blob storage-container gedeelde toegang krijgen tot signature (SAS)-URL van de locatie van de trainingsgegevens.  
+1. Vervang `<Subscription Key>` door uw abonnementssleutel.
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
@@ -58,11 +56,11 @@ Als u wilt maken en het voorbeeld uitvoert, moet u de volgende wijzigingen aanbr
     except Exception as e:
         print(str(e))
     ```
-1. Sla de code op als een bestand met de extensie `.py`. Bijvoorbeeld `form-recognize-train.py`.
+1. Sla de code in een bestand met de extensie .py. Bijvoorbeeld, *formulier-herkennen train.py*.
 1. Open een opdrachtpromptvenster.
 1. Typ bij de prompt de opdracht `python` om het voorbeeld uit te voeren. Bijvoorbeeld `python form-recognize-train.py`.
 
-U ontvangt een `200 (Success)` -antwoord met de volgende JSON-uitvoer:
+U ontvangt een `200 (Success)` -antwoord met deze JSON-uitvoer:
 
 ```json
 {
@@ -103,16 +101,16 @@ U ontvangt een `200 (Success)` -antwoord met de volgende JSON-uitvoer:
 }
 ```
 
-Noteer de `"modelId"` waarde; u deze nodig heeft voor de volgende stappen uit.
+Houd er rekening mee de `"modelId"` waarde. U hebt deze nodig voor de volgende stappen uit.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Sleutel / waarde-paren en tabellen onttrekken aan formulieren
 
-Vervolgens maakt u een document analyseert en sleutel / waarde-paren en tabellen ophalen uit deze. Roep de **Model - analyseren** API door het uitvoeren van de onderstaande Python-script. Voordat u de opdracht uitvoert, moet u de volgende wijzigingen aanbrengen:
+Vervolgens u een document analyseren en extraheren van sleutel / waarde-paren en tabellen uit. Roep de **Model - analyseren** API door het uitvoeren van het Python-script dat volgt. Voordat u de opdracht uitvoert, moet u deze wijzigingen:
 
-1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen met uw abonnementssleutel formulier herkenning. U vindt deze op het overzichtstabblad van formulier herkenning resource.
-1. Vervang `<File Path>` met de locatie van pad of de URL waar het formulier om gegevens te extraheren zich bevindt.
-1. Vervang `<modelID>` met de model-ID die u hebt ontvangen in de vorige stap van het model te trainen.
-1. Vervang `<file type>` met het bestandstype. ondersteunde typen PDF-, afbeelding/jpeg, afbeelding/png.
+1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen met uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
+1. Vervang `<File Path>` met het bestandspad of de URL van de locatie van de vorm van waaruit gegevens moeten worden opgehaald.
+1. Vervang `<modelID>` met de model-ID die u hebt ontvangen in de vorige sectie.
+1. Vervang `<file type>` met het bestandstype. Ondersteunde typen: pdf-, afbeelding/jpeg, afbeelding/png.
 1. Vervang `<subscription key>` door uw abonnementssleutel.
 
     ```python
@@ -140,13 +138,13 @@ Vervolgens maakt u een document analyseert en sleutel / waarde-paren en tabellen
         print(str(e))
     ```
 
-1. Sla de code op als een bestand met de extensie `.py`. Bijvoorbeeld `form-recognize-analyze.py`.
+1. Sla de code in een bestand met de extensie .py. Bijvoorbeeld, *formulier-herkennen analyze.py*.
 1. Open een opdrachtpromptvenster.
 1. Typ bij de prompt de opdracht `python` om het voorbeeld uit te voeren. Bijvoorbeeld `python form-recognize-analyze.py`.
 
 ### <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagde respons wordt geretourneerd in JSON en de uitgepakte sleutel / waarde-paren en tabellen opgehaald uit het formulier vertegenwoordigt.
+Een geslaagde reactie is geretourneerd in JSON. Staat voor de sleutel / waarde-paren en tabellen die zijn geëxtraheerd uit het formulier:
 
 ```bash
 {
@@ -471,7 +469,7 @@ Een geslaagde respons wordt geretourneerd in JSON en de uitgepakte sleutel / waa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze handleiding gebruikt u de Form-herkenning REST API's met Python een model te trainen en voer deze uit in het geval van een voorbeeld. Vervolgens, Zie de documentatie om te verkennen van de Form-herkenning API dieper op.
+In deze snelstartgids gebruikt u het formulier herkenning REST-API met Python een model te trainen en voer deze uit in een voorbeeldscenario. Vervolgens, Zie de documentatie om te verkennen van de Form-herkenning API dieper op.
 
 > [!div class="nextstepaction"]
 > [REST-API-referentiedocumentatie](https://aka.ms/form-recognizer/api)

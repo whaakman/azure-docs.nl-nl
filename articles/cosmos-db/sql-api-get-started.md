@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686395"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596089"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Een .NET-consoletoepassing voor het beheren van gegevens in Azure Cosmos DB SQL API-account maken
 
@@ -68,7 +68,7 @@ De gedownloade volledige oplossing uitvoeren:
 1. In de *App.config* bestand de `EndpointUrl` en `PrimaryKey` waarden zoals beschreven in de [verbinding maken met de Azure Cosmos DB-account](#Connect) sectie.
 1. Selecteer **Debug** > **starten zonder foutopsporing** of druk op **Ctrl**+**F5** wilt bouwen en uitvoeren van de app.
 
-## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
+## <a name="create-an-azure-cosmos-db-account"></a>Een Azure Cosmos DB-account maken
 
 Volg deze instructies voor het maken van een Azure Cosmos DB-account in Azure portal. Als u al een Azure Cosmos DB-account moet worden gebruikt, gaat u verder met [instellen van de Visual Studio-oplossing](#SetupVS). 
 
@@ -145,6 +145,20 @@ Nu aan de slag schrijven van code. De volledige *Project.cs* voor deze zelfstudi
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   Als u van een proxyobject gebruikmaakt verbinding maken met Azure Cosmos DB, moet u het volgende codeblok in plaats daarvan gebruiken om de DocumentClient-object te maken. Het voorbeeld in dit document niet gebruikmaken van een proxyobject, zodat het onderstaande voorbeeld alleen ter referentie is:
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. Voeg de volgende code aan de `Main` methode om uit te voeren de `GetStartedDemo` taak. De `Main` methode vangt uitzonderingen en schrijft deze naar de console.

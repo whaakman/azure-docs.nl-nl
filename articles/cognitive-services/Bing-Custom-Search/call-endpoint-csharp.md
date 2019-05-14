@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: maheshb
-ms.openlocfilehash: a775c1c864a8a5513be546195da5c0891f8bb1f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b50e15d39fc5a0df763cea2e2b79f9b23d151
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61066156"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595800"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Quickstart: Aanroepen van uw Bing Custom Search-eindpunt met C# 
 
@@ -25,10 +25,10 @@ Gebruik deze quickstart om te beginnen met het opvragen van zoekresultaten van u
 
 - Een Bing Custom Search-exemplaar. Zie [Quickstart: Uw eerste Bing Custom Search-exemplaar maken](quick-start.md) voor meer informatie.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Een versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/)
 - Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 - Het [NuGet-pakket Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) is geïnstalleerd. 
-    - Klik in Solution Explorer in Visual Studio met de rechtermuisknop op uw project en selecteer `Manage NuGet Packages` in het menu. Installeer het `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-pakket. Met de installatie van het NuGet-pakket Custom Search worden ook de volgende assembly's geïnstalleerd:
+    - Van **Solution Explorer** in Visual Studio met de rechtermuisknop op uw project en selecteer **NuGet-pakketten beheren** in het menu. Installeer het `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-pakket. Met de installatie van het NuGet-pakket Custom Search worden ook de volgende assembly's geïnstalleerd:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json

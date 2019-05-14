@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca7cccb1d4f17ff9f80ca006da0ef7ce77109227
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389201"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595540"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
 
 Met Visual Studio kunt u een project maken waarmee uw infrastructuur en code in Azure worden geïmplementeerd. U kunt bijvoorbeeld de webhost, website en database voor uw app opgeven en die infrastructuur samen met de code implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's. In dit artikel gaat u een web-app en SQL Database implementeren.  
 
-In dit artikel leest u hoe u [Visual Studio 2017 gebruikt met de workloads voor ontwikkeling en ASP.NET van Azure geïnstalleerd](/dotnet/azure/dotnet-tools). Als u Visual Studio 2015 Update 2 en Microsoft Azure SDK voor .NET 2.9 gebruikt, of Visual Studio 2013 met Azure SDK 2.9, is de ervaring in grote lijnen hetzelfde.
+In dit artikel ziet u hoe u [Visual Studio 2017 of later met de Azure-ontwikkeling en workloads van ASP.NET geïnstalleerd](/dotnet/azure/dotnet-tools). Als u Visual Studio 2015 Update 2 en Microsoft Azure SDK voor .NET 2.9 gebruikt, of Visual Studio 2013 met Azure SDK 2.9, is de ervaring in grote lijnen hetzelfde.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -37,7 +37,7 @@ In dit gedeelte maakt u een Azure Resource Group-project met de sjabloon **Web a
     ![Project voor cloudimplementatie](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. Kies het sjabloon dat u wilt implementeren in Azure Resource Manager. Er zijn diverse opties beschikbaar op basis van het type project dat u wilt implementeren. Voor dit artikel kiest u de sjabloon **Web-app + SQL**.
    
-    ![Een sjabloon selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
+    ![Een sjabloon kiezen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
     Het sjabloon dat u kiest is slechts een beginpunt; u kunt resources toevoegen en verwijderen op basis van uw scenario.
    
@@ -53,7 +53,7 @@ In dit gedeelte maakt u een Azure Resource Group-project met de sjabloon **Web a
    
     Omdat er voor dit voorbeeld is gekozen voor de sjabloon Web-app + SQL, krijgt u de volgende bestanden te zien: 
    
-   | Bestandsnaam | Beschrijving |
+   | Bestandsnaam | Description |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Een PowerShell-script waarmee PowerShell-opdrachten worden uitgevoerd om te worden geïmplementeerd in Azure Resource Manager.<br />**Opmerking** Visual Studio gebruikt dit PowerShell-script voor het implementeren van uw sjabloon. Eventuele wijzigingen die u aanbrengt in dit script beïnvloeden de implementatie in Visual Studio, dus wees voorzichtig. |
    | WebSiteSQLDatabase.json |Het Resource Manager-sjabloon dat de infrastructuur definieert die u in Azure wilt implementeren en de parameters die u kunt opgeven tijdens de implementatie. Hiermee worden ook de afhankelijkheden tussen resources gedefinieerd zodat deze in de juiste volgorde worden geïmplementeerd. |

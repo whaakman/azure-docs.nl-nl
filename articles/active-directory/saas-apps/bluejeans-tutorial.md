@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463531"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Zelfstudie: Azure Active Directory-integratie met BlueJeans
 
@@ -30,7 +30,7 @@ De integratie van BlueJeans met Azure AD heeft de volgende voordelen:
 
 * U kunt in Azure AD bepalen wie toegang heeft tot BlueJeans.
 * U kunt uw gebruikers zich automatisch laten aanmelden bij BlueJeans (eenmalige aanmelding) met hun Azure AD-account.
-* U kunt uw accounts in één centrale locatie - Azure portal beheren.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -64,27 +64,27 @@ Voor het configureren van de integratie van BlueJeans in Azure AD moet u BlueJea
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing](common/add-new-app.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
 4. Typ **BlueJeans** in het zoekvak, selecteer **BlueJeans** in het deelvenster met resultaten en klik op de knop **Toevoegen** om de toepassing toe te voegen.
 
      ![BlueJeans in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In dit gedeelte gaat u Azure AD-eenmalige aanmelding met BlueJeans configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
 Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in BlueJeans tot stand is gebracht.
 
 Als u Azure AD-eenmalige aanmelding met BlueJeans wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Eenmalige aanmelding voor BlueJeans configureren](#configure-bluejeans-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
-3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Een testgebruiker maken in BlueJeans](#create-bluejeans-test-user)**: om in BlueJeans een tegenhanger van Britta Simon te hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -94,7 +94,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij BlueJeans te c
 
 1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de pagina voor integratie van toepassingen met **BlueJeans**.
 
-    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -108,7 +108,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij BlueJeans te c
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij BlueJeans](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - In het tekstvak **Id** typt u het volgende: `https://samlsp.bluejeans.com`
+   - In het tekstvak **Id** typt u het volgende: `http://samlsp.bluejeans.com`
     
    - In de **aanmeldings-URL** tekstvak typt u de URL van de landingspagina die u van BlueJeans (als u deze waarde, kunt u contact met de [BlueJeans Client ondersteuningsteam](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`
     
@@ -116,7 +116,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij BlueJeans te c
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](common/certificatebase64.png)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
 6. In het gedeelte **BlueJeans instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
@@ -160,13 +160,13 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij BlueJeans te c
 
     ![Wijzigingen opslaan](./media/bluejeans-tutorial/ic785874.png "Wijzigingen opslaan")
 
-    a. In de **gebruikers-Id** tekstvak, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. In de **gebruikers-Id** tekstvak, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. Typ `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` in het tekstvak **E-mailadres**.
+    b. Typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` in het tekstvak **E-mailadres**.
 
     c. Klik op **WIJZIGINGEN OPSLAAN**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b9c9500423392ec07482f049697d9b49dc060bf
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769964"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603181"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Zelfstudie: een Java EE- en Postgres-web-app in Azure maken
 
@@ -158,7 +158,7 @@ Vervolgens moet de configuratie van de Java Transaction API (JTA) worden bewerkt
 
 ## <a name="configure-the-wildfly-application-server"></a>WildFly-toepassingsserver configureren
 
-Voordat de opnieuw geconfigureerde toepassing kan worden geïmplementeerd, moet de WildFly-toepassingsserver met de Postgres-module en de bijbehorende afhankelijkheden worden bijgewerkt. Meer configuratie-informatie kan worden gevonden op [WildFly configureren server](configure-language-java.md#configure-wildfly-server).
+Voordat de opnieuw geconfigureerde toepassing kan worden geïmplementeerd, moet de WildFly-toepassingsserver met de Postgres-module en de bijbehorende afhankelijkheden worden bijgewerkt. Meer configuratie-informatie kan worden gevonden op [WildFly configureren server](configure-language-java.md#configure-java-ee-wildfly).
 
 Voor het configureren van de server hebben we de vier bestanden in de `wildfly_config/`-map nodig:
 

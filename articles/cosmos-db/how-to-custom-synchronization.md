@@ -1,33 +1,33 @@
 ---
 title: Aangepaste synchronisatie implementeren voor het optimaliseren voor hogere beschikbaarheid en prestaties in Azure Cosmos DB
-description: Informatie over het implementeren van aangepaste synchronisatie voor het optimaliseren voor hogere beschikbaarheid en prestaties in Azure Cosmos DB
+description: Informatie over het implementeren van aangepaste synchronisatie te optimaliseren voor hogere beschikbaarheid en prestaties in Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: rimman
-ms.openlocfilehash: d948798f161eb36578cb679b6d96409917424fd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f10e260432a93a0413d65d6f5814d00a50e9465a
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61056133"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560272"
 ---
-# <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Aangepaste synchronisatie implementeren voor het optimaliseren voor hogere beschikbaarheid en prestaties
+# <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implementeren van aangepaste synchronisatie te optimaliseren voor hogere beschikbaarheid en prestaties
 
-Azure Cosmos DB biedt [vijf goed gedefinieerde consistentieniveaus](consistency-levels.md) voor u kunt selecteren in het verschil tussen de consistentie, prestaties en beschikbaarheid in balans brengen. Sterke consistentie zorgt ervoor dat gegevens worden asynchroon worden gerepliceerd en blijvend zijn doorgevoerd in elke regio waar het Azure Cosmos-account beschikbaar is. Deze configuratie biedt het hoogste duurzaamheidsniveau, maar dit gaat ten koste van de prestaties en beschikbaarheid. Als een toepassing wil besturingselement/versoepelen de duurzaamheid van gegevens op basis van de toepassing moeten u zonder verlies van beschikbaarheid, deze kunt gebruiken *aangepaste synchronisatie* op het niveau van de toepassing naar het gewenste niveau van de bereiken duurzaamheid.
+Azure Cosmos DB biedt [vijf goed gedefinieerde consistentieniveaus](consistency-levels.md) voor u om de verkeersbelasting te verdelen van de balans tussen consistentie, prestaties en beschikbaarheid. Sterke consistentie zorgt ervoor dat gegevens asynchroon worden gerepliceerd en blijvend zijn doorgevoerd in elke regio waar het Azure Cosmos-account beschikbaar is. Deze configuratie biedt het hoogste niveau van duurzaamheid, maar wordt geleverd ten koste van prestaties en beschikbaarheid. Als u wilt dat uw toepassing om te bepalen of versoepelen duurzaamheid van gegevens op basis van de toepassing moeten zonder verlies van beschikbaarheid, kunt u *aangepaste synchronisatie* op het niveau van de toepassing voor het duurzaamheidsniveau u wilt.
 
-Het onderstaande diagram geeft het aangepaste synchronisatiemodel op een visuele manier weer.
+De volgende afbeelding ziet u visueel het model aangepaste synchronisatie:
 
 ![Aangepaste synchronisatie](./media/how-to-custom-synchronization/custom-synchronization.png)
 
-In dit scenario wordt een Azure Cosmos-container wereldwijd gerepliceerd in verschillende regio's op meerdere continenten. Sterke consistentie voor alle regio's in dit scenario zou dit invloed op de prestaties. Om te controleren of een hogere duurzaamheid van gegevens zonder verlies van de latentie schrijven, kunt de toepassing twee clients die dezelfde [sessietoken](how-to-manage-consistency.md#utilize-session-tokens).
+In dit scenario wordt een Azure Cosmos-container wereldwijd gerepliceerd in meerdere regio's op meerdere continenten. Met behulp van sterke consistentie voor alle regio's in dit scenario is van invloed op prestaties. De toepassing kunt om te controleren of een hogere duurzaamheid van gegevens zonder concessies schrijflatentie, twee clients die dezelfde [sessietoken](how-to-manage-consistency.md#utilize-session-tokens).
 
-De eerste client kan gegevens schrijven naar de lokale regio (bijvoorbeeld US - west). De tweede client (bijvoorbeeld in US - oost) is een leesclient die wordt gebruikt om voor de synchronisatie te zorgen. Door de sessietoken van het antwoord schrijven naar het volgende lezen stromen, lezen zorgt ervoor dat de synchronisatie van schrijfbewerkingen naar VS Oost. Azure Cosmos DB zorgt ervoor dat schrijfbewerkingen zichtbaar zijn voor ten minste één regio en dat ze worden gegarandeerd een regionale storing te overleven als de oorspronkelijke schrijfregio uitvalt. In dit scenario wordt elke schrijfbewerking gesynchroniseerd met US - oost, waardoor de latentie wordt verminderd wanneer van sterke consistentie in alle regio's gebruik wordt gemaakt. In een scenario voor meerdere masters, waarbij schrijfbewerkingen in elke regio plaatsvinden, kan dit model worden uitgebreid om in meerdere regio's tegelijkertijd te synchroniseren.
+De eerste client kan gegevens schrijven naar de lokale regio (bijvoorbeeld US - west). De tweede client (bijvoorbeeld in VS Oost) is een lezen-client die wordt gebruikt om te controleren of de synchronisatie. Door de sessietoken van het antwoord schrijven naar het volgende lezen stromen, de lezen zorgt ervoor dat de synchronisatie van schrijfbewerkingen naar VS Oost. Azure Cosmos DB zorgt ervoor dat ten minste één regio zijn zichtbaar voor schrijfbewerkingen. Ze worden gegarandeerd een regionale storing worden bewaard als de oorspronkelijke schrijfregio uitvalt. In dit scenario wordt is elke schrijfbewerking gesynchroniseerd met VS-Oost, waardoor de latentie van die gebruikmaakt van sterke consistentie in alle regio's. U kunt dit model om te synchroniseren in meerdere regio's parallel kunt uitbreiden in een scenario waarbij schrijfbewerkingen in elke regio plaatsvinden, meerdere masters.
 
 ## <a name="configure-the-clients"></a>De clients configureren
 
-In het onderstaande voorbeeld ziet u hoe de laag voor gegevenstoegang twee clients instantieert voor dit doel.
+Het volgende voorbeeld ziet u een laag voor gegevenstoegang waarmee een instantie van twee clients voor aangepaste synchronisatie:
 
 ```csharp
 class MyDataAccessLayer
@@ -66,7 +66,7 @@ class MyDataAccessLayer
 
 ## <a name="implement-custom-synchronization"></a>Aangepaste synchronisatie implementeren
 
-Nadat de clients zijn geïnitialiseerd, kan de toepassing schrijfbewerkingen naar de lokale regio (US - west) uitvoeren en de schrijfbewerkingen naar US - oost als volgt gedwongen synchroniseren.
+Nadat de clients zijn geïnitialiseerd, kunt de toepassing uitvoeren schrijfbewerkingen naar de lokale regio (VS West) en de force-synchronisatie de schrijfbewerkingen naar VS Oost als volgt.
 
 ```csharp
 class MyDataAccessLayer
@@ -82,13 +82,13 @@ class MyDataAccessLayer
 }
 ```
 
-Dit model kan worden uitgebreid om in meerdere regio's tegelijkertijd te synchroniseren.
+U kunt het model om te synchroniseren in meerdere regio's tegelijk kunt uitbreiden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over meerdere masters, wereldwijde distributie en consistentie in Azure Cosmos DB vindt u in de volgende artikelen:
+Lees deze artikelen voor meer informatie over globale distributie en consistentie in Azure Cosmos DB:
 
-* [Het juiste consistentieniveau kiezen in Azure Cosmos DB](consistency-levels-choosing.md)
+* [Kies de juiste consistentieniveau in Azure Cosmos DB](consistency-levels-choosing.md)
 * [Compromissen tussen consistentie, beschikbaarheid en prestaties in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Informatie over het beheren van consistentie in Azure Cosmos DB](how-to-manage-consistency.md)
+* [Consistentie in Azure Cosmos DB beheren](how-to-manage-consistency.md)
 * [Partitioneren en gegevensdistributie in Azure Cosmos DB](partition-data.md)

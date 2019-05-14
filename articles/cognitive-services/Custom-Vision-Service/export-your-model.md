@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bf8217f5076c0a95d4db6c1c7cbea7bc93b91f3
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605370"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550543"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exporteren van het model voor gebruik met een mobiel apparaat
 
@@ -69,10 +69,10 @@ Voor het exporteren van het model na het opnieuw trainen, gebruikt u de volgende
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Integreer uw geëxporteerde model in een toepassing. Er zijn verschillende voorbeeldtoepassingen beschikbaar:
+Het model van uw geëxporteerde integreren in een toepassing door een van de volgende artikelen of voorbeelden verkennen:
 
-* Een voorbeeld van [in een iOS-toepassing met behulp van het model van uw geëxporteerde CoreML](https://go.microsoft.com/fwlink/?linkid=857726) voor realtime afbeeldingsclassificatie met Swift
-* Voorbeeld van een iOS-toepassing voor [met behulp van het geëxporteerde CoreML-model met Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) voor realtime afbeeldingsclassificatie 
-* Voorbeeld voor [met behulp van het geëxporteerde Tensorflow-model in een Android-toepassing](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) voor realtime afbeeldingsclassificatie 
-* [Met behulp van uw model Tensorflow met Windows](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
-* Voorbeeld voor [met behulp van het geëxporteerde ONNX-model met Windows-Machine Learning](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/)
+* [Uw model Tensorflow gebruiken met Python](export-model-python.md)
+* [Uw ONNX-model gebruiken met Windows-Machine Learning](custom-vision-onnx-windows-ml.md)
+* Zie het voorbeeld voor [CoreML model in een iOS-toepassing](https://go.microsoft.com/fwlink/?linkid=857726) voor realtime afbeeldingsclassificatie met Swift.
+* Zie het voorbeeld voor [Tensorflow-model in een Android-toepassing](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) voor realtime afbeeldingsclassificatie op Android.
+* Zie het voorbeeld voor [CoreML model met Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) voor realtime afbeeldingsclassificatie in een Xamarin iOS-app.

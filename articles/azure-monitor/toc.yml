@@ -314,8 +314,9 @@
                 - name: Status Monitor
                   href: app/monitor-performance-live-website-now.md
                 - name: Status Monitor v2
-                  href: app/status-monitor-v2-overview.md
                   items:
+                    - name: Overzicht
+                      href: app/status-monitor-v2-overview.md
                     - name: Aan de slag
                       href: app/status-monitor-v2-get-started.md
                     - name: Gedetailleerde instructies
@@ -557,7 +558,7 @@
                   href: app/usage-workbooks.md
             - name: Oplossing voor web-appanalyse
               href: insights/azure-web-apps-analytics.md
-            - name: Gehoste Kubernetes-apps
+            - name: Kubernetes-toepassingen bewaken
               href: app/kubernetes.md
         - name: Containers bewaken
           items:
@@ -631,8 +632,18 @@
                   href: insights/vminsights-known-issues.md
                 - name: Veelgestelde vragen
                   href: insights/vminsights-faq.md
-                - name: Onboarding
-                  href: insights/vminsights-onboard.md
+                - name: Bewaking inschakelen
+                  items:
+                    - name: Bewakingsoverzicht inschakelen
+                      href: insights/vminsights-enable-overview.md
+                    - name: Inschakelen voor één Azure-VM
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Inschakelen met Azure Policy
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Inschakelen met Azure PowerShell
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: Inschakelen voor een hybride omgeving
+                      href: insights/vminsights-enable-hybrid-cloud.md
                 - name: Statusbewaking
                   href: insights/vminsights-health.md
                 - name: Afhankelijkheden toewijzen

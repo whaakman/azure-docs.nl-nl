@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0870983fe9f0ae64090652f02c526a370064b8ab
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328449"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595889"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Zelfstudie: Een Aangepaste zoekopdrachten-webpagina bouwen
 
@@ -35,7 +35,7 @@ De behandelde taken zijn:
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u deze zelfstudie wilt volgen, hebt u een abonnementssleutel nodig voor de Bing Aangepaste zoekopdrachten-API.  Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) voor meer informatie.
-- Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken.
+- Als u Visual Studio 2017 nog niet hebt of hoger is geïnstalleerd, kunt u downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Een exemplaar voor aangepaste zoekopdrachten maken
 

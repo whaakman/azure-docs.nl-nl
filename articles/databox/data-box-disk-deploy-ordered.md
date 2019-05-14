@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ad11dba43e7e1561a74e04cd4f05b26569cc10d9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924924"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603177"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Zelfstudie: Een Azure Data Box Disk bestellen
 
@@ -65,7 +65,7 @@ Voer de volgende stappen uit in [Azure Portal](https://aka.ms/azuredataboxfromdi
     |---|---|
     |Abonnement|Selecteer het abonnement waarvoor Data Box is ingeschakeld.<br> Het abonnement is gekoppeld aan uw factureringsrekening. |
     |Type overdracht| Importeren in Azure|
-    |Bronland | Selecteer het land/de regio waar uw gegevens momenteel worden bewaard.|
+    |Bronland | Selecteer het land/de regio waarin uw gegevens zich momenteel bevindt.|
     |Doel-Azure-regio|Selecteer de Azure-regio waarnaar u uw gegevens wilt overdragen.|
 
   

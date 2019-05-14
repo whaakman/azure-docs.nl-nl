@@ -76,6 +76,8 @@
           href: overview-authentication-authorization.md
         - name: Patches toepassen voor het besturingssysteem en de runtime
           href: overview-patch-os-runtime.md
+        - name: Beveiligingskenmerken
+          href: app-service-security-attributes.md
     - name: Inkomende en uitgaande IP-adressen
       href: overview-inbound-outbound-ips.md
     - name: Hybride verbindingen

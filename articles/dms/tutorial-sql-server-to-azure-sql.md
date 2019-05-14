@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 22e55379c79678a2792f439137e8d58d03cd8377
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 32d8bd528da2823907e4f992f977eef91e55b9b0
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415079"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605481"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Zelfstudie: SQL Server offline migreren naar een individuele of pooldatabase in Azure SQL Database met behulp van DMS
 
@@ -24,6 +24,7 @@ U kunt de Azure Database Migration Service gebruiken voor het migreren van de da
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
+>
 > - Uw on-premises database evalueren met behulp van de Data Migration Assistant.
 > - Het voorbeeldschema migreren met behulp van de Data Migration Assistant.
 > - De Azure-portal gebruiken om een Azure Database Migration Service-exemplaar te maken.
@@ -63,7 +64,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 - Open uw Windows-firewall voor toegang voor de Azure Database Migration Service tot de SQL Server-bron, die standaard TCP-poort 1433 gebruikt.
 - Als u meerdere benoemde SQL Server-exemplaren uitvoert met behulp van dynamische poorten, kunt u desgewenst de SQL Browser Service inschakelen en toegang tot de UDP-poort 1434 via uw firewalls toestaan, zodat de Azure Database Migration Service verbinding kan maken met een benoemd exemplaar op uw bronserver.
 - Wanneer u een firewallapparaat gebruikt voor de brondatabase(s), moet u mogelijk firewallregels toevoegen om voor de Azure Database Migration Service toegang tot de brondatabase(s) voor de migratie toe te staan.
-- Maak een [IP-firewallregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) op serverniveau voor de Azure SQL Database-server om voor de Azure Database Migration Service toegang tot de doeldatabase toe te staan. Geef het subnetbereik van het VNET op dat wordt gebruikt voor de Azure Database Migration Service.
+- Maak een [IP-firewallregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) op serverniveau voor de Azure SQL Database-server om voor de Azure Database Migration Service toegang tot de doeldatabase toe te staan. Geef het subnetbereik van het VNet gebruikt voor de Azure Database Migration Service.
 - Zorg ervoor dat de referenties waarmee verbinding wordt gemaakt met het SQL Server-bronexemplaar [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)-machtigingen hebben.
 - Zorg ervoor dat de referenties waarmee verbinding wordt gemaakt met het Azure SQL Database-doelexemplaar CONTROL DATABASE-machtiging hebben op de Azure SQL-doeldatabases.
 
@@ -79,7 +80,7 @@ Voordat u gegevens uit een on-premises SQL Server-exemplaar naar een individuele
    - Databasecompatibiliteit controleren
    - Functiepariteit controleren
 
-     Beide rapporttypen zijn standaard geselecteerd.
+    Beide rapporttypen zijn standaard geselecteerd.
 
 3. Selecteer in de Data Migration Assistant, in het scherm **Opties**, **Volgende**.
 4. Geef in het scherm **Bronnen selecteren**, in het dialoogvenster **Verbinding maken met een server**, de verbindingsdetails met uw SQL Server op, en selecteer vervolgens **Verbinding maken**.

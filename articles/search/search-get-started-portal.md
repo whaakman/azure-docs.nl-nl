@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024746"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606460"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Quickstart: Ingebouwde portalprogramma's gebruiken voor importeren, indexeren en query's uitvoeren in Azure Search
 > [!div class="op_single_selector"]
@@ -252,7 +252,7 @@ Georuimtelijk zoeken wordt ondersteund door het [gegevenstype edm.GeographyPoint
 
 Met dit voorbeeld worden alle resultaten voor positionele gegevens gefilterd die minder dan 5 kilometer zijn verwijderd van een opgegeven punt (opgegeven als coördinaten voor lengte- en breedtegraad). Door **$count** toe te voegen, kunt u zien hoeveel resultaten er worden geretourneerd als u de afstand of de coördinaten wijzigt.
 
-Georuimtelijk zoeken is handig als uw zoektoepassing een functie 'in mijn buurt zoeken' heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als uw gebruikers op naam naar steden of landen willen zoeken, voegt u, naast coördinaten, ook velden met namen van steden of landen toe.
+Georuimtelijk zoeken is handig als uw zoektoepassing een functie 'in mijn buurt zoeken' heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als u gebruikersvereisten voor zoeken op een plaats of een land/regio met de naam, voegt u velden met namen van stad of land/regio, naast coördinaten toe.
 
 ## <a name="takeaways"></a>Opgedane kennis
 

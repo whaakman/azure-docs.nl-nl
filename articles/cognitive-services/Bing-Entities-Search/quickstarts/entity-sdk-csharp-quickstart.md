@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0390ef5b9364aaa54c4d46abf3164728b3a4126a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708405"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595815"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Een aanvraag verzenden om te zoeken naar entiteiten met de Bing Entity Search SDK voor C#
 
@@ -24,7 +24,7 @@ Gebruik deze quickstart om te zoeken naar entiteiten met de Bing Entity Search S
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/).
 * Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket.
 * Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 * Het [NuGet-pakket voor de Bing Nieuws zoeken SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Als u dit pakket installeert, worden ook de volgende onderdelen geïnstalleerd:
@@ -32,7 +32,7 @@ Gebruik deze quickstart om te zoeken naar entiteiten met de Bing Entity Search S
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Als u de Bing Entity Search SDK aan uw project wilt toevoegen, gaat u naar de optie `Manage NuGet Packages` van Solution Explorer in Visual Studio en voegt u pakket `Microsoft.Azure.CognitiveServices.Search.EntitySearch` toe.
+U kunt de Bing Entity Search SDK toevoegen aan uw Visual Studio-project met de **NuGet-pakketten beheren** optie van **Solution Explorer**, en voeg de `Microsoft.Azure.CognitiveServices.Search.EntitySearch` pakket.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

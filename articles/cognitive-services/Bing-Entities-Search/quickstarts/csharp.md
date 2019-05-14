@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 211f33d5b217714b26dc39ad63f9d1427950589a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473379"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595772"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Quickstart: Een zoekaanvraag naar de REST-API van Bing Entiteiten zoeken sturen met C#
 
@@ -26,14 +26,15 @@ Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket.
-    * Het NuGet-pakket installeren in Visual studio:
-        1. Klik met de rechtermuisknop in Solution Explorer
-        2. Klik op **NuGet-pakketten beheren...**
-        3. Zoeken naar **newtonsoft.json** en installeer het pakket
+- Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/).
 
-* Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
+- Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket. Het NuGet-pakket installeren in Visual Studio:
+
+   1. Klik met de rechtermuisknop op uw project in **Solution Explorer**.
+   2. Selecteer **NuGet-pakketten beheren**.
+   3. Zoeken naar *Newtonsoft.Json* en installeer het pakket.
+
+- Als u Linux/MacOS, deze toepassing kan worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

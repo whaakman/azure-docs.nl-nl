@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 57ec4990447070d1889f7476b89abb742296c056
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008899"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597519"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: Een apparaatfirmware-updateproces implementeren
 
@@ -41,7 +41,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Node.js. Node.js v4.x.x of hoger moet zijn geïnstalleerd op uw ontwikkelcomputer.
+De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Node.js. U moet Node.js v10.x.x of hoger op uw ontwikkelcomputer.
 
 U kunt Node.js voor meerdere platforms downloaden van [nodejs.org](https://nodejs.org).
 

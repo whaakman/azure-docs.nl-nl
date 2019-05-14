@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 74cd73cd7f9d5be9da552fb22ef2a2750ddc8321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed82c214e2fbb2a1efc5917eb74ffe9b29abb115
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029853"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560331"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Zelfstudie: toepassingen schalen in AKS (Azure Kubernetes Service)
 
@@ -83,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Als u automatisch schalen wilt gebruiken, moeten CPU-aanvragen en -limieten voor uw schillen zijn gedefinieerd. In de `azure-vote-front`-implementatie vraagt de front-end container al om 0,25 CPU, met een limiet van 0,5 CPU. Deze resourceaanvragen en -limieten worden gedefinieerd zoals weergegeven in het volgende voorbeeldfragment:
+Voor het gebruik van automatisch schalen, moet alle containers in uw schillen en uw schillen CPU-aanvragen en -limieten die zijn gedefinieerd. In de `azure-vote-front`-implementatie vraagt de front-end container al om 0,25 CPU, met een limiet van 0,5 CPU. Deze resourceaanvragen en -limieten worden gedefinieerd zoals weergegeven in het volgende voorbeeldfragment:
 
 ```yaml
 resources:

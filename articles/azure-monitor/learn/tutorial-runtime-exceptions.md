@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637361"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595609"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Runtime-uitzonderingen vinden en diagnosticeren met behulp van Azure Application Insights
 
@@ -34,7 +34,7 @@ Azure Application Insights verzamelt telemetrie van uw toepassing om runtime-uit
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-- Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+- Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET-ontwikkeling en webontwikkeling
     - Azure-ontwikkeling
 - Download en installeer de [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -75,7 +75,7 @@ Application Insights verzamelt fouten in uw toepassing en laat u zien hoe vaak z
     ![Details van uitzondering](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Mislukt code identificeren
-De Snapshot Debugger verzamelt momentopnamen van de meest frequente uitzonderingen in uw toepassing om u te helpen bij de diagnose van de onderliggende oorzaak in de productie.  U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Hierna hebt u de mogelijkheid om fouten in de broncode op te sporen door de momentopname te downloaden en te openen in Visual Studio 2017 Enterprise.
+De Snapshot Debugger verzamelt momentopnamen van de meest frequente uitzonderingen in uw toepassing om u te helpen bij de diagnose van de onderliggende oorzaak in de productie.  U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Daarna hebt u de optie om op te sporen van de broncode van de momentopname downloaden en te openen in Visual Studio 2019 Enterprise.
 
 1. Klik in de eigenschappen van de uitzondering op **Momentopname voor foutopsporing openen**.
 2. Het deelvenster **Debug Snapshot** (fouten opsporen in momentopname) wordt geopend met de aanroepstack voor de aanvraag.  Klik op een methode om de waarden van alle lokale variabelen op het moment van de aanvraag weer te geven.  Te beginnen bij de bovenste methode in dit voorbeeld, zien we lokale variabelen die geen waarde hebben.

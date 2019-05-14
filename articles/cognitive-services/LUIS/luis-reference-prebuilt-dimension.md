@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9099cdbb91e41998065d953b9d48b3b501df7c10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e77cd2290981de62ba7fce7f04174cd0c5ec2af3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712760"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65072190"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Dimensie vooraf gedefinieerde entiteit voor een LUIS-app
 De vooraf gedefinieerde dimensie entiteit detecteert de verschillende typen dimensies, ongeacht de cultuur van LUIS-app. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met dimensies aan de toepassing intents. Dimensie entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 
@@ -27,6 +27,9 @@ Dimensie wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Rec
 
 
 ## <a name="resolution-for-dimension-entity"></a>Oplossing voor de dimensie entiteit
+
+### <a name="api-version-2x"></a>API-versie 2.x
+
 Het volgende voorbeeld ziet u de resolutie van de **builtin.dimension** entiteit.
 
 ```json
@@ -54,6 +57,70 @@ Het volgende voorbeeld ziet u de resolutie van de **builtin.dimension** entiteit
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+
+De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+
+```json
+{
+    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+    "prediction": {
+        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.400049
+            }
+        },
+        "entities": {
+            "dimension": [
+                {
+                    "number": 10.5,
+                    "unit": "Mile"
+                }
+            ]
+        }
+    }
+}
+```
+
+De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+
+```json
+{
+    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+    "prediction": {
+        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.400049
+            }
+        },
+        "entities": {
+            "dimension": [
+                {
+                    "number": 10.5,
+                    "unit": "Mile"
+                }
+            ],
+            "$instance": {
+                "dimension": [
+                    {
+                        "type": "builtin.dimension",
+                        "text": "10 1/2 miles",
+                        "startIndex": 19,
+                        "length": 12,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

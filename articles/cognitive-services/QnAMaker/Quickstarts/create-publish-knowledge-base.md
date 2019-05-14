@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/10/2019
 ms.author: diberry
-ms.openlocfilehash: cf6b0cd99254d5b034687598c588ce5ef13dbd53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1411576d078115921cb04b41347264bccdc390f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60912788"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593963"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Uw QnA Maker-knowledge base maken, trainen en publiceren
 
@@ -66,7 +66,7 @@ U kunt een QnA Maker-knowledge base (KB) maken van uw eigen inhoud, zoals veelge
 
 1. Selecteer **Inspect** (Inspecteren) om het antwoord gedetailleerder te onderzoeken. Het testvenster wordt gebruikt om uw wijzigingen in de knowledge base testen voordat ze worden gepubliceerd.
 
-    ![Testvenster](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Testvenster](../media/qnamaker-quickstart-kb/inspect.png)
 
 1. Selecteer **Test** (Testen) nogmaals om de pop-up **Test** te sluiten.
 

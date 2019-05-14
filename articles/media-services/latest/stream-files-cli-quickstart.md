@@ -1,6 +1,6 @@
 ---
 title: Stream-video's met Azure Media Services en de Azure CLI | Microsoft Docs
-description: Volg de stappen in deze snelstartgids om een nieuw Azure Media Services-account te maken, een bestand te coderen en dit vervolgens te streamen naar Azure Media Player.
+description: Volg de stappen in deze zelfstudie om te maken van een nieuwe Azure Media Services-account, een bestand coderen en streamen met Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: azure media services, streamen
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205407"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550204"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>Quickstart: Videobestanden streamen - CLI
+# <a name="tutorial-stream-video-files---cli"></a>Zelfstudie: Videobestanden streamen - CLI
 
-In deze Quick Start laat zien hoe eenvoudig coderen en streamen van video's op een aantal verschillende browsers en apparaten met behulp van Azure Media Services en de Azure CLI. U kunt invoerinhoud opgeven met behulp van HTTPS of SAS-URL's of paden naar bestanden in Azure Blob-opslag.
+In deze zelfstudie laat zien hoe eenvoudig coderen en streamen van video's op een aantal verschillende browsers en apparaten met behulp van Azure Media Services en de Azure CLI. U kunt invoerinhoud opgeven met behulp van HTTPS of SAS-URL's of paden naar bestanden in Azure Blob-opslag.
 
 In het voorbeeld in dit artikel worden de inhoud die u toegankelijk zijn via een HTTPS-URL gecodeerd. Media Services v3 ondersteunt momenteel geen gesegmenteerde overdrachtscodering via HTTPS-URL's.
 
-Aan het einde van deze Quick Start zult u een video te streamen.  
+Aan het einde van deze zelfstudie zult u een video te streamen.  
 
 ![De video afspelen](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -342,7 +342,7 @@ Hier volgt een voorbeeld:
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u niet meer nodig van de resources in de resourcegroep hebt, met inbegrip van de Media Services en storage-accounts die u hebt gemaakt voor deze Quick Start, verwijdert u de resourcegroep.
+Als u niet meer nodig van de resources in de resourcegroep hebt, met inbegrip van de Media Services en storage-accounts die u hebt gemaakt voor deze zelfstudie, moet u de resourcegroep verwijderen.
 
 Dit CLI-opdracht uitvoeren:
 
@@ -350,10 +350,7 @@ Dit CLI-opdracht uitvoeren:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Zie ook
-
-Zie [Foutcodes in taak](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## <a name="next-steps"></a>Volgende stappen
 
 [Overzicht van Media Services](media-services-overview.md)
+

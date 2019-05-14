@@ -66,6 +66,8 @@
     - name: VM-typen en -groottes
       href: sizes.md
       items:
+        - name: VM's uit de tweede generatie
+          href: generation-2.md
         - name: Algemeen doel
           href: sizes-general.md
           items:

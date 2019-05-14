@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077561"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595751"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Zelfstudie: Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen
 
@@ -39,7 +39,7 @@ De CLI-scripts die u in deze zelfstudie uitvoert, gebruiken de [Microsoft Azure 
 az extension add --name azure-cli-iot-ext
 ```
 
-De apparaatsimulatietoepassing die u in deze zelfstudie uitvoert is geschreven in Node.js. Node.js v4.x.x of hoger moet zijn geïnstalleerd op uw ontwikkelcomputer.
+De apparaatsimulatietoepassing die u in deze zelfstudie uitvoert is geschreven in Node.js. U moet Node.js v10.x.x of hoger op uw ontwikkelcomputer.
 
 U kunt Node.js voor meerdere platforms downloaden van [nodejs.org](https://nodejs.org).
 
