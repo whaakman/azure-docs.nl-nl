@@ -51,7 +51,7 @@ Een gebruikelijke verbindingsreeks is `Server=<server>;Port=<port>;Database=<dat
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | SecurityLevel | Het niveau van beveiliging (SSL/TLS) die gebruikmaakt van het stuurprogramma voor de verbinding met het gegevensarchief. Voorbeeld: `SecurityLevel=preferredSecured`. Ondersteunde waarden zijn:<br/>- **Alleen niet-beveiligde** (**onlyUnSecured**): Het stuurprogramma biedt geen gebruik van SSL.<br/>- **Niet-beveiligde (preferredUnSecured) (standaard) bij voorkeur**: Als de server een keuze biedt, gebruik niet het stuurprogramma van SSL. <br/>- **Beveiligd (preferredSecured) bij voorkeur**: Als de server een keuze biedt, betekent dit dat het stuurprogramma SSL gebruikt. <br/>- **Alleen beveiligd (onlySecured)**: Het stuurprogramma biedt geen verbinding maken als een SSL-verbinding beschikbaar is. | Nee |
-| CACertBestand | Het volledige pad naar het SSL-certificaat dat wordt gebruikt door de server. Voorbeeld: `CaCertFile=<cert path>;`| Ja, als SSL is ingeschakeld |
+| CaCertFile | Het volledige pad naar het SSL-certificaat dat wordt gebruikt door de server. Voorbeeld: `CaCertFile=<cert path>;`| Ja, als SSL is ingeschakeld |
 
 **Voorbeeld**
 
