@@ -56,7 +56,7 @@ De volgende eigenschappen worden ondersteund voor ODBC-gekoppelde service:
 | authenticationType | Het type verificatie gebruikt voor verbinding met de ODBC-gegevensopslag.<br/>Toegestane waarden zijn: **Basic** en **anonieme**. | Ja |
 | userName | Geef de gebruikersnaam op als u basisverificatie gebruikt. | Nee |
 | password | Geeft het wachtwoord op voor het gebruikersaccount dat u hebt opgegeven voor de userName. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
-| referenties | De access-referentie-gedeelte van de verbindingsreeks die is opgegeven in de indeling van de eigenschap / waarde-specifieke stuurprogramma's. Voorbeeld: `"RefreshToken=<secret refresh token>;"`. Dit veld markeert als een SecureString. | Nee |
+| credential | De access-referentie-gedeelte van de verbindingsreeks die is opgegeven in de indeling van de eigenschap / waarde-specifieke stuurprogramma's. Voorbeeld: `"RefreshToken=<secret refresh token>;"`. Dit veld markeert als een SecureString. | Nee |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
 **Voorbeeld 1: met behulp van basisverificatie**
