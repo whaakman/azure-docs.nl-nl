@@ -46,8 +46,8 @@ De volgende eigenschappen worden ondersteund voor Oracle-Servicecloud gekoppelde
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **OracleServiceCloud** | Ja |
 | host | De URL van de Cloud voor Oracle-Service-exemplaar.  | Ja |
-| gebruikersnaam | De gebruikersnaam die u gebruikt voor toegang tot Oracle-Service-Cloud-server.  | Ja |
-| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker die u hebt opgegeven in de gebruikersnaam-sleutel. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF activiteit pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
+| username | De gebruikersnaam die u gebruikt voor toegang tot Oracle-Service-Cloud-server.  | Ja |
+| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker die u hebt opgegeven in de gebruikersnaam-sleutel. U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord opslaan in Azure Key Vault en laat ADF activiteit pull van daaruit kopiëren, bij het uitvoeren van het kopiëren van gegevens: meer informatie uit [referenties Store in Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
