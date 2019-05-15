@@ -44,11 +44,11 @@ De volgende eigenschappen worden ondersteund voor Phoenix gekoppelde service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Phoenix** | Ja |
 | host | Het IP-adres of de hostnaam naam van de Phoenix-server. (dat wil zeggen, 192.168.222.160)  | Ja |
-| poort | De TCP-poort die de Phoenix-server wordt gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 8765. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
+| port | De TCP-poort die de Phoenix-server wordt gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 8765. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de Phoenix-server. (dat wil zeggen, /gateway/sandbox/phoenix/version). Geef `/hbasephoenix0` als HDInsights cluster.  | Nee |
 | authenticationType | Het verificatiemechanisme waarmee verbinding wordt gemaakt met de Phoenix-server. <br/>Toegestane waarden zijn: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
-| gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de Phoenix-server.  | Nee |
-| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| username | De gebruikersnaam die wordt gebruikt voor verbinding met de Phoenix-server.  | Nee |
+| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met de vertrouwde CA-certificaten voor het controleren van de server wanneer u verbinding maakt via SSL. Deze eigenschap kan alleen worden ingesteld wanneer u SSL op zelf-hostende IR De standaardwaarde is het bestand cacerts.pem is geïnstalleerd met de IR.  | Nee |
 | useSystemTrustStore | Hiermee bepaalt u of u een CA-certificaat uit het archief van de vertrouwensrelatie systeem- of uit een opgegeven PEM-bestand. De standaardwaarde is false.  | Nee |
