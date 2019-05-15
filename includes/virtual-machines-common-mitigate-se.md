@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/14/2018
+ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: cbd86571cbdcd600ef3acdea3833568a34657931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337937"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620258"
 ---
-**Laatste update document**: 14 augustus 2018 10:00 AM PST.
+**Laatste update document**: 14 mei 2019 10:00 AM PST.
 
 De vermelding van een [nieuwe klasse van CPU-beveiligingsproblemen](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) die bekend staat als speculatieve uitvoering van side-channel aanvallen heeft geresulteerd in vragen van klanten om meer duidelijkheid te zoeken.  
 
@@ -28,11 +28,17 @@ Meer informatie over hoe de beveiliging is geïntegreerd in elk aspect van Azure
 > [!NOTE] 
 > Aangezien dit document werd gepubliceerd, zijn meerdere varianten van deze klasse beveiligingsproblemen gemaakt. Microsoft blijft zwaar worden geïnvesteerd in onze klanten te beschermen en bieden van richtlijnen. Deze pagina wordt bijgewerkt wanneer we doorgaan met de release verder oplossingen. 
 > 
-> 14 augustus 2018 de bedrijfstak een nieuw kanaal beveiligingslek voor speculatieve uitvoering kant wel vermeld [L1 Terminal fouttolerantie](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) die is toegewezen meerdere CVEs ([CVE-2018-3615, CVE-2018-3620, en CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). Deze kwetsbaarheid is van invloed op de® Core Intel-processors en Intel® Xeon®-processors. Microsoft heeft oplossingen worden geïmplementeerd in onze cloudservices die de isolatie tussen klanten versterken. Lees hieronder voor meer informatie om te beveiligen tegen L1TF en vorige zwakke plekken ([Spectre Variant 2 CVE-2017-5715 en Meltdown Variant 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)).
->  
-
-
-
+> Op 14 mei 2019 [Intel vermeld](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) een nieuwe set speculatieve uitvoering kant kanaal beveiligingslek bekend als micro-architecturale steekproeven te nemen (MDS Zie het Microsoft-beveiligingsrichtlijnen [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), die is toegewezen meerdere CVEs: 
+> - CVE-2018-11091 - micro-architecturale gegevens steekproeven Uncacheable geheugen (MDSUM)
+> - CVE-2018-12126 - micro-architecturale Store Buffer gegevens steekproeven (MSBDS) 
+> - CVE-2018-12127 - micro-architecturale Load poort gegevens steekproeven (MLPDS)
+> - CVE-2018-12130 - micro-architecturale opvulling Buffer gegevens steekproeven (MFBDS)
+>
+> Deze kwetsbaarheid is van invloed op de® Core Intel-processors en Intel® Xeon®-processors.  Microsoft Azure is besturingssysteemupdates en is de implementatie van nieuwe microcode als deze beschikbaar wordt gesteld door Intel, in onze vloot om onze klanten op basis van deze nieuwe beveiligingsproblemen te beschermen.   Azure werkt nauw samen met de Intel om te testen en valideren van de nieuwe microcode vóór de officiële release van het platform. 
+>
+> **Klanten met niet-vertrouwde code binnen hun VM** moet actie ondernemen om u te beschermen tegen deze beveiligingslekken door te lezen hieronder voor meer informatie over alle speculatieve uitvoering van side-channel beveiligingsproblemen (Microsoft aanbevelingen ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), en [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+>
+> Andere klanten moeten deze beveiligingslekken uit een ingrijpende in het perspectief van de diepte evalueren en houd rekening met de gevolgen voor beveiliging en prestaties van de gekozen configuratie.
 
 
 
@@ -64,56 +70,115 @@ Klanten die niet een scenario met betrekking tot niet-vertrouwde code geïmpleme
 
 ## <a name="enabling-additional-security"></a>Extra beveiliging inschakelen 
 
-U kunt aanvullende beveiligingsfuncties die binnen uw virtuele machine of Service in de Cloud inschakelen.
+Als u niet-vertrouwde code uitvoert, kunt u aanvullende beveiligingsfuncties die binnen uw virtuele machine of Service in de Cloud inschakelen. Parallel, zorg ervoor dat het besturingssysteem is bijgewerkt om in te schakelen van beveiligingsfuncties die binnen uw virtuele machine of Cloudservice
 
 ### <a name="windows"></a>Windows 
 
 Het beoogde besturingssysteem moet worden bijgewerkt zodat deze aanvullende beveiligingsfuncties. Hoewel talrijke speculatieve uitvoering kant kanaal oplossingen zijn standaard ingeschakeld, wordt de aanvullende functies die hier worden beschreven handmatig moeten zijn ingeschakeld en kunnen ertoe leiden dat een prestatie-impact. 
 
-**Stap 1**: [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) naar expose bijgewerkt firmware (microcode) in uw virtuele Machines. 
 
-**Stap 2**: Ondersteuning voor Kernel virtuele-adres maken van schaduwkopieën (KVAS) en het besturingssysteem van de vertakking doel injectie (BTI) inschakelen. Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen die via de `Session Manager` registersleutels. Opnieuw opstarten is vereist. 
+**Stap 1: Hyperthreading is op de virtuele machine uitschakelen** - klanten die niet-vertrouwde code uitvoeren op een virtuele machine moet hyperthreading is uitgeschakeld of verplaatsen naar een niet-hyperthreaded VM-grootte hyperthreaded. Als u wilt controleren of uw virtuele machine hyperthreading is ingeschakeld heeft, raadpleegt u het onderstaande script met de Windows-opdrachtregel uit vanuit de virtuele machine.
 
-**Stap 3**: Voor implementaties die gebruikmaken van [geneste virtualisatie](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 en E3 alleen): Deze instructies zijn van toepassing binnen de virtuele machine die u als een Hyper-V-host gebruikt. 
+Type `wmic` in te voeren van de interactieve interface. Typ vervolgens de onderstaande om weer te geven van de hoeveelheid fysieke en logische processors op de virtuele machine.
 
-1. Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen die via de `MinVmVersionForCpuBasedMitigations` registersleutels.  
- 
-1. Het type van de scheduler hypervisor instellen op **Core** door de instructies te volgen [hier](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
+```console
+CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
+```
 
-**Stap 4**: Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om te controleren of beveiliging zijn ingeschakeld met behulp van de [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell-module. 
+Als het aantal logische processors groter is dan de fysieke processors (kernen), is hyperthreading is ingeschakeld.  Als u een hyperthreaded VM uitvoert, moet u [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) om op te halen hyperthreading is uitgeschakeld.  Als hyperthreading is uitgeschakeld, **ondersteuning moet een volledige VM opnieuw wordt opgestart**. 
+
+
+**Stap 2**: Volg de instructies in parallel aan stap 1, [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om te controleren of beveiliging zijn ingeschakeld met behulp van de [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell-module.
 
 > [!NOTE]
 > Als u deze module eerder hebt gedownload, moet u de nieuwste versie te installeren.
 >
 
-Alle virtuele machines moeten worden weergegeven:
+
+De uitvoer van het PowerShell-script moet de onderstaande waarden om te valideren ingeschakeld beveiliging biedt tegen deze beveiligingslekken:
 
 ```
-branch target injection mitigation is enabled: True
-
-kernel VA shadow is enabled: True  
-
-L1TFWindowsSupportEnabled: True
+Windows OS support for branch target injection mitigation is enabled: True
+Windows OS support for kernel VA shadow is enabled: True
+Windows OS support for speculative store bypass disable is enabled system-wide: False
+Windows OS support for L1 terminal fault mitigation is enabled: True
+Windows OS support for MDS mitigation is enabled: True
 ```
+
+Als de uitvoer ziet u `MDS mitigation is enabled: False`, meldt [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) voor risicobeperking beschikbare opties.
+
+
+
+**Stap 3**: Volg de instructies in om in te schakelen Kernel virtuele-adres maken van schaduwkopieën (KVAS) en de vertakking doel injectie (BTI) OS-ondersteuning, [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen van beveiliging met behulp van de `Session Manager` registersleutels. Opnieuw opstarten is vereist.
+
+
+**Stap 4**: Voor implementaties die gebruikmaken van [geneste virtualisatie](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 en E3 alleen): Deze instructies zijn van toepassing binnen de virtuele machine die u als een Hyper-V-host gebruikt.
+
+1.  Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen van beveiliging met behulp van de `MinVmVersionForCpuBasedMitigations` registersleutels.
+2.  Het type van de scheduler hypervisor instellen op `Core` door de instructies te volgen [hier](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
 
 <a name="linux"></a>Het inschakelen van de reeks aanvullende beveiligingsfuncties in is vereist dat het gebruikte besturingssysteem volledig up-to-date zijn. Sommige oplossingen wordt standaard ingeschakeld. De volgende sectie beschrijft de functies die uitgeschakeld, standaard en/of vertrouwen op hardware-ondersteuning (microcode zijn). Inschakelen van deze functies mogelijk invloed op de prestaties. Verwijzen naar de documentatie van de provider van uw besturingssysteem voor verdere instructies
- 
-**Stap 1**: [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) naar expose bijgewerkt firmware (microcode) in uw virtuele Machines.
- 
-**Stap 2**: Ondersteuning voor vertakking doel injectie (BTI) OS CVE-2017-5715 (Spectre Variant 2) beperken door de documentatie van uw besturingssysteem-provider te volgen. 
- 
-**Stap 3**: Schakelen Kernel pagina tabel isolatie (KPTI) te beperken CVE-2017-5754 (Meltdown Variant 3) de documentatie van de provider van uw besturingssysteem. 
- 
-Meer informatie vindt u van uw besturingssysteem-provider:  
- 
-- [RedHat en CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
-- [SUSE](https://www.suse.com/support/kb/doc/?id=7022512) 
-- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
+
+**Stap 1: Hyperthreading is op de virtuele machine uitschakelen** - klanten die niet-vertrouwde code uitvoeren op een virtuele machine moet hyperthreading is uitgeschakeld of verplaatsen naar de virtuele machine een niet-hyperthreaded hyperthreaded.  Uitvoeren als u wilt controleren of u een hyperthreaded VM wordt uitgevoerd, de `lspcu` opdracht in de Linux-VM. 
+
+Als `Thread(s) per core = 2`, en vervolgens hyperthreading is ingeschakeld. 
+
+Als `Thread(s) per core = 1`, en vervolgens hyperthreading is uitgeschakeld. 
+
+ 
+Voorbeeld van uitvoer voor een virtuele machine waarop hyperthreading is ingeschakeld: 
+
+```console
+CPU Architecture:      x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0,2,4,6
+Off-line CPU(s) list:  1,3,5,7
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             1
+NUMA node(s):          1
+
+```
+
+Als u een hyperthreaded VM uitvoert, moet u [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) om op te halen hyperthreading is uitgeschakeld.  Opmerking: Als hyperthreading is uitgeschakeld, **ondersteuning moet een volledige VM opnieuw wordt opgestart**.
+
+
+**Stap 2**: Bescherming tegen een van de onderstaande speculatieve uitvoering van side-channel beveiligingsproblemen, raadpleegt u de documentatie van de provider van uw besturingssysteem:   
+ 
+- [RedHat en CentOS](https://access.redhat.com/security/vulnerabilities) 
+- [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie, [Azure-klanten beveiligen tegen CPU-beveiligingsproblemen](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
+Dit artikel bevat richtlijnen aan de onderstaande speculatieve uitvoering van side-channel aanvallen die invloed hebben op veel moderne processors:
+
+[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+- CVE-2017-5715 - vertakking doel injectie (BTI)  
+- CVE-2017-5754 - Kernel pagina tabel isolatie (KPTI)
+- CVE-2018-3639 – speculatieve Store overslaan (KPTI) 
+ 
+[L1 Terminal fouttolerantie (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+- CVE-2018-3615 - Intel Software Guard-extensies (Intel SGX)
+- CVE-2018-3620 - besturingssystemen (OS) en System Management-modus (SMM)
+- CVE-2018-3646 – heeft gevolgen voor Virtual Machine Manager (VMM)
+
+[Steekproef nemen voor gegevens micro-architecturale](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
+- CVE-2018-11091 - micro-architecturale gegevens steekproeven Uncacheable geheugen (MDSUM)
+- CVE-2018-12126 - micro-architecturale Store Buffer gegevens steekproeven (MSBDS)
+- CVE-2018-12127 - micro-architecturale Load poort gegevens steekproeven (MLPDS)
+- CVE-2018-12130 - micro-architecturale opvulling Buffer gegevens steekproeven (MFBDS)
+
+
+
+
+
+
+
+

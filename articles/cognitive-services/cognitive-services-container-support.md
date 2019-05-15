@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 87599817ba7b50b941612c13c07842644f979fb7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147571"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619703"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Ondersteuning voor containers in Azure Cognitive Services
 
@@ -57,7 +57,7 @@ Azure Cognitive Services-containers bieden de volgende set Docker-containers, di
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Detecteert menselijke gezichten in afbeeldingen en -kenmerken, zoals gezichtsoriëntatiepunten (zoals hartstukken en ogen), geslacht, leeftijd en andere machine voorspeld gezichtskenmerken identificeert. Naast detectie controleren Face of twee gezichten in dezelfde afbeelding of andere installatiekopieën zijn hetzelfde met behulp van een betrouwbaarheidsscore of gezichten op een database om te zien als een gelijkende vergelijken of identieke face al bestaat. Deze kunt soortgelijke gezichten ook organiseren in groepen, met behulp van gedeelde visuele kenmerken.<br>[Toegang aanvragen](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Formulier-herkenning](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form Recognizer** |Inzicht in de vorm van toepassing is machine learning-technologie om te identificeren en extraheren van sleutel / waarde-paren en tabellen uit formulieren.<br>[Toegang aanvragen](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Een ervaren of gepubliceerd Language Understanding-model, ook wel bekend als een LUIS-app, worden in een docker-container en biedt toegang tot de voorspellingen van de query van de API-eindpunten van de container. U kunt het verzamelen van Logboeken voor query's uit de container en upload deze terug naar de [LUIS portal](https://www.luis.ai) voor het verbeteren van de nauwkeurigheid van de app.|
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is een op cloud-gebaseerde API-service waarmee u de beste ervaring om weer te geven aan uw gebruikers, leren van hun realtime gedrag kiezen.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is een op de cloud gebaseerde API-service waarmee u de beste ervaring kunt kiezen om aan uw gebruikers te laten zien, waarbij u leert van hun real-time gedrag.|
 |[Speech Service-API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Spraak naar tekst** |Transcribeert continue realtime spraak naar tekst.<br>[Toegang aanvragen](https://aka.ms/speechcontainerspreview/)|
 |[Speech Service-API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Tekst naar spraak** |Converteert tekst naar natuurlijk klinkende spraak.<br>[Toegang aanvragen](https://aka.ms/speechcontainerspreview/)|
 |[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Sleutel vindt er sleuteltermextractie plaats** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraheert sleuteltermen voor het identificeren van de belangrijkste punten. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. |
@@ -76,7 +76,12 @@ Bovendien enkele containers worden ondersteund in Cognitive Services [ **All-in-
 Azure Cognitive Services-containers zijn openbaar beschikbaar zijn via uw Azure-abonnement en Docker-containerinstallatiekopieën kunnen worden opgehaald uit het Microsoft Container Registry of Docker Hub. U kunt de [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) opdracht voor het downloaden van de installatiekopie van een container van de juiste registersleutel.
 
 > [!IMPORTANT]
-> Op dit moment moet u een aanmeldingsproces voor toegang tot hebt voltooid de [Face](Face/face-how-to-install-containers.md) en [tekst herkennen](Computer-vision/computer-vision-how-to-install-containers.md) containers, waarin u gegevens kunt invullen en verzenden van een vragenlijst met vragen over u, uw bedrijf en de use-case waarvoor u wilt voor het implementeren van de containers. Wanneer u toegang verleend en referenties opgegeven, kunt u vervolgens de installatiekopieën van containers voor de containers gezichts- en tekst herkennen ophaalt uit een privécontainerregister wordt gehost door Azure Container Registry.
+> Op dit moment moet u een aanmeldingsproces voor toegang tot de volgende containers, waarin u gegevens kunt invullen en verzenden van een vragenlijst met vragen over u, uw bedrijf en de use-case waarvan u wilt voor het implementeren van de containers uitvoeren. Wanneer u toegang verleend en referenties opgegeven, kunt u vervolgens de installatiekopieën van containers voor de containers gezichts- en tekst herkennen ophaalt uit een privécontainerregister wordt gehost door Azure Container Registry.
+> * [Anomaliedetectie dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Face](Face/face-how-to-install-containers.md)
+> * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
+> * [Tekst herkennen](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [Spraak-naar-tekst en spraak](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 ## <a name="prerequisites"></a>Vereisten
 

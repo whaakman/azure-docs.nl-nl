@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523480"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603480"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Over aangepaste spraak op de eerste virtuele assistenten Preview-versie
 
@@ -24,7 +24,9 @@ Aangepaste virtuele assistenten met behulp van Azure Speech Services meer mogeli
 
    ![Conceptueel diagram van de service-stroom van rechtstreekse regel spraak orchestration](media/voice-first-virtual-assistants/overview.png "stroom van de spraak-kanaal")
 
-Directe regel spraak- en de bijbehorende functionaliteit voor aangepaste gesproken de eerste virtuele assistenten zijn een ideale aanvulling op de [Virtual Assistant Solution](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) en [sjabloon van de onderneming](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Hoewel directe regel spraak met een compatibele bot werken kunt, bieden deze resources een herbruikbare basislijn voor conversatie ervaringen van hoge kwaliteit, evenals algemene ondersteunende vaardigheden en -modellen voor snel aan de slag.
+
+Directe regel spraak- en de bijbehorende functionaliteit voor aangepaste gesproken de eerste virtuele assistenten zijn een ideale aanvulling op de [Virtual Assistant oplossing en de sjabloon van de onderneming](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Hoewel directe regel spraak met een compatibele bot werken kunt, bieden deze resources een herbruikbare basislijn voor conversatie ervaringen van hoge kwaliteit, evenals algemene ondersteunende vaardigheden en -modellen voor snel aan de slag.
+
 
 ## <a name="core-features"></a>Belangrijkste functies
 

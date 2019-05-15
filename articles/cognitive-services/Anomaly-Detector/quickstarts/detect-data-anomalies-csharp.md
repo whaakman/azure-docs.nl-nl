@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 04b331f3b63ad6400b4bb8efcd053d04ac88989b
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922526"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595842"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Quickstart: Detecteer afwijkingen in uw time series-gegevens met de REST API voor Afwijkingsdetectie Detector enC# 
 
@@ -29,13 +29,15 @@ Gebruik deze Quick Start om te starten met behulp van twee modi voor detectie va
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Elke versie van [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
-- [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Newtonsoft.Json installeren als een NuGet-pakket in Visual studio:
-        1. Klik met de rechtermuisknop op de **oplossing Manager**
-        2. Klik op **NuGet-pakketten beheren...**
-        3. Zoeken naar `Newtonsoft.Json` en installeer het pakket
-- Als u gebruikmaakt van Linux/MacOS, is deze toepassing kan worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
+- Een versie van [Visual Studio 2017 of later](https://visualstudio.microsoft.com/downloads/),
+
+- Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket. Newtonsoft.Json installeren als een NuGet-pakket in Visual Studio:
+    
+    1. Klik met de rechtermuisknop op uw project in **Solution Explorer**.
+    2. Selecteer **NuGet-pakketten beheren**.
+    3. Zoeken naar *Newtonsoft.Json* en installeer het pakket.
+
+- Als u Linux/MacOS, deze toepassing kan worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 
 - Een JSON-bestand met time series-gegevens verwijst. De voorbeeldgegevens voor deze Quick Start kunt u vinden op [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

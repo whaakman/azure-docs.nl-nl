@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 90e7abf229e0ee1ca396150fee0c1f0970d257aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 239633950e4672693e3684345749f9c46f01c037
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372203"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605655"
 ---
 # <a name="create-a-qna-maker-service"></a>Een QnA Maker-service maken
 
@@ -26,11 +26,7 @@ Voordat u een QnA Maker knowledge bases maken kunt, moet u eerst een QnA Maker-s
 
 Deze procedure implementeert u een paar Azure-resources. Deze resources worden samen de knowledge base-inhoud beheren en bieden mogelijkheden beantwoorden van vraag al een eindpunt.
 
-1. Meld u aan bij [Azure Portal](<https://portal.azure.com>).
-
-1. Selecteer **nieuwe resource toevoegen**, en typ 'qna maker' in het zoekvak en selecteer de QnA Maker-resource
-
-    ![Maak een nieuwe QnA Maker-service: nieuwe resource toevoegen](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+1. Meld u aan bij Azure portal en [maken van een QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
 
 1. Selecteer **maken** na het lezen van de voorwaarden en bepalingen.
 
@@ -42,8 +38,9 @@ Deze procedure implementeert u een paar Azure-resources. Deze resources worden s
 
     * Vul de **naam** met een unieke naam voor deze QnA Maker-service. Deze naam identificeert ook de QnA Maker-eindpunt waarnaar uw knowledge bases gekoppeld worden.
     * Kies de **abonnement** in die de QnA Maker-resource wordt geïmplementeerd.
-    * Selecteer de **Management prijscategorie** voor de QnA Maker management services (portal en beheer-API's). Zie [hier](https://aka.ms/qnamaker-pricing) voor meer informatie over de prijzen van de SKU's.
+    * Selecteer de **prijscategorie** voor de QnA Maker management services (portal en beheer-API's). Zie [hier](https://aka.ms/qnamaker-pricing) voor meer informatie over de prijzen van de SKU's.
     * Maak een nieuwe **resourcegroep** (aanbevolen) of gebruik een bestaande resourcegroep waarin u kunt deze resource QnA Maker implementeren. QnA Maker maakt verschillende Azure-resources; Wanneer u maakt u gemakkelijk kunt vinden, een resourcegroep voor het opslaan van deze resources, beheren en verwijderen van deze resources door de naam van de resourcegroep.
+    * Selecteer een **resourcegroeplocatie**.
     * Kies de **zoeken prijscategorie** van de Azure Search-service. Als u de gratis laag-optie grijs weergegeven, betekent dat u hebt al een gratis Azure Search-laag in uw abonnement. In dat geval moet u eerst de laag Basic Azure Search. Zie de details van prijzen van Azure search [hier](https://azure.microsoft.com/pricing/details/search/).
     * Kies de **zoeklocatie** waar u Azure Search-gegevens om te worden geïmplementeerd. Beperkingen in waar de gegevens van de klant moet worden opgeslagen, wordt de locatie die u voor Azure Search kiest informeren.
     * Geef een naam aan uw appservice in **appnaam**.

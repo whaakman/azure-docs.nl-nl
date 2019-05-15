@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508393"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593885"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Uitvoer tekst-naar-spraak afstellen
 
@@ -35,7 +35,7 @@ Voordat u de Text to Speech uitvoer met het hulpprogramma voor het afstemmen van
    >Wanneer u een spraak-resource in Azure portal maakt, moet de Azure-locatie-informatie komt overeen met de TTS voice-regio. Neurale TTS-stem biedt ondersteuning voor een set sub van Azure-locaties. Zie voor een volledige lijst met ondersteuning, [regio's](regions.md#text-to-speech).
 
    >[!NOTE]
-   >U moet een F0 of een S0-sleutel in de Azure-portal hebt gemaakt voordat u de service kunt gebruiken. Stem afstemmen **niet** ondersteuning voor de [30 dagen gratis proefversie sleutel](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >U moet een F0 of een S0-sleutel in de Azure-portal hebt gemaakt voordat u de service kunt gebruiken. Stem afstemmen **niet** ondersteuning voor de [30 dagen gratis proefversie sleutel](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
 4. Aanmelden bij de [stem afstemmen](https://aka.ms/voicetuning) portal, en verbinding maken met uw abonnement Speech Services. Kies één spraakservices abonnement en maak vervolgens een project.
 5. Selecteer **nieuwe afstemmen**. Volg deze stappen:
@@ -43,7 +43,7 @@ Voordat u de Text to Speech uitvoer met het hulpprogramma voor het afstemmen van
    * Zoek en selecteer **alle abonnementen**.  
    * Selecteer **verbinding maken met bestaande abonnement**.  
      ![Verbinding maken met een bestaand abonnement](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Geef uw abonnementssleutel Azure Speech Services, en selecteer vervolgens **toevoegen**. Uw abonnementssleutels zijn beschikbaar in de portal van de spraakherkenning aanpassen van de [pagina abonnement](https://go.microsoft.com/fwlink/?linkid=2090458). U kunt de sleutels ook krijgen in het deelvenster Beheer van Resource in de [Azure-portal](https://portal.azure.com/). 
+   * Geef uw abonnementssleutel Azure Speech Services, en selecteer vervolgens **toevoegen**. Uw abonnementssleutels zijn beschikbaar in de portal van de spraakherkenning aanpassen van de [pagina abonnement](https://go.microsoft.com/fwlink/?linkid=2090458). U kunt de sleutels ook krijgen in het deelvenster Beheer van Resource in de [Azure-portal](https://portal.azure.com/).
    * Hebt u meer dan één Speech Services-abonnement dat u wilt gebruiken, Herhaal deze stappen voor elk abonnement.
 
 ## <a name="customize-the-text-to-speech-output"></a>De Text to Speech uitvoer aanpassen

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642801"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606684"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing webzoekopdrachten-API-reactie structuur en -antwoordsessie-typen  
 
@@ -302,7 +302,7 @@ Een wiskundige expressie kan de volgende symbolen bevatten:
 
 Een rekenkundige expressie mag de volgende constanten toe:
 
-|Symbool|Beschrijving|
+|Symbool|Description|
 |------------|-----------------|
 |PI|3.14159...|
 |Mate|Mate|
@@ -330,7 +330,7 @@ Als de gebruiker een query voor datum of tijd voert, het antwoord kan bevatten e
 
 De `timeZone` antwoord bevat de naam van de locatie, de huidige UTC-datum en tijd op de opgegeven locatie en de UTC-offset. Als de grens van de locatie in meerdere tijdzones is, wordt het antwoord bevat de huidige UTC-datum en tijd van alle tijdzones binnen de grens. Omdat de status Florida binnen twee tijdzones valt, bevat het antwoord, bijvoorbeeld de lokale datum en tijd van beide tijdzones.  
 
-Als de query vraagt om de tijd van een staat of land/regio, Bing bepaalt de primaire plaats binnen een geografische grens van de locatie en retourneert deze in de `primaryCityTime` veld. Als de grens meerdere tijdzones bevat, de resterende tijdzones worden geretourneerd in de `otherCityTimes` veld.
+Als de query vraagt om de tijd van een staat of land/regio, Bing, bepaalt de primaire plaats binnen een geografische grens van de locatie en retourneert deze in de `primaryCityTime` veld. Als de grens meerdere tijdzones bevat, de resterende tijdzones worden geretourneerd in de `otherCityTimes` veld.
 
 Het volgende voorbeeld van bevat query's dat rendement de `timeZone` antwoord.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727324"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594044"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord kennis met de GenerateAnswer API en metagegevens
 
@@ -71,8 +71,8 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 |--|--|--|--|
 |URL-parameter voor route|Knowledge base-ID|string|De GUID voor uw knowledge base.|
 |URL-parameter voor route|Host van het eindpunt QnAMaker|string|De hostnaam van het eindpunt dat is geïmplementeerd in uw Azure-abonnement. Dit is beschikbaar op de pagina instellingen nadat u de knowledge base hebt gepubliceerd. |
-|Header|Content-Type|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde: ''|
-|Header|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Koptekst|Inhoudstype|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde: ''|
+|Koptekst|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Hoofdtekst van bericht|JSON-object|JSON|De vraag met instellingen|
 
 
@@ -148,7 +148,7 @@ Een geslaagde respons retourneert een status van 200 en een JSON-antwoord.
 
 ## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Met behulp van metagegevens kunt u antwoorden op aangepaste metagegevenstags filteren
 
-Metagegevens toe te voegen, kunt u de antwoorden op deze metagegevenstags filteren. Houd rekening met de onderstaande veelgestelde vragen over gegevens. Metagegevens toevoegen aan uw knowledge base door te klikken op het pictogram van de metagegevens.
+Metagegevens toe te voegen, kunt u de antwoorden op deze metagegevenstags filteren. Toevoegen van de metagegevenskolom van de **weergaveopties** menu. Metagegevens toevoegen aan uw knowledge base door te klikken op de metagegevens van de **+** pictogram voor het toevoegen van een combinatie van metagegevens. Deze paar bestaat uit één sleutel en één waarde.
 
 ![metagegevens toevoegen](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144973"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594079"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Actief leren gebruiken voor het verbeteren van uw knowledge base
 
@@ -60,7 +60,7 @@ De algoritme om te bepalen van de service is niet een eenvoudige berekening. De 
 
 Actief leren is standaard uitgeschakeld. Inschakelen om te zien van de voorgestelde vragen. 
 
-1. Selecteer **publiceren** voor het publiceren van de knowledge base. Actief leren query's worden verzameld van het alleen GenerateAnswer API voorspelling-eindpunt. De query's naar het deelvenster in de portal voor Qna Maker is niet van invloed op actief leren.
+1. Selecteer **publiceren** voor het publiceren van de knowledge base. Actief leren query's worden verzameld van het alleen GenerateAnswer API voorspelling-eindpunt. De query's naar het deelvenster in de portal voor QnA Maker is niet van invloed op actief leren.
 
 1. Als u actieve learning in, klikt u op uw **naam**, gaat u naar [ **Service-instellingen** ](https://www.qnamaker.ai/UserSettings) in de rechterbovenhoek van de portal QnA Maker.  
 
@@ -173,8 +173,8 @@ Content-Type: application/json
 |--|--|--|--|
 |URL-parameter voor route|Knowledge base-ID|string|De GUID voor uw knowledge base.|
 |Host-subdomein|De naam van de QnAMaker-resource|string|De hostnaam voor de QnA Maker in uw Azure-abonnement. Dit is beschikbaar op de pagina instellingen nadat u de knowledge base hebt gepubliceerd. |
-|Header|Content-Type|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde is: `application/json`|
-|Header|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Koptekst|Inhoudstype|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde is: `application/json`|
+|Koptekst|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Hoofdtekst van bericht|JSON-object|JSON|De feedback training|
 
 De hoofdtekst van de JSON bevat verschillende instellingen:
@@ -208,7 +208,7 @@ Een geslaagde respons retourneert een status van 204 en er is geen JSON-antwoord
 
 Wanneer uw app actief leren ingeschakeld is, en u de app exporteren de `SuggestedQuestions` kolom in de tsv-bestand worden de gegevens actief leren bewaard. 
 
-De `SuggestedQuestions` kolom is een JSON-object van informatie van de impliciete (`autosuggested`) en expliciet (`usersuggested`) feedback. Een voorbeeld van dit JSON-object voor een enkele gebruiker ingediend vraag van `help` is:
+De `SuggestedQuestions` kolom is een JSON-object van informatie van de impliciete, `autosuggested`, en expliciet, `usersuggested` feedback. Een voorbeeld van dit JSON-object voor een enkele gebruiker ingediend vraag van `help` is:
 
 ```JSON
 [
