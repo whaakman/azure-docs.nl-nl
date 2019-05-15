@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829698"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619754"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Zelfstudie: Een blockchain-toepassing maken in Azure Blockchain Workbench
 
@@ -271,7 +271,7 @@ Voeg de variabelen toe aan uw contract in uw `HelloBlockchain.sol` smart contrac
 
 ### <a name="constructor"></a>Constructor
 
-De constructor definieert invoerparameters voor een nieuwe instantie van een smart contract van een werkstroom. De constructor wordt als een functie gedeclareerd met dezelfde naam als het contract. Vereiste parameters voor de constructor worden gedefinieerd als parameters van de constructor in het configuratiebestand. Het aantal, de volgorde en het type van de parameters moeten overeenkomen in beide bestanden.
+De constructor definieert invoerparameters voor een nieuwe instantie van een smart contract van een werkstroom. Vereiste parameters voor de constructor worden gedefinieerd als parameters van de constructor in het configuratiebestand. Het aantal, de volgorde en het type van de parameters moeten overeenkomen in beide bestanden.
 
 In de constructorfunctie schrijft u eventuele bedrijfslogica die u wilt uitvoeren voordat het contract gemaakt wordt. Initialiseer bijvoorbeeld de statusvariabelen met beginwaarden.
 
