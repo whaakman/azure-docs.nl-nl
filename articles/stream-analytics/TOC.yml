@@ -175,6 +175,8 @@
           href: stream-analytics-troubleshoot-query.md
         - name: Diagnostische en activiteitslogboeken
           href: stream-analytics-job-diagnostic-logs.md
+        - name: Gegevensfouten
+          href: data-errors.md
     - name: Integreren met machine learning
       items:
         - name: Sentimentanalyse met ML-modellen

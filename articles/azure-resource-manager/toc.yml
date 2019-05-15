@@ -165,7 +165,7 @@
           href: grant-access-to-create-subscription.md
         - name: Verifiëren in meerdere tenants
           href: authenticate-multi-tenant.md
-    - name: Implementaties controleren
+    - name: Wijzigingen controleren
       items:
         - name: Activiteitenlogboeken bekijken
           href: resource-group-audit.md

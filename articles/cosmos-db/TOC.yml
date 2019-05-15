@@ -512,6 +512,8 @@
           href: data-explorer.md
         - name: Indexeringsbeleid beheren
           href: how-to-manage-indexing-policy.md
+        - name: Unieke sleutels definiëren
+          href: how-to-define-unique-keys.md
         - name: Voorbeelden van geneste SQL-query's
           displayName: 'subquery, exists'
           href: how-to-sql-subquery.md

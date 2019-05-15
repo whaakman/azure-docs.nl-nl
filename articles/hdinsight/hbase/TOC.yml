@@ -12,6 +12,8 @@
       maintainContext: true
 - name: Snelstartgidsen
   items:
+    - name: Query uitvoeren op Apache HBase - Apache Phoenix
+      href: apache-hbase-phoenix-squirrel-linux.md
     - name: Query uitvoeren op Apache HBase - HBase-Shell
       href: ./query-hbase-with-hbase-shell.md
 - name: Aan de slag
@@ -52,8 +54,6 @@
         - name: Apache Phoenix in HDInsight
           href: ../hdinsight-phoenix-in-hdinsight.md
           maintainContext: true
-        - name: Apache Phoenix en SQLLine gebruiken
-          href: apache-hbase-phoenix-squirrel-linux.md
         - name: De Apache Phoenix Query Server REST SDK gebruiken
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: Big data analyseren
@@ -115,7 +115,7 @@
             - name: cURL en de Azure REST API gebruiken
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: De klassieke versie van Azure CLI gebruiken
+            - name: Azure CLI gebruiken
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: On-demand clusters maken

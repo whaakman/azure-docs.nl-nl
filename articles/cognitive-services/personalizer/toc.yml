@@ -27,9 +27,14 @@
         - name: 'Functies: Actie en context'
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Voordelen
+          href: concept-rewards.md
+          displayName: 'reward, wait time, default reward'
         - name: Bekrachtigend leren
           href: concepts-reinforcement-learning.md
           displayName: 'RL, contextual bandits, Vowpal Wabbit'
+        - name: Verkennen
+          href: concepts-exploration.md
     - name: Analyse
       items:
         - name: Offline-evaluatie

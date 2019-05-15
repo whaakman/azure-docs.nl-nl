@@ -44,5 +44,7 @@
       href: work-with-project-data-files.md
     - name: Toegang tot gegevensresources
       href: access-data-resources-jupyter-notebooks.md
+    - name: Virtuele machines voor datatechnologie gebruiken
+      href: use-data-science-virtual-machine.md
     - name: Azure Machine Learning Services gebruiken
       href: use-machine-learning-services-jupyter-notebooks.md
