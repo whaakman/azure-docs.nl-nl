@@ -288,8 +288,8 @@ Deze algemene REST-connector ondersteunt de volgende paginering patronen:
 | Sleutel | Description |
 |:--- |:--- |
 | AbsoluteUrl | Geeft aan dat de URL voor het uitgeven van de volgende aanvraag. Kan het zijn **absolute URL of relatieve URL**. |
-| QueryParameters. *request_query_parameter* of QueryParameters [request_query_parameter] | "request_query_parameter" is gebruiker gedefinieerd die verwijst naar een query parameter de naam in de volgende HTTP-aanvraag-URL. |
-| Headers. *request_header* of Headers [request_header] | "request_header" is gebruiker gedefinieerd die verwijst naar een headernaam in de volgende HTTP-aanvraag. |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is gebruiker gedefinieerd die verwijst naar een query parameter de naam in de volgende HTTP-aanvraag-URL. |
+| Headers.*request_header* OR Headers['request_header'] | "request_header" is gebruiker gedefinieerd die verwijst naar een headernaam in de volgende HTTP-aanvraag. |
 
 **Ondersteunde waarden** in paginering regels:
 
