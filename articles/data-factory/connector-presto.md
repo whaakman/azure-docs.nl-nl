@@ -47,11 +47,11 @@ De volgende eigenschappen worden ondersteund voor Presto gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Presto** | Ja |
 | host | Het IP-adres of de hostnaam naam van de Presto-server. (dat wil zeggen 192.168.222.160)  | Ja |
 | serverVersion | De versie van de Presto-server. (dat wil zeggen 0.148-t)  | Ja |
-| catalogus | De cataloguscontext voor alle aanvragen voor de server.  | Ja |
-| poort | De TCP-poort die de Presto server gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 8080.  | Nee |
+| catalog | De cataloguscontext voor alle aanvragen voor de server.  | Ja |
+| port | De TCP-poort die de Presto server gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 8080.  | Nee |
 | authenticationType | Het verificatiemechanisme waarmee verbinding wordt gemaakt met de Presto-server. <br/>Toegestane waarden zijn: **Anonymous**, **LDAP** | Ja |
-| gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de Presto-server.  | Nee |
-| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| username | De gebruikersnaam die wordt gebruikt voor verbinding met de Presto-server.  | Nee |
+| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met de vertrouwde CA-certificaten voor het controleren van de server wanneer u verbinding maakt via SSL. Deze eigenschap kan alleen worden ingesteld wanneer u SSL op zelf-hostende IR De standaardwaarde is het bestand cacerts.pem is geïnstalleerd met de IR.  | Nee |
 | useSystemTrustStore | Hiermee bepaalt u of u een CA-certificaat uit het archief van de vertrouwensrelatie systeem- of uit een opgegeven PEM-bestand. De standaardwaarde is false.  | Nee |
