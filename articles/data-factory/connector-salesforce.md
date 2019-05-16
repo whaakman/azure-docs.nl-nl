@@ -64,7 +64,7 @@ De volgende eigenschappen worden ondersteund voor de service Salesforce die zijn
 |:--- |:--- |:--- |
 | type |De eigenschap type moet worden ingesteld op **Salesforce**. |Ja |
 | environmentUrl | Geef de URL van het exemplaar van Salesforce. <br> -Standaard is `"https://login.salesforce.com"`. <br> -Om gegevens te kopiëren van sandbox, geef `"https://test.salesforce.com"`. <br> -Om gegevens te kopiëren uit aangepaste domein, opgeven, bijvoorbeeld `"https://[domain].my.salesforce.com"`. |Nee |
-| gebruikersnaam |Geef een gebruikersnaam voor het gebruikersaccount. |Ja |
+| username |Geef een gebruikersnaam voor het gebruikersaccount. |Ja |
 | password |Geef een wachtwoord voor het gebruikersaccount.<br/><br/>Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | securityToken |Geef een beveiligingstoken voor het gebruikersaccount. Zie voor instructies over het opnieuw instellen en ophalen van een beveiligingstoken [ophalen van een beveiligingstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Zie voor meer informatie over beveiligingstokens het in het algemeen, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Niet voor bron, Ja voor sink als de bron gekoppelde service beschikt niet over integratieruntime |
@@ -315,24 +315,24 @@ Wanneer u gegevens van Salesforce worden gekopieerd, worden de volgende toewijzi
 
 | SalesForce-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Automatisch nummer |String |
-| Selectievakje |Boolean |
-| Valuta |Decimal |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
 | Date |DateTime |
-| Datum/tijd |DateTime |
+| Date/Time |DateTime |
 | Email |String |
 | Id |String |
-| Opzoekrelatie |String |
-| Met meerdere keuzemogelijkheden |String |
-| Aantal |Decimal |
-| Procent |Decimal |
-| Telefoon |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
+| Number |Decimal |
+| Percent |Decimal |
+| Phone |String |
 | Picklist |String |
 | Text |String |
-| Tekstgebied |String |
-| Tekstgebied (lang) |String |
-| Tekstgebied (uitgebreid) |String |
-| Tekst (versleuteld) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 ## <a name="next-steps"></a>Volgende stappen
