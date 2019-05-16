@@ -354,7 +354,7 @@ De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
 | _headers_     | Een object dat de aanvraagheaders bevat.                   |
-| _Methode_      | De HTTP-methode van de aanvraag.                                |
+| _method_      | De HTTP-methode van de aanvraag.                                |
 | _originalUrl_ | De URL van de aanvraag.                                        |
 | _params_      | Een object dat de routering parameters van de aanvraag bevat. |
 | _query_       | Een object met de queryparameters.                  |
