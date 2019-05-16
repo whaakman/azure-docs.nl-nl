@@ -71,13 +71,13 @@ Voor het configureren van de integratie van SharePoint on-premises in Azure AD, 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie configureert en test u Azure AD-eenmalige aanmelding met SharePoint on-premises op basis van een testgebruiker met de naam **Britta Simon**.
+In deze sectie configureert en test u eenmalige Azure AD-aanmelding met SharePoint on-premises op basis van een testgebruiker met de naam **Britta Simon**.
 Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in SharePoint on-premises tot stand is gebracht.
 
-Als u Azure AD-eenmalige aanmelding met SharePoint on-premises wilt configureren en testen, moet u de volgende bouwstenen uitvoeren:
+Als u eenmalige Azure AD-aanmelding met SharePoint on-premises wilt configureren en testen, moet u de volgende bouwstenen uitvoeren:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[SharePoint on-premises-eenmalige aanmelding configureren](#configure-sharepoint-on-premises-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+2. **[Eenmalige SharePoint on-premises-aanmelding configureren](#configure-sharepoint-on-premises-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[Een Azure AD-beveiligingsgroep maken in Azure portal](#create-an-azure-ad-security-group-in-the-azure-portal)**  : als u wilt een nieuwe beveiligingsgroep in Azure AD voor eenmalige aanmelding inschakelen.
 5. **[Toegang verlenen tot SharePoint on-premises beveiligingsgroep](#grant-access-to-sharepoint-on-premises-security-group)**  -toegangsmachtigingen voor een bepaalde groep naar Azure AD.
@@ -88,7 +88,7 @@ Als u Azure AD-eenmalige aanmelding met SharePoint on-premises wilt configureren
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor de configuratie van Azure AD-eenmalige aanmelding met SharePoint on-premises, moet u de volgende stappen uitvoeren:
+Voor de configuratie van eenmalige Azure AD-aanmelding met SharePoint on-premises, moet u de volgende stappen uitvoeren:
 
 1. Selecteer in [Azure Portal](https://portal.azure.com/) op de integratiepagina van de **SharePoint on-premises**-toepassing de optie **Eenmalige aanmelding**.
 
@@ -136,9 +136,9 @@ Voor de configuratie van Azure AD-eenmalige aanmelding met SharePoint on-premise
     c. Afmeldings-URL
 
     > [!NOTE]
-    > De SharePoint on-premises-toepassing maakt gebruik van een SAML 1.1-token, zodat Azure AD een WS Fed-aanvraag verwacht van de SharePoint-server en na verificatie het SAML 1.1-token. uitgeeft.
+    > De SharePoint on-premises-toepassing maakt gebruik van een SAML 1.1-token, zodat Azure AD een WS Fed-aanvraag verwacht van de SharePoint-server en na verificatie het SAML 1.1-token uitgeeft.
 
-### <a name="configure-sharepoint-on-premises-single-sign-on"></a>SharePoint on-premises-eenmalige aanmelding configureren
+### <a name="configure-sharepoint-on-premises-single-sign-on"></a>Eenmalige SharePoint on-premises-aanmelding configureren
 
 1. In een ander browservenster aanmelden bij uw SharePoint-site voor het bedrijf van on-premises als beheerder.
 

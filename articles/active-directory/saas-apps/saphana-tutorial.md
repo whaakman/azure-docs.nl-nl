@@ -17,7 +17,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57899823"
@@ -129,7 +129,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP HANA moet u de v
 
 6. Voer in het gedeelte **Gebruikerskenmerken** in het dialoogvenster **Gebruikerskenmerken en claims** de volgende stappen uit:
  
-    a. Klik op **Pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
+    a. Klik op **pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
     ![image](./media/saphana-tutorial/tutorial_usermail.png)
 

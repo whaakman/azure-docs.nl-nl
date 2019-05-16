@@ -17,7 +17,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba76692ec35ddfd0b6c8c49306d6056709d684e
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57840678"
@@ -71,13 +71,13 @@ Voor het configureren van de integratie van SAP Cloud for Customer met Azure AD 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie configureert en test u Azure AD-eenmalige aanmelding met SAP Cloud for Customer op basis van een testgebruiker met de naam **Britta Simon**.
+In deze sectie configureert en test u eenmalige Azure AD-aanmelding met SAP Cloud for Customer op basis van een testgebruiker met de naam **Britta Simon**.
 Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in SAP Cloud for Customer tot stand is gebracht.
 
-Voor het configureren en testen van Azure AD-eenmalige aanmelding met SAP Cloud for Customer moet u de volgende bouwstenen uitvoeren:
+Voor het configureren en testen van eenmalige Azure AD-aanmelding met SAP Cloud for Customer moet u de volgende bouwstenen uitvoeren:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[SAP Cloud for Customer-eenmalige aanmelding configureren](#configure-sap-cloud-for-customer-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+2. **[Eenmalige SAP Cloud for Customer-aanmelding configureren](#configure-sap-cloud-for-customer-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Een testgebruiker voor SAP Cloud for Customer maken](#create-sap-cloud-for-customer-test-user)**: als u een equivalent van Britta Simon in SAP Cloud for Customer wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
@@ -87,7 +87,7 @@ Voor het configureren en testen van Azure AD-eenmalige aanmelding met SAP Cloud 
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD-eenmalige aanmelding met SAP Cloud for Customer moet u de volgende stappen uitvoeren:
+Voor het configureren van eenmalige Azure AD-aanmelding met SAP Cloud for Customer moet u de volgende stappen uitvoeren:
 
 1. Selecteer in [Azure Portal](https://portal.azure.com/) op de pagina voor integratie van **SAP Cloud for Customer**-toepassing **Eenmalige aanmelding**.
 
@@ -118,7 +118,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP Cloud for Custom
 
 6. Voer in de sectie **Gebruikerskenmerken** in het dialoogvenster **Gebruikerskenmerken en claims** de volgende stappen uit:
 
-    a. Klik op **Pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
+    a. Klik op **pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
     ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
@@ -147,11 +147,11 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP Cloud for Custom
 
     c. Afmeldings-URL
 
-### <a name="configure-sap-cloud-for-customer-single-sign-on"></a>SAP Cloud for Customer-eenmalige aanmelding configureren
+### <a name="configure-sap-cloud-for-customer-single-sign-on"></a>Eenmalige SAP Cloud for Customer-aanmelding configureren
    
-1. Meld u zich met beheerdersrechten aan bij de SAP Cloud for Customer-portal.
+1. Meld u met beheerdersrechten aan bij de SAP Cloud for Customer-portal.
    
-2. Navigeer naar de **Algemene toepassings- en gebruikersbeheertaak** en klikt u op het tabblad **Id-provider**.
+2. Navigeer naar **Algemene toepassings- en gebruikersbeheertaak** en klik op het tabblad **Id-provider**.
    
 3. Klik op **Nieuwe id-provider** en selecteer het XML-bestand voor metagegevens dat u hebt gedownload vanuit Azure Portal. Door het importeren van de metagegevens worden automatisch het vereiste handtekeningcertificaat en versleutelingscertificaat geüpload.
    

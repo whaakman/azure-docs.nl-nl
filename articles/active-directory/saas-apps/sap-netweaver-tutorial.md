@@ -17,7 +17,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
 ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59523780"
@@ -190,7 +190,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP NetWeaver moet u
 
 13. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
 
-    a. Klik op **Pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
+    a. Klik op **pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
     ![image](./media/sapnetweaver-tutorial/nameidattribute.png)
 

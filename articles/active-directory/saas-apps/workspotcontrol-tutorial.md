@@ -77,7 +77,7 @@ Voor eenmalige aanmelding om te werken, moet u een koppeling tussen een Azure AD
 
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Workspot besturingselement, moet u de volgende taken uitvoeren:
 
-1. [Eenmalige aanmelding van Azure AD configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers de functie kunnen gebruiken.
+1. [Eenmalige aanmelding voor Azure AD configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers de functie kunnen gebruiken.
 2. [Configureren van eenmalige aanmelding Workspot besturingselement](#configure-workspot-control-single-sign-on) de instellingen voor eenmalige aanmelding configureren aan de toepassing.
 3. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding voor Britta Simon.
 4. [De Azure AD-testgebruiker toewijzen](#assign-the-azure-ad-test-user) zodat Britta Simon gebruik kan maken van eenmalige aanmelding van Azure AD.

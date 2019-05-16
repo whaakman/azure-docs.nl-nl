@@ -117,7 +117,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
     
-    a. Klik op **Pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
+    a. Klik op **pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
     ![image](./media/kronos-tutorial/tutorial_usermail.png)
 

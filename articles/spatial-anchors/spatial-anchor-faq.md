@@ -1,6 +1,6 @@
 ---
 title: Veelgestelde vragen over Azure Spatial Anchors | Microsoft Docs
-description: Azure Spatial Anchors is een beheerd cloudservice- en ontwikkelplatform voor meerdere apparaten, meerdere gebruikers, mixed reality ervaringen op HoloLens-, iOS- en Android-apparaten. Deze veelgestelde vragen over de service worden beantwoord vanuit een technisch oogpunt.
+description: Azure Spatial Anchors is een beheerd cloudservice- en ontwikkelplatform voor mixedreality-ervaringen met meerdere apparaten en meerdere gebruikers op HoloLens-, iOS- en Android-apparaten. Deze veelgestelde vragen over de service worden beantwoord vanuit een technisch oogpunt.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -17,7 +17,7 @@ ms.locfileid: "60303295"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Veelgestelde vragen over Azure Spatial Anchors
 
-Azure Spatial Anchors is een beheerd cloudservice- en ontwikkelplatform voor mixed reality-ervaringen voor ruimtelijk inzicht voor meerdere gebruikers op HoloLens-, iOS- en Android-apparaten.
+Azure Spatial Anchors is een beheerd cloudservice- en ontwikkelplatform dat mixedreality-ervaringen met ruimtelijk inzicht voor meerdere gebruikers mogelijk maakt op HoloLens-, iOS- en Android-apparaten.
 
 Zie het [overzicht van Azure Spatial Anchors](overview.md) voor meer informatie.
 
@@ -41,11 +41,11 @@ Zie het [overzicht van Azure Spatial Anchors](overview.md) voor meer informatie.
 
 **V: Hoe lang duurt het maken en zoeken van ankers?**
 
-**A:** De benodigde tijd voor het maken en zoeken van ankers is afhankelijk van veel factoren, zoals de netwerkverbinding, de verwerkingscapaciteit en belasting van het apparaat, en de specifieke omgeving. We hebben klanten die toepassingen bouwen uit allerlei verschillende bedrijfstakken, zoals productie, detailhandel en gaming. Dit geeft wel aan de service een goede gebruikerservaring mogelijk maakt voor hun scenario's.
+**A:** De benodigde tijd voor het maken en zoeken van ankers is afhankelijk van veel factoren, zoals de netwerkverbinding, de verwerkingscapaciteit en belasting van het apparaat, en de specifieke omgeving. We hebben klanten die toepassingen bouwen voor allerlei verschillende bedrijfstakken, zoals productie, detailhandel en gaming. Dit geeft wel aan dat de service een goede gebruikerservaring mogelijk maakt voor hun scenario's.
 
 ## <a name="privacy-faq"></a>Veelgestelde vragen over privacy
 
-**V: Wanneer mijn toepassing ergens een Spatial Anchor (ruimtelijk anker) plaatst, hebben alle apps dan toegang tot dat anker?**
+**V: Wanneer mijn toepassing ergens een ruimtelijk anker plaatst, hebben alle apps dan toegang tot dat anker?**
 
 **A:** Ankers zijn geïsoleerd per Azure-account. Alleen apps die u toegang tot uw account verleent, hebben toegang tot ankers binnen het account.
 
@@ -53,7 +53,7 @@ Zie het [overzicht van Azure Spatial Anchors](overview.md) voor meer informatie.
 
 **A**: Bij het maken of zoeken van ankers, worden foto's van de omgeving in een afgeleide indeling op het apparaat verwerkt. Deze afgeleide indeling wordt verzonden naar en opgeslagen in de service.
 
-Om transparantie te bieden, wordt hieronder een afbeelding van een omgeving en de afgeleide sparse puntcloud weergegeven. De puntcloud toont de geometrische weergave van de omgeving die wordt verzonden naar en opgeslagen in de service. Voor elk punt in de sparse puntcloud wordt een hash van de visuele kenmerken van dat punt verzonden en opgeslagen. De hash is afgeleid van, maar bevat geen pixelgegevens.
+Om transparantie te bieden, wordt hieronder een afbeelding van een omgeving en de afgeleide sparse puntcloud weergegeven. De puntcloud toont de geometrische weergave van de omgeving die wordt verzonden naar en opgeslagen in de service. Voor elk punt in de sparse puntcloud wordt een hash van de visuele kenmerken van dat punt verzonden en opgeslagen. De hash is afgeleid van pixelgegevens, maar bevat deze gegevens zelf niet.
 
 Azure Spatial Anchors voldoet aan de [voorwaarden van de serviceovereenkomst van Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) en de [privacyverklaring van Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 

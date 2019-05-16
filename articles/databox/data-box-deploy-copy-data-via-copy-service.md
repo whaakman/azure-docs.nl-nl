@@ -15,7 +15,7 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64925308"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Zelfstudie: De gegevenskopieerservice gebruiken om gegevens direct op te nemen in Azure Data Box (preview)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Zelfstudie: De gegevenskopieerservice gebruiken om gegevens te kopiëren naar Azure Data Box (preview)
 
 In deze zelfstudie wordt beschreven hoe u gegevens opneemt met behulp van de gegevenskopieerservice, zonder gebruik te maken van een tussenliggende host. De gegevenskopieerservice wordt lokaal uitgevoerd op Microsoft Azure Data Box, maakt via SMB verbinding met uw NAS-apparaat (network-attached storage) en kopieert gegevens naar Data Box.
 
@@ -36,7 +36,7 @@ Zorg voordat u begint voor het volgende:
 1. U hebt deze zelfstudie voltooid: [Azure Data Box instellen](data-box-deploy-set-up.md).
 2. U hebt uw Data Box-apparaat ontvangen en de bestelstatus in de portal is **Geleverd**.
 3. U hebt de referenties van het bron-NAS-apparaat waarmee u verbinding wilt maken om gegevens te kopiëren.
-4. U bent verbonden met een netwerk met hoge snelheid. Het wordt aangeraden dat u beschikt over minimaal één verbinding van 10-GbE. Als er geen 10 GbE-verbinding beschikbaar is, kunt u een 1 GbE-gegevenskoppeling gebruiken, maar dit heeft wel gevolgen voor de kopieersnelheid.
+4. U bent verbonden met een netwerk met hoge snelheid. Het wordt aangeraden dat u beschikt over minimaal één 10-GbE-verbinding (Gigabit Ethernet). Als er geen 10-GbE-verbinding beschikbaar is, kunt u een 1-GbE-gegevenskoppeling gebruiken, maar dit heeft wel gevolgen voor de kopieersnelheid.
 
 ## <a name="copy-data-to-data-box"></a>Gegevens kopiëren naar Data Box
 
@@ -44,7 +44,7 @@ Wanneer u bent verbonden met het NAS-apparaat, kunt u uw gegevens gaan kopiëren
 
 - Zorg er tijdens het kopiëren van gegevens voor dat de gegevensgrootte voldoet aan de limieten die worden vermeld in het artikel [Limieten voor Azure-opslag en Data Box](data-box-limits.md).
 - Als de gegevens die door Data Box worden geüpload gelijktijdig door andere toepassingen buiten Data Box worden geüpload, kan dit tot fouten voor de uploadtaak en beschadigde gegevens leiden.
-- Als de gegevens worden gewijzigd terwijl deze door de kopieerservice worden gelezen, is het mogelijk dat er fouten optreden of gegevens beschadigd zijn.
+- Als de gegevens worden gewijzigd terwijl deze door de kopieerservice worden gelezen, is het mogelijk dat er fouten optreden of gegevens beschadigd raken.
 
 U moet een taak maken als u gegevens wilt kopiëren met behulp van de gegevenskopieerservice:
 
@@ -62,10 +62,10 @@ U moet een taak maken als u gegevens wilt kopiëren met behulp van de gegevensko
     |**Gebruikersnaam**                       |Gebruikersnaam in de notatie `\\<DomainName><UserName>` voor toegang tot de gegevensbron.        |
     |**Wachtwoord**                       |Wachtwoord voor toegang tot de gegevensbron.           |
     |**Doelopslagaccount**    |Selecteer in de lijst het doelopslagaccount waarnaar u de gegevens wilt uploaden.         |
-    |**Doeltype**       |Selecteer het doelopslagtype in de lijst: **Blok-blob**, **pagina-blob** of **Azure Files**.        |
+    |**Doeltype**       |Selecteer het doelopslagtype in de lijst: **Blok-blob**, **Pagina-blob** of **Azure Files**.        |
     |**Doelcontainer/-share**    |Voer de naam in van de container of share waarnaar u gegevens wilt uploaden in uw doelopslagaccount. De naam kan een sharenaam of een containernaam zijn. Gebruik bijvoorbeeld `myshare` of `mycontainer`. U kunt de naam ook invoeren in de indeling `sharename\directory_name` of `containername\virtual_directory_name`.        |
     |**Bestanden kopiëren die overeenkomen met het patroon**    | U kunt het bestandsnaampatroon invoeren op de volgende twee manieren:<ul><li>**Met jokertekenexpressies:** Alleen `*` en `?` worden ondersteund in expressies met jokertekens. De expressie `*.vhd` bijvoorbeeld komt overeen met alle bestanden die de extensie `.vhd` hebben. En zo komt `*.dl?` overeen met alle bestanden die de extensie `.dl` hebben of die beginnen met `.dl`, zoals `.dll`. En zo komt `*foo` overeen met alle bestanden waarvan de bestandsnaam eindigt op `foo`.<br>U kunt de expressie met jokertekens rechtstreeks invoeren in het veld. Standaard wordt de waarde die u in het veld invoert, beschouwd als een expressie met jokertekens.</li><li>**Met reguliere expressies:** Op POSIX gebaseerde reguliere expressies worden ondersteund. De reguliere expressie `.*\.vhd` bijvoorbeeld komt overeen met alle bestanden die de extensie `.vhd` hebben. Voor reguliere expressies geeft u het `<pattern>` rechtstreeks op als `regex(<pattern>)`. Voor meer informatie over reguliere expressies gaat u naar [Regular expression language - a quick reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) (Reguliere expressies - een snelzoekgids).</li><ul>|
-    |**Bestandsoptimalisatie**              |Als deze functie is ingeschakeld, worden bestanden die kleiner zijn dan 1 MB tijdens de opname verpakt. Dit verpakken versnelt het kopiëren van gegevens voor kleine bestanden. Het bespaart ook aanzienlijk veel tijd wanneer het aantal bestanden veel groter is dan het aantal directory’s.        |
+    |**Bestandsoptimalisatie**              |Als deze functie is ingeschakeld, worden bestanden die kleiner zijn dan 1 MB tijdens de opname verpakt. Dit verpakken versnelt het kopiëren van gegevens voor kleine bestanden. Het bespaart ook aanzienlijk veel tijd wanneer het aantal bestanden veel groter is dan het aantal directory's.        |
  
 4. Selecteer **Starten**. De invoer wordt gevalideerd en als de validatie is geslaagd, wordt de taak gestart. Het kan enkele minuten duren voordat de taak start.
 
@@ -102,12 +102,12 @@ U moet een taak maken als u gegevens wilt kopiëren met behulp van de gegevensko
 
         ![Een mislukte taak opnieuw starten](media/data-box-deploy-copy-data-via-copy-service/restart-failed-job.png)
 
-        Als er een fout optreedt en u de taak niet opnieuw kunt starten, download dan de foutenlogboeken en zoek de fout op in de logboekbestanden. Wanneer u het probleem hebt opgelost, maakt u een nieuwe taak om de bestanden te kopiëren. U kunt ook [de bestanden kopiëren via SMB](data-box-deploy-copy-data.md).
+        Als er een fout optreedt en u de taak niet opnieuw kunt starten, downloadt u de foutenlogboeken en zoekt u de fout op in de logboekbestanden. Wanneer u het probleem hebt opgelost, maakt u een nieuwe taak om de bestanden te kopiëren. U kunt ook [de bestanden kopiëren via SMB](data-box-deploy-copy-data.md).
     
     - In deze release kunt u een taak niet verwijderen.
     
     - U kunt een onbeperkt aantal taken maken, maar u kunt maximaal 10 taken tegelijkertijd uitvoeren.
-    - Als **Bestandsoptimalisatie** is ingeschakeld, worden kleine bestanden ingepakt bij opname om kopieerprestaties te verbeteren. In dergelijke gevallen wordt er een ingepakte bestand weergegeven (met een GUID als bestandsnaam). Verwijder dit bestand niet. Dit wordt uitgepakt tijdens het uploaden.
+    - Als **Bestandsoptimalisatie** is ingeschakeld, worden kleine bestanden ingepakt bij opname om kopieerprestaties te verbeteren. In dergelijke gevallen wordt er een ingepakt bestand weergegeven (met een GUID als bestandsnaam). Verwijder dit bestand niet. Dit wordt uitgepakt tijdens het uploaden.
 
 6. Terwijl de taak wordt uitgevoerd, ziet u het volgende op de pagina **Gegevens kopiëren**:
 
@@ -123,7 +123,7 @@ U moet een taak maken als u gegevens wilt kopiëren met behulp van de gegevensko
     - In de kolom **Bestanden** ziet u het aantal en de totale grootte van de bestanden die worden gekopieerd.
     - In de kolom **Verwerkt** ziet u het aantal en de totale grootte van de bestanden die worden verwerkt.
     - Selecteer in de kolom **Taakdetails** de optie **Weergeven** als u de taakdetails wilt bekijken.
-    - Als er fouten optreden tijdens het kopieerproces, wat wordt weergegeven in de kolom **# fouten**, ga dan naar de kolom **Foutenlogboek** en download de foutenlogboeken om het probleem op te lossen.
+    - Als er fouten optreden tijdens het kopieerproces, wat wordt weergegeven in de kolom **# fouten**, gaat u naar de kolom **Foutenlogboek** en downloadt u de foutenlogboeken om het probleem op te lossen.
 
 Wacht tot de kopieertaak is voltooid. Omdat een aantal fouten alleen wordt vastgelegd op de pagina **Verbinding maken en kopiëren**, moet u wachten tot de kopieertaak zonder fouten is voltooid voordat u verder gaat met de volgende stap.
 

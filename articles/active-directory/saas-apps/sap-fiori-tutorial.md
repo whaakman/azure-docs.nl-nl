@@ -17,7 +17,7 @@ ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257634"
@@ -190,7 +190,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SAP Fiori, moet u de
 
 13. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
 
-    a. Klik op **Pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
+    a. Klik op **pictogram bewerken** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
     ![image](./media/sapfiori-tutorial/nameidattribute.png)
 

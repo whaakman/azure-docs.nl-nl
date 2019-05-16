@@ -69,15 +69,15 @@ Als u de integratie van AnswerHub in Azure AD wilt instellen, moet u AnswerHub v
 
      ![AnswerHub in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Eenmalige aanmelding van Azure AD instellen en testen
+## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Eenmalige aanmelding voor Azure AD instellen en testen
 
-In deze sectie configureert en test u eenmalige aanmelding van Azure AD met AnswerHub door een testgebruiker te gebruiken met de naam Britta Simon.
+In deze sectie configureert en test u eenmalige aanmelding voor Azure AD met AnswerHub door een testgebruiker te gebruiken met de naam Britta Simon.
 Voor eenmalige aanmelding moet u een koppeling maken tussen een Azure AD-gebruiker en de desbetreffende gebruiker in AnswerHub.
 
-Als u eenmalige aanmelding van Azure AD met AnswerHub wilt configureren en testen, moet u deze taken voltooien:
+Als u eenmalige aanmelding voor Azure AD met AnswerHub wilt configureren en testen, moet u deze taken voltooien:
 
-1. [Eenmalige aanmelding van Azure AD configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers de functie kunnen gebruiken.
-2. [Eenmalige aanmelding van AnswerHub configureren](#configure-answerhub-single-sign-on) om de instellingen voor eenmalige aanmelding aan de toepassingszijde in te stellen.
+1. [Eenmalige aanmelding voor Azure AD configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers de functie kunnen gebruiken.
+2. [Eenmalige aanmelding voor AnswerHub configureren](#configure-answerhub-single-sign-on) om de instellingen voor eenmalige aanmelding aan de toepassingszijde in te stellen.
 3. [Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user) met de naam Britta Simon.
 4. [De Azure AD-testgebruiker toewijzen](#assign-the-azure-ad-test-user) zodat Britta Simon gebruik kan maken van eenmalige aanmelding van Azure AD.
 5. Maak een testgebruiker op AnswerHub die overeenkomt met en is gekoppeld aan de gebruiker van de test Azure AD.
@@ -85,9 +85,9 @@ Als u eenmalige aanmelding van Azure AD met AnswerHub wilt configureren en teste
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie gaat u eenmalige aanmelding van Azure AD in de Azure-portal instellen.
+In deze sectie gaat u eenmalige aanmelding voor Azure AD in de Azure-portal instellen.
 
-**Eenmalige aanmelding van Azure AD configureren met AnswerHub:**
+**Eenmalige aanmelding voor Azure AD configureren met AnswerHub:**
 
 1. In de [Azure-portal](https://portal.azure.com/) selecteert u op de integratiepagina van de **AnswerHub**-toepassing de optie **Eenmalige aanmelding**.
 
@@ -193,7 +193,7 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie gaat u Britta Simon instellen voor gebruik van eenmalige aanmelding van Azure AD door haar toegang te geven tot AnswerHub.
+In deze sectie gaat u Britta Simon instellen voor gebruik van eenmalige aanmelding voor Azure AD door haar toegang te geven tot AnswerHub.
 
 **Azure AD-testgebruiker toewijzen:**
 
