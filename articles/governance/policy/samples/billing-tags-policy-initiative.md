@@ -7,12 +7,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9d9a3a5af304c1080d1d43b9bbfbafe2554a9844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5b084bd5a1b34dc2ce8ac8abb2a4af03a22262d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545245"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758377"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Voorbeeld: beleidsinitiatief voor factureringstags
 
@@ -24,11 +24,7 @@ Voor deze beleidsset zijn gespecificeerde tagwaarden voor kostenplaats en produc
 
 [!code-json[main](../../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-U kunt deze sjabloon implementeren met behulp van de [Azure-portal](#deploy-with-the-portal) of met [PowerShell](#deploy-with-powershell).
-
-## <a name="deploy-with-the-portal"></a>Implementeren met portal
-
-[![De voorbeeld-beleid implementeren naar Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+U kunt deze sjabloon met implementeren [PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-powershell"></a>Implementeren met PowerShell
 

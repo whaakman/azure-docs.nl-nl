@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 13c86a38e0d894feed0d9c24dd802a09ff1d1d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773310"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65751030"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Herstel na noodgevallen instellen voor virtuele Azure-machines
 
@@ -25,7 +25,7 @@ Deze zelfstudie leert u over het instellen van herstel na noodgevallen voor Azur
 > [!div class="checklist"]
 > * Een Recovery Services-kluis maken
 > * Doelresource-instellingen controleren
-> * Uitgaande toegang instellen voor VM’s
+> * Uitgaande netwerkconnectiviteit van VM's instellen
 > * Replicatie inschakelen voor een VM
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 - Zorg ervoor dat u inzicht hebt in de [architectuur en onderdelen voor dit scenario](concepts-azure-to-azure-architecture.md).
 - Controleer de [ondersteuningsvereisten](site-recovery-support-matrix-azure-to-azure.md) voordat u begint.
 
-## <a name="create-a-vault"></a>Een kluis maken
+## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
 Maak de kluis in elke gewenste regio, met uitzondering van de bronregio.
 
@@ -52,12 +52,12 @@ Maak de kluis in elke gewenste regio, met uitzondering van de bronregio.
 
    De nieuwe kluis wordt toegevoegd op het **Dashboard** onder **Alle resources** en op de hoofdpagina van **Recovery Services-kluizen**.
 
-## <a name="verify-target-resources"></a>Doelbronnen controleren
+## <a name="verify-target-resource-settings"></a>Doelresource-instellingen controleren
 
 1. Controleer of u een Azure-abonnement hebt waarmee u VM´s kunt maken in de doelregio. Neem contact op met ondersteuning voor het inschakelen van het vereiste quotum.
 2. Zorg ervoor dat uw abonnement voldoende resources heeft die ondersteuning bieden voor VM’s met grootten die overeenkomen met de bron-VM’s. Site Recovery kiest voor de doel-VM dezelfde of de dichtstbijzijnde grootte.
 
-## <a name="configure-outbound-network-connectivity"></a>Uitgaande netwerkconnectiviteit configureren
+## <a name="set-up-outbound-network-connectivity-for-vms"></a>Uitgaande netwerkconnectiviteit van VM's instellen
 
 Om ervoor te zorgen dat Site Recovery werkt zoals verwacht, moet u de uitgaande netwerkconnectiviteit wijzigen van de VM's die u wilt repliceren.
 
@@ -107,7 +107,7 @@ Azure Site Recovery heeft drie ingebouwde rollen voor het beheren van Site Recov
 
 Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control/built-in-roles.md).
 
-## <a name="enable-replication"></a>Replicatie inschakelen
+## <a name="enable-replication-for-a-vm"></a>Replicatie inschakelen voor een VM
 
 ### <a name="select-the-source"></a>De bron selecteren
 
@@ -146,7 +146,7 @@ Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio.
     **Virtueel doelnetwerk** | Het netwerk in de doelregio waar VM’s zich na een failover bevinden.<br/><br/> Site Recovery maakt standaard een nieuw virtueel netwerken (met subnets) in de doelregio met het achtervoegsel 'asr'.
     **Cacheopslagaccounts** | Site Recovery maakt gebruik van een opslagaccount in de bronregio. Wijzigingen in de bron-VM's worden naar dit account verzonden vóór replicatie naar de doellocatie.<br/><br/> Als u een firewall ingeschakeld cache-opslagaccount gebruikt, zorgt u ervoor dat u inschakelt **vertrouwde Microsoft-services toestaan**. [Meer informatie.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
     **Doelopslagaccounts (bron-VM maakt gebruik van niet-beheerde schijven)** | Met Site Recovery wordt standaard een nieuw opslagaccount in de doelregio gemaakt om het bron-VM-opslagaccount te spiegelen.<br/><br/> Schakel **vertrouwde Microsoft-services toestaan** als u een firewall ingeschakeld cache-opslagaccount.
-    **Beheerde replicaschijven (als de bron-VM maakt gebruik van beheerde schijven)** | Met Site Recovery worden standaard replicaschijven in de doelregio gemaakt om de beheerde schijven van de bron-VM's met hetzelfde opslagtype (Standard of Premium) te spiegelen als de beheerde schijf van de bron-VM's.
+    **Beheerde replicaschijven (als de bron-VM maakt gebruik van beheerde schijven)** | Met Site Recovery worden standaard replicaschijven in de doelregio gemaakt om de beheerde schijven van de bron-VM's met hetzelfde opslagtype (Standard of Premium) te spiegelen als de beheerde schijf van de bron-VM's. U kunt alleen schijftype aanpassen 
     **Doelbeschikbaarheidssets** | In Azure Site Recovery wordt standaard een nieuwe beschikbaarheidsset gemaakt in de doelregio, met een naam die eindigt op 'asr' voor het VM-gedeelte van een beschikbaarheidsset in de bronregio. Als de beschikbaarheidsset die wordt gemaakt met Azure Site Recovery, al bestaat, wordt deze opnieuw gebruikt.
     **Doel-beschikbaarheidszones** | In Site Recovery wordt standaard hetzelfde zonenummer toegewezen als de bronregio in de doelregio, als de doelregio ondersteuning biedt voor beschikbaarheidszones.<br/><br/> Als de doelregio biedt geen ondersteuning voor beschikbaarheidszones, worden de doel-VM's standaard geconfigureerd als één instanties.<br/><br/> Klik op **aanpassen** het configureren van virtuele machines als onderdeel van een beschikbaarheidsset in de doelregio.<br/><br/> U kunt het type beschikbaarheid (één exemplaar, beschikbaarheidszone instellen of beschikbaarheid) niet wijzigen nadat u replicatie inschakelt. Als u het type beschikbaarheid wilt wijzigen, moet u replicatie uitschakelen en opnieuw inschakelen.
 

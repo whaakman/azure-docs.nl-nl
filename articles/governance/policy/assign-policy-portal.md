@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b691b7fc05b4a68b917fc882e9bc2fa43bb3d3c1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498987"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65756568"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Een beleidstoewijzing maken om niet-conforme resources te identificeren
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Quickstart: Een beleidstoewijzing maken om niet-conforme resources te identificeren
 
 De eerste stap in het begrijpen van naleving in Azure is het identificeren van de status van uw resources.
 In deze quickstart gaat u een beleidstoewijzing maken voor het identificeren van virtuele machines die geen beheerde schijven gebruiken.
@@ -48,7 +48,7 @@ In deze snelstart maakt u een beleidstoewijzing en wijst u de beleidsdefinitie *
 
 1. Selecteer het weglatingsteken **Beleidsdefinitie** om de lijst van beschikbare definities te openen. Azure Policy wordt geleverd met ingebouwde beleidsdefinities die u kunt gebruiken. Er zijn allerlei definities beschikbaar, zoals:
 
-   - Tag en waarde afdwingen
+   - Tag met waarde afdwingen
    - Tag en waarde toepassen
    - SQL Server-versie 12.0 vereisen
 

@@ -8,13 +8,13 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: b135baf73e21cd524b6e8fad35452362f36cf0c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: 73d7aebf3dbff59320e0ef92cbd54811503c71b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080805"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65757614"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Zelfstudie: een multitenant-database ontwerpen met behulp van Azure Database voor PostgreSQL – grootschalige (Citus) (preview)
 
@@ -31,72 +31,7 @@ In deze zelfstudie gebruikt u Azure Database voor PostgreSQL - grootschalige (Ci
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
-
-Meld u aan bij [Azure Portal](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Een Azure Database voor PostgreSQL-server maken
-
-Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
-1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
-2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor PostgreSQL** op de pagina **Databases**.
-3. Voor de Implementatieoptie, klikt u op de **maken** knop onder **servergroep grootschalige (Citus) - voorbeeld.**
-4. Vul het formulier voor de gegevens van de nieuwe server als volgt in:
-   - Resourcegroep: klik op de **nieuw** koppeling onder het tekstvak voor dit veld. Voer een naam zoals **myresourcegroup**.
-   - Naam van servergroep: Voer een unieke naam voor de nieuwe server-groep, die ook worden gebruikt voor een subdomein van de server.
-   - Gebruikersnaam van beheerder: Voer een unieke gebruikersnaam, wordt later opnieuw verbinding maken met de database worden gebruikt.
-   - Wachtwoord: moet ten minste acht tekens lang zijn en moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0-9) en niet-alfanumerieke tekens (!, $, #, %, etc.)
-   - Locatie: Gebruik de locatie die zich het dichtst bij uw gebruikers zodat ze de snelst mogelijke toegang tot de gegevens.
-
-   > [!IMPORTANT]
-   > De aanmeldgegevens en het wachtwoord van de serverbeheerder die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze zelfstudie. Onthoud of noteer deze informatie voor later gebruik.
-
-5. Klik op **configureren servergroep**. Laat de instellingen in die sectie ongewijzigd en klik op **opslaan**.
-6. Klik op **revisie + maken** en vervolgens **maken** voor het inrichten van de server. De inrichting duurt een paar minuten.
-7. De pagina wordt omgeleid voor het controleren van de implementatie. Wanneer de live status verandert van **uw implementatie wordt uitgevoerd** naar **uw implementatie is voltooid**, klikt u op de **uitvoer** menu-item aan de linkerkant van de pagina.
-8. De uitvoer-pagina bevat een hostnaam coördinator met een knop naast het om de waarde naar het Klembord kopiëren. Noteer deze informatie voor later gebruik.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
-
-De Azure Database for PostgreSQL-service gebruikt een firewall op serverniveau. Standaard de firewall voorkomt dat externe toepassingen en hulpprogramma's verbinding maken met de server of databases op de server. Er moet een regel voor het openen van de firewall voor een specifiek IP-adresbereik toevoegen.
-
-1. Uit de **uitvoer** sectie waarnaar u de hostnaam van het knooppunt coordinator eerder hebt gekopieerd, klik op terug naar de **overzicht** menu-item.
-
-2. De schaal groep niet vinden voor de implementatie in de lijst van resources en klik erop. (U kunt de naam ervan wordt voorafgegaan door 'AG-'.)
-
-3. Klik op **Firewall** onder **Security** in het linkermenu.
-
-4. Klik op de koppeling **+ firewallregel toevoegen voor de huidige IP-adres van client**. Ten slotte klikt u op de **opslaan** knop.
-
-5. Klik op **Opslaan**.
-
-   > [!NOTE]
-   > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 5432 openstelt.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Verbinding maken met de database met behulp van psql in Cloud Shell
-
-U gaat nu het opdrachtregelprogramma [psql](https://www.postgresql.org/docs/current/app-psql.html) gebruiken om verbinding te maken met de Azure Database for PostgreSQL-server.
-1. Open Azure Cloud Shell via het terminalpictogram in het navigatiedeelvenster bovenaan.
-
-   ![Azure Database voor PostgreSQL - Azure Cloud Shell-terminalpictogram](./media/tutorial-design-database-hyperscale-multi-tenant/psql-cloud-shell.png)
-
-2. Azure Cloud Shell wordt geopend in uw browser zodat u bash-opdrachten kunt invoeren.
-
-   ![Azure-Database voor PostgreSQL - Azure Shell-bash-prompt](./media/tutorial-design-database-hyperscale-multi-tenant/psql-bash.png)
-
-3. In het Cloud Shell-prompt maakt u verbinding met uw Azure Database voor PostgreSQL-server met de psql-opdrachten. De volgende indeling wordt gebruikt om verbinding te maken met een Azure Database voor PostgreSQL-server via het [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-hulpprogramma:
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Bijvoorbeeld de volgende opdracht maakt verbinding met de standaarddatabase **citus** op uw PostgreSQL-server **mydemoserver.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het wachtwoord van de serverbeheerder in wanneer dat wordt gevraagd.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Psql gebruiken om een schema te maken
 
@@ -250,7 +185,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 Tot nu alle tabellen zijn gedistribueerd door `company_id`, maar sommige gegevens op natuurlijke wijze "behoort niet' tot een tenant in het bijzonder, en kan worden gedeeld. Alle bedrijven in het voorbeeld van de ad-platform wilt bijvoorbeeld geografische informatie voor de doelgroep op basis van IP-adressen.
 
-Maak een tabel voor het opslaan van gedeelde geografische informatie. Voer deze in psql:
+Maak een tabel voor het opslaan van gedeelde geografische informatie. Voer de volgende opdrachten in psql:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -268,7 +203,7 @@ Vervolgens maken `geo_ips` een verwijzingstabel' ' voor het opslaan van een kopi
 SELECT create_reference_table('geo_ips');
 ```
 
-Laden met voorbeeldgegevens. Houd er rekening mee uitvoeren in psql uit in de map waar u de gegevensset hebt gedownload.
+Laden met voorbeeldgegevens. Vergeet niet om uit te voeren met deze opdracht in psql uit in de map waar u de gegevensset hebt gedownload.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv

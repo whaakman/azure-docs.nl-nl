@@ -1,39 +1,32 @@
 ---
-title: "Quickstart: REST-API's in de Postman - Azure Search verkennen"
-description: Postman gebruiken voor HTTP-aanvragen en REST-API-aanroepen naar Azure Search.
+title: "Quickstart: Postman en REST API's - Azure Search"
+description: Meer informatie over het aanroepen van de Azure Search REST API's met Postman en voorbeeldgegevens en definities.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024812"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758527"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Quickstart: Verken Azure Search REST API's met Postman
 > [!div class="op_single_selector"]
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Een van de eenvoudigste manieren om te verkennen de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice) is gebruik van Postman of een andere website testen van hulpprogramma voor HTTP-aanvragen te formuleren en de reacties. Met de juiste hulpmiddelen en deze instructies kunt u aanvragen verzenden en antwoorden bekijken voordat u code gaat schrijven.
-
-> [!div class="checklist"]
-> * Een testprogramma voor web-API's downloaden
-> * Een sleutel en de URL voor uw zoekservice ophalen
-> * Verbinding maken met Azure Search
-> * Een index maken
-> * Een index laden
-> * Een index doorzoeken
+Een van de eenvoudigste manieren om te verkennen de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice) Postman of een andere website testen hulpprogramma wordt gebruikt voor HTTP-aanvragen te formuleren en de reacties. Met de juiste hulpmiddelen en deze instructies kunt u aanvragen verzenden en antwoorden bekijken voordat u code gaat schrijven.
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint en meldt u zich daarna aan voor [Azure Search](search-create-service-portal.md).
 
@@ -41,9 +34,9 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 De volgende services en hulpprogramma's worden gebruikt in deze Quick Start. 
 
-[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. 
++ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. 
 
-[Postman bureaublad-app](https://www.getpostman.com/) of [Telerik Fiddler](https://www.telerik.com/fiddler) wordt gebruikt voor het verzenden van aanvragen naar Azure Search.
++ [Postman bureaublad-app](https://www.getpostman.com/) of [Telerik Fiddler](https://www.telerik.com/fiddler) wordt gebruikt voor het verzenden van aanvragen naar Azure Search.
 
 ## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
@@ -61,15 +54,15 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 
 In deze sectie maakt gebruik van uw web-hulpprogramma naar keuze voor het instellen van verbindingen met Azure Search. Elk hulpprogramma bewaart informatie over aanvraagheaders voor de sessie, wat betekent dat u alleen moet de api-sleutel en de Content-Type één keer invoeren.
 
-Voor beide hulpprogramma nodig hebt u om een opdracht (GET, POST, PUT, enzovoort), leveren een URL-eindpunt en voor sommige taken, bieden JSON in de hoofdtekst van de aanvraag. Geen volledige URL ziet er ongeveer als volgt uit:
+Voor beide hulpprogramma nodig hebt u om een opdracht (GET, POST, PUT, enzovoort), leveren een URL-eindpunt en voor sommige taken, bieden JSON in de hoofdtekst van de aanvraag. De naam van de search service (uw-SEARCH-SERVICE-naam) vervangen door een geldige waarde. 
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
+    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06
 
 U ziet het HTTPS-voorvoegsel, de naam van de service, de naam van een object (in dit geval de verzameling indexen) en de [api-versie](search-api-versions.md). De api-versie is een vereiste, kleine letter tekenreeks die is opgegeven als `?api-version=2019-05-06` voor de huidige versie. API-versies worden regelmatig bijgewerkt. Als u de API-versie toevoegt aan elke aanvraag, kunt u precies bepalen welke versie wordt gebruikt.  
 
-De aanvraagheader bestaat uit twee elementen, inhoudstype, plus de api-sleutel gebruikt om Azure Search te verifiëren:
+De aanvraagheader bestaat uit twee elementen, inhoudstype, plus de api-sleutel gebruikt om Azure Search te verifiëren. Vervang de beheer-API-sleutel (uw-ADMIN-API-sleutel) met een geldige waarde. 
 
-    api-key: <placeholder-api-key-for-your-service>
+    api-key: <YOUR-ADMIN-API-KEY>
     Content-Type: application/json
 
 In Postman, Formuleer een aanvraag die lijkt op de volgende schermafbeelding. Kies **ophalen** als de term, geef de URL en klik op **verzenden**. Deze opdracht maakt verbinding met Azure Search, de verzameling indexen leest en HTTP-statuscode 200 wordt op de verbinding is geslaagd. Als uw service al indexen heeft, wordt het antwoord ook index definities bevatten.
@@ -78,16 +71,19 @@ In Postman, Formuleer een aanvraag die lijkt op de volgende schermafbeelding. Ki
 
 ## <a name="1---create-an-index"></a>1 - Een index maken
 
-In Azure Search maakt u meestal de index voordat deze worden geladen met gegevens. De [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) REST-API wordt gebruikt voor deze taak. 
+In Azure Search maakt u meestal de index voordat deze worden geladen met gegevens. De [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index) wordt gebruikt voor deze taak. 
 
 De URL is uitgebreid met de `hotel` naam van de index.
 
 Om dit te doen in Postman:
 
-1. Wijzig de bewerking in **plaatsen**
-2. In deze URL kopiëren `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
-3. Geef de indexdefinitie (Zie hieronder) in de hoofdtekst van de aanvraag
-4. Klik op **verzenden**
+1. Wijzig de bewerking in **plaatsen**.
+
+2. Kopieer deze URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`.
+
+3. Geef de indexdefinitie (Zie hieronder) in de hoofdtekst van de aanvraag.
+
+4. Klik op **verzenden**.
 
 ![Het hoofdgedeelte van de aanvraag in Postman][8]
 
@@ -122,16 +118,19 @@ Wanneer u deze aanvraag indient, krijgt u een HTTP 201-respons om aan te geven d
 
 ## <a name="2---load-documents"></a>2 - documenten laden
 
-De index maken en de index vullen zijn afzonderlijke stappen. In Azure Search bevat de index alle doorzoekbare gegevens die u kunt aanleveren als JSON-documenten. De [toevoegen, bijwerken of verwijderen documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) REST-API wordt gebruikt voor deze taak. 
+De index maken en de index vullen zijn afzonderlijke stappen. In Azure Search bevat de index alle doorzoekbare gegevens die u kunt aanleveren als JSON-documenten. De [toevoegen, bijwerken of verwijderen van documenten REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) wordt gebruikt voor deze taak. 
 
 De URL is uitgebreid met de `docs` verzamelingen en `index` bewerking.
 
 Om dit te doen in Postman:
 
-1. Wijzig de bewerking in **POST**
-2. In deze URL kopiëren `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
-3. Geef de JSON-documenten (Zie hieronder) in de hoofdtekst van de aanvraag
-4. Klik op **verzenden**
+1. Wijzig de bewerking in **POST**.
+
+2. Kopieer deze URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`.
+
+3. Geef de JSON-documenten (Zie hieronder) in de hoofdtekst van de aanvraag.
+
+4. Klik op **verzenden**.
 
 ![Aanvraagpayload in Postman][10]
 
@@ -212,15 +211,17 @@ Als u een 207-respons ontvang, is minimaal één document niet geüpload. Als u 
 
 ## <a name="3---search-an-index"></a>3 - Een index doorzoeken
 
-Nu dat er een index en documenten zijn geladen, kunt u query's op te geven met behulp van [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST-API.
+Nu dat er een index en documenten zijn geladen, kunt u query's op te geven met behulp van [REST-API voor Search-documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 De URL is uitgebreid met een queryreeks opgegeven met behulp van de search-operator.
 
 Om dit te doen in Postman:
 
-+ Wijzig de bewerking in **ophalen**
-+ In deze URL kopiëren `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
-+ Klik op **verzenden**
+1. Wijzig de bewerking in **ophalen**.
+
+2. Kopieer deze URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`.
+
+3. Klik op **verzenden**.
 
 Deze query zoekt de term 'motel' en retourneert het aantal documenten in de zoekresultaten. De aanvraag en het antwoord moeten eruitzien als in de volgende schermopname voor Postman nadat u op **Send** (Verzenden) hebt geklikt. De statuscode moet 200 zijn.
 
@@ -228,7 +229,7 @@ Deze query zoekt de term 'motel' en retourneert het aantal documenten in de zoek
 
 
 ## <a name="get-index-properties"></a>Indexeigenschappen ophalen
-U kunt ook een query toepassen op systeemgegevens om het aantal documenten en het opslagverbruik op te vragen: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
+U kunt ook een query toepassen op systeemgegevens om het aantal documenten en het opslagverbruik op te vragen: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 In Postman moet uw aanvraag er ongeveer als volgt uitzien en bevat de reactie het aantal documenten en de gebruikte ruimte in bytes.
 
@@ -236,7 +237,7 @@ In Postman moet uw aanvraag er ongeveer als volgt uitzien en bevat de reactie he
 
 Let op dat de syntaxis van api-version verschilt. Voeg voor deze aanvraag `?` toe aan api-version. De `?` scheidt het URL-pad van de querytekenreeks, terwijl & scheidt ' naam = waarde-paar in de query-tekenreeks. Voor deze query is api-version het eerste en enige item in de querytekenreeks.
 
-Zie [Get Index Statistics (REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) (Indexstatistieken ophalen (REST)) voor meer informatie over deze API.
+Zie voor meer informatie over deze API [Index statistieken REST-API ophalen](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics).
 
 
 ## <a name="use-fiddler"></a>Fiddler gebruiken
@@ -247,7 +248,7 @@ In deze sectie is gelijk aan de vorige secties alleen met Fiddler schermafbeeldi
 
 Formuleer een aanvraag die vergelijkbaar is met de volgende schermopname. Kies **ophalen** als de bewerking. Fiddler voegt `User-Agent=Fiddler` toe. U kunt de twee aanvullende aanvraagheaders op nieuwe regels eronder plakken. Voeg het inhoudstype en de API-sleutel voor uw service toe waarbij u de beheersleutel voor toegang voor uw service gebruikt.
 
-Kopieer voor het doel in een aangepaste versie van deze URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
+Kopieer voor het doel in een aangepaste versie van deze URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![De aanvraagheader van Fiddler][1]
 
@@ -256,7 +257,7 @@ Kopieer voor het doel in een aangepaste versie van deze URL: `https://<placehold
 
 ### <a name="1---create-an-index"></a>1 - Een index maken
 
-Wijzig de bewerking in **plaatsen**. Kopiëren in een aangepaste versie van deze URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag hierboven. De pagina zijn vergelijkbaar zijn met de volgende schermafbeelding. Klik op **Execute** bovenaan rechts om de voltooide aanvraag te verzenden.
+Wijzig de bewerking in **plaatsen**. Kopiëren in een aangepaste versie van deze URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag hierboven. De pagina zijn vergelijkbaar zijn met de volgende schermafbeelding. Klik op **Execute** bovenaan rechts om de voltooide aanvraag te verzenden.
 
 ![Het hoofdgedeelte van de aanvraag in Fiddler][7]
 
@@ -268,7 +269,7 @@ Wijzig de bewerking in **POST**. Wijzig de URL zodat deze `/docs/index` bevat. K
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Tips voor het uitvoeren van onze voorbeeldquery's in Fiddler
 
-De volgende voorbeeldquery is afkomstig uit het artikel [Zoekindex (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Veel van de voorbeeldquery's in dit artikel bevatten spaties. Deze zijn niet toegestaan in Fiddler. Vervang elke spatie door een plusteken (+) voordat u de queryreeks in Fiddler plakt en uitvoert.
+De volgende voorbeeldquery is afkomstig uit de [REST-API voor Search-documenten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) artikel. Veel van de voorbeeldquery's in dit artikel bevatten spaties. Deze zijn niet toegestaan in Fiddler. Vervang elke spatie door een plusteken (+) voordat u de queryreeks in Fiddler plakt en uitvoert.
 
 **Voordat de spaties zijn vervangen (in lastRenovationDate desc):**
 

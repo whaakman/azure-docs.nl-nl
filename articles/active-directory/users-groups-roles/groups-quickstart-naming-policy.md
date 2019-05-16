@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4105fa17041c7cefd1387d1ee50c177b8c55fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471209"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605637"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snelstartgids: Naamgevingsbeleid voor groepen in Azure Active Directory
 
@@ -31,121 +31,43 @@ In deze snelstart stelt u naambeleid in uw Azure Active Directory (Azure AD)-ten
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="install-powershell-cmdlets"></a>PowerShell-cmdlets installeren
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configureer het beleid voor naamgeving voor een tenant met behulp van Azure portal (preview)
 
-Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Module voor Windows PowerShell en installeer [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell voor Graph - Release 2.0.0.137 voor openbare preview) voordat u de PowerShell-opdrachten uitvoert. 
+1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een administrator-account van gebruiker.
+1. Selecteer **groepen**en selecteer vervolgens **naamgevingsbeleid** de Naming beleid-pagina te openen.
 
-1. Open de Windows PowerShell-app als beheerder.
-2. Verwijder eventuele oudere versies van AzureADPreview.
-  
+    ![Open de pagina van de Naming-beleid in het beheercentrum](./media/groups-naming-policy/policy-preview.png)
 
-   ```powershell
-   Uninstall-Module AzureADPreview
-   ```
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Weergeven of bewerken van het naamgevingsbeleid van voorvoegsel-achtervoegsel
 
-3. Installeer de nieuwste versie van AzureADPreview.
-  
+1. Op de **naamgevingsbeleid** weergeeft, schakelt **naming groepsbeleid**.
+1. U kunt weergeven of bewerken van het huidige voorvoegsel of achtervoegsel naming beleid afzonderlijk door de kenmerken of tekenreeksen die u wilt afdwingen als onderdeel van het naamgevingsbeleid te selecteren.
+1. Als u wilt verwijderen een voorvoegsel of achtervoegsel in de lijst, selecteert u het voorvoegsel of achtervoegsel en vervolgens **verwijderen**. Meerdere items kunnen worden verwijderd op hetzelfde moment.
+1. Selecteer **opslaan** voor uw wijzigingen aan het beleid van kracht.
 
-   ```powershell
-   Install-Module AzureADPreview
-   ```
+### <a name="view-or-edit-the-custom-blocked-words"></a>Weergeven of bewerken van de aangepaste geblokkeerde woorden
 
-   Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. Het kan enkele minuten duren voordat de nieuwe module is geïnstalleerd.
+1. Op de **naamgevingsbeleid** weergeeft, schakelt **woorden geblokkeerd**.
 
-## <a name="set-up-naming-policy"></a>Naambeleid instellen
+    ![bewerken en uploaden van de lijst met geblokkeerde woorden voor de naamgeving van beleid](./media/groups-naming-policy/blockedwords-preview.png)
 
-### <a name="step-1-sign-in-using-powershell-cmdlets"></a>Stap 1: Aanmelden met behulp van PowerShell-cmdlets
+1. Weergeven of bewerken van de huidige lijst met geblokkeerde dan speciale woorden hiervoor **downloaden**.
+1. Upload een nieuwe lijst met geblokkeerde dan speciale woorden door het bestandspictogram te selecteren.
+1. Selecteer **opslaan** voor uw wijzigingen aan het beleid van kracht.
 
-1. Open de Windows PowerShell-app. U hebt geen verhoogde bevoegdheden nodig.
-
-2. Voer de volgende opdrachten uit als voorbereiding op het uitvoeren van de cmdlets.
-  
-
-   ```powershell
-   Import-Module AzureADPreview
-   Connect-AzureAD
-   ```
-
-   In het scherm **Sign in to your Account** dat verschijnt, voert u uw beheerdersaccount en wachtwoord in om verbinding te maken met uw service. Selecteer vervolgens **Aanmelden**.
-
-3. Volg de stappen in [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md) om groepsinstellingen voor deze tenant te maken.
-
-### <a name="step-2-view-the-current-settings"></a>Stap 2: Huidige instellingen weergeven
-
-1. Bekijk de instellingen voor het huidige naambeleid.
-  
-
-   ```powershell
-   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id
-   ```
-
-  
-2. Geef de instellingen voor de huidige groep weer.
-  
-
-   ```powershell
-   $Setting.Values
-   ```
-
-  
-
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Stap 3: Naamgevingsbeleid en eventuele aangepaste, geblokkeerde woorden instellen
-
-1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell. [GroupName] moet in de instelling worden opgenomen om de functie goed te laten werken.
-  
-
-   ```powershell
-   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-   ```
-
-  
-2. Stel de aangepaste, geblokkeerde woorden in die u wilt verbieden. In het volgende voorbeeld wordt getoond hoe u uw eigen aangepaste woorden kunt toevoegen.
-  
-
-   ```powershell
-   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-   ```
-
-  
-3. Sla de instellingen voor het nieuwe beleid op zodat het van kracht wordt, zoals in het volgende voorbeeld.
-  
-
-   ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
-
-  
 Dat is alles. U hebt het naambeleid ingesteld en uw aangepaste, geblokkeerde woorden toegevoegd.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-1. Wis de voor- en achtervoegsels van de groepsnaam in Azure AD PowerShell.
-  
+### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Verwijder het naming beleid met behulp van Azure portal (preview)
 
-   ```powershell
-   $Setting["PrefixSuffixNamingRequirement"] =""
-   ```
-
-  
-2. Maak de aangepaste lijst met geblokkeerde woorden leeg.
-  
-
-   ```powershell
-   $Setting["CustomBlockedWordsList"]=""
-   ```
-
-  
-3. Sla de instellingen op.
-  
-
-   ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
+1. Op de **naamgevingsbeleid** weergeeft, schakelt **beleid verwijderen**.
+1. Nadat u de verwijdering bevestigt, het naamgevingsbeleid wordt verwijderd, inclusief alle voorvoegsel-achtervoegsel naamgeving van beleid en eventuele aangepaste geblokkeerde woorden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u PowerShell-cmdlets kunt gebruiken om het naambeleid voor uw Azure AD-tenant in te stellen.
+In deze snelstartgids hebt u geleerd over het instellen van het naamgevingsbeleid van uw organisatie Azure AD via Azure portal.
 
-Voor meer informatie over technische beperkingen, het toevoegen van een lijst met aangepaste, geblokkeerde woorden of de ervaringen van eindgebruikers met Office 365-apps, gaat u verder naar het volgende artikel.
+Ga naar het volgende artikel voor meer informatie, met inbegrip van de PowerShell-cmdlets voor het benoemen van beleid, technische beperkingen, een lijst met geblokkeerde dan speciale woorden en de ervaringen van eindgebruikers toe te voegen in Office 365-apps.
 > [!div class="nextstepaction"]
-> [Naambeleid: alle details](groups-naming-policy.md)
+> [Naamgevingsbeleid voor PowerShell](groups-naming-policy.md)

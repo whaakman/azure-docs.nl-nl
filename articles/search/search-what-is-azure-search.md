@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467063"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539320"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. De query wordt uitgevoerd op een door de gebruiker gedefinieerde index.
@@ -44,7 +44,7 @@ Functionaliteit wordt beschikbaar gemaakt via een eenvoudige [REST API](/rest/ap
 | AI&nbsp;verrijking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Functies |
 |-------------------|----------|
 |AI verrijkt documenten | [**Cognitieve zoekopdrachten** ](cognitive-search-concept-intro.md) voor analyse van afbeeldingen en tekst kan worden toegepast op een indexering pijplijn om tekstinformatie te extraheren uit de onbewerkte inhoud. Enkele voorbeelden van [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) zijn: optische tekenherkenning (waardoor gescande JPEG-bestanden doorzoekbaar worden), herkenning van entiteiten (waarmee een organisatie, naam of locatie kan worden geïdentificeerd), en herkenning van sleuteltermen. U kunt ook [aangepaste vaardigheden coderen](cognitive-search-create-custom-skill-example.md) om ze te koppelen aan een pijplijn. |
-| Opgeslagen enrichments voor analyse en verbruik| [**Kennis Store (preview)** ](knowledge-store-concept-intro.md) is een uitbreiding op basis van AI worden geïndexeerd. Met Azure-opslag als een back-end bespaart u enrichments gemaakt tijdens het indexeren. Deze artefacten kunnen worden gebruikt om u te helpen bij het ontwerpen van betere kennis en vaardigheden of vorm en structuur buiten het proces of niet-eenduidige gegevens maken. U kunt projecties van deze structuren kunt maken die specifieke werkbelastingen doel of de gebruikers. U kunt ook rechtstreeks de opgehaalde gegevens analyseren, of deze te laden in andere apps.<br/><br/> |
+| Opgeslagen enrichments voor analyse en verbruik| [**Kennis store (preview)** ](knowledge-store-concept-intro.md) is een uitbreiding op basis van AI worden geïndexeerd. Met Azure-opslag als een back-end bespaart u enrichments gemaakt tijdens het indexeren. Deze artefacten kunnen worden gebruikt om u te helpen bij het ontwerpen van betere kennis en vaardigheden of vorm en structuur buiten het proces of niet-eenduidige gegevens maken. U kunt projecties van deze structuren kunt maken die specifieke werkbelastingen doel of de gebruikers. U kunt ook rechtstreeks de opgehaalde gegevens analyseren, of deze te laden in andere apps.<br/><br/> |
 
 | Data&nbsp;import/indexing | Functies |
 |----------------------------------|----------|

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539714"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595730"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Begin uw ASP.NET-webtoepassing te controleren
 
@@ -26,7 +26,7 @@ Deze snelstartgids laat zien hoe u Application Insights kunt toevoegen aan een b
 ## <a name="prerequisites"></a>Vereisten
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
-- Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+- Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET-ontwikkeling en webontwikkeling
     - Azure-ontwikkeling
 
@@ -35,7 +35,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="enable-application-insights"></a>Application Insights inschakelen
 
-1. Open uw project in Visual Studio 2017.
+1. Open het project in Visual Studio 2019.
 2. Selecteer **Configure Application Insights** in het menu Project. De Application Insights-SDK wordt toegevoegd aan uw toepassing.
 
     > [!IMPORTANT]
@@ -63,15 +63,15 @@ U kunt nu Application Insights openen in Azure Portal om allerlei gegevens over 
 
 1. Vouw de **Connected Services** map (cloud en plug-pictogram) in de Solution Explorer klikt u vervolgens met de rechtermuisknop op de **Application Insights** map en klikt u op **Open Application Insights-Portal** .  U ziet een aantal gegevens over uw toepassing en allerlei opties.
 
-    ![Toepassingskaart](media/quick-monitor-portal/4overview.png)
+    ![Toepassingsoverzicht](media/quick-monitor-portal/4overview.png)
 
 2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing.  Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-    ![Toepassingskaart](media/quick-monitor-portal/5appmap.png)
+    ![Toepassingsoverzicht](media/quick-monitor-portal/5appmap.png)
 
 3. Klik op de **Appanalyses** pictogram ![Toepassingsoverzicht](media/quick-monitor-portal/app-analytics-icon.png) **weergeven in Analytics** op een van de onderdelen van de toepassing. Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights.  In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
-    ![Analyse](media/quick-monitor-portal/6viewanalytics.png)
+    ![Analytische gegevens](media/quick-monitor-portal/6viewanalytics.png)
 
 4. Klik op **Live Metrics Stream** aan de linkerkant onder onderzoeken. Hier worden live statistieken weergegeven over uw toepassing terwijl deze wordt uitgevoerd. Dit zijn onder andere gegevens over het aantal inkomende aanvragen, de duur van deze aanvragen en eventuele fouten die optreden. U kunt ook kritieke prestatiegegevens inspecteren, zoals de processor en het geheugen.
 

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 83133629d92abb50d9fd7509cf182282503fc041
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273155"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65755776"
 ---
-# <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Een Azure Blueprint definiëren en toewijzen met REST API
 
 Als u leert hoe u blauwdrukken in Azure maakt en toewijst, kunnen er algemene patronen worden gedefinieerd voor de ontwikkeling van herbruikbare en snel implementeerbare configuraties op basis van Resource Manager-sjablonen, beleid, beveiliging en meer. In deze zelfstudie leert u hoe u Azure Blueprints gebruikt om algemene taken uit te voeren met betrekking tot het maken, publiceren en toewijzen van een blauwdruk binnen uw organisatie, zoals:
 
@@ -28,7 +28,6 @@ Als u leert hoe u blauwdrukken in Azure maakt en toewijst, kunnen er algemene pa
 > - Een blauwdruk verwijderen die aan een abonnement is toegewezen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
-
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

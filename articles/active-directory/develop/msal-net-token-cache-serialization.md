@@ -4,7 +4,7 @@ description: Meer informatie over serialisatie en serialisatie van de klant van 
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1e9a48b114d328e0405a2f03764df4ce29b166
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e4a4c4ca1925a501b10cb86a2cf60646af1e5b57
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407060"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544253"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialisatie-tokencache in MSAL.NET
 Na een [token wordt verkregen](msal-acquire-cache-tokens.md), het is in de cache opgeslagen door Microsoft Authentication Library (MSAL).  Toepassingscode moet proberen op te halen van een token uit de cache voor het ophalen van een token via een andere methode.  In dit artikel wordt beschreven standaard en aangepaste serialisatie van de tokencache in MSAL.NET.

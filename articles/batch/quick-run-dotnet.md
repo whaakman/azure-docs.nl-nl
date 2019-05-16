@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 6c332861bcaf228e4c1e0a619cf4f84e3be0ba15
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204161"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595346"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Quickstart: Uw eerste Azure Batch-taak uitvoeren met de .NET API
 
@@ -27,7 +27,7 @@ In deze snelstartgids wordt een Azure Batch-taak uitgevoerd vanuit een C#-toepas
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs) of [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) voor Linux, macOS of Windows. 
+* [Visual Studio 2017 of later](https://www.visualstudio.com/vs), of [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) voor Linux, macOS of Windows. 
 
 * Een Batch-account en een gekoppeld Azure Storage-account. Raadpleeg de Batch-quickstarts met behulp van [Azure Portal](quick-create-portal.md) of [Azure CLI](quick-create-cli.md) voor instructies voor het maken van deze accounts. 
 

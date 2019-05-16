@@ -1,19 +1,17 @@
 ---
 title: Index van beleidsvoorbeelden
 description: Index van voorbeelden voor Azure Policy. Categorieën zijn onder andere naam geven, tags, Key Vault, netwerken, opslag en meer.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 01/17/2018
-ms.date: 04/15/2019
-ms.author: v-biyu
+ms.date: 03/19/2019
+ms.author: dacoulte
 ms.openlocfilehash: 5a39614d544157695b8b2f02ab5f1fe4427d5ca5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/16/2019
 ms.locfileid: "60865805"
 ---
 # <a name="azure-policy-samples"></a>Voorbeelden van Azure Policy
@@ -25,6 +23,8 @@ De volgende tabel bevat links naar voorbeelden voor Azure Policy. Deze voorbeeld
 [!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
 
 [!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
+
+[!INCLUDE [azure-policy-samples-guest-configuration](../../../../includes/azure-policy-samples-guest-configuration.md)]
 
 [!INCLUDE [azure-policy-samples-keyvault](../../../../includes/azure-policy-samples-keyvault.md)]
 

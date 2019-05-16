@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782268"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65746237"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box-beveiliging en -gegevensbescherming
 
@@ -34,6 +34,8 @@ Het volgende diagram toont de stroom van gegevens via de Azure Data Box-oplossin
 
 ![Data Box-beveiliging](media/data-box-security/data-box-security-2.png)
 
+Als de gegevens via deze oplossing stromen, gebeurtenissen worden vastgelegd en logboeken worden gegenereerd. Ga voor meer informatie naar [tracering en logboekregistratie voor uw Azure Data Box](data-box-logs.md).
+
 ## <a name="security-features"></a>Beveiligingsfuncties
 
 Data Box biedt een veilige oplossing voor gegevensbescherming door te garanderen dat alleen bevoegde entiteiten uw gegevens kunnen bekijken, wijzigen of verwijderen. De beveiligingsfuncties van deze oplossing zijn voor de schijf en voor de bijbehorende service, zodat de gegevens worden beschermd die daarop worden opgeslagen. 
@@ -48,24 +50,25 @@ Het Data Box-apparaat wordt door de volgende functies beschermd:
 - Kan alleen worden uitgevoerd met Data Box-specifieke software.
 - Wordt in vergrendelde toestand opgestart.
 - Apparaattoegang via wachtwoordontgrendeling.
-- Toegangsreferenties om gegevens van en naar het apparaat te kopiëren.
+- Toegangsreferenties om gegevens van en naar het apparaat te kopiëren. Alle toegang tot de **apparaatreferenties** pagina in Azure portal worden vastgelegd in de [activiteitenlogboeken](data-box-logs.md#query-activity-logs-during-setup).
 
 ### <a name="data-box-data-protection"></a>Data Box-gegevensbescherming
 
 De gegevens die in en uit de Data Box stromen, worden door de volgende functies beschermd:
 
-- AES 256-bits versleuteling voor data-at-rest. 
+- AES 256-bits versleuteling voor data-at-rest.
 - Versleutelde protocollen kunnen worden gebruikt voor data-in-flight.
-- Veilige verwijdering van gegevens van apparaat zodra ze naar Azure zijn geüpload. Gegevensverwijdering is in overeenstemming met NIST 800-88r1-standaarden.
+- Veilige verwijdering van gegevens van apparaat zodra ze naar Azure zijn geüpload. Gegevensverwijdering is in overeenstemming met NIST 800-88r1-standaarden. De gegevens wissing gebeurtenis is vastgelegd de [bestellen geschiedenis](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Data Box-servicebescherming
 
 De Data Box-service wordt door de volgende functies beschermd:
 
 - Voor toegang tot de Data Box-service moet uw organisatie een Azure-abonnement hebben dat Data Box omvat. Uw abonnement bepaalt tot welke functies u toegang hebt in de Azure-portal.
-- Omdat de Data Box-service in Azure wordt gehost, wordt deze beschermd door de Azure-beveiligingsfuncties. Ga naar het [Vertrouwenscentrum van Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) voor meer informatie over de beveiligingsfuncties die worden geleverd door Microsoft Azure. 
-- In de Data Box-service is Wachtwoord ontgrendelen opgeslagen, dat wordt gebruikt om het apparaat in de service te ontgrendelen. 
-- In de Data Box-service worden de ordergegevens en -status opgeslagen. Deze informatie wordt verwijderd wanneer de order wordt verwijderd. 
+- Omdat de Data Box-service in Azure wordt gehost, wordt deze beschermd door de Azure-beveiligingsfuncties. Ga naar het [Vertrouwenscentrum van Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) voor meer informatie over de beveiligingsfuncties die worden geleverd door Microsoft Azure.
+- Toegang tot de Data Box-order kan worden beheerd via het gebruik van de rollen van de rollen gebaseerd toegangsbeheer (RBAC). Zie voor meer informatie, [instellen van toegangsbeheer voor Data Box-order](data-box-logs.md#set-up-access-control-on-the-order)
+- In de Data Box-service is Wachtwoord ontgrendelen opgeslagen, dat wordt gebruikt om het apparaat in de service te ontgrendelen.
+- In de Data Box-service worden de ordergegevens en -status opgeslagen. Deze informatie wordt verwijderd wanneer de order wordt verwijderd.
 
 ## <a name="managing-personal-data"></a>Persoonlijke gegevens beheren
 
@@ -77,7 +80,7 @@ Azure Data Box verzamelt en toont persoonlijke informatie in de volgende belangr
 
   - Naam van contactpersoon
   - Telefoonnummer
-  - Email
+  - E-mailen
   - Adres
   - Plaats
   - Postcode

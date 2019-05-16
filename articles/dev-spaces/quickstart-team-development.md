@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Kubernetes-ontwikkeling met containers en microservices op Azure-team
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1414cc56809263a90a4bfea16db332e2f6a5e0bc
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
-ms.translationtype: MT
+ms.openlocfilehash: 437c6284c563f85e25d2c5b81734ea3bc0507701
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514080"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596997"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Teamontwikkeling op Kubernetes met Azure Dev spaties
 
@@ -25,7 +25,7 @@ In deze handleiding leert u het volgende:
 - Een grote toepassing met meerdere microservices implementeren naar een dev-ruimte.
 - Een enkele microservice in een geïsoleerde dev-ruimte in de context van de volledige toepassing testen.
 
-![Azure voorbeeld-toepassing voor delen van Dev spaties fiets](media/quickstart-team-development/bikeshare.png)
+![Azure Dev spaties teams voor ontwikkelen](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -125,7 +125,9 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Navigeer naar de *bikesharingweb* service door het openen van de openbare URL van de `azds list-uris` opdracht. In het bovenstaande voorbeeld wordt de openbare URL voor de *bikesharingweb* -service is *http://dev.bikesharingweb.fedcab0987.eus.azds.io/*. Selecteer *Aurelia Briggs (klant)* als de gebruiker. Controleer of de tekst *Hi Aurelia Briggs | Afmelden* aan de bovenkant.
+Navigeer naar de *bikesharingweb* service door het openen van de openbare URL van de `azds list-uris` opdracht. In het bovenstaande voorbeeld wordt de openbare URL voor de *bikesharingweb* -service is `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Selecteer *Aurelia Briggs (klant)* als de gebruiker. Controleer of de tekst *Hi Aurelia Briggs | Afmelden* aan de bovenkant.
+
+![Azure voorbeeld-toepassing voor delen van Dev spaties fiets](media/quickstart-team-development/bikeshare.png)
 
 ## <a name="create-child-dev-spaces"></a>Onderliggende dev opslagruimten maken
 
@@ -162,7 +164,7 @@ http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 
 Bevestig dat de URL's weergegeven door de `azds list-uris` opdracht hebben de *azureuser2.s.dev* voorvoegsel. Dit voorvoegsel wordt bevestigd dat de huidige ruimte die geselecteerd is *azureuser2*, dit is een onderliggend element van *dev*.
 
-Navigeer naar de *bikesharingweb* service voor de *dev/azureuser2* dev ruimte door het openen van de openbare URL van de `azds list-uris` opdracht. In het bovenstaande voorbeeld wordt de openbare URL voor de *bikesharingweb* -service is *http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/*. Selecteer *Aurelia Briggs (klant)* als de gebruiker. Controleer of de tekst *Hi Aurelia Briggs | Meld u af* aan de bovenkant.
+Navigeer naar de *bikesharingweb* service voor de *dev/azureuser2* dev ruimte door het openen van de openbare URL van de `azds list-uris` opdracht. In het bovenstaande voorbeeld wordt de openbare URL voor de *bikesharingweb* -service is `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Selecteer *Aurelia Briggs (klant)* als de gebruiker. Controleer of de tekst *Hi Aurelia Briggs | Meld u af* aan de bovenkant.
 
 ## <a name="update-code"></a>Code bijwerken
 

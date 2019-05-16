@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233871"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65759216"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Zelfstudie: Werken met Azure-opslagwachtrijen
 
@@ -129,18 +129,19 @@ De code wordt asynchroon uitgevoerd omdat de app gebruikmaakt van cloudresources
 
 ## <a name="create-a-queue"></a>Een wachtrij maken
 
-1. Installeer de **WindowsAzure. Opslag** pakket aan het project met de `dotnet add package` opdracht. De volgende dotnet-opdracht uitvoeren vanuit de projectmap in het consolevenster.
+1. Installeer de **Microsoft.Azure.Storage.Common** en **Microsoft.Azure.Storage.Queue** pakketten aan het project met de `dotnet add package` opdracht. De volgende dotnet-opdrachten uitvoeren vanuit de projectmap in het consolevenster.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. Aan de bovenkant van de **Program.cs** bestand, de volgende naamruimten toevoegen direct na de `using System;` instructie. Deze app maakt gebruik van typen uit deze naamruimten verbinding maken met Azure Storage en werken met wachtrijen.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. Sla de **Program.cs** bestand.
@@ -206,7 +207,7 @@ De verbindingsreeks in de app toevoegen, zodat deze toegang heeft tot het opslag
 
 ## <a name="insert-messages-into-the-queue"></a>Plaats berichten in de wachtrij
 
-Maak een nieuwe methode voor het verzenden van een bericht in de wachtrij wordt geplaatst. Toevoegen van de volgende methode aan uw **programma** klasse. Deze methode een verwijzing naar een wachtrij opgehaald en vervolgens maakt u een nieuwe wachtrij als deze nog niet bestaat door het aanroepen van [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Vervolgens, wordt het bericht naar de wachtrij door het aanroepen van [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Maak een nieuwe methode voor het verzenden van een bericht in de wachtrij wordt geplaatst. Toevoegen van de volgende methode aan uw **programma** klasse. Deze methode een verwijzing naar een wachtrij opgehaald en vervolgens maakt u een nieuwe wachtrij als deze nog niet bestaat door het aanroepen van [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Vervolgens, wordt het bericht naar de wachtrij door het aanroepen van [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 1. Voeg de volgende **SendMessageAsync** methode voor uw **programma** klasse.
 
@@ -229,7 +230,7 @@ Maak een nieuwe methode voor het verzenden van een bericht in de wachtrij wordt 
 
 ## <a name="dequeue-messages"></a>Berichten in wachtrij
 
-Maak een nieuwe methode met de naam **ReceiveMessageAsync**. Deze methode kunt u een bericht uit de wachtrij ontvangt door het aanroepen van [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Zodra het bericht is ontvangen, is het belangrijk om te verwijderen uit de wachtrij, zodat deze meer dan één keer wordt niet verwerkt. Nadat het bericht is ontvangen, verwijderen uit de wachtrij door het aanroepen van [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Maak een nieuwe methode met de naam **ReceiveMessageAsync**. Deze methode kunt u een bericht uit de wachtrij ontvangt door het aanroepen van [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Zodra het bericht is ontvangen, is het belangrijk om te verwijderen uit de wachtrij, zodat deze meer dan één keer wordt niet verwerkt. Nadat het bericht is ontvangen, verwijderen uit de wachtrij door het aanroepen van [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
 1. Voeg de volgende **ReceiveMessageAsync** methode voor uw **programma** klasse.
 
@@ -343,8 +344,8 @@ Hier is de volledige code voor dit project.
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

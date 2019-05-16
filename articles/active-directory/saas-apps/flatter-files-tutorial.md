@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65740242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Zelfstudie: Azure Active Directory-integratie met Flatter Files
 
@@ -147,7 +147,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Flatter Files moet u
    
     c.  Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Id-providercertificaat**.
 
-    d. Klik op **Update**.
+    d. Klik op **Bijwerken**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -212,7 +212,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam Britta Simon
    
     ![Een Flatter Files-gebruiker maken](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
-3. Klik op **Add User**. 
+3. Klik op **gebruiker toevoegen**. 
 
 4. Voer in het dialoogvenster **Add User** de volgende stappen uit:
    
@@ -224,7 +224,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam Britta Simon
    
     c. Typ in het tekstvak **Email address** het e-mailadres van het account van Britta Simon in de Azure-portal.
    
-    d. Klik op **Submit**   
+    d. Klik op **Indienen**.   
 
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 

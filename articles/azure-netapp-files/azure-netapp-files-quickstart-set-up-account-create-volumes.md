@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: f0f3dea1c30790bb109d7cb7af07abd8fbb1ace4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2bcd8163cb3c6071812d4d247b5b333edcfc89e5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702887"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523030"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Instellen van Azure NetApp-bestanden en het maken van een NFS-volume 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Azure NetApp Files instellen en een NFS-volume maken 
 
 In dit artikel wordt beschreven hoe u snel Azure NetApp bestanden instellen en een volume maken. 
 
@@ -36,7 +36,8 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="before-you-begin"></a>Voordat u begint 
 
-Voor deze taak moet u deel uitmaken van het Openbare Preview-programma en toegang hebben gekregen tot de Microsoft.NetApp-resourceprovider. Raadpleeg voor meer informatie over deelname aan het Openbare Preview-programma de [Azure NetApp Files Public Preview signup page](https://aka.ms/nfspublicpreview) (Registratiepagina Openbare Preview Azure NetApp Files). 
+> [!IMPORTANT] 
+> U moet toegang krijgen tot de service Azure NetApp bestanden.  Zie voor het aanvragen van toegang tot de service, de [Azure NetApp Files wachtlijst verzendpagina](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  U moet een officiële bevestigingse-mail van het team van Azure NetApp Files wachten voordat u doorgaat. 
 
 ## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registreren voor Azure NetApp bestanden en NetApp-Resourceprovider
 

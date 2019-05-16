@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0d606a489a069c4265088d8e07301693dc2f1c83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3192d848e77c59d0ff6950e647d1faf172484b5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694279"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606410"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Wat is Windows Virtual Desktop Preview? 
 
@@ -90,7 +90,7 @@ Virtuele Windows-bureaublad bestaat uit de Windows-desktops en apps die u kunt l
 Voor optimale prestaties, zorg ervoor dat uw netwerk voldoet aan de volgende vereisten:
 
 * Latentie van de round-trip (RTT) vanaf het netwerk van de client naar de Azure-regio waar de groepen van de host zijn geïmplementeerd moet minder dan 150 ms.
-* Netwerkverkeer kan buiten land randen flow wanneer virtuele machines die als host desktops en apps fungeren verbinding met de management-service maken.
+* Netwerkverkeer kan buiten land/regio randen flow wanneer virtuele machines die als host desktops en apps fungeren verbinding met de management-service maken.
 * Om te optimaliseren voor prestaties van het netwerk, wordt u aangeraden dat de sessie-hosten van virtuele machines in dezelfde Azure-regio als de management-service worden samengevoegd.
 
 ## <a name="provide-feedback"></a>Feedback geven

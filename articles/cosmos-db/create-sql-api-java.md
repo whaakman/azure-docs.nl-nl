@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: sngun
-ms.openlocfilehash: 0e80fbc96bf1241308c80d108e9f9580122b801b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b826efc770399c9e1ccbbe5ab57318d512bdbf86
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60891073"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519083"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een Java-app maken met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -33,10 +33,9 @@ In deze quickstart wordt getoond hoe u resources van een Azure Cosmos DB [SQL AP
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-Daarnaast doet u het volgende: 
+Daarnaast: 
 
-* [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
-    * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
+* [Java Development Kit (JDK) versie 8](https://aka.ms/azure-jdks)
     * Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.
 * [Download](https://maven.apache.org/download.cgi) en [installeer](https://maven.apache.org/install.html) een binair [Maven](https://maven.apache.org/)-archief
     * Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.

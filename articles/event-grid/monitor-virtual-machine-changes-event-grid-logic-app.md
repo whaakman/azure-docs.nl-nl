@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 791e38f3d15801166f07234648909e03d800f5c0
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: 33634773b436114f4a5f2942028710ae50e0e703
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604905"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65737141"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Zelfstudie: Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps
 
@@ -101,9 +101,9 @@ Voeg nu de Event Grid-trigger die de resourcegroep voor uw virtuele machine bewa
    | Eigenschap | Vereist | Value | Description |
    | -------- | -------- | ----- | ----------- |
    | **Abonnement** | Ja | <*event-publisher-Azure-subscription-name*> | Selecteer de naam voor de Azure-abonnement dat is gekoppeld aan de gebeurtenisuitgever. Voor deze zelfstudie selecteert u de naam van het Azure-abonnement voor uw virtuele machine. |
-   | **Resourcetype** | Ja | <*event-publisher-Azure-resource-type*> | Selecteer het resourcetype voor de uitgever van gebeurtenissen. Voor deze zelfstudie selecteert u deze waarde zodat uw logische app alleen resourcegroepen bewaakt: <p><p>**Microsoft.Resources.resourceGroups** |
-   | **Resourcenaam** |  Ja | <*event-publisher-Azure-resource-name*> | Selecteer de naam voor de Azure-resource die is gekoppeld aan de gebeurtenisuitgever. Deze resource kan bijvoorbeeld een Event Grid-onderwerp zijn. Selecteer voor deze zelfstudie de naam voor de Azure-resourcegroep voor uw virtuele machine is gekoppeld. |
-   | **Artikel van het Type gebeurtenis** |  Nee | <*event-types*> | Selecteer een of meer specifieke gebeurtenistypen die u wilt bewaken. Voor deze zelfstudie laat u deze eigenschap leeg. |
+   | **Resourcetype** | Ja | <*event-publisher-Azure-resource-type*> | Selecteer het type Azure-resource voor de uitgever van gebeurtenissen. Voor deze zelfstudie selecteert u deze waarde voor het bewaken van Azure-resourcegroepen: <p><p>**Microsoft.Resources.ResourceGroups** |
+   | **Resourcenaam** |  Ja | <*event-publisher-Azure-resource-name*> | Selecteer de naam voor de Azure-resource voor de uitgever van gebeurtenissen. Deze lijst varieert op basis van het resourcetype dat u hebt geselecteerd. Selecteer de naam voor de Azure-resourcegroep voor uw virtuele machine voor deze zelfstudie. |
+   | **Artikel van het Type gebeurtenis** |  Nee | <*event-types*> | Selecteer een of meer specifieke gebeurtenistypen filteren en te verzenden naar uw event grid. Bijvoorbeeld, kunt u deze typen gebeurtenissen om te detecteren wanneer resources worden gewijzigd of verwijderd (optioneel) toevoegen: <p><p>- **Microsoft.Resources.ResourceActionSuccess** <br>- **Microsoft.Resources.ResourceDeleteSuccess** <br>- **Microsoft.Resources.ResourceWriteSuccess** <p>Zie de volgende onderwerpen voor meer informatie: <p><p>- [Informatie over het filteren van gebeurtenissen](../event-grid/event-filtering.md) <br>- [Gebeurtenissen filteren op Event Grid](../event-grid/how-to-filter-events.md) <br>- [Azure Event Grid-gebeurtenisschema voor resourcegroepen](../event-grid/event-schema-resource-groups.md) |
    | **De naam van abonnement** | Nee | <*event-subscription-name*> | Geef een unieke naam op voor het gebeurtenisabonnement. |
    | Optionele instellingen, kiest u **toevoegen van nieuwe parameter**. | Nee | {Zie de beschrijvingen van} | * **Voorvoegselfilter**: Voor deze zelfstudie laat u deze eigenschap leeg. Het standaardgedrag komt overeen met alle waarden. U kunt echter een voorvoegseltekenreeks opgeven als een filter, bijvoorbeeld een pad en een parameter voor een specifieke resource. <p>* **Achtervoegselfilter**: Voor deze zelfstudie laat u deze eigenschap leeg. Het standaardgedrag komt overeen met alle waarden. U kunt echter een achtervoegseltekenreeks opgeven als een filter, bijvoorbeeld een bestandsnaamextensie, als u alleen bepaalde bestandstypen wilt gebruiken. |
    |||
@@ -164,6 +164,10 @@ Als u de werkstroom van de logische app alleen wilt uitvoeren uitgevoerd als er 
 
    ![Voltooide voorwaarde](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
+   Als u van de ontwerpweergave van overschakelt code voor weergave en terug naar de ontwerpweergave, de expressie die u hebt opgegeven in de voorwaarde wordt omgezet naar de **data.operationName** token:
+
+   ![Opgelost probleem](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
+
 1. Sla uw logische app op.
 
 ## <a name="send-email-notifications"></a>E-mailmeldingen verzenden
@@ -189,7 +193,7 @@ U gaat nu een [*actie*](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
 1. Als u nog geen verbinding voor uw e-mailprovider hebt, meldt u zich aan bij uw e-mailaccount wanneer er om verificatie wordt gevraagd.
 
-1. Wijzig de naam van de titel van het e-mailbericht verzenden naar deze titel: `Send email when virtual machine updated`. 
+1. Wijzig de naam van de titel van het e-mailbericht verzenden naar deze titel: `Send email when virtual machine updated`
 
 1. Geef informatie op voor het e-mailbericht zoals wordt aangegeven in de volgende tabel:
 
@@ -202,10 +206,10 @@ U gaat nu een [*actie*](../logic-apps/logic-apps-overview.md#logic-app-concepts)
    | -------- | -------- | ----- | ----------- |
    | **Aan** | Ja | <*ontvanger\@domein*> | Voer het e-mailadres van de ontvanger in. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. |
    | **Onderwerp** | Ja | Resource bijgewerkt: **Onderwerp** | Voer de inhoud van het onderwerp van de e-mail in. Voor deze zelfstudie voert u de opgegeven tekst en selecteren van de gebeurtenis **onderwerp** veld. Hier bevat het onderwerp van de e-mail de naam voor de bijgewerkte resource (virtuele machine). |
-   | **Hoofdtekst** | Ja | Resourcegroep: **Onderwerp** <p>Gebeurtenistype: **Gebeurtenistype**<p>Gebeurtenis-id: **ID**<p>Tijdstip: **Tijdstip van gebeurtenis** | Voer de inhoud voor de hoofdtekst van de e-mail in. Voor deze zelfstudie voert u de opgegeven tekst en selecteren van de gebeurtenis **onderwerp**, **gebeurtenistype**, **ID**, en **gebeurtenistijd** velden zodat uw e-mailbericht bevat de naam van de resourcegroep, gebeurtenistype, gebeurtenis-timestamp en gebeurtenis-ID voor de update. <p>U kunt lege regels toevoegen aan de inhoud door op Shift+Enter te drukken. |
+   | **Hoofdtekst** | Ja | Resource: **Onderwerp** <p>Gebeurtenistype: **Gebeurtenistype**<p>Gebeurtenis-id: **ID**<p>Tijdstip: **Tijdstip van gebeurtenis** | Voer de inhoud voor de hoofdtekst van de e-mail in. Voor deze zelfstudie voert u de opgegeven tekst en selecteren van de gebeurtenis **onderwerp**, **gebeurtenistype**, **ID**, en **gebeurtenistijd** velden zodat uw e-mailbericht bevat de resource die de gebeurtenis, gebeurtenistype, gebeurtenis-timestamp en gebeurtenis-ID voor de update wordt gestart. Voor deze zelfstudie is de bron de Azure-resourcegroep hebt geselecteerd in de trigger. <p>U kunt lege regels toevoegen aan de inhoud door op Shift+Enter te drukken. |
    ||||
 
-   > [!NOTE] 
+   > [!NOTE]
    > Als u een veld selecteert dat een matrix vertegenwoordigt, wordt in de ontwerpfunctie automatisch een lus **Voor elke** toegevoegd rond de actie die naar de matrix verwijst. Op die manier wordt de actie uitgevoerd voor elk matrixitem.
 
    De e-mailactie ziet er nu ongeveer uit zoals in dit voorbeeld:

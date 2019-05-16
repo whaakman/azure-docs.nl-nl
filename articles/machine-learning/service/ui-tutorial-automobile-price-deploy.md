@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190920"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65749273"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Zelfstudie: Een machine learning-model met de visuele interface implementeren
 
@@ -158,4 +158,4 @@ De modellen en webservice-implementaties u in de visuele interface maakt kunnen 
 In deze zelfstudie hebt u geleerd stappen voor de sleutel in het maken, implementeren en gebruiken van een machine learning-model in de visuele interface. Bekijk de voorbeeldexperimenten voor meer informatie over hoe u de visuele interface gebruiken kunt om op te lossen van andere typen problemen.
 
 > [!div class="nextstepaction"]
-> [Tegoed risico classificatie voorbeeld](ui-sample-classification-predict-credit-risk-basic.md)
+> [Tegoed risico classificatie voorbeeld](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

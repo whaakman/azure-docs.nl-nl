@@ -5,15 +5,15 @@ metadata:
   title: 'Documentatie voor Bing Video''s zoeken-API - zelfstudies, quickstarts, API-verwijzingen | Microsoft Docs'
   description: Informatie over het gebruik van de Bing Video's zoeken-API en het zoeken van video's op internet.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/31/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: Met de Bing Video's zoeken-API kunt u de zoekfunctionaliteit voor video's van Bing in uw toepassingen gebruiken. Door zoekquery's te verzenden naar de API kunt u relevante en hoogwaardige video's ophalen en weergeven die vergelijkbaar zijn met bing.com/videos.
 sections:

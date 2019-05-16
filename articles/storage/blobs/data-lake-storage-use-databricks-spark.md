@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: ba198cbe0c362055f36cb4bdecf34a0dbad477a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939182"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65745160"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark
 
@@ -110,51 +110,6 @@ In dit gedeelte gaat u een Azure Databricks-service maken met behulp van de Azur
 
     * Selecteer **Cluster maken**. Als het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Apache Spark-taken uitvoeren.
 
-## <a name="create-a-file-system-and-mount-it"></a>Een bestandssysteem maken en koppelen
-
-In deze sectie maakt u een bestandssysteem en een map in uw opslagaccount.
-
-1. Ga in de [Microsoft Azure-portal](https://portal.azure.com) naar de Azure Databricks-service die u hebt gemaakt en selecteer **Werkruimte starten**.
-
-2. Selecteer aan de linkerkant **Werkruimte**. Selecteer in de **Werkruimte**-vervolgkeuzelijst, **Notitieblok** > **maken**.
-
-    ![Een notitieblok maken in Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Een notitieblok maken in Databricks")
-
-3. Voer in het dialoogvenster **Notitieblok maken** een naam voor het notitieblok in. Selecteer **Python** als taal en selecteer vervolgens het Apache Spark-cluster dat u eerder hebt gemaakt.
-
-4. Selecteer **Maken**.
-
-5. Kopieer en plak het volgende codeblok in de eerste cel, maar voer deze code nog niet uit.
-
-    ```Python
-    configs = {"fs.azure.account.auth.type": "OAuth",
-           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
-           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
-
-    dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
-    mount_point = "/mnt/flightdata",
-    extra_configs = configs)
-    ```
-
-18. In dit codeblok vervangt u de tijdelijke aanduidingen `application-id`, `authentication-id`, `tenant-id` en `storage-account-name` door de waarden die u hebt verzameld bij het uitvoeren van de vereiste stappen voor deze zelfstudie. Vervang de tijdelijke aanduiding `file-system-name` door de naam die u het bestandssysteem wilt geven.
-
-   * De tijdelijke aanduidingen `application-id` en `authentication-id` zijn afkomstig uit de app die u bij Active Directory hebt geregistreerd tijdens het maken van een service-principal.
-
-   * De tijdelijke aanduiding `tenant-id` is afkomstig van uw abonnement.
-
-   * De tijdelijke aanduiding `storage-account-name` is de naam van uw Azure Data Lake Storage Gen2-opslagaccount.
-
-   > [!NOTE]
-   > In een productieomgeving kunt u de verificatiesleutel eventueel in Azure Databricks opslaan. Vervolgens voegt u een opzoeksleutel toe aan uw codeblok in plaats van de verificatiesleutel. Nadat u deze quickstart hebt afgerond, raadpleegt u het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methode.
-
-19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
-
-   Houd dit notitieblok open, want u gaat er later opdrachten aan toevoegen.
-
 ## <a name="ingest-data"></a>Gegevens opnemen
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Brongegevens kopiëren naar het opslagaccount
@@ -177,9 +132,58 @@ Gebruik AzCopy om gegevens uit uw *csv*-bestand te kopiëren naar uw Data Lake S
 
    * Vervang de `<csv-folder-path>` aanduidingswaarde door het pad naar de *CSV* bestand.
 
-   * Vervang de waarde van de tijdelijke plaatsaanduiding `storage-account-name` door de naam van uw opslagaccount.
+   * Vervang de waarde van de tijdelijke plaatsaanduiding `<storage-account-name>` door de naam van uw opslagaccount.
+
+   * Vervang de tijdelijke aanduiding `<file-system-name>` door de naam die u aan uw bestandssysteem wilt geven.
+
+## <a name="create-a-file-system-and-mount-it"></a>Een bestandssysteem maken en koppelen
+
+In deze sectie maakt u een bestandssysteem en een map in uw opslagaccount.
+
+1. Ga in de [Microsoft Azure-portal](https://portal.azure.com) naar de Azure Databricks-service die u hebt gemaakt en selecteer **Werkruimte starten**.
+
+2. Selecteer aan de linkerkant **Werkruimte**. Selecteer in de **Werkruimte**-vervolgkeuzelijst, **Notitieblok** > **maken**.
+
+    ![Een notitieblok maken in Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Een notitieblok maken in Databricks")
+
+3. Voer in het dialoogvenster **Notitieblok maken** een naam voor het notitieblok in. Selecteer **Python** als taal en selecteer vervolgens het Apache Spark-cluster dat u eerder hebt gemaakt.
+
+4. Selecteer **Maken**.
+
+5. Kopieer en plak het volgende codeblok in de eerste cel, maar voer deze code nog niet uit.
+
+    ```Python
+    configs = {"fs.azure.account.auth.type": "OAuth",
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
+    dbutils.fs.mount(
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
+    ```
+
+18. In dit codeblok vervangt u de tijdelijke aanduidingen `appId`, `password`, `tenant` en `storage-account-name` door de waarden die u hebt verzameld bij het uitvoeren van de vereiste stappen voor deze zelfstudie. Vervang de `file-system-name` aanduidingswaarde met de naam die u hebt opgegeven in het ADLS-bestandssysteem op de vorige stap.
+
+Deze waarden gebruikt u de genoemde plaatsaanduidingen vervangt.
+
+   * De tijdelijke aanduidingen `appId` en `password` zijn afkomstig uit de app die u bij Active Directory hebt geregistreerd tijdens het maken van een service-principal.
+
+   * De tijdelijke aanduiding `tenant-id` is afkomstig van uw abonnement.
+
+   * De tijdelijke aanduiding `storage-account-name` is de naam van uw Azure Data Lake Storage Gen2-opslagaccount.
 
    * Vervang de tijdelijke aanduiding `file-system-name` door de naam die u aan uw bestandssysteem wilt geven.
+
+   > [!NOTE]
+   > In een productieomgeving kunt u de verificatiesleutel eventueel in Azure Databricks opslaan. Vervolgens voegt u een opzoeksleutel toe aan uw codeblok in plaats van de verificatiesleutel. Nadat u deze quickstart hebt afgerond, raadpleegt u het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methode.
+
+19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
+
+   Houd dit notitieblok open, want u gaat er later opdrachten aan toevoegen.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Notebook gebruiken om CSV te converteren naar Parquet
 

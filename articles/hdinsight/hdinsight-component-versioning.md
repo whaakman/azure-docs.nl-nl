@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: d1f4996bd389a1c792f8dd7966dde6ccdfddbcc1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
-ms.translationtype: MT
+ms.openlocfilehash: 0b3343a9635fe4120f03e56c41797591d2f25815
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872996"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65755097"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?
 
@@ -78,12 +78,11 @@ De volgende tabellen worden de versies van HDInsight. De HDP-versies die met elk
 
 De volgende tabel bevat de versies van HDInsight die beschikbaar in de Azure-portal, evenals andere methoden voor het implementeren, zoals PowerShell en .NET SDK zijn.
 
-| HDInsight-versie | HDP-versie | VM OS | Releasedatum | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
+| HDInsight-versie | HDP-versie | VM OS | Uitgebracht op | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 september 2018 | | |Ja |Ja |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
 
-*&ast; HDInsight 3.5-ondersteuning is uitgebreid alleen voor Spark-clustertypen*
 
 > [!NOTE]  
 > Na de ondersteuning voor een versie is verlopen, wordt mogelijk niet beschikbaar via de Microsoft Azure-portal. Clusterversies blijven echter zijn beschikbaar met de `Version` parameter in de Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) opdracht en de .NET SDK tot de vervaldatum van de versie.
@@ -93,7 +92,7 @@ De volgende tabel bevat de versies van HDInsight die beschikbaar in de Azure-por
 
 De volgende tabel bevat de versies van HDInsight die **niet** beschikbaar in de Azure portal.
 
-| HDInsight-versie | HDP-versie | VM OS | Releasedatum | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
+| HDInsight-versie | HDP-versie | VM OS | Uitgebracht op | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 <br> (Niet-Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |En met 30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nee |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
@@ -276,7 +275,7 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
 
 * Brazilië-Zuid en Japan-West alleen (geen v2-grootte):
 
-  | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
+  | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | ML-services |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: standaard VM-grootte |D12 |D12  | D13 |A3 |D12 |D12 |
   | HEAD: aanbevolen VM-grootten |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |

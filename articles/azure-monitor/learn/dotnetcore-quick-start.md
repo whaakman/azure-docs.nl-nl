@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6deb3ac0869ba7d8dfb41cc6fac8c30fb035b5a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7700efb7bfdb60c8f8f82b442cf01aae691f2fc3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572726"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595576"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
@@ -27,7 +27,7 @@ Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bes
 
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
-- [Installeer Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+- [Installeer Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende workloads:
   - ASP.NET-ontwikkeling en webontwikkeling
   - Azure-ontwikkeling
 - [.NET Core 2.0 SDK installeren](https://www.microsoft.com/net/core)
@@ -85,7 +85,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-   ![Toepassingskaart](./media/dotnetcore-quick-start/5appmap.png)
+   ![Toepassingsoverzicht](./media/dotnetcore-quick-start/5appmap.png)
 
 3. Klik op de **Appanalyses** pictogram ![pictogram Toepassingskaart](./media/dotnetcore-quick-start/006.png) **weergeven in Analytics**. Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 

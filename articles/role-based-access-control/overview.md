@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fd5c47bb3c7bc3dfc9c0e140531ff832e7e6ef56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344906"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540907"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Wat is op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources?
 
@@ -76,7 +76,7 @@ Met de overige ingebouwde rollen kunnen specifieke Azure-resources worden beheer
 
 Azure heeft gegevensbewerkingen (momenteel in Preview-versie) geïntroduceerd waarmee u toegang tot gegevens in een object kunt verlenen. Als een gebruiker bijvoorbeeld toegang heeft tot gegevens in een opslagaccount, kan deze de blobs of berichten in dat opslagaccount lezen. Zie [Roldefinities voor Azure-resources begrijpen](role-definitions.md) voor meer informatie.
 
-### <a name="scope"></a>Bereik
+### <a name="scope"></a>Scope
 
 *Bereik* is de set resources waarop de toegang van toepassing is. Wanneer u een rol toewijst, kunt u de acties die zijn toegestaan verder beperken door een bereik te definiëren. Dit is handig als u van iemand een [Inzender voor websites](built-in-roles.md#website-contributor) wilt maken, maar slechts voor één resourcegroep.
 
@@ -138,4 +138,4 @@ Hier volgen de stappen op hoog niveau die RBAC gebruikt om te bepalen of u toega
 - [Snelstart: De toegang die een gebruiker heeft tot Azure-resources bekijken](check-access.md)
 - [Toegang tot Azure-resources beheren met op rollen gebaseerd toegangsbeheer en de Azure-portal](role-assignments-portal.md)
 - [Inzicht in de verschillende rollen](rbac-and-directory-admin-roles.md)
-- [Enterprise Cloud implementeren: Resource-toegangsbeheer in Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [Enterprise Cloud implementeren: Resource-toegangsbeheer in Azure](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)

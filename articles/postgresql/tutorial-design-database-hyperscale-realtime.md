@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406394"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65757555"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Zelfstudie: Een realtime analytics-dashboard ontwerpen met behulp van Azure Database voor PostgreSQL – grootschalige (Citus) (preview)
 
@@ -30,72 +30,7 @@ In deze zelfstudie gebruikt u Azure Database voor PostgreSQL - grootschalige (Ci
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
-
-Meld u aan bij [Azure Portal](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Een Azure Database voor PostgreSQL-server maken
-
-Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
-1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
-2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor PostgreSQL** op de pagina **Databases**.
-3. Voor de Implementatieoptie, klikt u op de **maken** knop onder **servergroep grootschalige (Citus) - voorbeeld.**
-4. Vul het formulier voor de gegevens van de nieuwe server als volgt in:
-   - Resourcegroep: klik op de **nieuw** koppeling onder het tekstvak voor dit veld. Voer een naam zoals **myresourcegroup**.
-   - Naam van servergroep: **mydemoserver** (naam van een server, die verwijst naar een DNS-naam en is vereist moet globaal uniek).
-   - Gebruikersnaam van beheerder: **myadmin** (dit wordt later gebruikt voor verbinding met de database).
-   - Wachtwoord: moet ten minste acht tekens lang zijn en moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0-9) en niet-alfanumerieke tekens (!, $, #, %, etc.)
-   - Locatie: Gebruik de locatie die zich het dichtst bij uw gebruikers zodat ze de snelst mogelijke toegang tot de gegevens.
-
-   > [!IMPORTANT]
-   > De aanmeldgegevens en het wachtwoord van de serverbeheerder die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze zelfstudie. Onthoud of noteer deze informatie voor later gebruik.
-
-5. Klik op **configureren servergroep**. Laat de instellingen in die sectie ongewijzigd en klik op **opslaan**.
-6. Klik op **revisie + maken** en vervolgens **maken** voor het inrichten van de server. De inrichting duurt een paar minuten.
-7. De pagina wordt omgeleid voor het controleren van de implementatie. Wanneer de live status verandert van **uw implementatie wordt uitgevoerd** naar **uw implementatie is voltooid**, klikt u op de **uitvoer** menu-item aan de linkerkant van de pagina.
-8. De uitvoer-pagina bevat een hostnaam coördinator met een knop naast het om de waarde naar het Klembord kopiëren. Noteer deze informatie voor later gebruik.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
-
-De Azure Database for PostgreSQL-service gebruikt een firewall op serverniveau. Standaard de firewall voorkomt dat externe toepassingen en hulpprogramma's verbinding maken met de server of databases op de server. Er moet een regel voor het openen van de firewall voor een specifiek IP-adresbereik toevoegen.
-
-1. Uit de **uitvoer** sectie waarnaar u de hostnaam van het knooppunt coordinator eerder hebt gekopieerd, klik op terug naar de **overzicht** menu-item.
-
-2. De schaal groep niet vinden voor de implementatie in de lijst van resources en klik erop. (U kunt de naam ervan wordt voorafgegaan door 'AG-'.)
-
-3. Klik op **Firewall** onder **Security** in het linkermenu.
-
-4. Klik op de koppeling **+ firewallregel toevoegen voor de huidige IP-adres van client**. Ten slotte klikt u op de **opslaan** knop.
-
-5. Klik op **Opslaan**.
-
-   > [!NOTE]
-   > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 5432 openstelt.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Verbinding maken met de database met behulp van psql in Cloud Shell
-
-U gaat nu het opdrachtregelprogramma [psql](https://www.postgresql.org/docs/current/app-psql.html) gebruiken om verbinding te maken met de Azure Database for PostgreSQL-server.
-1. Open Azure Cloud Shell via het terminalpictogram in het navigatiedeelvenster bovenaan.
-
-   ![Azure Database voor PostgreSQL - Azure Cloud Shell-terminalpictogram](./media/tutorial-design-database-hyperscale-realtime/psql-cloud-shell.png)
-
-2. Azure Cloud Shell wordt geopend in uw browser zodat u bash-opdrachten kunt invoeren.
-
-   ![Azure-Database voor PostgreSQL - Azure Shell-bash-prompt](./media/tutorial-design-database-hyperscale-realtime/psql-bash.png)
-
-3. In het Cloud Shell-prompt maakt u verbinding met uw Azure Database voor PostgreSQL-server met de psql-opdrachten. De volgende indeling wordt gebruikt om verbinding te maken met een Azure Database voor PostgreSQL-server via het [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-hulpprogramma:
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Bijvoorbeeld de volgende opdracht maakt verbinding met de standaarddatabase **citus** op uw PostgreSQL-server **mydemoserver.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het wachtwoord van de serverbeheerder in wanneer dat wordt gevraagd.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Psql gebruiken om een schema te maken
 
@@ -117,7 +52,7 @@ CREATE TABLE http_request (
 );
 ```
 
-We gaan maken van een tabel die onze per minuut statistische functies kan bevatten en een tabel die de positie van onze laatste updatepakket onderhoudt. Voer het volgende in psql ook:
+We gaan maken van een tabel die onze per minuut statistische functies kan bevatten en een tabel die de positie van onze laatste updatepakket onderhoudt. Voer de volgende opdrachten in psql ook:
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -170,7 +105,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('https://example.com/', md5(random()::text)),
+      concat('http://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',
@@ -181,12 +116,13 @@ DO $$
       ('{200,404}'::int[])[ceil(random()*2)],
       5+trunc(random()*150)
     );
+    COMMIT;
     PERFORM pg_sleep(random() * 0.25);
   END LOOP;
 END $$;
 ```
 
-De query wordt een rij toegevoegd ongeveer elk kwartaal tweede. De rijen worden opgeslagen op verschillende worker-knooppunten wijze die door de distributiekolom `site_id`.
+De query voegt u ongeveer acht rijen per seconde. De rijen worden opgeslagen op verschillende worker-knooppunten wijze die door de distributiekolom `site_id`.
 
    > [!NOTE]
    > Laat u de generatie query uitgevoerd en opent u een tweede psql-verbinding voor de resterende opdrachten in deze zelfstudie.
@@ -213,13 +149,13 @@ GROUP BY site_id, minute
 ORDER BY minute ASC;
 ```
 
-## <a name="performing-rollups"></a>Updatepakketten uitvoeren
+## <a name="rolling-up-data"></a>Rolling van gegevens
 
-De bovenstaande query werkt goed in de eerste fasen, maar de prestaties van uw gegevens wordt opgeschaald verlaagd. Zelfs met gedistribueerde verwerking van het is sneller voor het berekenen van deze gegevens vooraf dan herhaaldelijk berekenen.
+De vorige query werkt goed in de eerste fasen, maar de prestaties verslechteren als uw gegevens verandert. Zelfs met gedistribueerde verwerking is het sneller om te berekenen vooraf de gegevens dan als u wilt het herhaaldelijk te berekenen.
 
-We kunnen dat het dashboard blijft snel door regelmatig de onbewerkte gegevens in een samengevoegde tabel. In dit geval we wordt getotaliseerd in onze aggregatietabel van één minuut, maar u kan ook zijn aggregaties van 5 minuten, 15 minuten, een uur, enzovoort.
+We kunnen dat het dashboard blijft snel door regelmatig de onbewerkte gegevens in een samengevoegde tabel. U kunt experimenteren met een duur van de aggregatie. Wordt een aggregatietabel per minuut gebruikt, maar u kunt gegevens opsplitsen in 5, 15 of 60 minuten in plaats daarvan.
 
-Omdat we deze gaan we een functie in om deze bewerking later alsnog maken totaliseren continu wordt uitgevoerd. Voer deze opdrachten uit in de psql maken de `rollup_http_request` functie.
+Als u wilt deze updatetotalisatie eenvoudig kunt uitvoeren, gaan we deze in een functie plpgsql plaatsen. Voer deze opdrachten uit in de psql maken de `rollup_http_request` functie.
 
 ```sql
 -- initialize to a time long ago
@@ -260,7 +196,7 @@ Met de functie in plaats het ongedaan maken van de gegevens te worden uitgevoerd
 SELECT rollup_http_request();
 ```
 
-En met onze gegevens in een vooraf geaggregeerde vorm kunnen we de Samenvouwtabel om op te halen van hetzelfde rapport net als eerst op te vragen. Voer het volgende uit:
+En met onze gegevens in een vooraf geaggregeerde vorm kunnen we de Samenvouwtabel om op te halen van hetzelfde rapport net als eerst op te vragen. Voer de volgende query uit:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -271,14 +207,14 @@ SELECT site_id, ingest_time as minute, request_count,
 
 ## <a name="expiring-old-data"></a>Oude gegevens verlopen
 
-De updatepakketten sneller query's maken, maar we moeten nog steeds oude gegevens om te voorkomen dat niet-gebonden opslagkosten laten verlopen. Gewoon besluiten hoe lang u wilt dat blijven gegevens voor elke granulariteit en standard-query's gebruiken om verlopen gegevens te verwijderen. We besloten te houden van onbewerkte gegevens voor één dag en per minuut aggregaties gedurende één maand in het volgende voorbeeld:
+De updatepakketten sneller query's maken, maar we moeten nog steeds oude gegevens om te voorkomen dat niet-gebonden opslagkosten laten verlopen. Bepaal hoe lang u wilt dat blijven gegevens voor elke granulariteit en standard-query's gebruiken om verlopen gegevens te verwijderen. We besloten te houden van onbewerkte gegevens voor één dag en per minuut aggregaties gedurende één maand in het volgende voorbeeld:
 
 ```sql
 DELETE FROM http_request WHERE ingest_time < now() - interval '1 day';
 DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 ```
 
-U kunt deze query's verpakken in een functie en aanroepen per minuut in een cron-taak in productie.
+U kunt in productie, inpakken van deze query's in een functie en deze aanroepen per minuut in een cron-taak.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

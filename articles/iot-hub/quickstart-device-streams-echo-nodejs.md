@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0ad9986c2d4d9e44d13f37fe2aa1629373f4841a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006433"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595151"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Quickstart: Communiceren met een apparaattoepassing in Node.js via IoT Hub-apparaatstreams (preview)
 
@@ -44,7 +44,7 @@ De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-
   - **US - centraal**
   - **VS-midden EUAP**
 
-Voor het uitvoeren van de toepassing aan de serverzijde in deze quickstart moet Node.js versie 4.x.x of hoger op uw ontwikkelcomputer zijn geïnstalleerd.
+Voor het uitvoeren van de toepassing aan de serverkant in deze snelstartgids moet u Node.js v10.x.x of hoger op uw ontwikkelcomputer.
 
 U kunt Node.js voor meerdere platforms downloaden van [Node.js.org](https://nodejs.org).
 

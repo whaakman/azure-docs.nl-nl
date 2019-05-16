@@ -182,7 +182,6 @@
             - name: Verbinding maken met Postman
               href: media-rest-apis-with-postman.md
         - name: Ontwikkelen met SDK's
-          href: developers-guide.md
           items:
             - name: Verbinding maken met Java
               href: configure-connect-java-howto.md
@@ -222,10 +221,13 @@
         - name: Coderen met een aangepaste transformatie
           items:
             - name: Met .NET
+              displayName: 'encode, encoding, custom, transform'
               href: customize-encoder-presets-how-to.md
             - name: Met CLI
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: Met REST
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
     - name: Event Grid gebruiken
       items:

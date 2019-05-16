@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: rimman
-ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc14f654af80cf599a797b8f16b0e98fe4b3a209
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61042956"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551001"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Met Cosmos DB bent u in staat om wereldwijd zeer responsieve en maximaal beschik
 
 Met Cosmos DB kunt u op elk gewenst moment met een klik op een knop elke willekeurige Azure-regio aan uw Cosmos-account toevoegen of eruit verwijderen. Cosmos DB probleemloos uw gegevens worden gerepliceerd naar alle regio's die zijn gekoppeld aan uw Cosmos-account terwijl u uw toepassing nog steeds maximaal beschikbaar, dank aan de *multihoming* mogelijkheden van de service. Zie het artikel [Wereldwijde distributie](distribute-data-globally.md) voor meer informatie.
 
-### <a name="always-on"></a>AlwaysOn
+### <a name="always-on"></a>Altijd aan
 
 Door de hechte integratie met Azure-infrastructuur en [transparante meerdere masters replicatie](global-dist-under-the-hood.md), Cosmos DB biedt [hoge beschikbaarheid van 99,999%](high-availability.md) voor zowel lees- en schrijfbewerkingen. Cosmos DB biedt u ook de mogelijkheid om via een programma (of via de portal) de regionale failover van uw Cosmos-account aan te roepen. Deze functionaliteit zorgt ervoor dat uw toepassing is ontworpen voor failover in het geval van regionale na noodgevallen.
 
@@ -44,7 +44,7 @@ Cosmos DB is ontwikkeld met transparante horizontale partitionering en replicati
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Gegarandeerde lage latentie in het 99e percentiel, wereldwijd
 
-Met Cosmos DB kunt u hoog-responsieve wereldwijde toepassingen bouwen. Dankzij het moderne replicatieprotocol voor meerdere masters en de vergrendelingsvrije en [voor schrijven geoptimaliseerde database-engine](index-policy.md) garandeert Cosmos DB een latentie van minder dan 10 ms voor leesbewerkingen en (geïndexeerde) schrijfbewerkingen in het 99e percentiel, wereldwijd. Op deze manier kunt u rekenen op een doorlopende opname van gegevens en uiterst snelle verwerking van query's voor zeer responsieve apps.
+Met Cosmos DB kunt u hoog-responsieve wereldwijde toepassingen bouwen. Met de nieuwe meervoudige masterreplicatie-protocol en vergrendelingsvrije en [schrijven geoptimaliseerde database-engine](index-policy.md), Cosmos DB hebt u gegarandeerd minder dan 10 ms latentie voor beide (geïndexeerde) leest en schrijft in het 99e percentiel, overal ter wereld . Op deze manier kunt u rekenen op een doorlopende opname van gegevens en uiterst snelle verwerking van query's voor zeer responsieve apps.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Nauwkeurig gedefinieerde, meerdere consistentiekeuzes
 

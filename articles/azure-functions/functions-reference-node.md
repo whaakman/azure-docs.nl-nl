@@ -275,10 +275,10 @@ Kunt u schrijven naar de streaminglogboeken functie op het standaardniveau voor 
 
 | Methode                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
-| **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
-| **Info (_bericht_)**    | Schrijft naar info-niveau logboekregistratie of lager.    |
-| **uitgebreide (_bericht_)** | Schrijft gegevens naar uitgebreide logboekregistratie op.           |
+| **error (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
+| **warn (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
+| **info (_bericht_)**    | Schrijft naar info-niveau logboekregistratie of lager.    |
+| **verbose (_bericht_)** | Schrijft gegevens naar uitgebreide logboekregistratie op.           |
 
 Het volgende voorbeeld schrijft u een logboek tijdens het traceerniveau waarschuwing:
 

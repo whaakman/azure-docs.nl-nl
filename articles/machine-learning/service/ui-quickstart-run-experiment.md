@@ -9,12 +9,12 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440945"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545038"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Quickstart: Voorbereiden en visualiseren van gegevens zonder code te schrijven in Azure Machine Learning
 
@@ -99,13 +99,13 @@ Selecteer welke kolommen met gegevens om te werken met.  Te beginnen met configu
    
 1. Selecteer de **Select Columns in Dataset** module.
 
-1. In de **eigenschappen** deelvenster aan de rechterkant van het canvas, selecteert **kolomkiezer lancering**.
+1. In de **eigenschappen** deelvenster aan de rechterkant van het canvas, selecteert **kolommen bewerken**.
 
     In de **kolommen selecteren** dialoogvenster **alle kolommen** en **alle functies**. Het dialoogvenster zou er zo uit moeten zien:
 
      ![column-selector](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. Selecteer het vinkje (OK) om de kolomkiezer te sluiten in de rechterbenedenhoek.
+1. Selecteer in de rechterbenedenhoek **OK** de kolomkiezer te sluiten.
 
 ## <a name="run-the-experiment"></a>Het experiment uitvoeren
 
@@ -146,13 +146,13 @@ Verwijder eerst de **normalized-losses** kolom volledig.
 
 1. Selecteer de **Select Columns in Dataset** module.
 
-1. In de **eigenschappen** deelvenster aan de rechterkant van het canvas, selecteert **kolomkiezer lancering**.
+1. In de **eigenschappen** deelvenster aan de rechterkant van het canvas, selecteert **kolommen bewerken**.
 
     * Laat **met regels** en **alle kolommen** geselecteerde.
 
     * Selecteer in de vervolgkeuzelijsten **Exclude** en **column names** en klik in het tekstvak. Type **normalized-losses**.
 
-    * Selecteer het vinkje (OK) om de kolomkiezer te sluiten in de rechterbenedenhoek.
+    * Selecteer in de rechterbenedenhoek **OK** de kolomkiezer te sluiten.
 
     ![Sluit een kolom](./media/ui-quickstart-run-experiment/exclude-column.png)
         

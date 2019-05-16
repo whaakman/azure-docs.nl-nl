@@ -4,7 +4,7 @@ description: Microsoft Authentication Library (MSAL) kunnen ontwikkelaars van to
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2198a5efe276ce872487cde7b2ddb5cb00c58c50
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bf7aaa0de87ffa8280a6db34c5497779a5ded41c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080896"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545877"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Overzicht van Microsoft Authentication Library (MSAL)
 Microsoft Authentication Library (MSAL) biedt ontwikkelaars de mogelijkheid aan te schaffen [tokens](developer-glossary.md#security-token) van de Microsoft identity-platform-eindpunt voor toegang tot beveiligde Web-API's. Deze Web-API's kunnen worden de Microsoft Graph, andere Microsoft-APIS, Web-API's van derden of uw eigen Web-API. MSAL is beschikbaar voor .NET, JavaScript, Android en iOS-, die ondersteuning bieden voor veel verschillende toepassingsarchitecturen en platforms.
@@ -52,7 +52,7 @@ MSAL kan worden gebruikt in veel toepassingen-scenario's, waaronder het volgende
 
 ## <a name="languages-and-frameworks"></a>Talen en frameworks
 
-| Bibliotheek | Ondersteunde platforms en frameworks|
+| Tapewisselaar | Ondersteunde platforms en frameworks|
 | --- | --- | 
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universal Windows Platform|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript-frameworks, zoals AngularJS, Ember.js of Durandal.js|

@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 0673d97f755d7e01d42d0be7c611720ff1e4ad01
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 63de2045498b312580640859c1911046f9785d8e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187780"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752269"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Grote hoeveelheden willekeurige gegevens gelijktijdig uploaden naar Azure Storage
 
@@ -67,14 +67,14 @@ dotnet run
 
 De toepassing maakt vijf containers met willekeurige namen en begint met het uploaden van de bestanden in de staging-map naar het opslagaccount. De toepassing stelt het minimumaantal threads in op 100 en de [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) op 100 om ervoor te zorgen dat een groot aantal gelijktijdige verbindingen zijn toegestaan wanneer de toepassing wordt uitgevoerd.
 
-Naast het instellen van de limietinstellingen voor threads en verbindingen zijn de [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet) voor de methode [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) geconfigureerd om gebruik te maken van parallelle uitvoering en om validatie van de MD5-hash uit te schakelen. De bestanden worden geüpload in blokken van 100 MB. Deze configuratie biedt betere prestaties maar kan duur zijn als er een slecht presterend netwerk wordt gebruikt, omdat, wanneer er zich een storing voordoet, het gehele blok van 100 MB opnieuw wordt geüpload.
+Naast het instellen van de limietinstellingen voor threads en verbindingen zijn de [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) voor de methode [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) geconfigureerd om gebruik te maken van parallelle uitvoering en om validatie van de MD5-hash uit te schakelen. De bestanden worden geüpload in blokken van 100 MB. Deze configuratie biedt betere prestaties maar kan duur zijn als er een slecht presterend netwerk wordt gebruikt, omdat, wanneer er zich een storing voordoet, het gehele blok van 100 MB opnieuw wordt geüpload.
 
 |Eigenschap|Waarde|Description|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Met deze instelling wordt de blob in blokken opgesplitst bij het uploaden. Voor de beste prestaties, moet deze waarde acht keer het aantal kerngeheugens zijn. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Met deze eigenschap wordt de controle uitgeschakeld van de MD5-hash van de inhoud die wordt geüpload. MD5-validatie zorgt voor een snellere overdracht. Maar hiermee wordt de geldigheid of de integriteit van de bestanden die worden overgebracht, niet bevestigd.   |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Deze eigenschap bepaalt of een MD5-hash wordt berekend en samen met het bestand opgeslagen.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Twee seconden uitstel bij maximaal tien nieuwe pogingen |Hiermee bepaalt u het beleid voor het opnieuw proberen van aanvragen. Bij verbindingsfouten wordt opnieuw geprobeerd. In dit voorbeeld is een [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry?view=azure-dotnet)-beleid geconfigureerd met een uitstel van twee seconden en een maximumaantal nieuwe pogingen van 10. Deze instelling is belangrijk als de toepassing de [schaalbaarheidsdoelen van de blob-opslag ](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets) bijna heeft bereikt.  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| Met deze instelling wordt de blob in blokken opgesplitst bij het uploaden. Voor de beste prestaties, moet deze waarde acht keer het aantal kerngeheugens zijn. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Met deze eigenschap wordt de controle uitgeschakeld van de MD5-hash van de inhoud die wordt geüpload. MD5-validatie zorgt voor een snellere overdracht. Maar hiermee wordt de geldigheid of de integriteit van de bestanden die worden overgebracht, niet bevestigd.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Deze eigenschap bepaalt of een MD5-hash wordt berekend en samen met het bestand opgeslagen.   |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Twee seconden uitstel bij maximaal tien nieuwe pogingen |Hiermee bepaalt u het beleid voor het opnieuw proberen van aanvragen. Bij verbindingsfouten wordt opnieuw geprobeerd. In dit voorbeeld is een [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry)-beleid geconfigureerd met een uitstel van twee seconden en een maximumaantal nieuwe pogingen van 10. Deze instelling is belangrijk als de toepassing de [schaalbaarheidsdoelen van de blob-opslag ](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets) bijna heeft bereikt.  |
 
 De taak `UploadFilesAsync` wordt in het volgende voorbeeld weergegeven:
 

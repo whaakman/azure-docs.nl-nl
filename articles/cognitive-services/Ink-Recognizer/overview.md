@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 05/16/2019
 ms.locfileid: "65027227"
 ---
-# <a name="what-is-the-ink-recognizer-api"></a>Wat is de API Ink-herkenning?
+# <a name="what-is-the-ink-recognizer-api"></a>Wat is de Ink Recognizer-API?
 
 
 De Ink herkenning Cognitive Service biedt een REST-API op basis van een cloud te analyseren en te herkennen digitale ink-inhoud. In tegenstelling tot de services die gebruikmaken van optische tekenherkenning (OCR), vereist dat de API digitale inkt lijn gegevens als invoer. Digitale inkt lijnen zijn sets tijd geordende opeenvolgende 2D-punten (X, Y-coördinaten) die staan voor de beweging van de invoer-hulpprogramma's zoals digitale pennen of vingers. Vervolgens herkent de vormen en handgeschreven inhoud uit de invoer en retourneert een JSON-antwoord met alle herkende entiteiten.
@@ -55,8 +55,8 @@ Raadpleeg een snelstartgids in de volgende talen om te beginnen met het maken va
 * [JavaScript](quickstarts/csharp.md)
 
 Als u wilt zien hoe de Ink-API in een digitale bij app werkt, bekijk de volgende voorbeeldtoepassingen op GitHub:
-* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#en Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [JavaScript-webbrowser-app](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java- en Android mobiele app](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [SWIFT- en iOS mobiele app](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [C# en Universal Windows Platform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# en Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Webbrowser-app (Javascript)](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Mobiele app (Java en Android)](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Mobiele app (Swift en iOS)](https://go.microsoft.com/fwlink/?linkid=2089805)

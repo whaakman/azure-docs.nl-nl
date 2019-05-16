@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75d9977546c2a085765310a5654897f739a271ae
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325289"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595391"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snelstart: Een chatruimte maken met Azure Functions en SignalR Service met behulp van C\#
 
@@ -20,7 +20,7 @@ Met de service Azure SignalR kunt u eenvoudig realtimefunctionaliteit toevoegen 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+Als u Visual Studio 2019 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
 U kunt deze zelfstudie ook uitvoeren op de opdrachtregel (Mac OS, Windows of Linux) met behulp van de [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), wordt de [.NET Core SDK](https://dotnet.microsoft.com/download), en uw favoriete code-editor.
 

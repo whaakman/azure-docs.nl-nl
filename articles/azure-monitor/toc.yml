@@ -557,6 +557,7 @@
             - name: Oplossing voor web-appanalyse
               href: insights/azure-web-apps-analytics.md
             - name: Kubernetes-toepassingen bewaken
+              displayname: 'aks, microservice, istio, service mesh, application monitoring'
               href: app/kubernetes.md
         - name: Containers bewaken
           items:

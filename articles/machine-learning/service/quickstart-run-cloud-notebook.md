@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4c15b9aa0bde704ad3665375d1c1a5bb8a1d32cf
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510621"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604122"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken
 
@@ -131,7 +131,7 @@ Stop de notebook VM wanneer u deze niet worden gebruikt om kosten te beperken.
 
 1. Selecteer **stoppen**.
 
-1. Wanneer u klaar om de gebruiker de server opnieuw bent, selecteert u **Start**.
+1. Wanneer u klaar bent om de server opnieuw te gebruiken, selecteert u **Start**.
 
 ### <a name="delete-everything"></a>Alles verwijderen
 

@@ -1,5 +1,5 @@
 ---
-title: Overzicht - Azure Search en Knowledge Store-Inleiding
+title: Overzicht (preview) - Azure Search en Knowledge store Inleiding
 description: Verrijkt documenten verzenden naar Azure-opslag waar u kunt weergeven, vorm en verrijkt documenten in Azure Search en andere toepassingen gebruiken.
 manager: cgronlun
 author: HeidiSteen
@@ -9,32 +9,36 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026996"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540736"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>Wat is kennis Store in Azure Search?
+# <a name="what-is-knowledge-store-in-azure-search"></a>Wat is kennis store in Azure Search?
 
-Kennis Store is een optionele functie van Azure Search, momenteel in openbare preview, die wordt opgeslagen als verrijkt documenten en metagegevens die zijn gemaakt door een-op basis van AI indexering pijplijn [(cognitief zoeken)](cognitive-search-concept-intro.md). Kennis Store wordt ondersteund door Azure storage-account dat u als onderdeel van de pijplijn configureert. Wanneer ingeschakeld, de search-service maakt gebruik van dit opslagaccount wordt gebruikt om een weergave van elk document verrijkt in cache. 
+> [!Note]
+> Kennis store is in preview en niet bedoeld voor gebruik in productieomgevingen. De [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) biedt deze functie. Er is geen .NET SDK-ondersteuning op dit moment.
+>
+
+Kennis store is een optionele functie van Azure Search die wordt opgeslagen als verrijkt documenten en metagegevens die zijn gemaakt door een-op basis van AI indexering pijplijn [(cognitief zoeken)](cognitive-search-concept-intro.md). Kennis store wordt ondersteund door Azure storage-account dat u als onderdeel van de pijplijn configureert. Wanneer ingeschakeld, de search-service maakt gebruik van dit opslagaccount wordt gebruikt om een weergave van elk document verrijkt in cache. 
 
 Als u cognitief zoeken in het verleden hebt gebruikt, weet u al dat kennis en vaardigheden kunnen worden gebruikt om een document via een reeks enrichments te verplaatsen. Het resultaat is een Azure Search-index of (nieuw in deze Preview-versie) projecties in een winkel kennis.
 
 Projecties zijn uw mechanisme voor het structureren van gegevens voor gebruik in een downstream-app. U kunt [Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) die is gebouwd voor Azure storage of alle Apps die verbinding met Azure storage maakt, die wordt geopend nieuwe mogelijkheden voor het gebruik van verrijkt documenten. Enkele voorbeelden zijn data science-pijplijnen en aangepaste analyse.
 
-![Kennis Store in overzichtsdiagram van gegevenspijplijn](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "kennis Store in overzichtsdiagram van gegevenspijplijn")
+![Kennis store in overzichtsdiagram van gegevenspijplijn](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "kennis opslaan in de pijplijn-diagram")
 
-Voor het gebruik van kennis Store toevoegen een `knowledgeStore` element in een set vaardigheden die stap voor stap bewerkingen in een pijplijn voor indexering definieert. Tijdens de uitvoering Azure Search wordt een spatie in uw Azure storage-account gemaakt en gevuld met de definities en inhoud die is gemaakt door de pijplijn.
+Voor het gebruik van kennis store toevoegen een `knowledgeStore` element in een set vaardigheden die stap voor stap bewerkingen in een pijplijn voor indexering definieert. Tijdens de uitvoering Azure Search wordt een spatie in uw Azure storage-account gemaakt en gevuld met de definities en inhoud die is gemaakt door de pijplijn.
 
-## <a name="benefits-of-knowledge-store"></a>Voordelen van kennis Store
+## <a name="benefits-of-knowledge-store"></a>Voordelen van kennis store
 
 Een kennis biedt u structuur, context en inhoud - afgelezen uit ongestructureerde en semi-gestructureerde gegevensbestanden, zoals blobs, bestanden die hebben ondergaan analyse, of zelfs van gestructureerde gegevens die naar nieuwe formulieren is omgevormd opslaan. In een [stapsgewijze](knowledge-store-howto.md) die zijn geschreven voor deze Preview-versie, kunt u eerste hand hoe een compacte JSON-document is gepartitioneerd in substructuren, geregenereerd in nieuwe structuren en anders beschikbaar gesteld voor downstream bekijken processen zoals machine learning en data science-werkbelastingen.
 
-Hoewel het is handig om te zien wat een indexering op basis van AI-pijplijn kunt maken, is de ware kracht van kennis Store de mogelijkheid om te zetten om gegevens. U kunt beginnen met een eenvoudige set vaardigheden en vervolgens herhalen worden steeds meer niveaus van de structuur, die u vervolgens tot nieuwe structuren, verbruikbare in andere apps naast Azure Search combineren kunt toevoegen.
+Hoewel het is handig om te zien wat een indexering op basis van AI-pijplijn kunt maken, is de ware kracht van kennis store de mogelijkheid om te zetten om gegevens. U kunt beginnen met een eenvoudige set vaardigheden en vervolgens herhalen worden steeds meer niveaus van de structuur, die u vervolgens tot nieuwe structuren, verbruikbare in andere apps naast Azure Search combineren kunt toevoegen.
 
-De voordelen van kennis Store zijn geïnventariseerd, het volgende:
+De voordelen van kennis store omvatten geïnventariseerd, het volgende:
 
 + Verrijkt documenten in gebruiken [analyses en hulpprogramma's voor rapportage](#tools-and-apps) dan zoeken. Power BI met Power Query is een aantrekkelijke keuze, maar een hulpprogramma of de app die u verbinding met Azure storage maken kunt kunt ophalen uit een store kennis die u maakt.
 
@@ -235,11 +239,11 @@ Wanneer u meerdere services gebruikt, maakt u al uw services van in dezelfde reg
 
 **Stap 4: [Aan de slag met de portal](cognitive-search-quickstart-blob.md) - of - [aan de slag met voorbeeldgegevens met behulp van REST en Postman](knowledge-store-howto.md)** 
 
-U kunt REST `api-version=2019-05-06-Preview` te maken van een op basis van AI-pijplijn die kennis Store bevat. De nieuwste preview-API, het object vaardigheden beschikt u over de `knowledgeStore` definitie.
+U kunt REST `api-version=2019-05-06-Preview` te maken van een op basis van AI-pijplijn die kennis store bevat. De nieuwste preview-API, het object vaardigheden beschikt u over de `knowledgeStore` definitie.
 
 ## <a name="takeaways"></a>Opgedane kennis
 
-Kennis Store biedt tal van voordelen zoals, maar niet beperkt tot het gebruik van de geavanceerde documenten in scenario's dan zoeken inschakelen, kosten van besturingselementen en drift in uw proces verrijking beheren. Deze functies zijn allemaal beschikbaar voor gebruik door een storage-account toe te voegen aan uw vaardigheden en het gebruik van de bijgewerkte expressietaal, zoals beschreven in [aan de slag met kennis Store](knowledge-store-howto.md). 
+Kennis store biedt tal van voordelen zoals, maar niet beperkt tot het gebruik van de geavanceerde documenten in scenario's dan zoeken inschakelen, kosten van besturingselementen en drift in uw proces verrijking beheren. Deze functies zijn allemaal beschikbaar voor gebruik door een storage-account toe te voegen aan uw vaardigheden en het gebruik van de bijgewerkte expressietaal, zoals beschreven in [aan de slag met kennis store](knowledge-store-howto.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

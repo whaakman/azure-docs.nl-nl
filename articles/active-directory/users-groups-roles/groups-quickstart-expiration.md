@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471462"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606202"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Quickstart: Office 365-groepen voor verloop instellen in Azure Active Directory
 
@@ -35,11 +35,11 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisite"></a>Vereiste
 
-U moet een globale beheerder of Gebruikerbeheerder in de organisatie voor het instellen van de vervaldatum van de groep.
+ De rol van de minste bevoegdheden voor het instellen van de vervaldatum van de groep is beheerder van de gebruiker in de organisatie.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Maken van gebruikers voor groepen inschakelen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat een globale beheerder of Gebruikerbeheerder voor de organisatie.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een administrator-account van gebruiker.
 
 2. Selecteer **Groepen** en vervolgens **Algemeen**.
   
@@ -80,7 +80,7 @@ Dat is alles. In deze snelstart hebt u het verloopbeleid ingesteld voor de gesel
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u meer informatie wilt over verlooptijden, waaronder technische beperkingen, het toevoegen van een lijst met aangepaste, geblokkeerde woorden, en ervaringen van eindgebruikers voor Office 365-apps, raadpleegt u het volgende artikel met details over verloopbeleid:
+Zie het volgende artikel voor meer informatie over verlopen, met inbegrip van PowerShell-instructies en technische beperkingen:
 
 > [!div class="nextstepaction"]
-> [Verloopbeleid: alle details](groups-lifecycle.md)
+> [Vervaldatum van het beleid PowerShell](groups-lifecycle.md)

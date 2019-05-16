@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/16/2019
 ms.author: b-juche
-ms.openlocfilehash: fec9e22b15eca3f95be606776066cf573046b5fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687483"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522869"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Wat is de hiërarchie van de opslag van Azure NetApp Files
 
@@ -40,14 +40,16 @@ Voordat u een volume maakt in Azure NetApp Files, moet u een pool kopen en inste
 - Elke capaciteitspool kan deel uitmaken van slechts één NetApp-account. Er kunnen echter meerdere capaciteitspools binnen een NetApp-account bestaan.  
 - Een capaciteitspool kan niet worden verplaatst tussen NetApp-accounts.   
   In het onderstaande [conceptueel diagram van een opslaghiërarchie](#conceptual_diagram_of_storage_hierarchy) kan Capaciteitspool 1 bijvoorbeeld niet worden verplaatst van het NetApp-account in US oost naar het NetApp-account in US west 2.  
+- Een capaciteit van toepassingen kan niet worden verwijderd totdat alle volumes in de capaciteit van toepassingen zijn verwijderd.
 
 ## <a name="volumes"></a>Volumes
 
 - Een volume wordt gemeten aan de hand van het logische capaciteitsverbruik en is schaalbaar. 
 - Capaciteitsgebruik van een volume wordt in mindering gebracht op de ingerichte capaciteit van de pool.
 - Elk volume is gekoppeld aan slechts één pool, maar een pool kan meerdere volumes bevatten. 
-- U kunt een volume binnen hetzelfde NetApp-account tussen verschillende pools verplaatsen.    
-  In het onderstaande [conceptueel diagram van een opslaghiërarchie](#conceptual_diagram_of_storage_hierarchy) kunt u de volumes van Capaciteitspool 1 verplaatsen naar Capaciteitspool 2.
+- Een volume kan niet worden verplaatst in pools van capaciteit. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  Bijvoorbeeld, in de [conceptueel diagram van hiërarchie opslag](#conceptual_diagram_of_storage_hierarchy) hieronder, u de volumes van capaciteit groep 1 niet verplaatsen naar capaciteit Pool 2.
+- Een volume kan niet worden verwijderd totdat alle bijbehorende momentopnamen zijn verwijderd.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptueel diagram van een opslaghiërarchie 
 Het volgende voorbeeld toont de relaties tussen een Azure-abonnement, NetApp-accounts, capaciteitspools en volumes.   

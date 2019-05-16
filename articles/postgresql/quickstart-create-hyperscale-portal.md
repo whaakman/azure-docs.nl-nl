@@ -7,84 +7,19 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/06/2019
-ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: efc3801ab03f739761a41bec754f975fe43dcd8e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406452"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65757515"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Quickstart: Maak een Azure Database voor PostgreSQL - grootschalige (Citus) (preview) in Azure portal
 
 Azure Database for PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Deze snelstartgids leest u over het maken van een Azure Database voor PostgreSQL - grootschalige (Citus) (preview) server-groep met behulp van de Azure portal. U gedistribueerde gegevens verkennen: sharding van tabellen voor de knooppunten, het opnemen van voorbeeldgegevens en het uitvoeren van query's die worden uitgevoerd op meerdere knooppunten.
 
-Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
-
-Meld u aan bij [Azure Portal](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Een Azure Database voor PostgreSQL-server maken
-
-Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
-1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
-2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor PostgreSQL** op de pagina **Databases**.
-3. Voor de Implementatieoptie, klikt u op de **maken** knop onder **servergroep grootschalige (Citus) - voorbeeld.**
-4. Vul het formulier voor de gegevens van de nieuwe server als volgt in:
-   - Resourcegroep: klik op de **nieuw** koppeling onder het tekstvak voor dit veld. Voer een naam zoals **myresourcegroup**.
-   - Naam van servergroep: Voer een unieke naam voor de nieuwe server-groep, die ook worden gebruikt voor een subdomein van de server.
-   - Gebruikersnaam van beheerder: Voer een unieke gebruikersnaam, wordt later opnieuw verbinding maken met de database worden gebruikt.
-   - Wachtwoord: moet ten minste acht tekens lang zijn en moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0-9) en niet-alfanumerieke tekens (!, $, #, %, etc.)
-   - Locatie: Gebruik de locatie die zich het dichtst bij uw gebruikers zodat ze de snelst mogelijke toegang tot de gegevens.
-
-   > [!IMPORTANT]
-   > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze Quick Start. Onthoud of noteer deze informatie voor later gebruik.
-
-5. Klik op **configureren servergroep**. Laat de instellingen in die sectie ongewijzigd en klik op **opslaan**.
-6. Klik op **revisie + maken** en vervolgens **maken** voor het inrichten van de server. De inrichting duurt een paar minuten.
-7. De pagina wordt omgeleid voor het controleren van de implementatie. Wanneer de live status verandert van **uw implementatie wordt uitgevoerd** naar **uw implementatie is voltooid**, klikt u op de **uitvoer** menu-item aan de linkerkant van de pagina.
-8. De uitvoer-pagina bevat een hostnaam coördinator met een knop naast het om de waarde naar het Klembord kopiëren. Noteer deze informatie voor later gebruik.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
-
-De Azure Database voor PostgreSQL – grootschalige (Citus) (preview)-service wordt gebruikt een firewall op serverniveau. Standaard de firewall voorkomt dat externe toepassingen en hulpprogramma's verbinding maken met het coördinatorknooppunt en alle databases op. Er moet een regel voor het openen van de firewall voor een specifiek IP-adresbereik toevoegen.
-
-1. Uit de **uitvoer** sectie waarnaar u de hostnaam van het knooppunt coordinator eerder hebt gekopieerd, klik op terug naar de **overzicht** menu-item.
-
-2. De naam van de implementatiegroep vergroten/verkleinen wordt voorafgegaan door 'AG-'. Deze vinden in de lijst met resources en klik erop.
-
-3. Klik op **Firewall** onder **Security** in het linkermenu.
-
-4. Klik op de koppeling **+ firewallregel toevoegen voor de huidige IP-adres van client**. Ten slotte klikt u op de **opslaan** knop.
-
-5. Klik op **Opslaan**.
-
-   > [!NOTE]
-   > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 5432 openstelt.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Verbinding maken met de database met behulp van psql in Cloud Shell
-
-U gaat nu het opdrachtregelprogramma [psql](https://www.postgresql.org/docs/current/app-psql.html) gebruiken om verbinding te maken met de Azure Database for PostgreSQL-server.
-1. Open Azure Cloud Shell via het terminalpictogram in het navigatiedeelvenster bovenaan.
-
-   ![Azure Database voor PostgreSQL - Azure Cloud Shell-terminalpictogram](./media/quickstart-create-hyperscale-portal/psql-cloud-shell.png)
-
-2. Azure Cloud Shell wordt geopend in uw browser zodat u bash-opdrachten kunt invoeren.
-
-   ![Azure-Database voor PostgreSQL - Azure Shell-bash-prompt](./media/quickstart-create-hyperscale-portal/psql-bash.png)
-
-3. In het Cloud Shell-prompt maakt u verbinding met uw Azure Database voor PostgreSQL-server met de psql-opdrachten. De volgende indeling wordt gebruikt om verbinding te maken met een Azure Database voor PostgreSQL-server via het [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-hulpprogramma:
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Bijvoorbeeld de volgende opdracht maakt verbinding met de standaarddatabase **citus** op uw PostgreSQL-server **mydemoserver.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het wachtwoord van de serverbeheerder in wanneer dat wordt gevraagd.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="create-and-distribute-tables"></a>Maken en distribueren van tabellen
 
@@ -96,11 +31,11 @@ Servers er zijn drie typen tabellen in grootschalige:
 - Verwijzing naar tabellen (meerdere exemplaren worden onderhouden)
 - Lokale tabellen (vaak gebruikt voor interne admin tabellen)
 
-In deze Quick Start gaat we voornamelijk gericht op gedistribueerde tabellen en bekend mee aan.
+In deze snelstartgids wordt we voornamelijk gericht op gedistribueerde tabellen en bekend mee aan.
 
 Het gegevensmodel gaan we werken met is eenvoudig: gebruiker en gebeurtenis gegevens vanuit GitHub. Gebeurtenissen zijn het maken van de fork, git doorgevoerd met betrekking tot een organisatie, en meer.
 
-Nadat u verbinding hebt via psql laten we onze tabellen maken. In de psql-console uitvoeren:
+Nadat u verbinding hebt gemaakt via psql, gaan we de tabellen te maken. In de psql-console uitvoeren:
 
 ```sql
 CREATE TABLE github_events
@@ -127,9 +62,9 @@ CREATE TABLE github_users
 );
 ```
 
-De `payload` veld `github_events` JSONB gegevenstype heeft. JSONB is het JSON-gegevenstype in binaire vorm in Postgres. Hiermee kunt u eenvoudig voor het opslaan van een flexibel schema in één kolom.
+De `payload` veld `github_events` JSONB gegevenstype heeft. JSONB is het JSON-gegevenstype in binaire vorm in Postgres. Het gegevenstype kunt u eenvoudig is om op te slaan een flexibel schema in één kolom.
 
-Postgres kunt maken een `GIN` index op dit type die elke sleutel en waarde binnen het geïndexeerd. Met een index, wordt deze snelle en eenvoudige query uitvoeren op de nettolading met verschillende voorwaarden. Laten we doorgaan en maakt u een aantal indexen voordat we onze gegevens worden geladen. In de psql:
+Postgres kunt maken een `GIN` index voor dit type, dat elke sleutel en waarde binnen het geïndexeerd. Met een index, wordt deze snelle en eenvoudige query uitvoeren op de nettolading met verschillende voorwaarden. Laten we doorgaan en maakt u een aantal indexen voordat we onze gegevens worden geladen. In de psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
@@ -143,7 +78,14 @@ SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-We zijn klaar om gegevens te laden. Het van de twee voorbeeldbestanden downloaden [users.csv](https://examples.citusdata.com/users.csv) en [gebeurtenissen.csv](https://examples.citusdata.com/events.csv). Nadat de bestanden downloadt, verbinding maken met de database met behulp van psql, zorg ervoor dat u de psql uitvoeren vanuit de map met de bestanden die u hebt gedownload. De gegevens laden met de `\copy` opdracht:
+We zijn klaar om gegevens te laden. In de psql nog steeds, shell uit om de bestanden te downloaden:
+
+```sql
+\! curl -O https://examples.citusdata.com/users.csv
+\! curl -O https://examples.citusdata.com/events.csv
+```
+
+Vervolgens laadt u de gegevens uit de bestanden in de gedistribueerde tabellen:
 
 ```sql
 \copy github_events from 'events.csv' WITH CSV

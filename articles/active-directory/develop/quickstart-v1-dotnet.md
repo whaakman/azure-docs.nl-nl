@@ -3,8 +3,8 @@ title: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een .NET 
 description: Meer informatie over het bouwen van een NET Windows Desktop-app die kan worden geïntegreerd met Azure Active Directory voor aanmelden en Azure Active Directory-beveiligde API-aanroepen met behulp van OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: beccd3f28cd3f5de3ef777b80c53651c76017619
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298968"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545640"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een .NET Desktop-app (WPF)
 

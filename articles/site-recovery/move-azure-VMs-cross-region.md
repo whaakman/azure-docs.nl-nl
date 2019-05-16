@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119874"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65739604"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Virtuele Azure-machines verplaatsen naar een andere regio
 
@@ -53,7 +53,7 @@ Het is raadzaam om te verplaatsen van Azure-infrastructuur als een service (IaaS
     - Voor Windows-VM's, de meest recente Windows-updates te installeren zodat alle vertrouwde basiscertificaten op de machine zijn. In een omgeving zonder verbinding, volgt u de standaard Windows Update en certificaat-update-processen voor uw organisatie.
     - Volg de richtlijnen van uw Linux-leverancier om op te halen van de meest recente vertrouwde basiscertificaten en de certificaatintrekkingslijst voor virtuele Linux-machines.
 2. Zorg ervoor dat u niet een verificatieproxy om netwerkconnectiviteit te beheren voor virtuele machines die u van plan bent om te verplaatsen.
-3. Als een virtuele machine die u wilt verplaatsen heeft geen toegang tot het internet en is een firewallproxy uitgaande om toegang te beheren, Controleer de [vereisten](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Als een virtuele machine die u wilt verplaatsen heeft geen toegang tot het internet en is een firewallproxy uitgaande om toegang te beheren, Controleer de [vereisten](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Documenteer de bron-indeling voor netwerken en alle resources die u momenteel gebruikt, inclusief (maar niet beperkt tot) load balancers, netwerkbeveiligingsgroepen en openbare IP-adressen voor verificatie.
 
 ## <a name="prepare-the-target-region"></a>De doelregio voorbereiden

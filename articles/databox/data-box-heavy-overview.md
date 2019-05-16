@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a5b7f93f9ac6cc5b1076881727a42fd5b95ff4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 780a50d9d470e8904e066459f97aa00d34ba1d3c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306186"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603502"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Wat is Azure Data Box Heavy? (Preview)
+# <a name="what-is-azure-data-box-heavy-preview"></a>Wat is Azure Data Box Heavy? (Preview-versie)
 
 Met de hybride oplossing Microsoft Azure Data Box Heavy kunt u honderden terabytes aan on-premises gegevens op een snelle, goedkope en betrouwbare manier naar Azure verzenden. De veilige overdracht van gegevens vindt snel plaats omdat we een opslagapparaat naar u opsturen met een capaciteit van 1 PB. Dit apparaat heeft een stevige behuizing om uw gegevens tijdens het verzenden te beschermen.
 
@@ -107,9 +107,9 @@ Een typische stroom bestaat uit de volgende stappen:
 
 Tijdens dit proces wordt u via e-mail op de hoogte gesteld van alle statuswijzigingen. 
 
-## <a name="region-availability"></a>Beschikbaarheid in regio’s
+## <a name="region-availability"></a>Beschikbaarheid voor de regio
 
-Data Box Heavy kan bestanden overgedragen op basis van de regio waarin de service is geïmplementeerd, het land waar het apparaat naar wordt verzonden, en het Azure-opslagaccount waarnaar de gegevens worden overgebracht. 
+Gegevens in het zware kunt gegevensoverdracht op basis van de regio waarin de service is geïmplementeerd, land/de regio waaraan het apparaat is verzonden en de doel-Azure storage-account waar u de gegevens overbrengt. 
 
 - **Beschikbaarheid van service**: Voor deze release is de Data Box Heavy-resource beschikbaar in de volgende regio’s:
     - Alle openbare cloud-regio's in de Verenigde Staten: US - west-centraal, US - west 2, US - west, US - zuid-centraal, US - centraal, US - noord-centraal, US - oost en US - oost 2.
@@ -119,7 +119,7 @@ Data Box Heavy kan bestanden overgedragen op basis van de regio waarin de servic
 
 - **Doelopslagaccounts**: De opslagaccounts waarin de gegevens worden opgeslagen, zijn beschikbaar in alle Azure-regio’s waar de service beschikbaar is. 
 
-## <a name="sign-up"></a>Aanmelden
+## <a name="sign-up"></a>Registreren
 
 Data Box Heavy is in de preview-fase en u moet zich registreren. Voer de volgende stappen uit om u te registreren voor Data Box Heavy:
 
@@ -136,7 +136,7 @@ Data Box Heavy is in de preview-fase en u moet zich registreren. Voer de volgend
 
    <!--![The Data Box Heavy sign up 3]()-->
 
-5. Beantwoord de vragen met betrekking tot in welk land de gegevens zich bevinden, het tijdskader, de Azure-doelservice voor gegevensoverdracht, de netwerkbandbreedte en de frequentie van gegevensoverdracht. Lees de privacyverklaring en voorwaarden en schakel het selectievakje in zodat Microsoft uw e-mailadres kan gebruiken om contact met u op te nemen.
+5. Beantwoord de vragen met betrekking tot de gegevens woonplaats land/regio, tijdsbestek, doel Azure-service voor gegevensoverdracht, netwerkbandbreedte en data transfer frequentie. Lees de privacyverklaring en voorwaarden en schakel het selectievakje in zodat Microsoft uw e-mailadres kan gebruiken om contact met u op te nemen.
 
     <!--![The Data Box Heavy sign up 4]()-->
 

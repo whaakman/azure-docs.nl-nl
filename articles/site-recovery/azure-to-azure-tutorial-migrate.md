@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 636993879422edaf08051be61b9d4770effdcae0
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
-ms.translationtype: MT
+ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556073"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65751114"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Virtuele Azure-machines verplaatsen naar een andere regio
 
@@ -56,7 +56,7 @@ In deze zelfstudie leert u het volgende:
     - Voor Windows-VM’s moet u de meest recente Windows-updates op de VM installeren, zodat alle vertrouwde basiscertificaten op de machine aanwezig zijn. In een niet-verbonden omgeving moet u de standaardprocedures van Windows Update en de standaardprocedures voor het bijwerken van de certificaten van uw organisatie volgen.
     - Volg de richtlijnen bij uw Linux-leverancier om op te halen van de meest recente vertrouwde basiscertificaten en de certificaatintrekkingslijst op de virtuele machine voor Linux-VM's.
 1. Zorg ervoor dat u niet een verificatieproxy om netwerkconnectiviteit te beheren voor virtuele machines die u wilt verplaatsen.
-1. Als de virtuele machine die u probeert te verplaatsen heeft geen toegang tot het internet of een firewallproxy gebruikt voor het beheren van uitgaande toegang [de vereisten controleren](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Als de virtuele machine die u probeert te verplaatsen heeft geen toegang tot het internet of een firewallproxy gebruikt voor het beheren van uitgaande toegang [de vereisten controleren](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 1. Identificeer de bron-indeling voor netwerken en alle resources die u momenteel gebruikt. Dit omvat, maar is niet beperkt tot taakverdelers, netwerkbeveiligingsgroepen (nsg's) en openbare IP-adressen.
 
 ## <a name="prepare-the-target-region"></a>De doelregio voorbereiden

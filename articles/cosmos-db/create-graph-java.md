@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: db931a3a114be101eeb5e14fa7ba100a789e7cf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23b8f7db40eb2df063e055c489f11ff1b19dd8d5
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892282"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519095"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Quickstart: een grafiekdatabase maken in Azure Cosmos DB met behulp van de Java SDK 
 
@@ -33,10 +33,9 @@ In deze QuickStart maakt u een eenvoudige grafiekendatabase met behulp van de Az
 ## <a name="prerequisites"></a>Vereisten
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Daarnaast doet u het volgende:
+Daarnaast:
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
+* [Java Development Kit (JDK) versie 8](https://aka.ms/azure-jdks)
     * Zorg dat de omgevingsvariabele JAVA_HOME verwijst naar de map waarin de JDK is geïnstalleerd.
 * [Download](https://maven.apache.org/download.cgi) en [installeer](https://maven.apache.org/install.html) een binair [Maven](https://maven.apache.org/)-archief
     * Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
@@ -49,7 +48,7 @@ Voordat u een grafiekdatabase kunt maken, moet u een Gremlin-databaseaccount (Gr
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Een graaf toevoegen
+## <a name="add-a-graph"></a>Een grafiek toevoegen
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -133,7 +132,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
 
     `username: /dbs/$database$/colls/$collection$`
 
-    tot 
+    aan 
 
     `username: /dbs/sample-database/colls/sample-graph`
 

@@ -5,15 +5,15 @@ metadata:
   title: 'Documentatie voor Bing Entiteiten zoeken-API - zelfstudies, snelstarts, API-verwijzingen | Microsoft Docs'
   description: 'Informatie over het gebruik van Bing Entiteiten zoeken-API om gegevens te verkrijgen over mensen, plaatsen of andere gedefinieerde onderwerpen. In zelfstudies wordt uitgelegd hoe u apps maakt die gebruikmaken van de service.'
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/01/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Met de Bing Entiteiten zoeken-API kunnen uw toepassingen informatie ophalen over gedetecteerde entiteiten in zoekquery''s. Entiteiten kunnen mensen, plaatsen, mediatitels en meer zijn.'
 sections:

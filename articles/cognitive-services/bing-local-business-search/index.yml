@@ -6,8 +6,8 @@ metadata:
   title: Documentatie voor de Bing-API voor zoeken naar lokale bedrijven
   description: De Bing-API voor zoeken naar lokale bedrijven is een RESTful-service waarmee uw toepassingen lokale bedrijven kunnen vinden op basis van zoekquery's.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.subservice: bing-local-business
   ms.tgt_pltfrm: na
   ms.devlang: na

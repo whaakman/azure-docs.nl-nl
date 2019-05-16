@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 99be0cee9c939ed200bd74c94e88c3fcd989e25b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 15885137b9559bf34fb2b985398401af09caa629
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722892"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602977"
 ---
 # <a name="configure-the-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>De Log Analytics-agent voor Windows-computers in een hybride omgeving configureren
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Windows-computers verzamelen in één opslagplaats voor uitvoerige analyse en correlatie. Log Analytics kan gegevens verzamelen vanuit een datacenter of andere cloudomgeving. In deze quickstart wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Windows-computer configureert en verzamelt.  Zie voor meer informatie over Azure Windows VM's [verzamelen van gegevens over Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
@@ -107,8 +107,8 @@ Log Analytics kunt verzamelen van gebeurtenissen die u opgeeft in de Windows-geb
 ## <a name="view-collected-data"></a>Verzamelde gegevens weergeven
 Nu dat u gegevensverzameling hebt ingeschakeld, gaan we een eenvoudige logboekzoekopdracht om te zien van bepaalde gegevens van de doelcomputer te worden uitgevoerd.  
 
-1. Selecteer in de Azure portal, in de geselecteerde werkruimte, de **zoeken in logboeken** tegel.  
-2. Op de **zoeken in logboeken** invoeren in het deelvenster in het queryvak **Perf** en selecteer Enter of Selecteer de zoekknop rechts van de query in:
+1. Selecteer in de Azure portal, in de geselecteerde werkruimte, de **logboeken** tegel.  
+2. Op de **zoeken in logboeken** invoeren in het deelvenster in het queryvak **Perf** en klikt u op **uitvoeren** boven aan de query in:
  
     ![Log Analytics zoeken in Logboeken](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 

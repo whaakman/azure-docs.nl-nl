@@ -2,23 +2,24 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/22/2019
 ms.author: sngun
-ms.openlocfilehash: e07a59ba0484910d87329be94f0fcc58b1011b95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572032"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546670"
 ---
-De doorvoer, opslag, beschikbaarheid, latentie en consistentie van de resources in uw account worden gecontroleerd in Azure Portal. We gaan deze metrische gegevens eens bekijken. 
+De Azure-portal controleert uw doorvoer van Cosmos DB-account, opslag, beschikbaarheid, latentie en consistentie. Grafieken voor metrische gegevens die zijn gekoppeld aan een [Azure Cosmos DB Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) toont de SLA-waarde in vergelijking met de werkelijke prestaties. Dit pakket van metrische gegevens maakt bewaking van uw transparante serviceovereenkomsten.
 
-1. Klik op **Metrische gegevens** in het navigatiemenu.
+Om te controleren metrische gegevens en sla's: 
 
-   ![Metrische gegevens in Azure Portal](./media/cosmos-db-tutorial-review-slas/metrics.png)
-
-2. Klik op de tabbladen, zodat u weet welke metrische gegevens Azure Cosmos DB allemaal biedt. 
-
-    Elke grafiek die is gekoppeld aan de [SLA's (Service Level Agreement) van Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) bevat een regel waarop wordt weergegeven of er SLA's worden overtreden. Azure Cosmos DB maakt de controle van uw SLA's transparant met dit pakket met metrische gegevens. 
-
+1. Selecteer **metrische gegevens** in het navigatiemenu uw Cosmos DB-account.
+   
+2. Selecteer een tabblad zoals **latentie**, en selecteert u een tijdsbestek aan de rechterkant. Vergelijk de **werkelijke** en **SLA** regels op de grafieken.
+   
    ![Azure Cosmos DB-pakket met metrische gegevens](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)
+   
+3. Bekijk de metrische gegevens over de andere tabbladen. 
+

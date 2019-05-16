@@ -7,14 +7,14 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874662"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758855"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>Een omgeving maken vanuit een voorbeeld van de blauwdruk
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Zelfstudie: Een omgeving maken vanuit een voorbeeld van de blauwdruk
 
 Voorbeeld blauwdrukken vindt u voorbeelden van wat kan worden gedaan met behulp van Azure blauwdrukken. Elk is een voorbeeld met een bepaald doel of het doel, maar niet een volledige omgeving maken door zelf. Zijn bedoeld als uitgangspunt voor het verkennen met behulp van Azure blauwdrukken met verschillende combinaties van opgenomen artefacten, ontwerpen en parameters.
 

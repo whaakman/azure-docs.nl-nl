@@ -8,31 +8,31 @@ ms.topic: include
 ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 57407606214d8d3a305476cfbfdabca9eee937e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28d003e123069c47d87d81570b4a5b69b3b9d64b
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60690299"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560707"
 ---
-1. Als u een nieuwe Azure SignalR Service-resource wilt maken, meldt u zich eerst aan bij [Azure Portal](https://portal.azure.com). Selecteer **+ Een resource maken** linksboven van de pagina. Typ in het tekstvak **Marketplace doorzoeken** de tekst **SignalR Service** en druk op **Enter**.
+1. Voor het maken van een Azure SignalR Service-resource, eerst aanmelden bij de [Azure-portal](https://portal.azure.com). Selecteer in de linkerbovenhoek-zijde van de pagina, **+ een resource maken**. In de **Marketplace doorzoeken** tekst Voer **SignalR Service**.
 
-2. Klik op **SignalR Service** in de resultaten en klik op **Maken**.
+2. Selecteer **SignalR Service** in de resultaten en selecteer **maken**.
 
-3. Op de nieuwe pagina met **SignalR**-instellingen voegt u de volgende instellingen toe voor uw nieuwe SignalR-resource:
+3. Op de nieuwe **SignalR** instellingenpagina van de volgende instellingen voor uw nieuwe SignalR-resource toevoegen:
 
-    | Naam | Aanbevolen waarde | Beschrijving |
+    | Name | Aanbevolen waarde | Description |
     | ---- | ----------------- | ----------- |
-    | Resourcenaam | *testsignalr* | Voer een unieke resourcenaam in voor de SignalR-resource. De naam moet een tekenreeks zijn van 1 tot 63 tekens die alleen cijfers, letters en het teken `-` mag bevatten. De naam mag niet beginnen of eindigen met het teken `-`, en opeenvolgende `-`-tekens zijn niet toegestaan.|
-    | Abonnement | Kies uw abonnement |  Selecteer het Azure-abonnement dat u wilt gebruiken om SignalR te testen. Als uw account maar één abonnement heeft, wordt dit automatisch geselecteerd en wordt de vervolgkeuzelijst **Abonnement** niet weergegeven.|
-    | Resourcegroep | Maak een nieuwe resourcegroep met de naam *SignalRTestResources*| Selecteer of maak een resourcegroep voor uw SignalR-resource. Deze groep is handig voor het ordenen van meerdere resources die u mogelijk op een bepaald moment wilt verwijderen door resourcegroep te verwijderen. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/azure-resource-manager/resource-group-overview.md) voor meer informatie. |
+    | Resourcenaam | *testsignalr* | Voer een unieke resourcenaam in voor de SignalR-resource. De naam moet een tekenreeks van 1 tot 63 tekens en alleen cijfers, letters en afbreekstreepjes bevatten (`-`) teken. De naam mag niet beginnen of eindigen met het koppelteken, en opeenvolgende afbreekstreepjes bevatten, zijn niet geldig.|
+    | Abonnement | Kies uw abonnement |  Selecteer het Azure-abonnement dat u wilt gebruiken om SignalR te testen. Als uw account slechts één abonnement heeft, wordt deze automatisch geselecteerd en de **abonnement** vervolgkeuzelijst wordt niet weergegeven.|
+    | Resourcegroep | Maak een resourcegroep met de naam *SignalRTestResources*| Selecteer of maak een resourcegroep voor uw SignalR-resource. Deze groep is handig voor het ordenen van meerdere resources die u mogelijk wilt verwijderen op hetzelfde moment door de resourcegroep te verwijderen. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/azure-resource-manager/resource-group-overview.md) voor meer informatie. |
     | Locatie | *US - oost* | Gebruik **Locatie** om de geografische locatie op te geven waar SignalR-resource wordt gehost. Voor de beste prestaties wordt u aangeraden om de resource te maken in dezelfde regio als de andere onderdelen van uw toepassing. |
-    | Prijscategorie | *Gratis* | Er zijn momenteel **gratis** en **Standard** opties die beschikbaar. |
-    | Vastmaken aan dashboard | ✔ | Schakel dit selectievakje in als u wilt dat de resource wordt vastgemaakt aan uw dashboard, zodat u deze eenvoudiger kunt vinden. |
+    | Prijscategorie | *Gratis* | Op dit moment **gratis** en **Standard** opties zijn beschikbaar. |
+    | Vastmaken aan dashboard | ✔ | Schakel dit in dat de resource die is vastgemaakt aan uw dashboard zodat u gemakkelijker te vinden. |
 
-4. Klik op **Create**. De implementatie kan enkele minuten duren.
+4. Selecteer **Maken**. De implementatie kan enkele minuten duren.
 
-5. Wanneer de implementatie is voltooid, klikt u onder **INSTELLINGEN** op **Sleutels**. Kopieer uw verbindingsreeks van de primaire sleutel. U gebruikt deze waarde later om uw app te configureren voor het gebruik van de Azure SignalR Service-resource.
+5. Nadat de implementatie voltooid is, selecteert u **sleutels** onder **instellingen**. Kopieer de verbindingsreeks voor de primaire sleutel. U gebruikt deze tekenreeks later uw app voor het gebruik van de bron voor Azure SignalR Service configureren.
 
     Deze verbindingsreeks heeft de volgende vorm:
     

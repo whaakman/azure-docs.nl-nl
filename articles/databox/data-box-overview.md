@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930807"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603456"
 ---
 # <a name="what-is-azure-data-box"></a>Wat is Azure Data Box?
 
@@ -107,9 +107,9 @@ Een typische stroom bestaat uit de volgende stappen:
 
 Tijdens dit proces wordt u via e-mail op de hoogte gesteld van alle statuswijzigingen. Ga naar [Data Box in Azure Portal implementeren](data-box-deploy-ordered.md) voor meer informatie over de gedetailleerde werkstroom.
 
-## <a name="region-availability"></a>Beschikbaarheid in regio’s
+## <a name="region-availability"></a>Beschikbaarheid voor de regio
 
-Data Box kan bestanden overgedragen op basis van de regio waarin de service is geïmplementeerd, het land waar het apparaat naar wordt verzonden, en het Azure-opslagaccount waarnaar de gegevens worden overgebracht. 
+Data Box kunt gegevensoverdracht op basis van de regio waarin de service is geïmplementeerd, land/de regio waaraan het apparaat is verzonden en de doel-Azure storage-account waar u de gegevens overbrengt. 
 
 - **Beschikbaarheid van service**: voor deze release is de Data Box-service beschikbaar in de volgende regio’s:
     - Alle regio's in de Verenigde Staten: US - west-centraal, US - west 2, US - west, US - zuid-centraal, US - centraal, US - noord-centraal, US - oost en US - oost 2.

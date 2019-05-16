@@ -3,8 +3,8 @@ title: Verificatie in Microsoft identity-platform | Azure
 description: Meer informatie over verificatie in Microsoft identity-platform, de app modelleren, API, inrichting, en dat Microsoft identity-platform biedt ondersteuning voor de meest voorkomende scenario's voor verificatie.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299866"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540156"
 ---
 # <a name="what-is-authentication"></a>Wat is verificatie?
 
@@ -125,12 +125,12 @@ Een korte beschrijving van elk type claim verzonden door Microsoft identity-plat
 | Name | Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. |
 | Object-id | Bevat een onveranderbare, unieke id voor het onderwerp in Azure AD. |
 | Rollen | Bevat beschrijvende namen voor de Azure AD-toepassingsrollen die zijn toegewezen aan de gebruiker. |
-| Bereik | Geeft aan welke machtigingen zijn verleend aan de clienttoepassing. |
+| Scope | Geeft aan welke machtigingen zijn verleend aan de clienttoepassing. |
 | Onderwerp | Geeft aan over welke principal het token informatie bevat. |
 | Tenant-id | Bevat een onveranderbare, unieke id voor de directorytenant die het token heeft uitgegeven. |
 | Levensduur van token | Definieert gedurende welke periode een token geldig is. |
 | User principal name | Bevat de user principal name van het onderwerp. |
-| Version | Bevat het versienummer van het token. |
+| Versie | Bevat het versienummer van het token. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

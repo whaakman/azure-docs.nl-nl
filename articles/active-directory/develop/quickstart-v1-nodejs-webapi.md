@@ -3,8 +3,8 @@ title: Een Web-API beveiligen met Azure Active Directory | Microsoft Docs
 description: Meer informatie over het bouwen van een Node.js REST-web-API die is geïntegreerd met Azure Active Directory voor verificatie.
 services: active-directory
 documentationcenter: nodejs
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dcbe10c08d581e2ec01e1616da49b7a1b31018d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299189"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545975"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Quickstart: Een Web-API beveiligen met Azure Active Directory
 
@@ -74,7 +74,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 De [argumenten](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-create) voor de `create`-opdracht bevatten:
 
-| Argument  | Beschrijving |
+| Argument  | Description |
 |---------|---------|
 |`display-name` | Beschrijvende naam van de registratie |
 |`homepage` | URL waar gebruikers zich kunnen aanmelden en uw toepassing kunnen gebruiken |

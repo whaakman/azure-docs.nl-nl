@@ -7,7 +7,7 @@ metadata:
   description: Meer informatie over het gebruik van de Bing Visual Search-API om inzichten over een afbeelding te verkrijgen.
   services: cognitive-services
   author: swhite-msft
-  manager: rosh
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-visual-search
   ms.tgt_pltfrm: na

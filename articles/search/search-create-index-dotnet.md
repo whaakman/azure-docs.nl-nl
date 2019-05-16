@@ -9,19 +9,20 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/08/2019
-ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/16/2019
+ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516559"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758460"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Quickstart: 1 - een Azure Search-index in makenC#
 > [!div class="op_single_selector"]
 > * [C#](search-create-index-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Python](search-get-started-python.md)
 > * [Postman](search-fiddler.md)
 >*
 
@@ -36,11 +37,11 @@ In dit artikel begeleidt u bij het proces voor het maken van [een Azure Search-i
 
 De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick Start. 
 
-[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start.
++ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
++ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
 
-[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) biedt de Voorbeeldoplossing is een .NET Core-consoletoepassing die is geschreven in C#, dat zich bevindt in de GitHub-opslagplaats voor Azure-voorbeelden. Downloaden en uitpakken van de oplossing. Oplossingen zijn standaard alleen-lezen. Met de rechtermuisknop op de oplossing en schakelt u het kenmerk alleen-lezen zodat u bestanden kunt wijzigen. Gegevens is opgenomen in de oplossing.
++ [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) biedt de Voorbeeldoplossing is een .NET Core-consoletoepassing die is geschreven in C#, dat zich bevindt in de GitHub-opslagplaats voor Azure-voorbeelden. Downloaden en uitpakken van de oplossing. Oplossingen zijn standaard alleen-lezen. Met de rechtermuisknop op de oplossing en schakelt u het kenmerk alleen-lezen zodat u bestanden kunt wijzigen. Gegevens is opgenomen in de oplossing.
 
 ## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 

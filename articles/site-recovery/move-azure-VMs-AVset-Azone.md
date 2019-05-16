@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196179"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65759325"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Virtuele Azure-machines verplaatsen naar beschikbaarheidszones
 Beschikbaarheidszones in Azure kunt uw toepassingen en gegevens beschermen tegen storingen in datacenters. Elke beschikbaarheidszone bestaat uit een of meer datacenters die zijn voorzien van een onafhankelijke stroomvoorziening, koeling en netwerk. Om voor tolerantie te zorgen, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen Beschikbaarheidszones binnen een regio beschermt toepassingen en gegevens tegen storingen in datacenters. Met Beschikbaarheidszones biedt Azure een service level agreement (SLA) van 99,99% voor actieve tijdsduur van virtuele machines (VM's). Beschikbaarheidszones worden ondersteund in bepaalde regio's, zoals vermeld in [wat zijn Beschikbaarheidszones in Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
@@ -50,7 +50,7 @@ In een scenario waarbij uw virtuele machines worden geïmplementeerd als *één 
 4. Volg de richtlijnen bij uw Linux-leverancier om op te halen van de meest recente vertrouwde basiscertificaten en de certificaatintrekkingslijst op de virtuele machine voor Linux-VM's.
 5. Zorg ervoor dat u niet een verificatieproxy gebruikt voor het beheren van verbinding met het netwerk voor virtuele machines die u wilt verplaatsen.
 
-6. Als de virtuele machine die u wilt verplaatsen, heeft geen toegang tot het internet en een firewallproxy gebruikt voor het beheren van uitgaande toegang, controleert u de vereisten die aan [ uitgaande netwerkconnectiviteit configureren](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+6. Als de virtuele machine die u wilt verplaatsen, heeft geen toegang tot het internet en een firewallproxy gebruikt voor het beheren van uitgaande toegang, controleert u de vereisten die aan [uitgaande netwerkconnectiviteit configureren](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 
 7. Identificeer de bron-indeling voor netwerken en de resources die u momenteel voor verificatie gebruikt, zoals netwerktaakverdelers, nsg's en openbaar IP-adres.
 

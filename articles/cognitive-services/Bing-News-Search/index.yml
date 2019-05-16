@@ -6,15 +6,15 @@ metadata:
   title: 'Documentatie voor Bing Nieuws zoeken-API -zelfstudies, quickstarts, API-verwijzingen | Microsoft Docs'
   description: Lees hoe u de Bing Nieuws zoeken-API gebruikt om op internet te zoeken naar nieuws.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Met de Bing Nieuws zoeken-API kunt u de zoekfunctionaliteit voor nieuws van Bing in uw toepassingen gebruiken. Door met de API zoekquery''s te verzenden, kunt u relevante nieuwsartikelen ophalen uit meerdere categorieën en bronnen, vergelijkbaar met bing.com/news.'
 sections:

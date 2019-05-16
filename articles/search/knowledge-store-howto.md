@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met kennis Store (preview) - Azure Search
+title: Aan de slag met kennis store (preview) - Azure Search
 description: Meer informatie over de stappen voor het verzenden van verrijkt documenten die zijn gemaakt door AI indexeren in Azure Search die leiden tot een archief kennis in uw Azure storage-account. Van daaruit kunt u bekijken, vorm en verrijkt documenten in Azure Search en andere toepassingen gebruiken.
 manager: cgronlun
 author: HeidiSteen
@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471746"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540730"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>Aan de slag met kennis Store
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Aan de slag met kennis store in Azure Search
 
-[Kennis Store](knowledge-store-concept-intro.md) is een nieuwe previewfunctie in Azure Search die wordt opgeslagen als AI enrichments gemaakt in een pijplijn indexering voor knowledge-gegevensanalyse in andere apps. U kunt ook opgeslagen enrichments gebruiken om te begrijpen en verfijnen van een Azure Search-pijplijn voor indexering.
+> [!Note]
+> Kennis store is in preview en niet bedoeld voor gebruik in productieomgevingen. De [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) biedt deze functie. Er is geen .NET SDK-ondersteuning op dit moment.
+>
+
+[Kennis store](knowledge-store-concept-intro.md) AI enrichments gemaakt tijdens het indexeren met uw Azure storage-account voor downstream kennis gegevensanalyse in andere apps worden opgeslagen. U kunt ook opgeslagen enrichments gebruiken om te begrijpen en verfijnen van een Azure Search-pijplijn voor indexering.
 
 Een store kennis wordt gedefinieerd door een set vaardigheden. Voor reguliere's voor Azure Search-zoekopdracht in volledige tekst, is het leveren van het doel van een set vaardigheden AI enrichments zodat inhoud meer doorzoekbaar. Voor scenario's voor gegevensanalyse kennis, is de rol van een set vaardigheden het maken, vullen, en meerdere gegevensstructuren voor analyse of opslaan modelleren in andere apps en -processen.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023635"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540905"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
 
@@ -61,7 +61,7 @@ Intern, genereert de pijplijn een verzameling verrijkt documenten. U kunt bepale
 
 [Zoeken naar service REST api-version = 2019-05-06](search-api-preview.md) breidt kennis en vaardigheden met een definitie van knowledgeStore waarmee een verbinding met Azure storage en projecties waarin wordt beschreven hoe de enrichments worden opgeslagen. 
 
-Een store kennis toevoegen aan een set vaardigheden biedt u de mogelijkheid om een weergave van uw enrichments voor scenario's dan zoeken in volledige tekst. Zie voor meer informatie, [wat is er kennis Store](knowledge-store-concept-intro.md).
+Een store kennis toevoegen aan een set vaardigheden biedt u de mogelijkheid om een weergave van uw enrichments voor scenario's dan zoeken in volledige tekst. Zie voor meer informatie, [wat is kennis store](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Stap 3: Search-index en query's gebaseerde toegang
 
@@ -87,7 +87,7 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 | Document kraken | Het proces van het uitpakken of het maken van de tekstinhoud van niet-tekstuele bronnen tijdens het indexeren. Optische tekenherkenning (OCR) is een voorbeeld, maar in het algemeen deze gegevensset verwijst naar indexeerfunctie Kernfunctionaliteit als de indexeerfunctie inhoud uit toepassingsbestanden haalt. De gegevensbron met de locatie van bronbestand en de definitie van de indexeerfunctie veldtoewijzingen, bieden zijn beide belangrijke factoren in document kraken. | Zie [indexeerfuncties](search-indexer-overview.md) |
 | Vormgeven | Tekstfragmenten consolideren in een groter geheel, of omgekeerd opdelen grotere tekstsegmenten in een handelbare hoeveelheid voor verdere downstream-verwerkingen. | [Shaper vaardigheid](cognitive-search-skill-shaper.md), [tekst fusie vaardigheid](cognitive-search-skill-textmerger.md), [tekst bekwaamheid splitsen](cognitive-search-skill-textsplit.md) |
 | Verrijkt documenten | Een tijdelijke interne structuur, niet rechtstreeks toegankelijk zijn in de code. Verrijkt documenten zijn gegenereerd tijdens de verwerking, maar alleen uiteindelijke uitvoer zijn opgeslagen in een search-index. Veldtoewijzingen te bepalen welke gegevens worden toegevoegd aan de index. | Zie [toegang tot geavanceerde documenten](cognitive-search-tutorial-blob.md#access-enriched-document). |
-| Indexer |  Een Verkenner die doorzoekbare gegevens en metagegevens geëxtraheerd uit een externe gegevensbron en een index op basis van veld naar toewijzingen tussen de index en de gegevensbron voor documenten kraken vult. Voor cognitief zoeken enrichments, de indexeerfunctie roept een set vaardigheden en de veldtoewijzingen koppelen verrijking uitvoer naar de doelvelden in de index bevat. Definitie van de indexeerfunctie bevat alle instructies en verwijzingen voor bewerkingen van de pijplijn en de pijplijn wordt aangeroepen wanneer u de indexeerfunctie uitvoeren. | [Indexeerfuncties](search-indexer-overview.md) |
+| Indexeerfunctie |  Een Verkenner die doorzoekbare gegevens en metagegevens geëxtraheerd uit een externe gegevensbron en een index op basis van veld naar toewijzingen tussen de index en de gegevensbron voor documenten kraken vult. Voor cognitief zoeken enrichments, de indexeerfunctie roept een set vaardigheden en de veldtoewijzingen koppelen verrijking uitvoer naar de doelvelden in de index bevat. Definitie van de indexeerfunctie bevat alle instructies en verwijzingen voor bewerkingen van de pijplijn en de pijplijn wordt aangeroepen wanneer u de indexeerfunctie uitvoeren. | [Indexeerfuncties](search-indexer-overview.md) |
 | Gegevensbron  | Een object dat wordt gebruikt door een indexeerfunctie om te verbinden met een externe gegevensbron van de ondersteunde typen in Azure. | Zie [indexeerfuncties](search-indexer-overview.md) |
 | Index | Een persistente search-index in Azure Search, gebouwd op basis van een indexschema dat veld structuur en het gebruik definieert. | [Indexen in Azure Search](search-what-is-an-index.md) | 
 
@@ -145,5 +145,5 @@ Zie voor meer informatie over specifieke vragen of problemen [tips voor probleem
 + [Documentatie voor cognitief zoeken](cognitive-search-resources-documentation.md)
 + [Snelstart: Probeer cognitief zoeken in een kennismaken met de portal](cognitive-search-quickstart-blob.md)
 + [Zelfstudie: Informatie over de cognitief zoeken-API 's](cognitive-search-tutorial-blob.md)
-+ [Kennis Store-overzicht](knowledge-store-concept-intro.md)
-+ [Kennis Store-overzicht](knowledge-store-howto.md)
++ [Kennis store overzicht](knowledge-store-concept-intro.md)
++ [Kennis store overzicht](knowledge-store-howto.md)

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 287cab034079c54c027e0dc7b84564458d31fc31
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d9f1cbff0dd79d6c2932428708eb1d097b6d9d63
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696161"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601485"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Uw eerste functie maken met Java en Maven
 
@@ -29,7 +29,7 @@ In dit artikel wordt uitgelegd hoe u met behulp van het opdrachtregelprogramma M
 
 Als u functies wilt ontwikkelen met behulp van Java, moet het volgende zijn geïnstalleerd:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), versie 8
+- [Java Developer Kit](https://aka.ms/azure-jdks), versie 8
 - [Apache Maven](https://maven.apache.org), versie 3.0 of hoger
 - [Azure-CLI](https://docs.microsoft.com/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versie 2.6.666 of hoger
@@ -202,7 +202,7 @@ In het volgende:
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Sla de wijzigingen op en implementeer opnieuw door `azure-functions:deploy` uit te voeren vanaf de terminal, zoals u eerder hebt gedaan. De functie-app wordt bijgewerkt, en deze aanvraag:
+Sla de wijzigingen op. Voer mvn opschonen pakket en opnieuw implementeren door het uitvoeren van `azure-functions:deploy` vanaf de terminal als voorheen. De functie-app wordt bijgewerkt, en deze aanvraag:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

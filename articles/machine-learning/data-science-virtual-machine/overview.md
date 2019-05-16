@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/27/2017
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1534bc65a369254802973d6c3b91ed8b76ed44e0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578433"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596551"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Inleiding tot Azure Data Science Virtual Machine voor Linux en Windows
 
@@ -45,6 +45,10 @@ Zakelijke trainers en docenten die datatechnologie onderwijzen, werken meestal m
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Flexibele capaciteit op aanvraag voor grootschalige projecten
 Datatechnologie-hackathons/-wedstrijden of grootschalige gegevensmodellen en grootschalig dataonderzoek vereisen uitgebreide hardwarecapaciteit, doorgaans voor een korte duur. Met de Data Science VM kan de datatechnologieomgeving snel op aanvraag worden gerepliceerd, op omhoog geschaalde servers waarop experimenten kunnen worden uitgevoerd die krachtige computerbronnen vereisen.
+
+### <a name="custom-compute-power-for-azure-notebooks"></a>Aangepaste compute-kracht voor Azure-laptops
+
+[Azure-notitieblokken](/azure/notebooks/azure-notebooks-overview.md) is een gratis gehoste service voor het ontwikkelen, uitvoeren en delen van Jupyter notebooks onder in de cloud met geen installatie. De laag gratis service, is echter beperkt tot 4GB geheugen en 1GB aan gegevens. Als u wilt vrijgeven alle limieten, kunt u vervolgens een project notitieblokken koppelen aan een Data Science VM of andere VM's met Jupyter-server. Als u zich aanmeldt bij Azure-laptops met een account met behulp van Azure Active Directory (zoals een bedrijfsaccount), laptops Data Science-VM's automatisch weergegeven in alle abonnementen die zijn gekoppeld aan dat account. Zie [Manage and configure projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) (Projecten beheren en configureren - Compute-laag) voor meer informatie.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Experimenten en evaluatie op korte termijn
 De Data Science VM kan worden gebruikt om hulpprogramma's als Microsoft ML Server, SQL Server, Visual Studio-hulpprogramma's, Jupyter, deep learning-/ML-toolkits en nieuwe hulpprogramma's die populair zijn in de community met minimale installatie-inspanningen te evalueren en ermee te gaan werken. Omdat de Data Science VM snel kan worden ingesteld, kan deze worden toegepast in andere gebruiksscenario's voor de korte termijn, zoals het repliceren van gepubliceerde experimenten, het uitvoeren van demo's, het volgen van procedures in onlinesessies en zelfstudies voor vergaderingen.
