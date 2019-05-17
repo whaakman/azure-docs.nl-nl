@@ -63,9 +63,9 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse (BW) ge
 | type | De eigenschap type moet worden ingesteld op: **SapBw** | Ja |
 | server | Naam van de server waarop de SAP BW-instantie zich bevindt. | Ja |
 | systemNumber | Het systeemnummer van de SAP BW-systeem.<br/>Toegestane waarde: decimaal getal van twee cijfers weergegeven als een tekenreeks. | Ja |
-| ClientId | Client-ID van de client in het W SAP-systeem.<br/>Toegestane waarde: decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja |
-| Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
-| wachtwoord | Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientId | Client-ID van de client in het W SAP-systeem.<br/>Toegestane waarde: decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja |
+| userName | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
+| password | Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
 **Voorbeeld:**
@@ -183,8 +183,8 @@ Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP B
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| TEKENREEKS | String |
-| EENHEID | String |
+| STRING | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
