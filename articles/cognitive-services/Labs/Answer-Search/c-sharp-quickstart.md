@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2fc2a4267c3a10a7837012dc65f0ce1a0f826a11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60312590"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823265"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>Quickstart: Project Answer Search-query in C#
 
@@ -23,7 +23,7 @@ Met het volgende voorbeeld met C# maakt en verstuurt u een query voor informatie
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.)
+U moet [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie volstaat.)
 
 Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 

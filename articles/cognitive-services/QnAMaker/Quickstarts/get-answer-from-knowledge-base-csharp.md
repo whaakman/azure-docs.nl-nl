@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: cf2188bd308ccaa9c3d3661d00f721d92a075e22
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 614d7c0b58ee318461cf3c97e934a77c84221ef7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794839"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827598"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Antwoorden vinden op vragen met behulp van een knowledge base met C#
 
@@ -36,7 +36,7 @@ De code voor deze quickstart bevindt zich in de opslagplaats [https://github.com
 
 ## <a name="create-a-knowledge-base-project"></a>Een project met knowledge base maken
 
-1. Open Visual Studio 2017 Community Edition.
+1. Open Visual Studio 2019 Community-editie.
 1. Maak een nieuw project-consoletoepassing (.NET Core) en de naam van het project QnaMakerQuickstart. Accepteer de standaardwaarden voor de overige instellingen.
 
 ## <a name="add-the-required-dependencies"></a>De vereiste afhankelijkheden toevoegen

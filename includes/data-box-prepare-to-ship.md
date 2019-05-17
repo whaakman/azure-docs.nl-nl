@@ -2,21 +2,21 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a8070d25e2606d8ad72ac231a0a208072c612c5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1d52117440028c75b249f469f2b3576c2ab1c5c5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462999"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815560"
 ---
 De laatste stap is de voorbereiding van het apparaat voor verzending. In deze stap worden alle shares van apparaten offline geplaatst. De shares zijn niet toegankelijk als u dit proces hebt gestart.
 
 > [!IMPORTANT]
 > Voorbereiding voor verzending is vereist omdat gegevens die niet aan de naamgevingsregels van Azure voldoen, worden gemarkeerd. Deze stap overslaan kan leiden tot mogelijke gegevens uploaden storingen als gevolg van niet-conforme gegevens.
 
-1. Ga naar **Voorbereiden voor verzending** en klik op **Voorbereiden starten**. Standaard worden controlesommen inline berekend tijdens de voorbereiding op verzending. Het berekenen van de controlesom kan, afhankelijk van de grootte van uw gegevens, uren tot dagen duren. 
+1. Ga naar **Voorbereiden voor verzending** en klik op **Voorbereiden starten**. Standaard worden controlesommen worden berekend terwijl gegevens worden gekopieerd. Voorbereiding voor verzending het berekenen van controlesom is voltooid en wordt de lijst met bestanden wordt gemaakt ( *- BOM bestanden*). Het berekenen van de controlesom kan, afhankelijk van de grootte van uw gegevens, uren tot dagen duren. 
    
     ![Voorbereiding voor verzending 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
@@ -36,7 +36,7 @@ De laatste stap is de voorbereiding van het apparaat voor verzending. In deze st
 
     Als deze stap fouten bevat, moet u het foutenlogboek downloaden en de fouten oplossen. Nadat de fouten zijn opgelost, voert u **Voorbereiding voor verzending** uit.
 
-4. Nadat de voorbereiding voor verzending met succes is voltooid (zonder fouten), downloadt u de lijst met bestanden (ook wel bekend als het manifest) die in dit proces zijn gekopieerd. U kunt deze lijst later gebruiken om de bestanden te verifiëren die naar Azure zijn geüpload.
+4. Nadat de voorbereiding voor verzending met succes is voltooid (zonder fouten), downloadt u de lijst met bestanden (ook wel bekend als het manifest) die in dit proces zijn gekopieerd. U kunt deze lijst later gebruiken om de bestanden te verifiëren die naar Azure zijn geüpload. Zie voor meer informatie, [inspecteren stuklijst bestanden tijdens de voorbereiding voor verzending](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
     ![Voorbereiding voor verzending 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

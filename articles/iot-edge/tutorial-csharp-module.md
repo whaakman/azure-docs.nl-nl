@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 55cec146382f0b64a38bf2d954b81051ba109b27
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: d98fd0c3417d54321c492b1e47679ec63f8c1603
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876047"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835168"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Zelfstudie: Ontwikkel een C# IoT Edge-module voor Linux-apparaten
 
@@ -38,8 +38,8 @@ In deze zelfstudie laat zien hoe u voor het ontwikkelen van een module in **C#**
 
 Gebruik de volgende tabel om te begrijpen van de opties voor het ontwikkelen en implementeren van modules in C op Linux: 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
-| -- | ------------------ | ------------------ |
+| C# | Visual Studio Code | Visual Studio | 
+| -- | ------------------ | ------------- |
 | **Linux AMD64** | ![C#modules voor LinuxAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![C#modules voor LinuxAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![C#modules voor LinuxARM32 in VS Code](./media/tutorial-c-module/green-check.png) | ![C#modules voor LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 

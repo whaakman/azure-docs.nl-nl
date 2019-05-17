@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 366a5512179136987a8fc984136c3c039a5b079d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61058100"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827276"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB
 
@@ -51,7 +51,7 @@ Het hulpprogramma voor gegevensmigratie is een open source-oplossing waarmee geg
 * CSV-bestanden
 * Azure Table Storage
 * Amazon DynamoDB
-* HBase
+* Hbase
 * Azure DB Cosmos-verzamelingen
 
 Het hulpprogramma voor importeren bevat een grafische gebruikersinterface (dtui.exe), maar kan ook worden aangestuurd vanaf de opdrachtregel (dt.exe). Er is een optie om de bijbehorende opdracht uit te voeren na het instellen van een import via de gebruikersinterface. U kunt brongegevens in tabelvorm, zoals SQL Server- of CSV-bestanden, transformeren om hiërarchische relaties (subdocumenten) te maken tijdens het importeren. Lees door voor meer informatie over bronopties, voorbeeldopdrachten om te importeren vanuit elke bron, doelopties en het weergeven van importresultaten.
@@ -85,6 +85,19 @@ Nadat u het hulpprogramma hebt geïnstalleerd, is het tijd om uw gegevens te imp
 Met de importfunctie voor JSON-bronbestanden kunt u een of meer uit een enkel document bestaande JSON-bestanden importeren of JSON-bestanden die elk een matrix met JSON-documenten hebben. Wanneer u mappen toevoegt die JSON-bestanden hebben om te importeren, kunt u in submappen recursief zoeken naar bestanden.
 
 ![Schermopname van opties voor JSON-bronbestanden - hulpprogramma's voor databasemigratie](./media/import-data/jsonsource.png)
+
+De verbindingsreeks is in de volgende indeling:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* De `<CosmosDB Endpoint>` is de URI van het eindpunt. U kunt deze waarde ophalen vanuit de Azure-portal. Navigeer naar uw Azure Cosmos-account. Open de **overzicht** deelvenster en kopieer de **URI** waarde.
+* De `<AccountKey>` is het "wachtwoord" of **primaire sleutel**. U kunt deze waarde ophalen vanuit de Azure-portal. Navigeer naar uw Azure Cosmos-account. Open de **verbindingsreeksen** of **sleutels** deelvenster en kopieer het "wachtwoord" of **primaire sleutel** waarde.
+* De `<CosmosDB Database>` is de naam van de CosmosDB-database.
+
+Voorbeeld: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Gebruik de opdracht controleren om ervoor te zorgen dat het Cosmos DB-account dat is opgegeven in het veld connection string kan worden geopend.
 
 Hierna volgen enkele opdrachtregelvoorbeelden om JSON-bestanden te importeren:
 

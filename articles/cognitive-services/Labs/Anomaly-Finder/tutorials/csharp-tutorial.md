@@ -10,12 +10,12 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 64183ea09203ea965bb889fe4741fdaf4dbd1e02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42b7b6fac8f99d78e4a7460ad8753f48b0a3c0ba
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709934"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823425"
 ---
 # <a name="tutorial-anomaly-detection-with-c-application"></a>Zelfstudie: Anomaliedetectie met C#-toepassing
 
@@ -27,9 +27,9 @@ Maak kennis met een eenvoudige Windows-toepassing die gebruikmaakt van de Anomal
 
 ### <a name="platform-requirements"></a>Platformvereisten
 
-Het voorbeeld is ontwikkeld voor het .NET Framework met behulp van [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
+Het voorbeeld is ontwikkeld voor .NET Framework met behulp van [2019 van Visual Studio, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op Anomaliedetectie en haal de abonnementssleutel op 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op Anomaliedetectie en haal een abonnementssleutel op 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

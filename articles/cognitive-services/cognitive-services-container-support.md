@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea74dbd6cffa34e4462433cdfc51e7d5abac9a41
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 43e35e8074922f45493bc635455d1d176078ce51
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796673"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833532"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Ondersteuning voor containers in Azure Cognitive Services
 
@@ -26,9 +26,12 @@ Ondersteuning voor containers in Azure Cognitive Services kunnen ontwikkelaars g
 * [Face](Face/Overview.md)
 * [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding](LUIS/luis-container-howto.md) (LUIS)
-* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [Speech Service-API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Tekstanalyse](text-analytics/overview.md)
+
+<!--
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
 
 Containerstrategie is een benadering voor softwaredistributie waarin een toepassing of service, inclusief de afhankelijkheden en de configuratie wordt geleverd samen als een containerinstallatiekopie. Met weinig of geen wijziging, kan de installatiekopie van een container worden geïmplementeerd op een containerhost. Containers zijn geïsoleerd van elkaar worden verbonden en het onderliggende besturingssysteem, met een kleinere footprint dan een virtuele machine. Containers kunnen worden geïnstantieerd van containerinstallatiekopieën voor taken op korte termijn en verwijderd wanneer het niet meer nodig hebt.
 
@@ -57,12 +60,15 @@ Azure Cognitive Services-containers bieden de volgende set Docker-containers, di
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Detecteert menselijke gezichten in afbeeldingen en -kenmerken, zoals gezichtsoriëntatiepunten (zoals hartstukken en ogen), geslacht, leeftijd en andere machine voorspeld gezichtskenmerken identificeert. Naast detectie controleren Face of twee gezichten in dezelfde afbeelding of andere installatiekopieën zijn hetzelfde met behulp van een betrouwbaarheidsscore of gezichten op een database om te zien als een gelijkende vergelijken of identieke face al bestaat. Deze kunt soortgelijke gezichten ook organiseren in groepen, met behulp van gedeelde visuele kenmerken.<br>[Toegang aanvragen](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Formulier-herkenning](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form Recognizer** |Inzicht in de vorm van toepassing is machine learning-technologie om te identificeren en extraheren van sleutel / waarde-paren en tabellen uit formulieren.<br>[Toegang aanvragen](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Een ervaren of gepubliceerd Language Understanding-model, ook wel bekend als een LUIS-app, worden in een docker-container en biedt toegang tot de voorspellingen van de query van de API-eindpunten van de container. U kunt het verzamelen van Logboeken voor query's uit de container en upload deze terug naar de [LUIS portal](https://www.luis.ai) voor het verbeteren van de nauwkeurigheid van de app.|
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is een op de cloud gebaseerde API-service waarmee u de beste ervaring kunt kiezen om aan uw gebruikers te laten zien, waarbij u leert van hun real-time gedrag.|
 |[Speech Service-API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Spraak naar tekst** |Transcribeert continue realtime spraak naar tekst.<br>[Toegang aanvragen](https://aka.ms/speechcontainerspreview/)|
 |[Speech Service-API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Tekst naar spraak** |Converteert tekst naar natuurlijk klinkende spraak.<br>[Toegang aanvragen](https://aka.ms/speechcontainerspreview/)|
 |[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Sleutel vindt er sleuteltermextractie plaats** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraheert sleuteltermen voor het identificeren van de belangrijkste punten. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. |
 |[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Taaldetectie** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Detecteert welke taal de ingevoerde tekst is geschreven en het rapport een code één taal voor elk document dat op de aanvraag ingediend voor maximaal 120 talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. |
 |[Tekstanalyse](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Sentimentanalyse** ([installatiekopie](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseert. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is. De analyse-modellen zijn vooraf getrainde met behulp van een uitgebreide hoofdtekst van de tekst en natuurlijke taal technologieën van Microsoft. Voor [geselecteerde talen](./text-analytics/language-support.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. |
+
+<!--
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+-->
 
 Bovendien enkele containers worden ondersteund in Cognitive Services [ **All-in-One aanbieding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource sleutels. U kunt één enkele All-in-One-resource van Cognitive Services maken en gebruiken dezelfde facturering sleutel voor ondersteunde services voor de volgende services:
 
@@ -117,6 +123,8 @@ Installeren en de functionaliteit van containers in Azure Cognitive Services ver
 * [Face-containers](Face/face-how-to-install-containers.md)
 * [Formulier herkenning containers](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding (LUIS) containers](LUIS/luis-container-howto.md)
-* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [Containers voor spraak-API-Service](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Text Analytics-containers](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+
+<!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
+-->

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 04/04/2019
 ms.author: sngun
-ms.openlocfilehash: cb132c8e36797e4ae089420e48d75271cddb5c04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a54c7493dd40d26151311a4211a791a99b0a265e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60685846"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833558"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-voorbeelden voor de SQL API
 > [!div class="op_single_selector"]
@@ -34,8 +34,8 @@ Voor codevoorbeelden voor .NET SDK-versie 3.0 (Preview), raadpleegt u de meest r
 
 ## <a name="prerequisites"></a>Vereisten
 
-Visual Studio 2017 met de Azure-ontwikkeling-werkstroom geïnstalleerd
-- U kunt downloaden en gebruiken de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio. 
+Visual Studio 2019 met de Azure-ontwikkeling-werkstroom geïnstalleerd
+- U kunt downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio. 
 
 De [Microsoft.Azure.DocumentDB NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
