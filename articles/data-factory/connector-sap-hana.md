@@ -61,8 +61,8 @@ De volgende eigenschappen worden ondersteund voor SAP HANA gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **SapHana** | Ja |
 | server | Naam van de server waarop de SAP HANA-instantie zich bevindt. Als uw server een aangepaste poort gebruikt is, geeft u `server:port`. | Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de SAP HANA-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows** | Ja |
-| Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
-| wachtwoord | Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
+| password | Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
 **Voorbeeld:**
@@ -165,18 +165,18 @@ Het kopiëren van gegevens van SAP HANA, worden de volgende toewijzingen van SAP
 | ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
-| BOOLEAANSE WAARDE | Byte |
+| BOOLEAN | Byte |
 | CLOB | Byte[] |
 | DATE | DateTime |
 | DECIMAL | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | String |
-| ECHTE | Single |
+| REAL | Single |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TIME | TimeSpan |
-| TIJDSTEMPEL | DateTime |
+| TIMESTAMP | DateTime |
 | TINYINT | Byte |
 | VARCHAR | String |
 
