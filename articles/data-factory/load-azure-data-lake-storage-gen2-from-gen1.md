@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6e09ec1f070f9ee0f4162524e4bd80d1f81adc3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546139"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560639"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 met Azure Data Factory
 
@@ -132,12 +132,47 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
-Groot wanneer kopiëren van gegevens uit een gegevensarchief op basis van bestanden, aan u worden voorgesteld:
+Raadpleeg voor het evalueren van het upgraden van Azure Data Lake Storage (ADLS) Gen1 naar Gen2 in het algemeen, [upgraden van uw big data analytics-oplossingen van Azure Data Lake Storage Gen1 naar Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). De volgende secties vindt aanbevolen procedures van het gebruik van ADF voor gegevensupgrade van Gen1 naar Gen2.
 
-- De bestanden te partitioneren in 10TB aan 30TB fileset.
-- Te veel gelijktijdige exemplaar wordt uitgevoerd om te voorkomen dat de beperking van de bron- of -sink-gegevensopslag niet activeren. U kunt beginnen met één exemplaar uitvoeren en controleren de doorvoer en vervolgens geleidelijk meer behoefte toevoegen.
+### <a name="data-partition-for-historical-data-copy"></a>Partitie voor het kopiëren van historische gegevens
+
+- Als de grootte van uw totale hoeveelheid gegevens in ADLS Gen1 is minder dan **30TB** en het aantal bestanden is minder dan **1 miljoen**, kunt u alle gegevens in één exemplaar activiteit die wordt uitgevoerd.
+- Als er een grotere hoeveelheid gegevens te kopiëren, of u de flexibiliteit om te beheren van de gegevensmigratie in batches en elk van deze voltooid binnen een bepaald tijdstip windows kunt u voor het partitioneren van de gegevens worden voorgesteld, in welk geval het kan ook de verminderen het risico van een onverwachte iss UE.
+
+Een PoC (Proof of Concept) wordt sterk aanbevolen om te controleren of de end-to-end-oplossing en de doorvoer van de kopie in uw omgeving te testen. Belangrijke stappen PoC te doen: 
+
+1. Een ADF-pijplijn maken met één kopieeractiviteit verschillende TB aan gegevens van ADLS Gen1 naar ADLS Gen2 om op te halen van een kopie basislijn van prestaties, beginnend met kopieert [eenheden van de integratie van gegevens (DIUs)](copy-activity-performance.md#data-integration-units) als 128. 
+2. Op basis van de kopie-doorvoer u in stap #1 krijgt, de geschatte tijd die nodig is voor de volledige gegevens-migratie berekenen. 
+3. (Optioneel) Een besturingselement-tabel maken en definieer het bestand voor het partitioneren van de bestanden moeten worden gemigreerd. De manier voor het partitioneren van de volgende bestanden: 
+
+    - Met de mapnaam- of mapnaam is gepartitioneerd met filteren op jokerteken (aanbevolen) 
+    - Geregeld aan de hand van het bestand laatst gewijzigd 
+
+### <a name="network-bandwidth-and-storage-io"></a>Netwerk bandbreedte en -opslag i/o 
+
+U kunt de gelijktijdigheid van taken van de ADF-kopie die gegevens van ADLS Gen1 lezen en schrijven van gegevens naar ADLS Gen2, kunt beheren, zodat u het gebruik van opslag-i/o beheren kunt om te kunnen niet van invloed op het werk van het normale zakelijke op ADLS Gen1 tijdens de migratie.
+
+### <a name="permissions"></a>Machtigingen 
+
+In Data Factory, [ADLS Gen1 connector](connector-azure-data-lake-store.md) biedt ondersteuning voor Service-Principal en beheerde identiteit voor Azure-resource-verificaties; [ADLS Gen2 connector](connector-azure-data-lake-storage.md) ondersteunt accountsleutel, Service-Principal en beheerde identiteit voor Azure-resource-verificaties. Om Data Factory kunnen navigeren en kopieert u die alle de bestanden/ACL's als u nodig hebt, zorg ervoor dat u hoge voldoende machtigingen voor het account opgeven voor toegang tot/lezen/schrijven van alle bestanden en ACL's ingesteld als u wilt. Voorgesteld moet worden verleend als super-End-User/eigenaar rol tijdens de migratieperiode. 
+
+### <a name="preserve-acls-from-data-lake-storage-gen1"></a>ACL's van Data Lake Storage Gen1 behouden
+
+Als u repliceren van de ACL's samen met de bestanden wilt bij een upgrade van Data Lake Storage Gen1 naar Gen2, raadpleegt u [behouden ACL's van Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+
+### <a name="incremental-copy"></a>Incrementele kopie 
+
+Verschillende manieren kunnen worden gebruikt om alleen de nieuwe of bijgewerkte bestanden vanuit ADLS Gen1 laden:
+
+- Nieuwe of bijgewerkte bestanden laden met de tijd gepartitioneerde bestand of map naam, bijvoorbeeld/2019/05/13 / *;
+- Nieuwe of bijgewerkte bestanden door LastModifiedDate; laden
+- Nieuwe of bijgewerkte bestanden identificeren door een 3e partij hulpprogramma/oplossing, en vervolgens het bestand of map naam doorgeven aan ADF-pijplijn via de parameter of een tabel per bestand.  
+
+De juiste frequentie incrementeel laden doen, is afhankelijk van het totale aantal bestanden in ADLS Gen1 en de omvang van de nieuwe of bijgewerkte bestand worden geladen telkens.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Overzicht kopieeractiviteit](copy-activity-overview.md)
-* [Azure Data Lake Storage Gen2-connector](connector-azure-data-lake-storage.md)
+> [!div class="nextstepaction"]
+> [Overzicht kopieeractiviteit](copy-activity-overview.md)
+> [connector voor Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+> [Azure Data Lake Storage Gen2-connector](connector-azure-data-lake-storage.md)

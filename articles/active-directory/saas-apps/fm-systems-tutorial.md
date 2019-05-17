@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 77e58ea830de1e8ab7e3643ee5694a5e3f609c53
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dda1447a049071a0871079f2cabd046ed7c479d6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564914"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Zelfstudie: Azure Active Directory-integratie met FM:Systems
 
@@ -107,7 +107,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met FM:Systems, moet u d
     In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
     
     > [!NOTE]
-    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke antwoord-URL. Neem contact op met [FM:Systems Client ondersteuningsteam](https://fmsystems.com/ask-us/) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke antwoord-URL. Neem contact op met [FM:Systems Client ondersteuningsteam](https://fmsystems.com/support-services/) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
@@ -125,7 +125,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met FM:Systems, moet u d
 
 ### <a name="configure-fmsystems-single-sign-on"></a>Configureer FM:Systems Single Sign-On
 
-Het configureren van eenmalige aanmelding op **FM:Systems** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [FM:Systems ondersteuningsteam](https://fmsystems.com/ask-us/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **FM:Systems** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [FM:Systems ondersteuningsteam](https://fmsystems.com/support-services/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

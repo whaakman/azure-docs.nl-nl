@@ -5,19 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 05/13/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744055"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561259"
 ---
 Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-snelheid voor relationele-databaseservers, middelgrote tot grote caches en analysefuncties in het geheugen die. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
-* De M-serie biedt het hoogste aantal vCPU's (maximaal 128 vcpu's) en het grootste geheugen (wel 3,8 TiB) van alle virtuele machines in de cloud.  Dit is ideaal voor zeer grote databases of andere toepassingen die zo kunnen profiteren van een groot aantal vCPU’s en grote hoeveelheden geheugen.
+* De Mv2-serie biedt het hoogste aantal vCPU's (maximaal 208 vcpu's) en het grootste geheugen (maximaal 5.7 TiB) van alle virtuele machines in de cloud. Dit is ideaal voor zeer grote databases of andere toepassingen die zo kunnen profiteren van een groot aantal vCPU’s en grote hoeveelheden geheugen.
+ 
+* De M-serie biedt een aantal hoge vCPU (maximaal 128 vcpu's) en een grote hoeveelheid geheugen (wel 3,8 TiB). Het is ook ideaal voor zeer grote databases of andere toepassingen die van een groot aantal vCPU's en grote hoeveelheden geheugen profiteren.
 
 * Dv2-serie, G-serie en de tegenhangers DSv2/GS zijn ideaal voor toepassingen die snellere CPU's, betere prestaties voor tijdelijke opslag, of hogere geheugen-eisen. Ze bieden een krachtige combinatie voor vele toepassingen op bedrijfsniveau.
 
@@ -86,6 +88,24 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 <sup>2</sup> constrained core grootten beschikbaar.
 
 <sup>3</sup> exemplaar is geïsoleerd voor hardware toegewezen aan één klant.
+
+
+## <a name="mv2-series"></a>Mv2-serie
+
+Premium-opslag: Ondersteund
+
+Premium Storage opslaan in cache: Ondersteund
+
+Write Accelerator: [Ondersteund](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+|Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor opslag in cache en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+
+Mv2-serie VM's zijn uitgerust met Intel® Hyper-Threading-technologie  
+
+<sup>1</sup> deze grote vCPU's is een van deze ondersteunde gastbesturingssystemen vereist: WindowsServer 2016, WindowsServer 2019, SLES 12 SP4, SLES 15 en RHEL 7,6
 
 
 ## <a name="m-series"></a>M-serie 

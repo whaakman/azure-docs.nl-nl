@@ -10,23 +10,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: ece6a6efa2f4424fb1c9d7f5a7e12a4e707faf45
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649302"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601504"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Maken, wijzigen of verwijderen van een openbare IP-adresvoorvoegsel
 
 Meer informatie over een openbaar IP-adresvoorvoegsel en het maken, wijzigen en verwijderen. Een openbare IP-adresvoorvoegsel is een aaneengesloten reeks adressen op basis van het aantal openbare IP-adres dat u opgeeft. De adressen worden toegewezen aan uw abonnement. Wanneer u een openbare IP-adresresource maakt, kunt u een statisch openbaar IP-adres toewijzen uit het voorvoegsel en koppel het adres op virtuele machines, load balancers of andere resources, zodat de verbinding met internet. Als u niet bekend met openbare IP-adresvoorvoegsels bent, Zie [openbare IP-adres voorvoegsel overzicht](public-ip-address-prefix.md)
 
 ## <a name="before-you-begin"></a>Voordat u begint
-
-> [!IMPORTANT]
-> Openbare IP-voorvoegsel is in een openbare preview in beperkte regio's. U kunt [informatie over wat het betekent Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Openbaar IP-voorvoegsel is momenteel beschikbaar in: West-Centraal VS, VS-West, VS-West 2, VS-midden, Noord-Europa, West-Europa en Zuidoost-Azië. Zie voor een bijgewerkte lijst met regio's, [Azure-updates](https://azure.microsoft.com/updates/?product=virtual-network).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +65,7 @@ Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. V
 
 1. In het vak met de tekst *zoeken naar resources* aan de bovenkant van de Azure-portal, typt u *openbare ip-adresvoorvoegsel*. Wanneer **openbare IP-adresvoorvoegsels** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer het voorvoegsel dat u wilt maken van openbare IP-adressen.
-3. Wanneer deze wordt weergegeven in de lijst met zoekresultaten, selecteert u deze en klikt u op **+ IP-adres toevoegen** in de sectie overzicht. Als u dit niet ziet, Controleer of u de juiste koppeling voor de Preview-versie: https://aka.ms/publicipprefixportal
+3. Wanneer deze wordt weergegeven in de lijst met zoekresultaten, selecteert u deze en klikt u op **+ IP-adres toevoegen** in de sectie overzicht.
 4. Typ of Selecteer waarden voor de volgende instellingen onder **openbare IP-adres maken**. Aangezien een voorvoegsel voor standaard-SKU, IPv4- en statische is, moet u alleen de volgende informatie:
 
    |Instelling|Vereist?|Details|

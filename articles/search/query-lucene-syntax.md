@@ -4,7 +4,7 @@ description: Referentie voor de volledige Lucene-syntaxis als gebruikt met Azure
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024224"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596575"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-querysyntaxis in Azure Search
 U kunt ook query's voor Azure Search op basis van de uitgebreide schrijven [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxis voor het vormen van de speciale query: jokertekens, fuzzy zoeken, zoeken op nabijheid, reguliere expressies zijn een aantal voorbeelden. Veel van de syntaxis van Lucene-Queryparser [intact geïmplementeerd in Azure Search](search-lucene-query-architecture.md), met uitzondering van *bereik zoekopdrachten* die zijn gebouwd in Azure Search via `$filter` expressies. 
@@ -121,16 +121,19 @@ Met behulp van `searchMode=all` verhoogt de precisie van de query's door minder 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring jokerteken en regex-query 's
  Azure Search wordt gebruikt op basis van een frequentie scoren ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) voor query's van tekst. Echter wordt voor jokertekens en regex query's waarbij bereik van voorwaarden mogelijk breed zijn kan, de frequentie van meerdere factoren om te voorkomen dat de volgorde van voor de overeenkomsten van sommige voorwaarden bijstelling genegeerd. Alle overeenkomsten worden behandeld voor jokertekens en regex zoekopdrachten.
 
-##  <a name="bkmk_fields"></a> Veldgerelateerde query 's  
- Kunt u een `fieldname:searchterm` bouwen voor het definiëren van een querybewerking fielded het veld is één woord, waarbij de zoekterm is ook één woord of een woordgroep, eventueel met Booleaanse operators. Enkele voorbeelden omvatten het volgende:  
+##  <a name="bkmk_fields"></a> Fielded zoeken  
+U kunt een zoekbewerking fielded met de definiëren de `fieldName:searchExpression` syntaxis, waarbij de zoekopdracht één woord of een woordgroep of een complexe expressie tussen haakjes, eventueel met Booleaanse operators zijn kan. Enkele voorbeelden omvatten het volgende:  
 
 - GEEN geschiedenis genre: jazz  
 
 - Artiesten: ("Miles Davis" "John Coltrane")
 
-  Zorg ervoor dat u meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit in dit geval zoekt naar twee verschillende artiesten in de `artists` veld.  
+Zorg ervoor dat u meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit in dit geval zoekt naar twee verschillende artiesten in de `artists` veld.  
 
-  Het veld dat is opgegeven `fieldname:searchterm` moet een `searchable` veld.  Zie [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.  
+Het veld dat is opgegeven `fieldName:searchExpression` moet een `searchable` veld.  Zie [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.  
+
+> [!NOTE]
+> Wanneer met behulp van fielded uitdrukkingen zoeken, u niet wilt gebruiken de `searchFields` parameter omdat elk zoekexpressie fielded heeft de naam van een veld expliciet worden opgegeven. U kunt echter nog steeds gebruiken de `searchFields` parameter als u wilt uitvoeren van een query waarin bepaalde onderdelen zijn gericht op een bepaald veld en de rest kan worden toegepast op meerdere velden. Bijvoorbeeld, de query `search=genre:jazz NOT history&searchFields=description` wordt gezocht naar `jazz` alleen voor de `genre` veld, terwijl deze er gezocht naar wordt `NOT history` met de `description` veld. De naam van het veld opgegeven in `fieldName:searchExpression` altijd voorrang op de `searchFields` parameter, die daarom in dit voorbeeld, hoeft er niet om op te nemen `genre` in de `searchFields` parameter.
 
 ##  <a name="bkmk_fuzzy"></a> fuzzy zoeken  
  Bij een fuzzy zoekopdracht overeenkomsten zoekt in termen die een dergelijke constructie hebben. Per [Lucene documentatie](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy zoekopdrachten zijn gebaseerd op [Damerau Levenshtein afstand](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Fuzzy zoekopdrachten kunnen een term die tot het maximum van 50 termen die voldoen aan de criteria afstand uitbreiden. 

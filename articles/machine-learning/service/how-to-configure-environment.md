@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471612"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606425"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -26,7 +26,7 @@ De enige vereisten voor uw ontwikkelomgeving zijn Python 3, Anaconda (voor geïs
 
 In dit artikel is gericht op de volgende omgevingen en hulpprogramma's:
 
-* Uw eigen [notebookserver voor cloud-gebaseerde](#notebookvm): Een compute-resource in uw werkstation voor Jupyter-notebooks gebruiken. Dit is de eenvoudigste manier om aan de slag, omdat de SDK van Azure Machine Learning al is geïnstalleerd.
+* Uw eigen [notebook cloud-gebaseerde VM](#notebookvm): Een compute-resource in uw werkstation voor Jupyter-notebooks gebruiken. Dit is de eenvoudigste manier om aan de slag, omdat de SDK van Azure Machine Learning al is geïnstalleerd.
 
 * [De Data Science Virtual Machine (DSVM)](#dsvm): Een vooraf geconfigureerde ontwikkeling of experimenten omgeving in de Azure-cloud die ontworpen voor data science werk en kan worden geïmplementeerd op CPU alleen VM-exemplaren of op basis van GPU-exemplaren. Python 3, Conda, Jupyter-Notebooks en de SDK van Azure Machine Learning zijn al geïnstalleerd. De virtuele machine wordt geleverd met populaire machine learning- en deep learning-frameworks, hulpprogramma's en editors voor het ontwikkelen van machine learning-oplossingen. Het is waarschijnlijk het meest complete ontwikkelomgeving voor machine learning op het Azure-platform.
 
@@ -42,9 +42,7 @@ Als u al een Python 3-omgeving hebt, of alleen de basisstappen voor het installe
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md).
-
-Een werkruimte is alles wat u nodig om aan de slag met uw eigen [notebookserver voor cloud-gebaseerde](#notebookvm), een [DSVM](#dsvm), [Azure Databricks](#aml-databricks), of [Azure notitieblokken](#aznotebooks).
+Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md). Een werkruimte is alles wat u nodig om aan de slag met uw eigen [notebookserver voor cloud-gebaseerde](#notebookvm), een [DSVM](#dsvm), [Azure Databricks](#aml-databricks), of [Azure notitieblokken](#aznotebooks).
 
 Voor het installeren van de SDK-omgeving voor uw [lokale computer](#local), [Jupyter-Notebook server](#jupyter) of [Visual Studio Code](#vscode) moet u ook:
 
@@ -57,16 +55,30 @@ Voor het installeren van de SDK-omgeving voor uw [lokale computer](#local), [Jup
 
 - Op Windows moet u de opdrachtprompt of Anaconda-prompt (geïnstalleerd door Anaconda en Miniconda).
 
-## <a id="notebookvm"></a>Uw eigen cloud-gebaseerde notebook-server
+## <a id="notebookvm"></a>Uw eigen notebook cloud-gebaseerde VM
 
-Maak een notebookserver in uw Azure Machine Learning-werkruimte voor de eenvoudigste manier om aan de slag met Azure Machine Learning-ontwikkeling.
+De notebook virtuele machine (Preview) is een veilige, cloud-gebaseerde Azure werkstation waarmee gegevenswetenschappers met een Jupyter-notebook-server, Jjupyterlab en een volledig voorbereid ML-omgeving. 
 
-* De SDK van Azure Machine Learning is al geïnstalleerd.
-* De notebook VM-omgeving wordt automatisch geconfigureerd om te werken met uw werkruimte.
-* De resource is gemaakt in de werkruimte en er kan worden beheerd
+De notebook VM is: 
 
-Om te beginnen met ontwikkelen met uw cloud-gebaseerde notebook-server, Zie [Quick Start: Gebruik van een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning](quickstart-run-cloud-notebook.md).
++ **Secure**. Omdat VM- en notebookcomputers toegang is beveiligd met HTTPS en Azure Active Directory standaard, kan die IT-professionals eenvoudig single sign-on en andere beveiligingsfuncties, zoals meervoudige verificatie afdwingen.
 
++ **Vooraf geconfigureerde**. Deze volledig voorbereid ML Python-omgeving de afstamming haalt uit de populaire IaaS Data Science VM en bevat:
+  + Azure ML Python-SDK (recentste)
+  + Automatische configuratie om te werken met uw werkruimte
+  + Een Jupyter-notebook-server
+  + Jjupyterlab notebook IDE
+  + Vooraf geconfigureerde GPU-stuurprogramma 's 
+  + Een selectie van frameworks voor deep learning
+ 
+
+  Als u in code, wordt de virtuele machine bevat zelfstudies en voorbeelden om te verkennen en informatie over het gebruik van Azure Machine Learning-service. De voorbeeld-notebooks worden opgeslagen in de Azure Blob Storage-account van uw werkruimte zodat ze deelbaar voor virtuele machines. Wanneer uitvoert, ze ook toegang hebben tot de gegevensarchieven en compute-resources van uw werkruimte. 
+
++ **Eenvoudige installatie**: Een op elk gewenst moment uit in uw Azure Machine Learning-werkruimte maken. Geef alleen een naam en een Azure-VM-type opgeven. Probeer het nu met deze [Quick Start: Gebruik van een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning](quickstart-run-cloud-notebook.md).
+
++ **Aanpasbare**. Terwijl een beheerde en veilige VM-aanbieding, behouden volledige toegang tot de hardwaremogelijkheden en pas deze aan de wensen van uw hart. Bijvoorbeeld, Maak snel de nieuwste die NVIDIA V100 gemaakte VM om uit te voeren stapsgewijze foutopsporing van informatiestructuren Neural Network-architectuur.
+
+Stoppen van de kosten voor de notebook VM, [stoppen van de notebook VM](quickstart-run-cloud-notebook.md#stop-the-notebook-vm). 
 
 ## <a id="dsvm"></a>Virtuele Machine voor Datatechnologie
 
@@ -397,4 +409,3 @@ U kunt het configuratiebestand op drie manieren maken:
 - [Een model te trainen](tutorial-train-models-with-aml.md) op Azure Machine Learning met de MNIST-gegevensset
 - Weergave de [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) verwijzing
 - Meer informatie over de [pakket voor gegevensvoorbereiding van Azure Machine Learning](https://aka.ms/data-prep-sdk)
-- 

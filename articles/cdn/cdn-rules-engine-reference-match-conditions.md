@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f87667516d6c76bc1c21ba5e175b3b2a7ebc3f39
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869517"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556317"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de Azure CDN-regelengine 
 Dit artikel vindt u gedetailleerde beschrijvingen van de criteria voor het Azure Content Delivery Network (CDN) voor de beschikbare overeenkomst [regels-engine](cdn-rules-engine.md).
@@ -101,8 +101,11 @@ Name | Doel
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Naslaginformatie voor de criteria voor overeenkomst regelengine
+
 <a name="main"></a>
+
 ---
+
 ### <a name="always"></a>Altijd
 
 De voorwaarde altijd geldt een set functies voor alle aanvragen.
@@ -784,7 +787,7 @@ Belangrijke informatie:
 
    Teken | URL Encoding
    ----------|---------
-   Ruimte     | %20
+   Spatiebalk     | %20
    &         | %25
 
 - Vanwege de manier in welke cache instellingen worden bijgehouden, is deze voorwaarde voor overeenkomst niet compatibel met de volgende functies:
@@ -820,7 +823,7 @@ Belangrijke informatie:
 
        Teken | URL Encoding
        ----------|---------
-       Ruimte     | %20
+       Spatiebalk     | %20
        &         | %25
 
 - Geef meerdere parameterwaarden van de query-tekenreeks door die begrenst elkaar met een spatie. Deze voorwaarde wordt voldaan aan wanneer een aanvraag een van de opgegeven naam/waarde-combinaties bevat.
@@ -872,7 +875,7 @@ Name  | Value |  Resultaat
 ------|-------|--------
 Gebruiker  | Jaap   | Dit patroon wordt voldaan aan wanneer de query-tekenreeks voor een opgegeven URL is "? gebruiker = joe."
 Gebruiker  | *     | Dit patroon wordt gekoppeld wanneer de query-tekenreeks voor een opgegeven URL een parameter van de gebruiker bevat.
-Email | Jaap\* | Dit patroon wordt voldaan aan wanneer de query-tekenreeks voor een opgegeven URL bevat een e-parameter die begint met "Jan".
+E-mailen | Jaap\* | Dit patroon wordt voldaan aan wanneer de query-tekenreeks voor een opgegeven URL bevat een e-parameter die begint met "Jan".
 
 [Terug naar boven](#main)
 
@@ -897,7 +900,7 @@ Belangrijke informatie:
 
    Teken | URL Encoding | Value
    ----------|--------------|------
-   Ruimte     | %20          | \%20
+   Spatiebalk     | %20          | \%20
    &         | %25          | \%25
 
    Houd er rekening mee dat de symbolen percentage moeten worden weergegeven.
@@ -939,7 +942,7 @@ Belangrijke informatie:
 
      Teken | URL Encoding
      ----------|---------
-     Ruimte     | %20
+     Spatiebalk     | %20
      &         | %25
 
 - Meerdere waarden opgeven door die begrenst elkaar met een spatie.

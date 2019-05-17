@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 394ba3b3b8189bbe96137e920745f7b8cdd1cd95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccc726f54821d316c745f6af9c63d7ed13986d79
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863960"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761933"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Een zelfstandige cluster beveiligen op Windows met behulp van Windows-beveiliging
 Om te voorkomen dat onbevoegde toegang tot een Service Fabric-cluster, moet u het cluster beveiligen. Beveiliging is vooral belangrijk wanneer het cluster wordt uitgevoerd voor werkbelastingen voor productie. In dit artikel wordt beschreven hoe u knooppunt-naar-knooppunt en client-naar-knooppunt om beveiligingsbeleid te configureren met behulp van Windows-beveiliging in de *ClusterConfig.JSON* bestand.  Het proces komt overeen met de stap van de beveiliging configureren van [maken van een zelfstandige cluster die worden uitgevoerd op Windows](service-fabric-cluster-creation-for-windows-server.md). Zie voor meer informatie over hoe Service Fabric Windows-beveiliging gebruikt [clusterbeveiligingsscenario's](service-fabric-cluster-security.md).
@@ -61,7 +61,7 @@ Het voorbeeld *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuratiebestand
 | IsAdmin |Ingesteld op true om op te geven dat de domeingebruiker clienttoegang als beheerder of ONWAAR voor gebruiker clienttoegang heeft. |
 
 > [!NOTE]
-> ClustergMSAIdentity waarde kan niet de domeinnaam bevatten en mag alleen bestaan uit de groepsnaam van de beheerde service-account. DAT WIL ZEGGEN "mysfgmsa" juist is, en beide "mijndomein / / mysfgmsa ' of 'mysfgmsa@mydomain' zijn ongeldig; als het domein wordt geïmpliceerd door de hostmachine.
+> ClustergMSAIdentity waarde worden in de indeling 'mysfgmsa@mydomain'.
 
 [Knooppunt voor beveiliging van knooppunt](service-fabric-cluster-security.md#node-to-node-security) is geconfigureerd door in te stellen **ClustergMSAIdentity** wanneer service fabric moet worden uitgevoerd onder gMSA. Het samenstellen van vertrouwensrelaties tussen knooppunten, moeten ze worden gemaakt op de hoogte van elkaar. Dit kan op twee verschillende manieren worden bereikt: Geef de groep beheerd serviceaccount met alle knooppunten in het cluster of de Machinegroep met alle knooppunten in het cluster opgeven. Wordt aangeraden met behulp van de [groep beheerde serviceaccounts (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) benadering, met name voor grotere clusters (meer dan 10 knooppunten) of voor clusters die waarschijnlijk vergroten of verkleinen.  
 Deze benadering is niet vereist voor het maken van een domeingroep waarvoor clusterbeheerders rechten voor het toevoegen en verwijderen van leden hebben gekregen. Deze accounts zijn ook nuttig voor wachtwoorden worden automatisch beheerd. Zie voor meer informatie, [aan de slag met beheerde serviceaccounts voor groepen](https://technet.microsoft.com/library/jj128431.aspx).  

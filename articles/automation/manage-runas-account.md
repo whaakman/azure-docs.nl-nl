@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/26/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61301088"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595670"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -37,6 +37,9 @@ Er zijn twee typen uitvoeren als-Accounts:
   
   > [!NOTE]
   > Abonnementen voor Azure Cloud Solution Provider (Azure CSP) ondersteunen alleen de Azure Resource Manager-model, niet - Azure Resource Manager-services zijn niet beschikbaar in het programma. Wanneer u een CSP-abonnement heeft niet de klassiek uitvoeren als-Account gemaakt. Het Azure uitvoeren als-Account wordt nog steeds gemaakt. Zie voor meer informatie over het CSP-abonnementen, [beschikbare services in CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+
+  > [!NOTE]
+  > De service-principal voor een uitvoeren als-Account heeft geen leesmachtigingen voor Azure Active Directory standaard. Als u toevoegen van machtigingen wilt voor lezen of beheren van Azure Active directory, moet u deze machtiging op de service-principal onder **API-machtigingen**. Zie voor meer informatie, [machtigingen voor toegang tot web-API's toevoegen](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="permissions"></a>Machtigingen voor het uitvoeren als-accounts configureren
 

@@ -7,17 +7,17 @@ ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 9455b8488bdf7c36c662a8f771e6b26d1a27b13e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 0fe098bd644762fb291eb623a7b41cd987c7fa26
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236553"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779194"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Zeer grootschalige servicelaag voor maximaal 100 TB
 
@@ -173,7 +173,7 @@ De Azure SQL Database grootschalige-laag is momenteel beschikbaar in de volgende
 - Zuid-Afrika - noord
 - US - zuid-centraal
 - Azië - zuidoost
-- VK Zuid
+- Verenigd Koninkrijk Zuid
 - VK West
 - Europa -west
 - US - west
