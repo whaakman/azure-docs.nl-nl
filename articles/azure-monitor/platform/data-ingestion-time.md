@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093961"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605598"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tijd van beveiligingslogboek gegevens opnemen in Azure Monitor
 Azure Monitor is een service voor grootschalige die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor de logboekgegevens beschikbaar nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
@@ -104,7 +104,7 @@ Heartbeat
 | render timechart  
 ```
  
-Gebruik de volgende query om weer te geven van gegevensopname computertijd door het land, dat ze bevinden zich op die is gebaseerd op de IP-adres: 
+Gebruik de volgende query om weer te geven van gegevensopname computertijd door het land/regio, dat ze bevinden zich op die is gebaseerd op de IP-adres: 
 
 ``` Kusto
 Heartbeat 

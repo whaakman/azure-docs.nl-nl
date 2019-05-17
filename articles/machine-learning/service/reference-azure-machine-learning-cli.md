@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35e57dfcc7b1fd6f8de265ab75de29dedd8fdfc2
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 163b8e1f68b8d5a102465022c67f7d0da57a7215
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501651"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596954"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Gebruik de CLI-extensie voor Azure Machine Learning-service
 
@@ -192,4 +192,4 @@ De volgende opdrachten laten zien hoe u een getraind model registreert en implem
 
 * [Opdrachten voor de Machine Learning CLI-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
 
-* [Trainen en implementeren van machine learning-modellen met behulp van Azure-pijplijnen](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
+* [Trainen en implementeren van machine learning-modellen met behulp van Azure-pijplijnen](/azure/devops/pipelines/targets/azure-machine-learning)

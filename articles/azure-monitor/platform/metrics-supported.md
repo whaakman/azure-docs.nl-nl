@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8bacc77cc5814dc15473375a891096dba9d567be
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867641"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595428"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 
@@ -28,7 +28,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |qpu_metric|QPU|Count|Gemiddeld|QPU. Bereik 0-100 voor S1, 0-200 voor S2 en 0-400 voor S4|ServerResourceType|
 |memory_metric|Geheugen|Bytes|Gemiddeld|Geheugen. Bereik van 0-25 GB voor S1, 0-50 GB voor S2 en 0-100 GB voor S4|ServerResourceType|
@@ -76,7 +76,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |TotalRequests|Totaal aantal Gateway-aanvragen|Count|Totaal|Aantal gateway-aanvragen|Locatie, hostnaam|
 |Succesfulrequests|Geslaagde Gateway-aanvragen|Count|Totaal|Aantal geslaagde gateway-aanvragen|Locatie, hostnaam|
@@ -97,7 +97,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |TotalJob|Totaal aantal taken|Count|Totaal|Het totale aantal taken|Status-Runbook|
 |TotalUpdateDeploymentRuns|Totaal aantal Update-implementatie wordt uitgevoerd|Count|Totaal|Totaal aantal software-update-implementatie wordt uitgevoerd|SoftwareUpdateConfigurationName, Status|
@@ -105,7 +105,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |CoreCount|Toegewezen Kerngeheugens|Count|Totaal|Totale aantal toegewezen kerngeheugens in de batch-account|Er zijn geen dimensies|
 |TotalNodeCount|Aantal toegewezen knooppunten|Count|Totaal|Totale aantal toegewezen knooppunten in het batch-account|Er zijn geen dimensies|
@@ -141,7 +141,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |connectedclients|Verbonden clients|Count|Maximum||ShardId|
 |totalcommandsprocessed|Totaal aantal bewerkingen|Count|Totaal||ShardId|
@@ -325,7 +325,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Percentage CPU|Percentage CPU|Procent|Gemiddeld|Het percentage toegewezen berekeningseenheden dat momenteel door de virtuele machine(s) wordt gebruikt.|Er zijn geen dimensies|
 |Netwerk in|Netwerk in|Bytes|Totaal|Het aantal ontvangen bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer).|Er zijn geen dimensies|
@@ -337,7 +337,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Percentage CPU|Percentage CPU|Procent|Gemiddeld|Het percentage toegewezen berekeningseenheden dat momenteel door de virtuele machine(s) wordt gebruikt.|RoleInstanceId|
 |Netwerk in|Netwerk in|Bytes|Totaal|Het aantal ontvangen bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer).|RoleInstanceId|
@@ -349,7 +349,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |TotalCalls|Totaal aantal aanroepen|Count|Totaal|Totaal aantal aanroepen.|ApiName, OperationName, Region|
 |SuccessfulCalls|Geslaagde aanroepen|Count|Totaal|Aantal geslaagde aanroepen.|ApiName, OperationName, Region|
@@ -412,7 +412,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Percentage CPU|Percentage CPU|Procent|Gemiddeld|Het percentage toegewezen berekeningseenheden dat momenteel door de virtuele machine(s) wordt gebruikt|VM-naam|
 |Netwerk in|Netwerk inkomend - factureerbaar|Bytes|Totaal|Het aantal ontvangen factureerbare bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer)|VM-naam|
@@ -456,7 +456,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |CpuUsage|CPU-gebruik|Count|Gemiddeld|CPU-gebruik op alle kerngeheugens in millicores.|containerName|
 |MemoryUsage|Geheugengebruik|Bytes|Gemiddeld|Totaal geheugengebruik in bytes.|containerName|
@@ -465,7 +465,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |TotalPullCount|Totaal aantal Pull-aantal|Count|Gemiddeld|Totaal haalt aantal image|Er zijn geen dimensies|
 |SuccessfulPullCount|Aantal geslaagde Pull|Count|Gemiddeld|Aantal geslaagde voorziening|Er zijn geen dimensies|
@@ -475,7 +475,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |kube_node_status_allocatable_cpu_cores|Totaal aantal beschikbare cpu-kernen in een beheerde cluster|Count|Totaal|Totaal aantal beschikbare cpu-kernen in een beheerde cluster|Er zijn geen dimensies|
 |kube_node_status_allocatable_memory_bytes|Totale hoeveelheid beschikbaar geheugen in een beheerde cluster|Bytes|Totaal|Totale hoeveelheid beschikbaar geheugen in een beheerde cluster|Er zijn geen dimensies|
@@ -485,7 +485,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |DCIApiCalls|Customer Insights API-aanroepen|Count|Totaal||Er zijn geen dimensies|
 |DCIMappingImportOperationSuccessfulLines|Geslaagde bewerkingsregels toewijzing importeren|Count|Totaal||Er zijn geen dimensies|
@@ -520,7 +520,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdataboxedgedataboxedgedevices"></a>Microsoft.DataBoxEdge/dataBoxEdgeDevices
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |NICReadThroughput|Leesdoorvoer (netwerk)|BytesPerSecond|Gemiddeld|De leesdoorvoer van de netwerkinterface op het apparaat in de rapportageperiode voor alle volumes in de gateway.|InstanceName|
 |NICWriteThroughput|Schrijfdoorvoer (netwerk)|BytesPerSecond|Gemiddeld|De schrijfdoorvoer van de netwerkinterface op het apparaat in de rapportageperiode voor alle volumes in de gateway.|InstanceName|
@@ -537,14 +537,14 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |FailedRuns|Mislukte verwerkingen|Count|Totaal||pipelineName, activityName|
 |SuccessfulRuns|Geslaagde verwerkingen|Count|Totaal||pipelineName, activityName|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |PipelineFailedRuns|Pijplijn-runs metrische gegevens is mislukt|Count|Totaal||FailureType, naam|
 |PipelineSucceededRuns|Pijplijn-runs metrische gegevens is voltooid|Count|Totaal||FailureType, naam|
@@ -561,7 +561,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |JobEndedSuccess|Voltooide taken|Count|Totaal|Het aantal voltooide taken.|Er zijn geen dimensies|
 |JobEndedFailure|Mislukte taken|Count|Totaal|Het aantal mislukte taken.|Er zijn geen dimensies|
@@ -572,7 +572,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |TotalStorage|Totale opslag|Bytes|Maximum|Totale hoeveelheid gegevens die zijn opgeslagen in het account.|Er zijn geen dimensies|
 |Datawritten door|Gegevens geschreven|Bytes|Totaal|Totale hoeveelheid gegevens geschreven naar het account.|Er zijn geen dimensies|
@@ -582,13 +582,13 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
 |memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
 |io_consumption_percent|I/o-percentage|Procent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
 |storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
-|storage_used|Gebruikte opslag|Bytes|Gemiddeld|Gebruikte opslag|Er zijn geen dimensies|
+|storage_used|Opslag gebruikt|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
 |serverlog_storage_percent|Server Log opslag procent|Procent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
 |serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|Gemiddeld|Server logboekopslag gebruikt|Er zijn geen dimensies|
@@ -602,13 +602,13 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
 |memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
 |io_consumption_percent|I/o-percentage|Procent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
 |storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
-|storage_used|Gebruikte opslag|Bytes|Gemiddeld|Gebruikte opslag|Er zijn geen dimensies|
+|storage_used|Opslag gebruikt|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
 |serverlog_storage_percent|Server Log opslag procent|Procent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
 |serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|Gemiddeld|Server logboekopslag gebruikt|Er zijn geen dimensies|
@@ -622,13 +622,13 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
 |memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
 |io_consumption_percent|I/o-percentage|Procent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
 |storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
-|storage_used|Gebruikte opslag|Bytes|Gemiddeld|Gebruikte opslag|Er zijn geen dimensies|
+|storage_used|Opslag gebruikt|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
 |serverlog_storage_percent|Server Log opslag procent|Procent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
 |serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|Gemiddeld|Server logboekopslag gebruikt|Er zijn geen dimensies|
@@ -643,20 +643,20 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
 |memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
 |iops|IOPS|Count|Gemiddeld|I/o-bewerkingen per seconde|Er zijn geen dimensies|
 |storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
-|storage_used|Gebruikte opslag|Bytes|Gemiddeld|Gebruikte opslag|Er zijn geen dimensies|
+|storage_used|Opslag gebruikt|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |active_connections|Actieve verbindingen|Count|Gemiddeld|Actieve verbindingen|Er zijn geen dimensies|
 |network_bytes_egress|Netwerk uit|Bytes|Totaal|Uitgaand netwerkverkeer voor actieve verbindingen|Er zijn geen dimensies|
 |network_bytes_ingress|Netwerk in|Bytes|Totaal|Netwerk In voor de actieve verbindingen|Er zijn geen dimensies|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Telemetrie-bericht verzenden pogingen|Count|Totaal|Aantal telemetrieberichten dat apparaat-naar-cloud heeft geprobeerd om te worden verzonden naar uw IoT-hub|Er zijn geen dimensies|
 |d2c.telemetry.ingress.success|Berichten over telemetrie verzonden|Count|Totaal|Aantal telemetrieberichten dat is verzonden naar uw IoT hub apparaat-naar-cloud|Er zijn geen dimensies|
@@ -682,6 +682,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |d2c.endpoints.latency.storage|Routering: bericht latentie voor opslag|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen bericht inkomend verkeer naar IoT Hub en telemetrie bericht inkomend verkeer in een storage-eindpunt.|Er zijn geen dimensies|
 |d2c.endpoints.egress.storage.bytes|Routering: gegevens geleverd aan opslag|Bytes|Totaal|De hoeveelheid gegevens (bytes) routering IoT-Hub die worden geleverd aan opslag-eindpunten.|Er zijn geen dimensies|
 |d2c.endpoints.egress.storage.blobs|Routering: blobs die worden geleverd aan opslag|Count|Totaal|Het aantal keren dat het IoT-Hub routering blobs geleverd aan opslag-eindpunten.|Er zijn geen dimensies|
+|EventGridDeliveries|Event Grid levering (preview)|Count|Totaal|Het aantal aanvragen voor IoT Hub kunt u gebeurtenissen naar Event Grid verzenden. Dit is inclusief geslaagde en mislukte aanvragen. Gebruik de resultaat-dimensie voor het aantal verschillende type reactie. Zien de waar de aanvragen afkomstig zijn van, gebruikt u de dimensie van het type gebeurtenis.|Result, EventType|
+|EventGridLatency|Event Grid latentie (preview)|Milliseconden|Gemiddeld|De gemiddelde latentie (in milliseconden) tussen event inkomend verkeer naar IoT Hub en event inkomend verkeer in Event Grid. Dit nummer is een gemiddelde tussen alle gebeurtenistypen. Gebruik de dimensie van het type gebeurtenis om te zien van de latentie van een specifiek type gebeurtenis.|Type gebeurtenis|
 |d2c.twin.read.success|Geslaagde dubbele leesbewerkingen van apparaten|Count|Totaal|Het aantal voltooide dubbele apparaat geïnitieerde leesbewerkingen.|Er zijn geen dimensies|
 |d2c.twin.read.failure|Dubbele leesbewerkingen van apparaten is mislukt|Count|Totaal|De telling van alle dubbele apparaat geïnitieerde leesbewerkingen mislukt.|Er zijn geen dimensies|
 |d2c.twin.read.size|Reactiegrootte van dubbele leesbewerkingen van apparaten|Bytes|Gemiddeld|De gemiddelde, de minimale en het maximale van alle geslaagde apparaat geïnitieerde twin leesbewerkingen.|Er zijn geen dimensies|
@@ -715,15 +717,14 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |jobs.failed|Mislukte taken|Count|Totaal|De telling van alle mislukte taken.|Er zijn geen dimensies|
 |d2c.telemetry.ingress.sendThrottle|Aantal beperkingsfouten|Count|Totaal|Aantal beperkingsfouten vanwege apparaat doorvoer beperkt|Er zijn geen dimensies|
 |dailyMessageQuotaUsed|Totaal aantal berichten dat is gebruikt|Count|Gemiddeld|Het aantal totaal aantal berichten momenteel gebruikt. Dit is een cumulatieve waarde die is ingesteld op nul om 00:00 UTC elke dag.|Er zijn geen dimensies|
-|deviceDataUsage|Totaal aantal apparaat gegevensgebruik (afgeschaft)|Bytes|Totaal|Bytes overgebracht naar en van alle apparaten die zijn verbonden met IotHub|Er zijn geen dimensies|
-|deviceDataUsageV2|Totaal aantal apparaat gegevensgebruik (preview)|Bytes|Totaal|Bytes overgebracht naar en van alle apparaten die zijn verbonden met IotHub|Er zijn geen dimensies|
+|deviceDataUsage|Totaal aantal apparaat gegevensgebruik|Bytes|Totaal|Bytes overgebracht naar en van alle apparaten die zijn verbonden met IotHub|Er zijn geen dimensies|
 |totalDeviceCount|Totaal aantal apparaten (preview)|Count|Gemiddeld|Aantal apparaten die zijn geregistreerd met uw IoT hub|Er zijn geen dimensies|
 |connectedDeviceCount|Verbonden apparaten (preview)|Count|Gemiddeld|Aantal apparaten dat is verbonden met uw IoT-hub|Er zijn geen dimensies|
 |Configuraties|Configuratie van metrische gegevens|Count|Totaal|Metrische gegevens voor configuratiebewerkingen|Er zijn geen dimensies|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |RegistrationAttempts|Pogingen tot registratie|Count|Totaal|Nummer van het apparaatregistraties geprobeerd|ProvisioningServiceName, IotHubName, Status|
 |DeviceAssignments|Apparaten die zijn toegewezen|Count|Totaal|Aantal apparaten dat is toegewezen aan een IoT-hub|ProvisioningServiceName, IotHubName|
@@ -731,7 +732,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |AvailableStorage|Beschikbare opslag|Bytes|Totaal|Totale beschikbare opslag gerapporteerd op 5 minuten granulariteit|CollectionName, DatabaseName, regio|
 |CassandraConnectionClosures|Cassandra-verbinding is gesloten|Count|Totaal|Aantal Cassandra-verbindingen die zijn gesloten, wordt gerapporteerd op een granulariteit van één minuut|Region, ClosureReason|
@@ -752,7 +753,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |PublishSuccessCount|Gepubliceerde gebeurtenissen|Count|Totaal|Totaal aantal gebeurtenissen die zijn gepubliceerd in dit onderwerp|Er zijn geen dimensies|
 |PublishFailCount|Mislukte gebeurtenissen publiceren|Count|Totaal|Totaal aantal gebeurtenissen publiceren naar dit onderwerp is mislukt|ErrorType, Error|
@@ -761,7 +762,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |MatchedEventCount|Overeenkomende gebeurtenissen|Count|Totaal|Totaal aantal gebeurtenissen die zijn gekoppeld aan dit gebeurtenisabonnement|Er zijn geen dimensies|
 |DeliveryAttemptFailCount|Gebeurtenissen de bezorging is mislukt|Count|Totaal|Totaal aantal gebeurtenissen is mislukt om te leveren aan dit gebeurtenisabonnement|Error, ErrorType|
@@ -772,7 +773,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |PublishSuccessCount|Gepubliceerde gebeurtenissen|Count|Totaal|Totaal aantal gebeurtenissen die zijn gepubliceerd in dit onderwerp|Er zijn geen dimensies|
 |PublishFailCount|Mislukte gebeurtenissen|Count|Totaal|Totaal aantal gebeurtenissen publiceren naar dit onderwerp is mislukt|ErrorType, Error|
@@ -781,7 +782,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Succesfulrequests|Geslaagde aanvragen|Count|Totaal|Voltooide aanvragen voor Microsoft.EventHub.|EntityName, |
 |ServerErrors|Serverfouten.|Count|Totaal|Serverfouten voor Microsoft.EventHub.|EntityName, |
@@ -820,30 +821,30 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsofteventhubclusters"></a>Microsoft.EventHub/clusters
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|Succesfulrequests|Geslaagde aanvragen (Preview)|Count|Totaal|Voltooide aanvragen voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|ServerErrors|Serverfouten. (Preview)|Count|Totaal|Serverfouten voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|UserErrors|Gebruikersfouten. (Preview)|Count|Totaal|Gebruikersfouten voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|QuotaExceededErrors|Fout met overschreden quotum. (Preview)|Count|Totaal|Fout met overschreden quotum voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|ThrottledRequests|Beperkte aanvragen. (Preview)|Count|Totaal|Beperkte aanvragen voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|IncomingRequests|Inkomende aanvragen (Preview)|Count|Totaal|Binnenkomende aanvragen voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|IncomingMessages|Binnenkomende berichten (Preview)|Count|Totaal|Binnenkomende berichten voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|OutgoingMessages|Uitgaande berichten (Preview)|Count|Totaal|Uitgaande berichten voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|IncomingBytes|Binnenkomende bytes. (Preview)|Bytes|Totaal|Binnenkomende bytes voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|OutgoingBytes|Uitgaande bytes. (Preview)|Bytes|Totaal|Uitgaande bytes voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|ActiveConnections|ActiveConnections (Preview)|Count|Gemiddeld|Totaal aantal actieve verbindingen voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|ConnectionsOpened|Geopende verbindingen. (Preview)|Count|Gemiddeld|Geopende verbindingen voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|ConnectionsClosed|Gesloten verbindingen. (Preview)|Count|Gemiddeld|Gesloten verbindingen voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|CaptureBacklog|Achterstand vastleggen. (Preview)|Count|Totaal|Achterstand vastleggen voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|CapturedMessages|Vastgelegde berichten. (Preview)|Count|Totaal|Vastgelegde berichten voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
-|CapturedBytes|Vastgelegde bytes. (Preview)|Bytes|Totaal|Vastgelegde bytes voor Microsoft.EventHub. (Preview)|Er zijn geen dimensies|
+|Succesfulrequests|Geslaagde aanvragen (Preview)|Count|Totaal|Voltooide aanvragen voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|ServerErrors|Serverfouten. (Preview-versie)|Count|Totaal|Serverfouten voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|UserErrors|Gebruikersfouten. (Preview-versie)|Count|Totaal|Gebruikersfouten voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|QuotaExceededErrors|Fout met overschreden quotum. (Preview-versie)|Count|Totaal|Fout met overschreden quotum voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|ThrottledRequests|Beperkte aanvragen. (Preview-versie)|Count|Totaal|Beperkte aanvragen voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|IncomingRequests|Inkomende aanvragen (Preview)|Count|Totaal|Binnenkomende aanvragen voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|IncomingMessages|Binnenkomende berichten (Preview)|Count|Totaal|Binnenkomende berichten voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|OutgoingMessages|Uitgaande berichten (Preview)|Count|Totaal|Uitgaande berichten voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|IncomingBytes|Binnenkomende bytes. (Preview-versie)|Bytes|Totaal|Binnenkomende bytes voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|OutgoingBytes|Uitgaande bytes. (Preview-versie)|Bytes|Totaal|Uitgaande bytes voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|ActiveConnections|ActiveConnections (Preview)|Count|Gemiddeld|Totaal aantal actieve verbindingen voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|ConnectionsOpened|Geopende verbindingen. (Preview-versie)|Count|Gemiddeld|Geopende verbindingen voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|ConnectionsClosed|Gesloten verbindingen. (Preview-versie)|Count|Gemiddeld|Gesloten verbindingen voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|CaptureBacklog|Achterstand vastleggen. (Preview-versie)|Count|Totaal|Achterstand vastleggen voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|CapturedMessages|Vastgelegde berichten. (Preview-versie)|Count|Totaal|Vastgelegde berichten voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
+|CapturedBytes|Vastgelegde bytes. (Preview-versie)|Bytes|Totaal|Vastgelegde bytes voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
 |CPU|CPU (Preview)|Procent|Maximum|CPU-gebruik voor het Event Hub-cluster als percentage|Rol|
 |AvailableMemory|Beschikbaar geheugen (Preview)|Count|Maximum|Beschikbaar geheugen voor het Event Hub-cluster in bytes|Rol|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |GatewayRequests|Gateway-aanvragen|Count|Totaal|Aantal gateway-aanvragen|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Gecategoriseerde Gateway-aanvragen|Count|Totaal|Aantal gateway-aanvragen per categorie (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
@@ -857,7 +858,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ObservedMetricValue|Waargenomen metrische waarde|Count|Gemiddeld|De waarde die is berekend door automatische schaalaanpassing wanneer deze is uitgevoerd|MetricTriggerSource|
 |MetricThreshold|Drempel voor een metrische waarde|Count|Gemiddeld|De geconfigureerde drempelwaarde voor automatische schaalaanpassing wanneer automatische schaalaanpassing is uitgevoerd.|MetricTriggerRule|
@@ -868,10 +869,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 (Preview-versie)
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |availabilityResults/availabilityPercentage|Beschikbaarheid|Procent|Gemiddeld|Percentage van voltooide beschikbaarheidstesten|availabilityResult/name, availabilityResult/locatie|
-|availabilityResults/aantal|Beschikbaarheidstests|Count|Count|Aantal beschikbaarheidstesten|availabilityResult/name, availabilityResult /-locatie, availabilityResult/geslaagd|
+|availabilityResults/aantal|Beschikbaarheidstesten|Count|Count|Aantal beschikbaarheidstesten|availabilityResult/name, availabilityResult /-locatie, availabilityResult/geslaagd|
 |availabilityResults/duur|Duur beschikbaarheidstest|MilliSeconds|Gemiddeld|Duur beschikbaarheidstest|availabilityResult/name, availabilityResult /-locatie, availabilityResult/geslaagd|
 |browserTimings/networkDuration|Netwerkverbindingstijd voor laden van pagina|MilliSeconds|Gemiddeld|Tijd tussen gebruikersaanvraag en netwerkverbinding gebruikersverbinding. Omvat de DNS-zoekopdracht en transportverbinding verbinding.|Er zijn geen dimensies|
 |browserTimings/processingDuration|Verwerkingstijd client|MilliSeconds|Gemiddeld|Tijd tussen ontvangst van de laatste byte van een document totdat de DOM wordt geladen. Asynchrone aanvragen kunnen nog worden verwerkt.|Er zijn geen dimensies|
@@ -903,7 +904,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ServiceApiHit|Totaalaantal treffers service-API|Count|Count|Totaalaantal treffers voor service-API|ActivityType, ActivityName|
 |ServiceApiLatency|Algemene latentie service-API|Milliseconden|Gemiddeld|Algemene latentie van service-API-aanvragen|ActivityType, ActivityName, StatusCode|
@@ -911,7 +912,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ClusterDataCapacityFactor|Cache-gebruik|Procent|Gemiddeld|Het gebruiksniveau van binnen het bereik van het cluster|Er zijn geen dimensies|
 |QueryDuration|Queryduur van de|Milliseconden|Gemiddeld|Query's de duur in seconden|QueryStatus|
@@ -925,13 +926,13 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Gebruik|Gebruik|Count|Count|Aantal van de API-aanroepen|ApiCategory, ApiName|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |RunsStarted|Gestarte uitvoeringen|Count|Totaal|Aantal gestarte werkstroomuitvoeringen.|Er zijn geen dimensies|
 |RunsCompleted|Voltooide uitvoeringen|Count|Totaal|Aantal voltooide werkstroomuitvoeringen.|Er zijn geen dimensies|
@@ -972,7 +973,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Logic/integrationServiceEnvironments
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |RunsStarted|Gestarte uitvoeringen|Count|Totaal|Aantal gestarte werkstroomuitvoeringen.|Er zijn geen dimensies|
 |RunsCompleted|Voltooide uitvoeringen|Count|Totaal|Aantal voltooide werkstroomuitvoeringen.|Er zijn geen dimensies|
@@ -1009,7 +1010,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Voltooide uitvoeringen|Voltooide uitvoeringen|Count|Totaal|Aantal voltooide is voor deze werkruimte uitgevoerd|Scenario|
 |Gestarte uitvoeringen|Gestarte uitvoeringen|Count|Totaal|Aantal wordt gestart voor deze werkruimte uitgevoerd|Scenario|
@@ -1017,14 +1018,14 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftmapsaccounts"></a>Microsoft.Maps/accounts
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Gebruik|Gebruik|Count|Count|Aantal van de API-aanroepen|ApiCategory, ApiName, ResultType, ResponseCode|
 |Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Beschikbaarheid van de API 's|ApiCategory, ApiName|
 
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/Volumes
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |AverageOtherLatency|Gemiddelde andere latentie|ms/op|Gemiddeld|Gemiddelde andere (dat wil zeggen niet lezen of schrijven) latentie in milliseconden per bewerking|Er zijn geen dimensies|
 |AverageReadLatency|Gemiddelde latentie lezen|ms/op|Gemiddeld|Gemiddelde latentie in milliseconden per bewerking lezen|Er zijn geen dimensies|
@@ -1052,7 +1053,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |VolumePoolAllocatedSize|De grootte van de groep toegewezen volume|bytes|Gemiddeld|Toegewezen grootte van de groep (niet de werkelijke gebruikt bytes)|Er zijn geen dimensies|
 |VolumePoolAllocatedUsed|Toegewezen volume van toepassingen die worden gebruikt|bytes|Gemiddeld|Toegewezen gebruikte grootte van de groep|Er zijn geen dimensies|
@@ -1061,7 +1062,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |BytesSentRate|Verzonden bytes|Count|Totaal|Aantal bytes dat de netwerkinterface die is verzonden|Er zijn geen dimensies|
 |BytesReceivedRate|Ontvangen bytes|Count|Totaal|Nummer van de netwerkinterface ontvangen bytes|Er zijn geen dimensies|
@@ -1070,7 +1071,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |VipAvailability|Pad van beschikbaarheid van gegevens|Count|Gemiddeld|Gemiddelde beschikbaarheid van Load Balancer gegevens pad per duur|FrontendIPAddress, FrontendPort|
 |DipAvailability|De integriteitsstatus van de test|Count|Gemiddeld|Gemiddelde Load Balancer de integriteitsstatus test van per duur|ProtocolType, BackendPort, FrontendIPAddress, FrontendPort, BackendIPAddress|
@@ -1083,7 +1084,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |QueryVolume|Queryvolume|Count|Totaal|Aantal query's uitgevoerd voor een DNS-zone|Er zijn geen dimensies|
 |RecordSetCount|Set-aantal records|Count|Maximum|Aantal recordsets in een DNS-zone|Er zijn geen dimensies|
@@ -1091,7 +1092,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |PacketsInDDoS|Het aantal inkomende pakketten DDoS|CountPerSecond|Maximum|Het aantal inkomende pakketten DDoS|Er zijn geen dimensies|
 |PacketsDroppedDDoS|Inkomende pakketten verwijderd DDoS|CountPerSecond|Maximum|Inkomende pakketten verwijderd DDoS|Er zijn geen dimensies|
@@ -1122,14 +1123,14 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ApplicationRuleHit|Regels voor Application treffers aantal|Count|Totaal|Aantal keren dat regels van toepassing zijn bereikt|Status, Reason, Protocol|
 |NetworkRuleHit|Netwerk regels treffertelling|Count|Totaal|Aantal keren netwerkregels zijn bereikt|Status, Reason, Protocol|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Doorvoer|Doorvoer|BytesPerSecond|Totaal|Aantal bytes per seconde die de Application Gateway is geleverd|Er zijn geen dimensies|
 |UnhealthyHostCount|Aantal niet in orde Backendpool|Count|Gemiddeld|Aantal slechte back-end-hosts|BackendSettingsPool|
@@ -1142,7 +1143,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |AverageBandwidth|Gateway S2S bandbreedte|BytesPerSecond|Gemiddeld|Gemiddelde bandbreedte van de site-naar-site van een gateway in bytes per seconde|Er zijn geen dimensies|
 |P2SBandwidth|Gateway P2S bandbreedte|BytesPerSecond|Gemiddeld|Gemiddelde bandbreedte voor punt-naar-site van een gateway in bytes per seconde|Er zijn geen dimensies|
@@ -1157,42 +1158,42 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |BitsInPerSecond|BitsInPerSecond|CountPerSecond|Gemiddeld|Bits ingressing Azure per seconde|PeeringType|
 |BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Gemiddeld|Bits egressing Azure per seconde|PeeringType|
 
 ## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |BitsInPerSecond|BitsInPerSecond|CountPerSecond|Gemiddeld|Bits ingressing Azure per seconde|Er zijn geen dimensies|
 |BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Gemiddeld|Bits egressing Azure per seconde|Er zijn geen dimensies|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/connections
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |BitsInPerSecond|BitsInPerSecond|CountPerSecond|Gemiddeld|Bits ingressing Azure per seconde|Er zijn geen dimensies|
 |BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Gemiddeld|Bits egressing Azure per seconde|Er zijn geen dimensies|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |QpsByEndpoint|Query's op eindpunt geretourneerd|Count|Totaal|Aantal keren dat een Traffic Manager-eindpunt is geretourneerd in een bepaalde periode|EndpointName|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|Eindpuntstatus door eindpunt|Count|Maximum|1 als de status van een eindpunt-test "ingeschakeld", 0 anders.|EndpointName|
 
 ## <a name="microsoftnetworknetworkwatchersconnectionmonitors"></a>Microsoft.Network/networkWatchers/connectionMonitors
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ProbesFailedPercent|% Tests is mislukt|Procent|Gemiddeld|% van de bewakingstests verbinding is mislukt|Er zijn geen dimensies|
 |AverageRoundtripMs|Gem. Retourtijd (ms)|MilliSeconds|Gemiddeld|Gemiddelde netwerk retourtijd (ms) voor connectiviteit bewakingstests verzonden tussen bron en bestemming|Er zijn geen dimensies|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |RequestCount|Aantal aanvragen|Count|Totaal|Het aantal aanvragen van clients geleverd door de proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |RequestSize|Aanvraaggrootte|Bytes|Totaal|Het aantal bytes dat is verzonden op aanvragen van clients naar de proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
@@ -1205,7 +1206,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Registration.all|Registratiebewerkingen|Count|Totaal|Het aantal registratiebewerkingen (maken, bijwerken, query's uitvoeren en verwijderen). |Er zijn geen dimensies|
 |Registration.Create|Bewerkingen voor het maken van registraties|Count|Totaal|Het aantal gemaakte registraties.|Er zijn geen dimensies|
@@ -1272,7 +1273,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Average_ percentage beschikbare Inodes|Percentage vrije Inodes|Count|Gemiddeld|Average_ percentage beschikbare Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_ % vrije ruimte|Percentage vrije ruimte|Count|Gemiddeld|Average_ % vrije ruimte|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1343,12 +1344,12 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Average_ % processortijd|% Processortijd|Count|Gemiddeld|Average_ % processortijd|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Processor-wachtrijlengte|Lengte van de processorwachtrij|Count|Gemiddeld|Average_Processor-wachtrijlengte|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Heartbeat|Heartbeat|Count|Totaal|Heartbeat|Computer, OSType, versie, SourceComputerId|
-|Update|Update|Count|Gemiddeld|Update|Computer, Product, classificatie, UpdateState, optioneel, goedgekeurde|
+|Bijwerken|Bijwerken|Count|Gemiddeld|Bijwerken|Computer, Product, classificatie, UpdateState, optioneel, goedgekeurde|
 |Gebeurtenis|Gebeurtenis|Count|Gemiddeld|Gebeurtenis|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |QueryDuration|Queryduur van de|Milliseconden|Gemiddeld|Duur van de DAX-Query in de laatste-interval|Er zijn geen dimensies|
 |QueryPoolJobQueueLength|Threads: Lengte van taakwachtrij pool query|Count|Gemiddeld|Het aantal taken in de wachtrij van de querythreadpool.|Er zijn geen dimensies|
@@ -1358,7 +1359,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ListenerConnections-Success|ListenerConnections-Success|Count|Totaal|Voltooide ListenerConnections voor Microsoft.Relay.|EntityName|
 |ListenerConnections-ClientError|ListenerConnections-ClientError|Count|Totaal|ClientError op ListenerConnections voor Microsoft.Relay.|EntityName|
@@ -1376,7 +1377,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |SearchLatency|Zoeklatentie|Seconden|Gemiddeld|Gemiddelde zoeklatentie voor de search-service|Er zijn geen dimensies|
 |SearchQueriesPerSecond|Zoekquery's per seconde|CountPerSecond|Gemiddeld|Zoekquery's per seconde voor de search-service|Er zijn geen dimensies|
@@ -1384,27 +1385,27 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Succesfulrequests|Geslaagde aanvragen (Preview)|Count|Totaal|Totaal aantal verwerkte aanvragen voor een naamruimte (Preview)|EntityName|
-|ServerErrors|Serverfouten. (Preview)|Count|Totaal|Serverfouten voor Microsoft.ServiceBus. (Preview)|EntityName|
-|UserErrors|Gebruikersfouten. (Preview)|Count|Totaal|Gebruikersfouten voor Microsoft.ServiceBus. (Preview)|EntityName|
-|ThrottledRequests|Beperkte aanvragen. (Preview)|Count|Totaal|Beperkte aanvragen voor Microsoft.ServiceBus. (Preview)|EntityName|
-|IncomingRequests|Inkomende aanvragen (Preview)|Count|Totaal|Binnenkomende aanvragen voor Microsoft.ServiceBus. (Preview)|EntityName|
-|IncomingMessages|Binnenkomende berichten (Preview)|Count|Totaal|Binnenkomende berichten voor Microsoft.ServiceBus. (Preview)|EntityName|
-|OutgoingMessages|Uitgaande berichten (Preview)|Count|Totaal|Uitgaande berichten voor Microsoft.ServiceBus. (Preview)|EntityName|
-|ActiveConnections|ActiveConnections (Preview)|Count|Totaal|Totaal aantal actieve verbindingen voor Microsoft.ServiceBus. (Preview)|Er zijn geen dimensies|
-|Grootte|Grootte (Preview)|Bytes|Gemiddeld|Grootte van een wachtrij/onderwerp in bytes. (Preview)|EntityName|
-|Berichten|Aantal berichten in een wachtrij/onderwerp. (Preview)|Count|Gemiddeld|Aantal berichten in een wachtrij/onderwerp. (Preview)|EntityName|
-|ActiveMessages|Aantal actieve berichten in een wachtrij/onderwerp. (Preview)|Count|Gemiddeld|Aantal actieve berichten in een wachtrij/onderwerp. (Preview)|EntityName|
-|DeadletteredMessages|Het aantal onbestelbare berichten in een wachtrij/onderwerp. (Preview)|Count|Gemiddeld|Het aantal onbestelbare berichten in een wachtrij/onderwerp. (Preview)|EntityName|
-|ScheduledMessages|Het aantal geplande berichten in een wachtrij/onderwerp. (Preview)|Count|Gemiddeld|Het aantal geplande berichten in een wachtrij/onderwerp. (Preview)|EntityName|
+|ServerErrors|Serverfouten. (Preview-versie)|Count|Totaal|Serverfouten voor Microsoft.ServiceBus. (Preview-versie)|EntityName|
+|UserErrors|Gebruikersfouten. (Preview-versie)|Count|Totaal|Gebruikersfouten voor Microsoft.ServiceBus. (Preview-versie)|EntityName|
+|ThrottledRequests|Beperkte aanvragen. (Preview-versie)|Count|Totaal|Beperkte aanvragen voor Microsoft.ServiceBus. (Preview-versie)|EntityName|
+|IncomingRequests|Inkomende aanvragen (Preview)|Count|Totaal|Binnenkomende aanvragen voor Microsoft.ServiceBus. (Preview-versie)|EntityName|
+|IncomingMessages|Binnenkomende berichten (Preview)|Count|Totaal|Binnenkomende berichten voor Microsoft.ServiceBus. (Preview-versie)|EntityName|
+|OutgoingMessages|Uitgaande berichten (Preview)|Count|Totaal|Uitgaande berichten voor Microsoft.ServiceBus. (Preview-versie)|EntityName|
+|ActiveConnections|ActiveConnections (Preview)|Count|Totaal|Totaal aantal actieve verbindingen voor Microsoft.ServiceBus. (Preview-versie)|Er zijn geen dimensies|
+|Grootte|Grootte (Preview)|Bytes|Gemiddeld|Grootte van een wachtrij/onderwerp in bytes. (Preview-versie)|EntityName|
+|Berichten|Aantal berichten in een wachtrij/onderwerp. (Preview-versie)|Count|Gemiddeld|Aantal berichten in een wachtrij/onderwerp. (Preview-versie)|EntityName|
+|ActiveMessages|Aantal actieve berichten in een wachtrij/onderwerp. (Preview-versie)|Count|Gemiddeld|Aantal actieve berichten in een wachtrij/onderwerp. (Preview-versie)|EntityName|
+|DeadletteredMessages|Het aantal onbestelbare berichten in een wachtrij/onderwerp. (Preview-versie)|Count|Gemiddeld|Het aantal onbestelbare berichten in een wachtrij/onderwerp. (Preview-versie)|EntityName|
+|ScheduledMessages|Het aantal geplande berichten in een wachtrij/onderwerp. (Preview-versie)|Count|Gemiddeld|Het aantal geplande berichten in een wachtrij/onderwerp. (Preview-versie)|EntityName|
 |CPUXNS|CPU-gebruik per naamruimte|Procent|Maximum|Metrische gegevens voor het CPU-gebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
 |WSXNS|Geheugengebruik per naamruimte|Procent|Maximum|Metrische gegevens voor het geheugengebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |AllocatedCpu|AllocatedCpu|Count|Gemiddeld|Toegewezen aan deze container in millicores CPU|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |AllocatedMemory|AllocatedMemory|Bytes|Gemiddeld|Geheugen toegewezen aan deze container in MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
@@ -1420,7 +1421,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ConnectionCount|Aantal verbindingen|Count|Maximum|De hoeveelheid gebruikersverbinding.|Eindpunt|
 |MessageCount|Aantal berichten|Count|Totaal|De totale hoeveelheid berichten.|Er zijn geen dimensies|
@@ -1431,10 +1432,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
-|physical_data_read_percent|Gegevens-I/O-percentage|Procent|Gemiddeld|Gegevens-I/O-percentage|Er zijn geen dimensies|
+|cpu_percent|Processorpercentage|Procent|Gemiddeld|Processorpercentage|Er zijn geen dimensies|
+|physical_data_read_percent|Percentage gegevens-IO|Procent|Gemiddeld|Percentage gegevens-IO|Er zijn geen dimensies|
 |log_write_percent|Percentage logboek-IO|Procent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
 |dtu_consumption_percent|DTU-percentage|Procent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
 |opslag|Gebruikte gegevensruimte|Bytes|Maximum|Totale databasegrootte|Er zijn geen dimensies|
@@ -1465,10 +1466,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
-|physical_data_read_percent|Gegevens-I/O-percentage|Procent|Gemiddeld|Gegevens-I/O-percentage|Er zijn geen dimensies|
+|cpu_percent|Processorpercentage|Procent|Gemiddeld|Processorpercentage|Er zijn geen dimensies|
+|physical_data_read_percent|Percentage gegevens-IO|Procent|Gemiddeld|Percentage gegevens-IO|Er zijn geen dimensies|
 |log_write_percent|Percentage logboek-IO|Procent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
 |dtu_consumption_percent|DTU-percentage|Procent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
 |storage_percent|Gegevensruimte gebruikt procent||Procent|Gemiddeld|Opslagpercentage|Er zijn geen dimensies|
@@ -1477,7 +1478,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |eDTU_limit|eDTU-limiet|Count|Gemiddeld|eDTU-limiet|Er zijn geen dimensies|
 |storage_limit|Maximale grootte van gegevens|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
 |eDTU_used|eDTU gebruikt|Count|Gemiddeld|eDTU gebruikt|Er zijn geen dimensies|
-|storage_used|Gebruikte gegevensruimte|Bytes|Gemiddeld|Gebruikte opslag|Er zijn geen dimensies|
+|storage_used|Gebruikte gegevensruimte|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |xtp_storage_percent|Percentage van in-Memory OLTP-opslag|Procent|Gemiddeld|Percentage van in-Memory OLTP-opslag|Er zijn geen dimensies|
 |cpu_limit|CPU-limiet|Count|Gemiddeld|CPU-limiet|Er zijn geen dimensies|
 |cpu_used|CPU-gebruik|Count|Gemiddeld|CPU-gebruik|Er zijn geen dimensies|
@@ -1486,7 +1487,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |virtual_core_count|Aantal virtuele kernen|Count|Gemiddeld|Aantal virtuele kernen|Er zijn geen dimensies|
 |avg_cpu_percent|Gemiddelde CPU-percentage|Procent|Gemiddeld|Gemiddelde CPU-percentage|Er zijn geen dimensies|
@@ -1504,9 +1505,9 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie.|De ResponseType, GeoType, ApiName, verificatie|
 |Inkomend verkeer|Inkomend verkeer|Bytes|Totaal|De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure.|GeoType, ApiName, verificatie|
 |Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer.|GeoType, ApiName, verificatie|
-|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde bevat niet de netwerklatentie die is opgegeven in AverageE2ELatency.|GeoType, ApiName, verificatie|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven.|GeoType, ApiName, verificatie|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen.|GeoType, ApiName, verificatie|
-|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot een afgenomen beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
+|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
@@ -1519,13 +1520,13 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie.|De ResponseType, GeoType, ApiName, verificatie|
 |Inkomend verkeer|Inkomend verkeer|Bytes|Totaal|De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure.|GeoType, ApiName, verificatie|
 |Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer.|GeoType, ApiName, verificatie|
-|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde bevat niet de netwerklatentie die is opgegeven in AverageE2ELatency.|GeoType, ApiName, verificatie|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven.|GeoType, ApiName, verificatie|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen.|GeoType, ApiName, verificatie|
-|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot een afgenomen beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
+|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |FileCapacity|Bestandscapaciteit|Bytes|Gemiddeld|De hoeveelheid opslag die wordt gebruikt door de File-service van het opslagaccount (in bytes).|Er zijn geen dimensies|
 |FileCount|Aantal bestanden|Count|Gemiddeld|Het aantal bestanden in de File-service van het opslagaccount.|Er zijn geen dimensies|
@@ -1533,9 +1534,9 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie.|De ResponseType, GeoType, ApiName, verificatie|
 |Inkomend verkeer|Inkomend verkeer|Bytes|Totaal|De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure.|GeoType, ApiName, verificatie|
 |Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer.|GeoType, ApiName, verificatie|
-|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde bevat niet de netwerklatentie die is opgegeven in AverageE2ELatency.|GeoType, ApiName, verificatie|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven.|GeoType, ApiName, verificatie|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen.|GeoType, ApiName, verificatie|
-|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot een afgenomen beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
+|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
@@ -1547,9 +1548,9 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie.|De ResponseType, GeoType, ApiName, verificatie|
 |Inkomend verkeer|Inkomend verkeer|Bytes|Totaal|De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure.|GeoType, ApiName, verificatie|
 |Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer.|GeoType, ApiName, verificatie|
-|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde bevat niet de netwerklatentie die is opgegeven in AverageE2ELatency.|GeoType, ApiName, verificatie|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven.|GeoType, ApiName, verificatie|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen.|GeoType, ApiName, verificatie|
-|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot een afgenomen beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
+|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
@@ -1558,16 +1559,16 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |TableCapacity|Tabelcapaciteit|Bytes|Gemiddeld|De hoeveelheid opslag die wordt gebruikt door de Table-service van het opslagaccount (in bytes).|Er zijn geen dimensies|
 |TableCount|Aantal tabellen|Count|Gemiddeld|Het aantal tabellen in de Table-service van het opslagaccount.|Er zijn geen dimensies|
 |TableEntityCount|Aantal tabelentiteiten|Count|Gemiddeld|Het aantal tabelentiteiten in de Table-service van het opslagaccount.|Er zijn geen dimensies|
-|Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen, evenals aanvragen waarbij fouten zijn opgetreden. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie.|De ResponseType, GeoType, ApiName, verificatie|
+|Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen evenals aanvragen die tot fouten. Gebruik de ResponseType-dimensie voor het aantal verschillende type reactie.|De ResponseType, GeoType, ApiName, verificatie|
 |Inkomend verkeer|Inkomend verkeer|Bytes|Totaal|De hoeveelheid inkomende gegevens in bytes. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure.|GeoType, ApiName, verificatie|
 |Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid uitgaande gegevens in bytes. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer.|GeoType, ApiName, verificatie|
-|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde bevat niet de netwerklatentie die is opgegeven in AverageE2ELatency.|GeoType, ApiName, verificatie|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van een aanvraag is gelukt, in milliseconden. Deze waarde omvat niet de netwerklatentie die in AverageE2ELatency is opgegeven.|GeoType, ApiName, verificatie|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen.|GeoType, ApiName, verificatie|
-|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot een afgenomen beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
+|Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de opslagservice of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de TotalBillableRequests-waarde maken en delen door het aantal toepasselijke aanvragen, met inbegrip van die onverwachte fouten zijn opgetreden. Alle onverwachte fouten leiden tot verminderde beschikbaarheid voor de opslagservice of de opgegeven API-bewerking.|GeoType, ApiName, verificatie|
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ServerSyncSessionResult|Synchronisatie-sessie resultaat|Count|Gemiddeld|Metrische gegevens die zich aanmeldt een waarde van elke 1 is het servereindpunt time een synchronisatiesessie met het Cloudeindpunt is voltooid|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncSyncSessionAppliedFilesCount|Gesynchroniseerde bestanden|Count|Totaal|Aantal van de bestanden gesynchroniseerd|SyncGroupName, ServerEndpointName, SyncDirection|
@@ -1578,7 +1579,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |ResourceUtilization|Gebruikspercentage voor Streaming-eenheden|Procent|Maximum|Gebruikspercentage voor Streaming-eenheden|LogicalName, PartitionId|
 |Invoergebeurtenissen groter is dan|Invoergebeurtenissen|Count|Totaal|Invoergebeurtenissen|LogicalName, PartitionId|
@@ -1599,7 +1600,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |IngressReceivedMessages|Binnenkomende berichten ontvangen|Count|Totaal|Aantal berichten lezen van alle Event hub of IoT-hub bronnen van gebeurtenissen|Er zijn geen dimensies|
 |IngressReceivedInvalidMessages|Inkomende gegevens ontvangen ongeldig berichten|Count|Totaal|Aantal ongeldige berichten lezen van alle Event hub of IoT-hub bronnen van gebeurtenissen|Er zijn geen dimensies|
@@ -1613,7 +1614,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |IngressReceivedMessages|Binnenkomende berichten ontvangen|Count|Totaal|Aantal berichten lezen uit de bron van gebeurtenis|Er zijn geen dimensies|
 |IngressReceivedInvalidMessages|Inkomende gegevens ontvangen ongeldig berichten|Count|Totaal|Aantal ongeldige berichten lezen uit de bron van gebeurtenis|Er zijn geen dimensies|
@@ -1627,7 +1628,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftvmwarecloudsimplevirtualmachines"></a>Microsoft.VMwareCloudSimple/virtualMachines
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |DiskReadBytesPerSecond|Gelezen bytes per seconde op de schijf|BytesPerSecond|Gemiddeld|Gemiddelde doorvoer vanwege de leesbewerkingen in de voorbeeld-periode.|Er zijn geen dimensies|
 |DiskWriteBytesPerSecond|Geschreven bytes per seconde|BytesPerSecond|Gemiddeld|Gemiddelde doorvoer vanwege de schrijfbewerkingen in de voorbeeld-periode.|Er zijn geen dimensies|
@@ -1651,7 +1652,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
 |MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
@@ -1662,7 +1663,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (met uitzondering van de functies)
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |CpuTime|CPU-tijd|Seconden|Totaal|CPU-tijd|Exemplaar|
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
@@ -1700,7 +1701,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (functions)
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
@@ -1726,7 +1727,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |CpuTime|CPU-tijd|Seconden|Totaal|CPU-tijd|Exemplaar|
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
@@ -1766,7 +1767,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
@@ -1793,7 +1794,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
+|Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |WorkersTotal|Totaalaantal werkrollen|Count|Gemiddeld|Totaalaantal werkrollen|Er zijn geen dimensies|
 |WorkersAvailable|Beschikbare werkrollen|Count|Gemiddeld|Beschikbare werkrollen|Er zijn geen dimensies|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631886"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606933"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Technische specificaties en naleving voor de StorSimple-apparaat
 
@@ -173,7 +173,7 @@ Het apparaat voldoet aan EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>AC power kabel naleving
 
-De plug en de volledige power kabel assembly moeten voldoen aan de normen die geschikt is voor het land waarin het apparaat wordt gebruikt moeten, en ze veiligheid goedkeuringen die geaccepteerd in dat land zijn. De volgende tabellen worden standaarden voor de Verenigde Staten en Europa.
+De plug en de volledige power kabel assembly moeten voldoen aan de normen die geschikt is voor het land/de regio waarin het apparaat wordt gebruikt moeten, en ze veiligheid goedkeuringen die geaccepteerd in dat land/regio worden. De volgende tabellen worden standaarden voor de Verenigde Staten en Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC-stroomkabels - Verenigde Staten (moet zich NRTL vermeld)
 

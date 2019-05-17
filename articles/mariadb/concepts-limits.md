@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041272"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550510"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Beperkingen in Azure Database voor MariaDB
 De volgende secties beschrijven capaciteit, ondersteuning voor de opslag-engine, bevoegdheden ondersteuning, gegevens manipuleren instructie ondersteuning en functionele limieten in de database-service.
@@ -82,6 +82,9 @@ Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 
 ### <a name="vnet-service-endpoints"></a>VNet-service-eindpunten
 - Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
+
+### <a name="storage-size"></a>Opslaggrootte
+- Raadpleeg [Prijscategorieën](concepts-pricing-tiers.md) voor de maximale grootte van opslag per prijscategorie.
 
 ## <a name="current-known-issues"></a>Huidige bekende problemen
 - MariaDB server-exemplaar wordt de onjuiste serverversie weergegeven nadat de verbinding tot stand is gebracht. Als u de juiste server-exemplaar-engine-versie, gebruikt de `select version();` opdracht.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190731"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823298"
 ---
 # <a name="what-is-password-writeback"></a>Wat is wachtwoord terugschrijven?
 
@@ -42,9 +42,8 @@ Wachtwoord terugschrijven biedt:
 * **Biedt ondersteuning voor het terugschrijven van wachtwoorden wanneer een beheerder stelt ze opnieuw vanuit de Azure-portal**: Wanneer een beheerder stelt het wachtwoord van een gebruiker in de [Azure-portal](https://portal.azure.com), als die gebruiker is gefedereerd of wachtwoord-hash wordt gesynchroniseerd, het wachtwoord is teruggeschreven naar on-premises. Deze functionaliteit is momenteel niet ondersteund in de Office-beheerportal.
 * **Vereist geen inkomende firewallregels**: Wachtwoord terugschrijven wordt een Azure Service Bus relay gebruikt als een onderliggende communicatiekanaal. Alle communicatie is via poort 443 uitgaande.
 
-> [!Note]
+> [!NOTE]
 > Gebruikersaccounts die zijn opgeslagen in beveiligde groepen in on-premises Active Directory kunnen niet worden gebruikt met het terugschrijven van wachtwoorden. Administrator-accounts die zijn opgeslagen in beveiligde groepen in de on-premises AD kan worden gebruikt met het terugschrijven van wachtwoorden. Zie voor meer informatie over beveiligde groepen [beveiligde accounts en groepen in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
->
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licentievereisten voor wachtwoord terugschrijven
 
@@ -63,7 +62,6 @@ Voor het gebruik van het terugschrijven van wachtwoorden, moet u een van de volg
 
 > [!WARNING]
 > Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor 'Selfservice wachtwoord opnieuw instellen/wijzigen/ontgrendelen met on-premises Write-back van'* en vereisen dat u met een van de voorgaande plannen voor deze functionaliteit te werken.
->
 
 ## <a name="how-password-writeback-works"></a>De werking van wachtwoord terugschrijven
 
@@ -90,7 +88,6 @@ Wanneer een federatieve of wachtwoord-hash gesynchroniseerd pogingen van gebruik
 1. Als het wachtwoord set-bewerking geslaagd is, wordt de gebruiker gemeld dat hun wachtwoord is gewijzigd.
    > [!NOTE]
    > Als de wachtwoord-hash van de gebruiker is gesynchroniseerd met Azure AD met behulp van wachtwoord-hashsynchronisatie, is er een kans dat de on-premises Wachtwoordbeleid toepassen zwakkere dan het wachtwoordbeleid van de cloud is. In dit geval wordt de on-premises-beleid afgedwongen. Dit beleid zorgt ervoor dat uw on-premises-beleid wordt afgedwongen in de cloud, ongeacht als u wachtwoord-hashsynchronisatie of Federatie gebruiken voor eenmalige aanmelding.
-   >
 
 1. Als het wachtwoord bewerking mislukt instelt, is een fout wordt gevraagd om de gebruiker en probeer het opnieuw. De bewerking kan mislukken omdat:
     * De service is niet beschikbaar.
@@ -155,6 +152,7 @@ Wachtwoorden worden teruggeschreven in de volgende situaties:
    * Een beheerder selfservice-force wijzigen wachtwoord bewerking, bijvoorbeeld: wachtwoord verloopt
    * Een beheerder van self-service voor wachtwoord opnieuw instellen dat afkomstig van is de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com)
    * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de [Azure-portal](https://portal.azure.com)
+   * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de [Microsoft 365-beheercentrum](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Write-back van niet-ondersteunde bewerkingen
 
@@ -163,11 +161,10 @@ Wachtwoorden zijn *niet* teruggeschreven in een van de volgende situaties:
 * **Bewerkingen voor niet-ondersteunde eindgebruikers**
    * Een eindgebruiker hun eigen wachtwoord opnieuw instellen met behulp van PowerShell-versie 1, versie 2 of de Azure AD Graph API
 * **Niet-ondersteunde bewerkingen**
-   * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de [Office-beheerportal](https://portal.office.com)
    * Een eindgebruiker door de beheerder voor wachtwoord opnieuw instellen van de PowerShell-versie 1, versie 2 of de Azure AD Graph API
 
 > [!WARNING]
-> Gebruik van het selectievakje 'gebruiker moet wachtwoord wijzigen bij volgende aanmelding' in de on-premises Active Directory-beheerprogramma's, zoals Active Directory: gebruikers en Computers of Active Directory Administrative Center wordt niet ondersteund. Bij het wijzigen van een wachtwoord controleren on-premises met deze optie niet. 
+> Gebruik van het selectievakje 'gebruiker moet wachtwoord wijzigen bij volgende aanmelding' in de on-premises Active Directory-beheerprogramma's, zoals Active Directory: gebruikers en Computers of Active Directory Administrative Center wordt niet ondersteund. Bij het wijzigen van een wachtwoord controleren on-premises met deze optie niet.
 
 ## <a name="next-steps"></a>Volgende stappen
 

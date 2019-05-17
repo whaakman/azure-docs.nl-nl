@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764730"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823554"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -48,7 +48,6 @@ U kunt een beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-a
 - Microsoft Application Insights Analytics
 - Microsoft Azure Information Protection - [meer informatie](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Microsoft Azure Management - [meer informatie](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Microsoft Azure RemoteApp
 - Beheer van Microsoft Azure-abonnementen
 - Microsoft Cloud App Security
 - Microsoft Commerce hulpprogramma's van Access Control-beheerportal
@@ -167,7 +166,6 @@ Deze instelling heeft een invloed op een poging toegang van de volgende mobiele 
 
 | Client-apps | Target-Service | Platform |
 | --- | --- | --- |
-| Azure RemoteApp | Azure RemoteApp-service | Windows 10, Windows 8.1, Windows 7, iOS, Android en macOS |
 | Dynamics CRM-app | Dynamics CRM | Windows 10, Windows 8.1, iOS en Android |
 | Agenda-e-mail/mensen app, Outlook 2016, Outlook 2013 (met moderne verificatie)| Office 365 Exchange Online | Windows 10 |
 | Beleid voor meervoudige verificatie en locatiebeleid voor apps. Op basis van apparaatbeleid wordt niet ondersteund.| Elke mijn Apps van appservice| Android en iOS |

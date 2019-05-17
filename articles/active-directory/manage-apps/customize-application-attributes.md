@@ -3,8 +3,8 @@ title: Azure AD-kenmerktoewijzingen aanpassen | Microsoft Docs
 description: Meer informatie over welke kenmerktoewijzingen voor SaaS-apps in Azure Active Directory zijn hoe u ze om te voldoen aan uw bedrijfsbehoeften kunt aanpassen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bc3aea059b6ac4244ea440d26717562e83fdbd09
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191516"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824909"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kenmerktoewijzingen voor Gebruikersinrichting voor SaaS-toepassingen in Azure Active Directory aanpassen
 Microsoft Azure AD biedt ondersteuning voor het inrichten van gebruikers voor SaaS-toepassingen van derden zoals Salesforce, G Suite en anderen. Als u het inrichten van gebruikers voor een SaaS-toepassing van derden hebt ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden via kenmerktoewijzingen.
@@ -43,17 +43,17 @@ Volg deze stappen voor toegang tot de **toewijzingen** functie van het inrichten
 
 1. Vouw **toewijzingen** bekijken en bewerken van de kenmerken van de gebruiker die tussen Azure AD stromen en de doeltoepassing. Als de doeltoepassing wordt ondersteund, wordt in deze sectie kunt u eventueel configureren van groepen en accounts voor gebruikers wordt ingericht.
 
-   ![SalesForce](./media/customize-application-attributes/21.png) 
+   ![Salesforce](./media/customize-application-attributes/21.png) 
 
 1. Selecteer een **toewijzingen** configuratie van de gerelateerde open **kenmerk toewijzing** scherm. Sommige kenmerktoewijzingen zijn vereist voor een SaaS-toepassing te laten functioneren. Voor de vereiste kenmerken, de **verwijderen** functie is niet beschikbaar.
 
-   ![SalesForce](./media/customize-application-attributes/22.png)
+   ![Salesforce](./media/customize-application-attributes/22.png)
 
    In deze schermafbeelding ziet u dat de **gebruikersnaam** kenmerk van een beheerd object in Salesforce wordt gevuld met de **userPrincipalName** waarde van de gekoppelde Azure Active Directory-Object.
 
 1. Selecteer een bestaande **kenmerk toewijzing** openen de **kenmerk bewerken** scherm. Hier kunt u de kenmerken van de gebruiker die tussen Azure AD stromen en de doeltoepassing.
 
-   ![SalesForce](./media/customize-application-attributes/23.png)
+   ![Salesforce](./media/customize-application-attributes/23.png)
 
 
 ### <a name="understanding-attribute-mapping-types"></a>Kenmerktoewijzing typen
@@ -104,7 +104,7 @@ Echter bepaalde toepassingen ondersteuning bieden voor aangepaste kenmerken en d
 
 Toepassingen en systemen die ondersteuning bieden voor aanpassing van de lijst met kenmerken zijn onder andere:
 
-* SalesForce
+* Salesforce
 * ServiceNow
 * WorkDay
 * Azure Active Directory ([Azure AD Graph API standaardkenmerken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) en aangepaste mapextensies worden ondersteund)

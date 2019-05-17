@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195580"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603205"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analyseren van gegevens in Azure Data Lake Storage Gen1 met behulp van Power BI
 In dit artikel leert u hoe u Power BI Desktop gebruiken om te analyseren en visualiseren van gegevens die zijn opgeslagen in Azure Data Lake Storage Gen1.
@@ -85,7 +85,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
     3. Het cirkeldiagram moet nu lijken op, zoals hieronder wordt weergegeven.
        
         ![Cirkeldiagram](./media/data-lake-store-power-bi/pie-chart.png "visualisaties maken")
-16. Als u een bepaald land van filters op niveau van de pagina selecteert, kunt u nu het aantal stuurprogramma's in elke plaats van het geselecteerde land zien. Bijvoorbeeld onder de **visualisaties** tabblad onder **filters op paginaniveau**, selecteer **Brazilië**.
+16. Als u een specifiek land/regio van de filters op niveau van pagina selecteert, kunt u het aantal stuurprogramma's in elke plaats van het geselecteerde land/regio nu zien. Bijvoorbeeld onder de **visualisaties** tabblad onder **filters op paginaniveau**, selecteer **Brazilië**.
     
     ![Selecteer een land/regio](./media/data-lake-store-power-bi/select-country.png "een land/regio selecteren")
 17. Het cirkeldiagram wordt automatisch bijgewerkt om de stuurprogramma's in de steden van Brazilië weer te geven.

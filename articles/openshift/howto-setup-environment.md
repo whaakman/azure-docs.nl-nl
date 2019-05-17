@@ -5,23 +5,23 @@ services: openshift
 keywords: Red hat openshift installatie instellen
 author: TylerMSFT
 ms.author: twhitney
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 3c265d6695af7ba1bc5833db59966a626cb29cb9
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6e859f57f9b5f24ea2f0172f5aa35a60d9769f19
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416078"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551705"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Uw Azure Red Hat OpenShift ontwikkelaarsomgeving instellen
 
 Als u wilt bouwen en uitvoeren van toepassingen van Microsoft Azure Red Hat OpenShift, moet u het:
 
 * Kopen van gereserveerde virtuele Azure-machine-instanties.
-* Versie 2.0.64 installeren (of hoger) van de Azure CLI (of gebruik de Azure Cloud Shell).
+* Versie 2.0.65 installeren (of hoger) van de Azure CLI (of gebruik de Azure Cloud Shell).
 * Meld u aan voor de `openshiftmanagedcluster` functie en de gekoppelde resourceproviders.
 * Een Azure Active Directory (Azure AD)-tenant maken.
 * Maak een Azure AD-toepassing-object.
@@ -39,13 +39,13 @@ Als u niet een Azure-klant, [Neem contact op met verkoop](https://aka.ms/openshi
 
 ## <a name="install-the-azure-cli"></a>Azure-CLI installeren
 
-Azure Red Hat OpenShift vereist versie 2.0.64 of hoger van Azure CLI. Als u de Azure CLI al hebt geïnstalleerd, kunt u controleren welke versie u door te voeren hebt:
+Azure Red Hat OpenShift vereist versie 2.0.65 of hoger van Azure CLI. Als u de Azure CLI al hebt geïnstalleerd, kunt u controleren welke versie u door te voeren hebt:
 
 ```bash
 az --version
 ```
 
-De eerste regel van de uitvoer heeft de CLI-versie, bijvoorbeeld `azure-cli (2.0.64)`.
+De eerste regel van de uitvoer heeft de CLI-versie, bijvoorbeeld `azure-cli (2.0.65)`.
 
 Hier vindt u instructies voor [installeren van de Azure-CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) als u een nieuwe installatie of een upgrade nodig hebt.
 
@@ -55,7 +55,8 @@ U kunt ook kunt u de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-
 
 De `Microsoft.ContainerService openshiftmanagedcluster` functie `Microsoft.Solutions`, en `Microsoft.Network` providers moeten worden geregistreerd bij uw abonnement handmatig voordat u uw eerste Azure Red Hat OpenShift-cluster implementeert.
 
-Gebruik voor het handmatig registreren van deze voorzieningen en functies, de volgende instructies zijn van een Bash-shell als u de CLI hebt geïnstalleerd, of van de sessie van de Azure Cloud Shell (Bash) in uw Azure-portal:.
+Gebruik voor het handmatig registreren van deze voorzieningen en functies, de volgende instructies zijn van een Bash-shell als u de CLI hebt geïnstalleerd, of van de sessie van de Azure Cloud Shell (Bash) in uw Azure-portal:
+
 1. Als u meerdere Azure-abonnementen hebt, geeft u de relevante abonnements-ID:
 
     ```bash
@@ -98,11 +99,11 @@ De service Azure Red Hat OpenShift vereist een gekoppelde Azure Active Directory
 
 Als u een Azure AD hebt gebruiken als de tenant voor uw Azure Red Hat OpenShift-cluster of u een tenant maken wilt voor het testen, volg de instructies in [maken van een Azure AD-tenant voor uw cluster Azure Red Hat OpenShift](howto-create-tenant.md) voordat Met deze handleiding wordt voortgezet.
 
-## <a name="create-an-azure-ad-application-object-and-user"></a>Maak een Azure AD-toepassing-object en de gebruiker
+## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Maak een Azure AD-gebruiker, beveiligingsgroep en toepassing object
 
-Azure Red Hat OpenShift vereist machtigingen voor het uitvoeren van taken in uw cluster, zoals het configureren van opslag. Deze machtigingen worden vertegenwoordigd door een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) en worden gemaakt wanneer u een Azure AD-toepassing voor de werkbelasting die u van plan bent voor het hosten op Azure Red Hat OpenShift registreert. Moet u een nieuwe Active Directory-gebruiker maken voor het testen van apps die worden uitgevoerd op uw cluster Azure Red Hat OpenShift.
+Azure Red Hat OpenShift vereist machtigingen voor het uitvoeren van taken in uw cluster, zoals het configureren van opslag. Deze machtigingen worden vertegenwoordigd door een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). Moet u een nieuwe Active Directory-gebruiker maken voor het testen van apps die worden uitgevoerd op uw cluster Azure Red Hat OpenShift.
 
-Volg de instructies in [maken van een object voor Azure AD-app en gebruiker](howto-aad-app-configuration.md) voor meer informatie over het maken van een service-principal, genereren van een client secret en verificatie URL voor terugbellen voor uw app en maak een nieuwe Active Directory-gebruiker voor het testen.
+Volg de instructies in [maken van een object voor Azure AD-app en gebruiker](howto-aad-app-configuration.md) voor het maken van een service-principal genereren van een client secret en verificatie URL voor terugbellen voor uw app en maak een nieuwe Azure AD-beveiligingsgroep en de gebruiker toegang tot de cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 

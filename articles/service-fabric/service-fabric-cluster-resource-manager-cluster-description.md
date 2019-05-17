@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744307"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561222"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor het beschrijven van een cluster. Cluster Resource Manager wordt tijdens runtime gebruikgemaakt van deze informatie om hoge beschikbaarheid van de services die in het cluster wordt uitgevoerd. Tijdens het afdwingen van deze belangrijke regels, probeert deze ook aan het Optimaliseer het gebruik van resources binnen het cluster.
@@ -95,13 +95,17 @@ Er is geen echte limiet voor het totale aantal fouten of Upgrade-domeinen in een
 ![Domeinen met fouten en Upgradedomein indelingen][Image4]
 </center>
 
-Er is dat geen best beantwoorden waarvoor lay-out om te kiezen, elk heeft enkele voordelen en nadelen. Bijvoorbeeld, is het model 1FD:1UD eenvoudig te installeren. De 1 domein upgraden per knooppunt model is, zoals welke personen worden gebruikt voor de meeste. Elk knooppunt is tijdens upgrades onafhankelijk bijgewerkt. Dit is vergelijkbaar met hoe kleine sets machines handmatig zijn bijgewerkt in het verleden. 
+Er is dat geen best beantwoorden waarvoor lay-out om te kiezen, elk heeft enkele voordelen en nadelen. Bijvoorbeeld, is het model 1FD:1UD eenvoudig te installeren. De 1 domein upgraden per knooppunt model is, zoals welke personen worden gebruikt voor de meeste. Elk knooppunt is tijdens upgrades onafhankelijk bijgewerkt. Dit is vergelijkbaar met hoe kleine sets machines handmatig zijn bijgewerkt in het verleden.
 
 Het meest voorkomende model is de matrix FD en UD, waarbij de Foutdomeinen en Upgradedomeinen een tabel vormen en knooppunten vanaf langs de diagonaal worden geplaatst. Dit is het model gebruikt standaard in Service Fabric-clusters in Azure. Alles wat eindigt als de bovenstaande compacte matrix-patroon voor clusters met veel knooppunten.
 
+> [!NOTE]
+> Service Fabric-clusters die worden gehost in Azure bieden geen ondersteuning voor het wijzigen van de standaardstrategie. Alleen zelfstandige clusters bieden die aanpassing.
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Beperkingen voor fouttolerantie en upgraden van domein en het resulterende gedrag
 ### <a name="default-approach"></a>*Standaard-benadering*
-Cluster Resource Manager houdt standaard services die zijn verdeeld over Foutdomeinen en Upgrade-domeinen. Dit is gemodelleerd als een [beperking](service-fabric-cluster-resource-manager-management-integration.md). De domeinen met fouten en het upgraden van domein beperking statussen: 'Voor de partitie van een bepaalde service, moet nooit er een verschil meer dan één in het aantal service-objecten (stateless service-exemplaren of stateful service-replica's) tussen twee willekeurige domeinen op hetzelfde niveau van de hiërarchie'. Stel dat deze beperking biedt de zekerheid 'maximale verschil'. De beperking voor domeinen met fouten en het upgraden van domein wordt voorkomen dat bepaalde verplaatst of regelingen die strijdig zijn met de bovenstaande regel. 
+Cluster Resource Manager houdt standaard services die zijn verdeeld over Foutdomeinen en Upgrade-domeinen. Dit is gemodelleerd als een [beperking](service-fabric-cluster-resource-manager-management-integration.md). De domeinen met fouten en het upgraden van domein beperking statussen: 'Voor de partitie van een bepaalde service, moet nooit er een verschil meer dan één in het aantal service-objecten (stateless service-exemplaren of stateful service-replica's) tussen twee willekeurige domeinen op hetzelfde niveau van de hiërarchie'. Stel dat deze beperking biedt de zekerheid 'maximale verschil'. De beperking voor domeinen met fouten en het upgraden van domein wordt voorkomen dat bepaalde verplaatst of regelingen die strijdig zijn met de bovenstaande regel.
 
 We bekijken een voorbeeld. Stel dat we beschikken over een cluster met zes knooppunten zijn geconfigureerd met vijf Foutdomeinen en vijf Upgrade-domeinen.
 

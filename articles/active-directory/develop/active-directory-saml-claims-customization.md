@@ -3,8 +3,8 @@ title: In het SAML-token voor bedrijfstoepassingen in Azure AD uitgegeven claims
 description: Informatie over het aanpassen van de uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231341"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764654"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: In het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
 
@@ -121,7 +121,7 @@ U kunt ook de claims transformaties-functies gebruiken.
 | **Extract() - voordat u die overeenkomt met** | Retourneert de subtekenreeks totdat deze overeenkomt met de opgegeven waarde.<br/>Als de waarde van de invoer is 'BSimon_US', de overeenkomende waarde is '_US' en de uitvoer van de claim 'BSimon' is. |
 | **Extract() - tussen overeenkomende** | Retourneert de subtekenreeks totdat deze overeenkomt met de opgegeven waarde.<br/>Bijvoorbeeld, als de waarde van de invoer is 'Finance_BSimon_US', de eerste overeenkomende waarde is 'Finance_', de tweede, overeenkomende waarde is '_US' en uitvoer van de claim 'BSimon' is. |
 | **ExtractAlpha() - Prefix** | Retourneert het voorvoegsel alfabetische deel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is 'BSimon_123', resultaat is het 'BSimon'. |
-| **ExtractAlpha() - Suffix** | Retourneert het achtervoegsel alfabetische deel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is '123_Simon', resultaat is het 'BSimon'. |
+| **ExtractAlpha() - Suffix** | Retourneert het achtervoegsel alfabetische deel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is '123_Simon', resultaat is het 'Simon'. |
 | **ExtractNumeric() - voorvoegsel** | Retourneert het numerieke gedeelte voorvoegsel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is '123_BSimon', resultaat is het '123 ' omgekeerd. |
 | **ExtractNumeric() - Suffix** | Retourneert het numerieke gedeelte achtervoegsel van de tekenreeks.<br/>Bijvoorbeeld, als de waarde van de invoer is 'BSimon_123', resultaat is het '123 ' omgekeerd. |
 | **IfEmpty()** | Voert een kenmerk of een constante als de invoer null of leeg zijn is.<br/>Bijvoorbeeld, als u wilt uitvoeren van een kenmerk die zijn opgeslagen in een extensionattribute als de werknemer-id voor een bepaalde gebruiker leeg is. Om dit te doen, zou u de volgende waarden configureren:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>Parameter 3 (uitvoer als er geen overeenkomst): user.employeeid |

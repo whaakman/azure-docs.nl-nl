@@ -12,14 +12,16 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406553"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556234"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Ontwikkelen met mediaservices v3 API 's
+
+Als een ontwikkelaar kunt u de [REST-API](https://aka.ms/ams-v3-rest-ref) van Media Services gebruiken, of clientbibliotheken waarmee u kunt communiceren met de REST-API, om eenvoudig aangepaste mediawerkstromen te maken, beheren en onderhouden. De API van [Media Services versie 3](https://aka.ms/ams-v3-rest-sdk) is gebaseerd op de OpenAPI-specificatie (voorheen bekend als een Swagger).
 
 Dit artikel worden de regels die betrekking hebben op entiteiten en API's bij het ontwikkelen met Media Services v3.
 
@@ -98,6 +100,32 @@ Media Services heeft de volgende langlopende bewerkingen:
 * Stop StreamingEndpoint
 * Schaal streamingendpoint zo
 
+
+## <a name="sdks"></a>SDK's
+
+> [!NOTE]
+> De Azure Media Services v3-SDK's zijn niet noodzakelijkerwijs thread-veilig. Bij het ontwikkelen van een toepassing met meerdere threads, moet u uw eigen logica voor het synchroniseren van thread voor het beveiligen van de client of het gebruik van een nieuw object AzureMediaServicesClient per thread toevoegen. Ook moet u voorzichtig met multithreading problemen geïntroduceerd door optionele objecten die worden geleverd door uw code aan de client (zoals een instantie van HttpClient in .NET).
+
+|SDK|Referentie|
+|---|---|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET-ref](https://aka.ms/ams-v3-dotnet-ref)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java-ref](https://aka.ms/ams-v3-java-ref)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python-ref](https://aka.ms/ams-v3-python-ref)|
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js-ref](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go-ref](https://aka.ms/ams-v3-go-ref)|
+|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+
+### <a name="see-also"></a>Zie ook
+
+- [EventGrid .NET-SDK met Media Service-gebeurtenissen](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definities van Media Services-gebeurtenissen](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+
+## <a name="azure-media-services-explorer"></a>Azure Media Services Explorer
+
+[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) is een hulpprogramma beschikbaar voor Windows-klanten die kennis willen maken met Media Services. AMSE is een Winforms/C#-toepassing voor het uploaden, downloaden, coderen en streamen van VOD en live-inhoud met Media Services. Het AMSE-hulpprogramma is voor clients die Media Services willen testen zonder code te schrijven. De AMSE-code wordt geleverd als een bron voor klanten die willen ontwikkelen met Media Services.
+
+AMSE is een Open-Source-project, en dus wordt er ondersteuning geboden door de community (problemen kunnen worden gemeld aan https://github.com/Azure/Azure-Media-Services-Explorer/issues). Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing. Raadpleeg voor meer informatie de [veelgestelde vragen over de gedragscode](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met opencode@microsoft.com als u aanvullende vragen of opmerkingen hebt.
+
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filters, bestellen, wisselbestand van Media Services-entiteiten
 
 Zie [filteren, bestellen en van Azure Media Services-entiteiten](entities-overview.md)
@@ -108,4 +136,7 @@ Bekijk de [Azure Media Services-community](media-services-community.md) artikel 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Begin te ontwikkelen met Media Services v3 API met behulp van SDK's / hulpprogramma 's](developers-guide.md)
+* [Verbinding maken met mediaservices met behulp van Java](configure-connect-java-howto.md)
+* [Verbinding maken met mediaservices met .NET](configure-connect-dotnet-howto.md)
+* [Verbinding maken met mediaservices met behulp van Node.js](configure-connect-nodejs-howto.md)
+* [Verbinding maken met mediaservices met Python](configure-connect-python-howto.md)

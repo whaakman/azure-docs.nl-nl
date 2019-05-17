@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620146"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823318"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL-Database zonder server (preview)
 
@@ -277,19 +277,21 @@ De hoeveelheid rekenkracht in rekening gebracht, wordt weergegeven met de volgen
 
 Deze hoeveelheid wordt berekend per seconde en meer dan 1 minuut geaggregeerd.
 
-**Voorbeeld**: Houd rekening met een database GP_S_Gen5_4 gedurende een periode van één uur met de volgende syntaxis:
+Houd rekening met een serverloze database die is geconfigureerd met 1 minuut vcore en 4 maximale vcores.  Dit komt overeen met ongeveer 3 GB min geheugen en het maximale geheugen van 12 GB.  Stel de vertraging automatisch onderbreken is ingesteld op 6 uur en de werkbelasting van de database actief is gedurende de eerste 2 uur van een periode van 24 uur en anders niet actief.    
 
-|Tijd (uren: minuten)|app_cpu_billed (vCore seconden)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||Totaal: 1631|
+In dit geval wordt de database wordt in rekening gebracht voor rekenen en opslag in de eerste 8 uur.  Hoewel de database niet actief starten nadat de 2e uur is, wordt dit nog steeds gefactureerd voor Computing in de volgende zes uur op basis van de minimale compute terwijl de database online is ingericht.  Alleen in rekening gebracht tijdens de rest van de periode van 24 uur tijdens de database is onderbroken.
 
-Stel de compute-eenheidsprijs $0.000073/vCore/second is. Klik aan de rekenresources in rekening gebracht voor deze periode van één uur wordt bepaald met behulp van de volgende formule: **$0.000073/vCore/second *. 1631 vCore seconden = $0.1191**
+Preciezer nog, wordt de compute-factuur in dit voorbeeld als volgt berekend:
+
+|Tijdsinterval|vCores gebruikt per seconde|GB per seconde gebruikt|COMPUTE-dimensie kosten in rekening gebracht|vCore seconden kosten in rekening gebracht via tijdsinterval|
+|---|---|---|---|---|
+|0:00-1:00|4|9|vCores gebruikt|4 vCores * 3600 seconden = 14400 vCore seconden|
+|1:00-2:00|1|12|Gebruikt geheugen|12 Gb * 1/3 * 3600 seconden = 14400 vCore-seconden|
+|2:00-8:00|0|0|Min memory ingericht|3 Gb * 1/3 * 21600 seconden = 21600 vCore-seconden|
+|8:00-24:00|0|0|Er zijn geen kosten in rekening gebracht terwijl onderbroken compute|seconden van 0 vCore|
+|Totaal aantal vCore seconden meer dan 24 uur in rekening gebracht||||50400 vCore seconden|
+
+Stel de compute-eenheidsprijs $0.000073/vCore/second is.  Klik aan de rekenresources in rekening gebracht voor deze periode van 24 uur het product van de compute-eenheid prijs- en vcore seconden kosten in rekening gebracht is: $0.000073/vCore/second * 50400 vCore seconden = $3,68
 
 ## <a name="available-regions"></a>Beschikbare regio's
 

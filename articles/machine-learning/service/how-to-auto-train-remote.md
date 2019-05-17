@@ -1,7 +1,7 @@
 ---
 title: Geautomatiseerde ML externe compute-doelen
 titleSuffix: Azure Machine Learning service
-description: Informatie over het bouwen van modellen met behulp van geautomatiseerde machine learning op een Data Science Virtual machine (DSVM) externe compute-doel met Azure Machine Learning-service
+description: Informatie over het bouwen van modellen met behulp van geautomatiseerde machine learning op een externe compute-doel Azure Machine Learning met Azure Machine Learning-service
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -12,26 +12,26 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f2d71abeacee531b21a8276f621367dd39a39d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820327"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551337"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trainen van modellen met geautomatiseerde machine learning in de cloud
 
 In Azure Machine Learning, door uw model op verschillende soorten compute-resources die u beheert te trainen. De compute-doel wordt mogelijk een lokale computer of een computer in de cloud.
 
-U kunt eenvoudig omhoog of uw machine learning-experiment uitbreiden door aanvullende compute-doelen toe te voegen. Opties voor COMPUTE-doel zijn op basis van een Ubuntu Data Science Virtual Machine (DSVM) of Azure Machine Learning-Computing. De DSVM is een aangepaste VM-installatiekopie op van Microsoft Azure-cloud speciaal gebouwd voor gegevenswetenschap. Bevat veel populaire gegevenswetenschap- en andere hulpprogramma's vooraf geïnstalleerd en geconfigureerd.  
+U kunt eenvoudig omhoog of uw machine learning-experiment uitbreiden door aanvullende compute-doelen, zoals Azure Machine Learning-Computing (AmlCompute) toe te voegen. AmlCompute is een beheerde-compute-infrastructuur waarmee u eenvoudig een rekenkracht van één of meerdere knooppunten te maken.
 
-In dit artikel leert u over het bouwen van een model met behulp van geautomatiseerde ML op de DSVM.
+In dit artikel leert u hoe u een model met behulp van geautomatiseerde ML met AmlCompute bouwt.
 
 ## <a name="how-does-remote-differ-from-local"></a>Hoe verschilt afstand van lokale?
 
-De zelfstudie '[een classificatie-model met geautomatiseerde machine learning te trainen](tutorial-auto-train-models.md)"leert u hoe u een lokale computer voor het model met geautomatiseerde ML te trainen.  De werkstroom bij het trainen van lokaal ook van toepassing is ook externe doelen. Echter met externe compute geautomatiseerde ML-iteraties uitgevoerd asynchroon. Deze functie kunt u een bepaalde iteratie annuleren, bekijk de status van de uitvoering of blijven werken van andere cellen in de Jupyter-notebook. Als u wilt trainen op afstand, moet u eerst een externe compute-doel, zoals een Azure-DSVM maken.  Vervolgens de externe bron te configureren en verzenden van uw code er.
+De zelfstudie '[een classificatie-model met geautomatiseerde machine learning te trainen](tutorial-auto-train-models.md)"leert u hoe u een lokale computer voor het model met geautomatiseerde ML te trainen.  De werkstroom bij het trainen van lokaal ook van toepassing is ook externe doelen. Echter met externe compute geautomatiseerde ML-iteraties uitgevoerd asynchroon. Deze functie kunt u een bepaalde iteratie annuleren, bekijk de status van de uitvoering of blijven werken van andere cellen in de Jupyter-notebook. Als u wilt trainen op afstand, moet u eerst een externe compute-doel, zoals AmlCompute maken. Vervolgens de externe bron te configureren en verzenden van uw code er.
 
-In dit artikel bevat de extra stappen die nodig zijn voor een geautomatiseerde ML-experiment uitvoeren op een externe DSVM.  Een object in de werkruimte `ws`, uit de zelfstudie wordt gebruikt in de code hier.
+In dit artikel bevat de extra stappen die nodig zijn voor een geautomatiseerde ML-experiment uitvoeren op een externe AmlCompute doel. Een object in de werkruimte `ws`, uit de zelfstudie wordt gebruikt in de code hier.
 
 ```python
 ws = Workspace.from_config()
@@ -39,67 +39,32 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Bron maken
 
-De DSVM maakt in uw werkruimte (`ws`) als deze nog niet bestaat. Als de DSVM is eerder hebt gemaakt, deze code wordt overgeslagen het proces voor het maken en laadt de details van de bestaande resource in de `dsvm_compute` object.  
+Maak de doel-AmlCompute in uw werkruimte (`ws`) als deze nog niet bestaat.  
 
-**Geschatte tijd**: Het maken van de virtuele machine duurt ongeveer 5 minuten.
-
-```python
-from azureml.core.compute import DsvmCompute
-
-dsvm_name = 'mydsvm' #Name your DSVM
-try:
-    dsvm_compute = DsvmCompute(ws, dsvm_name)
-    print('found existing dsvm.')
-except:
-    print('creating new dsvm.')
-    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
-    dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-    dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
-    dsvm_compute.wait_for_completion(show_output = True)
-```
-
-U kunt nu de `dsvm_compute` object als de externe compute-doel.
-
-Beperkingen op basis van DSVM zijn onder andere:
-+ Moet korter zijn dan 64 tekens lang zijn.  
-+ De volgende tekens niet bevatten: `\` ~! @ # $ % ^ & * () = + [] {} van _ \\ \\ |;: \' \\', in combinatie /?. `
-
->[!Warning]
->Als het maken is mislukt met een bericht over Marketplace-aankoop in aanmerking komen:
->    1. Ga naar [Azure Portal](https://portal.azure.com)
->    1. Beginnen met het maken van een DSVM 
->    1. Selecteer "wilt maken via een programma' programmatische maken inschakelen
->    1. Afsluiten zonder de virtuele machine te maken
->    1. Voer de code voor het maken
-
-Deze code maakt geen gebruikersnaam of wachtwoord voor de DSVM die is ingericht. Als u rechtstreeks verbinding maken met de virtuele machine wilt, gaat u naar de [Azure-portal](https://portal.azure.com) referenties maken.  
-
-### <a name="attach-existing-linux-dsvm"></a>Bestaande Linux-DSVM koppelen
-
-U kunt ook een bestaande Linux-DSVM koppelen als de compute-doel. In dit voorbeeld maakt gebruik van een bestaande DSVM, maar een nieuwe resource niet maken.
-
-> [!NOTE]
->
-> De volgende code gebruikt de [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) target-klasse om te koppelen van een bestaande virtuele machine als uw compute-doel.
-> De [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) klasse worden afgeschaft in toekomstige releases en vervangen door dit ontwerppatroon.
-
-Voer de volgende code voor het maken van de compute-doel van een bestaande Linux-DSVM.
+**Geschatte tijd**: Het maken van het doel AmlCompute duurt ongeveer 5 minuten.
 
 ```python
-from azureml.core.compute import ComputeTarget, RemoteCompute 
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
 
-attach_config = RemoteCompute.attach_configuration(username='<username>',
-                                                   address='<ip_address_or_fqdn>',
-                                                   ssh_port=22,
-                                                   private_key_file='./.ssh/id_rsa')
-compute_target = ComputeTarget.attach(workspace=ws,
-                                      name='attached-vm',
-                                      attach_configuration=attach_config)
+amlcompute_cluster_name = "automlcl" #Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
+                                                            # for GPU, use "STANDARD_NC6"
+                                                            #vm_priority = 'lowpriority', # optional
+                                                            max_nodes = 6)
 
-compute_target.wait_for_completion(show_output=True)
+compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
+    
+# Can poll for a minimum number of nodes and for a specific timeout.
+# If no min_node_count is provided, it will use the scale settings for the cluster.
+compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
 ```
 
 U kunt nu de `compute_target` object als de externe compute-doel.
+
+Beperkingen op basis van cluster zijn onder andere:
++ Moet korter zijn dan 64 tekens lang zijn.  
++ De volgende tekens niet bevatten: `\` ~! @ # $ % ^ & * () = + [] {} van _ \\ \\ |;: \' \\', in combinatie /?. `
 
 ## <a name="access-data-using-getdata-file"></a>Toegang tot gegevens met behulp van get_data bestand
 
@@ -161,7 +126,7 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
+                             compute_target = compute_target,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                             )
@@ -175,7 +140,7 @@ Stel de optionele `model_explainability` parameter in de `AutoMLConfig` construc
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
+                             compute_target = compute_target,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
@@ -250,12 +215,12 @@ Logboeken zoeken op de DSVM onder `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Uitleg bij modelgegevens ophalen, kunt u gedetailleerde informatie over de implementatiemodellen transparantie in wat wordt uitgevoerd op de back-end te vergroten. In dit voorbeeld moet u uitleg over model alleen voor de beste passend model uitvoeren. Als u voor alle modellen in de pijplijn uitvoert, wordt dit aanzienlijke uitvoeringstijd leiden. Modelgegevens uitleg bevat:
 
-* shap_values: De uitleg over gegevens die worden gegenereerd door de shapegegevens lib
+* shap_values: De uitleg over gegevens die worden gegenereerd door de shapegegevens lib.
 * expected_values: De verwachte waarde van het model voor het instellen van X_train gegevens toegepast.
-* overall_summary: Het model level functie belang waarden in aflopende volgorde gesorteerd
-* overall: De functienamen van de in dezelfde volgorde als in overall_summary gesorteerd
-* per_class_summary: De klasse niveau functie belang waarden in aflopende volgorde gesorteerd. Alleen beschikbaar voor het geval van classificatie
-* per_class_imp: De functienamen in dezelfde volgorde als in per_class_summary gesorteerd. Alleen beschikbaar voor het geval van classificatie
+* overall_summary: Het model level functie belang waarden in aflopende volgorde gesorteerd.
+* overall: De functienamen in dezelfde volgorde als in overall_summary gesorteerd.
+* per_class_summary: De klasse niveau functie belang waarden in aflopende volgorde gesorteerd. Is alleen beschikbaar voor de classificatie-aanvraag.
+* per_class_imp: De functienamen in dezelfde volgorde als in per_class_summary gesorteerd. Is alleen beschikbaar voor de classificatie-aanvraag.
 
 Gebruik de volgende code om te selecteren van de beste pijplijn uit uw iteraties. De `get_output` methode retourneert de beste uitvoering en het model voor de laatste aanroep past.
 
@@ -291,7 +256,7 @@ Urgentie van de functie via de gebruikersinterface van de widget, evenals de web
 
 ## <a name="example"></a>Voorbeeld
 
-De [how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb) notebook concepten in dit artikel laat zien. 
+De [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) notebook concepten in dit artikel laat zien. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

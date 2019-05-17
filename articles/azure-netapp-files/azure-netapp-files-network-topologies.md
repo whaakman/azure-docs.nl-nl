@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 2afd5f0a574fd15c4327b141901d2651dbe2b9e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524233"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826455"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Richtlijnen voor Azure NetApp Files-netwerkplanning
 
@@ -42,7 +42,7 @@ De onderstaande functies worden momenteel niet ondersteund voor Azure NetApp bes
 
 De volgende netwerkbeperkingen van toepassing op Azure NetApp bestanden:
 
-* Het nummer van de IP-adressen van een VNet (inclusief gekoppelde VNets) verbinding te maken met een volume in een VNet mag niet meer dan 1000.
+* Het aantal virtuele machines die verbinding met een volume (met een VNet of in gekoppelde VNets maken kunnen) mag niet meer dan 1000.
 * In elk virtueel Azure-netwerk (VNet) kan er slechts één subnet aan Azure NetApp Files worden gedelegeerd.
 
 

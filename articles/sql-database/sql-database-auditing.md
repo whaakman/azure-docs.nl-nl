@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924745"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827774"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -110,10 +110,11 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 10. Als u aanpassen van de gecontroleerde gebeurtenissen wilt, u kunt dit doen via [PowerShell-cmdlets](#subheading-7) of de [REST-API](#subheading-9).
 11. Nadat u de controle-instellingen hebt geconfigureerd, kunt u de nieuwe functie voor de detectie van bedreigingen inschakelen en configureren van e-mailberichten voor het ontvangen van beveiligingswaarschuwingen. Wanneer u detectie van bedreigingen, ontvangt u proactieve waarschuwingen voor afwijkende activiteiten die op potentiële beveiligingsrisico's duiden kunnen. Zie voor meer informatie, [aan de slag met detectie van bedreigingen](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->Inschakelen van controle op een Azure SQL Data Warehouse, of op een server met een Azure SQL Data Warehouse, **zal leiden tot het datawarehouse wordt hervat**, zelfs in het geval waarin het programma eerder is onderbroken. **Zorg ervoor dat u de datawarehouse onderbreken opnieuw na het inschakelen van controle**.'
+> Inschakelen van controle op een onderbroken Azure SQL Data Warehouse is niet mogelijk. Als u wilt inschakelen, ongedaan maken-onderbreken het datawarehouse.
 
+> [!WARNING]
+> Inschakelen van controle op een server met een Azure SQL Data Warehouse erop **resulteert in het datawarehouse wordt hervat en opnieuw onderbroken opnieuw** die mogelijk in rekening gebracht in facturering kosten in rekening gebracht.
 
 ## <a id="subheading-3"></a>Analyseren van controlelogboeken en -rapporten
 
@@ -206,7 +207,7 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 3. Ga terug naar de configuratiepagina van controle, schakelen de toegangssleutel voor opslag van de secundaire naar primaire en klik vervolgens op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de configuratiepagina van de controle.
 4. Ga terug naar de configuratiepagina van de opslag en genereer de secundaire toegangssleutel (ter voorbereiding op de volgende sleutel vernieuwingscyclus) opnieuw.
 
-## <a name="additional-information"></a>Aanvullende informatie
+## <a name="additional-information"></a>Aanvullende gegevens
 
 - Voor meer informatie over het logboek-indeling, hiërarchie van de map storage en naamconventies, Zie de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
 

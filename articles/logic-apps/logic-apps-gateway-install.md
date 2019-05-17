@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405062"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544488"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>On-premises gegevensgateway installeren voor Azure Logic Apps
 
@@ -51,7 +51,7 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een [werk- of schoolaccount](../active-directory/fundamentals/sign-up-organization.md) waarvoor een [Azure-abonnement](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+* Een [werk- of schoolaccount](../active-directory/fundamentals/sign-up-organization.md) waarvoor een [Azure-abonnement](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) 
 
   Tijdens de gatewayinstallatie van de aanmelden u bij dit account, zodat u de installatie van de gateway aan uw Azure-abonnement koppelen kunt. 
   Later kunt u ook gebruiken hetzelfde account wanneer u een Azure-resource voor uw gatewayinstallatie in de Azure-portal maakt. 
@@ -238,7 +238,7 @@ De gateway maakt een uitgaande verbinding met [Azure Service Bus](https://azure.
 
 De gateway maakt gebruik van deze volledig gekwalificeerde domeinnamen:
 
-| Domeinnamen | Uitgaande poorten | Beschrijving | 
+| Domeinnamen | Uitgaande poorten | Description | 
 | ------------ | -------------- | ----------- | 
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -418,7 +418,7 @@ Om u te helpen problemen op, begin altijd te verzamelen en controleren van de ga
 
 Hier volgen andere locaties waar u verschillende logboeken kunt vinden:
 
-| Logboektype | Location | 
+| Logboektype | Locatie | 
 |----------|----------| 
 | **Logboeken van installatieprogramma** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
 | **Configuratielogboeken** | C:\Users\<*gebruikersnaam*> \AppData\Local\Microsoft\On-premises gegevensgateway\gatewayconfigurator <*JJJJMMDD*>. <*getal*>. logboek | 

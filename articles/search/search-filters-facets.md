@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939860"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597388"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Over het bouwen van een filter facet in Azure Search 
 
@@ -37,50 +37,48 @@ Nieuw voor meervoudige navigatie en u meer informatie? Zie [facetnavigatie imple
 
 Facetten kunnen worden berekend voor één waardevelden, evenals de verzamelingen. Velden die het beste in facetnavigatie werken hebben lage kardinaliteit: een klein aantal afzonderlijke waarden die in de gehele documenten in uw zoekverzameling (bijvoorbeeld een lijst met kleuren, landen/regio's of merknamen) worden herhaald. 
 
-Op meerdere niveaus op basis van de door veld is ingeschakeld wanneer u de index maken met de volgende kenmerken instellen op TRUE: `filterable`, `facetable`. Alleen filterbare velden kunnen als facet worden gebruikt.
+Op meerdere niveaus op basis van de door veld is ingeschakeld wanneer u de index door in te stellen maken de `facetable` kenmerk `true`. U moet over het algemeen ook ingesteld de `filterable` kenmerk `true` voor deze velden zodat uw zoektoepassing kunt filteren op de velden op basis van de facetten die door de eindgebruiker wordt geselecteerd. 
 
-Alle [veldtype](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) die mogelijk worden gebruikt in meervoudige navigatie is gemarkeerd als 'geschikt voor facetten':
+Bij het maken van de REST-API, elk met een index [veldtype](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) die mogelijk worden gebruikt in meervoudige navigatie is gemarkeerd als `facetable` standaard:
 
-+ Edm.String
-+ Edm.DateTimeOffset
-+ Edm.Boolean
-+ Edm.Collections
-+ Numeriek veldtypen: Edm.Int32, Edm.Int64, Edm.Double
++ `Edm.String`
++ `Edm.DateTimeOffset`
++ `Edm.Boolean`
++ Numerieke veldtypen: `Edm.Int32`, `Edm.Int64`, `Edm.Double`
++ Verzamelingen van de bovenstaande typen (bijvoorbeeld `Collection(Edm.String)` of `Collection(Edm.Double)`)
 
-U kunt Edm.GeographyPoint in meervoudige navigatie gebruiken. Facetten zijn samengesteld uit menselijke leesbare tekst of cijfers. Facetten zijn daarom niet ondersteund voor geo-coördinaten. U moet een stad of regio veld facet per locatie.
+U kunt geen gebruiken `Edm.GeographyPoint` of `Collection(Edm.GeographyPoint)` velden in meervoudige navigatie. Facetten werken het beste voor velden met een lage kardinaliteit. Vanwege de resolutie van geo-coördinaten is het zeldzaam dat een twee sets coördinaten gelijk in een bepaalde gegevensset zal zijn. Facetten zijn daarom niet ondersteund voor geo-coördinaten. U moet een stad of regio veld facet per locatie.
 
 ## <a name="set-attributes"></a>Kenmerken instellen
 
-Indexkenmerken die bepalen hoe een veld wordt gebruikt, worden toegevoegd aan afzonderlijke velddefinities in de index. In het volgende voorbeeld wordt de velden met een lage kardinaliteit, nuttig voor facetten, bestaan uit: categorie (hotel, motel, hostel), faciliteiten en classificaties. 
-
-Filterkenmerken moeten expliciet worden ingesteld in de .NET-API. In de REST-API, onderverdeling en filteren van standaard, wat betekent dat u hoeft alleen de kenmerken van expliciet instellen dat als u wilt uitschakelen ingeschakeld. Maar dit geen technisch vereist is, laten we zien de afschrijvingen in het volgende voorbeeld van de REST voor educatieve doeleinden. 
+Indexkenmerken die bepalen hoe een veld wordt gebruikt, worden toegevoegd aan afzonderlijke velddefinities in de index. In het volgende voorbeeld wordt de velden met een lage kardinaliteit, nuttig voor facetten, bestaan uit: `category` (hotel, motel, hostel) `tags`, en `rating`. Deze velden hebben de `filterable` en `facetable` kenmerken set expliciet in het volgende voorbeeld ter illustratie. 
 
 > [!Tip]
-> Als een best practice voor prestaties en opslagoptimalisatie van uitschakelen op meerdere niveaus voor velden die moeten nooit worden gebruikt als een facet. In het bijzonder tekenreeksvelden voor singleton-waarden, zoals een naam-ID of product moeten worden ingesteld op "Geschikt voor facetten": false om te voorkomen dat hun per ongeluk niet effectief gebruiken () in meervoudige navigatie.
+> Als een best practice voor prestaties en opslagoptimalisatie van uitschakelen op meerdere niveaus voor velden die moeten nooit worden gebruikt als een facet. In het bijzonder tekenreeksvelden unieke waarden, zoals een naam-ID of product moeten worden ingesteld op `"facetable": false` om te voorkomen dat onbedoelde (en inefficiënte) gebruik in meervoudige navigatie.
 
 
-```http
+```json
 {
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String", "filterable": true, "facetable": true},
-        {"name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true},
-        {"name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
+  "name": "hotels",  
+  "fields": [
+    { "name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false },
+    { "name": "baseRate", "type": "Edm.Double" },
+    { "name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
+    { "name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene" },
+    { "name": "hotelName", "type": "Edm.String", "facetable": false },
+    { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true },
+    { "name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
+    { "name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false },
+    { "name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false },
+    { "name": "lastRenovationDate", "type": "Edm.DateTimeOffset" },
+    { "name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "location", "type": "Edm.GeographyPoint" }
+  ]
 }
 ```
 
 > [!Note]
-> Deze definitie van de index wordt opgehaald uit [maken van een Azure Search-index met behulp van de REST-API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Het is vrijwel identiek, met uitzondering van minder belangrijke verschillen in de velddefinities. Kenmerken filteren mogelijk en geschikt voor facetten worden expliciet op categorie, labels, parkingIncluded, smokingAllowed en classificatievelden toegevoegd. U krijgt Filterbaar en geschikt voor facetten voor gratis op Edm.String Edm.Boolean en Edm.Int32 veldtypen in de praktijk. 
+> Deze definitie van de index wordt opgehaald uit [maken van een Azure Search-index met behulp van de REST-API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Het is vrijwel identiek, met uitzondering van minder belangrijke verschillen in de velddefinities. De `filterable` en `facetable` kenmerken expliciet worden toegevoegd op `category`, `tags`, `parkingIncluded`, `smokingAllowed`, en `rating` velden. In de praktijk `filterable` en `facetable` zou worden standaard ingeschakeld op deze velden bij het gebruik van de REST-API. Wanneer u de .NET SDK gebruikt, moeten deze kenmerken expliciet zijn ingeschakeld.
 
 ## <a name="build-and-load-an-index"></a>Bouw en een index laden
 
@@ -91,25 +89,26 @@ Een stap tussenliggende (en mogelijk voor de hand liggende) is die u hebt voor [
 In de code van de toepassing, een query waarmee alle onderdelen van een geldige query, met inbegrip van uitdrukkingen zoeken, facetten, filters, score profielen – iets gebruikt voor het formuleren van een aanvraag te maken. Het volgende voorbeeld wordt een aanvraag die facet navigatie op basis van het type accommodatie, beoordeling en andere faciliteiten worden gemaakt.
 
 ```csharp
-SearchParameters sp = new SearchParameters()
+var sp = new SearchParameters()
 {
-  ...
-  // Add facets
-  Facets = new List<String>() { "category", "rating", "parkingIncluded", "smokingAllowed" },
+    ...
+    // Add facets
+    Facets = new[] { "category", "rating", "parkingIncluded", "smokingAllowed" }.ToList()
 };
 ```
 
 ### <a name="return-filtered-results-on-click-events"></a>Gefilterde resultaten op klikt u op gebeurtenissen
 
-De filterexpressie verwerkt de gebeurtenis click van de facetwaarde. Een categorie-facet opgegeven, te klikken op de categorie "motel" wordt geïmplementeerd via een `$filter` expressie die faciliteiten van dat type selecteert. Wanneer een gebruiker op 'motels' om aan te geven dat alleen motels moeten worden weergegeven, de volgende query die de toepassing verzendt $filter bevat = categorie eq 'motels'.
+Wanneer de eindgebruiker op een facetwaarde klikt, moet de handler voor de gebeurtenis click een filterexpressie gebruiken om te profiteren van de intentie van de gebruiker. Gegeven een `category` facet, te klikken op de categorie "motel" wordt geïmplementeerd met een `$filter` expressie die faciliteiten van dat type selecteert. Wanneer een gebruiker op 'motel' om aan te geven dat alleen motels moeten worden weergegeven, de volgende query die de toepassing verzendt bevat `$filter=category eq 'motel'`.
 
 Het volgende codefragment wordt categorie aan het filter toegevoegd als een gebruiker een waarde in de categorie-facet selecteert.
 
 ```csharp
-if (categoryFacet != "")
-  filter = "category eq '" + categoryFacet + "'";
+if (!String.IsNullOrEmpty(categoryFacet))
+    filter = $"category eq '{categoryFacet}'";
 ```
-Met behulp van de REST-API, de aanvraag zou worden gelede als `$filter=category eq 'c1'`. Categorie een veld meerdere waarden maken, gebruiken de volgende syntaxis: `$filter=category/any(c: c eq 'c1')`
+
+Als de gebruiker op een facetwaarde voor een verzameling-veld, zoals klikt `tags`, bijvoorbeeld de waarde 'groep', moet uw toepassing de volgende filtersyntaxis gebruiken: `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Tips en tijdelijke oplossingen
 

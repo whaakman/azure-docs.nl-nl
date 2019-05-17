@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943621"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606896"
 ---
 <a name="seller-insights-definitions"></a>Definities van de verkoper Insights
 =======================
@@ -37,7 +37,7 @@ De volgende tabel bevat de definities voor veel van de voorwaarden in de verkope
 | **Plaats klant**  | De plaatsnaam geleverd door de klant. Dit wordt mogelijk anders dan de plaats in de Azure-abonnement van een klant.  |
 | **Taal van de klant-communicatie**        | De taal van voorkeur van de klant voor communicatie.                                  |
 | **De naam van het bedrijf van klant**                  | De naam van het bedrijf die is opgegeven door de klant. Dit wordt mogelijk anders dan de plaats in de Azure-abonnement van een klant.                                  |
-| **Land van de klant**                       | De landnaam is opgegeven door de klant.  Dit wordt mogelijk anders dan het land/regio in de Azure-abonnement van een klant.                               |
+| **Land van de klant**                       | De naam land/regio is opgegeven door de klant.  Dit wordt mogelijk anders dan het land/de regio in de Azure-abonnement van een klant.                               |
 | **De valuta van klant (CC)**                 | De valuta voorkeur van de klant voor prijzen en facturering.                            |
 | **E-mailadres van de klant**                         | Het e-mailadres dat is geleverd door de klant.  Dit wordt mogelijk anders dan het e-mailadres in van een klant Azure-abonnement.                   |
 | **Voornaam van de klant**                              | De eerste naam wordt geleverd door de klant.  Dit wordt mogelijk anders dan de naam die is opgegeven in de Azure-abonnement van een klant.                    |

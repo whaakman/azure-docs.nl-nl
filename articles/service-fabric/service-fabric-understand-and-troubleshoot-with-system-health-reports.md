@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716265"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561385"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Systeemstatusrapporten gebruiken om fouten op te lossen
 Azure Service Fabric-onderdelen bieden systeemstatusrapporten op alle entiteiten in het cluster kant. De [health store](service-fabric-health-introduction.md#health-store) maken en verwijderen van de entiteiten die zijn gebaseerd op systeemrapporten van het. Ook worden ze in een hiërarchie die entiteit interacties worden vastgelegd.
@@ -632,7 +632,7 @@ De eigenschap en de tekst moet u aangeven welke API is vastgelopen. De volgende 
 
 - **IStatefulServiceReplica.Close** en **IStatefulServiceReplica.Abort**: De meeste gevallen is een service niet naleven van de annulering-token dat is doorgegeven aan `RunAsync`. Het kan ook zijn dat `ICommunicationListener.CloseAsync`, of als onderdrukt, `OnCloseAsync` is vastgelopen.
 
-- **IStatefulServiceReplica.ChangeRole (S)** en **IStatefulServiceReplica.ChangeRole(N)**: De meeste gevallen is een service niet naleven van de annulering-token dat is doorgegeven aan `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole (S)** en **IStatefulServiceReplica.ChangeRole(N)**: De meeste gevallen is een service niet naleven van de annulering-token dat is doorgegeven aan `RunAsync`. In dit scenario is de beste oplossing op te starten van de replica.
 
 - **IStatefulServiceReplica.ChangeRole(P)**: De meeste gevallen is de service heeft geen geretourneerd voor een taak in de `RunAsync`.
 

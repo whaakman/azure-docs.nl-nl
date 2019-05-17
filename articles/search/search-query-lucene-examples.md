@@ -7,15 +7,15 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 108dd80aa90772eb01fe3c7f0176ddd37e27acaa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024457"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595916"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Queryvoorbeelden met behulp van de syntaxis 'volledig' Lucene search (geavanceerde query's in Azure Search)
 
@@ -81,11 +81,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Alle voorbeelden in dit artikel geeft de **queryType = full** parameter, die aangeeft dat de volledige syntaxis wordt verwerkt door de Lucene-Queryparser zoeken. 
 
-## <a name="example-1-field-scoped-query"></a>Voorbeeld 1: Veldgerelateerde query
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Voorbeeld 1: Query binnen het bereik van een lijst met velden
 
-Het eerste voorbeeld is geen Lucene-specifieke, maar we ermee leiden om te introduceren de eerste query fundamentele concept: containment. In dit voorbeeld scopes uitvoeren van query's en de reactie op een paar specifieke velden. Weten hoe u een leesbare JSON-antwoord is belangrijk bij het hulpprogramma Postman of Search explorer is. 
+Het eerste voorbeeld is geen Lucene-specifieke, maar we ermee leiden om te introduceren de eerste query fundamentele concept: veld bereik. In dit voorbeeld het bereik van de query en de reactie op een paar specifieke velden. Weten hoe u een leesbare JSON-antwoord is belangrijk bij het hulpprogramma Postman of Search explorer is. 
 
-Beknopt alternatief, gericht op de query alleen de *business_title* veld en geeft u alleen zakelijke titels worden geretourneerd. De syntaxis is **searchFields** om te beperken van de uitvoering van de query alleen het veld business_title en **Selecteer** om op te geven welke velden zijn opgenomen in het antwoord.
+Beknopt alternatief, gericht op de query alleen de *business_title* veld en geeft u alleen zakelijke titels worden geretourneerd. De **searchFields** parameter Hiermee beperkt u de uitvoering van de query alleen het veld business_title en **Selecteer** geeft aan welke velden zijn opgenomen in het antwoord.
 
 ### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
 
@@ -99,6 +99,11 @@ Dit is dezelfde query met meerdere velden in een door komma's gescheiden lijst.
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
+De spaties achter de komma's zijn optioneel.
+
+> [!Tip]
+> Wanneer u de REST-API van uw toepassingscode, vergeet dan niet te coderen URL parameters, zoals `$select` en `searchFields`.
+
 ### <a name="full-url"></a>Volledige URL
 
 ```http
@@ -109,41 +114,44 @@ Antwoord voor deze query moet eruitzien als op de volgende schermafbeelding.
 
   ![Het voorbeeldantwoord postman](media/search-query-lucene-examples/postman-sample-results.png)
 
-U hebt mogelijk de zoekscore in het antwoord opgemerkt. Uniform scores van 1 optreden wanneer er is geen positie, ofwel omdat de zoekopdracht is niet zoeken in volledige tekst, of omdat er geen criteria is toegepast. Voor null search zonder criteria keert u rijen terug in willekeurige volgorde. Wanneer u de werkelijke criteria opgeeft, ziet u scores in zinvolle waarden ontwikkelen zoeken.
+U hebt mogelijk de zoekscore in het antwoord opgemerkt. Uniform scores van 1 optreden wanneer er is geen positie, ofwel omdat de zoekopdracht is niet zoeken in volledige tekst, of omdat er geen criteria is toegepast. Voor null search zonder criteria keert u rijen terug in willekeurige volgorde. Als u werkelijke zoekcriteria worden weergegeven, ziet u scores in zinvolle waarden ontwikkelen zoeken.
 
-## <a name="example-2-intra-field-filtering"></a>Voorbeeld 2: Intra veld filteren
+## <a name="example-2-fielded-search"></a>Voorbeeld 2: Fielded zoeken
 
-Volledige Lucene-syntaxis ondersteunt expressies in een veld. In dit voorbeeld wordt gezocht naar titels met het senior term in deze, maar niet jonge bedrijven.
+Volledige Lucene-syntaxis ondersteunt scoping uitdrukkingen voor afzonderlijke zoeken naar een bepaald veld. In dit voorbeeld wordt gezocht naar titels met het senior term in deze, maar niet jonge bedrijven.
 
 ### <a name="partial-query-string"></a>Gedeeltelijke queryreeks
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+$select=business_title&search=business_title:(senior NOT junior)
 ```
 
 Dit is dezelfde query met meerdere velden.
 
 ```http
-searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
 ```
 
 ### <a name="full-url"></a>Volledige URL
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Het voorbeeldantwoord postman](media/search-query-lucene-examples/intrafieldfilter.png)
 
-Door op te geven een **fieldname:searchterm** bouw, kunt u een querybewerking fielded het veld is één woord, waarbij de zoekterm is ook één woord of een woordgroep, eventueel met Booleaanse operators definiëren. Enkele voorbeelden omvatten het volgende:
+U kunt een zoekbewerking fielded met de definiëren de **fieldName:searchExpression** syntaxis, waarbij de zoekopdracht één woord of een woordgroep of een complexe expressie tussen haakjes, eventueel met Booleaanse operators zijn kan. Enkele voorbeelden omvatten het volgende:
 
-* business_title:(senior NOT junior)
-* status: (' New York ' en "Nieuwe Jersey")
-* business_title:(senior NOT junior) en posting_type:external
+- `business_title:(senior NOT junior)`
+- `state:("New York" OR "New Jersey")`
+- `business_title:(senior NOT junior) AND posting_type:external`
 
-Zorg ervoor dat meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit, zoals in dit geval zoekt naar twee verschillende steden in het locatieveld. Zorg er ook voor de operator is een hoofdletter als u niet ziet en en.
+Zorg ervoor dat u meerdere tekenreeksen tussen aanhalingstekens plaatsen als u wilt dat beide tekenreeksen die moeten worden geëvalueerd als één entiteit, als in dit geval zoekt naar twee verschillende locaties in de `state` veld. Zorg er ook voor de operator is een hoofdletter als u niet ziet en en.
 
-Het veld dat is opgegeven **fieldname:searchterm** moet een doorzoekbaar veld. Zie [Index maken (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.
+Het veld dat is opgegeven **fieldName:searchExpression** moet een doorzoekbaar veld. Zie [Index maken (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) voor meer informatie over het gebruik van indexkenmerken in velddefinities.
+
+> [!NOTE]
+> In het bovenstaande voorbeeld heeft geen moeten we gebruiken de `searchFields` parameter omdat elk onderdeel van de query de naam van een veld expliciet worden opgegeven heeft. U kunt echter nog steeds gebruiken de `searchFields` parameter als u wilt uitvoeren van een query waarin bepaalde onderdelen zijn gericht op een bepaald veld en de rest kan worden toegepast op meerdere velden. Bijvoorbeeld, de query `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` wordt gezocht naar `senior NOT junior` alleen voor de `business_title` veld, terwijl deze er naar 'extern' met gezocht wordt de `posting_type` veld. De naam van het veld opgegeven in **fieldName:searchExpression** altijd voorrang op de `searchFields` parameter, die daarom in dit voorbeeld, hoeft er niet om op te nemen `business_title` in de `searchFields` parameter.
 
 ## <a name="example-3-fuzzy-search"></a>Voorbeeld 3: fuzzy zoeken
 

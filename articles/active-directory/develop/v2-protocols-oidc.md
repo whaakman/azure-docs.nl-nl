@@ -3,8 +3,8 @@ title: Microsoft identity-platform en de OpenID Connect-protocol | Azure
 description: Bouw webtoepassingen met behulp van de Microsoft identity-platform-implementatie van de OpenID Connect-verificatieprotocol.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918464"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544801"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft identity-platform en OpenID Connect-protocol
 
@@ -34,11 +34,11 @@ OpenID Connect is gebouwd op OAuth 2.0 waarmee u kunt veilig zich in een gebruik
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) kunt u de OAuth 2.0 uitbreiden *autorisatie* protocol moet worden gebruikt als een *verificatie* protocol, zodat u kunt doen eenmalige aanmelding met OAuth. OpenID Connect introduceert het concept van een *ID-token*, dit is een beveiligingstoken dat kan de client om de identiteit van de gebruiker te verifiëren. De ID-token wordt ook basisprofielgegevens informatie over de gebruiker. Omdat de OpenID Connect, kunt u OAuth 2.0 uitbreiden, apps veilig kunnen verkrijgen *toegangstokens*, die kan worden gebruikt voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-v2-protocols.md#the-basics). Het eindpunt van de Microsoft identity platform kan ook apps van derden die zijn geregistreerd bij Azure AD om uit te geven van de toegangstokens voor beveiligde resources, zoals Web-API's. Zie voor meer informatie over het instellen van een toepassing om uit te geven toegangstokens [over het registreren van een app met het eindpunt van de Microsoft identity-platform](quickstart-register-app.md). Raden wij aan dat u OpenID verbinding maken als u bouwt een [webtoepassing](v2-app-types.md#web-apps) dat is gehost op een server en toegankelijk is via een browser.
 
-## <a name="protocol-diagram-sign-in"></a>Diagram van protocol: aanmelden
+## <a name="protocol-diagram-sign-in"></a>Diagram van protocol: Aanmelden
 
 De meest eenvoudige stroom aanmelden heeft de stappen in het volgende diagram wordt weergegeven. Elke stap wordt in dit artikel beschreven.
 
-![OpenID Connect-protocol: aanmelden](./media/v2-protocols-oidc/convergence-scenarios-webapp.svg)
+![OpenID Connect-protocol: Aanmelden](./media/v2-protocols-oidc/convergence-scenarios-webapp.svg)
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>Ophalen van het metagegevensdocument voor OpenID Connect
 
@@ -48,7 +48,7 @@ OpenID Connect beschrijft een metadata-document waarin het merendeel van de info
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> Probeer het nu! Klik op [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) om te zien de `common` tenants configuratie.
+> Nu uitproberen. Klik op [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) om te zien de `common` tenants configuratie.
 
 De `{tenant}` kan duren voordat een van de vier waarden:
 

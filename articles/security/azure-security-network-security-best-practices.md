@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 78402d3e388f08eae6652859a71c93ff408a5b0d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f36658d57fb514ff279c39e9cb1644cf56341ec4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152977"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761837"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Aanbevolen procedures voor beveiliging van het netwerk van Azure
 Dit artikel wordt een verzameling van aanbevolen procedures voor het verbeteren van de netwerkbeveiliging van uw van Azure. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure-netwerken en de ervaringen van klanten zoals zelf.
@@ -129,7 +129,7 @@ Veel organisaties hebben gekozen de hybride IT-route. Met hybride IT, aantal geg
 
 In een hybride IT-scenario is het doorgaans een soort van cross-premises-connectiviteit. Cross-premises connectiviteit kan het bedrijf de on-premises netwerken verbinden met Azure-netwerken. Er zijn twee oplossingen voor cross-premises-connectiviteit beschikbaar:
 
-* [Site-naar-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Het is een betrouwbare, betrouwbare en tot stand gebrachte technologie, maar de verbinding vindt plaats via internet. Bandbreedte wordt beperkt tot een maximum van ongeveer 200 Mbps. Site-naar-site VPN is een wenselijk optie in sommige scenario's.
+* [Site-naar-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Het is een betrouwbare, betrouwbare en tot stand gebrachte technologie, maar de verbinding vindt plaats via internet. Bandbreedte wordt beperkt tot een maximum van ongeveer 1,25 Gbps. Site-naar-site VPN is een wenselijk optie in sommige scenario's.
 * **Azure ExpressRoute**. Het is raadzaam dat u [ExpressRoute](../expressroute/expressroute-introduction.md) voor uw cross-premises-connectiviteit. Met ExpressRoute kunt u uw on-premises netwerken in de Microsoft Cloud uitbreiden via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider. Met ExpressRoute kunt kunt u verbindingen met Microsoft-cloudservices zoals Azure, Office 365 en Dynamics 365 maken. ExpressRoute is een speciale WAN koppeling tussen uw on-premises locatie of een hosting provider van Microsoft Exchange. Omdat dit een telco-verbinding, worden uw gegevens niet reizen via internet, zodat deze niet wordt weergegeven voor de mogelijke risico's van communicatie via internet.
 
 De locatie van uw ExpressRoute-verbinding kan invloed hebben op de firewall-capaciteit, schaalbaarheid, betrouwbaarheid en zichtbaarheid van de netwerk-verkeer. U moet bepalen waar u ExpressRoute in bestaande (on-premises)-netwerken is beëindigd. U kunt:

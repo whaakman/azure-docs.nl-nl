@@ -1,19 +1,18 @@
 ---
 title: Unieke sleutels in Azure Cosmos DB gebruiken
 description: Informatie over het gebruik van unieke sleutels in uw Azure Cosmos-database
-author: rockboyfor
-ms.author: v-yeche
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c3524f27cc14050647c457fdb5e87b2b83dbdfc0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115720"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595879"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Beperkingen voor unieke sleutels in Azure Cosmos DB
 
@@ -27,14 +26,14 @@ Voor het maken van items met de dezelfde e-mailadres wordt meer paden in-adres, 
 
 De container kan bijvoorbeeld items met de volgende waarden in, waarbij elk item zich houdt aan de unieke key-beperking bevatten.
 
-| CompanyID | Voornaam | Achternaam |   E-mailadres    |
-|-----------|------------|-----------|--------------------|
-|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
-|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
-|  Fabrkam  |            |  Duperre  | gaby@fabraikam.com |
-|  Fabrkam  |            |           | gaby@fabraikam.com |
+|CompanyID|Voornaam|Achternaam|E-mailadres|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrkam|   |Duperre|gaby@fabraikam.com|
+|Fabrkam|   |   |gaby@fabraikam.com|
 
 Als u een ander item met de combinaties die worden vermeld in de vorige tabel invoegen probeert, ontvangt u een foutbericht. De fout geeft aan dat de unieke key-beperking niet is voldaan. U ontvangt een `Resource with specified ID or name already exists` of `Resource with specified ID, name, or unique index already exists` als een bericht geretourneerd. 
 
@@ -56,6 +55,5 @@ Alleen wanneer u een Azure Cosmos-container maakt, kunt u unieke sleutels defini
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [logische partities](partition-data.md).
-
-<!-- Update_Description: update meta propreties, wording update -->
+* Meer informatie over [logische partities](partition-data.md)
+* Verken [unieke sleutels definiëren](how-to-define-unique-keys.md) bij het maken van een container

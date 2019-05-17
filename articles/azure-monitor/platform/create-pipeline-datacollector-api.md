@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205951"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603246"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Een pijplijn maken met de Collector-API
 
@@ -27,7 +27,7 @@ De [API van Azure Monitor Data Collector](data-collector-api.md) kunt u een aang
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Voorbeeld van probleem
-Voor de rest van dit artikel bespreken we paginaweergavegegevens in Application Insights. In ons scenario hypothetische willen we geografische gegevens verzameld standaard door de Application Insights-SDK met aangepaste gegevens met de populatie van elk land/regio in de hele wereld, met het doel om te identificeren waar we het meeste moet uitgaven correleren Marketing bedragen. 
+Voor de rest van dit artikel bespreken we paginaweergavegegevens in Application Insights. In ons scenario hypothetische willen we geografische gegevens verzameld standaard door de Application Insights-SDK met aangepaste gegevens met de populatie van elk land/regio in de hele wereld, met het doel om te identificeren waar we moeten worden uitgaven correleren de meeste marketing bedragen. 
 
 We gebruiken een openbare gegevensbron, zoals de [ongedaan maken ter wereld populatie Prospects](https://esa.un.org/unpd/wpp/) voor dit doel. De gegevens hebben de volgende eenvoudige schema:
 

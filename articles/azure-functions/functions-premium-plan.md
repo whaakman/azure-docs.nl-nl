@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031191"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544781"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions-Premium-abonnement (preview)
 
@@ -44,7 +44,7 @@ Als er geen gebeurtenissen en uitvoeringen vandaag nog in het abonnement Consump
 
 U kunt uw app vooraf warm gelopen op een opgegeven aantal exemplaren, voor de grootte van uw minimale plan hebben in het Premium-abonnement.  Vooraf verwarmde instanties kunnen u een app voor hoge belasting vooraf schalen. Wanneer de app wordt geschaald, wordt het eerst in de vooraf verwarmde exemplaren. Extra exemplaren blijven voor het bufferen van en warme onmiddellijk ter voorbereiding op de volgende schaalbewerking. Doordat een buffer van vooraf verwarmde exemplaren, kunt u effectief koude start latenties voorkomen.  Vooraf verwarmde exemplaren is een functie van de Premium-abonnement en u moet ten minste één exemplaar wordt uitgevoerd en beschikbaar zijn op alle keren dat het abonnement actief is.
 
-U kunt het aantal vooraf verwarmde exemplaren configureren in Azure portal door te selecteren **uitschalen** in de **platformfuncties** tabblad.
+U kunt het aantal vooraf verwarmde exemplaren configureren in Azure portal geselecteerd door uw **functie-App**, gaan naar de **platformfuncties** tabblad en het selecteren van de **uitschalen**opties. In het venster van de bewerken in de functie-app, vooraf verwarmde exemplaren is specifiek voor die app, maar de minimum- en maximumaantal exemplaren zijn van toepassing op het hele plan.
 
 ![Instellingen voor elastisch schalen](./media/functions-premium-plan/scale-out.png)
 
@@ -113,12 +113,13 @@ Hieronder vindt u de momenteel ondersteunde regio's voor de openbare preview.
 |US - oost 2|
 |Frankrijk - centraal|
 |Japan - west|
-|Korea - centraal|
+|Korea Centraal|
+|US - noord-centraal|
 |Europa - noord|
 |US - zuid-centraal|
 |India - zuid|
 |Azië - zuidoost|
-|Verenigd Koninkrijk West|
+|VK West|
 |Europa -west|
 |India - west|
 |US - west|

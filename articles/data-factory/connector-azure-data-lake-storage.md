@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fcedc74cde9e26ea53d2475f0e9805788787f2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228609"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560783"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -516,6 +516,66 @@ Deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor de v
 | false |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 is gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgehaald. |
 | false |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 is gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgehaald. |
 | false |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | De doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand1 + bestand2 inhoud worden samengevoegd in één bestand met een automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgehaald. |
+
+## <a name="preserve-acls-from-data-lake-storage-gen1"></a>ACL's van Data Lake Storage Gen1 behouden
+
+>[!TIP]
+>Voor gegevens uit Azure Data Lake Storage Gen1 in Gen2 in het algemeen Zie [gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 met Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) met stapsgewijze instructies en best practices.
+
+Bij het kopiëren van bestanden vanuit Azure Data Lake Storage (ADLS) Gen1 naar Gen2, kunt u de POSIX toegangsbeheerlijsten (ACL's) samen met gegevens behouden. Raadpleeg voor toegangsbeheer in details, [toegangsbeheer in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) en [toegangsbeheer in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
+
+De volgende typen ACL's kunnen worden bewaard met Azure Data Factory Copy-activiteit, kunt u een of meer typen selecteren:
+
+- **ACL**: Kopieer en behouden **POSIX ACL's** voor bestanden en mappen. Het kopieert u de volledige bestaande ACL's van bron naar een sink. 
+- **De eigenaar van**: Kopieer en behouden **de gebruiker die eigenaar is** van bestanden en mappen. Supergebruiker toegang tot ADLS Gen2 sink is vereist.
+- **Groep**: Kopieer en behouden **de groep die eigenaar is** van bestanden en mappen. Supergebruiker toegang tot het sink-ADLS Gen2 of de gebruiker die eigenaar is (als de gebruiker die eigenaar ook lid is van de doelgroep is) is vereist.
+
+Als u opgeeft als u wilt kopiëren uit een map, Data Factory de ACL's voor die opgegeven map, evenals de bestanden en mappen onder deze repliceert (als `recursive` is ingesteld op true). Als u opgeeft als u wilt kopiëren van een enkel bestand, de ACL's op wordt dat bestand gekopieerd.
+
+>[!IMPORTANT]
+>Als u behouden van ACL's wilt, zorg er dan voor dat u hiervoor toestemming hoog genoeg voor ADF werken op basis van uw sink Gen2 ADLS-account. Bijvoorbeeld, gebruik van verificatie van account-sleutel of de eigenaar van een opslag-Blob-gegevens-rol toewijzen aan de service-principal/beheerde identiteit.
+
+Wanneer u als ADLS Gen1 met binaire kopie optie binaire indeling en sink als ADLS Gen2 met binaire kopie optie binaire indeling configureren, kunt u vinden **behouden** optie **pagina instellingen van het hulpprogramma Copy Data** of in **Copy Activity -> instellingen** tabblad voor het ontwerpen van de activiteit.
+
+![ADLS Gen1 naar Gen2 ACL behouden](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+
+Hier volgt een voorbeeld van JSON-configuratie (Zie `preserve`): 
+
+```json
+"activities":[
+    {
+        "name": "CopyFromGen1ToGen2",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "AzureDataLakeStoreSource",
+                "recursive": true
+            },
+            "sink": {
+                "type": "AzureBlobFSSink",
+                "copyBehavior": "PreserveHierarchy"
+            },
+            "preserve": [
+                "ACL",
+                "Owner",
+                "Group"
+            ]
+        },
+        "inputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen1 input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
+                "type": "DatasetReference"
+            }
+        ]
+    }
+]
+```
 
 ## <a name="mapping-data-flow-properties"></a>Eigenschappen van fouttoewijzing gegevensstroom
 

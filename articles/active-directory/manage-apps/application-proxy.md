@@ -12,12 +12,12 @@ ms.date: 05/09/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb3a3d85c9cac85b6658167806cea59b6d5163de
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782850"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825541"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Externe toegang tot on-premises toepassingen via de toepassingsproxy van Azure Active Directory 
 
@@ -44,7 +44,7 @@ Proxy voor servicetoepassing werkt met:
 
 Application Proxy biedt ondersteuning voor eenmalige aanmelding. Zie voor meer informatie over de ondersteunde methoden [kiezen van een methode voor eenmalige aanmelding](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-De toepassingsproxy wordt aanbevolen voor externe externe gebruikers toegang geven tot interne bronnen. Toepassingsproxy vervangt de noodzaak voor een VPN of een omgekeerde proxy. Het is niet bedoeld voor interne gebruikers op het bedrijfsnetwerk bevinden.  Interne gebruikers die gebruikmaken van onnodig Application Proxy kunnen leiden tot onverwachte of ongewenste prestatieproblemen.
+De toepassingsproxy wordt aanbevolen voor externe gebruikers toegang geven tot interne bronnen. Toepassingsproxy vervangt de noodzaak voor een VPN of een omgekeerde proxy. Het is niet bedoeld voor interne gebruikers op het bedrijfsnetwerk bevinden.  Deze gebruikers die gebruikmaken van onnodig Application Proxy kunnen leiden tot onverwachte of ongewenste prestatieproblemen.
 
 ## <a name="how-application-proxy-works"></a>De werking van de toepassingsproxy
 

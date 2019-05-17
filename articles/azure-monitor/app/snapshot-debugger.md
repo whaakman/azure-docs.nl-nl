@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205606"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595584"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-apps
 Wanneer er een uitzondering optreedt, kunt u automatisch een momentopname voor foutopsporing verzamelen van uw live webtoepassing. De momentopname toont de status van de broncode en variabelen op het moment dat de uitzondering is opgetreden. De Snapshot Debugger (preview) in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) bewaakt uitzonderingstelemetrie van uw web-app. Deze verzamelt momentopnamen op uw uitzonderingen boven activerende zodat u de informatie die u nodig hebt om problemen in de productieomgeving te diagnosticeren. Bevatten de [Snapshot collector NuGet-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in uw toepassing, en (optioneel) Configureer verzameling parameters in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Momentopnamen worden weergegeven op [uitzonderingen](../../azure-monitor/app/asp-net-exceptions.md) in de Application Insights-portal.
 
-U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Als u een krachtigere foutopsporing ervaring met de broncode, opent u momentopnamen met Visual Studio 2017 Enterprise. In Visual Studio, kunt u ook [Snappoints om interactief momentopnamen te instellen](https://aka.ms/snappoint) zonder te wachten op een uitzondering.
+U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Als u een krachtigere foutopsporing ervaring met de broncode, momentopnamen met Visual Studio 2019 Enterprise te openen. In Visual Studio, kunt u ook [Snappoints om interactief momentopnamen te instellen](https://aka.ms/snappoint) zonder te wachten op een uitzondering.
 
 Fouten opsporen in momentopnamen worden opgeslagen voor de zeven dagen. Deze bewaarbeleid is ingesteld op basis van de per toepassing. Als u nodig hebt om deze waarde te verhogen, kunt u een toename van aanvragen door een ondersteuningsaanvraag opent in de Azure-portal.
 
@@ -81,9 +81,9 @@ In de weergave fouten opsporen in momentopname ziet u een aanroepstack en een de
 Momentopnamen kunnen gevoelige gegevens bevatten, en standaard ze niet kan worden weergegeven. Als u momentopnamen, hebt u de `Application Insights Snapshot Debugger` rol die aan u zijn toegewezen.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Momentopnamen weergeven in Visual Studio 2017 Enterprise of hoger
-1. Klik op de **momentopname downloaden** knop voor het downloaden van een `.diagsession` -bestand, dat kan worden geopend door Visual Studio 2017 Enterprise.
+1. Klik op de **momentopname downloaden** knop voor het downloaden van een `.diagsession` -bestand, dat kan worden geopend door Visual Studio Enterprise.
 
-2. Om te openen de `.diagsession` -bestand, moet u beschikken over de Snapshot Debugger VS zijn geïnstalleerd. De Snapshot Debugger-component is een vereist onderdeel van de ASP.net-werkbelasting in Visual Studio en kan worden geselecteerd in de lijst met afzonderlijke onderdelen in het installatieprogramma van Visual Studio. Als u met behulp van een eerdere versie van Visual Studio 2017 dan 15.5 moet u voor het installeren van de extensie van de [Visual Studio marketplace](https://aka.ms/snapshotdebugger).
+2. Om te openen de `.diagsession` -bestand, moet u beschikken over de Snapshot Debugger Visual Studio zijn geïnstalleerd. De Snapshot Debugger-component is een vereist onderdeel van de ASP.net-workload in Visual Studio en kan worden geselecteerd in de lijst met afzonderlijke onderdelen in het installatieprogramma voor Visual Studio. Als u een versie van Visual Studio voorafgaand aan Visual Studio 2017 versie 15.5 gebruikt, moet u voor het installeren van de extensie van de [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. Nadat u de momentopnamebestand opent, wordt de pagina Minidump foutopsporing in Visual Studio weergegeven. Klik op **fouten opsporen in beheerde Code** foutopsporing van de momentopname te starten. De momentopname wordt geopend aan de coderegel waar de uitzondering is opgetreden, zodat u kunt fouten opsporen in de huidige status van het proces.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413908"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603104"
 ---
 # <a name="what-is-azure-importexport-service"></a>Wat is Azure Import/Export-service?
 
@@ -74,9 +74,9 @@ Op hoog niveau omvat een import-taak de volgende stappen uit:
 8. De stations worden geleverd met uw provider-account opgegeven in de import-taak adres van de afzender.
 
 > [!NOTE]
-> Delen een nationale provider-account voor lokale (binnen data center land) verzendingen 
+> Delen een nationale provider-account voor lokale (binnen data center land/regio) verzendingen 
 >
-> Delen van verzendingen buitenland (buiten data center land), een internationale provider-account
+> Delen een internationale provider-account voor buitenland (buiten data center land/regio) verzendingen
 
  ![Afbeelding 1:Import taak stroom](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ Op hoog niveau omvat een exporttaak bekijken in de volgende stappen:
 10. De stations worden geleverd met uw provider-account opgegeven in de import-taak adres van de afzender.
 
 > [!NOTE]
-> Delen een nationale provider-account voor lokale (binnen data center land) verzendingen 
+> Delen een nationale provider-account voor lokale (binnen data center land/regio) verzendingen 
 >
-> Delen van verzendingen buitenland (buiten data center land), een internationale provider-account
+> Delen een internationale provider-account voor buitenland (buiten data center land/regio) verzendingen
   
  ![Afbeelding 2:Export taak stroom](./media/storage-import-export-service/exportjob.png)
 
@@ -126,7 +126,7 @@ De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van al
 |US - oost 2    | Azië - oost        |  India - west        | VS DoD Centraal        |
 |US - west 2     | Azië - zuidoost        | Canada - midden        | China - oost         |
 |US - centraal     | Australië - oost        | Canada Oost        | China - noord        |
-|US - noord-centraal     |  Australië - zuidoost       | Brazilië - zuid        | VK Zuid        |
+|US - noord-centraal     |  Australië - zuidoost       | Brazilië - zuid        | Verenigd Koninkrijk Zuid        |
 |US - zuid-centraal     | Japan - west        |Korea Centraal         | Duitsland - centraal        |
 |US - west-centraal     |  Japan - oost       | US Gov - Virginia        | Duitsland - noordoost        |
 

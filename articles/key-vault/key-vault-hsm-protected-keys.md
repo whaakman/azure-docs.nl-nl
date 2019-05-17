@@ -9,18 +9,18 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: a013e0091e1a955672c1f16a4ac6300281d277b3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1ae94718aa41c58f4d5e397942492ad8ed643ae3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573009"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556203"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Voor extra zekerheid, wanneer u Azure Key Vault, gebruikt kunt u importeren of genereren van sleutels in hardware security modules (HSM's) die de HSM-grens nooit verlaten. In dit scenario wordt vaak aangeduid als *uw eigen sleutel*, of byok genoemd. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Azure Key Vault gebruikt Thales nShield-familie van HSM's voor het beveiligen van uw sleutels.
+Voor extra zekerheid, wanneer u Azure Key Vault, gebruikt kunt u importeren of genereren van sleutels in hardware security modules (HSM's) die de HSM-grens nooit verlaten. In dit scenario wordt vaak aangeduid als *uw eigen sleutel*, of byok genoemd. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Azure Key Vault gebruikt nCipher nShield-familie van HSM's voor het beveiligen van uw sleutels.
 
 Gebruik de informatie in dit onderwerp om te plannen, te genereren en vervolgens over te dragen van uw eigen HSM beveiligde sleutels gebruiken met Azure Key Vault.
 
@@ -34,16 +34,16 @@ Meer informatie over het genereren en overdragen van een met HSM beveiligde sleu
 
 * U kunt de sleutel genereren op een offline werkstation, waardoor de kwetsbaarheid voor aanvallen.
 * De sleutel is gecodeerd met een sleutel (KEK-Exchange Key), die versleuteld blijft totdat deze zijn overgebracht naar de Azure Key Vault HSM's. Alleen de versleutelde versie van de sleutel verlaat het oorspronkelijke werkstation.
-* De toolset stelt de eigenschappen van uw tenantsleutel die wordt uw sleutel aan de beveiligingswereld van Azure Key Vault gebonden. Dus nadat de Azure Key Vault HSM's ontvangen en de sleutel te ontsleutelen, kunnen deze HSM's gebruiken. De sleutel kan niet worden geëxporteerd. Deze binding wordt afgedwongen door de Thales HSM's.
-* De sleutel (KEK-Key Exchange) dat wordt gebruikt voor het versleutelen van uw sleutel wordt gegenereerd in de Azure Key Vault HSM's en kan niet worden geëxporteerd. De HSM's dwingen af dat er geen versie van de KEK buiten de HSM's kunnen worden. De toolset bevat bovendien attest van Thales dat de KEK-sleutel kan niet worden geëxporteerd en is gegenereerd binnen een legitieme door Thales vervaardigde HSM.
-* De toolset bevat een attest van Thales dat de Azure Key Vault-beveiligingswereld ook is gegeneerd met een legitieme HSM, door Thales vervaardigde. Deze verklaring is uw bewijs dat Microsoft legitieme hardware wordt gebruikt.
+* De toolset stelt de eigenschappen van uw tenantsleutel die wordt uw sleutel aan de beveiligingswereld van Azure Key Vault gebonden. Dus nadat de Azure Key Vault HSM's ontvangen en de sleutel te ontsleutelen, kunnen deze HSM's gebruiken. De sleutel kan niet worden geëxporteerd. Deze binding wordt afgedwongen door de nCipher HSM's.
+* De sleutel (KEK-Key Exchange) dat wordt gebruikt voor het versleutelen van uw sleutel wordt gegenereerd in de Azure Key Vault HSM's en kan niet worden geëxporteerd. De HSM's dwingen af dat er geen versie van de KEK buiten de HSM's kunnen worden. De toolset bevat bovendien attest van nCipher dat de KEK-sleutel kan niet worden geëxporteerd en is gegenereerd binnen een legitieme door nCipher vervaardigde HSM.
+* De toolset bevat een attest van nCipher dat de Azure Key Vault-beveiligingswereld ook is gegeneerd met een legitieme HSM geproduceerd door nCipher. Deze verklaring is uw bewijs dat Microsoft legitieme hardware wordt gebruikt.
 * Microsoft gebruikt afzonderlijke kek's en afzonderlijke Beveiligingswerelden in elke geografische regio. Dankzij deze scheiding zorgt ervoor dat de sleutel kan worden gebruikt alleen in datacenters in de regio waarin u hebt versleuteld. Bijvoorbeeld, kan niet een sleutel van een Europese klant worden gebruikt in datacenters in Noord-Amerika of Azië.
 
-## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Meer informatie over Thales HSM's en Microsoft-services
+## <a name="more-information-about-ncipher-hsms-and-microsoft-services"></a>Meer informatie over nCipher HSM's en Microsoft-services
 
-Thales e-Security is een toonaangevende wereldwijde leverancier van gegevensversleuteling en cyberbeveiliging beveiligingsoplossingen voor de financiële, hightech, productie, overheid en technologiesector. Met een 40 jaar bijhouden record van de bescherming van zakelijke en overheidsgegevens worden oplossingen van Thales gebruikt door vier van de vijf grootste energie- en ruimtevaart bedrijven. Hun oplossingen worden ook gebruikt door 22 NAVO landen/regio's en meer dan 80 procent van de betalingstransacties wereldwijd beveiligen.
+nCipher Security is een toonaangevende wereldwijde leverancier van gegevensversleuteling en cyberbeveiliging beveiligingsoplossingen voor de financiële, hightech, productie, overheid en technologiesector. Met een 40 jaar bijhouden record van de bescherming van zakelijke en overheidsgegevens worden cryptografische beveiligingsoplossingen nCipher door vier van de vijf grootste energie- en ruimtevaart bedrijven gebruikt. Hun oplossingen worden ook gebruikt door 22 NAVO landen/regio's en meer dan 80 procent van de betalingstransacties wereldwijd beveiligen.
 
-Microsoft heeft samengewerkt met Thales om de status van illustraties voor HSM's. Deze verbeteringen kunnen u profiteren van de gebruikelijke voordelen van gehoste services, zonder verliest controle over uw sleutels. Om precies kan deze uitbreidingen Microsoft de HSM's zodat u niet te hoeft beheren. Als een cloudservice schaalt Azure Key Vault op korte termijn opschaalbaar om te voldoen aan de gebruikspieken van uw organisatie. Op hetzelfde moment, uw sleutel beschermd binnen de HSM's van Microsoft: U behoudt de controle over de levenscyclus van de omdat u de sleutel genereren en naar HSM's van Microsoft overdragen.
+Microsoft heeft samengewerkt met nCipher beveiliging voor het verbeteren van de status van illustraties voor HSM's. Deze verbeteringen kunnen u profiteren van de gebruikelijke voordelen van gehoste services, zonder verliest controle over uw sleutels. Om precies kan deze uitbreidingen Microsoft de HSM's zodat u niet te hoeft beheren. Als een cloudservice schaalt Azure Key Vault op korte termijn opschaalbaar om te voldoen aan de gebruikspieken van uw organisatie. Op hetzelfde moment, uw sleutel beschermd binnen de HSM's van Microsoft: U behoudt de controle over de levenscyclus van de omdat u de sleutel genereren en naar HSM's van Microsoft overdragen.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Implementatie van uw eigen sleutel (BYOK) brengen voor Azure Key Vault
 
@@ -57,8 +57,8 @@ Zie de volgende tabel voor een lijst met vereisten voor het meenemen van uw eige
 | --- | --- |
 | Een abonnement op Azure |Voor het maken van een Azure Key Vault, moet u een Azure-abonnement: [Aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/) |
 | De Azure Key Vault Premium-servicelaag voor de ondersteuning van met HSM beveiligde sleutels |Zie voor meer informatie over de service-lagen en mogelijkheden voor Azure Key Vault, de [prijzen van Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) website. |
-| Thales HSM, smartcards en voor ondersteuningssoftware |U moet toegang hebben tot een Thales Hardware Security Module en operationele basiskennis hebben van Thales HSM's. Zie [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) voor de lijst met compatibele modellen of om aan te schaffen van een HSM, als u niet hebt. |
-| De volgende hardware en software:<ol><li>Een offline x64 werkstation met een minimale Windows-besturingssysteem Windows 7 en Thales nShield-software ten minste versie 11.50.<br/><br/>Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Microsoft .NET Framework 4.5 installeren](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Een werkstation dat is verbonden met Internet en heeft een minimumversie Windows-besturingssysteem van Windows 7 en [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **minimaal versie 1.1.0** geïnstalleerd.</li><li>Een USB-station of ander draagbaar opslagapparaat met ten minste 16 MB vrije ruimte.</li></ol> |Uit veiligheidsoverwegingen, wordt u aangeraden dat de eerste werkstation niet is verbonden met een netwerk. Deze aanbeveling is echter niet via een programma afgedwongen.<br/><br/>In de volgende instructies wordt dit werkstation aangeduid als niet-verbonden werkstation.</p></blockquote><br/>Bovendien, als uw tenantsleutel bedoeld voor een productienetwerk is, raden wij u een tweede, afzonderlijk werkstation gebruiken voor het downloaden van de toolset en uploaden van de tenant-sleutel. Maar voor testdoeleinden kunt u hetzelfde werkstation gebruiken als het eerste.<br/><br/>In de volgende instructies wordt dit tweede werkstation aangeduid als het met Internet verbonden werkstation.</p></blockquote><br/> |
+| nCipher nShield-HSM's, smartcards en voor ondersteuningssoftware |U moet hebben toegang tot een nCipher Hardware Security Module en operationele basiskennis hebben van nCipher nShield-HSM's. Zie [nCipher nShield Hardware Security Module](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) voor de lijst met compatibele modellen of om aan te schaffen van een HSM, als u niet hebt. |
+| De volgende hardware en software:<ol><li>Een offline x64 werkstation met als een minimaal besturingssysteem Windows 7, Windows en nCipher nShield-software ten minste versie 11.50.<br/><br/>Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Microsoft .NET Framework 4.5 installeren](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Een werkstation dat is verbonden met Internet en heeft een minimumversie Windows-besturingssysteem van Windows 7 en [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **minimaal versie 1.1.0** geïnstalleerd.</li><li>Een USB-station of ander draagbaar opslagapparaat met ten minste 16 MB vrije ruimte.</li></ol> |Uit veiligheidsoverwegingen, wordt u aangeraden dat de eerste werkstation niet is verbonden met een netwerk. Deze aanbeveling is echter niet via een programma afgedwongen.<br/><br/>In de volgende instructies wordt dit werkstation aangeduid als niet-verbonden werkstation.</p></blockquote><br/>Bovendien, als uw tenantsleutel bedoeld voor een productienetwerk is, raden wij u een tweede, afzonderlijk werkstation gebruiken voor het downloaden van de toolset en uploaden van de tenant-sleutel. Maar voor testdoeleinden kunt u hetzelfde werkstation gebruiken als het eerste.<br/><br/>In de volgende instructies wordt dit tweede werkstation aangeduid als het met Internet verbonden werkstation.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Genereren en uw sleutel overdragen naar Azure Key Vault HSM
 
@@ -232,17 +232,17 @@ Kopieer het pakket naar een USB-station of ander draagbaar opslagmedium.
 
 Voor deze tweede stap doen in de volgende procedures op het werkstation dat niet is verbonden met een netwerk (Internet of uw interne netwerk).
 
-### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>Stap 2.1: Voorbereiden van de niet-verbonden werkstation met Thales HSM
+### <a name="step-21-prepare-the-disconnected-workstation-with-ncipher-nshield-hsm"></a>Stap 2.1: Voorbereiden van de niet-verbonden werkstation met nCipher nShield-HSM
 
-De (Thales) nCipher-ondersteuningssoftware installeren op een Windows-computer, en voeg vervolgens een Thales HSM aan die computer.
+Installeer de nCipher-ondersteuningssoftware op een Windows-computer, en voeg vervolgens een nCipher nShield-HSM aan die computer.
 
-Zorg ervoor dat de Thales-hulpprogramma's in het pad (**%nfast_home%\bin**). Bijvoorbeeld, typ het volgende:
+Zorg ervoor dat de nCipher-hulpprogramma's in het pad (**%nfast_home%\bin**). Bijvoorbeeld, typ het volgende:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
   ```
 
-Zie voor meer informatie de handleiding inbegrepen bij de Thales HSM.
+Zie voor meer informatie de handleiding inbegrepen bij de nShield-HSM.
 
 ### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>Stap 2.2: Installeer de BYOK-toolset op niet-verbonden werkstation
 
@@ -258,11 +258,11 @@ Voor deze derde stap, voer de volgende procedures op de niet-verbonden werkstati
 
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Stap 3.1: De HSM-modus wijzigen in 'Ik'
 
-Als u Thales nShield Edge, de modus te wijzigen: 1. Gebruik de knop modus om de vereiste modus te markeren. 2. Binnen een paar seconden en houdt u de knop wissen voor een paar seconden. Als de modus wijzigt, wordt de nieuwe modus LED niet meer knippert en branden blijft. De Status-LED onregelmatig voor een paar seconden mogelijk flash en vervolgens knippert regelmatig wanneer het apparaat gereed is. Anders wordt het apparaat blijft in de huidige modus, met de juiste modus LED belicht.
+Als u nCipher nShield Edge, de modus te wijzigen: 1. Gebruik de knop modus om de vereiste modus te markeren. 2. Binnen een paar seconden en houdt u de knop wissen voor een paar seconden. Als de modus wijzigt, wordt de nieuwe modus LED niet meer knippert en branden blijft. De Status-LED onregelmatig voor een paar seconden mogelijk flash en vervolgens knippert regelmatig wanneer het apparaat gereed is. Anders wordt het apparaat blijft in de huidige modus, met de juiste modus LED belicht.
 
 ### <a name="step-32-create-a-security-world"></a>Stap 3.2: Maak een beveiligingswereld
 
-Start een opdrachtprompt en voer het nieuwe-wereld-programma van Thales.
+Start een opdrachtprompt en voer de nCipher-nieuwe-wereld-programma.
 
    ```cmd
     new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
@@ -279,14 +279,14 @@ Ga daarna als volgt te werk:
 
 ### <a name="step-33-change-the-hsm-mode-to-o"></a>Stap 3.3: De HSM-modus te wijzigen ' o '
 
-Als u Thales nShield Edge, de modus te wijzigen: 1. Gebruik de knop modus om de vereiste modus te markeren. 2. Binnen een paar seconden en houdt u de knop wissen voor een paar seconden. Als de modus wijzigt, wordt de nieuwe modus LED niet meer knippert en branden blijft. De Status-LED onregelmatig voor een paar seconden mogelijk flash en vervolgens knippert regelmatig wanneer het apparaat gereed is. Anders wordt het apparaat blijft in de huidige modus, met de juiste modus LED belicht.
+Als u nCipher nShield Edge, de modus te wijzigen: 1. Gebruik de knop modus om de vereiste modus te markeren. 2. Binnen een paar seconden en houdt u de knop wissen voor een paar seconden. Als de modus wijzigt, wordt de nieuwe modus LED niet meer knippert en branden blijft. De Status-LED onregelmatig voor een paar seconden mogelijk flash en vervolgens knippert regelmatig wanneer het apparaat gereed is. Anders wordt het apparaat blijft in de huidige modus, met de juiste modus LED belicht.
 
 ### <a name="step-34-validate-the-downloaded-package"></a>Stap 3.4: Het gedownloade pakket valideren
 
 Deze stap is optioneel, maar aanbevolen zodat u het volgende kunt valideren:
 
-* De uitwisselingssleutel van de sleutel die is opgenomen in de hulpmiddelenset is, gegenereerd met een legitieme Thales HSM.
-* De hash van de Beveiligingswereld die is opgenomen in de hulpmiddelenset is, gegenereerd met een legitieme Thales HSM.
+* De uitwisselingssleutel van de sleutel die is opgenomen in de hulpmiddelenset is, gegenereerd met een legitieme nCipher nShield-HSM.
+* De hash van de Beveiligingswereld die is opgenomen in de hulpmiddelenset is, gegenereerd met een legitieme nCipher nShield-HSM.
 * De uitwisselingssleutel van de sleutel is niet exporteerbaar maken.
 
 > [!NOTE]
@@ -346,18 +346,18 @@ Het gedownloade pakket valideren:
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
 
      > [!TIP]
-     > De Thales-software bevat python in %NFAST_HOME%\python\bin
+     > De nCipher nShield-software bevat python in %NFAST_HOME%\python\bin
      >
      >
 2. Bevestig dat u het volgende, waarmee wordt aangegeven validatie is geslaagd: **Resultaat: GESLAAGD**
 
-Met dit script wordt de ondertekenaarsketen tot de Thales-hoofdsleutel gevalideerd. De hash van deze hoofdsleutel is ingesloten in het script en de waarde moet **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. U kunt deze waarde ook afzonderlijk controleren door naar de pagina de [Thales-website](http://www.thalesesec.com/).
+Met dit script wordt de ondertekenaarsketen tot de basissleutel nShield gevalideerd. De hash van deze hoofdsleutel is ingesloten in het script en de waarde moet **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. U kunt deze waarde ook afzonderlijk controleren door naar de pagina de [nCipher website](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 U kunt nu een nieuwe sleutel te maken.
 
 ### <a name="step-35-create-a-new-key"></a>Stap 3.5: Een nieuwe sleutel maken
 
-Genereer een sleutel met de Thales **generatekey** programma.
+Genereer een sleutel met behulp van de nCipher-nShield **generatekey** programma.
 
 Voer de volgende opdracht uit om de sleutel te genereren:
 
@@ -367,14 +367,14 @@ Wanneer u deze opdracht uitvoert, gebruikt u deze instructies:
 
 * De parameter *beveiligen* moet worden ingesteld op de waarde **module**, zoals wordt weergegeven. Hiermee maakt u een modulair beveiligde sleutel. De BYOK-toolset biedt geen ondersteuning voor met OCS beveiligde sleutels.
 * Vervang de waarde van *contosokey* voor de **ident** en **plainname** met een string-waarde. Administratieve overhead te minimaliseren en de kans op fouten te verminderen, wordt u aangeraden dat u dezelfde waarde voor beide gebruiken. De **ident** waarde mag alleen cijfers, streepjes en kleine letters.
-* De pubexp is leeg (standaard) in dit voorbeeld, maar u kunt specifieke waarden opgeven. Zie de Thales-documentatie voor meer informatie.
+* De pubexp is leeg (standaard) in dit voorbeeld, maar u kunt specifieke waarden opgeven. Zie voor meer informatie de [nCipher-documentatie.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
 Deze opdracht maakt u een Tokenized sleutelbestand in uw map %NFAST_KMDATA%\local met een naam die begint met **key_simple_**, gevolgd door de **ident** die is opgegeven in de opdracht. Bijvoorbeeld: **key_simple_contosokey**. Dit bestand bevat een versleutelde sleutel.
 
 Back-up van deze Tokenized sleutelbestand op een veilige locatie.
 
 > [!IMPORTANT]
-> Wanneer u uw sleutel later naar Azure Key Vault overdraagt, exporteren niet Microsoft deze sleutel naar u terug, dus het erg belangrijk is dat u back-up uw sleutel en beveiligingswereld veilig. Neem contact op met Thales voor richtlijnen en aanbevolen procedures voor het back-ups van uw sleutel.
+> Wanneer u uw sleutel later naar Azure Key Vault overdraagt, exporteren niet Microsoft deze sleutel naar u terug, dus het erg belangrijk is dat u back-up uw sleutel en beveiligingswereld veilig. Neem contact op met [nCipher](https://www.ncipher.com/about-us/contact-us) voor richtlijnen en aanbevolen procedures voor het back-ups van uw sleutel.
 >
 
 
@@ -443,7 +443,7 @@ U wordt gevraagd om uw kaarten security world-beheerder.
 
 Wanneer de opdracht is voltooid, ziet u **resultaat: SUCCES** en de kopie van uw sleutel met beperkte machtigingen zich in het bestand met de naam key_xferacId_\<contosokey >.
 
-U kunt inspecteert de ACL's van de volgende opdrachten met de Thales-hulpprogramma's:
+U kunt inspecteert de ACL's van de volgende opdrachten met de nCipher nShield-hulpprogramma's:
 
 * aclprint.py:
 

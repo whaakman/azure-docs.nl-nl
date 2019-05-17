@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554708"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595273"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Taakgegevens naar Azure Storage met de Batch-service-API behouden
 
@@ -180,7 +180,7 @@ Als u in een andere taal dan C# ontwikkelt, moet u voor het implementeren van de
 
 De [PersistOutputs] [ github_persistoutputs] voorbeeldproject is een van de [Azure Batch-codevoorbeelden] [ github_samples] op GitHub. Deze Visual Studio-oplossing laat zien hoe u kunt de Batch-clientbibliotheek voor .NET gebruiken om vast te leggen van de taakuitvoer naar duurzame opslag. De als voorbeeld wilt uitvoeren, de volgende stappen uit:
 
-1. Open het project in **Visual Studio 2017**.
+1. Open het project in **Visual Studio 2019**.
 2. Toevoegen van uw Batch- en Storage **accountreferenties** naar **AccountSettings.settings** in het project Microsoft.Azure.Batch.Samples.Common.
 3. **Bouw** (maar niet wordt uitgevoerd) de oplossing. Alle NuGet-pakketten herstellen als u hierom wordt gevraagd.
 4. De Azure portal gebruiken voor het uploaden van een [toepassingspakket](batch-application-packages.md) voor **PersistOutputsTask**. Bevatten de `PersistOutputsTask.exe` en afhankelijke assembly's in het ZIP-pakket, stel de toepassings-ID aan 'PersistOutputsTask' en de versie van de toepassing-pakket naar "1.0".

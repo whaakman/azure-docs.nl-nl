@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399874"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606706"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Gegevensverschil problemen oplossen met behulp van Azure Data Lake Tools voor Visual Studio
 
@@ -36,7 +36,7 @@ Als het heeft geen invloed op uw bedrijfslogica, kunt u de waarden van de hogere
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Optie 2: Kies een andere partitie of distributie-sleutel
 
-In het voorgaande voorbeeld, als u wilt dat alleen voor het controleren van de werkbelasting van de btw-controle over het land, kunt u verbeteren de verdeling van de gegevens door te selecteren van het ID-nummer als de sleutel. Verzamelen van een andere partitie of distributiesleutel soms beter kunt verdelen de gegevens, maar u moet ervoor zorgen dat deze optie heeft geen invloed op uw bedrijfslogica. Bijvoorbeeld, voor het berekenen van de som van de belasting voor elke status, kunt u aan te wijzen _status_ als de partitiesleutel. Als u dit probleem zich blijft voordoen, probeert u optie 3.
+In het voorgaande voorbeeld, als u wilt dat alleen om te controleren van de werkbelasting van de btw-controle over de land/regio, kunt u verbeteren de verdeling van de gegevens door te selecteren van het ID-nummer als de sleutel. Verzamelen van een andere partitie of distributiesleutel soms beter kunt verdelen de gegevens, maar u moet ervoor zorgen dat deze optie heeft geen invloed op uw bedrijfslogica. Bijvoorbeeld, voor het berekenen van de som van de belasting voor elke status, kunt u aan te wijzen _status_ als de partitiesleutel. Als u dit probleem zich blijft voordoen, probeert u optie 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Optie 3: Meer sleutels voor partitie of distributiepunt toevoegen
 

@@ -15,13 +15,22 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549849"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595378"
 ---
+> [!NOTE] 
+> De gebruikersaccounts die in dit artikel worden besproken verschilt van de gebruikers zijn accounts die worden gebruikt voor Remote Desktop Protocol (RDP) of Secure Shell (SSH), uit veiligheidsoverwegingen. 
+>
+> Zie voor verbinding met een knooppunt met de configuratie van de Linux-virtuele machine via SSH, [extern bureaublad gebruiken met een Linux-VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Zie voor verbinding met knooppunten waarop Windows wordt uitgevoerd via RDP, [verbinding maken met een Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Zie voor verbinding met een knooppunt met de cloudserviceconfiguratie via RDP, [extern bureaublad inschakelen voor een rol in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Uitvoeren van taken onder gebruikersaccounts in Batch
 
 Een taak in Azure Batch is altijd wordt uitgevoerd onder een gebruikersaccount. Standaard, taken worden uitgevoerd onder standaardgebruikersaccounts, zonder beheerdersmachtigingen. Deze standaardinstellingen voor het account van gebruiker zijn meestal voldoende. Voor bepaalde scenario's, maar is dit handig voor het configureren van het gebruikersaccount waarmee u wilt dat een taak uit te voeren. In dit artikel wordt beschreven welke typen gebruikersaccounts en hoe u ze kunt configureren voor uw scenario.
@@ -36,14 +45,6 @@ Azure Batch biedt twee soorten gebruikersaccounts voor het uitvoeren van taken:
 
 > [!IMPORTANT] 
 > De Batch-service-versie 2017-01-01.4.0 introduceert belangrijke wijziging waarvoor uw code om aan te roepen die versie bij te werken. Als u de code migreren van een oudere versie van Batch, houd er rekening mee dat de **runElevated** eigenschap wordt niet meer ondersteund in de REST-API of Batch-clientbibliotheken. Gebruik de nieuwe **userIdentity** eigenschap van een taak om op te geven tot misbruik van bevoegdheden. Zie de sectie [uw code bijwerken naar de meest recente versie van Batch-clientbibliotheek](#update-your-code-to-the-latest-batch-client-library) voor snelle richtlijnen voor het bijwerken van uw Batch-code als u een van de clientbibliotheken.
->
->
-
-> [!NOTE] 
-> De gebruikersaccounts die in dit artikel worden besproken ondersteunen geen Remote Desktop Protocol (RDP) of Secure Shell (SSH), uit veiligheidsoverwegingen. 
->
-> Zie voor verbinding met een knooppunt met de configuratie van de Linux-virtuele machine via SSH, [extern bureaublad gebruiken met een Linux-VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Zie voor verbinding met knooppunten waarop Windows wordt uitgevoerd via RDP, [verbinding maken met een Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Zie voor verbinding met een knooppunt met de cloudserviceconfiguratie via RDP, [extern bureaublad inschakelen voor een rol in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 

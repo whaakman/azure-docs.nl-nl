@@ -3,8 +3,8 @@ title: Beheer van toegang tot apps met behulp van Azure AD | Microsoft Docs
 description: Hierin wordt beschreven hoe Azure Active Directory kunnen organisaties om op te geven van de apps waartoe elke gebruiker toegang heeft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 851b9ab3604e851bcaf4f22d031c51558b15e0e6
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440727"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826006"
 ---
 # <a name="managing-access-to-apps"></a>Toegang tot apps beheren
 Beheer van continue toegang, gebruik evaluatie en rapportage blijven lastig zijn om nadat een app is geïntegreerd in identiteitssysteem van uw organisatie. In veel gevallen hebben IT-beheerders of de helpdesk te nemen van een doorlopende actieve rol bij het beheren van toegang tot uw apps. Toewijzing wordt soms uitgevoerd door een algemene of divisie IT-team. Vaak de beslissing van de toewijzing is bedoeld om te worden overgedragen aan de zakelijke besluitvormer, waarvoor ze worden goedgekeurd voordat IT heeft de toewijzing.  Andere organisaties investeren in integratie met een bestaande geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals Role-Based Access Control (RBAC) of op kenmerken gebaseerde Access Control (ABAC). De integratie en de ontwikkeling van de regel zijn meestal gespecialiseerde en dure. Controleren of rapportage over beide benaderingen management is een eigen afzonderlijke, dure en complexe investering.

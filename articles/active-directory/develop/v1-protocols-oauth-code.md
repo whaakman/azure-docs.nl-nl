@@ -3,8 +3,8 @@ title: De OAuth 2.0-autorisatiecodestroom inzicht in Azure AD
 description: Dit artikel wordt beschreven hoe u toegang tot webtoepassingen en web-API's in uw tenant met behulp van Azure Active Directory en OAuth 2.0 autoriseren met HTTP-berichten.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/5/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e9177f91f016ffc64d542b9fad89d147b96f6d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297039"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545151"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Toegang verlenen aan webtoepassingen voor Azure Active Directory met behulp van de OAuth 2.0-stroom voor het verlenen van code
 
@@ -103,7 +103,7 @@ error=access_denied
 
 | Parameter | Description |
 | --- | --- |
-| error |Een foutwaarde code gedefinieerd in de sectie 5.2 van de [OAuth 2.0 machtiging Framework](https://tools.ietf.org/html/rfc6749). De volgende tabel beschrijft de foutcodes die Azure AD als resultaat geeft. |
+| fout |Een foutwaarde code gedefinieerd in de sectie 5.2 van de [OAuth 2.0 machtiging Framework](https://tools.ietf.org/html/rfc6749). De volgende tabel beschrijft de foutcodes die Azure AD als resultaat geeft. |
 | error_description |Een gedetailleerde beschrijving van de fout. Dit bericht is niet bedoeld als geschikt voor eindgebruikers. |
 | state |De statuswaarde is een willekeurig gegenereerde niet opnieuw gebruikt-waarde die wordt verzonden in de aanvraag en geretourneerd in het antwoord om te voorkomen dat de aanvraag voor cross-site kunnen worden vervalst (CSRF) aanvallen. |
 
@@ -204,9 +204,9 @@ Een voorbeeld-foutbericht kan er als volgt:
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
-| error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
+| fout |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 | error_codes |Een lijst van de STS-specifieke foutcodes die bij het diagnostische gegevens helpen. |
 | timestamp |De tijd waarop de fout is opgetreden. |
@@ -259,14 +259,14 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | Parameter | Description |
 | --- | --- |
 | authorization_uri |De URI (fysieke eindpunt) van de autorisatie-server. Deze waarde wordt ook gebruikt als een lookup-sleutel voor meer informatie over de server van een detectie-eindpunt. <p><p> De client moet worden gevalideerd dat de autorisatie-server vertrouwd wordt. Wanneer de resource is beveiligd door Azure AD, is het voldoende om te controleren dat de URL met begint https://login.microsoftonline.com of een andere hostnaam die ondersteuning biedt voor Azure AD. Een tenant-specifieke resource moet altijd de autorisatie-URI voor een tenant-specifieke retourneren. |
-| error |Een foutwaarde code gedefinieerd in de sectie 5.2 van de [OAuth 2.0 machtiging Framework](https://tools.ietf.org/html/rfc6749). |
+| fout |Een foutwaarde code gedefinieerd in de sectie 5.2 van de [OAuth 2.0 machtiging Framework](https://tools.ietf.org/html/rfc6749). |
 | error_description |Een gedetailleerde beschrijving van de fout. Dit bericht is niet bedoeld als geschikt voor eindgebruikers. |
 | resource_id |Retourneert de unieke id van de resource. De clienttoepassing kan deze id gebruiken als de waarde van de `resource` parameter na het aanvragen van een token voor de resource. <p><p> Het is belangrijk voor de clienttoepassing om te controleren of deze waarde, anders een schadelijke service kan mogelijk veroorzaken een **kan leiden tot misbruik van bevoegdheden** aanval <p><p> De aanbevolen strategie voor het voorkomen van een aanval is om te controleren of de `resource_id` overeenkomt met de basis van de web-API-URL die wordt geopend. Bijvoorbeeld, als https://service.contoso.com/data wordt geopend, de `resource_id` htttps://service.contoso.com/ kan zijn. De clienttoepassing moet afwijzen een `resource_id` die begint niet met de basis-URL, tenzij er een betrouwbare alternatieve manier om te controleren of de id. |
 
 #### <a name="bearer-scheme-error-codes"></a>Foutcodes voor Bearer-schema
 De specificatie RFC 6750 definieert de volgende fouten voor resources die gebruikmaken van de WWW-Authenticate-header en Bearer-schema in het antwoord.
 
-| HTTP-statuscode | Foutcode | Beschrijving | Clientactie |
+| HTTP-statuscode | Foutcode | Description | Clientactie |
 | --- | --- | --- | --- |
 | 400 |invalid_request |De aanvraag is niet grammaticaal correct. Het kan bijvoorbeeld worden een parameter ontbreekt of met behulp van dezelfde parameter twee keer. |Los de fout en probeer de aanvraag. Dit type fout moet worden uitgevoerd tijdens de ontwikkeling en bij de eerste test worden gedetecteerd. |
 | 401 |invalid_token |Het toegangstoken ontbreekt, is ongeldig of is ingetrokken. De waarde van de parameter error_description biedt aanvullende informatie. |Een nieuw token aanvragen bij de autorisatieserver. Als het nieuwe token is mislukt, heeft een onverwachte fout opgetreden. Een foutbericht weergegeven voor de gebruiker en probeer het opnieuw na de willekeurige vertraging verzenden |
@@ -338,7 +338,7 @@ Een voorbeeld-foutbericht kan er als volgt:
 
 | Parameter | Description |
 | --- | --- |
-| error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
+| fout |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 | error_codes |Een lijst van de STS-specifieke foutcodes die bij het diagnostische gegevens helpen. |
 | timestamp |De tijd waarop de fout is opgetreden. |

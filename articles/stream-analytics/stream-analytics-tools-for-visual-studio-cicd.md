@@ -1,26 +1,26 @@
 ---
-title: Doorlopend integreren en ontwikkelen met hulpprogramma's voor Stream Analytics
-description: Dit artikel wordt beschreven hoe u Visual Studio-hulpprogramma's voor Azure Stream Analytics gebruikt voor het instellen van een continue integratie en implementatie.
+title: Doorlopend integreren en ontwikkelen met Azure Stream Analytics CI/CD NuGet-pakket
+description: In dit artikel wordt beschreven hoe u van Azure Stream Analytics CI/CD NuGet-pakket voor het instellen van een continue integratie en implementatie.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: f34139dafffe3d4890f17988114dffdd8b480d2d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761502"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827316"
 ---
-# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Doorlopend integreren en ontwikkelen met hulpprogramma's voor Stream Analytics
-In dit artikel wordt beschreven hoe u de Azure Stream Analytics-hulpprogramma's voor Visual Studio gebruiken voor het instellen van een continue integratie en implementatie-proces.
+# <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>Doorlopend integreren en ontwikkelen met Azure Stream Analytics CI/CD NuGet-pakket
+In dit artikel wordt beschreven hoe u de Azure Stream Analytics CI/CD NuGet-pakket gebruiken voor het instellen van een continue integratie en implementatie.
 
 Gebruik versie 2.3.0000.0 of hoger van [Stream Analytics-hulpprogramma's voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) ondersteuning voor MSBuild krijgen.
 
-Een NuGet-pakket is beschikbaar: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Dit bevat de tools voor MSBuild, lokaal uitvoeren en implementatie die ondersteuning bieden voor het continue integratie- en implementatieproces van Stream Analytics Visual Studio-projecten. 
+Een NuGet-pakket is beschikbaar: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Het biedt de MSBuild, lokaal uitvoeren en -hulpprogramma's die ondersteuning bieden voor de continue integratie en implementatie-proces van [Stream Analytics Visual Studio-projecten](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > Het NuGet-pakket kan worden gebruikt alleen met de 2.3.0000.0 of hoger versie van Stream Analytics-hulpprogramma's voor Visual Studio. Hebt u projecten die zijn gemaakt in eerdere versies van Visual Studio-hulpprogramma's, alleen openen met de 2.3.0000.0 of hoger versie en opslaan. De nieuwe mogelijkheden zijn ingeschakeld. 
 
@@ -46,7 +46,7 @@ Wanneer een Stream Analytics Visual Studio-project met succes wordt gemaakt, gen
 Er zijn de standaardparameters in het parameters.json-bestand van de instellingen in Visual Studio-project. Als u implementeren naar een andere omgeving wilt, vervang u de parameters daarvan.
 
 > [!NOTE]
-> De referenties voor de standaardwaarden zijn ingesteld op null. U bent *vereist* de waarden instellen voordat u naar de cloud implementeren.
+> De referenties voor de standaardwaarden zijn ingesteld op null. U bent **vereist** de waarden instellen voordat u naar de cloud implementeren.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -90,3 +90,9 @@ Voorbeeld:
 ```
 
 
+
+## <a name="next-steps"></a>Volgende stappen
+
+* [Snelstart: Een taak in de cloud Azure Stream Analytics maken in Visual Studio](stream-analytics-quick-create-vs.md)
+* [Stream Analytics-query's met Visual Studio lokaal testen](stream-analytics-vs-tools-local-run.md)
+* [Azure Stream Analytics-taken met Visual Studio verkennen](stream-analytics-vs-tools.md)

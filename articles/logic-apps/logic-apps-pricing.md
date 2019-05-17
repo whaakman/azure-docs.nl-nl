@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598469"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544559"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prijsmodel voor Azure Logic Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598469"
 
 ## <a name="consumption-pricing-model"></a>Prijsmodel voor verbruik
 
-U betaalt alleen voor wat u gebruikt voor nieuwe logische apps die worden uitgevoerd in de openbare of 'global' Azure Logic Apps-service. Deze logische apps gebruiken een planning op basis van gebruik en het prijsmodel. In de definitie van uw logische app is elke stap een actie. Bijvoorbeeld: acties omvatten: 
+U betaalt alleen voor wat u gebruikt voor nieuwe logische apps die worden uitgevoerd in de openbare of 'global' Azure Logic Apps-service. Deze logische apps gebruiken een planning op basis van gebruik en het prijsmodel. In de definitie van uw logische app is elke stap een actie. Bijvoorbeeld: acties omvatten:
 
 * Triggers speciale handelingen zijn. Alle logische apps is een trigger als de eerste stap vereist.
 * 'Ingebouwde' of door de systeemeigen acties zoals het HTTP-aanroepen naar Azure Functions en API Management, enzovoort
@@ -38,12 +38,16 @@ Met Azure Logic Apps-meters de acties die worden uitgevoerd in uw logische app. 
 
 ## <a name="fixed-pricing-model"></a>Vaste prijsmodel
 
-Een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) biedt een persoonlijke, geïsoleerde en toegewezen manier voor u maken en uitvoeren van logische apps die toegang hebben tot resources in een Azure-netwerk. U betaalt maandelijks een vast bedrag voor ingebouwde acties en standaard-connectors voor nieuwe logische apps die worden uitgevoerd binnen een ISE. Uw ISE bevat ook een gratis Enterprise-connector, waaronder het aantal verbindingen als u wilt. Voor extra Enterprise-connectors wordt verrekend op basis van de prijs van de Enterprise-resourceverbruik. 
+Een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) biedt een persoonlijke, geïsoleerde en toegewezen manier voor u maken en uitvoeren van logische apps die toegang hebben tot resources in een Azure-netwerk. Voor nieuwe logic-apps die worden uitgevoerd binnen een ISE, betaalt u maandelijks een vast bedrag voor ingebouwde acties en triggers en ook voor standaard-connectors.
 
-De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, u kunt [toevoegen van meer schaaleenheden](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), hetzij tijdens het maken of later.
+Uw ISE bevat ook een gratis Enterprise-connector, waaronder het aantal verbindingen als u wilt. Voor extra Enterprise-connectors wordt verrekend op basis van de prijs van de Enterprise-resourceverbruik.
 
 > [!NOTE]
-> Het ISE is in [ *openbare preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Zie voor gedetailleerde informatie over prijzen [prijzen voor Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+> Binnen een ISE, ingebouwde triggers en acties weer de **Core** labelen en uitvoeren in dezelfde ISE als uw logische apps. Standard en Enterprise-connectors die worden weergegeven de **ISE** label uitvoeren in dezelfde ISE als uw logische apps. Connectors die de ISE-label worden uitgevoerd in de globale Logic Apps-service niet weergeven.
+
+De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, u kunt [toevoegen van meer schaaleenheden](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), hetzij tijdens het maken of later. 
+
+Zie voor gedetailleerde informatie over prijzen [prijzen voor Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 
@@ -98,7 +102,7 @@ Zie voor gedetailleerde informatie over prijzen [prijzen voor Azure Logic Apps](
 
 <a name="data-retention"></a>
 
-## <a name="data-retention"></a>Bewaartijd van gegevens
+## <a name="data-retention"></a>Bewaren van gegevens
 
 Alle invoer en uitvoer die zijn opgeslagen in de uitvoeringsgeschiedenis van uw logische app in rekening gebracht op basis van een logische app [uitvoeren bewaarperiode](logic-apps-limits-and-config.md#run-duration-retention-limits). Zie voor gedetailleerde informatie over prijzen [prijzen voor Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 

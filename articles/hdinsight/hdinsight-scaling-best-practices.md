@@ -1,19 +1,18 @@
 ---
 title: Schaal cluster formaat, Azure HDInsight
-description: Een HDInsight-cluster aan uw workload schalen.
+description: Een Azure HDInsight-cluster elastisch zodat deze overeenkomt met uw werkbelasting schalen.
 author: ashishthaps
+ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.author: ashish
-ms.openlocfilehash: a172024e4662e647b39fe999f1be3cfcef04b5ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/13/2019
+ms.openlocfilehash: 59b9c2bf6e17dadc0d084d3e3f257f8ad91073ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698251"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595862"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
@@ -21,6 +20,7 @@ HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aanta
 
 Bijvoorbeeld, hebt u enkele batchverwerking in dat geval één keer per dag of één keer per maand, de HDInsight-cluster kan worden opgeschaald een paar minuten vóór de geplande gebeurtenis, zodat er voldoende geheugen en CPU-rekenkracht.  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
 
+U kunt een cluster handmatig met behulp van een van de methoden worden hieronder beschreven, of gebruik [voor automatisch schalen](hdinsight-autoscale-clusters.md) opties om het systeem automatisch omhoog en omlaag schalen in reactie op CPU, geheugen en andere metrische gegevens.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,11 +32,11 @@ Microsoft biedt de volgende hulpprogramma's voor het schalen van clusters:
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
-|[Azure-CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[AZ hdinsight vergroten of verkleinen](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resourcegroep \<resourcegroep >--naam \<Clusternaam >--target-instance-count \<NewSize >|
-|[CLI van Azure Classic](hdinsight-administer-use-command-line.md)|Azure hdinsight-cluster formaat \<clusterName > \<doel exemplaren >|
+|[Azure-CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ hdinsight vergroten of verkleinen](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resourcegroep \<resourcegroep >--naam \<Clusternaam >--target-instance-count \<NewSize >|
+|[CLI van Azure Classic](hdinsight-administer-use-command-line.md)|Azure hdinsight-cluster formaat \<clusterName > \<doel exemplaren > |
 |[Azure Portal](https://portal.azure.com)|Uw HDInsight-cluster deelvenster te openen, selecteert u **clustergrootte** in het menu links en vervolgens in het deelvenster van de grootte van Cluster, typt u in het aantal worker-knooppunten en selecteer opslaan.|  
 
-![Schaal cluster aanpassen](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Cluster schalen](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Met behulp van een van deze methoden, kunt u uw HDInsight-cluster omhoog of omlaag schalen binnen enkele minuten.
 
@@ -326,6 +326,6 @@ De laatste mogelijkheid is om te bekijken voor de zeldzame gevallen waarin HDFS 
     
 ## <a name="next-steps"></a>Volgende stappen
 
+* [Automatisch schalen van Azure HDInsight-clusters](hdinsight-autoscale-clusters.md)
 * [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Clusters schalen](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [HDInsight-clusters beheren met behulp van de Apache Ambari-webinterface](hdinsight-hadoop-manage-ambari.md)
