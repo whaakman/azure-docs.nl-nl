@@ -56,7 +56,7 @@ De volgende eigenschappen worden ondersteund voor SAP ECC gekoppelde service:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapEcc** | Ja |
 | url | De url van de SAP ECC OData-service. | Ja |
-| gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de SAP ECC. | Nee |
+| username | De gebruikersnaam die wordt gebruikt voor verbinding met de SAP ECC. | Nee |
 | password | Het leesbare wachtwoord gebruikt voor verbinding met de SAP ECC. | Nee |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
@@ -91,7 +91,7 @@ Om gegevens te kopiëren uit SAP ECC, stel de eigenschap type van de gegevensset
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| pad | Het pad van de SAP ECC OData-entiteit. | Ja |
+| path | Het pad van de SAP ECC OData-entiteit. | Ja |
 
 **Voorbeeld**
 
