@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919064"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544478"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -26,8 +26,8 @@ In dit artikel wordt beschreven hoe u maken en beheren van actiegroepen in Azure
 Elke actie bestaat uit de volgende eigenschappen:
 
 * **Naam**: Een unieke id binnen de actiegroep.  
-* **Actietype**: De actie uitgevoerd. Voorbeelden zijn onder meer het verzenden van een stem oproep, SMS, e-mail; of verschillende soorten acties die automatisch wordt geactiveerd. Zie typen verderop in dit artikel. 
-* **Details**: De bijbehorende details die per variëren *actietype*. 
+* **Actietype**: De actie uitgevoerd. Voorbeelden zijn onder meer het verzenden van een stem oproep, SMS, e-mail; of verschillende soorten acties die automatisch wordt geactiveerd. Zie typen verderop in dit artikel.
+* **Details**: De bijbehorende details die per variëren *actietype*.
 
 Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen configureren actiegroepen [actie groep Resource Manager-sjablonen](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
@@ -69,7 +69,7 @@ Nadat u een actiegroep die u hebt gemaakt, wordt het weergegeven in de **actiegr
 > [!NOTE]
 > Zie [abonnement Servicelimieten voor bewaking](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) voor numerieke limieten op elk van de volgende items.  
 
-**Azure-app Pushmeldingen** -u kunt een beperkt aantal Azure-app-acties hebben in een actiegroep. De Azure-app-actie ondersteunt op dit moment alleen ServiceHealth waarschuwingen. Andere Waarschuwingstype worden genegeerd. Zie [waarschuwingen configureren wanneer er een melding van de health service wordt geplaatst](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Azure-app Pushmeldingen** -u mogelijk een beperkt aantal Azure-app-acties in een actiegroep.
 
 **E-mailbericht** -e-mailberichten ontvangt van de volgende e-mailadressen. Zorg ervoor dat uw e-mail filteren op de juiste wijze is geconfigureerd
 - azure-noreply@microsoft.com
@@ -101,6 +101,7 @@ Bron-IP-adresbereiken
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 52.244.65.137
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605244"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796861"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
-## <a name="whats-new"></a>Wat is nieuw?
+## <a name="whats-new"></a>Wat is er nieuw?
 
 Versie 3 van de Translator Text-API biedt een moderne JSON gebaseerde Web-API. Het verbetert de gebruiksvriendelijkheid en prestaties door te consolideren van bestaande functies in minder bewerkingen en het beschikt over nieuwe functies.
 
@@ -126,7 +126,7 @@ Een klant met een gratis proefabonnement zou bijvoorbeeld het volgende foutberic
 ```
 De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statuscode gevolgd door een getal 3 cijfers en verder categoriseren van de fout. Veelvoorkomende foutcodes zijn:
 
-| Code | Beschrijving |
+| Code | Description |
 |:----|:-----|
 | 400000| Een van de invoer van de aanvraag is niet geldig.|
 | 400001| De bereikparameter '' is ongeldig.|
@@ -161,7 +161,7 @@ De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statusc
 | 405000| De aanvraagmethode wordt niet ondersteund voor de aangevraagde resource.|
 | 408001| De aangepaste vertaalsysteem aangevraagd is nog niet beschikbaar. Probeer het opnieuw over een paar minuten.|
 | 415000| De header Content-Type is ongeldig of ontbreekt.|
-| 429000, 429001, 429002| De server heeft de aanvraag geweigerd omdat de client te veel aanvragen verzendt. Verminder de frequentie van aanvragen om te voorkomen dat beperking.|
+| 429000, 429001, 429002| De server heeft de aanvraag geweigerd omdat de client aanvraaglimieten heeft overschreden.|
 | 500000| Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, die rapporteren aan de datum/tijd van de fout, aanvraag-id van response-header X-RequestId en client-id van de aanvraagheader X-ClientTraceId.|
 | 503000| Service is tijdelijk niet beschikbaar. Probeer het opnieuw. Als de fout zich blijft voordoen, die rapporteren aan de datum/tijd van de fout, aanvraag-id van response-header X-RequestId en client-id van de aanvraagheader X-ClientTraceId.|
 

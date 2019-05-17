@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881450"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595496"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Eenheidstesten stateful services in Service Fabric
 
@@ -36,7 +36,7 @@ Stateful services Eenheidstesten kan helpen om enkele veelvoorkomende fouten die
 
 ## <a name="common-practices"></a>Algemene procedures
 
-De volgende sectie wordt op de meest voorkomende procedures voor het testen van een stateful service eenheid. Het geeft ook aan wat een antwoordnabootsing laag zodat deze aansluiten op de Service Fabric-indeling en statusbeheer moet hebben. Antwoordnabootsing bibliotheken bestaan bibliotheken die deze functionaliteit bieden. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) vanaf 3.3.0 of hoger is een dergelijke bibliotheek de antwoordnabootsing functionaliteit aanbevolen en de onderstaande procedures volgt.
+De volgende sectie wordt op de meest voorkomende procedures voor het testen van een stateful service eenheid. Het geeft ook aan wat een antwoordnabootsing laag zodat deze aansluiten op de Service Fabric-indeling en statusbeheer moet hebben. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) vanaf 3.3.0 of hoger is een dergelijke bibliotheek de antwoordnabootsing functionaliteit aanbevolen en de onderstaande procedures volgt.
 
 ### <a name="arrangement"></a>Rangschikking
 

@@ -9,20 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547530"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560736"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen2 met Azure Data Factory
 
 Azure Data Lake Storage Gen2 is een verscheidenheid aan functies die zijn toegewezen aan de analyse van big data, die is ingebouwd in [Azure Blob-opslag](../storage/blobs/storage-blobs-introduction.md). Hiermee kunt u samenwerken met uw gegevens met behulp van beide beschermingsparadigma in het systeem en de object-opslag.
 
-Azure Data Factory is een volledig beheerde cloud-gebaseerde service voor gegevensintegratie. U kunt de service gebruiken voor het vullen van de lake met gegevens uit een grote verscheidenheid aan on-premises en cloud-gebaseerde gegevens worden opgeslagen en bespaar tijd bij het bouwen van uw analyseoplossingen. Voor een gedetailleerde lijst met ondersteunde connectors, Zie de tabel met [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory (ADF) is een volledig beheerde cloud-gebaseerde service voor gegevensintegratie. U kunt de service gebruiken voor het vullen van de lake met gegevens uit een grote verscheidenheid aan on-premises en cloud-gebaseerde gegevens worden opgeslagen en bespaar tijd bij het bouwen van uw analyseoplossingen. Voor een gedetailleerde lijst met ondersteunde connectors, Zie de tabel met [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory biedt een scale-out, beheerde oplossing voor gegevensverplaatsing. Vanwege de architectuur van de scale-out van ADF, kan deze gegevens met hoge doorvoer opnemen. Zie voor meer informatie, [prestaties van de Kopieeractiviteit](copy-activity-performance.md).
 
@@ -130,13 +130,6 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
     ![Details uitvoering van activiteit controleren](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
 16. Controleer of dat de gegevens worden gekopieerd naar uw Data Lake Storage Gen2-account.
-
-## <a name="best-practices"></a>Aanbevolen procedures
-
-Groot wanneer kopiëren van gegevens uit een gegevensarchief op basis van bestanden, aan u worden voorgesteld:
-
-- De bestanden te partitioneren in 10TB aan 30TB fileset.
-- Te veel gelijktijdige exemplaar wordt uitgevoerd om te voorkomen dat de beperking van de bron- of -sink-gegevensopslag niet activeren. U kunt beginnen met één exemplaar uitvoeren en controleren de doorvoer en vervolgens geleidelijk meer behoefte toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

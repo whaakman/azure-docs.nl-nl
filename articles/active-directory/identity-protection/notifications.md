@@ -18,12 +18,12 @@ ms.date: 12/07/2017
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 482b69752cc889ff99c3d9082d3bc20a7caa6d76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294468"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784343"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection notifications
 
@@ -39,6 +39,8 @@ In dit artikel biedt een overzicht van beide e-mailmeldingen.
 
 In reactie op een gedetecteerde account lopen, Azure AD Identity Protection met een e-mailmelding genereert **gebruikers gedetecteerd die risico lopen** als onderwerp. Het e-mailbericht bevat een koppeling naar de **[gebruikers die zijn gemarkeerd voor risico's](../reports-monitoring/concept-user-at-risk.md)** rapport. Als een best practice, moet u de gebruikers die risico lopen onmiddellijk onderzoeken.
 
+De configuratie voor deze waarschuwing kunt u opgeven op welke gebruiker risiconiveau dat u wilt dat de waarschuwing is gegenereerd. Het e-mailbericht worden gegenereerd wanneer het risiconiveau van de gebruiker is bereikt wat u hebt opgegeven. maar ontvangt u geen nieuwe gebruikers lopen risico gedetecteerd e-mailwaarschuwingen voor deze gebruiker nadat ze naar het risiconiveau van deze gebruiker verplaatst. Bijvoorbeeld, als u het beleid om te waarschuwen wanneer gemiddeld gebruikersrisico en de gebruiker die Jan wordt verplaatst naar gemiddeld risico instelt, ontvangt u gebruikers lopen risico gedetecteerd e John. Echter ontvangt niet u een tweede gebruikers lopen risico gedetecteerd waarschuwing als John vervolgens naar een hoog risico verplaatst of extra risicogebeurtenissen heeft.
+
 ![Gebruikers die risico lopen gedetecteerd e-mailadres](./media/notifications/01.png)
 
 
@@ -46,7 +48,7 @@ In reactie op een gedetecteerde account lopen, Azure AD Identity Protection met 
 
 Als beheerder, kunt u het volgende instellen:
 
-- **Het risiconiveau die de generatie van dit e-mailbericht activeert** -het risiconiveau is standaard ingesteld op 'Hoog' risico.
+- **Het risiconiveau van de gebruiker die de generatie van dit e-mailbericht activeert** -het risiconiveau is standaard ingesteld op 'Hoog' risico.
 - **De ontvangers van dit e-mailbericht** -standaard ontvangers bevatten alle globale beheerders. Globale beheerders kunnen ook andere globale beheerders, Beveiligingsbeheerders, Beveiligingslezers toevoegen als ontvangers.  
 
 

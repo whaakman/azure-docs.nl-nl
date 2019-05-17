@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ad57f86e221a98461fcd1dc11b92f5665d6128d0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699002"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786449"
 ---
 # <a name="api-management-policies"></a>API Management-beleidsregels
 Deze sectie bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](api-management-howto-policies.md).  
@@ -83,5 +83,4 @@ Zie voor meer informatie werken met beleidsregels voor:
 
 + [Beleid in API Management](api-management-howto-policies.md)
 + [API's transformeren](transform-api.md)
-+ [Naslaginformatie over beleid voor](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en de bijbehorende instellingen
 + [Voorbeelden van beleid](policy-samples.md)   

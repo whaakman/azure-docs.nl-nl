@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926287"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761921"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -59,12 +59,7 @@ Linux-distributies voor server die niet zijn goedgekeurd door Azure bieden geen 
 | CentOS | 7.4 | Besturingssysteem- en schijf |
 | CentOS | 7.3 | Besturingssysteem- en schijf |
 | CentOS | 7.2n | Besturingssysteem- en schijf |
-| CentOS | 6.8 | Besturingssysteem- en schijf |
-| CentOS | 7.1 | Gegevensschijf |
-| CentOS | 7.0 | Gegevensschijf |
-| CentOS | 6.7 | Gegevensschijf |
-| CentOS | 6.6 | Gegevensschijf |
-| CentOS | 6.5 | Gegevensschijf |
+| CentOS | 6.8 | Gegevensschijf |
 | openSUSE | 42.3 | Gegevensschijf |
 | SLES | 12-SP4 | Gegevensschijf |
 | SLES | 12-SP3 | Gegevensschijf |
@@ -158,7 +153,7 @@ Op Windows, ADE de versleutelingsmethode BitLocker AES256 gebruikt (AES256WithDi
 Nee, wordt niet gegevens worden gewist van schijven die al zijn versleuteld met Azure Disk Encryption. Net als bij hoe EncryptFormatAll opnieuw de besturingssysteemschijf niet versleutelen, deze wordt niet het station al versleutelde gegevens opnieuw versleutelen. Zie voor meer informatie de [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Wordt ondersteund bestandssysteem XFS?
-XFS volumes worden ondersteund voor schijfversleuteling gegevens alleen met de EncryptFormalAll. Dit wordt opnieuw opmaken van het volume, alle gegevens er eerder gewist. Zie voor meer informatie de [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+XFS volumes worden ondersteund voor schijfversleuteling gegevens alleen met de EncryptFormatAll. Dit wordt opnieuw opmaken van het volume, alle gegevens er eerder gewist. Zie voor meer informatie de [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan ik back-up en herstellen van een versleutelde VM? 
 

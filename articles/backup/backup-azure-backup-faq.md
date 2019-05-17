@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646733"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551366"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -100,7 +100,7 @@ Windows 10 64-bits | Enterprise, Pro, Home | Machines moeten worden uitgevoerd, 
 Windows 8.1 64-bits | Enterprise, Pro | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Windows 8 64-bits | Enterprise, Pro | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Windows 7 64-bits | Ultimate, Enterprise, Professional, Home Premium Home Basic, Starter | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
-Server | |
+Server  | |
 Windows Server 2019 64-bits | Standard, Datacenter, Essentials | Met de nieuwste service packs/updates.
 Windows Server 2016, 64-bits | Standard, Datacenter, Essentials | Met de nieuwste service packs/updates.
 Windows Server 2012 R2 64-bits | Standard, Datacenter, Foundation | Met de nieuwste service packs/updates.
@@ -174,8 +174,8 @@ Nee. De tijd voor het herstellen van de oudste of nieuwste punt is hetzelfde. El
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Als elk herstelpunt een volledig punt is, heeft dit dan invloed op de totale factureerbare back-upopslag?
 Producten met een lange bewaartermijn slaan de back-upgegevens doorgaans op als volledige punten.
 
-    - De volledige punten maken *inefficiënt* gebruik van de opslagruimte, maar kunnen wel gemakkelijker en sneller worden hersteld.
-    - Incrementele kopieën maken opslag *efficiënte* , maar moet u een keten van gegevens, die van invloed is op de hersteltijd herstellen
+- De volledige punten maken *inefficiënt* gebruik van de opslagruimte, maar kunnen wel gemakkelijker en sneller worden hersteld.
+- Incrementele kopieën maken opslag *efficiënte* , maar moet u een keten van gegevens, die van invloed is op de hersteltijd herstellen
 
 De opslagarchitectuur van Azure Backup biedt u het beste van beide werelden door de gegevens optimaal op te slaan voor snelle herstelbewerkingen en lage opslagkosten. Dit zorgt ervoor dat uw bandbreedte voor inkomend en uitgaand verkeer efficiënt wordt gebruikt. De hoeveelheid opslag van gegevens en de tijd die nodig is om de gegevens te herstellen wordt tot een minimum beperkt. Meer informatie over [incrementele back-ups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 

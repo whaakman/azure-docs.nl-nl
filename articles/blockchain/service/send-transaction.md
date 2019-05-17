@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026807"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777331"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Zelfstudie: Transacties met Azure Blockchain-Service verzenden
 
@@ -82,7 +82,7 @@ U kunt doorgaan met de zelfstudie terwijl de knooppunten worden ingericht. Wanne
 
     Truffle maakt een blockchain lokale ontwikkeling en biedt een interactieve console.
 
-## <a name="connect-to-transaction-node"></a>Verbinding maken met transactie-knooppunt
+## <a name="connect-to-transaction-node"></a>Verbinding maken met transactieknooppunt
 
 Gebruik Web3 verbinding maken met het standaard-transactie-knooppunt en een account maken. U kunt de Web3-verbindingsreeks ophalen uit de Azure-portal.
 
@@ -128,7 +128,7 @@ U kunt de openbare sleutel ophalen uit de lijst van de transactie-knooppunt. Kop
 ### <a name="transaction-node-endpoint-addresses"></a>Eindpuntadressen voor transactie-knooppunt
 
 1. In de Azure-portal, gaat u naar elk knooppunt transactie en selecteer **transactie knooppunten > verbindingsreeksen**.
-1. Kopiëren en opslaan van de eindpunt-URL van ** HTTPS (toegangssleutel 1) voor elk knooppunt van de transactie. U moet de eindpuntadressen voor het configuratiebestand slimme contract later in de zelfstudie.
+1. Kopiëren en opslaan van de eindpunt-URL van **HTTPS (toegangssleutel 1)** voor elk knooppunt van de transactie. U moet de eindpuntadressen voor het configuratiebestand slimme contract later in de zelfstudie.
 
     ![Transactie-adres van eindpunt](./media/send-transaction/endpoint.png)
 

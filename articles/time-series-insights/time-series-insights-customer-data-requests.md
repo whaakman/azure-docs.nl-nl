@@ -4,17 +4,17 @@ description: Overzicht van functies voor aanvraag klant Azure Time Series Insigh
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880705"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546393"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Overzicht van de klant functies voor aanvraag
 
@@ -65,3 +65,11 @@ Zie voor meer informatie, [Azure Time Series Insights explorer](time-series-insi
 Time Series Insights biedt momenteel geen ondersteuning voor nauwkeurige verwijdering van gegevens. Time Series Insights biedt echter de mogelijkheid om te verwijderen die zijn opgeslagen in Time Series Insights door te configureren voor het bewaren van gegevens van de klant. U kunt de bewaarperiode van de gehele Time Series Insights-omgeving naar een willekeurig aantal dagen voor de ondersteuning van uw vereisten verwijdering aanpassen.
 
 Zie voor meer informatie, [configuratie van de bewaartermijn in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Meer informatie over [verlenen van toegang tot gegevens in uw omgeving TSI](./time-series-insights-data-access.md).
+
+* Weergave de [Azure Time Series Insights explorer](time-series-insights-explorer.md).
+
+* Meer informatie over [configuratie van de bewaartermijn in Time Series Insights](time-series-insights-how-to-configure-retention.md).

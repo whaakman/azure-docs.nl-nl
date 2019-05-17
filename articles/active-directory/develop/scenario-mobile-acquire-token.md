@@ -15,43 +15,43 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6933bfbbff574495655ef9065a786fa313b02bd6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 88c9215ed221e24099eeb219a4db599a1955920a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075173"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550331"
 ---
-# <a name="mobile-app-that-calls-web-apis---acquire-a-token"></a>Mobiele app, die web-API's - roept een token verkrijgen
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Mobiele app, die web-API's - roept een token verkrijgen
 
-Voordat u kunt beginnen met het aanroepen van beveiligde moet web-API's, uw app een toegangstoken. In deze sectie helpt u bij het proces voor het ophalen van een token met behulp van de Microsoft Authentication Library (MSAL).
+Voordat u kunt beginnen met het aanroepen van beveiligde moet web-API's, uw app een toegangstoken. In dit artikel begeleidt u bij het proces voor het ophalen van een token met behulp van de Microsoft Authentication Library (MSAL).
 
 ## <a name="scopes-to-request"></a>Bereiken om aan te vragen
 
-Als u vraagt om tokens, is een bereik altijd vereist. Het bereik bepaalt welke gegevens uw app toegang heeft tot.  
+Wanneer u een token aanvraagt, moet u een bereik definiëren. Het bereik bepaalt welke gegevens uw app toegang heeft tot.  
 
-De eenvoudigste manier is een combinatie van de gewenste web-API van `App ID URI` met het bereik `.default`. Hiermee wordt aangegeven Microsoft identity dat uw app nodig heeft voor alle bereiken instellen in de portal.
+De eenvoudigste oplossing bestaat uit het combineren van de gewenste web-API van `App ID URI` met het bereik `.default`. In dat geval geeft Microsoft identity-platform die uw app nodig heeft dat alle bereiken instellen in de portal.
 
-Android
+#### <a name="android"></a>Android
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
-iOS
+#### <a name="ios"></a>iOS
 ```swift
 let scopes: [String] = ["https://graph.microsoft.com/.default"]
 ```
 
-Xamarin
+#### <a name="xamarin"></a>Xamarin
 ```CSharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="acquiring-tokens"></a>Verkrijgen van tokens
+## <a name="get-tokens"></a>Tokens verkrijgen
 
-### <a name="via-msal"></a>via MSAL
+### <a name="via-msal"></a>Via MSAL
 
-MSAL kan apps tokens verkrijgen op de achtergrond en interactief. Roep je deze methoden en MSAL retourneert weer een toegangstoken voor de bereiken die is aangevraagd. Het juiste patroon is het uitvoeren van een aanvraag op de achtergrond en terugvallen op een interactieve-aanvraag.
+MSAL kan apps tokens verkrijgen op de achtergrond en interactief. Roep je deze methoden en MSAL retourneert een toegangstoken voor de aangevraagde bereiken. Het juiste patroon is het uitvoeren van een aanvraag op de achtergrond en terugvallen op een interactieve-aanvraag.
 
 #### <a name="android"></a>Android
 
@@ -61,32 +61,32 @@ PublicClientApplication sampleApp = new PublicClientApplication(
                     this.getApplicationContext(),
                     R.raw.auth_config);
 
-// Check if there are any accounts we can sign in silently
-// Result is in our silent callback (success or error)
+// Check if there are any accounts we can sign in silently.
+// Result is in the silent callback (success or error).
 sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
     @Override
     public void onAccountsLoaded(final List<IAccount> accounts) {
 
         if (accounts.isEmpty() && accounts.size() == 1) {
-            // TODO: Create a silent callback to catch successful or failed request
+            // TODO: Create a silent callback to catch successful or failed request.
             sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
         } else {
-            /* No accounts or >1 account */
+            /* No accounts or > 1 account. */
         }
     }
 });    
 
 [...]
 
-// No accounts found, interactively request a token 
-// TODO: Create an interactive callback to catch successful or failed request
+// No accounts found. Interactively request a token.
+// TODO: Create an interactive callback to catch successful or failed request.
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
 #### <a name="ios"></a>iOS
 
 ```swift
-// Initialize our app 
+// Initialize the app.
 guard let authorityURL = URL(string: kAuthority) else {
     self.loggingText.text = "Unable to create authority URL"
     return
@@ -95,14 +95,14 @@ let authority = try MSALAADAuthority(url: authorityURL)
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 
-// Get tokens
+// Get tokens.
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
     if let error = error {
         let nsError = error as NSError
 
-        // interactionRequired means we need to ask the user to sign-in. This usually happens
-        // when the user's Refresh Token is expired or if the user has changed their password
+        // interactionRequired means you need to ask the user to sign in. This usually happens
+        // when the user's refresh token is expired or when the user has changed the password,
         // among other possible reasons.
         if (nsError.domain == MSALErrorDomain) {
             if (nsError.code == MSALError.interactionRequired.rawValue) {    
@@ -136,7 +136,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
         return
     }
 
-    // Token is ready via silent acquisition 
+    // Token is ready via silent acquisition.
     self.accessToken = result.accessToken
 }
 ```
@@ -160,13 +160,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-protocol"></a>via het Protocol
+### <a name="via-the-protocol"></a>Via het protocol
 
-Geadviseerd niet rechtstreeks op basis van het protocol te gaan. Uw app zich niet geschikt voor veel eenmalige aanmelding (SSO) scenario's en is niet mogelijk om alle Apparaatbeheer en scenario's voor voorwaardelijke toegang te ondersteunen.
+U kunt beter geen het protocol rechtstreeks. Als u dit doet, wordt de app wordt niet sommige eenmalige aanmelding (SSO), beheer van apparaten en scenario's voor voorwaardelijke toegang ondersteunen.
 
-Bij het ophalen van tokens voor mobiele apps met behulp van het protocol, moet u om aan te vragen van 2: een autorisatiecode ophalen en deze exchange voor een token. 
+Wanneer u het protocol gebruikt om op te halen van tokens voor mobiele apps, moet u twee aanvragen: een autorisatiecode ophalen en deze exchange voor een token.
 
-#### <a name="getting-authorization-code"></a>Autorisatiecode ophalen
+#### <a name="get-authorization-code"></a>Autorisatiecode ophalen
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -178,7 +178,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="getting-access-and-refresh-token"></a>Token verkrijgen van toegang en vernieuwen
+#### <a name="get-access-and-refresh-token"></a>Toegang en vernieuw token ophalen
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

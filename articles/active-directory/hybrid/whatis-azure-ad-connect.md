@@ -11,12 +11,12 @@ ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459531"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784462"
 ---
 # <a name="what-is-azure-ad-connect"></a>Wat is Azure AD Connect?
 
@@ -55,13 +55,18 @@ Azure AD Connect Health voor AD FS biedt ondersteuning voor AD FS 2.0 in Windows
 
 Belangrijkste voordelen en aanbevolen procedures:
 
-|Belangrijkste voordelen|Beste praktijken|
+|Belangrijkste voordelen|Aanbevolen procedures|
 |-----|-----|
 |Verbeterde beveiliging|[Trends voor vergrendeling van extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport over mislukte aanmeldingen](how-to-connect-health-adfs-risky-ip.md)</br>[In de privacy die voldoen aan het beleid](reference-connect-health-user-privacy.md)|
 |De hoogte worden gebracht op [alle kritieke problemen voor AD FS-systeem](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Serverconfiguratie en -beschikbaarheid</br>[Prestaties en connectiviteit](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regelmatig onderhoud|
 |Makkelijk te implementeren en te beheren|[Snelle agentinstallatie](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Agent automatisch upgraden naar meest recente versie</br>Gegevens binnen enkele minuten beschikbaar in de portal|
 Uitgebreide [metrische gegevens over gebruik](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Meest gebruikte toepassingen</br>Netwerklocaties en TCP-verbinding</br>Tokenaanvragen per server|
 |Goede gebruikerservaring|Dashboardstijl van Azure-portal</br>[Waarschuwingen per mail](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Licentievereisten voor het gebruik van Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 
 

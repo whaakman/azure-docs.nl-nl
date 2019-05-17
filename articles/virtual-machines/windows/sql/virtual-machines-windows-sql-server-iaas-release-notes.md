@@ -13,36 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477175"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787514"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server op de opmerkingen bij de release van de virtuele Machine van Azure
 
 Met Azure kunt u een virtuele machine met een installatiekopie van SQL Server ingebouwde implementeren. In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de recente versies van [SQL Server op Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Het artikel bevat ook belangrijke updates van inhoud die niet direct verband houden met de release maar gepubliceerd in dezelfde periode. Zie voor verbeteringen aan andere Azure-services, [Service-updates](https://azure.microsoft.com/updates)
 
-## <a name="march-2019"></a>Maart 2019
+## <a name="april-2019"></a>April 2019
 
 ### <a name="service-improvements"></a>Verbeteringen van de services
 
 | Verbeteringen van de services | Details |
 | --- | --- |
-| **Ondersteuning voor aangepaste installatiekopie** | U kunt nu installeren de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) op aangepaste installatiekopieën van besturingssysteem en SQL, die de beperkte functionaliteit van biedt [flexibele licentiëring](virtual-machines-windows-sql-ahb.md). Bij het registreren van uw aangepaste installatiekopie met de SQL-resourceprovider, het licentietype opgeven als 'AHUB' als anders mislukt de registratie.  | 
-| **Benoemd exemplaar ondersteuning** | U kunt nu gebruikmaken van de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) in een benoemd exemplaar als het standaardexemplaar correct is verwijderd. | 
-| **Verbetering van de portal** | De Azure portal-ervaring voor het implementeren van een SQL Server-VM is vernieuwd om de bruikbaarheid verbeteren. Zie voor meer informatie, de korte [snelstartgids](quickstart-sql-vm-create-portal.md) en uitgebreider [procedures](virtual-machines-windows-portal-sql-server-provision.md) handleiding voor het implementeren van een SQL Server-VM. |
+| **Ondersteuning voor SQL Server 2008/2008R2 uitbreiden** | [Ondersteuning voor](virtual-machines-windows-sql-server-2008-eos-extend-support.md) voor SQL Server 2008 en SQL Server 2008 R2 door te migreren *as-is* met een Azure-VM. | 
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij
 
 Geen
 
+## <a name="march-2019"></a>Maart 2019
+
+| Verbeteringen van de services | Details |
+| --- | --- |
+| **Ondersteuning voor aangepaste installatiekopie** | U kunt nu installeren de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) op aangepaste installatiekopieën van besturingssysteem en SQL, die de beperkte functionaliteit van biedt [flexibele licentiëring](virtual-machines-windows-sql-ahb.md). Bij het registreren van uw aangepaste installatiekopie met de SQL-resourceprovider, het licentietype opgeven als 'AHUB' als anders mislukt de registratie.  | 
+| **Benoemd exemplaar ondersteuning** | U kunt nu gebruikmaken van de [SQL IaaS-extensie](virtual-machines-windows-sql-server-agent-extension.md#installation) in een benoemd exemplaar als het standaardexemplaar correct is verwijderd. | 
+| **Verbetering van de portal** | De Azure portal-ervaring voor het implementeren van een SQL Server-VM is vernieuwd om de bruikbaarheid verbeteren. Zie voor meer informatie, de korte [snelstartgids](quickstart-sql-vm-create-portal.md) en uitgebreider [procedures](virtual-machines-windows-portal-sql-server-provision.md) handleiding voor het implementeren van een SQL Server-VM.|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="february-2019"></a>Februari 2019
-
-### <a name="service-improvements"></a>Verbeteringen van de services
 
 | Verbeteringen van de services | Details |
 | --- | --- |

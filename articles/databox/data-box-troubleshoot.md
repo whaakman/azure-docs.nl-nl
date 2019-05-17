@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 329ea6ac52e972c42e0e2aab247a7ad8e04c76e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927355"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594001"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box"></a>Oplossen van problemen met betrekking tot Azure Data Box
 
@@ -36,7 +36,7 @@ De fouten die worden weergegeven tijdens het kopiëren van gegevens worden samen
     - De namen kunnen alleen letters, cijfers en afbreekstreepjes bevatten hebben.
     - De naam mag niet beginnen of eindigen met een afbreekstreepje.
     - De namen geen opeenvolgende afbreekstreepjes bevatten.
-    - Voorbeelden van geldige namen: `my-folder-1`, `my-really-extra-long-folder-111`</li><li>
+    - Voorbeelden van geldige namen: `my-folder-1`, `my-really-extra-long-folder-111`.
     - Voorbeelden van namen die niet geldig: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
     Zie voor meer informatie, de Azure naamgevingsregels voor [containernamen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) en [sharenamen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).

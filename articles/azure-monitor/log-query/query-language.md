@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425959"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560851"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor logboeken-query 's
 Logboeken in Azure Monitor zijn gebouwd op Azure Data Explorer en logboeken-query's van Azure Monitor gebruikt een versie van dezelfde Kusto-query-taal. De [Kusto-query language-documentatie](/azure/kusto/query) heeft alle van de details voor de taal en moet de primaire bron voor het schrijven van Azure Monitor logboeken-query's. Deze pagina bevat koppelingen naar andere bronnen voor het leren over het schrijven van query's en over de verschillen met de Azure Monitor-implementatie van de taal.
@@ -61,7 +61,7 @@ Logboeken in Azure Monitor zijn gebouwd op Azure Data Explorer en logboeken-quer
 ## <a name="cheatsheets"></a>Cheatsheets
 
 -  [SQL Azure Monitor log-query](sql-cheatsheet.md) biedt ondersteuning voor gebruikers die al bekend met SQL bent.
--  [Splunk naar Azure Monitor log-query](sql-cheatsheet.md) biedt ondersteuning voor gebruikers die al bekend met Splunk bent.
+-  [Splunk naar Azure Monitor log-query](splunk-cheatsheet.md) biedt ondersteuning voor gebruikers die al bekend met Splunk bent.
  
 ## <a name="next-steps"></a>Volgende stappen
 

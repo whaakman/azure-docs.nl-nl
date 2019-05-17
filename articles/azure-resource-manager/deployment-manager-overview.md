@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466559"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595785"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (openbare preview) inschakelen
 
@@ -38,15 +38,11 @@ U implementeren de sjabloon topologie voordat u de implementatie-sjabloon implem
 
 De Azure Deployment Manager REST API-verwijzing vindt u [hier](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## <a name="supported-locations"></a>Ondersteunde locaties
-
-Voor de Preview-versie, worden Deployment Manager-resources ondersteund in Centraal VS en VS-Oost 2. Bij het definiëren van resources in uw topologie en de implementatie-sjablonen, zoals de service-eenheden, artefactbronnen en implementaties die worden beschreven in dit artikel, moet u een van deze regio's voor de locatie opgeven. De resources die u implementeert voor het maken van uw service, zoals virtuele machines, opslagaccounts en web-apps, worden echter ondersteund in alle hun [standaardlocaties](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## <a name="identity-and-access"></a>Identiteit en toegang
 
 Met Deployment Manager, een [gebruiker toegewezen beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md) worden de implementatieacties uitgevoerd. U kunt deze identiteit maken voordat u begint met uw implementatie. Toegang tot het abonnement dat u de service implementeert en voldoende machtigingen voor het voltooien van de implementatie moet hebben. Zie voor meer informatie over de acties die zijn verleend door middel van rollen [ingebouwde rollen voor Azure-resources](../role-based-access-control/built-in-roles.md).
 
-De identiteit moet zich bevinden in een van de ondersteunde locaties voor Deployment Manager en het moet zich bevinden op dezelfde locatie bevinden als de implementatie.
+De identiteit moet zich bevinden op dezelfde locatie bevinden als de implementatie.
 
 ## <a name="topology-template"></a>Sjabloon voor topologie
 
@@ -221,7 +217,9 @@ De stap wacht onderbreekt de implementatie voordat u doorgaat. Hiermee kunt u co
 
 Maakt gebruik van de duur van de eigenschap [ISO 8601-norm](https://en.wikipedia.org/wiki/ISO_8601#Durations). Het vorige voorbeeld bevat een wachttijd van één minuut.
 
-Zie voor meer informatie over de stap van de status controleren, [ ]() en [ ]() voor meer informatie, Zie [stappen sjabloonverwijzing](/azure/templates/Microsoft.DeploymentManager/steps).
+Zie voor meer informatie over de stap van de status controleren, [introduceren de gezondheid van integratie van implementatie naar Azure Deployment Manager](./deployment-manager-health-check.md) en [zelfstudie: Controle van gatewayservicestatus gebruiken in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+
+Zie voor meer informatie, [stappen sjabloonverwijzing](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Implementaties
 

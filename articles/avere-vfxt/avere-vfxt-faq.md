@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409942"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595422"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Veelgestelde vragen over Avere vFXT for Azure
 
@@ -162,7 +162,7 @@ Bezig met ontkoppelen en opnieuw te koppelen SSD's wordt niet ondersteund. Inhou
 
 Gegevens worden striped verdeeld over de schijven, maar is niet versleuteld. De schijven zelf kunnen echter worden versleuteld. Zie voor meer informatie, [beveiligen en het gebruik van beleidsregels op virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
 
-## <a name="technical-networking"></a>Technische: Netwerken
+## <a name="technical-networking"></a>Technische: Netwerk
 
 ### <a name="what-network-is-recommended"></a>Welke netwerk wordt uitvoering aanbevolen?
 
@@ -204,7 +204,7 @@ Nee, Avere vFXT is bedoeld om u te worden uitgevoerd in een netwerkomgeving die 
 
 In het algemeen, u kunt extra beveiliging configureren op uw vnet, indien nodig, maar er zijn enkele beperkingen kunnen leiden tot problemen met de bewerking van het cluster.
 
-Bijvoorbeeld, veroorzaakt beperken van de uitgaande toegang tot internet vanaf uw vnet problemen voor het cluster, tenzij u ook regels die expliciet toestaan toegang tot AzureConnectors en AzureCloud toevoegen. Deze situatie wordt beschreven in [aanvullende documentatie over GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Bijvoorbeeld, veroorzaakt beperken van de uitgaande toegang tot internet vanaf uw vnet problemen voor het cluster, tenzij u ook een regel waarmee expliciet toegang tot AzureCloud toevoegen. Deze situatie wordt beschreven in [aanvullende documentatie over GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
 Voor meer informatie over het met aangepaste beveiliging, neem contact op met ondersteuning zoals beschreven in [hulp met uw systeem](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 

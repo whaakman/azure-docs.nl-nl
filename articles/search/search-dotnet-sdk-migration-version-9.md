@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f540bc304920073bcd823adcf6c9dd47cb2cf93b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159748"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541767"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-9"></a>Een upgrade naar de Azure Search .NET SDK versie 9
+# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Een upgrade uitvoert naar de Azure Search .NET SDK versie 9
 
 Als u versie 7.0-preview of ouder bent van de [Azure Search .NET SDK](https://aka.ms/search-sdk), in dit artikel ziet u een upgrade van uw toepassing versie 9 te gebruiken.
 
@@ -70,7 +70,7 @@ Er zijn enkele belangrijke wijzigingen in versie 9 waarvoor wijzigingen in de co
 > [!NOTE]
 > De lijst hieronder wijzigingen is niet volledig. Enkele wijzigingen zullen waarschijnlijk niet leiden tot fouten in de build, maar zijn technisch belangrijke omdat ze binaire compatibiliteit met assembly's die afhankelijk van eerdere versies van de Azure Search .NET SDK-assembly's zijn opsplitsen. Dergelijke wijzigingen worden hieronder niet wordt vermeld. Bouw uw toepassing bij een upgrade naar versie 9 om te voorkomen dat een binair compatibiliteitsproblemen.
 
-### <a name="making-properties-immutable"></a>Eigenschappen van maken onveranderbare
+### <a name="immutable-properties"></a>Onveranderbare eigenschappen
 
 De openbare eigenschappen van verschillende modelklassen zijn nu onveranderbaar. Als u maken van aangepaste exemplaren van deze klassen wilt voor het testen, kunt u de nieuwe parameters constructors gebruiken:
 
@@ -103,7 +103,7 @@ Dit is omdat deze eigenschappen nu moeten `null` in het geval van complexe velde
 
 De constructor zonder parameters van `Field` heeft aangebracht `internal`. Vanaf nu op elke `Field` een expliciete en het gegevenstype op het moment van de bouw vereist.
 
-### <a name="simplification-of-batch-and-results-types"></a>Vereenvoudiging van de batch-en resultaten
+### <a name="simplified-batch-and-results-types"></a>Vereenvoudigde batch en resultaten typen
 
 In versie 7.0-Preview-versie en eerdere versies, zijn de verschillende categorieën waarin de groepen van documenten gestructureerd in parallelle klassehiërarchieën:
 
@@ -118,7 +118,7 @@ De afgeleide typen zonder een generiek typeparameter zijn bedoeld om te worden g
 
 Beginnen met de Preview-versie 8.0-versie, zijn de basisklassen en afgeleide klassen van niet-algemene alle verwijderd. Voor dynamisch getypeerde scenario's, kunt u `IndexBatch<Document>`, `DocumentSearchResult<Document>`, enzovoort.
  
-### <a name="removal-of-extensibleenum"></a>Het verwijderen van ExtensibleEnum
+### <a name="removed-extensibleenum"></a>Verwijderde ExtensibleEnum
 
 De `ExtensibleEnum` basisklasse is verwijderd. Alle klassen die is afgeleid zijn, zoals nu structs, `AnalyzerName`, `DataType`, en `DataSourceType` bijvoorbeeld. Hun `Create` methoden zijn ook verwijderd. U kunt alleen aanroepen naar verwijderen `Create` omdat deze typen impliciet worden geconverteerd van tekenreeksen zijn. Als die in compilatiefouten resulteert, kunt u de conversieoperator via casten om op te heffen typen expliciet aanroepen. U kunt bijvoorbeeld code als volgt wijzigen:
 
@@ -150,7 +150,7 @@ var index = new Index()
 
 Eigenschappen die worden vastgehouden optionele waarden van de volgende typen zijn nu expliciet hebt getypt als null-waarden, zodat ze blijven optioneel.
 
-### <a name="removal-of-facetresults-and-hithighlights"></a>Verwijderen van FacetResults en HitHighlights
+### <a name="removed-facetresults-and-hithighlights"></a>Verwijderde FacetResults en HitHighlights
 
 De `FacetResults` en `HitHighlights` klassen zijn verwijderd. Facet resultaten zijn nu getypeerd als `IDictionary<string, IList<FacetResult>>` en drukt u op die zijn gemarkeerd als `IDictionary<string, IList<string>>`. Een snelle manier om het oplossen van fouten in de build geïntroduceerd door deze wijziging is het toevoegen van `using` aliassen aan de bovenkant van elk bestand dat gebruikmaakt van de verwijderde typen. Bijvoorbeeld:
 

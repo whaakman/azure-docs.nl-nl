@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589083"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603146"
 ---
 # <a name="azure-customer-data-protection"></a>Azure-klant-gegevensbeveiliging   
 Toegang tot klantgegevens door Microsoft uitvoerend en ondersteunend personeel is standaard niet toegestaan. Als de toegang tot gegevens van de klant is verleend, leiderschap goedkeuring is vereist en wordt vervolgens toegang zorgvuldig beheerd en geregistreerd. De access-control-vereisten zijn gemaakt door het volgende beleid van de Azure-beveiliging:
@@ -48,8 +48,8 @@ Azure biedt klanten met sterke gegevensbeveiliging, zowel standaard als als opti
 
 **Gegevensredundantie**: Microsoft zorgt ervoor dat de gegevens zijn beveiligd als er een cyberattack of fysieke schade aan een datacenter. Klanten kunnen kiezen voor:
 
-- Opslag in het land voor naleving of latentie-overwegingen.
-- Opslag buiten het land voor beveiligings- of disaster recovery-toepassing.
+- In-/ in-land opslag voor naleving of latentie-overwegingen.
+- Out-van-land/out-van-regio opslag voor beveiligings- of disaster recovery-doeleinden.
 
 Gegevens kunnen worden gerepliceerd binnen een geselecteerde geografische gebied voor gegevensredundantie, maar buiten deze kan niet worden verzonden. Klanten hebben meerdere opties voor het repliceren van gegevens, inclusief het aantal exemplaren en het aantal en de locatie van de replicatie-datacenters.
 

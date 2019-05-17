@@ -2,20 +2,20 @@
 title: Data Warehouse Units (dwu's, cDWUs) in Azure SQL Data Warehouse | Microsoft Docs
 description: Aanbevelingen over het kiezen van het ideale aantal datawarehouse units (dwu's, cDWUs) om te optimaliseren prijs en prestaties en het wijzigen van het aantal eenheden.
 services: sql-data-warehouse
-author: ronortloff
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: design
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d71594e745fdd57ba383b98b547cceb0be1b61bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099100"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797839"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en compute Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het ideale aantal datawarehouse units (dwu's, cDWUs) om te optimaliseren prijs en prestaties en het wijzigen van het aantal eenheden. 
@@ -121,7 +121,7 @@ Dwu's of cDWUs wijzigen:
 
 2. Onder **schaal**, verplaats de schuifregelaar naar links of rechts om de DWU-instelling te wijzigen.
 
-3. Klik op **Opslaan**. Er verschijnt een bevestigingsbericht. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
+3. Klik op **Opslaan**. Er wordt een bevestigingsbericht weergegeven. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
 
 ### <a name="powershell"></a>PowerShell
 

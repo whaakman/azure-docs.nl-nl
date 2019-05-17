@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472043"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595551"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -28,7 +28,7 @@ Voor de Setup zijn maar een paar klikken nodig in Visual Studio. U kunt kosten b
 ## <a name="prerequisites"></a>Vereisten
 Als u Application Insights wilt toevoegen aan uw ASP.NET-website, moet u het volgende doen:
 
-- [Installeer Visual Studio 2017 voor Windows ](https://www.visualstudio.com/downloads/) met de volgende workloads:
+- Installeer [2019 van Visual Studio voor Windows](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET- en webontwikkelworkload (de optionele componenten niet uitschakelen)
     - Azure-ontwikkeling
 
@@ -37,7 +37,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 ## <a name="ide"></a> Stap 1: De Application Insights SDK toevoegen
 
 > [!IMPORTANT]
-> De schermafbeeldingen in dit voorbeeld zijn gebaseerd op Visual Studio 2017 versie 15.9.9. De ervaring om toe te voegen van Application Insights is afhankelijk van andere versies van Visual Studio 2017 en per type ASP.NET-sjabloon. Oudere versies mogelijk alternatieve tekst, zoals 'Configureren van Application Insights'.
+> De schermafbeeldingen in dit voorbeeld worden op basis van Visual Studio 2017 versie 15.9.9 en hoger. De ervaring om toe te voegen van Application Insights is afhankelijk van andere versies van Visual Studio en per type ASP.NET-sjabloon. Oudere versies mogelijk alternatieve tekst, zoals 'Configureren van Application Insights'.
 
 Met de rechtermuisknop op de naam van uw web-app in Solution Explorer en kies **toevoegen** > **Application Insights Telemetry**
 

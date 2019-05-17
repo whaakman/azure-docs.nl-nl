@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.openlocfilehash: 657f8df959ccda5d51748ef5fbfc2e280f7d2c2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714812"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800996"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Interactieve Query Apache Hive-gegevens visualiseren met Microsoft Power BI met behulp van directquery in Azure HDInsight
 
@@ -49,7 +49,7 @@ De `hivesampletable` Hive-tabel wordt geleverd met alle HDInsight-clusters.
 
     |Eigenschap | Waarde |
     |---|---|
-    |Server |Voer de naam van het cluster, bijvoorbeeld *myiqcluster.azurehdinsight.net*.|
+    |Server  |Voer de naam van het cluster, bijvoorbeeld *myiqcluster.azurehdinsight.net*.|
     |Database |Voer **standaard** voor dit artikel.|
     |Gegevensverbindingsmodus |Selecteer **DirectQuery** voor dit artikel.|
 
@@ -79,7 +79,7 @@ Volgen op de laatste procedure.
 In dit artikel hebt u geleerd hoe u gegevens uit HDInsight met behulp van Microsoft Power BI visualiseren.  Zie de volgende artikelen voor meer informatie over gegevensvisualisatie:
 
 * [Apache Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight met behulp van ODBC](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
-* [Apache Zeppelin gebruiken voor het Apache Hive-query's uitvoeren in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Apache Zeppelin gebruiken voor het Apache Hive-query's uitvoeren in Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Excel verbinden met Apache Hadoop met Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
 * [Verbinding maken met Azure HDInsight en Apache Hive-query's uitvoeren met behulp van Data Lake Tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).

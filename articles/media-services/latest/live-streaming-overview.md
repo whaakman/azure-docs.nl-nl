@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153384"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556230"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -33,7 +33,7 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 In dit artikel biedt een overzicht en richtlijnen voor live streamen met Media Services en koppelingen naar andere relevante artikelen.
 
 > [!NOTE]
-> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](developers-guide.md).
+> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](media-services-apis-overview.md#sdks).
 
 ## <a name="dynamic-packaging"></a>Dynamische verpakking
 
@@ -67,9 +67,9 @@ Bij gebruik van live-codering met Media Services zou u uw on-premises live-encod
 
 Voor meer informatie over de werkstroom voor live streaming in Media Services v3, moet u eerst controleren en begrijpen van de volgende concepten: 
 
-- [Streaming-eindpunten](streaming-endpoint-concept.md)
-- [Livegebeurtenissen en live-uitvoer](live-events-outputs-concept.md)
-- [Streaming-locators](streaming-locators-concept.md)
+- [Streaming-eindpunten API](streaming-endpoint-concept.md)
+- [Live-evenementen en Live uitvoer-API](live-events-outputs-concept.md)
+- [Streaming-Locators API](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Algemene stappen
 

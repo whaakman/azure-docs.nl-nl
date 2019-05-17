@@ -4,7 +4,7 @@ description: Informatie over het toevoegen van app-rollen in een toepassing die 
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fd78e98c37bea0fed1787e1e07a026fa35597f47
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138358"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593926"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedure: App-rollen in uw toepassing toevoegen en deze ontvangen in het token
 
@@ -62,7 +62,7 @@ De rollen voor deze toepassing zijn gedefinieerd in de [Azure-portal](https://po
 Het volgende voorbeeld wordt de `appRoles` die u kunt toewijzen aan `users`.
 
 > [!NOTE]
->  De `id` moet een unieke GUID.
+>De `id` moet een unieke GUID.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -80,6 +80,9 @@ Het volgende voorbeeld wordt de `appRoles` die u kunt toewijzen aan `users`.
   ],
 "availableToOtherTenants": false,
 ```
+
+> [!NOTE]
+>De `displayName` mag geen spaties bevatten.
 
 U kunt app-rollen definiëren met doel- `users`, `applications`, of beide. Wanneer deze beschikbaar op `applications`, app-rollen worden weergegeven als de machtigingen van de toepassing in de **vereiste machtigingen** blade. Het volgende voorbeeld ziet u een app-rol die is gericht op een `Application`.
 
@@ -99,6 +102,8 @@ U kunt app-rollen definiëren met doel- `users`, `applications`, of beide. Wanne
   ],
 "availableToOtherTenants": false,
 ```
+
+De limieten die het toepassingsmanifest is van invloed op het aantal rollen die zijn gedefinieerd. Ze hebben in detail is beschreven op de [manifest limieten](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) pagina.
 
 ### <a name="assign-users-and-groups-to-roles"></a>Gebruikers en groepen toewijzen aan rollen
 

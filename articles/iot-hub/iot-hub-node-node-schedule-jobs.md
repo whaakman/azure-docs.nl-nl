@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: 1f357ed60e9d9f020d5a80ac9349eb65577521e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a42b590fc83b89cd9f90998f835fc58f84ea960
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442744"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597396"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Taken plannen en uitzenden (Node)
 
@@ -50,7 +50,7 @@ Aan het einde van deze zelfstudie hebt u twee Node.js-apps:
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Node.js versie 4.0.x of hoger [uw ontwikkelomgeving voorbereiden](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) wordt beschreven hoe u Node.js voor deze zelfstudie installeren op Windows of Linux.
+* Node.js versie 10.0 x of hoger [uw ontwikkelomgeving voorbereiden](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) wordt beschreven hoe u Node.js voor deze zelfstudie installeren op Windows of Linux.
 
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 

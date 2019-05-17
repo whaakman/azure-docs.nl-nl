@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425908"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560827"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Zoekopdrachten in Logboeken van Azure Monitor
 
@@ -64,7 +64,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Als u `==` in plaats van `:`, zou bevatten de resultaten records waarin de *bron* kolom bevat de exacte waarde "error" in dit geval exacte. Met behulp van ':' bevat geen records waarin *bron* waarden zoals "404-foutcode" of "Error" bevat.
+> Als u `==` in plaats van `:`, zou bevatten de resultaten records waarin de *bron* kolom bevat de exacte waarde "error" in dit geval exacte. Met behulp van ':' records bevat waarin *bron* waarden zoals "404-foutcode" of "Error" bevat.
 
 ## <a name="case-sensitivity"></a>Hoofdlettergevoeligheid
 Term zoeken is standaard niet-hoofdlettergevoelig, dus resultaten zoals "DNS", "dns" of "Dns" zoeken "dns" kan opleveren. Als u de zoekopdracht hoofdlettergevoelig, gebruikt u de `kind` optie:

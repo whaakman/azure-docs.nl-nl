@@ -15,22 +15,22 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09e04e6b61d3387cb8c50c2af4eef2cfb4bec196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437779"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602421"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina met waarschuwingen. 
 
-![Pagina met waarschuwingen](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Pagina met waarschuwingen](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>Waarschuwingen weergeven
 Selecteer een waarschuwing om te zien van een rapport met de gebruikers of rollen die de waarschuwing, samen met herstel advies is geactiveerd.
 
-![Rapport waarschuwingen](media/azure-pim-resource-rbac/rbac-alert-info.png)
+![Rapport waarschuwingen](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Waarschuwingen
 | Waarschuwing | Severity | Trigger | Aanbeveling |
@@ -47,10 +47,10 @@ Selecteer een waarschuwing om te zien van een rapport met de gebruikers of rolle
 
 ## <a name="configure-security-alert-settings"></a>Instellingen voor beveiligingswaarschuwingen configureren
 Op de pagina met waarschuwingen, gaat u naar **instellingen**.
-![Instellingen](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+![Instellingen](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 Pas de instellingen op de verschillende waarschuwingen om te werken met uw omgeving en beveiligingsdoelen.
-![Instellingen aanpassen](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Instellingen aanpassen](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

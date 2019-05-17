@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254086"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595453"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Aan de slag met Azure Metrics Explorer
 
@@ -24,7 +24,7 @@ Azure Monitor metrics explorer is een onderdeel van de Microsoft Azure-portal ku
 
 1. Probeer [dimensiefilters zijn toegepast en splitsen](#apply-dimension-filters-and-splitting). De filters en splitsen kunt u voor het analyseren van welke segmenten van de metrische gegevens van bijdragen aan de algemene metrische waarde en mogelijke uitbijters te identificeren.
 
-1. Gebruik [geavanceerde instellingen](#advanced-chart-settings-and-next-steps) om aan te passen van de grafiek voordat u kunt vastmaken aan dashboards. [Waarschuwingen configureren](alerts-metric-overview.md) meldingen ontvangen wanneer de metrische waarde groter is dan of onder een drempelwaarde komt.
+1. Gebruik [geavanceerde instellingen](#advanced-chart-settings) om aan te passen van de grafiek voordat u kunt vastmaken aan dashboards. [Waarschuwingen configureren](alerts-metric-overview.md) meldingen ontvangen wanneer de metrische waarde groter is dan of onder een drempelwaarde komt.
 
 ## <a name="create-your-first-metric-chart"></a>Uw eerste grafiek met metrische gegevens maken
 
@@ -61,12 +61,13 @@ De grafiek toont standaard de meest recente 24 uur van metrische gegevens. Gebru
 
 Zie [voorbeelden van de grafieken](metric-chart-samples.md) dat hebt filteren en te splitsen toegepast. Het artikel bevat dat de stappen zijn gebruikt voor het configureren van de grafieken.
 
-## <a name="advanced-chart-settings-and-next-steps"></a>Geavanceerde instellingen en de volgende stappen
+## <a name="advanced-chart-settings"></a>Geavanceerde instellingen
 
 U kunt de grafiekstijl van de, titel, aanpassen en geavanceerde instellingen te wijzigen. Wanneer u klaar bent met aanpassingen, deze vastmaken aan een dashboard aan uw werk op te slaan. U kunt ook waarschuwingen voor metrische gegevens configureren. Ga als volgt [productdocumentatie](metrics-charts.md) voor meer informatie over deze en andere geavanceerde functies van Azure Monitor metrics explorer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
+* [Meer informatie over geavanceerde functies van Metrics Explorer](metrics-charts.md)
+* [Het oplossen van Metrics Explorer](metrics-troubleshoot.md)
 * [Een lijst met beschikbare metrische gegevens voor Azure-services](metrics-supported.md)
-* [Meer informatie over geavanceerde functies van Metric Explorer](metrics-charts.md)
 * [Zie de voorbeelden van geconfigureerde grafieken](metric-chart-samples.md)

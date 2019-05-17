@@ -3,8 +3,8 @@ title: Configureren van een toepassing uitgeversdomein | Azure
 description: Informatie over het configureren van een toepassing uitgeversdomein zodat gebruikers weten waar hun gegevens worden verzonden.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efbf448770bfcf797d6bf01cd3c28dc98023adff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d47075f9e18b299341a98983ffb8a47389fd7063
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299764"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540244"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Procedure: Configureren van een toepassing uitgeversdomein (Preview)
 

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790535"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596714"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS-server registreert alias overzicht
 
@@ -25,9 +25,9 @@ Een recordset alias wordt ondersteund voor de volgende recordtypen in Azure DNS-
 - CNAME
 
 > [!NOTE]
-> Als u van plan bent een alias-record voor de recordtypen A of AAAA gebruiken om te verwijzen naar een [Azure Traffic Manager-profiel](../traffic-manager/quickstart-create-traffic-manager-profile.md) moet u ervoor zorgen dat de Traffic Manager-profiel slechts heeft [externe eindpunten](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). U moet het IPv4- of IPv6-adres opgeven voor externe eindpunten in Traffic Manager. In het ideale geval gebruik statische IP-adressen.
+> Als u van plan bent een alias-record voor de recordtypen A of AAAA gebruiken om te verwijzen naar een [Azure Traffic Manager-profiel](../traffic-manager/quickstart-create-traffic-manager-profile.md) moet u ervoor zorgen dat de Traffic Manager-profiel slechts heeft [externe eindpunten](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). U moet het IPv4- of IPv6-adres opgeven voor externe eindpunten in Traffic Manager. U kunt geen volledig gekwalificeerde domeinnamen (FQDN's) in eindpunten. In het ideale geval gebruik statische IP-adressen.
 
-## <a name="capabilities"></a>Functionaliteit
+## <a name="capabilities"></a>Mogelijkheden
 
 - **Wijs een openbaar IP-resource van een DNS-server A/AAAA-Recordset.** U kunt een A/AAAA-recordset maken en geef deze een alias recordset om te verwijzen naar een openbare IP-resource. De DNS-recordset wordt automatisch als het openbare IP-adres wordt gewijzigd of is verwijderd. Dangling DNS worden-records die naar onjuist IP-adressen verwijzen vermeden.
 

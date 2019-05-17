@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4980536eddd0226fac422ae17ddb717e34630d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553705"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799473"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Aanpassen van een persoon-model met de Video Indexer-API
 
@@ -61,7 +62,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 |naam|string|Ja|De naam voor het model van de persoon|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -106,7 +107,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 |id|string|Ja|De persoon model-id (gegenereerd wanneer het model van de persoon die is gemaakt).|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -142,7 +143,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |accountId|string|Ja|Unieke id voor de account|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -202,7 +203,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 Namen uniek zijn voor persoon modellen, dus als u twee verschillende gezichten in dezelfde persoon hetzelfde model **naam** parameterwaarde, Video Indexer weergaven van de gezichten als dezelfde persoon en ze nadat u uw video opnieuw indexeren convergeert wel ligt. 
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 

@@ -1,5 +1,5 @@
 ---
-title: Over het implementeren van een deep learning-model voor inferentietaken met GPU
+title: Model implementeren voor inferentietaken met GPU
 titleSuffix: Azure Machine Learning service
 description: Informatie over het implementeren van een deep learning-model als een webservice die gebruikmaakt van een GPU voor inferentietaken. In dit artikel wordt een model Tensorflow geïmplementeerd op een Azure Kubernetes Service-cluster. Het cluster maakt gebruik van een VM met GPU score inferentietaken verzoeken en host de webservice.
 services: machine-learning
@@ -10,33 +10,30 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 5cc0fe0526937245d3ca913afc477f0259e2afd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515172"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595656"
 ---
-# <a name="how-to-do-gpu-inferencing"></a>Hoe u GPU inferentietaken doet
+# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>Een deep learning-model voor inferentietaken met GPU implementeren
 
 Informatie over het gebruik van GPU inferentietaken voor een machine learning-model is geïmplementeerd als een webservice. In dit artikel leert u hoe u de Azure Machine Learning-service gebruiken voor het implementeren van een voorbeeld Tensorflow deep learning-model. Het model wordt geïmplementeerd op een Azure Kubernetes Service (AKS)-cluster dat gebruik maakt van een VM met GPU voor het hosten van de service. Wanneer aanvragen worden verzonden naar de service, het model de GPU gebruikt om uit te voeren inferentietaken.
 
 GPU's bieden de prestatievoordelen ten opzichte van CPU's op maximaal worden opgestart berekening. Training en inferentietaken deep learning-modellen (vooral voor grote batches van aanvragen) zijn uitstekende gebruiksvoorbeelden voor GPU's.  
 
-In dit voorbeeld wordt beschreven hoe een TensorFlow opgeslagen om modellen te implementeren voor Azure Machine Learning. 
+In dit voorbeeld wordt beschreven hoe u een opgeslagen TensorFlow-model implementeren voor Azure Machine Learning door:
+* Het maken van een AKS met GPU-cluster
+* Implementeren van een model met Tensorflow-GPU
 
-## <a name="goals-and-prerequisites"></a>Doelstellingen en vereisten
+## <a name="prerequisites"></a>Vereisten
 
-Volg de instructies voor:
-* Maken van een GPU ingeschakeld AKS-cluster
-* Een model met Tensorflow-GPU implementeren
-
-Vereisten:
 * Azure Machine Learning-services-werkruimte
 * Python
 * Tensorflow SavedModel geregistreerd. Voor meer informatie over het registreren van modellen Zie [modellen implementeren](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-In dit artikel is gebaseerd op [Tensorflow-modellen implementeren naar AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), die gebruikmaakt van opgeslagen TensorFlow-modellen en implementeert in een AKS-cluster. Met kleine wijzigingen aan de scoring-bestand en het omgevingsbestand is het echter van toepassing op elke machine learning-frameworks die ondersteuning bieden voor GPU's.  
+In dit artikel is gebaseerd op Jupyter-notebook [Tensorflow-modellen implementeren naar AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), die gebruikmaakt van opgeslagen TensorFlow-modellen en implementeert in een AKS-cluster. Met kleine wijzigingen aan de scoring-bestand en het omgevingsbestand is het echter van toepassing op elke machine learning-frameworks die ondersteuning bieden voor GPU's.  
 
 ## <a name="provision-aks-cluster-with-gpus"></a>AKS-cluster inrichten met GPU 's
 Azure heeft veel verschillende GPU-mogelijkheden, die allemaal kunnen worden gebruikt voor Inferentietaken. Zie [de lijst met N-serie](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) voor een volledig overzicht van de mogelijkheden en kosten. 

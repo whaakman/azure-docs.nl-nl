@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596660"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601657"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Aanbevolen procedures voor het beveiligen van PaaS-databases in Azure
 
@@ -78,7 +78,7 @@ Azure SQL beheert belangrijke problemen voor TDE. Zoals met TDE, on-premises spe
 
 Azure SQL biedt versleuteling voor kolommen via [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Hiermee wordt alleen gemachtigde toepassingen toegang tot gevoelige kolommen. SQL-query's voor versleutelde kolommen om te vergelijken op basis van waarden met behulp van dit type versleuteling worden beperkt.
 
-Versleuteling van toepassing op moet ook worden gebruikt voor de geselecteerde gegevens. Gegevens soevereiniteit problemen kunnen soms worden opgelost door het versleutelen van gegevens met een sleutel die wordt opgeslagen in de juiste land/regio. Dit voorkomt dat gegevens zelfs per ongeluk overdracht een probleem veroorzaken omdat het is niet mogelijk om de gegevens zonder de sleutel, ervan uitgaande dat het dat een sterke algoritme wordt gebruikt (zoals de AES-256) te ontsleutelen.
+Versleuteling van toepassing op moet ook worden gebruikt voor de geselecteerde gegevens. Gegevens soevereiniteit problemen kunnen soms worden opgelost door het versleutelen van gegevens met een sleutel die wordt opgeslagen in het juiste land/regio. Dit voorkomt dat gegevens zelfs per ongeluk overdracht een probleem veroorzaken omdat het is niet mogelijk om de gegevens zonder de sleutel, ervan uitgaande dat het dat een sterke algoritme wordt gebruikt (zoals de AES-256) te ontsleutelen.
 
 U kunt aanvullende maatregelen gebruiken om te helpen beveiligen van de database, zoals het ontwerpen van een beveiligde systeem, vertrouwelijke assets coderen en het bouwen van een firewall om de database-servers.
 

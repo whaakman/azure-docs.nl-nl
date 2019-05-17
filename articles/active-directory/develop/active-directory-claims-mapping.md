@@ -2,23 +2,23 @@
 title: Claims worden weergegeven in tokens voor een specifieke app in een Azure AD-tenant (openbare Preview) aanpassen
 description: Deze pagina wordt Azure Active Directory claimtoewijzing beschreven.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300475"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546208"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedure: Claims worden weergegeven in tokens voor een specifieke app in een tenant (Preview) aanpassen
 
@@ -97,7 +97,7 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| e-mail |
+| email |
 | endpoint |
 | enfpolids |
 | exp |
@@ -105,7 +105,7 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 | grant_type |
 | grafiek |
 | group_sids |
-| groepen |
+| Groepen |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -157,8 +157,8 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 | refreshtoken |
 | request_nonce |
 | Bron |
-| role |
-| rolls |
+| rol |
+| rollen |
 | scope |
 | scp |
 | beveiligings-id |
@@ -177,7 +177,7 @@ Er is een bepaalde set van claims waarmee wordt gedefinieerd hoe en wanneer ze w
 | unique_name |
 | UPN |
 | user_setting_sync_url |
-| gebruikersnaam |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,20 +284,20 @@ De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de cla
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabel 3: Id-waarden per bron
 
-| Bron | Id | Description |
+| Source | Id | Description |
 |-----|-----|-----|
-| Gebruiker | surname | Familienaam |
-| Gebruiker | givenname | Voornaam |
-| Gebruiker | displayname | Weergavenaam |
+| Gebruiker | Achternaam | Familienaam |
+| Gebruiker | givenName | Voornaam |
+| Gebruiker | DisplayName | Weergavenaam |
 | Gebruiker | object-id | ObjectID |
 | Gebruiker | mail | E-mailadres |
 | Gebruiker | userprincipalname | User principal name |
-| Gebruiker | department|Afdeling|
+| Gebruiker | Afdeling|Afdeling|
 | Gebruiker | onpremisessamaccountname | On-premises SAM-accountnaam |
 | Gebruiker | netbiosname| NetBios-naam |
 | Gebruiker | dnsdomainname | DNS-domeinnaam |
 | Gebruiker | onpremisesecurityidentifier | on-premises beveiligings-id |
-| Gebruiker | bedrijfsnaam| Naam van organisatie |
+| Gebruiker | bedrijfsnaam| Organisatienaam |
 | Gebruiker | streetAddress | Adres |
 | Gebruiker | postalcode | Postcode |
 | Gebruiker | preferredlanguange | Voorkeurstaal |
@@ -323,11 +323,11 @@ De ID-element geeft aan welke eigenschap van de bron geeft de waarde voor de cla
 | Gebruiker | city | Plaats |
 | Gebruiker | state | Status |
 | Gebruiker | jobtitle | Functie |
-| Gebruiker | employeeid | Werknemer-id |
+| Gebruiker | werknemer-id | Werknemer-id |
 | Gebruiker | facsimiletelephonenumber | Fax telefoonnummer |
-| toepassing, resource, doelgroep | displayname | Weergavenaam |
+| toepassing, resource, doelgroep | DisplayName | Weergavenaam |
 | toepassing, resource, doelgroep | objecten | ObjectID |
-| toepassing, resource, doelgroep | tags | Service-Principal Tag |
+| toepassing, resource, doelgroep | codes | Service-Principal Tag |
 | Bedrijf | tenantcountry | Land van de tenant |
 
 **TransformationID:** Het element TransformationID moet worden opgegeven, alleen als de bron-element is ingesteld op 'transformatie'.
@@ -358,9 +358,9 @@ Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. D
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabel 4: Transformatie methoden en verwachte invoer en uitvoer
 
-|TransformationMethod|Verwachte invoer|Verwachte uitvoer|Beschrijving|
+|TransformationMethod|Verwachte invoer|Verwachte uitvoer|Description|
 |-----|-----|-----|-----|
-|Koppelen|tekenreeks1, tekenreeks2, scheidingsteken voor duizendtallen|outputClaim|Joins invoer tekenreeksen met behulp van een scheidingsteken tussen. Bijvoorbeeld: tekenreeks1: "foo@bar.com", tekenreeks2: "sandbox", scheidingsteken: '. ' resulteert in outputClaim: "foo@bar.com.sandbox"|
+|Deelnemen|tekenreeks1, tekenreeks2, scheidingsteken voor duizendtallen|outputClaim|Joins invoer tekenreeksen met behulp van een scheidingsteken tussen. Bijvoorbeeld: tekenreeks1: "foo@bar.com", tekenreeks2: "sandbox", scheidingsteken: '. ' resulteert in outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extraheert het lokale gedeelte van een e-mailadres. Bijvoorbeeld: e-mail: "foo@bar.com" resulteert in outputClaim: "foo". Als er geen \@ aanmelding aanwezig is, wordt de oorspronkelijke invoerreeks worden geretourneerd, zoals is.|
 
 **InputClaims:** Gebruik een element InputClaims om door te geven van de gegevens van een claim schema post naar een transformatie. Er worden twee kenmerken: **ClaimTypeReferenceId** en **TransformationClaimType**.
@@ -384,12 +384,12 @@ Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. D
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabel 5: Kenmerken die zijn toegestaan als een gegevensbron voor de NameID van SAML
 
-|Bron|Id|Description|
+|Source|Id|Description|
 |-----|-----|-----|
 | Gebruiker | mail|E-mailadres|
 | Gebruiker | userprincipalname|User principal name|
 | Gebruiker | onpremisessamaccountname|Op de lokale Sam-accountnaam|
-| Gebruiker | employeeid|Werknemer-id|
+| Gebruiker | werknemer-id|Werknemer-id|
 | Gebruiker | extensionattribute1 | Kenmerk toestelnummer 1 |
 | Gebruiker | extensionattribute2 | Kenmerk toestelnummer 2 |
 | Gebruiker | extensionattribute3 | Kenmerk toestelnummer 3 |
@@ -411,7 +411,7 @@ Op basis van de gekozen methode, wordt een set van invoer en uitvoer verwacht. D
 | TransformationMethod | Beperkingen |
 | ----- | ----- |
 | ExtractMailPrefix | Geen |
-| Koppelen | Het achtervoegsel wordt toegevoegd, moet een geverifieerd domein van de resource-tenant. |
+| Deelnemen | Het achtervoegsel wordt toegevoegd, moet een geverifieerd domein van de resource-tenant. |
 
 ### <a name="custom-signing-key"></a>Aangepaste ondertekeningssleutel
 

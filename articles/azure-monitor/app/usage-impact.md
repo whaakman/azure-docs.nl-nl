@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373222"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604189"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Impactanalyse met Application Insights
 
@@ -63,7 +63,7 @@ Impact ondersteunt zowel standaard als aangepaste eigenschappen en metingen. Geb
 2. Kies 'Land of regio' **analyseren hoe de** vervolgkeuzelijst
 3. Voor de **heeft gevolgen voor het gebruik van** vervolgkeuzelijst, selecteer een aangepaste gebeurtenis die overeenkomt met een UI-element op de paginaweergave u in stap 1 hebt gekozen.
 
-In dit geval passen de resultaten niet meer in het model van een doorlopende x-as als in het eerste voorbeeld. In plaats daarvan wordt een vergelijkbaar met een gesegmenteerde trechter visualisatie weergegeven. Sorteren op **gebruik** om de variatie van de conversie naar uw aangepaste gebeurtenissen op basis van land weer te geven.
+In dit geval passen de resultaten niet meer in het model van een doorlopende x-as als in het eerste voorbeeld. In plaats daarvan wordt een vergelijkbaar met een gesegmenteerde trechter visualisatie weergegeven. Sorteren op **gebruik** om de variatie van de conversie naar uw aangepaste gebeurtenissen op basis van land/regio weer te geven.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Hoe wordt het hulpprogramma gevolgen deze conversieverhoudingen berekend?

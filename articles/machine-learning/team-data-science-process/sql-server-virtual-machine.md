@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6adc5dfa740d440e78bf2f276447c4585503d7c0
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61044468"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606466"
 ---
 # <a name="heading"></a>Gegevens verwerken in SQL Server-Machine op Azure
 Dit document wordt uitgelegd hoe u gegevens verkennen en functies voor gegevens die zijn opgeslagen in een SQL Server-VM op Azure te genereren. Dit kan worden gedaan door data wrangling met behulp van SQL of met behulp van een programmeertaal zoals Python.
@@ -87,7 +87,7 @@ Hier volgt een korte uitleg van breedtegraad/lengtegraad locatiegegevens (resour
 * De aanmelding kan worden achterhaald of we Noord of -Zuid, Oost- of -west op de hele wereld.
 * Een andere waarde dan nul honderden cijfers kan worden achterhaald dat we niet breedtegraad lengtegraad gebruiken!
 * De tientallen cijfer biedt een positie naar ongeveer 1000 kilometer zijn verwijderd. Deze geeft ons voor nuttige informatie over welke continent of in de Indische Oceaan worden op.
-* De eenheden cijfers (één decimaal graad) biedt een positie tot 111 kilometer (60 zeemijl, ongeveer 69 mijl). Het kan ons ongeveer welke grote provincie of land zijn we in.
+* De eenheden cijfers (één decimaal graad) biedt een positie tot 111 kilometer (60 zeemijl, ongeveer 69 mijl). Het kan ons ongeveer welke grote staat of land/regio, zijn we in.
 * De eerste decimaal de moeite waard tot 11.1 km is: het de positie van een grote plaats van een nabijgelegen grote plaats kunt onderscheiden.
 * De tweede decimaalpositie de moeite waard tot 1.1 km is: kan het één village scheiden van de volgende.
 * De derde decimaal de moeite waard is maximaal 110 m: dat het een grote agricultural veld of institutionele campus kunt identificeren.

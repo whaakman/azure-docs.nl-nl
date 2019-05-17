@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922955"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604267"
 ---
 # <a name="change-your-azure-account-profile-information"></a>De profielgegevens van uw Azure-account wijzigen
 
@@ -51,9 +51,9 @@ Bijwerken van het e-mailadres van het profiel bijwerken niet van uw aanmelding b
 
 Zie voor informatie over het bijwerken van uw factureringsgegevens, [wijzigen van de creditcard die is gebruikt om een Azure-abonnement te betalen](billing-how-to-change-credit-card.md).
 
-### <a name="you-cant-update-your-country"></a>U kunt uw land niet bijwerken
+### <a name="you-cant-update-your-countryregion"></a>U kunt uw land/regio niet bijwerken
 
-Vanwege technische beperkingen, kan het land voor een bestaand account niet worden gewijzigd. U kunt echter een account maken in de gewenste land/regio en vervolgens contact op met de Azure-klantenservice om uw services migreren naar dat account.
+Vanwege technische beperkingen wijzigen we het land/de regio voor een bestaand account niet. U kunt echter een account maken in de gewenste land/regio en vervolgens contact op met de Azure-klantenservice om uw services migreren naar dat account.
 
 ## <a name="service-and-marketing-emails"></a>Service- en marketing-e-mails
 

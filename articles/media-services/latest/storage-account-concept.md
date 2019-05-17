@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466813"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550153"
 ---
 # <a name="cloud-upload-and-storage"></a>Uploaden naar en opslaan in de cloud
 
@@ -51,6 +51,17 @@ Ter bescherming van uw activa in rust, moeten de activa van de versleuteling van
 |[Client-Side-versleuteling van opslag](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Clientversleuteling die worden aangeboden door Azure-opslag, beheerd door de klant in Key Vault sleutel|Niet ondersteund|
 
 <sup>1</sup> in Media Services v3, versleuteling van opslag (AES-256-codering) wordt alleen ondersteund voor achterwaartse compatibiliteit bij uw activa zijn gemaakt met Media Services v2. Dit betekent dat v3 werkt met bestaande opslag versleuteld activa, maar staat niet toe dat het maken van nieuwe labels.
+
+## <a name="storage-account-errors"></a>Storage-account fouten
+
+De status 'Verbinding verbroken' voor een Media Services-account geeft aan dat het account heeft niet langer toegang tot een of meer van de gekoppelde storage-accounts na een wijziging in de toegangssleutels voor opslag. Toegangssleutels voor opslag up-to-date zijn vereist door Media Services om uit te voeren veel taken in het account.
+
+Hieronder vindt u de primaire scenario's die zouden resulteren in een Media Services-account toegang kunt krijgen tot de gekoppelde storage-accounts. 
+
+|Probleem|Oplossing|
+|---|---|
+|De Media Services-account of een gekoppeld opslagaccount (s) zijn gemigreerd naar een afzonderlijke abonnementen. |Migreer het opslagaccount (s) of de Media Services-account zodat ze bevinden zich allemaal in hetzelfde abonnement. |
+|Het Media Services-account is een gekoppelde storage-account in een ander abonnement gebruiken, zoals deze was een vroege Media Services-account waar dit wordt ondersteund. Alle eerdere Media Services-accounts zijn geconverteerd naar moderne Azure Resources Manager (ARM) op basis van accounts en een niet-verbonden status heeft. |Migreren van de storage-account of Media Services-account zodat ze bevinden zich allemaal in hetzelfde abonnement.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

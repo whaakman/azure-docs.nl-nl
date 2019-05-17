@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304066"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546261"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Verbinding maken met on-premises gegevensbronnen vanuit Azure Logic Apps
 
@@ -36,7 +36,7 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
 
 * De gatewayinstallatie van uw nog niet is gekoppeld aan een gateway-resource in Azure. U kunt de gatewayinstallatie koppelen slechts aan één gateway-resource, die wordt uitgevoerd wanneer u de gateway-resource maakt en selecteer de gatewayinstallatie. Deze koppeling wordt de installatie van de gateway niet beschikbaar voor andere bronnen.
 
-* Wanneer u zich aanmeldt bij de Azure portal en de gateway-resource maakt, zorg ervoor dat u de dezelfde aanmeldingsaccount die eerder gebruikt voor het was [installeren van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md#requirements) samen met dezelfde [Azure-abonnement ](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) die is gebruikt voor het installeren van de gateway. Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
+* Wanneer u zich aanmeldt bij de Azure portal en de gateway-resource maakt, zorg ervoor dat u de dezelfde aanmeldingsaccount die eerder gebruikt voor het was [installeren van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md#requirements) samen met dezelfde [Azure-abonnement ](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) die is gebruikt voor het installeren van de gateway. Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
 
 * Maken en onderhouden van de gateway-resource in Azure portal, uw [Windows-serviceaccount](../logic-apps/logic-apps-gateway-install.md#windows-service-account) heeft ten minste **Inzender** machtigingen. De on-premises gegevensgateway wordt uitgevoerd als een Windows-service en is ingesteld voor het gebruik `NT SERVICE\PBIEgwService` voor de Windows-service aanmeldingsreferenties. 
 

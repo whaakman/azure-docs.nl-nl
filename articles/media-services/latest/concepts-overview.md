@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152649"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762310"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
@@ -26,7 +26,7 @@ Dit onderwerp bevat een kort overzicht van Azure Media Services-termen en begrip
 Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.
 
 > [!NOTE]
-> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](developers-guide.md).
+> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](media-services-apis-overview.md#sdks).
 
 ## <a name="terminology"></a>Terminologie
 
@@ -51,7 +51,7 @@ Als u wilt beheren, coderen, codering, analyseren en streaming van media-inhoud 
 - [Uploaden naar en opslaan in de cloud](storage-account-concept.md)
 - [Activa-concept](assets-concept.md)
 
-## <a name="encoding"></a>Encoding
+## <a name="encoding"></a>Codering
 
 Nadat u uw hoogwaardige digitale media-bestanden naar Assets uploaden, kunt u ze coderen in indelingen die kunnen worden afgespeeld op een groot aantal browsers en apparaten. 
 
@@ -62,7 +62,7 @@ Als u wilt coderen met Media Services v3, moet u maken **transformeert** en **ta
 - [Transformaties en taken](transforms-jobs-concept.md)
 - [Codering met mediaservices](encoding-concept.md)
 
-## <a name="media-analytics"></a>Media-analyses
+## <a name="media-analytics"></a>Media Analytics
 
 Voor het analyseren van uw video en audio-bestanden, moet u ook maken **transformeert** en **taken**.
 
@@ -76,7 +76,7 @@ Bij het maken van de **Streaming-Locator gemaakt**, naast de assetnaam, moet u o
 
 Dynamische pakketten wordt gebruikt of u uw inhoud live of on-demand streamen. Het volgende diagram toont de streaming on demand met dynamische verpakking werkstroom.
 
-![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Met Media Services van uw live en on-demand inhoud dynamisch wordt versleuteld met Advanced Encryption Standard (AES-128) kan worden geleverd of / en een van de drie belangrijkste digital rights management (DRM)-systemen: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients.
 
@@ -114,7 +114,7 @@ De volgende afbeelding illustreert de werkstroom van Pass Through-type:
 
 ## <a name="monitoring"></a>Bewaking
 
-### <a name="event-grid"></a>Event Grid
+### <a name="event-grid"></a>Gebeurtenisraster
 
 Als u wilt zien van de voortgang van de taak, moet u **Event Grid**. Media Services verzendt ook de Live-gebeurtenis-typen. Met Event Grid kunnen uw apps luisteren naar en reageren op gebeurtenissen uit vrijwel alle Azure-services, evenals aangepaste bronnen. 
 

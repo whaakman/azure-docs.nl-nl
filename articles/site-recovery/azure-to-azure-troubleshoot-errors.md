@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699081"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796428"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -232,10 +232,10 @@ U kunt kiezen om te beveiligen van de schijven of negeer de waarschuwing aan dat
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Aan de waarschuwing negeren. Ga naar gerepliceerde items > virtuele machine > Klik op de waarschuwing sluiten onder de overzichtssectie.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Kan niet zien van de Azure-VM voor selectie in 'replicatie inschakelen'
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Kan niet zien van de virtuele machine van Azure of Resource-groep voor selectie in 'replicatie inschakelen'
 
  **1 oorzaak:  Resourcegroep en de virtuele bronmachine zich in andere locatie** <br>
-Azure Site Recovery voorgeschreven momenteel dat bronresourcegroep regio en virtuele machines moeten zich in dezelfde locatie. Als dat niet het geval is klikt zou u niet kunnen vinden van de virtuele machine tijdens het ophalen van beveiliging.
+Azure Site Recovery momenteel mandaten die bron resourcegroep regio en virtuele machines moeten zich in dezelfde locatie. Als dat niet het geval is klikt zou u niet kunnen vinden van de virtuele machine tijdens het ophalen van beveiliging. Als tijdelijke oplossing kunt u replicatie van de virtuele machine in plaats van de Recovery services-kluis. Ga naar Sourece VM > Eigenschappen > herstel na noodgevallen en schakelt u de replicatie.
 
 **2 oorzaak: Resourcegroep maakt geen deel uit van het geselecteerde abonnement** <br>
 U kunt mogelijk niet vinden van de resourcegroep op het moment van beveiliging, als deze geen deel uitmaakt van het betreffende abonnement. Zorg ervoor dat de resourcegroep deel uitmaakt van het abonnement dat wordt gebruikt.
@@ -252,7 +252,7 @@ Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, w
 >
 >Zorg ervoor dat u de module "" AzureRM.Resources"" bijwerken voordat u het onderstaande script.
 
-U kunt [verwijderen van verouderde ASR-configuratiescript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) en verwijdert de verouderde Site Recovery-configuratie op de virtuele machine van Azure. U zou het mogelijk om te zien van de virtuele machine na het verwijderen van de verouderde configuratie.
+U kunt [verwijderen van verouderde ASR-configuratiescript](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) en verwijdert de verouderde Site Recovery-configuratie op de virtuele machine van Azure. U zou het mogelijk om te zien van de virtuele machine na het verwijderen van de verouderde configuratie.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Kan geen virtuele machine voor beveiliging selecteert
  **1 oorzaak:  Virtuele machine uitbreidings-sommige in de status van een mislukte of reageert niet geïnstalleerd** <br>

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061479"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606390"
 ---
 # <a name="core-reports-from-verizon"></a>Kernrapporten
 
@@ -119,7 +119,7 @@ Het rapport bevat de volgende details:
 
 Het rapport bevat geen:
 
-* Aanvragen die zijn geweigerd vanwege land opties voor het filteren.
+* Aanvragen die zijn geweigerd vanwege opties voor het filteren van land/regio.
 * Aanvragen voor activa waarvan headers aangeven dat ze moeten niet worden opgeslagen in de cache. Bijvoorbeeld, `Cache-Control: private`, `Cache-Control: no-cache`, of `Pragma: no-cache` headers te voorkomen dat een actief in de cache worden opgeslagen.
 * Byte-bereikaanvragen voor gedeeltelijk in de cache-inhoud.
 

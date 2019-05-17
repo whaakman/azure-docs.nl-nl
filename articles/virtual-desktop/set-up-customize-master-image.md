@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 58471dc539f72c49b041638e928dda751f4bf5a2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410601"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551031"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Een VHD-hoofdinstallatiekopie voorbereiden en aanpassen
 
-In dit artikel wordt uitgelegd hoe u een installatiekopie van het model virtuele harde schijf (VHD) voorbereiden voor het uploaden naar Azure, met inbegrip van virtuele machines (VM's) maken en te installeren en configureren van software op deze. Deze instructies zijn voor een virtuele Windows-bureaublad Preview-specifieke configuratie die kan worden gebruikt met de bestaande processen van uw organisatie.
+In dit artikel wordt uitgelegd hoe u de installatiekopie van een master virtuele harde schijf (VHD) voorbereiden voor het uploaden naar Azure, waaronder het maken van virtuele machines (VM's) en software installeren op deze. Deze instructies zijn voor een virtuele Windows-bureaublad Preview-specifieke configuratie die kan worden gebruikt met de bestaande processen van uw organisatie.
 
 ## <a name="create-a-vm"></a>Een virtuele machine maken
 
@@ -24,11 +24,11 @@ Meerdere Windows 10 Enterprise-sessie is beschikbaar in de galerie met installat
 
 De eerste optie is voor het inrichten van een virtuele machine (VM) in Azure door de instructies in [een virtuele machine maken vanaf een beheerde installatiekopie](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed), en gaat u verder met [Software voorbereidings- en installatie](set-up-customize-master-image.md#software-preparation-and-installation).
 
-De tweede optie is voor het maken van de installatiekopie lokaal downloaden van de installatiekopie, inrichten van een Hyper-V-VM en aan te passen aan uw behoeften, waarover meer in de volgende sectie.
+De tweede optie is voor het maken van de installatiekopie lokaal downloaden van de installatiekopie, inrichten van een Hyper-V-VM en aan te passen aan uw behoeften, die we in de volgende sectie behandelen.
 
 ### <a name="local-image-creation"></a>Het maken van lokale installatiekopieën
 
-Nadat u de installatiekopie hebt gedownload naar een lokale locatie, opent u **Hyper-V-beheer** aan een virtuele machine maken met de VHD die u zojuist hebt gekopieerd. Hieronder volgt de eenvoudige versie, maar u vindt meer gedetailleerde instructies in [maken van een virtuele machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+Nadat u de installatiekopie hebt gedownload naar een lokale locatie, opent u **Hyper-V-beheer** aan een virtuele machine maken met de VHD die u hebt gekopieerd. De volgende instructies zijn een eenvoudige versie, maar u vindt meer gedetailleerde instructies in [maken van een virtuele machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
 
 Een virtuele machine maken met de gekopieerde VHD:
 
@@ -62,101 +62,11 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Software voorbereidings- en installatie
 
-In deze sectie bevat informatie over het voorbereiden en installeren van Office 365 ProPlus, OneDrive, FSLogix, Windows Defender en andere veelgebruikte toepassingen. Als uw gebruikers nodig hebben voor toegang tot bepaalde LOB-toepassingen, raden wij dat u deze installeren na het voltooien van deze sectie instructies.
+In deze sectie bevat informatie over hoe u voorbereidt en FSLogix, Windows Defender en andere veelgebruikte toepassingen installeren. 
 
-In deze sectie wordt ervan uitgegaan dat u hebt met verhoogde bevoegdheden voor toegang op de virtuele machine, of deze ingericht in Azure of Hyper-V-beheer.
+Als u Office 365 ProPlus en OneDrive op uw virtuele machine installeert, Zie [Office installeren op een master VHD-installatiekopie](install-office-on-wvd-master-image.md). Volg de koppeling in de volgende stappen van dit artikel gaat u terug naar dit artikel en het model VHD-proces te voltooien.
 
-### <a name="install-office-in-shared-computer-activation-mode"></a>Office installeren in de modus voor activering van gedeelde computers
-
-Gebruik de [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) Office te installeren. Meerdere sessies van Windows 10 Enterprise biedt alleen ondersteuning voor Office 365 ProPlus, niet-Office 2019 eeuwige.
-
-De Office Deployment Tool is een XML-configuratiebestand vereist. Voor het aanpassen van het volgende voorbeeld, Zie de [configuratieopties voor de Office Deployment Tool](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
-
-De voorbeeldconfiguratie-XML zijn er beschikbaar gesteld voor dit wordt de volgende dingen doen:
-
-- Office installeren vanaf het Insiders-kanaal en updates van het kanaal Insiders leveren wanneer ze worden uitgevoerd.
-- Gebruik de x64-architectuur.
-- Automatische updates uitschakelen.
-- Visio en Project installeren.
-- Verwijderen van eventuele bestaande installaties van Office en hun instellingen worden gemigreerd.
-- Gedeelde computer gebruikt voor bewerking in een omgeving met terminal server-licentieverlening inschakelen.
-
-Dit is wat deze voorbeeldconfiguratie XML wordt niet doen:
-
-- Installeren van Skype voor bedrijven
-- OneDrive installeren in de modus per gebruiker. Zie voor meer informatie, [OneDrive installeren in de modus per computer](#install-onedrive-in-per-machine-mode).
-
->[!NOTE]
->Gedeelde Computerlicenties kan worden ingesteld via groepsbeleidsobjecten (GPO's) of registerinstellingen. Het groepsbeleidsobject bevindt zich in **Computerconfiguratie\\beleid\\Beheersjablonen\\Microsoft Office 2016 (Machine)\\licentie-instellingen**
-
-De Office Deployment Tool bevat setup.exe. Voer de volgende opdracht in een opdrachtregel voor het installeren van Office:
-
-```batch
-Setup.exe /configure configuration.xml
-```
-
-#### <a name="sample-configurationxml"></a>Voorbeeld configuration.xml
-
-De volgende XML-voorbeeld wordt de Insiders-versie, ook wel bekend als Fast Insiders of Insiders Main installeren.
-
-```xml
-<Configuration>
-    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
-</Configuration>
-```
-
->[!NOTE]
->Het team van Office adviseert om 64-bits installatie voor de **OfficeClientEdition** parameter.
-
-Na de installatie van Office, kunt u het standaardgedrag voor Office bijwerken. Voer de volgende opdrachten afzonderlijk of in een batch-bestand om bij te werken van het gedrag.
-
-```batch
-rem Mount the default user registry hive
-reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
-rem Must be executed with default registry hive mounted.
-reg add HKU\TempDefault\SOFTWARE\Policies\Microsoft\office\16.0\common /v InsiderSlabBehavior /t REG_DWORD /d 2 /f
-rem Set Outlook's Cached Exchange Mode behavior
-rem Must be executed with default registry hive mounted.
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v enable /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v syncwindowsetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSettingMonths  /t REG_DWORD /d 1 /f
-rem Unmount the default user registry hive
-reg unload HKU\TempDefault
-
-rem Set the Office Update UI behavior.
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideupdatenotifications /t REG_DWORD /d 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
-```
+Als uw gebruikers nodig hebben voor toegang tot bepaalde LOB-toepassingen, raden wij dat u deze installeren na het voltooien van deze sectie instructies.
 
 ### <a name="disable-automatic-updates"></a>Automatische Updates uitschakelen
 
@@ -179,63 +89,13 @@ Voer deze opdracht uit om op te geven van een indeling Start voor Windows 10-pc'
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### <a name="install-onedrive-in-per-machine-mode"></a>OneDrive installeren in de modus per computer
-
-OneDrive is normaal gesproken geïnstalleerd per gebruiker. In deze omgeving moet per computer geïnstalleerd.
-
-Dit is het installeren van OneDrive in de modus per computer:
-
-1. Maak eerst een locatie voor het voorbereiden van het installatieprogramma OneDrive. Map van een lokale schijf of [\\\\unc] (file://unc) locatie is niets mis mee.
-
-2. OneDriveSetup.exe downloaden naar uw gefaseerde locatie met deze koppeling: <https://aka.ms/OneDriveWVD-Installer>
-
-3. Als u office met OneDrive geïnstalleerd zonder  **\<ExcludeApp-ID = "OneDrive" /\>**, eventuele bestaande installaties van de OneDrive-per-gebruiker vanaf een opdrachtprompt met verhoogde bevoegdheid verwijderen door het uitvoeren van de volgende opdracht:
-    
-    ```batch
-    "[staged location]\OneDriveSetup.exe" /uninstall
-    ```
-
-4. Deze opdracht uitvoert vanaf een opdrachtprompt met verhoogde bevoegdheid om in te stellen de **AllUsersInstall** registerwaarde:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
-    ```
-
-5. Met deze opdracht voor het installeren van OneDrive in de modus per computer worden uitgevoerd:
-
-    ```batch
-    Run "[staged location]\OneDriveSetup.exe" /allusers
-    ```
-
-6. Voer deze opdracht voor het configureren van OneDrive om te beginnen bij aanmelding voor alle gebruikers:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
-    ```
-
-7. Schakel **gebruikersaccount op de achtergrond configureren** door het uitvoeren van de volgende opdracht uit.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
-    ```
-
-8. Omleidings- en Windows-mappen in OneDrive bekend met de volgende opdracht verplaatsen.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
-    ```
-
-### <a name="teams-and-skype"></a>Teams en Skype
-
-Virtuele Windows-bureaublad officieel ondersteunt geen Skype voor bedrijven en Teams.
-
 ### <a name="set-up-user-profile-container-fslogix"></a>Instellen van de gebruiker profiel container (FSLogix)
 
 Als u wilt de container FSLogix opnemen als onderdeel van de installatiekopie, volg de instructies in [instellen van een share van de gebruiker profiel voor een groep host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). U kunt de functionaliteit van de container FSLogix met testen [in deze Quick Start](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Windows Defender configureren
 
-Als Windows Defender is geconfigureerd in de virtuele machine, zorg er dan voor dat deze heeft geconfigureerd voor niet-scan de volledige inhoud van de VHD en VHDX-bestanden tijdens het koppelen van hetzelfde.
+Als Windows Defender is geconfigureerd in de virtuele machine, zorg er dan voor dat deze heeft geconfigureerd voor niet-scan de volledige inhoud van de VHD en VHDX-bestanden tijdens de bijlage.
 
 Deze configuratie alleen verwijderd VHD en VHDX-bestanden worden gescand tijdens de bijlage, maar heeft geen invloed op realtime scannen.
 
@@ -308,7 +168,7 @@ Dit artikel wordt niet beschreven hoe het configureren van taal en regionale ond
 In deze sectie bevat informatie over toepassings- en configuratie van besturingssysteem. Alle configuratie in deze sectie vindt plaats via registervermeldingen die kunnen worden uitgevoerd door de opdrachtregel en regedit hulpprogramma's.
 
 >[!NOTE]
->Aanbevolen procedures kunt u implementeren in de configuratie met algemene, groepsbeleidsobjecten (GPO's) of invoer van register. De beheerder kan een van beide opties op basis van de behoeften van hun organisatie kiezen.
+>Aanbevolen procedures kunt u implementeren in de configuratie met groepsbeleidsobjecten (GPO's) of invoer van register. De beheerder kan een van beide opties op basis van de behoeften van hun organisatie kiezen.
 
 Voor feedback hub verzameling van telemetriegegevens op meerdere Windows 10 Enterprise-sessie, kunt u deze opdracht uitvoeren:
 

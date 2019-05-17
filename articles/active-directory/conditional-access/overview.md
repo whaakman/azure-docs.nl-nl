@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23c88857c877440be724ddea0bdb239768621c8c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354565"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764788"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Wat is voorwaardelijke toegang in Azure Active Directory?
 
@@ -24,7 +24,7 @@ Beveiliging is een topprioriteit voor organisaties die gebruikmaken van de cloud
 
 Beleid voor voorwaardelijke toegang wordt afgedwongen nadat de verificatie van de eerste factor is voltooid. Daarom is voorwaardelijke toegang niet zozeer bedoeld als een eerste verdedigingslinie voor bijvoorbeeld DoS-aanvallen (Denial of Service), maar kan het gebruikmaken van signalen van dergelijke gebeurtenissen (bijvoorbeeld het niveau van aanmeldingsrisico, de locatie van de aanvraag, enzovoort) om wel of geen toegang te verlenen.  
 
-![Beheer](./media/overview/81.png)
+![Besturingselement](./media/overview/81.png)
 
 In dit artikel wordt een conceptueel overzicht gegeven van voorwaardelijke toegang in Azure AD.
 
@@ -56,7 +56,7 @@ Voorwaardelijke toegang is een functionaliteit van Azure Active Directory waardo
 
 Voorwaardelijk toegangsbeleid is de naam voor een toegangsscenario waarbij gebruik wordt gemaakt van het volgende patroon:
 
-![Beheer](./media/overview/10.png)
+![Besturingselement](./media/overview/10.png)
 
 **Ga als volgt te werk** geeft de reactie van het beleid aan. Merk op dat het doel van voorwaardelijk toegangsbeleid is om geen toegang tot een cloud-app te verlenen. In Azure AD is het verlenen van toegang tot cloud-apps onderhevig aan gebruikerstoewijzingen. Met voorwaardelijk toegangsbeleid bepaalt u hoe gemachtigde gebruikers (gebruikers die toegang tot een cloud-app is verleend) cloud-apps onder bepaalde voorwaarden mogen openen. In uw respons dwingt u aanvullende vereisten af, zoals bijvoorbeeld meervoudige verificatie of een beheerd apparaat. Binnen de context van voorwaardelijke toegang van Azure AD worden de door het beleid afgedwongen vereisten besturingselementen voor toegang genoemd. In zijn meest beperkende vorm kan het beleid de toegang blokkeren. Zie [Besturingselementen voor toegang in voorwaardelijke toegang van Azure Active Directory](controls.md) voor meer informatie.
 
@@ -64,7 +64,7 @@ Voorwaardelijk toegangsbeleid is de naam voor een toegangsscenario waarbij gebru
 
 - **[Gebruikers](conditions.md#users-and-groups)**: De gebruikers die een toegangspoging uitvoeren (**Wie**).
 
-- **[Cloud-apps](conditions.md#cloud-apps)**: De doelen van een toegangspoging (**Wat**).
+- **[Cloud-apps](conditions.md#cloud-apps-and-actions)**: De doelen van een toegangspoging (**Wat**).
 
 Deze twee voorwaarden zijn verplicht in een voorwaardelijk toegangsbeleid. Naast de twee verplichte voorwaarden, kunt u ook aanvullende voorwaarden opnemen. Deze beschrijven hoe de toegangspoging wordt uitgevoerd. Bekende voorbeelden zijn het gebruik van mobiele apparaten of locaties buiten uw bedrijfsnetwerk. Zie [Voorwaarden in Azure Active Directory](conditions.md) voor meer informatie.
 

@@ -8,12 +8,12 @@ ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
 ms.date: 04/29/2019
-ms.openlocfilehash: cf07d19966c08a63b9aa50475622aa0a1e5e1600
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e87a82e985ed1d1794f9da00546f167ef01e1779
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236508"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815491"
 ---
 ## <a name="business-disaster-recovery"></a>Noodherstel voor bedrijven
 
@@ -48,10 +48,10 @@ Time Series Insights integreren met deze andere services biedt aanvullende disas
 
 Er zijn verschillende manieren om uw Time Series Insights-gegevens, apps en services die worden uitgevoerd, zelfs als ze zijn onderbroken. U kunt ook bepalen dat een kopie van het volledige, dubbele, back-up van uw Azure Time Series-omgeving vereist is:
 
-1. Als een TSI-specifieke **failover-exemplaar** omleiden naar gegevens en verkeer naar.
+1. Als een Time Series Insights-specifieke **failover-exemplaar** omleiden naar gegevens en verkeer naar.
 1. Voor controle- en gegevens bewaren.
 
-In het algemeen is de beste manier om het dupliceren van een omgeving met TSI het maken van een tweede TSI-omgeving in een back-up van de Azure-regio. Gebeurtenissen worden ook verzonden naar deze secundaire omgeving van uw primaire gebeurtenisbron. Zorg ervoor dat een tweede, toegewezen, consumergroep gebruiken en richtlijnen van die bron business disaster recovery (hierboven).
+In het algemeen is de beste manier om het dupliceren van een Time Series Insights-omgeving te maken van een tweede Time Series Insights-omgeving in een back-up van de Azure-regio. Gebeurtenissen worden ook verzonden naar deze secundaire omgeving van uw primaire gebeurtenisbron. Zorg ervoor dat een tweede, toegewezen, consumergroep gebruiken en richtlijnen van die bron business disaster recovery (hierboven).
 
 Specifiek, het maken van een dubbele omgeving:
 
@@ -63,7 +63,7 @@ Specifiek, het maken van een dubbele omgeving:
 Ten slotte:
 
 * Als uw primaire regio is last hebben van een incident na noodgevallen, omleiden bewerkingen aan de back-up Time Series Insights-omgeving.
-* Gebruik de tweede regio voor back-up en herstel van alle gegevens van TSI Telemetrie en query's uitvoeren.
+* Gebruik de tweede regio back-up en herstellen van alle gegevens van Time Series Insights Telemetrie en query's uitvoeren.
 
 > [!IMPORTANT]
 > * Houd er rekening mee dat een vertraging in het geval van een failover kan worden ervaren.

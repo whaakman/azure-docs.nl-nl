@@ -7,12 +7,12 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880860"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541752"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure-pijplijnen te bouwen en implementeren van HPC-oplossingen gebruiken
 
@@ -361,9 +361,9 @@ In dit voorbeeld wordt de nadruk op de **hpc-toepassing** map. De **hpc-toepassi
 > [!NOTE]
 > Als u een clienttoepassing voor het uitvoeren van uw HPC-Batch-toepassing gebruikt, moet u een afzonderlijke build-definitie voor de toepassing maken. U vindt een aantal handleidingen in de [Azure pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops) documentatie.
 
-## <a name="continuous-deployment"></a>Doorlopende implementatie
+## <a name="continuous-deployment"></a>Continue implementatie
 
-Azure pijplijnen wordt ook gebruikt voor het implementeren van uw toepassing en de onderliggende infrastructuur. [Pipelines vrijgeven](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) is het onderdeel dat wordt continue implementatie ingeschakeld en uw release-proces wordt geautomatiseerd.
+Azure pijplijnen wordt ook gebruikt voor het implementeren van uw toepassing en de onderliggende infrastructuur. [Pipelines vrijgeven](https://docs.microsoft.com/azure/devops/pipelines/release) is het onderdeel dat wordt continue implementatie ingeschakeld en uw release-proces wordt geautomatiseerd.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Implementeren van uw toepassing en de onderliggende infrastructuur
 
@@ -427,7 +427,7 @@ Er zijn een aantal stappen die betrokken zijn bij het implementeren van de infra
     * **Source:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
     * **Azure-verbindingstype**: Azure Resource Manager
     * **Azure-abonnement:** Selecteer het juiste Azure-abonnement
-    * **Het doeltype**: Azure Blob
+    * **Het doeltype**: Azure-blob
     * **RM Storage Account**: $(storageAccountName)
     * **Containernaam**: sjablonen
     * **De URI van Container**: templateContainerUri

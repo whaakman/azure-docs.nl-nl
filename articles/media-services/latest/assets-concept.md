@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235675"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551765"
 ---
 # <a name="assets"></a>Assets
 
-In Azure Media Services, een [Asset](https://docs.microsoft.com/rest/api/media/assets) digitale bestanden (met inbegrip van de video, audio, afbeeldingen, verzamelingen van miniaturen, tekstsporen en ondertitelingsbestanden-bestanden) en de metagegevens over deze bestanden bevat. Nadat de digitale bestanden zijn geüpload naar een Asset, kunnen ze worden gebruikt in de Media Services, codering, streaming, inhoud werkstromen analyseren. Zie voor meer informatie de [digitale bestanden uploaden naar activa](#upload-digital-files-into-assets) onderstaande sectie.
+In Azure Media Services, een [Asset](https://docs.microsoft.com/rest/api/media/assets) bevat informatie over de digitale bestanden die zijn opgeslagen in Azure Storage (met inbegrip van de video, audio, afbeeldingen, verzamelingen van miniaturen, tekstsporen en ondertitelingsbestanden-bestanden). 
 
 Een Asset is toegewezen aan een blobcontainer in de [Azure Storage-account](storage-account-concept.md) en de bestanden in de Asset worden opgeslagen als blok-blobs in die container. Media Services biedt ondersteuning voor Blob-lagen wanneer het account wordt gebruikt voor algemeen gebruik v2 (GPv2)-opslag. U kunt bestanden te verplaatsen met gpv2-Opslagaccounts [koude of Archiefopslag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Archief** opslag is geschikt voor het archiveren van bronbestanden wanneer u niet meer nodig hebt (bijvoorbeeld, nadat ze zijn gecodeerd).
 
 De **archief** storage-laag wordt alleen aanbevolen voor zeer grote bronbestanden die al zijn gecodeerd en de uitvoer van de codering is geplaatst in een uitvoer-blob-container. De blobs in de uitvoercontainer die u wilt koppelen aan een Asset en om te streamen of te analyseren van uw inhoud moeten aanwezig zijn in een **warm** of **Cool** storage-laag.
 
-> [!NOTE]
-> Eigenschappen van het type datum/tijd van Asset zich altijd in UTC-notatie.
-
 ## <a name="upload-digital-files-into-assets"></a>Digitale bestanden uploaden naar activa
 
-Een van de meestvoorkomende werkstromen zijn Media Services is om te uploaden, coderen en streamen van een bestand. In deze sectie geeft een overzicht van de algemene stappen.
+Nadat de digitale bestanden zijn geüpload naar storage en die zijn gekoppeld aan een Asset, kunnen ze worden gebruikt in de Media Services, codering, streaming, inhoud werkstromen analyseren. Een van de meestvoorkomende werkstromen zijn Media Services is om te uploaden, coderen en streamen van een bestand. In deze sectie geeft een overzicht van de algemene stappen.
 
 > [!TIP]
 > Controleer voordat u begint met het ontwikkelen, [ontwikkelen met Media Services v3 API's](media-services-apis-overview.md) (bevat informatie over het verkrijgen van toegang tot API's voor naamgeving, enz.)
@@ -54,6 +51,9 @@ Een van de meestvoorkomende werkstromen zijn Media Services is om te uploaden, c
 Voor een volledig .NET-voorbeeld laat zien hoe u: maken van de Asset, een beschrijfbare SAS-URL ophalen van de Asset-container in de opslag, het bestand uploaden naar de container in storage met behulp van de SAS-URL, Zie [de Taakinvoer van een maken vanuit een lokaal bestand](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Een nieuwe asset maken
+
+> [!NOTE]
+> Eigenschappen van het type datum/tijd van Asset zich altijd in UTC-notatie.
 
 #### <a name="rest"></a>REST
 

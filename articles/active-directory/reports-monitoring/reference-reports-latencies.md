@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285183"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594013"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting latenties
 
@@ -41,10 +41,10 @@ De volgende tabel bevat de latentie-informatie voor activiteitenrapporten.
 > **Latentie (95e percentiel)** verwijst naar de tijd waarop 95% van de logboeken worden gerapporteerd, en **latentie (99%)** verwijst naar de tijd waarop 99% van de logboeken worden gerapporteerd. 
 >
 
-| Rapport | Latentie (95e percentiel) |Latentie (99%)|Tijdsbereik waarbinnen logboeken worden gerapporteerd|
-| :-- | --- | --- | --- |
-| Auditlogboeken | 2 minuten  | 5 minuten  | 2-60 minuten |
-| Aanmeldingen | 2 minuten  | 5 minuten | 2-120 minuten |
+| Rapport | Latentie (95e percentiel) |Latentie (99%)|
+| :-- | --- | --- |
+| Auditlogboeken | 2 minuten  | 5 minuten  |
+| Aanmeldingen | 2 minuten  | 5 minuten |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hoe snel kan ik activiteiten gegevens zien nadat u een premium-licentie?
 

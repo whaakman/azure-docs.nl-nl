@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712431"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596499"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Een Windows Data Science Virtual Machine op Azure inrichten
 
@@ -96,7 +96,7 @@ Een exemplaar van de DSVM maken:
    1. **Instellingen voor**:  
       * **Beheerde schijven gebruiken**. Kies **beheerde** als u wilt dat Azure voor het beheren van de schijven voor de virtuele machine. Als dat niet het geval is, moet u een nieuwe of bestaande storage-account opgeven.  
       * **Andere parameters**. U kunt de standaardwaarden gebruiken. Als u gebruiken niet-standaard waarden wilt, Beweeg de muisaanwijzer over de informatieve koppeling voor meer informatie over de specifieke velden.
-   1. **Summary**: Controleer of alle informatie die u hebt ingevoerd juist is. Selecteer **Maken**.
+   1. **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is. Selecteer **Maken**.
 
 > [!NOTE]
 > * De virtuele machine niet op een extra kosten buiten de compute-kosten voor de servergrootte van de die u hebt gekozen in de **grootte** stap.
@@ -105,6 +105,8 @@ Een exemplaar van de DSVM maken:
 ## <a name="how-to-access-the-dsvm"></a>Toegang tot de DSVM
 
 Nadat de virtuele machine is gemaakt en ingericht, kunt u extern bureaublad in deze met behulp van de accountreferenties van de beheerder die u hebt geconfigureerd in de voorgaande **basisbeginselen** sectie. U bent klaar om te beginnen met de hulpprogramma's die zijn geïnstalleerd en geconfigureerd op de virtuele machine. Veel van de hulpprogramma's kunnen worden geopend via de tegels van het menu start en pictogrammen op het bureaublad.
+
+U kunt ook een Data Science VM koppelen aan Azure-notitieblokken voor het uitvoeren van Jupyter notebooks op de virtuele machine en overslaan van de beperkingen van de laag gratis service. Zie voor meer informatie, [beheren en configureren van notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Hulpprogramma's zijn geïnstalleerd op de Microsoft Data Science Virtual Machine
 
@@ -157,7 +159,7 @@ Er is ook een invoegtoepassing met de naam **Azure Machine Learning voor Visual 
 > [!NOTE]
 > Mogelijk is, krijgt u een bericht dat uw evaluatieperiode is verlopen. Voer de referenties van uw Microsoft-account. Of maak een nieuwe gratis account voor toegang tot Visual Studio Community.
 
-### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer-editie
+### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer edition
 
 De DSVM wordt geleverd met een developer-versie van SQL Server 2017 met Machine Learning-Services. Deze editie van SQL Server is beschikbaar in R of Python, en in-database analyses kunt uitvoeren. Machine Learning-Services biedt een platform voor het ontwikkelen en implementeren van intelligente toepassingen. U kunt deze talen en veel pakketten van de community om te maken van modellen en voorspellingen voor uw SQL Server-gegevens genereren. Omdat de Machine Learning-Services, in de database, de R- en Python talen in SQL Server is geïntegreerd, kunt u analytics dicht bij de gegevens bewaren. Deze integratie elimineert de kosten en beveiligingsrisico's die zijn gekoppeld aan de verplaatsing van gegevens.
 

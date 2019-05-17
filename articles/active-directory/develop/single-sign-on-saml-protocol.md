@@ -3,8 +3,8 @@ title: Azure voor eenmalige aanmelding SAML-Protocol | Microsoft Docs
 description: In dit artikel beschrijft de eenmalige aanmelding op SAML-protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705006"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545281"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocol voor eenmalige SAML-aanmelding
 
@@ -60,7 +60,7 @@ Alle andere `AuthnRequest` kenmerken, zoals toestemming, doel, AssertionConsumer
 
 Azure AD ook negeert de `Conditions` -element in `AuthnRequest`.
 
-### <a name="issuer"></a>Verlener
+### <a name="issuer"></a>Certificaatverlener
 
 De `Issuer` -element in een `AuthnRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Meestal dit is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
 
@@ -156,7 +156,7 @@ De `Response` element bevat het resultaat van de autorisatieaanvraag. Azure AD-s
 * `Destination`: Wanneer de aanmelding is voltooid, dit is ingesteld op de `RedirectUri` van de serviceprovider (cloudservice).
 * `InResponseTo`: Deze optie is ingesteld op de `ID` kenmerk van de `AuthnRequest` element dat het antwoord wordt gestart.
 
-### <a name="issuer"></a>Verlener
+### <a name="issuer"></a>Certificaatverlener
 
 Azure AD stelt de `Issuer` element `https://login.microsoftonline.com/<TenantIDGUID>/` waar \<TenantIDGUID > is de tenant-ID van de Azure AD-tenant.
 
@@ -191,7 +191,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Naast de `ID`, `IssueInstant` en `Version`, Azure AD Hiermee stelt u de volgende elementen in de `Assertion` element van het antwoord.
 
-#### <a name="issuer"></a>Verlener
+#### <a name="issuer"></a>Certificaatverlener
 
 Deze optie is ingesteld op `https://sts.windows.net/<TenantIDGUID>/`waar \<TenantIDGUID > is de Tenant-ID van de Azure AD-tenant.
 

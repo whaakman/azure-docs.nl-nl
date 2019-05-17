@@ -3,8 +3,8 @@ title: Probleem met het toevoegen van een toepassing in Azure AD-galerie | Micro
 description: Inzicht in het gezicht voor mensen van algemene problemen bij het toevoegen van Azure AD-galerietoepassingen en wat u kunt doen om ze op te lossen
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438792"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784431"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Probleem met het toevoegen van een toepassing in Azure AD-galerie
 
@@ -40,7 +40,7 @@ Als u er een fout optreedt wanneer u op de **toevoegen** knop, ziet u een **meld
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Ik weet niet hoe ik het instellen van mijn toepassing nadat ik deze heb toegevoegd
 
-Als u informatie over toepassingen, moet de [lijst met zelfstudies over het SaaS-Apps integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikel is een goede plaats om te starten.
+Als u hulp nodig met meer informatie over toepassingen, de [lijst met zelfstudies over het SaaS-Apps integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikel is een goede plaats om te starten.
 
 Daarnaast de [Azure AD-toepassingen-documentbibliotheek](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) helpt u meer informatie over eenmalige aanmelding met Azure AD en hoe het werkt.
 
@@ -48,7 +48,7 @@ Daarnaast de [Azure AD-toepassingen-documentbibliotheek](https://docs.microsoft.
 
 U kunt de details van een portalmelding zien door de onderstaande stappen te volgen:
 
-1.  Selecteer de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-Portal
+1.  Selecteer de **meldingen** pictogram (de klok) in de rechterbovenhoek van de Azure-portal
 
 2.  Selecteer een bericht in een **fout** status (die met een rode (!) ernaast).
 
@@ -93,7 +93,7 @@ Zie de volgende beschrijvingen voor meer informatie over de meldingen.
 
   -   Voorbeeld: **2017-03-23T19:50:43.7583681Z**
 
-- **Interne transactie-ID** : de interne ID die we kunnen gebruiken voor de fout opzoeken in onze systemen
+- **Interne transactie-ID** : de interne ID we gebruiken kunnen om te controleren of de fout in onze systemen
 
   -   Voorbeeld: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

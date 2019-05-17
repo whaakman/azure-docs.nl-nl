@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: 57a20ac29ec3a15db26e0ab2c0b61b57ab3a5882
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/10/2019
+ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709056"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546458"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Service-lagen in het op DTU gebaseerde aankoopmodel
 
@@ -36,7 +36,7 @@ Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-,
 | :-- | --: |--:| --:|
 |Specifieke workload|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie|
 |SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|
-|Retentie van back-ups|7 dagen|35 dagen|35 dagen|
+|Back-upretentie|7 dagen|35 dagen|35 dagen|
 |CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|
 |I/o-doorvoer (bij benadering) |2.5 IOP's per DTU| 2.5 IOP's per DTU | 48 IOP's per DTU|
 |I/o-latentie (bij benadering)|5 ms (lezen), 10 ms (schrijven)|5 ms (lezen), 10 ms (schrijven)|2 ms (lezen/schrijven)|

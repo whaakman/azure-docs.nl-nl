@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920158"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604397"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
-U kunt nu de levenscyclus van Office 365-groepen beheren door in te stellen van een verloopbeleid voor hen. U kunt de vervaldatum van het beleid instellen voor alleen Office 365-groepen in Azure Active Directory (Azure AD). 
+U kunt nu de levenscyclus van Office 365-groepen beheren door in te stellen van een verloopbeleid voor hen. U kunt de vervaldatum van het beleid instellen voor alleen Office 365-groepen in Azure Active Directory (Azure AD).
 
 Wanneer u een groep verlopen instellen:
 
@@ -66,10 +66,10 @@ Zie voor meer informatie over machtigingen om terug te zetten van een verwijderd
   * Uw instellingen opslaan wanneer u klaar bent met het selecteren van **opslaan**.
 
 > [!NOTE]
-> * Wanneer u vervaldatum voor het eerst instelt, worden alle groepen die ouder dan het Vervalinterval opgegeven zijn ingesteld op 30 dagen voordat het vervalt. De eerste vernieuwing meldingse-mail wordt verzonden in een dag. Bijvoorbeeld, groep A 400 dagen geleden is gemaakt, en het Vervalinterval opgegeven is ingesteld op 180 dagen. Wanneer u instellingen voor verlooptijd toepast, heeft groep A 30 dagen voordat het wordt verwijderd, tenzij de eigenaar van de Hiermee vernieuwt u deze.
-> * Wanneer een dynamische groep is verwijderd en hersteld, wordt deze beschouwd als een nieuwe groep en opnieuw ingevuld volgens de regel. Dit proces duurt maximaal 24 uur.
+> Wanneer u vervaldatum voor het eerst instelt, worden alle groepen die ouder dan het Vervalinterval opgegeven zijn ingesteld op 30 dagen voordat het vervalt. De eerste vernieuwing meldingse-mail wordt verzonden in een dag. Bijvoorbeeld, groep A 400 dagen geleden is gemaakt, en het Vervalinterval opgegeven is ingesteld op 180 dagen. Wanneer u de vervaldatum van het beleid toepast, heeft groep A 30 dagen voordat het wordt verwijderd, tenzij de eigenaar van de Hiermee vernieuwt u deze.
+> Wanneer een dynamische groep wordt verwijderd en hersteld, is het gezien als een nieuwe groep en opnieuw worden ingevuld op basis van de regel. Dit proces kan tot 24 uur duren.
 
-## <a name="email-notifications"></a>E-mailmeldingen
+## <a name="email-notifications"></a>E-mailwaarschuwingen
 
 E-mailmeldingen zoals deze worden verzonden naar de Office 365-groepseigenaren 30 dagen, 15 dagen en 1 dag vóór de vervaldatum van de groep. De taal van het e-mailbericht wordt bepaald door de voorkeurstaal of de taal van de tenant van de eigenaar van de groepen. Als de eigenaar van de groep een voorkeurstaal is gedefinieerd, of meerdere eigenaars de dezelfde voorkeurstaal hebben, wordt die taal gebruikt. Voor alle andere gevallen wordt tenant taal gebruikt.
 

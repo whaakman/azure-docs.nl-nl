@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919946"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594274"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -39,13 +39,15 @@ U vindt alle Docker-bestanden op [GitHub](https://github.com/azure-app-service).
 
 **Wat zijn de verwachte waarden voor de sectie opstartbestand wanneer ik de runtimestack configureren?**
 
-| Stack     | Verwachte waarde                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | een opdracht om te beginnen uw `.jar` toepassing                                    |
-| Tomcat    | de locatie van een script voor het uitvoeren van alle configuraties voor uw app          |
-| Node.js   | het PM2-configuratiebestand of het scriptbestand                                |
-| .NET core | de naam van de gecompileerde dll-bestand als `dotnet <myapp>.dll`                                 |
-| Ruby      | de Ruby-script dat u wilt uw app met initialiseren                     |
+| Stack           | Verwachte waarde                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | de opdracht om het JAR-app te starten (bijvoorbeeld `java -jar my-app.jar --server.port=80`) |
+| Gebruik van Tomcat, Wildfly | de locatie van een script om uit te voeren van een vereiste configuratie-instellingen (bijvoorbeeld `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | het PM2-configuratiebestand of het scriptbestand                                |
+| .NET core       | de naam van de gecompileerde dll-bestand als `dotnet <myapp>.dll`                                 |
+| Ruby            | de Ruby-script dat u wilt uw app met initialiseren                     |
+
+Deze opdrachten of scripts worden uitgevoerd nadat de ingebouwde Docker-container wordt gestart, maar voordat u uw toepassing code is gestart.
 
 ## <a name="management"></a>Beheer
 

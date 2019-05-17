@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: e1715c2cb66398ff7ca55c0ccdbfe50685fae76e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 433059dc1b1567c5cbcb1091f2d616001d1dbf44
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941983"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762275"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS vervulling API's versie 2 
 
@@ -105,7 +105,7 @@ Het eindpunt oplossen kunt de uitgever een marketplace-token omzetten in een per
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  Inhoudstype      | `application/json` |
 |  x-ms-requestid    |  De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  x-ms-correlationid |  De waarde van de unieke tekenreeks voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
@@ -169,14 +169,14 @@ Geeft een lijst van de SaaS-abonnementen voor een uitgever.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Content-Type       |  `application/json`  |
+| Inhoudstype       |  `application/json`  |
 | x-ms-requestid     |  De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 | x-ms-correlationid |  De waarde van de unieke tekenreeks voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 | Autorisatie      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Responscodes:*
 
-Code: 200<br>
+Code: 200 <br/>
 Op basis van het auth-token, krijgen de uitgever en de bijbehorende abonnementen voor aanbiedingen van de uitgever.<br> Payload van he antwoord:<br>
 
 ```json
@@ -207,7 +207,6 @@ Op basis van het auth-token, krijgen de uitgever en de bijbehorende abonnementen
 ```
 
 Het vervolgtoken is alleen aanwezig als u extra "'s' van plannen om op te halen. 
-
 
 Code: 403 <br>
 Niet gemachtigd. Het verificatietoken is niet opgegeven, is ongeldig, of de aanvraag voor toegang tot een verzameling die geen deel van de uitgever van de huidige uitmaken probeert. 
@@ -240,7 +239,7 @@ Hiermee haalt u het opgegeven SaaS-abonnement. Gebruik deze aanroep voor het oph
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`  |
+|  Inhoudstype      |  `application/json`  |
 |  x-ms-requestid    |  De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  x-ms-correlationid |  De waarde van de unieke tekenreeks voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -304,7 +303,7 @@ Gebruik deze aanroep om erachter te komen of er geen persoonlijke/openbare aanbi
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   Inhoudstype     |  `application/json` |
 |   x-ms-requestid   |   De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  x-ms-correlationid  | De waarde van de unieke tekenreeks voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
@@ -358,7 +357,7 @@ Interne serverfout<br>
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json`  |
+|  Inhoudstype      | `application/json`  |
 |  x-ms-requestid    | De waarde van de unieke tekenreeks voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid  | De waarde van de unieke tekenreeks voor de bewerking op de client. Deze tekenreeks correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
@@ -374,7 +373,7 @@ Interne serverfout<br>
 
 *Responscodes:*
 
-Code: 202<br>
+Code: 200<br>
 Hiermee activeert u het abonnement.<br>
 
 Code: 404<br>
@@ -415,7 +414,7 @@ Werk de planning van het abonnement.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  Inhoudstype      | `application/json` |
 |  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.    |
 | Autorisatie      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -481,7 +480,7 @@ Werk de hoeveelheid van het abonnement.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  Inhoudstype      | `application/json` |
 |  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.    |
 | Autorisatie      |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -547,14 +546,14 @@ Afmelden en verwijderen van het opgegeven abonnement.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   Inhoudstype     |  `application/json` |
 |  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.   |
 |  x-ms-correlationid  |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.   |
 |  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Responscodes:*
 
-Code: 200<br>
+Code: 202<br>
 ISV gestart aanroep om aan te geven zich afmelden op een SaaS-abonnement.<br>
 
 Code: 404<br>
@@ -600,7 +599,7 @@ Geeft een lijst van de openstaande bewerkingen voor de huidige uitgever.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   Inhoudstype     |  `application/json` |
 |  x-ms-requestid    |  Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -663,7 +662,7 @@ Hiermee kunt u de uitgever om bij te houden van de status van de opgegeven geact
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`   |
+|  Inhoudstype      |  `application/json`   |
 |  x-ms-requestid    |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 |  Autorisatie     |[JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -726,7 +725,7 @@ De status van een bewerking om aan te geven geslaagd/mislukt met de opgegeven wa
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     | `application/json`   |
+|   Inhoudstype     | `application/json`   |
 |   x-ms-requestid   |   Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de client, bij voorkeur een GUID. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  x-ms-correlationid |  Een unieke tekenreeks-waarde voor de bewerking op de client. Deze parameter correleert alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 |  Autorisatie     |  [JSON web token (JWT) bearer-token ophalen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -786,25 +785,29 @@ De uitgever moet een webhook in deze SaaS-service om proactief te waarschuwen ge
     "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
-
-Where action can be one of these: 
-       Subscribe, (When the resource has been activated)
-       Unsubscribe, (When the resource has been deleted)
-       ChangePlan, (When the change plan operation has completed)
-       ChangeQuantity, (When the change quantity operation has completed),
-       Suspend, (When resource has been suspended)
-       Reinstate, (When resource has been reinstated after suspension)
 ```
+
+Actie kan waar een van de volgende zijn: 
+- `Subscribe`  (Wanneer de resource is geactiveerd)
+- `Unsubscribe` (Wanneer de resource is verwijderd)
+- `ChangePlan` (Wanneer de wijziging plan-bewerking is voltooid)
+- `ChangeQuantity` (Wanneer de wijziging hoeveelheid-bewerking is voltooid)
+- `Suspend` (Wanneer de resource is onderbroken)
+- `Reinstate` (Als bron heeft is hersteld na onderbreking)
 
 
 ## <a name="mock-api"></a>Mock API
 
 U kunt onze mock API's gebruiken om u aan de slag met ontwikkelen, met name prototypen te helpen en testen van projecten. 
 
-Eindpunt voor de host: `https://marketplaceapi.microsoft.com/api` API-versie: `2018-09-15` Geen verificatie vereist voorbeeld Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
+Eindpunt voor de host: `https://marketplaceapi.microsoft.com/api` <br/>
+API-versie: `2018-09-15` <br/>
+Geen verificatie vereist <br/>
+Voorbeeld-Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Een van de API-aanroepen in dit artikel kan worden gemaakt met het eindpunt mock-host. U kunt verwachten mock-gegevens weer als een antwoord op te halen.
+De API-eindpunt paden hetzelfde zijn voor zowel nagebootste en echte API's, maar de API-versies zijn verschillend. De versie is 2018-09-15 voor nagebootste en 2018-08-31 voor de productieversie. 
 
+Een van de API-aanroepen in dit artikel kan worden gemaakt met het eindpunt mock-host. U kunt verwachten mock-gegevens weer als een antwoord op te halen. In het algemeen kunt u verwachten mock-gegevens weer als een antwoord op te halen. Aanroepen van de methoden voor het abonnement van update op de mock-API retourneert altijd is 500. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

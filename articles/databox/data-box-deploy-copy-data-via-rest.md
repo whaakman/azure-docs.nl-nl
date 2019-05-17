@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: b3d53b7d5fceb303259823198731b5198cfce82c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: fcd6fc95adc892885fd8471e622ce3b04258d8b5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508288"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800539"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box-blobopslag via REST API's  
 
@@ -152,6 +152,7 @@ Nadat u verbinding met de Data Box-blobopslag hebt gemaakt, moet u de gegevens k
 - Als de gegevens die door Data Box worden geüpload gelijktijdig door andere toepassingen buiten Data Box worden geüpload, kan dit leiden tot uploadfouten en beschadigde gegevens.
 
 In deze zelfstudie wordt AzCopy gebruikt om gegevens te kopiëren naar Data Box-blobopslag. U kunt de gegevens ook kopiëren met Azure Storage Explorer (als u liever een GUI-hulpprogramma gebruikt) of met partnersoftware.
+
 De kopieerprocedure bestaat uit de volgende stappen:
 
 - Een container maken
@@ -215,6 +216,8 @@ Als u alleen resources wilt kopiëren die niet in het doel bestaan, geeft u zowe
 #### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+
+Als er fouten optreden tijdens het verbinding maken of kopiëren, Zie [oplossen van problemen met gegevens in Blob-opslag](data-box-troubleshoot-rest.md).
 
 In de laatste stap gaat u het apparaat voorbereiden voor verzending.
 

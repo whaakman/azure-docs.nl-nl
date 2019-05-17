@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 11f75f53adc9e8ce1dbf78ef7a7d58742b6bc839
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920397"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Zelfstudie: Azure Active Directory-integratie met Veracode
 
@@ -117,7 +117,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Veracode, moet u de 
     | ---------------| --------------- |
     | firstname |User.givenName |
     | lastname |User.surname |
-    | e-mail |User.mail |
+    | email |User.mail |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 

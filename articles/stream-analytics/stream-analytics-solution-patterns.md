@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238060"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761979"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patronen voor Azure Stream Analytics-oplossing
 
@@ -58,7 +58,7 @@ U kunt aangepaste realtime visualisaties, zoals een dashboard maken of kaartvisu
 
 De meeste webservices en web-apps moet u vandaag nog een verzoek/reactie-patroon gebruiken om te fungeren de presentatielaag. Het verzoek/reactie-patroon is eenvoudig te bouwen en kunnen eenvoudig worden geschaald met lage responstijd met behulp van een staatloze front-end- en schaalbare stores, zoals Cosmos DB.
 
-Hoog gegevensvolume maakt vaak knelpunten in een CRUD-systeem. De [gebeurtenisbronnenpatroon oplossing](/azure/architecture/patterns/event-sourcing.md) wordt gebruikt om de knelpunten. Tijdelijke patronen en inzichten zijn ook moeilijk en inefficiënt om op te halen uit een traditionele gegevensarchief. Moderne hoog volume gegevensgestuurde toepassingen vaak vast een architectuur op basis van een gegevensstroom. Azure Stream Analytics als de Reken-engine voor gegevens in beweging is een linchpin in die architectuur.
+Hoog gegevensvolume maakt vaak knelpunten in een CRUD-systeem. De [gebeurtenisbronnenpatroon oplossing](/azure/architecture/patterns/event-sourcing) wordt gebruikt om de knelpunten. Tijdelijke patronen en inzichten zijn ook moeilijk en inefficiënt om op te halen uit een traditionele gegevensarchief. Moderne hoog volume gegevensgestuurde toepassingen vaak vast een architectuur op basis van een gegevensstroom. Azure Stream Analytics als de Reken-engine voor gegevens in beweging is een linchpin in die architectuur.
 
 ![ASA event sourcing app](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

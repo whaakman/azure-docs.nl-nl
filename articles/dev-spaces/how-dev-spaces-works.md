@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beschrijving van de processen die power Azure Dev spaties en hoe ze zijn geconfigureerd in het configuratiebestand azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687144"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605425"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hoe Azure Dev spaties werkt en is geconfigureerd
 
@@ -29,7 +29,7 @@ In dit artikel worden de processen beschreven die power Azure Dev spaties en hoe
 
 * [Java met CLI en Visual Studio Code](quickstart-java.md)
 * [.NET core met CLI en Visual Studio Code](quickstart-netcore.md)
-* [.NET core met Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET core met Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js met CLI en Visual Studio Code](quickstart-nodejs.md)
 
 ## <a name="how-azure-dev-spaces-works"></a>De werking van Azure Dev spaties
@@ -66,7 +66,7 @@ Terwijl uw toepassing wordt uitgevoerd, de client-hulpprogramma's ook:
 U kunt de client-hulpprogramma's vanaf de opdrachtregel als onderdeel van de `azds` opdracht. U kunt ook de client-hulpprogramma's met:
 
 * Met behulp van Visual Studio Code de [Azure Dev spaties extensie](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio 2017 met [Visual Studio Tools voor Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio met [Visual Studio Tools voor Kubernetes](https://aka.ms/get-vsk8stools).
 
 Hier volgt de basisprincipes voor het instellen en gebruiken van Azure Dev spaties:
 1. Voorbereiden van uw AKS-cluster voor Azure Dev spaties
@@ -337,7 +337,7 @@ De *install.set* eigenschap kunt u een of meer waarden die u vervangen in het He
 
 In het bovenstaande voorbeeld de *install.set.replicaCount* eigenschap vertelt ons de controller hoeveel exemplaren van uw toepassing om uit te voeren in uw dev-ruimte. Afhankelijk van uw scenario kunt u deze waarde verhogen, maar het is een invloed op een foutopsporingsprogramma koppelen aan de schil van uw toepassing. Zie voor meer informatie de [probleemoplossingsartikel](troubleshooting.md).
 
-In het gegenereerde Helm-diagram wordt de containerinstallatiekopie is ingesteld op *{{. Values.Image.Repository}} :{{. Values.Image.tag}}*. De `azds.yaml` -bestand definieert *install.set.image.tag* eigenschap *$(tag)* standaard, die wordt gebruikt als de waarde voor *{{. Values.Image.tag}}*. Door in te stellen de *install.set.image.tag* eigenschap in op deze manier wordt de installatiekopie van de container voor uw toepassing in een afzonderlijke manier worden getagd bij het uitvoeren van Azure Dev spaties. In dit specifieke geval, de installatiekopie is gemarkeerd als  *<value from image.repository>: $(tag)*. Moet u de *$(tag)* als de waarde van variabele *install.set.image.tag* opdat Dev spaties herkennen en zoek naar de container in het AKS-cluster.
+In het gegenereerde Helm-diagram wordt de containerinstallatiekopie is ingesteld op *{{. Values.Image.Repository}} :{{. Values.Image.tag}}*. De `azds.yaml` -bestand definieert *install.set.image.tag* eigenschap *$(tag)* standaard, die wordt gebruikt als de waarde voor *{{. Values.Image.tag}}*. Door in te stellen de *install.set.image.tag* eigenschap in op deze manier wordt de installatiekopie van de container voor uw toepassing in een afzonderlijke manier worden getagd bij het uitvoeren van Azure Dev spaties. In dit specifieke geval, de installatiekopie is gemarkeerd als  *\<waarde van image.repository >: $(tag)*. Moet u de *$(tag)* als de waarde van variabele *install.set.image.tag* opdat Dev spaties herkennen en zoek naar de container in het AKS-cluster.
 
 In het bovenstaande voorbeeld `azds.yaml` definieert *install.set.ingress.hosts*. De *install.set.ingress.hosts* eigenschap definieert een indeling voor de host voor de openbare eindpunten. Deze eigenschap gebruikt ook *$(spacePrefix)*, *$(rootSpacePrefix)*, en *$(hostSuffix)*, die de waarden geleverd door de controller zijn. 
 
@@ -404,11 +404,11 @@ ingress:
 
 ## <a name="debug-your-code"></a>Fouten opsporen in uw code
 
-U kunt uw toepassing die wordt uitgevoerd in de adresruimte van uw ontwikkelen met behulp van Visual Studio Code of Visual Studio 2017 rechtstreeks fouten opsporen voor Java, .NET en Node.js-toepassingen. Visual Studio Code en Visual Studio 2017 bieden hulpprogramma's om verbinding maken met uw dev-ruimte, start uw toepassing en voeg een debugger toe. Nadat het is uitgevoerd `azds prep`, kunt u uw project openen in Visual Studio Code of Visual Studio 2017. Visual Studio Code of Visual Studio 2017 hun eigen configuratiebestanden om verbinding te maken dat is gescheiden van het uitvoeren wordt gegenereerd `azds prep`. Vanuit Visual Studio Code of Visual Studio 2017, kunt u onderbrekingspunten instellen en starten van uw toepassing in de adresruimte van uw dev.
+U kunt uw toepassing die wordt uitgevoerd in de adresruimte van uw ontwikkelen met behulp van Visual Studio Code of Visual Studio fouten opsporen voor Java, .NET en Node.js-toepassingen. Visual Studio Code en Visual Studio bieden hulpprogramma's om verbinding maken met uw dev-ruimte, start uw toepassing en voeg een debugger toe. Nadat het is uitgevoerd `azds prep`, kunt u uw project openen in Visual Studio Code of Visual Studio. Visual Studio Code of Visual Studio hun eigen configuratiebestanden om verbinding te maken dat is gescheiden van het uitvoeren wordt gegenereerd `azds prep`. Vanuit Visual Studio Code of Visual Studio, kunt u onderbrekingspunten instellen en starten van uw toepassing in de adresruimte van uw dev.
 
 ![Foutopsporing van uw code](media/get-started-node/debug-configuration-nodejs2.png)
 
-Wanneer u uw toepassing met behulp van Visual Studio Code of Visual Studio 2017 voor foutopsporing starten, deze verwerken starten en verbinding maken met uw dev-ruimte op dezelfde manier als actief `azds up`. De client-side-hulpmiddelen in Visual Studio Code en Visual Studio 2017 bieden ook een extra parameter met de specifieke informatie voor foutopsporing. De parameter bevat de naam van het foutopsporingsprogramma afbeelding, de locatie van het foutopsporingsprogramma binnen in de afbeelding van de foutopsporing en de bestemmingslocatie van de in de container van de toepassing naar de map foutopsporingsprogramma koppelen. 
+Wanneer u uw toepassing met behulp van Visual Studio Code of Visual Studio voor foutopsporing starten, deze verwerken starten en verbinding maken met uw dev-ruimte op dezelfde manier als actief `azds up`. De client-side-hulpmiddelen in Visual Studio Code en Visual Studio bieden ook een extra parameter met de specifieke informatie voor foutopsporing. De parameter bevat de naam van het foutopsporingsprogramma afbeelding, de locatie van het foutopsporingsprogramma binnen in de afbeelding van de foutopsporing en de bestemmingslocatie van de in de container van de toepassing naar de map foutopsporingsprogramma koppelen. 
 
 De installatiekopie van het foutopsporingsprogramma wordt automatisch bepaald door de client-side-hulpprogramma's. Een methode die vergelijkbaar is met de gebruikt tijdens de docker-bestand wordt gebruikt en Helm-diagram te genereren bij het uitvoeren van `azds prep`. Nadat het foutopsporingsprogramma in de afbeelding van de toepassing is gekoppeld, deze wordt uitgevoerd met behulp van `azds exec`.
 
@@ -433,12 +433,12 @@ Als u wilt aan de slag met Azure Dev spaties, Zie de volgende snelstartgidsen:
 
 * [Java met CLI en Visual Studio Code](quickstart-java.md)
 * [.NET core met CLI en Visual Studio Code](quickstart-netcore.md)
-* [.NET core met Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET core met Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js met CLI en Visual Studio Code](quickstart-nodejs.md)
 
 Als u wilt beginnen met ontwikkelen in teamverband, Zie de volgende praktische artikelen:
 
 * [Teamontwikkeling - Java met CLI en Visual Studio Code](team-development-java.md)
 * [Teamontwikkeling - .NET Core met CLI en Visual Studio Code](team-development-netcore.md)
-* [Teamontwikkeling - .NET Core met Visual Studio 2017](team-development-netcore-visualstudio.md)
+* [Teamontwikkeling - .NET Core met Visual Studio](team-development-netcore-visualstudio.md)
 * [Teamontwikkeling - Node.js met CLI en Visual Studio Code](team-development-nodejs.md)
