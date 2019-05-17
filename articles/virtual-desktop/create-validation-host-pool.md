@@ -7,20 +7,20 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: b654c177accb92d5b9a861f14874e795f4525a43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793827"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834123"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Zelfstudie: Maken van een groep host voor het valideren van service-updates
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Zelfstudie: Een hostpool voor het valideren van service-updates maken
 
 Host-pools zijn een verzameling van een of meer identieke virtuele machines in Windows Virtual Desktop Preview tenant omgevingen. Voordat u implementeert pools van host naar uw productieomgeving, raden wij dat u een pool van de host validatie maakt. Updates worden eerst toegepast op validatie host opslaggroepen, zodat u kunt bewaken van service-updates voordat uitrollen naar uw productieomgeving. Zonder een pool van de host validatie ontdekt u mogelijk geen wijzigingen die fouten, wat tot uitvaltijd voor gebruikers in uw productieomgeving leiden kunnen.
 
 Om te zorgen dat uw apps werken met de meest recente updates, moet de validatie van host-toepassingen als die vergelijkbaar is met de host van toepassingen in uw productieomgeving mogelijk. Gebruikers moeten verbinding maken met net zo vaak aan de groep van de host validatie als aan de groep van de host productie. Als u hebt automatisch testen op uw host-pool, moet u het geautomatiseerd testen op de host validatie groep opnemen.
 
-U kunt fouten opsporen van problemen in de adresgroep van de host validatie met de diagnostics-service of de [virtuele Windows-bureaublad artikelen over probleemoplossing](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+U kunt fouten opsporen van problemen in de groep van de host validatie in beide gevallen [de functie voor diagnostische gegevens](diagnostics-role-service.md) of de [virtuele Windows-bureaublad artikelen over probleemoplossing](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
 
 >[!NOTE]
 > Het is raadzaam dat u de groep van de host validatie intact laten voor het testen van alle toekomstige updates.

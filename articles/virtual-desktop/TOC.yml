@@ -32,8 +32,6 @@
       href: create-host-pools-user-profile.md
     - name: De taakverdelingsmethode voor Windows Virtual Desktop configureren
       href: configure-host-pool-load-balancing.md
-    - name: Problemen met de diagnostische functie identificeren
-      href: diagnostics-role-service.md
     - name: Een VHD-hoofdinstallatiekopie voorbereiden en aanpassen
       href: set-up-customize-master-image.md
     - name: Office installeren op een master-VHD-installatiekopie
@@ -54,6 +52,8 @@
   items:
     - name: 'Probleemoplossingsoverzicht, feedback en ondersteuning'
       href: troubleshoot-set-up-overview.md
+    - name: Problemen met de diagnostische functie identificeren
+      href: diagnostics-role-service.md
     - name: Tenants en hostpools maken
       href: troubleshoot-set-up-issues.md
     - name: Configuratie van sessiehost-VM's

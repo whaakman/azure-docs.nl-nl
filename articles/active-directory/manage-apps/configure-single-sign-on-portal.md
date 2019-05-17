@@ -2,22 +2,22 @@
 title: Eenmalige aanmelding configureren - Azure Active Directory | Microsoft Docs
 description: In deze zelfstudie wordt de Azure-portal gebruikt om eenmalige aanmelding voor een toepassing met Azure Active Directory (Azure AD) op basis van SAML te configureren.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d96799e69e2fdef3a4ffd1a436727e6a58da79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442194"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825019"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Zelfstudie: Op SAML gebaseerde eenmalige aanmelding voor een toepassing met Azure Active Directory configureren
 
@@ -72,7 +72,7 @@ Om het domein en de URL's te configureren:
 
 1. Neem contact op met de leverancier van de toepassing voor de juiste gegevens voor de volgende instellingen:
 
-    | Configuratie-instelling | SP-geïnitieerd | idP-geïnitieerd | Beschrijving |
+    | Configuratie-instelling | SP-geïnitieerd | idP-geïnitieerd | Description |
     |:--|:--|:--|:--|
     | Id (Entiteits-id) | Vereist voor sommige apps | Vereist voor sommige apps | Unieke identificatie van de toepassing waarvoor eenmalige aanmelding wordt geconfigureerd. Azure Active Directory stuurt de id naar de toepassing als parameter van de doelgroep van het SAML-token. Er wordt verwacht dat de toepassing deze valideert. Deze waarde wordt ook weergegeven als de entiteit-ID in SAML-metagegevens die worden geleverd door de toepassing.|
     | Antwoord-URL | Optioneel | Vereist | Hiermee geeft u op waar de toepassing verwacht het SAML-token te ontvangen. De antwoord-URL wordt ook de ACS-URL (Assertion Consumer Service) genoemd. |
@@ -155,7 +155,7 @@ Als er een fout optreedt, wordt een foutbericht weergegeven. Voltooi de volgende
 
 1. Kopieer en plak de gegevens in het vak **Hoe ziet de fout eruit?**.
 
-    ![Hulp krijgen bij het oplossen van problemen](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Hulp bij het oplossen van problemen krijgen](media/configure-single-sign-on-portal/error-guidance.png)
 
 2. Selecteer **resolutie begeleiding**. De richtlijnen voor de oorzaak en de oplossing van het probleem worden weergegeven.  In dit voorbeeld was de gebruiker niet toegewezen aan de toepassing.
 
