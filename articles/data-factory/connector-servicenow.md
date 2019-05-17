@@ -44,10 +44,10 @@ De volgende eigenschappen worden ondersteund voor ServiceNow gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **ServiceNow** | Ja |
 | endpoint | Het eindpunt van de ServiceNow-server (`http://<instance>.service-now.com`).  | Ja |
 | authenticationType | Het verificatietype te gebruiken. <br/>Toegestane waarden zijn: **Basic**, **OAuth2** | Ja |
-| gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de ServiceNow-server voor Basic en OAuth2-verificatie.  | Ja |
-| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker voor Basic en OAuth2-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| ClientId | De client-ID voor OAuth2-verificatie.  | Nee |
-| ClientSecret | Het clientgeheim voor OAuth2-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| username | De gebruikersnaam die wordt gebruikt voor verbinding met de ServiceNow-server voor Basic en OAuth2-verificatie.  | Ja |
+| password | Het wachtwoord dat overeenkomt met de naam van de gebruiker voor Basic en OAuth2-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| clientId | De client-ID voor OAuth2-verificatie.  | Nee |
+| clientSecret | Het clientgeheim voor OAuth2-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
