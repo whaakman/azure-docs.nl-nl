@@ -2,20 +2,20 @@
 title: Tips voor Azure SQL Data Warehouse | Microsoft Docs
 description: Links en best practices om snel uw Azure SQL Data Warehouse-oplossingen te maken.
 services: sql-data-warehouse
-author: acomet
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: acomet
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad205fbbd17b291bf45e0c0b057ee81b80c0730b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732251"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762815"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Tips voor Azure SQL Data Warehouse
 Dit overzicht biedt nuttige tips en best practices voor het maken van uw Azure SQL Data Warehouse-oplossingen. Voordat u begint, kunt u gedetailleerde informatie over elke stap lezen in [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patronen en anti-patronen voor workloads van Microsoft Azure SQL Data Warehouse), waarin wordt uitgelegd wat SQL Data Warehouse is.
@@ -37,12 +37,12 @@ Als u de typen bewerkingen van tevoren kent, kunt u het ontwerp van uw tabellen 
 
 Laad uw gegevens eerst in [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) of Azure Blob-opslag. Gebruik vervolgens PolyBase om uw gegevens in SQL Data Warehouse in een faseringstabel te laden. Gebruik de volgende configuratie:
 
-| Ontwerp | Aanbeveling |
+| Ontwerpen | Aanbeveling |
 |:--- |:--- |
 | Distributie | Round robin |
 | Indexeren | Heap |
 | Partitionering | Geen |
-| Resourceklasse | largerc of xlargerc |
+| Bronklasse | largerc of xlargerc |
 
 Meer informatie over [gegevensmigratie], [gegevens laden], en het [ELT-proces (extraheren, laden en transformeren)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 

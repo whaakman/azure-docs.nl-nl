@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4db99f23019b34e7361e3ead4096939b9499320d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657739"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518091"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hoe u kunt gebruiker-gebruikersregistratie en productabonnement delegeren
 
@@ -130,7 +130,7 @@ Controleer vervolgens of dat de delegatie-eindpunt heeft de volgende acties:
      > 
    * Vergelijk de boven-berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders wordt de aanvraag weigeren.
 3. Verwerken van de product-abonnement op basis van het type in de aangevraagde bewerking **bewerking** : bijvoorbeeld facturering, nog meer vragen hebt, enzovoort.
-4. Abonneren op het abonnement is de gebruiker aan het product zelf, de gebruiker naar de API Management-product door [aanroepen van de REST-API voor het product abonnement].
+4. Abonneren op het abonnement is de gebruiker aan het product zelf, de gebruiker naar de API Management-product door [aanroepen van de REST-API voor abonnementen].
 
 ## <a name="delegate-example-code"> </a> Voorbeeldcode
 
@@ -186,7 +186,7 @@ Zie de volgende video voor meer informatie over overdracht:
 [Delegating product subscription]: #delegate-product-subscription
 [aanvraag voor een eenmalige aanmelding (SSO)-token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Maken van een gebruiker]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[aanroepen van de REST-API voor het product abonnement]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[aanroepen van de REST-API voor abonnementen]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [voorbeeldcode hieronder]: #delegate-example-code
 

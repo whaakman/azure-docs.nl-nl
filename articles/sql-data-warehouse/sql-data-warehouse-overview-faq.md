@@ -2,20 +2,20 @@
 title: Veelgestelde vragen over Azure SQL datawarehouse | Microsoft Docs
 description: In dit artikel geeft een lijst van veelgestelde vragen over Azure SQL Data Warehouse van klanten en -ontwikkelaars
 services: sql-data-warehouse
-author: acomet
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: acomet
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c16d95ea15fc358cb81b17b42570cb35f2e8c52d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747605"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795552"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse Veelgestelde vragen over
 
@@ -31,7 +31,7 @@ A. Ga naar de [Microsoft Compliance] -pagina voor verschillende compliance-aanbi
 
 V. Kan ik Power BI verbinding maken?
 
-A. Ja. Hoewel Power BI biedt ondersteuning voor directquery met SQL DW, het niet bedoeld voor een groot aantal gebruikers of realtime-gegevens. Voor gebruik in productieomgevingen van Power BI, wordt u aangeraden Power BI naast Azure Analysis Services of Analysis Service IaaS. 
+A. Ja! Hoewel Power BI biedt ondersteuning voor directquery met SQL DW, het niet bedoeld voor een groot aantal gebruikers of realtime-gegevens. Voor gebruik in productieomgevingen van Power BI, wordt u aangeraden Power BI naast Azure Analysis Services of Analysis Service IaaS. 
 
 V. Wat zijn de capaciteitslimieten van SQL Data Warehouse?
 
@@ -76,7 +76,7 @@ V. SQL Data Warehouse biedt ondersteuning voor REST-API's?
 A. Ja. De meeste REST-functionaliteit die kan worden gebruikt met SQL Database is ook beschikbaar met SQL Data Warehouse. Vindt u informatie in de documentatie van de REST API of [MSDN].
 
 
-## <a name="loading"></a>Bezig met laden
+## <a name="loading"></a>Laden
 
 V. Welke-clientstuurprogramma's ondersteund?
 
