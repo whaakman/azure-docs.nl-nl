@@ -44,7 +44,7 @@ De volgende eigenschappen worden ondersteund voor SAP-Cloud voor de service van 
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomer**. | Ja |
 | url | De URL van de SAP C4C OData-service. | Ja |
-| gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de SAP-C4C. | Ja |
+| username | Geef de naam van de gebruiker verbinding maken met de SAP-C4C. | Ja |
 | password | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. | Nee voor bron, Ja voor sink |
 
@@ -83,7 +83,7 @@ Om gegevens te kopiëren vanuit SAP-Cloud voor klanten, stel de eigenschap type 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **SapCloudForCustomerResource** |Ja |
-| pad | Geef het pad van de SAP C4C OData-entiteit. |Ja |
+| path | Geef het pad van de SAP C4C OData-entiteit. |Ja |
 
 **Voorbeeld:**
 
