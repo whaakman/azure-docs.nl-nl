@@ -4,7 +4,7 @@ description: Compatibel-clientbibliotheken en server-middleware-bibliotheken en 
 services: active-directory
 documentationcenter: ''
 author: negoe
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7678969f58e650382ff2ed478784f4d0107f6e0
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 19718dc884685f6c1e1a588eea6a5de36e446fb1
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441553"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545538"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Verificatiebibliotheken van Microsoft identity-platform
 
@@ -54,7 +54,7 @@ Zie de volgende secties in dit artikel voor een lijst met bibliotheken die met h
 
 Clientbibliotheken voor verificatie worden gebruikt voor het verkrijgen van een token voor het aanroepen van een beveiligde Web-API
 
-| Platform | Tapewisselaar | Downloaden | Broncode | Voorbeeld | Verwijzing | Conceptuele doc-bestand | Roadmap |
+| Platform | Tapewisselaar | Downloaden | Broncode | Voorbeeld | Referentie | Conceptuele doc-bestand | Roadmap |
 | --- | --- | --- | --- | --- | --- | --- | ---|
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [App van één pagina](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Naslaginformatie](https://htmlpreview.github.io/? https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [Conceptuele docs](msal-overview.md)| [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
@@ -69,7 +69,7 @@ Clientbibliotheken voor verificatie worden gebruikt voor het verkrijgen van een 
 
 Middleware-bibliotheken worden gebruikt voor het beveiligen van webtoepassingen en Web-API's. Voor web-app of Web-API die zijn geschreven met ASP.NET of ASP.NET Core, het middleware-bibliotheken worden gebruikt door ASP.NET / ASP.NET Core
 
-| Platform | Tapewisselaar | Downloaden | Broncode | Voorbeeld | Verwijzing
+| Platform | Tapewisselaar | Downloaden | Broncode | Voorbeeld | Referentie
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET Security |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[MVC-app](quickstart-v2-aspnet-webapp.md) |[ASP.NET-API-verwijzing](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| IdentityModel extensies voor .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [MVC-app](quickstart-v2-aspnet-webapp.md) |[Naslaginformatie](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
