@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355646"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785382"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory? 
 
@@ -57,29 +57,23 @@ Wanneer u **gebruikers en groepen selecteren**, kunt u de volgende opties instel
 
 * **Gebruikers en groepen** is gericht op specifieke sets van gebruikers. U kunt bijvoorbeeld een groep met alle leden van de HR-afdeling een HR-app is geselecteerd als de cloud-app selecteren. Een groep kan elk type groep in Azure AD, met inbegrip van dynamische of toegewezen beveiligings- en -groepen zijn.
 
-U kunt ook specifieke gebruikers of groepen uitsluiten van een beleid. Een gebruikelijk is de service-accounts als uw beleid meervoudige verificatie (MFA dwingt). 
+U kunt ook specifieke gebruikers of groepen uitsluiten van een beleid. Een gebruikelijk is de service-accounts als uw beleid meervoudige verificatie (MFA dwingt).
 
-Die gericht zijn op specifieke sets van gebruikers is handig voor de implementatie van een nieuw beleid. In een nieuw beleid, moet u alleen een eerste set met gebruikers voor het valideren van het gedrag van het beleid voor het doel. 
+Die gericht zijn op specifieke sets van gebruikers is handig voor de implementatie van een nieuw beleid. In een nieuw beleid, moet u alleen een eerste set met gebruikers voor het valideren van het gedrag van het beleid voor het doel.
 
+## <a name="cloud-apps-and-actions"></a>Cloud-apps en acties
 
+Een cloud-app is een website, een service of een eindpunt dat is beveiligd door Azure AD-toepassingsproxy. Zie voor een gedetailleerde beschrijving van de ondersteunde cloud-apps, [cloud-apps toewijzingen](technical-reference.md#cloud-apps-assignments). De **Cloud-apps of acties** voorwaarde is verplicht in een beleid voor voorwaardelijke toegang. In het beleid, kunt u een van beide select **alle cloud-apps** of geef apps met **apps selecteren**.
 
-## <a name="cloud-apps"></a>Cloud-apps 
+Organisaties kunnen ervoor kiezen uit de volgende opties:
 
-Een cloud-app is een website of de service. Websites die zijn beveiligd door de Azure AD-toepassingsproxy zijn ook cloud-apps. Zie voor een gedetailleerde beschrijving van de ondersteunde cloud-apps, [cloud-apps toewijzingen](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Alle cloud-apps** bij het toepassen van beleid voor basislijn toe te passen op de hele organisatie. Gebruik deze selectie voor beleidsregels die meervoudige verificatie vereisen wanneer aanmeldingsrisico wordt gedetecteerd voor alle cloud-Apps. Een beleid toegepast op alle cloud-apps wordt toegepast op toegang tot alle websites en services. Deze instelling is niet beperkt tot de cloud-apps die worden weergegeven op de lijst met apps selecteren.
+* **Selecteer apps** tot specifieke doelservices in uw beleid. U kunt bijvoorbeeld vereisen dat gebruikers een compatibel apparaat voor toegang tot SharePoint Online hebben. Dit beleid wordt ook toegepast op andere services als ze toegang hebben tot SharePoint-inhoud. Een voorbeeld is Microsoft Teams.
 
-De **cloud-apps** voorwaarde is verplicht in een beleid voor voorwaardelijke toegang. In het beleid, kunt u een van beide select **alle cloud-apps** of Selecteer specifieke apps.
+> [!NOTE]
+> U kunt specifieke apps uitsluiten van een beleid. Deze apps zijn echter nog steeds afhankelijk van het beleid toegepast op de services die ze gebruiken.
 
-![Cloud-apps opnemen](./media/conditions/03.png)
-
-Selecteer:
-
-- **Alle cloud-apps** basislijn beleid toe te passen op de hele organisatie. Gebruik deze selectie voor beleidsregels die meervoudige verificatie vereisen wanneer het aanmeldingsrisico wordt gedetecteerd voor alle cloud-Apps. Een beleid toegepast op **alle cloud-apps** geldt voor toegang tot alle websites en services. Deze instelling is niet beperkt tot de cloud-apps die worden weergegeven op de **apps selecteren** lijst. 
-
-- **Selecteer apps** tot specifieke doelservices in uw beleid. Bijvoorbeeld, u kunt vereisen dat gebruikers hebben een [compatibel apparaat](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) voor toegang tot SharePoint Online. Dit beleid wordt ook toegepast op andere services als ze toegang hebben tot SharePoint-inhoud. Een voorbeeld is Microsoft Teams. 
-
-U kunt specifieke apps uitsluiten van een beleid. Deze apps zijn echter nog steeds afhankelijk van het beleid toegepast op de services die ze gebruiken. 
-
-
+**Acties van de gebruiker** zijn taken die kunnen worden uitgevoerd door een gebruiker. Is de enige actie die momenteel ondersteunde **beveiligingsgegevens (preview) registreren**, waarmee het beleid voor voorwaardelijke toegang om af te dwingen wanneer een gebruiker de informatie over de beveiliging registreert.
 
 ## <a name="sign-in-risk"></a>Aanmeldingsrisico
 

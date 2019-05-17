@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c8f1eaba726efe72e2b6845beaf1465d047c90d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233699"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787581"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer services.
@@ -55,6 +55,7 @@ In de volgende lijst met limieten bevat een nieuwe tabel de eventuele verschille
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -77,15 +78,22 @@ In de volgende lijst met limieten bevat een nieuwe tabel de eventuele verschille
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Load balancer](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Netwerken](#networking-limits)
-* [Network Watcher](#network-watcher-limits)
+  * [Application Gateway](#application-gateway-limits)
+  * [Azure DNS](#azure-dns-limits)
+  * [De Service Azure voordeur](#azure-front-door-service-limits)
+  * [Azure Firewall](#azure-firewall-limits)
+  * [ExpressRoute](#expressroute-limits)
+  * [Load balancer](#load-balancer)
+  * [Openbaar IP-adres](#publicip-address)
+  * [Network Watcher](#network-watcher-limits)
+  * [Traffic Manager](#traffic-manager-limits)
+  * [Virtueel netwerk](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
-* [Openbaar IP-adres](#publicip-address)
 * [Resourcegroep](#resource-group-limits)
 * [Op rollen gebaseerd toegangsbeheer](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -97,7 +105,6 @@ In de volgende lijst met limieten bevat een nieuwe tabel de eventuele verschille
 * [StorSimple System](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Abonnement](#subscription-limits)
-* [Traffic Manager](#traffic-manager-limits)
 * [Virtuele machines](#virtual-machines-limits)
 * [Virtuele-machineschaalsets](#virtual-machine-scale-sets-limits)
 
@@ -144,6 +151,11 @@ De volgende tabel worden de functies en limieten van de Basic, Standard en Premi
 
 ### <a name="azure-kubernetes-service-limits"></a>Limieten voor Azure Kubernetes Service
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
+
+### <a name="azure-machine-learning-service-limits"></a>Limieten voor Azure Machine Learning-Service
+De meest recente waarden voor Azure Machine Learning-Computing quota's kunnen u vinden in de [pagina van Azure Machine Learning-quotum](../articles/machine-learning/service/how-to-manage-quotas.md)
+
+[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### <a name="networking-limits"></a>Netwerklimieten
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935708"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800982"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Gebruikskenmerken van klanten van Azure-partners
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Rapport
 
-U kunt het rapport voor de klant gebruik attribution vinden in uw dashboard Partner Center analyseren. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+U kunt het rapport voor de klant gebruik attribution vinden in uw dashboard Partner Center analyseren. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Als u wilt het rapport bekijken, moet u de referenties van uw Partner Center gebruiken voor aanmelding bij. Als u ondervindt met het rapport problemen of meld u aan, maakt u een ondersteuningsaanvraag volgens de instructies in de sectie Get-ondersteuning.
 
 Kies sjabloon bijgehouden in de vervolgkeuzelijst van het Type van de Partner koppeling om het rapport te zien.
 
@@ -266,6 +266,10 @@ Wanneer u deze sjabloon implementeert, Microsoft is in staat om te identificeren
 Wanneer u implementeert \<PARTNER > software, Microsoft is in staat om te identificeren van de installatie van \<PARTNER > software met de Azure-resources die zijn geïmplementeerd. Microsoft is kunnen correleren van de Azure-resources die worden gebruikt om de software te ondersteunen. Microsoft verzamelt deze informatie om de beste ervaringen met hun producten en om te werken van hun bedrijf. De gegevens worden verzameld en onderworpen aan het privacybeleid van Microsoft, die kunnen worden gevonden op https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Ondersteuning krijgen
+
+Als u problemen ondervindt met het rapport of aanmelden bij de Partner Center, moet u een ondersteuningsaanvraag maken met het Partnercentrum-ondersteuningsteam hier: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Als u hulp nodig voor Onboarding van de Marketplace en/of klant gebruik attribution hebt, volgt u deze stappen.
 

@@ -3,18 +3,18 @@ title: Snelstartgids - verzenden een query naar de Bing lokale bedrijven zoeken-
 titleSuffix: Azure Cognitive Services
 description: Start met behulp van de Bing API voor zoeken van lokale bedrijven in knooppunt.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d649926a60d115c66a2763cef6b02b4aedbb962c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0760f89eb98955f7ebb503ce59f904192635f7a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336011"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796882"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Quickstart: Een query verzenden naar de Bing lokale bedrijven zoeken-API met behulp van Node.js
 

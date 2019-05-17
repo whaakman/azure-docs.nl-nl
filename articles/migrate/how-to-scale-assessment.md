@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596737"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518761"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -52,15 +52,15 @@ Op basis van het aantal virtuele machines die u van plan bent om te detecteren, 
 In het geval van eenmalige discovery (nu afgeschaft), de detectie werkt in een fire en vergeet model, zodra een detectie wordt uitgevoerd, kunt u de dezelfde collector kunt gebruiken voor het verzamelen van gegevens uit een andere vCenter-Server of verzenden naar een andere migration-project.
 
 > [!NOTE]
-> Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure. Het verdient aanbeveling om te verplaatsen naar het apparaat voor eenmalige detectie.
+> Ondersteuning van het apparaat voor eenmalige detectie is nu beëindigd omdat deze methode gebaseerd was op statistiekinstellingen van vCenter Server voor de beschikbaarheid van prestatiegegevenspunten en gemiddelde prestatiemeteritems verzamelde, wat leidde tot een te voorzichtige schaling van virtuele machines voor migratie naar Azure. Het verdient aanbeveling om te verplaatsen naar het apparaat continue detectie.
 
 Plan uw detecties en evaluaties op basis van de volgende beperkingen:
 
 | **Entiteit** | **Limiet voor computer** |
 | ---------- | ----------------- |
-| Project    | 1,500             |
+| PROJECT    | 1,500             |
 | Detectie  | 1,500             |
-| Beoordeling | 1,500             |
+| Evaluatie | 1,500             |
 
 Houd rekening met deze overwegingen bij het plannen:
 

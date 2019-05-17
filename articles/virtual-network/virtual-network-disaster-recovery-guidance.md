@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742700"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523263"
 ---
 # <a name="virtual-network--business-continuity"></a>Virtueel netwerk: zakelijke continuïteit
 
 ## <a name="overview"></a>Overzicht
 Een Virtueelnetwerk (VNet) is een logische weergave van uw netwerk in de cloud. Hiermee kunt u voor het definiëren van uw eigen privé IP-adresruimte en het netwerk segmenteren in subnetten. Vnet's fungeert als grens van een vertrouwensrelatie voor het hosten van uw rekenresources, zoals Azure Virtual Machines en Cloudservices (web/worker-rollen). Een VNet kan direct IP privécommunicatie tussen de bronnen die wordt gehost. U kunt een virtueel netwerk koppelen aan een on-premises netwerk via een VPN-Gateway of ExpressRoute.
 
-Een VNet wordt gemaakt binnen het bereik van een regio. U kunt vnet's maken met dezelfde-adresruimte in twee verschillende regio's (bijvoorbeeld VS-Oost en VS West), maar kan geen verbinding maken ze samen. 
+Een VNet wordt gemaakt binnen het bereik van een regio. U kunt *maken* VNets met dezelfde-adresruimte in twee verschillende regio's (bijvoorbeeld VS-Oost en VS West), maar omdat ze dezelfde-adresruimte hebben, u kunt geen ze met elkaar verbinden. 
 
 ## <a name="business-continuity"></a>Bedrijfscontinuïteit
 

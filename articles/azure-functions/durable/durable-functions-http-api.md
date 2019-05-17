@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730704"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787291"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure Functions)
 
@@ -104,7 +104,7 @@ In de volgende secties gaan over de specifieke HTTP APIs ondersteund door de ext
 
 Hiermee haalt u de status van een opgegeven orchestration-exemplaar.
 
-#### <a name="request"></a>Aanvraag
+#### <a name="request"></a>Aanvragen
 
 Voor versie 1.x van de Functions-runtime, de aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
 
@@ -228,7 +228,7 @@ U kunt ook de status van alle exemplaren van de query door het verwijderen van d
 Eén ding te onthouden is dat `connection` en `code` zijn optioneel. Als u anonieme verificatie op de functie hebt en vervolgens de code is niet vereist.
 Als u niet wilt om de verbindingsreeks van een andere opslag dan gedefinieerd in de app-instelling van het AzureWebJobsStorage te gebruiken, kunt u de verbinding queryreeks-parameter veilig negeren.
 
-#### <a name="request"></a>Aanvraag
+#### <a name="request"></a>Aanvragen
 
 Voor versie 1.x van de Functions-runtime, de aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
 
@@ -336,7 +336,7 @@ Als u in de volgende aanvraagheader voortzetting van token waarde hebt ingesteld
 
 Hiermee verwijdert u de geschiedenis en verwante artefacts voor een opgegeven orchestration-exemplaar.
 
-#### <a name="request"></a>Aanvraag
+#### <a name="request"></a>Aanvragen
 
 Voor versie 1.x van de Functions-runtime, de aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
 
@@ -387,7 +387,7 @@ Hier volgt een voorbeeld van payload van he antwoord (indeling voor de leesbaarh
 
 U kunt de geschiedenis en verwante artefacts voor meerdere exemplaren binnen een hub taak ook verwijderen door het verwijderen van de `{instanceId}` van de aanvraag voor het opschonen van geschiedenis van één exemplaar. Als u wilt leegmaken selectief exemplaar geschiedenis, gebruiken dezelfde filters die worden beschreven in de aanvraag 'Get status van alle instanties'.
 
-#### <a name="request"></a>Aanvraag
+#### <a name="request"></a>Aanvragen
 
 Voor versie 1.x van de Functions-runtime, de aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
 
@@ -417,11 +417,9 @@ Aanvraag-parameters voor deze API bevatten de standaardset die eerder is vermeld
 
 | Veld                 | Parametertype  | Description |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filtert de lijst opgeschoonde exemplaren die zijn gemaakt op of na de opgegeven ISO8601-timestamp.|
+| **`createdTimeFrom`** | Querytekenreeks    | Filtert de lijst met opgeschoonde exemplaren die zijn gemaakt op of na de opgegeven ISO8601-timestamp.|
 | **`createdTimeTo`**   | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filtert de lijst opgeschoonde exemplaren die zijn gemaakt op of voor de opgegeven ISO8601-timestamp.|
 | **`runtimeStatus`**   | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filters de lijst met opgeschoonde exemplaren op basis van hun runtimestatus. Zie de lijst met waarden voor mogelijke runtime status, de [uitvoeren van query's exemplaren](durable-functions-instance-management.md) onderwerp. |
-
-Als er geen parameters zijn opgegeven, worden alle exemplaren in de hub taak worden opgeschoond.
 
 > [!NOTE]
 > Met deze bewerking zeer kostbaar in termen van Azure-opslag i/o kan zijn als er veel van de rijen in de instanties en/of de geschiedenis van tabellen. Meer informatie over deze tabellen kunnen worden gevonden in de [prestaties en schaalbaarheid in duurzame functies (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentatie.
@@ -451,7 +449,7 @@ Hier volgt een voorbeeld van payload van he antwoord (indeling voor de leesbaarh
 
 Verzendt een melding van de gebeurtenis naar een actief exemplaar van de indeling.
 
-#### <a name="request"></a>Aanvraag
+#### <a name="request"></a>Aanvragen
 
 Voor versie 1.x van de Functions-runtime, de aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
 
@@ -504,7 +502,7 @@ De antwoorden voor deze API bevatten niet alle inhoud.
 
 Een actief exemplaar van de orchestration beëindigt.
 
-#### <a name="request"></a>Aanvraag
+#### <a name="request"></a>Aanvragen
 
 Voor versie 1.x van de Functions-runtime, de aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
 
@@ -553,7 +551,7 @@ De antwoorden voor deze API bevatten niet alle inhoud.
 
 Herstelt een mislukte orchestration-instantie in een status running doorbrengt door af te spelen de meest recente mislukte bewerkingen.
 
-### <a name="request"></a>Aanvraag
+### <a name="request"></a>Aanvragen
 
 Voor versie 1.x van de Functions-runtime, de aanvraag is opgemaakt als volgt te werk (meerdere regels worden weergegeven voor de duidelijkheid):
 

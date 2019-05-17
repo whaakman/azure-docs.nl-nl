@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154485"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799110"
 ---
 # <a name="public-ip-address-prefix"></a>Openbare IP-adresvoorvoegsel
 
@@ -49,13 +49,13 @@ U kunt de volgende resources koppelen aan een statisch openbaar IP-adres uit een
 |Resource|Scenario|Stappen|
 |---|---|---|
 |Virtuele machines| Koppelen van openbare IP-adressen uit een voorvoegsel aan uw virtuele machines in Azure verminderd als het gaat om opname in de whitelist IP-adressen in een firewall. U kunt gewoon een hele voorvoegsel met één firewallregel whitelist. Wanneer u met virtuele machines in Azure schaalt, kunt u IP-adressen uit hetzelfde voorvoegsel zodat kosten, tijd en beheeroverhead koppelen.| IP-adressen uit een voorvoegsel koppelen aan uw virtuele machine: 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. [De IP-adres aan de netwerkinterface van de virtuele machine koppelen.](virtual-network-network-interface-addresses.md#add-ip-addresses)
-| Load balancers | Koppelen van openbare IP-adressen uit een voorvoegsel aan uw frontend-IP-configuratie of de regel voor uitgaande van een Load Balancer zorgt ervoor dat vereenvoudiging van uw Azure openbare IP-adresruimte. U kunt uw scenario vereenvoudigen door het opschonen van de uitgaande verbindingen naar worden afkomstig is van een reeks aaneengesloten IP-adressen die zijn gedefinieerd met het openbare IP-voorvoegsel. | IP-adressen uit een voorvoegsel koppelen aan uw Load balancer: 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Bij het maken van de Load Balancer, selecteert u of het IP-adres gemaakt in stap 2 hierboven als de front-end-IP-adres van de Load Balancer bijwerken. |
+| Load Balancers | Koppelen van openbare IP-adressen uit een voorvoegsel aan uw frontend-IP-configuratie of de regel voor uitgaande van een Load Balancer zorgt ervoor dat vereenvoudiging van uw Azure openbare IP-adresruimte. U kunt uw scenario vereenvoudigen door het opschonen van de uitgaande verbindingen naar worden afkomstig is van een reeks aaneengesloten IP-adressen die zijn gedefinieerd met het openbare IP-voorvoegsel. | IP-adressen uit een voorvoegsel koppelen aan uw Load balancer: 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Bij het maken van de Load Balancer, selecteert u of het IP-adres gemaakt in stap 2 hierboven als de front-end-IP-adres van de Load Balancer bijwerken. |
 | Azure Firewall | U kunt een openbaar IP-adres uit een voorvoegsel voor uitgaande SNAT. Dit betekent dat alle uitgaande virtuele netwerkverkeer wordt omgezet naar de [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) openbaar IP-adres. Omdat deze IP afkomstig zijn uit een vooraf vastgestelde voorvoegsel, is het heel eenvoudig tevoren weten wat uw openbare IP-voetafdruk in Azure eruit. | 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Wanneer u [implementeren van de Azure-firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), moet u het eerder toegewezen IP-adres uit het voorvoegsel selecteren.|
 
 ## <a name="constraints"></a>Beperkingen
 
 - U kunt de IP-adressen voor het voorvoegsel niet opgeven. Azure wijst het IP-adressen voor het voorvoegsel, op basis van de grootte die u opgeeft.
-- De standaardgrootte van het voorvoegsel is/28 of 16 openbare IP-adressen.
+- U kunt een voorvoegsel van maximaal 16 IP-adressen of een/28 maken. Zie voor meer informatie, [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - U kunt het bereik niet wijzigen als u het voorvoegsel hebt gemaakt.
 - Het bereik is voor IPv4-adressen. Het bereik bevat geen IPv6-adressen.
 - Alleen statische openbare IP-adressen die zijn gemaakt met de standaard-SKU kunnen worden toegewezen uit het voorvoegsel van het bereik. Zie voor meer informatie over openbare IP-adres van SKU's [openbaar IP-adres](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

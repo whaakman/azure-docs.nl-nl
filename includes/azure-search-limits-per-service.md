@@ -5,15 +5,15 @@ services: search
 author: HeidiSteen
 ms.service: search
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 30c6fc189ebcd497a214828f65213a55cefdf03f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464475"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211954"
 ---
 Opslag wordt beperkt door de schijfruimte of door een vaste limiet op de *maximum aantal* van indexen, document of andere bronnen op hoog niveau, afhankelijk van wat het eerste komt. De volgende tabel worden de opslaglimieten. Zie voor de maximumlimieten op indexen, documenten en andere objecten, [limieten per resource](../articles/search/search-limits-quotas-capacity.md#index-limits).
 

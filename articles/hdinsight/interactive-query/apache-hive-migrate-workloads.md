@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/24/2019
-ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b39279e560cb1738ff9b33ec587562efd2ed4e8d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707011"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800956"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive-workloads migreren naar HDInsight 4.0
 
@@ -29,8 +29,8 @@ In dit artikel bevat informatie over de volgende onderwerpen:
 
 Een voordeel van Hive is de mogelijkheid om metagegevens te exporteren naar een externe database (aangeduid als de Hive-Metastore). De **Hive-Metastore** is verantwoordelijk voor het opslaan van de tabelstatistieken, met inbegrip van de opslaglocatie van de tabel, kolomnamen en tabelgegevens index. Het databaseschema metastore verschilt voor de Hive-versies. Voer het volgende om door te upgraden van een HDInsight 3.6 Hive-Metastore zodat deze compatibel is met HDInsight 4.0.
 
-1. Maak een nieuwe kopie van uw externe metastore. HDInsight 3.6 en HDInsight 4.0 vereist verschillende metastore schema's en een enkele metastore niet delen.
-1. De nieuwe kopie van de metastore koppelen aan (a) een bestaand HDInsight-4.0-cluster, of (b) een cluster die u voor het eerst maakt. Zie [externe metagegevensopslag in Azure HDInsight gebruiken](../hdinsight-use-external-metadata-stores.md) voor meer informatie over het koppelen van een externe metastore met een HDInsight-cluster. Zodra de Metastore is gekoppeld, wordt deze automatisch geconverteerd naar een metastore 4.0-compatibel.
+1. Maak een nieuwe kopie van uw externe metastore. HDInsight 3.6 en HDInsight 4.0 vereist verschillende metastore schema's en een enkele metastore niet delen. Zie [externe metagegevensopslag in Azure HDInsight gebruiken](../hdinsight-use-external-metadata-stores.md) voor meer informatie over het koppelen van een externe metastore met een HDInsight-cluster. 
+2. Start een scriptactie op basis van het HDI 3.6-cluster met 'Hoofdknooppunten' als het knooppunttype voor de uitvoering. Plak de volgende URI in het tekstvak 'Bash-Script URI' gemarkeerd: https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. Voer in het tekstvak gemarkeerd als 'Argumenten', de servernaam, -database, gebruikersnaam en wachtwoord voor de **gekopieerd** Hive-metastore, gescheiden door spaties. Maak daarbij dan geen '. database.windows.net "wanneer u de servernaam opgeeft.
 
 > [!Warning]
 > De upgrade die het metagegevensschema HDInsight 3.6 wordt omgezet in het HDInsight-4.0-schema kan niet ongedaan worden gemaakt.

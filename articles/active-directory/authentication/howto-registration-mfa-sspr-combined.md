@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/1/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abe9cba604100a42a4cd29ccd5af47e8898ea409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358062"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812936"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Schakel gecombineerd security informatie registratie (preview)
 
@@ -51,6 +51,37 @@ Als u de Site aan de lijst van zonetoewijzingen hebt geconfigureerd in Internet 
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
+## <a name="conditional-access-policies-for-combined-registration"></a>Beleid voor voorwaardelijke toegang voor gecombineerde registratie
+
+Beveiligen wanneer en hoe gebruikers registreren voor Azure multi-factor Authentication en Self-service voor wachtwoord opnieuw instellen nu mogelijk is met de acties van de gebruiker in het beleid voor voorwaardelijke toegang is. Deze preview-functie is beschikbaar voor organisaties die hebben ingeschakeld de [gecombineerd registratie preview](../authentication/concept-registration-mfa-sspr-combined.md). Deze functionaliteit kan worden ingeschakeld in een organisatie waar ze willen dat gebruikers zich registreren voor Azure multi-factor Authentication en SSPR vanuit een centrale locatie zoals een vertrouwde netwerklocatie tijdens HR-onboarding. Zie het artikel voor meer informatie over het maken van vertrouwde locaties voor de voorwaardelijke toegang [wat is er met de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang?](../conditional-access/location-condition.md#named-locations)
+
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Maak een beleid om te vereisen dat de registratie van een vertrouwde locatie bevindt
+
+Het volgende beleid van toepassing op alle geselecteerde gebruikers, die probeert te registreren met behulp van de gecombineerde registratie-ervaring en de toegang geblokkeerd, tenzij deze verbinding vanaf een locatie die is gemarkeerd als vertrouwd netwerk maakt.
+
+![Maken van een CA-beleid voor het beheren van beveiliging info registratie](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+
+1. In de **Azure-portal**, blader naar **Azure Active Directory** > **voorwaardelijke toegang**
+1. Selecteer **Nieuw beleid**.
+1. Voer in het vak Naam een naam op voor dit beleid. Bijvoorbeeld, **gecombineerd Security Info registratie in vertrouwde netwerken**
+1. Onder **toewijzingen**, klikt u op **gebruikers en groepen**, en selecteer de gebruikers en groepen die u wilt dat dit beleid wilt toepassen
+
+   > [!WARNING]
+   > Gebruikers moeten worden ingeschakeld voor de [gecombineerd registratie preview](../authentication/howto-registration-mfa-sspr-combined.md).
+
+1. Onder **Cloud-apps of acties**, selecteer **gebruikersacties**, Controleer **registreren beveiligingsgegevens (preview)**
+1. Onder **voorwaarden** > **locaties**
+   1. Configureer **Ja**
+   1. Opnemen **elke locatie**
+   1. Uitsluiten **alle vertrouwde locaties**
+   1. Klik op **gedaan** op de blade locaties
+   1. Klik op **gedaan** op de blade voorwaarden
+1. Onder **besturingselementen voor toegang** > **verlenen**
+   1. Klik op **toegang blokkeren**
+   1. Klik vervolgens op **selecteren**
+1. Stel **beleid inschakelen** naar **op**
+1. Klik vervolgens op **maken**
+
 ## <a name="next-steps"></a>Volgende stappen
 
 [Beschikbare methoden voor meervoudige verificatie en Self-service voor Wachtwoordherstel](concept-authentication-methods.md)
@@ -60,3 +91,5 @@ Als u de Site aan de lijst van zonetoewijzingen hebt geconfigureerd in Internet 
 [Azure multi-factor Authentication configureren](howto-mfa-getstarted.md)
 
 [Het oplossen van gecombineerde security info registratie](howto-registration-mfa-sspr-combined-troubleshoot.md)
+
+[Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang?](../conditional-access/location-condition.md)

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021877"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521889"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Suggesties toevoegen aan een index voor typeahead in Azure Search
 
@@ -119,7 +119,7 @@ Zoals eerder vermeld, kunt u een suggestie voor voorgestelde query's, automatisc
 
 Een suggestie wordt verwezen in de aanvraag, samen met de bewerking. Geef bijvoorbeeld op een GET REST-aanroep, een `suggest` of `autocomplete` op de verzameling documenten. Rest, nadat een suggestie is gemaakt, gebruiken de [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of de [API automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in uw querylogica.
 
-Voor .NET, gebruiken [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) of [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
+Voor .NET, gebruiken [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) of [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
 
 Zie voor een demonstratie van beide aanvragen voorbeeld [voorbeeld voor het toevoegen van automatisch aanvullen en suggesties in Azure Search](search-autocomplete-tutorial.md).
 

@@ -10,10 +10,10 @@ manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: d51eaf71e449301415195e409bec9e944d16e0b9
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65752477"
+ms.locfileid: "65800476"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Quickstart: Uw eerste Resource Graph-query uitvoeren met Azure CLI
 

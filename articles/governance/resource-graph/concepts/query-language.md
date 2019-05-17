@@ -3,17 +3,17 @@ title: Inzicht in de querytaal
 description: Beschrijft de beschikbare Kusto-operators en kan worden gebruikt met Azure Resource Graph-functies.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/11/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276674"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800511"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Inzicht krijgen in de querytaal van Azure Resource Graph
 
@@ -52,6 +52,38 @@ Hier volgt de lijst met ondersteunde functies in Resource-grafiek:
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
+
+## <a name="escape-characters"></a>Escape-tekens
+
+De namen van bepaalde eigenschappen, zoals systemen die zijn een `.` of `$`, moeten worden verpakt of escape in de query of de eigenschap naam verkeerd wordt geïnterpreteerd en biedt niet de verwachte resultaten.
+
+- `.` -De naam van de eigenschap daarom verpakken: `['propertyname.withaperiod']`
+  
+  Voorbeeld van een query die de wrap de eigenschap vormt _odata.type_:
+
+  ```kusto
+  where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
+  ```
+
+- `$` -Als u het teken in naam van de eigenschap. Het escape-teken gebruikt, is afhankelijk van de grafiek van de Resource wordt uitgevoerd vanaf shell.
+
+  - **bash** - `\`
+
+    Voorbeeld van een query die verlaat u de eigenschap  _\$type_ in bash:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
+    ```
+
+  - **cmd** -als u niet de `$` teken.
+
+  - **PowerShell** - ``` ` ```
+
+    Voorbeeld van een query die verlaat u de eigenschap  _\$type_ in PowerShell:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
+    ```
 
 ## <a name="next-steps"></a>Volgende stappen
 

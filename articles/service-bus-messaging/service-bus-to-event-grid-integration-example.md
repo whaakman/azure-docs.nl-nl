@@ -16,10 +16,10 @@ ms.date: 05/14/2019
 ms.author: spelluru
 ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65754693"
+ms.locfileid: "65786857"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Reageren op Azure Service Bus-gebeurtenissen ontvangen via de Azure Event Grid met behulp van Azure Functions en Azure Logic Apps
 In deze zelfstudie leert u hoe u om te reageren op Azure Service Bus-gebeurtenissen die worden ontvangen via de Azure Event Grid met behulp van Azure Functions en Azure Logic Apps. U voert de volgende stappen uit:

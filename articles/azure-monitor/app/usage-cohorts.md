@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785063"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604103"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights cohorten
 
@@ -123,13 +123,13 @@ De vorige twee cohorten zijn gedefinieerd met behulp van de vervolgkeuzelijsten.
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Selecteer **Query uitvoeren**. Als er geen gebruikers-id's worden weergegeven in de tabel, overstappen naar een land/regio waar uw toepassing heeft voor gebruikers.
+3. Selecteer **Query uitvoeren**. Als er geen gebruikers-id's worden weergegeven in de tabel, overstappen naar een land/de regio waar uw toepassing heeft voor gebruikers.
 
 4. Opslaan en de naam van het cohort.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-_Ik heb een cohort van gebruikers uit een bepaald land gedefinieerd. Als ik deze cohort in het hulpprogramma gebruikers op het zojuist instellen van een filter op dat land, zie ik verschillende resultaten. Waarom is dat?_
+_Ik heb een cohort van gebruikers van een bepaald land/regio gedefinieerd. Als ik deze cohort in het hulpprogramma gebruikers op het zojuist instellen van een filter op dat land/regio, zie ik verschillende resultaten. Waarom is dat?_
 
 Cohorten en filters zijn verschillend. Stel dat u een cohort van gebruikers uit het Verenigd Koninkrijk hebt (gedefinieerd als in het vorige voorbeeld) en vergelijken van de resultaten met het instellen van het filter "land of regio = Verenigd Koninkrijk."
 

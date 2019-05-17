@@ -1,5 +1,5 @@
 ---
-title: Versleuteling-at-rest met behulp van de klant beheerde sleutels in Azure Key Vault - Azure Search
+title: Versleuteling-at-rest met behulp van de klant beheerde sleutels in Azure Key Vault (preview) - Azure Search
 description: Aanvulling op de server-side-codering via indexen en synoniementoewijzingen in Azure Search via sleutels die u maakt en beheert in Azure Key Vault.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029173"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523099"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search-versleuteling door de klant beheerde sleutels in Azure Key Vault
+
+> [!Note]
+> Versleuteling met de klant beheerde sleutels is in preview en niet bedoeld voor gebruik in productieomgevingen. De [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) biedt deze functie. U kunt ook de .NET SDK-versie 8.0-Preview-versie gebruiken.
+>
+> Deze functie is niet beschikbaar voor gratis services. U moet een factureerbare zoekservice gemaakt op of na 2019-01-01. Er is geen portal ondersteuning op dit moment.
 
 Standaard-Azure Search versleutelt gebruikersinhoud at-rest met [service beheerde sleutels](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). U kunt de standaard codering aanvullen met een extra versleutelingslaag met sleutels die u maakt en beheert in Azure Key Vault. In dit artikel leidt u door de stappen.
 
@@ -26,20 +31,17 @@ Versleuteling met de klant beheerde sleutels is geconfigureerd op de index of sy
 
 U kunt verschillende sleutels uit verschillende sleutelkluizen gebruiken. Dit betekent dat een service voor zoeken op één host kan fungeren voor meerdere versleutelde indexes\synonym maps, elk versleuteld mogelijk met behulp van een andere door de klant beheerde sleutel, samen met indexes\synonym-kaarten die niet zijn versleuteld met behulp van de klant beheerde sleutels. 
 
->[!Note]
-> **Beschikbaarheid van functie**: Versleuteling met de klant beheerde sleutels is een preview-functie die is niet beschikbaar voor gratis services. Voor betaalde services is alleen beschikbaar voor search-services die zijn gemaakt op of na 2019-01-01, met behulp van de meest recente preview-api-versie (api-version = 2019-05-06-Preview). Er is momenteel geen portal ondersteuning voor deze functie.
-
 ## <a name="prerequisites"></a>Vereisten
 
 De volgende services worden gebruikt in dit voorbeeld. 
 
-[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
++ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze zelfstudie gebruiken.
 
-[Maak een Azure Key Vault-resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) of een bestaande kluis onder uw abonnement niet vinden.
++ [Maak een Azure Key Vault-resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) of een bestaande kluis onder uw abonnement niet vinden.
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) of [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) wordt gebruikt voor configuratietaken.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) of [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) wordt gebruikt voor configuratietaken.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) en [Azure Search SDK](https://aka.ms/search-sdk-preview) kan worden gebruikt voor het aanroepen van de preview-REST-API. Er is geen portal of de .NET SDK-ondersteuning voor versleuteling door de klant beheerde op dit moment.
++ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) en [Azure Search SDK](https://aka.ms/search-sdk-preview) kan worden gebruikt voor het aanroepen van de preview-REST-API. Er is geen portal of de .NET SDK-ondersteuning voor versleuteling door de klant beheerde op dit moment.
 
 ## <a name="1---enable-key-recovery"></a>1 - sleutelherstel inschakelen
 

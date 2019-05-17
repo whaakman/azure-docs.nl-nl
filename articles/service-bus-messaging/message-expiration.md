@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402765"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800265"
 ---
 # <a name="message-expiration-time-to-live"></a>Verlopen van berichten (Time to Live)
 
@@ -35,6 +35,11 @@ Terwijl het bericht onder vergrendelen is, wordt de toepassing mogelijk in het b
 ## <a name="entity-level-expiration"></a>Op entiteitsniveau verlopen
 
 Alle berichten die worden verzonden naar een wachtrij of onderwerp zijn afhankelijk van de vervaldatum van een standaard die is ingesteld op de entiteit met de [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) eigenschap en die kan ook worden ingesteld in de portal tijdens het maken en later wordt aangepast. De vervaldatum van het standaard wordt gebruikt voor alle berichten die naar de entiteit waarin [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) niet expliciet is ingesteld. De vervaldatum van het standaard fungeert ook als een maximum voor de **TimeToLive** waarde. Berichten met een langere **TimeToLive** verlopen dan de standaardwaarde op de achtergrond worden aangepast aan de **defaultMessageTimeToLive** waarde voordat wordt in de wachtrij.
+
+> [!NOTE]
+> De standaardwaarde [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) waarde voor een brokered bericht is [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) als niet anders is aangegeven.
+>
+> Voor messaging-entiteiten (wachtrijen en onderwerpen), de verlooptijd van de standaardwaarde is ook [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) voor Service Bus standard en premium-lagen.  De verlooptijd van de standaard is voor de laag basic, 14 dagen.
 
 Verlopen berichten kunnen desgewenst worden verplaatst naar een [dead-letter-wachtrij](service-bus-dead-letter-queues.md) door in te stellen de [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) eigenschap of het bijbehorende selectievakje in de portal. Als de optie is uitgeschakeld, worden verlopen berichten verwijderd. Verlopen berichten verplaatst naar de dead-letter-wachtrij kunnen worden onderscheiden van andere berichten dead lettered door het evalueren van de [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) eigenschap die de broker wordt opgeslagen in het eigenschappengedeelte van gebruiker; de waarde is [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) in dit geval.
 

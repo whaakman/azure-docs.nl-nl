@@ -11,19 +11,19 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115771"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522176"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Met behulp van Azure Monitor voor virtuele machines (preview) de kaart om te begrijpen van toepassingsonderdelen
 De gedetecteerde toepassingsonderdelen weergeven op Windows en Linux-machines uitvoeren in uw omgeving kan worden waargenomen op twee manieren met Azure Monitor voor virtuele machines van een virtuele machine rechtstreeks of via groepen virtuele machines van Azure Monitor Azure. 
 
-Dit artikel krijgt u inzicht in de ervaring tussen de twee perspectieven en hoe u de functie van de kaart. Zie voor meer informatie over het configureren van Azure Monitor voor virtuele machines [Azure Monitor inschakelen voor virtuele machines](vminsights-onboard.md).
+Dit artikel krijgt u inzicht in de ervaring tussen de twee perspectieven en hoe u de functie van de kaart. Zie voor meer informatie over het configureren van Azure Monitor voor virtuele machines [Azure Monitor inschakelen voor virtuele machines](vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
@@ -97,6 +97,21 @@ Kaart visualiseert de afhankelijkheden VM's, die wordt uitgevoerd procesgroepen 
 
 ![Direct overzicht van de toewijzing van VM](./media/vminsights-maps/map-direct-vm-01.png)
 
+## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Rechtstreeks instellen kaart weergeven van een virtuele-machineschaalset
+
+Voor toegang tot Azure Monitor voor virtuele machines rechtstreeks vanaf een virtuele-machineschaalset moet het volgende te doen.
+
+1. Selecteer in de Azure portal, **virtuele-machineschaalsets**.
+2. Kies in de lijst, een virtuele machine en klik in de **bewaking** sectie Kies **inzichten (preview)**.  
+3. Selecteer de **kaart** tabblad.
+
+Kaart worden gevisualiseerd met alle van de exemplaren in de schaalset als een groepsknooppunt samen met de afhankelijkheden van de groep. De uitgevouwen knooppunt geeft de exemplaren in de schaalset, u tien tegelijk schuiven kunt. Voor het laden van een kaart voor een specifiek exemplaar, selecteert u instantie op de kaart en klik vervolgens op het weglatingsteken aan klopt en kies **Servertoewijzing laden**. Hiermee wordt de kaart voor het exemplaar, waardoor u verwerken van groepen en -processen met actieve netwerkverbindingen via een opgegeven tijdperiode geladen. Standaard ziet u de kaart de laatste 30 minuten. Met behulp van de **TimeRange** selector kunt u zoeken naar historische tijdsbereik van maximaal één uur om weer te geven hoe afhankelijkheden in het verleden hebt bekeken (bijvoorbeeld tijdens een incident, of voordat er een wijziging is opgetreden).  
+
+![Direct overzicht van de toewijzing van VM](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>U kunt ook een kaart voor een specifiek exemplaar van de weergave exemplaren openen voor uw virtuele-machineschaalset. Navigeer naar **exemplaren** onder de **instellingen** uit en kies vervolgens **inzichten (preview)**.
+
 ## <a name="view-map-from-azure-monitor"></a>Kaart van Azure Monitor weergeven
 Van Azure Monitor biedt de functie van de kaart een algemeen overzicht van uw virtuele machines en hun afhankelijkheden.  Voor toegang tot de Map-functie van Azure Monitor, het volgende te doen. 
 
@@ -106,7 +121,7 @@ Van Azure Monitor biedt de functie van de kaart een algemeen overzicht van uw vi
 
 ![Overzicht van Azure Monitor multi-VM-kaart](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Uit de **werkruimte** kiezer boven aan de pagina, hebt u meer dan één Log Analytics-werkruimte, kies de werkruimte die met de oplossing is ingeschakeld en virtuele machines die rapporteren aan. De **groep** selector abonnementen, resourcegroepen, retourneert [computergroepen](../../azure-monitor/platform/computer-groups.md), en VM scale sets van computers met betrekking tot de geselecteerde werkruimte. Uw selectie wordt alleen toegepast op de kaart-functie en wordt niet meegenomen naar de prestaties of de kaart.
+Uit de **werkruimte** kiezer boven aan de pagina, hebt u meer dan één Log Analytics-werkruimte, kies de werkruimte die met de oplossing is ingeschakeld en virtuele machines die rapporteren aan. De **groep** selector abonnementen, resourcegroepen, retourneert [computergroepen](../../azure-monitor/platform/computer-groups.md), en virtual machine scale sets van computers met betrekking tot de geselecteerde werkruimte. Uw selectie wordt alleen toegepast op de kaart-functie en wordt niet meegenomen naar de prestaties of de kaart.
 
 Standaard ziet u de kaart de laatste 30 minuten. Met behulp van de **TimeRange** selector, kunt u zoeken naar historische tijdsbereik van maximaal één uur om weer te geven hoe afhankelijkheden in het verleden hebt bekeken (bijvoorbeeld tijdens een incident, of voordat er een wijziging is opgetreden).   
 

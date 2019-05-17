@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 81987115ba0406e704f2198061c6ee3cae8a72df
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024699"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539297"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Het oplossen van veelvoorkomende problemen met indexeerfunctie in Azure Search
 
@@ -27,7 +27,7 @@ Indexeerfuncties kunnen een aantal problemen ondervindt bij het indexeren van ge
 
 ## <a name="data-source-connection-errors"></a>Data Source-verbindingsfouten
 
-### <a name="blob-storage"></a>Blob Storage
+### <a name="blob-storage"></a>Blob-opslag
 
 #### <a name="storage-account-firewall"></a>Storage-account firewall
 
@@ -42,7 +42,7 @@ U kunt controleren dat de firewall is ingeschakeld in de [portal](https://docs.m
 
 `nslookup <service name>.search.windows.net`
 
-Uitzonderingen werken niet voor [Cognitief zoeken](cognitive-search-concept-intro.md). De enige oplossing is om uit te schakelen van de firewall.
+Uitzonderingen werken niet voor [cognitief zoeken](cognitive-search-concept-intro.md). De enige oplossing is om uit te schakelen van de firewall.
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
@@ -71,7 +71,7 @@ api-key: [admin key]
 
 De blob-indexeerfunctie [gevonden en haalt tekst op uit de blobs in een container](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Er zijn enkele problemen met de tekst te extraheren:
 
-* Het document bevat alleen gescande afbeeldingen. Resultaten in een standaard blob-indexering pijplijn niet leiden tot een PDF-blobs die niet-tekstuele inhoud, zoals gescande afbeeldingen (JPG-bestanden), hebben. Als u de inhoud van de afbeelding met tekstelementen hebt, kunt u [Cognitief zoeken](cognitive-search-concept-image-scenarios.md) om te zoeken en ophalen van de tekst.
+* Het document bevat alleen gescande afbeeldingen. Resultaten in een standaard blob-indexering pijplijn niet leiden tot een PDF-blobs die niet-tekstuele inhoud, zoals gescande afbeeldingen (JPG-bestanden), hebben. Als u de inhoud van de afbeelding met tekstelementen hebt, kunt u [cognitief zoeken](cognitive-search-concept-image-scenarios.md) om te zoeken en ophalen van de tekst.
 * De blob-indexeerfunctie is geconfigureerd om alleen de metagegevens van de index. Als u wilt uitpakken van inhoud, de blob-indexeerfunctie moet worden geconfigureerd om [zowel inhoud en metagegevens extraheren](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
@@ -94,5 +94,5 @@ Indexeerfuncties zoeken naar documenten van een [gegevensbron](https://docs.micr
 * Het document nog niet zijn geïndexeerd. Controleer de portal voor het uitvoeren van geslaagde indexeerfunctie.
 * Het document is bijgewerkt nadat de indexeerfunctie worden uitgevoerd. Als uw indexeerfunctie zich op een [planning](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), uiteindelijk wordt opnieuw uitgevoerd en kies het document.
 * De [query](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) opgegeven in de gegevens bron niet van toepassing op het document. Indexeerfuncties kunnen geen documenten die geen deel uitmaken van de gegevensbron te indexeren.
-* [Veldtoewijzingen](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) of [Cognitief zoeken](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) het document zijn gewijzigd en ziet er anders uit dan u verwacht.
+* [Veldtoewijzingen](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) of [cognitief zoeken](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) het document zijn gewijzigd en ziet er anders uit dan u verwacht.
 * Gebruik de [lookup document API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) aan uw document vinden.

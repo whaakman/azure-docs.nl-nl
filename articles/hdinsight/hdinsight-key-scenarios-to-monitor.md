@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22484885663a4f9a908ae988882b87612129251a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693227"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799796"
 ---
 # <a name="monitor-cluster-performance"></a>Cluster-prestaties bewaken
 
@@ -30,7 +30,7 @@ Als u een Kijk op de knooppunten van het cluster en hun laden, moet u zich aanme
 | Kleur | Description |
 | --- | --- |
 | Rood | Ten minste één master onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
-| Orange | Ten minste één ondergeschikt onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
+| Oranje | Ten minste één secundaire onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
 | Geel | Ambari-Server is geen heartbeat ontvangen van de host voor meer dan 3 minuten. |
 | Groen | Normaal uitgevoerd staat. |
 

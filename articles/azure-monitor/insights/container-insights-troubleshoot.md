@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f9fc128af4e89788e648fcfc238da300ff91724
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068755"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521776"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Oplossen van problemen met Azure Monitor voor containers
 
@@ -80,7 +80,7 @@ Als Azure Monitor voor containers met succes is ingeschakeld en geconfigureerd, 
 
 4. Raadpleeg de logboeken van de agent. Wanneer de agent in containers wordt geïmplementeerd, wordt een snelle controle uitgevoerd door het OMI-opdrachten uitvoeren en de versie van de agent en de provider weergeven. 
 
-5. Om te controleren dat de agent opnieuw toegevoegd is, moet u de opdracht uitvoeren: `kubectl logs omsagent-484hw --namespace=kube-system`
+5. Om te controleren dat de agent is geïmplementeerd, moet u de opdracht uitvoeren: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     De status moet lijken op het volgende voorbeeld:
 
@@ -113,7 +113,7 @@ De onderstaande tabel bevat een overzicht van de bekende problemen die optreden 
 | ---- | --- |  
 | Foutbericht `No data for selected filters`  | Het duurt enige tijd tot stand brengen van bewaking gegevensstroom voor nieuwe clusters. Toestaan dat gegevens worden weergegeven voor uw cluster ten minste 10 tot 15 minuten. |   
 | Foutbericht `Error retrieving data` | Terwijl Azure Kubenetes Service-cluster voor basisstatus en -prestaties instelt, een verbinding tot stand is gebracht tussen het cluster en Azure Log Analytics-werkruimte. Een Log Analytics-werkruimte wordt gebruikt voor het opslaan van alle bewakingsgegevens voor uw cluster. Deze fout kan optreden wanneer uw Log Analytics-werkruimte is verwijderd of verloren gaan. Controleer of uw werkruimte beschikbaar aan de hand is [toegang beheren](../platform/manage-access.md#view-workspace-details). Als de werkruimte ontbreekt, moet u opnieuw inschakelen van het cluster controleren met Azure Monitor voor containers. Als u wilt opnieuw inschakelt, moet u [uitschakelen](container-insights-optout.md) bewaking voor het cluster en [inschakelen](container-insights-enable-new-cluster.md) Azure Monitor voor containers opnieuw. |  
-| `Error retrieving data` na het toevoegen van Azure Monitor voor containers via az aks cli | Wanneer het inschakelen van bewaking met `az aks cli`, Azure-Monitor voor containers mogelijk niet correct zijn toegevoegd. Controleer of de oplossing geïmplementeerd is. Om dit te doen, gaat u naar uw Log Analytics-werkruimte en of de oplossing beschikbaar is, door te selecteren **oplossingen** in het deelvenster aan de linkerkant. U lost dit probleem, moet u de oplossing implementeren door de instructies te volgen op [Azure Monitor for containers implementeren](container-insights-onboard.md) |  
+| `Error retrieving data` na het toevoegen van Azure Monitor voor containers via az aks cli | Wanneer het inschakelen van bewaking met `az aks cli`, Azure-Monitor voor containers mogelijk niet correct worden geïmplementeerd. Controleer of de oplossing is geïmplementeerd. Om dit te doen, gaat u naar uw Log Analytics-werkruimte en of de oplossing beschikbaar is, door te selecteren **oplossingen** in het deelvenster aan de linkerkant. U lost dit probleem, moet u de oplossing implementeren door de instructies te volgen op [Azure Monitor for containers implementeren](container-insights-onboard.md) |  
 
 Om u te helpen bij het vaststellen van het probleem, wij een probleemoplossing script beschikbaar hebt opgegeven [hier](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 

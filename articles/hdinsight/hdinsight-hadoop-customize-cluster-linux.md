@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545328"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518895"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Azure HDInsight-clusters aanpassen met behulp van scriptacties
 
@@ -45,23 +45,21 @@ Haal meer informatie over het werken met toegangsbeheer:
 Een scriptactie is Bash-script dat wordt uitgevoerd op de knooppunten in een HDInsight-cluster. Kenmerken en functies van scriptacties zijn als volgt:
 
 * Moeten worden opgeslagen op een URI die toegankelijk is vanaf het HDInsight-cluster. Hieronder volgen mogelijke opslaglocaties:
+    
+    * Voor reguliere clusters:
+    
+      * ADLS Gen1: De HDInsight gebruikt voor toegang tot Data Lake Storage service-principal moet leestoegang hebben tot het script. De URI-notatie voor scripts die zijn opgeslagen in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      
+      * Een blob in een Azure Storage-account dat is de primaire of extra storage-account voor het HDInsight-cluster. HDInsight krijgt toegang tot beide van deze typen opslagaccounts tijdens het maken van clusters.
 
-    * Een Azure Data Lake Storage-account dat toegankelijk is via het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Storage met HDInsight [Quick Start: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
-
-        De URI-notatie voor scripts die zijn opgeslagen in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-        > [!NOTE]  
-        > De HDInsight gebruikt voor toegang tot Data Lake Storage service-principal moet leestoegang hebben tot het script.
-
-    * Een blob in een Azure Storage-account dat is de primaire of extra storage-account voor het HDInsight-cluster. HDInsight krijgt toegang tot beide van deze typen opslagaccounts tijdens het maken van clusters.
-
-    * Een openbare bestandsdeling service. Voorbeelden zijn Azure-Blob, GitHub, OneDrive en Dropbox.
+      * Een openbare delen van bestanden service toegankelijk zijn via http:// paden. Voorbeelden zijn Azure-Blob, GitHub, OneDrive.
 
         Bijvoorbeeld URI's, Zie [voorbeeldscripts script actie](#example-script-action-scripts).
 
-        > [!WARNING]  
-        > HDInsight biedt alleen ondersteuning voor Blob in Azure Storage-accounts met een standard-prestatielaag. 
-
+     * Voor clusters met ESP:
+         
+         * De wasb [s] :// of http [s] :// URI's worden ondersteund.
+            
 * Als u wilt uitvoeren op alleen bepaalde knooppunttypen kan worden beperkt. Voorbeelden zijn hoofd- of worker-knooppunten.
 
 * Kan worden persistent gemaakt of ad hoc.

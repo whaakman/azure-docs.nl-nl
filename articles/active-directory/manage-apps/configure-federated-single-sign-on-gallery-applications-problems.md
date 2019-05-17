@@ -3,8 +3,8 @@ title: Probleem bij het federatieve eenmalige aanmelding voor een toepassing in 
 description: Adres van een aantal veelvoorkomende problemen optreden kunnen tijdens het configureren van federatieve eenmalige aanmelding met behulp van SAML voor toepassingen die worden vermeld in de Azure AD-Toepassingsgalerie
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e9746c0739a2ddd6267428f428e977151077b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 554fb73ea7bf4f866eda3e9f3d629f871cb5e582
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292103"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781170"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem opgetreden bij het configureren van eenmalige aanmelding in voor een toepassing in Azure AD-galerie
 

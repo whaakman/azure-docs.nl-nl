@@ -1,5 +1,5 @@
 ---
-title: Wat is HBase in Azure HDInsight?
+title: Wat is Apache HBase in Azure HDInsight?
 description: Een inleiding tot Apache HBase in HDInsight, een NoSQL-database gebaseerd op Hadoop. Meer informatie over de toepassingsmogelijkheden en HBase vergelijken met andere Hadoop-clusters.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a492adbf1c01271ceea736bde9de999190fc2da4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114427"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789203"
 ---
-# <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>Wat is Apache HBase in HDInsight: Een NoSQL-database die BigTable gelijkende mogelijkheden voor Apache Hadoop biedt
+# <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Wat is Apache HBase in Azure HDInsight
+
 [Apache HBase](https://hbase.apache.org/) is een open-source NoSQL-database die is gebouwd op [Apache Hadoop](https://hadoop.apache.org/) en gemodelleerde na [Google BigTable](https://cloud.google.com/bigtable/). HBase biedt willekeurige toegang en een sterke consistentie voor grote hoeveelheden ongestructureerde en semigestructureerde gegevens in een database zonder schema die is georganiseerd op basis van kolomfamilies.
 
 HBase is vanuit het perspectief van gebruiker, vergelijkbaar met een database. Gegevens worden opgeslagen in de rijen en kolommen in een tabel en gegevens in een rij worden gegroepeerd per kolomfamilie. HBase is een database zonder schema in de zin dat zowel de kolommen als het type gegevens dat hierin wordt opgeslagen niet hoeven te worden gedefinieerd voordat u ze kunt gebruiken. De open-source code wordt lineair geschaald om petabytes aan gegevens op duizenden knooppunten te verwerken. Hiervoor kan gebruik worden gemaakt van gegevensredundantie, batchverwerking en andere functies die worden geboden door gedistribueerde toepassingen in het Hadoop-ecosysteem.

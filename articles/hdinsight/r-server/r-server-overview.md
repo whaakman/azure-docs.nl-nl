@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8ed9d84cba7cb9eeca94a1376fc03f1d256afa85
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683757"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779224"
 ---
-# <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot ML-Services en mogelijkheden van de open-source R op HDInsight
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>Wat is ML-Services in Azure HDInsight
 
 > [!NOTE]  
 > In September 2017, Microsoft R Server werd uitgebracht onder de nieuwe naam van **Microsoft Machine Learning Server** of ML-Server. Als gevolg daarvan kan R Server-cluster in HDInsight heet nu **Machine Learning-Services** of **ML-Services** -cluster in HDInsight. Zie voor meer informatie over de naamswijziging van R Server [Microsoft R Server is nu Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).
@@ -139,7 +139,7 @@ Bovendien kunt u een bureaublad-IDE installeren en deze gebruiken voor toegang t
 
 Bovendien kunt u de R-console op het edge-knooppunt openen door te typen **R** achter de opdrachtprompt Linux na het maken van een verbinding via SSH of PuTTY. Wanneer u de console-interface gebruikt, is het handig is dat een teksteditor voor het ontwikkelen van R-script uitvoeren in een ander venster en knippen en plakken van secties van het script in de R-console naar behoefte.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 
 De prijzen die gekoppeld aan een cluster met HDInsight voor ML-Services zijn zijn op dezelfde manier gestructureerd op de prijzen voor andere typen van HDInsight-cluster. Ze zijn gebaseerd op de grootte van de onderliggende virtuele machines in de naam, de gegevens en het edge-knooppunten, met de toevoeging van een kern-uur slechts iets hoger ligt. Zie voor meer informatie, [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 

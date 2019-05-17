@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471763"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522381"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
 > 
 > [!IMPORTANT]
 > De versie 1.2. * uit een ondersteuning op 30 April 2019. Voer een upgrade uit naar de nieuwste versie.
-
-> 
-> [!IMPORTANT]
-> Patch Orchestration-toepassing in linux is afgeschaft. Ga naar [schaalset voor virtuele Azure-machine afbeelding van automatische besturingssysteemupgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) voor het indelen van updates op linux.
 
 
 [Afbeelding van automatische besturingssysteemupgrades schaalset van virtuele machine van Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is de aanbevolen procedure voor uw besturingssystemen gevuld in Azure bewaren en de Patch Orchestration-toepassing (POA) is een wrapper rond Service Fabrics RepairManager systemen service waarmee configuratie op basis van OS patch plannen voor niet-Azure gehoste clusters. POA is niet vereist voor niet-Azure gehoste clusters, maar het patchinstallatie door de domeinen bijwerken plannen is vereist voor het vullen van Service Fabric-clusters hosts zonder uitvaltijd.
@@ -263,7 +259,7 @@ Als u wilt inschakelen in de omgekeerde proxy op het cluster, volg de stappen in
 
 Patch orchestration app-logboeken worden verzameld als onderdeel van de logboeken van de Service Fabric-runtime.
 
-Als u vastleggen van Logboeken via diagnostische hulpprogramma/pijplijn van uw keuze wilt. Patch orchestration-toepassing gebruikt hieronder vaste provider-id's om aan te melden van gebeurtenissen via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Als u vastleggen van Logboeken via diagnostische hulpprogramma/pijplijn van uw keuze wilt. Patch orchestration-toepassing gebruikt hieronder vaste provider-id's om aan te melden van gebeurtenissen via [bron van gebeurtenis](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -347,13 +343,17 @@ V. **Kan Patch Orchestration-app worden gebruikt voor het vullen van mijn dev-cl
 
 A. Nee, Patch orchestration-app kan niet worden gebruikt om patch cluster met één knooppunt. Deze beperking is standaard, als [service fabric-systeemservices](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) of alle apps van de klant wordt krijgen met downtime en kan daarom elke taak herstellen voor het patchen van zouden nooit ophalen goedgekeurd door reparatiemanager.
 
+V. **Hoe ik patch uitvoeren voor clusterknooppunten op Linux?**
+
+A. Zie [schaalset voor virtuele Azure-machine afbeelding van automatische besturingssysteemupgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) voor het indelen van updates op linux.
+
 ## <a name="disclaimers"></a>Disclaimers
 
 - De patch orchestration app accepteert de gebruiksrechtovereenkomst-licentie van Windows Update namens de gebruiker. In de configuratie van de toepassing kan eventueel de instelling worden uitgeschakeld.
 
 - De patch orchestration app verzamelt telemetrie om gebruik en prestaties te houden. Van de toepassing telemetrie volgt de instelling van de Service Fabric-runtime telemetrie (dit is standaard ingeschakeld).
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Een knooppunt komt niet back-up maken van status
 
@@ -413,7 +413,7 @@ Een beheerder moet waarbij en te bepalen waarom de toepassing of het cluster is 
 
 - InstallWindowsOSOnlyUpdates nu instellen op false, worden alle beschikbare updates geïnstalleerd.
 - De logica van het uitschakelen van automatische updates is gewijzigd. Hiermee een bug opgelost wanneer Automatische updates niet ophalen van uitgeschakeld op Server 2016 en hoger.
-- Plaatsing beperking voor zowel de microservices van POA voor geavanceerde usecases als parameters gebruikt.
+- Met parameters plaatsing beperking voor zowel de microservices van POA voor geavanceerde gebruiksvoorbeelden.
 
 ### <a name="version-131"></a>Versie 1.3.1
 - Regressie oplossen waar POA 1.3.0 werkt niet op Windows Server 2012 R2 of lager vanwege een fout bij het uitschakelen van automatische updates. 
@@ -421,4 +421,4 @@ Een beheerder moet waarbij en te bepalen waarom de toepassing of het cluster is 
 - De standaardwaarde van InstallWindowsOSOnlyUpdates wijzigen in False.
 
 ### <a name="version-132"></a>Versie 1.3.2
-- Een probleem dat het toepassen van patches leven cyle op een knooppunt heeft in het geval er knooppunten zijn met de naam subset van de naam van het huidige knooppunt is opgelost. Voor dergelijke knooppunten, de mogelijke patches ontbreekt of opnieuw opstarten in behandeling is. 
+- Een probleem dat de patch-levenscyclus op een knooppunt heeft in het geval er knooppunten zijn met de naam subset van de naam van het huidige knooppunt is opgelost. Voor dergelijke knooppunten, de mogelijke patches ontbreekt of opnieuw opstarten in behandeling is. 

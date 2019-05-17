@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204878"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518845"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -86,6 +86,9 @@ Dit mogelijk zou zijn door het schrijven van een [telemetrie processor-invoegtoe
 Onbewerkte gegevenspunten (dat wil zeggen, items die u kunt query's uitvoeren in Analytics en controleren in het zoekvak) zijn maximaal 90 dagen bewaard. Als u nodig hebt om gegevens langer duurt dan te houden, kunt u [continue export](../../azure-monitor/app/export-telemetry.md) om deze te kopiëren naar een opslagaccount.
 
 Cumulatieve gegevens (dat wil zeggen, aantal, gemiddelde en andere statistische gegevens die u in Metric Explorer ziet) worden bewaard in een interval van 1 minuut gedurende 90 dagen.
+
+> [!NOTE]
+> Variabele bewaartermijn voor Application Insights is nu in Preview. Klik [hier](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031) voor meer informatie. 
 
 [Fouten opsporen in momentopnamen](../../azure-monitor/app/snapshot-debugger.md) vijftien dagen worden bewaard. Deze bewaarbeleid is ingesteld op basis van de per toepassing. Als u nodig hebt om deze waarde te verhogen, kunt u een toename van aanvragen door een ondersteuningsaanvraag opent in de Azure-portal.
 
@@ -237,9 +240,9 @@ De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u ku
 
 | De actie | Gegevensklassen die worden verzameld (Zie de volgende tabel) |
 | --- | --- |
-| [Application Insights-SDK toevoegen aan een .NET-web-project][greenbrown] |ServerContext<br/>Afgeleid<br/>Prestatiemeteritems<br/>Aanvragen<br/>**Uitzonderingen**<br/>Sessie<br/>gebruikers |
+| [Application Insights-SDK toevoegen aan een .NET-web-project][greenbrown] |ServerContext<br/>Afgeleid<br/>Prestatiemeteritems<br/>Aanvragen<br/>**Uitzonderingen**<br/>Sessie<br/>Gebruikers |
 | [Installeer statusmonitor op IIS][redfield] |Afhankelijkheden<br/>ServerContext<br/>Afgeleid<br/>Prestatiemeteritems |
-| [Application Insights SDK toevoegen aan een Java-web-app][java] |ServerContext<br/>Afgeleid<br/>Aanvraag<br/>Sessie<br/>gebruikers |
+| [Application Insights SDK toevoegen aan een Java-web-app][java] |ServerContext<br/>Afgeleid<br/>Aanvragen<br/>Sessie<br/>Gebruikers |
 | [JavaScript SDK toevoegen aan webpagina][client] |ClientContext <br/>Afgeleid<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Standaard-eigenschappen definiëren][apiproperties] |**Eigenschappen van** op alle standaardentiteiten en aangepaste gebeurtenissen |
 | [Call TrackMetric][api] |Numerieke waarden<br/>**Eigenschappen** |

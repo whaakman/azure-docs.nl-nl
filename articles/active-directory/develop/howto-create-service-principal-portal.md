@@ -3,25 +3,25 @@ title: ID voor Azure-app in de portal maken | Microsoft Docs
 description: Beschrijft hoe u een nieuwe Azure Active Directory-toepassing en service-principal die kan worden gebruikt met de op rollen gebaseerd toegangsbeheer in Azure Resource Manager voor het beheren van toegang tot bronnen te maken.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300745"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764893"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: De portal gebruiken om een Azure AD-toepassing en service-principal die toegang hebben tot resources te maken
 
@@ -66,7 +66,7 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
    Als u het abonnement dat u zoekt niet ziet, selecteert u **filter globale abonnementen**. Zorg ervoor dat het gewenste abonnement is geselecteerd voor de portal. 
 
-1. Klik op **Toegangsbeheer (IAM)**.
+1. Selecteer **toegangsbeheer (IAM)**.
 1. Selecteer **roltoewijzing toevoegen**.
 
    ![Selecteer de roltoewijzing toevoegen](./media/howto-create-service-principal-portal/select-add.png)
@@ -106,18 +106,18 @@ U moet ook de ID voor uw toepassing en een verificatiesleutel nodig. U kunt deze
 
    ![Client-id](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Selecteer **instellingen**.
+1. Selecteer **certificaten en geheimen**.
 
-   ![instellingen selecteren](./media/howto-create-service-principal-portal/select-settings.png)
+   ![instellingen selecteren](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. Selecteer **Sleutels**.
-1. Geef een beschrijving op van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
+1. Selecteer **geheimen van de Client -> Nieuw clientgeheim**.
+1. Geef een beschrijving van de geheime sleutel en een duur. Wanneer u klaar bent, selecteert u **toevoegen**.
 
-   ![sleutel opslaan](./media/howto-create-service-principal-portal/save-key.png)
+   ![Geheim opslaan](./media/howto-create-service-principal-portal/save-secret.png)
 
-   Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Deze waarde niet kopiëren omdat u niet kunnen ophalen van de sleutel later opnieuw. U geeft de sleutelwaarde samen met de toepassings-ID aan te melden als de toepassing. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
+   Na het opslaan van het clientgeheim, wordt de waarde van het clientgeheim weergegeven. Deze waarde niet kopiëren omdat u niet kunnen ophalen van de sleutel later opnieuw. U geeft de sleutelwaarde samen met de toepassings-ID aan te melden als de toepassing. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
 
-   ![opgeslagen sleutel](./media/howto-create-service-principal-portal/copy-key.png)
+   ![Geheim te kopiëren](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
@@ -146,7 +146,7 @@ In uw Azure-abonnement, moet uw account beschikt over `Microsoft.Authorization/*
 
 Uw om abonnementsmachtigingen te controleren:
 
-1. Selecteer uw account in de rechterbovenhoek en selecteer **mijn machtigingen**.
+1. Selecteer uw account in de rechterbovenhoek en selecteer **... -> Mijn machtigingen**.
 
    ![gebruikersmachtigingen selecteren](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ Uw om abonnementsmachtigingen te controleren:
 
    ![gebruiker zoeken](./media/howto-create-service-principal-portal/view-details.png)
 
-1. De toegewezen rollen kunt weergeven en bepalen of u voldoende machtigingen voor een AD-app toewijst aan een rol hebt. Als dat niet het geval is, vraagt de beheerder van het abonnement u toe te voegen aan de rol Administrator voor gebruikerstoegang. In de volgende afbeelding wordt de gebruiker toegewezen aan de rol van eigenaar, wat betekent dat de gebruiker de juiste machtigingen heeft.
+1. Selecteer **roltoewijzingen** weergeven van de toegewezen rollen en bepalen of u voldoende machtigingen voor een AD-app toewijst aan een rol hebt. Als dat niet het geval is, vraagt de beheerder van het abonnement u toe te voegen aan de rol Administrator voor gebruikerstoegang. In de volgende afbeelding wordt de gebruiker toegewezen aan de rol van eigenaar, wat betekent dat de gebruiker de juiste machtigingen heeft.
 
    ![machtigingen weergeven](./media/howto-create-service-principal-portal/view-user-role.png)
 

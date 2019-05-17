@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737183"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521396"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>naslaginformatie over host.JSON voor Azure Functions 2.x  
 
@@ -35,7 +35,6 @@ Sommige instellingen host.json worden alleen gebruikt bij het uitvoeren van loka
 ## <a name="sample-hostjson-file"></a>Voorbeeldbestand voor host.json
 
 Het volgende voorbeeld *host.json* bestanden hebben alle mogelijke opties opgegeven.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ Het volgende voorbeeld *host.json* bestanden hebben alle mogelijke opties opgege
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -194,6 +196,9 @@ Hiermee bepaalt u het gedrag van de registratie van de functie-app, met inbegrip
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
@@ -274,6 +279,18 @@ Een set [gedeelde code mappen](functions-reference-csharp.md#watched-directories
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+Beheerde afhankelijkheid is een preview-functie is momenteel alleen ondersteund met PowerShell op basis van functies. Hiermee kunt afhankelijkheden worden automatisch beheerd door de service. Wanneer de eigenschap enabled is ingesteld op true, wordt de [requirements.psd1](functions-reference-powershell.md#dependency-management) bestand wordt verwerkt. Afhankelijkheden wordt bijgewerkt wanneer een secundaire versies worden vrijgegeven.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

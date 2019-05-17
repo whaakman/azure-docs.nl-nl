@@ -12,28 +12,66 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 897ca26bcbb05287d33a4fb8e731ca959e39e271
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d55e11ace4ca306c3d3ec8c0094a751966289db6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452633"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523054"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resourcelimieten voor Azure NetApp Files
 
 Inzicht krijgen in resourcelimieten voor Azure NetApp-bestanden, kunt u de volumes beheren.
 
-- Elk Azure-abonnement kan maximaal 10 NetApp-accounts hebben.
-- Elk account NetApp kan een maximum van 25 capaciteit groepen hebben.
-- Elke capaciteitspool kan deel uitmaken van slechts één NetApp-account.  
-- De minimumgrootte van één capaciteitspool is 4 TiB, de maximumgrootte is 500 TiB. 
-- Elke capaciteit van toepassingen kan maximaal 500 volumes hebben.
-- De minimumgrootte van één volume is 100 GiB, de maximumgrootte is 92 TiB.
-- Elk volume mag maximaal 255 momentopnamen hebben.
-- Elke Azure-netwerk (Vnet) kan slechts één subnet gedelegeerd naar Azure NetApp bestanden hebben.
+## <a name="resource-limits"></a>Bronlimieten
 
-**Volgende stappen**
+De volgende tabel beschrijft de resourcelimieten voor Azure NetApp bestanden:
 
-[Informatie over de opslaghiërarchie van Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+|  Resource  |  Standaardlimiet  |  Aanpasbare via een ondersteuningsaanvraag  |
+|----------------|---------------------|--------------------------------------|
+|  Aantal accounts NetApp per Azure-abonnement   |  10    |  Ja   |
+|  Aantal capaciteit pools per NetApp-account   |    25     |   Ja   |
+|  Aantal volumes per capaciteit van toepassingen     |    500   |    Ja     |
+|  Het aantal momentopnamen per volume       |    255     |    Nee        |
+|  Aantal subnetten gedelegeerd naar Azure NetApp bestanden (Microsoft.NetApp/volumes) per Virtueelnetwerk van Azure    |   1   |    Nee    |
+|  Minimale grootte van een groep met één capaciteit   |  4 TiB     |    Nee  |
+|  Maximale grootte van een groep met één capaciteit    |  500 TiB   |   Nee   |
+|  Minimale grootte van een enkel volume    |    100 GiB    |    Nee    |
+|  Maximum aantal toegewezen quotum van een enkel volume *   |   92 TiB   |    Nee   |
+|  Maximale grootte van een enkel volume *     |    100 TiB    |    Nee       |
+
+* Een volume kan handmatig worden gemaakt of gewijzigd in bewaartemperatuur 92 TiB. Een volume kan echter maximaal 100 TiB in een overschrijding scenario groeien. Zie [Kostenmodel voor Azure NetApp Files](azure-netapp-files-cost-model.md) voor meer informatie over capaciteit overschrijding. 
+
+## <a name="request-limit-increase"></a>Limiet verhoging aanvragen 
+
+U kunt een Azure-ondersteuningsaanvraag te verhogen, de aanpasbare limieten van de bovenstaande tabel maken. 
+
+In het vlak van de navigatie in de Azure portal: 
+
+1. Klik op **Help en ondersteuning**.
+2. Klik op **+ nieuw ondersteuningsverzoek**.
+3. Geef op het tabblad grondbeginselen van de volgende informatie: 
+    1. Type probleem: Selecteer **limieten voor Service en -abonnement (quota)**.
+    2. Abonnementen: Selecteer het abonnement voor de resource die u het quotamaximum te verhogen moet.
+    3. Quotumtype: Selecteer **opslag: Azure Files met NetApp beperkt**.
+    4. Klik op **Next: Oplossingen**.
+4. Op het tabblad Details:
+    1. Geef de volgende informatie voor het bijbehorende brontype in het vak Beschrijving:
+
+        |  Resource  |    Bovenliggende resources      |    Nieuwe grenzen aangevraagd     |    Reden voor verhoging       |
+        |----------------|------------------------------|---------------------------------|------------------------------------------|
+        |  Account |  *Subscription ID*   |  *Aangevraagde nieuwe maximum **account** getal*    |  *Welke scenario of gebruik het geval u hierom wordt gevraagd de aanvraag?*  |
+        |  Groep    |  *Abonnements-ID, Account URI*  |  *Aangevraagde nieuwe maximum **pool** getal*   |  *Welke scenario of gebruik het geval u hierom wordt gevraagd de aanvraag?*  |
+        |  Volume  |  *Abonnements-ID, Account URI, Pool URI*   |  *Aangevraagde nieuwe maximum **volume** getal*     |  *Welke scenario of gebruik het geval u hierom wordt gevraagd de aanvraag?*  |
+
+    2. Geef de juiste methode ondersteund en geef uw contractinformatie.
+
+    3. Klik op **Next: Beoordelen en maken** om de aanvraag te maken. 
+
+
+## <a name="next-steps"></a>Volgende stappen  
+
+- [Informatie over de opslaghiërarchie van Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+- [Model met kosten van Azure NetApp bestanden](azure-netapp-files-cost-model.md)

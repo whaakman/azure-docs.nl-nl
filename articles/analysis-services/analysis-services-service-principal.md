@@ -8,18 +8,20 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708315"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518164"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering met service-principals
 
 Service-principals zijn een Azure Active Directory-toepassingsresource die u in uw tenant maakt om onbeheerde bewerkingen op resource- en serviceniveau uit te voeren. Ze een uniek soort *gebruikersidentiteit* met een toepassings-ID en wachtwoord of certificaat. Een service-principal heeft alleen de machtigingen die nodig zijn voor het uitvoeren van taken die zijn gedefinieerd door de rollen en machtigingen waarvoor deze toegewezen. 
 
 In Analysis Services, service-principals met Azure Automation, PowerShell installatie zonder toezicht, aangepaste toepassingen en web-apps gebruikt om algemene taken te automatiseren. Bijvoorbeeld, inrichting servers, het implementeren van modellen, het vernieuwen van gegevens, schaal omhoog/omlaag en onderbreken/hervatten kan alle worden geautomatiseerd met behulp van service-principals. Machtigingen zijn toegewezen aan service-principals via rollidmaatschap, net als normale UPN van Azure AD-accounts.
+
+Analyseservices biedt ook ondersteuning voor bewerkingen die worden uitgevoerd op beheerde identiteiten met behulp van service-principals. Zie voor meer informatie, [beheerde identiteiten voor een Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) en [Azure-services die ondersteuning voor Azure AD-verificatie](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Service-principals maken
  

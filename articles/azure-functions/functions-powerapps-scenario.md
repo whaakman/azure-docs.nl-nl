@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025715"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786116"
 ---
 # <a name="call-a-function-from-powerapps"></a>Een functie van PowerApps aanroepen
 De [PowerApps](https://powerapps.microsoft.com) platform is ontworpen voor zakelijke deskundigen om apps zonder traditionele toepassingscode te bouwen. Professionele ontwikkelaars kunnen Azure Functions gebruiken om uit te breiden de functionaliteit van PowerApps, terwijl het afschermen van PowerApps-appbouwers van de technische details.
@@ -39,8 +39,7 @@ In dit onderwerp leert u hoe u:
 > * Besturingselementen voor de functie aanroepen en weergeven van gegevens toevoegen.
 > * De app om te bepalen of een herstel rendabele uitvoeren.
 
-> [!IMPORTANT]
-> De OpenAPI-functie is momenteel in preview en is alleen beschikbaar voor versie 1.x van de Azure Functions-runtime.
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 

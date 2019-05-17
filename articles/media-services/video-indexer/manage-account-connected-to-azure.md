@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553579"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799524"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Een Video Indexer-account dat is verbonden met Azure beheren
 
@@ -55,13 +56,13 @@ De **instellingen** pagina kunt u de automatische schaalaanpassing van Media ger
 
 Automatisch schalen schaalt niet 1 RU of hoger dan de standaardlimiet van het Media Services-account. Als u wilt de limiet te verhogen, moet u een serviceaanvraag maken. Zie voor meer informatie over quota en beperkingen en hoe u een ondersteuningsticket [quota en beperkingen](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Aanmelden](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Registreren](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Fouten en waarschuwingen
 
 Als uw account aanpassen moet, ziet u relevante fouten en waarschuwingen over de configuratie van uw account op de **instellingen** pagina. De berichten bevatten koppelingen naar de exacte plaatsen in Azure portal waar u moet wijzigingen aanbrengen. Deze sectie vindt u meer informatie over de fout- en waarschuwingsberichten.
 
-* Event Grid
+* Gebeurtenisraster
 
     U hebt voor het registreren van de EventGrid resourceprovider met behulp van de Azure portal. In de [Azure-portal](https://portal.azure.com/), gaat u naar **abonnementen** > [abonnement] > **resourceproviders en** > **Microsoft.EventGrid**. Als dat niet in de **geregistreerde** staat, klikt u op **registreren**. Het duurt enkele minuten om te registreren. 
 
@@ -69,7 +70,7 @@ Als uw account aanpassen moet, ziet u relevante fouten en waarschuwingen over de
 
     Zorg ervoor dat de onderliggende Media Services-account is de standaardwaarde **Streaming-eindpunt** in de status van een gestart. Anders niet mogelijk om te bekijken van video's vanaf deze Media Services-account of in Video Indexer.
 
-* Gereserveerde media-eenheden 
+* Door media gereserveerde eenheden 
 
     U moet gereserveerde Media-eenheden toewijzen voor uw Media Service-resource in volgorde naar index video's. Voor optimale prestaties indexering, is het raadzaam om toe te wijzen ten minste 10 gereserveerde S3-eenheden. Voor informatie over prijzen, Zie de sectie Veelgestelde vragen over van de [prijzen van Media Services](https://azure.microsoft.com/pricing/details/media-services/) pagina.   
 

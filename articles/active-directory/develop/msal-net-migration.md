@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 028c7f5d42587a6b2129bba07831b0e799d607f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544221"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785205"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Toepassingen te migreren naar MSAL.NET
 
@@ -192,7 +192,7 @@ Dit is omdat de Resource Manager-API een schuine streep in de doelgroep-claim ve
 De logica die wordt gebruikt door Azure AD is het volgende:
 - Voor het eindpunt van de ADAL (v1.0) met een v1.0 access token (de enige mogelijke), aud resource =
 - Voor MSAL (v2.0-eindpunt), waarin wordt gevraagd een toegangstoken voor een resource accepteren v2.0-tokens, aud = resource. Toepassings-id
-- Azure AD wordt de gewenste doelgroep van het aangevraagde bereik voor MSAL (v2.0-eindpunt) waarin wordt gevraagd een toegangstoken voor een resource een toegangstoken v1.0 (dit is de bovenstaande aanvraag) accepteren, geparseerd door te nemen alles vóór de laatste slash en als de resource-id gebruiken. Dus als https://database.windows.net wordt verwacht dat een een publiek van 'https://database.windows.net/', moet u een bereik van aanvragen https://database.windows.net//.default. Zie ook geven #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Bron-url afsluitende schuine streep wordt weggelaten, waardoor sql auth-fout #747
+- Azure AD wordt de gewenste doelgroep van het aangevraagde bereik voor MSAL (v2.0-eindpunt) waarin wordt gevraagd een toegangstoken voor een resource een toegangstoken v1.0 (dit is de bovenstaande aanvraag) accepteren, geparseerd door te nemen alles vóór de laatste slash en als de resource-id gebruiken. Dus als https:\//database.windows.net wordt verwacht dat een een publiek van 'https://database.windows.net/', moet u om aan te vragen van een bereik van https:\//database.windows.net//.default. Zie ook geven #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Bron-url afsluitende schuine streep wordt weggelaten, waardoor sql auth-fout #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Bereiken voor het aanvragen van toegang tot de machtigingen van een toepassing v1.0

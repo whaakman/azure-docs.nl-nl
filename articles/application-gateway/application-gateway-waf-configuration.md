@@ -4,16 +4,15 @@ description: In dit artikel bevat informatie over web application firewall-aanvr
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.workload: infrastructure-services
-ms.date: 1/29/2019
+ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791756"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620287"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web application firewall-aanvraaglimieten grootte en uitsluitingslijsten
 
@@ -25,10 +24,10 @@ De Azure Application Gateway web application firewall (WAF) biedt beveiliging vo
 
 Web Application Firewall kunt u grootte aanvraaglimieten in kleine en bovengrens configureren. De volgende configuraties van de grootte van de twee limieten zijn beschikbaar:
 
-- Het veld voor maximale aanvraag hoofdtekst van de grootte is opgegeven in kB's en besturingselementen algemene aanvraag grootte, met uitzondering van elk bestand wordt geüpload. Dit veld kan variëren van 1 KB minimum aan de maximumwaarde 128 KB. De standaardwaarde voor de aanvraag hoofdtekst van de grootte is 128 KB.
+- Het veld voor maximale aanvraag hoofdtekst van de grootte is opgegeven in kilobytes en besturingselementen algemene aanvraag grootte, met uitzondering van elk bestand wordt geüpload. Dit veld kan variëren van 1 KB minimum aan de maximumwaarde 128 KB. De standaardwaarde voor de aanvraag hoofdtekst van de grootte is 128 KB.
 - Het veld met bestand uploaden limiet is opgegeven in MB en deze verklaring regelt de maximum toegestane bestandsgrootte voor uploaden. Dit veld kan een minimumwaarde van 1 MB en maximaal 500 MB voor grote SKU exemplaren hebben terwijl gemiddeld SKU een maximum van 100 MB heeft. De standaardwaarde voor bestand uploadlimiet is 100 MB.
 
-WAF biedt ook een knop kunnen worden geconfigureerd om in te schakelen van de controle van de hoofdtekst van de aanvraag voor in- of uitschakelen. De aanvraag hoofdtekst van de controle is standaard ingeschakeld. Als de aanvraag hoofdtekst van de controle is uitgeschakeld, WAF niet de inhoud van de hoofdtekst van de HTTP-bericht worden geëvalueerd. In dergelijke gevallen blijft WAF WAF-regels op headers, cookies en URI afgedwongen. Als de aanvraag hoofdtekst van de controle is uitgeschakeld, veld voor maximale aanvraag hoofdtekst van de grootte is niet van toepassing en kan niet worden ingesteld. Uitschakelen van de aanvraag hoofdtekst controle mogelijk voor berichten die groter zijn dan 128 KB worden verzonden naar WAF, maar de berichttekst wordt niet gecontroleerd op beveiligingsproblemen.
+WAF biedt ook een knop kunnen worden geconfigureerd om in te schakelen van de controle van de hoofdtekst van de aanvraag voor in- of uitschakelen. De aanvraag hoofdtekst van de controle is standaard ingeschakeld. Als de aanvraag hoofdtekst van de controle is uitgeschakeld, evalueren niet de inhoud van de hoofdtekst van de HTTP-bericht van WAF. In dergelijke gevallen blijft WAF WAF-regels op headers, cookies en URI afgedwongen. Als de aanvraag hoofdtekst van de controle is uitgeschakeld, veld voor maximale aanvraag hoofdtekst van de grootte is niet van toepassing en kan niet worden ingesteld. Uitschakelen van de aanvraag hoofdtekst controle mogelijk voor berichten die groter zijn dan 128 KB worden verzonden naar WAF, maar de berichttekst wordt niet gecontroleerd op beveiligingsproblemen.
 
 ## <a name="waf-exclusion-lists"></a>WAF-uitsluitingslijsten
 
@@ -40,11 +39,12 @@ De volgende kenmerken kunnen worden toegevoegd aan een lijst met uitgesloten:
 
 * Aanvraagheaders
 * Cookies van de aanvraag
-* Aanvraagtekst
+* Naam van de aanvraag-kenmerk (argumenty)
 
    * Meerdelige formuliergegevens
    * XML
    * JSON
+   * Argumenten voor URL-query
 
 U kunt een exacte aanvraagheader, hoofdtekst, cookie opgeven of kenmerk tekenreeksovereenkomst query.  Of u kunt optioneel gedeeltelijke overeenkomsten opgeven. De uitsluiting is altijd op een headerveld nooit op de waarde ervan. Uitsluitingsregels zijn van toepassing binnen het bereik en van toepassing op alle pagina's en alle regels.
 
@@ -62,37 +62,36 @@ In alle gevallen wordt onderscheid en reguliere expressies zijn niet toegestaan 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-De volgende Azure PowerShell-codefragment ziet u het gebruik van uitsluitingen:
+De volgende voorbeelden ziet het gebruik van uitsluitingen.
+
+### <a name="example-1"></a>Voorbeeld 1
+
+In dit voorbeeld dat u wilt uitsluiten van de gebruikersagent-header. De aanvraagheader gebruikersagent bevat een kenmerkende tekenreeks waarmee de netwerk-protocol peers voor het identificeren van het toepassingstype, besturingssysteem, softwareleverancier of softwareversie van de aanvragende gebruikersagent. Zie voor meer informatie, [gebruikersagent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+
+Er mag een willekeurig aantal redenen om uit te schakelen voor het evalueren van deze header. Er zijn mogelijk een tekenreeks is die de WAF wordt weergegeven en wordt ervan uitgegaan dat het schadelijk is. Bijvoorbeeld, in de klassieke SQL aanval "x = x ' in een tekenreeks. In sommige gevallen kan kan dit legitieme verkeer zijn. Dus als u wilt uitsluiten van deze header van de evaluatieversie van WAF.
+
+De volgende Azure PowerShell-cmdlet niet van toepassing op de kop van de gebruikersagent van de evaluatieversie:
 
 ```azurepowershell
-// exclusion 1: exclude request head start with xyz
-// exclusion 2: exclude request args equals a
-
-$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
-
-$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
-
-// add exclusion lists to the firewall config
-
-$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestHeaderNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "User-Agent"
 ```
 
-De volgende json-fragment ziet u het gebruik van uitsluitingen:
+### <a name="example-2"></a>Voorbeeld 2
 
-```json
-"webApplicationFirewallConfiguration": {
-          "enabled": "[parameters('wafEnabled')]",
-          "firewallMode": "[parameters('wafMode')]",
-          "ruleSetType": "[parameters('wafRuleSetType')]",
-          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
-          "disabledRuleGroups": [],
-          "exclusions": [
-            {
-                "matchVariable": "RequestArgNames",
-                "selectorMatchOperator": "StartsWith",
-                "selector": "a^bc"
-            }
+In dit voorbeeld omvat niet de waarde in de *gebruiker* parameter die in de aanvraag wordt doorgegeven via de URL. Stel bijvoorbeeld dat het is gebruikelijk in uw omgeving voor het veld met de gebruikers bevatten van een tekenreeks is die de WAF-als schadelijke inhoud weergaven zodat deze worden geblokkeerd.  U kunt de parameter van de gebruiker in dit geval uitsluiten zodat de WAF alles in het veld niet evalueren.
+
+De volgende Azure PowerShell-cmdlet niet van toepassing op de parameter van de gebruiker van de evaluatieversie:
+
+```azurepowershell
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestArgNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "user"
 ```
+Dus als de URL **http://www.contoso.com/?user=fdafdasfda** wordt doorgegeven aan de WAF de tekenreeks niet beoordeeld **fdafdasfda**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

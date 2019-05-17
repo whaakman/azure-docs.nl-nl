@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686295"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522319"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database
 
@@ -86,7 +86,7 @@ Wanneer verbindingen start in het beheerde exemplaar (net als bij back-ups en lo
 
 Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele netwerk. Het subnet moet beschikken over deze kenmerken:
 
-- **Toegewezen subnet:** Subnet van het beheerde exemplaar kan niet een andere cloudservice die is gekoppeld aan deze bevatten en mag niet een gatewaysubnet. Het subnet mag niet een resource, maar het beheerde exemplaar en later kunt u resources in het subnet toevoegen.
+- **Toegewezen subnet:** Subnet van het beheerde exemplaar kan niet een andere cloudservice die is gekoppeld aan deze bevatten en mag niet een gatewaysubnet. Het subnet mag niet een resource, maar het beheerde exemplaar en u kunt geen andere typen resources later toevoegen in het subnet.
 - **Netwerkbeveiligingsgroep (NSG):** Een NSG die is gekoppeld aan het virtuele netwerk moet definiëren [inkomende beveiligingsregels](#mandatory-inbound-security-rules) en [uitgaande beveiligingsregels](#mandatory-outbound-security-rules) vóór alle andere regels. U kunt een NSG gebruiken voor het beheren van toegang tot het beheerde exemplaar gegevens eindpunt door te filteren van het verkeer op poort 1433 en poorten 11000-11999 bij het beheerde exemplaar is geconfigureerd voor omleiden van verbindingen.
 - **Gebruiker gedefinieerde route (UDR) tabel:** Een UDR-tabel die is gekoppeld aan het virtuele netwerk moet bevatten specifieke [vermeldingen](#user-defined-routes).
 - **Er is geen service-eindpunten:** Er is geen service-eindpunt moet worden gekoppeld aan het beheerde exemplaar subnet. Zorg ervoor dat de service-eindpunten-optie is uitgeschakeld bij het maken van het virtuele netwerk.
@@ -97,7 +97,7 @@ Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele ne
 
 ### <a name="mandatory-inbound-security-rules"></a>Verplichte beveiligingsregels voor binnenkomend verkeer
 
-| Name       |Poort                        |Protocol|Bron           |Doel|Bewerking|
+| Name       |Poort                        |Protocol|Bron           |Bestemming|Bewerking|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |beheer  |9000, 9003, 1438, 1440, 1452|TCP     |Alle              |MI-SUBNET  |Toestaan |
 |mi_subnet   |Alle                         |Alle     |MI-SUBNET        |MI-SUBNET  |Toestaan |
@@ -105,7 +105,7 @@ Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele ne
 
 ### <a name="mandatory-outbound-security-rules"></a>Verplichte uitgaande beveiligingsregels
 
-| Name       |Poort          |Protocol|Bron           |Doel|Bewerking|
+| Name       |Poort          |Protocol|Bron           |Bestemming|Bewerking|
 |------------|--------------|--------|-----------------|-----------|------|
 |beheer  |80, 443, 12000|TCP     |MI-SUBNET        |AzureCloud |Toestaan |
 |mi_subnet   |Alle           |Alle     |MI-SUBNET        |MI-SUBNET  |Toestaan |

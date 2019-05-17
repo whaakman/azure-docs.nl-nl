@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c1d8104f94d3f215108000b904848f3b968492ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 458d587c7ac73f7c8dacdceae3c9f923263533b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372816"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792547"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Over het beheren van sleutels in QnA Maker
 
@@ -24,7 +24,7 @@ Uw service QnA Maker omgaat met twee soorten sleutels, **abonnementssleutels** e
 
 ![Sleutelbeheer](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Abonnementssleutels**: Deze sleutels worden gebruikt voor toegang tot de [QnA Maker management-service API's](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Deze API's kunt u uitvoeren bewerken van uw knowledge base.  
+1. **Abonnementssleutels**: Deze sleutels worden gebruikt voor toegang tot de [QnA Maker management-service API's](https://go.microsoft.com/fwlink/?linkid=2092179). Deze API's kunt u uitvoeren bewerken van uw knowledge base.  
 
 2. **Eindpunt sleutels**: Deze sleutels worden gebruikt voor toegang tot het eindpunt van de knowledge base voor een antwoord voor de vraag van een gebruiker. Doorgaans gebruikt u dit eindpunt in uw bot chatten of code van de client-toepassing die de QnA Maker-service worden verbruikt.
  

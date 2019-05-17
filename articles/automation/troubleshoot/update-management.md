@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met updatebeheer
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597625"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787697"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
 
@@ -160,6 +160,38 @@ De Hybrid Runbook Worker is niet een zelfondertekend certificaat genereren
 
 Controleer of systeemaccount leestoegang heeft tot map **C:\ProgramData\Microsoft\Crypto\RSA** en probeer het opnieuw.
 
+### <a name="failed-to-start"></a>Scenario: Ziet u een virtuele machine is niet gestart in een update-implementatie
+
+#### <a name="issue"></a>Probleem
+
+Een virtuele machine heeft de status **kan niet worden gestart** voor een virtuele machine. Wanneer u de specifieke details voor de machine bekijkt, ziet u de volgende fout:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout kan optreden vanwege een van de volgende redenen:
+
+* De machine bestaat niet meer.
+* De machine is ingeschakeld, uitgeschakeld en niet bereikbaar.
+* De machine heeft een probleem met de netwerkverbinding en de hybrid worker op de computer niet bereikbaar is.
+* Er is een update voor de Microsoft Monitoring Agent die de SourceComputerId gewijzigd
+* De update-uitvoering zijn mogelijk beperkt als u de taaklimiet van 2000 gelijktijdige in een Automation-Account bereikt. Elke implementatie wordt beschouwd als een taak en elke computer in een aantal update-implementaties als een taak. Elke andere automation-taak of update implementatie momenteel wordt uitgevoerd in de telling van uw Automation-Account voor de taaklimiet voor gelijktijdige.
+
+#### <a name="resolution"></a>Oplossing
+
+Bij het gebruik van toepassing [dynamische groepen](../automation-update-management.md#using-dynamic-groups) voor de update-implementaties.
+
+* Controleer of de machine nog steeds bestaat en bereikbaar is. Als deze niet bestaat, uw implementatie bewerken en verwijderen van de machine.
+* Zie de sectie over [netwerkplanning](../automation-update-management.md#ports) voor een lijst met poorten en -adressen die zijn vereist voor het beheer van updates en controleer of de computer aan deze vereisten voldoet.
+* Voer de volgende query in Log Analytics om te zoeken machines in uw omgeving waarvan `SourceComputerId` gewijzigd. Zoeken naar computers die dezelfde `Computer` waarde, maar verschillende `SourceComputerId` waarde. Als u de betrokken computers hebt gevonden, moet u de update-implementaties die doel van deze machines en verwijderen en opnieuw toevoegen van de machines bewerken zodat de `SourceComputerId` weerspiegelt de juiste waarde.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
 ### <a name="hresult"></a>Scenario: Machine wordt weergegeven als niet beoordeeld en ziet u een uitzondering van HResult
 
 #### <a name="issue"></a>Probleem
@@ -177,7 +209,9 @@ Dubbelklik op de uitzondering in rood om te zien van de gehele uitzonderingsberi
 |Uitzondering  |Oplossing of actie  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Zoeken naar de relevante foutcode in [Windows update code foutenlijst](https://support.microsoft.com/help/938205/windows-update-error-code-list) naar aanvullende informatie vinden over de oorzaak van de uitzondering.        |
-|`0x8024402C` of `0x8024401C`     | Deze fouten zijn problemen met de netwerkverbinding. Zorg ervoor dat uw computer de juiste netwerkverbinding met updatebeheer heeft. Zie de sectie over [netwerkplanning](../automation-update-management.md#ports) voor een lijst met poorten en -adressen die vereist zijn.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Deze fouten zijn problemen met de netwerkverbinding. Zorg ervoor dat uw computer de juiste netwerkverbinding met updatebeheer heeft. Zie de sectie over [netwerkplanning](../automation-update-management.md#ports) voor een lijst met poorten en -adressen die vereist zijn.        |
+|`0x8024001E`| De updatebewerking is niet voltooid omdat de service of het systeem werd afgesloten.|
+|`0x8024002E`| Windows Update-service is uitgeschakeld.|
 |`0x8024402C`     | Als u van een WSUS-server gebruikmaakt, controleert u of de registerwaarden voor `WUServer` en `WUStatusServer` onder de registersleutel `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` hebt u de juiste WSUS-server.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Zorg ervoor dat de Windows Update-service (wuauserv) wordt uitgevoerd en niet is uitgeschakeld.        |
 |Andere algemene uitzondering     | Voer een zoekopdracht uit op het internet voor de mogelijke oplossingen en werken met uw lokale IT-ondersteuning.         |

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599814"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602063"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -83,7 +83,7 @@ Een Ubuntu 16.04.2 minimaal 64-bit ISO behouden in het DVD-station en start het 
 1. Selecteer **Nee** (de standaardoptie), en selecteer vervolgens **Enter**.
 
      ![Het toetsenbord configureren](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selecteer **Engels (V.S.)** als het land van oorsprong van het toetsenbord en selecteer vervolgens **Enter**.
+1. Selecteer **Engels (V.S.)** als het land/de regio van herkomst van het toetsenbord en selecteer vervolgens **Enter**.
 
 1. Selecteer **Engels (V.S.)** als de toetsenbordindeling en selecteer vervolgens **Enter**.
 
@@ -262,7 +262,7 @@ Gebruik de volgende stappen uit om te maken van een bewaarschijf:
     
     Selecteer **invoegen** om te beginnen met het bestand te bewerken. Maak een nieuwe regel en voeg vervolgens de volgende tekst. Bewerk de schijf multipath-ID op basis van de gemarkeerde multipath-ID van de vorige opdracht.
 
-     **/dev/mapper/ <Retention disks multipath id> /mnt/retentie ext4 rw 0 0**
+    **/dev/mapper/\<retentie schijven multipath-id >/mnt/retentie ext4 rw 0 0**
 
     Selecteer **Esc**, en typ vervolgens **: wq** (schrijven en afsluiten) om de editorvenster te sluiten.
 

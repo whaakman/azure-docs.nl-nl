@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548630"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791928"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
@@ -64,7 +64,7 @@ U kunt Azure SQL-databases en databases exemplaar instellen om de volgende diagn
 
 | Telemetrie voor databases bewaken | Individuele databases en gepoolde database-ondersteuning | Ondersteuning voor Instance-database |
 | :------------------- | ----- | ----- |
-| [Alle metrische gegevens](#all-metrics): Bevat DTU/CPU-percentage, DTU/CPU-limiet, fysieke logboek schrijven gegevens gelezen percentage, percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage en XTP-opslagpercentage. | Ja | Nee |
+| [Basismetriek](#basic-metrics): Bevat DTU/CPU-percentage, DTU/CPU-limiet, fysieke logboek schrijven gegevens gelezen percentage, percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage en XTP-opslagpercentage. | Ja | Nee |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Bevat informatie over de query duur statistieken en de query-runtime-statistieken, zoals CPU-gebruik. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Bevat informatie over de query-wait-statistieken (wat uw query's gewacht op) zoals CPU, het logboek en VERGRENDELEN zijn. | Ja | Ja |
 | [Fouten](#errors-dataset): Bevat informatie over SQL-fouten op een database. | Ja | Ja |
@@ -93,7 +93,7 @@ U kunt een elastische pool-resource instellen om de volgende diagnostische gegev
 
 | Resource | Bewaking van telemetrie |
 | :------------------- | ------------------- |
-| **Elastische pool** | [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics) bevat eDTU/CPU-percentage, eDTU/CPU-limiet, fysieke gegevens gelezen percentage, logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag en XTP-opslagpercentage. |
+| **Elastische pool** | [Basismetriek](sql-database-metrics-diag-logging.md#basic-metrics) bevat eDTU/CPU-percentage, eDTU/CPU-limiet, fysieke gegevens gelezen percentage, logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag en XTP-opslagpercentage. |
 
 Als u wilt configureren met het streamen van diagnostische gegevens telemetrie voor elastische pools en databases in elastische pools, moet u afzonderlijk configureren **beide** van de volgende:
 
@@ -113,7 +113,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 1. Voer een instellingnaam in voor uw eigen referentie.
 1. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
 1. Selecteer voor log analytics, **configureren** en een nieuwe werkruimte maken door te selecteren **+ nieuwe werkruimte maken**, of Selecteer een bestaande werkruimte.
-1. Schakel het selectievakje voor telemetrie voor elastische Pools diagnostische gegevens: **AllMetrics**.
+1. Schakel het selectievakje voor telemetrie voor elastische Pools diagnostische gegevens: **Basic** metrische gegevens.
    ![Diagnostische gegevens voor elastische pools configureren](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Selecteer **Opslaan**.
 1. Configureer bovendien streaming van diagnostische gegevens telemetrie voor elke database in de elastische groep die u wilt bewaken door de volgende stappen wordt beschreven in de volgende sectie.
@@ -137,7 +137,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 1. Voer een instellingnaam in voor uw eigen referentie.
 1. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
 1. Voor de standaard, op basis van gebeurtenissen bewakingservaring, selecteert u de volgende selectievakjes uit voor databasetelemetrie diagnostische gegevens over log: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **fouten** , **DatabaseWaitStatistics**, **time-outs**, **blokken**, en **impassen**.
-1. Voor een geavanceerde, op basis van een-minuut bewakingservaring, schakel het selectievakje voor **AllMetrics**.
+1. Voor een geavanceerde, op basis van een-minuut bewakingservaring, schakel het selectievakje voor **Basic** metrische gegevens.
    ![Configureren van diagnostische gegevens voor één, gepoold of databases-exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selecteer **Opslaan**.
 1. Herhaal deze stappen voor elke database die u wilt bewaken.
@@ -385,7 +385,7 @@ Of eenvoudiger gezegd:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Bijvoorbeeld, kan een blobnaam voor alle metrische gegevens zijn:
+Bijvoorbeeld, kan een blobnaam voor eenvoudige metrische gegevens zijn:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Als u van Azure SQL Analytics gebruikmaakt, kunt u uw gegevensverbruik voor opna
 
 Bewaking telemetrie beschikbaar voor Azure SQL Database, wordt elastische pools en beheerd exemplaar hieronder beschreven. Verzamelde bewaking telemetrie in SQL-analyse kan worden gebruikt voor uw eigen aangepaste analyse en de toepassing ontwikkeling met [logboeken-query's van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) taal.
 
-## <a name="all-metrics"></a>Alle metrische gegevens
+## <a name="basic-metrics"></a>Basismetriek
 
-Raadpleeg de volgende tabellen voor meer informatie over alle metrische gegevens per resource.
+Raadpleeg de volgende tabellen voor meer informatie over algemene metrische gegevens per resource.
 
-### <a name="all-metrics-for-elastic-pools"></a>Alle metrische gegevens voor elastische pools
+> [!NOTE]
+> Basismetriek optie was voorheen bekend als alle metrische gegevens. De wijzigingen zijn aangebracht aan de naamgeving alleen is en er is geen wijziging in de gecontroleerde metrische gegevens. Deze wijziging is gestart om toe te staan voor de introductie van de categorieën voor aanvullende metrische gegevens in de toekomst.
+
+### <a name="basic-metrics-for-elastic-pools"></a>Algemene metrische gegevens voor elastische pools
 
 |**Resource**|**Metrische gegevens**|
 |---|---|
 |Elastische pool|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Alle metrische gegevens voor Azure SQL-Databases
+### <a name="basic-metrics-for-azure-sql-databases"></a>Algemene metrische gegevens voor Azure SQL-Databases
 
 |**Resource**|**Metrische gegevens**|
 |---|---|
 |Azure SQL-database|DTU-percentage, DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, percentage van XTP-opslag, en impassen |
 
-## <a name="all-logs"></a>Alle logboeken
+## <a name="basic-logs"></a>Basic-Logboeken
 
 Details van telemetrie beschikbaar voor alle logboeken worden beschreven in de onderstaande tabellen. Raadpleeg [ondersteund registratie in diagnoselogboek](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) om te begrijpen welke logboeken worden ondersteund voor een bepaalde database smaak - Azure SQL-één, gegroepeerd, of database-exemplaar.
 
@@ -458,7 +461,7 @@ Details van telemetrie beschikbaar voor alle logboeken worden beschreven in de o
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -547,7 +550,7 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 
 ### <a name="errors-dataset"></a>Gegevensset voor fouten
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |

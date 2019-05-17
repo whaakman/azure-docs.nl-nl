@@ -4,16 +4,16 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461315"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211957"
 ---
-## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Sleutel transacties (maximum aantal transacties die zijn toegestaan in 10 seconden kluis per regio<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Sleutel transacties (maximum aantal transacties die zijn toegestaan in 10 seconden kluis per regio<sup>1</sup>):
 
-|Type sleutel|HSM-sleutel<br>Sleutel maken|HSM-sleutel<br>Alle andere transacties|Softwaresleutel<br>Sleutel maken|Softwaresleutel<br>Alle andere transacties|
+|Sleuteltype|HSM-sleutel<br>Sleutel maken|HSM-sleutel<br>Alle andere transacties|Softwaresleutel<br>Sleutel maken|Softwaresleutel<br>Alle andere transacties|
 |:---|---:|---:|---:|---:|
 |RSA 2048-bits|5|1000|10|2,000|
 |RSA 3.072-bits|5|250|10|500|
@@ -34,7 +34,7 @@ ms.locfileid: "60461315"
 > - Transacties van 125 4.096 RSA-bits HSM-sleutel ophalen
 > - 124 4.096 RSA-bits-HSM-sleutel GET-transacties en transacties van 8 RSA 2048-bits HSM-sleutel ophalen
 
-## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Geheimen, door beheerde opslagaccountsleutels en vault-transacties:
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Geheimen, door beheerde opslagaccountsleutels en vault-transacties:
 | Type transacties | Maximum aantal transacties die zijn toegestaan in 10 seconden kluis per regio<sup>1</sup> |
 | --- | --- |
 | Alle transacties |2,000 |

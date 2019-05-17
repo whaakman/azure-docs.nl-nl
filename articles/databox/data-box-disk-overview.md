@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 05/15/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 20b8d7a6a7d6da639481045d9462c484b820a4df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 194f2b80e9cbf3a69fef6ce382e6755934f1d5bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575827"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787443"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
 
@@ -87,27 +87,12 @@ Ga naar [Azure Data Box Disk-beveiliging en -gegevensbescherming](data-box-disk-
 |Beheer                                               | Azure Portal |
 
 
-## <a name="region-availability"></a>Beschikbaarheid in regio’s
+## <a name="region-availability"></a>Beschikbaarheid voor de regio
 
-Op dit moment kan Data Box Disk gegevens overdragen naar de volgende Azure-regio's:
-
-
-|Azure-regio  |Azure-regio  |
-|---------|---------|
-|US - west-centraal     |Canada - midden       |        
-|US - west 2     |Canada - oost         |     
-|US - west     | Europa -west        |      
-|US - zuid-centraal   |Europa - noord     |         
-|US - centraal     |Australië - oost|
-|US - noord-centraal  |Australië - zuidoost   |
-|US - oost      |Australië - centraal |
-|US - oost 2     |Australië - centraal 2|
-|Japan - oost     |Korea - centraal |
-|Japan - west     |Korea - zuid |
-|Azië - zuidoost |
+Ga voor informatie over de beschikbaarheid van regio naar [Azure-producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 
 Ga naar de [pagina met prijzen](https://azure.microsoft.com/pricing/details/databox/disk/) voor informatie over prijzen.
 

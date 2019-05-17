@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a5e1ed89b6330a0b6a49cb20d8bf0ef3587d48
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074738"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784942"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Web-app dat aanroepen van web-API's - code configureren
 
@@ -184,7 +184,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>Cache MSAL.NET Token voor een webtoepassing voor ASP.NET (kernen)
 
-In de web-apps (of web-API's als een kwestie van feiten), de implementatie-tokencache wijkt af van de bureaubladtoepassingen tokencache-implementaties (die zijn vaak [bestand op basis van](scenario-desktop-acquire-token.md#file-based-token-cache). Het kan de sessie ASP.NET/ASP.NET Core, of een Redis-cache, of een database of zelfs Azure BLOB-opslag gebruiken. In de code fragment boven dit is het object van de `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` aanroepen van de methode die wordt gebonden een cacheservice. De details van wat er gebeurt hier valt buiten het bereik van deze handleiding scenario, maar vindt u koppelingen hieronder.
+In de web-apps (of web-API's als een kwestie van feiten), de implementatie-tokencache wijkt af van de bureaubladtoepassingen tokencache-implementaties (die zijn vaak [bestand op basis van](scenario-desktop-acquire-token.md#file-based-token-cache). Het kan de sessie ASP.NET/ASP.NET Core, of een Redis-cache, of een database of zelfs Azure Blob-opslag gebruiken. In de code fragment boven dit is het object van de `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` aanroepen van de methode die wordt gebonden een cacheservice. De details van wat er gebeurt hier valt buiten het bereik van deze handleiding scenario, maar vindt u koppelingen hieronder.
 
 > [!IMPORTANT]
 > Een zeer belangrijke dingen om te profiteren van is dat voor web-Apps en web-API's, moet er een tokencache per gebruiker (per account). U moet de tokencache voor elk account serialiseren.

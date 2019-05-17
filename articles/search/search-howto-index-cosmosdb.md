@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024728"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522840"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexeren van Cosmos DB met behulp van een Azure Search-indexeerfunctie
+
+
+> [!Note]
+> Ondersteuning voor MongoDB-API is in preview en niet bedoeld voor gebruik in productieomgevingen. De [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) biedt deze functie. Er is geen portal of de .NET SDK-ondersteuning op dit moment.
+>
+> SQL-API is algemeen beschikbaar.
 
 Dit artikel leest u hoe het configureren van een Azure Cosmos DB [indexeerfunctie](search-indexer-overview.md) inhoud uit te pakken en kunt u in Azure Search kan worden doorzocht. Deze werkstroom wordt gemaakt van een Azure Search-index en geladen met de bestaande tekst die is geëxtraheerd uit Azure Cosmos DB. 
 
@@ -26,7 +32,7 @@ Omdat terminologie kan verwarrend zijn, is het vermelden waard dat [Azure Cosmos
 U kunt de [portal](#cosmos-indexer-portal), REST-API's of .NET SDK om Cosmos-inhoud te indexeren. De Cosmos DB-indexeerfunctie in Azure Search kan worden verkend [Azure Cosmos-items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) toegankelijk is via deze protocollen:
 
 * [SQL-API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [MongoDB-API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search-ondersteuning voor deze API is in openbare preview-versie)  
+* [MongoDB-API (preview)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > Uservoice heeft bestaande artikelen voor aanvullende API-ondersteuning. U kunt een stem voor de Cosmos-API's die u graag zou willen zien in Azure Search ondersteunde cast-conversie uitvoeren: [Table-API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra-API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
@@ -118,7 +124,7 @@ Wanneer het indexeren is voltooid, kunt u [Search explorer](search-explorer.md) 
 
 U kunt de REST-API voor indexering van gegevens door Azure Cosmos DB, een gemeenschappelijke driedelige-werkstroom te volgen voor alle indexeerfuncties in Azure Search: maken van een gegevensbron, een index maken, een indexeerfunctie maken. Ophalen van gegevens uit de opslag van Cosmos treedt op wanneer u de indexeerfunctie maken-aanvraag indienen. Nadat deze aanvraag is voltooid, hebt u een index waarin u kunt zoeken. 
 
-Als u MongoDB evalueert, moet u de REST-API gebruiken om de gegevensbron te maken.
+Als u MongoDB evalueert, moet u de REST `api-version=2019-05-06-Preview` te maken van de gegevensbron.
 
 U kunt in uw Cosmos DB-account of u wilt dat de verzameling moeten worden alle documenten automatisch te indexeren. Standaard alle documenten automatisch worden geïndexeerd, maar u kunt automatische indexering uitschakelen. Wanneer indexeren is uitgeschakeld, documenten zijn toegankelijk via alleen hun Self link-elementen of door query's met behulp van het document-id. Azure Search is vereist voor Cosmos DB automatische indexering zijn ingeschakeld in de verzameling die door Azure Search worden geïndexeerd. 
 
@@ -170,7 +176,7 @@ De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder 
 
 | Veld   | Description |
 |---------|-------------|
-| **De naam** | Vereist. Kies een naam voor uw data source-object. |
+| **name** | Vereist. Kies een naam voor uw data source-object. |
 |**type**| Vereist. Moet `cosmosdb`. |
 |**credentials** | Vereist. Moet u een Cosmos DB-verbindingsreeks.<br/>Voor de SQL-collecties zijn tekenreeksen voor databaseverbindingen in deze indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Voor MongoDB-verzamelingen toevoegen **API-soort MongoDb =** op de verbindingstekenreeks:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Vermijd poortnummers in de eindpunt-url. Als u het poortnummer opgeeft, worden Azure Search kan geen index van uw Azure Cosmos DB-database.|
 | **container** | Bevat de volgende elementen: <br/>**name**: Vereist. Geef de ID van de databaseverzameling worden geïndexeerd.<br/>**query**: Optioneel. U kunt een query voor het samenvoegen van een willekeurige JSON-document in een vast schema dat Azure Search kunt indexeren.<br/>Query's worden niet ondersteund voor MongoDB-verzamelingen. |
@@ -279,7 +285,7 @@ Bekijk voor meer informatie over de indexeerfunctie maken API [indexeerfunctie m
 
 ## <a name="use-net"></a>.NET gebruiken
 
-De .NET SDK is volledig pariteit met de REST-API. Het is raadzaam om de vorige sectie van de REST-API om te leren van concepten, werkstromen en vereisten te controleren. U kunt vervolgens verwijzen naar de volgende .NET API-referentiedocumentatie voor het implementeren van een JSON-indexeerfunctie in beheerde code.
+De algemeen beschikbare SDK voor .NET heeft volledige pariteit met de REST-API algemeen beschikbaar. Het is raadzaam om de vorige sectie van de REST-API om te leren van concepten, werkstromen en vereisten te controleren. U kunt vervolgens verwijzen naar de volgende .NET API-referentiedocumentatie voor het implementeren van een JSON-indexeerfunctie in beheerde code.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ Het volgende voorbeeld wordt een gegevensbron met een beleid voor voorlopig verw
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>Deze video bekijken
-
-In deze enigszins oudere 7 minuten durende video Azure Cosmos DB Program Manager Andrew Liu ziet u hoe u een Azure Search-index toevoegen aan een Azure Cosmos DB-container. De portal-pagina's wordt weergegeven in de video verouderd zijn, maar de informatie die relevant is.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>Volgende stappen
 

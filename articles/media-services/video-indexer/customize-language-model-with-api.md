@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ef5354a94ae707df8dd1f2767efe04dfbacd7ad
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553739"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799594"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Een taalmodel met Video Indexer-API's aanpassen
 
@@ -59,7 +60,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 |modelName|string|Ja|De naam van het taalmodel|
 |language|string|Ja|De taal van het taalmodel. <br/>De **taal** parameter moet de taal in de indeling van de BCP-47 van 'taal tag-gebied' krijgen (bijvoorbeeld: 'en-US'). Ondersteunde talen zijn Engels (en-US), Duits (nl-nl), Spaans (es-SP), Arabisch (ar-bijvoorbeeld), Frans (fr-FR), Hindi (High-Hallo), Italiaans (it-IT), Japans (ja-JP), Portugees (pt-BR), Russisch (ru-RU/s) en Chinees (zh-CN).  |
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Als u wilt uploaden van bestanden worden toegevoegd aan het taalmodel, moet u de bestanden in de hoofdtekst met formuliergegevens naast het opgeven van de waarden voor de bovenstaande vereiste parameters uploaden. Er zijn twee manieren om dit te doen: 
 
@@ -129,7 +130,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |modelId|string|Ja|De taal model-id (gegenereerd wanneer het taalmodel wordt gemaakt).|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -194,7 +195,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 |modelId|string|Ja|De taal model-id (gegenereerd wanneer het taalmodel wordt gemaakt).|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -238,7 +239,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |modelName|string|Nee|Nieuwe naam die u tot het model geven kunt|
 |inschakelen|booleaans|Nee|Kiezen of alle bestanden onder dit model worden ingeschakeld (true) of uitgeschakeld (ONWAAR)|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Als u wilt uploaden van bestanden worden toegevoegd aan het taalmodel, moet u de bestanden in de hoofdtekst met formuliergegevens naast het opgeven van de waarden voor de bovenstaande vereiste parameters uploaden. Er zijn twee manieren om dit te doen: 
 
@@ -308,7 +309,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileName|string|Nee|Naam van de bestandsnaam om te werken|
 |inschakelen|booleaans|Nee|Bijwerken of dit bestand is (true) of uitgeschakeld (ONWAAR) in het taalmodel|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -355,7 +356,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |modelId|string|Ja|De taal model-id (gegenereerd wanneer het taalmodel wordt gemaakt).|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -419,7 +420,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |accountID|string|Ja|Unieke id voor de account|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -492,7 +493,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 |fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -529,7 +530,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -578,7 +579,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody 
+### <a name="request-body"></a>Aanvraagtekst 
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 

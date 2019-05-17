@@ -10,39 +10,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596603"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522213"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure Monitor voor virtuele machines (preview): veelgestelde vragen
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Azure Monitor voor virtuele machines. Als u aanvullende vragen over de oplossing hebt, gaat u naar de [discussieforum](https://feedback.azure.com/forums/34192--general-feedback) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>Kan ik toevoegen aan een bestaande werkruimte?
-Als uw virtuele machines al met een Log Analytics-werkruimte verbonden zijn, u kunt blijven gebruiken die werkruimte wanneer het voorbereiden op Azure-Monitor voor virtuele machines, mits deze is in een van de ondersteunde regio's die worden vermeld [hier](vminsights-onboard.md#prerequisites).
+Als uw virtuele machines al met een Log Analytics-werkruimte verbonden zijn, u kunt blijven gebruiken die werkruimte wanneer het voorbereiden op Azure-Monitor voor virtuele machines, mits deze is in een van de ondersteunde regio's die worden vermeld [hier](vminsights-enable-overview.md#prerequisites).
 
 Wanneer onboarding, we configureert prestatiemeteritems voor de werkruimte die zorgt ervoor dat alle virtuele machines waarvoor gegevens zijn gerapporteerd aan de werkruimte om te beginnen met het verzamelen van deze informatie voor het weergeven en analyseren in Azure Monitor voor virtuele machines.  Als gevolg hiervan, ziet u de prestatiegegevens van alle virtuele machines die zijn verbonden met de geselecteerde werkruimte.  De status en kaart-functies zijn alleen ingeschakeld voor de virtuele machines die u hebt opgegeven om te onboarden.
 
-Voor meer informatie over welke prestaties prestatiemeteritems zijn ingeschakeld, raadpleegt u onze [onboarding](vminsights-onboard.md) artikel.
+Voor meer informatie over welke prestaties prestatiemeteritems zijn ingeschakeld, raadpleegt u onze [overzicht inschakelen](vminsights-enable-overview.md#performance-counters-enabled) artikel.
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>Kan ik toevoegen aan een nieuwe werkruimte? 
-Als uw VM's momenteel niet met een bestaande Log Analytics-werkruimte verbonden zijn, moet u een nieuwe werkruimte maken voor het opslaan van uw gegevens.  Het maken van een nieuwe standaardwerkruimte gebeurt automatisch als u één Azure-VM voor Azure Monitor voor VM's via Azure portal configureren.
+Als uw VM's momenteel niet met een bestaande Log Analytics-werkruimte verbonden zijn, moet u een nieuwe werkruimte maken voor het opslaan van uw gegevens. Het maken van een nieuwe standaardwerkruimte gebeurt automatisch als u één Azure-VM voor Azure Monitor voor VM's via Azure portal configureren.
 
-Als u ervoor kiest om de methode op basis van een script te gebruiken, als volgt worden behandeld in de [onboarding](vminsights-onboard.md) artikel. 
+Als u ervoor kiest om de methode op basis van een script te gebruiken, als volgt worden behandeld in de [inschakelen Azure Monitor voor virtuele machines (preview) met behulp van Azure PowerShell of Resource Manager-sjabloon](vminsights-enable-at-scale-powershell.md) artikel. 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Wat moet ik doen als mijn virtuele machine is al aan een bestaande werkruimte rapporteren?
 Als u al gegevens van uw virtuele machines verzamelen, u mogelijk al hebt geconfigureerd het rapport gegevens naar een bestaande Log Analytics-werkruimte.  Als deze werkruimte zich in een van onze ondersteunde regio's, kunt u Azure Monitor inschakelen voor virtuele machines aan die vooraf bestaande werkruimte.  Als de werkruimte die u al gebruikt zich niet in een van onze ondersteunde regio's, kunt u zich niet voor Onboarding van Azure Monitor voor virtuele machines op dit moment.  We werken actief ter ondersteuning van extra regio's.
 
 >[!NOTE]
->We configureert prestatiemeteritems voor de werkruimte die van invloed is op alle VM's die aan de werkruimte rapporteren, ongeacht of u hebt gekozen voor de onboarding ze naar Azure Monitor voor virtuele machines of niet. Raadpleeg voor meer informatie over hoe de prestatiemeteritems zijn geconfigureerd voor de werkruimte, onze [documentatie](../../azure-monitor/platform/data-sources-performance-counters.md). Raadpleeg voor informatie over de items die zijn geconfigureerd voor Azure Monitor voor virtuele machines, onze [inleidende documentatie](vminsights-onboard.md#performance-counters-enabled).  
+>We configureert prestatiemeteritems voor de werkruimte die van invloed is op alle VM's die aan de werkruimte rapporteren, ongeacht of u hebt gekozen voor de onboarding ze naar Azure Monitor voor virtuele machines of niet. Raadpleeg voor meer informatie over hoe de prestatiemeteritems zijn geconfigureerd voor de werkruimte, onze [documentatie](../../azure-monitor/platform/data-sources-performance-counters.md). Raadpleeg voor informatie over de items die zijn geconfigureerd voor Azure Monitor voor virtuele machines, onze [Azure Monitor inschakelen voor virtuele machines](vminsights-enable-overview.md#performance-counters-enabled) artikel.  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Waarom is mijn virtuele machine voor onboarding mislukt?
 Wanneer onboarding van een Azure-VM vanuit de Azure-portal, de volgende stappen plaats:
 
 * Een standaard Log Analytics-werkruimte is gemaakt, als die optie hebt geselecteerd.
-* De prestatiemeteritems zijn geconfigureerd voor de geselecteerde werkruimte. Als deze stap mislukt, ziet u dat sommige van de van prestatiegrafieken en tabellen gegevens worden niet voor de virtuele machine weergegeven onboarding. U kunt dit oplossen door het uitvoeren van het PowerShell-script beschreven [hier](vminsights-onboard.md#enable-with-powershell).
+* De prestatiemeteritems zijn geconfigureerd voor de geselecteerde werkruimte. Als deze stap mislukt, ziet u dat sommige van de van prestatiegrafieken en tabellen gegevens worden niet voor de virtuele machine weergegeven onboarding. U kunt dit oplossen door het uitvoeren van het PowerShell-script beschreven [hier](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * De Log Analytics-agent is geïnstalleerd op virtuele Azure-machines met behulp van een VM-extensie, als dat nodig is vastgesteld.  
 * De Azure-Monitor voor agent voor afhankelijkheden voor virtuele machines-kaart is geïnstalleerd op virtuele Azure-machines met de extensie, als dat nodig is vastgesteld.  
 * Azure Monitor-onderdelen ondersteuning van de Health-functie zijn geconfigureerd, indien nodig, en de virtuele machine is geconfigureerd voor de gezondheid van rapportgegevens.
@@ -89,7 +89,7 @@ Drempelwaarden voor de volgende criteria voor Linux-status zijn gewijzigd, niet 
 Regels voor waarschuwingen die zijn gedefinieerd voor elk criterium status worden niet weergegeven in de Azure-portal. U kunt inschakelen of uitschakelen van een statuswaarschuwing voor de regel alleen in de [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Bovendien kunt u niet toewijzen een [Azure Monitor actiegroep](../../azure-monitor/platform/action-groups.md) voor de gezondheid van waarschuwingen in Azure portal. U kunt alleen de melding instelling-API gebruiken voor het configureren van een actiegroep wordt geactiveerd wanneer een statuswaarschuwing wordt geactiveerd. Op dit moment kunt u actiegroepen op basis van een virtuele machine toewijzen zodat alle *statusmeldingen* dezelfde actiegroepen op basis van de VM-trigger wordt geactiveerd. In tegenstelling tot traditionele Azure-waarschuwingen is er geen concept van een aparte actiegroep voor elke status waarschuwingsregel. Bovendien worden alleen actiegroepen die zijn geconfigureerd voor e-mailadres of SMS-berichten ondersteund wanneer de gezondheid van waarschuwingen worden geactiveerd. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Ik zie niet sommige of alle gegevens in de prestatiegrafieken voor mijn virtuele machine
-Als er geen prestatiegegevens in de tabel schijf of in enkele van de van prestatiegrafieken en vervolgens uw prestatiemeteritems kunnen niet worden geconfigureerd in de werkruimte. Als u wilt oplossen, voert u de volgende [PowerShell-script](vminsights-onboard.md#enable-with-powershell).
+Als er geen prestatiegegevens in de tabel schijf of in enkele van de van prestatiegrafieken en vervolgens uw prestatiemeteritems kunnen niet worden geconfigureerd in de werkruimte. Als u wilt oplossen, voert u de volgende [PowerShell-script](vminsights-enable-at-scale-powershell.md#enable-with-powershell).
 
 ## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Hoe verschilt Azure Monitor voor de functie voor toewijzing van virtuele machines van Serviceoverzicht?
 De Azure-Monitor voor de functie voor toewijzing van virtuele machines is gebaseerd op Service Map, maar heeft de volgende verschillen:
@@ -138,4 +138,4 @@ Als u Azure Monitor hebt geconfigureerd met een Log Analytics-werkruimte met de 
 In dit geval wordt er een bericht met de **nu proberen** wanneer u de virtuele machine openen en selecteer de optie **inzichten (preview)** in het linkervenster, zelfs nadat deze is al is geïnstalleerd op de virtuele machine.  Echter, u niet gevraagd met opties als normaal gesproken optreden zou als deze virtuele machine niet toegevoegd aan Azure-Monitor voor virtuele machines zijn. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Beoordeling [ingebouwde Azure-Monitor voor virtuele machines](vminsights-onboard.md) voor informatie over vereisten en methoden voor bewaking van uw virtuele machines wilt inschakelen.
+Beoordeling [Azure Monitor inschakelen voor virtuele machines](vminsights-enable-overview.md) voor informatie over vereisten en methoden voor bewaking van uw virtuele machines wilt inschakelen.

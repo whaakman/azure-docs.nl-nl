@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dedef2d22df9c8c81410296bdb0c4814bd98b80
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507119"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785061"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>Web-API die aanroepen van web-API's - code configureren
 
 Nadat u uw web-API hebt geregistreerd, kunt u de code voor de toepassing configureren.
 
-De code voor het configureren van uw web-API, zodat wordt de downstream web-API's voortbouwt op de code die wordt gebruikt om een web-API. Zie voor meer informatie, [beveiligde web-API - app-configuratie](scenario-protected-web-api-app-configuration.md).
+De code voor het configureren van uw web-API, zodat wordt de downstream web-API's voortbouwt op de code die wordt gebruikt voor het beveiligen van een web-API. Zie voor meer informatie, [beveiligde web-API - app-configuratie](scenario-protected-web-api-app-configuration.md).
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>Code die zijn geabonneerd op OnTokenValidated
 
@@ -74,7 +74,7 @@ De methode AddAccountToCacheFromJwt() moet:
 
 ### <a name="instantiate-a-confidential-client-application"></a>Exemplaar maken van een vertrouwelijke client-toepassing
 
-Deze stroom is alleen beschikbaar in de vertrouwelijke clientstroom, zodat de beveiligde web-API biedt clientreferenties (clientgeheim of certificaat) voor de [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) via de `WithClientSecret` of `WithCertificate`methoden, respectievelijk.
+Deze stroom is alleen beschikbaar in de vertrouwelijke clientstroom, zodat de beveiligde web-API biedt clientreferenties (clientgeheim of certificaat) voor de [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via de `WithClientSecret` of `WithCertificate`methoden, respectievelijk.
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -96,7 +96,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ### <a name="how-to-call-on-behalf-of"></a>Over het aanroepen van on-behalf-of
 
-De on-behalf-of (OBO)-aanroep wordt gedaan door het aanroepen van de [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) methode voor het `IConfidentialClientApplication` interface.
+De on-behalf-of (OBO)-aanroep wordt gedaan door het aanroepen van de [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) methode voor het `IConfidentialClientApplication` interface.
 
 De `ClientAssertion` wordt samengesteld uit het bearer-token dat is ontvangen door de web-API van een eigen clients. Er zijn [twee constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), één waarmee een JWT bearer-token en één die met elk soort verklaring van de gebruiker (een ander soort beveiligingstoken, welk type vervolgens is opgegeven in een extra parameter met de naam `assertionType`).
 

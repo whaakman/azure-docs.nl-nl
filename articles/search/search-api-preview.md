@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 91c58507d8758a65772110afba71354deecd3b12
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024287"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523908"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Azure Search Service REST-api-versie 2019-05-06-Preview
 In dit artikel beschrijft de `api-version=2019-05-06-Preview` versie van Azure Search service REST API, biedt experimentele functies die nog niet algemeen beschikbaar.
@@ -37,6 +37,8 @@ In dit artikel beschrijft de `api-version=2019-05-06-Preview` versie van Azure S
 Functies die in eerdere previews is aangekondigd zijn nog steeds in openbare preview. Als u een API met een eerdere voorbeeld-api-versie bellen, kunt u blijven gebruiken die versie of schakel over naar `2019-05-06-Preview` zonder wijzigingen in het verwachte gedrag.
 
 + [queryparameter moreLikeThis](search-more-like-this.md) worden documenten gevonden die relevant voor een bepaald document zijn. Deze functie is al in de eerdere voorbeelden. 
+* [Indexeren van CSV-blob](search-howto-index-csv-blobs.md) maakt u een document per regel, in plaats van een document per blob tekst.
+* [Ondersteuning voor MongoDB-API voor Cosmos DB-indexeerfuncties](search-howto-index-cosmosdb.md) is beschikbaar als preview.
 
 
 ## <a name="how-to-call-a-preview-api"></a>Over het aanroepen van een preview-API

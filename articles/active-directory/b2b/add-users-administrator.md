@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414555"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812834"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Gebruikers van Azure Active Directory B2B-samenwerking toevoegen in Azure portal
 
@@ -27,11 +27,15 @@ Nadat u een gastgebruiker aan de directory toevoegen, u kunt ofwel de gastgebrui
 > [!IMPORTANT]
 > U moet de stappen in [procedures: Privacy-informatie van uw organisatie toevoegen in Azure Active Directory](https://aka.ms/adprivacystatement) om toe te voegen van de URL van privacyverklaring van uw organisatie. Als onderdeel van de eerste keer uitnodiging inwisselen proces, moet een van de uitgenodigde gebruiker toestemming geven aan uw privacyvoorwaarden om door te gaan. 
 
+## <a name="before-you-begin"></a>Voordat u begint
+
+Zorg ervoor dat instellingen voor externe samenwerking van uw organisatie zijn geconfigureerd, zodat u mag gasten uitnodigen. Standaard kunnen alle gebruikers en beheerders gasten uitnodigen. Maar er beleid van de externe samenwerking van uw organisatie zijn geconfigureerd om te voorkomen dat bepaalde typen gebruikers of beheerders gasten uitnodigen. Als u wilt weten over het weergeven en deze beleidsregels in te stellen, Zie [externe B2B-samenwerking inschakelen en beheren die kunnen gasten uitnodigen](delegate-invitations.md).
+
 ## <a name="add-guest-users-to-the-directory"></a>Gastgebruikers toevoegen aan de directory
 
 Gebruikers van B2B-samenwerking toevoegen aan de directory, de volgende stappen uit:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als een gebruiker die is toegewezen aan een van de beperkte beheerder directory-rollen.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als een gebruiker aan wie een beperkte beheerder directory-rol of de rol Gastuitnodiging is toegewezen.
 2. Selecteer in het navigatiedeelvenster **Azure Active Directory**.
 3. Onder **Beheren**, selecteer **Gebruikers**.
 4. Selecteer **Nieuwe gastgebruiker**.
@@ -56,7 +60,7 @@ Nadat u de uitnodiging verzendt, wordt het gebruikersaccount automatisch toegevo
 ![B2B-gebruiker met de Gast gebruikerstype bevat](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>Gastgebruikers toevoegen aan een groep
-Als u wilt dat gebruikers van B2B-samenwerking handmatig toevoegen aan een groep als een Azure AD-beheerder, volgt u deze stappen:
+Als u wilt dat gebruikers van B2B-samenwerking handmatig toevoegen aan een groep, volgt u deze stappen:
 
 1. Meld u als een Azure AD-administrator aan bij de [Azure Portal](https://portal.azure.com).
 2. Selecteer in het navigatiedeelvenster **Azure Active Directory**.
@@ -73,7 +77,7 @@ U kunt dynamische groepen ook gebruiken met Azure AD B2B-samenwerking. Zie voor 
 
 ## <a name="add-guest-users-to-an-application"></a>Gastgebruikers toevoegen aan een toepassing
 
-Gebruikers van B2B-samenwerking toevoegen aan een toepassing als een Azure AD-beheerder, de volgende stappen uit:
+Gebruikers van B2B-samenwerking toevoegen aan een toepassing, de volgende stappen uit:
 
 1. Meld u als een Azure AD-administrator aan bij de [Azure Portal](https://portal.azure.com).
 2. Selecteer in het navigatiedeelvenster **Azure Active Directory**.

@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e49f0077444f86eabeed22cc7cecf5e0ac7f8b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141186"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602192"
 ---
 # <a name="review-access-to-azure-resource-roles-in-pim"></a>Toegang tot Azure-resource-rollen in PIM bekijken
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure beheren. 
@@ -45,12 +45,12 @@ Volg deze stappen om te zoeken en de toegangsbeoordeling voltooien:
 1. Blader naar de Azure AD PIM-toepassing.
 2. Selecteer de **toegang beoordelen** blade.
 
-   ![Schermafbeelding van de PIM-toepassing, met controle toegang blade geselecteerd](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
+   ![Schermafbeelding van de PIM-toepassing, met controle toegang blade geselecteerd](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 3. Selecteer de beoordeling die u wilt uitvoeren. 
 4. Kies een **goedkeuren** of **weigeren**. In de **een vak reden**, moet u mogelijk een reden op voor uw beslissing nemen.
 
-   ![Pagina met details van schermafbeelding van de beoordeling](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+   ![Pagina met details van schermafbeelding van de beoordeling](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

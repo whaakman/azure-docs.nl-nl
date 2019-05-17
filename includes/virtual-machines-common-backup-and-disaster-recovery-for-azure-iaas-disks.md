@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 570330f47d2c610032c9c6646231c2320b2257be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64732671"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65535876"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Back-up en herstel na noodgevallen voor Azure IaaS-schijven
 
@@ -148,7 +148,7 @@ Gebruik de volgende stappen om in te schakelen van back-ups van uw virtuele mach
 
     b. Op de **Recovery Services-kluizen** menu, klikt u op **toevoegen** en volg de stappen voor het maken van een nieuwe kluis in dezelfde regio als de virtuele machine. Bijvoorbeeld, als uw virtuele machine zich in de regio VS-West, VS-West voor verzamelen de kluis.
 
-1.  Controleer of de storage-replicatie voor de zojuist gemaakte kluis. Toegang tot de kluis onder **Recovery Services-kluizen** en Ga naar **instellingen** > **back-upconfiguratie**. Zorg ervoor dat de **geografisch redundante opslag** optie is standaard geselecteerd. Deze optie zorgt ervoor dat uw kluis automatisch worden gerepliceerd naar een secundair datacenter. Uw kluis in VS-West bijvoorbeeld automatisch worden gerepliceerd naar VS-Oost.
+1.  Controleer of de storage-replicatie voor de zojuist gemaakte kluis. Toegang tot de kluis onder **Recovery Services-kluizen** en Ga naar **eigenschappen** > **back-upconfiguratie** > **Update** . Zorg ervoor dat de **geografisch redundante opslag** optie is standaard geselecteerd. Deze optie zorgt ervoor dat uw kluis automatisch worden gerepliceerd naar een secundair datacenter. Uw kluis in VS-West bijvoorbeeld automatisch worden gerepliceerd naar VS-Oost.
 
 1.  Het back-upbeleid configureren en selecteer de virtuele machine in dezelfde gebruikersinterface.
 

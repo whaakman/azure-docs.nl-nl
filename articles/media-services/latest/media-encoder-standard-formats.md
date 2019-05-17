@@ -1,6 +1,6 @@
 ---
-title: Media Encoder Standard indelingen en codecs voor - Azure
-description: In dit onderwerp biedt een overzicht van Media Encoder Standard indelingen en codecs voor.
+title: Standard Encoder-indelingen en codecs voor - Azure
+description: In dit onderwerp biedt een overzicht van de codering-standaard-indelingen en codecs voor.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 4c7e0e091aeecb205c63b8fa7e97d7592f15b856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322264"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520016"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard indelingen en codecs voor
+# <a name="standard-encoder-formats-and-codecs"></a>Standard Encoder-indelingen en codecs voor
 
 In dit artikel bevat een lijst van de meest voorkomende importeren en exporteren-bestandsindelingen die u met gebruiken kunt [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Voor informatie over het maken van aangepaste voorinstellingen wilt met behulp van **StandardEncoderPreset**, Zie [een transformatie te maken met een aangepaste voorinstelling](customize-encoder-presets-how-to.md).
 
@@ -41,12 +41,12 @@ In dit artikel bevat een lijst van de meest voorkomende importeren en exporteren
 | QuickTime (.mov) |Ja |
 
 > [!NOTE]
-> Hiervoor is een lijst van de meer frequent bestandsextensies. Media Encoder Standard biedt ondersteuning voor vele andere (bijvoorbeeld: .m2ts, .mpeg2video, .qt). Als u probeert een bestand coderen en krijgt u een foutbericht over de indeling die niet wordt ondersteund, Geef uw feedback [hier](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Audio-indelingen in invoer-containers
-Media Encoder Standard ondersteunt de volgende audio-indelingen in invoer containers uitvoeren:
+
+Codering-standaard ondersteunt de volgende audio-indelingen in invoer containers uitvoeren:
 
 * MXF-, GXF- en QuickTime-bestanden, die met interleaved stereo of 5.1-voorbeelden audiosporen
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627017"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792994"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET-change Feed Processor SDK: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.locfileid: "60627017"
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="v2-builds"></a>v2-builds
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* Verbeterde load balancing-strategie voor het scenario bij het ophalen van alle leases langer duurt dan lease Vervalinterval opgegeven, bijvoorbeeld door netwerkproblemen:
+  * In dit scenario load balancing-algoritme dat wordt gebruikt om rekening houden met leases als verlopen, waardoor steelt leases van actieve eigenaren. Dit kan activeren onnodig opnieuw balancing veel leases.
+  * Dit probleem is opgelost in deze versie door te vermijden om opnieuw op conflicten tijdens het verkrijgen van verlopen lease die eigenaar is niet gewijzigd en verkrijgen van posponing verlopen lease op de volgende iteratie voor taakverdeling.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Verbeterde verwerking van de waarnemer uitzonderingen.
@@ -163,6 +168,7 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |14 mei 2019 |--- |
 | [2.2.6](#2.2.6) |29 januari 2019 |--- |
 | [2.2.5](#2.2.5) |13 december 2018 |--- |
 | [2.2.4](#2.2.4) |29 november 2018 |--- |

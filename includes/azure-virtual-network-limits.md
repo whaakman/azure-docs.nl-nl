@@ -5,17 +5,17 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 04/10/2019
+ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733820"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787587"
 ---
-<a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
+<a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via de **klassieke** implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -24,26 +24,26 @@ ms.locfileid: "64733820"
 | DNS-servers per virtueel netwerk |20 |20 |
 | Privé-IP-adressen per virtueel netwerk |4,096 |4,096 |
 | Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500.000 maximaal 1.000.000 voor twee of meer NIC's. |500.000 maximaal 1.000.000 voor twee of meer NIC's. |
-| Netwerkbeveiligingsgroepen (nsg's) |100 |200 |
-| NSG-regels per NSG |200 |1000 |
-| Gebruiker gedefinieerde routetabellen |100 |200 |
-| Gebruiker gedefinieerde routes per routetabel |100 |400 |
-| Openbare IP-adressen (dynamisch) |5 |Neem contact op met ondersteuning. |
-| Gereserveerde openbare IP-adressen |20 |Neem contact op met ondersteuning. |
-| Openbare VIP per implementatie |5 |Neem contact op met ondersteuning. |
+| Netwerkbeveiligingsgroepen (nsg's) |200 |200 |
+| NSG-regels per NSG |1000 |1000 |
+| Gebruiker gedefinieerde routetabellen |200 |200 |
+| Gebruiker gedefinieerde routes per routetabel |400 |400 |
+| Openbare IP-adressen (dynamisch) |5 |Contact opnemen met de ondersteuning |
+| Gereserveerde openbare IP-adressen |20 |Contact opnemen met de ondersteuning |
+| Openbare VIP per implementatie |5 |Contact opnemen met de ondersteuning |
 | VIP-privénetwerk (interne taakverdeling) per implementatie |1 |1 |
 | Eindpunt-toegangsbeheerlijsten (ACL's) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Netwerklimieten - Azure Resource Manager
-De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
+De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via **Azure Resource Manager** per regio per abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > We alle standaardlimieten om de maximale limieten voor het laatst verhoogd. Als er geen kolom maximumlimiet is, is de resource geen instelbare limieten. Als u deze limieten verhogen door de ondersteuning in het verleden had en bijgewerkte limieten in de volgende tabellen ziet [opent u een ondersteuningsaanvraag online klant gratis](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Resource | Standaard limiet/maximumlimiet | 
+| Resource | Standaard-/ maximumlimiet | 
 | --- | --- |
 | Virtuele netwerken |1000 |
-| Subnetten per virtueel netwerk |3.000 |
+| Subnetten per virtueel netwerk |3,000 |
 | Virtueel netwerk-peerings per virtueel netwerk |500 |
 | DNS-servers per virtueel netwerk |20 |
 | Privé-IP-adressen per virtueel netwerk |65,536 |
@@ -51,10 +51,10 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Privé-IP-adressen per virtuele machine |256 |
 | Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500,000 |
 | Netwerkadapters |65,536 |
-| Netwerkbeveiligingsgroepen |5.000 |
+| Netwerkbeveiligingsgroepen |5,000 |
 | NSG-regels per NSG |1000 |
 | IP-adressen en -bereiken die zijn opgegeven voor de bron- of doelserver in een beveiligingsgroep |4,000 |
-| Toepassingsbeveiligingsgroepen |3.000 |
+| Toepassingsbeveiligingsgroepen |3,000 |
 | Toepassingsbeveiligingsgroepen per IP-configuratie, per NIC |20 |
 | IP-configuraties per toepassingsbeveiligingsgroep |4,000 |
 | Toepassingsbeveiligingsgroepen die kunnen worden opgegeven in alle beveiligingsregels van een netwerkbeveiligingsgroep |100 |
@@ -70,12 +70,12 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Openbare IP-adressen - dynamisch | 1000 voor Basic. |Neem contact op met ondersteuning. |
 | Openbare IP-adressen - statisch | 1000 voor Basic. |Neem contact op met ondersteuning. |
 | Openbare IP-adressen - statisch | 200 voor Standard.|Neem contact op met ondersteuning. |
-| Openbare IP-voorvoegsel grootte (preview) | /28 | /28 |
+| Openbare IP-voorvoegsel grootte (preview) | /28 | Neem contact op met ondersteuning. |
 
 #### <a name="load-balancer"></a>Load balancer-limieten
 De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
-| Resource | Standaardlimiet |
+| Resource | Standaard-/ maximumlimiet |
 | --- | --- |
 | Load balancers | 1000 | 
 | Regels per resource, Basic | 250 |

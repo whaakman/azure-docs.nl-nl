@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502033"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522951"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Een lab-gebruiker toe te voegen aan een lab in Azure DevTest Labs automatiseren
 Azure DevTest Labs kunt u snel ontwikkel-en selfservice-omgevingen maken met behulp van Azure portal. Echter, hebt u verschillende teams en meerdere exemplaren van DevTest Labs, het maken van het proces te automatiseren kunt tijd besparen. [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) kunt u labs, lab-virtuele machines, aangepaste installatiekopieën en formules maken en gebruikers toevoegen in een geautomatiseerde manier worden geactiveerd. In dit artikel is specifiek gericht op het toevoegen van gebruikers met een DevTest Labs-exemplaar.
@@ -85,7 +85,7 @@ De volgende voorbeeldsjabloon voor Resource Manager Hiermee geeft u een gebruike
 
 ```
 
-Als u de rol in dezelfde sjabloon die wordt gemaakt in het lab toewijst, vergeet dan niet om toe te voegen een afhankelijkheid tussen de bron van de toewijzing van rol en het lab. Zie voor meer informatie, [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](/azure-resource-manager/resource-group-define-dependencies.md) artikel.
+Als u de rol in dezelfde sjabloon die wordt gemaakt in het lab toewijst, vergeet dan niet om toe te voegen een afhankelijkheid tussen de bron van de toewijzing van rol en het lab. Zie voor meer informatie, [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-define-dependencies.md) artikel.
 
 ### <a name="role-assignment-resource-information"></a>De toewijzingsgegevens Resource rol
 De rol toewijzing resource nodig heeft om op te geven van het type en de naam.

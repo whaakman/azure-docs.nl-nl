@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025018"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800858"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
@@ -34,11 +34,14 @@ Elke stap kan worden uitgevoerd, onafhankelijk van elkaar of als onderdeel van e
 
 [!['Azure Machine Learning continue integratie/continue implementatie (CI/CD) cyclus'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="step-1-register-model"></a>Stap 1: Model registreren
 
 Registratie van het model kunt u om op te slaan en versie van uw modellen in de Azure-cloud in uw werkruimte. Het register model kunt u eenvoudig is om te organiseren en bijhouden van uw getrainde modellen.
+
+> [!TIP]
+> U kunt ook modellen die zijn getraind buiten de Azure Machine Learning-service registreren.
  
 Geregistreerde modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren in het register wordt het versienummer verhoogd. U kunt ook aanvullende metagegevenstags opgeven tijdens de registratie die kan worden gebruikt bij het zoeken naar voor modellen. De Azure Machine Learning-service ondersteunt elk model dat worden kan geladen met behulp van Python 3.5.2 gebruikt of hoger.
 
@@ -73,7 +76,7 @@ Kunt u modellen maken met IoT-apparaten via **Azure IoT Edge-modules**. IoT Edge
 
 Zie voor meer informatie, [modellen implementeren](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analyse
+### <a name="analytics"></a>Analytische gegevens
 
 Microsoft Power BI ondersteunt het gebruik van machine learning-modellen voor gegevensanalyse. Zie voor meer informatie, [Azure Machine Learning-integratie in Power BI (Preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
@@ -92,5 +95,7 @@ Implementaties moeten expliciet worden bijgewerkt. Zie voor meer informatie, sec
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over [hoe en waar u modellen kunt implementeren](how-to-deploy-and-where.md) met de Azure Machine Learning-service. Zie voor een voorbeeld van de implementatie van [zelfstudie: Een afbeelding classificatie implementatiemodel in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+
+Meer informatie over het maken van [continue integratie en implementatie van ML-modellen met Azure-pijplijnen](/azure/devops/pipelines/targets/azure-machine-learning). 
 
 Meer informatie over het maken van client-toepassingen en services waar [een model geïmplementeerd als een webservice gebruiken](how-to-consume-web-service.md).

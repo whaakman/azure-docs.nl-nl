@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371388"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604038"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Meer informatie over uw factuur KLANTOVEREENKOMST van Microsoft
 
@@ -41,7 +41,7 @@ De **factuuroverzicht** is boven aan de eerste pagina en bevat informatie over u
 
 ![Samenvatting van de factuur](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| Termijn | Beschrijving |
+| Termijn | Description |
 | --- | --- |
 | Verkocht aan |Adres van uw rechtspersoon, gevonden in de facturering van de eigenschappen van account|
 | Factureren aan |Facturering-adres van de factureringsprofiel ontvangen van de factuur, gevonden in de facturering van profieleigenschappen|
@@ -57,13 +57,13 @@ De **facturering samenvatting** ziet u de kosten in rekening gebracht tegen de f
 
 ![Samenvatting van facturering](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Termijn | Beschrijving |
+| Termijn | Description |
 | --- | --- |
 | Kosten|Totaal aantal kosten van Microsoft voor dit profiel facturering sinds de laatste factureringsperiode |
 | Credits |Tegoeden die u hebt ontvangen van retourneert |
 | Azure-tegoed toegepast | Azure-tegoed die automatisch worden toegepast op Azure-kosten worden elke factureringsperiode |
 | Subtotaal |Het bedrag vóór belasting |
-| Btw |Het type en de hoeveelheid van het tarief dat u, afhankelijk van het land van uw facturering-profiel betaalt. Als u geen btw betalen, weergegeven niet u belasting op uw factuur. |
+| Btw |Het type en de hoeveelheid van het tarief dat u, afhankelijk van het land/de regio van uw facturering-profiel betaalt. Als u geen btw betalen, weergegeven niet u belasting op uw factuur. |
 | Geschatte totale besparingen |De geschatte totale hoeveelheid die u hebt opgeslagen in de effectieve kortingen. Indien van toepassing, worden effectieve kortingstarieven weergegeven onder de regelitems aankoop in Details gedeelte factuur. |
 
 ### <a name="invoice-sections"></a>Factuursecties
@@ -82,7 +82,7 @@ Het totale verschuldigde bedrag voor elke service-serie wordt berekend door af t
 
 ![Details voor factuur-sectie](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| Termijn |Beschrijving |
+| Termijn |Description |
 | --- | --- |
 | Eenheidsprijs | De effectieve prijs per van de service (in voor de valuta) die wordt gebruikt voor het tarief voor het gebruik. Dit is uniek voor een product, service-familie, meter en aanbieding. |
 | Defect | Aantal hebt aangeschaft, of tijdens de factureringsperiode verbruikt |

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153092"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790058"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-versleuteling voor data-at-rest
 
@@ -51,6 +51,9 @@ Zie voor meer informatie over het gebruik van de klant beheerde sleutels met Azu
 - [Configureren van de klant beheerde sleutels voor Azure Storage-versleuteling van de Azure-portal](storage-encryption-keys-portal.md)
 - [Configureren van de klant beheerde sleutels voor Azure Storage-versleuteling van PowerShell](storage-encryption-keys-powershell.md)
 - [Door de klant beheerde sleutels gebruiken met Azure Storage-versleuteling van Azure CLI](storage-encryption-keys-cli.md)
+
+> [!IMPORTANT]
+> Door de klant beheerde sleutels zijn afhankelijk van beheerde identiteiten voor een Azure-resources, een functie van Azure Active Directory (Azure AD). Wanneer u een abonnement overdragen van één Azure AD-directory aan een andere, beheerde identiteiten worden niet bijgewerkt en door de klant beheerde sleutels kunnen niet meer werken. Zie voor meer informatie, **een abonnement wordt overgedragen tussen Azure AD-mappen** in [Veelgestelde vragen en bekende problemen met beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 > [!NOTE]  
 > Door de klant beheerde sleutels worden niet ondersteund voor [Azure beheerde schijven](../../virtual-machines/windows/managed-disks-overview.md).

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527790"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780358"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Een externe Azure-cache voor Redis gebruiken in Azure API Management
 
@@ -40,11 +40,6 @@ Wat u leert:
 
 > [!div class="checklist"]
 > * Een externe cache toevoegen in API Management
-
-## <a name="availability"></a>Beschikbaarheid
-
-> [!NOTE]
-> Deze functie is momenteel alleen beschikbaar in de laag **Verbruik** van Azure API Management.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -94,6 +89,7 @@ Volg de onderstaande stappen als u een externe Azure-cache voor Redis wilt toevo
 Wanneer de externe cache in Azure API Management is geconfigureerd, kan deze worden gebruikt via cachebeleidsregels. Zie [Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren](api-management-howto-cache.md) voor gedetailleerde stappen.
 
 ## <a name="next-steps"> </a>Volgende stappen
+
 * Zie [Cachebeleidsregels][Caching policies] in [Naslaginformatie over beleid voor API Management][API Management policy reference] voor meer informatie over cachebeleidsregels.
 * Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
 

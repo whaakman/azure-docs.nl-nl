@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7c462971f7ac02e35ab8df5b651da7d0a3f39e1f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e6a7d4bb7452ff8f6b3c2536a5aa100a15a6ec78
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65022266"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539268"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Met de naam entiteit erkenning cognitieve vaardigheden
 
 De **herkenning van entiteit met de naam** vaardigheid extraheert benoemde entiteiten uit tekst. Beschikbare entiteiten bevatten de typen `person`, `location` en `organization`.
 
 > [!IMPORTANT]
-> Herkenning van benoemde entiteiten kwalificatie is nu niet vervangen door [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Ondersteuning op 15 februari 2019 gestopt en de API is verwijderd uit het product 2 mei 2019. Volg de aanbevelingen in [afgeschaft cognitieve vaardigheden voor zoeken](cognitive-search-skill-deprecated.md) om te migreren naar een ondersteunde kwalificatie.
+> Herkenning van benoemde entiteiten kwalificatie is nu niet vervangen door [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Ondersteuning op 15 februari 2019 gestopt en de API is verwijderd uit het product 2 mei 2019. Volg de aanbevelingen in [cognitief zoeken vaardigheden afgeschaft](cognitive-search-skill-deprecated.md) om te migreren naar een ondersteunde kwalificatie.
 
 > [!NOTE]
 > Als u bereik uitbreiden door het verhogen van de frequentie van de verwerking, meer documenten toe te voegen of toe te voegen meer AI-algoritmen, u moet [een factureerbare Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md). Kosten toenemen bij het aanroepen van API's in Cognitive Services en voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten.

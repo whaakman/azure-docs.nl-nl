@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506688"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786462"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Ondersteuningsbeleid voor Azure Kubernetes Service
 
@@ -146,7 +146,7 @@ Preview-functies of onderdelen van de functie-vlag zijn niet bedoeld voor produc
 
 Functies in public preview zijn vallen onder 'best effort'-ondersteuning als deze functies beschikbaar als preview zijn en niet bedoeld voor productie en worden ondersteund door de technische ondersteuning AKS teams alleen tijdens kantooruren. Raadpleeg voor meer informatie:
 
-* [Veelgestelde vragen over ondersteuning van Azure](https://azure.microsoft.com/en-us/support/faq/)
+* [Veelgestelde vragen over ondersteuning van Azure](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Preview-functies van kracht vanaf de Azure *abonnement* niveau. Installeer geen preview-functies op een productie-abonnement. Een productie-abonnement kunt preview-functies API standaardgedrag wijzigen en van invloed zijn op normale bewerkingen.

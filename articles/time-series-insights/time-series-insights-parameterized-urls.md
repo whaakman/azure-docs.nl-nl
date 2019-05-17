@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467531"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787532"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
@@ -86,11 +86,11 @@ De `timeSeriesDefinitions=<collection of term objects>` parameter geeft u de voo
 | `multiChartStack=false` | `true` is standaard ingeschakeld zodat doorgeven `false` stapelen. |
 | `multiChartStack=false&multiChartSameScale=true` | Stapelen moet zijn ingeschakeld om dezelfde schaling van de Y-as te gebruiken voor verschillende onderdelen.  Er `false` standaard, dus geven 'true' schakelt deze functionaliteit. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Eenheden = dagen, uren, minuten, seconden en milliseconden.  Gebruik altijd een hoofdletter voor de eenheid. </br> Definieer het aantal eenheden door het gewenste gehele getal voor timeBucketSize op te geven.  Rond af naar 7 dagen.  |
-| `timezoneOffset=-<integer>` | Het gehele getal is altijd in milliseconden. </br> Deze functionaliteit verschilt enigszins van wat wordt ingeschakeld in de TSI-verkenner, waarin u lokaal (browsertijd) of UTC kunt kiezen. |
+| `timezoneOffset=-<integer>` | Het gehele getal is altijd in milliseconden. </br> Opmerking: deze functionaliteit is enigszins afwijken van wat wordt ingeschakeld in de Verkenner van Time Series Insights, waar we Hiermee kunt u kiezen lokaal (browsertijd) of UTC. |
 
 ### <a name="examples"></a>Voorbeelden
 
-Time series-definities toevoegen aan een omgeving TSI als een URL-parameter, toevoegen:
+Time series-definities toevoegen aan een Time Series Insights-omgeving als een URL-parameter, toevoegen:
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -112,7 +112,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > Zie de Explorer live [met behulp van de URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-De URL die hierboven worden beschreven en de TSI-Verkenner-weergave is gebaseerd:
+De URL die hierboven wordt beschreven en de Time Series Insights Explorer-weergave is gebaseerd:
 
 [![Time Series Insights explorer voorwaarden](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

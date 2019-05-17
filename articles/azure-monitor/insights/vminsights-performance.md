@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2019
+ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61385923"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522095"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hoe u op de prestaties van de grafiek met Azure Monitor voor virtuele machines (preview)
 Azure Monitor voor virtuele machines bevat een set van prestatiegrafieken weergegeven die zijn gericht verschillende prestatie-indicatoren (KPI's) om te bepalen hoe goed een virtuele machine wordt uitgevoerd. De grafieken weergegeven Resourcegebruik gedurende een bepaalde periode, zodat u kunt identificeren van knelpunten, afwijkingen, of schakel over naar een perspectief aanbieding elke machine om gebruik van resources op basis van de geselecteerde meetwaarde weer te geven. Er zijn talrijke elementen bij het omgaan met prestaties, Azure-Monitor voor virtuele machines monitors besturingssysteem key performance indicators die betrekking hebben op processor, geheugen, netwerkadapter en schijfgebruik. Prestaties is een aanvulling op de functie voor health monitoring en helpt u problemen die wijzen op een onderdeel systeemfouten, ondersteuning voor afstemmen en optimalisatie voor het bereiken van efficiëntie blootstellen of ondersteuning voor capaciteitsplanning.  
@@ -105,6 +105,21 @@ De volgende capaciteit gebruik grafieken zijn beschikbaar:
 Te klikken op het speldpictogram in de rechterbovenhoek van een van de pincodes grafieken van de geselecteerde grafiek naar het laatste Azure-dashboard weergegeven. Vanuit het dashboard, kunt u het formaat en verplaatsen van de grafiek. Als u de grafiek selecteert in het dashboard doorgestuurd naar Azure Monitor voor virtuele machines en de detailweergave prestaties voor de virtuele machine wordt geladen.  
 
 ![Rechtstreeks VM insights prestaties weergeven van virtuele machine](./media/vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="view-performance-directly-from-an-azure-virtual-machine-scale-set"></a>Prestaties rechtstreeks vanuit een schaalset voor virtuele machine van Azure weergeven
+Voor toegang tot rechtstreeks vanuit een schaalset voor virtuele machine van Azure, moet u de volgende stappen uitvoeren.
+
+1. Selecteer in de Azure portal, **virtuele-machineschaalsets**.
+2. Kies in de lijst, een virtuele machine en klik in de **bewaking** sectie Kies **inzichten (preview)** om weer te geven de **prestaties** tabblad.
+
+Deze pagina wordt geladen voor de Prestatieweergave voor Azure Monitor binnen het bereik van de geselecteerde schaalset. Hiermee kunt u de Top N-exemplaren in de schaalset Zie op de set van bewaakte metrische gegevens, bekijken van de algehele prestaties van de schaalset en de trends voor geselecteerde metrische gegevens over de afzonderlijke exemplaren n de schaal ingesteld. Als u een exemplaar selecteert in de lijstweergave kunt u laden van de kaart of navigeer in een gedetailleerde Prestatieweergave voor dat exemplaar.
+
+Te klikken op het speldpictogram in de rechterbovenhoek van een van de pincodes grafieken van de geselecteerde grafiek naar het laatste Azure-dashboard weergegeven. Vanuit het dashboard, kunt u het formaat en verplaatsen van de grafiek. Als u de grafiek selecteert in het dashboard doorgestuurd naar Azure Monitor voor virtuele machines en de detailweergave prestaties voor de virtuele machine wordt geladen.  
+
+![Virtuele machine insights prestaties rechtstreeks vanuit virtuele-machineschaalset weergave instellen](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+
+>[!NOTE]
+>U kunt ook een gedetailleerde Prestatieweergave voor een specifiek exemplaar van de weergave exemplaren openen voor uw schaalset. Navigeer naar **exemplaren** onder de **instellingen** uit en kies vervolgens **inzichten (preview)**.
 
 ## <a name="alerts"></a>Waarschuwingen  
 Metrische gegevens voor prestaties ingeschakeld als onderdeel van Azure Monitor voor virtuele machines bevatten geen vooraf geconfigureerde regels voor waarschuwingen. Er zijn [statusmeldingen](vminsights-health.md#alerts) overeenkomt met de prestatieproblemen op uw Azure-VM gedetecteerd, zoals hoge CPU-gebruik, onvoldoende geheugen beschikbaar is, onvoldoende schijfruimte, enz.  Maar deze health-waarschuwingen zijn alleen van toepassing op alle virtuele machines die zijn ingeschakeld voor Azure Monitor voor virtuele machines. 

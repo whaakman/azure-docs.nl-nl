@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8a85319a12f04a11e3914716d9ff84cdb6de8d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392395"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787866"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Eigenschappen en metagegevens instellen en ophalen
 
-Objecten in Azure Storage ondersteuning Systeemeigenschappen en door gebruiker gedefinieerde metagegevens, naast de gegevens die ze bevatten. Dit artikel worden de eigenschappen van het beheren en de gebruiker gedefinieerde metagegevens met de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Objecten in Azure Storage ondersteuning Systeemeigenschappen en door gebruiker gedefinieerde metagegevens, naast de gegevens die ze bevatten. Dit artikel worden de eigenschappen van het beheren en de gebruiker gedefinieerde metagegevens met de [Azure Storage-clientbibliotheek voor .NET](/dotnet/api/overview/azure/storage/client).
 
 * **Systeemeigenschappen**: Systeemeigenschappen aanwezig zijn op elke resource voor opslag. Enkele van deze kunnen worden gelezen of ingesteld, terwijl andere alleen-lezen zijn. Op de achtergrond, sommige Systeemeigenschappen komen overeen met bepaalde standaard HTTP-headers. Azure Storage-clientbibliotheken onderhouden deze eigenschappen voor u.
 
@@ -99,5 +99,8 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Azure Storage-clientbibliotheek voor .NET-verwijzing](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Azure Storage-clientbibliotheek voor .NET NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Storage-clientbibliotheek voor .NET-verwijzing](/dotnet/api/?term=Microsoft.Azure.Storage)
+* [Azure Blob storage-clientbibliotheek voor .NET-pakket](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Azure Queue storage-clientbibliotheek voor .NET-pakket](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Azure File storage-clientbibliotheek voor .NET-pakket](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+

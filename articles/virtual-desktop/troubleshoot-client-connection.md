@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c5a67e22c301a2afc73a46a6def9a514426c497f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928045"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522946"
 ---
-# <a name="remote-desktop-client-connections"></a>Verbindingen van extern bureaublad-client
+# <a name="remote-desktop-client-connections"></a>Clientverbindingen met extern bureaublad
 
 Gebruik dit artikel voor het oplossen van problemen met virtuele Windows-bureaublad-clientverbindingen.
 
@@ -108,22 +108,21 @@ Volg deze instructies voor algemene probleemoplossing voor de client verbinding-
 1. Controleer of de gebruikersnaam en het tijdstip waarop het probleem is opgetreden.
 2. Open **PowerShell** en verbinding maken met de virtuele Windows-bureaublad-tenant waar het probleem is gerapporteerd.
 3. Controleer of de verbinding met de juiste tenant met **Get-RdsTenant.**
-4. Indien nodig, stel de tenant de context van de groep met **Set RdsContext – TenantGroupt\<TenantGroup\>**.
-5. Met behulp van **Get-RdsHostPool** en **Get-RdsSessionHost** cmdlets, bevestig dat probleemoplossing is wordt uitgevoerd op de juiste host-groep.
-6. Voer de volgende opdracht om een lijst van alle mislukte activiteiten van het type verbinding voor het opgegeven tijdvenster:
+4. Met behulp van **Get-RdsHostPool** en **Get-RdsSessionHost** cmdlets, bevestig dat probleemoplossing is wordt uitgevoerd op de juiste host-groep.
+5. Voer de volgende opdracht om een lijst van alle mislukte activiteiten van het type verbinding voor het opgegeven tijdvenster:
 
     ```cmd
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-7. Met behulp van de **ActivityId** uit de vorige cmdlet-uitvoer, de onderstaande opdracht uitvoeren:
+6. Met behulp van de **ActivityId** uit de vorige cmdlet-uitvoer, de onderstaande opdracht uitvoeren:
 
     ```
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-8. De opdracht geeft een resultaat vergelijkbaar met de uitvoer die hieronder wordt weergegeven. Gebruik **ErrorCodeSymbolic** en **ErrorMessage** om op te lossen de hoofdoorzaak te achterhalen.
+7. De opdracht geeft een resultaat vergelijkbaar met de uitvoer die hieronder wordt weergegeven. Gebruik **ErrorCodeSymbolic** en **ErrorMessage** om op te lossen de hoofdoorzaak te achterhalen.
 
     ```
     ErrorSource       : <Source>

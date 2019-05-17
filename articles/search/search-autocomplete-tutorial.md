@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466421"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524030"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Suggesties of automatisch aangevulde toevoegen aan uw Azure Search-toepassing
 
@@ -164,7 +164,7 @@ Open de **HomeController.cs** bestand in de map domeincontrollers.
 
 Het eerste wat u ziet misschien ook is een methode aan de bovenkant van de klasse met de naam `InitSearch`. Hiermee wordt een geverifieerde HTTP-indexclient voor de Azure Search-service gemaakt. Zie voor meer informatie, [over het gebruik van Azure Search via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-U ziet de suggesties-functie op regel 41. Deze is gebaseerd op de [DocumentsOperationsExtensions.Suggest methode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+U ziet de suggesties-functie op regel 41. Deze is gebaseerd op de [DocumentsOperationsExtensions.Suggest methode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -198,7 +198,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 De functie Voorstellen maakt gebruik van twee parameters die bepalen of er bij het invoeren van de zoekterm markeringen voor treffers worden geretourneerd of zoeken bij benadering wordt gebruikt. De methode maakt u een [SuggestParameters object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), die vervolgens wordt doorgegeven aan de API voorstellen. Het resultaat wordt vervolgens geconverteerd naar JSON, zodat deze in de client kan worden weergegeven.
 
-U ziet de functie automatisch aanvullen op regel 69. Deze is gebaseerd op de [DocumentsOperationsExtensions.Autocomplete methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview).
+U ziet de functie automatisch aanvullen op regel 69. Deze is gebaseerd op de [DocumentsOperationsExtensions.Autocomplete methode](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
 
 ```csharp
 public ActionResult AutoComplete(string term)

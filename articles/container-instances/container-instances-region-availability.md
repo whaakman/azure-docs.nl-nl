@@ -5,20 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 05/14/2019
 ms.author: danlep
-ms.openlocfilehash: 1ca23a95c746139963aa70ed20bb888152fd5cd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64b60178413e470cc7fe9b3991c6fc29b5a0f860
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537753"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794300"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>De beschikbaarheid van Azure Container Instances in Azure-regio 's
 
 Dit artikel worden de beschikbaarheid van Azure Container Instances-Computing en geheugen resources in Azure-regio's. 
 
-Waarden die worden gepresenteerd zijn de maximale resources beschikbaar per implementatie van een [containergroep](container-instances-container-groups.md). Waarden zijn actueel op het moment van publicatie. Gebruik de API [List Capabilities](/rest/api/container-instances/listcapabilities/listcapabilities) voor actuele informatie. 
+Waarden die worden gepresenteerd zijn de maximale resources beschikbaar per implementatie van een [containergroep](container-instances-container-groups.md). Waarden zijn actueel op het moment van publicatie. 
 
 > [!NOTE]
 > Containergroepen gemaakt binnen deze resourcelimieten zijn afhankelijk van beschikbaarheid in de implementatieregio. Wanneer een regio zwaar wordt belast, kan er een fout optreden bij het implementeren van instanties. Beperken van dergelijke implementatiefouten, implementeert u instanties met lagere broninstellingen of voert u de implementatie op een later tijdstip.
@@ -27,25 +27,37 @@ Zie voor meer informatie over quota's en andere limieten in uw implementaties [q
 
 ## <a name="availability---general"></a>Beschikbaarheid - algemeen
 
-| Location | OS | CPU | Geheugen (GB) |
+De volgende regio's en resources zijn beschikbaar voor containergroepen met Linux en [ondersteund](container-instances-faq.md#what-windows-base-os-images-are-supported) containers op basis van Windows Server 2016.
+
+| Locatie | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |
-| Canada - centraal, US - centraal, US - oost 2, US - zuid-centraal | Linux | 4 | 16 |
-| US - oost, Europa - noord, Europa - west, US - west, US - west 2 | Linux | 4 | 14 |
-| Japan - oost | Linux | 2 | 8 |
-| Australië - oost, Azië - zuidoost | Linux | 2 | 7 |
-| India - centraal, Azië - oost, US - noord-centraal, India - zuid | Linux | 2 | 3,5 |
-| US - oost, Europa - west, US - west | Windows | 4 | 14 |
-| Australië - oost, Canada - centraal, India - centraal, US - centraal, Azië - oost, US - oost 2, Japan - oost, US - noord-centraal, Europa - noord, US - zuid-centraal, India - zuid, Azië - zuidoost, US - west 2 | Windows | 2 | 3,5 |
+| Canada centraal, centraal-India, VS-midden, Oost-Azië, VS-Oost, VS-Oost 2, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, UK-Zuid, VS-West | Linux | 4 | 16 |
+| West-Europa, VS-West 2 | Linux | 4 | 14 |
+| Australië-Oost, Japan-Oost | Linux | 2 | 8 |
+| Noord-centraal VS, Zuid-India | Linux | 2 | 3,5 |
+| Europa -west | Windows | 4 | 16 |
+| US - oost, US - west | Windows | 4 | 14 |
+| Australië-Oost, Canada centraal, centraal-India, VS-midden, Oost-Azië, VS-Oost 2, Japan-Oost, Noord-centraal VS, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, Zuid-India, UK-Zuid, VS-West 2 | Windows | 2 | 3,5 |
+
+## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Beschikbaarheid - Windows Server 2019 LTSC 1809 implementaties (preview)
+
+De volgende regio's en resources zijn beschikbaar voor containergroepen met containers op basis van Windows Server 2019 (preview).
+
+| Locatie | OS | CPU | Geheugen (GB) |
+| -------- | -- | :---: | :-----------: |
+| Zuidoost-Azië, Noord-Europa, West-Europa, VS-midden, VS-Oost, VS-West, VS-West 2 | Windows | 4 | 16 |
+| US - oost 2 | Windows | 2 | 3,5 |
+
 
 ## <a name="availability---virtual-network-deployment-preview"></a>Beschikbaarheid - implementatie voor virtuele netwerken (preview)
 
-De volgende regio's en bronnen beschikbaar zijn voor een containergroep geïmplementeerd in een [virtueel Azure-netwerk](container-instances-vnet.md) (preview)
+De volgende regio's en bronnen beschikbaar zijn voor een containergroep geïmplementeerd in een [virtueel Azure-netwerk](container-instances-vnet.md) (preview).
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="availability---gpu-resources-preview"></a>Beschikbaarheid - GPU-resources (preview)
 
-De volgende regio's en bronnen beschikbaar zijn voor een containergroep geïmplementeerd met [GPU resources](container-instances-gpu.md) (preview)
+De volgende regio's en bronnen beschikbaar zijn voor een containergroep geïmplementeerd met [GPU resources](container-instances-gpu.md) (preview).
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]

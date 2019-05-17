@@ -3,19 +3,19 @@ title: Taalondersteuning - Bing nieuws zoeken-API
 titleSuffix: Azure Cognitive Services
 description: Een lijst van natuurlijke talen, landen en regio's die worden ondersteund door de Bing nieuws zoeken-API.
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
-ms.author: v-gedod
-ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201411"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799337"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Ondersteuning voor taal en regio voor de Bing nieuws zoeken-API
 
@@ -37,20 +37,20 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Oostenrijk|Duits|de-AT|
 |Zwitserland|Duits|de CH|
 |Duitsland|Duits|de-DE|
-|Australië|Engels|en-AU|
-|Canada|Engels|NL-CA|
-|Verenigd Koninkrijk|Engels|en-GB|
-|Indonesië|Engels|NL-ID|
-|Ierland|Engels|NL-Internet Explorer|
-|India|Engels|NL-IN|
-|Maleisië|Engels|en Mijn|
-|Nieuw-Zeeland|Engels|NL-NZ|
-|Republiek der Filippijnen|Engels|NL-PH|
-|Singapore|Engels|en-SG|
-|Verenigde Staten|Engels|en-US|
-|Engels|Algemene|en-WW|
-|Engels|Algemene|en-XA|
-|Zuid-Afrika|Engels|en-ZA|
+|Australië|Nederlands|en-AU|
+|Canada|Nederlands|NL-CA|
+|Verenigd Koninkrijk|Nederlands|en-GB|
+|Indonesië|Nederlands|NL-ID|
+|Ierland|Nederlands|NL-Internet Explorer|
+|India|Nederlands|NL-IN|
+|Maleisië|Nederlands|en Mijn|
+|Nieuw-Zeeland|Nederlands|NL-NZ|
+|Republiek der Filippijnen|Nederlands|NL-PH|
+|Singapore|Nederlands|en-SG|
+|Verenigde Staten|Nederlands|en-US|
+|Nederlands|Algemene|en-WW|
+|Nederlands|Algemene|en-XA|
+|Zuid-Afrika|Nederlands|en-ZA|
 |Argentinië|Spaans|es-AR|
 |Chili|Spaans|es-CL|
 |Spanje|Spaans|es-ES|
@@ -67,7 +67,7 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Hongkong SAR|Traditioneel Chinees|zh-HK|  
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Japan|Japans|ja-JP|  
-|Korea|Koreaans|ko-KR|  
+|Zuid-Korea|Koreaans|ko-KR|  
 |Nederland|Nederlands|NL-NL|  
 |Volksrepubliek China|Chinees|zh-CN|  
 |Brazilië|Portugees|pt-BR|
@@ -84,10 +84,10 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |---------------------|--------------|-----------------|
 |Denemarken|Deens|da-DK|
 |Duitsland|Duits|de-DE|
-|Australië|Engels|en-AU|
-|Verenigd Koninkrijk|Engels|en-GB|
-|Verenigde Staten|Engels|en-US|
-|Engels|Algemene|en-WW|
+|Australië|Nederlands|en-AU|
+|Verenigd Koninkrijk|Nederlands|en-GB|
+|Verenigde Staten|Nederlands|en-US|
+|Nederlands|Algemene|en-WW|
 |Chili|Spaans|es-CL|
 |Mexico|Spaans|es-MX|
 |Verenigde Staten|Spaans|es-US|
@@ -106,11 +106,11 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Land/regio|Taal|Code van de markt|  
 |---------------------|--------------|-----------------|
 |Duitsland|Duits|de-DE|
-|Australië|Engels|en-AU|
-|Verenigd Koninkrijk|Engels|en-GB|
-|Verenigde Staten|Engels|en-US|
-|Canada|Engels|NL-CA|
-|India|Engels|NL-IN|
+|Australië|Nederlands|en-AU|
+|Verenigd Koninkrijk|Nederlands|en-GB|
+|Verenigde Staten|Nederlands|en-US|
+|Canada|Nederlands|NL-CA|
+|India|Nederlands|NL-IN|
 |Frankrijk|Frans|fr-FR|
 |Canada|Frans|fr-CA|
 |Brazilië|Portugees|pt-BR|
@@ -122,7 +122,7 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 
 Hieronder vindt u het land/regio-codes die u kunt opgeven in de `cc` queryparameter. De lijst is onderhevig aan wijzigingen.  
 
-|Land/regio|Landnummer|  
+|Land/regio|Landcode|  
 |---------------------|------------------|  
 |Argentinië|AR|  
 |Australië|AU|  
@@ -138,20 +138,20 @@ Hieronder vindt u het land/regio-codes die u kunt opgeven in de `cc` queryparame
 |Hongkong SAR|HK|  
 |India|IN|  
 |Indonesië|Id|  
-|Italië|IT|  
+|Italië|it|  
 |Japan|JP|  
-|Korea|KR|  
+|Zuid-Korea|KR|  
 |Maleisië|MY|  
 |Mexico|MX|  
 |Nederland|NL|  
 |Nieuw-Zeeland|NZ|  
-|Noorwegen|NO|  
+|Noorwegen|NEE|  
 |Volksrepubliek China|CN|  
 |Polen|PL|  
 |Portugal|PT|  
 |Republiek der Filippijnen|PH|  
 |Rusland|RU|  
-|Saoedi-Arabië|SA|  
+|Saudi-Arabië|SA|  
 |Zuid-Afrika|ZA|  
 |Spanje|ES|  
 |Zweden|SE|  

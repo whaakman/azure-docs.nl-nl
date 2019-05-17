@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: df77a745ef6508b15b5a8bcde5eede0e06eb1afc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d0806bc0262cd45a49e4f97ea629683ac239aa8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60583720"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799641"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Aanpassen van een model merken met Video Indexer-API
 
@@ -44,7 +45,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |accountId|string|Ja|Unieke id voor de account|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Naast deze parameters moet u een aanvraag hoofdtekst van de JSON-object dat bevat informatie over de nieuwe huisstijl in de indeling van het volgende voorbeeld te volgen.
 
@@ -107,7 +108,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |id|geheel getal|Ja|Het merk-id (die is gegenereerd toen het merk werd gemaakt)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -136,7 +137,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |id|geheel getal|Ja|Het merk-ID (die is gegenereerd toen het merk werd gemaakt)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -186,7 +187,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |id|geheel getal|Ja|Het merk-ID (die is gegenereerd toen het merk werd gemaakt)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Naast deze parameters moet u een JSON-object voor aanvraag hoofdtekst bevat informatie over het merk die u wilt bijwerken nadat de indeling van het voorbeeld hieronder bijgewerkt.
 
@@ -248,7 +249,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |accountId|string|Ja|Unieke id voor de account|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -308,7 +309,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |accountId|string|Ja|Unieke id voor de account|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Er is geen verdere aanvraagtekst vereist voor deze aanroep.
 
@@ -345,7 +346,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 |accountId|string|Ja|Unieke id voor de account|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 
-### <a name="request-body"></a>Aanvraagbody
+### <a name="request-body"></a>Aanvraagtekst
 
 Naast deze parameters moet u een aanvraag hoofdtekst van de JSON-object dat bevat informatie over de nieuwe huisstijl in de indeling van het volgende voorbeeld te volgen.
 

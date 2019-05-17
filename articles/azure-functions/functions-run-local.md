@@ -9,20 +9,32 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.custom: 80e4ff38-5174-43
+ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508237"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603409"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
 Azure Functions Core Tools kunt u ontwikkelen en testen van uw functies op uw lokale computer vanuit de opdrachtprompt of terminal. Uw lokale functies kunnen verbinding maken met live Azure-services, en u kunt fouten opsporen in uw functies op uw lokale computer met behulp van de volledige Functions-runtime. U kunt ook een functie-app implementeren naar uw Azure-abonnement.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Ontwikkelen van functies op uw lokale computer en ze publiceren naar Azure met behulp van Core Tools volgt deze eenvoudige stappen:
+
+> [!div class="checklist"]
+> * [Installeer de Core-hulpprogramma's en afhankelijkheden.](#v2)
+> * [Een functie-app-project met een specifieke taal-sjabloon maken.](#create-a-local-functions-project)
+> * [Trigger en binding extensies registreren.](#register-extensions)
+> * [Opslag en andere verbindingen definiëren.](#local-settings-file)
+> * [Een functie maken vanuit een trigger en taalspecifieke sjabloon.](#create-func)
+> * [De functie lokaal uitvoeren](#start)
+> * [Het project publiceren naar Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Core-versies van de hulpprogramma 's
 
@@ -41,9 +53,6 @@ Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x.
 ### <a name="v2"></a>Versie 2.x
 
 Versie 2.x van de hulpprogramma's maakt gebruik van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt, met inbegrip van [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Installeer eerst de .NET Core SDK 2.x.
-
-> [!IMPORTANT]
-> Wanneer u een extensie bundels in het projectbestand host.json inschakelt, hoeft u niet voor het installeren van de .NET Core SDK 2.x. Zie voor meer informatie, [lokale ontwikkeling met Azure Functions Core Tools en extensie bundels ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Extensie-bundels versie 2.6.1071 van de essentiële hulpprogramma of een latere versie vereist.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -186,14 +195,20 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 
 | Instelling      | Description                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Als de waarde `true`, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is `true`. Wanneer `true`, alle instellingen die zijn toegevoegd met behulp van `func settings add` zijn versleuteld met behulp van de sleutel van de lokale computer. Dit komt overeen met het hoe instellingen voor functie-app worden opgeslagen in de toepassingsinstellingen in Azure. Versleutelen van de waarden voor de lokale instellingen biedt extra beveiliging voor waardevolle gegevens moet de local.settings.json openbaar toegankelijk zijn.  |
+| **`IsEncrypted`** | Als de waarde `true`, alle waarden zijn versleuteld met behulp van de sleutel van een lokale computer. Gebruikt in combinatie met `func settings` opdrachten. Standaardwaarde is `false`. |
 | **`Values`** | Verzameling van toepassings- en verbindingsreeksen gebruikt bij het lokaal worden uitgevoerd. Deze waarden overeenkomen met app-instellingen in uw functie-app in Azure, zoals [ `AzureWebJobsStorage` ]. Veel triggers en bindingen hebben een eigenschap die naar een appinstelling voor de verbindingsreeks, zoals verwijst `Connection` voor de [Blob storage-trigger](functions-bindings-storage-blob.md#trigger---configuration). Voor deze eigenschappen, moet u een toepassingsinstelling gedefinieerd in de `Values` matrix. <br/>[`AzureWebJobsStorage`] is een vereiste app instellen voor triggers dan HTTP. <br/>Versie 2.x van de Functions-runtime moet de [ `FUNCTIONS_WORKER_RUNTIME` ] instelling, die wordt gegenereerd voor uw project door Core Tools. <br/> Wanneer u hebt de [Azure-opslagemulator](../storage/common/storage-use-emulator.md) lokaal is geïnstalleerd, kunt u instellen [ `AzureWebJobsStorage` ] naar `UseDevelopmentStorage=true` en Core Tools maakt gebruik van de emulator. Dit is handig tijdens het ontwikkelen, maar u moet testen met een verbinding van de werkelijke opslag vóór de implementatie. |
 | **`Host`** | Instellingen in deze sectie aanpassen hostproces van de functies bij lokale uitvoering. |
 | **`LocalHttpPort`** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie te gebruiken heeft voorrang op deze waarde. |
 | **`CORS`** | Definieert de oorsprongen toegestaan voor [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
 | **`ConnectionStrings`** | Gebruik deze verzameling niet voor de verbindingsreeksen die worden gebruikt door uw functiebindingen. Deze verzameling wordt alleen gebruikt door frameworks die doorgaans downloadt verbindingsreeksen uit de `ConnectionStrings` gedeelte van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling zijn niet gepubliceerd naar Azure met andere app-instellingen. U moet expliciet toevoegen met deze waarden naar de `Connection strings` verzameling van de instellingen van uw functie-app. Als u maakt een [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functiecode aan te geven, moet u de connection string-waarde in opslaan **toepassingsinstellingen** in de portal aan met uw andere verbindingen. |
 
-[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie de sectie van de variabelen voor de omgeving van de volgende taalspecifieke referentie-onderwerpen voor meer informatie:
+
+* [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
+* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
+* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 Wanneer er is geen geldige verbindingsreeks is ingesteld voor [ `AzureWebJobsStorage` ] en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:
 
@@ -307,7 +322,6 @@ De `host` opdracht is alleen vereist in versie 1.x.
 | **`--script-root --prefix`** | Hiermee geeft het pad naar de hoofdmap van de functie-app die moet worden uitgevoerd of geïmplementeerd. Dit wordt gebruikt voor compilatie projecten die projectbestanden te in een submap genereren. Bijvoorbeeld, wanneer u een C#-klassenbibliotheek project, de host.json local.settings.json en function.json bestanden bouwen worden gegenereerd een *hoofdmap* submap met een pad, zoals `MyProject/bin/Debug/netstandard2.0`. In dit geval stelt het voorvoegsel als `--script-root MyProject/bin/Debug/netstandard2.0`. Dit is de hoofdmap van de functie-app wanneer die wordt uitgevoerd in Azure. |
 | **`--timeout -t`** | De time-out voor de host functies om te starten, in seconden. Standaard: 20 seconden.|
 | **`--useHttps`** | Verbinding maken met `https://localhost:{port}` in plaats van naar `http://localhost:{port}`. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
-| **`--enableAuth`** | Volledige verwerking van de pijplijn-verificatie inschakelen.|
 
 Voor een C#-klassebibliotheekproject (.csproj), moet u opnemen de `--build` optie voor het genereren van het DLL-bestand voor de bibliotheek.
 
@@ -474,7 +488,6 @@ Application Insights inschakelen voor uw functie-app:
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Zie voor meer informatie, [Monitor Azure Functions](functions-monitoring.md).
-
 ## <a name="next-steps"></a>Volgende stappen
 
 Azure Functions Core Tools is [open source en gehost op GitHub](https://github.com/azure/azure-functions-cli).  

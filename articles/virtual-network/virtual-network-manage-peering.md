@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925928"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519660"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -146,7 +146,7 @@ Als uw account niet aan een van de vorige rollen toegewezen is, moet deze worden
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Vereist voor het maken van de peering van het virtueel netwerk A met virtual network B. virtueel moet netwerk A een virtueel netwerk (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Vereist voor het maken van een peering van virtueel netwerk B (Resource Manager) naar een virtueel netwerk A                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer                   | Vereist voor het maken van een peering van virtueel netwerk B (klassiek) naar een virtueel netwerk A                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | Vereist voor het maken van een peering van virtueel netwerk B (klassiek) naar een virtueel netwerk A                                                                |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Lees een peering op virtueel netwerk   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Een virtueel netwerk-peering verwijderen |
 

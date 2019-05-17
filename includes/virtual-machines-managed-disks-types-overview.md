@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618024"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538356"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Welke schijftypen zijn beschikbaar in Azure?
 
@@ -23,7 +23,7 @@ Azure-beheerde schijven biedt momenteel vier schijftypen, drie die algemeen besc
 
 De volgende tabel bevat een vergelijking van ultra solid-state-stations (SSD) (preview), premium SSD, standard-SSD en standaard harde schijven (HDD) voor beheerde schijven om te bepalen wat u wilt gebruiken.
 
-|   | Ultra SSD (preview)   | Premium SSD   | Standard - SSD   | Standard HDD   |
+|   | Ultra SSD (preview)   | Premium SSD   | Standard - SSD   | Standard - HDD   |
 |---------|---------|---------|---------|---------|
 |Schijftype   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensieve workloads zoals SAP HANA, databases van de bovenste laag (bijvoorbeeld SQL, Oracle) en andere transactie zware workloads.   |Productie- en prestatiegevoelige workloads   |Webservers, bedrijfstoepassingen weinig wordt gebruikt en ontwikkelen en testen   |Back-up, niet-kritieke, incidentele toegang   |
@@ -44,6 +44,7 @@ Er zijn enkele kernfuncties van Ultra SSD:
 - Capaciteit van de schijf: Ultra bereiken van SSD-capaciteit van 4 GiB maximaal 64 TiB.
 - Schijf-IOPS: Ultra SSD ondersteuning voor IOPS-limieten van 300 IOPS/GiB, tot een maximum van 160 kB IOPS per schijf. Zorg ervoor dat de geselecteerde schijf-IOPS kleiner dan de IOPS VM zijn voor het bereiken van de IOPS-waarde die u hebt ingericht. De minimale IOPS-schijf zijn 100 IOPS.
 - Schijfdoorvoer: Met de ultra SSD, de doorvoerlimiet van één schijf is 256 KiB/s voor elk IOP's, tot een maximum van 2000 MBps per schijf ingericht (waarbij MBps = 10 ^ 6 Bytes per seconde). De schijfdoorvoer, met minimale is 1 MiB.
+- Ultra SSD's ondersteuning voor aanpassen van de kenmerken van de prestaties van schijf (IOPS en doorvoer) tijdens runtime zonder loskoppelen van de schijf van de virtuele machine. Zodra een schijfbewerking voor de grootte van prestaties is verleend op een schijf, het kan een uur duren voor de wijziging daadwerkelijk pas van kracht.
 
 ### <a name="disk-size"></a>Schijfgrootte
 
@@ -58,6 +59,10 @@ Er zijn enkele kernfuncties van Ultra SSD:
 |256     |76,800         |2,000         |
 |512     |80,000         |2,000         |
 |1024-65.536 (grootten die in dit bereik verhogen in stappen van 1 TiB)     |160,000         |2,000         |
+
+### <a name="transactions"></a>Transacties
+
+Ultra SSD's, elke i/o bewerking kleiner dan of gelijk zijn aan 256 KiB van doorvoer worden beschouwd als één i/o-bewerking. I/o-bewerkingen die groter zijn dan 256 KiB zijn van doorvoer worden beschouwd als meerdere i/o's van de grootte van 256 KiB.
 
 ### <a name="preview-scope-and-limitations"></a>Bereik van de Preview-versie en beperkingen
 

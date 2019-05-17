@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d323a93773a8459d097c1fe3502d2ccd88ae9695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687911"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785193"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een Azure Active Directory-account met behulp van aangepaste beleidsregels in Azure Active Directory B2C 
 
@@ -55,7 +55,7 @@ U moet voor het opslaan van de sleutel van de toepassing die u hebt gemaakt in u
 
 1. Zorg ervoor dat u de adreslijst gebruikt die uw Azure AD B2C-tenant bevat door te klikken op het **filter voor adreslijsten en abonnementen** in het bovenste menu en de adreslijst te kiezen waarin uw tenant zich bevindt.
 2. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-3. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
+3. Selecteer op de pagina overzicht **Identity-Ervaringsframework**.
 4. Selecteer **Beleidssleutels** en selecteer vervolgens **toevoegen**.
 5. Voor **opties**, kiest u `Manual`.
 6. Voer een **naam** voor de beleidssleutel. Bijvoorbeeld `ContosoAppSecret`.  Het voorvoegsel `B2C_1A_` wordt automatisch toegevoegd aan de naam van uw sleutel.

@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61098467"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519133"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Nieuwe en gewijzigde bestanden op basis van LastModifiedDate met behulp van het hulpprogramma Copy Data incrementeel kopiëren
 
 In deze zelfstudie gebruikt u de Azure portal om een gegevensfactory te maken. Vervolgens gebruikt u het hulpprogramma Copy Data om te maken van een pijplijn waarmee stapsgewijs worden gekopieerd, nieuwe en gewijzigde bestanden op basis van hun **LastModifiedDate** uit Azure Blob storage naar Azure Blob storage.
+
+Op deze manier wordt ADF scant alle bestanden uit de brongegevensopslag, past u het bestandsfilter door hun LastModifiedDate en kopieer het bestand nieuwe en bijgewerkte alleen sinds de laatste keer dat naar het doelarchief.  Houd er rekening mee dat als u grote hoeveelheden van ADF scannen van bestanden, kunnen maar alleen enkele bestanden naar de bestemming kopiëren, u nog steeds verwacht dat de lange duur van de vanwege de bestandscontrole is ook tijd in beslag nemen.   
 
 > [!NOTE]
 > Zie [Inleiding tot Azure Data Factory](introduction.md) als u niet bekend bent met Azure Data Factory.

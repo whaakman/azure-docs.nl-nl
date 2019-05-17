@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322670"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796364"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importeren en exporteren van IoT Hub apparaat-id's in één bulkbewerking
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>Apparaatlimieten import/export-taak
+
+Importeren van slechts 1 actieve apparaten of exporttaak is toegestaan op een tijdstip voor alle Prijscategorieën van IoT Hub. IoT Hub heeft ook limieten voor het aantal taakbewerkingen. Zie voor meer informatie, [referentie - IoT-Hub-quota en beperkingen](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Apparaten exporteren
 
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Haal de SAS-URI
 
-Het volgende codevoorbeeld ziet u hoe u voor het genereren van een [SAS-URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) met lezen, schrijven en verwijderen van machtigingen voor een blob-container:
+Het volgende codevoorbeeld ziet u hoe u voor het genereren van een [SAS-URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) met lezen, schrijven en verwijderen van machtigingen voor een blob-container:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 In dit artikel hebt u geleerd hoe u bulksgewijs bewerkingen op het id-register in een IoT-hub uitvoert. Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 
 * [Metrische gegevens van IoT Hub](iot-hub-metrics.md)
-* [Controle van bewerkingen](iot-hub-operations-monitoring.md)
+* [IoT Hub-Logboeken](iot-hub-monitor-resource-health.md)
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 

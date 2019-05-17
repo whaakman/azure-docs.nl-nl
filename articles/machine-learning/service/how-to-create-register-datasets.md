@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 938f13524b22f34f4becc936885d1611cb854df1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510494"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800836"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Maken en registreren van Azure Machine Learning-gegevenssets (Preview)
 
@@ -33,6 +33,9 @@ U moet maken en registreren van gegevenssets:
 * Een werkruimte van Azure Machine Learning-service. Zie [maken van een werkruimte van Azure Machine Learning-service](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
 * De Azure Machine Learning-SDK voor Python. Als u wilt installeren of bijwerken naar de nieuwste versie van de SDK, Zie [installeren of bijwerken van de SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+
+> [!Note]
+> Bepaalde klassen gegevensset (preview) zijn afhankelijk van de [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pakket (GA). Voor Linux-gebruikers, worden deze klassen alleen op de volgende distributies ondersteund:  Red Hat Enterprise Linux, Ubuntu, Fedora en CentOS.
 
 ## <a name="create-datasets-from-local-files"></a>Gegevenssets maken van lokale bestanden
 

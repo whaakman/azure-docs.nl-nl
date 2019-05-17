@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373314"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604280"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -132,7 +132,7 @@ Ja, in de server die u kunt schrijven:
 
 Meer informatie voor [ASP.NET](api-filtering-sampling.md) of [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Hoe worden stad, land en andere gegevens geo-locatie berekend?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Hoe worden stad, land/regio en andere gegevens geo-locatie berekend?
 
 We controleren of het IP-adres (IPv4 of IPv6) van de webclient met behulp van [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
@@ -162,7 +162,7 @@ Dit is mogelijk als de code dergelijke gegevens verzendt. Het kan ook gebeuren a
 
 U kunt de onderstaande:
 
-* Gebruik twee afzonderlijke Instrumentatiesleutels (Scheid Application Insights-resources), voor client en server-gegevens. of
+* Gebruik twee afzonderlijke Instrumentatiesleutels (Scheid Application Insights-resources), voor client en server-gegevens. Of
 * Schrijven van een proxy die wordt uitgevoerd op uw server en de web client verzenden van gegevens via deze proxy.
 
 ## <a name="post"></a>Hoe kan ik postgegevens doorzoeken van diagnostische gegevens zien?
