@@ -4,14 +4,14 @@ description: Geeft een lijst van de Azure-resource-typen die kunnen worden verpl
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 03/22/2019
+ms.date: 5/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d662607eaaabb8ccfad89f625165c542af81b0fa
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729287"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794522"
 ---
 # <a name="move-operation-support-for-resources"></a>Ondersteuning voor resources verplaatsen
 In dit artikel wordt aangegeven of een Azure-resourcetype de verplaatsing ondersteunt. Hoewel een resourcetype de verplaatsing ondersteunt, kunnen er omstandigheden die verhinderen dat de resource die wordt verplaatst. Zie voor meer informatie over voorwaarden die invloed hebben op verplaatsingsbewerkingen [resources verplaatsen naar een nieuwe resourcegroep of abonnement](resource-group-move-resources.md).
@@ -28,6 +28,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- | ---------- |
 | Tenants | Nee | Nee |
 
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| actionrules | Ja | Ja |
+
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
@@ -37,6 +42,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | service | Ja | Ja |
+
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| configurationstores | Ja | Ja |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 | Resourcetype | Resourcegroep | Abonnement |
@@ -98,7 +108,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| blockchainmembers | Nee | Nee |
+| blockchainmembers | Ja | Ja |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Resourcetype | Resourcegroep | Abonnement |
@@ -157,7 +167,9 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | galerieën | Nee | Nee |
 | galleries/images | Nee | Nee |
 | galerieën/afbeeldingen/versies | Nee | Nee |
-| images | Ja | Ja |
+| hostgroups | Nee | Nee |
+| hostgroups /-hosts | Nee | Nee |
+| afbeeldingen | Ja | Ja |
 | proximityplacementgroups | Nee | Nee |
 | restorepointcollections | Nee | Nee |
 | sharedvmimages | Nee | Nee |
@@ -182,7 +194,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- | ---------- |
 | registers | Ja | Ja |
 | registers/buildtasks | Ja | Ja |
-| registers/replicaties | Nee | Nee |
+| registers/replicaties | Ja | Ja |
 | registers/taken | Ja | Ja |
 | registers/webhooks | Ja | Ja |
 
@@ -232,6 +244,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | catalogi | Ja | Ja |
+| datacatalogs | Nee | Nee |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Resourcetype | Resourcegroep | Abonnement |
@@ -287,16 +300,17 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- | ---------- |
 | servergroups | Nee | Nee |
 | servers | Ja | Ja |
+| serversv2 | Ja | Ja |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| artifactsources | Nee | Nee |
-| Implementaties | Nee | Nee |
-| servicetopologies | Nee | Nee |
-| servicetopologies/services | Nee | Nee |
-| servicetopologies/services/serviceunits | Nee | Nee |
-| stappen | Nee | Nee |
+| artifactsources | Ja | Ja |
+| Implementaties | Ja | Ja |
+| servicetopologies | Ja | Ja |
+| servicetopologies/services | Ja | Ja |
+| servicetopologies/services/serviceunits | Ja | Ja |
+| stappen | Ja | Ja |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Resourcetype | Resourcegroep | Abonnement |
@@ -316,9 +330,10 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | ------------- | ----------- | ---------- |
 | labcenters | Nee | Nee |
 | Labs | Ja | Nee |
+| Labs /-omgevingen | Ja | Ja |
 | Labs/servicerunners | Ja | Ja |
 | Labs/virtuele machines | Ja | Nee |
-| Schema 's | Nee | Nee |
+| Schema 's | Ja | Ja |
 
 ## <a name="microsoftdns"></a>microsoft.dns
 | Resourcetype | Resourcegroep | Abonnement |
@@ -342,6 +357,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | domeinen | Ja | Ja |
+
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| services | Ja | Ja |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Resourcetype | Resourcegroep | Abonnement |
@@ -369,6 +389,16 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | Clusters | Ja | Ja |
+
+## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| services | Ja | Ja |
+
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| computers | Nee | Nee |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Resourcetype | Resourcegroep | Abonnement |
@@ -422,7 +452,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| labaccounts | Nee | Nee |
+| labaccounts | Ja | Ja |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Resourcetype | Resourcegroep | Abonnement |
@@ -432,7 +462,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| accounts | Ja | Ja |
+| accounts | Nee | Nee |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Resourcetype | Resourcegroep | Abonnement |
@@ -458,12 +488,12 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| accounts | Ja | Ja |
-| accounts/werkruimten | Ja | Ja |
-| accounts/workspaces/projects | Ja | Ja |
-| teamaccounts | Ja | Ja |
-| teamaccounts/werkruimten | Ja | Ja |
-| teamaccounts/workspaces/projects | Ja | Ja |
+| accounts | Nee | Nee |
+| accounts/werkruimten | Nee | Nee |
+| accounts/workspaces/projects | Nee | Nee |
+| teamaccounts | Nee | Nee |
+| teamaccounts/werkruimten | Nee | Nee |
+| teamaccounts/workspaces/projects | Nee | Nee |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Resourcetype | Resourcegroep | Abonnement |
@@ -483,7 +513,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| userassignedidentities | Ja | Ja |
+| userassignedidentities | Nee | Nee |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Resourcetype | Resourcegroep | Abonnement |
@@ -522,6 +552,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | applicationgateways | Nee | Nee |
+| applicationgatewaywebapplicationfirewallpolicies | Nee | Nee |
 | applicationsecuritygroups | Ja | Ja |
 | azurefirewalls | Ja | Ja |
 | bastionhosts | Nee | Nee |
@@ -535,7 +566,6 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | expressrouteports | Nee | Nee |
 | ingangen | Ja | Ja |
 | frontdoorwebapplicationfirewallpolicies | Ja | Ja |
-| interfaceendpoints | Nee | Nee |
 | loadbalancers | Ja | Ja |
 | localnetworkgateways | Ja | Ja |
 | natgateways | Ja | Ja |
@@ -548,12 +578,15 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | networkwatchers/lenses | Ja | Ja |
 | networkwatchers/pingmeshes | Ja | Ja |
 | p2svpngateways | Nee | Nee |
+| privatednszones | Ja | Ja |
+| privatednszones/virtualnetworklinks | Ja | Ja |
+| privateendpoints | Nee | Nee |
 | privatelinkservices | Nee | Nee |
 | publicipaddresses | Ja | Ja |
 | publicipprefixes | Ja | Ja |
 | routefilters | Nee | Nee |
 | routetables | Ja | Ja |
-| securegateways | Nee | Nee |
+| securegateways | Ja | Ja |
 | serviceendpointpolicies | Ja | Ja |
 | trafficmanagerprofiles | Ja | Ja |
 | virtualhubs | Nee | Nee |
@@ -562,7 +595,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | virtualnetworktaps | Nee | Nee |
 | virtualwans | Nee | Nee |
 | vpngateways | Nee | Nee |
-| vpnsites | Ja | Ja |
+| vpnsites | Nee | Nee |
 | webapplicationfirewallpolicies | Ja | Ja |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
@@ -582,6 +615,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | managementconfigurations | Ja | Ja |
 | oplossingen | Ja | Ja |
 | weergaven | Ja | Ja |
+
+## <a name="microsoftpeering"></a>Microsoft.Peering
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| peerings | Nee | Nee |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Resourcetype | Resourcegroep | Abonnement |
@@ -633,6 +671,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | searchservices | Ja | Ja |
+
+## <a name="microsoftsecurity"></a>Microsoft.Security
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| iotsecuritysolutions | Ja | Ja |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 | Resourcetype | Resourcegroep | Abonnement |
@@ -689,13 +732,12 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
+| instancepools | Ja | Ja |
 | managedinstances | Ja | Ja |
 | managedinstances/databases | Ja | Ja |
 | servers | Ja | Ja |
 | servers/databases | Ja | Ja |
 | servers/elasticpools | Ja | Ja |
-| servers/jobaccounts | Nee | Nee |
-| servers/jobagents | Nee | Nee |
 | virtualclusters | Ja | Ja |
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
@@ -713,6 +755,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | storageaccounts | Ja | Ja |
+
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| Caches | Nee | Nee |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Resourcetype | Resourcegroep | Abonnement |
@@ -761,6 +808,11 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | omgevingen/eventsources | Ja | Ja |
 | omgevingen/referencedatasets | Ja | Ja |
 
+## <a name="microsofttoken"></a>Microsoft.Token
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| winkels | Nee | Nee |
+
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
@@ -772,6 +824,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | account | Ja | Ja |
 | -/ accountextensie | Ja | Ja |
 | account/project | Ja | Ja |
+
+## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| dedicatedcloudnodes | Ja | Ja |
+| dedicatedcloudservices | Ja | Ja |
+| virtuele machines | Ja | Ja |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Resourcetype | Resourcegroep | Abonnement |
@@ -790,6 +849,13 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
 | deviceservices | Ja | Ja |
+
+## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | ----------- | ---------- |
+| applicationgroups | Nee | Nee |
+| hostpools | Nee | Nee |
+| werkruimten | Nee | Nee |
 
 ## <a name="third-party-services"></a>Services van derden
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430913"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798247"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Ondersteuning voor taal en regio voor de Bing webzoekopdrachten-API
 
@@ -43,20 +43,20 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Hongkong SAR|HK|
 |India|IN|
 |Indonesië|Id|
-|Italië|IT|
+|Italië|it|
 |Japan|JP|
-|Korea|KR|
+|Zuid-Korea|KR|
 |Maleisië|MY|
 |Mexico|MX|
 |Nederland|NL|
 |Nieuw-Zeeland|NZ|
-|Noorwegen|NO|
+|Noorwegen|NEE|
 |China|CN|
 |Polen|PL|
 |Portugal|PT|
 |Filipijnen|PH|
 |Rusland|RU|
-|Saoedi-Arabië|SA|
+|Saudi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
 |Zweden|SE|
@@ -71,12 +71,12 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|es-AR|
-|Australië|Engels|en-AU|
+|Australië|Nederlands|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|nl-BE|
 |België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
-|Canada|Engels|NL-CA|
+|Canada|Nederlands|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
@@ -84,29 +84,33 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong SAR|Traditioneel Chinees|zh-HK|
-|India|Engels|NL-IN|
-|Indonesië|Engels|NL-ID|
+|India|Nederlands|NL-IN|
+|Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
-|Korea|Koreaans|ko-KR|
-|Maleisië|Engels|en Mijn|
+|Zuid-Korea|Koreaans|ko-KR|
+|Maleisië|Nederlands|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Engels|NL-NZ|
+|Nieuw-Zeeland|Nederlands|NL-NZ|
 |Noorwegen|Noors|no-NO|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filipijnen|Engels|NL-PH|
+|Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
-|Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Engels|en-ZA|
+|Saudi-Arabië|Arabisch|ar-SA|
+|Zuid-Afrika|Nederlands|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Engels|en-GB|
-|Verenigde Staten|Engels|en-US|
+|Verenigd Koninkrijk|Nederlands|en-GB|
+|Verenigde Staten|Nederlands|en-US|
 |Verenigde Staten|Spaans|es-US|
+
+## <a name="next-steps"></a>Volgende stappen
+
+* [Naslag voor Bing Afbeeldingen zoeken-API](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

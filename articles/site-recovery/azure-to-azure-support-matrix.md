@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: de2e57901becad68f3fad16967faf3ae4833177a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412757"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797876"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van virtuele Azure-machines van de ene regio naar een andere
 
@@ -87,6 +87,10 @@ Windows Server 2016  | Server Core, Server met Bureaubladervaring
 Windows Server 2012 R2 |
 Windows Server 2012 |
 Windows Server 2008 R2 | Met SP1 of hoger
+Windows 10 (x64) |
+Windows 8.1 (x64) |
+Windows 8 (x64) |
+Windows 7 (x64) | Met SP1 of hoger (Windows 7 RTM wordt niet ondersteund)
 
 #### <a name="linux"></a>Linux
 
@@ -130,7 +134,7 @@ Debian 8 | 9.21, 9.22, 9.23, 9.24 | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bp
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | 9.24 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.175-94.79-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3 en SP4) | 9.24 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.104-default</br></br>SP3 4.4.73-5-default naar 4.4.176-94.88-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.13-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.23 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default naar 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.21 | SP1 3.12.49-11-default naar 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default naar 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default naar 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default naar 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default naar 4.4.162-94.72-default |

@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406358"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790432"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>Inzicht in Gegevensretentie in Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Inzicht in Gegevensretentie in Azure Time Series Insights
 
-Dit artikel beschrijft de twee instellingen die van invloed zijn op het bewaren van gegevens in uw omgeving Time Series Insights (TSI).
+Dit artikel beschrijft de twee instellingen die van invloed zijn op het bewaren van gegevens in uw Azure Time Series Insights-omgeving.
 
 ## <a name="video"></a>Video
 
@@ -36,7 +36,7 @@ Bovendien uw Azure Time Series-omgeving heeft een **-limiet voor opslag overschr
 - **Inkomende gegevens onderbreken**
 
 > [!NOTE]
-> Standaard bij het maken van een nieuwe omgeving, de bewaarperiode is geconfigureerd voor **oude gegevens opschonen**. Deze instelling kan worden gezet, indien nodig later maken met behulp van de Azure-portal op de **configureren** pagina van de TSI-omgeving.
+> Standaard bij het maken van een nieuwe omgeving, de bewaarperiode is geconfigureerd voor **oude gegevens opschonen**. Deze instelling kan worden gezet, indien nodig later maken met behulp van de Azure-portal op de **configureren** pagina van de Time Series Insights-omgeving.
 
 Raadpleeg voor informatie over het overschakelen van retentie gedrag [configuratie van de bewaartermijn in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
@@ -44,8 +44,8 @@ Vergelijk het gedrag voor het bewaren van gegevens:
 
 ## <a name="purge-old-data"></a>Oude gegevens opschonen
 
-- Dit gedrag is het standaardgedrag voor TSI-omgevingen en stands hetzelfde gedrag TSI omgevingen heeft optrad omdat deze gestart openbare preview.  
-- Dit gedrag wordt aanbevolen wanneer gebruikers willen altijd hun *meest recente gegevens* in hun omgeving TSI. 
+- Dit gedrag is het standaardgedrag voor Time Series Insights-omgevingen.  
+- Dit gedrag wordt aanbevolen wanneer gebruikers willen altijd hun *meest recente gegevens* in hun Time Series Insights-omgeving.
 - Dit gedrag *schoont* gegevens eenmaal in de omgeving van limieten (bewaartijd, grootte of count, afhankelijk van wat het eerste komt) zijn bereikt. Bewaarperiode is standaard ingesteld op 30 dagen.
 - De oudste opgenomen gegevens wordt eerst (FIFO-aanpak) verwijderd.
 
@@ -75,7 +75,7 @@ Wanneer er dagelijks tarief dat inkomend verkeer van deze omgeving groter is dan
 
 ### <a name="example-three"></a>Voorbeeld 3
 
-Houd rekening met een omgeving met retentie gedrag is geconfigureerd voor het **onderbreken inkomend**. In dit voorbeeld wordt de **bewaartermijn voor gegevens** is geconfigureerd voor 60 dagen. **Capaciteit** is ingesteld op 3 eenheden van S1. Wordt ervan uitgegaan dat deze omgeving heeft invoer van 2 GB aan gegevens per dag. Inkomend verkeer is in deze omgeving worden onderbroken als de maximale capaciteit is bereikt.
+Houd rekening met een omgeving met retentie gedrag is geconfigureerd voor het **onderbreken inkomend**. In dit voorbeeld wordt de **bewaartermijn voor gegevens** is geconfigureerd voor 60 dagen. **Capaciteit** is ingesteld op drie (3) eenheden van S1. Wordt ervan uitgegaan dat deze omgeving heeft invoer van 2 GB aan gegevens per dag. Inkomend verkeer is in deze omgeving worden onderbroken als de maximale capaciteit is bereikt.
 
 Op dat moment wordt de omgeving bevat dezelfde gegevensset tot inkomend verkeer wordt hervat of tot **blijven inkomend** is ingeschakeld (die zou oudere gegevens te scheppen voor nieuwe gegevens opschonen).
 
@@ -91,7 +91,7 @@ Overweeg aan te passen in de betrokken Event Hubs, de **bewaarperiode van berich
 
 [![Bewaartermijn voor berichten van Event hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Als er geen eigenschappen die zijn geconfigureerd op de bron van gebeurtenis (`timeStampPropertyName`), TSI standaard ingesteld op de tijdstempel van de aankomst in de event hub als de x-as. Als `timeStampPropertyName` is geconfigureerd voor iets anders, de omgeving zoekt de geconfigureerde `timeStampPropertyName` in het gegevenspakket wanneer gebeurtenissen worden geparseerd.
+Als er geen eigenschappen die zijn geconfigureerd op de bron van gebeurtenis (`timeStampPropertyName`), Time Series Insights standaard ingesteld op de tijdstempel van de aankomst in de event hub als de x-as. Als `timeStampPropertyName` is geconfigureerd voor iets anders, de omgeving zoekt de geconfigureerde `timeStampPropertyName` in het gegevenspakket wanneer gebeurtenissen worden geparseerd.
 
 Als u uw omgeving moet omhoog te schalen om te voorzien in extra capaciteit of te verhogen van de lengte van retentie, Zie [uw Time Series Insights-omgeving schalen](time-series-insights-how-to-scale-your-environment.md) voor meer informatie.  
 

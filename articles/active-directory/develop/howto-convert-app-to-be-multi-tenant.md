@@ -3,8 +3,8 @@ title: Over het bouwen van een app die u kunt zich in een Azure AD-gebruiker
 description: Laat zien hoe het bouwen van een toepassing met meerdere tenants die een gebruiker vanuit een Azure Active Directory-tenant kan aanmelden.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410487"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540460"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedure: Meld u aan een Azure Active Directory-gebruiker met behulp van het patroon voor multitenant-toepassingen
 
@@ -115,7 +115,7 @@ Deze ervaring toestemming wordt beïnvloed door de machtigingen die zijn aangevr
 
 Sommige machtigingen kunnen worden gegeven door een gewone gebruiker, terwijl andere van een tenantbeheerder toestemming vereisen. 
 
-### <a name="admin-consent"></a>toestemming van de beheerder
+### <a name="admin-consent"></a>Toestemming van de beheerder
 
 Bij app-specifieke machtigingen is er altijd toestemming van een tenantbeheerder nodig. Als uw toepassing een alleen-app-machtigingen worden aangevraagd en een gebruiker wil zich aanmelden bij de toepassing, wordt een foutbericht weergegeven dat de gebruiker kan geen tot toestemming geven.
 
@@ -150,7 +150,7 @@ Dit wordt geïllustreerd in systeemeigen client aanroepen van web-API-voorbeeld 
 
 Een dergelijke aanvraag gebeurt er als de verschillende lagen van een toepassing in verschillende tenants worden geregistreerd. Neem bijvoorbeeld het geval van het bouwen van een systeemeigen clienttoepassing die de Office 365 Exchange Online-API-aanroepen. Voor het ontwikkelen van de systeemeigen toepassing, en hoger voor de systeemeigen toepassing om uit te voeren in de tenant van een klant, moet de Exchange Online service-principal aanwezig zijn. In dit geval moeten de ontwikkelaar en de klant aanschaffen Exchange Online voor de service-principal moet worden gemaakt in hun tenants.
 
-Als dit een API die zijn gemaakt door een organisatie dan Microsoft is, moet de ontwikkelaar van de API bieden de mogelijkheid om hun klanten en toestemming van de toepassing in hun klanten tenants. Er is het aanbevolen ontwerp voor ontwikkelaars van derden om te maken van de API zodat deze kan ook worden gebruikt als een webclient voor het implementeren van aanmelding. Om dit te doen:
+Als dit een API die zijn gemaakt door een organisatie dan Microsoft is, moet de ontwikkelaar van de API bieden de mogelijkheid om hun klanten en toestemming van de toepassing in hun klanten tenants. Er is het aanbevolen ontwerp voor ontwikkelaars van derden om te maken van de API zodat deze kan ook worden gebruikt als een webclient voor het implementeren van aanmelding. Dit kunt u op de volgende manier doen:
 
 1. Volg de vorige secties om te controleren of dat de API implementeert de vereisten van de registratiecode/toepassing met meerdere tenants.
 2. Naast het weergeven van de API-bereiken/rollen, zorg ervoor dat de registratie bevat de ' aanmelden en gebruikersprofiel lezen ' machtiging (standaard beschikbaar).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798607"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541698"
 ---
 # <a name="api-management-access-restriction-policies"></a>Beleid voor toegangsbeperking API Management
 
@@ -89,6 +89,9 @@ De `rate-limit` gebruikspieken API op basis van een abonnement wordt verhinderd 
 >
 > [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van het beleid voor dit beleid.
 
+> [!CAUTION]
+> Door de gedistribueerde aard van de architectuur van beperking, gelden enkele beperkingen nooit volledig juist is. Het verschil tussen geconfigureerd en het werkelijke aantal toegestane aanvragen variëren op basis van het aanvraagvolume en snelheid, back-end-latentie en andere factoren.
+
 ### <a name="policy-statement"></a>Beleidsverklaring
 
 ```xml
@@ -145,6 +148,9 @@ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.mi
 De `rate-limit-by-key` beleid voorkomt gebruikspieken API op basis van per sleutel door het beperken van het aantal aanroepen naar een opgegeven getal gedurende een opgegeven periode. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door met behulp van een beleidsexpressie voor een. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen naar de limiet moeten worden geteld. Wanneer dit beleid wordt geactiveerd de oproepende functie ontvangt een `429 Too Many Requests` antwoordstatuscode.
 
 Zie voor meer informatie en voorbeelden van dit beleid [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+
+> [!CAUTION]
+> Door de gedistribueerde aard van de architectuur van beperking, gelden enkele beperkingen nooit volledig juist is. Het verschil tussen geconfigureerd en het werkelijke aantal toegestane aanvragen variëren op basis van het aanvraagvolume en snelheid, back-end-latentie en andere factoren.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -536,7 +542,7 @@ In dit voorbeeld ziet u hoe u de [JWT valideren](api-management-access-restricti
 | query-parameter-name            | De naam van de queryparameter houden van het token.                                                                                                                                                                                                                                                                                                                                                                                                     | Een van de `header-name`, `query-parameter-name` of `token-value` moet worden opgegeven. | N/A                                                                               |
 | token-waarde                     | Expressie die retourneert een tekenreeks met JWT-token                                                                                                                                                                                                                                                                                                                                                                                                     | Een van de `header-name`, `query-parameter-name` of `token-value` moet worden opgegeven. | N/A                                                                               |
 | id                              | De `id` kenmerk in de `key` element kunt u opgeven de tekenreeks die wordt vergeleken met de `kid` claim in het token (indien aanwezig) om de juiste sleutel te gebruiken voor handtekeningvalidatie erachter te komen.                                                                                                                                                                                                                                           | Nee                                                                               | N/A                                                                               |
-| overeenkomst                           | De `match` kenmerk in de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet te voltooien. Mogelijke waarden zijn:<br /><br /> - `all` -de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie te voltooien.<br /><br /> - `any` -ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie te voltooien.                                                       | Nee                                                                               | all                                                                               |
+| overeenkomst                           | De `match` kenmerk in de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet te voltooien. Mogelijke waarden zijn:<br /><br /> - `all` -de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie te voltooien.<br /><br /> - `any` -ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie te voltooien.                                                       | Nee                                                                               | alle                                                                               |
 | require-expiration-time         | Booleaanse waarde. Hiermee geeft u op of een expiration-claim is vereist in het token.                                                                                                                                                                                                                                                                                                                                                                               | Nee                                                                               | true                                                                              |
 | vereisen dat schema                  | De naam van het token-schema, bijvoorbeeld "Bearer". Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.                                                                                                                                                                                                                                                                                    | Nee                                                                               | N/A                                                                               |
 | vereisen dat-ondertekend-tokens           | Booleaanse waarde. Hiermee geeft u op of een token is vereist om te worden ondertekend.                                                                                                                                                                                                                                                                                                                                                                                           | Nee                                                                               | true                                                                              |

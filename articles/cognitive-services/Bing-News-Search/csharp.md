@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f7c5ce2ce4725277fc08634a021d2b38d11abc1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87e328230b346deaa25a1d83ca46c1698dd84882
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61384949"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798351"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Quickstart: Nieuws zoeken met C# en de REST API van Bing Nieuws zoeken
 
@@ -26,7 +26,7 @@ Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/).
 * Het [Json.NET](https://www.newtonsoft.com/json)-framework, beschikbaar als NuGet-pakket.
 * Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).
 

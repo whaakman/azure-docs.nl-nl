@@ -3,8 +3,8 @@ title: Microsoft identity-platform-ID tokenverwijzing | Microsoft Docs
 description: Informatie over het gebruik van id_tokens verzonden door de Azure AD-v1.0 en Microsoft identity-platform (v2.0) eindpunten.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2c99caa46522f9b1e5d6334da8f10a0f4039899
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410039"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540323"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft identity-platform-ID-tokens
 
@@ -55,7 +55,7 @@ Dit token v2.0 voorbeeld in weergeven [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 
 ### <a name="header-claims"></a>Header-claims
 
-|Claim | Indeling | Description |
+|Claim | Notatie | Description |
 |-----|--------|-------------|
 |`typ` | Tekenreeks - altijd "JWT" | Geeft aan dat het token een JWT.|
 |`alg` | String | Geeft aan dat de algoritme die is gebruikt voor het ondertekenen van het token. Voorbeeld: "RS256" |
@@ -66,7 +66,7 @@ Dit token v2.0 voorbeeld in weergeven [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 
 Deze lijst bevat de claims die zich in de meeste id_tokens standaard (tenzij anders wordt vermeld).  Uw app kunt echter gebruiken [optionele claims](active-directory-optional-claims.md) om aan te vragen van aanvullende claims in de id_token.  Dit kunnen variëren van het `groups` claim naar informatie over de naam van de gebruiker.
 
-|Claim | Indeling | Description |
+|Claim | Notatie | Description |
 |-----|--------|-------------|
 |`aud` |  Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In `id_tokens`, de doelgroep is van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
 |`iss` |  Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token is uitgegeven door het v2.0-eindpunt, de URI wordt beëindigd `/v2.0`.  De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
@@ -82,7 +82,7 @@ Deze lijst bevat de claims die zich in de meeste id_tokens standaard (tenzij and
 |`name` | String | De `name` claim biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde wordt niet gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 |`nonce`| String | De nonce overeenkomt met de parameter die is opgenomen in de oorspronkelijke / aanvraag om de id-provider te autoriseren. Als deze niet overeenkomt, moet uw toepassing het token weigeren. |
 |`oid` | Tekenreeks, een GUID | De onveranderbare id voor een object in het Microsoft-identiteitssysteem, in dit geval een gebruikersaccount. Deze ID is uniek voor de gebruiker voor toepassingen: twee verschillende toepassingen die zich in dezelfde gebruiker ontvangt de dezelfde waarde in de `oid` claim. De Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaalde gebruikersaccount. Omdat de `oid` kunnen meerdere apps correleren van gebruikers, de `profile` bereik is vereist voor het ontvangen van deze claim. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat: deze worden beschouwd als andere accounts, zelfs als de gebruiker meldt zich aan bij elk account met dezelfde referenties. |
-|`roles`| Matrix van tekenreeksen | De set met functies die zijn toegewezen aan de gebruiker die is aangemeld. |
+|`roles`| matrix van tekenreeksen | De set met functies die zijn toegewezen aan de gebruiker die is aangemeld. |
 |`rh` | Opaque String |Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
 |`sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het onderwerp is een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, ontvangt deze apps twee verschillende waarden voor de claim onderwerp. Dit kan of mogelijk niet gewenst afhankelijk van uw architectuur en privacy-vereisten. |
 |`tid` | Tekenreeks, een GUID | Een GUID die de Azure AD-tenant die door de gebruiker van vertegenwoordigt. De GUID is voor werk- en schoolaccounts accounts, de onveranderbare tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor het ontvangen van deze claim. |

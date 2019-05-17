@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148940"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796150"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-queryvoorbeelden voor Azure Cosmos DB
 
@@ -139,7 +139,7 @@ Resultaten van de query zijn:
     }]
 ```
 
-De volgende query retourneert alle opgegeven namen van kinderen in de familie waarvan `id` komt overeen met `WakefieldFamily`, geordende door de plaats van wonen.
+De volgende query retourneert alle opgegeven namen van kinderen in de familie waarvan `id` komt overeen met `WakefieldFamily`, geordende per stad.
 
 ```sql
     SELECT c.givenName
@@ -550,13 +550,13 @@ In de volgende tabel ziet het resultaat van gelijkheidsvergelijkingen in de SQL-
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Undefined** | Niet gedefinieerd | Undefined | Undefined | Undefined | Undefined | Undefined | Niet gedefinieerd |
+| **Null** | Niet gedefinieerd | **Ok** | Niet gedefinieerd | Undefined | Undefined | Undefined | Niet gedefinieerd |
+| **Boolean** | Niet gedefinieerd | Niet gedefinieerd | **Ok** | Niet gedefinieerd | Undefined | Undefined | Niet gedefinieerd |
+| **Number** | Niet gedefinieerd | Undefined | Niet gedefinieerd | **Ok** | Niet gedefinieerd | Undefined | Niet gedefinieerd |
+| **String** | Niet gedefinieerd | Undefined | Undefined | Niet gedefinieerd | **Ok** | Niet gedefinieerd | Niet gedefinieerd |
+| **Object** | Niet gedefinieerd | Undefined | Undefined | Undefined | Niet gedefinieerd | **Ok** | Niet gedefinieerd |
+| **Array** | Niet gedefinieerd | Undefined | Undefined | Undefined | Undefined | Niet gedefinieerd | **Ok** |
 
 Voor vergelijkingsoperators zoals `>`, `>=`, `!=`, `<`, en `<=`, vergelijking van de verschillende typen of tussen twee objecten of matrices produceert `Undefined`.  
 
@@ -568,27 +568,27 @@ Logische operatoren worden uitgevoerd op Booleaanse waarden. De volgende tabelle
 
 **Operator OF**
 
-| OF | True | False | Undefined |
+| OR | True | Onwaar | Niet gedefinieerd |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Undefined |
-| Undefined |True |Undefined |Undefined |
+| Onwaar |True |Onwaar |Niet gedefinieerd |
+| Niet gedefinieerd |True |Niet gedefinieerd |Undefined |
 
 **Operator EN**
 
-| EN | True | False | Undefined |
+| EN | True | Onwaar | Niet gedefinieerd |
 | --- | --- | --- | --- |
-| True |True |False |Undefined |
-| False |False |False |False |
-| Undefined |Undefined |False |Undefined |
+| True |True |Onwaar |Niet gedefinieerd |
+| Onwaar |Onwaar |Onwaar |Onwaar |
+| Niet gedefinieerd |Niet gedefinieerd |Onwaar |Niet gedefinieerd |
 
 **Operator NIET**
 
 | NIET |  |
 | --- | --- |
-| True |False |
-| False |True |
-| Undefined |Undefined |
+| True |Onwaar |
+| Onwaar |True |
+| Niet gedefinieerd |Niet gedefinieerd |
 
 ## <a name="between-keyword"></a>Sleutelwoord BETWEEN
 
@@ -867,6 +867,13 @@ De resultaten zijn:
         ]
       }
     ]
+```
+
+De volgende SQL-query is een ander voorbeeld van het gebruik van matrix binnen in subquery's. Deze query haalt alle afzonderlijke namen van kinderen in een arrary gegeven.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
@@ -1287,11 +1294,11 @@ De SQL-API biedt ondersteuning voor de volgende statistische functies. SOM en ge
 
 | Function | Description |
 |-------|-------------|
-| COUNT | Retourneert het aantal items in de expressie. |
+| AANTAL | Retourneert het aantal items in de expressie. |
 | SUM   | Retourneert de som van alle waarden in de expressie. |
 | MIN   | Retourneert de minimumwaarde in de expressie. |
 | MAX   | Retourneert de maximumwaarde in de expressie. |
-| AVG   | Retourneert het gemiddelde van de waarden in de expressie. |
+| GEM   | Retourneert het gemiddelde van de waarden in de expressie. |
 
 U kunt ook via de resultaten van een matrix iteratie samenvoegen. Zie voor meer informatie de [iteratie](#Iteration) sectie.
 

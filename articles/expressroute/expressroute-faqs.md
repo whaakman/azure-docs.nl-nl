@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924675"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794750"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -79,7 +79,7 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI
+* Power BI - beschikbaar via een regionale Azure-Community, Zie [hier](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) voor informatie over het vinden van de regio van uw Power BI-tenant. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Global Services van Azure-community)
 * De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br><br>**De volgende services worden niet ondersteund**:
@@ -152,7 +152,7 @@ Als uw serviceprovider ExpressRoute op beide sites biedt, kunt u werken met uw p
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan ik meerdere ExpressRoute-circuits hebben in de dezelfde metro? Kan ik deze koppelen aan hetzelfde virtuele netwerk?
 
-Ja. U kunt meerdere ExpressRoute-circuits hebt met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits van worden gemaakt op verschillende locaties voor peering, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits van worden gemaakt op dezelfde locatie peering, kunt u ze nog steeds koppelt aan de hetzelfde virtuele netwerk, maar alleen maximaal 4 ExpressRoute-circuits op elke peeringlocatie. U kunt bijvoorbeeld de peeringlocaties "Singapore" en "Singapore2" selecteren en circuits vanaf elk aan hetzelfde virtuele netwerk verbinding maken. 
+Ja. U kunt meerdere ExpressRoute-circuits hebt met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits van worden gemaakt op verschillende locaties voor peering, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits van worden gemaakt op dezelfde locatie peering, kunt u maximaal 4 circuits koppelen aan hetzelfde virtuele netwerk.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hoe ik mijn virtuele netwerken verbinden met een ExpressRoute-circuit
 
@@ -190,7 +190,7 @@ Nee. Vanuit een perspectief routering, worden alle virtuele netwerken die zijn g
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Kan ik een virtueel netwerk verbonden met meer dan één ExpressRoute-circuit hebben?
 
-Ja. U kunt één virtueel netwerk met maximaal vier ExpressRoute-circuits koppelen. Ze moeten worden besteld via vier verschillende [ExpressRoute-locaties](expressroute-locations.md).
+Ja. U kunt één virtueel netwerk met maximaal vier ExpressRoute-circuits in het hetzelfde of een ander peering locaties koppelen. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Kan ik toegang tot het Internet van mijn virtuele netwerken die zijn verbonden met ExpressRoute-circuits?
 

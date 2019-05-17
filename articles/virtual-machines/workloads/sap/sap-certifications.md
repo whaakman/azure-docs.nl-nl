@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 05/15/2019
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: de282041066e18a52d596f051def598eef3d458d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a38d5b44aaca0aa28e7ecd32543d2b0563964b3d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648921"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797448"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP-certificeringen en configuraties die worden uitgevoerd op Microsoft Azure
 
@@ -37,10 +37,10 @@ Referenties:
 | --- | --- | --- |
 | SAP HANA Developer Edition (inclusief de HANA-clientsoftware bestaat uit SQLODBC, ODBO-Windows alleen, ODBC, JDBC-stuurprogramma's, HANA studio en HANA database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Uit de D-serie VM-reeks |
 | Zakelijke één op HANA | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
-| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Gecontroleerde beschikbaarheid voor GS5. Volledige ondersteuning voor M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> SAP HANA op Azure (grote instanties) [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| Suite op HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, SAP HANA op Azure (grote instanties) <br /> [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| HANA Enterprise voor BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> SAP HANA op Azure (grote instanties) [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> SAP HANA op Azure (grote exemplaren) <br /> [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Gecontroleerde beschikbaarheid voor GS5. Volledige ondersteuning voor M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> SAP HANA op Azure (grote instanties) [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| Suite op HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, SAP HANA op Azure (grote instanties) <br /> [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| HANA Enterprise voor BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> SAP HANA op Azure (grote instanties) [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> SAP HANA op Azure (grote exemplaren) <br /> [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 
 Houd er rekening mee dat SAP maakt gebruik van de term 'clustering' in [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) als synoniem voor 'scale-out' en niet voor hoge beschikbaarheid 'clustering'
 
@@ -53,10 +53,10 @@ Referenties:
 
 | SAP-product | Gastbesturingssysteem | RDBMS | Typen virtuele machines |
 | --- | --- | --- | --- |
-| SAP Business Suite-software | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP ASE |A5 tot A11, D11 tot D14, DS11 tot DS14, DS11_v2 naar DS15_v2, GS1 tot GS5, D2s_v3 naar D64s_v3, E2s_v3 E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts |
-| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP ASE |A5 tot A11, D11 tot D14, DS11 tot DS14, DS11_v2 naar DS15_v2, GS1 tot GS5, D2s_v3 naar D64s_v3, E2s_v3 E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts |
-| SAP Business Objects BI | Windows |N/A |A5 tot A11, D11 tot D14, DS11 tot DS14, DS11_v2 naar DS15_v2, GS1 tot GS5, D2s_v3 naar D64s_v3, E2s_v3 E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts |
-| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP ASE |A5 tot A11, D11 tot D14, DS11 tot DS14, DS11_v2 naar DS15_v2, GS1 tot GS5, D2s_v3 naar D64s_v3, E2s_v3 E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts |
+| SAP Business Suite-software | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP ASE |A5 tot A11, D11 tot D14, DS11 tot DS14, DS11_v2 naar DS15_v2, GS1 tot GS5, D2s_v3 naar D64s_v3, E2s_v3 E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
+| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP ASE |A5 tot A11, D11 tot D14, DS11 tot DS14, DS11_v2 naar DS15_v2, GS1 tot GS5, D2s_v3 naar D64s_v3, E2s_v3 E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
+| SAP Business Objects BI | Windows |N/A |A5 tot A11, D11 tot D14, DS11 tot DS14, DS11_v2 naar DS15_v2, GS1 tot GS5, D2s_v3 naar D64s_v3, E2s_v3 E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
+| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP ASE |A5 tot A11, D11 tot D14, DS11 tot DS14, DS11_v2 naar DS15_v2, GS1 tot GS5, D2s_v3 naar D64s_v3, E2s_v3 E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Andere SAP werkbelasting die wordt ondersteund op Azure
 

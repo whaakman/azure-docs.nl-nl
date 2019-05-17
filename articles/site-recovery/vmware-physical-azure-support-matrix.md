@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 8be028d11d0778c2b67788029aa400ffd3b98cb4
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872920"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540594"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -64,7 +64,7 @@ Site Recovery biedt ondersteuning voor replicatie van alle werkbelasting die wor
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
 Machine-werkbelasting | Site Recovery biedt ondersteuning voor replicatie van elke workload (bijvoorbeeld Active Directory, SQL server, enzovoort) die worden uitgevoerd op een ondersteunde machine. [Meer informatie](https://aka.ms/asr_workload).
-Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br></br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> Windows 2016 Nano Server wordt niet ondersteund.
+Windows-besturingssysteem | Windows Server 2019 (van [9.22 versies](service-updates-how-to.md#links-to-currently-supported-update-rollups)), 64-bits Windows Server 2016 (Server Core, Server met Bureaubladervaring), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. </br> Uit [9.24 versies](https://support.microsoft.com/en-in/help/4503156), 64-bits Windows 10, Windows 8.1-64-bits, 64-bits Windows 8, 64-bits Windows 7 (Windows 7 RTM wordt niet ondersteund)</br>  [Windows Server 2008 met op minste SP2 - 32-bits en 64-bits](migrate-tutorial-windows-server-2008.md) (alleen voor de migratie). </br></br> Windows 2016 Nano Server wordt niet ondersteund.
 Architectuur van de Linux-besturingssysteem | Alleen 64-bits systeem wordt ondersteund. 32-bits systeem wordt niet ondersteund.
 Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0-7,6 <br/><br/>CentOS: 5.2-5,11<b>\*\*</b>, 6.1-6.10<b>\*\*</b>, 7.0-7,6 <br/><br/>Ubuntu 14.04 LTS server [(kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(kernel-versies ondersteund)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3, 4 en 5 (UEK3, UEK4, UEK5) <br/><br/></br>-Upgrade uitvoeren voor gerepliceerde machines van SUSE Linux Enterprise Server 11 SP3 naar SP4 wordt niet ondersteund. Als u wilt bijwerken, replicatie uitschakelen en inschakelen na de upgrade opnieuw.</br></br> - [Meer informatie](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) over ondersteuning voor Linux en open source-technologie in Azure. Site Recovery deelt failover voor Linux-servers uitvoeren in Azure. Linux-leveranciers kunnen echter ondersteuning om alleen distributie-versies die nog niet hebt bereikt einde van de levenscyclus te beperken.<br/><br/> -In Linux-distributies, worden alleen de voorraad kernels die deel van de release-distributiepunt secundaire versie/update uitmaken ondersteund.<br/><br/> -Upgrade uitvoeren voor beveiligde machines over belangrijke Linux distributie versies wordt niet ondersteund. Als u wilt bijwerken, schakelt u replicatie uit, werk het besturingssysteem en schakelt u de replicatie opnieuw.<br/><br/> -Servers met Red Hat Enterprise Linux 5.2-5,11 of CentOS 5.2-5,11 moeten beschikken over de [onderdelen van Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) geïnstalleerd voor de machines om op te starten in Azure.
 
@@ -148,7 +148,7 @@ Meerdere NIC's van het netwerk Gast/host-server | Ja.
 
 **Onderdeel** | **Ondersteund**
 --- | ---
-ExpressRoute van Azure | Ja
+Azure ExpressRoute | Ja
 ILB | Ja
 ELB | Ja
 Azure Traffic Manager | Ja
@@ -173,6 +173,7 @@ VMDK-Gast/server | Ja
 De gedeelde clusterschijf Gast/host-server | Nee
 Versleutelde schijf Gast/host-server | Nee
 Gast/NFS-server | Nee
+Gast/server iSCSI | Nee
 Gast/SMB 3.0-server | Nee
 Gast/server RDM | Ja<br/><br/> N.V.T. voor fysieke servers
 Gast/server schijf > 1 TB | Ja<br/><br/>Maximaal 4095 GB<br/><br/> Schijf moet groter zijn dan 1024 MB zijn.

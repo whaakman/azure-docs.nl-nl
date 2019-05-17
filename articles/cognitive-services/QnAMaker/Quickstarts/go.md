@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: f16909a9504b2868c1eecf849b9a1fd537cd6048
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76be371547bcb9daf0e10b62df62df5065cd6465
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60913545"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791465"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Het gebruik van de QnA Maker REST-API met Go 
 <a name="HOLTop"></a>
@@ -48,7 +48,7 @@ U moet beschikken over een [account voor Cognitive Services-API](https://docs.mi
 
 ## <a name="create-knowledge-base"></a>Een Knowledge Base maken
 
-Met de volgende code wordt een nieuwe Knowledge Base gemaakt met behulp van de methode [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+Met de volgende code wordt een nieuwe Knowledge Base gemaakt met behulp van de methode [Create](https://go.microsoft.com/fwlink/?linkid=2092179).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -128,7 +128,7 @@ var req string = `{
   "qnaList": [
     {
       "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://go.microsoft.com/fwlink/?linkid=2092179",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -226,7 +226,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="update-knowledge-base"></a>Knowledge base bijwerken
 
-Met de volgende code wordt een bestaande knowledge base bijgewerkt met behulp van de methode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Met de volgende code wordt een bestaande knowledge base bijgewerkt met behulp van de methode [Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -309,7 +309,7 @@ var req string = `{
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -402,7 +402,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>De aanvraagstatus ophalen
 
-U kunt de methode [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) aanroepen om de status van een aanvraag voor het maken of bijwerken van een kennisdatabase te controleren. Bekijk de voorbeeldcode voor de methode [Create](#Create) of [Update](#Update) om te zien hoe deze methode wordt gebruikt.
+U kunt de methode [Operation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) aanroepen om de status van een aanvraag voor het maken of bijwerken van een kennisdatabase te controleren. Bekijk de voorbeeldcode voor de methode [Create](#Create) of [Update](#Update) om te zien hoe deze methode wordt gebruikt.
 
 [Terug naar boven](#HOLTop)
 
@@ -410,7 +410,7 @@ U kunt de methode [Operation](https://westus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="publish-knowledge-base"></a>Knowledge base publiceren
 
-Met de volgende code wordt een bestaande knowledge base gepubliceerd met behulp van de methode [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+Met de volgende code wordt een bestaande knowledge base gepubliceerd met behulp van de methode [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -500,7 +500,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="replace-knowledge-base"></a>Knowledge base vervangen
 
-Met de volgende code wordt de inhoud van de opgegeven knowledge base vervangen. Hierbij wordt gebruikgemaakt van de methode [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
+Met de volgende code wordt de inhoud van de opgegeven knowledge base vervangen. Hierbij wordt gebruikgemaakt van de methode [Replace](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -565,7 +565,7 @@ var req string = `{
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -608,7 +608,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>De inhoud van een knowledge base downloaden
 
-Met de volgende code wordt de inhoud van de opgegeven knowledge base gedownload. Hierbij wordt gebruikgemaakt van de methode [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download).
+Met de volgende code wordt de inhoud van de opgegeven knowledge base gedownload. Hierbij wordt gebruikgemaakt van de methode [Download knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -685,7 +685,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -818,7 +818,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="get-information-about-a-knowledge-base"></a>Informatie ophalen over een knowledge base
 
-Met de volgende code wordt informatie over de opgegeven knowledge base opgehaald. Hiervoor wordt gebruikgemaakt van de methode [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails).
+Met de volgende code wordt informatie over de opgegeven knowledge base opgehaald. Hiervoor wordt gebruikgemaakt van de methode [Get knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -910,7 +910,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Alle knowledge bases van een gebruiker ophalen
 
-Met de volgende code wordt informatie over alle knowledge bases van een opgegeven gebruiker opgehaald. Hierbij wordt gebruikgemaakt van de methode [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser).
+Met de volgende code wordt informatie over alle knowledge bases van een opgegeven gebruiker opgehaald. Hierbij wordt gebruikgemaakt van de methode [Get knowledge bases for user](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1015,7 +1015,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Een knowledge base verwijderen
 
-Met de volgende code wordt de opgegeven knowledge base verwijderd. Hierbij wordt gebruikgemaakt van de methode [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
+Met de volgende code wordt de opgegeven knowledge base verwijderd. Hierbij wordt gebruikgemaakt van de methode [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1101,7 +1101,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="get-endpoint-keys"></a>Eindpuntsleutels ophalen
 
-Met de volgende code worden de huidige eindpuntsleutels opgehaald. Hierbij wordt gebruikgemaakt van de methode [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys).
+Met de volgende code worden de huidige eindpuntsleutels opgehaald. Hierbij wordt gebruikgemaakt van de methode [Get endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1179,7 +1179,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="refresh-endpoint-keys"></a>Eindpuntsleutels vernieuwen
 
-Met de volgende code worden de huidige eindpuntsleutels opnieuw gegenereerd. Hierbij wordt gebruikgemaakt van de methode [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys).
+Met de volgende code worden de huidige eindpuntsleutels opnieuw gegenereerd. Hierbij wordt gebruikgemaakt van de methode [Refresh endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1265,7 +1265,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="get-word-alterations"></a>Woordwijzigingen ophalen
 
-Met de volgende code worden de huidige woordwijzigingen opgehaald. Hierbij wordt gebruikgemaakt van de methode [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc).
+Met de volgende code worden de huidige woordwijzigingen opgehaald. Hierbij wordt gebruikgemaakt van de methode [Download alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1349,7 +1349,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 
 ## <a name="replace-word-alterations"></a>Woordwijzigingen vervangen
 
-Met de volgende code worden de huidige woordwijzigingen vervangen. Hierbij wordt gebruikgemaakt van de methode [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd).
+Met de volgende code worden de huidige woordwijzigingen vervangen. Hierbij wordt gebruikgemaakt van de methode [Replace alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -1445,7 +1445,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie over REST API voor QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Naslaginformatie over REST API voor QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## <a name="see-also"></a>Zie ook 
 

@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 4406789e3f9a10ff814aca0c2fd114de8a2abb69
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572664"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794394"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Wat is een individuele database in Azure SQL Database
 
@@ -30,7 +30,7 @@ De Implementatieoptie voor één database maakt u een database in Azure SQL Data
 
 ## <a name="dynamic-scalability"></a>Dynamische schaalbaarheid
 
-U kunt uw eerste app ontwikkelen op een kleine, één database tegen lage kosten per maand in de servicelaag lage prijs-prestatieverhouding en vervolgens [de servicelaag wijzigen](sql-database-single-database-scale.md) handmatig of via een programma op elk gewenst moment thehigher prijs-prestatieverhouding service laag om te voldoen aan de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
+U kunt uw eerste app ontwikkelen op een kleine, één database op lage kosten in de rekenlaag zonder server (preview) of een kleine rekeninstantie-grootte in de ingerichte Computing-laag. U wijzigt de [compute of de service tier](sql-database-single-database-scale.md) handmatig of via een programma op elk gewenst moment om te voldoen aan de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
 
 ## <a name="single-databases-and-elastic-pools"></a>Individuele databases en elastische pools
 

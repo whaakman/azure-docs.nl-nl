@@ -3,8 +3,8 @@ title: Woordenlijst voor Microsoft identity-platform-ontwikkelaars | Azure
 description: Een lijst met voorwaarden voor de meest gebruikte Microsoft identity platform developer concepten en functies.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ea1dba09173b20d11a5022e6666e6c865ead62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410381"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540080"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Woordenlijst voor Microsoft identity-platform-ontwikkelaars
 
@@ -156,7 +156,7 @@ Een resource-server API's en dwingt de toegang tot de beveiligde bronnen via af 
 
 Net als een clienttoepassing configuratie van de identiteit van de resourcetoepassing wordt tot stand gebracht [registratie](#application-registration) bieden zowel de toepassing en service-principal-object in een Azure AD-tenant. Sommige Microsoft geleverde API's, zoals de Azure AD Graph-API hebt beschikbaar gesteld in alle tenants tijdens het inrichten van service-principals vooraf geregistreerd.
 
-## <a name="roles"></a>rolls
+## <a name="roles"></a>rollen
 
 Zoals [scopes](#scopes), rollen bieden een manier om een [bronserver](#resource-server) om te bepalen van de toegang tot de beveiligde bronnen. Er zijn twee typen: een rol 'gebruiker' wordt geïmplementeerd op rollen gebaseerd toegangsbeheer voor gebruikers/groepen waarvoor toegang tot de resource, terwijl een rol 'application' wordt geïmplementeerd voor dezelfde [clienttoepassingen](#client-application) die toegang nodig hebben.
 

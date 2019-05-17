@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409848"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795893"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure best practices voor operationele beveiliging
 Dit artikel bevat een set van aanbevolen procedures voor het beveiligen van uw gegevens, toepassingen en andere assets in Azure.
@@ -153,7 +153,7 @@ U kunt [Azure Resource Manager](https://azure.microsoft.com/documentation/articl
 **Details**: [Azure pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) is een oplossing voor de implementatie van meerdere fasen automatiseren en beheren van de release-proces. Beheerde continue implementatie pijplijnen om snel, eenvoudig en vaak vrij te maken. Met Azure-pijplijnen, kunt u uw release-proces automatiseren en u kunt beschikken over vooraf gedefinieerde goedkeuringswerkstromen. Implementeer on-premises en naar de cloud uitbreiden en aanpassen zoals vereist.
 
 **Beste**: Controleer de prestaties van uw app voordat u het starten of updates naar productie implementeren.  
-**Details**: Uitvoeren van cloud-gebaseerde [belastingstests](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) aan:
+**Details**: Uitvoeren van cloud-gebaseerde [belastingstests](/azure/devops/test/load-test/overview#alternatives) aan:
 
 - Prestatieproblemen in uw app vinden.
 - Implementatie-kwaliteit verbeteren.

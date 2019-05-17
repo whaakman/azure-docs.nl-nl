@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12c68a268b901f3525c2af9cd381dc277d6d8167
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441485"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770892"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -45,7 +45,7 @@ De volgende tabel geeft een overzicht van de methoden voor eenmalige aanmelding,
 | [OpenID Connect en OAuth](#openid-connect-and-oauth) | Alleen cloud | OpenID Connect en OAuth gebruiken bij het ontwikkelen van een nieuwe toepassing. Dit protocol vereenvoudigt de configuratie van toepassing, is eenvoudig te gebruiken SDK's en kan uw toepassing MS Graph gebruiken.
 | [SAML](#saml-sso) | cloud en on-premises | Kies SAML indien mogelijk voor bestaande toepassingen die niet met OpenID Connect of OAuth. SAML werkt voor toepassingen die worden geverifieerd met een van de SAML-protocollen.|
 | [Op basis van wachtwoorden](#password-based-sso) | cloud en on-premises | Kiezen op basis van wachtwoorden wanneer de toepassing wordt geverifieerd met gebruikersnaam en wachtwoord. Wachtwoord gebaseerde eenmalige aanmelding kunt u beveiligde toepassingen wachtwoorden worden opgeslagen en opnieuw afspelen met behulp van een uitbreiding van web browser of mobiele app. Deze methode maakt gebruik van het bestaande aanmeldingsproces geleverd door de toepassing, maar Hiermee kan een beheerder om de wachtwoorden te beheren. |
-| [Gekoppelde](#linked-sso) | cloud en on-premises | Kies gekoppelde eenmalige aanmelding bij de toepassing is geconfigureerd voor eenmalige aanmelding in een andere id-provider-service. Deze optie toevoegen niet eenmalige aanmelding aan de toepassing. De toepassing mogelijk echter al eenmalige aanmelding geïmplementeerd met behulp van een andere service, zoals Active Directory Federation Services.|
+| [Gekoppelde](#linked-sign-on) | cloud en on-premises | Kies gekoppelde aanmelding wanneer de toepassing is geconfigureerd voor eenmalige aanmelding in een andere id-provider-service. Deze optie toevoegen niet eenmalige aanmelding aan de toepassing. De toepassing mogelijk echter al eenmalige aanmelding geïmplementeerd met behulp van een andere service, zoals Active Directory Federation Services.|
 | [Uitgeschakeld](#disabled-sso) | cloud en on-premises | Kies uitgeschakelde eenmalige aanmelding wanneer de app niet gereed om te worden geconfigureerd voor eenmalige aanmelding. Gebruikers moeten hun gebruikersnaam en wachtwoord invoeren telkens wanneer ze deze toepassing starten.|
 | [Geïntegreerde Windows-verificatie (IWA)](#integrated-windows-authentication-iwa-sso) | alleen on-premises | Kies IWA eenmalige aanmelding voor toepassingen die gebruikmaken van [geïntegreerde Windows-verificatie (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), of de claimbewuste toepassingen. Voor IWA, wordt in de Application Proxy connectors Kerberos-beperkte delegatie (KCD) gebruiken om te verifiëren voor toegang tot de toepassing. | 
 | [Op basis van koptekst](#header-based-sso) | alleen on-premises | Gebruik op basis van een koptekst van eenmalige aanmelding wanneer de toepassing headers voor verificatie gebruikt. Headers gebaseerde eenmalige aanmelding moet PingAccess voor Azure AD. Application Proxy maakt gebruik van Azure AD de gebruiker te verifiëren en vervolgens doorgegeven verkeer via de connector-service.  | 
@@ -59,7 +59,7 @@ Zie voor meer informatie:
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
 - [Azure Active Directory-Ontwikkelaarshandleiding voor](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-## <a name="saml-sso"></a>Eenmalige aanmelding op basis van SAML
+## <a name="saml-sso"></a>SAML-EENMALIGE AANMELDING
 Met **eenmalige aanmelding SAML**, Azure AD verifieert de toepassing met behulp van Azure AD-account van de gebruiker. Azure AD communiceert de informatie aanmelding voor de toepassing via een verbindingsprotocol. Met SAML gebaseerde eenmalige aanmelding, kunt u gebruikers toewijzen aan de rollen van de specifieke toepassing is op basis van regels die u in de SAML-claims definieert.
 
 Kies SAML gebaseerde eenmalige aanmelding wanneer de toepassing wordt ondersteund.
@@ -122,12 +122,12 @@ De referenties worden als beheerd in de eindgebruiker:
 - Beheerders nog kunnen steeds om in te stellen van nieuwe referenties voor de toepassing.
 
 
-## <a name="linked-sso"></a>Gekoppelde eenmalige aanmelding
+## <a name="linked-sign-on"></a>Gekoppelde aanmelding
 Gekoppelde aanmelding kan Azure AD voor eenmalige aanmelding tot een toepassing die al is geconfigureerd voor eenmalige aanmelding in een andere service. De gekoppelde toepassing kan worden weergegeven voor eindgebruikers in de Office 365-portal of Azure AD MyApps-portal. Een gebruiker kan bijvoorbeeld een toepassing die is geconfigureerd voor eenmalige aanmelding in Active Directory Federation Services 2.0 (AD FS) in de Office 365-portal starten. Extra reporting is ook beschikbaar voor de gekoppelde toepassingen die worden gestart vanuit de Office 365-portal of de Azure AD MyApps-portal. 
 
-### <a name="linked-sso-for-application-migration"></a>Gekoppelde eenmalige aanmelding voor toepassingen migreren
+### <a name="linked-sign-on-for-application-migration"></a>Gekoppelde aanmelding voor toepassingen migreren
 
-Gekoppelde SSO krijgt u een consistente gebruikerservaring tijdens de migratie van toepassingen gedurende een bepaalde periode. Als u toepassingen te naar Azure Active Directory migreren bent, kunt u snel kunt publiceren koppelingen voor alle toepassingen die u van plan bent om te migreren gekoppelde eenmalige aanmelding gebruiken.  Gebruikers kunnen vinden alle bijbehorende koppelingen in de [MyApps-portal](../user-help/active-directory-saas-access-panel-introduction.md) of de [startprogramma voor toepassingen van Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Gebruikers kennen niet dat ze toegang krijgen tot een gekoppelde toepassing of een gemigreerde toepassing.  
+Gekoppelde aanmelding krijgt u een consistente gebruikerservaring tijdens de migratie van toepassingen gedurende een bepaalde periode. Als u toepassingen te naar Azure Active Directory migreren bent, kunt u gekoppelde aanmelding koppelingen snel kunt publiceren voor alle toepassingen die u van plan bent om te migreren.  Gebruikers kunnen vinden alle bijbehorende koppelingen in de [MyApps-portal](../user-help/active-directory-saas-access-panel-introduction.md) of de [startprogramma voor toepassingen van Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Gebruikers kennen niet dat ze toegang krijgen tot een gekoppelde toepassing of een gemigreerde toepassing.  
 
 Wanneer een gebruiker is geverifieerd met een gekoppelde toepassing, moet een accountrecord voor een worden gemaakt voordat de gebruiker toegang voor eenmalige aanmelding is opgegeven. Een record voor dit account wordt ingericht ofwel automatisch kan worden uitgevoerd, of deze handmatig door een beheerder kan optreden.
 

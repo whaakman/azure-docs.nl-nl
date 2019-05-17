@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121789"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790907"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Taalanalyse toevoegen aan een Azure Search-index
 
@@ -45,9 +45,6 @@ De standaard-analyzer is standaard Lucene, dat goed voor Engels, maar misschien 
 + De Engelse analyzer van Lucene breidt de standaard analyzer. Het verwijdert bezittelijke voornaamwoorden (afsluitende van) van woorden, is van toepassing als gevolg aan de hand van Porter voortvloeit algorithm, en Engelse stopwoorden.  
 
 + Engelse analyzer van Microsoft voert lemmatisering in plaats van die voortvloeien uit. Dit betekent dat veel beter wat in meer relevante zoekresultaten resulteert verbogen en onregelmatige word-formulieren kunnen worden verwerkt 
-
-  > [!Tip]
-  > De [Search Analyzer-Demo](https://alice.unearth.ai/) side-by-side-vergelijking van de resultaten van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor biedt. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de aangrenzende deelvensters.
 
 ## <a name="configuring-analyzers"></a>Analyzers configureren
 
@@ -76,7 +73,7 @@ Zie voor meer informatie over de Indexeigenschappen van de [Create Index &#40;Az
 |Tsjechisch|cs.microsoft|cs.lucene|  
 |Deens|da.microsoft|da.lucene|  
 |Nederlands|nl.microsoft|nl.lucene|  
-|Engels|en.microsoft|en.lucene|  
+|Nederlands|en.microsoft|en.lucene|  
 |Estisch|et.microsoft||  
 |Fins|fi.microsoft|fi.lucene|  
 |Frans|fr.microsoft|fr.lucene|  

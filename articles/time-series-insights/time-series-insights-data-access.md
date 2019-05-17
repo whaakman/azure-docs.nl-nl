@@ -11,18 +11,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6853637ba23e17f3a7ca5420bdd84425c81a67be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236389"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791028"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Gegevenstoegang verlenen tot een omgeving
 
 Dit artikel worden de twee typen beleidsregels voor toegang van Azure Time Series Insights Preview.
 
-## <a name="sign-in-to-tsi"></a>Aanmelden bij TSI
+## <a name="sign-in-to-time-series-insights"></a>Aanmelden bij de Time Series Insights
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 1. Ga naar uw Time Series Insights-omgeving. Voer `Time Series` in de **zoeken** vak. Selecteer **Time Series-omgeving** in de lijst met zoekresultaten.
