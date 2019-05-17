@@ -1,31 +1,25 @@
 ---
 title: Azure resources verplaatsen naar een nieuw abonnement of resourcegroep groep | Microsoft Docs
 description: Azure Resource Manager gebruiken voor resources verplaatsen naar een nieuwe resourcegroep of abonnement.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698490"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792687"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
 In dit artikel wordt beschreven hoe u Azure-resources verplaatsen naar een andere Azure-abonnement of een andere resourcegroep onder hetzelfde abonnement. U kunt de Azure portal, Azure PowerShell, Azure CLI of de REST-API gebruiken om resources te verplaatsen.
 
-Zowel de brongroep en de doelgroep worden vergrendeld tijdens de verplaatsing. Schrijf- en verwijderingsbewerkingen voor de resourcegroepen worden vergrendeld tot de bewerking is voltooid. Deze vergrendeling betekent dat u resources in de resourcegroepen niet kunt toevoegen, bijwerken of verwijderen. Dit betekent niet dat de resources bevroren zijn. Als u bijvoorbeeld een SQL-server en de bijbehorende database naar een nieuwe resourcegroep verplaatst, heeft de toepassing die gebruikmaakt van de database geen last van downtime. De server kan nog steeds naar de database schrijven en deze lezen.
+Zowel de brongroep en de doelgroep worden vergrendeld tijdens de verplaatsing. Schrijf en verwijderbewerkingen op de brongroepen zijn geblokkeerd totdat de verplaatsing is voltooid. Deze vergrendeling betekent dat u kunt geen toevoegen, bijwerken of verwijderen van resources in de resourcegroepen, maar dit betekent niet dat de resources zijn geblokkeerd. Als u een SQL-Server en de bijbehorende database naar een nieuwe resourcegroep verplaatsen, er een toepassing die gebruikmaakt van de database zonder uitvaltijd. Dit kan nog steeds lezen en schrijven naar de database.
 
-Als u een resource verplaatst, wordt deze alleen verplaatst naar een nieuwe resourcegroep. Door het verplaatsen wordt niet de locatie van de resource gewijzigd. De nieuwe resourcegroep mogelijk een andere locatie, maar dat de locatie van de resource niet wijzigen.
+Verplaatsen van een resource alleen verplaatst naar een nieuwe resourcegroep. Door het verplaatsen wordt niet de locatie van de resource gewijzigd. De nieuwe resourcegroep mogelijk een andere locatie, maar dat de locatie van de resource niet wijzigen.
 
 > [!NOTE]
 > In dit artikel wordt beschreven hoe u resources wilt verplaatsen tussen de bestaande Azure-abonnementen. Als u wilt upgraden van uw Azure-abonnement (zoals het overschakelen van gratis naar betalen per gebruik), moet u uw abonnement te zetten.
@@ -74,7 +68,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * CDN
 * Cloud Services - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry
+* Containerregister
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -113,6 +107,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * SignalR Service
 * Opslag - storage-accounts in verschillende regio's kan niet worden verplaatst in dezelfde bewerking. Gebruik in plaats daarvan de afzonderlijke bewerkingen voor elke regio.
 * Opslag (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
+* Opslagsynchronisatieservice
 * Stream Analytics - status voor Stream Analytics taken bij het uitvoeren van in kunnen niet worden verplaatst.
 * SQL Database-server - database en server moet zich in dezelfde resourcegroep bevinden. Wanneer u een SQL-server hebt verplaatst, worden ook alle bijbehorende databases verplaatst. Dit gedrag is van toepassing op Azure SQL Database en Azure SQL Data Warehouse-databases.
 * Time Series Insights
@@ -138,14 +133,14 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Azure NetApp Files
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Klassieke toepassingen
-* Container Instances
+* Containerinstanties
 * Container Service
 * Data Box
 * Dev-opslagruimten
 * Dynamics LCS
 * ExpressRoute
 * Lab-Services - Leslokaallabs kunnen niet worden verplaatst naar een nieuwe resourcegroep of abonnement. DevTest Labs kunnen worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
-* Managed Applications
+* Beheerde toepassingen
 * Microsoft Genomics
 * Beveiliging
 * Site Recovery
@@ -353,7 +348,7 @@ U kunt de HDInsight-clusters verplaatsen naar een nieuw abonnement of resourcegr
 
 Bij het verplaatsen van een HDInsight-cluster naar een nieuw abonnement, verplaatst u eerst andere bronnen (zoals de storage-account). Verplaats het HDInsight-cluster op zichzelf.
 
-## <a name="checklist-before-moving-resources"></a>Controlelijst voordat u de resource verplaatst
+## <a name="checklist-before-moving-resources"></a>Controlelijst voor het verplaatsen van resources
 
 Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden uitgevoerd. U kunt fouten voorkomen door te controleren of aan de volgende voorwaarden is voldaan.
 

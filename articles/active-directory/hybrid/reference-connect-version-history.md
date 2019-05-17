@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 05/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 60453c320a66a8eebd7460b3930241f9e81b8a1b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572406"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784334"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -42,6 +42,17 @@ Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?Link
 >Vrijgeven van een nieuwe versie van Azure AD Connect is een proces waarvoor verschillende kwaliteitscontrole stap om te controleren of de functionaliteit van de bewerking van de service, en hoewel we gaan door dit proces het versienummer van een nieuwe versie, evenals de release-status wordt bijgewerkt in overeenstemming met de meest recente status.
 Terwijl we dit proces doorloopt, wordt het versienummer van de release worden weergegeven met een 'X' in de secundaire versie nummer positie, zoals in '1.3.X.0' - Dit geeft aan dat de opmerkingen bij de release in dit document zijn geldig voor alle versies, beginnend met '1.3.'. Het releaseversienummer wordt bijgewerkt naar de meest recent uitgebrachte versie en de status van de release wordt bijgewerkt naar 'Vrijgegeven voor downloaden en automatisch upgraden' zodra we het uitgifteproces hebt voltooid.
 Niet alle versies van Azure AD Connect wordt beschikbaar gesteld voor automatische upgrade. De status van de release wordt aangegeven of een release voor automatische upgrade of voor download beschikbaar is gemaakt. Als u automatisch bijwerken is ingeschakeld op uw Azure AD Connect-server bijwerken die server automatisch naar de nieuwste versie van Azure AD Connect die voor automatische upgrade wordt vrijgegeven. Houd er rekening mee dat niet alle Azure AD Connect-configuraties die in aanmerking komen voor automatische upgrade zijn. Volg deze koppeling voor meer informatie over [Automatische upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13210"></a>1.3.21.0
+
+### <a name="release-status"></a>Releasestatus 
+
+05/14/2019: Nog te doen
+
+
+### <a name="fixed-issues"></a>Problemen opgelost 
+
+- Een uitbreiding van bevoegdheden die deel uitmaakt van Microsoft Azure Active Directory-Connect-build 1.3.20.0 opgelost.  Dit beveiligingsprobleem, onder bepaalde omstandigheden, kan dat een aanvaller twee powershell-cmdlets worden uitgevoerd in de context van een bevoegd account en bevoorrechte bewerkingen uitvoeren.  Deze update lost het probleem door deze cmdlets uit te schakelen. Zie voor meer informatie [beveiligingsupdate](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -279,7 +290,7 @@ Status 4/12/2018: Die zijn uitgebracht voor alleen downloaden
 >[!NOTE]
 >Deze release is een hotfix voor Azure AD Connect
 
-### <a name="azure-ad-connect-sync"></a>Azure AD Connect-synchronisatie
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect synchroniseren
 #### <a name="fixed-issues"></a>Problemen opgelost
 Een probleem opgelost zijn Azure-instantie automatische detectie voor tijd tot tijd niet in China tenants is geslaagd.  
 
@@ -387,12 +398,12 @@ Het vergrendelen van toegang tot de AD DS-account door het implementeren van de 
 *   Verwijder alle ACE's op het specifieke object, met uitzondering van ACE's die specifiek zijn voor zelf. We willen de standaardmachtigingen behouden als het gaat om zelf.
 *   Deze specifieke machtigingen toewijzen:
 
-Type     | Name                          | Access               | Van toepassing op
+Type     | Name                          | Toegang               | Van toepassing op
 ---------|-------------------------------|----------------------|--------------|
 Toestaan    | SYSTEEM                        | Volledig beheer         | Dit object  |
 Toestaan    | Ondernemingsadministrators             | Volledig beheer         | Dit object  |
 Toestaan    | Domeinadministrators                 | Volledig beheer         | Dit object  |
-Toestaan    | Beheerders                | Volledig beheer         | Dit object  |
+Toestaan    | Administrators                | Volledig beheer         | Dit object  |
 Toestaan    | Enterprise-domeincontrollers | Inhoud weergeven        | Dit object  |
 Toestaan    | Enterprise-domeincontrollers | Alle eigenschappen lezen  | Dit object  |
 Toestaan    | Enterprise-domeincontrollers | Machtigingen lezen     | Dit object  |
@@ -730,7 +741,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Selecteer|
+    |CertVersion|CertSignatureAlgorithmOid|Selecteren|
     |CertKeyAlgorithmParams|CertHashString|Waar|
     |||Met|
 
@@ -781,7 +792,7 @@ Uitgebracht: Mei 2017
 
 **Opgeloste problemen:**
 
-Azure AD Connect-synchronisatie
+Azure AD Connect synchroniseren
 
 * Er is een probleem dat ervoor zorgt dat de automatische Upgrade worden uitgevoerd op de Azure AD Connect-server, zelfs als de functie met de cmdlet Set-ADSyncAutoUpgrade is uitgeschakeld door de klant opgelost. Met deze oplossing wordt de automatische Upgrade-proces op de server nog steeds wordt gecontroleerd voor upgrade periodiek, maar het gedownloade installatieprogramma zich houdt aan de configuratie voor automatisch bijwerken.
 * Tijdens het in-place upgrade van DirSync maakt Azure AD Connect een Azure AD-serviceaccount moet worden gebruikt door de Azure AD-connector voor het synchroniseren met Azure AD. Wanneer het account is gemaakt, wordt Azure AD Connect verifieert met Azure AD met behulp van het account. Soms verificatie is mislukt vanwege problemen van voorbijgaande aard, die op zijn beurt zorgt ervoor dat in-place upgrade van DirSync mislukt met fout *"uitvoerende configureren AAD Sync-taak is een fout is opgetreden: AADSTS50034: Als u wilt aanmelden bij deze toepassing, het account moet worden toegevoegd aan de map xxx.onmicrosoft.com."* Ter verbetering van de flexibiliteit van de upgrade van DirSync, Azure AD Connect nu de stap opnieuw probeert verificatie.
@@ -798,7 +809,7 @@ Azure AD Connect-synchronisatie
 
 **Nieuwe functies/verbeteringen:**
 
-Azure AD Connect-synchronisatie
+Azure AD Connect synchroniseren
 * Wijzigingen in synchronisatie-regel: wijzigingen in de volgende synchronisatie de regel zijn geïmplementeerd:
   * Synchronisatieregel bijgewerkt standaard ingesteld op niet exporteren kenmerken **userCertificate** en **usersmimecertificate wordt door** als de kenmerken meer dan 15 waarden hebben.
   * AD-kenmerken **employeeID** en **msExchBypassModerationLink** zijn nu opgenomen in de regelset van de standaard-synchronisatie.
@@ -838,7 +849,7 @@ Uitgebracht: April 2017
 
 **Opgeloste problemen:**
 
-Azure AD Connect-synchronisatie
+Azure AD Connect synchroniseren
 * Een probleem opgelost waarbij de volledige synchronisatie stap door sync scheduler wordt overgeslagen als een of meer connectors uitvoeringsprofiel dat voor deze stap synchronisatie ontbreken. Bijvoorbeeld, u handmatig hebt toegevoegd een connector met behulp van de Synchronization Service Manager zonder te maken van het profiel voor het uitvoeren van een Delta-Import. Deze oplossing zorgt ervoor dat de synchronisatieplanning om uit te voeren van Delta-Import voor andere connectors blijft.
 * Een probleem opgelost waarbij de Synchronization Service onmiddellijk stopt met de verwerking een uitvoeringsprofiel dat, wanneer het is een probleem met een van de stappen uitvoeren tegenkomt. Deze oplossing zorgt ervoor dat de synchronisatieservice wordt met de stap overgeslagen en voor het verwerken van de rest blijft. U hebt bijvoorbeeld een Delta-Import profiel voor uw AD-connector uitvoert met meerdere uitvoeren stappen (één voor elke on-premises AD-domein). De synchronisatieservice wordt Delta-Import uitgevoerd met de andere AD-domeinen, zelfs als een van deze problemen met de netwerkverbinding heeft.
 * Er is een probleem dat ervoor zorgt de update die Azure AD-Connector dat moet worden overgeslagen tijdens de automatische Upgrade opgelost.
@@ -854,7 +865,7 @@ Desktop-SSO
 
 **Nieuwe functies/verbeteringen:**
 
-Azure AD Connect-synchronisatie
+Azure AD Connect synchroniseren
 * Azure AD Connect Sync biedt nu ondersteuning voor het gebruik van Virtual Service Account, een beheerd serviceaccount en een groep beheerd serviceaccount als de service-account. Dit geldt voor de nieuwe installatie van Azure AD Connect. Bij het installeren van Azure AD Connect:
     * Standaard Azure AD Connect-wizard maakt u een Virtual Service Account en gebruikt deze als de service-account.
     * Als u op een domeincontroller installeert, Azure AD Connect gebruikgemaakt van vorige gedrag, waarbij een domeingebruikersaccount maakt en gebruikt deze als de service-account in plaats daarvan.
@@ -880,7 +891,7 @@ Uitgebracht: Maart 2017
 
 **Opgeloste problemen:**
 
-Azure AD Connect-synchronisatie
+Azure AD Connect synchroniseren
 * Een probleem waardoor Azure AD Connect-wizard mislukken als de weergavenaam van de Azure AD-Connector, de initiële onmicrosoft.com-domein dat is toegewezen aan de Azure AD-tenant niet bevat is opgelost.
 * Er is een probleem waardoor Azure AD Connect-wizard mislukken tijdens het maken van verbinding met SQL-database als het wachtwoord van het synchronisatieserviceaccount speciale tekens zoals apostrof, dubbele punt en ruimte bevat opgelost.
 * Er is een probleem die ervoor zorgt de fout dat "de afbeelding heeft een anker die anders is dan de installatiekopie" opgelost worden uitgevoerd op een Azure AD Connect-server in de faseringsmodus bevindt, nadat u hebt tijdelijk een on-premises uitgesloten AD object kunnen worden gesynchroniseerd en vervolgens opnieuw uit voor het synchroniseren van opgenomen.
@@ -899,7 +910,7 @@ Wachtwoord opnieuw instellen
 
 **Nieuwe functies/verbeteringen:**
 
-Azure AD Connect-synchronisatie
+Azure AD Connect synchroniseren
 * Get-ADSyncScheduler cmdlet retourneert nu een nieuwe Booleaanse eigenschap met de naam SyncCycleInProgress. Als de geretourneerde waarde true is, betekent dit dat er een cyclus geplande synchronisatie wordt uitgevoerd is.
 * Doelmap voor het opslaan van Azure AD Connect-installatie en setup-Logboeken is verplaatst uit %localappdata%\AADConnect naar %programdata%\AADConnect voor het verbeteren van toegankelijkheid van de logboekbestanden.
 

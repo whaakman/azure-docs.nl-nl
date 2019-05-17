@@ -2,21 +2,23 @@
 title: Via een programma maken Azure Enterprise-abonnementen | Microsoft Docs
 description: Meer informatie over het maken van aanvullende Azure Enterprise- en Enterprise Dev/Test-abonnementen via een programma.
 services: azure-resource-manager
-author: tfitzmac
+author: jureid
+manager: jureid
+editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/10/2019
+ms.author: jureid
+ms.openlocfilehash: 7985451eb2bb5e9fd4fbcfb3d2fcf35149122c15
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256920"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796062"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Via een programma maken Azure Enterprise-abonnementen (preview)
 
@@ -40,9 +42,9 @@ Nadat u bent toegevoegd aan een Azure EA-inschrijving als de eigenaar van een Ac
 
 Als u wilt de volgende opdrachten uitvoeren, u moet zijn aangemeld op de accounteigenaar *basismap*, dit is de map die abonnementen zijn gemaakt standaard.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+## <a name="resttabrest"></a>[REST](#tab/rest)
 
-De aanvraag om alle inschrijvingsaccounts weer te geven:
+De aanvraag om alle inschrijvingsaccounts die u toegang tot hebt weer te geven:
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
@@ -73,7 +75,11 @@ Azure reageert met een lijst met alle inschrijvingsaccounts u toegang tot hebt:
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Gebruik de `principalName` eigenschap aan het account dat u wilt dat abonnementen in rekening gebracht om te identificeren. Kopieer de `name` van dat account. Bijvoorbeeld, als u wilt maken van abonnementen onder de SignUpEngineering@contoso.com voor apparaatregistratie-account, die u wilt kopiëren ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Dit is de object-ID van het inschrijvingsaccount. Plak deze waarde ergens zodat u deze in de volgende stap als gebruiken kunt `enrollmentAccountObjectId`.
+
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Open [Azure Cloud Shell](https://shell.azure.com/) en selecteer PowerShell.
 
 Gebruik de [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet om alle inschrijvingsaccounts u toegang tot hebt weer te geven.
 
@@ -81,15 +87,16 @@ Gebruik de [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollm
 Get-AzEnrollmentAccount
 ```
 
-Azure reageert met een lijst met de Object-id's en e-mailadressen van accounts.
+Azure reageert met een lijst met inschrijvingsaccounts u toegang tot hebt:
 
 ```azurepowershell
 ObjectId                               | PrincipalName
 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
+Gebruik de `principalName` eigenschap aan het account dat u wilt dat abonnementen in rekening gebracht om te identificeren. Kopieer de `ObjectId` van dat account. Bijvoorbeeld, als u wilt maken van abonnementen onder de SignUpEngineering@contoso.com voor apparaatregistratie-account, die u wilt kopiëren ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Plak deze object-ID ergens zodat u deze in de volgende stap als gebruiken kunt de `enrollmentAccountObjectId`.
 
-# <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
+## <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
 
 Gebruik de [az facturering inschrijvingsaccount lijst](https://aka.ms/EASubCreationPublicPreviewCLI) opdracht om een lijst van alle inschrijvingsaccounts u toegang tot hebt.
 
@@ -97,45 +104,39 @@ Gebruik de [az facturering inschrijvingsaccount lijst](https://aka.ms/EASubCreat
 az billing enrollment-account list
 ```
 
-Azure reageert met een lijst met de Object-id's en e-mailadressen van accounts.
+Azure reageert met een lijst met inschrijvingsaccounts u toegang tot hebt:
 
 ```json
-{
-  "value": [
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "SignUpEngineering@contoso.com"
-      }
-    },
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "BillingPlatformTeam@contoso.com"
-      }
-    }
-  ]
-}
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
 ```
+
+Gebruik de `principalName` eigenschap aan het account dat u wilt dat abonnementen in rekening gebracht om te identificeren. Kopieer de `name` van dat account. Bijvoorbeeld, als u wilt maken van abonnementen onder de SignUpEngineering@contoso.com voor apparaatregistratie-account, die u wilt kopiëren ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Dit is de object-ID van het inschrijvingsaccount. Plak deze waarde ergens zodat u deze in de volgende stap als gebruiken kunt `enrollmentAccountObjectId`.
 
 ---
 
-Gebruik de `principalName` eigenschap aan het account dat u wilt dat abonnementen in rekening gebracht om te identificeren. Gebruik de `id` als de `enrollmentAccount` waarde die u gebruiken voor het maken van het abonnement in de volgende stap.
+## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Abonnementen onder een bepaalde inschrijvingsaccount maken
 
-## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Abonnementen onder een bepaalde inschrijvingsaccount maken 
-
-Het volgende voorbeeld wordt een aanvraag voor het maken van abonnement met de naam *Dev Team abonnement* en abonnement *MS-AZR - 0017P* (normale EA). Het inschrijvingsaccount is `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (aanduidingswaarde, deze waarde is een GUID), is het inschrijvingsaccount voor SignUpEngineering@contoso.com. Deze voegt eventueel ook twee gebruikers als RBAC-eigenaren voor het abonnement.
+Het volgende voorbeeld wordt een abonnement genaamd *Dev Team abonnement* in voor de apparaatregistratie-account in de vorige stap hebt geselecteerd. Het abonnement is *MS-AZR - 0017P* (reguliere Microsoft Enterprise Agreement). Deze voegt eventueel ook twee gebruikers als RBAC-eigenaren voor het abonnement.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
-Gebruik de `id` van de `enrollmentAccount` in het pad van de aanvraag voor het abonnement te maken.
+Controleer de volgende vragen en vervangt `<enrollmentAccountObjectId>` met de `name` opgehaald uit de eerste stap (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Als u opgeven van eigenaren wilt, krijgt u informatie [gebruikersobject-id's krijgen](grant-access-to-create-subscription.md#userObjectId).
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -151,7 +152,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| De naam van element  | Vereist | Type   | Beschrijving                                                                                               |
+| De naam van element  | Vereist | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Nee      | String | De weergavenaam van het abonnement. Indien niet opgegeven, ingesteld op de naam van de aanbieding, zoals "Microsoft Azure Enterprise."                                 |
 | `offerType`   | Ja      | String | De aanbieding van het abonnement. De twee opties voor EA [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik in productieomgevingen) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen/testen, moet [ingeschakeld met behulp van de EA-portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -161,12 +162,12 @@ In het antwoord je weer toegang krijgen een `subscriptionOperation` object voor 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Voor het gebruik van deze preview-module installeren door te voeren `Install-Module Az.Subscription -AllowPrerelease` eerste. Om ervoor te zorgen `-AllowPrerelease` werkt, installeert u een recente versie van PowerShellGet van [PowerShellGet-Module ophalen](/powershell/gallery/installing-psget).
+Installeer eerst deze preview-module door het uitvoeren van `Install-Module Az.Subscription -AllowPrerelease`. Om ervoor te zorgen `-AllowPrerelease` werkt, installeert u een recente versie van PowerShellGet van [PowerShellGet-Module ophalen](/powershell/gallery/installing-psget).
 
-Gebruik de [New-AzSubscription](/powershell/module/az.subscription) samen met `enrollmentAccount` object-ID als de `EnrollmentAccountObjectId` parameter voor een nieuw abonnement maken. 
+Voer de [New-AzSubscription](/powershell/module/az.subscription) opdracht hieronder en vervang `<enrollmentAccountObjectId>` met de `ObjectId` verzameld in de eerste stap (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Als u opgeven van eigenaren wilt, krijgt u informatie [gebruikersobject-id's krijgen](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurepowershell-interactive
-New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
 | De naam van element  | Vereist | Type   | Description                                                                                               |
@@ -182,12 +183,12 @@ Zie voor een volledige lijst met alle parameters [New-AzSubscription](/powershel
 
 # <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
 
-Voor het gebruik van deze preview-extensie installeren door te voeren `az extension add --name subscription` eerste.
+Installeer eerst deze extensie preview door uit te voeren `az extension add --name subscription`.
 
-Gebruik de [az account maken](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) samen met `enrollmentAccount` object-ID als de `enrollment-account-object-id` parameter voor een nieuw abonnement maken.
+Voer de [az account maken](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) opdracht hieronder en vervang `<enrollmentAccountObjectId>` met de `name` u in de eerste stap hebt gekopieerd (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Als u opgeven van eigenaren wilt, krijgt u informatie [gebruikersobject-id's krijgen](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | De naam van element  | Vereist | Type   | Description                                                                                               |
@@ -206,7 +207,7 @@ Zie voor een volledige lijst met alle parameters [az account maken](/cli/azure/e
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Beperkingen van het abonnement voor Azure Enterprise API
 
 - Alleen Azure Enterprise-abonnementen kunnen worden gemaakt met behulp van deze API.
-- Er is een limiet van 50 abonnementen per account. Hierna kunnen alleen abonnementen worden gemaakt met behulp van Account Center.
+- Er is een eerste limiet van 50 abonnementen per voor apparaatregistratie-account, maar u kunt [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) om de limiet op 200 te verhogen. Hierna kunnen alleen abonnementen worden gemaakt via het Accountcentrum.
 - Er moet ten minste één EA of EA Dev/Test-abonnementen onder het account, wat betekent dat de dat eigenaar van het Account is geworden via handmatige Meld u aan ten minste één keer.
 - Gebruikers die niet zijn eigenaars, maar zijn toegevoegd aan een inschrijvingsaccount voor via RBAC, geen abonnementen met behulp van de Center-Account kunt maken.
 - U kunt de tenant voor het abonnement moet worden gemaakt niet selecteren. Het abonnement wordt altijd gemaakt in de starttenant van de eigenaar van het Account. Zie voor het verplaatsen van het abonnement naar een andere tenant, [abonnement-tenant wijzigen](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

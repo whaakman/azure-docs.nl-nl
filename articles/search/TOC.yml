@@ -27,6 +27,8 @@
       href: search-fiddler.md
     - name: PowerShell
       href: search-create-index-rest-api.md
+    - name: Python
+      href: search-get-started-python.md
 - name: Zelfstudies
   items:
     - name: Azure SQL Database indexeren
@@ -322,8 +324,6 @@
           href: 'https://aka.ms/jfkfiles'
         - name: Demo met NYC-taken
           href: 'https://aka.ms/azjobsdemo'
-        - name: Search Analyzer-demo
-          href: 'https://alice.unearth.ai/'
         - name: Scenario’s zoeken
           href: 'https://searchsamples.azurewebsites.net/'
     - name: Veelgestelde vragen

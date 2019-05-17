@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60649787"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789610"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Back-up van virtuele VMware-machines met Azure Backup Server
 
@@ -39,7 +39,7 @@ Standaard communiceert Azure Backup Server via HTTPS met VMware-servers. Als u d
 
 ### <a name="before-you-start"></a>Voordat u begint
 
-- Als u niet wilt dat HTTPS te gebruiken kunt u [uitschakelen van de standaardinstelling](backup-azure-backup-server-vmware.md).
+- Als u niet wilt dat HTTPS te gebruiken kunt u [validatie van HTTPS voor alle VMware-servers uitschakelen](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - U doorgaans verbinding maken vanuit een browser op de Azure Backup Server-machine met de vCenter-/ ESXi-server met behulp van de vSphere-webclient. De eerste keer dat u hiervoor de verbinding is niet beveiligd en ziet u het volgende.
 - Het is belangrijk om te begrijpen hoe Azure Backup Server omgaat met back-ups.
     - Als eerste stap Azure Backup Server back-ups van gegevens naar de opslag van de lokale schijf. Azure Backup-Server maakt gebruik van een opslaggroep, een set schijven en volumes waarop Azure Backup Server schijfherstelpunten voor de beveiligde gegevens worden opgeslagen. De opslaggroep kan direct gekoppelde opslag (DAS), een Fibre channel SAN- of iSCSI-opslagapparaat of SAN zijn. Het is belangrijk om ervoor te zorgen dat u voldoende opslagruimte voor de lokale back up van de gegevens van uw VMware-VM hebt.
@@ -101,7 +101,7 @@ Stel een beveiligd kanaal als volgt in:
 
 
 
-### <a name="disable-default-https"></a>Standaard HTTPS uitschakelen
+### <a name="disable-https-certificate-validation"></a>Validatie van HTTPS uitschakelen
 
 Als u beveiligde grenzen binnen uw organisatie hebben en niet wilt gebruiken van het HTTPS-protocol tussen VMware-servers en de Azure Backup Server-machine, schakelt u HTTPS als volgt: u
 1. Kopieer en plak de volgende tekst in een txt-bestand.

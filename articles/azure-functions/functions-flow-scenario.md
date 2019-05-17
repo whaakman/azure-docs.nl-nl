@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106967"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787676"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Een functie van Microsoft Flow aanroepen
 
@@ -35,6 +35,8 @@ In dit onderwerp leert u hoe u:
 > * Een verbinding toevoegen aan de API.
 > * Maak een stroom om e-mail te verzenden als een reparatie rendabel is.
 > * De stroom uitvoeren.
+
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 

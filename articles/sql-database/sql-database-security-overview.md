@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 584f30cc12aee722aed1079d5cefaee06d403cba
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867667"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790165"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -125,17 +125,11 @@ Alle gemaakte SQL-databases worden standaard versleuteld in Azure, en de databas
 
 [Altijd versleuteld](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is een functie die is ontworpen om gevoelige gegevens die zijn opgeslagen in de kolommen van toegang tot specifieke database (bijvoorbeeld, creditcardnummers, nationale identificatienummers of gegevens op een _moet weten_ basis). Dit omvat databasebeheerders of andere gebruikers met bevoegdheden die zijn gemachtigd voor toegang tot de database voor beheertaken uitvoeren, maar er zijn geen bedrijven nodig hebben tot de specifieke gegevens in de versleutelde kolommen hebben. De gegevens worden altijd versleuteld, wat betekent dat de versleutelde gegevens ontsleuteld alleen voor verwerking door clienttoepassingen met toegang tot de versleutelingssleutel.  De versleutelingssleutel wordt nooit blootgesteld aan SQL en kunnen worden opgeslagen in de [Windows certificaat Store](sql-database-always-encrypted.md) of in [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="masking"></a>Maskeren
+### <a name="dynamic-data-masking"></a>Dynamische gegevensmaskering
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>Dynamische gegevensmaskering
-
 SQL Database dynamische gegevensmaskering blootstelling van gevoelige gegevens door deze te maskeren voor niet-gemachtigde gebruikers. Dynamische gegevensmaskering automatisch detecteert mogelijk gevoelige gegevens in Azure SQL Database en worden bruikbare aanbevelingen gedaan om te maskeren van deze velden, met minimale gevolgen voor de toepassingslaag. Dit werkt als volgt: de gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden, worden bedekt, terwijl de gegevens in de database niet worden gewijzigd. Zie voor meer informatie, [aan de slag met SQL Database dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md).
-
-#### <a name="static-data-masking"></a>Statische gegevens maskeren
-
-[Statische gegevens maskeren](/sql/relational-databases/security/static-data-masking) is een hulpprogramma voor client-side beschikbaar in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18,0 preview 5 en hoger.  Statische gegevens maskeren Hiermee kunnen gebruikers een kopie maken van een database waar de gegevens in de geselecteerde kolommen definitief zijn gemaskeerd. De van beschikbare maskeringsfuncties zijn NULL maskeren, één waarde maskeren, shuffle en groep shuffle maskeren en samengestelde maskering tekenreeks. Organisaties zijn met de gemaskeerd kopie van de database, kunnen afzonderlijke productie- en testomgevingen door te delen de gemaskeerd kopie. De gevoelige gegevens voldoende is beveiligd en alle andere kenmerken uit de database is behouden. Databases maskeren, wordt u aangeraden waarbij externe toegang tot databases moeten worden bijgehouden.
 
 ## <a name="security-management"></a>Beveiligingsbeheer
 

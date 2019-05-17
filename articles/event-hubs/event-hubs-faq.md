@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690271"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789249"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Veelgestelde vragen over Eventhubs
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690271"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Wat is een Event Hubs-naamruimte?
 Een naamruimte is een scoping container voor Event Hub/Kafka-onderwerpen. Dit biedt u een unieke [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Een naamruimte fungeert als een toepassingscontainer dat met meerdere Event Hub/Kafka-onderwerpen werken kan. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Wanneer maak ik een nieuwe naamruimte versus gebruik een bestaande naamruimte?
+Capaciteit toewijzingen ([doorvoereenheden (Doorvoereenheden)](#throughput-units)) worden in rekening gebracht op het niveau van de naamruimte. Een naamruimte is ook gekoppeld aan een regio.
+
+U wilt maken van een nieuwe naamruimte in plaats van een bestaande een in een van de volgende scenario's: 
+
+- U moet een Event Hub die is gekoppeld aan een nieuwe regio.
+- U moet een Event Hub die is gekoppeld aan een ander abonnement.
+- U moet een Event Hub met een afzonderlijke capaciteitstoewijzing (dat wil zeggen, de capaciteit nodig hebt voor de naamruimte met de toegevoegde event hub de 40 Doorvoereenheden drempelwaarde wordt overschreden en u niet wilt dat voor de specifieke cluster)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Wat is het verschil tussen Event Hubs basis en standaard-laag?
 

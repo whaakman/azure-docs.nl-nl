@@ -3,8 +3,8 @@ title: Externe toegang tot SharePoint met Azure AD-toepassingsproxy inschakelen 
 description: Bevat de basisinformatie over het integreren van een on-premises SharePoint-server met Azure AD-toepassingsproxy.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dc80b78bbba369e0ddb5c2c1e9fd90834dc0148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293142"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783447"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Externe toegang tot SharePoint met Azure AD-toepassingsproxy inschakelen
 
@@ -117,7 +117,7 @@ Nu dat u KCD hebt geconfigureerd, bent u klaar om te configureren van Azure AD-t
 1. Publiceer uw SharePoint-site met de volgende instellingen. Zie voor stapsgewijze instructies [toepassingen publiceren met behulp van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md).
    * **Interne URL**: Interne URL van SharePoint die eerder is gekozen, zoals **<https://SharePoint/>**.
    * **Methode voor verificatie vooraf**: Azure Active Directory
-   * **Vertalen van URL in de Headers**: NO
+   * **Vertalen van URL in de Headers**: NEE
 
    >[!TIP]
    >SharePoint maakt gebruik van de _Host-Header_ waarde om te controleren of de site. Deze koppelingen op basis van deze waarde wordt ook gegenereerd. Het uiteindelijke resultaat is dat een koppeling die SharePoint genereert een gepubliceerde URL correct is ingesteld voor gebruik van de externe URL. Als de waarde instelt op **Ja** kunt u ook de connector voor het doorsturen van de aanvraag voor de back-endtoepassing. Als u echter de waarde instelt op **Nee** betekent dit dat de connector niet de naam van de interne wordt verzenden. De connector verzendt in plaats daarvan de host-header als de gepubliceerde URL naar de back-endtoepassing.

@@ -1,25 +1,18 @@
 ---
 title: Aanvraaglimieten en beperkingen - Azure Resource Manager
 description: Beschrijft hoe u gebruik van beperking met Azure Resource Manager-aanvragen wanneer de limieten voor een abonnement is bereikt.
-services: azure-resource-manager
-documentationcenter: na
-author: rockboyfor
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
+author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/05/2019
-ms.date: 03/18/2019
-ms.author: v-yeche
+ms.date: 05/14/2019
+ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389726"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791360"
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
 
@@ -33,7 +26,7 @@ Als uw toepassing of script deze limiet is bereikt, moet u uw aanvragen beperken
 
 Wanneer u de limiet is bereikt, ontvangt u de HTTP-statuscode **429 te veel aanvragen**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure Resource Graph beperkt het aantal aanvragen voor bewerkingen. De stappen in dit artikel om te bepalen van de resterende aanvragen en hoe u om te reageren wanneer de limiet is bereikt zijn ook van toepassing op de grafiek van resources. Grafiek van resources stelt echter een eigen snelheid beperken en opnieuw instellen. Zie voor meer informatie, [beperken in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Overige aanvragen
 U kunt het aantal resterende aanvragen bepalen door onderzoeken antwoordheaders. Leesaanvragen retourneert een waarde in de header voor het aantal resterende lezen aanvragen. Aanvragen voor een waarde bevatten voor het aantal schrijfaanvragen voor de resterende worden geschreven. De volgende tabel beschrijft de reactieheaders die u voor deze waarden kunt bekijken:
@@ -61,7 +54,7 @@ response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetVal
 In **PowerShell**, haalt u de headerwaarde uit een Invoke-WebRequest-bewerking.
 
 ```powershell
-$r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
@@ -89,7 +82,7 @@ x-ms-ratelimit-remaining-subscription-reads: 11999
 Als u limieten voor schrijven, gebruikt u een schrijfbewerking: 
 
 ```powershell
-New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Die veel waarden, met inbegrip van de volgende waarden geretourneerd:
@@ -128,7 +121,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 Als u limieten voor schrijven, gebruikt u een schrijfbewerking: 
 
 ```azurecli
-az group create -n myresourcegroup --location chinanorth --verbose --debug
+az group create -n myresourcegroup --location westus --verbose --debug
 ```
 
 Die veel waarden, met inbegrip van de volgende waarden geretourneerd:
@@ -152,5 +145,3 @@ De aanvraaglimiet is bereikt, Resource Manager is, retourneert de **429** HTTP-s
 * Zie voor een compleet voorbeeld van PowerShell, [Resource Manager-limieten voor een abonnement controleren](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Zie voor meer informatie over limieten en quota [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).
 * Zie voor meer informatie over het verwerken van asynchrone REST-aanvragen, [asynchrone bewerkingen van Azure bijhouden](resource-manager-async-operations.md).
-
-<!--Update_Description: update meta properties, update cmdlet -->

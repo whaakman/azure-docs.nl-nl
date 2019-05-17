@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287547"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602450"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Een resource-dashboard gebruiken voor een toegangscontrole uitvoeren in PIM
 
@@ -31,9 +31,9 @@ Een resource-dashboard kunt u een toegangscontrole uitvoeren in Azure Active Dir
 - Twee grafieken die de distributie van roltoewijzingen door toewijzingstype weergeven.
 - Een data-gebied met betrekking tot nieuwe roltoewijzingen.
 
-![Schermopname van het dashboard-Beheerweergave van grafieken en diagrammen](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Schermopname van het dashboard-Beheerweergave van grafieken en diagrammen](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![Schermafbeelding van het dashboard weergeven van de beheerder een lijst met gegevens](media/azure-pim-resource-rbac/role-settings.png)
+![Schermafbeelding van het dashboard weergeven van de beheerder een lijst met gegevens](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 De grafische weergave van rolactiveringen resource bevat informatie over de afgelopen zeven dagen. Deze gegevens is afgestemd op de geselecteerde resource en activeringen voor de meest voorkomende rollen (eigenaar, Inzender, beheerder van gebruikerstoegang), en voor alle rollen gecombineerd weergegeven.
 

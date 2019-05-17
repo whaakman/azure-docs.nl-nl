@@ -1,7 +1,7 @@
 ---
 title: 'Regressie: Prijs voorspellen'
 titleSuffix: Azure Machine Learning service
-description: In dit voorbeeldexperiment visuele interface wordt gedemonstreerd hoe u een regressiemodel om te voorspellen de prijs van een auto. Het proces omvat het training, testen en evalueren van het model op de gegevensset auto prijs data (Raw).
+description: Meer informatie over het bouwen van een machine learning-model om te voorspellen de prijs van een auto zonder één regel code te schrijven.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,30 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: fa9b9179cda767d69d08dcd357a03123bde901cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028888"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787843"
 ---
 # <a name="sample-1---regression-predict-price"></a>Voorbeeld 1: regressie: Prijs voorspellen
 
-In dit voorbeeldexperiment visuele interface bevat over het bouwen van een regressiemodel om te voorspellen de prijs van een auto. Het proces omvat het trainen, testen en evalueren van het model met behulp van de **Automobile prijs data (Raw)** gegevensset.
+Meer informatie over het bouwen van een machine learning-regressiemodel zonder te hoeven schrijven van één regel code met behulp van de visuele interface.
+
+Dit treinen experimenteren een **forest regressor zijn beschikking** om een auto's voorspellen de prijs op basis van technische functies, zoals het merk, model, paardenkracht en grootte. Omdat we willen de vraag "Hoeveel?" Dit is een regressieprobleem met genoemd. U kunt echter dezelfde fundamentele stappen in dit experiment om aan te pakken van elk type machine learning probleem, ongeacht of dit regressie, classificatie, clustering, enzovoort toepassen.
+
+De fundamentele stappen van een training machine learning-model zijn:
+
+1. De gegevens ophalen
+1. De gegevens vooraf te verwerken
+1. Het model trainen
+1. Het model evalueren
+
+Hier volgt de uiteindelijke, voltooide grafiek van het experiment dat er wordt gewerkt aan. We bieden de logica voor alle modules, zodat u kunt vergelijkbare beslissingen op uw eigen nemen kunt.
+
+![Grafiek van het experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -28,23 +41,6 @@ In dit voorbeeldexperiment visuele interface bevat over het bouwen van een regre
 4. Selecteer de **Open** knop van het experiment voorbeeld 1:
 
     ![Open het experiment](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
-
-## <a name="related-sample"></a>Gerelateerde voorbeeld
-
-[Voorbeeld 2: regressie: Auto's voorspellen (algoritmen vergelijken)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) biedt een meer complexe voorbeeldexperiment dat hetzelfde probleem als dit experiment met behulp van twee verschillende regressiemodellen oplost. Het laat zien hoe snel verschillende algoritmen te vergelijken. Bekijk het hier als u een meer geavanceerd voorbeeld zoekt.
-
-## <a name="experiment-summary"></a>Samenvatting van experiment
-
-We gebruiken deze stappen om te maken van het experiment:
-
-1. De gegevens ophalen.
-1. De gegevens vooraf te verwerken.
-1. Het model te trainen.
-1. Testen, evalueren en de modellen te vergelijken.
-
-Dit is de volledige grafiek van het experiment:
-
-![Grafiek van het experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="get-the-data"></a>De gegevens ophalen
 
@@ -59,6 +55,7 @@ We gebruiken de **Select Columns in Dataset** module normalized-losses met veel 
 ![Gegevens vooraf verwerken](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Het model trainen
+
 Problemen met machine learning variëren. Algemene taken omvatten classificatie, regressie en recommender systemen, die elk een ander algoritme mogelijk clustering. Uw eigen keuze aan algoritme is vaak afhankelijk van de vereisten van de use-case. Nadat u een algoritme kiezen, moet u de parameters voor het trainen van een meer nauwkeurige model af te stemmen. Vervolgens moet u alle modellen op basis van metrische gegevens zoals nauwkeurigheid, leesbaarheid en efficiëntie te evalueren.
 
 Omdat het doel van dit experiment is om de prijzen van auto's voorspellen en omdat de labelkolom (prijs) reële getallen bevat, wordt een regressiemodel een goede keuze. U overweegt dat het aantal functies relatief klein is (minder dan 100) en deze functies niet sparse, is de grens van de beslissing waarschijnlijk niet-lineaire. We gebruiken **besluit Forest regressie** voor dit experiment.

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471565"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793673"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Herstel na noodgevallen voor een implementatie met meerdere lagen SAP NetWeaver-app instellen
 
@@ -166,5 +166,5 @@ Zie voor meer informatie, [testfailover naar Azure in Site Recovery](site-recove
 Zie voor meer informatie, [Failover in Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het bouwen van een oplossing voor noodherstel voor SAP NetWeaver-implementaties met behulp van Site Recovery, de downloadbare whitepaper [SAP NetWeaver: Het bouwen van een oplossing voor noodherstel met Azure Site Recovery](https://aka.ms/asr-sap). Het technische document worden besproken aanbevelingen voor verschillende SAP-architecturen, geeft een lijst van ondersteunde toepassingen en VM-typen voor SAP op Azure en beschrijft testen plan opties voor uw oplossing voor noodherstel.
+* Zie voor meer informatie over het bouwen van een oplossing voor noodherstel voor SAP NetWeaver-implementaties met behulp van Site Recovery, de downloadbare whitepaper [SAP NetWeaver: Het bouwen van een oplossing voor noodherstel met Azure Site Recovery](https://aka.ms/asr_sap). Het technische document worden besproken aanbevelingen voor verschillende SAP-architecturen, geeft een lijst van ondersteunde toepassingen en VM-typen voor SAP op Azure en beschrijft testen plan opties voor uw oplossing voor noodherstel.
 * Meer informatie over [replicatie van andere workloads](site-recovery-workload.md) met behulp van Site Recovery.

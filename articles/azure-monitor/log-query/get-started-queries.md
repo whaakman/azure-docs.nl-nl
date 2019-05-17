@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: HT
+ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415899"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519004"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Aan de slag met Azure Monitor logboeken-query 's
 
@@ -179,12 +179,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**uitbreiden** houdt u alle oorspronkelijke kolommen in de resultatenset en nieuwe zijn in definieert. De volgende query gebruikt **uitbreiden** om toe te voegen een *lokale tijd* kolom, die een gelokaliseerde TimeGenerated-waarde bevat.
+**uitbreiden** houdt u alle oorspronkelijke kolommen in de resultatenset en nieuwe zijn in definieert. De volgende query gebruikt **uitbreiden** om toe te voegen de *EventCode* kolom. Houd er rekening mee dat deze kolom kan niet worden weergegeven aan het einde van de resultaten van de tabel in dat geval u moet om uit te breiden de details van een record weer te geven.
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated -8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Samenvatting: Rijgroepen samenvoegen

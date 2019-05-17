@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d05cbd30565ced73352736508fc4bcc376985554
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b5a13dfd760f0c94343b151c9b4c1148c949e854
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149023"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789999"
 ---
 # <a name="transfer-data-with-azcopy-v10"></a>Gegevens overdragen met AzCopy v10
 
@@ -53,7 +53,7 @@ AzCopy zijn vereist om een installatie. Open uw favoriete opdrachtregelprogramma
 
 AzCopy ondersteunt de volgende opties bij het verifiëren met Azure Storage:
 - **Azure Active Directory** (ondersteund voor **Blob-en Data Lake Storage Gen2**). Gebruik ```.\azcopy login``` zich aanmelden met Azure Active Directory.  De gebruiker moet beschikken over ['Blob Gegevensbijdrager voor' rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) te schrijven naar Blob storage met Azure Active Directory-verificatie. Voor verificatie via beheerde identiteiten voor Azure-resources, gebruikt u `azcopy login --identity`.
-- **Gedeelde SAS-tokens [ondersteunde voor Blob- en Bestandsservices]**. Het token shared access signature (SAS) toegevoegd aan de blobpad op de opdrachtregel om het te gebruiken. U kunt met de Azure portal, SAS-tokens genereren [Opslagverkenner](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), of andere hulpprogramma's van uw keuze. Zie voor meer informatie, [voorbeelden](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Gedeelde SAS-tokens [ondersteunde voor Blob- en Bestandsservices]**. Het token shared access signature (SAS) toegevoegd aan de blobpad op de opdrachtregel om het te gebruiken. U kunt met de Azure portal, SAS-tokens genereren [Opslagverkenner](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), of andere hulpprogramma's van uw keuze. Zie voor meer informatie, [voorbeelden](https://docs.microsoft.com/azure/storage/blobs/common/storage-dotnet-shared-access-signature-part-1).
 
 ## <a name="getting-started"></a>Aan de slag
 

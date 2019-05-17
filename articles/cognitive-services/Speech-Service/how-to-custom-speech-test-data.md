@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 1e689d7ce65fda43e5657383ed44890c90c095cd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025881"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785778"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Gegevens voorbereiden voor de aangepaste spraak
 
@@ -142,7 +142,7 @@ Dit bevat voorbeelden van een gesproken utterance en een aangepaste uitspraak va
 |--------------|--------------------------|
 | drie c-p-o | 3CPO |  
 | c n t k | CNTK |
-| ik drievoudige e | IEE |
+| ik drievoudige e | IEEE |
 
 Het formulier gesproken is de fonetische reeks voluit geschreven. Het kan bestaan uit letters, woorden, lettergrepen of een combinatie van alle drie.
 
@@ -150,7 +150,7 @@ Aangepaste uitspraak is beschikbaar in het Engels (en-US) en Duits (nl-nl). Deze
 
 | Taal | Landinstelling | Tekens |
 |----------|--------|------------|
-| Engels | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Nederlands | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Duits | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, "j", k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 Deze tabel gebruiken om ervoor te zorgen dat uw gerelateerde gegevensbestand voor uitspraak correct is ingedeeld. Uitspraak van bestanden klein zijn en mag niet meer dan een paar kB's.

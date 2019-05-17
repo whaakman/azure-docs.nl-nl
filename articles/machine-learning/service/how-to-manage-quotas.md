@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 12/04/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765873"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523990"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Beheren en quota's voor Azure-resources aanvragen
 
@@ -52,9 +52,9 @@ Voor een meer gedetailleerde en actuele lijst van de quotalimieten, controleert 
 Voor Azure Machine Learning-Computing is er een standaard-quotumlimiet voor zowel de aantal kernen en het aantal unieke rekenresources toegestaan per regio in een abonnement. Dit quotum is gescheiden van de bovenstaande kerngeheugenquotum VM en de limieten core niet op dit moment worden gedeeld tussen de twee resourcetypen.
 
 Beschikbare resources:
-+ Toegewezen kerngeheugens per regio hebben een standaardlimiet van 10 tot 24.  Het aantal toegewezen kerngeheugens per abonnement kan worden verhoogd. Neem contact op met ondersteuning van Azure wilt discussiëren over meer opties.
++ Toegewezen kerngeheugens per regio hebben een limiet van de standaardwaarde van 24 uur per dag en 300 afhankelijk van uw type abonnementsaanbod.  Het aantal toegewezen kerngeheugens per abonnement kan worden verhoogd. Neem contact op met ondersteuning van Azure wilt discussiëren over meer opties.
 
-+ Kernen per regio met lage prioriteit hebben een standaardlimiet van 10 tot 24.  Het aantal kernen per abonnement met lage prioriteit kan worden verhoogd. Neem contact op met ondersteuning van Azure wilt discussiëren over meer opties.
++ Kernen per regio met lage prioriteit hebben een limiet van de standaardwaarde van 24 uur per dag en 300, afhankelijk van uw type abonnementsaanbod.  Het aantal kernen per abonnement met lage prioriteit kan worden verhoogd. Neem contact op met ondersteuning van Azure wilt discussiëren over meer opties.
 
 + Clusters per regio hebben een standaardlimiet van 100 en een limiet van 200. Neem contact op met ondersteuning van Azure als u wilt een verhoging boven deze limiet.
 
@@ -66,10 +66,12 @@ Beschikbare resources:
 | Maximum aantal knooppunten in een enkele bron voor Azure Machine Learning-Computing (AmlCompute) | 100 knooppunten |
 | Maximumaantal GPU MPI verwerkt per knooppunt | 1-4 |
 | Maximumaantal GPU werknemers per knooppunt | 1-4 |
-| Maximale levensduur | 7 dagen<sup>1</sup> |
+| Maximale levensduur | 90 dagen<sup>1</sup> |
+| Maximale levensduur van een knooppunt van lage prioriteit | 1 dag<sup>2</sup> |
 | Parameter Maximum servers per knooppunt | 1 |
 
 <sup>1</sup> de maximale levensduur verwijst naar de tijd die een uitvoering is gestart en wanneer deze is voltooid. Voltooide uitvoeringen behouden voor onbepaalde tijd; gegevens voor uitvoeringen is niet voltooid binnen de maximale levensduur zijn niet toegankelijk.
+<sup>2</sup> taken op een knooppunt met lage prioriteit voorrang telkens wanneer er een beperking capaciteit is kunnen worden genomen. Het verdient aanbeveling voor het implementeren van het plaatsen van controlepunten in uw taak.
 
 ### <a name="container-instances"></a>Containerinstanties
 
@@ -80,20 +82,20 @@ Er is ook een limiet voor het aantal containerinstanties die u instellen kunt in
 Voor een meer gedetailleerde en actuele lijst van de quotalimieten, controleert u het artikel brede, door het Azure-quotum [hier](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Storage
-Er geldt een limiet voor het aantal storage-accounts per regio ook in een bepaald abonnement. De standaardlimiet is 200 en omvat zowel Standard en Premium Storage-accounts. Als u meer dan 200 opslagaccounts in een bepaalde regio nodig hebt, moet u een aanvraag via [ondersteuning voor Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Het Azure Storage-team controleert uw bedrijfsscenario en kan goedkeuren tot 250 opslagaccounts voor een bepaalde regio.
+Er geldt een limiet voor het aantal storage-accounts per regio ook in een bepaald abonnement. De standaardlimiet is 200 en omvat zowel Standard en Premium Storage-accounts. Als u meer dan 200 opslagaccounts in een bepaalde regio nodig hebt, moet u een aanvraag via [ondersteuning voor Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Het Azure Storage-team controleert uw bedrijfsscenario en kan goedkeuren tot 250 opslagaccounts voor een bepaalde regio.
 
 
 ## <a name="find-your-quotas"></a>Uw quota's zoeken
 
 Weergeven van uw quotum voor verschillende resources, zoals virtuele Machines, opslag, netwerk, is het eenvoudig via de Azure-portal.
 
-1. Selecteer in het linkerdeelvenster **alle services** en selecteer vervolgens **abonnementen** onder de categorie Algemeen.
+1. Selecteer in het linkerdeelvenster **alle services** en selecteer vervolgens **abonnementen** onder de categorie Algemeen.
 
 1. Selecteer het abonnement waarvan quota die u zoekt in de lijst met abonnementen.
 
    **Er is een voorbehoud**, specifiek voor het weergeven van het quotum voor Compute van Azure Machine Learning. Zoals eerder vermeld, staat quotum los van het quotum voor compute voor uw abonnement.
 
-1. Selecteer in het linkerdeelvenster **Machine Learning-service** en selecteer vervolgens elke werkruimte in de onderstaande lijst
+1. Selecteer in het linkerdeelvenster **Machine Learning-service** en selecteer vervolgens elke werkruimte in de onderstaande lijst
 
 1. Op de volgende blade onder de **ondersteuning en probleemoplossing sectie** Selecteer **gebruik + quota** om uw huidige quotalimieten en het gebruik weer te geven.
 
@@ -102,7 +104,7 @@ Weergeven van uw quotum voor verschillende resources, zoals virtuele Machines, o
 
 ## <a name="request-quota-increases"></a>Quotaverhogingen aanvraag
 
-Als u wilt verhogen de is besteed of wanneer het quotum boven de standaardlimiet [opent u een ondersteuningsaanvraag online klant](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) gratis.
+Als u wilt verhogen de is besteed of wanneer het quotum boven de standaardlimiet [opent u een ondersteuningsaanvraag online klant](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) gratis.
 
 De limieten kunnen niet worden verhoogd boven de maximumlimiet-waarde die wordt weergegeven in de tabellen. Als er geen maximale limiet, hebben niet de bron instelbare limieten. [Dit](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) artikel bevat informatie over het proces voor het vergroten van quota in meer detail.
 

@@ -13,10 +13,10 @@ manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 8d050fe92af7b22363b0a9207201412bc12d9082
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65753991"
+ms.locfileid: "65792187"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Quickstart: Node.js gebruiken om een query uit te voeren voor een Azure SQL-database
 

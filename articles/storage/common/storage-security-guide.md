@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154398"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789947"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
 Azure Storage biedt een uitgebreide set met mogelijkheden voor beveiliging die samen kunnen ontwikkelaars veilige toepassingen te bouwen:
 
-- Alle gegevens die zijn geschreven naar Azure Storage automatisch versleuteld met behulp van [Storage Service Encryption (SSE)](storage-service-encryption.md). Zie voor meer informatie, [standaard codering aankondiging voor Azure Blobs, bestanden, Table en Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Alle gegevens (met inbegrip van metagegevens) geschreven naar Azure Storage worden automatisch versleuteld met behulp van [Storage Service Encryption (SSE)](storage-service-encryption.md). Zie voor meer informatie, [standaard codering aankondiging voor Azure Blobs, bestanden, Table en Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) en op rollen gebaseerd toegangsbeheer (RBAC) worden ondersteund voor Azure Storage voor zowel resource management-bewerkingen en bewerkingen voor gegevens, als volgt:   
     - U kunt RBAC-rollen binnen het bereik van het opslagaccount dat aan beveiligings-principals en het gebruik van Azure AD te autoriseren resource management-bewerkingen zoals Sleutelbeheer toewijzen.
     - Azure AD-integratie wordt ondersteund voor blob- en wachtrijservices gegevensbewerkingen. U kunt RBAC-rollen binnen het bereik van een abonnement, resourcegroep, opslagaccount, of een afzonderlijke container of wachtrij wilt een beveiligings-principal of een beheerde identiteit voor Azure-resources kunt toewijzen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md).   
@@ -86,7 +86,7 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
 * De gebruiker moet worden ingesteld in uw Azure Active Directory voordat u een rol aan deze toewijzen kunt.
 * U kunt een rapport van die verleend/ingetrokken wat voor soort toegang naar/van wie en op welke bereik met behulp van PowerShell of Azure CLI maken.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Toegangsbeheer op basis van rollen in Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   In dit artikel wordt het toegangsbeheer op basis van rollen in Azure Active Directory uitgelegd.
@@ -146,7 +146,7 @@ Een ander voordeel van het gebruik van Azure Key Vault is dat u kunt ook toegang
 > [!NOTE]
 > Microsoft adviseert om slechts één van de sleutels in al uw toepassingen op hetzelfde moment. Als u met sleutel 1 op bepaalde plaatsen en sleutel 2 in andere, wordt het niet mogelijk uw om sleutels te rouleren zonder dat een toepassing toegang verliezen.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 
 * [Instellingen van opslagaccount in Azure portal beheren](storage-account-manage.md)
 * [Naslaginformatie over de REST-API voor de Azure Storage-resourceprovider](https://msdn.microsoft.com/library/mt163683.aspx)
@@ -228,7 +228,7 @@ Als u van een SAS die is afgeleid van een toegangsbeleid die zijn opgeslagen geb
 
 Omdat met behulp van een SAS die is afgeleid van een opgeslagen toegangsbeleid u de mogelijkheid om in te trekken die SAS onmiddellijk biedt, is de aanbevolen toegangsbeleid opgeslagen indien mogelijk altijd wilt gebruiken.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het gebruik van handtekeningen voor gedeelde toegang en opgeslagen toegangsbeleid, inclusief voorbeelden:
 
 * Dit zijn de referentie-artikelen.
@@ -238,10 +238,9 @@ Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het geb
     In dit artikel bevat voorbeelden van het gebruik van een SAS serviceniveau met blobs, berichten in de wachtrij, tabel-bereiken en bestanden.
   * [Maken van een service-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Maken van een account-SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-* Dit zijn de zelfstudies voor het gebruik van de .NET-clientbibliotheek om handtekeningen voor gedeelde toegang en opgeslagen toegangsbeleid te maken.
 
+* Dit is een zelfstudie voor het gebruik van de .NET-clientbibliotheek om handtekeningen voor gedeelde toegang en opgeslagen toegangsbeleid te maken.
   * [Shared Access Signatures (SAS) gebruiken](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Shared Access Signatures, deel 2: Maken en gebruiken van een SAS met de Blob-Service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Dit artikel bevat een uitleg van de SAS-model, voorbeelden van handtekeningen voor gedeelde toegang en aanbevelingen voor het beste gebruik van SAS. Ook wordt besproken, is het intrekken van de machtiging is verleend.
 
@@ -294,7 +293,7 @@ Clientversleuteling is ingebouwd in de Java en .NET storage-clientbibliotheken, 
 
 U kunt genereren en beheren van uw eigen versleutelingssleutels voor de versleuteling zelf. U kunt ook sleutels die worden gegenereerd door de Azure Storage-clientbibliotheek gebruiken of u kunt de Azure Key Vault genereren van de sleutels hebben. U kunt uw versleutelingssleutels opslaan in uw on-premises sleutel opslag of u ze kunt opslaan in een Azure Key Vault. Azure Key Vault kunt u voor het verlenen van toegang tot de geheimen in Azure Key Vault aan specifieke gebruikers met Azure Active Directory. Dit betekent dat niet alleen iedereen kan lezen van de Azure Key Vault en ophalen van de sleutels die u voor versleuteling van de client-side gebruikt.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Blobs in Microsoft Azure Storage met behulp van Azure Key Vault versleutelen en ontsleutelen](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 
   In dit artikel laat zien hoe clientversleuteling gebruiken met Azure Key Vault, inclusief het maken van de KEK-sleutel en op te slaan in de kluis met behulp van PowerShell.
@@ -335,7 +334,7 @@ De oplossing ondersteunt niet de volgende scenario's, functies en -technologie i
 
 Deze functie zorgt ervoor dat alle gegevens op schijven van uw virtuele machine is versleuteld in rust in Azure Storage.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Azure Disk Encryption voor Windows en Linux IaaS-VM 's](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Vergelijking van Azure Disk Encryption, SSE en Client-Side-versleuteling
@@ -416,7 +415,7 @@ We hebben drie gevallen waarin we geïnteresseerd zijn.
 
 U kunt de Microsoft Message Analyzer gebruiken om te bekijken en analyseren van deze logboeken. Dit omvat mogelijkheden voor zoeken en filteren. Bijvoorbeeld, kunt u om te zoeken naar exemplaren van GetBlob om te zien als het gebruik wat u verwacht, dat wil zeggen, om te controleren of iemand anders is niet verkrijgen van toegang tot uw storage-account ongepast.
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 * [Storage Analytics](../storage-analytics.md)
 
   In dit artikel wordt een overzicht van storage analytics en hoe u ze wilt inschakelen.
@@ -471,7 +470,7 @@ Dit is wat elke rij betekent:
 * **ExposedHeaders** Hiermee wordt aangegeven welke antwoordheaders moeten worden weergegeven door de browser voor de aanvraagverlener. In dit voorbeeld wordt een header die beginnen met ' x-ms - meta-' weergegeven.
 * **MaxAgeInSeconds** dit is de maximale hoeveelheid tijd dat een browser de voorbereidende aanvraag OPTIONS cache worden opgeslagen. (Controleer het onderstaande eerste artikel voor meer informatie over de voorbereidende aanvraag).
 
-#### <a name="resources"></a>Resources
+#### <a name="resources"></a>Bronnen
 Bekijk deze bronnen voor meer informatie over CORS en het inschakelen ervan.
 
 * [Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services op Azure.com](../storage-cors-support.md)
@@ -498,7 +497,7 @@ Bekijk deze bronnen voor meer informatie over CORS en het inschakelen ervan.
 
    Microsoft blijft deze maximaal elke klant om te bepalen of inschakelen van FIPS-modus. Wij vinden dat er is geen dwingende redenen voor klanten die niet onderworpen aan wettelijke voorschriften zijn voor het inschakelen van FIPS-modus standaard.
 
-### <a name="resources"></a>Resources
+### <a name="resources"></a>Bronnen
 * [Waarom We nu niet aanbevelen 'FIPS-modus' meer](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   In dit blogartikel geeft een overzicht van FIPS en wordt uitgelegd waarom ze niet standaard ingeschakeld in de FIPS-modus.

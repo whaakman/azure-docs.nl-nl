@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791062"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521742"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Instellen van netwerktoewijzing en IP-adressering voor vnet 's
 
@@ -58,7 +58,7 @@ Het subnet van het doel-VM is geselecteerd, is afhankelijk van de naam van het s
 
 - Als een subnet met dezelfde naam als de bron-VM-subnet in het netwerk beschikbaar is, wordt dat subnet is ingesteld voor de doel-VM.
 - Als een subnet met dezelfde naam in het doelnetwerk bestaat, is het eerste subnet in alfabetische volgorde ingesteld als het doelsubnet.
-- U kunt de in de **berekening en netwerk** instellingen voor de virtuele machine.
+- U kunt het doelsubnet in de **berekening en netwerk** instellingen voor de virtuele machine.
 
     ![Reken- en compute-eigenschappenvenster](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 

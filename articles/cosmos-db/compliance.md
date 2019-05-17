@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128818"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606284"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Naleving in Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ Azure Cosmos DB is beschikbaar in alle Azure-regio's. Microsoft maakt vijf versc
 
 * **Azure Government voor afdeling van of** is beschikbaar in twee regio's in de Verenigde Staten naar het US Department of Defense.
 
-Om klanten te helpen te voldoen aan hun eigen verplichtingen in gereguleerde industrieën en markten wereldwijd, heeft Azure de grootste portefeuille voor naleving in de branche in termen van zowel de breedte (totaal aantal aanbiedingen) en de diepte (aantal klantgerichte Services binnen het bereik van de evaluatie).  Azure compliance-aanbiedingen zijn ingedeeld in vier segmenten - globaal van toepassing, voor de Amerikaanse overheid, branche-specifieke, en de regio of land specifieke.  Compliance-aanbiedingen zijn gebaseerd op verschillende typen garanties, met inbegrip van officiële certificeringen, verklaringen, validaties, machtigingen en beoordelingen die worden geproduceerd door onafhankelijke externe controle ondernemingen, evenals de contractuele wijzigingen zelfcontroles en documenten die richtlijnen voor klanten die door Microsoft zijn geproduceerd.
+Om klanten te helpen te voldoen aan hun eigen verplichtingen in gereguleerde industrieën en markten wereldwijd, heeft Azure de grootste portefeuille voor naleving in de branche in termen van zowel de breedte (totaal aantal aanbiedingen) en de diepte (aantal klantgerichte Services binnen het bereik van de evaluatie).  Azure compliance-aanbiedingen zijn ingedeeld in vier segmenten - globaal van toepassing, voor de Amerikaanse overheid, branche-specifieke, en de regio of land/regio specifieke.  Compliance-aanbiedingen zijn gebaseerd op verschillende typen garanties, met inbegrip van officiële certificeringen, verklaringen, validaties, machtigingen en beoordelingen die worden geproduceerd door onafhankelijke externe controle ondernemingen, evenals de contractuele wijzigingen zelfcontroles en documenten die richtlijnen voor klanten die door Microsoft zijn geproduceerd.
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB-certificeringen  
 

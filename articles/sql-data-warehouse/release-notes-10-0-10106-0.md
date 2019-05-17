@@ -5,27 +5,48 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/10/2019
+ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917232"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792415"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Releaseopmerkingen voor Azure SQL Data Warehouse
 
 In dit artikel bevat een overzicht van de nieuwe functies en verbeteringen in de recente versies van [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). Het artikel bevat ook de belangrijkste inhoud updates die worden niet rechtstreeks met betrekking tot de release, maar in dezelfde periode gepubliceerd. Zie voor verbeteringen aan andere Azure-services, [Service-updates](https://azure.microsoft.com/updates).
 
+## <a name="check-your-azure-sql-data-warehouse-version"></a>Controleer uw versie van Azure SQL Data Warehouse
+
+Verbinding met uw datawarehouse via SQL Server Management Studio (SSMS) en voer de volgende syntaxis om terug te keren van de huidige versie van SQL Data Warehouse.
+
+```sql
+SELECT @@VERSION AS 'SQL Data Warehouse';
+```
+
+Voorbeelduitvoer: ![Versie van SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+
+Gebruik de datum die is geïdentificeerd als u wilt controleren welke versie is toegepast op uw Azure SQL Data Warehouse.
+
+## <a name="may-2019"></a>Mei 2019
+
+| Verbeteringen van de services | Details |
+| --- | --- |
+|**Dynamische gegevensmaskering (Preview)**|Dynamic Data Masking (DDM) voorkomt ongeoorloofde toegang tot uw gevoelige gegevens in uw datawarehouse, worden bedekt het op het begeven in de resultaten van de query, op basis van de maskeringsregels die u definieert. Zie voor meer informatie, [SQL Database dynamische gegevensmaskering](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Urgentie van de werkbelasting nu algemeen beschikbaar**|Workload Management classificatie en urgentie bieden de mogelijkheid om te beïnvloeden de volgorde van query's. Zie voor meer informatie over het belang van de werkbelasting, de [classificatie](sql-data-warehouse-workload-classification.md) en [belang](sql-data-warehouse-workload-importance.md) overzichtsartikelen in de documentatie. Bekijk de [WERKBELASTING classificatie maken](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) ook doc-bestand.<br/><br/>Zie werkbelasting belang in de actie in de onderstaande video's:<br/> -[Concepten van werkbelasting Management](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Scenario's voor het beheer van werkbelasting](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**Aanvullende ondersteuning voor T-SQL**|De T-SQL-taal surface area voor SQL Data Warehouse heeft is uitgebreid met ondersteuning voor: </br> - [OP DE TIJDZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**JSON-functies**|Bedrijfsanalisten kunnen nu vertrouwde T-SQL-taal gebruiken om te zoeken en bewerken van documenten die zijn opgemaakt als JSON-gegevens met behulp van de volgende nieuwe JSON-functies in Azure Data Warehouse:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
+|**Resultatenset opslaan in cache (Preview)**|Resultatenset caching, kunt direct query-reactietijden bij het verlagen van de tijd-tot-inzicht voor bedrijfsanalisten en rapportage van gebruikers. Zie voor meer informatie:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET-opties (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [SET-RESULTATENSET opslaan in cache (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET-instructie (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+
 ## <a name="march-2019"></a>Maart 2019
 
 | Verbeteringen van de services | Details |
 | --- | --- |
-|**Workload urgentie is nu beschikbaar voor Gen2-preview**|De werkbelasting belang kunt gegevenstechnici belang gebruiken voor het classificeren van aanvragen. Aanvragen met hogere prioriteit worden gegarandeerd sneller toegang tot resources, die helpt te voldoen aan Sla's.  Urgentie van de werkbelasting kunt hoge zakelijke waarde werk om te voldoen aan Sla's in een gedeelde omgeving met minder bronnen.<br/><br/>Preview van werkbelasting Management classificatie en belang is voor builds met een releasedatum van 9 April 2019 of hoger. Gebruikers Vermijd het gebruik van builds vóór deze datum voor het testen van de workload-beheer. Om te bepalen of uw build beheer van de werkbelasting kan worden uitgevoerd `select @@version` wanneer verbonden met uw SQL Data Warehouse-exemplaar.</br></br>Zie voor meer informatie over het belang van de werkbelasting, de [classificatie](sql-data-warehouse-workload-classification.md) en [belang](sql-data-warehouse-workload-importance.md) overzichtsartikelen in de documentatie. Bekijk de [WERKBELASTING classificatie maken](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) ook doc-bestand.<br/><br/>Zie werkbelasting belang in de actie in de onderstaande video's:<br/>[Concepten van werkbelasting Management](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Scenario's voor het beheer van werkbelasting](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**Gegevensdetectie en classificatie**|Gegevensdetectie en -classificatie is nu beschikbaar in openbare preview voor Azure SQL Data Warehouse. Het is essentieel om gevoelige gegevens en de privacy van uw klanten te beschermen. Als uw bedrijf en klanten gegevensassets toenemen, wordt het onbeheersbare te detecteren, classificeren en beveiligen van uw gegevens. De functie voor gegevens detectie en classificatie die we systeemeigen met Azure SQL Data Warehouse introduceren maakt de bescherming van uw gegevens beter beheersbare. De algemene voordelen van deze mogelijkheid zijn:<br/>&bull; &nbsp; Vergadering privacystandaarden en wettelijke vereisten.<br/>&bull; &nbsp; Toegang beperken tot en de beveiliging van gegevens beperken warehouses met uiterst gevoelige gegevens.<br/>&bull; &nbsp; Bewaking en waarschuwingen voor afwijkende toegang tot gevoelige gegevens.<br/>&bull; &nbsp; Visualisatie van gevoelige gegevens in een centraal dashboard in Azure portal. </br></br>Gegevensdetectie en classificatie is beschikbaar voor Azure SQL Data Warehouse in alle Azure-regio's, het onderdeel van de geavanceerde beveiliging van gegevens met inbegrip van evaluatie van beveiligingsproblemen en detectie van bedreigingen. Zie voor meer informatie over gegevensdetectie en classificatie, de [blogbericht](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) en onze online [documentatie](/azure/sql-database/sql-database-data-discovery-and-classification).|
 |**GROEPEREN OP SAMENVOUWEN**|UPDATEPAKKET is nu een ondersteunde GROUP BY-optie in Azure Data Warehouse.   TOTALISATIE groep maakt een groep voor elke combinatie van kolom expressies. GROUP BY ook samengevouwen"" de resultaten in subtotalen en eindtotalen weergeven. De GROUP BY-functie verwerkt van rechts naar links, verminderen het aantal expressies van kolom waarover deze groepen en aggregation(s) maakt.  De volgorde van kolommen is van invloed op de ROLLUP-uitvoer en kan invloed hebben op het aantal rijen in de resultatenset.<br/><br/>Zie voor meer informatie over TOTALISATIE groep [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**Verbeterde nauwkeurigheid voor gebruikte DWU en CPU portal metrische gegevens**|SQL Data Warehouse aanzienlijk verbetert de nauwkeurigheid van de metrische gegevens in Azure portal.  Deze versie bevat een oplossing voor de metrische definitie van CPU en gebruikte DWU in overeenstemming met uw werkbelasting goed voor alle computerknooppunten. Voordat u deze oplossing zijn metrische waarden undereported wordt. Verwacht te zien van een toename van de gebruikte DWU en CPU-metrische gegevens in Azure portal. |

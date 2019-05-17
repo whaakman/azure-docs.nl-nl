@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd7fee34f020f16d1511bc57b4ad86dbd5eb168d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605082"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796932"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3.0: Transliterate
 
@@ -64,7 +64,7 @@ Aanvraagheaders zijn onder andere:
     <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>Inhoudstype</td>
     <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
@@ -77,7 +77,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagbody
+## <a name="request-body"></a>Aanvraagtekst
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`, die staat voor de tekenreeks moet worden geconverteerd.
 
@@ -131,7 +131,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Geslaagd.</td>
+    <td>Voltooid.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -147,7 +147,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   </tr>
   <tr>
     <td>429</td>
-    <td>De aanroeper is te veel aanvragen verzenden.</td>
+    <td>De server heeft de aanvraag geweigerd omdat de client aanvraaglimieten heeft overschreden.</td>
   </tr>
   <tr>
     <td>500</td>

@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035351"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797383"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Resource verbruik en query-activiteiten in Azure Search controleren
 
@@ -77,13 +77,15 @@ In deze sectie leert u hoe u Blob storage gebruiken voor het opslaan van gegeven
 
 1. [Maak een opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) als u er nog geen hebt. U kunt deze plaatsen in dezelfde resourcegroep bevinden als de Azure Search te vereenvoudigen opschonen later als u wilt verwijderen van alle resources die in deze oefening gebruikt.
 
+   Uw storage-account moet zich in dezelfde regio als de Azure Search.
+
 2. Open de pagina overzicht van uw zoekservice. In het deelvenster navigatie aan de linkerkant, schuif omlaag naar **bewaking** en klikt u op **bewaking inschakelen**.
 
    ![Schakel de bewaking](./media/search-monitor-usage/enable-monitoring.png "bewaking inschakelen")
 
 3. Kies de gegevens die u wilt exporteren: Logboeken, metrische gegevens of beide. U kunt kopiëren naar een opslagaccount, verzenden naar een event hub of exporteren naar Azure Monitor-Logboeken.
 
-   Voor archivering naar Blob-opslag, alleen de storage-account moet bestaan. Containers en blobs wordt gemaakt tijdens het exporteren van gegevens aan het logboek.
+   Voor archivering naar Blob-opslag, alleen de storage-account moet bestaan. Containers en blobs wordt gemaakt zo nodig tijdens het exporteren van gegevens aan het logboek.
 
    ![Configure blob-opslag archiveren](./media/search-monitor-usage/configure-blob-storage-archive.png "configureren blob-opslag archiveren")
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 881abf48a1dda3b008e5946096cdcadb1f157d25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b4302713188237b97ffbe8473f6a37edd6741b36
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682631"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793093"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snelstart: Kosten verkennen en analyseren met Kostenanalyse
 
@@ -69,9 +69,9 @@ De initiële kostenanalyseweergave omvat de volgende gebieden:
 
 ## <a name="customize-cost-views"></a>Kostenweergaven aanpassen
 
-Kostenanalyse heeft vier ingebouwde weergaven, geoptimaliseerd voor de meest voorkomende doelen: 
+Kostenanalyse heeft vier ingebouwde weergaven, geoptimaliseerd voor de meest voorkomende doelen:
 
-Weergave | Antwoorden op vragen zoals...
+Weergeven | Antwoorden op vragen zoals...
 --- | ---
 Samengevoegde kosten | Hoeveel heb ik besteed aan het tot nu toe voor deze maand? Blijf ik binnen mijn budget?
 Dagelijkse kosten | Er zijn een toename in de kosten per dag voor de afgelopen 30 dagen?
@@ -96,7 +96,7 @@ Over het algemeen kunt u verwachten dat gegevens of meldingen voor de verbruikte
 
 **Groeperen op** topinzenders in het algemene eigenschappen voor het opsplitsen van kosten en identificeren. Als u wilt groeperen op resourcetags, selecteert u bijvoorbeeld de tagsleutel die u groeperen wilt op. Kosten worden opgedeeld per elke tagwaarde, met een extra segment voor resources die geen dat label wordt toegepast.
 
-De meeste [Azure-resources ondersteunen tagging](../azure-resource-manager/tag-support.md), maar sommige tags zijn niet beschikbaar in Cost Management en facturering. Bovendien worden resourcegroeptags niet ondersteund. Cost Management ondersteunt resourcetags alleen vanaf de datum waarop de tags rechtstreeks worden toegepast op de resource.
+De meeste [Azure-resources ondersteunen tagging](../azure-resource-manager/tag-support.md), maar sommige tags zijn niet beschikbaar in Cost Management en facturering. Bovendien worden resourcegroeptags niet ondersteund. Cost Management ondersteunt resourcetags alleen vanaf de datum waarop de tags rechtstreeks worden toegepast op de resource. Bekijk de [over het bekijken van beleid voor resourcetags bij Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video voor meer informatie over het gebruik van Azure-tag-beleid voor het verbeteren van de kosten voor gegevens zichtbaar.
 
 Dit is een overzicht van Azure-servicekosten voor een weergave van de afgelopen maand.
 

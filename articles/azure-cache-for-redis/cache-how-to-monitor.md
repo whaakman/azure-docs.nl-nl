@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 32d0fb2ba17d322c0a273ebaf0a21d2b3ca0668f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cfd5a99144af1120afbf06fe6222228a9332bb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830628"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787430"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure Cache controleren voor Redis
 Azure maakt gebruik van Redis-Cache [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) verschillende opties voor het bewaken van uw cache-exemplaren. U kunt metrische gegevens weergeven, grafieken met metrische gegevens aan het Startboard vastmaken, aanpassen van het bereik van datum en tijd van de bewaking van grafieken, toevoegen en metrische gegevens verwijderen uit de grafieken en waarschuwingen instellen wanneer aan bepaalde voorwaarden wordt voldaan. Deze hulpprogramma's kunnen u de status van uw Azure-Cache voor instanties van Redis en hulp bij het beheren van uw cache in toepassingen worden gecontroleerd.
@@ -96,7 +96,7 @@ Alle gegevens bevat twee versies. Prestaties voor het volledige cachegeheugen en
 > 
 > 
 
-| Gegevens | Description |
+| Metric | Description |
 | --- | --- |
 | Cachetreffers |Het aantal geslaagde sleutel zoekacties tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `keyspace_hits` uit de Redis [INFO](https://redis.io/commands/info) opdracht. |
 | Cache Latency (Preview) | De latentie van de cache berekend op basis van uit de latentie tussen knooppunten van de cache. Met deze metriek wordt gemeten in microseconden en drie dimensies heeft: "Gem.", "Min" en "Max" Dit is de gemiddelde, minimale en maximale latentie van de cache respectievelijk tijdens het opgegeven interval voor rapportage. |
@@ -105,7 +105,7 @@ Alle gegevens bevat twee versies. Prestaties voor het volledige cachegeheugen en
 | Cache schrijven |De hoeveelheid gegevens geschreven naar de cache in MB per seconde (MB/s) tijdens de opgegeven reporting interval. Deze waarde wordt afgeleid van de lijst met netwerkadapters die ondersteuning bieden voor de virtuele machine die als host fungeert voor de cache en is geen specifieke Redis. Deze waarde komt overeen met de bandbreedte van het netwerk van de gegevens worden verzonden naar de cache van de client. |
 | Verbonden clients |Het aantal clientverbindingen met de cache tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `connected_clients` van de Redis-INFO-opdracht. Zodra de [verbindingslimiet](cache-configure.md#default-redis-server-configuration) is bereikt latere verbindingspogingen met de cache zal mislukken. Houd er rekening mee dat, zelfs als er geen actieve client-toepassingen zijn, er nog steeds mogelijk een paar exemplaren van verbonden clients vanwege interne processen en verbindingen. |
 | CPU |Het CPU-gebruik van de Azure-Cache voor Redis-server als een percentage tijdens het opgegeven interval voor rapportage. Deze waarde wordt toegewezen aan het besturingssysteem `\Processor(_Total)\% Processor Time` prestatiemeteritem. |
-| Fouten | Specifieke fouten en prestatieproblemen die de cache tijdens een opgegeven interval voor rapportage ondervinden. Met deze metriek acht dimensies die verschillende fouttypen heeft, maar kan in de toekomst meer hebt toegevoegd. De fouttypen weergegeven nu zijn als volgt: <br/><ul><li>**Failover** – wanneer wordt overgenomen door een cache (ondergeschikte server verhogen naar hoofdniveau)</li><li>**Crash** – wanneer de cache onverwacht in elk van de knooppunten vastloopt</li><li>**Dataloss** : wanneer er dataloss op de cache</li><li>**UnresponsiveClients** – wanneer de clients niet van gegevens van de server snel genoeg lezen zijn</li><li>**AOF** : wanneer er een probleem met betrekking tot AOF persistentie</li><li>**De RDB** : wanneer er een probleem met betrekking tot de RDB-persistentie</li><li>**Importeren** : wanneer er een probleem met betrekking tot RDB importeren</li><li>**Exporteren** : wanneer er een probleem met betrekking tot RDB exporteren</li></ul> |
+| Fouten | Specifieke fouten en prestatieproblemen die de cache tijdens een opgegeven interval voor rapportage ondervinden. Met deze metriek acht dimensies die verschillende fouttypen heeft, maar kan in de toekomst meer hebt toegevoegd. De fouttypen weergegeven nu zijn als volgt: <br/><ul><li>**Failover** – wanneer wordt overgenomen door een cache (onderliggend niveau verhogen naar hoofdniveau)</li><li>**Crash** – wanneer de cache onverwacht in elk van de knooppunten vastloopt</li><li>**Dataloss** : wanneer er dataloss op de cache</li><li>**UnresponsiveClients** – wanneer de clients niet van gegevens van de server snel genoeg lezen zijn</li><li>**AOF** : wanneer er een probleem met betrekking tot AOF persistentie</li><li>**De RDB** : wanneer er een probleem met betrekking tot de RDB-persistentie</li><li>**Importeren** : wanneer er een probleem met betrekking tot RDB importeren</li><li>**Exporteren** : wanneer er een probleem met betrekking tot RDB exporteren</li></ul> |
 | Verwijderde sleutels |Het aantal items uit de cache verwijderd tijdens het opgegeven reporting interval vanwege de `maxmemory` limiet. Dit wordt toegewezen aan `evicted_keys` van de Redis-INFO-opdracht. |
 | Verlopen sleutels |Het aantal items die tijdens het opgegeven interval voor rapportage uit de cache is verlopen. Deze waarde wordt toegewezen aan `expired_keys` van de Redis-INFO-opdracht.|
 | Opgehaalde items |Het aantal get-bewerkingen uit de cache tijdens het opgegeven interval voor rapportage. Deze waarde is de som van de volgende waarden van de gegevens van de Redis-opdracht Alles: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, en `cmdstat_getrange`, en is gelijk aan de som van de cachetreffers en missers tijdens het rapportage-interval. |

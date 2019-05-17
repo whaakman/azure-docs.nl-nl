@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325606"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787548"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Uw Azure Functions uitvoeren vanuit een pakketbestand
 
@@ -42,7 +42,7 @@ Zie voor meer informatie, [deze aankondiging](https://github.com/Azure/app-servi
 
 Als u wilt inschakelen voor de functie-app om uit te voeren van een pakket, toe te voegen een `WEBSITE_RUN_FROM_PACKAGE` instellen op de instellingen van uw functie-app. De `WEBSITE_RUN_FROM_PACKAGE` instelling kan een van de volgende waarden hebben:
 
-| Waarde  | Beschrijving  |
+| Value  | Description  |
 |---------|---------|
 | **`1`**  | Aanbevolen voor functie-apps die worden uitgevoerd op Windows. Uitvoeren van een pakketbestand in de `d:\home\data\SitePackages` map van uw functie-app. Als dit niet het [implementeren met zip implementeren](#integration-with-zip-deployment), deze optie is vereist voor de map hebben ook een bestand met de naam `packagename.txt`. Dit bestand bevat alleen de naam van het pakketbestand in de map, zonder een spatie. |
 |**`<url>`**  | Locatie van een specifiek pakket-bestand dat u wilt uitvoeren. Wanneer u Blob-opslag gebruikt, moet u een privé-container met een [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) om in te schakelen de Functions-runtime voor de toegang tot het pakket. U kunt de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) pakketbestanden uploaden naar uw Blob storage-account.         |
@@ -64,6 +64,13 @@ Hieronder ziet u een functie-app die is geconfigureerd voor het uitvoeren van ee
 ## <a name="adding-the-websiterunfrompackage-setting"></a>De instelling WEBSITE_RUN_FROM_PACKAGE toe te voegen
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+- Uitvoeren van pakket maakt `wwwroot` alleen-lezen, ontvangt u een fout opgetreden bij het schrijven van bestanden naar deze map.
+- Tar en gzip-indelingen worden niet ondersteund.
+- Deze functie wordt niet samenstellen met lokale cache.
+- Voor betere prestaties voor koude start, gebruikt u de lokale Zip-optie (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Volgende stappen
 

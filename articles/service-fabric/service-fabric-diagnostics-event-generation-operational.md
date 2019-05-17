@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393036"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788597"
 ---
 # <a name="list-of-service-fabric-events"></a>Lijst met Service Fabric-gebeurtenissen 
 
@@ -42,11 +42,11 @@ Meer informatie over het upgraden van clusters kunnen worden gevonden [hier](ser
 
 | Gebeurtenis-id | Name | Category | Description |Bron (taak) | Niveau | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Upgraden | Een clusterupgrade van een is gestart | CM | Informatief |
-| 29628 | ClusterUpgradeCompleted | Upgraden | Een clusterupgrade is voltooid | CM | Informatief | 
-| 29629 | ClusterUpgradeRollbackStarted | Upgraden | Een clusterupgrade van een is begonnen met het ongedaan maken  | CM | Waarschuwing | 
-| 29630 | ClusterUpgradeRollbackCompleted | Upgraden | Een clusterupgrade van een is voltooid, terug te draaien | CM | Waarschuwing | 
-| 29631 | ClusterUpgradeDomainCompleted | Upgraden | Een upgradedomein is voltooid tijdens de upgrade van een cluster upgraden | CM | Informatief | 
+| 29627 | ClusterUpgradeStarted | Upgrade | Een clusterupgrade van een is gestart | CM | Informatief |
+| 29628 | ClusterUpgradeCompleted | Upgrade | Een clusterupgrade is voltooid | CM | Informatief | 
+| 29629 | ClusterUpgradeRollbackStarted | Upgrade | Een clusterupgrade van een is begonnen met het ongedaan maken  | CM | Waarschuwing | 
+| 29630 | ClusterUpgradeRollbackCompleted | Upgrade | Een clusterupgrade van een is voltooid, terug te draaien | CM | Waarschuwing | 
+| 29631 | ClusterUpgradeDomainCompleted | Upgrade | Een upgradedomein is voltooid tijdens de upgrade van een cluster upgraden | CM | Informatief | 
 
 ## <a name="node-events"></a>Knooppunt-gebeurtenissen
 
@@ -73,7 +73,7 @@ Meer informatie over het upgraden van clusters kunnen worden gevonden [hier](ser
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | Een nieuwe toepassing is gemaakt | CM | Informatief | 
 | 29625 | ApplicationDeleted | LifeCycle | Een bestaande toepassing is verwijderd | CM | Informatief | 
-| 23083 | ApplicationProcessExited | LifeCycle | Een proces in een toepassing is afgesloten | Hosting | Informatief | 
+| 23083 | ApplicationProcessExited | LifeCycle | Een proces in een toepassing is afgesloten | Hosten | Informatief | 
 
 **Upgrade van toepassingsgebeurtenissen**
 
@@ -81,11 +81,11 @@ Meer informatie over upgrades van toepassingen vindt [hier](service-fabric-appli
 
 | Gebeurtenis-id | Name | Category | Description |Bron (taak) | Niveau | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Upgraden | Een upgrade van de toepassing is gestart | CM | Informatief | 
-| 29622 | ApplicationUpgradeCompleted | Upgraden | Een upgrade van de toepassing is voltooid | CM | Informatief | 
-| 29623 | ApplicationUpgradeRollbackStarted | Upgraden | Een upgrade van de toepassing is begonnen met het ongedaan maken |CM | Waarschuwing | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Upgraden | Een upgrade van de toepassing is voltooid, terug te draaien | CM | Waarschuwing | 
-| 29626 | ApplicationUpgradeDomainCompleted | Upgraden | Een upgradedomein is voltooid tijdens de upgrade van een toepassing upgraden | CM | Informatief | 
+| 29621 | ApplicationUpgradeStarted | Upgrade | Een upgrade van de toepassing is gestart | CM | Informatief | 
+| 29622 | ApplicationUpgradeCompleted | Upgrade | Een upgrade van de toepassing is voltooid | CM | Informatief | 
+| 29623 | ApplicationUpgradeRollbackStarted | Upgrade | Een upgrade van de toepassing is begonnen met het ongedaan maken |CM | Waarschuwing | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Upgrade | Een upgrade van de toepassing is voltooid, terug te draaien | CM | Waarschuwing | 
+| 29626 | ApplicationUpgradeDomainCompleted | Upgrade | Een upgradedomein is voltooid tijdens de upgrade van een toepassing upgraden | CM | Informatief | 
 
 ## <a name="service-events"></a>Gebeurtenissen van de service
 
@@ -100,19 +100,53 @@ Meer informatie over upgrades van toepassingen vindt [hier](service-fabric-appli
 
 **Partitie verplaatsen gebeurtenissen**
 
-| Gebeurtenis-id | Name | Category | Beschrijving |Bron (taak) | Niveau | 
+| Gebeurtenis-id | Name | Category | Description |Bron (taak) | Niveau | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | Een herconfiguratie van de partitie is voltooid | RA | Informatief | 
+
+## <a name="replica-events"></a>Replica-gebeurtenissen
+
+**Levenscyclusgebeurtenissen voor replica**
+
+| Gebeurtenis-id | Name | Category | Description |Bron (taak) | Niveau |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | Betrouwbare woordenlijst is geopend | DistributedDictionary | Informatief |
+| 61702 | ReliableDictionaryClosed | LifeCycle | Betrouwbare woordenlijst is verbroken | DistributedDictionary | Informatief |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Betrouwbare dictionary is het controlepunt hersteld | DistributedDictionary | Informatief |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Replica heeft betrouwbare dictionary controlepuntbestanden verzonden | DistributedDictionary | Informatief |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Replica heeft ontvangen van betrouwbare dictionary controlepuntbestanden | DistributedDictionary | Informatief |
+| 61963 | ReliableQueueOpened | LifeCycle | Betrouwbare wachtrij is geopend | DistributedQueue | Informatief |
+| 61964 | ReliableQueueClosed | LifeCycle | Betrouwbare wachtrij is gesloten | DistributedQueue | Informatief |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | Betrouwbare wachtrij is het controlepunt hersteld | DistributedQueue | Informatief |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Replica is controlepuntbestanden betrouwbare wachtrij verzonden | DistributedQueue | Informatief |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Replica heeft de controlepuntbestanden betrouwbare wachtrij ontvangen | DistributedQueue | Informatief |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | Betrouwbare gelijktijdige wachtrij is geopend | ReliableConcurrentQueue | Informatief |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | Betrouwbare gelijktijdige wachtrij is gesloten | ReliableConcurrentQueue | Informatief |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | Betrouwbare gelijktijdige wachtrij is het controlepunt hersteld | ReliableConcurrentQueue | Informatief |
+| 61687 | TStoreError | Fout | Betrouwbare verzameling heeft een onverwachte fout ontvangen | TStore | Fout |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | Primaire replica heeft geprobeerd een volledige kopie | TReplicator | Informatief |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Primaire replica heeft een gedeeltelijke kopie gestart | TReplicator | Informatief |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | Primaire replica is gestart met het bouwen van een niet-actieve replica | Replicatie | Informatief |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | Primaire replica is voltooid met het bouwen van een niet-actieve replica | Replicatie | Informatief |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | Primaire replica is mislukt met het bouwen van een niet-actieve replica | Replicatie | Waarschuwing |
+| 16834 | PrimaryReplicationQueueFull | Gezondheidszorg | Primaire replica de replicatiewachtrij is vol. | Replicatie | Waarschuwing |
+| 16835 | PrimaryReplicationQueueWarning | Gezondheidszorg | Primaire replica de replicatiewachtrij is bijna volledig | Replicatie | Waarschuwing |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Gezondheidszorg | Primaire replica de replicatiewachtrij is OK | Replicatie | Informatief |
+| 16837 | SecondaryReplicationQueueFull | Gezondheidszorg | Secundaire replica replicatiewachtrij is vol. | Replicatie | Waarschuwing |
+| 16838 | SecondaryReplicationQueueWarning | Gezondheidszorg | Secundaire replica de replicatiewachtrij is bijna volledig | Replicatie | Waarschuwing |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Gezondheidszorg | Secundaire replica de replicatiewachtrij is OK | Replicatie | Informatief |
+| 16840 | PrimaryFaultedSlowSecondary | Gezondheidszorg | Primaire replica is een trage secundaire replica mislukt | Replicatie | Waarschuwing |
+| 16841 | ReplicatorFaulted | Gezondheidszorg | Replica is mislukt | Replicatie | Waarschuwing |
 
 ## <a name="container-events"></a>Containergebeurtenissen
 
 **Gebeurtenissen in de container levensduur** 
 
-| Gebeurtenis-id | Name | Beschrijving |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContainerActivated | Een container is gestart | Hosting | Informatief | 1 |
-| 23075 | ContainerDeactivated | Een container is gestopt | Hosting | Informatief | 1 |
-| 23082 | ContainerExited | Een container is afgesloten: Controleer de vlag UnexpectedTermination | Hosting | Informatief | 1 |
+| 23074 | ContainerActivated | Een container is gestart | Hosten | Informatief | 1 |
+| 23075 | ContainerDeactivated | Een container is gestopt | Hosten | Informatief | 1 |
+| 23082 | ContainerExited | Een container is afgesloten: Controleer de vlag UnexpectedTermination | Hosten | Informatief | 1 |
 
 ## <a name="health-reports"></a>Statusrapporten
 
@@ -124,21 +158,21 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Cluster-rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Name | Beschrijving |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Een nieuw cluster health rapport is beschikbaar | HM | Informatief | 1 |
 | 54437 | ClusterHealthReportExpired | Een bestaand cluster health rapport is verlopen | HM | Informatief | 1 |
 
 **Knooppunt rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | Een nieuw knooppunt health rapport is beschikbaar | HM | Informatief | 1 |
 | 54432 | NodeHealthReportExpired | Een bestaand knooppunt health rapport is verlopen | HM | Informatief | 1 |
 
 **Toepassing rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Name | Beschrijving |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | Een nieuwe statusrapport van toepassing is gemaakt. Dit is voor niet-geïmplementeerde toepassingen. | HM | Informatief | 1 |
 | 54426 | DeployedApplicationNewHealthReport | Een nieuw geïmplementeerde toepassing health rapport is gemaakt | HM | Informatief | 1 |
@@ -149,21 +183,21 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Service health rapport-gebeurtenissen**
 
-| Gebeurtenis-id | Name | Beschrijving |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | Een nieuwe service health-rapport is gemaakt | HM | Informatief | 1 |
 | 54433 | ServiceHealthReportExpired | Een bestaande service-statusrapport is verlopen | HM | Informatief | 1 |
 
 **Partitie rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | Een nieuwe statusrapport van de partitie is gemaakt | HM | Informatief | 1 |
 | 54431 | PartitionHealthReportExpired | Een bestaande partitie-statusrapport is verlopen | HM | Informatief | 1 |
 
 **Replica rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | Een statusrapport stateful replica is gemaakt | HM | Informatief | 1 |
 | 54430 | StatelessInstanceNewHealthReport | Een nieuw exemplaar van staatloze health rapport is gemaakt | HM | Informatief | 1 |
@@ -174,28 +208,28 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Chaos-sessiegebeurtenissen**
 
-| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | Een Chaos testen van de sessie is gestart | Testbaarheid | Informatief | 1 |
 | 50023 | ChaosStopped | Een sessie testen Chaos is gestopt | Testbaarheid | Informatief | 1 |
 
 **Gebeurtenissen van chaos-knooppunt**
 
-| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | Een knooppunt is gepland om opnieuw te starten als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
 | 50087 | ChaosNodeRestartCompleted | Een knooppunt is opnieuw op te starten als onderdeel van een Chaos sessie testen voltooid | Testbaarheid | Informatief | 1 |
 
 **Chaos-toepassingsgebeurtenissen**
 
-| Gebeurtenis-id | Name | Beschrijving |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | Een code-pakket opnieuw opstarten is gepland tijdens een sessie testen Chaos | Testbaarheid | Informatief | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Code-pakket opnieuw worden opgestart is tijdens een sessie testen Chaos voltooid | Testbaarheid | Informatief | 1 |
 
 **Chaos-partitie gebeurtenissen**
 
-| Gebeurtenis-id | Name | Beschrijving |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | Een primaire partitie is ingesteld om te verplaatsen als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | Een secundaire partitie is ingesteld om te verplaatsen als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
@@ -203,7 +237,7 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Chaos replica gebeurtenissen**
 
-| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | Replica opnieuw is gepland als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | De verwijdering van een replica is gepland als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
@@ -213,7 +247,7 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Correlatiegebeurtenissen**
 
-| Gebeurtenis-id | Name | Beschrijving |Bron (taak) | Niveau | Version |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | Een correlatie er is aangetroffen | Testbaarheid | Informatief | 1 |
 
@@ -235,8 +269,8 @@ Hier volgt een uitgebreide lijst van gebeurtenissen die worden geleverd door de 
 | 29629 | ClusterUpgradeRollback | CM | Informatief |
 | 29630 | ClusterUpgradeRollbackComplete | CM | Informatief |
 | 29631 | ClusterUpgradeDomainComplete | CM | Informatief |
-| 23074 | ContainerActivated | Hosting | Informatief |
-| 23075 | ContainerDeactivated | Hosting | Informatief |
+| 23074 | ContainerActivated | Hosten | Informatief |
+| 23075 | ContainerDeactivated | Hosten | Informatief |
 | 29620 | ApplicationCreated | CM | Informatief |
 | 29621 | ApplicationUpgradeStart | CM | Informatief |
 | 29622 | ApplicationUpgradeComplete | CM | Informatief |

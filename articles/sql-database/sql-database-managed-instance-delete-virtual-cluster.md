@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411984"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791380"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Subnet na het verwijderen van Azure SQL-Database beheerd exemplaar verwijderen
 
 In dit artikel bevat richtlijnen over het handmatig verwijderen van subnet nadat het verwijderen van de laatste Azure SQL-Database beheerd exemplaar die zich bevinden in het.
 
-De [virtueel cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) die is opgenomen als het verwijderde beheerd exemplaar van het verwijderen van instantie 12 uur worden bewaard. De virtuele cluster wordt actief standaard voor snellere het maken van beheerde exemplaren in hetzelfde subnet opgeslagen. Tijdens deze periode, kan niet het subnet dat is gekoppeld aan de virtuele-cluster worden verwijderd.
+De [virtueel cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) die is opgenomen als het verwijderde beheerd exemplaar van het verwijderen van instantie 12 uur worden bewaard. De virtuele cluster wordt actief standaard voor snellere het maken van beheerde exemplaren in hetzelfde subnet opgeslagen. Een lege virtuele cluster te houden, is gratis. Tijdens deze periode, kan niet het subnet dat is gekoppeld aan de virtuele-cluster worden verwijderd.
 
 Onmiddellijke versie van het subnet dat wordt gebruikt door een lege virtuele cluster is mogelijk via handmatige verwijdering van de virtuele-cluster. Het verwijderen van de virtuele-cluster kan worden bereikt via Azure portal of virtuele clusters API.
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271019"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Zelfstudie: Azure Active Directory-integratie met iPass SmartConnect
 
@@ -122,8 +122,8 @@ Voor het configureren van Azure AD eenmalige aanmelding met iPass SmartConnect, 
     | ---------------| ----------|
     | voornaam | user.givenname |
     | achternaam | user.surname |
-    | e-mail | user.userprincipalname |
-    | gebruikersnaam | user.userprincipalname |
+    | email | user.userprincipalname |
+    | username | user.userprincipalname |
     | | |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594044"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792240"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord kennis met de GenerateAnswer API en metagegevens
 
@@ -43,7 +43,7 @@ In dat geval gebruikt u de API GenerateAnswer in uw Bot of toepassing in om op t
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publiceren GenerateAnswer-eindpunt ophalen 
 
-Nadat u uw knowledge base, via de [QnA Maker portal](https://www.qnamaker.ai), of met behulp van de [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), krijgt u de details van uw eindpunt GenerateAnswer.
+Nadat u uw knowledge base, via de [QnA Maker portal](https://www.qnamaker.ai), of met behulp van de [API](https://go.microsoft.com/fwlink/?linkid=2092179), krijgt u de details van uw eindpunt GenerateAnswer.
 
 Uw eindpunt om informatie te krijgen:
 1. Meld u aan bij [https://www.qnamaker.ai](https://www.qnamaker.ai).

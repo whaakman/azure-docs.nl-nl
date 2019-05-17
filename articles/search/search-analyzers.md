@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316826"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795803"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyzers om tekst te verwerken in Azure Search
 
@@ -92,10 +92,6 @@ Overschrijven van de standaard analyzer vereist het opnieuw opbouwen van een ind
 ### <a name="inspect-tokenized-terms"></a>Tokens voorwaarden controleren
 
 Als een zoekopdracht niet de verwachte resultaten worden geretourneerd, is het meest waarschijnlijke scenario token verschillen tussen de invoer van de termijn voor de query en tokens voorwaarden in de index. Als de tokens niet hetzelfde zijn, mislukt de overeenkomsten om te realiseren. Als u wilt controleren tokenizer-uitvoer, wordt u aangeraden de [analyseren API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) als een hulpprogramma voor onderzoek. De reactie bestaat van tokens, zoals die worden gegenereerd door een specifieke analyzer.
-
-### <a name="compare-english-analyzers"></a>Engelse analyzers vergelijken
-
-De [Search Analyzer-Demo](https://alice.unearth.ai/) is een derde partij demo-app van de vergelijking van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor van side-by-side. De index is opgelost; Deze bevat tekst uit een populaire verhaal. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de deelvensters van de aangrenzende, zodat u een beeld van hoe elke analyzer dezelfde tekenreeks verwerkt. 
 
 <a name="examples"></a>
 
@@ -348,8 +344,6 @@ Maak een [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.
 + Meer informatie over het toepassen van [taalspecifieke lexicale analyse](index-add-language-analyzers.md).
 
 + [Configureren van aangepaste analyse](index-add-custom-analyzers.md) voor minimale verwerking of gespecialiseerde verwerking op afzonderlijke velden.
-
-+ [Standaard- en Engelse analyzers vergelijken](https://alice.unearth.ai/) in aangrenzende deelvensters op deze demo-website. 
 
 ## <a name="see-also"></a>Zie ook
 

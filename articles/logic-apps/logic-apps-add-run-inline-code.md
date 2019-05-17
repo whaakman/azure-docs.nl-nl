@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160543"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602113"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Toevoegen en codefragmenten uitvoeren met behulp van inline-code in Azure Logic Apps
 
@@ -23,7 +23,10 @@ Als u een stukje code binnen uw logische app uitvoeren wilt, kunt u de ingebouwd
 * Wordt uitgevoerd in JavaScript. Meer talen is binnenkort beschikbaar.
 * Is voltooid in de vijf seconden of minder uitgevoerd.
 * Gegevens verwerkt in de grootte van maximaal 50 MB.
-* Maakt gebruik van Node.js versie 8.11.1. Zie voor meer informatie, [standaard ingebouwde objecten](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Maakt gebruik van Node.js versie 8.11.1. Zie voor meer informatie, [standaard ingebouwde objecten](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+  > [!NOTE]
+  > De functie require() wordt niet ondersteund door de **Inline Code** actie voor het uitvoeren van JavaScript.
 
 Met deze actie wordt het volgende codefragment wordt uitgevoerd en wordt de uitvoer van dit fragment geretourneerd als een token met de naam **resultaat**, die u kunt gebruiken in de volgende acties in uw logische app. Voor andere scenario's waarin u wilt maken van een functie voor uw code, kunt u proberen [maken en een Azure-functie aan te roepen](../logic-apps/logic-apps-azure-functions.md) in uw logische app.
 

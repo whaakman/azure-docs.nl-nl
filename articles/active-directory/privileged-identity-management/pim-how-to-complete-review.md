@@ -14,12 +14,12 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140996"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602159"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Een toegangscontrole van Azure AD-rollen in PIM voltooien
 Beheerders met bevoegdheid kunnen eenmaal bevoegde toegang beoordelen een [toegangsbeoordeling is gestart](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) ontvangt automatisch een e-mailbericht waarin wordt gevraagd de gebruikers kunnen hun toegang beoordelen. Als een gebruiker niet een e-mailbericht ontvangt is, kunt u ze de instructies in verzenden [hoe u een toegangscontrole uitvoeren](pim-how-to-perform-security-review.md).
@@ -33,7 +33,7 @@ Nadat de periode van de toegangsbeoordeling verlopen is of alle gebruikers hun z
 
 Op de blade van de details van de toegangsbeoordeling zijn er een aantal opties voor het beheren van deze evaluatie.
 
-![PIM-knoppen voor het controleren van toegang - schermafbeelding](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![PIM-knoppen voor het controleren van toegang - schermafbeelding](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### <a name="remind"></a>Herinneren
 Als een toegangsbeoordeling is ingesteld zodat de gebruikers zelf, Controleer de **herinnering sturen** knop verstuurt een melding. 

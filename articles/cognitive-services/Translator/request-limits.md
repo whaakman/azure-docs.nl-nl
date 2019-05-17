@@ -10,36 +10,47 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605217"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796896"
 ---
 # <a name="request-limits-for-translator-text"></a>Aanvraaglimieten voor Translator tekst
 
 In dit artikel bevat bandbreedtebeperking limieten voor de Translator Text-API. Services omvatten vertaling, vele, detectie van de lengte van de zin, taaldetectie en alternatieve vertalingen.
 
-## <a name="character-limits-per-request"></a>Tekens per aanvraag
+## <a name="character-and-array-limits-per-request"></a>Teken en matrix limieten per aanvraag
 
-Elke aanvraag is beperkt tot maximaal 5000 tekens. U betaalt per teken, niet door het aantal aanvragen. Het is raadzaam om kortere aanvragen te verzenden, en sommige op een bepaald moment openstaande aanvragen.
+Elk verzoek vertalen is beperkt tot maximaal 5000 tekens. U betaalt per teken, niet door het aantal aanvragen. Het is raadzaam om kortere aanvragen te verzenden.
 
-Er is geen limiet voor het aantal openstaande aanvragen naar de Translator Text-API.
+De volgende tabel lijsten matrix-element en teken limieten voor elke bewerking van de Translator Text-API.
+
+| Bewerking | Maximale grootte van het matrixelement |   Maximum aantal matrixelementen |  Maximale grootte aanvragen (tekens) |
+|:----|:----|:----|:----|
+| Translate | 5,000 | 100   | 5,000 |
+| Transliterate | 5,000 | 10    | 5,000 |
+| Detect | 10.000 | 100 |   50,000 |
+| BreakSentence | 10.000    | 100 | 5,0000 |
+| Opzoeken in woordenlijst| 100 |  10  | 1000 |
+| Voorbeelden in woordenlijst | 100 voor tekst en 100 voor vertaling (200 totaal)| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>Teken limieten per uur
 
-Het aantal tekens per uur is gebaseerd op uw abonnement op Translator Text-laag. Als u bereiken of groter zijn dan deze limieten, ontvangt u waarschijnlijk een out-of quotum reactie:
+Het aantal tekens per uur is gebaseerd op uw abonnement op Translator Text-laag. De uurquotum moet gelijkmatig worden gebruikt tijdens het uur. Als u bereiken of groter zijn dan deze limieten, of een gedeelte van het quotum te grote in een korte periode verzenden, ontvangt u waarschijnlijk een out-of quotum antwoord. 
 
 | Laag | Maximum aantal tekens |
 |------|-----------------|
 | F0 | 2 miljoen tekens per uur |
 | S1 | 40 miljoen tekens per uur |
-| S2 | 40 miljoen tekens per uur |
-| S3 | 120 miljoen tekens per uur |
-| S4 | 200 miljoen tekens per uur |
+| S2 / C2 | 40 miljoen tekens per uur |
+| S3 / C3 | 120 miljoen tekens per uur |
+| S4 / C4 | 200 miljoen tekens per uur |
 
-Deze limieten zijn beperkt tot de algemene systemen van Microsoft. Aangepaste vertaalsystemen die van Microsoft Translator Hub gebruikmaken zijn beperkt tot 1.800 tekens per seconde.
+Limieten voor [meerdere services abonnementen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) zijn hetzelfde als de S1-laag.
+
+Deze limieten zijn beperkt tot de standaard omzettingsmodellen van Microsoft. Aangepaste omzettingsmodellen die gebruikmaken van aangepaste Translator zijn beperkt tot 1.800 tekens per seconde.
 
 ## <a name="latency"></a>Latentie
 

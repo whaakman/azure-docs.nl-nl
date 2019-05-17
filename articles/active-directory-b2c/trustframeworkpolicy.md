@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684148"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812950"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase of B2C_1A_TrustFrameworkExtensionPolicy:
 
 Een gebruikersbeleving definieert de bedrijfslogica van een gebruiker doorlopen wordt. Elke gebruikersbeleving is een reeks indelingsstappen die een reeks acties in de reeks in termen van verificatie- en informatie-verzameling uitvoert. 
 
-De **SocialAndLocalAccounts** beleid-bestand in de [beginnerspakket](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) bevat de SignUpOrSignIn ProfileEdit, PasswordReset gebruiker reizen. U kunt meer gebruikers reizen voor een andere scenario's, zoals het wijzigen van een e-mailadres, koppelen en ontkoppelen van een sociaal account of het opnieuw instellen van een wachtwoord toevoegen. 
+De **SocialAndLocalAccounts** beleid-bestand in de [beginnerspakket](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) bevat de SignUpOrSignIn ProfileEdit, PasswordReset gebruiker reizen. U kunt meer gebruikers reizen voor andere scenario's, zoals het wijzigen van een e-mailadres of koppelen en ontkoppelen van een sociaal account toevoegen. 
 
 De orchestration-stappen vragen mogelijk een [technisch profiel](technicalprofiles.md). Een technisch profiel biedt een raamwerk met een ingebouwd mechanisme om te communiceren met verschillende soorten partijen. Een technisch profiel kan bijvoorbeeld deze acties onder andere uitvoeren:
 
@@ -157,4 +157,3 @@ De orchestration-stappen vragen mogelijk een [technisch profiel](technicalprofil
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

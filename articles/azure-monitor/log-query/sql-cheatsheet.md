@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: a0233774deaffe25a8e59f79511a0031b1535ba4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b756b9484273c098dbeb6685430f70626b3af787
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425023"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789235"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL naar Azure Monitor log-query-Cheatsheet 
 
-De onderstaande tabel helpt gebruikers die bekend met SQL zijn voor meer informatie over de Kusto-querytaal voor het schrijven van Logboeken-query's in Azure Monitor. Bekijk de T-SQL-opdracht voor het oplossen van een algemene scenario's en de overeenkomstige waarde in een query voor Azure Monitor hebben.
+De onderstaande tabel helpt gebruikers die bekend met SQL zijn voor meer informatie over de Kusto-querytaal voor het schrijven van Logboeken-query's in Azure Monitor. Bekijk de T-SQL-opdracht voor het oplossen van veelvoorkomende scenario's en de overeenkomstige waarde in een query voor Azure Monitor hebben.
 
 ## <a name="sql-to-azure-monitor"></a>SQL Azure monitor
 
@@ -45,9 +45,9 @@ Kolomaliassen uitbreiden                  |`SELECT operation_Name as Name, AVG(d
 Top n-records door de meting                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
 Union                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
 Union: met de voorwaarden                  |`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions WHERE value < 5`                |<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
-Koppelen                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
+Deelnemen                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Ga via een les op de [logboeken-query's schrijven in Azure Monitor](get-started-queries.md).
+- Ga via de lessen op [logboeken-query's schrijven in Azure Monitor](get-started-queries.md).

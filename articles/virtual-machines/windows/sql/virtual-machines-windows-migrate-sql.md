@@ -16,18 +16,22 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 95acda60935e82b226a1a0e860b5fa8effb8e47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325694"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795779"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migreer een SQL Server-database naar een SQL Server in een virtuele machine van Azure
 
 Er zijn een aantal methoden voor het migreren van een gebruikersdatabase voor on-premises SQL Server naar SQL Server in een Azure-VM. In dit artikel wordt kort bespreken van verschillende methoden en aanbevolen om de beste methode voor verschillende scenario's.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 en SQL Server 2008 R2 nadert de [einde van de levenscyclus voor ondersteuning](https://www.microsoft.com/sql-server/sql-server-2008) voor on-premises instanties. Om uit te breiden ondersteuning, kunt u uw exemplaar van SQL Server migreren naar een Azure-VM of kopen beveiligingsupdates uitgebreid om on-premises houden. Zie voor meer informatie, [uitbreiden van ondersteuning voor SQL Server 2008 en 2008 R2 met Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>Wat zijn de primaire migratiemethoden?
 De primaire migratiemethoden zijn:

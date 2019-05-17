@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725303"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786398"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Service-principals met AKS (Azure Kubernetes Service)
 
@@ -23,6 +23,8 @@ In dit artikel ziet u hoe u een service-principal voor uw AKS-clusters maakt en 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 Als u een service-principal voor Azure AD wilt maken, moet u beschikken over machtigingen voor het registreren van een toepassing bij de Azure AD-tenant. U moet ook machtigingen hebben om de toepassing aan een rol toe te wijzen in uw abonnement. Als u niet beschikt over de benodigde machtigingen, moet u mogelijk de Azure AD- of abonnementsbeheerder vragen om de benodigde machtigingen toe te wijzen, of vooraf een service-principal maken voor gebruik met het AKS-cluster.
+
+Als u een service-principal van een andere Azure AD-tenant, zijn er aanvullende overwegingen over de machtigingen beschikbaar wanneer u het cluster implementeert. U wellicht niet de juiste machtigingen voor lezen en schrijven van directory-informatie. Zie voor meer informatie, [wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?][azure-ad-permissions]
 
 U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
@@ -93,7 +95,7 @@ In de volgende secties wordt meer uitleg gegeven over algemene machtigingen die 
 
 Als u gebruikmaakt van Azure Container Registry (ACR) als opslagplaats voor installatiekopieën, moet u machtigingen aan uw AKS-cluster afgeven voor het lezen en ophalen van installatiekopieën. De service-principal van het AKS-cluster moet worden overgedragen aan de rol *Lezer* in het register. Zie [Toegang tot AKS verlenen in ACR][aks-to-acr] voor gedetailleerde stappen.
 
-### <a name="networking"></a>Netwerken
+### <a name="networking"></a>Netwerk
 
 U kunt gebruikmaken van geavanceerde netwerkmogelijkheden als het virtuele netwerk en het subnet of de openbare IP-adressen zich in een andere resourcegroep bevinden. Wijs een van de volgende sets rolmachtigingen toe:
 
@@ -158,3 +160,4 @@ Zie voor meer informatie over het bijwerken van de referenties [bijwerken of de 
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
 [update-credentials]: update-credentials.md
+[azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

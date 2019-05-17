@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4e9bd4e9ea467446c2814cdb8956a40b1503b027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020482"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785961"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Verbindingen beheren in Azure Functions
 
@@ -21,7 +21,7 @@ Functies in een functie-app resources delen. Zijn de verbindingen tussen deze ge
 
 ## <a name="connection-limit"></a>Limiet voor verbindingen
 
-Het aantal beschikbare verbindingen is beperkt, deels omdat een functie-app wordt uitgevoerd in een [sandbox-omgeving](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Een van de beperkingen die de sandbox opgelegd, uw code is een [bovengrens voor het aantal verbindingen (dat zich momenteel in 600 actieve verbindingen en 1200 totaal aantal verbindingen)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per exemplaar. Wanneer u deze limiet is bereikt, de functions-runtime wordt een logboekbestand gemaakt met het volgende bericht: `Host thresholds exceeded: Connections`.
+Het aantal beschikbare verbindingen is beperkt, deels omdat een functie-app wordt uitgevoerd in een [sandbox-omgeving](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Een van de beperkingen die de sandbox opgelegd, uw code is een limiet voor het aantal verbindingen (dat zich momenteel in 600 actieve verbindingen en 1200 totaal aantal verbindingen) per exemplaar. Wanneer u deze limiet is bereikt, de functions-runtime wordt een logboekbestand gemaakt met het volgende bericht: `Host thresholds exceeded: Connections`.
 
 Deze limiet is per exemplaar.  Wanneer de [schaal controller voegt de functie-app-instanties](functions-scale.md#how-the-consumption-and-premium-plans-work) voor het afhandelen van meer aanvragen, heeft elk exemplaar een onafhankelijke verbindingslimiet. Dit betekent dat er is geen limiet globale verbinding, en u kunt veel meer dan 600 actieve verbindingen voor alle actieve exemplaren.
 

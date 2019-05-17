@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550577"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789271"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
 
@@ -46,7 +46,9 @@ Als de resourcegroep is [vergrendeld](resource-group-lock-resources.md), volledi
 
 ## <a name="incremental-mode"></a>Incrementele modus
 
-In de Resource Manager-incrementele modus **blijft ongewijzigd** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. Wanneer u opnieuw wilt implementeren op een resource in de modus voor incrementele, geeft u alle eigenschapswaarden voor de resource, niet alleen de resources die u bijwerkt. Als u bepaalde eigenschappen niet opgeeft, wordt de update als deze waarden worden overschreven door Resource Manager geïnterpreteerd.
+In de Resource Manager-incrementele modus **blijft ongewijzigd** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon.
+
+Het resultaat is echter een andere wanneer opnieuw wilt implementeren in een bestaande resource in de modus voor incrementele. Geef alle eigenschappen voor de resource, niet alleen de resources die u bijwerkt. Een algemene misverstand is om na te denken eigenschappen die niet zijn opgegeven, zijn ongewijzigd. Als u bepaalde eigenschappen niet opgeeft, wordt de update als deze waarden worden overschreven door Resource Manager geïnterpreteerd.
 
 ## <a name="example-result"></a>Voorbeeld van resultaat
 

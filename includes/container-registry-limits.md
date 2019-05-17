@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/29/2019
+ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: d20e266d1331fc15e65b2d119468483ff53a4c06
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951518"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787615"
 ---
-| Resource | Basic | Standard | Premium |
+| Resource | Basis | Standard | Premium |
 |---|---|---|---|
 | Storage<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Maximale afbeeldingsgrootte van laag | 200 GiB | 200 GiB | 200 GiB |
-| ReadOps per minuut<sup>2, 3</sup> | 1000 | 3.000 | 10.000 |
+| ReadOps per minuut<sup>2, 3</sup> | 1000 | 3,000 | 10.000 |
 | WriteOps per minuut<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Downloaden van bandbreedte MBps<sup>2</sup> | 30 | 60 | 100 |
 | Uploaden van bandbreedte MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
 | Geo-replicatie | N/A | N/A | [Ondersteund][geo-replication] |
-| Inhoud vertrouwen (Preview-versie) | N/A | N/A | [Ondersteund][content-trust] |
+| Inhoud vertrouwen | N/A | N/A | [Ondersteund][content-trust] |
 
 <sup>1</sup>de opgegeven opslaglimieten zijn het bedrag van *opgenomen* opslag voor elke laag. U betaalt een extra dagelijks tarief dat per GB voor afbeeldingopslag hierboven deze limieten. Zie voor meer informatie het tarief, [prijzen voor Azure Container Registry][pricing].
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574084"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790410"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS-servicelaag (preview) wordt buiten gebruik gesteld - opties voor migratie
 
@@ -27,7 +27,7 @@ Hier volgen de migratie bestemmingen en prijsopties kiezen die geschikt zijn voo
 
 - vCore-servicelaag
 
-  De **algemeen** en **bedrijfskritiek** Servicelagen in de [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Deze twee Servicelagen zijn algemeen beschikbaar. Het vCore-aanschafmodel biedt ook de **grootschalige** servicelaag (in openbare preview) die u kunt on-demand om uw werkbelasting met automatisch schalen tot 100 TB per database aanpassen. De servicelaag grootschalige biedt i/o-prestaties die vergelijkbaar is met de Premium-servicelaag in de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) tegen een prijs dichter bij de servicelaag Premium RS.
+  De **algemeen** en **bedrijfskritiek** Servicelagen in de [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Deze twee Servicelagen zijn algemeen beschikbaar. Het vCore-aanschafmodel biedt ook de **grootschalige** servicelaag die zich on-demand om uw werkbelasting met automatisch schalen tot 100 TB per database aanpast. De servicelaag grootschalige biedt i/o-prestaties die vergelijkbaar is met de Premium-servicelaag in de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) tegen een prijs dichter bij de servicelaag Premium RS.
 - Prijsopties voor Dev/Test
 
   [Prijsopties voor ontwikkelen/testen](https://azure.microsoft.com/pricing/dev-test/) zorgt voor besparingen tot 55% ten opzichte van de tarieven inclusief licenties aan uw Visual Studio-abonnement.
@@ -70,10 +70,10 @@ U wordt aangeraden de i/o-intensieve individuele databases migreren naar onze op
 
 |**Als u momenteel ingeschakeld bent...**|**Migreren naar vergelijkbare op vCore gebaseerde...**|**Migreren naar vergelijkbare op basis van DTU...**|
 |---|---|---|
-|Premium RS 1|(Preview) Grootschalige 1 vCore (Gen4) of -Business-kritische 1 vCore (Gen4)|Premium 1|
-|Premium RS 2|(Preview) Grootschalige 2 vCores (Gen4) of -Business-kritische 2 vCores (Gen4|Premium 2|
-|Premium RS 4|(Preview) Zeer grootschalige 4 vCores (Gen4) of Business-kritische 4 vCores (Gen4)|Premium 4
-|Premium RS 6|(Preview) Zeer grootschalige 6 vCores (Gen4) of kritieke zakelijke-6 vCores (Gen4)|Premium 6|
+|Premium RS 1| Grootschalige 1 vCore (Gen4) of -Business-kritische 1 vCore (Gen4)|Premium 1|
+|Premium RS 2| Grootschalige 2 vCores (Gen4) of -Business-kritische 2 vCores (Gen4|Premium 2|
+|Premium RS 4| Zeer grootschalige 4 vCores (Gen4) of Business-kritische 4 vCores (Gen4)|Premium 4
+|Premium RS 6| Zeer grootschalige 6 vCores (Gen4) of kritieke zakelijke-6 vCores (Gen4)|Premium 6|
 
 |**Als u momenteel ingeschakeld bent...**|**Migreren naar vergelijkbare op vCore gebaseerde...**|**Migreren naar vergelijkbare op basis van DTU...**|
 |---|---|---|

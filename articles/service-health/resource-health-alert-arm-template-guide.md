@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 71856f9de3d67590d524fa8bb1119a384d156d2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700148"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788459"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource health waarschuwingen configureren met Resource Manager-sjablonen
 
@@ -43,7 +43,7 @@ Volg de instructies op deze pagina, moet u van tevoren een aantal dingen instell
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Maken en opslaan van een Resource Manager-sjabloon voor Resource Health waarschuwingen als `resourcehealthalert.json` ([hieronder voor meer informatie Zie](#resource-manager-template-for-resource-health-alerts))
+3. Maken en opslaan van een Resource Manager-sjabloon voor Resource Health waarschuwingen als `resourcehealthalert.json` ([hieronder voor meer informatie Zie](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Maak een nieuwe Azure Resource Manager-implementatie met behulp van deze sjabloon
 
@@ -76,7 +76,7 @@ Volg de instructies op deze pagina, moet u van tevoren een aantal dingen instell
 
 Houd er rekening mee dat als u van plan bent over het volledig automatiseren van dit proces, gewoon moet u de Resource Manager-sjabloon wordt niet gevraagd om de waarden in stap 5 bewerken.
 
-## <a name="resource-manager-template-for-resource-health-alerts"></a>Resource Manager-sjabloon voor waarschuwingen van de Resource Health
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Resource Manager Sjabloonopties voor waarschuwingen van de Resource Health
 
 U kunt deze basissjabloon gebruiken als uitgangspunt voor het maken van Resource Health waarschuwingen. Deze sjabloon werkt zoals geschreven en wordt Meld u voor het ontvangen van waarschuwingen voor alle zojuist geactiveerde resource health-gebeurtenissen voor alle resources in een abonnement.
 
@@ -284,7 +284,9 @@ Echter, wanneer een resource meldt 'Onbekend', is het waarschijnlijk dat de stat
 },
 ```
 
-In dit voorbeeld zijn we alleen meldingen van gebeurtenissen waarin de huidige en vorige status geen 'Onbekend'. Deze wijziging kan een nuttige aanvulling zijn als de waarschuwingen rechtstreeks naar uw mobiele telefoon of e-mail worden verzonden.
+In dit voorbeeld zijn we alleen meldingen van gebeurtenissen waarin de huidige en vorige status geen 'Onbekend'. Deze wijziging kan een nuttige aanvulling zijn als de waarschuwingen rechtstreeks naar uw mobiele telefoon of e-mail worden verzonden. 
+
+Houd er rekening mee dat het is mogelijk voor de eigenschappen currentHealthStatus en previousHealthStatus moet null zijn in sommige gebeurtenissen. Bijvoorbeeld, wanneer een bijgewerkte gebeurtenis is het waarschijnlijk dat de status van de resource niet is gewijzigd sinds het laatste rapport alleen die informatie over aanvullende gebeurtenissen beschikbaar is (bijvoorbeeld veroorzaken). Daarom met behulp van de bovenstaande component kan leiden tot bepaalde waarschuwingen die niet worden geactiveerd, omdat de waarden voor properties.currentHealthStatus en properties.previousHealthStatus wordt ingesteld op null.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>De waarschuwing om te voorkomen dat gebeurtenissen door de gebruiker geïnitieerde aanpassen
 
@@ -304,12 +306,12 @@ Het is eenvoudig te configureren van de waarschuwing om te filteren voor dit soo
     ]
 }
 ```
+Houd er rekening mee dat het is mogelijk veroorzaakt dit veld niet null zijn in sommige gebeurtenissen. Dat wil zeggen, een overgang health plaatsvindt (bijvoorbeeld beschikbaar voor niet beschikbaar) en de gebeurtenis is vastgelegd onmiddellijk te voorkomen dat de melding vertragingen. Daarom met behulp van de bovenstaande component kan leiden tot een waarschuwing niet wordt geactiveerd, omdat de waarde van de eigenschap properties.clause wordt ingesteld op null.
 
-## <a name="recommended-resource-health-alert-template"></a>Aanbevolen waarschuwingen Resource Health-sjabloon
+## <a name="complete-resource-health-alert-template"></a>Volledige Resource Health waarschuwing sjabloon
 
-Met behulp van de andere aanpassingen die in de vorige sectie worden beschreven, kunnen we een uitgebreide waarschuwing sjabloon die is geconfigureerd voor het maximaliseren van het signaal ruis verhouding maken.
+Met behulp van de andere aanpassingen die worden beschreven in de vorige sectie, als volgt een voorbeeldsjabloon die is geconfigureerd voor het maximaliseren van het signaal verhouding van de ruis. Houd er rekening mee valkuilen een notitie waarin de currentHealthStatus, previousHealthStatus en eigenschapswaarden oorzaak mag niet null zijn in sommige gebeurtenissen.
 
-Dit is wat we raden dat u gebruikt:
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

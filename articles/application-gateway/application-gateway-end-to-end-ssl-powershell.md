@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198561"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786286"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>End-to-end SSL configureren met behulp van Application Gateway met PowerShell
 
@@ -231,6 +231,69 @@ Met de voorgaande stappen maakt u de toepassingsgateway. Het maken van de gatewa
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Een nieuw certificaat van toepassing als de back-end-certificaat is verlopen
+
+Gebruik deze procedure voor het toepassen van een nieuw certificaat als het back-end-certificaat is verlopen.
+
+1. Ophalen van de toepassingsgateway om bij te werken.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Het nieuwe certificaat-resource toevoegen vanuit het cer-bestand waarin de openbare sleutel van het certificaat en kan ook worden toegevoegd aan de listener voor SSL-beëindiging aan de application gateway hetzelfde certificaat.
+
+   ```powershell
+   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
+   ```
+    
+3. Ophalen van het nieuwe object van de verificatie-certificaat in een variabele (typenaam: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+
+   ```powershell
+   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
+   ```
+ 
+ 4. Toewijzen van het nieuwe certificaat in de **BackendHttp** instelling en deze met de variabele $AuthCert verwijzen. (Geef de naam van de HTTP-instelling die u wilt wijzigen.)
+ 
+   ```powershell
+   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
+   ```
+    
+ 5. Voer de wijziging in de application gateway en de nieuwe configuratie is opgenomen in de variabele $out doorgeven.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw  
+   ```
+
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Een niet-gebruikte verlopen certificaat verwijderen uit de HTTP-instellingen
+
+Gebruik deze procedure voor het verwijderen van een niet-gebruikte verlopen certificaat uit de HTTP-instellingen.
+
+1. Ophalen van de toepassingsgateway om bij te werken.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Lijst met de naam van het certificaat voor clientverificatie dat u wilt verwijderen.
+
+   ```powershell
+   Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
+   ```
+    
+3. Verwijder het certificaat voor verificatie van een toepassingsgateway.
+
+   ```powershell
+   $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
+   ```
+ 
+ 4. Voer de wijziging.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw
+   ```
+
+   
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>SSL-protocolversies op een bestaande toepassingsgateway beperken
 
 De voorgaande stappen vond u bij het maken van een toepassing met end-to-end SSL en bepaalde versies van SSL-protocol uitschakelen. Het volgende voorbeeld wordt bepaald SSL-beleid op een bestaande toepassingsgateway uitgeschakeld.

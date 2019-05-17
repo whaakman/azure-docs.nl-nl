@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: 78aed4fceab83d942927486cd7ae46a32dd6ca09
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927550"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523551"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Over Site Recovery-onderdelen (configuratie, proces, hoofddoel)
 
@@ -28,7 +28,7 @@ Voor herstel na noodgevallen van on-premises VMware-machines en fysieke servers,
 **Rol** | De configuratieserver coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie. | Meer informatie over de architectuur voor [VMware](vmware-azure-architecture.md) en [fysieke server](physical-azure-architecture.md) herstel na noodgevallen naar Azure.
 **Vereisten voor VMware** | U moet installeren en uitvoeren van de configuratieserver als een on-premises, maximaal beschikbare VMware-VM voor herstel na noodgevallen van on-premises VMware-VM's. | [Meer informatie over](vmware-azure-deploy-configuration-server.md#prerequisites) de vereisten.
 **VMware-implementatie** | Het is raadzaam dat u de configuratieserver met behulp van een gedownloade OVA-sjabloon implementeert. Deze methode biedt een eenvoudig manier voor het instellen van een configuratieserver die aan alle vereisten en voorwaarden voldoet.<br/><br/> Als voor een of andere reden lukt een VMware-VM met behulp van een OVA-sjabloon implementeren, kunt u de configuratie van server-machines handmatig, zoals hieronder beschreven voor noodherstel van fysieke machine instellen. | [Implementeer](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) met behulp van een OVA-sjabloon.
-**Vereisten voor fysieke servers** | Voor herstel na noodgevallen voor on-premises fysieke servers implementeert u de configuratieserver handmatig. | [Meer informatie over](/physical-azure-set-up-source.md#prerequisites) de vereisten.
+**Vereisten voor fysieke servers** | Voor herstel na noodgevallen voor on-premises fysieke servers implementeert u de configuratieserver handmatig. | [Meer informatie over](physical-azure-set-up-source.md#prerequisites) de vereisten.
 **Fysieke server-implementatie** | Als deze kan niet worden geïnstalleerd als een VMware-VM, kunt u deze installeren op een fysieke server. | [Implementeer](physical-azure-set-up-source.md#set-up-the-source-environment) de configuratieserver handmatig.
 
 
@@ -51,5 +51,5 @@ Op de hoofddoelserver worden de replicatiegegevens tijdens de failback vanuit Az
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Controleer de [architectuur](/vmware-azure-architecture.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers.
+- Controleer de [architectuur](vmware-azure-architecture.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers.
 - Controleer de [vereisten en voorwaarden](vmware-physical-azure-support-matrix.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. 

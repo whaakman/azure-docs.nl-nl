@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192466"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786184"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Quickstart: Aangepaste waarschuwingen maken
 
@@ -50,13 +50,12 @@ Beveiligingsgroepen gebruikt om uw apparaten te groeperen in logische categorie√
 ## <a name="customize-an-alert"></a>Een waarschuwing aanpassen
 
 1. Open uw IoT-Hub. 
-2. Selecteer **Security**en selecteer vervolgens **aangepaste waarschuwingen**. 
-3. Kies de beveiligingsgroepen die u wilt de aanpassing van toepassing. 
-4. Klik op **een aangepaste waarschuwing toevoegen**
-5. Voer een naam van waarschuwing (Houd er rekening mee dat de namen van de waarschuwing kunnen niet worden gewijzigd na het maken). 
-6. Selecteer een gedrag voor aangepaste waarschuwingen in de vervolgkeuzelijst. 
-7. De vereiste eigenschappen bewerken, klikt u op **OK**.
-8. Zorg ervoor dat u **opslaan**. Zonder op te slaan in de nieuwe waarschuwing, wordt de waarschuwing de volgende keer dat u IoT-Hub sluiten verwijderd.
+2. Klik op **aangepaste waarschuwingen** in de **Security** sectie. 
+3. Kies een beveiligingsgroep die u wilt de aanpassing van toepassing. 
+4. Klik op **een aangepaste waarschuwing toevoegen** 
+5. Selecteer een gedrag voor aangepaste waarschuwingen in de vervolgkeuzelijst. 
+6. De vereiste eigenschappen bewerken, klikt u op **OK**.
+7. Zorg ervoor dat u **opslaan**. Zonder op te slaan in de nieuwe waarschuwing, wordt de waarschuwing de volgende keer dat u IoT-Hub sluiten verwijderd.
 
  
 ## <a name="alerts-available-for-customization"></a>Waarschuwingen die beschikbaar zijn voor aanpassing

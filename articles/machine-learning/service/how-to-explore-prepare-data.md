@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409830"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603154"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Verken en voorbereiden van gegevens met de gegevensset-klasse (Preview)
 
 Meer informatie over het verkennen en voorbereiden van gegevens met de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). De [gegevensset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) klasse (preview) kunt u om te verkennen en voorbereiden van uw gegevens door te geven van functies, zoals: steekproeven, samenvattende statistieken en intelligente transformaties. Stappen voor gegevenstransformatie worden opgeslagen in [definities van de gegevensset](how-to-manage-dataset-definitions.md) met de mogelijkheid voor het afhandelen van meerdere grote bestanden van verschillende schema's in een zeer schaalbare manier.
 
 > [!Important]
-> Bepaalde klassen gegevensset (preview) zijn afhankelijkheden op de gegevens Prep SDK (GA). Terwijl transformatiefuncties u rechtstreeks met de GA'ed doen kunnen [Data Prep SDK-functies](how-to-transform-data.md), wordt aangeraden de gegevensset pakket wrappers die worden beschreven in dit artikel als u een nieuwe oplossing bouwt. Azure Machine Learning-gegevenssets (preview) kunt u niet alleen uw om gegevens te transformeren, maar ook [momentopnamegegevens](how-to-create-dataset-snapshots.md) en op te slaan [versioned gegevenssetdefinities](how-to-manage-dataset-definitions.md). Gegevenssets is de volgende versie van de Data Prep-SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen.
+> Bepaalde klassen gegevensset (preview) zijn afhankelijk van de [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pakket (GA). Terwijl transformatiefuncties u rechtstreeks met de GA'ed doen kunnen [gegevensvoorbereiding functies](how-to-transform-data.md), wordt aangeraden de gegevensset pakket wrappers die worden beschreven in dit artikel als u een nieuwe oplossing bouwt. Azure Machine Learning-gegevenssets (preview) kunt u niet alleen uw om gegevens te transformeren, maar ook [momentopnamegegevens](how-to-create-dataset-snapshots.md) en op te slaan [versioned gegevenssetdefinities](how-to-manage-dataset-definitions.md). Gegevenssets is de volgende versie van de Data Prep-SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -119,28 +119,28 @@ dataset.get_profile()
 
 ||Type|Min|Max|Count|Ontbrekend aantal|Niet-ontbrekend aantal|Ontbrekend percentage|Aantal fouten|Leeg aantal|0,1%-kwantiel|1%-kwantiel|5%-kwantiel|25%-kwantiel|50%-kwantiel|75%-kwantiel|95%-kwantiel|99%-kwantiel|99,9%-kwantiel|Gemiddelde|Standaardafwijking|Variantie|Asymmetrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-Id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0,0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
-Nummer van de aanvraag|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-Blok|FieldType.STRING|004XX S KILBOURN OPSLAAN|113XX S PRAIRIE OPSLAAN|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0,0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
-Het primaire Type|FieldType.STRING|MISLEIDENDE PRAKTIJK|DIEFSTAL|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-Description|FieldType.STRING|ONJUISTE SELECTIEVAKJE|VIA $500|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-Beschrijving van locatie|FieldType.STRING||SCHOOL, OPENBAAR, HET BOUWEN VAN|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
-Aanhoudingsbevel|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-Binnenlandse|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-Heartbeat|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0,0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
-Regio|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0,0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
-Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0,0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
-Community-gebied|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0,0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
-Code van de FBI|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0,0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
-X-coördinaat|FieldType.INTEGER|1.16309e+06|1.18336e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.16309e+06|1.16309e+06|1.16309e+06|1.16401e+06|1.16678e+06|1.17921e+06|1.18336e+06|1.18336e+06|1.18336e+06|1.17108e + 06|10793.5|1.165e+08|0.335126|-2.33333
-Y-coördinaat|FieldType.INTEGER|1.8315e+06|1.908e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.8315e+06|1.8315e+06|1.8315e+06|1.83614e+06|1.85005e + 06|1.89352e+06|1.908e+06|1.908e+06|1.908e+06|1.86319e+06|39905.2|1.59243e+09|0.293465|-2.33333
-Jaar|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0,0|0.0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
-Bijgewerkt op|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-Breedtegraad|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
-Lengtegraad|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
-Locatie|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
+Id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
+Nummer van de aanvraag|FieldType.STRING|HZ239907|HZ278872|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Blok|FieldType.STRING|004XX S KILBOURN OPSLAAN|113XX S PRAIRIE OPSLAAN|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+IUCR|FieldType.INTEGER|810|1154|10.0|0,0|10.0|0,0|0,0|0,0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
+Het primaire Type|FieldType.STRING|MISLEIDENDE PRAKTIJK|DIEFSTAL|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Description|FieldType.STRING|ONJUISTE SELECTIEVAKJE|VIA $500|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Beschrijving van locatie|FieldType.STRING||SCHOOL, OPENBAAR, HET BOUWEN VAN|10.0|0,0|10.0|0,0|0,0|1.0||||||||||||||
+Aanhoudingsbevel|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Binnenlandse|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Heartbeat|FieldType.INTEGER|531|2433|10.0|0,0|10.0|0,0|0,0|0,0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
+Regio|FieldType.INTEGER|5|24|10.0|0,0|10.0|0,0|0,0|0,0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
+Ward|FieldType.INTEGER|1|48|10.0|0,0|10.0|0,0|0,0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
+Community-gebied|FieldType.INTEGER|4|77|10.0|0,0|10.0|0,0|0,0|0,0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
+Code van de FBI|FieldType.INTEGER|6|11|10.0|0,0|10.0|0,0|0,0|0,0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
+X-coördinaat|FieldType.INTEGER|1.16309e+06|1.18336e+06|10.0|7.0|3.0|0.7|0,0|0,0|1.16309e+06|1.16309e+06|1.16309e+06|1.16401e+06|1.16678e+06|1.17921e+06|1.18336e+06|1.18336e+06|1.18336e+06|1.17108e + 06|10793.5|1.165e+08|0.335126|-2.33333
+Y-coördinaat|FieldType.INTEGER|1.8315e+06|1.908e+06|10.0|7.0|3.0|0.7|0,0|0,0|1.8315e+06|1.8315e+06|1.8315e+06|1.83614e+06|1.85005e + 06|1.89352e+06|1.908e+06|1.908e+06|1.908e+06|1.86319e+06|39905.2|1.59243e+09|0.293465|-2.33333
+Jaar|FieldType.INTEGER|2016|2016|10.0|0,0|10.0|0,0|0,0|0,0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
+Bijgewerkt op|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Breedtegraad|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0,0|0,0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
+Lengtegraad|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0,0|0,0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
+Locatie|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0,0|10.0|0,0|0,0|7.0||||||||||||||
 
 ## <a name="impute-missing-values"></a>Ontbrekende waarden worden toegerekend
 
@@ -258,10 +258,10 @@ ds_def.get_profile()
 
 ||Type|Min|Max|Count|Ontbrekend aantal|Niet-ontbrekend aantal|Ontbrekend percentage|Aantal fouten|Leeg aantal|0,1%-kwantiel|1%-kwantiel|5%-kwantiel|25%-kwantiel|50%-kwantiel|75%-kwantiel|95%-kwantiel|99%-kwantiel|99,9%-kwantiel|Gemiddelde|Standaardafwijking|Variantie|Asymmetrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-Id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0,0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
-Aanhoudingsbevel|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0.0|10.0|0.0|0,0|0.0||||||||||||||
-Breedtegraad|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0,0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
-Lengtegraad|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
+Id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
+Aanhoudingsbevel|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Breedtegraad|FieldType.DECIMAL|41.6928|41.9032|10.0|0,0|10.0|0,0|0,0|0,0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
+Lengtegraad|FieldType.INTEGER|-87|-87|10.0|0,0|10.0|0,0|3.0|0,0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
 Van het profiel, ziet u dat de `Error Count` voor de `Longitude` kolom is 3. De volgende code filters van de gegevensset, worden opgehaald van de fout en krijgt te zien welke waarde zorgt ervoor dat de verklaring mislukken. Hier past u uw code en schoon de gegevens op de juiste wijze.
 

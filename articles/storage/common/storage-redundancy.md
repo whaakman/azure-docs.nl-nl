@@ -9,12 +9,12 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150059"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789985"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage-redundantie
 
@@ -52,7 +52,7 @@ Zie voor meer informatie over Azure Storage garanties voor duurzaamheid en besch
 > Premium Storage ondersteunt alleen lokaal redundante opslag (LRS).
 
 ## <a name="changing-replication-strategy"></a>Replicatiestrategie wijzigen
-U kunt uw storage-account replicatiestrategie wijzigen met behulp van de [Azure-portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), of een van de [Azure-client bibliotheken](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Wijzigen van het replicatietype van uw opslagaccount leidt niet tot uitvaltijd.
+U kunt uw storage-account replicatiestrategie wijzigen met behulp van de [Azure-portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), of een van de [Azure-client bibliotheken](https://docs.microsoft.com/azure/index#pivot=sdkstools). Wijzigen van het replicatietype van uw opslagaccount leidt niet tot uitvaltijd.
 
    > [!NOTE]
    > U niet op dit moment de Portal of de API aan uw account converteren naar ZRS gebruiken. Als u de replicatie van uw account converteren naar ZRS wilt, Zie [Zone-redundante opslag (ZRS)](storage-redundancy-zrs.md) voor meer informatie.

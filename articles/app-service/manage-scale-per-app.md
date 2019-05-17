@@ -12,27 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104566"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602331"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting met hoge dichtheid op Azure App Service met behulp van per-app schalen
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Standaard, schaalt u App Service-apps door te schalen de [App Service-plan](overview-hosting-plans.md) ze worden uitgevoerd op. Wanneer meerdere apps worden uitgevoerd in hetzelfde App Service-plan, wordt alle apps in elk exemplaar van de scale-out uitgevoerd in het abonnement.
+Wanneer u App Service gebruikt, kunt u uw apps schalen door te schalen de [App Service-plan](overview-hosting-plans.md) ze worden uitgevoerd op. Wanneer meerdere apps worden uitgevoerd in hetzelfde App Service-plan, wordt alle apps in elk exemplaar van de scale-out uitgevoerd in het abonnement.
 
-U kunt inschakelen *per-app schalen* plannen niveau van de App-Service. Het kan worden geschaald voor een app onafhankelijk van de App Service-plan die als host fungeert. Op deze manier een App Service-plan kan worden geschaald naar 10 exemplaren, maar een app kan worden ingesteld op het gebruik van slechts vijf.
+*Per-app schalen* kan worden ingeschakeld op het niveau van de App Service-plan om toe te staan voor het schalen van een app onafhankelijk van de App Service-plan die als host fungeert. Op deze manier een App Service-plan kan worden geschaald naar 10 exemplaren, maar een app kan worden ingesteld op het gebruik van slechts vijf.
 
 > [!NOTE]
 > Per-app schalen is alleen beschikbaar voor **Standard**, **Premium**, **Premium V2** en **geïsoleerd** Prijscategorieën.
 >
+
+Apps worden toegewezen aan de beschikbare App Service-plan met een aanbevolen inspanning-benadering voor een gelijkmatige verdeling over exemplaren. Terwijl een evenredige verdeling kan niet worden gegarandeerd, is het platform zorgen ervoor dat twee exemplaren van dezelfde app niet worden gehost op hetzelfde exemplaar van App Service-plan.
+
+Het platform afhankelijk niet is van metrische gegevens om te bepalen wat de toewijzing van de werknemer. Toepassingen worden uitgevoerd alleen als de exemplaren worden toegevoegd of verwijderd uit de App Service-plan.
 
 ## <a name="per-app-scaling-using-powershell"></a>Per app schalen met behulp van PowerShell
 
@@ -60,10 +64,10 @@ In het volgende voorbeeld wordt is de app beperkt tot twee instanties, ongeacht 
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -127,18 +131,19 @@ Het instellen van de App Service-plan de **PerSiteScaling** eigenschap op ' True
 }
 ```
 
-## <a name="recommended-configuration-for-high-density-hosting"></a>Aanbevolen configuratie voor het hosten van high-densitysampling
-Per app schalen is een functie die is ingeschakeld in beide globale Azure-regio's en [App Service-omgevingen](environment/app-service-app-service-environment-intro.md). De aanbevolen strategie is echter gebruiken van App Service-omgevingen om te profiteren van geavanceerde functies en de grotere groepen van de capaciteit.  
+## <a name="recommended-configuration-for-high-density-hosting"></a>Aanbevolen configuratie voor hosting met hoge dichtheid
 
-Volg deze stappen voor het configureren van hoge dichtheid die als host fungeert voor uw apps:
+Per app schalen is een functie die is ingeschakeld in beide globale Azure-regio's en [App Service-omgevingen](environment/app-service-app-service-environment-intro.md). De aanbevolen strategie is echter het gebruik van App Service-omgevingen om te profiteren van geavanceerde functies en de grotere capaciteit van de App Service-plan.  
 
-1. De App Service Environment configureren en kies een groep met werkrollen die is aan het scenario met hosting met hoge dichtheid toegewezen.
-2. Één App Service-plan maken en schalen van het gebruik van de beschikbare capaciteit in de groep met werkrollen.
-3. Stel de `PerSiteScaling` vlag op ' True ' voor de App Service-plan.
-4. Nieuwe apps worden gemaakt en toegewezen aan het App Service-plan met de **numberOfWorkers** eigenschap ingesteld op **1**. Met deze configuratie geeft de hoogst mogelijke dichtheid op deze groep met werkrollen.
-5. Het aantal werknemers kan afzonderlijk worden geconfigureerd per app voor het verlenen van extra resources naar behoefte. Bijvoorbeeld:
-    - Een app intensief gebruik kunt stellen **numberOfWorkers** naar **3** hebben meer verwerkingscapaciteit voor die app. 
-    - Laag gebruik apps wordt ingesteld **numberOfWorkers** naar **1**.
+Volg deze stappen voor het configureren van hosting met hoge dichtheid voor uw apps:
+
+1. Een App Service-plan aanwijzen als de hoge dichtheid regeling en opschalen naar de gewenste capaciteit.
+1. Stel de `PerSiteScaling` vlag op ' True ' voor de App Service-plan.
+1. Nieuwe apps worden gemaakt en toegewezen aan het App Service-plan met de **numberOfWorkers** eigenschap ingesteld op **1**.
+   - Met deze configuratie geeft de hoogst mogelijke dichtheid.
+1. Het aantal werknemers kan afzonderlijk worden geconfigureerd per app voor het verlenen van extra resources naar behoefte. Bijvoorbeeld:
+   - Een app intensief gebruik kunt stellen **numberOfWorkers** naar **3** hebben meer verwerkingscapaciteit voor die app.
+   - Laag gebruik apps wordt ingesteld **numberOfWorkers** naar **1**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

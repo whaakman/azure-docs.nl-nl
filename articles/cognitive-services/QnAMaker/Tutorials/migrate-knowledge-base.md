@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431215"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794868"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migreren van een kennisdatabase met behulp van exporteren / importeren
 
@@ -56,7 +56,7 @@ Migreren van een kennisdatabase vereist exporteren uit een knowledge base en ver
     Op dit moment worden alle de knowledge base-inhoud - vragen, antwoorden en metagegevens, samen met de namen van de bronbestanden en de URL's, geïmporteerd naar de nieuwe knowledge base. 
 
 ## <a name="chat-logs-and-alterations"></a>Chat-logboeken en -veranderingen
-Niet-hoofdlettergevoelige wijzigingen (synoniemen) worden niet automatisch geïmporteerd. Gebruik de [V2 API's](https://aka.ms/qnamaker-v2-apis) voor het exporteren van de wijzigingen van de oude kennis en het [V4-API's](https://aka.ms/qnamaker-v4-apis) verplaatsen van de wijzigingen in de nieuwe knowledge base.
+Niet-hoofdlettergevoelige wijzigingen (synoniemen) worden niet automatisch geïmporteerd. Gebruik de [V4-API's](https://go.microsoft.com/fwlink/?linkid=2092179) verplaatsen van de wijzigingen in de nieuwe knowledge base.
 
 Er is geen manier voor het migreren van chatlogs, omdat de nieuwe knowledge base Application Insights gebruikt voor het opslaan van chatlogs. 
 

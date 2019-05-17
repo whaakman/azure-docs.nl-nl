@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702523"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602091"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (preview)
 Azure Monitor voor virtuele machines verzamelt prestaties en metrische verbindingsgegevens, computer- en inventarisgegevens proces en informatie over de status en stuurt deze door naar de Log Analytics-werkruimte in Azure Monitor.  Deze gegevens zijn beschikbaar voor [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -53,7 +53,7 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 | Eigenschap | Description |
 |:--|:--|
 |Direction |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
-|Machine |De FQDN-naam van de computer |
+|Apparaat |De FQDN-naam van de computer |
 |Process |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
 |SourceIp |IP-adres van de bron |
 |DestinationIp |IP-adres van de bestemming |
@@ -101,7 +101,7 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 
 | Eigenschap | Description |
 |:--|:--|
-|RemoteCountry |De naam van het betreffende land RemoteIp hosten.  Bijvoorbeeld, *Verenigde Staten* |
+|RemoteCountry |De naam van het land/de regio die als host fungeert RemoteIp.  Bijvoorbeeld, *Verenigde Staten* |
 |RemoteLatitude |De breedtegraad geolocatie. Bijvoorbeeld, *47.68* |
 |RemoteLongitude |De lengtegraad geolocatie. Bijvoorbeeld, *-122.12* |
 
@@ -130,7 +130,7 @@ Poorten op een virtuele machine die actief accepteren van binnenkomend verkeer o
 >- US - oost  
 >- Europa -west
 >
-> Het verzamelen van deze gegevens is ingeschakeld in de andere [ondersteunde regio's](vminsights-onboard.md#log-analytics) voor Azure Monitor voor virtuele machines. 
+> Het verzamelen van deze gegevens is ingeschakeld in de andere [ondersteunde regio's](vminsights-enable-overview.md#log-analytics) voor Azure Monitor voor virtuele machines. 
 
 Elke record in VMBoundPort wordt geïdentificeerd door de volgende velden: 
 

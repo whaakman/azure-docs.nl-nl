@@ -1,7 +1,7 @@
 ---
 title: 'Classificatie: Kredietrisico (kosten gevoelige) voorspellen'
 titleSuffix: Azure Machine Learning service
-description: In dit voorbeeldexperiment visuele interface ziet u hoe u een aangepaste Python-script gebruiken om uit te voeren kostengevoelige binaire classificatie. Het kredietrisico's op basis van de informatie in een kredietaanvraag worden voorspeld.
+description: In dit artikel laat u over het bouwen van complexe machine learning-experiment met behulp van de visuele interface. U leert hoe u aangepaste Python-scripts implementeren en vergelijken van meerdere modellen Kies de beste optie.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440957"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787821"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Voorbeeld 4 - classificatie: Kredietrisico (kosten gevoelige) voorspellen
 
-In dit voorbeeldexperiment visuele interface ziet u hoe u een aangepaste Python-script om uit te voeren kostengevoelige binaire classificatie. De kosten van de onjuiste positieve voorbeelden is vijf keer de kosten van de negatieve voorbeelden onjuiste.
+In dit artikel laat u over het bouwen van complexe machine learning-experiment met behulp van de visuele interface. U leert hoe u aangepaste logica met behulp van Python-scripts implementeren en vergelijken van meerdere modellen Kies de beste optie.
 
-In dit voorbeeld wordt voorspeld kredietrisico's op basis van informatie die is opgegeven in een kredietaanvraag, rekening houdend met de kosten voor de misclassification.
+In dit voorbeeld traint een classificatie van kredietrisico's met behulp van informatie over toepassingen, zoals kredietgeschiedenis, leeftijd en aantal creditcards te accepteren tegoed te voorspellen. U kunt echter de concepten in dit artikel om uw eigen machine learning problemen aanpakken toepassen.
 
-In dit experiment vergelijken we twee verschillende benaderingen voor het genereren van modellen om dit probleem te verhelpen:
+Als u net aan de slag met machine learning, kunt u Kijk eens de [voorbeeld van eenvoudige classificatie](ui-sample-classification-predict-credit-risk-basic.md) eerste.
 
-- Training met de oorspronkelijke gegevensset.
-- Training met een gerepliceerde gegevensset.
+Hier volgt de voltooide grafiek voor dit experiment:
 
-Met beide benaderingen beoordelen we de modellen met behulp van de testgegevensset met replicatie om ervoor te zorgen dat de resultaten zijn uitgelijnd met de functie kosten. We testen twee classificaties met beide benaderingen: **Two-Class Support Vector Machine** en **Two-Class Boosted-beslisboom**.
+[![Grafiek van het experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,15 +37,18 @@ Met beide benaderingen beoordelen we de modellen met behulp van de testgegevenss
 
     ![Open het experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>Gerelateerde voorbeeld
-
-Zie [voorbeeld 3 - indeling: Credit Risk Prediction (basis)](ui-sample-classification-predict-churn.md) voor een eenvoudige experiment dat hetzelfde probleem als dit experiment is opgelost, aanpassen zonder voor misclassification kosten.
-
 ## <a name="data"></a>Gegevens
 
 We gebruiken de gegevensset Duits creditcard is geregistreerd vanuit de opslagplaats UC Irvine. Deze gegevensset bevat 1000 voorbeelden met 20 functies en 1 label. Elk voorbeeld vertegenwoordigt een persoon. De 20 functies zijn numerieke en categorische functies. Zie de [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) voor meer informatie over de gegevensset. De laatste kolom wordt het label geeft aan het kredietrisico en heeft slechts twee mogelijke waarden: hoge kredietrisico = 2, en lage kredietrisico's = 1.
 
 ## <a name="experiment-summary"></a>Samenvatting van experiment
+
+In dit experiment vergelijken we twee verschillende benaderingen voor het genereren van modellen om dit probleem te verhelpen:
+
+- Training met de oorspronkelijke gegevensset.
+- Training met een gerepliceerde gegevensset.
+
+Met beide benaderingen beoordelen we de modellen met behulp van de testgegevensset met replicatie om ervoor te zorgen dat de resultaten zijn uitgelijnd met de functie kosten. We testen twee classificaties met beide benaderingen: **Two-Class Support Vector Machine** en **Two-Class Boosted-beslisboom**.
 
 De kosten voor een voorbeeld van een laag risico zo hoog onjuiste is 1 en de kosten voor een voorbeeld van een hoog risico zo klein onjuiste is 5. We gebruiken een **Execute Python Script** module ter compensatie van deze misclassification kosten.
 
@@ -71,7 +73,7 @@ Om deze functie kosten weer, te genereren we een nieuwe gegevensset. In de nieuw
 
 Als u wilt repliceren de gegevens met een hoog risico, plaatsen we deze Python-code in een **Execute Python Script** module:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ We gebruiken de standaard experimentele werkstroom maken, trainen en testen van 
 
 1. Initialiseren van de learning-algoritmen, met behulp van **Two-Class Support Vector Machine** en **Two-Class Boosted beslissingsstructuur**.
 1. Gebruik **Train Model** het algoritme toepassen op de gegevens en de werkelijke model maken.
-3. Gebruik **Score Model** voor het produceren van scores met behulp van de voorbeelden test.
+1. Gebruik **Score Model** voor het produceren van scores met behulp van de voorbeelden test.
 
 Het volgende diagram ziet u een deel van dit experiment, waarin de oorspronkelijke en gerepliceerde training-sets worden gebruikt twee verschillende SVM modellen kunt trainen. **Model te trainen** is verbonden met de training is ingesteld, en **Score Model** is verbonden met de testset.
 
 ![Experimentgrafiek](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 In de evaluatiefase van de van het experiment berekenen we de nauwkeurigheid van elk van de vier modellen. Voor dit experiment, gebruiken we **Evaluate Model** kosten om te vergelijken van voorbeelden die de dezelfde misclassification hebben.
 
@@ -121,7 +122,7 @@ U ziet dat de gerepliceerde testgegevensset wordt gebruikt als invoer voor **Sco
 
 De **Evaluate Model** module produceert een tabel met één rij met verschillende metrische gegevens. Voor het maken van een enkele set resultaten nauwkeurigheid, gebruiken we eerst **rijen toevoegen** de resultaten combineren tot één tabel. Vervolgens gebruiken we het volgende Python-script in de **Execute Python Script** module om toe te voegen van de modelnaam en training-benadering voor elke rij in de tabel van de resultaten:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>Resultaten
 

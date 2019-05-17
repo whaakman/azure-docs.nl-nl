@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 21505da414b29f2ae9eeea7f9fcad9db2e57c4fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c45c8587e3ca19b32ccd8dc66575333622b3cf1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702817"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796585"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Een Windows virtuele machine van niet-beheerde schijven converteren naar managed disks
 
@@ -99,7 +99,6 @@ Als de virtuele machines die u converteren wilt naar beheerde schijven zijn in e
 Als er een fout is opgetreden tijdens de conversie, of als een virtuele machine bevindt zich in een foutstatus vanwege problemen in een vorige conversie, de `ConvertTo-AzVMManagedDisk` cmdlet opnieuw uit. Een eenvoudige opnieuw proberen is gewoonlijk beter zicht de situatie.
 Voordat u converteert, zorg ervoor dat alle VM-extensies zijn in de status 'Inrichten is voltooid' of de conversie mislukt met foutcode 409.
 
-
 ## <a name="convert-using-the-azure-portal"></a>Converteren met behulp van de Azure-portal
 
 U kunt ook niet-beheerde schijven converteren naar managed disks met behulp van de Azure portal.
@@ -108,7 +107,7 @@ U kunt ook niet-beheerde schijven converteren naar managed disks met behulp van 
 2. Selecteer de virtuele machine uit de lijst met virtuele machines in de portal.
 3. Selecteer in de blade voor de virtuele machine, **schijven** in het menu.
 4. Aan de bovenkant van de **schijven** Selecteer **migreren naar managed disks**.
-5. Als uw virtuele machine zich in een beschikbaarheidsset, worden er een waarschuwing weergegeven op de **migreren naar managed disks** blade die u moet eerst de beschikbaarheidsset converteren. De waarschuwing moet een koppeling die u kunt klikken op als u wilt converteren van de beschikbaarheidsset. Zodra de beschikbaarheidsset is geconverteerd, of als uw virtuele machine zich niet in een beschikbaarheidsset, klikt u op **migreren** om het proces van de migratie van uw schijven naar beheerde schijven te starten. 
+5. Als uw virtuele machine zich in een beschikbaarheidsset, worden er een waarschuwing weergegeven op de **migreren naar managed disks** blade die u moet eerst de beschikbaarheidsset converteren. De waarschuwing moet een koppeling die u kunt klikken op als u wilt converteren van de beschikbaarheidsset. Zodra de beschikbaarheidsset is geconverteerd, of als uw virtuele machine zich niet in een beschikbaarheidsset, klikt u op **migreren** om het proces van de migratie van uw schijven naar beheerde schijven te starten.
 
 De virtuele machine worden gestopt en opnieuw opgestart nadat de migratie is voltooid.
 
