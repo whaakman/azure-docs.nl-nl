@@ -50,6 +50,8 @@
       href: app-protection-based-conditional-access.md
     - name: Beheerde apparaten vereisen
       href: require-managed-devices.md
+    - name: Vertrouwde netwerken vereisen voor MFA-registratie
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Meervoudige verificatie vereisen voor toegangspogingen vanuit niet-vertrouwde netwerken
       href: untrusted-networks.md
     - name: Gebruiksvoorwaarden vereisen

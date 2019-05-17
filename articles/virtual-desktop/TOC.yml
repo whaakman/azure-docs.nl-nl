@@ -14,6 +14,8 @@
       href: create-host-pools-azure-marketplace.md
     - name: 4. Appgroepen beheren
       href: manage-app-groups.md
+    - name: 5. Een hostpool voor het valideren van service-updates maken
+      href: create-validation-host-pool.md
 - name: Uitleg
   items:
     - name: Verbinding maken met Windows Virtual Desktop-resources

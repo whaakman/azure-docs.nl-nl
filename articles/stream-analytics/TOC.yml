@@ -34,6 +34,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Concepten
   items:
+    - name: Een streaming analytics-technologie kiezen
+      href: streaming-technologies.md
     - name: Invoertypen voor een taak
       items:
         - name: Overzicht van invoer

@@ -463,3 +463,25 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Ondersteuning zoeken
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: Commerciële Marketplace-portal in Partnercentrum
+  items:
+    - name: Overzicht
+      items:
+        - name: Wat is de commerciële Marketplace?
+          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Accountbeheer
+      items:
+        - name: Een nieuw account voor het partnercentrum maken
+          href: ./partner-center-portal/create-account.md
+        - name: Uw account voor het partnercentrum beheren
+          href: ./partner-center-portal/manage-account.md
+        - name: Een zakelijk werkaccount zoeken of maken
+          href: ./partner-center-portal/company-work-accounts.md
+    - name: Een nieuwe aanbieding maken
+      items:
+        - name: Een SaaS-aanbieding maken
+          href: ./partner-center-portal/create-new-saas-offer.md
+    - name: Publicatiestatus
+      href: ./partner-center-portal/publishing-status.md
+    - name: Bestaande aanbiedingen bijwerken
+      href: ./partner-center-portal/update-existing-offer.md

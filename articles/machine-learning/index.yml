@@ -7,7 +7,7 @@ metadata:
   description: 'Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.'
   ms.author: jmartens
   ms.subservice: core
-  ms.date: 12/04/2018
+  ms.date: 5/14/2019
   ms.devlang: na
   ms.service: machine-learning
   ms.tgt_pltfrm: na
@@ -34,20 +34,28 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist)
           - html: <a href="service/quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK-installatie)
+          - html: <a href="service/ui-quickstart-run-experiment">Een experiment uitvoeren in de visuele interface</a> (geen code)
         style: unordered
         type: list
-      - text: '<b>Zelfstudie voor afbeeldingsclassificatie met MNIST-gegevens:</b>'
+      - text: '<b>Zelfstudie: Afbeeldingsclassificatie van MNIST-gegevens met SDK:</b>'
         type: paragraph
       - items:
           - html: 'Deel 1: <a href="service/tutorial-train-models-with-aml">Uw eigen model trainen</a>'
           - html: 'Deel 2: <a href="service/tutorial-deploy-models-with-aml">Dat model implementeren</a>'
         style: unordered
         type: list
-      - text: '<b>Zelfstudie over hoe u regressie modelleert met taxigegevens uit NYC:</b>'
+      - text: '<b>Zelfstudie: Taxikosten voorspellen met behulp van SDK:</b>'
         type: paragraph
       - items:
           - html: 'Deel 1: <a href="service/tutorial-data-prep">Gegevens voorbereiden voor modellering</a>'
           - html: 'Deel 2: <a href="service/tutorial-auto-train-models">Geautomatiseerde ML-trainingsmodellen voor u laten werken</a>'
+        style: unordered
+        type: list
+      - text: '<b>Zelfstudie: Autoprijs voorspellen met behulp van de visuele interface:</b>'
+        type: paragraph
+      - items:
+          - html: 'Deel 1: <a href="service/ui-tutorial-automobile-price-train-score">Autoprijs voorspellen</a>'
+          - html: 'Deel 2: <a href="service/ui-tutorial-automobile-price-deploy">Het regressiemodel implementeren</a>'
         style: unordered
         type: list
       - text: '<b>Uw modellen gebruiken:</b>'

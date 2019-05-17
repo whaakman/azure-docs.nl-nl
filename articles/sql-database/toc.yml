@@ -368,7 +368,7 @@
   items:
     - name: Overzicht
       href: sql-database-howto.md
-    - name: Individuele database
+    - name: Individuele databases en elastische pools
       items:
         - name: Overzicht
           href: sql-database-howto-single-database.md
@@ -448,7 +448,7 @@
               href: elastic-jobs-tsql.md
             - name: Migreren (vanuit oude elastische taken)
               href: elastic-jobs-migrate.md
-    - name: Beheerd exemplaar
+    - name: Beheerde exemplaren
       items:
         - name: Overzicht
           href: sql-database-howto-managed-instance.md
@@ -720,6 +720,10 @@
       href: sql-database-glossary-terms.md
     - name: Uw vaardigheden ontwikkelen met Microsoft Learn
       href: /learn/browse/?products=azure-sql-database
+    - name: SQL Server-blog
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Microsoft Azure Blog
+      href: 'https://azure.microsoft.com/blog/'
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Openbare gegevenssets

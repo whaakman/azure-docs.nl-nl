@@ -167,6 +167,8 @@
           href: application-provisioning-config-problem.md
         - name: Probleem bij het opslaan van administrorreferenties tijdens het configureren van gebruikersinrichting galerie-app
           href: application-provisioning-config-problem-storage-limit.md
+        - name: Een kenmerk synchroniseren voor toewijzing - galerie-app
+          href: user-provisioning-sync-attributes-for-mapping.md
         - name: Gebruikers zijn niet ingericht - galerie-app
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Verkeerde gebruikers ingericht - galerie-app

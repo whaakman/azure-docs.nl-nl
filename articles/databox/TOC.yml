@@ -36,6 +36,8 @@
           items:
             - name: Lees de veiligheidsrichtlijnen
               href: data-box-safety.md
+            - name: Tracering en logboekregistratie
+              href: data-box-logs.md
             - name: Vereisten beoordelen
               items:
                 - name: Voor Data Box

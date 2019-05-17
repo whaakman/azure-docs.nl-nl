@@ -187,6 +187,8 @@
               href: delete-vault.md
     - name: Herstel na noodgevallen van VMware naar Azure
       items:
+        - name: Herstel na noodgeval op schaal instellen
+          href: vmware-physical-large-deployment.md
         - name: Netwerkservice instellen
           items:
             - name: Netwerkinterfaces beheren voor replicatie van on-premises naar Azure
@@ -269,6 +271,8 @@
               href: delete-vault.md
     - name: Herstel na noodgevallen van fysiek naar Azure
       items:
+        - name: Herstel na noodgeval op schaal instellen
+          href: vmware-physical-large-deployment.md
         - name: Netwerkservice instellen
           items:
             - name: Netwerkinterfaces beheren voor replicatie van on-premises naar Azure

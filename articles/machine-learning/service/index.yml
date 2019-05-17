@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 05/06/2019
+  ms.date: 05/14/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -36,6 +36,7 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">Een experiment uitvoeren in de cloud</a> (geen installatie vereist).
           - html: <a href="quickstart-run-local-notebook">Een experiment met behulp van een lokale notebookserver uitvoeren</a> (lokale SDK installeren).
+          - html: <a href="ui-quickstart-run-experiment">Gegevens voorbereiden en visualiseren zonder code te schrijven</a> in de visuele interface.
   - title: Zelfstudies met stapsgewijze instructies
     items:
       - type: paragraph
@@ -45,6 +46,7 @@ sections:
         items:
           - html: Modellen voor de classificatie van afbeeldingen <a href="tutorial-train-models-with-aml">trainen</a> en <a href="tutorial-deploy-models-with-aml">implementeren</a> (<b>tweedelige reeks</b>).
           - html: <a href="tutorial-data-prep">Gegevens voorbereiden</a> en <a href="tutorial-auto-train-models">automatische leerprocessen gebruiken</a> om regressiemodellen te trainen en af te stemmen (<b>tweedelige reeks</b>).
+          - html: <a href="ui-tutorial-automobile-price-train-score">Prijzen van auto's voorspellen</a> met de visuele interface en het regressiemodel <a href="ui-tutorial-automobile-price-deploy">implementeren</a>.
   - title: Voorbeelden
     items:
       - type: paragraph

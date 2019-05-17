@@ -7,115 +7,147 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Database maken - Portal
-      href: quickstart-create-server-database-portal.md
-    - name: Database maken - Azure CLI
-      href: quickstart-create-server-database-azure-cli.md
-    - name: Database maken - up-opdracht in Azure CLI
-      href: quickstart-create-server-up-azure-cli.md
-    - name: Verbinding maken en query uitvoeren
+    - name: Enkele server
       items:
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: Java
-          href: connect-java.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: PHP
-          href: connect-php.md
-        - name: .NET
-          href: connect-csharp.md
-        - name: Aan de slag
-          href: connect-go.md
+        - name: Database maken - Portal
+          href: quickstart-create-server-database-portal.md
+        - name: Database maken - Azure CLI
+          href: quickstart-create-server-database-azure-cli.md
+        - name: Database maken - up-opdracht in Azure CLI
+          href: quickstart-create-server-up-azure-cli.md
+        - name: Verbinding maken en query uitvoeren
+          items:
+            - name: Python
+              href: connect-python.md
+            - name: Node.js
+              href: connect-nodejs.md
+            - name: Java
+              href: connect-java.md
+            - name: Ruby
+              href: connect-ruby.md
+            - name: PHP
+              href: connect-php.md
+            - name: .NET
+              href: connect-csharp.md
+            - name: Aan de slag
+              href: connect-go.md
+    - name: Hyperscale (Citus)
+      items:
+        - name: Database maken - Portal
+          href: quickstart-create-hyperscale-portal.md
 - name: Zelfstudies
   items:
-    - name: 1 - Een database ontwerpen
+    - name: Enkele server
       items:
-        - name: Azure Portal
-          href: tutorial-design-database-using-azure-portal.md
-        - name: Azure-CLI
-          href: tutorial-design-database-using-azure-cli.md
-    - name: 2 - Een web-app ontwerpen - Python
-      href: ../app-service/containers/tutorial-python-postgresql-app.md
-      maintainContext: true
-    - name: 3 - Controleren en afstemmen
-      href: tutorial-monitor-and-tune.md
+        - name: 1 - Een database ontwerpen
+          items:
+            - name: Azure Portal
+              href: tutorial-design-database-using-azure-portal.md
+            - name: Azure-CLI
+              href: tutorial-design-database-using-azure-cli.md
+        - name: 2 - Een web-app ontwerpen - Python
+          href: ../app-service/containers/tutorial-python-postgresql-app.md
+          maintainContext: true
+        - name: 3 - Controleren en afstemmen
+          href: tutorial-monitor-and-tune.md
+    - name: Hyperscale (Citus)
+      items:
+        - name: Een multitenant-database ontwerpen
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+        - name: Een realtime-dashboard ontwerpen
+          href: tutorial-design-database-hyperscale-realtime.md
 - name: Voorbeelden
   items:
     - name: Azure-CLI
       href: sample-scripts-azure-cli.md
 - name: Concepten
   items:
-    - name: DB en servers
+    - name: Enkele server
       items:
-        - name: Servers
-          href: concepts-servers.md
-        - name: Ondersteunde versies
-          href: concepts-supported-versions.md
-        - name: PostgreSQL-extensies
-          href: concepts-extensions.md
-        - name: Hoge beschikbaarheid
-          href: concepts-high-availability.md
-    - name: Resources
-      items:
-        - name: Prijscategorieën
-          href: concepts-pricing-tiers.md
-        - name: Limieten
-          href: concepts-limits.md
-    - name: Gegevenstoegang en -beveiliging
-      items:
-        - name: Firewall-regels
-          href: concepts-firewall-rules.md
-        - name: SSL configureren
-          href: concepts-ssl-connection-security.md
-        - name: Advanced Threat Protection
-          href: concepts-data-access-and-security-threat-protection.md
-        - name: VNet
-          href: concepts-data-access-and-security-vnet.md
-    - name: Bedrijfscontinuïteit
-      items:
-        - name: Overzicht
-          href: concepts-business-continuity.md
-        - name: Back-ups en herstellen
-          href: concepts-backup.md
-    - name: Controleren en afstemmen
-      items:
+        - name: Databases en servers
+          items:
+            - name: Servers
+              href: concepts-servers.md
+            - name: Ondersteunde versies
+              href: concepts-supported-versions.md
+            - name: PostgreSQL-extensies
+              href: concepts-extensions.md
+            - name: Hoge beschikbaarheid
+              href: concepts-high-availability.md
+        - name: Resources
+          items:
+            - name: Prijscategorieën
+              href: concepts-pricing-tiers.md
+            - name: Limieten
+              href: concepts-limits.md
+        - name: Gegevenstoegang en -beveiliging
+          items:
+            - name: Firewall-regels
+              href: concepts-firewall-rules.md
+            - name: SSL configureren
+              href: concepts-ssl-connection-security.md
+            - name: Advanced Threat Protection
+              href: concepts-data-access-and-security-threat-protection.md
+            - name: Virtueel netwerk
+              href: concepts-data-access-and-security-vnet.md
+        - name: Bedrijfscontinuïteit
+          items:
+            - name: Overzicht
+              href: concepts-business-continuity.md
+            - name: Back-ups en herstellen
+              href: concepts-backup.md
         - name: Controleren en afstemmen
-          href: concepts-monitoring.md
-        - name: Serverlogboeken
-          href: concepts-server-logs.md
-        - name: Query Store
           items:
+            - name: Controleren en afstemmen
+              href: concepts-monitoring.md
+            - name: Serverlogboeken
+              href: concepts-server-logs.md
             - name: Query Store
-              href: concepts-query-store.md
-            - name: Query Store-gebruiksscenario's
-              href: concepts-query-store-scenarios.md
-            - name: Best practices voor Query Store
-              href: concepts-query-store-best-practices.md
-        - name: Inzicht in queryprestaties
-          href: concepts-query-performance-insight.md
-        - name: Aanbevelingen voor prestaties
-          href: concepts-performance-recommendations.md
-    - name: Ontwikkeling
-      items:
-        - name: Verbindingsbibliotheken
-          href: concepts-connection-libraries.md
-        - name: Verbindingstolerantie
-          href: concepts-connectivity.md
-        - name: Ontwikkelen met Azure Kubernetes Service (AKS)
-          href: concepts-aks.md
-        - name: Java
+              items:
+                - name: Query Store
+                  href: concepts-query-store.md
+                - name: Query Store-gebruiksscenario's
+                  href: concepts-query-store-scenarios.md
+                - name: Best practices voor Query Store
+                  href: concepts-query-store-best-practices.md
+            - name: Inzicht in queryprestaties
+              href: concepts-query-performance-insight.md
+            - name: Aanbevelingen voor prestaties
+              href: concepts-performance-recommendations.md
+        - name: Ontwikkeling
           items:
-            - name: Spring Data JDBC configureren
-              href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-            - name: Spring Data JPA configureren
-              href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-    - name: Replicatie
+            - name: Verbindingsbibliotheken
+              href: concepts-connection-libraries.md
+            - name: Verbindingstolerantie
+              href: concepts-connectivity.md
+            - name: Ontwikkelen met Azure Kubernetes Service (AKS)
+              href: concepts-aks.md
+            - name: Java
+              items:
+                - name: Spring Data JDBC configureren
+                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+                - name: Spring Data JPA configureren
+                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+        - name: Replicatie
+          items:
+            - name: Leesreplica's
+              href: concepts-read-replicas.md
+    - name: Hyperscale (Citus)
       items:
-        - name: Leesreplica's
-          href: concepts-read-replicas.md
+        - name: Knooppunten
+          href: concepts-hyperscale-nodes.md
+        - name: Gedistribueerde gegevens
+          href: concepts-hyperscale-distributed-data.md
+        - name: Een distributiekolom kiezen
+          href: concepts-hyperscale-choose-distribution-column.md
+        - name: Tabelcolocatie
+          href: concepts-hyperscale-colocation.md
+        - name: PostgreSQL-extensies
+          href: concepts-hyperscale-extensions.md
+        - name: Resources
+          items:
+            - name: Configuratie-opties
+              href: concepts-hyperscale-configuration-options.md
 - name: Handleidingen
   items:
     - name: Gebruikers maken

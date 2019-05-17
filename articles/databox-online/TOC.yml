@@ -67,8 +67,10 @@
           href: data-box-edge-deploy-connect-setup-activate.md
         - name: '4 - Share toevoegen, verbinding maken met share'
           href: data-box-edge-deploy-add-shares.md
-        - name: 5 - Rekenproces configureren
+        - name: 5A - Rekenproces configureren (eenvoudig)
           href: data-box-edge-deploy-configure-compute.md
+        - name: 5B - Rekenproces configureren (geavanceerd)
+          href: data-box-edge-deploy-configure-compute-advanced.md
     - name: Concepten
       items:
         - name: Vereisten beoordelen

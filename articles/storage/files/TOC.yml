@@ -168,7 +168,7 @@
         - name: 'Blobs, wachtrijen, tabellen en bestanden'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Gegevensverplaatsing
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
+          href: /dotnet/api/microsoft.azure.storage.datamovement
         - name: Resource Manager
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
@@ -232,22 +232,24 @@
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: NuGet-pakketten
       items:
-        - name: Azure Storage-clientbibliotheek voor .NET
-          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+        - name: Bibliotheek met veelgebruikte Azure Storage-clients
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+        - name: Bibliotheek met Azure Files-opslagclients
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.File/'
         - name: Azure Storage-bibliotheek voor gegevensverplaatsing
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
         - name: Azure Configuration Manager
-          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
     - name: Broncode
       items:
         - name: .NET
           items:
-            - name: 'Blob, wachtrij, tabel en bestand'
+            - name: 'Blobs, Queues en Files'
               href: 'https://github.com/Azure/azure-storage-net'
             - name: Gegevensverplaatsing
-              href: 'https://github.com/Azure/azure-storage-net-data-movement'
-            - name: Resourceprovider
-              href: 'https://github.com/Azure/azure-sdk-for-net'
+              href: /dotnet/api/microsoft.azure.storage.datamovement
+            - name: Opslagresourceprovider
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
         - name: Java
           href: 'https://github.com/Azure/azure-storage-java'
         - name: C++
