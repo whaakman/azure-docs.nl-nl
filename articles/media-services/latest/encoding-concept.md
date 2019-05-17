@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472441"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761888"
 ---
 # <a name="encoding-with-media-services"></a>Codering met mediaservices
 
-Azure Media Services kunt u uw digitale media van hoge kwaliteit bestanden coderen in adaptive bitrate MP4-bestanden, zodat uw inhoud kan worden afgespeeld op een groot aantal browsers en apparaten. Een geslaagde Media Services encoding-taak maakt uitvoer activa met een set adaptive bitrate MP4s en streaming-configuratiebestanden. De configuratiebestanden bevatten ISM, .ismc .mpi en andere bestanden die u moet niet worden gewijzigd. Zodra de coderingstaak is voltooid, kunt u profiteren van [dynamische verpakking](dynamic-packaging-overview.md) en streamen.
+De term codering in Media Services is van toepassing op het proces van het converteren van bestanden met digitale video-en/of audio van een standard-indeling naar een ander doel te (a) het verkleinen van de bestanden en/of (b) produceert een indeling die compatibel is met een breed scala aan apparaten en toepassingen. Dit proces wordt ook wel video compressie of transcodering genoemd. Zie de [gegevenscompressie](https://en.wikipedia.org/wiki/Data_compression) en de [Wat Is er codering en -transcodering?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) voor verdere bespreking van de concepten.
 
-Om video's in de uitvoer van de Asset die beschikbaar zijn voor clients om te worden afgespeeld, die u moet maken een **Streaming-Locator gemaakt** en streaming-URL's te bouwen. Klik, op basis van de indeling die is opgegeven in het manifest, uw clients de stream ontvangt in het protocol dat ze hebben gekozen.
+Video's worden doorgaans geleverd aan apparaten en toepassingen door [progressief downloaden](https://en.wikipedia.org/wiki/Progressive_download) of via [streaming met adaptieve bitrates](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-Het volgende diagram toont de streaming on demand met dynamische verpakking werkstroom.
+* Om te leveren via progressief downloaden, kunt u Azure Media Services gebruiken om te converteren een uw digitale media-bestand (tussentijds) in een [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) -bestand met de video die is gecodeerd met de [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) verbeterde codecs, en audio die is gecodeerd met de [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. Deze MP4-bestand wordt geschreven naar een activum in uw storage-account. Kunt u de Azure Storage-API's of de SDK's (bijvoorbeeld [REST API voor Storage](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), of [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) het bestand rechtstreeks downloaden. Als u de uitvoer gemaakt Asset met de naam van een specifieke container in opslag, gebruikt u die locatie. Anders kunt u Media Services kunt [de URL van de container asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Om voor te bereiden inhoud voor de levering van streaming met adaptieve bitrates, moet het tussentijdse bestand worden gecodeerd in meerdere bitsnelheden (hoog tot laag). Om ervoor te zorgen correcte overgang van de kwaliteit, zoals de bitrate wordt verlaagd, zodat u de resolutie van de video is. Dit resulteert in een zogenaamde codering ladder: een tabel met oplossingen en bitrates (Zie [automatisch gegenereerde adaptieve bitrateladder](autogen-bitrate-ladder.md)). Met Media Services kunt u uw tussentijds-bestanden in meerdere bitsnelheden – in dat geval coderen, krijgt u een set MP4-bestanden en bijbehorende streaming configuratiebestanden, naar een activum in uw storage-account geschreven. Vervolgens kunt u de [dynamische pakketten](dynamic-packaging-overview.md) -mogelijkheid in Media Services leveren van de video via het streaming-protocollen, zoals [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) en [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Hiervoor moet u maakt een [Streaming-Locator gemaakt](streaming-locators-concept.md) en streaming-URL's die overeenkomt met de ondersteunde protocollen kunnen vervolgens worden doorgegeven aan apparaten/toepassingen op basis van hun mogelijkheden te bouwen.
 
-![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+Het volgende diagram toont de werkstroom voor het op aanvraag coderen met dynamisch verpakken.
+
+![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 In dit onderwerp vindt u richtlijnen over hoe u uw inhoud codeert met Media Services v3.
 
 ## <a name="transforms-and-jobs"></a>Transformaties en taken
 
-Als u wilt coderen met Media Services v3, moet u maken een [transformeren](https://docs.microsoft.com/rest/api/media/transforms) en een [taak](https://docs.microsoft.com/rest/api/media/jobs). Een transformatie definieert het recept voor de instellingen voor codering en de uitvoer en de taak is een exemplaar van het recept. Zie voor meer informatie, [transformaties en taken](transforms-jobs-concept.md)
+Als u wilt coderen met Media Services v3, moet u maken een [transformeren](https://docs.microsoft.com/rest/api/media/transforms) en een [taak](https://docs.microsoft.com/rest/api/media/jobs). De transformatie definieert een recept voor de instellingen voor codering en de uitvoer; de taak is een exemplaar van het recept. Zie voor meer informatie, [transformaties en taken](transforms-jobs-concept.md)
 
 Wanneer de codering met Media Services, gebruikt u voorinstellingen voor het coderingsprogramma vertellen hoe de invoer media-bestanden moeten worden verwerkt. U kunt bijvoorbeeld de video oplossing en/of het aantal audio kanalen die u wilt opgeven in de gecodeerde inhoud. 
 

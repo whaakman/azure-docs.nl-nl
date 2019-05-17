@@ -1,7 +1,7 @@
 ---
 title: 'Regressie: Prijs voorspellen en algoritmen te vergelijken'
 titleSuffix: Azure Machine Learning service
-description: In dit voorbeeldexperiment visuele interface ziet u hoe u de prestaties van twee regressiemodellen die van een auto prijs voorspellen. Het proces omvat het training, testen en evalueren van het model op de gegevensset auto prijs data (Raw).
+description: Dit artikel ziet u hoe u kunt een complexe machine learning-experiment bouwen zonder te hoeven schrijven van één regel code met behulp van de visuele interface. Meer informatie over het trainen en te vergelijken van meerdere regressiemodellen om te voorspellen op basis van technische functies van een auto-prijs
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442127"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787799"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Voorbeeld 2: regressie: Prijs voorspellen en algoritmen te vergelijken
 
-In dit voorbeeldexperiment visuele interface laat zien hoe de prestaties van twee regressiemodellen die van een auto prijs voorspellen. Het proces omvat het trainen, testen en evalueren van het model met behulp van de **Automobile prijs data (Raw)** gegevensset.
+Meer informatie over het bouwen van een complexe machine learning-experiment zonder te hoeven schrijven van één regel code met behulp van de visuele interface. In dit voorbeeld traint en vergelijkt meerdere regressiemodellen om te voorspellen op basis van de technische functies van een auto-prijs. We bieden de logica voor de opties die in dit experiment, zodat u kunt uw eigen machine learning problemen aanpakken.
+
+Als u net aan de slag met machine learning, kunt u Kijk eens de [basisversie](ui-sample-regression-predict-automobile-price-basic.md) van dit experiment om te zien van een eenvoudige regressie experimenteren.
+
+Hier volgt de voltooide grafiek voor dit experiment:
+
+[![Grafiek van het experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,10 +35,6 @@ In dit voorbeeldexperiment visuele interface laat zien hoe de prestaties van twe
 
     ![Open het experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="related-sample"></a>Gerelateerde voorbeeld
-
-[Voorbeeld 1: regressie: Auto's voorspellen (basis)](ui-sample-regression-predict-automobile-price-basic.md) biedt een eenvoudigere experiment dat hetzelfde probleem als dit experiment is opgelost, maar die gebruikmaakt van slechts één regressiemodel. Verwijzen naar deze als u een eenvoudig voorbeeld van regressie zoekt.
-
 ## <a name="experiment-summary"></a>Samenvatting van experiment
 
 We gebruiken deze stappen om te maken van het experiment:
@@ -41,11 +43,6 @@ We gebruiken deze stappen om te maken van het experiment:
 1. De gegevens vooraf te verwerken.
 1. Het model te trainen.
 1. Testen, evalueren en de modellen te vergelijken.
-
-Dit is de volledige grafiek van het experiment:
-
-[![Grafiek van het experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## <a name="get-the-data"></a>De gegevens ophalen
 

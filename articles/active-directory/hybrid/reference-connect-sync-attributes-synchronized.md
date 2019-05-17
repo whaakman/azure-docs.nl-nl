@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2dca71023cbed34ef3661ca980cf1eac4ca620c1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508116"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784299"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: Kenmerken gesynchroniseerd naar Azure Active Directory
 In dit onderwerp worden de kenmerken die door Azure AD Connect-synchronisatie worden gesynchroniseerd.  
@@ -256,7 +256,7 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 | wWWHomePage |X |X | | |
 
-## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (vervolgens bekend als Skype voor bedrijven)
+## <a name="teams-and-skype-for-business-online"></a>Teams en Skype voor bedrijven Online
 | Naam kenmerk | Gebruiker | Contactpersoon | Groep | Opmerkingen plaatsen |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728823"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596980"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -236,7 +236,7 @@ Update de `launch.json` bestand onder de `.vscode` submap van de projectmap. Wij
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Het type of de naam 'MijnBibliotheek' kan niet worden gevonden.
 
-### <a name="reason"></a>Reden 
+### <a name="reason"></a>Reason 
 Worden dat de build-context op het niveau van het project/service standaard is daarom een bibliotheek-project dat u gebruikt kan niet gevonden.
 
 ### <a name="try"></a>Probeer:
@@ -251,7 +251,7 @@ U vindt een voorbeeld op https://github.com/sgreenmsft/buildcontextsample
 U moet *eigenaar* of *Inzender* toegang in uw Azure-abonnement voor het beheren van Azure Dev spaties. Mogelijk ziet u deze fout als u probeert te ontwikkelen spaties beheren en u geen hebt *eigenaar* of *Inzender* toegang tot het gekoppelde Azure-abonnement.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
-### <a name="reason"></a>Reden
+### <a name="reason"></a>Reason
 Het geselecteerde Azure-abonnement is niet geregistreerd. de `Microsoft.DevSpaces` naamruimte.
 
 ### <a name="try"></a>Probeer:
@@ -263,7 +263,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Ontwikkel opslagruimten een time-out optreedt bij *wacht op build van container-installatiekopie...*  stap met virtuele AKS-knooppunten
 
-### <a name="reason"></a>Reden
+### <a name="reason"></a>Reason
 Deze time-out treedt op wanneer u probeert te ontwikkelen opslagruimten gebruiken om uit te voeren van een service die is geconfigureerd om te worden uitgevoerd op een [AKS virtueel knooppunt](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Ontwikkel opslagruimten biedt momenteel geen ondersteuning het bouwen of het opsporen van fouten in services op virtuele-knooppunten.
 
 Als u `azds up` met de `--verbose` switch of uitgebreide logboekregistratie van inschakelen in Visual Studio ziet u aanvullende details:
@@ -295,7 +295,7 @@ Dit probleem wordt opgelost als de agentknooppunten in het cluster meestal opnie
 
 ## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>' Fout: de release azds -\<id\>-\<spacename\>-\<servicename\> is mislukt: services\<servicename\>' al bestaat ' of ' Pull-toegang is geweigerd voor \<servicename\>, opslagplaats bestaat niet of 'docker login' mogelijk '
 
-### <a name="reason"></a>Reden
+### <a name="reason"></a>Reason
 Deze fouten kunnen optreden als u direct Helm-opdrachten uitvoeren (zoals `helm install`, `helm upgrade`, of `helm delete`) met opslagruimten Dev-opdrachten (zoals `azds up` en `azds down`) binnen de dezelfde dev-ruimte. Ze optreden, Dev-Spaces heeft een eigen Tiller-instantie, die strijdig is met uw eigen Tiller-instantie die wordt uitgevoerd in de dezelfde dev-ruimte.
 
 ### <a name="try"></a>Probeer:
@@ -329,7 +329,7 @@ configurations:
 
 ## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Fout ' interne controle is mislukt: Bekijk ENOSPC "bij het opsporen van fouten op een Node.js-toepassing toevoegen
 
-### <a name="reason"></a>Reden
+### <a name="reason"></a>Reason
 
 Het knooppunt de schil uitgevoerd met de Node.js-toepassing die u probeert te koppelen aan met een foutopsporingsprogramma is langer dan de *fs.inotify.max_user_watches* waarde. In sommige gevallen [de standaardwaarde van *fs.inotify.max_user_watches* mogelijk te klein voor het afhandelen van een foutopsporingsprogramma koppelen rechtstreeks naar een schil](https://github.com/Azure/AKS/issues/772).
 
@@ -338,7 +338,7 @@ Tijdelijke oplossing voor dit probleem is het verhogen van de waarde van *fs.ino
 
 ## <a name="new-pods-are-not-starting"></a>Nieuwe schillen zijn niet starten
 
-### <a name="reason"></a>Reden
+### <a name="reason"></a>Reason
 
 De PodSpec voor nieuwe pods vanwege wijzigingen in de machtigingen voor RBAC kan niet worden toegepast door de initialisatiefunctie Kubernetes de *cluster-beheerder* rol in het cluster. De nieuwe schil mogelijk ook een ongeldige PodSpec, bijvoorbeeld het serviceaccount dat is gekoppeld aan de schil niet meer bestaat. Om te zien van de pods die zich in een *in behandeling* staat vanwege het gebruik van het probleem initialisatiefunctie de `kubectl get pods` opdracht:
 
@@ -370,7 +370,7 @@ Nadat de controller opnieuw wordt geïnstalleerd, implementeert u uw schillen op
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Onjuiste RBAC-machtigingen voor het aanroepen van API's en spaties Dev-controller
 
-### <a name="reason"></a>Reden
+### <a name="reason"></a>Reason
 De gebruiker toegang tot de controller Azure Dev spaties moet toegang hebben tot de beheerder lezen *kubeconfig* op het AKS-cluster. Bijvoorbeeld: met deze machtiging is beschikbaar in de [ingebouwde Azure Kubernetes Service-Cluster beheerdersrol](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). De gebruiker toegang tot de controller Azure Dev spaties moet ook de *Inzender* of *eigenaar* RBAC-rol voor de controller.
 
 ### <a name="try"></a>Proberen
@@ -389,3 +389,18 @@ Bijwerken van de gebruiker RBAC-rol voor de controller:
     * Voor *toegang toewijzen aan* Selecteer *Azure AD-gebruiker, groep of service-principal*.
     * Voor *Selecteer* zoeken naar de gebruiker die u wilt machtigen.
 1. Klik op *Opslaan*.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Controller maken mislukt vanwege de lengte van controller
+
+### <a name="reason"></a>Reason
+Een Azure Dev spaties controllernaam kan niet meer dan 31 tekens zijn. Als de naam van de domeincontroller is langer dan 31 tekens wanneer u Dev spaties op een AKS-cluster inschakelen of maken van een domeincontroller, ontvangt u een foutbericht wordt weergegeven als:
+
+*Kan niet 'a-controller-name-that-is-way-too-long-aks-east-us' maken van een domeincontroller Dev spaties voor cluster: Naam van Azure Dev spaties Controller 'a-controller-name-that-is-way-too-long-aks-east-us' is ongeldig. Beperkingen overtreden: Azure Dev spaties Controller namen mag alleen bestaan uit maximaal 31 tekens bevatten*
+
+### <a name="try"></a>Proberen
+
+Maak een domeincontroller met een andere naam op:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```

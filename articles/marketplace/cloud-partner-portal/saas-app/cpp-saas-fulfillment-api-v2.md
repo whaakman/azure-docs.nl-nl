@@ -1,23 +1,22 @@
 ---
 title: SaaS vervulling-API V2 | Azure Marketplace
-description: Wordt uitgelegd hoe u een SaaS-aanbieding op Azure Marketplace, met behulp van de bijbehorende uitvoering V2 API's maken.
+description: Wordt uitgelegd hoe u een SaaS-aanbieding op de AppSource en de Azure Marketplace met behulp van de bijbehorende uitvoering V2 API's maakt.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 433059dc1b1567c5cbcb1091f2d616001d1dbf44
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762275"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823543"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS vervulling API's versie 2 
 
-Dit artikel worden de API waarmee u independent software vendors (ISV) hun SaaS-toepassingen integreren met de Azure Marketplace. Deze API maakt het ISV-toepassingen om deel te nemen in alle commerce ingeschakeld kanalen: direct, door partner geleide (reseller) en onder leiding van een veld.  Deze API is een vereiste voor aanbieding dat transactable SaaS-aanbiedingen op Azure Marketplace.
-
+Dit artikel vindt u de API waarmee u onafhankelijke softwareleveranciers (ISV's) om hun SaaS-toepassingen te verkopen in de Azure Marketplace en AppSource. Deze API is een vereiste voor het aanbieden van SaaS biedt op de Azure Marketplace en AppSource.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>De levenscyclus van de SaaS-abonnementen beheren
 

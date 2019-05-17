@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227991"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619995"
 ---
 # <a name="action-rules-preview"></a>Actieregels (preview)
 
-Dit artikel wordt beschreven wat actieregels zijn en over het configureren en deze beheren.
-
-## <a name="what-are-action-rules"></a>Wat zijn actieregels?
-
 Actieregels kunnen u voor het definiëren van acties (of de onderdrukking van acties) op een Resource Manager-bereik (abonnement, resourcegroep of Resource). Ze hebben verschillende filters waarmee u kunt verfijnen op de specifieke subset van de waarschuwing exemplaren die u wilt ondernemen. 
 
-Aan de actieregels van de kunt u het volgende doen:
+## <a name="why-and-when-should-you-use-action-rules"></a>Waarom en wanneer moet u actieregels gebruiken?
 
-* Acties en meldingen onderdrukken als u hebt gepland onderhoud of voor het weekend/feestdagen, in plaats van dat elke uitschakelen waarschuwingsregel afzonderlijk.
-* Acties en meldingen op schaal definiëren: In plaats van dat voor het definiëren van een actiegroep afzonderlijk voor elke waarschuwingsregel, kunt u nu een actiegroep geactiveerd voor waarschuwingen die zijn gegenereerd op een bereik definiëren. Ik kan bijvoorbeeld kiezen om actie groep 'ContosoActionGroup' trigger voor elke waarschuwing gegenereerd binnen mijn abonnement.
+### <a name="suppression-of-alerts"></a>Onderdrukking van waarschuwingen
+
+Er zijn vaak veel scenario's waarin het nuttig om de meldingen die worden gegenereerd door waarschuwingen te onderdrukken tijdens de kantooruren van onderdrukking tijdens gepland onderhoud variëren kunnen te onderdrukken zou zijn. Het team dat verantwoordelijk is voor 'ContosoVM' wil bijvoorbeeld meldingen van waarschuwingen onderdrukken voor de toekomstige weekend omdat 'ContosoVM' een gepland onderhoud ondergaat. Terwijl u ze kunnen uitschakelen van elke waarschuwing regel ingesteld op 'ContosoVM' handmatig (en schakelt u het plaatsen van het onderhoud), maar is niet een eenvoudige ervaring. Actieregels kunnen u definiëren waarschuwingsonderdrukking op schaal met de mogelijkheid om de periode van onderdrukking flexibel te configureren. Ga terug naar het vorige voorbeeld, kunt het team nu een actieregel definiëren op ContosoVM' die voor het weekend, alle waarschuwingsmeldingen worden onderdrukt.
+
+
+### <a name="actions-at-scale"></a>Acties op schaal
+
+Hoewel waarschuwingsregels u voor het definiëren van de actiegroep die wordt geactiveerd kunt wanneer de waarschuwing wordt gegenereerd, meestal klanten vaak hebben een algemene actiegroep via hun bereik van bewerkingen. Een team dat verantwoordelijk is voor de resourcegroep 'ContosoRG' definieert bijvoorbeeld waarschijnlijk dezelfde actiegroep voor alle waarschuwingsregels is gedefinieerd in 'ContosoRG'. Actieregels kunnen u voor het vereenvoudigen van dit proces met de mogelijkheid voor het definiëren van acties op schaal, zodat een actiegroep die kan worden geactiveerd voor een waarschuwing gegenereerd op het geconfigureerde bereik. Ga terug naar het vorige voorbeeld, kunt het team nu een actieregel definiëren op ContosoRG' die dezelfde actiegroep voor alle waarschuwingen gegenereerd binnen deze wordt geactiveerd.
+
 
 ## <a name="configuring-an-action-rule"></a>Configureren van een actieregel voor
 

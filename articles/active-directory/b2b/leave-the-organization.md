@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f5164130c5850b37d1e1323d172f9f9c46b4b30
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412648"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768300"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Een organisatie als gastgebruiker verlaten
 
@@ -46,7 +46,7 @@ Volg deze stappen om een organisatie af.
 
 Wanneer een gebruiker een organisatie verlaat, het gebruikersaccount dat is 'soft verwijderd' in de map. Standaard wordt het gebruikersobject verplaatst naar de **verwijderde gebruikers** gebied in Azure AD, maar is niet permanent verwijderd voor 30 dagen. Deze voorlopig verwijderen kan de beheerder om te herstellen van het gebruikersaccount (met inbegrip van groepen en machtigingen), als de gebruiker een aanvraag voor het herstellen van het account binnen de periode van 30 dagen.
 
-Indien gewenst, kunt een tenantbeheerder permanent verwijderen van het account op elk gewenst moment tijdens de periode van 30 dagen. Om dit te doen:
+Indien gewenst, kunt een tenantbeheerder permanent verwijderen van het account op elk gewenst moment tijdens de periode van 30 dagen. Dit kunt u op de volgende manier doen:
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer **Azure Active Directory**.
 2. Onder **Beheren**, selecteer **Gebruikers**.

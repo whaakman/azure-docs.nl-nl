@@ -3,8 +3,8 @@ title: Problemen met aanmelden bij een toepassing in de galerie geconfigureerd v
 description: Richtlijnen voor de specifieke fouten tijdens het aanmelden bij een toepassing die u hebt geconfigureerd voor SAML gebaseerde federatieve eenmalige aanmelding met Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292211"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825197"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing in de galerie geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -57,7 +57,7 @@ Zorg ervoor dat de `Issuer` kenmerk in de SAML-aanvraag overeenkomt met de id-wa
 
 1.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-1.  Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. Controleer of dat de waarde in het tekstvak id overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
+1.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. Controleer of dat de waarde in het tekstvak id overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
 
 
 
@@ -87,7 +87,7 @@ Zorg ervoor dat de `AssertionConsumerServiceURL` waarde in de SAML-aanvraag over
 
 1.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-1.  Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. Controleer of werk de waarde in het tekstvak de antwoord-URL zodat deze overeenkomen met de `AssertionConsumerServiceURL` waarde in de SAML-aanvraag.    
+1.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. Controleer of werk de waarde in het tekstvak de antwoord-URL zodat deze overeenkomen met de `AssertionConsumerServiceURL` waarde in de SAML-aanvraag.    
     
 Nadat u de antwoord-URL-waarde in Azure AD hebt bijgewerkt en deze overeenkomt met de waarde die door de toepassing in de SAML-aanvraag is verzonden, zou het mogelijk om aan te melden bij de toepassing.
 
@@ -123,7 +123,7 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de 
 
 1.  Selecteer de **gebruikers en groepen** selector vanaf de **toevoegen toewijzing** deelvenster.
 
-1. In de **zoeken op naam of e-mailadres** het zoekvak, typ de volledige naam of e-mailadres van de gebruiker die u wilt toevoegen.
+1. Typ in het zoekvak **Zoeken op naam of e-mailadres** de volledige naam of het e-mailadres van de gebruiker die u wilt toevoegen.
 
 1. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo om toe te voegen van de gebruiker de **geselecteerde** lijst.
 
@@ -152,7 +152,7 @@ Azure AD biedt geen ondersteuning voor de SAML-aanvraag verzonden door de toepas
 
 1. Leg de SAML-aanvraag. Volg de zelfstudie [fouten opsporen in SAML gebaseerde eenmalige aanmelding tot toepassingen in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) voor informatie over het vastleggen van de SAML-aanvraag.
 
-1. Neem contact op met de leverancier van de toepassing en delen van de volgende gegevens:
+1. Neem contact op met de leverancier van de toepassing en verstrek de volgende gegevens:
 
    -   SAML-aanvraag
 
@@ -186,7 +186,7 @@ Zorg ervoor dat de `Issuer` kenmerk in de SAML-aanvraag overeenkomt met de id-wa
 
 1.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-1.  Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. Controleer of dat de waarde in het tekstvak id overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
+1.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. Controleer of dat de waarde in het tekstvak id overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
 
 
 ## <a name="certificate-or-key-not-configured"></a>Certificaat of de sleutel niet geconfigureerd
@@ -221,7 +221,7 @@ Als u wilt verwijderen en maak een nieuw certificaat, de volgende stappen uit te
 
 1. Selecteer de datum van afloop en klik vervolgens op **opslaan**.
 
-1. Controleer **nieuw certificaat activeren** voor de onderdrukking van het actieve certificaat. Klik vervolgens op **opslaan** aan de bovenkant van het deelvenster en accepteer om het rollovercertificaat te activeren.
+1. Controleer **nieuw certificaat activeren** voor de onderdrukking van het actieve certificaat. Klik vervolgens op **Opslaan** boven in het deelvenster en accepteer het rollovercertificaat om het te activeren.
 
 1. Onder de **SAML-handtekeningcertificaat** sectie, klikt u op **verwijderen** verwijderen van de **ongebruikt** certificaat.
 
@@ -235,7 +235,7 @@ Er is geen Azure AD kunnen identificeren van de SAML-aanvraag in de URL-paramete
 
 **Resolutie**
 
-De toepassing nodig heeft voor het verzenden van de SAML-aanvraag die is gecodeerd in de location-header met behulp van HTTP omleiden binding. Voor meer informatie over het implementeren, leest u de sectie HTTP omleiden Binding in de [SAML-protocol-specificatiedocument](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+De toepassing nodig heeft voor het verzenden van de SAML-aanvraag die is gecodeerd in de location-header met behulp van HTTP omleiden binding. Lees de sectie over binding voor HTTP-omleidingen in het [specificatiedocument over het SAML-protocol](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
 ## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD wordt het token verzonden naar een onjuiste eindpunt
 
@@ -263,7 +263,7 @@ Verwijder de ongebruikte antwoord-URL's geconfigureerd voor de toepassing.
 
 6.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)**, niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
+7.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)**, niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Probleem bij het aanpassen van de SAML-claims verzonden naar een toepassing
 

@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071827"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825391"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Quickstart: Een taak in de cloud Azure Stream Analytics maken in Visual Studio Code (Preview)
 
@@ -89,7 +89,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 
 2. Voer in het deelvenster **Opslagaccount maken** een opslagaccountnaam, locatie en resourcegroep in. Kies dezelfde locatie en resourcegroep als de IoT-hub die u hebt gemaakt. Klik vervolgens op **Controleren en maken** om het account te maken.
 
-   ![Een opslagaccount maken](./media/quick-create-vs-code/create-storage-account.png)
+   ![Opslagaccount maken](./media/quick-create-vs-code/create-storage-account.png)
 
 3. Zodra het opslagaccount is gemaakt, selecteert u in het deelvenster **Overzicht** de tegel **Blobs**.
 
@@ -164,7 +164,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
    |Name|Uitvoer| Voer een unieke naam voor uitvoer van de taak.|
    |Opslagaccount|asaquickstartstorage|Kies of typ de naam van uw opslagaccount. Namen van opslagaccounts worden automatisch gedetecteerd als ze worden gemaakt in hetzelfde abonnement.|
    |Container|container1|Selecteer de bestaande container die u in uw opslagaccount hebt gemaakt.|
-   |Padpatroon|output|Voer de naam in van een bestandspad dat in de container moet worden gemaakt.|
+   |Padpatroon|uitvoer|Voer de naam in van een bestandspad dat in de container moet worden gemaakt.|
 
 ## <a name="define-the-transformation-query"></a>De transformatiequery definiëren
 
@@ -229,7 +229,7 @@ Er zijn twee manieren voor het activeren van de compilatie script:
 
 2. Met de rechtermuisknop op de taaknaam. Selecteer **Start** in het contextmenu.
 
-![Stream Analytics-taak te starten in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![Stream Analytics-taak te starten in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
 3. Kies **nu** in het pop-upvenster om de taak te starten.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 04760ab570ffc213950c28c22c499d8e9252d574
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690199"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606178"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de .NET SDK
 
@@ -33,11 +33,11 @@ Meer informatie over het maken van een [Apache Hadoop](https://hadoop.apache.org
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Een Azure storage-account**. Zie [een opslagaccount maken](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio 2013, Visual Studio 2015 of Visual Studio 2017**.
+* **Visual Studio**.
 
 ## <a name="create-clusters"></a>Clusters maken
 
-1. Open Visual Studio 2017.
+1. Open Visual Studio.
 2. Maak een nieuwe Visual C#-consoletoepassing.
 3. Uit de **extra** menu, klikt u op **NuGet Package Manager**, en klik vervolgens op **Package Manager Console**.
 4. Voer de volgende opdracht uit in de console om de pakketten te installeren:

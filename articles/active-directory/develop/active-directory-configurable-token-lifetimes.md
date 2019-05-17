@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2019
+ms.date: 05/15/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0657057ceb3aca674e49a705c52c3b86dda73d98
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cc81f0a5c75d9aeee39f0633521d692c8d30c474
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545388"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823471"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Configureerbare levensduur van tokens in Azure Active Directory (Preview)
 
@@ -65,11 +65,11 @@ Openbare clients kunnen niet veilig opslaan van een wachtwoord voor de client (g
 ID-tokens worden doorgegeven aan de websites en systeemeigen clients. ID-tokens profielinformatie bevatten over een gebruiker. Een ID-token dat is gebonden aan een specifieke combinatie van client en de gebruiker. ID-tokens worden beschouwd als geldig tot de vervaldatum. Meestal een gebruiker in een webtoepassing overeenkomt met de levensduur van de sessie in de toepassing op de levensduur van de ID-token dat is uitgegeven voor de gebruiker. U kunt de levensduur van een ID-token om te bepalen hoe vaak de web-App verloopt de toepassingssessie, en hoe vaak moet de gebruiker te worden geverifieerd met Azure AD (op de achtergrond of interactief).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokens van de sessie voor eenmalige aanmelding
-Wanneer een gebruiker wordt geverifieerd met Azure AD, één aanmelding sessie (SSO) tot stand is gebracht met de browser van de gebruiker en de Azure AD. De SSO-token in de vorm van een cookie vertegenwoordigt deze sessie. Houd er rekening mee dat het sessietoken van eenmalige aanmelding niet is gebonden aan een specifieke resource/client-toepassing. SSO-sessie tokens kunnen worden ingetrokken en wordt de geldigheid is ingeschakeld telkens wanneer ze worden gebruikt.
+Wanneer een gebruiker wordt geverifieerd met Azure AD, één aanmelding sessie (SSO) tot stand is gebracht met de browser van de gebruiker en de Azure AD. De SSO-token in de vorm van een cookie vertegenwoordigt deze sessie. De sessie SSO-token is niet gebonden aan een specifieke resource/client-toepassing. SSO-sessie tokens kunnen worden ingetrokken en wordt de geldigheid is ingeschakeld telkens wanneer ze worden gebruikt.
 
 Azure AD maakt gebruik van twee soorten SSO sessie tokens: permanente en niet-persistente. Permanente sessie tokens worden opgeslagen als permanente cookies door de browser. Niet-persistente sessie tokens worden opgeslagen als sessiecookies. (Sessiecookies worden verwijderd wanneer de browser wordt gesloten.) Normaal gesproken wordt een niet-persistente sessietoken opgeslagen. Maar wanneer de gebruiker selecteert de **aangemeld blijven** selectievakje tijdens verificatie wordt een permanente sessietoken wordt opgeslagen.
 
-Niet-persistente sessie tokens hebben een levensduur van 24 uur. Permanente tokens hebben een levensduur van 180 dagen. Telkens wanneer die een sessie SSO-token wordt gebruikt binnen de geldigheidsperiode is de geldigheidsperiode uitgebreid andere 24 uur of 180 dagen, afhankelijk van het type token. Als een sessie SSO-token niet binnen de geldigheidsperiode wordt gebruikt, is er sprake is verlopen en wordt niet meer geaccepteerd.
+Niet-persistente sessie tokens hebben een levensduur van 24 uur. Permanente tokens hebben een levensduur van 180 dagen. Telkens wanneer een sessie SSO-token wordt gebruikt binnen de geldigheidsperiode, is de geldigheidsperiode van een andere 24 uur of 180 dagen, afhankelijk van het token dat uitgebreid. Als een sessie SSO-token niet binnen de geldigheidsperiode wordt gebruikt, is er sprake is verlopen en wordt niet meer geaccepteerd.
 
 U kunt een beleid gebruiken om in te stellen van de tijd na de eerste sessietoken is uitgegeven dan dat het sessietoken niet meer wordt geaccepteerd. (Gebruik hiervoor de eigenschap sessie Token Max-Age.) U kunt de levensduur van een sessietoken om te bepalen wanneer en hoe vaak een gebruiker vereist voor het invoeren van referenties is, in plaats van op de achtergrond wordt geverifieerd, bij het gebruik van een web-App kunt aanpassen.
 
@@ -109,7 +109,7 @@ Zie voor meer informatie over de relatie tussen toepassingsobjecten en service-p
 
 De geldigheid van een token wordt geëvalueerd op het moment dat het token wordt gebruikt. Het beleid met de hoogste prioriteit voor de toepassing die wordt benaderd wordt van kracht.
 
-Alle timespans hier gebruikt zijn ingedeeld volgens de C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS.  Dus 80 dagen en 30 minuten is `80.00:30:00`.  De voorloopspaties D kan worden verwijderd als nul is, dus 90 minuten zou worden `00:90:00`.  
+Alle timespans hier gebruikt zijn ingedeeld volgens de C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  Dus 80 dagen en 30 minuten is `80.00:30:00`.  De voorloopspaties D kan worden verwijderd als nul is, dus 90 minuten zou worden `00:90:00`.  
 
 > [!NOTE]
 > Hier volgt een voorbeeldscenario.
@@ -220,11 +220,11 @@ Om te beginnen, voer de volgende stappen uit:
     ```
 
 ### <a name="example-manage-an-organizations-default-policy"></a>Voorbeeld: Beheren van een organisatie-standaardbeleid
-In dit voorbeeld maakt u een beleid waarmee uw gebruikers zich aanmelden minder vaak in uw hele organisatie. U doet dit door een beleid voor de levensduur van tokens voor één van meerdere factoren vernieuwen Tokens, die wordt toegepast in uw organisatie te maken. Het beleid wordt toegepast op elke toepassing in uw organisatie, en aan elke service-principal die niet al een beleid is ingesteld.
+In dit voorbeeld maakt u een beleid waarmee uw gebruikers Meld u minder vaak in uw hele organisatie. U doet dit door een beleid voor de levensduur van tokens voor één van meerdere factoren vernieuwen Tokens, die wordt toegepast in uw organisatie te maken. Het beleid wordt toegepast op elke toepassing in uw organisatie, en aan elke service-principal die niet al een beleid is ingesteld.
 
 1. Maak een beleid voor de levensduur van tokens.
 
-    1.  Stel de één-Factor Vernieuwingstoken "tot-ingetrokken." Het token verloopt niet totdat de toegang is ingetrokken. De volgende beleidsdefinitie maken:
+    1. Stel de één-Factor Vernieuwingstoken "tot-ingetrokken." Het token verloopt niet totdat de toegang is ingetrokken. De volgende beleidsdefinitie maken:
 
         ```powershell
         @('{
@@ -236,16 +236,16 @@ In dit voorbeeld maakt u een beleid waarmee uw gebruikers zich aanmelden minder 
         }')
         ```
 
-    2.  Voer de volgende opdracht voor het maken van het beleid:
+    2. Voer de volgende opdracht voor het maken van het beleid:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3.  Om te zien van het nieuwe beleid en om op te halen van het beleid **ObjectId**, voer de volgende opdracht uit:
+    3. Om te zien van het nieuwe beleid en om op te halen van het beleid **ObjectId**, voer de volgende opdracht uit:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Het beleid niet bijwerken.
@@ -253,7 +253,7 @@ In dit voorbeeld maakt u een beleid waarmee uw gebruikers zich aanmelden minder 
     Kunt u besluiten het eerste beleid die u in dit voorbeeld instelt is niet zo streng zijn als uw service nodig heeft. Om in te stellen uw één van meerdere factoren Refresh Token verloopt in twee dagen, moet u de volgende opdracht uitvoeren:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Voorbeeld: Maak een beleid voor aanmelding bij de website
@@ -264,88 +264,98 @@ In dit voorbeeld maakt u een beleid waarbij gebruikers om te verifiëren regelma
 
     Dit beleid, voor aanmelding web Hiermee stelt u de toegang/ID levensduur van tokens en de maximale sessie voor één van meerdere factoren token leeftijd tot twee uur.
 
-    1.  Voor het maken van het beleid, moet u deze opdracht uitvoeren:
+    1. Voor het maken van het beleid, moet u deze opdracht uitvoeren:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Het nieuwe beleid, en het beleid **ObjectId**, voer de volgende opdracht uit:
+    2. Het nieuwe beleid, en het beleid **ObjectId**, voer de volgende opdracht uit:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2.  Het beleid toewijzen aan uw service-principal. Ook moet u de **ObjectId** van uw service-principal. 
+2. Het beleid toewijzen aan uw service-principal. Ook moet u de **ObjectId** van uw service-principal.
 
-    1.  Als u wilt zien van uw organisatie service-principals, kunt u een query de [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) of de [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Bovendien kunt u dit testen in de [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), en de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) met behulp van uw Azure AD-account.
-
-    2.  Wanneer u hebt de **ObjectId** van uw service-principal, voer de volgende opdracht uit:
-
+    1. Gebruik de [Get-azureadserviceprincipal namelijk niet](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet om te controleren van de service-principals van uw organisatie of een enkele service-principal.
         ```powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
+    2. Wanneer u de service-principal hebt, kunt u de volgende opdracht uitvoeren:
+        ```powershell
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
 
 ### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Voorbeeld: Een beleid maken voor een systeemeigen app die een web-API-aanroepen
 In dit voorbeeld maakt u een beleid dat vereist dat gebruikers minder vaak worden geverifieerd. De hoeveelheid tijd die een gebruiker niet-actief zijn mag voordat de gebruiker moet verifiëren, het beleid wordt ook langer. Het beleid wordt toegepast op de web-API. Wanneer de systeemeigen app de web-API als een bron aanvraagt, wordt dit beleid wordt toegepast.
 
 1. Maak een beleid voor de levensduur van tokens.
 
-    1.  Voer de volgende opdracht voor het maken van een strikt beleid voor een web-API:
+    1. Voer de volgende opdracht voor het maken van een strikt beleid voor een web-API:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Het nieuwe beleid, en het beleid **ObjectId**, voer de volgende opdracht uit:
+    2. Als u wilt zien van het nieuwe beleid, moet u de volgende opdracht uitvoeren:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Het beleid toewijzen aan uw web-API. Ook moet u de **ObjectId** van uw toepassing. De beste manier om te vinden van uw app **ObjectId** is het gebruik van de [Azure-portal](https://portal.azure.com/).
+2. Het beleid toewijzen aan uw web-API. Ook moet u de **ObjectId** van uw toepassing. Gebruik de [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet voor het vinden van uw app **ObjectId**, of gebruik de [Azure-portal](https://portal.azure.com/).
 
-   Wanneer u hebt de **ObjectId** van uw app, voer de volgende opdracht uit:
+    Krijgen de **ObjectId** van uw app en het beleid toewijzen:
 
-        ```powershell
-        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
-        ```
+    ```powershell
+    # Get the application
+    $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
 
+    # Assign the policy to your web API.
+    Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
+    ```
 
 ### <a name="example-manage-an-advanced-policy"></a>Voorbeeld: Het beleid voor een geavanceerde beheren
-In dit voorbeeld maakt u enkele beleidsregels, als u wilt weten hoe het systeem prioriteit werkt. U kunt leert ook hoe u meerdere beleidsregels die worden toegepast op meerdere objecten te beheren.
+In dit voorbeeld moet u enkele beleidsregels meer informatie over de werking van het systeem prioriteit maken. U leert ook hoe u kunt meerdere beleidsregels die worden toegepast op meerdere objecten te beheren.
 
 1. Maak een beleid voor de levensduur van tokens.
 
-    1.  Voer de volgende opdracht voor het maken van een organisatie-standaardbeleid dat Hiermee stelt u de levensduur van tokens voor vernieuwen van één van meerdere factoren tot 30 dagen:
+    1. Voer de volgende opdracht voor het maken van een organisatie-standaardbeleid dat Hiermee stelt u de levensduur van tokens voor vernieuwen van één van meerdere factoren tot 30 dagen:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2.  Om te zien van het nieuwe beleid en om op te halen van het beleid **ObjectId**, voer de volgende opdracht uit:
+    2. Als u wilt zien van het nieuwe beleid, moet u de volgende opdracht uitvoeren:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Het beleid toewijzen aan een service-principal.
 
     U hebt nu een beleid dat van toepassing op de hele organisatie. U kunt dit beleid 30 dagen bewaren voor een specifieke service-principal, maar het standaardbeleid organisatie wijzigen in de bovengrens van "tot ingetrokken."
 
-    1.  Als u wilt zien van uw organisatie service-principals, kunt u een query de [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) of de [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Bovendien kunt u dit testen in de [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), en de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) met behulp van uw Azure AD-account.
+    1. Als service-principals van uw organisatie wilt weergeven, gebruikt u de [Get-azureadserviceprincipal namelijk niet](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-    2.  Wanneer u hebt de **ObjectId** van uw service-principal, voer de volgende opdracht uit:
+    2. Wanneer u de service-principal hebt, kunt u de volgende opdracht uitvoeren:
 
-            ```powershell
-            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-            ```
-        
+        ```powershell
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
+
 3. Stel de `IsOrganizationDefault` vlag op false:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Maak een nieuwe organisatie-standaardbeleid:
@@ -389,7 +399,7 @@ Get-AzureADPolicy
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> [Optioneel] |**Object-id (Id)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Optioneel] |**Object-id (ID)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -402,7 +412,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -415,7 +425,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |De tekenreeks van de naam van het beleid. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Optioneel] |Matrix van stringified JSON die de regels van het beleid bevat. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Optioneel] |Indien waar, stelt het beleid als het standaardbeleid van de organisatie. Indien onwaar, gebeurt er niets. |`-IsOrganizationDefault $true` |
@@ -433,7 +443,7 @@ Hiermee verwijdert u het opgegeven beleid.
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van het gewenste beleid. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van het gewenste beleid. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -449,7 +459,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van de toepassing. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**Object-id** van het beleid. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -463,7 +473,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van de toepassing. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -476,7 +486,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van de toepassing. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Object-id** van het beleid. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,7 +503,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van de toepassing. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**Object-id** van het beleid. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -507,7 +517,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van de toepassing. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -520,5 +530,5 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 | Parameters | Description | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Object-id (ID)** van de toepassing. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Object-id** van het beleid. | `-PolicyId <ObjectId of Policy>` |

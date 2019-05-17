@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61272406"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619719"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Een aangepaste domeinnaam voor Azure App Service kopen
 
-App Service-domeinen (preview) zijn op het hoogste niveau van de domeinen die rechtstreeks in Azure worden beheerd. Die het gemakkelijk voor het beheren van aangepaste domeinen voor [Azure App Service](overview.md). Deze zelfstudie leert u hoe u een App Service-domein kopen en DNS-namen toewijzen aan Azure App Service.
+App Service-domeinen zijn op het hoogste niveau van de domeinen die rechtstreeks in Azure worden beheerd. Die het gemakkelijk voor het beheren van aangepaste domeinen voor [Azure App Service](overview.md). Deze zelfstudie leert u hoe u een App Service-domein kopen en DNS-namen toewijzen aan Azure App Service.
 
 Zie voor de virtuele machine van Azure of Azure Storage, [toegewezen App Service-domein naar Azure-VM of Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Zie voor Cloud Services, [configureren van een aangepaste domeinnaam voor een Azure-cloudservice](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -150,7 +150,7 @@ Als u wilt de hostnamen testen, gaat u naar de vermelde hostnamen in de browser.
 
 ## <a name="assign-hostnames-to-app"></a>Hostnamen toewijzen aan app
 
-Als u niet een of meer standaard hostnamen toewijzen aan uw app tijdens het aankoopproces, of als u wilt toewijzen van een hostnaam die niet wordt vermeld, kunt u een hostnaam in op elk gewenst moment toewijzen.
+Als u niet een of meer standaard hostnamen toewijzen aan uw app tijdens het aankoopproces, of als u wilt toewijzen van een hostnaam die niet wordt vermeld, kunt u op elk gewenst moment een hostnaam toewijzen.
 
 U kunt ook de hostnamen in de App Service-domein toewijzen aan een andere app. De stappen, is afhankelijk van of de App Service-domein en de app tot hetzelfde abonnement behoren.
 
@@ -278,7 +278,3 @@ Nadat de bewerking voltooid is, wordt het domein is vrijgegeven voor uw abonneme
 ## <a name="direct-default-url-to-a-custom-directory"></a>Standaard-URL naar een aangepaste map omleiden
 
 Standaard stuurt App Service webaanvragen naar de hoofdmap van uw app-code. Om te leiden ze naar een submap zoals `public`, Zie [directe standaard-URL naar een aangepaste map](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## <a name="more-resources"></a>Meer bronnen
-
-[FAQ: App Service-domein (preview) en aangepaste domeinen](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

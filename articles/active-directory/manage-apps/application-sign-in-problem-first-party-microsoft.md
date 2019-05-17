@@ -3,8 +3,8 @@ title: Problemen met aanmelden bij een Microsoft-toepassing | Microsoft Docs
 description: Algemene problemen met het aanmelden bij de eerste partij Microsoft Applications met behulp van Azure AD (zoals Office 365)
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292194"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825218"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
@@ -435,7 +435,7 @@ Om te controleren of een voorwaardelijk toegangsbeleid valideren:
 
 6. Klik op het beleid dat u geïnteresseerd bent in het inspecteren.
 
-7. Controleer of er zijn geen specifieke voorwaarden, toewijzingen of andere instellingen die gebruikerstoegang mogelijk blokkeert.
+7. Controleer of er zijn geen specifieke voorwaarden, toewijzingen en andere instellingen die de gebruikerstoegang blokkeren mogelijk.
 
    >[!NOTE]
    >Mogelijk wilt u dit beleid om te controleren of deze geen gevolgen heeft tijdelijk te deactiveren aanmeldingen. Om dit te doen, stel de **beleid inschakelen** in-/ uitschakelen op **Nee** en klikt u op de **opslaan** knop.
@@ -456,7 +456,7 @@ Geconfigureerd om te controleren of het valideren van één toepassing momenteel
 
 5.  Klik op **alle toepassingen**.
 
-6.  Zoek naar de toepassing waarin u geïnteresseerd bent, of de gebruiker probeert zich aanmeldt bij door de toepassing weergegeven naam of toepassings-id.
+6.  Zoek naar de toepassing waarin u geïnteresseerd bent, of de gebruiker probeert zich aanmeldt bij de toepassing weergegeven naam of toepassing-ID.
 
      >[!NOTE]
      >Als u de toepassing die u zoekt niet ziet, klikt u op de **Filter** knop en vouwt u het bereik van de lijst moet **alle toepassingen**. Als u meer kolommen weergeven wilt, klikt u op de **kolommen** om toe te voegen extra details voor uw toepassingen.

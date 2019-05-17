@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472450"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780524"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als in Azure Active Directory-beheerder
 
@@ -37,7 +37,7 @@ Tijdens het proces van overname door een beheerder kunt u eigendom bewijzen, zoa
 
 Sommige producten, zoals SharePoint en OneDrive, zoals Office 365, bieden geen ondersteuning voor externe overname. Als uw scenario, of als u een beheerder bent en wilt overnemen een niet-beheerde of 'shadow' tenant maken door gebruikers die self-service-aanmelding gebruikt, kunt u dit doen met een interne beheerdersrechten overneemt.
 
-1. Maak de context van een gebruiker in de niet-beheerde tenant bij het aanmelden met zoals Power BI. Deze stappen voor het gemak van het voorbeeld wordt ervan uitgegaan dat het pad.
+1. Maak de context van een gebruiker in de niet-beheerde tenant bij het aanmelden voor Power BI. Deze stappen voor het gemak van het voorbeeld wordt ervan uitgegaan dat het pad.
 
 2. Open de [Power BI-site](https://powerbi.com) en selecteer **gratis starten**. Voer een gebruikersaccount die gebruikmaakt van de domain name voor de organisatie. bijvoorbeeld, `admin@fourthcoffee.xyz`. Nadat u in de verificatiecode invoert, controleert u uw e-mailadres voor de bevestigingscode.
 

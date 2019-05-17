@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/16/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510825"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827427"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisch schalen en Zone-redundante Application Gateway 
 
@@ -62,7 +62,7 @@ COMPUTE-eenheid richtlijnen:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-De [pagina met prijzen](https://azure.microsoft.com/pricing/details/application-gateway/) wordt bijgewerkt naar aanleiding van regionale prijzen op 14 mei 2019. Facturering is gepland om te beginnen op 1 juni 2019.
+Zie voor meer informatie prijzen, de [pagina met prijzen](https://azure.microsoft.com/pricing/details/application-gateway/). Facturering is gepland om te beginnen op 1 juli 2019.
 
 **Voorbeeld 1**
 
@@ -100,7 +100,7 @@ De [pagina met prijzen](https://azure.microsoft.com/pricing/details/application-
 Application Gateway en WAF kan worden geconfigureerd om te schalen in twee modi:
 
 - **Automatisch schalen** - met automatisch schalen ingeschakeld, de toepassingsgateway en de WAF-v2 SKU's omhoog of omlaag op basis van verkeer toepassingsvereisten schalen. In deze modus biedt betere flexibiliteit voor uw toepassing en elimineert de noodzaak om te raden de application gateway-grootte of exemplaar aantal. In deze modus kunt u kosten kunt besparen door het niet vereist om uit te voeren van gateways piek ingerichte capaciteit voor de verwachte maximale te verdelen. Klanten moeten een minimum- en eventueel exemplaren opgeven. Minimale capaciteit zorgt ervoor dat Application Gateway en WAF v2 niet onder het minimum aantal exemplaren opgegeven vallen, zelfs in de afwezigheid van verkeer. U ontvangt een factuur voor deze Minimumcapaciteit zelfs in de afwezigheid van al het verkeer. U kunt eventueel ook een maximum aantal exemplaren, die zorgt ervoor dat de toepassingsgateway niet voorbij het opgegeven aantal exemplaren schalen opgeven. U gaat verder met de kosten in rekening gebracht voor de hoeveelheid verkeer die worden geleverd door de Gateway. Het aantal instanties kunnen variëren van 0 tot 125. De standaardwaarde voor het maximum aantal exemplaren is 20 indien niet opgegeven.
-- **Handmatige** -u kunt ook handmatig modus waarbij de gateway wordt niet automatisch schalen. In deze modus als er meer verkeer dan welke Application Gateway of WAF kan verwerken, is kan dit leiden tot verlies van verkeer. Met handmatige modus op te geven aantal exemplaren is verplicht. Aantal instanties kan variëren van 1 tot 125 exemplaren.
+- **Handmatige** -u kunt ook handmatig modus waarbij de gateway wordt niet automatisch schalen. In deze modus als er meer verkeer dan wat Application Gateway of WAF verwerken kan, kan dit leiden tot verlies van verkeer. Met handmatige modus op te geven aantal exemplaren is verplicht. Aantal instanties kan variëren van 1 tot 125 exemplaren.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Vergelijking van functies tussen SKU v1 en v2-SKU
 

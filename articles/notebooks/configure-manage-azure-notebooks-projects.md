@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234814"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596735"
 ---
 # <a name="manage-and-configure-projects"></a>Projecten beheren en configureren
 
@@ -37,38 +37,7 @@ Azure-notitieblokken wordt de onderliggende virtuele machine gestart wanneer u e
 
 ## <a name="compute-tier"></a>Rekenlaag
 
-De **uitvoeren** vervolgkeuzelijst in het projectdashboard is waar u de compute-laag waarop het project wordt uitgevoerd. Standaard projecten uitvoeren op de **gratis Compute** laag, wat beperkt is tot 4 GB geheugen en 1 GB aan gegevens om misbruik te voorkomen:
-
-![COMPUTE-laag vervolgkeuzelijst in het projectdashboard](media/project-compute-tier-list.png)
-
-Met behulp van een andere virtuele machine die u in een Azure-abonnement hebt ingericht, kunt u deze beperkingen negeren. U moet installeren en uitvoeren van JupyterHub op die virtuele machine. De Data Science Virtual Machine-installatiekopieën (elk besturingssysteem) zijn goede keuze omdat ze JupyterHub standaard bevatten.
-
-Zodra u een naar behoren geconfigureerd Azure-machine hebt, selecteert u de **Direct Compute** optie in de vervolgkeuzelijst die wordt u gevraagd een naam (om weer te geven in de lijst), de IP-adres en poort (meestal 8000, de standaardpoort waarnaar van de virtuele machine JupyterHub luistert), en de referenties van de virtuele machine:
-
-![Prompt voor het verzamelen van informatie over server voor de directe Compute option](media/project-compute-tier-direct.png)
-
-Als de volgende voorwaarden voldaan wordt, wordt ook de vervolgkeuzelijst weergegeven [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) exemplaren. (Als een van deze voorwaarden niet worden voldaan, u kunt nog steeds verbinding met de DSVM met behulp van de directe Compute option en de waarden hebt verkregen via de Azure portal in te voeren.)
-
-- U bent aangemeld bij Azure-laptops met een account dat gebruikmaakt van Azure Active Directory (AAD), zoals een bedrijfsaccount.
-- Uw account is verbonden met een Azure-abonnement.
-- Hebt u een of meer virtuele machines in dat aan het abonnement, met ten minste leestoegang hebben, die gebruikmaken van de virtuele Machine voor Datatechnologie voor Linux (Ubuntu)-installatiekopie.)
-
-![Data Science Virtual Machine-exemplaren in de vervolgkeuzelijst in het projectdashboard](media/project-compute-tier-dsvm.png)
-
-Wanneer u een exemplaar van de DSVM selecteert, Azure-notitieblokken wordt u mogelijk gevraagd om de specifieke machine-referenties gebruikt bij het maken van de virtuele machine.
-
-Voor het maken van een nieuw exemplaar van de DSVM, volgt u de instructies op [maken van een Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Gebruik de **Data Science Virtual Machine voor Linux (Ubuntu)** image als u wilt dat de DSVM wordt weergegeven in de vervolgkeuzelijst in notitieblokken van Azure.  Als voor andere redenen die u wilt gebruiken van de installatiekopie van het Windows- of CentOS, kunt u de **Direct Compute** handmatig verbinding maken met de DSVM.
-
-> [!IMPORTANT]
-> Wanneer u Direct Compute of Data Science virtuele machines, moeten de laptops die u op deze uitvoert geheel zelfstandig zijn. Op dit moment Azure notitieblokken kopieert alleen de *.ipynb* bestand met de virtuele machine, maar andere bestanden in het project niet kopiëren. Als gevolg hiervan mislukt laptops die worden uitgevoerd op andere virtuele machines om andere projectbestanden te zoeken.
->
-> U kunt dit gedrag op twee manieren omzeilen:
->
-> 1. Project-bestanden handmatig kopiëren naar de virtuele machine.
->
-> 2. Sluit u de bestanden in een notitieblok instellen dat u eerst de primaire notebook uitvoert. In de setup-notebook maken een codecel voor elk bestand waarbij de cel inhoud van het bestand bevat. Voeg vervolgens de opdracht aan de bovenkant van elke cel `%%writefile <filename>`, waarbij `<filename>` is de naam van het bestand voor het ontvangen van de inhoud. Wanneer u de notebook uitvoert, wordt deze bestanden op de virtuele machine gemaakt. Zie voor een voorbeeld: de [setup.ipynb-bestand in de demo Microsoft huisdier Detector](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![Met behulp van een %% writefile opdracht aan het begin van een codecel](media/setup-notebook-writefile-command.png)
+Standaard projecten uitvoeren op de **gratis Compute** laag, wat beperkt is tot 4 GB geheugen en 1 GB aan gegevens om misbruik te voorkomen. U kunt deze beperkingen te omzeilen en compute-kracht verhogen met behulp van een andere virtuele machine die u in een Azure-abonnement hebt ingericht. Zie voor meer informatie, [over het gebruik van virtuele Machines voor Datatechnologie](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Project metagegevens bewerken
 

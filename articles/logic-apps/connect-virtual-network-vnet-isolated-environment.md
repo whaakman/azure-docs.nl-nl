@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150545"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544502"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
@@ -39,7 +39,7 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>.
 
   > [!IMPORTANT]
-  > Logic apps, ingebouwde acties en connectors die worden uitgevoerd in de ISE-gebruik een andere prijsschema, niet de verbruik gebaseerde prijsstelling. Zie voor meer informatie, [prijzen voor Logic Apps](../logic-apps/logic-apps-pricing.md).
+  > Logic apps, ingebouwde triggers, ingebouwde acties en connectors die worden uitgevoerd in de ISE-gebruik een prijsstelling verschilt van de prijsstelling op basis van gebruik. Zie voor meer informatie, [prijzen voor Logic Apps](../logic-apps/logic-apps-pricing.md).
 
 * Een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u een virtueel netwerk hebt, krijgt u informatie over het [maken van een Azure virtual network](../virtual-network/quick-create-portal.md). 
 
@@ -199,33 +199,19 @@ Zie voor meer informatie over het maken van subnets, [toevoegen van een virtueel
 
 ## <a name="create-logic-app---ise"></a>Logische app - ISE maken
 
-Voor het maken van logische apps die de integratie van service-omgeving (ISE) gebruiken, volgt u de stappen in [over het maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md) maar met deze verschillen: 
-
-* Bij het maken van uw logische app, onder de **locatie** eigenschap, selecteert u uw ISE uit de **integratieserviceomgevingen** sectie, bijvoorbeeld:
+Voor het maken van logische apps die worden uitgevoerd in de integratie van service-omgeving (ISE), [uw logische apps maken op de gebruikelijke manier](../logic-apps/quickstart-create-first-logic-app-workflow.md) , behalve tijdens het instellen van de **locatie** eigenschap, selecteert u uw ISE uit de  **Integratieserviceomgevingen** sectie, bijvoorbeeld:
 
   ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* U kunt de dezelfde ingebouwde triggers en acties, zoals HTTP, die worden uitgevoerd in de dezelfde ISE als uw logische app gebruiken. Connectors met de **ISE** labelen ook uitvoeren in de dezelfde ISE als uw logische app. Connectors zonder de **ISE** label uitgevoerd in de globale Logic Apps-service.
-
-  ![ISE-connectors selecteren](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* Nadat u uw ISE in een Azure-netwerk invoeren, kunnen de logische apps in uw ISE rechtstreeks toegang tot resources in dit virtuele netwerk. Injecteer een ISE voor on-premises systemen die zijn verbonden met een virtueel netwerk, in dat netwerk, zodat uw logische apps rechtstreeks toegang deze systemen tot met behulp van deze items: 
-
-  * ISE-connector voor dat systeem, bijvoorbeeld SQL Server
-  
-  * HTTP-actie 
-  
-  * Aangepaste connector
-
-  Voor on-premises systemen die zich niet in een virtueel netwerk of geen ISE-connectors, eerst [instellen van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
+Voor verschillen in hoe triggers en acties werken en hoe ze bent met het label wanneer u een ISE vergeleken met de globale Logic Apps-service, Zie [geïsoleerd ten opzichte van globale in het overzicht van ISE](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="create-integration-account---ise"></a>Integratieaccount - ISE maken
 
-Voor het gebruik van een integratieaccount met logic apps in een integratieserviceomgeving (ISE), dat integratieaccount moet gebruiken de *dezelfde omgeving* als de logic apps. Logische apps in een ISE kunnen verwijzen naar alleen integratieaccounts in dezelfde ISE. 
+Als u wilt een integratieaccount gebruiken met logic apps in een integratieserviceomgeving (ISE), dat integratieaccount moet gebruiken de *dezelfde omgeving* als de logic apps. Logische apps in een ISE kunnen verwijzen naar alleen integratieaccounts in dezelfde ISE.
 
-Volg de stappen in voor het maken van een integratieaccount dat gebruikmaakt van een ISE, [over het maken van integratieaccounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , behalve voor de **locatie** eigenschap waar de **integratieserviceomgevingen**  sectie wordt nu weergegeven. In plaats daarvan selecteert u uw ISE, in plaats van een regio, bijvoorbeeld:
+Maken van een integratieaccount dat gebruikmaakt van een ISE [uw integratie-account maken in de gebruikelijke manier](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , behalve tijdens het instellen van de **locatie** eigenschap, selecteert u uw ISE uit de **integratie Service-omgevingen** sectie, bijvoorbeeld:
 
 ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

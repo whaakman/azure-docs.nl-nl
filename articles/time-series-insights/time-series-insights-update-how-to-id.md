@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f538831ee9410eaf1a2d272f01fd30a9236e6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695087"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519441"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Aanbevolen procedures voor het kiezen van een Time Series-ID
 
@@ -29,6 +29,7 @@ Het kiezen van een Time Series-ID is, zoals een partitiesleutel voor een databas
 > De Time Series-ID is hoofdlettergevoelig en onveranderbare (deze kan niet worden gewijzigd nadat deze is ingesteld).
 
 Met die in gedachten is het essentieel de juiste Time Series-ID selecteren. Wanneer u een Time Series-ID selecteert, houd rekening met de volgende deze aanbevolen procedures:
+
 * Kies de naam van een eigenschap die heeft een breed scala aan waarden en zelfs toegangspatronen. Het is een aanbevolen procedure om een partitiesleutel met veel verschillende waarden (bijvoorbeeld, honderden of duizenden). Voor veel klanten is dit iets, zoals de apparaat-id of SensorID in uw JSON.
 * De Time Series-ID moet uniek zijn op het niveau van de leaf-knooppunt van uw [Tijdreeksmodel](./time-series-insights-update-tsm.md).
 * Een tekenreeks voor naam van Time Series-ID-eigenschap kan maximaal 128 tekens hebben kunnen, en eigenschapswaarden van Time Series-ID maximaal 1024 tekens.
@@ -41,13 +42,13 @@ Bovendien kunt u maximaal *drie* (3) sleuteleigenschappen als uw Time Series-ID.
 
 De volgende scenario's beschreven meer dan één sleuteleigenschap selecteren als uw Time Series-ID:  
 
-### <a name="scenario-1"></a>Scenario 1
+### <a name="scenario-one"></a>Scenario 1
 
-* U hebt een verouderde vloten van assets, elk met een unieke sleutel. 
-* Bijvoorbeeld, een vloot uniek wordt geïdentificeerd door de eigenschap *deviceId* en een andere waarbij de eigenschap uniek is *objectId*. Geen van beide vloot bevat de unieke eigenschap van de andere vloot. In dit voorbeeld zou u twee sleutels, de apparaat-id en de object-id selecteren als unieke sleutels. 
+* U hebt een verouderde vloten van assets, elk met een unieke sleutel.
+* Bijvoorbeeld, een vloot uniek wordt geïdentificeerd door de eigenschap *deviceId* en een andere waarbij de eigenschap uniek is *objectId*. Geen van beide vloot bevat de unieke eigenschap van de andere vloot. In dit voorbeeld zou u twee sleutels, de apparaat-id en de object-id selecteren als unieke sleutels.
 * We accepteren null-waarden en het ontbreken van de aanwezigheid van een eigenschap in de nettolading telt als een `null` waarde. Dit is ook de juiste methode voor het afhandelen van verzenden van gegevens naar bronnen van twee verschillende gebeurtenissen waarin de gegevens in de bron van elke gebeurtenis een unieke Time Series-ID heeft.
 
-### <a name="scenario-2"></a>Scenario 2
+### <a name="scenario-two"></a>Scenario 2
 
 * U moet meerdere eigenschappen die moeten uniek zijn binnen de dezelfde vloot van activa. 
 * Stel dat bijvoorbeeld, u bent een fabrikant slimme gebouwen en sensoren in elke ruimte implementeren. In elke ruimte, hebt u doorgaans de dezelfde waarden voor *sensorId*, zoals *sensor1*, *sensor2*, en *sensor3*.

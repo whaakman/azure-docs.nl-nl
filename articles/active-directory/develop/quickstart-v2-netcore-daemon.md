@@ -17,16 +17,14 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44161e689645c3feb2efbd80b825b9285c1bdfc9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918598"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784963"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Quickstart: Een token verkrijgen en Microsoft Graph API aanroepen vanuit een console-app met behulp van de identiteit van de app
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 In deze quickstart leert u hoe u een .NET Core-toepassing schrijft die een toegangstoken kan ophalen met behulp van de eigen identiteit van de app en hoe u vervolgens de Microsoft Graph API aanroept om een [lijst met gebruikers](https://docs.microsoft.com/graph/api/user-list) in de map weer te geven. Dit scenario is nuttig in situaties waar een headless taak zonder toezicht of een Windows-service moet worden uitgevoerd met een toepassings-id in plaats van de identiteit van een gebruiker.
 
@@ -108,7 +106,7 @@ Deze snelstartgids moet [2.2 voor .NET Core](https://www.microsoft.com/net/downl
     > > [!TIP]
     > > Om de waarden van **Toepassings-id (client-id)** en **Map-id (tenant-id)** te achterhalen, gaat u naar de **Overzichtspagina** van de app in de Azure-portal. Voor het genereren van een nieuwe sleutel gaat u naar de pagina **Certificaten en geheimen**.
     
-#### <a name="step-4-admin-consent"></a>Stap 4: toestemming van de beheerder
+#### <a name="step-4-admin-consent"></a>Stap 4: Toestemming van de beheerder
 
 Als u op dit moment probeert de toepassing uit te voeren, krijgt u de foutmelding *HTTP 403 - verboden*: `Insufficient privileges to complete the operation`. Dit komt doordat een *alleen app-machtiging* beheerderstoestemming, wat betekent dat een globale beheerder van uw directory moet toestemming geven aan uw toepassing vereist. Selecteer een van de onderstaande opties, afhankelijk van uw rol:
 

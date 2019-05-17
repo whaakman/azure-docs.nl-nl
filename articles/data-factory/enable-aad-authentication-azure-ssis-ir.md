@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848725"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593796"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure Active Directory-verificatie inschakelen voor Azure-SSIS Integration Runtime
 
@@ -60,7 +60,7 @@ U kunt een bestaande Azure AD-groep of maak een nieuwe Azure AD PowerShell gebru
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  De beheerde identiteit voor uw ADF toevoegen aan de groep. U kunt het artikel volgen [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) om op te halen van de principal-SERVICE-identiteit-ID (bijvoorbeeld 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, maar gebruik geen SERVICE-identiteit TOEPASSINGS-ID voor dit doel).
+3.  De beheerde identiteit voor uw ADF toevoegen aan de groep. U kunt het artikel volgen [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) om op te halen van de principal beheerde identiteit Object-ID (bijvoorbeeld 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, maar gebruik geen beheerde identiteit toepassings-ID voor dit doel).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
 
 4.  Met de rechtermuisknop op **master** database en selecteer **nieuwe query**.
 
-5.  Haal de beheerde identiteit voor uw ADF. Kunt u het artikel volgen [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) naar de principal-SERVICE-identiteit TOEPASSINGS-ID ophalen (maar geen ID van de SERVICE-identiteit gebruiken voor dit doel).
+5.  Haal de beheerde identiteit voor uw ADF. Kunt u het artikel volgen [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) naar de principal beheerde identiteit toepassings-ID ophalen (maar geen beheerde identiteit Object-ID gebruiken voor dit doel).
 
 6.  Voer in het queryvenster de volgende T-SQL-script als u wilt converteren van de beheerde identiteit voor uw ADF in binaire type:
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ Voor deze stap moet u [Microsoft SQL Server Management Studio](https://docs.mic
 7.  Wissen van de query-venster en voer de volgende T-SQL-script voor het toevoegen van de beheerde identiteit voor uw ADF als een gebruiker
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```

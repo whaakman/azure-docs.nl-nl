@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394377"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540703"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Zo wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote-gebied, en er is veel te leren.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeermodellen, levensduur van toepassingen, testen, clusters en statuscontrole. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kan worden gebruikt om te maken van microservices. In dit artikel bevat een uitgebreide lijst met inhoud, maar koppelen aan het overzicht en artikelen aan de slag voor elk gebied van Service Fabric. 
@@ -30,7 +30,7 @@ Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkel
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Ontwerptijd: toepassingstype, servicetype, toepassingspakket en manifest, service-pakket en het manifest
 Een toepassingstype is de naam/versie toegewezen aan een verzameling van servicetypen. Dit is gedefinieerd in een *ApplicationManifest.xml* -bestand, dat is ingesloten in een pakket toepassingsmap. Het toepassingspakket wordt vervolgens gekopieerd naar de installatiekopieopslag van het Service Fabric-cluster. U kunt vervolgens een toepassing met de naam van dit toepassingstype, die vervolgens wordt uitgevoerd binnen het cluster maken. 
 
-Een servicetype is de naam/versie toegewezen aan de pakketten, gegevenspakketten en van configuratiepakketten van een service. Dit is gedefinieerd in een ServiceManifest.xml-bestand, dat is ingesloten in de map van een service-pakket. De map van de service-pakket vervolgens naar wordt verwezen door een toepassingspakket *ApplicationManifest.xml* bestand. Binnen het cluster kunt na het maken van een toepassing met de naam, u een benoemde service van een van het toepassingstype servicetypen. Een servicetype wordt beschreven door de *ServiceManifest.xml* bestand. Type van de service bestaat uit uitvoerbare code service configuratie-instellingen, die tijdens runtime worden geladen, en statische gegevens die wordt gebruikt door de service.
+Een servicetype is de naam/versie toegewezen aan de pakketten, gegevenspakketten en van configuratiepakketten van een service. Dit is gedefinieerd in een ServiceManifest.xml-bestand, dat is ingesloten in de map van een service-pakket. De map van de service-pakket vervolgens naar wordt verwezen door een toepassingspakket *ApplicationManifest.xml* bestand. Binnen het cluster kunt na het maken van een toepassing met de naam, u een benoemde service van een van het toepassingstype servicetypen. Een servicetype wordt beschreven door de *ServiceManifest.xml* bestand. Type van de service bestaat uit uitvoerbare code en de configuratie-instellingen service, die tijdens runtime worden geladen, en statische gegevens die wordt gebruikt door de service.
 
 ![Service Fabric-toepassingstypen en servicetypen][cluster-imagestore-apptypes]
 

@@ -9,18 +9,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: b03d7d98fe43eacab63f45ccacd7d8dea9598c8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142169"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826509"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van Blob storage
 
 Gebeurtenissen van Azure Storage kunnen toepassingen om te reageren op het maken en verwijderen van blobs met moderne architecturen zonder servers. Dit gebeurt zonder de noodzaak voor complexe code of kostbaar en inefficiënt polling-services.  In plaats daarvan de gebeurtenissen worden gepusht via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) voor abonnees zoals [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), of zelfs naar uw eigen aangepaste http-listener en u alleen Betaal voor wat u gebruikt.
 
-Gebeurtenissen van BLOB storage zijn betrouwbaar verzonden naar de Event grid-service waarmee u betrouwbare van leveringsservices aan uw toepassingen via beleid voor uitgebreide opnieuw proberen en dead-letter uitvoeren voor levering.
+Gebeurtenissen van BLOB storage zijn betrouwbaar verzonden naar de Event grid-service waarmee u betrouwbare van leveringsservices aan uw toepassingen via beleid voor uitgebreide opnieuw proberen en dead-letter uitvoeren voor levering. Zie voor meer informatie, [bezorging van berichten van Event Grid en probeer het opnieuw](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 Algemene Blob storage event-scenario's omvatten afbeelding of video verwerking, zoekindexen of elke werkstroom bestand gerichte.  Asynchrone bestandsuploads zijn uitstek geschikt voor de gebeurtenissen.  Wanneer wijzigingen incidentele zijn, maar uw scenario direct reactietijd is vereist, kan architectuur op basis van gebeurtenissen met name efficiënt zijn.
 

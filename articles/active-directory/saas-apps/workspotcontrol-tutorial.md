@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 92173e760cf8207a15c643ca75913145ed343b55
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 41d8d05cf5f900c7fcd5640f8896c715640ebcab
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517753"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65772804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Zelfstudie: Azure Active Directory-integratie met Workspot besturingselement
 
@@ -240,12 +240,12 @@ Om in te schakelen in Azure AD-gebruikers zich aanmelden bij Workspot besturings
 
 In deze sectie testen we onze configuratie Azure AD eenmalige aanmelding via *Toegangsvenster*.
 
-Wanneer u klikt op de **Workspot besturingselement** tegel in het paneel voor Apptoegang, u moet worden automatisch aangemeld bij het Workspot besturingselement waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access) (Inleiding tot het toegangsvenster) voor meer informatie.
+Wanneer u klikt op de **Workspot besturingselement** tegel in het paneel voor Apptoegang, u moet worden automatisch aangemeld bij het Workspot besturingselement waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) (Inleiding tot het toegangsvenster) voor meer informatie.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-- [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/tutorial-list)
+- [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 
-- [Eenmalige aanmelding bij toepassingen in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Eenmalige aanmelding bij toepassingen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

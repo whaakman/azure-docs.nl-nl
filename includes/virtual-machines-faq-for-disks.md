@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198971"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65607052"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -201,7 +201,7 @@ Nee, Standard-SSD-schijven zijn alleen beschikbaar als beheerde schijven.
 **Standard-SSD-schijven bieden ondersteuning voor 'single instance VM SLA'?**
 Nee, Standard-SSD's geen enkel exemplaar VM SLA. Premium-SSD-schijven gebruiken voor één exemplaar VM SLA.
 
-## <a name="migrate-to-managed-disks"></a>Migreren naar Managed Disks
+## <a name="migrate-to-managed-disks"></a>Migreren naar beheerde schijven
 
 **Zijn er gevolgen van de migratie op de prestaties van Managed Disks?**
 
@@ -365,7 +365,7 @@ U kunt de stop en start de virtuele machine die de schijf is gekoppeld aan of lo
 
 **Welke regio's zijn de grootte van de beheerde schijven van 8 TiB, 16 TiB en 32 TiB ondersteund?**
 
-De TiB 8, 16 TiB en 32 TiB schijf-SKU's worden ondersteund in alle regio's onder algemene Azure. Ondersteuning voor Microsoft Azure Government en Azure China 21Vianet is nog niet beschikbaar.
+De TiB 8, 16 TiB en 32 TiB schijf-SKU's worden ondersteund in alle regio's onder algemene Azure, Microsoft Azure Government en Azure China 21Vianet.
 
 **Ondersteunen we Host opslaan in cache inschakelen op alle schijfgrootten?**
 

@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 6d4db402142441ed9b2bf62da48caa637195ad37
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 08d1f69294c4e330db79a1b5fecdb259dffe33cb
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074528"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550394"
 ---
 Uw toepassing geweldige maken:
 
-- Schakel [logboekregistratie](../articles/active-directory/develop/msal-logging.md) in uw toepassing.
-- Schakel telemetrie in uw toepassing.
+- Schakel [logboekregistratie](../articles/active-directory/develop/msal-logging.md).
+- Telemetrie inschakelen.
 - Schakel [proxy's en aanpassen van HTTP-clients](../articles/active-directory/develop/msal-net-provide-httpclient.md).
 
 Test uw integratie:
 
-- Ga als volgt de [Microsoft identity-platform-integratie controlelijst](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+- Gebruik de [Microsoft identity-platform-integratie controlelijst](../articles/active-directory/develop/identity-platform-integration-checklist.md).

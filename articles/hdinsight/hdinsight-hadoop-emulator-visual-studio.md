@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8172da3f573f78365cbe76f435a4817e64bc136c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700359"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605447"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Gebruik de Azure Data Lake-tools voor Visual Studio met de Hortonworks Sandbox
 
@@ -25,7 +25,7 @@ Met behulp van de Hortonworks Sandbox, kunt u werken met Hadoop lokaal op uw ont
 
 * De Hortonworks Sandbox uitgevoerd in een virtuele machine op uw ontwikkelomgeving. Dit document is geschreven en getest met de sandbox die worden uitgevoerd in Oracle VirtualBox. Zie voor meer informatie over het instellen van de sandbox de [aan de slag met de Hortonworks sandbox.](hadoop/apache-hadoop-emulator-get-started.md) document.
 
-* Visual Studio 2013, Visual Studio 2015 of Visual Studio 2017 (alle edities).
+* Visual Studio.
 
 * De [Azure SDK voor .NET](https://azure.microsoft.com/downloads/) 2.7.1 of hoger.
 

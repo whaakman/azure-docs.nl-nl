@@ -7,18 +7,17 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480155"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826583"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics oplossen met behulp van logboeken met diagnostische gegevens
 
-Een Azure Stream Analytics-taak stopt soms onverwacht verwerking. Het is belangrijk om dit type gebeurtenissen te kunnen oplossen. Mislukte taken kunnen worden veroorzaakt door een onverwacht queryresultaat, door storing in de verbinding met apparaten of door een onverwachte serviceonderbreking. De diagnostische logboeken in Stream Analytics kunt u de oorzaak van problemen identificeren wanneer ze zich voordoen en hersteltijd te verminderen.
+Een Azure Stream Analytics-taak stopt soms onverwacht verwerking. Het is belangrijk om te kunnen oplossen van dit type gebeurtenis. Mislukte taken kunnen worden veroorzaakt door een onverwacht queryresultaat, door storing in de verbinding met apparaten of door een onverwachte serviceonderbreking. De diagnostische logboeken in Stream Analytics kunt u de oorzaak van problemen identificeren wanneer ze zich voordoen en hersteltijd te verminderen.
 
 ## <a name="log-types"></a>Typen logboeken
 
@@ -83,7 +82,7 @@ Inschakelen van logboeken met diagnostische gegevens en deze te verzenden naar A
 
 ## <a name="diagnostics-log-categories"></a>Categorieën-diagnoselogboek
 
-Op dit moment vastleggen we twee categorieën van logboeken met diagnostische gegevens:
+Azure Stream Analytics worden twee categorieën van logboeken met diagnostische gegevens vastgelegd:
 
 * **Ontwerpen**: Gebeurtenissen die betrekking hebben op de taak schrijven bewerkingen, zoals het maken van de taak, toevoegen en verwijderen van invoer en uitvoer, toe te voegen en het bijwerken van de query en het starten of stoppen van de taak bevat.
 
@@ -110,7 +109,7 @@ properties | Meld u post-specifieke details, geserialiseerd als een JSON-tekenre
 
 ### <a name="execution-log-properties-schema"></a>Schema voor uitvoering van logboek-eigenschappen
 
-Logboeken van taakuitvoeringen bevat gegevens over gebeurtenissen die hebben plaatsgevonden tijdens het uitvoeren van Stream Analytics-taak. Het schema van de eigenschappen van varieert, afhankelijk van het type gebeurtenis. Op dit moment hebben we de volgende typen uitvoeringslogboeken:
+Logboeken van taakuitvoeringen bevat gegevens over gebeurtenissen die hebben plaatsgevonden tijdens het uitvoeren van Stream Analytics-taak. Het schema van eigenschappen is afhankelijk van of de gebeurtenis een fout of een algemene gebeurtenissen is.
 
 ### <a name="data-errors"></a>Fouten met gegevens
 
@@ -124,10 +123,14 @@ Type | Het type fout. Bijvoorbeeld, **DataConversionError**, **CsvParserError**,
 Gegevens | Bevat gegevens die is handig om nauwkeurig de bron van de fout te vinden. Kan worden afgekapt, afhankelijk van de grootte.
 
 Afhankelijk van de **operationName** waarde, fouten met gegevens hebben de volgende schema:
-* **Gebeurtenissen serialiseren**. Serialiseren gebeurtenissen plaatsvinden tijdens leesbewerkingen-gebeurtenis. Ze zich voordoen wanneer de gegevens op de invoer niet voldoet aan de Queryschema voor een van de volgende redenen:
-    * *Niet-overeenkomend gegevenstype tijdens gebeurtenis (de) serialiseren*: Hiermee geeft u het veld dat de fout wordt veroorzaakt.
-    * *Een gebeurtenis, een ongeldige serialisatie kan niet worden gelezen*: Bevat informatie over de locatie in de ingevoerde gegevens waar de fout is opgetreden. Blobnaam van de voor blob-invoer, offset en een voorbeeld van de gegevens bevat.
-* **Gebeurtenissen verzenden**. Verzenden van gebeurtenissen tijdens schrijfbewerkingen. De streaming-gebeurtenis die de fout heeft veroorzaakt, worden geïdentificeerd.
+
+* **Gebeurtenissen serialiseren** optreden tijdens leesbewerkingen-gebeurtenis. Ze zich voordoen wanneer de gegevens op de invoer niet voldoet aan de Queryschema voor een van de volgende redenen:
+
+   * *Niet-overeenkomend gegevenstype tijdens gebeurtenis (de) serialiseren*: Hiermee geeft u het veld dat de fout wordt veroorzaakt.
+
+   * *Een gebeurtenis, een ongeldige serialisatie kan niet worden gelezen*: Bevat informatie over de locatie in de ingevoerde gegevens waar de fout is opgetreden. Blobnaam van de voor blob-invoer, offset en een voorbeeld van de gegevens bevat.
+
+* **Gebeurtenissen verzenden** zich voordoen tijdens schrijfbewerkingen. De streaming-gebeurtenis die de fout heeft veroorzaakt, worden geïdentificeerd.
 
 ### <a name="generic-events"></a>Algemene gebeurtenissen
 
@@ -136,7 +139,7 @@ Algemene gebeurtenissen dekken alles anders.
 Name | Description
 -------- | --------
 Fout | (optioneel) Foutgegevens. Dit is doorgaans informatie over de uitzondering als deze beschikbaar is.
-Bericht| Logboekbericht.
+Message| Logboekbericht.
 Type | Het type van het bericht. Toegewezen aan interne classificatie van fouten. Bijvoorbeeld, **JobValidationError** of **BlobOutputAdapterInitializationFailure**.
 Correlatie-id | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) die uniek voor het uitvoeren van taak. Alle vermeldingen in het uitvoeringslogboek vanaf het moment dat de taak wordt gestart totdat de taak stopt dezelfde hebben **correlatie-ID** waarde.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406405"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544703"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Wat is Azure Blockchain-Service?
 
@@ -77,7 +77,7 @@ Hulp nodig hebt of feedback?
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg een snelstartgids om te beginnen, of meer informatie van deze resources.
-* [Een blockchain-lid met de Azure portal maken](create-member.md) of [maken van een blockchain-lid met behulp van Azure CLI]()
+* [Een blockchain-lid met de Azure portal maken](create-member.md) of [maken van een blockchain-lid met behulp van Azure CLI](create-member-cli.md)
 * Zie voor kostenvergelijkingen en calculators, de [pagina met prijzen](https://azure.microsoft.com/pricing/details/blockchain-service).
 * Bouw uw eerste app met de [Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
 * Azure Blockchain VSCode-extensie [gebruikershandleiding](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

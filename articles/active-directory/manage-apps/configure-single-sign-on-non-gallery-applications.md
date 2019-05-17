@@ -1,57 +1,69 @@
 ---
-title: Eenmalige aanmelding - niet-galerietoepassingen - Azure Active Directory | Microsoft Docs
-description: Eenmalige aanmelding (SSO) configureren voor niet-galerietoepassingen in Azure Active Directory (Azure AD)
+title: Eenmalige aanmelding - niet-galerietoepassingen - Microsoft identity-platform | Microsoft Docs
+description: Eenmalige aanmelding (SSO) configureren voor niet-galerietoepassingen in Microsoft identity-platform (Azure AD)
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f55de2d081f12f1bddf7e68a795133c4b394823
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291991"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824989"
 ---
-# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Single sign-on bij niet-galerietoepassingen in Azure Active Directory configureren
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Single sign-on bij niet-galerietoepassingen in Microsoft identity-platform configureren
 
-In dit artikel gaat over een functie waarmee beheerders het configureren van eenmalige aanmelding voor toepassingen die niet aanwezig in de app-galerie van Azure Active Directory *zonder code te schrijven*. Als u in plaats daarvan voor richtlijnen voor ontwikkelaars over het integreren van aangepaste apps met Azure AD via de programmacode, Zie [Verificatiescenario's voor Azure AD](../develop/authentication-scenarios.md).
+In dit artikel gaat over een functie waarmee beheerders configureren eenmalige aanmelding voor toepassingen is niet aanwezig in de Microsoft identity-platform-app-galerie *zonder code te schrijven*.
 
-De galerie met Azure Active Directory biedt een overzicht van toepassingen die bekend zijn bij het ondersteunen van een vorm van eenmalige aanmelding met Azure Active Directory, zoals beschreven in [in dit artikel](what-is-single-sign-on.md). Zodra u (als een IT-specialist of system integrator in uw organisatie) hebt gevonden die de toepassing dat u verbinding wilt maken, u kunt aan de slag door de stapsgewijze instructies die zijn gepresenteerd in Azure portal om in te schakelen eenmalige aanmelding.
+Als u in plaats daarvan voor richtlijnen voor ontwikkelaars over het integreren van aangepaste apps met Azure AD via de programmacode, Zie [Verificatiescenario's voor Azure AD](../develop/authentication-scenarios.md).
 
-Deze mogelijkheden zijn ook beschikbaar is, op basis van uw licentieovereenkomst. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/active-directory/) voor meer informatie. 
+De toepassingsgalerie van Microsoft identity-platform biedt een overzicht van toepassingen die bekend zijn bij het ondersteunen van een vorm van eenmalige aanmelding met Microsoft identity-platform, zoals beschreven in [in dit artikel](what-is-single-sign-on.md). Zodra u (als een IT-specialist of system integrator in uw organisatie) hebt gevonden die de toepassing dat u verbinding wilt maken, u kunt aan de slag door de stapsgewijze instructies die zijn gepresenteerd in Azure portal om in te schakelen eenmalige aanmelding.
 
+Deze mogelijkheden zijn ook beschikbaar is, op basis van uw licentieovereenkomst. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/active-directory/) voor meer informatie.
+
+- Self-service-integratie van een toepassing die gebruikmaken van een moderne protocol, zoals [OpenId Connect/OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) aan haar gebruikers verifiëren en verkrijgen van tokens voor [Microsoft Graph](https://graph.microsoft.com).
 - Self-service-integratie van toepassingen die ondersteuning biedt voor SAML 2.0 id-providers (SP geïnitieerde of IdP gestart)
 - Self-service-integratie van een webtoepassing die een op HTML gebaseerde aanmeldingspagina opgeven met behulp is [wachtwoord gebaseerde SSO](what-is-single-sign-on.md#password-based-sso)
 - Selfservice-verbinding van toepassingen die het protocol SCIM voor het inrichten van gebruikers gebruiken ([die hier worden beschreven](use-scim-to-provision-users-and-groups.md))
-- Koppelingen toevoegen aan elke toepassing in de [startprogramma voor Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [Azure AD-toegangspaneel](what-is-single-sign-on.md#linked-sso)
+- Koppelingen toevoegen aan elke toepassing in de [startprogramma voor Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [Azure AD-toegangspaneel](what-is-single-sign-on.md#linked-sign-on)
 
 Dit kunnen bijvoorbeeld niet alleen SaaS-toepassingen die u gebruikt, maar zijn niet nog is toegevoegd aan de galerie met Azure AD-toepassing, maar van derden webtoepassingen die uw organisatie is geïmplementeerd op servers die u, in de cloud of on-premises beheert.
 
-Deze mogelijkheden, ook wel bekend als *sjablonen voor app-integratie*, op standaarden gebaseerde verbindingspunten bieden voor apps die ondersteuning bieden voor SAML, SCIM of op formulieren gebaseerde verificatie en flexibele opties en instellingen voor opnemen compatibiliteit met een groot aantal toepassingen. 
+Deze mogelijkheden, ook wel bekend als *sjablonen voor app-integratie*, op standaarden gebaseerde verbindingspunten bieden voor apps die ondersteuning bieden voor SAML, SCIM of op formulieren gebaseerde verificatie en flexibele opties en instellingen voor opnemen compatibiliteit met een groot aantal toepassingen.
 
 ## <a name="adding-an-unlisted-application"></a>Toevoegen van een niet-vermelde toepassing
-Als u wilt verbinding maken met een toepassing met behulp van een app-integratie-sjabloon, moet u zich aanmelden bij de Azure-portal met uw Azure Active Directory administrator-account. Blader naar de **Active Directory > bedrijfstoepassingen > nieuwe toepassing > niet in de galerij toepassing** sectie, selecteer **toevoegen**, en vervolgens **toevoegen van een toepassing uit de galerie** .
 
-  ![Toepassing toevoegen](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
+Het Microsoft Identity-platform biedt twee methoden voor het registreren van toepassingen.
 
-In de app-galerie, kunt u een niet-vermelde app toevoegen door het selecteren van de **niet in de galerij toepassing** tegel die in de lijst met zoekresultaten wordt weergegeven als de gewenste app is niet gevonden. Na het invoeren van een naam voor uw toepassing, kunt u de opties voor eenmalige aanmelding en het gedrag configureren. 
+Een toepassing die gebruikmaakt van een moderne protocol, zoals [OpenId Connect/OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) om de gebruikers te verifiëren is geregistreerd met behulp van de [toepassingsregistratie Portal](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-register-an-app).
 
-**Snelle tip**:  Als een best practice, moet u de zoekfunctie gebruiken om te controleren om te zien als de toepassing bestaat al in de toepassingengalerie. Als de app wordt gevonden en de beschrijving eenmalige aanmelding noemt, wordt klikt u vervolgens de toepassing al ondersteund voor federatieve eenmalige aanmelding.
+Registratie van toepassingen die gebruikmaken van alle andere typen [verificatiemechanismen ondersteund](what-is-single-sign-on.md) , zoals de [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol gebruikt de **bedrijfstoepassingen** blade aan verbinding maken met zelf met het Microsoft Identity-Platform.
 
-  ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
+Als u wilt verbinding maken met een toepassing met behulp van een app-integratie-sjabloon, moet u zich aanmelden bij de Azure-portal met uw Microsoft identity platform administrator-account. Blader naar de **Active Directory > bedrijfstoepassingen > nieuwe toepassing > niet in de galerij toepassing** sectie, selecteer **toevoegen**, en vervolgens **toevoegen van een toepassing uit de galerie** .
+
+![Toepassing toevoegen](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
+
+In de app-galerie, kunt u een niet-vermelde app toevoegen door het selecteren van de **niet in de galerij toepassing** tegel die in de lijst met zoekresultaten wordt weergegeven als de gewenste app is niet gevonden. Na het invoeren van een naam voor uw toepassing, kunt u de opties voor eenmalige aanmelding en het gedrag configureren.
+
+> [!TIP]
+> Als een best practice, moet u de zoekfunctie gebruiken om te controleren om te zien als de toepassing bestaat al in de toepassingengalerie. Als de app wordt gevonden en de beschrijving eenmalige aanmelding noemt, wordt klikt u vervolgens de toepassing al ondersteund voor federatieve eenmalige aanmelding.
+
+![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
 Toevoegen van een toepassing op deze manier biedt een vergelijkbare ervaring met de beschikbaar voor vooraf geïntegreerde toepassingen. Selecteer eerst **configureren Single Sign-On** of klik op **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing. Het volgende scherm geeft de opties voor het configureren van eenmalige aanmelding. De opties worden in de volgende secties van dit artikel beschreven.
   
 ![Configuratie-opties](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
 
 ## <a name="saml-based-single-sign-on"></a>Eenmalige aanmelding op basis van SAML
+
 Selecteer deze optie om te configureren op basis van SAML-verificatie voor de toepassing. Dit is vereist dat de toepassing SAML 2.0 ondersteunt. U dient informatie te verzamelen over het gebruik van de SAML-mogelijkheden van de toepassing voordat u doorgaat. Voer de volgende secties voor het configureren van eenmalige aanmelding in tussen de toepassing en Azure AD.
 
 ### <a name="enter-basic-saml-configuration"></a>Voer de SAML-basisconfiguratie
@@ -60,12 +72,12 @@ Als u Azure AD instelt, voer de basisconfiguratie van SAML. U kunt handmatig de 
 
   ![Litware domein en URL 's](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **Meld u URL (SP geïnitieerde alleen)** – wanneer de gebruiker naartoe om aan te melden bij deze toepassing. Als de toepassing is geconfigureerd voor het uitvoeren van service provider geïnitieerde eenmalige aanmelding, en wanneer een gebruiker naar deze URL navigeert, de serviceprovider naar Azure AD om te verifiëren en meld u aan de gebruiker in de benodigde omleiding doet. Als dit veld is ingevuld, klikt u vervolgens Azure AD gebruikt deze URL om de toepassing uit Office 365 en Azure AD-Toegangsvenster te starten. Als dit veld wordt weggelaten, wordt de id-provider in plaats daarvan door Azure AD uitvoeren wordt-aanmelding wordt gestart wanneer de app wordt gestart vanuit Office 365, de Azure AD-Toegangsvenster, of vanuit de Azure AD eenmalige aanmeldings-URL (kan worden gekopieerd vanaf het tabblad Dashboard).
+- **Meld u URL (SP geïnitieerde alleen)** – wanneer de gebruiker zich aanmeldt bij deze toepassing gaat. Als de toepassing is geconfigureerd voor het uitvoeren van service provider geïnitieerde eenmalige aanmelding, en wanneer een gebruiker naar deze URL navigeert, de serviceprovider naar Azure AD om te verifiëren en meld u aan de gebruiker de benodigde omleiding doet. Als dit veld is ingevuld, klikt u vervolgens Azure AD gebruikt deze URL om de toepassing uit Office 365 en Azure AD-Toegangsvenster te starten. Als dit veld wordt weggelaten, wordt de id-provider in plaats daarvan door Azure AD uitvoeren wordt-aanmelding wordt gestart wanneer de app wordt gestart vanuit Office 365, de Azure AD-Toegangsvenster, of vanuit de Azure AD eenmalige aanmeldings-URL (kan worden gekopieerd vanaf het tabblad Dashboard).
 - **Id** -moet uniek zijn voor de toepassing waarvoor eenmalige aanmelding wordt geconfigureerd. U vindt deze waarde als het element verlener in de AuthRequest (SAML-aanvraag) die is verzonden door de toepassing. Deze waarde wordt ook weergegeven als de **entiteit-ID** in alle SAML-metagegevens geleverd door de toepassing. Controleer de SAML-documentatie voor meer informatie over wat de entiteit-ID of doelgroep waarde is van de toepassing. 
 
     Hier volgt een voorbeeld van hoe de id of de uitgever wordt weergegeven in de SAML-aanvraag verzonden door de toepassing naar Azure AD:
 
-    ```
+    ```XML
     <samlp:AuthnRequest
     xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
     ID="id6c1c178c166d486687be4aaf5e482730"
@@ -86,7 +98,7 @@ Als u Azure AD instelt, voer de basisconfiguratie van SAML. U kunt handmatig de 
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-Zie voor meer informatie, [SAML 2.0-verificatieaanvragen en antwoorden die ondersteuning biedt voor Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
+Zie voor meer informatie, [SAML 2.0-verificatieaanvragen en antwoorden die ondersteuning biedt voor Microsoft identity-platform (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
 
 
 ### <a name="review-or-customize-the-claims-issued-in-the-saml-token"></a>Controleren of de claims die zijn uitgegeven in het SAML-token aanpassen
@@ -100,11 +112,9 @@ U kunt weergeven of bewerken van de claims die zijn verzonden in het SAML-token 
 Er zijn twee redenen waarom u mogelijk de uitgegeven claims in het SAML-token bewerken:
 
 - De toepassing is naar een andere set claim URI's is vereist of claimwaarden geschreven.
-- Uw toepassing is geïmplementeerd op een manier die de claim NameIdentifier dan de gebruikersnaam (AKA gebruiker principal name) die zijn opgeslagen in Azure Active Directory vereist. 
+- Uw toepassing is geïmplementeerd op een manier die vereist dat de claim NameIdentifier dan de gebruikersnaam (dat wil zeggen, UPN) die zijn opgeslagen in Microsoft identity-platform.
 
 Zie voor meer informatie, [in het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen](./../develop/../develop/active-directory-saml-claims-customization.md). 
-
-
 
 ### <a name="review-certificate-expiration-data-status-and-email-notification"></a>Certificaat verlopen gegevens, de status en e-mailmelding
 
@@ -120,7 +130,7 @@ Controleer of dat het certificaat heeft:
 - De status van actieve. Als de status niet actief is, wijzigt u de status actief. U wijzigt de status, Controleer **Active** en sla vervolgens de configuratie. 
 - De juiste meldingse-mail. Als het actieve certificaat in de buurt van de vervaldatum is wordt Azure AD een melding verzenden naar het e-mailadres dat is geconfigureerd in dit veld.  
 
-Zie voor meer informatie, [beheren van certificaten voor federatieve eenmalige aanmelding in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
+Zie voor meer informatie, [beheren van certificaten voor federatieve eenmalige aanmelding in Microsoft identity-platform](manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="set-up-target-application"></a>Doeltoepassing instellen
 
@@ -145,7 +155,7 @@ Een gebruiker toewijst, kunnen Azure AD om uit te geven van een token voor de ge
 
 ### <a name="test-the-saml-application"></a>De SAML-toepassing testen
 
-Voordat u de SAML-toepassing test, moet u hebben de toepassing met Azure AD instellen en gebruikers of groepen toegewezen aan de toepassing. Als u wilt testen van de SAML-aanvraag, Zie [fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+Voordat u de SAML-toepassing test, moet u hebben de toepassing met Azure AD instellen en gebruikers of groepen toegewezen aan de toepassing. Als u wilt testen van de SAML-aanvraag, Zie [fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Microsoft identity-platform](../develop/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="password-single-sign-on"></a>Wachtwoord eenmalige aanmelding
 
@@ -169,6 +179,7 @@ Na het selecteren van **volgende**, wordt u gevraagd om in te voeren van de URL 
 >
 
 ## <a name="related-articles"></a>Gerelateerde artikelen
+
 - [In het SAML-Token voor vooraf geïntegreerde Apps uitgegeven Claims aanpassen](../develop/active-directory-saml-claims-customization.md)
 - [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](../develop/howto-v1-debug-saml-sso-issues.md)
-
+- [Microsoft identity-platform (Azure Active Directory voor ontwikkelaars](https://aka.ms/aaddev)

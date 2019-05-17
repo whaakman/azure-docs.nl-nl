@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920497"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823570"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -163,10 +163,15 @@ De volgende beheerdersrollen zijn beschikbaar:
   * Beheerders in de andere services buiten Azure AD, zoals Exchange Online, Office-beveiliging en Compliancecentrum en HR-systemen.
   * Niet-beheerders, zoals leidinggevenden, juridische afdeling en werknemers van human resources die mogelijk toegang heeft tot gevoelige of persoonlijke informatie.
 
+
+  > [!NOTE]
+  > Beheerdersmachtigingen overdragen via subsets van gebruikers en beleidsregels toepassen op een subset van gebruikers er mogelijk is met [Beheereenheden (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+
   > [!NOTE]
   > Deze rol heette vroeger Microsoft Azure "wachtwoordbeheerder" in [Azure-portal](https://portal.azure.com/). We zijn de naam ervan wijzigen in 'Helpdesk-beheerder' zodat deze overeenkomen met de naam ervan in Azure AD PowerShell, Azure AD Graph API en Microsoft Graph API. Voor een korte periode wordt we de naam gewijzigd in '(wachtwoord) Helpdeskbeheerder' in Azure-portal voordat de wijziging door te 'Helpdesk-beheerder'.
-  >
-  
+
+
 * **[Power BI Administrator](#power-bi-service-administrator)**: Gebruikers met deze rol hebben algemene machtigingen in Microsoft Online Power BI, wanneer de service aanwezig is, evenals de mogelijkheid om ondersteuningstickets te beheren en de servicestatus te controleren. Meer informatie op [inzicht in de Power BI-beheerdersrol](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als ' Power BI-servicebeheerder '. ' Power BI-beheerder ' is in de [Azure-portal](https://portal.azure.com).
@@ -330,28 +335,28 @@ Toegestaan wilt weergeven, instellen en opnieuw instellen van verificatie method
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="b2c-user-flow-administrator"></a>B2C-Gebruikerbeheerder stroom
+### <a name="b2c-user-flow-administrator"></a>B2C User Flow Administrator
 Maken en beheren van alle aspecten van de gebruikersstromen.
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.b2c/userFlows/allTasks | Lees en gebruikersstromen configureren in Azure Active Directory B2C. |
 
-### <a name="b2c-user-flow-attribute-administrator"></a>Stroom B2C-kenmerk Gebruikerbeheerder
+### <a name="b2c-user-flow-attribute-administrator"></a>B2C User Flow Attribute Administrator
 Maken en beheren van het kenmerkschema beschikbaar voor alle gebruikersstromen.
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.b2c/userAttributes/allTasks | Lees en gebruikerskenmerken configureren in Azure Active Directory B2C. |
 
-### <a name="b2c-ief-keyset-administrator"></a>B2C IEF sleutelset beheerder
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF Keyset Administrator
 Geheimen voor Federatie en versleuteling in de Identity-Ervaringsframework beheren.
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.b2c/trustFramework/keySets/allTasks | Lees en configureren van sleutel sets in Azure Active Directory B2C. |
 
-### <a name="b2c-ief-policy-administrator"></a>B2C IEF beleid beheerder
+### <a name="b2c-ief-policy-administrator"></a>B2C IEF Policy Administrator
 Maken en beheren van framework vertrouwensbeleid in de Identiteitservaring-Framework.
 
 | **Acties** | **Beschrijving** |

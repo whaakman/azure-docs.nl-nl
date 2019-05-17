@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: dekapur
-ms.openlocfilehash: 5657ac9f10c42c2201641c9af447b7ad2e6a3507
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 99882bd23d7b94afc550247172e5b70deb23bec9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079013"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791400"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Veelgestelde vragen over Azure Container Instances
 
@@ -77,7 +77,7 @@ Nog niet. Dit zijn op dit moment de maximumwaarden voor een containergroep. Neem
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>Wanneer worden ACI in een bepaalde regio?
 
-Huidige regionale beschikbaarheid wordt gepubliceerd [hier](container-instances-region-availability.md#availability---general), en actuele informatie is beschikbaar via de [mogelijkheden](/rest/api/container-instances/listcapabilities) API. Als u een vereiste voor een specifieke regio hebt, neem dan contact op met ondersteuning voor Azure.
+Huidige regionale beschikbaarheid wordt gepubliceerd [hier](container-instances-region-availability.md#availability---general). Als u een vereiste voor een specifieke regio hebt, neem dan contact op met ondersteuning voor Azure.
 
 ## <a name="features-and-scenarios"></a>Functies en scenario 's
 
@@ -89,7 +89,7 @@ Schalen is momenteel niet beschikbaar voor containers of groepen met containers.
 
 U kunt containergroepen in een Azure-netwerk van uw keuze implementeren en privé-IP's aan de containergroepen voor het routeren van verkeer binnen het VNet via uw Azure-resources overdragen. Implementatie van de containergroep van een in een virtueel netwerk is momenteel in preview en sommige aspecten van deze functie kunnen wijzigen voordat de algemene beschikbaarheid (GA). Zie [beperkingen bekijken](container-instances-vnet.md#preview-limitations) voor actuele informatie.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 
 ### <a name="when-does-the-meter-start-running"></a>Wanneer begint de meter uitgevoerd?
 

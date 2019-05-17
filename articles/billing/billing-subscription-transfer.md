@@ -2,41 +2,36 @@
 title: Azure-abonnement overdragen aan een ander account | Microsoft Docs
 description: Hierin wordt beschreven hoe u een Azure-abonnement overdragen naar een andere gebruiker, en enkele veelgestelde vragen (FAQ) over het proces
 keywords: overdracht van abonnement voor azure-abonnement, azure-overdracht, azure-abonnement verplaatsen naar een andere eigenaar van het wijzigen abonnement-account, azure, azure-abonnement overdragen naar ander account
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing,top-support-issue
-ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605562"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826746"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement naar een ander account overdragen
 
 Overdracht van uw abonnement aan een andere gebruiker in het Accountcentrum te wijzigen van de accountbeheerder hand via abonnement eigendom. Zie voor informatie over het wijzigen van uw abonnement naar een andere aanbieding [uw Azure-abonnement overstappen naar een andere aanbieding](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
-> 
+>
 > Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant. U moet ook handmatig opnieuw maken van beheerde identiteiten voor Azure-resources. Zie voor meer informatie, [Veelgestelde vragen en bekende problemen met beheerde identiteiten](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Eigendom van een Azure-abonnement overdragen
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
->
->
+
 
 1. Meld u aan bij [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder. Als u wilt weten wie de accountbeheerder van het abonnement is, Zie [Veelgestelde vragen over](#faq).
 
@@ -51,7 +46,7 @@ Overdracht van uw abonnement aan een andere gebruiker in het Accountcentrum te w
 1. Geef de ontvanger op.
 
    > [!IMPORTANT]
-   > 
+   >
    > Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant. U moet ook handmatig opnieuw maken van beheerde identiteiten voor Azure-resources. Zie voor meer informatie, [Veelgestelde vragen en bekende problemen met beheerde identiteiten](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![In het dialoogvenster voor abonnement overdragen](./media/billing-subscription-transfer/image2.PNG)
@@ -68,22 +63,22 @@ Overdracht van uw abonnement aan een andere gebruiker in het Accountcentrum te w
 
 <a id="EA"></a>
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Het abonnement overdragen voor Enterprise Agreement (EA)-klanten
+## <a name="transfer-subscription-ownership-for-ea-customers"></a>Het abonnement overdragen voor EA-klanten
 
 De Enterprise-beheerder kan het eigendom van abonnementen binnen een inschrijving overdragen. Als u wilt beginnen, Zie [accounteigendom Transfer](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in de EA-portal.
 
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Volgende stappen na de eigendom van een abonnement accepteren
+## <a name="next-steps-after-accepting-ownership"></a>Volgende stappen na de eigendom accepteren
 
 1. U bent nu de accountbeheerder. Controleren en bijwerken van de servicebeheerder, Co-beheerders en andere RBAC-rollen. Zie voor meer informatie, [toevoegen of wijzigen Azure-abonnementbeheerders](billing-add-change-azure-subscription-administrator.md) en [toegang met RBAC en de Azure-portal beheren](../role-based-access-control/role-assignments-portal.md).
 1. Referenties van de update die is gekoppeld aan services van dit abonnement met inbegrip van:
    1. Van beheercertificaten die aan de gebruiker beheerdersrechten voor resources-abonnement. Zie voor meer informatie, [maken en uploaden van een certificaat voor Azure](../cloud-services/cloud-services-certs-create.md)
    1. Toegangssleutels voor services zoals opslag. Zie voor meer informatie, [over Azure storage-accounts](../storage/common/storage-create-storage-account.md)
-   1. Referenties voor externe toegang voor services zoals Azure Virtual Machines. 
+   1. Referenties voor externe toegang voor services zoals Azure Virtual Machines.
 1. Als u met een partner werkt, kunt u overwegen de partner-ID voor dit abonnement wordt bijgewerkt. U kunt bijwerken de partner-ID in de [Azure-portal](https://portal.azure.com).
 
 <a id="supported"></a>
 
-## <a name="whats-supported"></a>Wat wordt ondersteund:
+## <a name="supported-offers"></a>Ondersteunde aanbiedingen
 
 Self-service voor stroomactiviteitvoortgang abonnementsoverdracht is beschikbaar voor de aanbiedingen of abonnementstypen die worden vermeld in de volgende tabel. U kunt een gratis proefversie op dit moment niet overdragen of [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) abonnementen. Zie voor een tijdelijke oplossing [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md). Om over te dragen van andere abonnementen, zoals [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) of ondersteuningsabonnementen, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -119,7 +114,12 @@ Al uw resources, zoals virtuele machines, schijven en websites worden overgedrag
 
 ### <a id="no-button"></a> Waarom zie ik niet de knop 'Abonnement overdragen'?
 
-Self-service voor stroomactiviteitvoortgang abonnementsoverdracht is helaas niet beschikbaar voor uw aanbieding of land/regio. Om over te dragen van uw abonnement, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Self-service voor stroomactiviteitvoortgang abonnementsoverdracht is helaas niet beschikbaar voor uw aanbieding. Bekijk de lijst met ondersteunde aanbiedingen in de [ondersteund aanbiedingen](#supported-offers) sectie van dit artikel.
+
+### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Kan ik overdragen aan een account in een ander land?
+
+Azure, kunnen helaas geen cross land overdracht. Om over te dragen van uw abonnement cross-land, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Resulteert overdracht van het abonnement in een service-uitvaltijd?
 
@@ -175,3 +175,7 @@ Als u niet kan het abonnement overdragen, kunt u handmatig uw resources migreren
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Controleren en bijwerken van de servicebeheerder, Co-beheerders en andere RBAC-rollen. Zie voor meer informatie, [toevoegen of wijzigen Azure-abonnementbeheerders](billing-add-change-azure-subscription-administrator.md) en [toegang met RBAC en de Azure-portal beheren](../role-based-access-control/role-assignments-portal.md).

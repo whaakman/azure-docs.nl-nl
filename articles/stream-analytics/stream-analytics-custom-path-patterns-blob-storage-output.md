@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771769"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789427"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics aangepaste blob partitioneren van uitvoer
 
@@ -26,7 +26,7 @@ Aangepast veld of invoerkenmerken aan de downstream-gegevensverwerking en rappor
 
 ### <a name="partition-key-options"></a>De opties voor partitie
 
-De partitiesleutel of kolomnaam, die wordt gebruikt voor het partitioneren van invoergegevens mag alfanumerieke tekens met afbreekstreepjes, onderstrepingstekens en spaties bevatten. Het is niet mogelijk met gebruik van geneste velden als een partitiesleutel, tenzij gebruikt in combinatie met aliassen.
+De partitiesleutel of kolomnaam, die wordt gebruikt voor het partitioneren van invoergegevens mag alfanumerieke tekens met afbreekstreepjes, onderstrepingstekens en spaties bevatten. Het is niet mogelijk met gebruik van geneste velden als een partitiesleutel, tenzij gebruikt in combinatie met aliassen. De partitiesleutel moet NVARCHAR(MAX).
 
 ### <a name="example"></a>Voorbeeld
 
@@ -58,11 +58,11 @@ U ziet dat elke record in de blob heeft een **client_id** die overeenkomt met de
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData}  
-
+   * cluster1/{date}/{time}/{aFieldInMyData} 
+   
 2. Partitiesleutels zijn niet hoofdlettergevoelig, dus partitiesleutels, zoals 'John' en 'john' gelijk zijn. Expressies kunnen niet ook worden gebruikt als partitiesleutels. Bijvoorbeeld, **{columnA + columnB}** werkt niet.  
 
-3. Wanneer een invoerstroom uit records met de kardinaliteit van de sleutel van een partitie onder 8000 bestaat, worden de records wordt toegevoegd aan bestaande blobs en maken alleen nieuwe blobs wanneer dat nodig. Als de kardinaliteit van de ligt boven de 8000 er is geen garantie dat bestaande blobs worden geschreven naar en nieuwe blobs wordt niet worden gemaakt voor een willekeurig aantal records met dezelfde partitiesleutel.  
+3. Wanneer een invoerstroom uit records met de kardinaliteit van de sleutel van een partitie onder 8000 bestaat, worden de records wordt toegevoegd aan bestaande blobs en maken alleen nieuwe blobs wanneer dat nodig. Als de kardinaliteit van de ligt boven de 8000 er is geen garantie dat bestaande blobs worden geschreven naar en nieuwe blobs wordt niet worden gemaakt voor een willekeurig aantal records met dezelfde partitiesleutel.
 
 ## <a name="custom-datetime-path-patterns"></a>Aangepaste datum/tijd-padpatronen
 

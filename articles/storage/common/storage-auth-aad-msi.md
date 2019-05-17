@@ -9,12 +9,12 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507897"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787965"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Verifiëren van toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources
 
@@ -48,12 +48,12 @@ Om aanvragen te verifiëren op basis van Blob en Queue storage met een beheerde 
 
 De App-verificatie-clientbibliotheek beheert automatisch verificatie. De bibliotheek maakt gebruik van de referenties van de ontwikkelaar om te verifiëren tijdens de lokale ontwikkeling. Met de ontwikkelaarsreferenties van tijdens het ontwikkelen van lokale is veiliger omdat u niet hoeft te maken van Azure AD-referenties of referenties tussen ontwikkelaars delen. Wanneer de oplossing later wordt geïmplementeerd naar Azure, schakelt u de bibliotheek automatisch met referenties van de toepassing.
 
-Voor het gebruik van de App-verificatiebibliotheek in een Azure Storage-toepassing, installeert u de meest recente preview-pakket van [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), evenals de meest recente versie van de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Voeg de volgende **met behulp van** instructies gebruikt om uw code uit:
+Voor het gebruik van de App-verificatiebibliotheek in een Azure Storage-toepassing, installeert u de meest recente preview-pakket van [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), evenals de meest recente versie van de [Azure Storage algemene-clientbibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) en de [Azure Blob storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Voeg de volgende **met behulp van** instructies gebruikt om uw code uit:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 ```
 
 De App-verificatiebibliotheek biedt de **AzureServiceTokenProvider** klasse. Een exemplaar van deze klasse kan worden doorgegeven aan een callbackfunctie die wordt een token opgehaald en vervolgens vernieuwt het token voordat deze verloopt.

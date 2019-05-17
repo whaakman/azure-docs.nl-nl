@@ -3,8 +3,8 @@ title: Problemen met aanmelden bij een toepassing buiten de galerie geconfiguree
 description: Richtlijnen voor de specifieke problemen die zich voordoen kunnen bij het aanmelden bij een toepassing die is geconfigureerd voor SAML gebaseerde federatieve eenmalige aanmelding met Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440195"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825441"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing buiten de galerie geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -58,7 +58,7 @@ Zorg ervoor dat de `Issuer` kenmerk in de SAML-aanvraag overeenkomt met de id-wa
 
 7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-8. Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. Controleer of dat de waarde in het tekstvak id overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
+8. Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. Controleer of dat de waarde in het tekstvak id overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres op dat komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing. 
 
@@ -88,7 +88,7 @@ Zorg ervoor dat de `Issuer` kenmerk in de SAML-aanvraag overeenkomt met de id-wa
 
 7. Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-8. Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. Controleer of werk de waarde in het tekstvak de antwoord-URL zodat deze overeenkomen met de `AssertionConsumerServiceURL` waarde in de SAML-aanvraag.    
+8. Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. Controleer of werk de waarde in het tekstvak de antwoord-URL zodat deze overeenkomen met de `AssertionConsumerServiceURL` waarde in de SAML-aanvraag.    
     
 Nadat u de antwoord-URL-waarde in Azure AD hebt bijgewerkt en deze overeenkomt met de waarde die door de toepassing in de SAML-aanvraag is verzonden, zou het mogelijk om aan te melden bij de toepassing.
 
@@ -188,7 +188,7 @@ Zorg ervoor dat de `Issuer` kenmerk in de SAML-aanvraag overeenkomt met de id-wa
 
 1.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-1.  Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. Controleer of dat de waarde in het tekstvak id overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
+1.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. Controleer of dat de waarde in het tekstvak id overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
 
 ## <a name="certificate-or-key-not-configured"></a>Certificaat of de sleutel niet geconfigureerd
 
@@ -222,7 +222,7 @@ Als u wilt verwijderen en maak een nieuw certificaat, de volgende stappen uit te
 
 9. Selecteer vervaldatum. Klik vervolgens op **opslaan.**
 
-10. Controleer **nieuw certificaat activeren** voor de onderdrukking van het actieve certificaat. Klik vervolgens op **opslaan** aan de bovenkant van het deelvenster en accepteer om het rollovercertificaat te activeren.
+10. Controleer **nieuw certificaat activeren** voor de onderdrukking van het actieve certificaat. Klik vervolgens op **Opslaan** boven in het deelvenster en accepteer het rollovercertificaat om het te activeren.
 
 11. Onder de **SAML-handtekeningcertificaat** sectie, klikt u op **verwijderen** verwijderen van de **ongebruikt** certificaat.
 
@@ -236,7 +236,7 @@ Er is geen Azure AD kunnen identificeren van de SAML-aanvraag in de URL-paramete
 
 **Resolutie**
 
-De toepassing nodig heeft voor het verzenden van de SAML-aanvraag die is gecodeerd in de location-header met behulp van HTTP omleiden binding. Voor meer informatie over het implementeren, leest u de sectie HTTP omleiden Binding in de [SAML-protocol-specificatiedocument](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+De toepassing nodig heeft voor het verzenden van de SAML-aanvraag die is gecodeerd in de location-header met behulp van HTTP omleiden binding. Lees de sectie over binding voor HTTP-omleidingen in het [specificatiedocument over het SAML-protocol](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
 ## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD wordt het token verzonden naar een onjuiste eindpunt
 
@@ -264,7 +264,7 @@ Verwijder de ongebruikte antwoord-URL's geconfigureerd voor de toepassing.
 
 6.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)**, niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
+7.  Nadat de toepassing is geladen, opent u **Standaard SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)**, niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

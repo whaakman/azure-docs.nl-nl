@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730138"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605700"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Netwerk indringers detecteren met Network Watcher en open-sourcehulpprogramma 's
 
@@ -255,7 +255,7 @@ U kunt ook uw eigen visualisaties en dashboards die zijn afgestemd op uw eigen n
 
 Het voorbeelddashboard van biedt verschillende visualisaties van de waarschuwing zich Suricata:
 
-1. Waarschuwingen op basis van GeoIP – een map waarin de verdeling van waarschuwingen op basis van het land van oorsprong op basis van geografische locatie (bepaald door IP)
+1. Waarschuwingen op basis van GeoIP – een map waarin de verdeling van waarschuwingen door hun land/de regio van herkomst op basis van geografische locatie (bepaald door IP)
 
     ![geo-ip][3]
 

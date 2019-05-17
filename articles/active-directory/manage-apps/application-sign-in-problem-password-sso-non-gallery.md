@@ -3,8 +3,8 @@ title: Problemen met aanmelden bij een toepassing in Azure AD-galerie geconfigur
 description: Probleemgebieden die richtlijnen bieden voor het oplossen van problemen met aanmelden bij Azure AD-galerietoepassingen die zijn geconfigureerd voor eenmalige aanmelding wachtwoord wordt beschreven
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11411a780333268e19d53ea2bd472fe36bc0eb62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d95703166c3e1ed8034ea8c0d813c54759603fce
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437878"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825051"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemen met aanmelden bij een Azure AD-galerie-toepassing die is geconfigureerd voor eenmalige aanmelding wachtwoord
 

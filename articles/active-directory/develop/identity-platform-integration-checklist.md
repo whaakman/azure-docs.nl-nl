@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540164"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823352"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Controlelijst voor Microsoft identity-platform-integratie
 
@@ -31,13 +31,13 @@ Als u net begint, lees de [documentatie](index.yml) voor meer informatie over de
 
 ## <a name="testing-your-integration"></a>Uw integratie testen
 
-Gebruik de volgende controlelijst om ervoor te zorgen dat uw toepassing daadwerkelijk is geïntegreerd met de [identiteitsplatform van Microsoft](https://docs.microsoft.com/legal/mdsa).
+Gebruik de volgende controlelijst om ervoor te zorgen dat uw toepassing daadwerkelijk is geïntegreerd met de [identiteitsplatform van Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 
 ### <a name="basics"></a>Basics
 
 |   |   |
 |---|---|
-| ![Selectievakje](./media/active-directory-integration-checklist/checkbox-two.svg) | Lees de [voor Microsoft-Platform](https://docs.microsoft.com/legal/mdsa). Zorg ervoor dat uw toepassing aan de voorwaarden die worden beschreven voldoet als ze zijn ontworpen om gebruikers en het platform te beschermen. |
+| ![Selectievakje](./media/active-directory-integration-checklist/checkbox-two.svg) | Lees de [voor Microsoft-Platform](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Zorg ervoor dat uw toepassing aan de voorwaarden die worden beschreven voldoet als ze zijn ontworpen om gebruikers en het platform te beschermen. |
 
 ### <a name="ownership"></a>Eigendom
 

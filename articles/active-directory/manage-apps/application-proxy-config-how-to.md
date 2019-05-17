@@ -1,10 +1,10 @@
 ---
 title: Het configureren van een toepassing toepassingsproxy | Microsoft Docs
-description: Informatie over het maken van een configureren een APplication Proxy-toepassing in een paar eenvoudige stappen
+description: Meer informatie over het maken en configureren van een toepassing APplication Proxy in een paar eenvoudige stappen
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f22f064043467bf52c23cab547a7e6c8ba2205
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443171"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825935"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Een toepassing Application Proxy configureren
 
-In dit artikel kunt u meer informatie over het configureren van een Application Proxy-toepassing in Azure AD om beschikbaar te stellen van uw on-premises toepassingen naar de cloud.
+In dit artikel helpt u te begrijpen hoe u een toepassing Application Proxy in Azure AD om beschikbaar te stellen van uw on-premises toepassingen naar de cloud wilt configureren.
 
 ## <a name="recommended-documents"></a>Aanbevolen documenten 
 

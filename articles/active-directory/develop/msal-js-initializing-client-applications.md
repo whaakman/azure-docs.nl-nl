@@ -4,7 +4,7 @@ description: Meer informatie over het initialiseren van clienttoepassingen met b
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7990566ca9cd93e79b8356cfd15fda03a7469695
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138301"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544030"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Client-toepassingen met behulp van MSAL.js initialiseren
 In dit artikel wordt beschreven hoe u bij het initialiseren van Microsoft Authentication Library voor JavaScript (MSAL.js) een exemplaar van een gebruikersagent-toepassing. De toepassing van de gebruikersagent is een vorm van openbare clienttoepassing waarin de clientcode wordt uitgevoerd in een gebruikersagent, zoals een webbrowser. Deze clients geen geheimen, opgeslagen omdat de context van de browser openlijk toegankelijk is. Lees voor meer informatie over de client toepassingstypen en opties voor toepassingsconfiguraties de [overzicht](msal-client-applications.md).

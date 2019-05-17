@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: a9d6396cab560a201b98497e787af4b6c7c2dabb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560817"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518138"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>De Video Indexer-editor gebruiken om projecten te maken
 
@@ -95,7 +96,7 @@ Als u op de pijl-omlaag aan de rechterkant van elke video klikt, wordt u opent u
 > [!TIP]
 > Als u te selecteren en uw clips bestellen, kunt u de video in de speler aan de rechterkant van de pagina bekijken. 
 
-![Preview](./media/video-indexer-view-edit/preview.png)
+![Voorbeeld](./media/video-indexer-view-edit/preview.png)
 
 Houd er rekening mee om op te slaan van het project wanneer u wijzigingen door te selecteren **opslaan project**. 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/06/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4f3f43ba063ed25389860183576c4dbd94e2bfcd
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466333"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790131"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Zelfstudie: Controle van gatewayservicestatus gebruiken in Azure Deployment Manager (preview-versie)
 
@@ -59,7 +59,7 @@ In de productieomgeving, moet u doorgaans een of meer controle providers gebruik
 De volgende twee bestanden worden gebruikt voor het implementeren van de Azure-functie. U hoeft niet te deze bestanden downloaden naar de zelfstudie te volgen.
 
 * Een Resource Manager-sjabloon bevindt zich op [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). U implementeert deze sjabloon voor het maken van een Azure-functie.  
-* Een zip-bestand van de broncode van de Azure-functie [ https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Dit zip met de naam wordt aangeroepen door de Resource Manager-sjabloon.
+* Een zip-bestand van de broncode van de Azure-functie [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Dit zip met de naam wordt aangeroepen door de Resource Manager-sjabloon.
 
 Selecteer voor het implementeren van de Azure-functie, **uitproberen** Azure Cloud shell openen en plak het volgende script in de shell-venster.  Als u de code, met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**. 
 

@@ -2,26 +2,26 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 05/06/2019
 ms.author: tamram
-ms.openlocfilehash: 99314538f90404d7c2b72da0dd2da2d8ac60a08a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 213ecee34df46c0a408e7034a07ab864c96b340b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803786"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65751555"
 ---
 | Resource | Standard-bestandsshares | Premium-bestandsshares (preview) |
 |----------|---------------|------------------------------------------|
 | Minimale grootte van een bestandsshare | Geen minimum; betalen naar gebruik | 100 giB; ingericht |
-| Maximale grootte van een bestandsshare | 5 TiB | 5 TiB (openbare preview), 100 TiB (beperkte openbare preview-versie) |
+| Maximale grootte van een bestandsshare | 5 TiB | 100 TiB |
 | Maximale grootte van een bestand in een bestandsshare | 1 TiB | 1 TiB |
 | Maximum aantal bestanden in een bestandsshare | Geen limiet | Geen limiet |
-| Maximale IOPS per share | 1000 IOPS | 5.120 basis IOPS met 15,360 burst limiet (openbare preview), 100.000 IOPS (beperkte openbare preview-versie)|
+| Maximale IOPS per share | 1000 IOPS | 100.000 IOPS |
 | Maximum aantal opgeslagen toegangsbeleid per bestand delen | 5 | 5 |
 | Doeldoorvoer voor het delen van één bestand | Maximaal 60 MiB/sec | Premium-bestand delen inkomend en uitgaand verkeer waarden|
-| Maximum aantal uitgaande voor het delen van één bestand | Zie doeldoorvoer van standaard-bestand delen | Tot 368 MiB/s (openbare preview), tot 6,204 MiB/s (beperkte openbare preview-versie) |
-| Maximale ingangslimiet voor het delen van één bestand | Zie doeldoorvoer van standaard-bestand delen | Tot 245 MiB/s (openbare preview), tot 4,136 MiB/s (beperkte openbare preview-versie) |
+| Maximum aantal uitgaande voor het delen van één bestand | Zie doeldoorvoer van standaard-bestand delen | Tot 6,204 MiB/s |
+| Maximale ingangslimiet voor het delen van één bestand | Zie doeldoorvoer van standaard-bestand delen | Tot 4,136 MiB/s |
 | Maximum aantal open ingangen per bestand | 2000 open ingangen | 2000 open ingangen |
 | Maximum aantal momentopnamen van shares | 200 momentopnamen | 200 momentopnamen |
 | Lengte van maximaal object (mappen en bestanden) | 2.048 tekens | 2.048 tekens |

@@ -1,7 +1,7 @@
 ---
 title: 'Classificatie: Kredietrisico voorspellen'
 titleSuffix: Azure Machine Learning service
-description: In dit voorbeeldexperiment visuele interface ziet u hoe u binaire classificatie op om te voorspellen op basis van informatie in een kredietaanvraag kredietrisico uitvoeren.
+description: Meer informatie over het bouwen van een machine learning-classificatie zonder te hoeven schrijven van één regel code met behulp van de visuele interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d4ec3c71aaed6bddb012fb17ee5bb96da00cd76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028528"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789402"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Voorbeeld 3 - indeling: Kredietrisico voorspellen
 
-In dit voorbeeldexperiment visuele interface ziet u hoe u binaire classificatie op om te voorspellen op basis van informatie in een kredietaanvraag kredietrisico uitvoeren. Het laat zien hoe u kunt uitvoeren van eenvoudige classificatie, met inbegrip van bewerkingen voor de verwerking van gegevens, de gegevensset splitsen in trainings- en testset sets, het model te trainen, de testgegevensset te beoordelen en evalueren van de voorspellingen.
+Meer informatie over het bouwen van een machine learning-classificatie zonder te hoeven schrijven van één regel code met behulp van de visuele interface. In dit voorbeeld traint een **twee-class boosted-beslisboom** om te voorspellen tegoed risico (hoog of laag) op basis van tegoed toepassingsinformatie zoals kredietgeschiedenis, leeftijd en aantal creditcards te accepteren.
+
+Omdat we willen de vraag worden beantwoord "Waarvoor een?" Dit is een probleem classificatie genoemd. U kunt echter de dezelfde fundamentele procedure voor het aanpakken van elk type machine learning probleem, ongeacht of dit regressie, classificatie, clustering, enzovoort toepassen.
+
+Hier volgt de voltooide grafiek voor dit experiment:
+
+![Grafiek van het experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,7 +46,6 @@ De gegevensset bevat 1000 voorbeelden met 20 functies en 1 label. Elk voorbeeld 
 
 ## <a name="experiment-summary"></a>Samenvatting van experiment
 
-
 We stappen deze voor het maken van het experiment uitvoert:
 
 1. Sleep de module van de gegevensset Duits UCI creditcardgegevens in van het experimentcanvas.
@@ -50,11 +55,10 @@ We stappen deze voor het maken van het experiment uitvoert:
 1. Voeg een **Train Model** module. Verbinding maken met de classificatie van de vorige stap aan de linkerinvoerpoort van de **Train Model**. De trainingsset toevoegen (links-uitvoerpoort van de **Split Data**) aan de rechterinvoerpoort van de **Train Model**. De **Train Model** wordt de classificatie trainen.
 1. Voeg een **Score Model** module en maak verbinding de **Train Model** module toe. Voeg de testset (de juiste poort van de **Split Data**) naar de **Score Model**. De **Score Model** wordt de voorspellingen. U kunt de uitvoerpoort om te zien van de voorspellingen en de kansen positieve klasse selecteren.
 1. Voeg een **Evaluate Model** module en maak de beoordeelde gegevensset verbinding met de linkerinvoerpoort. Als u wilt zien van de evaluatieresultaten, selecteert u de uitvoerpoort van de **Evaluate Model** -module en selecteer **Visualize**.
-    
+
 Dit is de volledige experimentgrafiek:
 
 ![Grafiek van het experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
-
 
 ## <a name="results"></a>Resultaten
 

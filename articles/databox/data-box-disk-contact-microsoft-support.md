@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462324"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604454"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Open een ondersteuningsticket voor Azure Data Box 
 
@@ -22,13 +22,13 @@ In dit artikel is van toepassing op Azure Data Box en Azure Data Box-schijf, die
 * Het maken van een ondersteuningsaanvraag.
 * Over het beheren van een aanvraag ondersteuningslevenscyclus uit in de portal.
 
-## <a name="create-a-support-request"></a>Een ondersteuningsaanvraag maken
+## <a name="create-a-support-request"></a>Maak een ondersteuningsaanvraag
 
 De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
 
 1. Ga naar uw order voor een Data Box of Data Box-schijf. Navigeer naar **ondersteuning + probleemoplossing** sectie en klik vervolgens op **nieuwe ondersteuningsaanvraag**.
      
-    ![Nieuw ondersteuningsverzoek](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
+    ![Nieuwe ondersteuningsaanvraag](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
 2. In **nieuwe ondersteuningsaanvraag**, selecteer **basisbeginselen**. In **basisbeginselen**, de volgende stappen uit:
     

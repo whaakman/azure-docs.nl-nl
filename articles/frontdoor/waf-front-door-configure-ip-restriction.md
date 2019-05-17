@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 514c034c23eed3a87111331724f3a33104651a43
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514902"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523699"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>Een regel voor het IP-beperkingen configureren met web application firewall voor Azure voordeur (Preview)
  In dit artikel wordt beschreven hoe u IP-beperking regels in de Azure-web application firewall (WAF) voor de voordeur configureren met behulp van Azure CLI, Azure PowerShell of Azure Resource Manager-sjabloon.
@@ -137,24 +137,24 @@ Install-Module -Name Az.FrontDoor
 Een profiel voordeur maken door de instructies die worden beschreven in [Quick Start: Maak een profiel van de voordeur](quickstart-create-front-door.md)
 
 ### <a name="define-ip-match-condition"></a>IP-voorwaarde definiëren
-Gebruik de [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) opdracht voor het definiëren van een IP-voorwaarde voor overeenkomst. In het onderstaande voorbeeld, Vervang *ip-adres-bereik-1*, *ip-adres-bereik-2* met uw eigen bereik.
+Gebruik de [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) opdracht voor het definiëren van een IP-voorwaarde voor overeenkomst. In het onderstaande voorbeeld, Vervang *ip-adres-bereik-1*, *ip-adres-bereik-2* met uw eigen bereik.
 
 ```powershell
-  $IPMatchCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty IPMatch `
     -MatchValue ["ip-address-range-1", "ip-address-range-2"]
 ```
 Een IP-overeenkomst alle voorwaarde regel maken
 ```powershell
-  $IPMatchALlCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty Any
     
 ```
 
 ### <a name="create-a-custom-ip-allow-rule"></a>Maken van een aangepaste regel voor geven van IP
-   Gebruik de [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) opdracht voor het definiëren van een actie en stel een prioriteit. In het volgende voorbeeld worden aanvragen van client-IP-adressen die overeenkomen met de lijst worden toegestaan. 
+   Gebruik de [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) opdracht voor het definiëren van een actie en stel een prioriteit. In het volgende voorbeeld worden aanvragen van client-IP-adressen die overeenkomen met de lijst worden toegestaan. 
 
 ```powershell
   $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -175,10 +175,10 @@ Een blok alle IP-regel met een lagere prioriteit dan de regel voor geven van het
    ```
 
 ### <a name="configure-waf-policy"></a>WAF-beleid configureren
-Zoek de naam van de resourcegroep waarin de voordeur via `Get-AzResourceGroup`. Configureer vervolgens een WAF-beleid met de IP-blok regel met behulp van [New-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+Zoek de naam van de resourcegroep waarin de voordeur via `Get-AzResourceGroup`. Configureer vervolgens een WAF-beleid met de IP-blok regel met behulp van [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
-  $IPAllowPolicyExamplePS = New-AzFrontDoorFireWallPolicy `
+  $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
     -Name "IPRestrictionExamplePS" `
     -resourceGroupName <resource-group-name> `
     -Customrule $IPAllowRule $IPBlockAll `

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/16/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728d961961250aad1d06067e0264c6b90aca4915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65593833"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823392"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -81,8 +81,8 @@ De volgende tabel beschrijft de instellingen voor het beleid toegepast op gebrui
 
 | Eigenschap | Vereisten |
 | --- | --- |
-| Toegestane tekens |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> lege ruimte |
-| Zijn niet toegestaan |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Mag een punt-teken niet bevatten "." direct vóór de '\@ \" symbool ".</li></ul> |
+| Toegestane tekens |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>lege ruimte</li></ul> |
+| Zijn niet toegestaan |<ul><li>Unicode-tekens.</li><li> Mag een punt-teken niet bevatten "." direct vóór de '\@ \" symbool ".</li></ul> |
 | Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 256 tekens bestaan.</li><li>Moet drie van vier van de volgende opties:<ul><li>Kleine letters.</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>De symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
 | Duur van de wachtwoord-vervaldatum |<ul><li>Standaardwaarde: **90** dagen.</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet uit de Azure Active Directory-Module voor Windows PowerShell.</li></ul> |
 | Melding van wachtwoord-vervaldatum |<ul><li>Standaardwaarde: **14** dagen (voordat wachtwoord is verlopen).</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
@@ -99,7 +99,6 @@ Deze handleiding is van toepassing op andere providers, zoals Intune en Office 3
 
 > [!NOTE]
 > Alleen de wachtwoorden voor gebruikersaccounts die niet zijn gesynchroniseerd via adreslijstsynchronisatie kunnen worden geconfigureerd voor het niet is verlopen. Zie voor meer informatie over synchronisatie van directory [AD met Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Instellen of het wachtwoordbeleid controleren met behulp van PowerShell
 
@@ -157,7 +156,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
    ```
 
    > [!WARNING]
-   > Wachtwoorden is ingesteld op `-PasswordPolicies DisablePasswordExpiration` nog steeds leeftijd op basis van de `pwdLastSet` kenmerk. Als u de wachtwoorden nooit verlopen en gaat u 90 dagen door, de wachtwoorden zijn verlopen. Op basis van de `pwdLastSet` kenmerk, als u de vervaldatum om te wijzigen `-PasswordPolicies None`, alle wachtwoorden die u hebt een `pwdLastSet` ouder dan 90 dagen de gebruiker moet te wijzigen van de volgende keer dat ze zich aanmelden. Deze wijziging kan invloed hebben op een groot aantal gebruikers. 
+   > Wachtwoorden is ingesteld op `-PasswordPolicies DisablePasswordExpiration` nog steeds leeftijd op basis van de `pwdLastSet` kenmerk. Als u de wachtwoorden nooit verlopen en gaat u 90 dagen door, de wachtwoorden zijn verlopen. Op basis van de `pwdLastSet` kenmerk, als u de vervaldatum om te wijzigen `-PasswordPolicies None`, alle wachtwoorden die u hebt een `pwdLastSet` ouder dan 90 dagen de gebruiker moet te wijzigen van de volgende keer dat ze zich aanmelden. Deze wijziging kan invloed hebben op een groot aantal gebruikers.
 
 ## <a name="next-steps"></a>Volgende stappen
 

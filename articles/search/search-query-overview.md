@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 7ed675e4c6988cf4c1340613323440de55a36843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024473"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595976"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Opstellen van een query in Azure Search
 
@@ -122,7 +122,7 @@ Azure Search ondersteunt een breed scala aan typen query's.
 | Gefilterde zoeken | [OData-filterexpressie](query-odata-filter-orderby-syntax.md) en een van beide parser | Filterquery's een Booleaanse expressie geëvalueerd over alle *Filterbaar* velden in een index. In tegenstelling tot search, een filterquery komt overeen met de exacte inhoud van een veld, met inbegrip van de hoofdlettergevoeligheid voor tekenreeksvelden. Een ander verschil is dat de filterquery's worden uitgedrukt in OData-syntaxis. <br/>[Voorbeeld van een expressie filteren](search-query-simple-examples.md#example-3-filter-queries) |
 | Op geografische locaties zoeken | [Type Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) op het veld, filterexpressie en de parser | Coördinaten die zijn opgeslagen in een veld met een Edm.GeographyPoint worden gebruikt voor de 'in mijn buurt zoeken' of op basis van een kaart zoekbesturingselementen. <br/>[Voorbeeld van de geografische locaties zoeken](search-query-simple-examples.md#example-5-geo-search)|
 | Bereik zoeken | filterexpressie en eenvoudige parser | Bereik-query's zijn gebouwd met behulp van de filterparameter in Azure Search. <br/>[Voorbeeld van de Range-filter](search-query-simple-examples.md#example-4-range-filters) | 
-| [Intra veld filteren](query-lucene-syntax.md#bkmk_fields) | Zoekparameter en volledige-parser | Bouw een samengestelde query-expressie die gericht is op één veld. <br/>[Voorbeeld van de verkeersstroom binnen veld filteren](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [Fielded zoeken](query-lucene-syntax.md#bkmk_fields) | Zoekparameter en volledige-parser | Bouw een samengestelde query-expressie die gericht is op één veld. <br/>[Een voorbeeld van fielded zoekopdracht](search-query-lucene-examples.md#example-2-fielded-search) |
 | [fuzzy zoeken](query-lucene-syntax.md#bkmk_fuzzy) | Zoekparameter en volledige-parser | Komt overeen met op voorwaarden met een dergelijke constructie of spelling. <br/>[Een voorbeeld van fuzzy zoekopdracht](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [zoeken op nabijheid](query-lucene-syntax.md#bkmk_proximity) | Zoekparameter en volledige-parser | Hiermee zoekt u naar de voorwaarden die zich dicht bij elkaar in een document. <br/>[Voorbeeld van de zoekopdracht nabijheid](search-query-lucene-examples.md#example-4-proximity-search) |
 | [versterking](query-lucene-syntax.md#bkmk_termboost) | Zoekparameter en volledige-parser | Als deze bevat de boosted term, ten opzichte van andere gebruikers die niet worden gerangschikt op een hoger document. <br/>[Term Gradient boosting-voorbeeld](search-query-lucene-examples.md#example-5-term-boosting) |

@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: fc05f285b286bd0f036c583c154a40cf64e144d4
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b4c1de8edf04e15b540adeac01bcbf0cb1d1b8af
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522039"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65766930"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
 
@@ -295,6 +295,8 @@ De volgende functies zijn op de Build-conferentie 2019 vrijgegeven:
 * [Preview van V3 API-Migratiehandleiding](luis-migration-api-v3.md)
 * [Verbeterde analytics-dashboard](luis-how-to-use-dashboard.md)
 * [Verbeterde vooraf gemaakte domeinen](luis-reference-prebuilt-domains.md) 
+* [Lijst met dynamische entiteiten](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Externe entiteiten](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 ## <a name="next-steps"></a>Volgende stappen
 

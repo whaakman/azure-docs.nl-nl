@@ -1,5 +1,5 @@
 ---
-title: Afdwingen van naming-Groepsbeleid - Office 365-groepen - Azure Active Directory | Microsoft Docs
+title: Afdwingen van naamgeving van Groepsbeleid voor Office 365-groepen - Azure Active Directory | Microsoft Docs
 description: Over het instellen van het naamgevingsbeleid voor Office 365-groepen in Azure Active Directory (preview)
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 846eb3a43955fe05531f619869878b3978ad5b9d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690243"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605544"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Een naamgevingsbeleid voor Office 365-groepen in Azure Active Directory afdwingen
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Een naamgevingsbeleid op Office 365-groepen in Azure Active Directory afdwingen
 
 Als u wilt afdwingen consistente naamconventies voor Office 365-groepen gemaakt of bewerkt door uw gebruikers, instellen van een beleid voor naamgeving voor uw tenants in Azure Active Directory (Azure AD). Bijvoorbeeld, u kunt de naamgeving beleidsregel gebruiken om te communiceren van de functie van een groep, het lidmaatschap, de geografische regio of die de groep hebt gemaakt. U kunt ook het naamgevingsbeleid voor groepen in het adresboek categoriseren. U kunt het beleid moet worden geblokkeerd dat specifieke woorden worden gebruikt in de namen en aliassen.
 
@@ -76,7 +76,7 @@ Geselecteerde beheerders kunnen worden uitgesloten van deze beleidsregels voor a
 - Gebruikersbeheerder
 - Adreslijstschrijvers
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configureer het beleid voor naamgeving voor een tenant met behulp van Azure portal (preview)
+## <a name="configure-naming-policy-in-azure-portal-preview"></a>Naamgevingsbeleid configureren in Azure portal (preview)
 
 1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een administrator-account van gebruiker.
 1. Selecteer **groepen**en selecteer vervolgens **naamgevingsbeleid** de Naming beleid-pagina te openen.
@@ -90,7 +90,7 @@ Geselecteerde beheerders kunnen worden uitgesloten van deze beleidsregels voor a
 1. Als u wilt verwijderen een voorvoegsel of achtervoegsel in de lijst, selecteert u het voorvoegsel of achtervoegsel en vervolgens **verwijderen**. Meerdere items kunnen worden verwijderd op hetzelfde moment.
 1. Sla de wijzigingen voor het nieuwe beleid worden toegepast door het selecteren van **opslaan**.
 
-### <a name="view-or-edit-the-custom-blocked-words"></a>Weergeven of bewerken van de aangepaste geblokkeerde woorden
+### <a name="edit-custom-blocked-words"></a>Geblokkeerde dan speciale woorden bewerken
 
 1. Op de **naamgevingsbeleid** weergeeft, schakelt **woorden geblokkeerd**.
 
@@ -100,35 +100,36 @@ Geselecteerde beheerders kunnen worden uitgesloten van deze beleidsregels voor a
 1. Upload een nieuwe lijst met geblokkeerde dan speciale woorden door het bestandspictogram te selecteren.
 1. Sla de wijzigingen voor het nieuwe beleid worden toegepast door het selecteren van **opslaan**.
 
-## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>PowerShell-cmdlets voor het configureren van een naamgevingsbeleid installeren
+## <a name="install-powershell-cmdlets"></a>PowerShell-cmdlets installeren
 
 Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Module voor Windows PowerShell en installeer [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell voor Graph - Release 2.0.0.137 voor openbare preview) voordat u de PowerShell-opdrachten uitvoert.
 
 1. Open de Windows PowerShell-app als beheerder.
 2. Verwijder eventuele oudere versies van AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Uninstall-Module AzureADPreview
    ```
 
 3. Installeer de nieuwste versie van AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Install-Module AzureADPreview
    ```
 
    Als u wordt gevraagd of u over het openen van een niet-vertrouwde opslagplaats, voert u **Y**. Het kan enkele minuten duren voordat de nieuwe module is geïnstalleerd.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Het beleid voor naamgeving voor een tenant met behulp van Azure AD PowerShell configureren
+## <a name="configure-naming-policy-in-powershell"></a>Naamgevingsbeleid configureren in PowerShell
 
 1. Open een Windows PowerShell-venster op uw computer. U kunt deze zonder verhoogde bevoegdheden te openen.
 
 1. Voer de volgende opdrachten uit als voorbereiding op het uitvoeren van de cmdlets.
   
-   ```powershell
+   ``` PowerShell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    In het scherm **Sign in to your Account** dat verschijnt, voert u uw beheerdersaccount en wachtwoord in om verbinding te maken met uw service. Selecteer vervolgens **Aanmelden**.
 
 1. Volg de stappen in [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md) om groepsinstellingen voor deze tenant te maken.
@@ -137,13 +138,13 @@ Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Mod
 
 1. Ophalen van de huidige naamgevingsbeleid om de huidige instellingen weer te geven.
   
-   ```powershell
+   ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
 1. Geef de instellingen voor de huidige groep weer.
   
-   ```powershell
+   ``` PowerShell
    $Setting.Values
    ```
   
@@ -151,38 +152,38 @@ Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Mod
 
 1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell. [GroupName] moet in de instelling worden opgenomen om de functie goed te laten werken.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
 1. Stel de aangepaste, geblokkeerde woorden in die u wilt verbieden. In het volgende voorbeeld wordt getoond hoe u uw eigen aangepaste woorden kunt toevoegen.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
 1. Sla de instellingen voor het nieuwe beleid om door te gaan van kracht, zoals in het volgende voorbeeld.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 Dat is alles. U hebt het beleid voor naamgeving instellen en de geblokkeerde woorden toegevoegd.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words-using-azure-ad-powershell"></a>De lijst met aangepaste geblokkeerde woorden met behulp van Azure AD PowerShell importeren of exporteren
+## <a name="export-or-import-custom-blocked-words"></a>Geblokkeerde dan speciale woorden importeren of exporteren
 
 Zie voor meer informatie het artikel [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md).
 
 Hier volgt een voorbeeld van een PowerShell-script voor het exporteren van meerdere geblokkeerde woorden:
 
-```powershell
+``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 Hier volgt een voorbeeld van PowerShell-script voor het importeren van meerdere geblokkeerde woorden:
 
-```powershell
+``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -192,7 +193,6 @@ if ($Settings.Count -eq 0)
     New-AzureADDirectorySetting -DirectorySetting $Settings
     $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}}
 $Settings["CustomBlockedWordsList"] = $BadWords
-$Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
@@ -203,27 +203,27 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 1. Op de **naamgevingsbeleid** weergeeft, schakelt **beleid verwijderen**.
 1. Nadat u de verwijdering bevestigt, het naamgevingsbeleid wordt verwijderd, inclusief alle voorvoegsel-achtervoegsel naamgeving van beleid en eventuele aangepaste geblokkeerde woorden.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Een naamgevingsbeleid met behulp van Azure AD Powershell verwijderen
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Een naamgevingsbeleid met behulp van Azure AD PowerShell verwijderen
 
 1. Wis de voor- en achtervoegsels van de groepsnaam in Azure AD PowerShell.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
 1. Maak de aangepaste lijst met geblokkeerde woorden leeg.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
-1. Sla de instellingen op.
+1. De instellingen niet opslaan.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="naming-policy-experiences-across-office-365-apps"></a>Naamgevingsbeleid ervaringen in Office 365-apps
+## <a name="experience-across-office-365-apps"></a>Ervaring voor Office 365-apps
 
 Nadat u een beleid voor naamgeving in Azure AD, wanneer een gebruiker een groep in een Office 365-app maakt, zien ze instellen:
 

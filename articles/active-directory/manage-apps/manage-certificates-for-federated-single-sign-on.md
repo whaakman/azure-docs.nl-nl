@@ -3,8 +3,8 @@ title: Federatiecertificaten beheren in Azure AD | Microsoft Docs
 description: Informatie over het aanpassen van de vervaldatum voor de federatiecertificaten en het vernieuwen van certificaten die binnenkort vervallen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c2d14a2aa6fc6b53260912b5bead2bd7c01e8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440567"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824746"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren
 
@@ -127,7 +127,7 @@ Als een certificaat bijna verlopen is, kunt u met behulp van een procedure die i
 
 ## <a name="related-articles"></a>Verwante artikelen:
 
-* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory)
+* [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Toepassingen beheren met Azure Active Directory](what-is-application-management.md)
 * [Eenmalige aanmelding bij toepassingen in Azure Active Directory](what-is-single-sign-on.md)
 * [Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)

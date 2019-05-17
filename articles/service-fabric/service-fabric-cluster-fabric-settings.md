@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e992aae17f1217803b411a49c5d942efc501fbdc
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386819"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606976"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -41,14 +41,14 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |CrlCheckingFlag|uint, standaard is 0x40000000 |Dynamisch| Vlaggen voor de toepassing/service validatie van certificaatketen; bijvoorbeeld CRL-controle 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY instellen op 0 Hiermee schakelt CRL controleren of volledige lijst met ondersteunde waarden wordt beschreven door dwFlags van CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tijd in seconden. de standaardwaarde is 120 |Dynamisch|Interval in seconden opgeven.  Geeft de standaardtime-out-aanvraag naar de http-aanvragen worden verwerkt in de http-gateway-app. |
 |ForwardClientCertificate|BOOL, standaard is ingesteld op FALSE|Dynamisch|Wanneer wordt ingesteld op false, omgekeerde proxy geen aanvragen voor het clientcertificaat. Wanneer is ingesteld op true, omgekeerde proxy wordt voor het clientcertificaat tijdens de SSL-handshake aanvragen en doorsturen van de met base64 gecodeerde kan tekenreeks voor PEM-indeling naar de service in een header X-Client-Certificate.The service genaamd de aanvraag met de juiste statuscode mislukken na het inspecteren van gegevens van het certificaat. Als dit correct is en de client heeft een certificaat niet aanwezig, wordt reverse proxy-doorsturen van een lege-header en kan de service die de aanvraag te verwerken. Omgekeerde proxy fungeert als een transparante laag. Zie voor meer informatie, [instellen van verificatie van clientcertificaten](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
-|GatewayAuthCredentialType |reeks, standaard is ingesteld op 'None' |Statisch| Hiermee geeft u het type van de beveiligingsreferenties voor het gebruik van op de HTTP-app gateway-eindpunt geldige waarden zijn ' geen / X 509. |
+|GatewayAuthCredentialType |reeks, standaard is ingesteld op 'None' |Statisch| Hiermee geeft u het type van de beveiligingsreferenties voor het gebruik van op de HTTP-app gateway-eindpunt geldige waarden zijn geen / X 509. |
 |GatewayX509CertificateFindType |tekenreeks, standaard is "FindByThumbprint" |Dynamisch| Hiermee wordt aangegeven hoe om te zoeken naar certificaat in het archief dat is opgegeven door de waarde GatewayX509CertificateStoreName ondersteund: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | tekenreeks, standaardwaarde is "" |Dynamisch| Filter zoekwaarde gebruikt voor het HTTP-app gateway-certificaat te zoeken. Dit certificaat is geconfigureerd op het https-eindpunt en kan ook worden gebruikt om te controleren of de identiteit van de app zo nodig door de services. FindValue wordt eerst; opgezocht en als dat niet bestaat; FindValueSecondary wordt opgezocht. |
 |GatewayX509CertificateFindValueSecondary | tekenreeks, standaardwaarde is "" |Dynamisch|Filter zoekwaarde gebruikt voor het HTTP-app gateway-certificaat te zoeken. Dit certificaat is geconfigureerd op het https-eindpunt en kan ook worden gebruikt om te controleren of de identiteit van de app zo nodig door de services. FindValue wordt eerst; opgezocht en als dat niet bestaat; FindValueSecondary wordt opgezocht.|
 |GatewayX509CertificateStoreName |tekenreeks, standaardwaarde is 'My' |Dynamisch| De naam van X.509-certificaatarchief dat certificaat voor http-app-gateway bevat. |
 |HttpRequestConnectTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(5)|Dynamisch|Interval in seconden opgeven.  Geeft de time-out voor de verbinding voor de http-aanvragen worden verzonden vanaf de http-gateway-app.  |
 |IgnoreCrlOfflineError|BOOL, standaard is ingesteld op TRUE|Dynamisch|Hiermee geeft u op of u offline fout van de CRL voor certificaatverificatie van de toepassing/service-negeert. |
-|IsEnabled |BOOL, de standaardinstelling is false |Statisch| / Schakelt de HttpApplicationGateway. HttpApplicationGateway is standaard uitgeschakeld en deze configuratie moet worden ingesteld om te schakelen. |
+|isEnabled |BOOL, de standaardinstelling is false |Statisch| / Schakelt de HttpApplicationGateway. HttpApplicationGateway is standaard uitgeschakeld en deze configuratie moet worden ingesteld om te schakelen. |
 |NumberOfParallelOperations | Uint, de standaardwaarde is 5000 |Statisch|Het aantal leesbewerkingen en op de server HTTP-wachtrij plaatsen. Hiermee bepaalt u het aantal gelijktijdige aanvragen op dat door de HttpGateway kan worden voldaan. |
 |RemoveServiceResponseHeaders|tekenreeks, standaard is 'datum; Server'|Statisch|Een puntkomma / door komma's gescheiden lijst met reactieheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze is ingesteld op een lege tekenreeks; doorgeven van de headers die zijn geretourneerd door de service-is. i.e de datum en de Server niet overschrijven |
 |ResolveServiceBackoffInterval |Tijd in seconden, de standaardwaarde is 5 |Dynamisch|Interval in seconden opgeven.  Geeft het oplossen van het standaard back-off interval voordat opnieuw wordt geprobeerd een mislukte service bewerking. |
@@ -121,7 +121,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, is standaard ingesteld op geen|Dynamisch|Bepaalt het aantal gratis knooppunten die nodig zijn om te overwegen cluster gedefragmenteerd door een van beide procent op te geven in bereik [0.0-1.0) of het nummer van lege knooppunten als getal > = 1,0 |
 
-## <a name="diagnostics"></a>Diagnostiek
+## <a name="diagnostics"></a>Diagnostische gegevens
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
@@ -141,7 +141,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|BOOL, standaard is ingesteld op FALSE|Statisch|De vlag ondersteuning voor DNS-query's voor gepartitioneerde services inschakelen. De functie is standaard uitgeschakeld. Zie voor meer informatie, [Service Fabric-DNS-Service.](service-fabric-dnsservice.md)|
 |InstanceCount|int, standaard is 1|Statisch|standaardwaarde is 1, wat betekent dat de DNS-service wordt uitgevoerd op elk knooppunt. OneBox moet dit moet worden ingesteld op 1, omdat de DNS-service maakt gebruik van bekende poort 53, zodat deze kan niet meerdere exemplaren op dezelfde computer hebt.|
-|IsEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Schakelt/DNS-service. De DNS-service is standaard uitgeschakeld en deze configuratie moet worden ingesteld zodat het. |
+|isEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Schakelt/DNS-service. De DNS-service is standaard uitgeschakeld en deze configuratie moet worden ingesteld zodat het. |
 |PartitionPrefix|tekenreeks, standaardwaarde is '--'|Statisch|Hiermee bepaalt u de partitie voorvoegsel string-waarde in de DNS-query's voor gepartitioneerde services. De waarde: <ul><li>Moet zijn RFC-compatibele omdat deze deel van een DNS-query uitmaken.</li><li>Mag niet een punt, '.', zoals stip gedrag van DNS-achtervoegsel verstoort.</li><li>Mag niet langer zijn dan 5 tekens.</li><li>Mag geen lege tekenreeks zijn.</li><li>Als de instelling PartitionPrefix wordt overschreven, wordt de PartitionSuffix moet worden vervangen, en vice versa.</li></ul>Zie voor meer informatie, [DNS aan Service Fabric.](service-fabric-dnsservice.md).|
 |PartitionSuffix|tekenreeks, standaardwaarde is ""|Statisch|Hiermee bepaalt u de partitie achtervoegsel string-waarde in de DNS-query's voor gepartitioneerde services. De waarde: <ul><li>Moet zijn RFC-compatibele omdat deze deel van een DNS-query uitmaken.</li><li>Mag niet een punt, '.', zoals stip gedrag van DNS-achtervoegsel verstoort.</li><li>Mag niet langer zijn dan 5 tekens.</li><li>Als de instelling PartitionPrefix wordt overschreven, wordt de PartitionSuffix moet worden vervangen, en vice versa.</li></ul>Zie voor meer informatie, [DNS aan Service Fabric.](service-fabric-dnsservice.md). |
 
@@ -246,7 +246,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |StoredChaosEventCleanupIntervalInSeconds | Int, de standaardwaarde is 3600 |Statisch|Dit is hoe vaak de store wordt gecontroleerd om op te schonen; Als het aantal gebeurtenissen meer dan 30000 is; het opruimen van de wordt gestart. |
 |TargetReplicaSetSize |int, standaard is 0 |Statisch|De TargetReplicaSetSize voor FaultAnalysisService NOT_PLATFORM_UNIX_START. |
 
-## <a name="federation"></a>Federatie
+## <a name="federation"></a>Federation
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
@@ -313,7 +313,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |MaxPercentDeltaUnhealthyNodes|Int, de standaardwaarde is 10|Statisch|Upgrade statusbeleid voor evaluatie van cluster: maximale percentage van knooppunten met slechte deltastatus toegestaan voor het cluster in orde zijn |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, de standaardwaarde is 15|Statisch|Upgrade statusbeleid voor evaluatie van cluster: maximale percentage van de delta van beschadigde knooppunten in een upgradedomein is toegestaan voor het cluster in orde zijn |
 
-## <a name="hosting"></a>Hosting
+## <a name="hosting"></a>Hosten
 
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
@@ -371,7 +371,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ActiveListeners |Uint, de standaardwaarde is 50 |Statisch| Het aantal leesbewerkingen en op de server HTTP-wachtrij plaatsen. Hiermee bepaalt u het aantal gelijktijdige aanvragen op dat door de HttpGateway kan worden voldaan. |
 |HttpGatewayHealthReportSendInterval |Tijd in seconden, de standaardwaarde is 30 |Statisch|Interval in seconden opgeven. Het interval waarmee de Http-Gateway samengevoegde status verzendt rapporteert de status Manager. |
 |HttpStrictTransportSecurityHeader|tekenreeks, standaardwaarde is ""|Dynamisch| Geef de waarde van de strikte transportbeveiliging HTTP-header moet worden opgenomen in elke reactie verzonden door de HttpGateway. Wanneer is ingesteld op de lege tekenreeks; Deze header wordt niet opgenomen in het antwoord van de gateway.|
-|IsEnabled|BOOL, de standaardinstelling is false |Statisch| / Schakelt de HttpGateway. HttpGateway is standaard uitgeschakeld. |
+|isEnabled|BOOL, de standaardinstelling is false |Statisch| / Schakelt de HttpGateway. HttpGateway is standaard uitgeschakeld. |
 |MaxEntityBodySize |Uint, de standaardwaarde is 4194304 |Dynamisch|Geeft de maximale grootte van de instantie die een http-aanvraag kan worden verwacht. Standaardwaarde is 4MB. Httpgateway een aanvraag mislukt als er een instantie van de grootte van > deze waarde. Minimale lezen chunkgrootte is 4096 bytes. Zodat de sleutel moet > = 4096. |
 
 ## <a name="imagestoreservice"></a>ImageStoreService
@@ -485,7 +485,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |Prestatiemeteritems |String | Dynamisch |Door komma's gescheiden lijst met te verzamelen prestatiemeteritems. |
-|IsEnabled |BOOL, de standaardinstelling is true | Dynamisch |Vlag geeft aan of het verzamelen van prestatiemeteritems op het lokale knooppunt is ingeschakeld. |
+|isEnabled |BOOL, de standaardinstelling is true | Dynamisch |Vlag geeft aan of het verzamelen van prestatiemeteritems op het lokale knooppunt is ingeschakeld. |
 |MaxCounterBinaryFileSizeInMB |int, standaard is 1 | Dynamisch |Maximale grootte (in MB) voor elk prestaties teller binaire bestand. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, de standaardwaarde is 10 | Dynamisch |Maximaal interval (in seconden) waarna een nieuw prestaties teller binaire bestand is gemaakt. |
 |SamplingIntervalInSeconds |Int, de standaardwaarde is 60 | Dynamisch |Steekproefinterval voor prestatiemeteritems die worden verzameld. |
@@ -581,7 +581,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid**| **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|IsEnabled|BOOL, standaard is ingesteld op FALSE |Statisch|Bepaalt of de service is ingeschakeld in het cluster of niet. |
+|isEnabled|BOOL, standaard is ingesteld op FALSE |Statisch|Bepaalt of de service is ingeschakeld in het cluster of niet. |
 
 ## <a name="runas"></a>RunAs
 
@@ -724,7 +724,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |PropertyWriteBatch |tekenreeks, standaard is 'Admin' |Dynamisch|Beveiligingsconfiguraties voor naamgeving voor eigenschap schrijfbewerkingen. |
 |ProvisionApplicationType |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het inrichten van de toepassing-type. |
 |ProvisionFabric |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het Manifest inrichten MSI en/of -Cluster. |
-|Query’s uitvoeren |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor query's. |
+|Query |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor query's. |
 |RecoverPartition |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het herstellen van een partitie. |
 |RecoverPartitions |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het herstellen van partities. |
 |RecoverServicePartitions |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het herstellen van servicepartities. |

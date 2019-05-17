@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289169"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815553"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Uw Internet of Things (IoT)-implementatie beveiligen
 
@@ -21,11 +21,11 @@ Dit artikel bevat het volgende niveau van de gegevens voor het beveiligen van de
 
 Beveiligen van de Azure IoT-implementatie kan worden onderverdeeld in de volgende aspecten van de drie beveiliging:
 
-* **Apparaatbeveiliging**: de IoT-apparaat beveiligen terwijl deze wordt geïmplementeerd tijdens het gebruik.
+* **Apparaatbeveiliging**: De beveiliging van de IoT-apparaat terwijl deze wordt geïmplementeerd tijdens het gebruik.
 
-* **Verbindingsbeveiliging**: ervoor te zorgen dat alle gegevens die worden verzonden tussen de IoT-apparaat en IoT Hub is vertrouwelijk en fraudebestendig.
+* **Verbindingsbeveiliging**: Ervoor te zorgen dat alle gegevens die worden verzonden tussen de IoT-apparaat en IoT Hub is vertrouwelijk en fraudebestendig.
 
-* **Cloud Security**: de mogelijkheid om gegevens te beveiligen terwijl deze doorloopt, en wordt opgeslagen in de cloud.
+* **Cloud Security**: Biedt een manier om gegevens te beveiligen terwijl deze doorloopt, en wordt opgeslagen in de cloud.
 
 ![Drie aspecten van de beveiliging](./media/iot-secure-your-deployment/overview.png)
 
@@ -35,7 +35,7 @@ De IoT-oplossingsversnellers beveiligde IoT-apparaten met behulp van de volgende
 
 * Door een unieke id-sleutel (beveiligingstokens) voor elk apparaat, die door het apparaat kan worden gebruikt om te communiceren met de IoT-Hub.
 
-* Met behulp van een apparaat op [X.509-certificaat](http://www.itu.int/rec/T-REC-X.509-201210-I/en) en de persoonlijke sleutel als een manier om het apparaat naar de IoT Hub te verifiëren. Deze verificatiemethode zorgt ervoor dat de persoonlijke sleutel op het apparaat niet bekend is buiten het apparaat op elk gewenst moment een hoger niveau van beveiliging bieden.
+* Met behulp van een apparaat op [X.509-certificaat](https://www.itu.int/rec/T-REC-X.509-201210-S) en de persoonlijke sleutel als een manier om het apparaat naar de IoT Hub te verifiëren. Deze verificatiemethode zorgt ervoor dat de persoonlijke sleutel op het apparaat niet bekend is buiten het apparaat op elk gewenst moment een hoger niveau van beveiliging bieden.
 
 De methode security token biedt verificatie voor elke aanroep van het apparaat naar IoT Hub door te koppelen van de symmetrische sleutel aan elke aanroep. Op basis van X.509-verificatie kunnen verificatie van een IoT-apparaat op de fysieke laag als onderdeel van de TLS-verbinding tot stand brengen. De methode op basis van security-token kan worden gebruikt zonder de X.509-verificatie een minder veilige patroon is. De keuze tussen de twee methoden is voornamelijk afhankelijk van hoe veilig apparaat verificatie moet worden en beschikbaarheid van beveiligde opslag op het apparaat (voor het veilig opslaan van de persoonlijke sleutel).
 
@@ -53,11 +53,11 @@ Elke IoT-Hub is een [id-register](../articles/iot-hub/iot-hub-devguide-identity-
 
 [IoT Hub biedt ondersteuning voor protocollen, zoals MQTT, AMQP en HTTP-](../articles//iot-hub/iot-hub-devguide-security.md). Elk van deze protocollen beveiligingstokens van de IoT-apparaat naar IoT Hub anders gebruikt:
 
-* AMQP: SASL zonder opmaak en een AMQP-op basis van Claims-beveiliging (`{policyName}@sas.root.{iothubName}` met IoT hub op serverniveau tokens. `{deviceId}` met behulp van tokens binnen het bereik van apparaat).
+* AMQP: SASL zonder opmaak en beveiliging op basis van Claims voor AMQP (`{policyName}@sas.root.{iothubName}` met IoT hub op serverniveau tokens. `{deviceId}` met behulp van tokens binnen het bereik van apparaat).
 
-* MQTT: Verbinding maken met het pakket gebruikt `{deviceId}` als de `{ClientId}`, `{IoThubhostname}/{deviceId}` in de **gebruikersnaam** veld en een SAS-token in de **wachtwoord** veld.
+* MQTT: Maakt gebruik van CONNECT pakket `{deviceId}` als de `{ClientId}`, `{IoThubhostname}/{deviceId}` in de **gebruikersnaam** veld en een SAS-token in de **wachtwoord** veld.
 
-* HTTP: Ongeldig token is in de aanvraagheader autorisatie.
+* HTTP: Er is een geldig token in de aanvraagheader autorisatie.
 
 ID-register van IoT Hub kan worden gebruikt voor het configureren van per apparaat beveiligingsreferenties en toegangscontrole. Echter, als een IoT-oplossing heeft al een aanzienlijke investering een [aangepast apparaat-id-register en/of verificatie schema](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), deze kan worden geïntegreerd in een bestaande infrastructuur met IoT Hub met het maken van een service voor beveiligingstokens.
 
@@ -101,15 +101,15 @@ Azure IoT Hub en andere services die deel van de oplossing uitmaken kunnen behee
 
 Gegevens die worden verwerkt door Azure IoT Hub kan worden gebruikt door verschillende services zoals Azure Stream Analytics en Azure blob-opslag. Deze services verlenen management toegang. Meer informatie over deze services en de beschikbare opties:
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): een schaalbare, volledig geïndexeerd databaseservice voor de semi-gestructureerde gegevens die worden beheerd metagegevens voor de apparaten die u inricht, zoals kenmerken, configuratie en de eigenschappen voor beveiliging. Azure Cosmos DB biedt hoge prestaties en hoge doorvoer verwerkt, schema-agnostische indexering van gegevens en een geavanceerde SQL-QueryInterface.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Een schaalbare, volledig geïndexeerd databaseservice voor de semi-gestructureerde gegevens die worden beheerd metagegevens voor de apparaten die u, zoals kenmerken, configuratie en de eigenschappen voor beveiliging inricht. Azure Cosmos DB biedt hoge prestaties en hoge doorvoer verwerkt, schema-agnostische indexering van gegevens en een geavanceerde SQL-QueryInterface.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): realtime-verwerking in de cloud waarmee u snel ontwikkelen en implementeren van een goedkope analyseoplossing realtime inzichten kunt van apparaten, sensoren, infrastructuur en toepassingen. De gegevens uit deze volledig beheerde service kan worden geschaald naar een volume behoud van hoge doorvoer, lage latentie en tolerantie.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Realtime-verwerking in de cloud waarmee u snel ontwikkelen en implementeren van een goedkope analyseoplossing realtime inzichten kunt van apparaten, sensoren, infrastructuur en toepassingen. De gegevens uit deze volledig beheerde service kan worden geschaald naar een volume behoud van hoge doorvoer, lage latentie en tolerantie.
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/): een cloudplatform voor het bouwen van krachtige web- en mobiele apps die verbinding met gegevens waar dan ook; in de cloud of on-premises maken. Aansprekende mobiele apps bouwen voor iOS, Android en Windows. Integreren met uw Software as a Service (SaaS) en zakelijke toepassingen met out-of-the-box-connectiviteit met tientallen cloudgebaseerde services en zakelijke toepassingen. Coderen in uw favoriete taal en IDE (.NET, Node.js, PHP, Python of Java) sneller dan ooit webtoepassingen en API's bouwen.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/): Een cloudplatform voor het bouwen van krachtige web- en mobiele apps die verbinding met gegevens waar dan ook maken; in de cloud of on-premises. Aansprekende mobiele apps bouwen voor iOS, Android en Windows. Integreren met uw Software as a Service (SaaS) en zakelijke toepassingen met out-of-the-box-connectiviteit met tientallen cloudgebaseerde services en zakelijke toepassingen. Coderen in uw favoriete taal en IDE (.NET, Node.js, PHP, Python of Java) sneller dan ooit webtoepassingen en API's bouwen.
 
-* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): Logic Apps-functie van Azure App Service helpt uw IoT-oplossing met uw bestaande line-of-business-systemen integreren en automatiseren van werkstroomprocessen worden uitgevoerd. Logic Apps kan ontwikkelaars werkstromen ontwerpen die na een trigger worden gestart en voer vervolgens een reeks stappen, regels en acties die gebruikmaken van krachtige connectors om te integreren in uw bedrijfsprocessen. Logic Apps biedt out-of-the-box verbinding met een uitgebreid ecosysteem van SaaS, op basis van cloud en on-premises toepassingen.
+* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): De functie logische Apps van Azure App Service kunt uw IoT-oplossing met uw bestaande line-of-business-systemen integreren en automatiseren van werkstroomprocessen worden uitgevoerd. Logic Apps kan ontwikkelaars werkstromen ontwerpen die na een trigger worden gestart en voer vervolgens een reeks stappen, regels en acties die gebruikmaken van krachtige connectors om te integreren in uw bedrijfsprocessen. Logic Apps biedt out-of-the-box verbinding met een uitgebreid ecosysteem van SaaS, op basis van cloud en on-premises toepassingen.
 
-* [Azure Blob-opslag](https://azure.microsoft.com/services/storage/): betrouwbare, betaalbare cloudopslag voor de gegevens die uw apparaten naar de cloud verzenden.
+* [Azure Blob-opslag](https://azure.microsoft.com/services/storage/): Betrouwbare, betaalbare cloudopslag voor de gegevens die uw apparaten naar de cloud verzenden.
 
 ## <a name="conclusion"></a>Conclusie
 

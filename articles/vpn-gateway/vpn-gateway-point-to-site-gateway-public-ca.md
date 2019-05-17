@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 05/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786731"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827455"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Overgaan naar een openbaar CA-gatewaycertificaat voor een punt-naar-site-verbinding
 
@@ -29,19 +29,7 @@ Voorheen een zelfondertekend certificaat voor de gateway (uitgegeven achter de s
 Alleen oude gateways worden beïnvloed door deze wijziging. Als uw gatewaycertificaat worden overgezet moet, ontvangt u communicatie of pop-up in Azure portal. U kunt controleren om te zien als uw gateway wordt beïnvloed door met de stappen in dit artikel.
 
 > [!IMPORTANT]
-> **Deze overgang is voltooid op 12 mei 2019.**
->
-> De overgang is gepland voor maart 12 2019 vanaf 18:00 UTC. Als u liever een andere tijdvenster, kunt u een ondersteuningsaanvraag maken. Controleer en ten minste 24 uur van tevoren regelen van uw aanvraag voltooien.  U kunt een van de volgende vragen:
->
-> * 06:00 UTC op 25 februari
-> * 18:00 UTC op 25 februari
-> * 06:00 UTC op 1 maart
-> * 18:00 UTC op 1 maart
->
-> Alle resterende gateways veranderen maart 12 2019 vanaf 18:00 UTC.
->
-> Klanten ontvangen een e-mailbericht wanneer de gateway de overgang-proces is voltooid.
-> 
+> De overgang naar een openbare CA-certificaten is voltooid op 12 mei 2019. **Dit document worden verwijderd op 31 mei 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Controleer of het certificaat
 

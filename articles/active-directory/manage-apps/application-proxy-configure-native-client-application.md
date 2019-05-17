@@ -3,8 +3,8 @@ title: Systeemeigen client-apps - Azure AD publiceren | Microsoft Docs
 description: Bevat informatie over het inschakelen van systeemeigen client-apps om te communiceren met Azure AD Application Proxy Connector voor veilige externe toegang tot uw on-premises toepassingen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4614d8190436ad89faa200f83b1a71bde10a8acb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684946"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825488"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Systeemeigen client-toepassingen om te communiceren met de proxy-toepassingen inschakelen
 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ca893670e01f4bccc211cd08064b6638e9224a9a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 6d91f5e61dfd7c3cb4d1869edf0c6cb8c2c85190
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606783"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827506"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Maken van een IoT-hub met behulp van de resourceprovider REST-API (.NET)
 
@@ -26,7 +26,7 @@ U kunt de [REST API voor IoT Hub-resourceprovider](https://docs.microsoft.com/re
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Visual Studio 2015 of Visual Studio 2017.
+* Visual Studio.
 
 * Een actief Azure-account. Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564818"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620428"
 ---
 # <a name="network-monitoring-solutions"></a>Oplossingen voor netwerkbeheer 
 
@@ -53,7 +53,9 @@ Voor meer informatie raadpleegt u de volgende artikelen:
 
 * [Een-oplossing Netwerkprestatiemeter configureren in Azure Monitor-Logboeken](../azure-monitor/insights/network-performance-monitor.md) 
 * [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  Productupdates: [Februari 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [augustus 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* Productupdates:
+  * [Februari 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [Augustus 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute-bewaking
 
@@ -89,7 +91,7 @@ Raadpleeg voor meer informatie de volgende artikelen:
 * [Network Performance Monitor configureren voor het bewaken van Service-eindpunten](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Blogbericht](https://aka.ms/svcendptmonitor)
 
-## <a name="traffic-analytics"></a>Traffic Analytics
+## <a name="traffic-analytics"></a>Verkeersanalyse
 Traffic Analytics is een cloud-gebaseerde oplossing waarmee u inzicht in gebruikers en toepassingen in uw cloudnetwerken. Stroomlogboeken logboeken zijn geanalyseerd om te bieden van inzicht in:
 
 * Verkeer stroomt tussen uw netwerken tussen Azure en Internet, openbare cloud-regio's, VNETs en subnetten
@@ -106,7 +108,7 @@ Traffic Analytics voorziet u van bruikbare informatie die helpt u activiteit op 
 Verwante koppelingen:
 * [Blogbericht](https://aka.ms/trafficanalytics), [documentatie](https://aka.ms/trafficanalyticsdocs), [Veelgestelde vragen](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
-## <a name="dns-analytics"></a>DNS-analyse
+## <a name="dns-analytics"></a>DNS Analytics
 Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert DNS-logboeken voor beveiliging, bewerkingen en inzichten met betrekking tot prestaties.  Enkele van de mogelijkheden zijn:
 
 * Identificatie van clients die proberen te worden omgezet naar schadelijke domeinen
@@ -120,6 +122,6 @@ Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert 
 Verwante koppelingen:
 * [Blogpost](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="miscellaneous"></a>Diversen
+## <a name="miscellaneous"></a>Overig
 
 * [Nieuwe prijzen](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

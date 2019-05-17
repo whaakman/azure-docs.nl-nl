@@ -1,56 +1,60 @@
 ---
-title: SSL-beëindiging met Key Vault-certificaten
-description: Meer informatie over hoe u Azure-toepassingsgateway kunt integreren met Key Vault voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners.
+title: SSL-beëindiging met Azure Key Vault-certificaten
+description: Meer informatie over hoe u Azure Application Gateway kunt integreren met Key Vault voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 37707d56caabf0ae8b0020eb8714245a27501ea6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 18af315c58c838a7237acfbcc32f622a0edbd3b3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696497"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827632"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>SSL-beëindiging met Key Vault-certificaten
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) is een platform beheerde geheime store kunt u uw geheimen, sleutels en SSL-certificaten beveiligen. Application Gateway ondersteunt de integratie met Key Vault (in openbare preview) voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners. Deze ondersteuning is beperkt tot de v2-SKU van Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-whatis.md) is een platform beheerde geheim opslaan die u kunt gebruiken om geheimen, sleutels en SSL-certificaten te beveiligen. Azure Application Gateway ondersteunt de integratie met Key Vault (in openbare preview) voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners. Deze ondersteuning is beperkt tot de v2-SKU van Application Gateway.
 
 > [!IMPORTANT]
-> De Application Gateway Key Vault-integratie is momenteel in openbare preview. Deze preview wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. De reden hiervoor is dat bepaalde functies mogelijk niet worden ondersteund of beperkte mogelijkheden hebben. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Integratie van Application Gateway met Key Vault is momenteel in openbare preview. Deze preview wordt aangeboden zonder een service-level agreement (SLA) en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-Er zijn twee modellen voor SSL-beëindiging met deze preview-versie:
+Deze openbare preview biedt twee modellen voor SSL-beëindiging:
 
-- U kunt SSL-certificaten die zijn gekoppeld aan de listener expliciet opgeven. Dit is het traditionele model van het SSL-certificaten wordt doorgegeven aan de toepassingsgateway voor SSL-beëindiging.
-- U kunt desgewenst een verwijzing naar een bestaande Key Vault-certificaat of geheim tijdens HTTPS ingeschakeld listener maken.
+- U kunt SSL-certificaten die zijn gekoppeld aan de listener expliciet opgeven. Dit model is de traditionele manier om door te geven van SSL-certificaten aan de toepassingsgateway voor SSL-beëindiging.
+- U kunt desgewenst een verwijzing naar een bestaande Key Vault-certificaat of het geheim opgeven bij het maken van een listener van een HTTPS-functionaliteit.
 
-Er zijn veel voordelen ten opzichte van Key Vault-integratie, met inbegrip van:
+Integratie van Application Gateway met Key Vault biedt veel voordelen, waaronder:
 
-- Betere beveiliging omdat SSL-certificaten niet rechtstreeks worden afgehandeld door het ontwikkelingsteam van toepassing. Integratie met Key Vault kunt een afzonderlijke beveiligingsteam kunt inrichten, beheren van de levenscyclus en juiste machtigen Toepassingsgateways voor toegang van certificaten die zijn opgeslagen in Key Vault selecteren.
-- Ondersteuning voor het importeren van bestaande certificaten in Key Vault of Key Vault-API's maken en beheren van nieuwe certificaten met een van de vertrouwde partners van de Key Vault gebruiken.
-- Ondersteuning voor certificaten die zijn opgeslagen in Key Vault voor het automatisch vernieuwen.
+- Betere beveiliging, omdat het SSL-certificaten worden niet rechtstreeks worden verwerkt door het ontwikkelingsteam van toepassing. Integratie kan een afzonderlijke security team:
+  * Toepassingsgateways instellen.
+  * Application gateway levenscycli beheren.
+  * Machtigingen verlenen aan geselecteerde Toepassingsgateways voor toegang tot de certificaten die zijn opgeslagen in uw key vault.
+- Ondersteuning voor het importeren van bestaande certificaten in uw key vault. Of gebruik van Key Vault-API's maken en beheren van nieuwe certificaten met een van de vertrouwde partners van de Key Vault.
+- Ondersteuning voor automatische vernieuwing van certificaten die zijn opgeslagen in uw key vault.
 
-Application Gateway ondersteunt momenteel alleen de certificaten voor de software gevalideerd. Hardware security module (HSM) gevalideerd certificaten worden niet ondersteund. Wanneer Application Gateway is geconfigureerd voor het gebruik van Key Vault-certificaten, worden de instanties ophalen van het certificaat uit Key Vault en lokaal installeren voor SSL-beëindiging. Key Vault controleren de exemplaren ook periodiek op een interval van 24 uur om op te halen van een vernieuwde versie van het certificaat, als deze bestaat. Als een bijgewerkt certificaat wordt gevonden, wordt automatisch het SSL-certificaat is gekoppeld aan de HTTPS-Listener gedraaid.
+Application Gateway ondersteunt momenteel alleen certificaten software gevalideerd. Hardware security module (HSM)-gevalideerde certificaten worden niet ondersteund. Nadat Application Gateway is geconfigureerd voor het gebruik van Key Vault-certificaten, wordt de exemplaren van het certificaat niet ophalen uit Key Vault en lokaal installeren voor SSL-beëindiging. Key Vault pollen de exemplaren ook met 24-uurs intervallen om op te halen van een vernieuwde versie van het certificaat, indien aanwezig. Als een bijgewerkt certificaat wordt gevonden, wordt automatisch het SSL-certificaat is gekoppeld aan de HTTPS-listener gedraaid.
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-integration-works"></a>Hoe werkt de integratie
 
-Integratie met Key Vault vereist het configuratieproces van drie stappen:
+Integratie van Application Gateway met Key Vault is het configuratieproces van drie stappen vereist:
 
-1. **Door gebruiker toegewezen beheerde identiteit maken**
+1. **Maken van een gebruiker toegewezen beheerde identiteit**
 
-   U moet maken of opnieuw gebruiken van een bestaande gebruiker beheerde identiteit die Application Gateway maakt gebruik van certificaten ophalen uit Key Vault namens toegewezen. Zie voor meer informatie, [wat is beheerde identiteiten voor Azure-resources?](../active-directory/managed-identities-azure-resources/overview.md) Deze stap maakt u een nieuwe identiteit in Azure AD-tenant die wordt vertrouwd door het abonnement dat wordt gebruikt voor het maken van de identiteit.
-1. **Key Vault configureren**
+   U maakt of een bestaande gebruiker toegewezen beheerde identiteit, die Application Gateway maakt gebruik van certificaten ophalen uit Key Vault namens opnieuw. Zie [Wat zijn beheerde identiteiten voor Azure-resources?](../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie. Deze stap maakt u een nieuwe identiteit in de Azure Active Directory-tenant. De identiteit wordt vertrouwd door het abonnement dat wordt gebruikt om de identiteit.
 
-   U moet vervolgens een van beide importeren of maak een nieuw certificaat in Key Vault gebruikt door toepassingen die worden uitgevoerd via Application Gateway. Een Key Vault-geheim is opgeslagen als zonder wachtwoord base 64 gecodeerde PFX-bestand kan ook worden gebruikt in deze stap. Met behulp van een certificaattype heeft de voorkeur vanwege automatische vernieuwing mogelijkheden beschikbaar voor objecten van het type certificaat in Key Vault. Wanneer een certificaat of het geheim is gemaakt, toegangsbeleid moeten worden gedefinieerd in de Key Vault om toe te staan van de identiteit waarvoor moet worden verleend *ophalen* toegang tot het ophalen van de geheime sleutel.
+1. **Uw key vault configureren**
 
-1. **Application Gateway configureren**
+   U vervolgens een bestaand certificaat importeren of een nieuwe maken in uw key vault. Het certificaat wordt gebruikt door toepassingen die worden uitgevoerd via de application gateway. In deze stap kunt u ook een key vault-geheim dat wordt opgeslagen als een wachtwoord te hebben, base 64-gecodeerd PFX-bestand gebruiken. Het is raadzaam om met behulp van een certificaattype vanwege de mogelijkheid voor automatisch verlengen dat beschikbaar is voor objecten van het type certificaat in de key vault. Nadat u een certificaat of een geheim hebt gemaakt, definieert u beleid voor toegang in de key vault om toe te staan van de identiteit waarvoor moet worden verleend *ophalen* toegang tot de geheime sleutel.
 
-   Als de vorige twee stappen zijn voltooid, kunt u deze kunt inrichten of wijzigen van een bestaande toepassingsgateway voor het gebruik van de gebruiker toegewezen beheerde identiteit. U ook configureren SSL-certificaat voor de HTTP-listener om te verwijzen naar de volledige URI van Key Vault van certificaat of geheime id
+1. **De toepassingsgateway configureren**
 
-![Key Vault-certificaten](media/key-vault-certs/ag-kv.png)
+   Nadat u de twee voorgaande stappen hebt voltooid, kunt u instellen of wijzigen van een bestaande toepassingsgateway voor het gebruik van de gebruiker toegewezen beheerde identiteit. U kunt ook configureren met SSL-certificaat voor de HTTP-listener om te verwijzen naar de volledige URI van de Key Vault-certificaat of geheime ID.
+
+   ![Key vault-certificaten](media/key-vault-certs/ag-kv.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Configureren van SSL-beëindiging met Key Vault-certificaten met behulp van Azure PowerShell](configure-keyvault-ps.md).
+[SSL-beëindiging met Key Vault-certificaten configureren met behulp van Azure PowerShell](configure-keyvault-ps.md)

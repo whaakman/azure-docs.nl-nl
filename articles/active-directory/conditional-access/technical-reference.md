@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301213"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764730"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -33,7 +33,7 @@ Als dit niet de informatie die u zoekt, plaatst u een opmerking aan het einde va
 
 ## <a name="cloud-apps-assignments"></a>Toewijzingen voor cloud-apps
 
-Met beleid voor voorwaardelijke toegang u bepalen hoe uw gebruikers toegang tot uw [cloud-apps](conditions.md#cloud-apps). Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u ten minste één cloud-app te selecteren. 
+Met beleid voor voorwaardelijke toegang u bepalen hoe uw gebruikers toegang tot uw [cloud-apps](conditions.md#cloud-apps-and-actions). Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u ten minste één cloud-app te selecteren. 
 
 ![De cloud-apps voor uw beleid selecteren](./media/technical-reference/09.png)
 
@@ -141,7 +141,7 @@ Voor het automatisch implementeren met deze extensie voor Chrome browsers, maken
 
 |    |    |
 | --- | --- |
-| Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
 | Gegevens | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
@@ -150,7 +150,7 @@ Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersle
 
 |    |    |
 | --- | --- |
-| Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
 | Type | REG_SZ (String) |
 | Gegevens | {"patroon": "https://device.login.microsoftonline.com',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}} |
@@ -184,7 +184,7 @@ Deze instelling heeft een invloed op een poging toegang van de volgende mobiele 
 | Mobiele app van Outlook | Office 365 Exchange Online | Android, iOS |
 | Power BI-app | Power BI-service | Windows 10, Windows 8.1, Windows 7, Android en iOS |
 | Skype voor Bedrijven | Office 365 Exchange Online| Android, IOS |
-| Visual Studio Team Services-app | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS en Android |
+| Visual Studio Team Services-app | Visual Studio-teamservices | Windows 10, Windows 8.1, Windows 7, iOS en Android |
 
 ## <a name="support-for-legacy-authentication"></a>Ondersteuning voor legacy-verificatie
 
@@ -203,11 +203,12 @@ U kunt vereisen dat een toegang willen de geselecteerde cloud-apps moet worden u
 Deze instelling geldt voor de volgende client-apps:
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
 - Microsoft Intune Managed Browser
-- Microsoft Invoicing
+- Facturering van Microsoft
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft OneDrive

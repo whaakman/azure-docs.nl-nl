@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202928"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786324"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
 
@@ -166,4 +166,4 @@ Nadat de bewerking voor verlengen voltooid is, klikt u op **synchronisatie**. De
 * [HTTPS afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [TLS 1.1/1.2 afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Een SSL-certificaat in de code van uw toepassing in Azure App Service gebruiken](app-service-web-ssl-cert-load.md)
-* [FAQ: App Service-certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [FAQ: App Service-certificaten](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)

@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 04/30/2018
-ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60845734"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596758"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Definitietaal van werkstroom in Azure Logic Apps-schemaverwijzing
 
-Wanneer u een logische app in maakt [Azure Logic Apps](../logic-apps/logic-apps-overview.md), uw logische app heeft een onderliggende werkstroomdefinitie die worden beschreven van de werkelijke logica die in uw logische app wordt uitgevoerd. Deze werkstroomdefinitie maakt gebruik van [JSON](https://www.json.org/) en een structuur die gevalideerd door het schema Definitietaal van werkstroom volgt. Deze referentie bevat een overzicht van deze structuur en hoe elementen in het schema wordt gedefinieerd in de werkstroomdefinitie van de.
+Wanneer u een logische app in maakt [Azure Logic Apps](../logic-apps/logic-apps-overview.md), uw logische app heeft een onderliggende werkstroomdefinitie die worden beschreven van de werkelijke logica die in uw logische app wordt uitgevoerd. Deze werkstroomdefinitie maakt gebruik van [JSON](https://www.json.org/) en een structuur die gevalideerd door het schema Definitietaal van werkstroom volgt. Deze referentie bevat een overzicht van deze structuur en hoe kenmerken in het schema wordt gedefinieerd in de werkstroomdefinitie van de.
 
 ## <a name="workflow-definition-structure"></a>Structuur van de werkstroom-definitie
 
@@ -29,24 +29,63 @@ Hier volgt de structuur op hoog niveau voor de werkstroomdefinitie van een:
 ```json
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
-  "contentVersion": "<workflow-definition-version-number>",
-  "parameters": { "<workflow-parameter-definitions>" },
-  "triggers": { "<workflow-trigger-definitions>" },
   "actions": { "<workflow-action-definitions>" },
-  "outputs": { "<workflow-output-definitions>" }
+  "contentVersion": "<workflow-definition-version-number>",
+  "outputs": { "<workflow-output-definitions>" },
+  "parameters": { "<workflow-parameter-definitions>" },
+  "staticResults": { "<static-results-definitions>" },
+  "triggers": { "<workflow-trigger-definitions>" }
 }
 ```
 
-| Element | Vereist | Description |
-|---------|----------|-------------|
-| definitie | Ja | Het eerste element voor uw werkstroomdefinitie |
-| $schema | Alleen wanneer u extern verwijst naar een definitie van de werkstroom | De locatie voor de JSON-schema-bestand dat beschrijft de versie Definitietaal van werkstroom, die u hier kunt vinden: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| contentVersion | Nee | Het versienummer voor de werkstroomdefinitie van uw, namelijk '1.0.0.0"standaard. Om te identificeren en controleer of de definitie van de juiste bij het implementeren van een werkstroom, Geef een waarde te gebruiken. |
-| parameters | Nee | De definities voor een of meer parameters die het doorgeven van gegevens in uw werkstroom <p><p>Maximum aantal parameters: 50 |
-| triggers | Nee | De definities voor een of meer triggers die exemplaar maken van uw werkstroom. U kunt meer dan één trigger, maar alleen met de Werkstroomdefinitietaal, visueel niet via de ontwerper van logische Apps definiëren. <p><p>Maximum-triggers: 10 |
-| Acties | Nee | De definities voor een of meer acties uit te voeren op de werkstroom-runtime <p><p>Maximaal aantal acties: 250 |
-| uitvoer | Nee | De definities voor de uitvoer die uit een werkstroom ophalen <p><p>Maximale uitvoer: 10 |
+| Kenmerk | Vereist | Description |
+|-----------|----------|-------------|
+| `definition` | Ja | Het eerste element voor uw werkstroomdefinitie |
+| `$schema` | Alleen wanneer u extern verwijst naar een definitie van de werkstroom | De locatie voor de JSON-schema-bestand dat beschrijft de versie Definitietaal van werkstroom, die u hier kunt vinden: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
+| `actions` | Nee | De definities voor een of meer acties uit te voeren op de werkstroom-runtime. Zie voor meer informatie, [Triggers en acties](#triggers-actions). <p><p>Maximaal aantal acties: 250 |
+| `contentVersion` | Nee | Het versienummer voor de werkstroomdefinitie van uw, namelijk '1.0.0.0"standaard. Om te identificeren en controleer of de definitie van de juiste bij het implementeren van een werkstroom, Geef een waarde te gebruiken. |
+| `outputs` | Nee | De definities voor de uitvoer die in een werkstroom uitvoert resulteren. Zie voor meer informatie, [uitvoer](#outputs). <p><p>Maximale uitvoer: 10 |
+| `parameters` | Nee | De definities voor een of meer parameters die het doorgeven van gegevens in uw werkstroom. Zie voor meer informatie, [Parameters](#parameters). <p><p>Maximum aantal parameters: 50 |
+| `staticResults` | Nee | De definities voor een of meer statische resultaten geretourneerd door acties als mock uitvoer als statische resultaten zijn ingeschakeld op deze acties. In het definitie van elke actie, de `runtimeConfiguration.staticResult.name` kenmerk verwijst naar de bijbehorende definitie binnen `staticResults`. Zie voor meer informatie, [statische resultaten](#static-results). |
+| `triggers` | Nee | De definities voor een of meer triggers die exemplaar maken van uw werkstroom. U kunt meer dan één trigger, maar alleen met de Werkstroomdefinitietaal, visueel niet via de ontwerper van logische Apps definiëren. Zie voor meer informatie, [Triggers en acties](#triggers-actions). <p><p>Maximum-triggers: 10 |
 ||||
+
+<a name="triggers-actions"></a>
+
+## <a name="triggers-and-actions"></a>Triggers en acties
+
+In het werkstroomdefinitie van een, de `triggers` en `actions` secties definiëren de aanroepen die ontstaan tijdens de uitvoering van uw werkstroom. Zie voor de syntaxis en meer informatie over deze secties, [werkstroomtriggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+<a name="outputs"></a>
+
+## <a name="outputs"></a>Uitvoer
+
+In de `outputs` sectie, het definiëren van de gegevens die door uw werkstroom kunt wanneer u klaar bent met. Bijvoorbeeld, voor het volgen van een specifieke status of de waarde van elke uitvoering, opgeven dat de werkstroomuitvoer die gegevens retourneert.
+
+> [!NOTE]
+> Als u reageert op binnenkomende aanvragen van een service een REST-API, gebruik dan niet `outputs`. Gebruik in plaats daarvan de `Response` actietype. Zie voor meer informatie, [werkstroomtriggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+Hier volgt de algemene structuur voor de uitvoerdefinitie van een:
+
+```json
+"outputs": {
+  "<key-name>": {
+    "type": "<key-type>",
+    "value": "<key-value>"
+  }
+}
+```
+
+| Kenmerk | Vereist | Type | Description |
+|-----------|----------|------|-------------|
+| <*key-name*> | Ja | String | De naam van de sleutel voor de uitvoer waarde retourneren |
+| <*key-type*> | Ja | int, float, string, securestring, bool, matrix, JSON-object | Het type voor de geretourneerde waarde van uitvoer |
+| <*key-value*> | Ja | Hetzelfde als <*sleutel-type*> | De geretourneerde waarde van uitvoer |
+|||||
+
+Als u de uitvoer van een werkstroom, bekijk de uitvoeringsgeschiedenis en details in de Azure-portal van uw logische app of gebruik de [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows). U kunt ook uitvoer doorgeven aan externe systemen, bijvoorbeeld Power BI, zodat u kunt dashboards maken.
+
+<a name="parameters"></a>
 
 ## <a name="parameters"></a>Parameters
 
@@ -69,44 +108,94 @@ Hier volgt de algemene structuur voor een parameterdefinitie:
 },
 ```
 
-| Element | Vereist | Type | Description |
-|---------|----------|------|-------------|
-| type | Ja | int, float, string, securestring, bool, matrix, JSON-object, secureobject <p><p>**Opmerking**: Voor alle wachtwoorden, sleutels en geheimen, gebruikt u de `securestring` en `secureobject` omdat de `GET` bewerking deze typen niet retourneren. Zie voor meer informatie over het beveiligen van parameters [uw logische app beveiligen](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Het type voor de parameter |
-| defaultValue | Ja | Gelijk aan `type` | De standaardwaarde voor parameter wanneer er geen waarde is opgegeven wanneer de werkstroom waarmee een wordt gemaakt |
-| allowedValues | Nee | Gelijk aan `type` | Een matrix met waarden die de parameter kunt accepteren |
-| metagegevens | Nee | JSON-object | Andere details van de parameter, bijvoorbeeld de naam of een leesbare beschrijving op voor uw logische app of stroom of het moment van ontwerp-gegevens die worden gebruikt door Visual Studio of andere hulpprogramma 's |
+| Kenmerk | Vereist | Type | Description |
+|-----------|----------|------|-------------|
+| <*parameter-type*> | Ja | int, float, string, securestring, bool, matrix, JSON-object, secureobject <p><p>**Opmerking**: Voor alle wachtwoorden, sleutels en geheimen, gebruikt u de `securestring` en `secureobject` omdat de `GET` bewerking deze typen niet retourneren. Zie voor meer informatie over het beveiligen van parameters [uw logische app beveiligen](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Het type voor de parameter |
+| <*standaard-parameterwaarden*> | Ja | Gelijk aan `type` | De standaardwaarde voor parameter wanneer er geen waarde is opgegeven wanneer de werkstroom waarmee een wordt gemaakt |
+| <*matrix-met-toegestaan-parameter-waarden*> | Nee | Matrix | Een matrix met waarden die de parameter kunt accepteren |
+| `metadata` | Nee | JSON-object | Andere details van de parameter, bijvoorbeeld de naam of een leesbare beschrijving op voor uw logische app of stroom of het moment van ontwerp-gegevens die worden gebruikt door Visual Studio of andere hulpprogramma 's |
 ||||
 
-## <a name="triggers-and-actions"></a>Triggers en acties
+<a name="static-results"></a>
 
-In het werkstroomdefinitie van een, de `triggers` en `actions` secties definiëren de aanroepen die ontstaan tijdens de uitvoering van uw werkstroom. Zie voor de syntaxis en meer informatie over deze secties, [werkstroomtriggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md).
+## <a name="static-results"></a>Statische resultaten
 
-## <a name="outputs"></a>Uitvoer
-
-In de `outputs` sectie, het definiëren van de gegevens die door uw werkstroom kunt wanneer u klaar bent met. Bijvoorbeeld, voor het volgen van een specifieke status of de waarde van elke uitvoering, opgeven dat de werkstroomuitvoer die gegevens retourneert.
-
-> [!NOTE]
-> Als u reageert op binnenkomende aanvragen van een service een REST-API, gebruik dan niet `outputs`. Gebruik in plaats daarvan de `Response` actietype. Zie voor meer informatie, [werkstroomtriggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md).
-
-Hier volgt de algemene structuur voor de uitvoerdefinitie van een:
+In de `staticResults` kenmerk, het definiëren van een actie nagebootste `outputs` en `status` dat de actie wordt geretourneerd wanneer de actie statische resultaat instelling is ingeschakeld. In de definitie van de actie, de `runtimeConfiguration.staticResult.name` kenmerk verwijst naar de naam van de definitie van de statische resultaat binnen `staticResults`. Leer hoe u kunt [testen van logische apps met Hiermee mock-gegevens door het instellen van statische resultaten](../logic-apps/test-logic-apps-mock-data-static-results.md).
 
 ```json
-"outputs": {
-  "<key-name>": {
-    "type": "<key-type>",
-    "value": "<key-value>"
-  }
+"definition": {
+   "$schema": "<...>",
+   "actions": { "<...>" },
+   "contentVersion": "<...>",
+   "outputs": { "<...>" },
+   "parameters": { "<...>" },
+   "staticResults": {
+      "<static-result-definition-name>": {
+         "outputs": {
+            <output-attributes-and-values-returned>,
+            "headers": { <header-values> },
+            "statusCode": "<status-code-returned>"
+         },
+         "status": "<action-status>"
+      }
+   },
+   "triggers": { "<...>" }
 }
 ```
 
-| Element | Vereist | Type | Description |
-|---------|----------|------|-------------|
-| <*key-name*> | Ja | String | De naam van de sleutel voor de uitvoer waarde retourneren |
-| type | Ja | int, float, string, securestring, bool, matrix, JSON-object | Het type voor de geretourneerde waarde van uitvoer |
-| value | Ja | Gelijk aan `type` | De geretourneerde waarde van uitvoer |
+| Kenmerk | Vereist | Type | Description |
+|-----------|----------|------|-------------|
+| <*statische-resultaat-definition-naam*> | Ja | String | De naam van de definitie van een statische resultaat dat de actiedefinitie van een kan verwijzen naar via een `runtimeConfiguration.staticResult` object. Zie voor meer informatie, [Runtime-configuratie-instellingen](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>U kunt een unieke naam die u wilt gebruiken. Standaard wordt deze unieke naam toegevoegd met een cijfer, indien nodig wordt verhoogd. |
+| <*output-attributes-and-values-returned*> | Ja | Varieert | De vereisten voor deze kenmerken hangen af van verschillende voorwaarden. Bijvoorbeeld, wanneer de `status` is `Succeeded`, wordt de `outputs` kenmerk bevat kenmerken en waarden als mock uitvoer geretourneerd door de actie. Als de `status` is `Failed`, wordt de `outputs` kenmerk bevat de `errors` kenmerk een matrix met een of meer fouten is `message` objecten die informatie over de fout hebben. |
+| <*header-values*> | Nee | JSON | Headerwaarden die zijn geretourneerd door de actie |
+| <*status code geretourneerd*> | Ja | String | De statuscode die wordt geretourneerd door de actie |
+| <*action-status*> | Ja | String | Status van de actie, bijvoorbeeld `Succeeded` of `Failed` |
 |||||
 
-Als u de uitvoer van een werkstroom, bekijk de uitvoeringsgeschiedenis en details in de Azure-portal van uw logische app of gebruik de [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows). U kunt ook uitvoer doorgeven aan externe systemen, bijvoorbeeld Power BI, zodat u kunt dashboards maken.
+Bijvoorbeeld, in de definitie van deze HTTP-actie, de `runtimeConfiguration.staticResult.name` verwijzingen van het kenmerk `HTTP0` binnen de `staticResults` kenmerk waar de mock uitvoer voor de actie worden gedefinieerd. De `runtimeConfiguration.staticResult.staticResultOptions` kenmerk geeft aan dat de instelling van de statische resultaat `Enabled` op de HTTP-actie.
+
+```json
+"actions": {
+   "HTTP": {
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.microsoft.com"
+      },
+      "runAfter": {},
+      "runtimeConfiguration": {
+         "staticResult": {
+            "name": "HTTP0",
+            "staticResultOptions": "Enabled"
+         }
+      },
+      "type": "Http"
+   }
+},
+```
+
+De HTTP-actie retourneert de uitvoer in de `HTTP0` definitie binnen `staticResults`. In dit voorbeeld, voor de statuscode de mock-uitvoer is `OK`. Voor headerwaarden, de mock-uitvoer is `"Content-Type": "application/JSON"`. Voor de status van de actie, de mock-uitvoer is `Succeeded`.
+
+```json
+"definition": {
+   "$schema": "<...>",
+   "actions": { "<...>" },
+   "contentVersion": "<...>",
+   "outputs": { "<...>" },
+   "parameters": { "<...>" },
+   "staticResults": {
+      "HTTP0": {
+         "outputs": {
+            "headers": {
+               "Content-Type": "application/JSON"
+            },
+            "statusCode": "OK"
+         },
+         "status": "Succeeded"
+      }
+   },
+   "triggers": { "<...>" }
+},
+```
 
 <a name="expressions"></a>
 

@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23003186aa413e313578c57616ae03c435f140e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9deaf610696f676610f589168426ac24be692c99
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785404"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823524"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Quickstart: Meld u aan gebruikers en het verkrijgen van een toegangstoken van een toepassing in JavaScript één pagina (SPA)
 
@@ -183,7 +183,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`cacheLocation`  | (Optioneel) Hiermee stelt u de browser-opslag voor de verificatie-status. De standaardwaarde is sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Optioneel) De bibliotheek wordt de aanvraagstatus verificatie is vereist voor de validatie van het auth-stromen in de browsercookies worden opgeslagen. Deze optie is ingesteld voor Internet Explorer en Microsoft Edge browser om bepaalde [bekende problemen](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
- Zie de [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) voor meer informatie over de configureerbare opties beschikbaar.
+ Lees voor meer informatie over de beschikbare configuratieopties [initialiseren clienttoepassingen](msal-js-initializing-client-applications.md).
 
 ### <a name="sign-in-users"></a>Gebruikers aanmelden
 
@@ -256,6 +256,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+
 > [!NOTE]
 > Deze snelstartgids maakt gebruik van de `loginRedirect` en `acquireTokenRedirect` methoden als de browser die wordt gebruikt Internet Explorer vanwege is een [bekende probleem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) met betrekking tot de verwerking van pop-upvensters door Internet Explorer-browser.
 

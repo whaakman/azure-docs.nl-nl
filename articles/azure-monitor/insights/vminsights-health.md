@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402145"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522192"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>De status van uw virtuele Azure-machines begrijpen
 
@@ -28,13 +28,13 @@ De algehele status van de Azure-VM weergave en het onderliggende besturingssyste
 
 In dit artikel helpt u begrijpen hoe u snel beoordelen, onderzoeken en oplossen van statusproblemen gedetecteerd.
 
-Zie voor meer informatie over het configureren van Azure Monitor voor virtuele machines [Azure Monitor inschakelen voor virtuele machines](vminsights-onboard.md).
+Zie voor meer informatie over het configureren van Azure Monitor voor virtuele machines [Azure Monitor inschakelen voor virtuele machines](vminsights-enable-overview.md).
 
 ## <a name="monitoring-configuration-details"></a>Informatie over de configuratie controleren
 
 In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd voor het bewaken van Azure Windows en Linux-machines. Alle health criteria zijn vooraf geconfigureerd voor een waarschuwing wanneer het niet in orde voorwaarde wordt voldaan. 
 
-### <a name="windows-vms"></a>Virtuele Windows-machines
+### <a name="windows-vms"></a>Windows-VM's
 
 - Beschikbaar geheugen in Megabytes 
 - Gemiddelde seconden Per schrijfbewerking (logische schijf)
@@ -65,7 +65,7 @@ In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd
 - Status van Windows Firewall-Service
 - Status van Windows Remote Management-Service
 
-### <a name="linux-vms"></a>Virtuele Linux-machines
+### <a name="linux-vms"></a>Linux VM's
 - Gemiddelde van de schijf Schijfoverdrachten per seconde 
 - Gemiddelde van de schijf Schijf sec/lezen 
 - Gemiddelde van de schijf Schijf sec/schrijven 
@@ -249,7 +249,7 @@ Waarschuwingen van andere resourcetypen of services zijn niet bedoeld om te word
 
 U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 
-|Kolom |Beschrijving | 
+|Kolom |Description | 
 |-------|------------| 
 |Abonnement |Selecteer een Azure-abonnement. Alleen waarschuwingen in het geselecteerde abonnement zijn opgenomen in de weergave. | 
 |Resourcegroep |Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. | 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: d55e11ace4ca306c3d3ec8c0094a751966289db6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523054"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826381"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resourcelimieten voor Azure NetApp Files
 
@@ -36,6 +36,7 @@ De volgende tabel beschrijft de resourcelimieten voor Azure NetApp bestanden:
 |  Aantal volumes per capaciteit van toepassingen     |    500   |    Ja     |
 |  Het aantal momentopnamen per volume       |    255     |    Nee        |
 |  Aantal subnetten gedelegeerd naar Azure NetApp bestanden (Microsoft.NetApp/volumes) per Virtueelnetwerk van Azure    |   1   |    Nee    |
+|  Maximum aantal virtuele machines (met inbegrip van gekoppelde VNets) die verbinding kunnen maken met een volume     |    1000   |    Nee   |
 |  Minimale grootte van een groep met één capaciteit   |  4 TiB     |    Nee  |
 |  Maximale grootte van een groep met één capaciteit    |  500 TiB   |   Nee   |
 |  Minimale grootte van een enkel volume    |    100 GiB    |    Nee    |

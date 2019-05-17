@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 943131bc746b5d2a1fd95a26a6a6c9f3bb6b9e57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 020e0395c7678f6856a293c8386a44d7a959bc06
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509957"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786535"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Zelfstudie: Azure Active Directory-integratie met SAML SSO for Jira by resolution GmbH
 
@@ -168,7 +168,7 @@ Voor het configureren van eenmalige aanmelding met SAML SSO voor Jira resolutie 
     
     d. Klik op **volgende**.
     
-11. Op de de **id-providerconfiguratie** pagina, klikt u op **volgende**.
+11. Op de **id-providerconfiguratie** pagina, klikt u op **volgende**.
  
     ![Eenmalige aanmelding configureren](./media/samlssojira-tutorial/addon5b.png)
 
@@ -313,9 +313,9 @@ Als u wilt activeren SSO-omleiding, kunt u het volgende doet in **uw exemplaar J
 Na het activeren van de optie, kunt u de gebruikersnaam en wachtwoord vragen als nog steeds bereiken het **inschakelen nosso** optie is ingeschakeld door te navigeren naar [https://\<server-basis-url > /login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso). Zoals altijd vervangen door  **\<server-basis-url >** met uw basis-URL.
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
