@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: ba41f6cce5233491020a0b42f4fd40dac060be57
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620258"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815576"
 ---
 **Laatste update document**: 14 mei 2019 10:00 AM PST.
 
@@ -29,7 +29,7 @@ Meer informatie over hoe de beveiliging is geïntegreerd in elk aspect van Azure
 > Aangezien dit document werd gepubliceerd, zijn meerdere varianten van deze klasse beveiligingsproblemen gemaakt. Microsoft blijft zwaar worden geïnvesteerd in onze klanten te beschermen en bieden van richtlijnen. Deze pagina wordt bijgewerkt wanneer we doorgaan met de release verder oplossingen. 
 > 
 > Op 14 mei 2019 [Intel vermeld](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) een nieuwe set speculatieve uitvoering kant kanaal beveiligingslek bekend als micro-architecturale steekproeven te nemen (MDS Zie het Microsoft-beveiligingsrichtlijnen [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), die is toegewezen meerdere CVEs: 
-> - CVE-2018-11091 - micro-architecturale gegevens steekproeven Uncacheable geheugen (MDSUM)
+> - CVE-2019-11091 - micro-architecturale gegevens steekproeven Uncacheable geheugen (MDSUM)
 > - CVE-2018-12126 - micro-architecturale Store Buffer gegevens steekproeven (MSBDS) 
 > - CVE-2018-12127 - micro-architecturale Load poort gegevens steekproeven (MLPDS)
 > - CVE-2018-12130 - micro-architecturale opvulling Buffer gegevens steekproeven (MFBDS)
@@ -123,7 +123,7 @@ Als de uitvoer ziet u `MDS mitigation is enabled: False`, meldt [Neem contact op
 <a name="linux"></a>Het inschakelen van de reeks aanvullende beveiligingsfuncties in is vereist dat het gebruikte besturingssysteem volledig up-to-date zijn. Sommige oplossingen wordt standaard ingeschakeld. De volgende sectie beschrijft de functies die uitgeschakeld, standaard en/of vertrouwen op hardware-ondersteuning (microcode zijn). Inschakelen van deze functies mogelijk invloed op de prestaties. Verwijzen naar de documentatie van de provider van uw besturingssysteem voor verdere instructies
 
 
-**Stap 1: Hyperthreading is op de virtuele machine uitschakelen** - klanten die niet-vertrouwde code uitvoeren op een virtuele machine moet hyperthreading is uitgeschakeld of verplaatsen naar de virtuele machine een niet-hyperthreaded hyperthreaded.  Uitvoeren als u wilt controleren of u een hyperthreaded VM wordt uitgevoerd, de `lspcu` opdracht in de Linux-VM. 
+**Stap 1: Hyperthreading is op de virtuele machine uitschakelen** - klanten die niet-vertrouwde code uitvoeren op een virtuele machine moet hyperthreading is uitgeschakeld of verplaatsen naar de virtuele machine een niet-hyperthreaded hyperthreaded.  Uitvoeren als u wilt controleren of u een hyperthreaded VM wordt uitgevoerd, de `lscpu` opdracht in de Linux-VM. 
 
 Als `Thread(s) per core = 2`, en vervolgens hyperthreading is ingeschakeld. 
 
@@ -146,7 +146,7 @@ NUMA node(s):          1
 
 ```
 
-Als u een hyperthreaded VM uitvoert, moet u [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) om op te halen hyperthreading is uitgeschakeld.  Opmerking: Als hyperthreading is uitgeschakeld, **ondersteuning moet een volledige VM opnieuw wordt opgestart**.
+Als u een hyperthreaded VM uitvoert, moet u [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) om op te halen hyperthreading is uitgeschakeld.  Als hyperthreading is uitgeschakeld, **ondersteuning moet een volledige VM opnieuw wordt opgestart**.
 
 
 **Stap 2**: Bescherming tegen een van de onderstaande speculatieve uitvoering van side-channel beveiligingsproblemen, raadpleegt u de documentatie van de provider van uw besturingssysteem:   
@@ -159,18 +159,18 @@ Als u een hyperthreaded VM uitvoert, moet u [Neem contact op met ondersteuning v
 
 Dit artikel bevat richtlijnen aan de onderstaande speculatieve uitvoering van side-channel aanvallen die invloed hebben op veel moderne processors:
 
-[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+[Spectre Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
 - CVE-2017-5715 - vertakking doel injectie (BTI)  
 - CVE-2017-5754 - Kernel pagina tabel isolatie (KPTI)
 - CVE-2018-3639 – speculatieve Store overslaan (KPTI) 
  
-[L1 Terminal fouttolerantie (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+[L1 Terminal fouttolerantie (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel Software Guard-extensies (Intel SGX)
 - CVE-2018-3620 - besturingssystemen (OS) en System Management-modus (SMM)
 - CVE-2018-3646 – heeft gevolgen voor Virtual Machine Manager (VMM)
 
-[Steekproef nemen voor gegevens micro-architecturale](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-- CVE-2018-11091 - micro-architecturale gegevens steekproeven Uncacheable geheugen (MDSUM)
+[Steekproef nemen voor gegevens micro-architecturale](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
+- CVE-2019-11091 - micro-architecturale gegevens steekproeven Uncacheable geheugen (MDSUM)
 - CVE-2018-12126 - micro-architecturale Store Buffer gegevens steekproeven (MSBDS)
 - CVE-2018-12127 - micro-architecturale Load poort gegevens steekproeven (MLPDS)
 - CVE-2018-12130 - micro-architecturale opvulling Buffer gegevens steekproeven (MFBDS)

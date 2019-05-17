@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722440"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797013"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: Translate
 
@@ -41,11 +41,11 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td><em>Vereiste parameter</em>.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>uit</td>
+    <td>from</td>
     <td><em>Optionele parameter</em>.<br/>Hiermee geeft u de taal van de invoertekst. Welke talen zijn beschikbaar voor de omzetting van door het opzoeken <a href="./v3-0-languages.md">ondersteunde talen</a> met behulp van de <code>translation</code> bereik. Als de <code>from</code> parameter niet wordt opgegeven, wordt automatische taaldetectie toegepast om te bepalen van de source-taal.</td>
   </tr>
   <tr>
-    <td>tot</td>
+    <td>aan</td>
     <td><em>Vereiste parameter</em>.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de <a href="./v3-0-languages.md">ondersteunde talen</a> opgenomen in de <code>translation</code> bereik. Gebruik bijvoorbeeld <code>to=de</code> te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld <code>to=de&to=it</code> te vertalen in het Duits en Italiaans.</td>
   </tr>
   <tr>
@@ -101,7 +101,7 @@ Aanvraagheaders zijn onder andere:
     <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>Inhoudstype</td>
     <td><em>Vereiste aanvraagheader</em>.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: <code>application/json</code>.</td>
   </tr>
   <tr>
@@ -114,7 +114,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagbody
+## <a name="request-body"></a>Aanvraagtekst
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`, die staat voor de tekenreeks die moet worden vertaald.
 
@@ -193,7 +193,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Geslaagd.</td>
+    <td>Voltooid.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -213,7 +213,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   </tr>
   <tr>
     <td>429</td>
-    <td>De aanroeper is te veel aanvragen verzenden.</td>
+    <td>De server heeft de aanvraag geweigerd omdat de client aanvraaglimieten heeft overschreden.</td>
   </tr>
   <tr>
     <td>500</td>

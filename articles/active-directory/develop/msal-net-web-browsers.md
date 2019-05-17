@@ -4,7 +4,7 @@ description: Meer informatie over specifieke aandachtspunten bij het gebruik van
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406769"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65543963"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Met behulp van webbrowsers in MSAL.NET
 Webbrowsers zijn vereist voor interactieve verificatie. Standaard MSAL.NET ondersteunt de [system-webbrowser](#system-web-browser-on-xamarinios-and-xamarinandroid) op Xamarin.iOS en [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Maar [kunt u ook de ingesloten webbrowser](#enable-embedded-webviews) afhankelijk van uw vereisten (UX, eenmalige aanmelding (SSO), beveiliging nodig) in [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) en [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) Apps. En u kunt zelfs [dynamisch Kies](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) webbrowser te gebruiken op basis van de aanwezigheid van Chrome of een browser Chrome aangepaste tabbladen in Android ondersteunen.

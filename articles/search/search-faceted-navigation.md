@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023964"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793625"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Facetnavigatie is een filteren mechanisme waarmee Self-directed drilldown navigatie in zoektoepassingen. De term 'meervoudige navigatie' kan niet bekend zijn, maar u hebt waarschijnlijk eerder gebruikt. Zoals in het volgende voorbeeld wordt weergegeven, is meervoudige navigatie niets meer dan de categorieën die worden gebruikt om resultaten te filteren.
 
- ![Azure Search taak Portal-Demo][1]
+ ![Azure Search taak Portal-Demo](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search taak Portal-Demo")
 
 Facetnavigatie is een alternatieve toegangspunt om te zoeken. Het biedt een alternatief voor complexe zoekquery expressies handmatig te typen. Facetten kunt u vinden wat u zoekt, terwijl u ervoor te zorgen dat er geen nul resultaten. Als ontwikkelaar kunnen facetten u weergeven van de handigste zoekcriteria voor het navigeren door uw search-index. In de detailhandel online toepassingen, is vaak facetnavigatie gebouwd merken, afdelingen (kinderen schoenen), grootte, prijs, populariteit en classificaties. 
 
@@ -341,7 +341,7 @@ Om in te stellen prijs facetten $10 per, zou u het volgende opgeven: `&facet=pri
 **Methode 2: Gebruik een waardenlijst met**  
 Voor numerieke gegevens, kunt u een lijst met waarden.  Houd rekening met het facet bereik voor een `listPrice` veld weergegeven als volgt:
 
-  ![Lijst met waarden van voorbeeld][5]
+  ![Lijst met waarden van voorbeeld](media/search-faceted-navigation/Facet-5-Prices.PNG "lijst met waarden van voorbeeld")
 
 Als u een bereik facet zoals die in de vorige schermafbeelding, gebruikt u een lijst met waarden:
 
@@ -352,7 +352,7 @@ Elk bereik is gebouwd met behulp van 0 als uitgangspunt, een waarde in de lijst 
 ### <a name="build-a-filter-for-a-range"></a>Bouw een filter voor een bereik
 Als u wilt filteren op basis van een bereik dat u selecteert, kunt u de `"ge"` en `"lt"` filteren operators in een tweedelige-expressie die de eindpunten van het bereik definieert. Bijvoorbeeld, als u het bereik van 10-25 voor kiezen een `listPrice` veld, het filter is `$filter=listPrice ge 10 and listPrice lt 25`. In de voorbeeldcode wordt het gebruik van de filterexpressie **priceFrom** en **priceTo** parameters om in te stellen van de eindpunten. 
 
-  ![Query voor een bereik van waarden][6]
+  ![Query voor een bereik van waarden](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Query voor een bereik van waarden")
 
 <a name="geofacets"></a> 
 
@@ -385,11 +385,11 @@ Als u met zoekresultaten werkt, bekijk de URL voor wijzigingen in de basisquery'
    
    Een facetnavigatiestructuur geretourneerd ook met de lijst met zoekresultaten. In de pagina met zoekresultaten bevat de facetnavigatiestructuur aantallen voor elke facet resultaat. Er is geen facetten zijn ingeschakeld, zodat alle overeenkomende resultaten worden geretourneerd.
    
-   ![Zoekresultaten voor facetten selecteren][11]
+   ![Zoekresultaten voordat u selecteert facetten](media/search-faceted-navigation/faceted-search-before-facets.png "zoekresultaten voor facetten selecteren")
 
 4. Klik op een functie, de locatie of de minimale salaris. Facetten zijn null voor de eerste zoekopdracht maar als ze op basis van waarden, de lijst met zoekresultaten moeten worden ontdaan van de items die niet meer overeen met.
    
-   ![Zoekresultaten na het selecteren van facetten][12]
+   ![Zoekresultaten na het selecteren van facetten](media/search-faceted-navigation/faceted-search-after-facets.png "zoekresultaten na het selecteren van facetten")
 
 5. Schakel de basis van meervoudig query zodat u andere query gedrag kunt, klikt u op de `[X]` na de geselecteerde facetten om te wissen van de facetten.
    
@@ -400,42 +400,6 @@ Bekijk [gedetailleerde informatie over Azure Search](https://channel9.msdn.com/E
 
 Voor meer inzicht in ontwerpprincipes voor meervoudige navigatie raden we aan de volgende koppelingen:
 
-* [Ontwerpen voor Facetzoekopdrachten](http://www.uie.com/articles/faceted_search/)
 * [Ontwerppatronen: Facetnavigatie](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [Front-End problemen bij het implementeren van Facetzoekopdrachten – deel 1 ](https://articles.uie.com/faceted_search2/)
 

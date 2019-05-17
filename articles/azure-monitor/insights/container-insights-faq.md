@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494662"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780010"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor voor containers Veelgestelde vragen
 
@@ -76,6 +76,12 @@ U ziet mogelijk de volgende fout: **Het antwoord op de url die is opgegeven in d
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Waarom niet kan ik een upgrade uitvoeren cluster na de onboarding?
 
 Als nadat u Azure Monitor voor containers voor een AKS-cluster hebt ingeschakeld, u de Log Analytics-werkruimte verwijdert de gegevens is verzonden met het cluster, bij het upgraden van het cluster zal mislukken. Om dit te omzeilen, moet u uitschakelen, controle en vervolgens weer inschakelen die verwijst naar een andere geldige werkruimte in uw abonnement. Wanneer u de clusterupgrade opnieuw uitvoert probeert, moet worden verwerkt en voltooid.  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Welke poorten en domeinen moet ik openen/whitelist voor de agent?
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 32002f8b88a2fbeba29f15b3b9289ecf3d7560d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942737"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794343"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Voorbereiden van uw container technische activa
 
@@ -53,9 +53,10 @@ We raden ook controleren van de beschikbare hulpprogramma's in de [Azure-ontwikk
 
 ## <a name="create-the-container-image"></a>De containerinstallatiekopie maken
 
-- Maak en configureer de virtuele harde schijf (VHD) voor uw container virtuele machine (VM). Deze VHD bevat het besturingssysteem (Windows, Linux of Ubuntu) voor de container. Extra gegevensschijven mogelijk vereist zijn.
-- Configureren van het besturingssysteem van de virtuele machine, VM-grootte, poorten te openen en eventuele gekoppelde gegevensschijven.
-- Installeer de toepassing en andere software die nodig voor uw aanbieding is. Bijvoorbeeld: database-software, software van derden of een aangepaste toepassing.
+Zie het volgende voor meer informatie:
+
+* [Zelfstudie: Een containerinstallatiekopie voor implementatie in Azure Container Instances maken](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Zelfstudie: Bouwen en implementeren van containerinstallatiekopieën in de cloud met Azure Container Registry-taken](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -3,8 +3,8 @@ title: Problemen met aanmelden bij een toepassing vanuit het toegangsvenster | M
 description: Het oplossen van problemen met toegang tot een toepassing vanaf de Microsoft Azure AD-Toegangsvenster op myapps.microsoft.com
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691022762e63687c298090c02f486993b4fd77a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51e486e8eb2fef04c1b876dff3de644dda4aaf2e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441526"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781137"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemen met aanmelden bij een toepassing vanuit het toegangsvenster
 
@@ -383,7 +383,7 @@ Als u wilt een toepassing hebt toegevoegd vanuit de Azure AD-galerie, de volgend
 
 6.  In de **Voer een naam** tekstvak van de **toevoegen vanuit de galerie** sectie, typt u de naam van de toepassing
 
-7.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding
+7.  Zoek en selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
 8.  Voordat u de toepassing toe te voegen, kunt u de naam van de **naam** tekstvak.
 

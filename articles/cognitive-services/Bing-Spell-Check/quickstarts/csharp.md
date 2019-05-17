@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a80f0feec6985129f78ee0b034746aa77f2e271
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 102fd27c25052f4f5b3c3c469447b8488171f644
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876617"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798485"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole REST API en C#
 
@@ -23,9 +23,9 @@ Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Een versie van [Visual Studio 2017 of later](https://www.visualstudio.com/downloads/).
 * Voor het installeren van `Newtonsoft.Json` als een NuGet-pakket in Visual studio:
-    1. In de Solution Explorer met de rechtermuisknop op het oplossingsbestand.
+    1. In **Solution Explorer**, met de rechtermuisknop op het oplossingsbestand.
     1. Selecteer **NuGet-pakketten beheren voor oplossing**.
     1. Zoeken naar `Newtonsoft.Json` en installeer het pakket.
 * Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](https://www.mono-project.com/).

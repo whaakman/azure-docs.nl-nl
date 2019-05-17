@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 767f087910136ce558d71602a1c4c632090168cd
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925521"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540630"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -65,7 +65,7 @@ Nee, Site Recovery gerepliceerde gegevens niet worden onderschept, en heeft geen
 Site Recovery is ISO 27001: 2013, 27018, HIPAA, DPA gecertificeerd en wordt momenteel SOC2 en FedRAMP JAB-beoordelingen.
 
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 ### <a name="how-can-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Hoe kan ik de geschatte kosten in rekening gebracht voor VMware-noodherstel berekenen?
 
 U kunt de [prijscalculator](https://aka.ms/asr_pricing_calculator) kosten wilt ramen tijdens het gebruik van Site Recovery.
@@ -251,13 +251,13 @@ Klik in de Recovery Services-kluis op **configuratieservers** in **Site Recovery
 
 ## <a name="process-server"></a>Processerver
 
-### <a name="unable-to-select-process-server-during-enable-replication"></a>Kan geen processerver selecteren tijdens replicatie inschakelen
+### <a name="why-am-i-unable-to-select-process-server-during-enable-replication"></a>Waarom heb ik kan niet worden geselecteerd processerver tijdens replicatie inschakelen?
 
-Van 9.24 versie verbeteringen zijn aangebracht voor [verwerken van server-waarschuwingen](vmware-physical-azure-monitor-process-server.md#process-server-alerts) op bij het instellen van een uitbreidbare processerver. Dit is om te voorkomen dat processen server beperken en te voorkomen dat het gebruik van de processerver niet in orde.
+Van 9.24 versie verbeteringen zijn aangebracht om weer te geven [status van de processerver tijdens replicatie inschakelen](vmware-azure-enable-replication.md#enable-replication). Dit is om te voorkomen dat processen server beperken en het gebruik van niet in orde processervers minimaliseren.
 
-### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Wat moet ik doen om te verkrijgen van nauwkeurige status van de processerver
+### <a name="what-is-meant-by-upgrading-process-server-to-924-or-higher-versions-for-accurate-health"></a>Wat wordt bedoeld met het upgraden van de processerver naar 9.24 of hogere versies voor nauwkeurige health?
 
-Upgraden van Site Recovery-onderdelen op de [meest recente versies](service-updates-how-to.md#links-to-currently-supported-update-rollups) (ten minste 9.24 of hoger).
+Van [9.24 versies](service-updates-how-to.md#links-to-currently-supported-update-rollups), extra waarschuwingen zijn geïntroduceerd ter verbetering van de statuswaarschuwingen van de processerver. Site Recovery-onderdelen op 9.24 versies of hoger voor een upgrade van alle waarschuwingen worden gegenereerd.
 
 ## <a name="failover-and-failback"></a>Failover en failback
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Kan ik de processerver op on-premises voor failback gebruiken?

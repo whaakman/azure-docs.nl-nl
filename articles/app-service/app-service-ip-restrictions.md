@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728698"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541672"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Beperkingen voor Azure App Service-toegang #
 
@@ -32,7 +32,7 @@ Wanneer een aanvraag wordt gedaan aan uw app, wordt het adres van de afzender ge
 
 De mogelijkheid tot beperkingen is geïmplementeerd in de front-end-rollen van App Service, die zijn upstream van de werknemer hosts waarop uw code wordt uitgevoerd. Beperkingen voor Computertoegang is daarom nagenoeg netwerk ACL's.
 
-De mogelijkheid toegang te beperken tot uw web-app uit een Azure Virtual Network (VNet) heet [service-eindpunten][serviceendpoints]. Service-eindpunten kunnen u tot een service met meerdere tenants in de geselecteerde subnetten beperkt. Dit moet worden ingeschakeld op zowel de zijde van de netwerken als de service die wordt ingeschakeld met. 
+De mogelijkheid toegang te beperken tot uw web-app uit een Azure Virtual Network (VNet) heet [service-eindpunten][serviceendpoints]. Service-eindpunten kunnen u tot een service met meerdere tenants in de geselecteerde subnetten beperkt. Dit moet worden ingeschakeld op zowel de zijde van de netwerken als de service die wordt ingeschakeld met. Het werkt niet als u wilt beperken het verkeer naar apps die worden gehost in een App Service Environment.  Als u zich in een App Service-omgeving, kunt u toegang tot uw app met IP-adresregels beheren.
 
 ![toegangsstroom voor beperkingen](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -59,6 +59,8 @@ Om in te stellen van een IP-adres op basis van de regel, selecteer een type IPv4
 ![een VNet-regel voor toegang tot beperkingen toevoegen](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Als u wilt toegang beperken tot de geselecteerde subnetten, selecteer een type van het Virtueelnetwerk. Daaronder kunt u zich om op te halen van het abonnement, VNet en subnet dat u wilt toestaan of weigeren van toegang met. Als service-eindpunten zijn nog niet ingeschakeld met Microsoft.Web voor het subnet dat u hebt geselecteerd, wordt deze automatisch ingeschakeld voor u, tenzij u het selectievakje gevraagd niet om dat te doen. De situatie waarin u wilt inschakelen op de app, maar niet het subnet is grotendeels met betrekking tot hebt u de machtigingen voor het inschakelen van service-eindpunten op het subnet of niet. Als u nodig hebt om op te halen van iemand anders om in te schakelen van service-eindpunten op het subnet, kunt u het selectievakje en uw App geconfigureerd voor service-eindpunten in afwachting van het later opnieuw wordt ingeschakeld op het subnet. 
+
+Service-eindpunten kunnen niet worden gebruikt om toegang te beperken tot apps die worden uitgevoerd in een App Service Environment. Wanneer uw app zich in een App Service-omgeving, kunt u toegang tot uw app met IP-toegangsregels beheren. 
 
 U kunt klikken op een rij te bewerken van een bestaande regel voor de beperking van toegang. Bewerkingen zijn van kracht inclusief direct wijzigingen in volgorde van prioriteit.
 

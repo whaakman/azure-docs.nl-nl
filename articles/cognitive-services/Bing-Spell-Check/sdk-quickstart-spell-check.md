@@ -3,19 +3,19 @@ title: 'Quickstart: Spellingcontrole met de Bing Spellingcontrole-SDK voor C#'
 titlesuffix: Azure Cognitive Services
 description: Aan de slag met de Bing Spellingcontrole-REST-API om de spelling en grammatica te controleren.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: v-gedod
-ms.openlocfilehash: 3487656f72f315aa15ce003a8dfd279c45d1f992
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: adbb60c7ddbc72b8b7e5cb31c6909117ce3a10cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766018"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798363"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole-SDK voor C#
 
@@ -23,10 +23,10 @@ Gebruik deze quickstart om te beginnen met de Bing Spellingcontrole-SDK voor C#.
 
 ## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
-* Elke versie van [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Een versie van [Visual Studio 2017 of later](https://visualstudio.microsoft.com/downloads/).
 * [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck) voor de Bing Spellingcontrole
 
-Als u de Bing Spellingcontrole-SDK aan uw project wilt toevoegen, klikt u op `Manage NuGet Packages` vanuit Solution Explorer in Visual Studio. Voeg het pakket `Microsoft.Azure.CognitiveServices.Language.SpellCheck` toe. Dit pakket installeert ook de volgende afhankelijkheden:
+Selecteer om de Bing Spell controleren SDK toe aan uw project **NuGet-pakketten beheren** van **Solution Explorer** in Visual Studio. Voeg het pakket `Microsoft.Azure.CognitiveServices.Language.SpellCheck` toe. Dit pakket installeert ook de volgende afhankelijkheden:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure

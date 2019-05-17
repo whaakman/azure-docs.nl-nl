@@ -3,15 +3,15 @@ title: Schakel replicatie van VMware-VM's voor herstel na noodgevallen naar Azur
 description: In dit artikel wordt beschreven hoe u virtuele VMware-machines inschakelen voor replicatie naar Azure voor herstel na noodgevallen met behulp van Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922748"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540770"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -43,16 +43,17 @@ Voordat u de stappen in deze sectie, houd rekening met de volgende informatie:
 * Replicatie naar storage-accounts voor een nieuwe virtuele machine is alleen beschikbaar via een Representational State Transfer (REST) API en Powershell. Azure REST API versie 2016-08-10- of 2018-01-10 gebruiken voor het repliceren naar storage-accounts.
 
 1. Ga naar **stap 2: Toepassing repliceren** > **bron**. Nadat u replicatie voor de eerste keer inschakelt, selecteert u **+ repliceren** in de kluis replicatie extra virtuele machines in te schakelen.
-1. In de **bron** pagina > **bron**, selecteer de configuratieserver.
-1. Voor **type Machine**, selecteer **virtuele Machines** of **fysieke Machines**.
-1. Selecteer in **vCenter/vSphere-hypervisor** de vCenter-server waarmee de vSphere-host wordt beheerd, of selecteer de host. Deze instelling is niet relevant als u bij het repliceren van fysieke computers.
-1. Selecteer de processerver, die de configuratieserver als u een extra processervers dat nog niet hebt gemaakt. Selecteer vervolgens **OK**.
+2. In de **bron** pagina > **bron**, selecteer de configuratieserver.
+3. Voor **type Machine**, selecteer **virtuele Machines** of **fysieke Machines**.
+4. Selecteer in **vCenter/vSphere-hypervisor** de vCenter-server waarmee de vSphere-host wordt beheerd, of selecteer de host. Deze instelling is niet relevant als u bij het repliceren van fysieke computers.
+5. Selecteer de processerver. Als er geen extra processervers dat is gemaakt, zijn ingebouwde processerver van de configuratieserver is beschikbaar in de vervolgkeuzelijst. Status van de processerver wordt aangegeven aan de hand van aanbevolen limieten en andere parameters. Kies een processerver in orde. Een [kritieke](vmware-physical-azure-monitor-process-server.md#process-server-alerts) processerver kan niet worden gekozen. U kunt ofwel [problemen op te lossen](vmware-physical-azure-troubleshoot-process-server.md) de fouten **of** instellen van een [uitbreidbare processerver](vmware-azure-set-up-process-server-scale.md).
+    ![Replicatie bron venster inschakelen](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Replicatie bron venster inschakelen](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> Van [9.24 versies](service-updates-how-to.md#links-to-currently-supported-update-rollups), extra waarschuwingen zijn geïntroduceerd ter verbetering van de statuswaarschuwingen van de processerver. Site Recovery-onderdelen op 9.24 versies of hoger voor een upgrade van alle waarschuwingen worden gegenereerd.
 
-1. Voor **doel**, selecteer het abonnement en resource waar u de failover-virtuele machines maken. Kies het implementatiemodel dat u wilt gebruiken in Azure voor de failover-VM's.
-
-1. Selecteer het Azure-netwerk en subnet die de Azure VM's verbinding met na een failover maken. Het netwerk moet zich in dezelfde regio als de kluis van Site Recovery-service.
+6. Voor **doel**, selecteer het abonnement en resource waar u de failover-virtuele machines maken. Kies het implementatiemodel dat u wilt gebruiken in Azure voor de failover-VM's.
+2. Selecteer het Azure-netwerk en subnet die de Azure VM's verbinding met na een failover maken. Het netwerk moet zich in dezelfde regio als de kluis van Site Recovery-service.
 
    Selecteer **nu configureren voor geselecteerde machines** de netwerk-instellingen toepassen op alle virtuele machines die u hebt geselecteerd voor beveiliging. Selecteer **later configureren** om te selecteren van het Azure-netwerk per virtuele machine. Als u een netwerk hebt, moet u er een maken. Voor het maken van een netwerk met behulp van Azure Resource Manager selecteert **nieuw**. Selecteer een subnet, indien van toepassing, en selecteer vervolgens **OK**.
    

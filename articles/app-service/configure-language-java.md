@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: efeab014c7d92a6c19d516a121fbc4436925be75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82e8936a888cbc99088ab18423e55dd57a3c2e77
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850985"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604136"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configureren van een Windows Java-app voor Azure App Service
 
@@ -27,7 +27,7 @@ Azure App Service kunt u snel bouwen, implementeren en schalen van hun Tomcat Ja
 Deze handleiding bevat de belangrijkste concepten en instructies voor het Java-ontwikkelaars met behulp van in App Service. Als u Azure App Service nog nooit hebt gebruikt, dient u te lezen via de [Java-quickstart](app-service-web-get-started-java.md) eerste. Algemene vragen over het gebruik van App Service die niet specifiek zijn voor de Java-ontwikkeling worden beantwoord het [Veelgestelde vragen over App Service Windows](faq-configuration-and-management.md).
 
 > [!NOTE]
-> Kunt u niet vinden wat u zoekt? Raadpleeg de [OSS Veelgestelde vragen over Windows](faq-configuration-and-management.md) of de [configuratiehandleiding voor Java Linux](containers/app-service-linux-java.md) voor informatie over het implementeren en beveiligen van uw Java-app.
+> Kunt u niet vinden wat u zoekt? Raadpleeg de [OSS Veelgestelde vragen over Windows](faq-configuration-and-management.md) of de [configuratiehandleiding voor Java Linux](containers/configure-language-java.md) voor informatie over het implementeren en beveiligen van uw Java-app.
 
 ## <a name="configuring-tomcat"></a>Tomcat configureren
 

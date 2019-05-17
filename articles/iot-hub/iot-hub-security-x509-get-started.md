@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.openlocfilehash: 5795cde35d53a64620c4fdb6c3af99a7f56b12d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61440690"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779913"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Instellen van de x.509-beveiliging in uw Azure-IoT-hub
 
@@ -36,6 +36,9 @@ U kunt een van de volgende manieren om uw certificaten te halen:
 * Kopen van x.509-certificaten van een *basis-CA (Certificeringsinstantie)*. Dit wordt aanbevolen voor productie-omgevingen.
 
 * Maak uw eigen X.509-certificaten met behulp van een hulpprogramma van derden zoals [OpenSSL](https://www.openssl.org/). Dit is prima voor test- en testdoeleinden. Zie [beheren test CA-certificaten voor voorbeelden en zelfstudies](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) testen voor informatie over het genereren van CA-certificaten met behulp van PowerShell- of Bash. De rest van deze zelfstudie maakt gebruik van CA-testcertificaten die zijn gegenereerd door de instructies in [beheren test CA-certificaten voor voorbeelden en zelfstudies](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+
+* Genereren van een [X.509 tussenliggende CA-certificaat](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) ondertekend door een bestaand basis-CA-certificaat en upload het naar de IoT-Hub. Zodra het tussenliggende certificaat is geüpload en geverifieerd, volgens de instructies hieronder, kan deze worden gebruikt plaats van een basis-CA-certificaat die hieronder worden vermeld. Hulpprogramma's zoals OpenSSL ([openssl-req](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) en [openssl ca](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) kan worden gebruikt om te genereren en meld u aan een tussenliggende CA-certificaat.
+
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registreren van x.509-CA-certificaten voor uw IoT-hub
 

@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371107"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605562"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement naar een ander account overdragen
 
@@ -64,7 +64,7 @@ Overdracht van uw abonnement aan een andere gebruiker in het Accountcentrum te w
    ![Eerste webpagina voor overdracht van abonnement](./media/billing-subscription-transfer/image4.png)
 
    ![Tweede webpagina voor overdracht van abonnement](./media/billing-subscription-transfer/image5.png)
-1. Gelukt! Nu wordt het abonnement overgedragen.
+1. Voltooid Nu wordt het abonnement overgedragen.
 
 <a id="EA"></a>
 
@@ -87,7 +87,7 @@ De Enterprise-beheerder kan het eigendom van abonnementen binnen een inschrijvin
 
 Self-service voor stroomactiviteitvoortgang abonnementsoverdracht is beschikbaar voor de aanbiedingen of abonnementstypen die worden vermeld in de volgende tabel. U kunt een gratis proefversie op dit moment niet overdragen of [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) abonnementen. Zie voor een tijdelijke oplossing [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md). Om over te dragen van andere abonnementen, zoals [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) of ondersteuningsabonnementen, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-| Naam van aanbieding:                                                                             | Nummer van de aanbieding |
+| Naam van aanbieding                                                                             | Nummer van de aanbieding |
 |----------------------------------------------------------------------------------------|--------------|
 | [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
 | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
@@ -156,9 +156,9 @@ De afzender is verantwoordelijk voor de betaling voor het gebruik die is gerappo
 
 De aanbieding moet hetzelfde blijven. Als u wilt wijzigen van uw aanbieding, Zie [uw Azure-abonnement overstappen naar een andere aanbieding](billing-how-to-switch-azure-offer.md).
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>Kan ik een abonnement overdragen aan een gebruikersaccount in een ander land?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>Kan ik een abonnement overdragen aan een gebruikersaccount in een ander land/regio?
 
-Nee, een abonnement overdragen aan een gebruikersaccount in een ander land wordt niet ondersteund. Het gebruikersaccount van de ontvanger moet zich in hetzelfde land.
+Nee, een abonnement overdragen aan een gebruikersaccount in een ander land/de regio wordt niet ondersteund. Van de geadresseerde gebruikersaccount moet zich in hetzelfde land/regio.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>Kan de ontvanger van een andere betalingswijze gebruiken?
 

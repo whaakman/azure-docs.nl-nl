@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024626"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797485"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hoe vol tekstzoekopdrachten werkt in Azure Search
 
@@ -288,7 +288,7 @@ Voor de **beschrijving** veld, de index is als volgt:
 | wal | 2
 | groot | 1
 | de | 1, 2
-| tot | 1
+| aan | 1
 | weergeven | 1, 2, 3
 | lopen | 1
 | met | 3
@@ -392,8 +392,6 @@ In dit artikel verkend zoeken in volledige tekst in de context van Azure Search.
 + Meer informatie over het toepassen van [taalspecifieke lexicale analyse](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configureren van aangepaste analyse](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) voor minimale verwerking of gespecialiseerde verwerking op specifieke velden.
-
-+ [Standaard- en Engelse analyzers vergelijken](https://alice.unearth.ai/)) naast elkaar op deze demo-website. 
 
 ## <a name="see-also"></a>Zie ook
 

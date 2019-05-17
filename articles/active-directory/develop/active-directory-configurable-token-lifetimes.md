@@ -3,8 +3,8 @@ title: Configureerbare levensduur van tokens in Azure Active Directory | Microso
 description: Informatie over het instellen van de levensduur van tokens die zijn uitgegeven door Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: celested
-ms.custom: aaddev
+ms.date: 04/13/2019
+ms.author: ryanwi
+ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0657057ceb3aca674e49a705c52c3b86dda73d98
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411365"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545388"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Configureerbare levensduur van tokens in Azure Active Directory (Preview)
 
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. U kunt de levensduur van tokens voor alle apps in uw organisatie, voor een toepassing met meerdere tenants (voor meerdere organisaties) of voor een specifieke service-principal instellen in uw organisatie.
 
 > [!IMPORTANT]
-> Na de behandeling van klanten tijdens de Preview-versie wij van plan bent deze functionaliteit vervangen door een nieuwe functie in Azure Active Directory voor voorwaardelijke toegang.  Zodra de nieuwe functie voltooid is, wordt deze functionaliteit uiteindelijk worden afgeschaft na de meldingsperiode van een.  Als u het beleid configureerbare levensduur van tokens, worden voorbereid om over te schakelen op de nieuwe functie voor voorwaardelijke toegang, zodra deze beschikbaar is. 
+> Na gehoord van klanten tijdens de Preview-versie, hebben we vervangen door de functie configureerbare levensduur van tokens met [verificatie sessie beheermogelijkheden](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD voor voorwaardelijke toegang. Deze functie worden op 1 November 2019 afgeschaft. Als u het beleid configureerbare levensduur van tokens, overschakelen naar de nieuwe functie voor voorwaardelijke toegang. 
 
 Een groepsbeleidsobject vertegenwoordigt in Azure AD een reeks regels die op afzonderlijke toepassingen of op alle toepassingen in een organisatie worden afgedwongen. Elk beleidstype heeft een unieke structuur, met een set eigenschappen die worden toegepast op objecten die ze zijn toegewezen.
 
@@ -370,7 +370,7 @@ Hiermee maakt u een nieuw beleid.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| Parameters | Beschrijving | Voorbeeld |
+| Parameters | Description | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Matrix van stringified JSON die de regels van het beleid bevat. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |De tekenreeks van de naam van het beleid. |`-DisplayName "MyTokenPolicy"` |
@@ -400,7 +400,7 @@ Hiermee haalt u alle apps en service-principals die zijn gekoppeld aan een belei
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Parameters | Beschrijving | Voorbeeld |
+| Parameters | Description | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
 
@@ -447,7 +447,7 @@ Het opgegeven beleid is gekoppeld aan een toepassing.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Parameters | Beschrijving | Voorbeeld |
+| Parameters | Description | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**Object-id** van het beleid. | `-RefObjectId <ObjectId of Policy>` |
@@ -505,7 +505,7 @@ Hiermee haalt u een beleid dat is gekoppeld aan de opgegeven service-principal.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| Parameters | Beschrijving | Voorbeeld |
+| Parameters | Description | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
 
@@ -518,7 +518,7 @@ Hiermee verwijdert u het beleid uit de opgegeven service-principal.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Parameters | Beschrijving | Voorbeeld |
+| Parameters | Description | Voorbeeld |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van de toepassing. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Object-id** van het beleid. | `-PolicyId <ObjectId of Policy>` |

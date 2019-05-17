@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023734"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540834"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper cognitieve vaardigheden
 
@@ -29,7 +29,7 @@ De API-versie, bepaalt de diepte van het vormgeven van u kan bereiken.
 | 2019-05-06-preview-versie van de REST-API (.NET-SDK wordt niet ondersteund) | Complexe objecten, meerdere niveaus diep in een **Shaper** vaardigheid definitie. |
 | 2019-05-06 ** (algemeen beschikbaar), 2017-11-11-Preview| Complexe objecten, één niveau diep. Een vorm van meerdere niveaus vereist verschillende shaper stappen samen-koppeling.|
 
-De Preview-versie **Shaper** kwalificatie, geïllustreerd in [scenario 3](#nested-complex-types), voegt een nieuwe optionele *sourceContext* eigenschap in op de invoer. De *bron* en *sourceContext* eigenschappen zijn sluiten elkaar wederzijds uit. Als de invoer in de context van de kwalificatie is, gebruik *bron*. Als de invoer naar een *verschillende* context dan de kwalificatie context, gebruik de *sourceContext*. De *sourceContext* , moet u voor het definiëren van een geneste invoer met de specifieke element als de bron wordt behandeld. 
+Geleverd door `api-version=2019-05-06-Preview`, wordt de **Shaper** vaardigheid geïllustreerd in [scenario 3](#nested-complex-types) voegt een nieuwe optionele *sourceContext* eigenschap in op de invoer. De *bron* en *sourceContext* eigenschappen zijn sluiten elkaar wederzijds uit. Als de invoer in de context van de kwalificatie is, gebruik *bron*. Als de invoer naar een *verschillende* context dan de kwalificatie context, gebruik de *sourceContext*. De *sourceContext* , moet u voor het definiëren van een geneste invoer met de specifieke element als de bron wordt behandeld. 
 
 In het antwoord, voor alle API-versies, is de naam van de uitvoer altijd 'uitvoeren'. De pijplijn kunt intern, een andere naam, zoals 'analyzedText' toewijzen, zoals wordt weergegeven in de onderstaande voorbeelden, maar de **Shaper** vaardigheid zelf wordt 'uitvoer' in het antwoord geretourneerd. Dit kan belangrijk zijn als u foutopsporing verrijkt documenten en u ziet de naamgevingsconventie afwijking, of als u een aangepaste vaardigheden ontwikkelen en zijn structureren van het antwoord zelf.
 
@@ -196,7 +196,7 @@ In dit geval de **Shaper** worden alle hoofdstuktitels voor het maken van een ma
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: invoer consolidatie van geneste contexten
 
 > [!NOTE]
-> Geneste structuren die worden ondersteund in de api-version = 2019-05-06-Preview kan worden gebruikt in een [kennis store](knowledge-store-concept-intro.md) of in een Azure Search-index.
+> Geneste structuren die worden ondersteund in de [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) kan worden gebruikt in een [kennis store](knowledge-store-concept-intro.md) of in een Azure Search-index.
 
 Stel dat u over de titel, de hoofdstukken en de inhoud van een boek en hebben op de inhoud op entiteit erkenning en de sleutel zinnen uitgevoerd en moet nu cumulatieve resultaten van de verschillende vaardigheden in een enkele vorm met de naam van de hoofdstuk, entiteiten en belangrijke zinnen.
 
@@ -265,4 +265,4 @@ In dit geval de **Shaper** maakt u een complex type. Deze structuur bestaat in h
 + [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
 + [Het gebruik van complexe typen](search-howto-complex-data-types.md)
 + [Kennis store overzicht](knowledge-store-concept-intro.md)
-+ [Aan de slag met kennis Store](knowledge-store-howto.md)
++ [Aan de slag met kennis store](knowledge-store-howto.md)

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 68801f888df55924791188a3f4ff5b718798c9f3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510572"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595156"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -51,11 +51,12 @@ In de zelfstudie wordt ervan uitgegaan dat u bekend bent met de [basisconcepten 
 
 U kunt de app lokaal zonder Azure-abonnement uitvoeren, maar u hebt wel een abonnement nodig om de toepassing in de cloud te implementeren. Als u geen account hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) of [zich aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-De instructies in de zelfstudie zijn van toepassing op een van de volgende producten:
+Instructies in de zelfstudie werken met een van de volgende producten:
 
 * Visual Studio 2013
 * Visual Studio 2015
 * Visual Studio 2017
+* Visual Studio 2019
 
 Als u deze niet hebt, wordt Visual Studio mogelijk automatisch geïnstalleerd wanneer u de Azure SDK installeert.
 
@@ -741,7 +742,7 @@ Deze code leest de database om de afbeeldings-URL op te halen, converteert de af
 >
 >
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 Voor het geval u tegen problemen aanloopt terwijl u de instructies in deze zelfstudie volgt, vindt u hier een aantal veelvoorkomende fouten en aanwijzingen om deze op te lossen.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467086"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796259"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduceren de gezondheid van integratie van implementatie naar Azure Deployment Manager (preview-versie)
 
@@ -32,7 +32,7 @@ Als u wilt de gezondheid van integratie zo eenvoudig mogelijk te maken, is Micro
 
 ## <a name="how-service-health-is-determined"></a>Hoe de status van de service wordt bepaald
 
-[Voor Health monitoring providers](#health-monitoring-providers) bieden verschillende mechanismen voor het bewaken van services en wordt u gewaarschuwd van eventuele problemen met de service controleren. [Azure Monitor](/services/monitor/) volgt een voorbeeld van een dergelijke aanbieding. Azure Monitor kan worden gebruikt om waarschuwingen te maken wanneer bepaalde drempelwaarden worden overschreden. Bijvoorbeeld, oploopt het geheugen en CPU-gebruik buiten het verwachte niveau wanneer u een nieuwe update op uw service implementeert. Wanneer wordt weergegeven, kunt u corrigerende maatregelen kunt nemen.
+[Voor Health monitoring providers](#health-monitoring-providers) bieden verschillende mechanismen voor het bewaken van services en wordt u gewaarschuwd van eventuele problemen met de service controleren. [Azure Monitor](../azure-monitor/overview.md) volgt een voorbeeld van een dergelijke aanbieding. Azure Monitor kan worden gebruikt om waarschuwingen te maken wanneer bepaalde drempelwaarden worden overschreden. Bijvoorbeeld, oploopt het geheugen en CPU-gebruik buiten het verwachte niveau wanneer u een nieuwe update op uw service implementeert. Wanneer wordt weergegeven, kunt u corrigerende maatregelen kunt nemen.
 
 Deze health-providers bieden doorgaans REST-API's zodat de status van de monitors van uw service programmatisch kan worden onderzocht. De REST API's kunt ofwel overstappen met een eenvoudige in orde/slecht signaal (bepaald door de HTTP-responscode) en/of gedetailleerde informatie over de signalen die het ontvangt.
 

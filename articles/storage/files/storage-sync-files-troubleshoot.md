@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510841"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555949"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen oplossen met Azure File Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -300,6 +300,17 @@ Synchronisatiesessies mislukken om diverse redenen, met inbegrip van de server w
 | **Herstel is vereist** | Nee |
 
 Er is geen actie vereist. de server probeert het opnieuw. Als deze fout zich blijft langer dan een paar uur voordoen, moet u een ondersteuningsaanvraag maken.
+
+<a id="-2134364043"></a>**Synchronisatie wordt geblokkeerd totdat de detectie van de wijziging is voltooid na herstel**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (decimaal)** | -2134364043 |
+| **Fouttekenreeks** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Herstel is vereist** | Nee |
+
+U hoeft geen actie te ondernemen. Wanneer een bestand of een bestand deelt (cloudeindpunt) wordt hersteld met behulp van Azure back-up, synchronisatie wordt geblokkeerd totdat de detectie van de wijziging is voltooid op de Azure-bestandsshare. Wijziging detectie wordt uitgevoerd onmiddellijk nadat het herstellen voltooid is en de duur is gebaseerd op het aantal bestanden in de bestandsshare.
 
 <a id="-2134364065"></a>**Synchronisatie geen toegang tot de Azure-bestandsshare in de cloudeindpunt opgegeven.**  
 

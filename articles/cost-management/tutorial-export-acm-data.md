@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021506"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792876"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Zelfstudie: Geëxporteerde gegevens maken en beheren
 
 Als u de zelfstudie over kostenanalyse hebt doorgenomen, bent u al bekend met het handmatig downloaden van gegevens uit Cost Management. U kunt echter ook een terugkerende taak instellen om uw Cost Management-gegevens automatisch dagelijks, wekelijks of maandelijks naar uw Azure-opslag te exporteren. De gegevens worden in CSV-indeling geëxporteerd en bevatten alle informatie die door Cost Management is verzameld. U kunt de geëxporteerde gegevens in uw Azure-opslag vervolgens in externe systemen laden en combineren met uw eigen gegevens. Externe systemen waarin de geëxporteerde gegevens kunnen worden gebruikt, zijn bijvoorbeeld dashboards of andere financiële systemen.
+
+Bekijk de [plannen exporteert naar storage met Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video over het maken van een geplande uitvoer van uw Azure-kosten gegevens naar Azure Storage.
 
 De voorbeelden in deze zelfstudie laten u stapsgewijs zien hoe u uw Cost Management-gegevens exporteert en vervolgens controleert of de export is gelukt.
 
@@ -49,8 +51,8 @@ Wilt maken of weergeven van een exporteren van gegevens of voor het plannen van 
 
 > [!NOTE]
 > Naast de abonnementen, kunt u uitvoer op resourcegroepen, accounts, afdelingen en inschrijvingen. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
-> 
-> 
+>
+>
 
 
 Klik op **toevoegen**, typ een naam voor de export en selecteer vervolgens de **dagelijkse export van de kosten maand tot heden** optie. Klik op **volgende**.

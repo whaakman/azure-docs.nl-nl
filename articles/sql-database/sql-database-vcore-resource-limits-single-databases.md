@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507842"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790388"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van de vCore-aanschafmodel
 
 In dit artikel bevat de gedetailleerde resourcelimieten voor individuele databases van Azure SQL Database met behulp van het op vCore gebaseerde aankoopmodel.
 
@@ -129,7 +129,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 
 ### <a name="serverless-compute-tier"></a>Serverloze compute-laag
 
-De [serverloze compute-laag](sql-database-serverless.md) is in openbare preview en is alleen voor individuele databases met behulp van het aanschaffen van de vCore-model.
+De [serverloze compute-laag](sql-database-serverless.md) is in preview en is alleen voor individuele databases met behulp van het aanschaffen van de vCore-model.
 
 #### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
 

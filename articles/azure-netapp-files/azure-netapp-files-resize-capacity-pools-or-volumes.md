@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2018
+ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f08eaee038ad18c600826dea6fe0fd85935de59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c58ceef57b984f46b86bb2a8577c53b75082b78b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452905"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794614"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Het formaat van een capaciteitspool of volume wijzigen
 U kunt de grootte van een capaciteit van toepassingen of een volume indien nodig wijzigen. 
 
 ## <a name="resize-the-capacity-pool"></a>Grootte van de capaciteit van toepassingen 
 
-U kunt de grootte van de capaciteit van toepassingen in 4 TiB verhoogd of verlaagd wijzigen. Grootte van de groep capaciteit, wijzigt de aangeschafte capaciteit van de Azure NetApp bestanden.
+U kunt de grootte van de capaciteit van toepassingen in 1 TiB verhoogd of verlaagd wijzigen. De grootte van de capaciteit van toepassingen kan echter niet kleiner zijn dan 4 TiB. Grootte van de groep capaciteit, wijzigt de aangeschafte capaciteit van de Azure NetApp bestanden.
 
 1. Klik op de capaciteit van toepassingen die u wilt vergroten of verkleinen van de blade NetApp-Account beheren. 
 2. Met de rechtermuisknop op de naam van de capaciteit van toepassingen of klik op het pictogram '...' aan het einde van de rij van de capaciteit van toepassingen om het contextmenu weer te geven. 

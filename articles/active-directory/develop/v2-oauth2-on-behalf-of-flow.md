@@ -3,8 +3,8 @@ title: Microsoft identity-platform en OAuth 2.0 op namens-stroom | Azure
 description: In dit artikel wordt beschreven hoe u gebruik van HTTP-berichten voor het implementeren van service-to-service-verificatie met behulp van de OAuth 2.0 op namens-stroom.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce0c1c4dcf7e4ff0c82157af83aa15544cf092e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296867"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544755"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-platform en OAuth 2.0 namens-stroom
 
@@ -135,7 +135,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | `token_type` | Geeft aan dat de waarde van het token. Het enige type die door Microsoft identity-platform ondersteunt is `Bearer`. Zie voor meer informatie over het bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | `scope` | Het bereik van de toegang is verleend in het token. |
@@ -205,7 +205,7 @@ Op dit moment gecombineerde toestemming biedt geen ondersteuning voor het persoo
 
 Een functie van de portal van de toepassing is 'vooraf gemachtigde toepassingen'. Op deze manier kan een resource geeft aan dat een bepaalde toepassing altijd gemachtigd is voor het ontvangen van bepaalde bereiken. Dit is vooral handig om verbindingen te maken tussen een front-end-client en een back-end-bron biedt een naadloze ervaring. Een resource kan meerdere vooraf gemachtigde toepassingen declareren - een dergelijke toepassing kan aanvragen deze machtigingen in een OBO flow en ontvangt zonder dat de gebruiker die toestemming verleent.
 
-#### <a name="admin-consent"></a>toestemming van de beheerder
+#### <a name="admin-consent"></a>Toestemming van de beheerder
 
 Een tenantbeheerder kan garanderen dat toepassingen kan worden gemachtigd om aan te roepen hun vereist API's door te geven van toestemming van een beheerder voor de middelste laag-toepassing. U doet dit door de beheerder de middelste laag-toepassing in hun tenant niet vinden, opent u de pagina van de vereiste machtigingen en wilt machtigen voor de app. Zie voor meer informatie over de toestemming van een beheerder, de [machtigingen en toestemming documentatie](v2-permissions-and-consent.md).
 

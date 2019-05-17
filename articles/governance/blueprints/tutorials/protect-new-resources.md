@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874526"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779571"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Zelfstudie: Nieuwe resources beveiligen met blauwdrukken voor Azure-resourcevergrendelingen
 
 Azure blauwdrukken [resourcevergrendelingen](../concepts/resource-locking.md) maken het mogelijk is zojuist geïmplementeerde resources beveiligen tegen wordt geknoeid, zelfs niet door een account met de _eigenaar_ rol. Deze beveiliging kan worden toegevoegd aan resources die zijn gemaakt door een Resource Manager-sjabloon-artefact in het blauwdrukdefinitie van de.
 

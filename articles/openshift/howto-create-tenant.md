@@ -6,13 +6,13 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 3c7f0b263cc775b7f9fec62e4d5388250e5124fb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/13/2019
+ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079118"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551712"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Maken van een Azure AD-tenant voor Azure Red Hat OpenShift
 
@@ -34,11 +34,11 @@ Een tenant maken:
 
     ![Schermafbeelding van de portal geeft de naam van de tenant in de rechterbovenhoek][tenantcallout]  
 
-8. Noteer de *tenant-ID* , zodat u kunt later opgeven waar u om uw Azure Red Hat OpenShift-cluster te maken. In de portal ziet u nu de overzichtsblade van Azure Active Directory voor de nieuwe tenant. Selecteer **eigenschappen** en kopieer de waarde voor uw **map-ID**. Er wordt verwezen naar deze waarde als de `tenant id` in de [maken van een cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) zelfstudie.
+8. Noteer de *tenant-ID* , zodat u kunt later opgeven waar u om uw Azure Red Hat OpenShift-cluster te maken. In de portal ziet u nu de overzichtsblade van Azure Active Directory voor de nieuwe tenant. Selecteer **eigenschappen** en kopieer de waarde voor uw **map-ID**. Er wordt verwezen naar deze waarde als `TENANT` in de [maken van een cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) zelfstudie.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Bronnen
 
 Bekijk [Azure Active Directory-documentatie](https://docs.microsoft.com/azure/active-directory/) voor meer informatie over [Azure AD-tenants](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685295"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768011"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Claims toevoegen en aanpassen van gebruikersinvoer met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In dit artikel, kunt u een nieuwe vermelding voor de gebruiker opgegeven (een claim) toevoegen aan uw proefaccount gebruikersbeleving in Azure Active Directory (Azure AD) B2C.  U de vermelding configureren als een vervolgkeuzelijst en bepalen of dit is verplicht.
+In dit artikel, kunt u een nieuwe vermelding voor de gebruiker opgegeven (een claim) toevoegen aan uw proefaccount gebruikersbeleving in Azure Active Directory (Azure AD) B2C.  U configureert de vermelding als een vervolgkeuzelijst en bepalen of dit is verplicht.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,12 +29,12 @@ Voer de stappen in het artikel [aan de slag met beleid voor aangepaste](active-d
 
 ## <a name="add-claims"></a>Claims toevoegen
 
-Initiële gegevens verzamelen uit uw gebruikers wordt bereikt met behulp van de gebruikersbeleving registreren of aanmelden. Aanvullende claims kunnen later worden verzameld met behulp van een gebruikersbeleving van profiel bewerken. Telkens wanneer de Azure AD B2C haalt informatie op rechtstreeks van de gebruiker interactief, betekent dit dat de Identity-Ervaringsframework een selfasserted-provider gebruikt.
+Initiële gegevens verzamelen uit uw gebruikers wordt bereikt met behulp van de gebruikersbeleving registreren of aanmelden. Aanvullende claims kunnen later worden verzameld met behulp van een gebruikersbeleving van profiel bewerken. Telkens wanneer de Azure AD B2C haalt informatie op rechtstreeks van de gebruiker interactief, betekent dit dat de Identity-Ervaringsframework een zelf-gecontroleerde-provider gebruikt.
 
 
 ### <a name="define-the-claim"></a>De claim te definiëren
 
-U kunt de gebruiker vragen voor hun plaats. Voeg het volgende element aan de **ClaimsSchema** -element in het beleidsbestand TrustFrameworkBase:
+Laten we de gebruiker vragen voor hun plaats. Voeg het volgende element aan de **ClaimsSchema** -element in het beleidsbestand TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -51,7 +51,7 @@ De volgende elementen worden gebruikt voor het definiëren van de claim:
 - **UserHelpText** -helpt de gebruiker weten wat is vereist.
 - **UserInputType** -mag een tekstvak, een selectie van keuzerondje, een vervolgkeuzelijst of een meervoudige selectie.
 
-#### <a name="textbox"></a>Tekstvak
+#### <a name="textbox"></a>TextBox
 
 ```xml
 <ClaimType Id="city">

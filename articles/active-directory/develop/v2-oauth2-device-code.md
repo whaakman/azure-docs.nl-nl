@@ -3,8 +3,8 @@ title: Gebruik Microsoft identity-platform aan te melden bij de gebruikers op ap
 description: Ingesloten en browser zonder verificatie stromen met behulp van het apparaat verlenen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299409"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544927"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft identity-platform en de stroom voor OAuth 2.0-apparaat code
 
@@ -73,7 +73,7 @@ scope=user.read%20openid%20profile
 
 Een geslaagde reactie is een JSON-object met de vereiste gegevens zodat de gebruiker zich aanmeldt.  
 
-| Parameter | Indeling | Description |
+| Parameter | Notatie | Description |
 | ---              | --- | --- |
 |`device_code`     | String | Een lange tekenreeks die wordt gebruikt om te controleren of de sessie tussen de client en de autorisatie-server. Deze parameter wordt gebruikt om aan te vragen van het toegangstoken van de autorisatieserver de client. |
 |`user_code`       | String | Een korte tekenreeks aan de gebruiker die wordt gebruikt voor het identificeren van de sessie op een tweede apparaat weergegeven.|
@@ -130,7 +130,7 @@ Een geslaagde respons token ziet er als:
 }
 ```
 
-| Parameter | Indeling | Description |
+| Parameter | Notatie | Description |
 | --------- | ------ | ----------- |
 | `token_type` | String| Altijd 'Bearer. |
 | `scope` | Tekenreeksen gescheiden door spaties | Als een toegangstoken is geretourneerd, zijn dit de scopes die het toegangstoken is ongeldig voor. |

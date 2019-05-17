@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192363"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546720"
 ---
 Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw aangepaste beheerde VM-installatiekopieën maken. Gedeelde Afbeeldingsgalerieën bieden:
 
@@ -51,9 +51,9 @@ Er zijn drie parameters voor de definitie van de installatiekopie die worden geb
 
 |Definitie van installatiekopie|Uitgever|Aanbieding|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Finance|Back-end|
-|myImage2|Contoso|Finance|Front-end|
-|myImage3|Testen|Finance|Front-end|
+|myImage1|Contoso|Financiën|Back-end|
+|myImage2|Contoso|Financiën|Front-end|
+|myImage3|Testen|Financiën|Front-end|
 
 Alle drie deze hebben unieke sets waarden. De indeling is vergelijkbaar met hoe u op dit moment opgeven uitgever, aanbieding en SKU voor de kunt [Azure Marketplace-installatiekopieën](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell om op te halen van de meest recente versie van een Marketplace-installatiekopie. De definitie van elke afbeelding moet een unieke set van deze waarden hebben.
 
@@ -77,14 +77,14 @@ Bron-regio's worden weergegeven in de onderstaande tabel. Alle openbare regio's 
 
 | Bron-regio 's |
 |---------------------|-----------------|------------------|-----------------|
-| Australië - centraal   | US - centraal EUAP | Korea - centraal    | VK, zuid 2      |
-| Australië - centraal 2 | Azië - oost       | Korea - zuid      | Verenigd Koninkrijk West         |
+| Australië - centraal   | US - centraal EUAP | Korea Centraal    | VK Zuid 2      |
+| Australië - centraal 2 | Azië - oost       | Korea - zuid      | VK West         |
 | Australië - oost      | US - oost         | US - noord-centraal | US - west-centraal |
 | Australië - zuidoost | US - oost 2       | Europa - noord     | Europa -west     |
 | Brazilië - zuid        | US - oost 2 EUAP  | US - zuid-centraal | India - west      |
 | Canada - midden      | Frankrijk - centraal  | India - zuid      | US - west         |
-| Canada - oost         | Frankrijk - zuid    | Azië - zuidoost   | US - west         |
-| India - centraal       | Japan - oost      | VK, noord         | US - west 2       |
+| Canada Oost         | Frankrijk - zuid    | Azië - zuidoost   | US - west         |
+| India - centraal       | Japan - oost      | VK Noord         | US - west 2       |
 | US - centraal          | Japan - west      | Verenigd Koninkrijk Zuid         |                 |
 
 
@@ -113,13 +113,13 @@ De regio's voor die de versie van een gedeelde installatiekopie wordt gereplicee
 ![Afbeelding die laat zien hoe u installatiekopieën kunt repliceren](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Access
+## <a name="access"></a>Toegang
 
 Als de galerie met installatiekopieën van gedeelde, gedeelde installatiekopie en de versie van gedeelde installatiekopie moet u alle resources zijn, kunnen ze worden gedeeld met de ingebouwde die systeemeigen Azure RBAC bepaalt. Met RBAC kunt u deze resources aan andere gebruikers, service-principals en -groepen delen. U kunt ook toegang tot personen buiten de tenant die zijn gemaakt in delen. Wanneer een gebruiker toegang tot de versie van de installatiekopie gedeeld heeft, kunnen ze een virtuele machine of een virtuele-Machineschaalset implementeren.  Hier volgt de delen matrix die helpt te begrijpen wat de gebruiker krijgt toegang tot:
 
-| Gedeeld met gebruiker     | Galerie met gedeelde installatiekopieën | Gedeelde installatiekopie | De versie van gedeelde installatiekopie |
+| Gedeeld met gebruiker     | Gedeelde installatiekopiegalerie | Gedeelde installatiekopie | De versie van gedeelde installatiekopie |
 |----------------------|----------------------|--------------|----------------------|
-| Galerie met gedeelde installatiekopieën | Ja                  | Ja          | Ja                  |
+| Gedeelde installatiekopiegalerie | Ja                  | Ja          | Ja                  |
 | Gedeelde installatiekopie         | Nee                   | Ja          | Ja                  |
 | De versie van gedeelde installatiekopie | Nee                   | Nee           | Ja                  |
 
@@ -127,8 +127,8 @@ Het is raadzaam om eerst te delen op het niveau van de galerie voor de beste erv
 
 Afbeeldingen kunnen ook worden gedeeld, op schaal, met tenants met behulp van de registratie van een app met meerdere tenants. Zie voor meer informatie over het delen van installatiekopieën voor tenants [galerie VM-installatiekopieën in Azure-tenants delen](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
-## <a name="billing"></a>Billing
-Er zijn geen extra kosten voor het gebruik van de galerie met installatiekopieën van gedeelde-service. U wordt gefactureerd voor de volgende resources:
+## <a name="billing"></a>Facturering
+Er zijn geen extra kosten verbonden aan het gebruik van de Shared Image Gallery-service. U wordt gefactureerd voor de volgende resources:
 - Kosten voor opslag om de versies van een gedeelde installatiekopie op te slaan. Kosten zijn afhankelijk van het aantal replica's van de versie van de installatiekopie en het aantal regio's die worden gerepliceerd naar de versie. Bijvoorbeeld, als u installatiekopieën van 2 en beide zijn gerepliceerd naar 3 regio's, zal vervolgens u worden gewijzigd voor 6 beheerde schijven op basis van de grootte. Zie voor meer informatie, [Managed Disks-prijzen](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Kosten voor uitgaand verkeer voor de replicatie van de eerste installatiekopieversie van de regio van de gegevensbron naar de gerepliceerde regio's op het netwerk. Volgende replica's worden verwerkt binnen de regio, zodat er geen extra kosten zijn. 
 
@@ -266,4 +266,4 @@ De algemene aantal replica's in de CLI, gebruikt u de **--replica-count** argume
 
 **V:** Welke API-versie moet ik gebruiken om galerie met installatiekopieën van gedeelde, de definitie van installatiekopie, Installatiekopieversie en VM/VMSS buiten-versie van de installatiekopie te maken?
 
- A. Voor implementaties van virtuele machine en virtuele-Machineschaalset met behulp van de versie van een installatiekopie, raden wij aan u API-versie 2018-04-01 of hoger. Als u wilt werken met gedeelde installatiekopie galerieën, definities van de installatiekopie en versies van een installatiekopie, raden wij aan u API-versie 2018-06-01. 
+ A. Voor implementaties van virtuele machine en virtuele-Machineschaalset met behulp van de versie van een installatiekopie, raden wij aan u API-versie 2018-04-01 of hoger. Als u wilt werken met gedeelde installatiekopie galerieën, definities van de installatiekopie en versies van een installatiekopie, raden wij aan u API-versie 2018-06-01. Zone-redundante opslag (ZRS) is versie 2019-03-01 vereist of hoger.

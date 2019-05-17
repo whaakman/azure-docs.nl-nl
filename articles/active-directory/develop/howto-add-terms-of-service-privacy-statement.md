@@ -3,8 +3,8 @@ title: Gebruiksrechtovereenkomst en privacyverklaring voor apps | Azure
 description: Meer informatie over hoe u de gebruiksvoorwaarden en privacyverklaring voor apps die zijn geregistreerd voor het gebruik van Azure AD kunt configureren.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410555"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540181"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedure: Gebruiksvoorwaarden en privacyverklaring voor een app configureren
 
@@ -46,7 +46,7 @@ Voordat u koppelingen naar van uw app en de gebruiksvoorwaarden en privacyverkla
 
 | Richtlijn     | Description                           |
 |---------------|---------------------------------------|
-| Indeling        | Geldige URL                             |
+| Notatie        | Geldige URL                             |
 | Geldige schema 's | HTTP en HTTPS<br/>We raden aan HTTPS |
 | Maximumlengte    | 2048 tekens                       |
 

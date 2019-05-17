@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service | Microsoft Docs
-description: RESTful-interface voor informatie over Windows-VM's berekening, netwerk en geplande onderhoudsgebeurtenissen.
+description: RESTful-interface voor informatie over de compute-, netwerk- en geplande onderhoudsgebeurtenissen Windows VM's.
 services: virtual-machines-windows
 documentationcenter: ''
 author: KumariSupriya
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993072"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792095"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -106,9 +106,9 @@ De volgende tabel bevat een verwijzing van de opmaak van andere gegevens die API
 
 API | Standaardindeling voor gegevens | Andere indelingen
 --------|---------------------|--------------
-/ Instance | json | tekst
-/scheduledevents | json | geen
-/ blijkt | json | geen
+/ Instance | JSON | tekst
+/scheduledevents | JSON | geen
+/ blijkt | JSON | geen
 
 Geef de vereiste indeling als een queryreeks-parameter in de aanvraag voor toegang tot een niet-standaard antwoordindeling. Bijvoorbeeld:
 
@@ -128,11 +128,11 @@ Aanvragen moeten ook bevatten een `Metadata: true` header om ervoor te zorgen da
 
 Als er een gegevenselement niet gevonden of een onjuist gevormde aanvraag, retourneert de Instance Metadata Service standaard HTTP-fouten. Bijvoorbeeld:
 
-HTTP-statuscode | Reden
+HTTP-statuscode | Reason
 ----------------|-------
 200 OK |
 400-Ongeldige aanvraag | Ontbrekende `Metadata: true` kop- of de indeling ontbreekt bij het opvragen van een leaf-knooppunt
-404 – Niet gevonden | Het gevraagde element bestaat niet
+404 Niet gevonden | Het gevraagde element bestaat niet
 405 methode is niet toegestaan | Alleen `GET` en `POST` aanvragen worden ondersteund
 429 te veel aanvragen | De API ondersteunt momenteel een maximum van 5 query's per seconde
 500 servicefout     | Voer na enige tijd opnieuw uit
@@ -359,10 +359,10 @@ azEnvironment | Azure-omgeving waarop de virtuele machine wordt uitgevoerd in | 
 customData | Zie [aangepaste gegevens](#custom-data) | 2019-02-01
 location | Azure-regio de virtuele machine wordt uitgevoerd in | 2017-04-02
 naam | Naam van de virtuele machine | 2017-04-02
-aanbieding | Biedt informatie over de VM-installatiekopie. Deze waarde is alleen aanwezig zijn voor installatiekopieën die zijn geïmplementeerd vanuit de galerie met installatiekopieën van Azure. | 2017-04-02
+aanbieding | Bieden van informatie voor de VM-installatiekopie en wordt alleen aanwezig zijn voor installatiekopieën geïmplementeerd vanuit de galerie met installatiekopieën van Azure | 2017-04-02
 besturingssysteemtype | Linux of Windows | 2017-04-02
 placementGroupId | [Plaatsingsgroep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) instellen van uw virtuele-machineschaalset | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in de een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever | 2018-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) met de naam, product en uitgever voor een virtuele machine als het een Azure Marketplace-installatiekopie | 2018-04-02
 platformUpdateDomain |  [Updatedomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 platformFaultDomain | [Foutdomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 provider | Provider van de virtuele machine | 10-01-2018
@@ -371,8 +371,8 @@ Uitgever | Uitgever van de VM-installatiekopie | 2017-04-02
 resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) voor uw virtuele Machine | 2017-08-01
 sku | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
 subscriptionId | Azure-abonnement voor de virtuele Machine | 2017-08-01
-tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) voor uw virtuele Machine  | 2017-08-01
-versie | Versie van de VM-installatiekopie | 2017-04-02
+codes | [Tags](../../azure-resource-manager/resource-group-using-tags.md) voor uw virtuele Machine  | 2017-08-01
+version | Versie van de VM-installatiekopie | 2017-04-02
 vmId | [De unieke id](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) voor de virtuele machine | 2017-04-02
 vmScaleSetName | [Naam van de virtuele Machine ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) instellen van uw virtuele-machineschaalset | 2017-12-01
 vmSize | [VM-grootte](sizes.md) | 2017-04-02
@@ -688,9 +688,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Aangepaste gegevens
-Instance Metadata Service biedt de mogelijkheid voor de virtuele machine toegang heeft tot de aangepaste gegevens. De binaire gegevens moet minder zijn dan 64 KB en wordt geleverd met de virtuele machine in base64-gecodeerde vorm. Zie voor meer informatie over het maken van een virtuele machine met aangepaste gegevens [implementeren van een virtuele Machine met CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Instance Metadata Service biedt de mogelijkheid voor de virtuele machine toegang heeft tot de aangepaste gegevens. De binaire gegevens moet minder zijn dan 64 KB en wordt geleverd met de virtuele machine in base64-gecodeerde vorm.
+
+Azure aangepaste gegevens kunnen worden ingevoegd met de virtuele machine via de REST-API's, PowerShell-Cmdlets, Azure Command Line Interface (CLI) of een ARM-sjabloon.
+
+Zie voor een voorbeeld van Azure Command Line Interface [Custom Data en Cloud-Init op Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+
+Zie voor een voorbeeld van de sjabloon ARM [implementeren van een virtuele Machine met CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 Aangepaste gegevens is beschikbaar voor alle processen die worden uitgevoerd in de virtuele machine. Het wordt aangeraden dat klanten geen geheime gegevens in aangepaste gegevens invoegen.
+
+Aangepaste gegevens kan op dit moment gegarandeerd beschikbaar zijn tijdens bootstrap van een virtuele machine. Als updates zijn aangebracht aan de virtuele machine zoals het toevoegen van schijven of grootte van de virtuele machine wijzigt, Instance Metadata Service geen aangepaste gegevens geeft. Aangepaste gegevens persistent via Instance Metadata Service die momenteel wordt uitgevoerd.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Bij het ophalen van aangepaste gegevens in de virtuele Machine
 Instance Metadata Service kunt u aangepaste gegevens aan de virtuele machine in base64-gecodeerde vorm. Het volgende voorbeeld decodeert de met base64 gecodeerde tekenreeks.
@@ -715,11 +723,11 @@ My custom data.
 Taal | Voorbeeld
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Aan de slag  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Start  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl

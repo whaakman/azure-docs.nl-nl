@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466201"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551725"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift Veelgestelde vragen
 
@@ -66,3 +66,7 @@ Nee. Alle knooppunten in een cluster Azure Red Hat OpenShift moeten afkomstig zi
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Hoofd- en -infrastructuur knooppunten ze kunnen worden opgeslagen omdat ze met Azure Kubernetes Service (AKS zijn)?
 
 Nee. Alle resources, met inbegrip van de cluster-master, worden uitgevoerd in uw abonnement van de klant. Deze typen resources worden in een alleen-lezen resourcegroep geplaatst.
+
+## <a name="is-open-service-broker-for-azure-osba-supported"></a>Is Open Service Broker for Azure (OSBA) ondersteund?
+
+Ja. U kunt OSBA gebruiken met Azure Red Hat OpenShift. Zie [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) voor meer informatie.

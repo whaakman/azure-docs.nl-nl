@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703317"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791501"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nieuwe DBA in de cloud, uw één en gepoolde databases in Azure SQL Database beheren
 
@@ -47,7 +47,7 @@ Maak u geen back-ups op Azure SQL DB en dat komt omdat u niet hoeft te. SQL-Data
 
 |Servicelaag|Bewaarperiode in dagen|
 |---|:---:|
-|Basic|7|
+|Basis|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -127,7 +127,7 @@ Een andere optie is om in te richten [gereserveerd IP-adressen](../virtual-netwo
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Welke poorten ik verbinding maken met SQL-Database op
 
-Poort 1433. SQL Database communiceert via deze poort. Voor verbinding uit vanuit een bedrijfsnetwerk, moet u een uitgaande regel toevoegen in de firewall-instellingen van uw organisatie. Als een richtlijn te voorkomen dat poort 1433 buiten de grens van Azure. U kunt SSMS uitvoeren in Azure met [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). Dit vereist niet dat u uitgaande verbindingen voor poort 1433 openen, het IP-adres wordt statisch, zodat de database geopend zodat u kunt alleen de RemoteApp worden kan en Multi Factor Authentication (MFA) ondersteunt.
+Poort 1433. SQL Database communiceert via deze poort. Voor verbinding uit vanuit een bedrijfsnetwerk, moet u een uitgaande regel toevoegen in de firewall-instellingen van uw organisatie. Als een richtlijn te voorkomen dat poort 1433 buiten de grens van Azure.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Hoe kan ik controleren en regelen van de activiteit op de server en database in SQL-Database
 
@@ -135,7 +135,7 @@ Poort 1433. SQL Database communiceert via deze poort. Voor verbinding uit vanuit
 
 Met SQL Database, kunt u controleren voor het bijhouden van databasegebeurtenissen. [SQL Database Auditing](sql-database-auditing.md) registreert databasegebeurtenissen en schrijft deze naar een controlelogboekbestand in uw Azure Storage-Account. Controleren is heel handig als u van plan bent krijgt u inzicht in mogelijke beveiliging en beleid schendingen, naleving van regelgeving enzovoort. Hiermee kunt u definiëren en configureren van bepaalde categorieën van gebeurtenissen die u denkt moet controleren en op basis van dat u vooraf geconfigureerde rapporten en een dashboard voor een overzicht van gebeurtenissen in uw database kunt ophalen. U kunt deze controlebeleid op het databaseniveau van de of op het serverniveau van de kunt toepassen. Een handleiding voor het inschakelen van controle voor uw server /-database, Zie: [Inschakelen van SQL Database Auditing](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Detectie van bedreigingen
+#### <a name="threat-detection"></a>Detectie van dreigingen
 
 Met [detectie van bedreigingen](sql-database-threat-detection.md), krijgt u de mogelijkheid om te reageren op beveiligings- of beleid schendingen die zijn gedetecteerd door te controleren heel eenvoudig. U hoeft niet te worden van een beveiligingsexpert om potentiële bedreigingen of schendingen in uw systeem. Detectie van bedreigingen heeft ook enkele ingebouwde mogelijkheden, zoals SQL-injectie detectie. SQL-injectie is een poging te wijzigen of de gegevens en een gebruikelijk manier om in het algemeen is een aanval op een databasetoepassing in gevaar brengen. Detectie van bedreigingen wordt uitgevoerd voor meerdere sets met algoritmen om mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals afwijkende patronen voor databasetoegang (zoals toegang vanaf een ongewone locatie of door een ongebruikelijke) te detecteren. Security officers of andere aangewezen beheerders ontvangen een e-mailbericht als een bedreiging wordt gedetecteerd op de database. Elke melding bevat informatie over de verdachte activiteiten en aanbevelingen voor het verder te onderzoeken en tegenhouden. Voor informatie over het inschakelen van detectie van bedreigingen, Zie: [Detectie van bedreigingen inschakelen](sql-database-security-tutorial.md#enable-security-features).
 
@@ -255,11 +255,11 @@ U kunt ook waarschuwingen door middel van deze grafiek configureren. Deze waarsc
 
 U kunt een query de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamische Beheerweergave om terug te keren resource verbruik statistieken geschiedenis van het afgelopen uur en de [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalogusweergave om terug te keren geschiedenis voor de afgelopen 14 dagen.
 
-#### <a name="query-performance-insight"></a>Inzicht in queryprestaties
+#### <a name="query-performance-insight"></a>Query Performance Insight
 
 [Query Performance Insight](sql-database-query-performance.md) kunt u een historisch overzicht bekijken van de top-resource-intensieve query's en langlopende query's voor een specifieke database. TOP-query's door gebruik van resources, de duur en de frequentie van de uitvoering, kunt u snel identificeren. U kunt query's bijhouden en regressie detecteren. Deze functie moet [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) zijn ingeschakeld en actief voor de database.
 
-![Inzicht in queryprestaties](./media/sql-database-manage-after-migration/query-performance-insight.png)
+![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (Preview) in Azure Monitor-Logboeken
 

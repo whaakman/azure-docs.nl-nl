@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305291"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "65753953"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Wat is ExpressRoute globaal bereik?
 
@@ -29,15 +29,15 @@ Als uw ExpressRoute-circuits in dezelfde geopolitieke regio zijn, hoeft u geen E
 
 ### <a name="how-will-i-be-charged-for-expressroute-global-reach"></a>Hoe moet ik betalen voor ExpressRoute globaal bereik?
 
-Met ExpressRoute kunt connectiviteit vanuit uw on-premises netwerk naar Microsoft-cloudservices. ExpressRoute globaal bereik zorgt voor connectiviteit tussen uw eigen on-premises netwerken via uw bestaande ExpressRoute-circuits, gebruik te maken van het wereldwijde netwerk van Microsoft. ExpressRoute globaal bereik wordt apart in rekening gebracht van de bestaande ExpressRoute-service. Er zijn de kosten van een invoegtoepassing voor het inschakelen van deze functie op elk ExpressRoute-circuit. Verkeer tussen uw on-premises netwerken ingeschakeld door ExpressRoute globaal bereik wordt gefactureerd voor een snelheid van uitgangsgebeurtenissen bij de bron en de snelheid van een inkomend verkeer op de bestemming. De tarieven zijn gebaseerd op de zone waarop de circuits zich bevinden. Zie <pricing page>
+Met ExpressRoute kunt connectiviteit vanuit uw on-premises netwerk naar Microsoft-cloudservices. ExpressRoute globaal bereik zorgt voor connectiviteit tussen uw eigen on-premises netwerken via uw bestaande ExpressRoute-circuits, gebruik te maken van het wereldwijde netwerk van Microsoft. ExpressRoute globaal bereik wordt apart in rekening gebracht van de bestaande ExpressRoute-service. Er zijn de kosten van een invoegtoepassing voor het inschakelen van deze functie op elk ExpressRoute-circuit. Verkeer tussen uw on-premises netwerken ingeschakeld door ExpressRoute globaal bereik wordt gefactureerd voor een snelheid van uitgangsgebeurtenissen bij de bron en de snelheid van een inkomend verkeer op de bestemming. De tarieven zijn gebaseerd op de zone waarop de circuits zich bevinden.
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Waar wordt globaal bereik van ExpressRoute ondersteund?
 
-Globaal bereik van ExpressRoute wordt ondersteund in [landen of locaties selecteren](../articles/expressroute/expressroute-global-reach.md). De ExpressRoute-circuits moeten worden gemaakt op de peering locaties in die landen of plaatsen.
+Globaal bereik van ExpressRoute wordt ondersteund in [landen/regio's of locaties selecteren](../articles/expressroute/expressroute-global-reach.md). De ExpressRoute-circuits moeten worden gemaakt op de peering locaties in die landen/regio's of plaatsen.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Ik heb meer dan twee on-premises netwerken, elk verbonden met een ExpressRoute-circuit. Kan ik inschakelen globaal bereik van ExpressRoute al mijn on-premises netwerken met elkaar verbinden?
 
-Ja, u kunt wijzigen, zolang de circuits in de ondersteunde landen zijn. U moet twee ExpressRoute-circuits tegelijk verbinding maken. Voor het maken van een volledig geïntegreerde netwerk, moet u alle circuit paren opsommen en herhaalt u de configuratie. 
+Ja, u kunt wijzigen, zolang de circuits in de ondersteunde landen/regio's zijn. U moet twee ExpressRoute-circuits tegelijk verbinding maken. Voor het maken van een volledig geïntegreerde netwerk, moet u alle circuit paren opsommen en herhaalt u de configuratie. 
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>Kan ik ExpressRoute globaal bereik inschakelen tussen de twee ExpressRoute-circuits op dezelfde locatie peering?
 

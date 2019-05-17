@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 286d8bbc01b5916e842c196aed5a49ef1c76bc3c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025202"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540698"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Upgraden naar de nieuwste versie van Azure Search Service REST API
 Als u een eerdere versie van de [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), in dit artikel ziet u een upgrade van uw toepassing met de nieuwste algemeen beschikbaar API-versie, 2019-05-06.
@@ -72,7 +72,9 @@ Als een van deze situaties op u van toepassing, moet u mogelijk uw code dienover
 
 Als u een van een preview-API-versie upgrade, de bovenstaande ook van toepassing, maar u wel rekening mee dat sommige preview-functies zijn niet beschikbaar in versie 2019-05-06:
 
-* [Query's "Meer als dit"](search-more-like-this.md) nog steeds een alleen-preview-functie.
+* ['Meer als volgt' query 's](search-more-like-this.md)
+* [Indexeren van CSV-blob](search-howto-index-csv-blobs.md)
+* [Ondersteuning voor MongoDB-API voor indexeerfuncties Cosmos DB](search-howto-index-cosmosdb.md)
 
 Als uw code maakt gebruik van deze functies, wordt het niet mogelijk om te upgraden naar API-versie 2019-05-06 zonder te verwijderen van uw gebruik van deze.
 

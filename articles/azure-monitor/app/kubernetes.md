@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor - nul instrumentation toepassingsbewaking voor Kubernetes gehoste apps | Microsoft Docs
-description: Nul instrumentation voor toepassingsbewaking voor apps die worden gehost Kubernetes is een oplossing voor prestatiecontrole waarmee u voor het verzamelen van telemetrie van Application Insights die betrekking hebben op binnenkomende en uitgaande aanvragen naar en van schillen uitgevoerd in het Kubernetes-cluster door met behulp van technologie voor service-mesh Istio genoemd.
+title: Gebruik Application Insights voor het bewaken van uw Azure Kubernetes Service (AKS) of andere Kubernetes gehoste toepassingen - Azure Monitor | Microsoft Docs
+description: Azure Monitor maakt gebruik van service mesh-technologie, Istio, op uw Kubernetes-cluster voor toepassingsbewaking voor elke toepassing die wordt gehost Kubernetes. Hiermee kunt u voor het verzamelen van telemetrie van Application Insights die betrekking hebben op binnenkomende en uitgaande aanvragen naar en van schillen uitgevoerd in het cluster.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408216"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555835"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Nul instrumentatie-toepassingsbewaking voor Kubernetes apps die worden gehost
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Nul instrumentatie-toepassingsbewaking voor Kubernetes gehoste toepassingen
 
 > [!IMPORTANT]
 > Deze functionaliteit is momenteel in openbare preview.
@@ -99,7 +99,7 @@ Toepassingen die worden uitgevoerd buiten het NET service worden niet beïnvloed
 - Genereer een voorbeeld van een aanvraag voor uw toepassing om te bevestigen dat bewaking correct werkt.
 - Binnen 3 tot 5 minuten, moet u beginnen te zien van de telemetrie weergegeven in de Azure portal. Zorg ervoor dat u uitchecken de *Toepassingsoverzicht* sectie van uw Application Insights-resource in de Portal.
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Hieronder wordt het oplossen van problemen met flow moet worden gebruikt als telemetrie niet wordt weergegeven in de Azure portal als verwacht.
 

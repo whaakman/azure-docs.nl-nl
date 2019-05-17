@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717901"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544595"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Back-up en herstellen van SQL-Databases in virtuele Azure-machines met PowerShell
 
@@ -110,7 +110,7 @@ De Recovery Services-kluis is een Resource Manager-resource, dus u deze in de re
 3. Geef het type redundantie om te gebruiken voor de opslag van de kluis.
 
     * U kunt [lokaal redundante opslag](../storage/common/storage-redundancy-lrs.md) of [geografisch redundante opslag](../storage/common/storage-redundancy-grs.md).
-    * Het volgende voorbeeld wordt de **- BackupStorageRedundancy** optie voor de[Set AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd voor **testvault** ingesteld op  **GeoRedundant**.
+    * Het volgende voorbeeld wordt de **- BackupStorageRedundancy** optie voor de[Set AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd voor **testvault** ingesteld op  **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -530,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Het is belangrijk te weten dat Azure Backup alleen gebruikerstaken geactiveerd in SQL-back-up houdt. Geplande back-ups (met inbegrip van logboekback-ups) zijn niet zichtbaar in de portal/powershell. Als een geplande wordt echter taken mislukken, een [back-waarschuwing](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) wordt gegenereerd en weergegeven in de portal. [Azure Monitor gebruiken](backup-azure-monitoring-use-azuremonitor.md) om alle geplande taken en andere relevante informatie te volgen.
 
-Gebruikers kunnen bijhouden ad-hoc/gebruiker geactiveerd bewerkingen met de taak-id die wordt geretourneerd in de [uitvoer](#on-demand-backup) van asynchrone taken zoals back-ups. Gebruik [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) PS-cmdlet voor het bijhouden van de taak en de bijbehorende details.
+Gebruikers kunnen bijhouden ad-hoc/gebruiker geactiveerd bewerkingen met de taak-id die wordt geretourneerd in de [uitvoer](#on-demand-backup) van asynchrone taken zoals back-ups. Gebruik [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS-cmdlet voor het bijhouden van de taak en de bijbehorende details.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

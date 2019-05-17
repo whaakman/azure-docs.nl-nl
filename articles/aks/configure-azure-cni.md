@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508010"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780374"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configureren van Azure CNI netwerken in Azure Kubernetes Service (AKS)
 
@@ -58,7 +58,7 @@ Het IP-adres-plan voor een AKS-cluster bestaat uit een virtueel netwerk, ten min
 
 ## <a name="maximum-pods-per-node"></a>Maximale schillen per knooppunt
 
-Het maximum aantal schillen per knooppunt in een AKS-cluster is 110. De *standaard* maximum aantal schillen per knooppunt varieert tussen *kubenet* en *Azure CNI* netwerken en de methode van implementatie van het cluster.
+Het maximum aantal schillen per knooppunt in een AKS-cluster is 250. De *standaard* maximum aantal schillen per knooppunt varieert tussen *kubenet* en *Azure CNI* netwerken en de methode van implementatie van het cluster.
 
 | Implementatiemethode | Kubenet standaard | Azure CNI standaard | Kan worden geconfigureerd tijdens de implementatie |
 | -- | :--: | :--: | -- |

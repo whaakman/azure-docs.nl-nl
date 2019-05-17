@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021787"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540865"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Over het maken van een set vaardigheden in een pijplijn verrijking
 
@@ -249,7 +249,7 @@ Deze structuur is tot nu toe is alleen interne, alleen-geheugen en gebruikt alle
 
 ## <a name="add-a-knowledge-store"></a>Een archief kennis toevoegen
 
-[Kennis Store](knowledge-store-concept-intro.md) is een preview-functie in Azure Search voor het opslaan van uw verrijkt document. Een store, kennis die u hebt gemaakt, is ondersteund door Azure storage-account, de opslagplaats waar uw gegevens verrijkt terechtkomt. 
+[Kennis store](knowledge-store-concept-intro.md) is een preview-functie in Azure Search voor het opslaan van uw verrijkt document. Een store, kennis die u hebt gemaakt, is ondersteund door Azure storage-account, de opslagplaats waar uw gegevens verrijkt terechtkomt. 
 
 Een definitie van de store kennis wordt toegevoegd aan een set vaardigheden. Zie voor een overzicht van het hele proces, [aan de slag met kennis store](knowledge-store-howto.md).
 

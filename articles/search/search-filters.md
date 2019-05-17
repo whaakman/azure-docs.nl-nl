@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024835"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597281"
 ---
 # <a name="filters-in-azure-search"></a>Filters in Azure Search 
 
@@ -50,24 +50,24 @@ Als u een beperkende effect in uw lijst met zoekresultaten wilt, zijn filters ni
 
  + `searchFields` queryparameter wasknijpers zoeken naar specifieke velden. Als uw index afzonderlijke velden voor Engelse en Spaanse beschrijvingen biedt, kunt u bijvoorbeeld searchFields gebruiken om u te richten op welke velden u wilt gebruiken voor zoeken in volledige tekst. 
 
-+ `$select` parameter wordt gebruikt om op te geven welke velden u wilt opnemen in een resultaat ingesteld, het antwoord effectief bijsnijden voordat deze naar de aanroepende toepassing verzonden. Deze parameter niet wordt de query te verfijnen of beperken van de documentverzameling, maar als een nauwkeurige antwoord het doel is, deze parameter is een optie om te overwegen. 
++ `$select` parameter wordt gebruikt om op te geven welke velden u wilt opnemen in een resultaat ingesteld, het antwoord effectief bijsnijden voordat deze naar de aanroepende toepassing verzonden. Deze parameter niet wordt de query te verfijnen of beperken van de documentverzameling, maar als een kleinere antwoord het doel is, deze parameter is een optie om te overwegen. 
 
 Zie voor meer informatie over de parameter [documenten zoeken > aanvragen > queryparameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
 
-## <a name="filters-in-the-query-pipeline"></a>Filters in de querypijplijn
+## <a name="how-filters-are-executed"></a>Hoe filters worden uitgevoerd
 
-De expressie converteert naar atomic Booleaanse expressies en een filterstructuur, die vervolgens wordt geëvalueerd ten opzichte van filterbare velden in een index is gebaseerd op het moment dat de query, een filter-parser criteria als invoer accepteert.  
+De expressie converteert naar atomic Booleaanse expressies die worden weergegeven als een boomstructuur en evalueert vervolgens de structuur van de via filterbare velden in een index op het moment dat de query, een filter-parser criteria als invoer accepteert.
 
-Filteren vindt plaats voordat zoeken, in aanmerking komende welke documenten worden opgenomen in de downstream-verwerkingen voor het ophalen van document en relevantie scoren. In combinatie met een zoekreeks, vermindert het filter effectief de surface area van de volgende search-bewerking. Als u alleen wordt gebruikt (bijvoorbeeld wanneer de query-tekenreeks leeg waar is `search=*`), de filtercriteria is de enige invoer. 
+Filteren vindt plaats in combinatie met zoeken, in aanmerking komende welke documenten worden opgenomen in de downstream-verwerkingen voor het ophalen van document en relevantie scoren. In combinatie met een zoekreeks, vermindert het filter effectief de set intrekken van de volgende search-bewerking. Als u alleen wordt gebruikt (bijvoorbeeld wanneer de query-tekenreeks leeg waar is `search=*`), de filtercriteria is de enige invoer. 
 
-## <a name="filter-definition"></a>Filterdefinitie
+## <a name="defining-filters"></a>Filters definiëren
 
 Filters zijn OData-expressies, gelede met behulp van een [subset van de OData-V4-syntaxis ondersteund in Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-U kunt één filter opgeven voor elke **zoeken** bewerking, maar het filter zelf kan bevatten meerdere velden, meerdere criteria en als u een **ismatch** functie, meerdere expressies. U kunt in een meerdelige filterexpressie predicaten in willekeurige volgorde opgeven. Er is geen noemenswaardig voordeel in de prestaties als u probeert te predicaten in een bepaalde volgorde rangschikken.
+U kunt één filter opgeven voor elke **zoeken** bewerking, maar het filter zelf kan bevatten meerdere velden, meerdere criteria en als u een **ismatch** functie, meerdere expressies voor zoeken in volledige tekst. U kunt in een meerdelige filterexpressie predicaten in willekeurige volgorde (afhankelijk van de regels voor operatoren) opgeven. Er is geen noemenswaardig voordeel in de prestaties als u probeert te predicaten in een bepaalde volgorde rangschikken.
 
-De limiet voor een filterexpressie is de maximale limiet voor de aanvraag. De volledige aanvraag, inclusief het filter, mag maximaal 16 MB voor POST of 8 KB voor GET. Dynamische limieten correleert met het aantal in de filterexpressie van de EU. Een goede vuistregel is dat als u honderden componenten hebt, u risico van het uitvoeren van de limiet. Het is raadzaam om het ontwerpen van uw toepassing zodanig dat deze filters van niet-gebonden grootte wordt gegenereerd.
+Een van de limieten voor een filterexpressie is de maximale grootte van de aanvraag. De volledige aanvraag, inclusief het filter, mag maximaal 16 MB voor POST of 8 KB voor GET. Er is ook een limiet voor het aantal in de filterexpressie van de EU. Een goede vuistregel is dat als u honderden componenten hebt, u risico van het uitvoeren van de limiet. Het is raadzaam om het ontwerpen van uw toepassing zodanig dat deze filters van niet-gebonden grootte wordt gegenereerd.
 
 De volgende voorbeelden geven prototypische filterdefinities in verschillende API's.
 
@@ -75,7 +75,7 @@ De volgende voorbeelden geven prototypische filterdefinities in verschillende AP
 # Option 1:  Use $filter for GET
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
-# Option 2: Use filter for POST and pass it in the header
+# Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
@@ -92,25 +92,26 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
             Select = new[] { "hotelId", "description" }
         };
 
+    var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-design-patterns"></a>Ontwerppatronen filteren
+## <a name="filter-usage-patterns"></a>Filteren van gebruikspatronen
 
-De volgende voorbeelden ziet u verschillende ontwerppatronen voor filter scenario's. Zie voor meer ideeën [syntaxis voor OData-expressie > voorbeelden](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+De volgende voorbeelden ziet u verschillende gebruikspatronen voor filter scenario's. Zie voor meer ideeën [syntaxis voor OData-expressie > voorbeelden](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
-+ Zelfstandige **$filter**, zonder een queryreeks, dit is nuttig wanneer de filterexpressie in staat om volledig te kwalificeren documenten van belang is. Zonder een queryreeks is geen lexicale of linguïstische analyse, geen beoordeling en er is geen classificatie. U ziet dat de zoektekenreeks is leeg.
++ Zelfstandige **$filter**, zonder een queryreeks, dit is nuttig wanneer de filterexpressie in staat om volledig te kwalificeren documenten van belang is. Zonder een queryreeks is geen lexicale of linguïstische analyse, geen beoordeling en er is geen classificatie. U ziet dat de zoektekenreeks is alleen een sterretje, wat betekent 'overeenkomstig met alle documenten'.
 
    ```
    search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
    ```
 
-+ Combinatie van query-tekenreeks en **$filter**, waarbij het filter de subset maakt, en de queryreeks de invoer van de termijn voor zoeken in volledige tekst via de gefilterde subset bevat. Met behulp van een filter met een queryreeks is het meest voorkomende code-patroon.
++ Combinatie van query-tekenreeks en **$filter**, waarbij het filter de subset maakt, en de queryreeks de invoer van de termijn voor zoeken in volledige tekst via de gefilterde subset bevat. Met behulp van een filter met een queryreeks is het meest voorkomende gebruikspatroon.
 
    ```
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ Samengestelde query's, gescheiden door 'of', elk met een eigen filtercriteria (bijvoorbeeld ' beagles' in 'hond') of 'siamese' in 'cat'. OF had expressies afzonderlijk, met antwoorden van elkaar gecombineerd tot één antwoord verzonden naar de aanroepende toepassing worden geëvalueerd. Dit ontwerppatroon wordt bereikt door middel van de functie search.ismatch. U kunt de versie niet-score (search.ismatch) of de scoring versie (search.ismatchscoring) gebruiken.
++ Samengestelde query's, gescheiden door 'of', elk met een eigen filtercriteria (bijvoorbeeld ' beagles' in 'hond') of 'siamese' in 'cat'. Expressies gecombineerd met `or` afzonderlijk worden geëvalueerd met de samenvoeging van documenten die overeenkomen met elke expressie terug in het antwoord verzonden. Dit gebruikspatroon wordt bereikt door de `search.ismatchscoring` functie. U kunt ook de versie niet scoren `search.ismatch`.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -120,6 +121,14 @@ De volgende voorbeelden ziet u verschillende ontwerppatronen voor filter scenari
    $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
    ```
 
+  Het is ook mogelijk om te zoeken in volledige tekst via combineren `search.ismatchscoring` met filters toepassen met `and` in plaats van `or`, maar dit is functioneel equivalent met behulp van de `search` en `$filter` parameters in een zoekaanvraag. Bijvoorbeeld, opleveren de volgende twee query's hetzelfde resultaat:
+
+  ```
+  $filter=search.ismatchscoring('pool') and rating ge 4
+
+  search=pool&$filter=rating ge 4
+  ```
+
 Opgevolgd met de volgende artikelen voor uitgebreide richtlijnen specifieke gebruiksvoorbeelden:
 
 + [Facetfilters](search-filters-facets.md)
@@ -128,36 +137,32 @@ Opgevolgd met de volgende artikelen voor uitgebreide richtlijnen specifieke gebr
 
 ## <a name="field-requirements-for-filtering"></a>Vereisten voor het filteren van veld
 
-In de REST-API, Filterbaar is *op* standaard. Bij filterbare velden vergroten index; Zorg ervoor dat u instelt `filterable=FALSE` voor velden die u niet wilt gebruiken in een filter. Zie voor meer informatie over instellingen voor velddefinities [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+In de REST-API, Filterbaar is *op* standaard voor eenvoudige velden. Bij filterbare velden vergroten index; Zorg ervoor dat u instelt `"filterable": false` voor velden die u niet wilt gebruiken in een filter. Zie voor meer informatie over instellingen voor velddefinities [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-In de .NET SDK, de Filterbaar is *uit* standaard. De API voor het instellen van de eigenschap filterable is [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). In het voorbeeld hieronder zijn ingesteld voor de definitie van het veld BaseRate.
+In de .NET SDK, de Filterbaar is *uit* standaard. Kunt u een veld Filterbaar door in te stellen de [IsFilterable eigenschap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) van de bijbehorende [veld](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) object `true`. U kunt dit ook doen declaratief met behulp van de [IsFilterable kenmerk](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). In het volgende voorbeeld wordt het kenmerk is ingesteld op de `BaseRate` eigenschap van een modelklasse die is toegewezen aan de indexdefinitie.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 ```
 
-### <a name="reindexing-requirements"></a>Vereisten voor indexeren
+### <a name="making-an-existing-field-filterable"></a>Maken van een bestaand veld Filterbaar
 
-Als een veld niet-filterbare is en u ervoor Filterbaar, hebt u een nieuw veld toevoegen of opnieuw opbouwen van de bestaande velden. De velddefinitie van een wijzigen, wijzigt de fysieke structuur van de index. In Azure Search, worden alle toegestane Toegangspaden geïndexeerd voor snelle query snelheid, die noodzakelijk is opnieuw opbouwen van de gegevensstructuren wanneer velddefinities wijzigt. 
-
-Opnieuw opbouwen van afzonderlijke velden is een bewerking met weinig impact, vereisen een merge-bewerking waarmee het bestaande documentsleutel en de bijbehorende waarden worden verzonden naar de index, zodat de rest van elk document ongewijzigd blijft. Als er een vereiste opnieuw maken, Zie [indexeren van acties (uploaden, samenvoegen, mergeOrUpload, verwijderen)](search-what-is-data-import.md#indexing-actions) voor een lijst met opties.
-
+U kunt bestaande velden zodat ze Filterbaar niet wijzigen. In plaats daarvan moet u een nieuw veld toevoegt of de index opnieuw opbouwen. Zie voor meer informatie over het opnieuw opbouwen van een index of opnieuw importeert velden [het opnieuw opbouwen van een Azure Search-index](search-howto-reindex.md).
 
 ## <a name="text-filter-fundamentals"></a>Tekst filter grondbeginselen
 
-Tekstfilters zijn geldig voor tekenreeksvelden, van waaruit u wilt voor het ophalen van een willekeurige verzameling van documenten op basis van waarden binnen de search-index.
+Tekstfilters komt overeen met tekenreeksvelden tegen letterlijke tekenreeksen die u in het filter opgeeft. In tegenstelling tot zoeken in volledige tekst is er geen lexicale analyse of woordafbreking voor tekstfilters, dus vergelijkingen voor alleen exacte overeenkomsten gelden. Bijvoorbeeld, wordt ervan uitgegaan dat een veld *f* 'zonnige dag', bevat `$filter=f eq 'Sunny'` komt niet overeen met, maar `$filter=f eq 'sunny day'` wordt. 
 
-Voor tekstfilters bestaat uit tekenreeksen, is er geen lexicale analyse of afbreken van woorden, dus vergelijkingen voor alleen exacte overeenkomsten gelden. Bijvoorbeeld, wordt ervan uitgegaan dat een veld *f* 'zonnige dag', bevat `$filter=f eq 'Sunny'`komt niet overeen met, maar `$filter=f eq 'Sunny day'` wordt. 
+Tekenreeksen zijn hoofdlettergevoelig. Er is geen kleine-hoofdlettergebruik van hoofdletters, woorden: `$filter=f eq 'Sunny day'` 'zonnige dag' niet vinden.
 
-Tekenreeksen zijn hoofdlettergevoelig. Er is geen kleine-hoofdlettergebruik van hoofdletters, woorden: `$filter=f eq 'Sunny day'` wordt niet gevonden ' zonnige dag '.
+### <a name="approaches-for-filtering-on-text"></a>Methoden voor het filteren op tekst
 
-
-| Methode | Description | 
-|----------|-------------|
-| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie met door komma's gescheiden lijst met tekenreeksen die voor een bepaald veld. De tekenreeksen bestaan uit de filtercriteria op die worden toegepast op elk veld binnen het bereik van de query. <br/><br/>`search.in(f, ‘a, b, c’)` semantisch gelijk is aan `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, behalve dat deze wordt veel sneller uitgevoerd wanneer de lijst met waarden groot is.<br/><br/>Het is raadzaam de **search.in** functie voor [beveiligingsfilters](search-security-trimming-for-azure-search.md) en voor eventuele filters uit de onbewerkte tekst die bestaat moet worden vergeleken op basis van waarden in een bepaald veld. Deze aanpak is ontworpen voor snelheid. U kunt verwachten dat subsecond reactietijd voor honderden tot duizenden waarden. Hoewel er geen expliciete limiet voor het aantal items die u aan de functie doorgeven kunt, neemt de latentie in verhouding tot het aantal tekenreeksen die u opgeeft. | 
-| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie waarmee u kunt zoeken in volledige tekst bewerkingen met strikt Boolean-filter bewerkingen in de dezelfde filterexpressie combineren. Hiermee kunnen meerdere combinaties van query-filter in één aanvraag. U kunt ook gebruiken voor een *bevat* om te filteren op een gedeeltelijke tekenreeks binnen een grotere tekenreeks. |  
-| [$filter = veld operatortekenreeks](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | De expressie voor een gebruiker gedefinieerde bestaat uit velden, operators en waarden. | 
+| Methode | Description | Wanneer gebruikt u dit? | 
+|----------|-------------|-------------|
+| [search.in](query-odata-filter-orderby-syntax.md) | Een functie die overeenkomt met een veld op basis van een door tekens gescheiden lijst met tekenreeksen. | Aanbevolen voor [beveiligingsfilters](search-security-trimming-for-azure-search.md) en voor eventuele filters waar veel waarden voor onbewerkte tekst moeten worden vergeleken met een tekenreeksveld. De **search.in** functie is ontworpen voor snelheid en is veel sneller dan het vergelijken van het veld op basis van elke tekenreeks met behulp expliciet `eq` en `or`. | 
+| [search.ismatch](query-odata-filter-orderby-syntax.md) | Een functie waarmee u kunt zoeken in volledige tekst bewerkingen met strikt Boolean-filter bewerkingen in de dezelfde filterexpressie combineren. | Gebruik **search.ismatch** (of het scoring-equivalent, **search.ismatchscoring**) als u wilt dat meerdere zoekfilter combinaties in één aanvraag. U kunt ook gebruiken voor een *bevat* om te filteren op een gedeeltelijke tekenreeks binnen een grotere tekenreeks. |
+| [$filter = veld operatortekenreeks](query-odata-filter-orderby-syntax.md) | De expressie voor een gebruiker gedefinieerde bestaat uit velden, operators en waarden. | Gebruik deze optie als u wilt zoeken naar exacte overeenkomsten tussen een tekenreeksveld en een string-waarde. |
 
 ## <a name="numeric-filter-fundamentals"></a>Grondbeginselen van numerieke filter
 

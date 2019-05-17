@@ -1,5 +1,5 @@
 ---
-title: Werken met projecties in een archief van de knowledge - Azure Search
+title: Werken met projecties in een knowledge store (preview) - Azure Search
 description: Opslaan en vorm te geven uw verrijkt gegevens uit de indexering AI-pijplijn voor gebruik in scenario's dan zoeken
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028363"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540812"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Werken met projecties in een winkel kennis in Azure Search
 
+> [!Note]
+> Kennis store is in preview en niet bedoeld voor gebruik in productieomgevingen. De [2019 in de REST-API-versie-05-06-Preview](search-api-preview.md) biedt deze functie. Er is geen .NET SDK-ondersteuning op dit moment.
+>
+
 Azure Search kunt inhoud verrijking door middel van cognitieve vaardigheden AI en aangepaste vaardigheden als onderdeel van het indexeren. Enrichments structuur toevoegen aan uw documenten en effectiever maken door te zoeken. In veel gevallen zijn de verrijkt documenten handig voor scenario's dan zoeken, bijvoorbeeld voor knowledge gegevensanalyse.
 
-Projecties, een onderdeel van [kennis store (preview)](knowledge-store-concept-intro.md), weergaven van verrijkt documenten die kunnen worden opgeslagen op de fysieke opslag voor knowledge analysestructuur doeleinden. Een projectie kunt u 'project' uw gegevens in een vorm die bij uw behoeften, relaties te behouden, zodat de hulpprogramma's zoals Power BI de gegevens met geen extra moeite kunnen lezen. 
+Projecties, een onderdeel van [kennis store](knowledge-store-concept-intro.md), weergaven van verrijkt documenten die kunnen worden opgeslagen op de fysieke opslag voor knowledge analysestructuur doeleinden. Een projectie kunt u 'project' uw gegevens in een vorm die bij uw behoeften, relaties te behouden, zodat de hulpprogramma's zoals Power BI de gegevens met geen extra moeite kunnen lezen. 
 
 Projecties kunnen in tabelvorm, met gegevens die zijn opgeslagen in rijen en kolommen in de Azure-tabelopslag of JSON-objecten die zijn opgeslagen in Azure Blob-opslag zijn. U kunt meerdere projecties van uw gegevens definiëren als deze wordt gehandhaafd. Dit is handig als u wilt dat dezelfde gegevens vormgegeven anders voor afzonderlijke gebruiksvoorbeelden. 
 

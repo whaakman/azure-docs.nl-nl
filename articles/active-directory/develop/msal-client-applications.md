@@ -4,7 +4,7 @@ description: Meer informatie over openbare client en vertrouwelijke client toepa
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f21aa62bae7599cf586ccf6f885ad9f58c148d1f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9e0300ec0ef4ee67b06acb85514ae898bbd0a830
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077138"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544290"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Openbare clients en vertrouwelijke client-toepassingen
 Microsoft Authentication Library (MSAL) definieert twee soorten clients: openbare en vertrouwelijke clients. De twee clienttypen worden onderscheiden door de mogelijkheid om te verifiëren veilig met de autorisatieserver en onderhouden van de vertrouwelijkheid van de referenties van de client.  Azure AD Authentication Library (ADAL) heeft daarentegen het concept van verificatiecontext (dit is een verbinding met Azure AD).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829817"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786085"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Inleiding tot de Azure-Cache voor Premium-laag Redis
 Azure Redis-Cache is een gedistribueerde beheerde cache waarmee u zeer schaalbare en snel reagerende toepassingen kunt maken met zeer snelle toegang tot uw gegevens. 
@@ -50,7 +50,7 @@ Gemaakt in de laag Basic of Standard-caches zijn toegankelijk via het openbare i
 
 Zie voor meer informatie, [het configureren van Virtual Network-ondersteuning voor een Premium Azure Cache voor Redis](cache-how-to-premium-vnet.md).
 
-## <a name="importexport"></a>Import/Export
+## <a name="importexport"></a>Importeren/exporteren
 Import/Export wordt een Azure-Cache voor beheerbewerking van het Redis-gegevens waarmee u gegevens importeren in Azure voor Redis-Cache of exporteren van gegevens uit de Cache voor Redis door te importeren en exporteren van een Azure-Cache voor de momentopname Redis-Database (RDB) uit de cache van een premium Azure een pagina-blobs in een Azure Storage-Account. Hiermee kunt u om te migreren tussen verschillende Azure-Cache voor instanties van Redis of vullen van de cache met gegevens voor het gebruik.
 
 Invoer kan worden gebruikt om Redis compatibel RDB-bestand(en) vanaf een willekeurige Redis-server die wordt uitgevoerd in een cloud of de omgeving, met inbegrip van Redis die worden uitgevoerd op Linux, Windows of elke andere cloudprovider, zoals Amazon Web Services en andere. Importeren van gegevens is een eenvoudige manier om te maken van een cache met vooraf ingevulde gegevens. Tijdens het importproces, Azure voor Redis-Cache laadt de RDB-bestanden van Azure storage in het geheugen en voegt vervolgens de sleutels in de cache.
@@ -63,9 +63,9 @@ Zie voor meer informatie, [gegevens importeren en exporteren van gegevens uit de
 De premium-laag kunt u een of meer knooppunten van uw cache op aanvraag opnieuw. Hiermee kunt u voor het testen van uw toepassing voor tolerantie bij een storing. U kunt de volgende knooppunten opnieuw opstarten.
 
 * Hoofdknooppunt van uw cache
-* Ondergeschikte server-knooppunt van uw cache
-* Hoofd- en de ondergeschikte knooppunten van uw cache
-* Wanneer u een premium-cache met clustering, kunt u het model, slave of beide knooppunten voor afzonderlijke shards in de cache opnieuw
+* Secundair knooppunt van uw cache
+* Primaire en secundaire knooppunten van uw cache
+* Wanneer u een premium-cache met clustering, kunt u de primaire, secundaire of beide knooppunten voor afzonderlijke shards in de cache opnieuw
 
 Zie voor meer informatie, [opnieuw opstarten](cache-administration.md#reboot) en [Veelgestelde vragen over het opnieuw opstarten](cache-administration.md#reboot-faq).
 
