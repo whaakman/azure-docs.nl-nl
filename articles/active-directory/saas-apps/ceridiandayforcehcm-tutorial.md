@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79741d9ec71dd7735ef94ef8172921965a9e9df1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905253"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863780"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Zelfstudie: Azure Active Directory-integratie met Ceridian Dayforce HCM
 
@@ -112,7 +112,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met Ceridian Dayfo
     | Voor productie | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | Voor testen | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
 
     | Omgeving | URL |
     | :-- | :-- |
@@ -127,7 +127,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met Ceridian Dayfo
     | Voor testen | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [klantondersteuningsteam voor Ceridian Dayforce HCM](https://www.ceridian.com/support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met het [klantondersteuningsteam voor Ceridian Dayforce HCM](https://www.ceridian.com/support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. In de toepassing Ceridian Dayforce HCM worden de SAML-asserties in een specifieke indeling verwacht. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 

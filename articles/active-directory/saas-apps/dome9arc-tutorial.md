@@ -16,11 +16,11 @@ ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86112c6d1c720787af80a9846b5c94ec59895ecb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Zelfstudie: Azure Active Directory-integratie met Dome9 Arc
 
@@ -107,7 +107,7 @@ Ga als volgt te werk om Azure AD-eenmalige aanmelding met Dome9 Arc te configure
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://secure.dome9.com/`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
     > [!NOTE]
     > U selecteert de waarde voor uw bedrijfsnaam in de beheerportal van Dome9, zoals later in de zelfstudie wordt uitgelegd.

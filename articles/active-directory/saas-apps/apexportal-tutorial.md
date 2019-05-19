@@ -17,11 +17,11 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Zelfstudie: Azure Active Directory-integratie met Apex Portal
 
@@ -123,7 +123,7 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij Apex Porta
     | Name | Bronkenmerk|
     | -------- | --------- |
     | VOORNAAM | user.givenname |
-    | ACHTERNAAM | user.surname |
+    | LASTNAME | user.surname |
     | E-MAIL | user.mail |
     | | |
 

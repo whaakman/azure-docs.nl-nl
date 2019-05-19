@@ -16,11 +16,11 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65871915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Zelfstudie: Azure Active Directory-integratie met de persoonlijke Portal Mimecast
 
@@ -115,7 +115,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij Mimecast Perso
     | Australië       | `https://au-api.mimecast.com/login/saml`|
     | Offshore        | `https://jer-api.mimecast.com/login/saml`|
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
 
     | Regio  |  Value | 
     | --------------- | --------------- |

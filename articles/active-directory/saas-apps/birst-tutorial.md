@@ -16,11 +16,11 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 632ae913214794a114bc12019d92b6902172fca7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65858498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Zelfstudie: Azure Active Directory-integratie met Birst Agile Business Analytics
 
@@ -105,7 +105,7 @@ Ga als volgt te werk om Azure AD-eenmalige aanmelding met Birst Agile Business A
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij Birst flexibele Business Analytics](common/sp-intiated.png)
 
-    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
     De URL is afhankelijk van het datacenter waar uw Birst-account zich bevindt:
 

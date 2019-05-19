@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537009"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860318"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Zelfstudie: Translator Speech-toepassing in C#
 
@@ -34,7 +34,7 @@ Een Visual Studio-oplossingsbestand voor deze toepassing is [beschikbaar in GitH
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt u een editie van Visual Studio 2017 nodig, inclusief de Community-editie.
+Voor deze zelfstudie moet u een versie van Visual Studio-2019, met inbegrip van de Community-versie.
 
 Met de Visual Studio-oplossing wordt ook een installatieprogramma voor de toepassing gebouwd. U hebt de [WiX Toolset](http://wixtoolset.org/) en de [WiX Toolset Visual Studio-extensie](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) nodig om deze functionaliteit te ondersteunen.
 

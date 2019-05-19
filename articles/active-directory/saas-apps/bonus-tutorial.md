@@ -17,11 +17,11 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ffc2e8c186ce485f7df19b3f797aaa8982735f5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65864107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Zelfstudie: Azure Active Directory-integratie met Bonusly
 
@@ -225,7 +225,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Bonusly, moeten ze 
 
     ![Gebruikers beheren](./media/bonus-tutorial/ic781043.png "Gebruikers beheren")
 
-1. Klik op **Add User**.
+1. Klik op **gebruiker toevoegen**.
 
     ![Gebruiker toevoegen](./media/bonus-tutorial/ic781044.png "Gebruiker toevoegen")
 

@@ -10,23 +10,23 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4e1c03085d6b1d0099ac66dd3d1dadd981a561aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829231"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860480"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Zelfstudie: Verbinding maken met de Text Analytics-service met behulp van Connected Services in Visual Studio
 
 Met Text Analytics-service kunt u uitgebreide informatie extraheren om visuele gegevens te extraheren en te verwerken, en kunt u afbeeldingen computerondersteund beheren om uw services te cureren.
 
-Dit artikel en de bijbehorende artikelen bieden details voor het gebruik van de Visual Studio Connected Service-functie voor de Text Analytics-Service. De mogelijkheid is beschikbaar in Visual Studio 2017 15.7 of hoger wanneer de Cognitive Services-extensie is geïnstalleerd.
+Dit artikel en de bijbehorende artikelen bieden details voor het gebruik van de Visual Studio Connected Service-functie voor de Text Analytics-Service. De mogelijkheid is beschikbaar in zowel Visual Studio-2019 of hoger, met de Cognitive Services-extensie geïnstalleerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versie 15.7, met de workload Web Development geïnstalleerd. [Nu downloaden](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual 2019 van het Studio, in de met de ontwikkeling van Web-werkbelasting geïnstalleerd. [Download nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

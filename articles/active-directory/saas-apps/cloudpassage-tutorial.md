@@ -16,11 +16,11 @@ ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22d24b62532190ebd4d119b4ced03ddbd9dde8f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863209"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Zelfstudie: Azure Active Directory-integratie met CloudPassage
 
@@ -124,7 +124,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
     | ---------------| --------------- |
     | firstname |user.givenname |
     | lastname |user.surname |
-    | e-mail |user.mail |
+    | email |user.mail |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
@@ -265,7 +265,7 @@ Het doel van dit gedeelte is het maken van een gebruiker met de naam Britta Simo
   
     d. Selecteer **Enable Halo Portal Access** bij **Access Type**.
   
-    e. Klik op **Add**.
+    e. Klik op **Toevoegen**.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

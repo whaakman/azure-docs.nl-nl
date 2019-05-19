@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/07/2019
-ms.openlocfilehash: e87c5defaa26830d0962527b65affbae734aff55
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: HT
+ms.date: 05/17/2019
+ms.openlocfilehash: 7c60b2ae3d403584822e694daf3357b86cba34d7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849907"
+ms.locfileid: "65864748"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Azure Databricks
 
@@ -55,14 +55,13 @@ Voltooi deze taken voordat u aan deze zelfstudie begint:
 
 * Een Azure Data Lake Storage Gen2-opslagaccount maken. Zie [Quickstart: Maken van een storage-account van Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-*  Een service-principal maken. Raadpleeg [Uitleg: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Een service-principal maken. Raadpleeg [Uitleg: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
    Er zijn een paar specifieke zaken die u moet doen terwijl u de stappen in het artikel uitvoert.
 
-   * Wanneer u de stappen uitvoert in de sectie [De toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u ervoor zorgen dat de rol **Gegevensbijdrager voor opslagblob** is toegewezen aan de service-principal.
+   * Bij het uitvoeren van de stappen in de [de toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) sectie Zorg ervoor dat u het toewijzen van het artikel, de **Gegevensbijdrager voor Blob** rol aan de service-principal in het bereik van de Data Lake Opslagaccount Gen2. Als u de rol aan de bovenliggende resourcegroep of abonnement toewijzen, ontvangt u fouten met betrekking tot machtigingen totdat deze roltoewijzingen aan de storage-account doorgeven.
 
-     > [!IMPORTANT]
-     > Zorg ervoor dat u de rol toewijst in het bereik van het Data Lake Storage Gen2-opslagaccount. U kunt een rol toewijzen aan de bovenliggende resourcegroep of het bovenliggende abonnement, maar u ontvangt machtigingsgerelateerde fouten tot die roltoewijzingen zijn doorgegeven aan het opslagaccount.
+      Als u liever een toegangsbeheerlijst (ACL) gebruiken om te koppelen van de service-principal met een specifiek bestand of map, een verwijzing [toegangsbeheer in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
    * Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
 
@@ -148,7 +147,9 @@ In deze sectie maakt u een notebook in de Azure Databricks-werkruimte en voert u
 
 4. Selecteer **Maken**.
 
-5. Kopieer en plak het volgende codeblok in de eerste cel.
+5. Het volgende codeblok Hiermee stelt u referenties standaard service-principal gebruiken voor elke ADLS Gen 2-account in de Spark-sessie geopend. Het tweede codeblok wordt de naam van het toegevoegd aan de instelling referenties voor een specifieke ADLS Gen 2-account opgeven.  Kopieer en plak een codeblok in de eerste cel van uw Azure Databricks-notebook.
+
+   **Sessieconfiguratie**
 
    ```scala
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
@@ -156,6 +157,19 @@ In deze sectie maakt u een notebook in de Azure Databricks-werkruimte en voert u
    spark.conf.set("fs.azure.account.oauth2.client.id", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret", "<authentication-key>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+   ```
+
+   **De configuratie van account**
+
+   ```scala
+   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")

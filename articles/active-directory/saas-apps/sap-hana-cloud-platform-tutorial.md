@@ -16,11 +16,11 @@ ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65868124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Zelfstudie: Azure Active Directory-integratie met SAP Cloud Platform
 
@@ -215,7 +215,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met SAP Cloud Platform m
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |firstname |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |lastname |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mail |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |email |
    
      >[!NOTE]
      >De configuratie van de kenmerken is afhankelijk van hoe de toepassingen op SCP worden ontwikkeld. Dat wil zeggen, welke kenmerken in het SAML-antwoord worden verwacht en onder welke naam (Principal-kenmerk) toegang wordt verleend tot dit kenmerk in de code.

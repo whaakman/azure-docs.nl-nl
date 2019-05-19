@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830820"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873037"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Zelfstudie: een cache-aside-leaderboard maken in ASP.NET
 
@@ -41,7 +41,7 @@ In deze zelfstudie leert u het volgende:
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * Deze zelfstudie gaat verder waar u was gebleven in [Quickstart van ASP.NET voor Azure Cache voor Redis](cache-web-app-howto.md). Als u dat nog niet hebt gedaan, volgt u eerst de snelstartgids.
-* Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+* Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende workloads:
     * ASP.NET-ontwikkeling en webontwikkeling
     * Azure-ontwikkeling
     * .NET-desktopontwikkeling met SQL Server Express LocalDB of [SQL Server 2017 Express-editie](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -156,7 +156,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 
 1. Voeg de volgende sectie `connectionStrings` toe aan de sectie `configuration`. De naam van de verbindingsreeks moet overeenkomen met de naam van de contextklasse van de Entity Framework-database. Dit is `TeamContext`.
 
-    Bij deze verbindingsreeks wordt ervan uitgegaan dat u hebt voldaan aan de [Vereisten](#prerequisites) en SQL Server Express LocalDB hebt geïnstalleerd, dat deel uitmaakt van de werkbelasting *.NET-desktopontwikkeling* die wordt geïnstalleerd met Visual Studio 2017.
+    Deze verbindingsreeks wordt ervan uitgegaan dat u voldoet aan de [vereisten](#prerequisites) en geïnstalleerd van SQL Server Express LocalDB, die deel uitmaakt van de *.NET-desktopontwikkeling* werkbelasting geïnstalleerd met Visual Studio 2019.
 
     ```xml
     <connectionStrings>

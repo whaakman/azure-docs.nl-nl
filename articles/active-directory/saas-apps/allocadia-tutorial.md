@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab731bf7526521f6c091d2cd7d7d296636f76f67
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Zelfstudie: Integratie van Azure Active Directory met Allocadia
 
@@ -131,7 +131,7 @@ Als u eenmalige aanmelding van Azure AD met Allocadia wilt configureren, voert u
     | ------------------- | -------------------- |
     | firstname | user.givenname |
     | lastname | user.surname |
-    | e-mail | user.mail |
+    | email | user.mail |
     | | |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.

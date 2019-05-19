@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869539"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Zelfstudie: Azure Active Directory-integratie met perceptie Verenigde Staten (niet-UltiPro)
 
@@ -165,7 +165,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met perceptie Verenigde 
 
     e. Klik op **opnieuw uploaden** het uploaden van de **Metadata XML** bestand.
 
-    f. Klik op **Update**.
+    f. Klik op **Bijwerken**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

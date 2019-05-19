@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: f395ae51d51e56668482ad6c8d446bdd31050fea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65870621"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Zelfstudie: Azure Active Directory-integratie met OpsGenie
 
@@ -208,7 +208,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
    
     ![Instellingen voor OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
-3. Klik op **Add User**.
+3. Klik op **gebruiker toevoegen**.
 
 4. Voer in het dialoogvenster **Add User** de volgende stappen uit:
    

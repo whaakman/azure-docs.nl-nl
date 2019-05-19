@@ -17,11 +17,11 @@ ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d60ecfff4e634d6a92eaf1022761c2f23167918
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Zelfstudie: Azure Active Directory-integratie met Andromeda
 
@@ -131,9 +131,9 @@ Voor het configureren van Azure AD eenmalige aanmelding met Andromeda, moet u de
 
     | Name | Bronkenmerk|
     | ------ | -----------|
-    | role        | Specifieke App-rol |
+    | rol        | Specifieke App-rol |
     | type        | Type toevoegen |
-    | bedrijf       | CompanyName |
+    | Bedrijf       | CompanyName |
 
     > [!NOTE]
     > Er zijn geen echte waarden. Deze waarden zijn alleen voor de demo-doel, gebruik de functies van uw organisatie.

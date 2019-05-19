@@ -16,11 +16,11 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac14168f9f56a727517232e201e581f913d67c90
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Zelfstudie: Azure Active Directory-integratie met Elium
 
@@ -128,7 +128,7 @@ Ga als volgt te werk om Azure AD-eenmalige aanmelding met Elium te configureren:
 
     | Name | Bronkenmerk|
     | ---------------| ----------------|
-    | e-mail   |user.mail |
+    | email   |user.mail |
     | first_name| user.givenname |
     | last_name| user.surname|
     | job_title| user.jobtitle|

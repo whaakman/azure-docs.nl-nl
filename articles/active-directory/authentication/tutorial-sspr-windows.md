@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357421"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861533"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Zelfstudie: Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
-In deze zelfstudie gaat u gebruikers in staat stellen om hun wachtwoorden op het aanmeldingsscherm van Windows 10 opnieuw in te stellen. Met de nieuwe Windows-update van 10 april 2018 kunnen gebruikers met apparaten die zijn toegevoegd aan **Azure Active Directory** of **hybride Azure Active Directory**, de koppeling 'Wachtwoord opnieuw instellen' op hun aanmeldingsscherm gebruiken. Wanneer gebruikers op deze koppeling klikken, worden ze omgeleid naar dezelfde selfservice voor wachtwoordherstel (SSPR) als waarmee ze al bekend zijn.
+In deze zelfstudie gaat u gebruikers in staat stellen om hun wachtwoorden op het aanmeldingsscherm van Windows 10 opnieuw in te stellen. Met de nieuwe Windows-update van 10 april 2018 kunnen gebruikers met apparaten die zijn toegevoegd aan **Azure Active Directory** of **hybride Azure Active Directory**, de koppeling 'Wachtwoord opnieuw instellen' op hun aanmeldingsscherm gebruiken. Wanneer gebruikers op deze koppeling klikken, worden ze omgeleid naar dezelfde selfservice voor wachtwoordherstel (SSPR) als waarmee ze al bekend zijn. Als een gebruiker is vergrendeld is dit proces niet ontgrendelen van accounts in on-premises Active Directory.
 
 > [!div class="checklist"]
 > * De koppeling Wachtwoord opnieuw instellen configureren met Intune
@@ -60,7 +60,7 @@ Intune gebruiken om de configuratie te wijzigen zodat gebruikers het wachtwoord 
       * **Waarde** ingesteld op **1**
       * Klik op **OK**
    * Klik op **OK**
-4. Klik op **Maken**.
+4. Klik op **Maken**
 
 ### <a name="assign-a-device-configuration-policy-in-intune"></a>Een beleid voor apparaatconfiguratie toewijzen in Intune
 
@@ -71,7 +71,7 @@ Intune gebruiken om de configuratie te wijzigen zodat gebruikers het wachtwoord 
 3. Geef een naam op voor de groep en kies onder **Type lidmaatschap** de optie **Toegewezen**
    * Kies onder **Leden** de aan Azure AD toegevoegde Windows 10-apparaten waarop u het beleid wilt toepassen.
    * Klik op **Selecteren**.
-4. Klik op **Maken**.
+4. Klik op **Maken**
 
 Meer informatie over het maken van groepen vindt u in het artikel [Toegang tot resources beheren met Azure Active Directory-groepen](../fundamentals/active-directory-manage-groups.md).
 

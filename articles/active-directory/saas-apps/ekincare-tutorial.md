@@ -16,11 +16,11 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a925b13e6aed55f13bb38df53f2d6063b0948730
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Zelfstudie: Azure Active Directory-integratie met eKincare
 
@@ -122,7 +122,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met eKincare t
 
     | Name | Bronkenmerk |
     | ---------------| --------------- |    
-    | employeeid | *User.extensionattribute1* |
+    | employeeid | *user.extensionattribute1* |
     | organizationid | *"uniquevalue"* |
     | organizationname | *User.CompanyName* |
     

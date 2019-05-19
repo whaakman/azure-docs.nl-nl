@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea17794a5ca57ae0d38d9a90857706cf380cab36
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862225"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deskradar"></a>Zelfstudie: Azure Active Directory-integratie met Deskradar
 
@@ -128,7 +128,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Email | user.userprincipalname |
+    | E-mailen | user.userprincipalname |
     | | |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.

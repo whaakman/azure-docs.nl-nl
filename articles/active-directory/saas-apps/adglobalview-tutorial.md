@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0bb43f1dad775594e3c3229bc5d69528f055144
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65864360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Zelfstudie: Azure Active Directory-integratie met ADP Globalview
 
@@ -114,7 +114,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
     | |
 
     > [!NOTE]
-    > Deze waarde is niet echt. Werk de waarde bij met de werkelijke id. Neem contact op met het [klantondersteuningsteam van ADP Globalview](https://www.adp.com/contact-us/overview.aspx) om de waarde op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Deze waarde is niet echt. Werk de waarde bij met de werkelijke-id. Neem contact op met het [klantondersteuningsteam van ADP Globalview](https://www.adp.com/contact-us/overview.aspx) om de waarde op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. ADP Globalview verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
@@ -125,7 +125,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
     | Name  |  Bronkenmerk|
     | ---------------| --------- |
     | personalimmutableid | User.extensionattribute2 |
-    | e-mail               | user.mail |
+    | email               | user.mail |
     | userid              | user.userprincipalname|
     | | |
 

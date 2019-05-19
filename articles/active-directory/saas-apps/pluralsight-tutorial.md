@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Zelfstudie: Azure Active Directory-integratie met Pluralsight
 
@@ -127,7 +127,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Pluralsight moet u d
     | --------------- | --------- |
     | Voornaam  | user.givenname  |
     | Achternaam  | user.surname  |
-    | Email  | user.mail  |
+    | E-mailen  | user.mail  |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 

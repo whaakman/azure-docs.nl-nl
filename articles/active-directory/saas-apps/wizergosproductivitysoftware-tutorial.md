@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 519066651bec85e593079a833b15dc80e5df8d9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>Zelfstudie: Azure Active Directory-integratie met Wizergos productiviteitssoftware
 
@@ -145,7 +145,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Wizergos productivit
     
     d. In de **URL voor eenmalige afmelding** tekstvak, plak de **afmeldings-URL van** waarde die u hebt gekopieerd vanuit Azure portal.
     
-    e. Klik op de knop **Save**.
+    e. Klik op **opslaan** knop.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

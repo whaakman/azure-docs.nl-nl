@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Zelfstudie: Azure Active Directory-integratie met Pingboard
 
@@ -230,7 +230,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
     d. In de **locatie** vervolgkeuzelijst, selecteer de locatie van Britta Simon.
 
-    e. Klik op **Add**.
+    e. Klik op **Toevoegen**.
 
 4. Er wordt een bevestigingsvenster weergegeven om te bevestigen van het toevoegen van gebruiker.
 

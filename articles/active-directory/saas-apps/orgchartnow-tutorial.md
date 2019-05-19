@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65870481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Zelfstudie: Azure Active Directory-integratie met organigram nu
 
@@ -223,7 +223,7 @@ Als u wilt dat gebruikers zich aanmelden bij organigram nu Azure AD, moeten ze w
 
     * In **e-mailadres** tekst vak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
-    * Klik op **Add**.
+    * Klik op **Toevoegen**.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

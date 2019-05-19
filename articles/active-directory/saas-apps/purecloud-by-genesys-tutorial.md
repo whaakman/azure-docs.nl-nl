@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65868889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Zelfstudie: Azure Active Directory-integratie met PureCloud by Genesys
 
@@ -146,7 +146,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     | Name | Bronkenmerk|
     | ---------------| --------------- |
-    | Email | user.userprinicipalname |
+    | E-mailen | user.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
@@ -203,7 +203,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Eenmalige aanmelding configureren](./media/purecloud-by-genesys-tutorial/configure06.png)
 
-    e. Klik op **Opslaan**.   
+    e. Klik op **Opslaan**   
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

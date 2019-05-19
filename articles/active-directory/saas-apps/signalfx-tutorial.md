@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 6f742def0441b5ae18ad9da3a8ac9d280de8f824
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867408"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Zelfstudie: Azure Active Directory-integratie met SignalFx
 
@@ -108,7 +108,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SignalFx, moet u de 
 
     a. In het tekstvak **Id** typt u een URL: `https://api.signalfx.com/v1/saml/metadata`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://api.signalfx.com/v1/saml/acs/<integration ID>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://api.signalfx.com/v1/saml/acs/<integration ID>`
 
     > [!NOTE]
     > De bovenstaande waarde is geen echte waarde. U werkt de waarde bij met de werkelijke antwoord-URL, die later in de zelfstudie wordt uitgelegd.
