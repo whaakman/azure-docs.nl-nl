@@ -58,7 +58,7 @@ De volgende eigenschappen worden ondersteund voor Sybase gekoppelde service:
 | server | Naam van de Sybase-server. |Ja |
 | database | De naam van de Sybase-database. |Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de Sybase-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows**. |Ja |
-| gebruikersnaam | Geef de naam van de gebruiker verbinding maakt met de Sybase-database. |Ja |
+| username | Geef de naam van de gebruiker verbinding maakt met de Sybase-database. |Ja |
 | password | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
