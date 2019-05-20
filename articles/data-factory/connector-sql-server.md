@@ -528,7 +528,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numerieke |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -536,12 +536,12 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| tekst |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 
