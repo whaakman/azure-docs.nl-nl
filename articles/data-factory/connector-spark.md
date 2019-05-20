@@ -47,8 +47,8 @@ De volgende eigenschappen worden ondersteund voor Spark gekoppelde service:
 | serverType | Het type van de Spark-server. <br/>Toegestane waarden zijn: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nee |
 | thriftTransportProtocol | Het te gebruiken in de laag Thrift-transportprotocol. <br/>Toegestane waarden zijn: **Binary**, **SASL**, **HTTP** | Nee |
 | authenticationType | De verificatiemethode die wordt gebruikt voor toegang tot de Spark-server. <br/>Toegestane waarden zijn: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
-| gebruikersnaam | De gebruikersnaam die u gebruiken voor toegang tot Spark-Server.  | Nee |
-| wachtwoord | Het wachtwoord dat overeenkomt met de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| username | De gebruikersnaam die u gebruiken voor toegang tot Spark-Server.  | Nee |
+| password | Het wachtwoord dat overeenkomt met de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de Spark-server.  | Nee |
 | enableSsl | Hiermee geeft u op of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is false.  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met de vertrouwde CA-certificaten voor het controleren van de server wanneer u verbinding maakt via SSL. Deze eigenschap kan alleen worden ingesteld wanneer u SSL op zelf-hostende IR De standaardwaarde is het bestand cacerts.pem is geïnstalleerd met de IR.  | Nee |
