@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863774"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Zelfstudie: Azure Active Directory-integratie met Citrix Netscaler
 
@@ -114,7 +114,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Citrix Netscaler, mo
     c. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)** tekstvak typt u een URL met behulp van het volgende patroon: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Citrix Netscaler Client ondersteuningsteam](https://www.citrix.com/contact/technical-support.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Citrix Netscaler Client ondersteuningsteam](https://www.citrix.com/contact/technical-support.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
     > [!NOTE]
     > Om eenmalige aanmelding werkt, moet deze URL's toegankelijk is vanaf openbare sites. U moet de firewall of andere beveiligingsinstellingen op de Netscaler zijde enble Azure AD voor het plaatsen van het token op de geconfigureerde ACS-URL inschakelen.
