@@ -15,7 +15,7 @@ metadata:
   ms.date: 05/07/2019
   ms.author: celested
 abstract:
-  description: 'Het Microsoft Identity Platform bouwt voort op de identiteitsservice en het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Met het Microsoft Identity Platform kunnen ontwikkelaars toepassingen maken waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft-API''s, zoals Microsoft Graph, of API''s die door ontwikkelaars zijn gemaakt. Het is een zeer uitgebreid platform, dat bestaat uit een verificatieservice die voldoet aan de normen voor OAuth 2.0 en OpenID Connect, open source-bibliotheken, registratie en configuratie van toepassingen, robuuste conceptuele en referentiedocumentatie, ''quickstart-voorbeelden'', codevoorbeelden, zelfstudies en handleidingen.'
+  description: 'Het Microsoft Identity Platform bouwt voort op het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Met het Microsoft Identity Platform kunnen ontwikkelaars toepassingen maken waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft-API''s, zoals Microsoft Graph, of API''s die door ontwikkelaars zijn gemaakt. Het is een zeer uitgebreid platform, dat bestaat uit een verificatieservice die voldoet aan de normen voor OAuth 2.0 en OpenID Connect, open source-bibliotheken, registratie en configuratie van toepassingen, robuuste conceptuele en referentiedocumentatie, ''quickstart-voorbeelden'', codevoorbeelden, zelfstudies en handleidingen.'
   aside:
     image:
       alt: null

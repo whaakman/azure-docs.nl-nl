@@ -253,7 +253,7 @@
           href: sql-data-warehouse-query-visual-studio.md
         - name: Visual Studio installeren
           href: sql-data-warehouse-install-visual-studio.md
-    - name: Workload beheren
+    - name: Werklastbeheer
       items:
         - name: Uw workload analyseren
           href: analyze-your-workload.md

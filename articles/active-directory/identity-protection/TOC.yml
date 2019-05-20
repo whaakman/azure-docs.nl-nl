@@ -46,6 +46,8 @@
           href: security-overview.md
         - name: Riskante gebruikers en aanmeldingen onderzoeken
           href: howto-investigate-risky-users-signins.md
+        - name: Feedback geven over risicogebeurtenissen
+          href: howto-provide-risk-event-feedback.md
         - name: Gebruikersrisicobeleid configureren
           href: howto-configure-risk-policies.md
         - name: Detectie van nauwkeurigheid verbeteren

@@ -63,8 +63,9 @@
     - name: Schalen
       href: concepts-scale.md
     - name: Aanbevolen procedures
-      href: best-practices.md
       items:
+        - name: Overzicht
+          href: best-practices.md
         - name: Voor clusteroperators
           items:
             - name: Multitenancy en clusterisolatie
@@ -115,9 +116,9 @@
           maintainContext: true
         - name: Virtuele knooppunten maken
           items:
-            - name: Azure-CLI
+            - name: Azure CLI gebruiken
               href: virtual-nodes-cli.md
-            - name: Azure Portal
+            - name: Azure Portal gebruiken
               href: virtual-nodes-portal.md
         - name: Virtual Kubelet gebruiken
           href: virtual-kubelet.md
@@ -165,9 +166,10 @@
             - name: TLS gebruiken met uw eigen certificaten
               href: ingress-own-tls.md
             - name: TLS gebruiken met Let's Encrypt
-              href: ingress-tls.md
               items:
-                - name: Een statisch openbaar IP-adres gebruiken
+                - name: 'Een dynamisch, openbaar IP-adres gebruiken'
+                  href: ingress-tls.md
+                - name: 'Een statisch, openbaar IP-adres gebruiken'
                   href: ingress-static-ip.md
         - name: Uitgaand verkeer
           href: egress.md
@@ -212,6 +214,20 @@
         - name: Containerlogboeken in realtime weergeven (preview)
           href: ../azure-monitor/insights/container-insights-live-logs.md
           maintainContext: true
+    - name: Windows Server-containers gebruiken (preview)
+      items:
+        - name: Een AKS-cluster maken
+          href: windows-container-cli.md
+        - name: Externe verbinding maken
+          href: rdp.md
+        - name: Bekende beperkingen
+          href: windows-node-limitations.md
+        - name: Het Kubernetes-dashboard gebruiken
+          href: kubernetes-dashboard.md
+        - name: Dockerfiles voor Windows Server-containers maken
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+        - name: Dockerfiles voor Windows Server-containers optimaliseren
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Toepassingen ontwikkelen en uitvoeren
       items:
         - name: Ontwikkelen met Dev Spaces

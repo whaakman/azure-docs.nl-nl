@@ -176,6 +176,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: Services op basis van Platform-as-a-Service (PaaS) gebruiken
               href: use-paas-services.md
+            - name: Geneste sjablonen implementeren
+              href: deploy-nested-template-environments.md
         - name: Toegang tot labs beveiligen
           items:
             - name: Eigenaars en gebruikers van een lab toevoegen
@@ -188,6 +190,8 @@
           items:
             - name: Beleid en planningen instellen
               href: devtest-lab-set-lab-policy.md
+            - name: Meldingen over automatisch afsluiten verzenden
+              href: devtest-lab-auto-shutdown.md
             - name: Kostenbeheer configureren
               href: devtest-lab-configure-cost-management.md
             - name: Azure Marketplace-installatiekopieën configureren
