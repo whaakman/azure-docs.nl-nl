@@ -819,53 +819,47 @@
       items:
         - name: Waarschuwingen
           items:
-            - name: Metrische waarschuwingen gebruiken
-              items:
-                - name: 'Metrische waarschuwing in Azure Monitor maken, bekijken en beheren'
-                  href: platform/alerts-metric.md
-                - name: 'Klassieke metrische waarschuwing in Azure Monitor maken, bekijken en beheren'
-                  href: platform/alerts-classic-portal.md
-                - name: Metrische waarschuwingen met dynamische drempelwaarden
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: Metrische waarschuwingen voor logboeken configureren
-                  href: platform/alerts-metric-logs.md
-                - name: Een nieuwere waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-                  href: platform/alerts-metric-create-templates.md
-                - name: Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-                  href: platform/alerts-enable-template.md
-                - name: Een klassieke metrische waarschuwing een webhook laten aanroepen
-                  href: platform/alerts-webhooks.md
-            - name: Logboekwaarschuwingen gebruiken
-              items:
-                - name: Waarschuwingen voor een query op analyses configureren
-                  href: platform/alerts-log.md
-                - name: Waarschuwingsquery's aan logboek toevoegen
-                  href: platform/alerts-log-query.md
-                - name: Webhookacties voor logboekwaarschuwingen
-                  href: platform/alerts-log-webhook.md
-                - name: Problemen met logboekwaarschuwingen oplossen
-                  href: platform/alert-log-troubleshoot.md
-            - name: Waarschuwingen voor activiteitenlogboeken gebruiken
-              items:
-                - name: Meldingen configureren voor waarschuwingen van het activiteitenlogboek
-                  href: platform/alerts-activity-log.md
-                - name: Migreren naar waarschuwingen voor activiteitenlogboek
-                  href: platform/migrate-management-alerts.md
-                - name: Waarschuwingen voor servicemeldingen configureren
-                  href: platform/alerts-activity-log-service-notifications.md
-            - name: Toepassingswaarschuwingen gebruiken
+            - name: Waarschuwingsregels voor toepassingen
               items:
                 - name: Beschikbaarheid
                   href: app/monitor-web-app-availability.md
                 - name: Metrische waarschuwingen
                   href: app/alerts.md
-            - name: Actiegroepen met waarschuwingen gebruiken
+            - name: Waarschuwingsregels voor metrische platformgegevens
               items:
-                - name: Actiegroepen maken
+                - name: Metrische waarschuwingen beheren
+                  href: platform/alerts-metric.md
+                - name: Dynamische drempels gebruiken
+                  href: platform/alerts-dynamic-thresholds.md
+                - name: Metrische waarschuwingen voor logboeken
+                  href: platform/alerts-metric-logs.md
+                - name: Een Resource Manager-sjabloon gebruiken
+                  href: platform/alerts-metric-create-templates.md
+            - name: Waarschuwingsregels voor logboeken
+              items:
+                - name: Waarschuwingen voor een query op analyses configureren
+                  href: platform/alerts-log.md
+                - name: Query's
+                  href: platform/alerts-log-query.md
+                - name: Webhookacties
+                  href: platform/alerts-log-webhook.md
+                - name: Problemen oplossen
+                  href: platform/alert-log-troubleshoot.md
+            - name: Waarschuwingsregels voor activiteitenlogboek
+              items:
+                - name: Waarschuwingen voor gebeurtenissen van het activiteitenlogboek
+                  href: platform/alerts-activity-log.md
+                - name: Beheergebeurtenissen migreren naar waarschuwingen voor activiteitenlogboeken
+                  href: platform/migrate-management-alerts.md
+                - name: Waarschuwingen voor servicestatusmeldingen
+                  href: platform/alerts-activity-log-service-notifications.md
+            - name: Actiegroepen gebruiken
+              items:
+                - name: Een actiegroep maken
                   href: platform/action-groups.md
-                - name: Meer informatie over webhook-schema
+                - name: Webhook-schema
                   href: platform/activity-log-alerts-webhook.md
-                - name: Definities van algemeen waarschuwingsschema
+                - name: Definitie van algemeen waarschuwingsschema
                   href: platform/alerts-common-schema-definitions.md
                 - name: Gedrag van sms-waarschuwingen
                   href: platform/alerts-sms-behavior.md
@@ -875,9 +869,9 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Een actie voor een Logische app implementeren
                   href: platform/action-groups-logic-app.md
-            - name: Operations Manager-waarschuwingen
+            - name: Waarschuwingenbeheeroplossing
               href: platform/alert-management-solution.md
-            - name: Waarschuwingen beheren
+            - name: Gebruikersinterface van waarschuwingen
               items:
                 - name: Waarschuwingsexemplaren beheren
                   href: platform/alerts-managing-alert-instances.md
@@ -887,19 +881,31 @@
                   href: platform/alerts-managing-alert-states.md
                 - name: Waarschuwingen van andere bewakingsservices beheren
                   href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: Klassieke waarschuwingen migreren
+            - name: Klassieke waarschuwingsregels migreren
               items:
-                - name: Het hulpprogramma voor migratie gebruiken
-                  href: platform/alerts-using-migration-tool.md
-                - name: Voorbereiden op de migratie
+                - name: Voorbereiden op migratie
                   href: platform/alerts-prepare-migration.md
                 - name: Over het hulpprogramma voor migratie
                   href: platform/alerts-understand-migration.md
+                - name: Het hulpprogramma voor migratie gebruiken
+                  href: platform/alerts-using-migration-tool.md
+                - name: Klassieke waarschuwingen voor metrische gegevens beheren
+                  href: platform/alerts-classic-portal.md
+                - name: Een klassieke waarschuwing voor metrische gegevens met behulp van een Resource Manager-sjabloon
+                  href: platform/alerts-enable-template.md
+                - name: Een klassieke metrische waarschuwing die een webhook aanroept
+                  href: platform/alerts-webhooks.md
+        - name: Servicestatusmeldingen in het activiteitenlogboek
+          items:
+            - name: Meldingen weergeven
+              href: platform/service-notifications.md
+            - name: Waarschuwingen voor meldingsgebeurtenissen configureren
+              href: platform/alerts-activity-log-service-notifications.md
         - name: Automatisch schalen
           items:
-            - name: Stapsgewijze handleiding voor automatisch schalen
+            - name: Walkthrough
               href: platform/autoscale-get-started.md
-            - name: Inzicht in instellingen voor automatisch schalen
+            - name: Instellingen
               href: platform/autoscale-understanding-settings.md
             - name: Aanbevolen procedures
               href: platform/autoscale-best-practices.md
@@ -907,20 +913,14 @@
               href: platform/autoscale-common-metrics.md
             - name: Algemene patronen
               href: platform/autoscale-common-scale-patterns.md
-            - name: Automatisch schalen met een aangepaste meetwaarde
+            - name: Schaal aanpassen met aangepaste metrische gegevens
               href: platform/autoscale-custom-metric.md
-            - name: Virtuele-machineschaalsets automatisch schalen met Resource Manager-sjablonen
-              href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: Virtuele machines in een VM Scale Set automatisch schalen
+            - name: VM-schaalsets schalen
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-            - name: Webhooks en e-mailmeldingen configureren voor automatisch schalen
+            - name: VM-schaalsets schalen met Resource Manager-sjablonen
+              href: platform/autoscale-virtual-machine-scale-sets.md
+            - name: Webhooks en e-mailmeldingen gebruiken
               href: platform/autoscale-webhook-email.md
-        - name: Servicemeldingen
-          items:
-            - name: Servicemeldingen bekijken
-              href: platform/service-notifications.md
-            - name: Waarschuwingen voor servicemeldingen configureren
-              href: platform/alerts-activity-log-service-notifications.md
         - name: IT Service Management
           items:
             - name: IT Service Management Connector

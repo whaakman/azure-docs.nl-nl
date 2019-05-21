@@ -174,7 +174,7 @@
       items:
         - name: Azure PowerShell gebruiken om entiteiten in te richten
           href: service-bus-manage-with-ps.md
-        - name: Service Bus bewaken met Azure Monitoring
+        - name: Service Bus bewaken met Azure Monitor
           href: service-bus-metrics-azure-monitor.md
         - name: Service Bus-beheerbibliotheken
           href: service-bus-management-libraries.md
