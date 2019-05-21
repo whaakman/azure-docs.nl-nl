@@ -17,11 +17,11 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922321"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901770"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Zelfstudie: Azure Active Directory-integratie met TalentLMS
 
@@ -111,7 +111,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met TalentLMS, moet u de
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `http://<tenant-name>.talentlms.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [TalentLMS Client ondersteuningsteam](https://www.talentlms.com/contact) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [TalentLMS Client ondersteuningsteam](https://www.talentlms.com/contact) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Klik in de sectie **SAML-handtekeningcertificaat** op de knop **Bewerken** om het dialoogvenster **SAML-handtekeningcertificaat** te openen.
 
@@ -237,7 +237,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij TalentLMS, moeten z
  
     c. In de **e-mailadres** tekstvak, voer het e-mailadres van gebruiker, zoals `brittasimon\@contoso.com`.
 
-    d. Klik op **Add User**.
+    d. Klik op **gebruiker toevoegen**.
 
 > [!NOTE]
 > U kunt alle andere TalentLMS gebruiker-account maken van hulpprogramma's of API's geleverd door TalentLMS aan inrichten AAD-gebruikersaccounts.

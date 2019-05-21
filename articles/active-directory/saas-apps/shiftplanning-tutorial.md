@@ -16,11 +16,11 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 99cc3ea94422ea76a7fb71330fa234a4003f9467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855602"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Zelfstudie: Azure Active Directory-integratie met Humanity
 
@@ -110,7 +110,7 @@ Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding wilt configurer
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://company.humanity.com/app/`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [Klantondersteuningsteam van Humanity](https://www.humanity.com/support/) (Engelstalig) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [Klantondersteuningsteam van Humanity](https://www.humanity.com/support/) (Engelstalig) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 4f7edd13c07d24d5d5a12fb9973083db44f0211f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60314745"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Zelfstudie: Azure Active Directory-integratie met de financiering Portal
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met de financiering Port
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<subdomain>.regenteducation.net`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [de financiering Portal Client ondersteuningsteam](mailto:info@regenteducation.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [de financiering Portal Client ondersteuningsteam](mailto:info@regenteducation.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. De toepassing financiering Portal wordt verwacht dat de SAML-asserties ondertekend bevat een kenmerk met de naam 'externalId1'. De waarde van 'externalId1' moet een herkende studentID. Configureer de claim 'externalId1' voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** van de toepassing. In de volgende schermopname ziet u een voorbeeld hiervan.
 

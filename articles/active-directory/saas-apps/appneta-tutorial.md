@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e48e353df6c14ec24a01fe3b1852de2c6a0a3155
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843688"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Zelfstudie: Azure Active Directory-integratie met AppNeta Performance Monitor
 
@@ -123,9 +123,9 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD bij AppNeta Pe
     | --------| ----------------|
     | voornaam| user.givenname|
     | achternaam| user.surname|
-    | e-mail| user.userprincipalname|
+    | email| user.userprincipalname|
     | naam| user.userprincipalname|
-    | groepen  | user.assignedroles |
+    | Groepen  | user.assignedroles |
     | telefoon| user.telephonenumber |
     | titel| user.jobtitle|
     | | |

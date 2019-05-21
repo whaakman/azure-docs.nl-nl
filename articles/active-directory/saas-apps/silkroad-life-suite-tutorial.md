@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: bcad6232de7fa257b58fe6d84f2c2ff794b64589
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005414"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902275"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Zelfstudie: Azure Active Directory-integratie met SilkRoad leven Suite
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SilkRoad leven Suite
 
     ![image](common/upload-metadata.png)
 
-    b. Klik op het **mappictogram** om het metagegevensbestand te selecteren en klik op **Uploaden**.
+    b. Klik op **map logo** voor het selecteren van het bestand met metagegevens en klikt u op **uploaden**.
 
     ![image](common/browse-upload-metadata.png)
 
@@ -144,7 +144,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SilkRoad leven Suite
     | `https://<subdomain>.silkroad.com/Authentication/`|
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [SilkRoad leven Suite Client ondersteuningsteam](https://www.silkroad.com/locations/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met [SilkRoad leven Suite Client ondersteuningsteam](https://www.silkroad.com/locations/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

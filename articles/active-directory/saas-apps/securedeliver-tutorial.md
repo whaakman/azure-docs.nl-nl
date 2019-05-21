@@ -17,11 +17,11 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ca2e717e612973fa4c46c9ab4e70091d32fcf19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713204"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Zelfstudie: Azure Active Directory-integratie met SECURE leveren
 
@@ -111,7 +111,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met SECURE leveren, moet
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/postResponse`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [leveren Client beveiligde ondersteuningsteam](mailto:iw-sd-support@fujifilm.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [leveren Client beveiligde ondersteuningsteam](mailto:iw-sd-support@fujifilm.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 

@@ -17,11 +17,11 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8c8bdfb7c9ae921eda2828af2c20136feaa9de6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917800"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Zelfstudie: Azure Active Directory-integratie met Imagineer WebVision
 
@@ -111,7 +111,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Imagineer WebVision,
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Imagineer WebVision Client ondersteuningsteam](mailto:support@itgny.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Imagineer WebVision Client ondersteuningsteam](mailto:support@itgny.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 

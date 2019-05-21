@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: ce1af9c88bbdad96a22eb96abc26026abcad56cc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: cda9c4c914e4ec955d2009ce3f015bf7807027f6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793042"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922194"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Aan de slag met Azure Cosmos DB Table-API en Azure Table storage met behulp van de .NET SDK
 
@@ -41,15 +41,15 @@ U hebt het volgende nodig voor dit voorbeeld:
 
 ## <a name="create-a-net-console-project"></a>Een .NET-console-project maken
 
-Maak een nieuwe .NET-consoletoepassing in Visual Studio. In de volgende stappen ziet u hoe u een consoletoepassing maakt in Visual Studio 2017. De stappen zijn nagenoeg gelijk in andere versies van Visual Studio. U kunt de Azure Cosmos DB tabel-bibliotheek in elk type .NET-toepassing, met inbegrip van een Azure-cloud-service of web-app, en desktop- en mobiele toepassingen gebruiken. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
+Maak een nieuwe .NET-consoletoepassing in Visual Studio. De volgende stappen laten zien hoe u een consoletoepassing maakt in Visual Studio 2019. U kunt de Azure Cosmos DB tabel-bibliotheek in elk type .NET-toepassing, met inbegrip van een Azure-cloud-service of web-app, en desktop- en mobiele toepassingen gebruiken. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
 1. Selecteer **Bestand** > **Nieuw** > **Project**.
 
-1. Selecteer **geïnstalleerd** > **Visual C#**   >  **consoletoepassing (.NET Core)**.
+1. Kies **Console-App (.NET Core)**, en selecteer vervolgens **volgende**.
 
-1. In de **naam** veld, voer een naam voor uw toepassing, bijvoorbeeld: **CosmosTableSamples** (u kunt een andere naam opgeven indien nodig).
+1. In de **projectnaam** veld, voer een naam voor uw toepassing, zoals **CosmosTableSamples**. (U kunt een andere naam opgeven indien nodig.)
 
-1. Selecteer **OK**.
+1. Selecteer **Maken**.
 
 Alle codevoorbeelden in dit voorbeeld kunnen worden toegevoegd aan de methode Main() van uw consoletoepassing **Program.cs** bestand.
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 6da53c14546fbe08206e5ba026a7b9176da2577e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60339106"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902231"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Zelfstudie: Azure Active Directory-integratie met Seismic
 
@@ -109,7 +109,7 @@ Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding wilt configurer
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<SUBDOMAIN>.seismic.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [klantondersteuningsteam van Seismic](mailto:support@seismic.com) om deze waarden te verkrijgen. U kunt ook de **metagegevens van de serviceprovider** uploaden om de id-waarde automatisch in te vullen. Voor meer informatie over **metagegevens van de serviceprovider** neemt u contact op met het [klantondersteuningsteam van Seismic](mailto:support@seismic.com).
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [klantondersteuningsteam van Seismic](mailto:support@seismic.com) om deze waarden te verkrijgen. U kunt ook de **metagegevens van de serviceprovider** uploaden om de id-waarde automatisch in te vullen. Voor meer informatie over **metagegevens van de serviceprovider** neemt u contact op met het [klantondersteuningsteam van Seismic](mailto:support@seismic.com).
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 

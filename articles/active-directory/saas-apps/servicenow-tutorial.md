@@ -16,11 +16,11 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0efc69aa7fb081303df6fc6327253fd5b8336999
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60241579"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Zelfstudie: Azure Active Directory-integratie met ServiceNow
 
@@ -261,7 +261,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met ServiceNow moet u de
 
         * Voer de **App Federation Metadata Url** in die u hebt gekopieerd uit de Azure-portal.
 
-        * Klik op **Import**.
+        * Klik op **importeren**.
 
     * De URL met de IdP-metagegevens wordt gelezen en de overeenkomende velden worden ingevuld.
 
