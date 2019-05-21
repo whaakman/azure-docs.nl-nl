@@ -121,7 +121,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Is het mogelijk om zelf geïmplementeerde SQL Server-VM's te registreren bij de SQL VM-resourceprovider?**
 
-    Ja. Als u SQL Server vanuit uw eigen media geïmplementeerd en de SQL IaaS-extensie die kunt u uw SQL Server-machine registreren met de resourceprovider om op te halen van de beheerbaarheidsvoordelen geleverd door de SQL IaaS-extensie geïnstalleerd. U kunt een zelf geïmplementeerde SQL VM echter niet converteren naar Betalen per gebruik.
+    Ja. Als u SQL Server vanuit uw eigen media geïmplementeerd en de SQL IaaS-extensie die kunt u uw SQL Server-machine registreren met de resourceprovider om op te halen van de beheerbaarheidsvoordelen geleverd door de SQL IaaS-extensie geïnstalleerd. U kunt een zelf geïmplementeerde SQL-VM echter niet converteren naar Betalen per gebruik.
 
 ## <a name="administration"></a>Beheer
 
