@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60265176"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Zelfstudie: Azure Active Directory-integratie met Jitbit Helpdesk
 
@@ -153,7 +153,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met de Jitbit Helpdesk, 
 
     c. Open uw **base-64** gecodeerd certificaat in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **X.509-certificaat** tekstvak
 
-    d. Klik op **Save changes** (Wijzigingen opslaan).
+    d. Klik op **wijzigingen opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 

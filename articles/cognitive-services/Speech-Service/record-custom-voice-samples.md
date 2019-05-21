@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866552"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954637"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Record stem voorbeelden voor het maken van een aangepaste spraak
 
@@ -53,7 +53,7 @@ Kies stem talent waarvan natuurlijke stem u graag. Het is mogelijk te maken van 
 
 De enkele van de belangrijkste factor voor het kiezen van spraak talent is consistentie. Uw opnamen moeten alle geluid zoals ze zijn gemaakt op dezelfde dag in één ruimte. U kunt deze ideaal via goed opname procedures en engineering benaderen.
 
-Uw stem talent is de andere helft van de vergelijking. Hij of zij moet mogelijk met consistente snelheid, volumeniveau, inspiratie en toon te spreken. Schakel diction is een moet. Er moet ook de talent kunnen strikt zijn of haar inspiratie variatie emotionele invloed en spraak gebaren.
+Uw stem talent is de andere helft van de vergelijking. Ze moeten mogelijk met consistente snelheid, volumeniveau, inspiratie en toon te spreken. Schakel diction is een moet. Er moet ook de talent kunnen strikt hun inspiratie variatie, emotionele invloed en spraak gebaren.
 
 Aangepaste spraak-voorbeelden op te nemen kan meer vermoeiend dan andere soorten stem werk zijn. De meeste stem talent kunt vastleggen voor twee of drie uur per dag. Sessies tot drie of vier per week, met een dag uit middenweg kiest indien mogelijk beperken.
 
@@ -117,7 +117,7 @@ Gelukkig is het mogelijk om volledig te voorkomen dat deze problemen. Er zijn ve
 
 Het script op een professionele opname-studio die is gespecialiseerd in spraak werk vastleggen. Ze hebben een tolloket opnemen, de juiste apparatuur en de juiste mensen werken. Het loont niet te ruim opnemen.
 
-Bespreek uw project met opname-engineer van de studio en luister naar zijn of haar advies. De opname hebt weinig of geen dynamisch bereik compressie (maximaal 4:1). Het is essentieel dat de audio consistente volume en de verhouding van een hoge signaal ruis, terwijl deze gratis ongewenste geluiden hebben.
+Bespreek uw project met opname-engineer van de studio en luister naar hun advies. De opname hebt weinig of geen dynamisch bereik compressie (maximaal 4:1). Het is essentieel dat de audio consistente volume en de verhouding van een hoge signaal ruis, terwijl deze gratis ongewenste geluiden hebben.
 
 ### <a name="do-it-yourself"></a>Zelf doen
 
@@ -131,7 +131,7 @@ U kunt ook een analoge microfoon. Veel verhuur huizen bieden "Superieur" microfo
 
 De microfoon installeert op een zelfstandige of tijdperk en een pop-filter voor de microfoon te elimineren ruis van "plosive" medeklinkers, zoals "p" en "b". Sommige microfoons worden geleverd met een onderbreking koppeling waarmee ze worden geïsoleerd van trillingen in de zelfstandige, wat nuttig is.
 
-De spraak-talent moet blijven op een consistente afstand van de microfoon. Tape markeren waar hij of zij moet staan op de verdieping gebruiken. Als de talent liever bevinden zich, erop letten mic afstand bewaken en te voorkomen dat stoel ruis.
+De spraak-talent moet blijven op een consistente afstand van de microfoon. Tape markeren waar ze moeten staan op de verdieping gebruiken. Als de talent liever bevinden zich, erop letten mic afstand bewaken en te voorkomen dat stoel ruis.
 
 Gebruik een zelfstandige voor het opslaan van het script. Vermijd de zelfstandige sportvisserij zodat geluid richting van de microfoon kan worden weergegeven.
 
@@ -158,12 +158,12 @@ In het ideale geval hebben verschillende mensen in de rollen van director, engin
 
 ### <a name="before-the-session"></a>Voordat de sessie
 
-Om te voorkomen dat ze studio tijd heeft verspild, doorloopt u het script met uw stem talent voordat de opnamesessie. Terwijl de stem-talent bekend zijn met de tekst verandert, kan hij of zij de uitspraak van woorden die niet bekend verduidelijken.
+Om te voorkomen dat ze studio tijd heeft verspild, doorloopt u het script met uw stem talent voordat de opnamesessie. Terwijl de stem-talent bekend zijn met de tekst verandert, kunnen ze de uitspraak van woorden die niet bekend maken duidelijk.
 
 > [!NOTE]
 > De meeste opname studios bieden elektronische weergave van scripts in de stand opnemen. In dit geval, typ de opmerkingen bij de uitzending rechtstreeks in document van het script. U nog steeds wilt papier aantekeningen op tijdens de sessie, maar. De meeste engineers wilt een kopie harde te. En zult u nog steeds dat een derde afgedrukt kopiëren als een back-up voor de talent als de computer niet actief is.
 
-Uw stem talent vragen die u wilt dat word FDA in een utterance '(het woord op de kracht'). Vertel hem of haar dat u wilt dat een natuurlijke lezen met geen nadruk. Nadruk kan worden toegevoegd wanneer spraak is gemaakt; het mag geen onderdeel van de oorspronkelijke opname.
+Uw stem talent vragen die u wilt dat word FDA in een utterance '(het woord op de kracht'). Ze vertellen dat u wilt dat een natuurlijke lezen met geen nadruk. Nadruk kan worden toegevoegd wanneer spraak is gemaakt; het mag geen onderdeel van de oorspronkelijke opname.
 
 De talent moet worden uitgesproken woorden wachtwoorddelen afzonderlijk sturen. Elk woord in het script moet worden verergerd geschreven. Geluiden moeten niet worden weggelaten of samen komt veel voor bij alledaagse spraak, slurred *, tenzij ze op die manier zijn geschreven in het script*.
 
@@ -196,7 +196,7 @@ Luister goed, hoofdtelefoon, om de prestaties van de stem-talent te gebruiken. U
 
 Houd er rekening mee de getal of de code op uw script tijd voor elke utterance. Vraag de engineer elke utterance in de metagegevens van de opname of hint blad ook markeren.
 
-Reguliere einden nemen en bieden een drank om te helpen uw stem talent zijn of haar spraak in goede staat houden.
+Reguliere einden nemen en een drank om uw stem talent in goede staat houden van hun stem te bieden.
 
 ### <a name="after-the-session"></a>Na de sessie
 

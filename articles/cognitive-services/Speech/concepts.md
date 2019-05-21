@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60514987"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954516"
 ---
 # <a name="basic-concepts"></a>Basisbegrippen
 
@@ -32,7 +32,7 @@ Als dit de eerste keer dat u een spraak-toepassing maakt, of als het de eerste k
 
 Belangrijkste de basisconcepten van spraak is de *audiostream*. In tegenstelling tot een toetsaanslag, die wordt uitgevoerd op een bepaald tijdstip en bevat een los stukje van gegevens, een gesproken aanvraag is verspreid over honderden milliseconden en veel kB aan gegevens bevat. De duur van de gesproken uitingen geeft sommige problemen voor ontwikkelaars die willen biedt een gestroomlijnde en elegante spraak-ervaring voor de toepassing. Vandaag computers en -algoritmen uit te voeren spraaktranscriptie in ongeveer de helft van de duur van de utterance, zodat een utterance 2 seconden kan worden omgezet in ongeveer 1 seconde, maar alle die optreedt in een 1 seconde vertraging bij de verwerking van gebruiker toepassingen gestroomlijnde noch elegante.
 
-Gelukkig zijn er manieren om 'verborgen' de transcriptie tijd door het uitvoeren van transcriptie op een deel van de utterance terwijl de gebruiker er spreekt door een ander deel. Bijvoorbeeld, is door het splitsen van een 1 seconde utterance in 10 segmenten van 100 milliseconden en door het uitvoeren van transcriptie op elke chunk op zijn beurt, meer dan 450 van de totale 500 milliseconden vereist voor transcriptie kan worden 'verborgen' zodat de gebruiker is geen informatie over transcriptie wordt uitgevoerd terwijl hij spreekt. Bij het nadenken over dit voorbeeld, houd er rekening mee dat de service transcriptie op de vorige 100 milliseconden van audio wordt uitgevoerd terwijl de gebruiker de volgende 100 spreekt, dus wanneer de gebruiker wordt gestopt spreken, de service alleen moet transcriberen ongeveer 100 milliseconden van audio een resultaat te produceren.
+Gelukkig zijn er manieren om 'verborgen' de transcriptie tijd door het uitvoeren van transcriptie op een deel van de utterance terwijl de gebruiker er spreekt door een ander deel. Bijvoorbeeld, is door het splitsen van een 1 seconde utterance in 10 segmenten van 100 milliseconden en door het uitvoeren van transcriptie op elke chunk op zijn beurt, meer dan 450 van de totale 500 milliseconden vereist voor transcriptie kan worden 'verborgen' zodat de gebruiker is geen informatie over transcriptie wordt uitgevoerd terwijl ze worden spreken. Bij het nadenken over dit voorbeeld, houd er rekening mee dat de service transcriptie op de vorige 100 milliseconden van audio wordt uitgevoerd terwijl de gebruiker de volgende 100 spreekt, dus wanneer de gebruiker wordt gestopt spreken, de service alleen moet transcriberen ongeveer 100 milliseconden van audio een resultaat te produceren.
 
 Voor het bereiken van deze gebruikerservaring gesproken audio gegevens worden verzameld in segmenten en getranscribeerde als de gebruiker spreekt. Deze audio segmenten gezamenlijk uit de *audiostream*, en het proces van het verzenden van deze audio segmenten met de service wordt aangeroepen *streamen van audio.* Audio streaming is een belangrijk onderdeel van een toepassing spraak ingeschakeld; de chunkgrootte afstemmen en optimaliseren van de streaming-implementatie, zijn sommige van de meeste impact hebben manieren verbetering van de gebruikerservaring van uw toepassing.
 
@@ -190,7 +190,7 @@ Microsoft Speech Service kunt tal van nettolading-indelingen in transcriptie ant
 
 U kunt de woordgroep resultaatindeling beheren door op te geven de `format` URL-queryparameter. Standaard stuurt de service `simple` resultaten.
 
-| Indeling | Beschrijving |
+| Notatie | Description |
 |-----|-----|
 | `simple` | Een vereenvoudigde woordgroep resultaat met de status van de spraakherkenning en de herkende tekst in formulier weergeven. |
 | `detailed` | Een opname-status en een lijst van de N-beste woordgroep resultaten waarbij elk resultaat woordgroep alle vier herkenning van formulieren en een betrouwbaarheidsscore bevat. |
@@ -307,7 +307,7 @@ De indeling van de nettolading van de `detailed` meer woorden resultaat:
 
 De Service Microsoft Speech herkent alle vormen van menselijke spraak, met inbegrip van woorden en zinnen die veel mensen zouden classificeren als "grof taalgebruik." U kunt bepalen hoe grof taalgebruik in de service worden verwerkt met behulp van de *grof taalgebruik* queryparameter. Standaard maskeert de service grof taalgebruik in *speech.phrase* resulteert en retourneert geen *speech.hypothesis* berichten met grof taalgebruik.
 
-| *Grof taalgebruik* waarde | Beschrijving |
+| *Grof taalgebruik* waarde | Description |
 | - | - |
 | `masked` | Maskeert grof taalgebruik met een sterretje. Dit gedrag is de standaardinstelling. |
 | `removed` | Hiermee verwijdert u grof taalgebruik uit alle resultaten. |

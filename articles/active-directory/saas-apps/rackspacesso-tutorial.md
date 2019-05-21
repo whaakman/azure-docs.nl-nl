@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009922"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Zelfstudie: Azure Active Directory-integratie met Rackspace SSO
 
@@ -107,7 +107,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Rackspace SSO, moet 
 
     ![image](common/upload-metadata.png)
 
-    b. Klik op het **mappictogram** om het metagegevensbestand te selecteren en klik op **Uploaden**.
+    b. Klik op **map logo** voor het selecteren van het bestand met metagegevens en klikt u op **uploaden**.
 
     ![image](common/browse-upload-metadata.png)
 

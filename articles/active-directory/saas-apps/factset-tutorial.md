@@ -16,11 +16,11 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690347"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Zelfstudie: Azure Active Directory-integratie met FactSet
 
@@ -110,7 +110,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD wilt config
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://login.factset.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met uw accountvertegenwoordiger FactSet om op te halen van deze waarden. Als u niet wie uw vertegenwoordiger FactSet is weet, kunt u hulp vinden op de [FactSet getallen ondersteuningspagina](https://www.factset.com/support-numbers). U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met uw accountvertegenwoordiger FactSet om op te halen van deze waarden. Als u niet wie uw vertegenwoordiger FactSet is weet, kunt u hulp vinden op de [FactSet getallen ondersteuningspagina](https://www.factset.com/support-numbers). U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

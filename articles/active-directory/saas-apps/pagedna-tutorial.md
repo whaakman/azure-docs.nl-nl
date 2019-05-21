@@ -17,11 +17,11 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11cb309e6c49ed36247398909e5e1b7ad9f7bc42
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62736423"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Zelfstudie: Azure Active Directory-integratie met PageDNA
 

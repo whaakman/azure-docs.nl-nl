@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724876"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Zelfstudie: Azure Active Directory-integratie met G Suite
 
@@ -47,7 +47,7 @@ Als u Azure AD-integratie wilt configureren met G Suite, hebt u de volgende item
 
 Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
@@ -147,9 +147,9 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
 
     ![Informatie over G Suite-domein en URL’s voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
 
     | |
     |--|
@@ -165,9 +165,9 @@ Als u Azure AD-eenmalige aanmelding met G Suite wilt configureren en testen, voe
 
     ![Informatie over G Suite-domein en URL’s voor eenmalige aanmelding](common/sp-identifier.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
     
     | |
     |--|

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812887"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956983"
 ---
 # <a name="collaborating-with-other-authors"></a>Samenwerken met andere auteurs
 
@@ -52,7 +52,7 @@ De [LUIS](luis-reference-regions.md#luis-website) website niet op dit moment bie
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>Meerdere versies binnen dezelfde app beheren
 Beginnen met het [klonen](luis-how-to-manage-versions.md#clone-a-version), van een basisversie voor elke auteur maken. 
 
-Elke auteur brengt wijzigingen aan zijn of haar eigen versie van de app. Wanneer elke auteur maken door het model is, moet u de nieuwe versies exporteren naar JSON-bestanden.  
+Elke auteur brengt wijzigingen aan in hun eigen versie van de app. Wanneer elke auteur maken door het model is, moet u de nieuwe versies exporteren naar JSON-bestanden.  
 
 Geëxporteerde apps zijn JSON-indeling bestanden, die wijzigingen kunnen worden vergeleken. Combineer de bestanden voor het maken van een enkel JSON-bestand van de nieuwe versie. Wijzig de **versionId** eigenschap in de JSON om de nieuwe versie van de samengevoegde aan te geven. Die versie importeren in de oorspronkelijke app. 
 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 4a030e1bf35f38b6aba859eb538eb7d7580d255d
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603121"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906988"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en ophalen van gegevens met behulp van de REST-API met cURL
 
@@ -26,8 +26,24 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Als u wilt deze snelstartgids hebt voltooid, moet u het volgende hebben:
 - Toegang tot de Preview-versie formulier herkenning beperkte toegang. Voor toegang tot de Preview-versie, invullen en verzenden de [formulier herkenning toegangsaanvraag](https://aka.ms/FormRecognizerRequestAccess) formulier.
 - [cURL](https://curl.haxx.se/windows/) geïnstalleerd.
-- Een abonnementssleutel voor de herkenning van het formulier. Volg de instructies voor één service-abonnement in [een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) abonneren op formulier-herkenning en haal uw sleutel. Gebruik niet een abonnement op meerdere services, omdat de service formulier herkenning zijn niet inbegrepen.
 - Een set van ten minste vijf vormen van hetzelfde type. U kunt een [voorbeeldgegevensset](https://go.microsoft.com/fwlink/?linkid=2090451) voor deze Quick Start.
+
+## <a name="create-a-form-recognizer-resource"></a>Een formulier herkenning-resource maken
+
+Wanneer u toegang tot het gebruik van formulier herkenning zijn verleend, ontvangt u een Welkom e-mailbericht met meerdere koppelingen en bronnen. Gebruik de koppeling 'Azure-portal' in dit bericht naar de Azure-portal openen en maak een formulier herkenning-resource. In de **maken** in het deelvenster de volgende informatie:
+
+|    |    |
+|--|--|
+| **Naam** | Een beschrijvende naam voor uw resource. Wordt u aangeraden een beschrijvende naam, bijvoorbeeld *MyNameFormRecognizer*. |
+| **Abonnement** | Selecteer het Azure-abonnement dat toegang heeft gekregen. |
+| **Locatie** | De locatie van uw cognitive service-exemplaar. Verschillende locaties kunnen introduceren latentie, maar hebben geen invloed op de runtime-beschikbaarheid van uw resource. |
+| **Prijscategorie** | De kosten van uw resource is afhankelijk van de prijscategorie die u kiest en uw gebruik. Zie voor meer informatie, de API [prijsinformatie](https://azure.microsoft.com/pricing/details/cognitive-services/).
+| **Resourcegroep** | De [Azure-resourcegroep](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) die uw resource bevat. U kunt een nieuwe groep maken of toe te voegen aan een bestaande groep. |
+
+> [!IMPORTANT]
+> Normaal gesproken wanneer u een resource voor Cognitive Service in Azure portal maakt, hebt u de optie voor het maken van een op meerdere services-abonnementssleutel (gebruikt op meerdere cognitive services) of de abonnementssleutel van een enkele service-(alleen gebruikt met een specifieke cognitive service). Echter, omdat formulier herkenning een preview-versie is, het is niet opgenomen in het abonnement op meerdere services en het één service-abonnement kan niet worden gemaakt, tenzij u de koppeling in de verwelkomingse-mail.
+
+Als uw formulier herkenning-resource is voltooid implementeren, zoeken en selecteert u deze in de **alle resources** lijst in de portal. Selecteer vervolgens de **sleutels** tabblad om de abonnementssleutels van uw weer te geven. Beide sleutels, uw apptoegang krijgt tot de resource. Kopieer de waarde van **sleutel 1**. U gebruikt deze in de volgende sectie.
 
 ## <a name="train-a-form-recognizer-model"></a>Een formulier herkenning-model te trainen
 
@@ -37,7 +53,7 @@ Als u wilt een formulier herkenning-model te trainen met behulp van de documente
 
 1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
 1. Vervang `<SAS URL>` met een Azure Blob storage-container gedeelde toegang krijgen tot signature (SAS)-URL van de locatie van de trainingsgegevens.  
-1. Vervang `<subscription key>` door uw abonnementssleutel.
+1. Vervang `<subscription key>` met de abonnementssleutel die u hebt gekopieerd uit de vorige stap.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"

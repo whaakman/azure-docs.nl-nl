@@ -1,26 +1,24 @@
 ---
 author: diberry
-ms.author: v-junlch
+ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 03/25/2019
-ms.date: 04/23/2019
-ms.openlocfilehash: 94e95864d8bac2d6dc0ff690a2a8f53bd2db5a40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/25/2019
+ms.openlocfilehash: f4925401235aedb341a7e29ca36b079126647f7b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598892"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65885092"
 ---
-## <a name="validate-container-is-running"></a>Valideren container wordt uitgevoerd 
+## <a name="validate-that-a-container-is-running"></a>Valideren dat een container wordt uitgevoerd 
 
-Er zijn verschillende manieren voor het valideren van de container wordt uitgevoerd: 
+Er zijn verschillende manieren om te valideren dat de container wordt uitgevoerd. 
 
-|Aanvraag|Doel|
+|Aanvragen|Doel|
 |--|--|
 |`http://localhost:5000/`|De container biedt een startpagina.|
-|`http://localhost:5000/status`|Aangevraagd met GET, wordt voor het valideren van de container uitgevoerd zonder dat een eindpunt-query. Dit kan worden gebruikt voor Kubernetes [liveness en gereedheid voor tests](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
-|`http://localhost:5000/swagger`|De container biedt een volledige set met documentatie voor de eindpunten, evenals een `Try it now` functie. Deze functie kunt u uw instellingen invoeren in een web gebaseerde HTML-formulier en de query zonder code te schrijven. Nadat de query retourneert, een voorbeeld van de CURL-opdracht om te laten zien hoe de HTTP-headers en hoofdtekst van de vereiste indeling is opgegeven. |
+|`http://localhost:5000/status`|Aangevraagd met GET, om te valideren dat de container wordt uitgevoerd zonder dat een eindpunt-query. Deze aanvraag kan worden gebruikt voor Kubernetes [liveness en gereedheid voor tests](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
+|`http://localhost:5000/swagger`|De container biedt een volledige set met documentatie voor de eindpunten en een `Try it now` functie. Met deze functie kunt u uw instellingen invoeren in een web gebaseerde HTML-formulier en de query te maken zonder code te schrijven. Nadat de query retourneert, wordt een voorbeeld van de CURL-opdracht opgegeven om te demonstreren dat de HTTP-headers en hoofdtekst van de indeling die is vereist. |
 
 ![Startpagina van de container](./media/cognitive-services-containers-api-documentation/container-webpage.png)
-

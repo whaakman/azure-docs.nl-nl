@@ -16,11 +16,11 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9f79a573eedba781c38facb63a2ab86b3897545
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876592"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eli-onboarding"></a>Zelfstudie: Integratie van Azure Active Directory met Eli Onboarding
 
@@ -110,7 +110,7 @@ Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding wilt configurer
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<YOUR DOMAIN URL>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [Klantondersteuningsteam van Eli Onboarding](mailto:support@geteli.com) (Engelstalig) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [Klantondersteuningsteam van Eli Onboarding](mailto:support@geteli.com) (Engelstalig) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

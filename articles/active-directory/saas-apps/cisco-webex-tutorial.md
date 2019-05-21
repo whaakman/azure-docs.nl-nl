@@ -16,11 +16,11 @@ ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850006"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Webex vergaderingen
 
@@ -132,7 +132,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Cisco Webex vergader
     | ---------------|  --------- |
     |   firstname    | user.givenname |
     |   lastname    | user.surname |
-    |   e-mail       | user.mail |
+    |   email       | user.mail |
     |   uid    | user.mail |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.

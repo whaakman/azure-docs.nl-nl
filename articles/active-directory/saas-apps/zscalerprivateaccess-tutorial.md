@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 3213667e95c1e5cb68a849d6031db9629e5b273b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692670"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65895977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Zelfstudie: Azure Active Directory-integratie met Zscaler persoonlijke toegang (ZPA)
 
@@ -144,7 +144,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zscaler persoonlijke
 
     a. Klik op **bestand selecteren** en uw gedownloade metagegevensbestand uploaden.
 
-    b. Klik op de knop **Save**.
+    b. Klik op **opslaan** knop.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

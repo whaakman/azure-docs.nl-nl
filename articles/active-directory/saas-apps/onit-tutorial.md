@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 56b3e42a65eb84ef6ee53b4ba16e5fafc4473405
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60243805"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904866"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Zelfstudie: Azure Active Directory-integratie met Onit
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Onit, moet u de volg
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<sub-domain>.onit.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Onit Client ondersteuningsteam](https://www.onit.com/support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Onit Client ondersteuningsteam](https://www.onit.com/support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Onit toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om het dialoogvenster  **Gebruikerskenmerken**  te openen.
 
@@ -120,7 +120,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Onit, moet u de volg
 
     | Name | Bronkenmerk|
     | ---------------| --------------- |
-    | e-mail | user.mail |
+    | email | user.mail |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
@@ -245,7 +245,7 @@ Als u wilt inschakelen in Azure AD-gebruikers zich aanmelden bij Onit, moeten ze
 
 1. Meld u aan bij uw **Onit** bedrijf site als beheerder.
 
-2. Klik op **Add User**.
+2. Klik op **gebruiker toevoegen**.
    
     ![Beheer](./media/onit-tutorial/IC791180.png "Beheer")
 

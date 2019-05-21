@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: c5d1a791de5c295b4644e5633983a5369200498e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256580"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65888405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Zelfstudie: Azure Active Directory-integratie met Trisotech digitale Enterprise-Server
 
@@ -112,7 +112,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Trisotech digitale E
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<companyname>.trisotech.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Trisotech digitale Enterprise Server Client ondersteuningsteam](mailto:support@trisotech.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Trisotech digitale Enterprise Server Client ondersteuningsteam](mailto:support@trisotech.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
@@ -140,11 +140,11 @@ Voor het configureren van Azure AD eenmalige aanmelding met Trisotech digitale E
 
     c. In de **toepassings-ID** tekstvak, voer de URL in met behulp van het volgende patroon: `https://<companyname>.trisotech.com`.
 
-    d. Klik op **Opslaan**.
+    d. Klik op **Opslaan**
 
     e. Voer de naam van het domein in de **toegestaan domeinen (leeg betekent dat iedereen)** tekstvak, deze automatisch wordt toegewezen licenties voor gebruikers die overeenkomen met de domeinen toegestaan
 
-    f. Klik op **Opslaan**.
+    f. Klik op **Opslaan**
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

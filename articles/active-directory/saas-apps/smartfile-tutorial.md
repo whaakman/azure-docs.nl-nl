@@ -16,11 +16,11 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 507a5d7209c2ae873bbfc2d9f5f5fa1c8fa17758
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57846868"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Zelfstudie: Azure Active Directory-integratie met SmartFile
 
@@ -110,7 +110,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD wilt config
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `<SUBDOMAIN>.smartfile.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [SmartFile-ondersteuningsteam](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [SmartFile-ondersteuningsteam](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

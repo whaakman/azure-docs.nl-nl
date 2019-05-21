@@ -16,11 +16,11 @@ ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842087"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65895838"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Zelfstudie: Azure Active Directory-integratie met Zoom
 
@@ -125,7 +125,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Zoom, moet u de volg
     | Achternaam  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
     | Telefoonnummer  | User.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
     | Afdeling  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
-    | role |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
+    | rol |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
     > [!NOTE]
     > Klik [hier](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) als u wilt weten hoe u rollen in Azure AD moet configureren
@@ -273,7 +273,7 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Zoom, moeten ze wor
 
     b. Typ in het tekstvak **E-mails** het e-mailadres van een geldig Azure AD-account dat u wilt inrichten.
 
-    c. Klik op **Add**.
+    c. Klik op **Toevoegen**.
 
 > [!NOTE]
 > U kunt alle andere hulpprogramma's of API's voor het maken van Zoom-gebruikersaccounts gebruiken die worden geleverd door Zoom voor het inrichten van Azure Active Directory-gebruikersaccounts.

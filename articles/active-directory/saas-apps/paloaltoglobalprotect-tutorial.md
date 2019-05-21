@@ -16,11 +16,11 @@ ms.date: 12/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae59e6820214d1f3291f4d95a0bc7094f8b488d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856070"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Zelfstudie: Azure Active Directory-integratie met Palo Alto Networks - GlobalProtect
 
@@ -121,7 +121,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met Palo Alto 
 
     | Name | Bronkenmerk|
     | ------|--------- |
-    | gebruikersnaam  | user.userprincipalname  |
+    | username  | user.userprincipalname  |
     | | |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.

@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9faf5068f6007cc357bcd22480c08af4223ba906
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883023"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Zelfstudie: Azure Active Directory-integratie met Skyward Qmlativ
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Skyward Qmlativ, moe
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<BASEURL>/customeridentifierSTS`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Skyward Qmlativ](mailto:steveb@skyward.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [ondersteuningsteam van Skyward Qmlativ](mailto:steveb@skyward.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 

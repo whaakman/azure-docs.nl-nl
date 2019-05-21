@@ -16,11 +16,11 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7617889bfbdfecb421538cbc261dace5b4b8279c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60275475"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Zelfstudie: Azure Active Directory-integratie met HireVue
 
@@ -120,7 +120,7 @@ Voor het configureren van eenmalige aanmelding bij Azure Active Directory met Hi
     | Faseren    | `urn:federation:hirevue.com:saml:sp:staging`|
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [HireVue-ondersteuningsteam](mailto:samlsupport@hirevue.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [HireVue-ondersteuningsteam](mailto:samlsupport@hirevue.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 

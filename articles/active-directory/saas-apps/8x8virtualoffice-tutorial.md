@@ -16,11 +16,11 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117227"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Zelfstudie: Azure Active Directory-integratie met 8x8 Virtual Office
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met 8x8 Virtual Office, 
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://sso.8x8.com/saml2`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://sso.8x8.com/saml2`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://sso.8x8.com/saml2`
 
 4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Raw)** te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

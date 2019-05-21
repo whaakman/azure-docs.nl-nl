@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 294146446ac45594ba8f25e8b17534e5922ebec9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259759"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901517"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Zelfstudie: Azure Active Directory-integratie met Merchlogix
 
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Merchlogix, moet u d
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Merchlogix Client ondersteuningsteam](https://www.merchlogix.com/contact/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Merchlogix Client ondersteuningsteam](https://www.merchlogix.com/contact/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1860b788b9f33a6a2ec806be68a67aa2df10cbd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831925"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914268"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Een token insights gebruiken om inzichten te verkrijgen voor een afbeelding
 
@@ -64,7 +64,7 @@ Zie voor voorbeelden die gebruikmaken van het token insights [C#](#use-with-c) |
 
 ### <a name="c-prerequisites"></a>C#vereisten
 
-- Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/) om op te halen van deze code die wordt uitgevoerd op Windows.
+- Elke versie van [Visual Studio 2019](https://www.visualstudio.com/downloads/) om op te halen van deze code die wordt uitgevoerd op Windows.
 - Een Azure-abonnement. In deze Quick Start kunt u een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonnementssleutel of een betaald abonnement-sleutel.
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren

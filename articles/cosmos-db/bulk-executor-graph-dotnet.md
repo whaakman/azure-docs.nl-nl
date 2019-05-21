@@ -5,15 +5,15 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 04/26/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 5e88602aa3b983e1533248253d53967f39e6b5eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a37b0b1a804851268fad30038388c20d2e4fb6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894387"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912684"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>De BulkExecutor .NET-bibliotheek voor grafen gebruiken om bulkbewerkingen uit te voeren in Cosmos DB Gremlin API
 
@@ -114,7 +114,7 @@ e.AddProperty("customProperty", "value");
 ## <a name="sample-application"></a>Voorbeeldtoepassing
 
 ### <a name="prerequisites"></a>Vereisten
-* Visual Studio 2017 met de Azure-ontwikkelworkload. U kunt gratis aan de slag met [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/).
+* Visual Studio-2019 met de Azure-ontwikkelworkload. U kunt aan de slag met de [Community Edition van Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) gratis.
 * Een Azure-abonnement. U kunt [hier een gratis Azure-account maken](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). U kunt ook via [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) een Azure Cosmos DB-databaseaccount maken zonder Azure-abonnement.
 * Een Azure Cosmos DB Gremlin API-database met een **onbeperkte verzameling**. In deze handleiding leest u hoe u aan de slag kunt met [Azure Cosmos DB Gremlin API in .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
 * Git. Ga naar de [Git-pagina met downloads](https://git-scm.com/downloads) voor meer informatie.

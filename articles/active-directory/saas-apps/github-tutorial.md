@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278131"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Zelfstudie: Azure Active Directory-integratie met GitHub
 
@@ -162,7 +162,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Azure AD met GitHub 
 
     ![Instellingen](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-6. Klik op **Opslaan**.
+6. Klik op **Opslaan**
 
 > [!NOTE]
 > Eenmalige aanmelding in GitHub wordt geverifieerd met een specifieke organisatie in GitHub en is geen vervanging voor de verificatie van GitHub zelf. Dus als de gebruikerssessie op github.com is verlopen, kunt u worden gevraagd om u te verifiëren met de GitHub-id en het GitHub-wachtwoord tijdens het proces voor eenmalige aanmelding.

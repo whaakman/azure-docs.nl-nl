@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 6547a640f6e56865d44b6848cf37078161faa538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261521"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Zelfstudie: Azure Active Directory-integratie met OfficeSpace Software
 
@@ -112,7 +112,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met OfficeSpace Software
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `<company name>.officespacesoftware.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [OfficeSpace softwareclient ondersteuningsteam](mailto:support@officespacesoftware.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [OfficeSpace softwareclient ondersteuningsteam](mailto:support@officespacesoftware.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. OfficeSpace softwaretoepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding ziet u de lijst met standaardkenmerken, waarbij **nameidentifier** is toegewezen aan **user.userprincipalname**. OfficeSpace softwaretoepassing wordt verwacht dat **nameidentifier** worden toegewezen met **user.mail**, dus u de kenmerktoewijzing van het bewerken moet door te klikken op **bewerken** pictogram en wijzigen het kenmerk wordt toegewezen.
 
@@ -122,7 +122,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met OfficeSpace Software
 
     | Name | Bronkenmerk|
     | ---------------| --------------- |
-    | e-mail | user.mail |
+    | email | user.mail |
     | naam | user.displayname |
     | first_name | user.givenname |
     | last_name | user.surname |

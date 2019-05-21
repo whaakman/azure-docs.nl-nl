@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 39b7d251f1d6d75ac22d50f1b62a3581f9d343c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687262"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890368"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Zelfstudie: Azure Active Directory-integratie met Shmoop voor scholen
 
@@ -112,7 +112,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Shmoop voor scholen,
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://schools.shmoop.com/<uniqueid>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Shmoop voor scholen Client ondersteuningsteam](mailto:support@shmoop.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Shmoop voor scholen Client ondersteuningsteam](mailto:support@shmoop.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. De toepassing Shmoop voor scholen wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. De volgende schermafbeelding ziet u hoe de asserties configureren:
 
@@ -125,7 +125,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Shmoop voor scholen,
 
     | Name |  Bronkenmerk|
     | --------- | --------------- |
-    | role      | user.assignedroles |
+    | rol      | user.assignedroles |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 

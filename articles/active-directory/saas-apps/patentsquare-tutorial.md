@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 61be963f4edc2dc50f176087f2c817c5f485588b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276555"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904286"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Zelfstudie: Azure Active Directory-integratie met PatentSQUARE
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met PatentSQUARE, moet u
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<companysubdomain>.pat-dss.com:443/patlics`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [PatentSQUARE Client ondersteuningsteam](https://www.panasonic.com/jp/business/its/patentsquare.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [PatentSQUARE Client ondersteuningsteam](https://www.panasonic.com/jp/business/its/patentsquare.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

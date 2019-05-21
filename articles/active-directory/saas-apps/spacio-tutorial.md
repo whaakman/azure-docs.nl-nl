@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 295fc80c0b6d9a4554dc08d24d9167bea627144f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273614"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Zelfstudie: Azure Active Directory-integratie met Spacio
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Spacio, moet u de vo
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://sso.spac.io/<brokerageID>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Spacio Client ondersteuningsteam](mailto:support@spac.io) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Spacio Client ondersteuningsteam](mailto:support@spac.io) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 

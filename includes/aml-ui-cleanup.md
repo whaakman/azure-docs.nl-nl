@@ -9,11 +9,11 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65745549"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65920779"
 ---
 >[!IMPORTANT]
 >De vereisten voor andere zelfstudies voor Azure Machine Learning-service en de artikelen met procedures kunt u de resources die u hebt gemaakt.

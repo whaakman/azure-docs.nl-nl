@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8896922cf3f95439b76e12faf9577ca6570fbdf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281380"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Zelfstudie: Azure Active Directory-integratie met Cimpl
 

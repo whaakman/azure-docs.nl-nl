@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46fa85581829f82da9a137315e1f890aa481408d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850782"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Zelfstudie: Azure Active Directory-integratie met etouches
 
@@ -121,7 +121,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met etouches voert u de 
 
     | Name | Bronkenmerk|
     | ------------------- | -------------------- |
-    | Email | user.mail | 
+    | E-mailen | user.mail | 
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 

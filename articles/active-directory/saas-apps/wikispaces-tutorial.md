@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 1d57ec0299aa541d1642d77421e85c6fbdf070c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269058"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65888103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Zelfstudie: Azure Active Directory-integratie met Wikispaces
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Wikispaces, moet u d
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://session.wikispaces.net/<instancename>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Wikispaces Client ondersteuningsteam](https://www.wikispaces.com/site/help) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Wikispaces Client ondersteuningsteam](https://www.wikispaces.com/site/help) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
@@ -202,7 +202,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Wikispaces, moeten 
    
     a. Type de **gebruikersnamen of e-mailadres** van een geldige AAD-account dat u inrichten in de bijbehorende tekstvakken wilt.
    
-    b. Klik op **Verzenden**.  
+    b. Klik op **verzenden**.  
       
     > [!NOTE]
     > De houder van Azure Active Directory-account ontvangt een e-mailbericht ook een koppeling voor het account te bevestigen voordat deze geactiveerd wordt.

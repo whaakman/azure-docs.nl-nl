@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257787"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Zelfstudie: Azure Active Directory-integratie met Optimizely
 
@@ -120,7 +120,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Optimizely, moet u d
 
     | Name | Bronkenmerk |
     | ---------------| --------------- |
-    | e-mail | user.mail |
+    | email | user.mail |
     
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
@@ -174,7 +174,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Optimizely, moet u d
   
     ![Azure AD voor eenmalige aanmelding](./media/optimizely-tutorial/tutorial_optimizely_10.png)
 
-6. Klik op **Opslaan**.
+6. Klik op **Opslaan**
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

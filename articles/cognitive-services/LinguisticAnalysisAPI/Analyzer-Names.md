@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405253"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954702"
 ---
 # <a name="analyzer-names"></a>Analysenamen
 
@@ -43,10 +43,10 @@ Er zijn momenteel drie verschillende typen:
 Binnen een bepaald type echter verschillende deskundigen mogelijk niet eens bent op de manier waarop een bepaalde verschijnsel moet worden geanalyseerd.
 In tegenstelling tot programmeertalen is er geen duidelijke en exacte definitie van hoe dit moet worden gedaan.
 
-Stel bijvoorbeeld dat we zijn proberen te vinden van de tokens in de Engelse zin, 'Hij niet Ga.'
+Stel bijvoorbeeld dat we zijn proberen te vinden van de tokens in de Engelse zin "Niet ze."
 In het bijzonder, houd rekening met de tekenreeks "niet".
 Eén mogelijke interpretatie is dat deze moet worden gesplitst in twee tokens: "heeft" en "niet".
-De alternatieve zin 'hij niet gebleven"moet vervolgens de dezelfde set van tokens.
+De alternatieve zin "ze niet gebleven" moet vervolgens de dezelfde set van tokens.
 Een andere mogelijkheid is om te zeggen dat deze moet worden gesplitst in de tokens "heeft" en "".
 Het laatste token zou niet normaal gesproken worden beschouwd als een woord, maar deze methode worden bewaard voor meer informatie over de surface tekenreeks, die soms handig zijn.
 Of misschien wel dat inkrimping moet worden beschouwd als één woord.

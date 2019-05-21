@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 926deea2f9754febb76e8ccc81933a792f3a9dbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283168"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Zelfstudie: Azure Active Directory-integratie met Neota logische Studio
 
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Neota logische Studi
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<sub domain>.neotalogic.com/wb`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Neota logische Studia ondersteuningsteam](https://www.neotalogic.com/contact-us/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Neota logische Studia ondersteuningsteam](https://www.neotalogic.com/contact-us/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

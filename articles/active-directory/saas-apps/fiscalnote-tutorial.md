@@ -16,11 +16,11 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 592d885656ee7753054f020f5768a75a5d43a489
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278694"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Zelfstudie: Azure Active Directory-integratie met FiscalNote
 
@@ -112,7 +112,7 @@ Voer de volgende stappen uit als u Azure Active Directory-eenmalige aanmelding w
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `urn:auth0:fiscalnote:<CONNECTIONNAME>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [het klantenondersteuningsteam van FiscalNote](mailto:support@fiscalnote.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [het klantenondersteuningsteam van FiscalNote](mailto:support@fiscalnote.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. In de FiscalNote-toepassing worden de SAML-asserties in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram Bewerken om de kenmerken toe te voegen.
 
@@ -123,7 +123,7 @@ Voer de volgende stappen uit als u Azure Active Directory-eenmalige aanmelding w
     | Name | Bronkenmerk|
     | ---------------| ----------------|
     | familyName| user.surname|
-    | e-mail| user.mail|
+    | email| user.mail|
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 

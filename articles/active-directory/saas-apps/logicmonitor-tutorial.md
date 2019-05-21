@@ -16,11 +16,11 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a953ae52f37b8d48f9e2e0566325691dbb08307
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60257750"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Zelfstudie: Azure Active Directory-integratie met LogicMonitor
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met LogicMonitor, moet u
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<companyname>.logicmonitor.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [LogicMonitor Client ondersteuningsteam](https://www.logicmonitor.com/contact/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [LogicMonitor Client ondersteuningsteam](https://www.logicmonitor.com/contact/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
@@ -213,7 +213,7 @@ Voor Azure AD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht voor 
 
     ![Rollen en gebruikers](./media/logicmonitor-tutorial/ic790056.png "rollen en gebruikers")
 
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 
 4. In de **een account toevoegen** sectie, voert u de volgende stappen uit:
 
@@ -223,7 +223,7 @@ Voor Azure AD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht voor 
 
     b. Selecteer **rollen**, **machtigingen weergeven**, en de **Status**.
 
-    c. Klik op **Submit**
+    c. Klik op **Indienen**.
 
 > [!NOTE]
 > U kunt elke andere LogicMonitor gebruiker account hulpmiddelen voor het maken of API's geleverd door LogicMonitor voor het inrichten van Azure Active Directory-gebruikersaccounts.

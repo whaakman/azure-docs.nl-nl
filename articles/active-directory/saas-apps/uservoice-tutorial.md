@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338687"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Zelfstudie: Azure Active Directory-integratie met UserVoice
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met UserVoice, moet u de
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<tenantname>.UserVoice.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [UserVoice-Client-ondersteuningsteam](https://www.uservoice.com/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [UserVoice-Client-ondersteuningsteam](https://www.uservoice.com/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Klik in de sectie **SAML-handtekeningcertificaat** op de knop **Bewerken** om het dialoogvenster **SAML-handtekeningcertificaat** te openen.
 
@@ -214,7 +214,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden met UserVoice, moeten z
 
 1. Aanmelden bij uw **UserVoice** tenant.
 
-2. Ga naar **Settings**.
+2. Ga naar **instellingen**.
    
     ![Settings](./media/uservoice-tutorial/ic777811.png "Settings")
 

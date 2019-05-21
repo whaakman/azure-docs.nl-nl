@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 1c3b95686b8c91552615a9014102fd6a14f8c385
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277065"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Zelfstudie: Azure Active Directory-integratie met Sprinklr
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Sprinklr, moet u de 
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<subdomain>.sprinklr.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Sprinklr Client ondersteuningsteam](https://www.sprinklr.com/contact-us/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Sprinklr Client ondersteuningsteam](https://www.sprinklr.com/contact-us/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
@@ -231,7 +231,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Settings](./media/sprinklr-tutorial/ic782914.png "Settings")
 
-1. Klik op **Add User**.
+1. Klik op **gebruiker toevoegen**.
 
     ![Settings](./media/sprinklr-tutorial/ic782915.png "Settings")
 
@@ -247,7 +247,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     d. Selecteer **gebruikerstype**.
 
-    e. Klik op **Update**.
+    e. Klik op **Bijwerken**.
 
     > [!IMPORTANT]
     > **Wachtwoord uitgeschakeld** zodat een gebruiker zich aanmelden via een id-provider moet worden geselecteerd. 
@@ -258,7 +258,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     a. Uit de **Global** in de lijst met **ALL_Permissions**.  
 
-    b. Klik op **Update**.
+    b. Klik op **Bijwerken**.
 
 > [!NOTE]
 > U kunt alle andere Sprinklr gebruiker-account maken van hulpprogramma's of API's geleverd door Sprinklr voor het inrichten van gebruikersaccounts van de Azure AD.

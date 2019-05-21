@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: cd38da7cb640e53c90a209850bcd8386c75a8aa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60339047"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Zelfstudie: Azure Active Directory-integratie met TimeLive
 
@@ -112,7 +112,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met TimeLive, moet u de 
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<domainname>.livetecs.com/`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [TimeLive Client ondersteuningsteam](mailto:support@livetecs.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [TimeLive Client ondersteuningsteam](mailto:support@livetecs.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
@@ -152,7 +152,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met TimeLive, moet u de 
 
     f. Open het gedownloade **base-64 gecodeerde certificaat** vanuit Azure portal in Kladblok, Kopieer de inhoud en plak deze in de **X.509-certificaat** tekstvak.
 
-    g. Klik op **Update**.
+    g. Klik op **Bijwerken**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 

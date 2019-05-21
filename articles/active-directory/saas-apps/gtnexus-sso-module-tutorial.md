@@ -16,11 +16,11 @@ ms.date: 01/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd5f32fd43d75ee91460a5d94ec4bcd57edb0769
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60276671"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Zelfstudie: Azure Active Directory-integratie met GTNexus SSO System
 
@@ -107,7 +107,7 @@ Voor de configuratie van eenmalige aanmelding in Azure AD met GTNexus SSO System
 
     ![image](common/upload-metadata.png)
 
-    b. Klik op het **mappictogram** om het metagegevensbestand te selecteren en klik op **Uploaden**.
+    b. Klik op **map logo** voor het selecteren van het bestand met metagegevens en klikt u op **uploaden**.
 
     ![image](common/browse-upload-metadata.png)
 

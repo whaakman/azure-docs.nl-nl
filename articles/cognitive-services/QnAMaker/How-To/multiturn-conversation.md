@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
-ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f12b55e9b00e933e13f84832b8cc36267a1da05f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471928"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954852"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Gebruik follow-up aanwijzingen voor het maken van meerdere wordt van een gesprek
 
@@ -52,7 +52,7 @@ Bij het importeren van het PDF-document, bepaalt de QnA Maker follow-up prompts 
 
 ![! [Bij het importeren van het PDF-document, bepaalt met QnA Maker follow-up prompts van de structuur om conversatie stroom te maken. ](.. / media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## <a name="filter-questions-and-answers-by-context"></a>Vragen en antwoorden filteren in context
+## <a name="show-questions-and-answers-with-context"></a>Vragen en antwoorden met context weergeven
 
 1. Verminder de weergegeven voor alleen degene met contextuele gesprekken paren van vragen en antwoorden. Selecteer **weergaveopties**en selecteer vervolgens **context weergeven (PREVIEW)**. De lijst zijn leeg totdat u de eerste vraag en antwoord-paar met een follow-up prompt toevoegen. 
 
@@ -64,22 +64,36 @@ Bij het importeren van het PDF-document, bepaalt de QnA Maker follow-up prompts 
 1. Voer de tekst van de nieuwe vraag, `Give feedback.` met een antwoord van `What kind of feedback do you have?`.
 
 1. In de **antwoord** kolom voor deze vraag, selecteer **toevoegen follow-up prompt**. 
-1. De **opvolging prompt** pop-upvenster kunt u zoeken naar een bestaande vraag of voer een nieuwe vraag. In deze procedure voert u de tekst `Feedback on an QnA Maker service`, voor de **tekst weer te geven**. 
-1. Controleer **Context alleen-lezen**. De **Context alleen-lezen** optie geeft aan dat deze gebruiker tekst wordt worden begrepen _alleen_ als reactie op de vorige vraag. Voor dit scenario, de tekst voor het niet logisch als een zelfstandige vraag, alleen is het handig in de context van de vorige vraag.
-1. In de **koppeling om te beantwoorden** tekst voert u het antwoord `How would you rate QnA Maker?`.
-1. Selecteer **nieuw** Selecteer **opslaan**. 
+1. De **opvolging prompt (PREVIEW)** pop-upvenster kunt u zoeken naar een bestaande vraag of voer een nieuwe vraag. Maak een nieuwe opdrachtprompt door in te voeren van de volgende waarden: 
+
+    |Tekstveld|Value|
+    |--|--|
+    |**Tekst weergeven**|`Feedback on an QnA Maker service`|
+    |**Koppeling om te beantwoorden**|`How would you rate QnA Maker??`|
+    |||
 
     ![Nieuwe vragen QnA maken](../media/conversational-context/create-child-prompt-from-parent.png)
 
-    Dit een nieuwe vraag en antwoord-set gemaakt en gekoppeld van de geselecteerde vraag als een follow-up prompt. De **Context** kolom voor beide vragen geven een follow-up vragen relatie. 
+1. Controleer **Context alleen-lezen**. De **Context alleen-lezen** optie geeft aan dat deze gebruiker tekst wordt worden begrepen _alleen_ als reactie op de vorige vraag. Voor dit scenario, de tekst voor het niet logisch als een zelfstandige vraag, alleen is het handig in de context van de vorige vraag.
+1. Selecteer **nieuw** Selecteer **opslaan**. 
+
+    Dit een nieuwe vraag en antwoord-set gemaakt en gekoppeld van de geselecteerde vraag als een follow-up prompt. De **Context** kolom voor beide vragen een follow-up vragen relatie aangeeft. 
 
     ![! [De kolom Context voor beide vragen geeft aan dat een follow-up vragen relatie.] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Selecteer **toevoegen follow-up prompt** voor de `Give feedback` vraag om toe te voegen een andere follow-up prompt. 
-1. Maak een nieuwe vraag door te voeren `Feedback on an existing feature`, met het antwoord `Which feature would you like to give feedback on?`.  
+1. Selecteer **toevoegen follow-up prompt** voor de `Give feedback` vraag om toe te voegen een andere follow-up prompt. Hiermee opent u de **opvolging prompt (PREVIEW)** pop-upvenster.
 
-1.  Controleer **Context alleen-lezen**. De **Context alleen-lezen** optie geeft aan dat deze gebruiker tekst wordt worden begrepen _alleen_ als reactie op de vorige vraag. Voor dit scenario, de tekst voor het niet logisch als een zelfstandige vraag, alleen is het handig in de context van de vorige vraag.
-1.  Selecteer **Opslaan**. 
+1. Maak een nieuwe opdrachtprompt door in te voeren van de volgende waarden:
+
+    |Tekstveld|Value|
+    |--|--|
+    |**Tekst weergeven**|`Feedback on an existing feature`|
+    |**Koppeling om te beantwoorden**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. Controleer **Context alleen-lezen**. De **Context alleen-lezen** optie geeft aan dat deze gebruiker tekst wordt worden begrepen _alleen_ als reactie op de vorige vraag. Voor dit scenario, de tekst voor het niet logisch als een zelfstandige vraag, alleen is het handig in de context van de vorige vraag.
+
+1. Selecteer **Opslaan**. 
 
     Dit een nieuwe vraag gemaakt en de vraag gekoppeld als een follow-up vraag aan de `Give feedback` vraag.
     
@@ -93,26 +107,34 @@ Bij het importeren van het PDF-document, bepaalt de QnA Maker follow-up prompts 
 
 1. Als u het sleutelpaar met een bestaande QnA als een follow-up prompt koppelen wilt, selecteert u de rij voor het paar vragen en antwoorden.
 1. Selecteer **toevoegen follow-up prompt** in die rij.
-1. Voer in het zoekvak de tekst van de vraag in het pop-updialoogvenster. Alle resultaten worden geretourneerd. Selecteer de vraag die u wilt gebruiken als de follow-up en Controleer **Context alleen-lezen**en selecteer vervolgens **opslaan**. 
+1. In de **opvolging prompt (PREVIEW)** pop-upvenster de antwoordtekst invoeren in het zoekvak in. Alle resultaten worden geretourneerd. Selecteer het antwoord dat u wilt gebruiken als de follow-up en Controleer **Context alleen-lezen**en selecteer vervolgens **opslaan**. 
 
-    Nadat de organisatie-eenheid hebt toegevoegd de follow-up prompt, houd er rekening mee te selecteren **opslaan en trainen**.
+    ![Zoeken naar de Follow-up-prompt koppeling antwoord dialoogvenster voor een bestaande antwoord aan met behulp van de tekst van het antwoord.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    Nadat u de follow-up prompt hebt toegevoegd, moet u selecteren **opslaan en trainen**.
   
-## <a name="add-metadata-to-follow-up-prompts"></a>Metagegevens toevoegen aan follow-up prompts 
+<!--
 
-In het knowledge base, wanneer een combinatie van vraag en antwoord is gekoppeld aan opvolging wordt gevraagd, de filters voor metagegevens worden eerst toegepast en de communityleden reageert worden geretourneerd.
+## To find best prompt answer, add metadata to follow-up prompts 
 
-1. Voor de twee follow-up QnA-paren, voegt u metagegevens van elke bron:
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
-    |Vraag|metagegevens toevoegen|
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|"Functie": "alle"|
-    |`Feedback on an existing feature`|"Functie": "een"|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
     
-    ![Metagegevens toevoegen aan follow-up prompt, zodat deze kan worden gefilterd in het antwoord van de conversatie van service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. Opslaan en trainen. 
+1. Save and train. 
 
-    Wanneer u de vraag verzendt `Give feedback` met het filter metagegevens `Feature` met een waarde van `all`, alleen de QnA-paar met metagegevens wordt geretourneerd. Beide QnA-paren worden niet geretourneerd omdat ze beide komen niet overeen met het filter. 
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>Test die de QnA instellen om op te halen van alle opvolging wordt gevraagd
 
@@ -145,7 +167,7 @@ De vorige sectie aangevraagd een antwoord en opvolging aanwijzingen voor het `Ac
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -269,15 +291,11 @@ De QnA Maker _GenerateAnswer_ JSON-antwoord bevat de follow-up aanwijzingen in d
 
 ## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>Prompts worden weergegeven en het verzenden van context in de clienttoepassing 
 
-De clienttoepassing wordt weergegeven de vragen met een optie voor de gebruiker om de prompts als knoppen of voorgestelde acties weer te geven.
-De clienttoepassing vervolgens slaat de huidige QnA paar en gebruiker query als context wordt doorgegeven aan met de volgende gebruikersquery. 
+Als u vragen hebt toegevoegd in uw knowledge base en de stroom in het deelvenster hebt getest, de prompts wordt niet automatisch wordt gestart in de clienttoepassingen weergegeven. U kunt de prompts als knoppen of voorgestelde acties als onderdeel van het antwoord op de query van de gebruiker in client toepassingen weergeven door dit [Bot Framework voorbeeld](https://aka.ms/qnamakermultiturnsample) in uw code. De clienttoepassing wordt de huidige QnA-ID en de gebruikersquery opslaan en doorvoert in de [context-object van de API GenerateAnswer](#json-request-to-return-non-initial-answer-and-follow-up-prompts) voor de volgende gebruikersquery.
 
-Gebruik deze [Bot Framework voorbeeld](https://aka.ms/qnamakermultiturnsample) om te zien van meerdere inschakelen dialoogvenster werkende end-to-end in een QnA Maker-bot.
+## <a name="display-order-supported-in-api"></a>Weergavevolgorde ondersteund in de API
 
-
-## <a name="prompt-order-supported-in-api"></a>Volgorde prompts ondersteund in de API
-
-De volgorde van de prompts, in het JSON-antwoord geretourneerd wordt voor het bewerken van door de API alleen ondersteund. 
+De volgorde, in het JSON-antwoord geretourneerd wordt voor het bewerken van door de API alleen ondersteund. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -17,11 +17,11 @@ ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785750"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Zelfstudie: Azure Active Directory-integratie met Alibaba Cloud Service (Role-based SSO)
 

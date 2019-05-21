@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
-ms.date: 3/5/2018
+ms.date: 04/26/2019
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a76c11341d0e145e6d2e9f86a7300ddb9319f6f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4fe4f651340ef54c2907192f3a96e9a017ab1dd
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827490"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910513"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Quickstart: Translator Speech-API met C#
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ In dit artikel leest u hoe de Translator Speech-API gebruikt voor het vertalen v
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.) Als u Mac OS of Linux gebruikt, kunt u ook de teksteditor [Visual Studio Code](https://code.visualstudio.com/Download) gebruiken als alternatief.
+U moet [Visual Studio 2019](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie volstaat.) Als u Mac OS of Linux gebruikt, kunt u ook de teksteditor [Visual Studio Code](https://code.visualstudio.com/Download) gebruiken als alternatief.
 
 In de map met het uitvoerbare bestand dat u maakt op basis van de volgende code moet ook een WAV-bestand staan met de naam speak.wav. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono.
 

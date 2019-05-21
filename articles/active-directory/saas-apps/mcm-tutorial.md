@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 9214f438df57ca9cd95fd1f5827db8ab82f5a136
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255136"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Zelfstudie: Azure Active Directory-integratie met MCM
 
@@ -109,7 +109,7 @@ Voer de volgende stappen uit als u eenmalige aanmelding van Microsoft Azure Acti
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [MCM-ondersteuningsteam](https://mcmtechnology.com/support/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [MCM-ondersteuningsteam](https://mcmtechnology.com/support/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

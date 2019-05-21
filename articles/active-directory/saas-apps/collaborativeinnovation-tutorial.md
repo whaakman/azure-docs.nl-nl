@@ -15,11 +15,11 @@ ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8252dea33ff5cde07e021421d9772a69ea9f143b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281227"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899960"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Zelfstudie: Azure Active Directory-integratie met Collaborative Innovation
 
@@ -111,7 +111,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<instancename>.foundry.<companyname>.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [klantondersteuningsteam van Collaborative Innovation](https://www.unilever.com/contact/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [klantondersteuningsteam van Collaborative Innovation](https://www.unilever.com/contact/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Collaborative Innovation verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 

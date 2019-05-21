@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7d3e53224b5de32003cef29433a257ddfc99d88
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4e40890459315bacf88fa6a12bc5eed7c0708b1c
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406728"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Zelfstudie: Azure Active Directory-integratie met Appinux
 
@@ -29,7 +29,7 @@ Het integreren van Appinux met Azure AD biedt de volgende voordelen:
 
 * U bepaalt in Azure AD wie er toegang heeft tot Appinux.
 * U kunt uw gebruikers zich automatisch laten aanmelden bij Appinux (eenmalige aanmelding) met hun Azure AD-account.
-* U kunt uw accounts in één centrale locatie - Azure portal beheren.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -62,27 +62,27 @@ Om de integratie van Appinux te configureren in Azure AD moet u Appinux vanuit d
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing](common/add-new-app.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
 4. Typ in het zoekvak **Appinux**, selecteer **Appinux** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
      ![Appinux in de lijst met resultaten](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie configureert en test u Azure AD-eenmalige aanmelding met Appinux op basis van een testgebruiker met de naam **Britta Simon**.
 Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Appinux tot stand is gebracht.
 
 Om eenmalige aanmelding van Azure AD te configureren en testen met Appinux, moet u de volgende procedures voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Eenmalige aanmelding voor Appinux configureren](#configure-appinux-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
-3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Testgebruiker voor Appinux maken](#create-appinux-test-user)**: als u een tegenhanger van Britta Simon in Appinux wilt hebben die is gekoppeld aan de Azure AD-versie van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -92,7 +92,7 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
 
 1. In de [Azure-portal](https://portal.azure.com/) selecteert u op de integratiepagina van de **Appinux**-toepassing de optie **Eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren](common/select-sso.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
 2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
@@ -111,7 +111,7 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<Appinux_SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Appinux](https://support.appinux.com/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [ondersteuningsteam van Appinux](https://support.appinux.com/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. De SAML-asserties worden door de Appinux-toepassing in een specifieke indeling verwacht. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
@@ -121,16 +121,16 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
 
     | **Naam** | **Naamruimte** | **Bronkenmerk**|
     | ---------|---------------| --------- |
-    | `givenname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
-    | `surname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
-    | `emailaddress` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
-    | `name` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
+    | `givenname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
+    | `surname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
+    | `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
+    | `name` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
     | `UserType` | `http://bcv.appinux.com/claims` | `Provide the value as per your organization` |
     | `Tag` | `http://appinux.com/Tag` | `Provide the value as per your organization` |
     | `Role` | `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` | `user.assignedroles` |
-    | `email` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
+    | `email` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
     | `wanshort` | `http://appinux.com/windowsaccountname2` | `extractmailprefix([userprincipalname])` |
-    | `nameidentifier` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
+    | `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
@@ -152,7 +152,7 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
 
 7. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](common/metadataxml.png)
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
 8. In het gedeelte **Appinux instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
@@ -162,13 +162,13 @@ Voer de volgende stappen uit om eenmalige aanmelding in Azure AD te configureren
 
     b. Azure AD-id
 
-    c. URL voor afmelden
+    c. Afmeldings-URL
 
 ### <a name="configure-appinux-single-sign-on"></a>Appinux voor eenmalige aanmelding configureren
 
-Als u eenmalige aanmelding aan de zijde van **Appinux** wilt configureren, moet u de gedownloade **XML met federatieve metagegevens** en de correcte uit de Microsoft Azure-portal gekopieerde URL's verzenden naar het [Appinux-ondersteuningsteam](https://support.appinux.com/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+Als u eenmalige aanmelding aan de zijde van **Appinux** wilt configureren, moet u de gedownloade **XML met federatieve metagegevens** en de correcte uit de Microsoft Azure-portal gekopieerde URL's verzenden naar het [Appinux-ondersteuningsteam](https://support.appinux.com/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 

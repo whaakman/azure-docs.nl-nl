@@ -16,11 +16,11 @@ ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 011991a3951adde9a0d062b40584caa74d172023
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918725"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899770"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Zelfstudie: Azure Active Directory-integratie met Domo
 
@@ -126,7 +126,7 @@ Voor het configureren van eenmalige aanmelding bij Azure Active Directory met Do
     | `https://<companyname>.stage.domo.com` |
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [Domo Client-ondersteuningsteam](mailto:support@domo.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [Domo Client-ondersteuningsteam](mailto:support@domo.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. De Domo-toepassing verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
@@ -138,7 +138,7 @@ Voor het configureren van eenmalige aanmelding bij Azure Active Directory met Do
     | ---------------| --------------- |
     | nameidentifier | user.userprinicipalname |
     | naam | user.displayname |
-    | e-mail | user.mail |
+    | email | user.mail |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 

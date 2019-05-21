@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 0c01cb1e7d937c691354270880c1e6be5cd44723
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917771"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Zelfstudie: Azure Active Directory-integratie met IriusRisk
 

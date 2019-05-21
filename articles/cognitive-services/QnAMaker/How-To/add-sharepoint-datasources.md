@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: d02c3fbb762e83584a9ea277ef8d5cc15b391f37
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792573"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954968"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Een beveiligde Sharepoint-gegevensbron toevoegen aan uw knowledge base
 
@@ -53,7 +53,7 @@ De aanvraag begint met een pop-upvenster om Active Directory-account te verifië
 
 ![Verifiëren van gebruikersaccount](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Zodra de QnA Maker-manager selecteert het account, is de Active Directory-beheerder ontvangt een melding dat hij moet de QnA Maker (niet de QnA Maker-manager) om apptoegang te verlenen tot de Sharepoint-resource. De Active Directory-beheerder moet dit doen voor elke Sharepoint-resource, maar niet elk document in die bron. 
+Zodra de QnA Maker-manager selecteert het account, is de Active Directory-beheerder ontvangt een melding dat ze nodig hebben om toe te staan de QnA Maker (niet de QnA Maker-manager) apptoegang tot de Sharepoint-resource. De Active Directory-beheerder moet dit doen voor elke Sharepoint-resource, maar niet elk document in die bron. 
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active Directorybeheer: bestand lezen toegang verlenen tot QnA Maker
 

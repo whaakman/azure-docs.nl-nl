@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 36773fce18abe5e91f393e2e82e0fb5eb44bb3b4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601714"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65888332"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Zelfstudie: Azure Active Directory-integratie met Workday
 
@@ -137,7 +137,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Workday, moet u de v
 
     b. Azure AD-id
 
-    c. URL voor afmelden
+    c. Afmeldings-URL
 
 ### <a name="configure-workday-single-sign-on"></a>Configureren van Workday Single Sign-On
 
@@ -289,7 +289,7 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding toeg
 
 ### <a name="create-workday-test-user"></a>Workday testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Workday. Werken met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) om toe te voegen de gebruikers in de Workday-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Workday. Werken met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) om toe te voegen de gebruikers in de Workday-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

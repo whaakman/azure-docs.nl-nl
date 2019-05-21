@@ -7,18 +7,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 04/03/2019
-ms.openlocfilehash: f480aeb7e126cb6ab8286bbfbfb8441fefeb07ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: 09509b32320fb10b8ab3d563442b6d0fb44ad34e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716086"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909227"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight
 
 In deze zelfstudie leert u hoe u een gegevensframe maakt van een CSV-bestand en hoe u interactieve Spark SQL-query's uitvoert op een [Apache Spark](https://spark.apache.org/)-cluster in Azure HDInsight. In Spark is een gegevensframe een gedistribueerde verzameling gegevens die zijn geordend in benoemde kolommen. Er ligt hetzelfde concept aan ten grondslag als aan een tabel in een relationele database of aan een gegevensframe in R/Python.
- 
+
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Een gegevensframe maken van een CSV-bestand
@@ -26,7 +26,22 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De snelstart [Een Apache Spark-cluster maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) uitvoeren.
+Een Apache Spark-cluster in HDInsight. Zie [maken van een Apache Spark-cluster](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+## <a name="create-a-jupyter-notebook"></a>Een Jupyter-notebook maken
+
+Jupyter Notebook is een interactieve notitieblokomgeving die ondersteuning biedt voor verschillende programmeertalen. Via het notitieblok kunt u interactie hebben met uw gegevens, code combineren met markdown-tekst en eenvoudige visualisaties uitvoeren. 
+
+1. Bewerk de URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` door te vervangen `SPARKCLUSTER` met de naam van uw Spark-cluster. Voer vervolgens de bewerkte URL in een webbrowser. Voer de aanmeldingsreferenties voor het cluster in als u daarom wordt gevraagd.
+
+2. Selecteer in de webpagina Jupyter **nieuw** > **PySpark** om een notitieblok te maken. 
+
+   ![Jupyter Notebook maken om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter Notebook maken om de interactieve Apache Spark SQL-query uit te voeren")
+
+   Een nieuwe notebook gemaakt en geopend met de naam Naamloos (`Untitled.ipynb`).
+
+    > [!NOTE]  
+    > Door de PySpark-kernel te gebruiken voor het maken van een notebook, wordt de `spark`-sessie automatisch voor u gemaakt wanneer u de eerste cel met code uitvoert. U hoeft de sessie dus niet expliciet te maken.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Een gegevensframe maken van een CSV-bestand
 
@@ -34,13 +49,7 @@ Toepassingen kunnen dataframes rechtstreeks maken vanuit bestanden of mappen op 
     
 ![Momentopname van gegevens voor interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Momentopname van gegevens voor interactieve Spark SQL-query")
 
-
-1. Open de Jupyter-notebook die u hebt gemaakt in de sectie vereisten en een nieuwe notebook maken met PySpark.
-
-    > [!NOTE]  
-    > Door de PySpark-kernel te gebruiken voor het maken van een notebook, wordt de `spark`-sessie automatisch voor u gemaakt wanneer u de eerste cel met code uitvoert. U hoeft de sessie dus niet expliciet te maken.
-
-2. Plak de volgende code in een lege cel van het notebook en druk op **Shift+Enter** om de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
+1. Plak de volgende code in een lege cel van de Jupyter-notebook en druk vervolgens op **SHIFT + ENTER** de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
 
     ```python
     from pyspark.sql import *
@@ -51,7 +60,7 @@ Toepassingen kunnen dataframes rechtstreeks maken vanuit bestanden of mappen op 
 
     ![Status van interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status van interactieve Spark SQL-query")
 
-3. Voer de volgende code uit om een gegevensframe en een tijdelijke tabel (**hvac**) te maken. 
+2. Voer de volgende code uit om een gegevensframe en een tijdelijke tabel (**hvac**) te maken. 
 
     ```python
     # Create a dataframe and table from sample data
@@ -94,11 +103,7 @@ U kunt ook de naam van de resourcegroep selecteren om de pagina van de resourceg
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-> [!div class="checklist"]
-> * Een Apache Spark-gegevensframe maken.
-> * Spark SQL uitvoeren op het gegevensframe.
+In deze zelfstudie hebt u geleerd over het maken van een dataframe uit een csv-bestand en het uitvoeren van interactieve Spark SQL-query's op basis van een Apache Spark-cluster in Azure HDInsight. Ga naar het volgende artikel om te zien hoe de gegevens die u hebt geregistreerd in Apache Spark kunnen worden overgebracht naar een BI-hulpprogramma voor analyse zoals Power BI.
 
-Ga naar het volgende artikel om te zien hoe de gegevens die u hebt geregistreerd in Apache Spark kunnen worden overgebracht naar een BI-hulpprogramma voor analyse zoals Power BI. 
 > [!div class="nextstepaction"]
 > [Gegevens analyseren met BI-tools](apache-spark-use-bi-tools.md)

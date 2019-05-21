@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 91ba5de6a6e0a18d494a449acfdea330234bcc9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258807"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Zelfstudie: Azure Active Directory-integratie met Nomadic
 
@@ -114,7 +114,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Nomadic, moet u de v
     | `https://<company name>.staging.nomadic.fm/auth/saml2/sp` |
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met [Nomadic Client ondersteuningsteam](mailto:help@nomadic.fm) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [Nomadic Client ondersteuningsteam](mailto:help@nomadic.fm) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

@@ -16,11 +16,11 @@ ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894067"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900614"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Zelfstudie: Azure Active Directory-integratie met Canvas
 
@@ -110,7 +110,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met Canvas te conf
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<tenant-name>.instructure.com/saml2`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [klantondersteuningsteam voor Canvas](https://community.canvaslms.com/community/help) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met het [klantondersteuningsteam voor Canvas](https://community.canvaslms.com/community/help) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Klik in de sectie **SAML-handtekeningcertificaat** op de knop **Bewerken** om het dialoogvenster **SAML-handtekeningcertificaat** te openen.
 
@@ -245,7 +245,7 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Canvas, moeten ze w
 
    d. Selecteer **Email the user about this account creation**.
 
-   e. Klik op **Add User**.
+   e. Klik op **gebruiker toevoegen**.
 
 > [!NOTE]
 > U kunt ook AAD-gebruikersaccounts inrichten met alle andere door Canvas geleverde hulpprogramma's of API's voor het maken van gebruikersaccounts.
