@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: e7bd97d6ab197a061a33620b590e41acb486d934
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606839"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969295"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Gegevens van telefoongesprekken met Stream Analytics analyseren en de resultaten visualiseren in een Power BI-dashboard
 
@@ -99,7 +99,7 @@ Voordat u de app TelcoGenerator start, moet u deze configureren voor het verzend
 3. Update het `<appSettings>`-element in het configuratiebestand met de volgende details:
 
    * Stel de waarde van de sleutel *EventHubName* in op de waarde van EntityPath in de verbindingsreeks.
-   * Stel de waarde van de sleutel *Microsoft.ServiceBus.ConnectionString* in op de verbindingsreeks zonder de EntityPath-waarde.
+   * Stel de waarde van de *Microsoft.ServiceBus.ConnectionString* sleutel op de verbindingsreeks zonder de EntityPath-waarde (Vergeet niet om te verwijderen van de puntkomma).
 
 4. Sla het bestand op.
 5. Open vervolgens een opdrachtvenster en ga naar de map waar u de toepassing TelcoGenerator hebt uitgepakt. Voer vervolgens de volgende opdracht in:

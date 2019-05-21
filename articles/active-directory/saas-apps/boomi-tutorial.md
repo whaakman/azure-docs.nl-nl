@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8092724a8ebf04342e00d054cc78fe26b48d2f82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fe436632eee12157dde2b082a5c77e67e7977cc
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864019"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Zelfstudie: Azure Active Directory-integratie met Boomi
 
@@ -251,12 +251,12 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Boomi, moeten ze wo
 
     d. Typ een waarde voor de gebruiker in het vak **Federation ID**. Elke gebruiker moet een federatie-id hebben die de gebruiker uniek identificeert binnen het account.
 
-    e. Wijs de rol **Standard User** toe aan de gebruiker. Wijs niet de rol Administrator toe, omdat de gebruiker dan niet alleen beschikt over gewone Atmosphere-toegang, maar ook over toegang via eenmalige aanmelding.
+    e. Wijs de rol **Standard User** toe aan de gebruiker. Wijs de rol beheerder geen omdat dat ze zowel normale lucht toegang als eenmalige aanmelding toegang geven zou.
 
     f. Klik op **OK**.
 
     > [!NOTE]
-    > De gebruiker ontvangt geen welkomstbericht met een wachtwoord dat kan worden gebruikt voor aanmelding bij het AtomSphere-account omdat het wachtwoord van de gebruiker wordt beheerd via de id-provider. U kunt andere hulpprogramma's of API's van Boomi gebruiken voor het inrichten van AAD-gebruikersaccounts.
+    > De gebruiker ontvangt geen een e-mailmelding Welkom met een wachtwoord dat kan worden gebruikt voor het aanmelden bij de AtomSphere-account, omdat het wachtwoord wordt beheerd via de id-provider. U kunt andere hulpprogramma's of API's van Boomi gebruiken voor het inrichten van AAD-gebruikersaccounts.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

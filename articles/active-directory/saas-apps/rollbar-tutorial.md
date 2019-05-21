@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f6e6b262dccd5b68c5a55c3d96a894205df8933
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5c3546dbadf64786b398610c19ee7f8e9e740d51
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695893"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Zelfstudie: Azure Active Directory-integratie met Rollbar
 
@@ -243,7 +243,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Rollbar, moeten ze 
 
     ![Anderen uitnodigen](./media/rollbar-tutorial/user3.png)
 
-1. Gebruiker ontvangt een uitnodiging voor en na accepteren komt gemaakt in het systeem.
+1. Gebruiker ontvangt een uitnodiging voor en na accepteren ze worden gemaakt in het systeem.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

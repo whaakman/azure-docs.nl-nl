@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65081190"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65954805"
 ---
 1. Start Visual Studio 2017.
 
@@ -23,7 +23,7 @@ ms.locfileid: "65081190"
 
     ![Schermafbeelding van het dialoogvenster New Project](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. De Speech SDK vereist dat uw toepassing wordt gecompileerd voor de Windows 10-makersupdate van het najaar of later. Kies in het venster **New Universal Windows Platform Project** dat wordt weergegeven **Windows 10 Fall Creators Update (10.0; Build 16299)** bij **Minimum version**. Selecteer bij **Target version** deze of een latere versie en klik op **OK**.
+1. De spraak-SDK vereist dat uw toepassing worden gemaakt voor de Windows 10 Fall Creators Update of hoger. Kies in het venster **New Universal Windows Platform Project** dat wordt weergegeven **Windows 10 Fall Creators Update (10.0; Build 16299)** bij **Minimum version**. Selecteer bij **Target version** deze of een latere versie en klik op **OK**.
 
     ![Schermafbeelding van het venster New Universal Windows Platform Project](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

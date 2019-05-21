@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: ba198cbe0c362055f36cb4bdecf34a0dbad477a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b332c11e76ad335772cc607edcf569f896acb873
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788063"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951391"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark
 
@@ -48,7 +48,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
   > [!IMPORTANT]
   > Zorg ervoor dat u de rol toewijst in het bereik van het Data Lake Storage Gen2-opslagaccount. U kunt een rol toewijzen aan de bovenliggende resourcegroep of het bovenliggende abonnement, maar u ontvangt machtigingsgerelateerde fouten tot die roltoewijzingen zijn doorgegeven aan het opslagaccount.
 
-  :heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
+  :heavy_check_mark: Bij het uitvoeren van de stappen in de [waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) gedeelte van het artikel, plak de tenant-ID, app-ID en wachtwoord waarden in een tekstbestand. U hebt deze binnenkort nodig.
 
 ### <a name="download-the-flight-data"></a>De vluchtgegevens downloaden
 
@@ -82,11 +82,9 @@ In dit gedeelte gaat u een Azure Databricks-service maken met behulp van de Azur
 
     ![Een Azure Databricks-werkruimte maken](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Een Azure Databricks-service maken")
 
-3. Selecteer **Vastmaken aan dashboard** en selecteer **Maken**.
+3. Het duurt enkele minuten om het account te maken. Bekijk de voortgangsbalk bovenaan om de bewerkingsstatus te volgen.
 
-4. Het duurt enkele minuten om het account te maken. Tijdens het maken van het account wordt rechts in de portal de tegel **Implementatie verzenden voor Azure Databricks** weergegeven. Bekijk de voortgangsbalk bovenaan om de bewerkingsstatus te volgen.
-
-    ![Tegel Databricks-implementatie](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Tegel Databricks-implementatie")
+4. Selecteer **Vastmaken aan dashboard** en selecteer **Maken**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Een Apache Spark-cluster in Azure Databricks maken
 
@@ -179,7 +177,7 @@ Deze waarden gebruikt u de genoemde plaatsaanduidingen vervangt.
    * Vervang de tijdelijke aanduiding `file-system-name` door de naam die u aan uw bestandssysteem wilt geven.
 
    > [!NOTE]
-   > In een productieomgeving kunt u de verificatiesleutel eventueel in Azure Databricks opslaan. Vervolgens voegt u een opzoeksleutel toe aan uw codeblok in plaats van de verificatiesleutel. Nadat u deze quickstart hebt afgerond, raadpleegt u het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methode.
+   > In een productie-instelling, kunt u uw wachtwoord opslaan in Azure Databricks. Vervolgens voegt u een overzicht van de sleutel aan uw codeblok in plaats van het wachtwoord. Nadat u deze quickstart hebt afgerond, raadpleegt u het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methode.
 
 19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 

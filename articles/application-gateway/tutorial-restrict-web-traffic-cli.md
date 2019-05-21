@@ -3,33 +3,23 @@ title: Web Application Firewall inschakelen - Azure CLI
 description: Meer informatie over hoe u webverkeer beperkt met een firewall voor webtoepassingen in een toepassingsgateway met de Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407106"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955491"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Firewall voor webtoepassingen inschakelen met de Azure CLI
 
-> [!div class="op_single_selector"]
->
-> - [Azure-portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure-CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
+U kunt verkeer op een [toepassingsgateway](overview.md) beperken met een [firewall voor webtoepassingen](waf-overview.md) (WAF; Web Application Firewall). De WAF gebruikt [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regels om uw toepassing te beveiligen. Deze regels omvatten bescherming tegen aanvallen als SQL-injectie, XSS-aanvallen (cross-site scripting) en sessiekapingen.
 
-U kunt verkeer op een [toepassingsgateway](overview.md) beperken met een [firewall voor webtoepassingen](waf-overview.md) (WAF; Web Application Firewall). De WAF gebruikt [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regels om uw toepassing te beveiligen. Deze regels omvatten bescherming tegen aanvallen als SQL-injectie, XSS-aanvallen (cross-site scripting) en sessiekapingen. 
-
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
@@ -39,13 +29,13 @@ In deze zelfstudie leert u het volgende:
 
 ![Voorbeeld van een WAF (Web Application Firewall)](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -148,7 +138,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Een opslagaccount maken en diagnostische gegevens configureren
 
-In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Azure Monitor-logboeken of Event Hub gebruiken om gegevens vast te leggen. 
+In dit artikel wordt de toepassingsgateway een storage-account gebruikt voor het opslaan van gegevens voor detectie en preventie van toepassing. U kunt ook Azure Monitor-logboeken of Event Hub gebruiken om gegevens vast te leggen. 
 
 ### <a name="create-a-storage-account"></a>Create a storage account
 
@@ -196,18 +186,9 @@ az network public-ip show \
 U kunt de resourcegroep, de toepassingsgateway en alle gerelateerde resources verwijderen als u deze niet meer nodig hebt.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Een toepassingsgateway maken met WAF ingeschakeld
-> * Een virtuele-machineschaalset maken
-> * Een opslagaccount maken en diagnostische gegevens configureren
-
-> [!div class="nextstepaction"]
-> [Een toepassingsgateway maken met SSL-beëindiging](./tutorial-ssl-cli.md)
+* [Een toepassingsgateway maken met SSL-beëindiging](./tutorial-ssl-cli.md)

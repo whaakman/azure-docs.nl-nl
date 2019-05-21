@@ -4,14 +4,14 @@ description: Leer hoe u de open source Azure Cosmos DB-hulpprogramma's voor gege
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.author: dech
-ms.openlocfilehash: 366a5512179136987a8fc984136c3c039a5b079d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 792dca41a052930bf2c853846cdd0c09661c5cd3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827276"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954500"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB
 

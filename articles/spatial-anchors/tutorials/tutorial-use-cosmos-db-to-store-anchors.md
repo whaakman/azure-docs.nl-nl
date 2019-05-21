@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19c2298c9bda03acba28496a97c89c2a53e3c44e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681198"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964898"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Zelfstudie: Back-end van share Azure ruimtelijke ankers sessies en apparaten met een Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Zoek de `StorageConnectionString` eigenschap en stel de waarde moet gelijk zijn 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u Azure Cosmos DB gebruikt voor het delen van anker-id's op apparaten. Voor meer informatie over het gebruik van Azure ruimtelijke ankers in een nieuwe Android-app, gaat u naar de volgende zelfstudie.
+In deze zelfstudie hebt u Azure Cosmos DB gebruikt voor het delen van anker-id's op apparaten. Voor meer informatie over het gebruik van Azure ruimtelijke ankers in een nieuwe HoloLens Unity-app, gaat u naar de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
-> [Een nieuwe Android-app starten](./tutorial-new-android-app.md)
+> [Een nieuwe Android-app starten](./tutorial-new-unity-hololens-app.md)

@@ -7,12 +7,12 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1a00d237ef94f73ebf59070d8160a7e5144b0ac8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800561"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979171"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Zelfstudie: Beleidsregels voor het afdwingen van naleving maken en beheren
 
@@ -42,11 +42,11 @@ De eerste stap bij het afdwingen van naleving met Azure Policy bestaat uit het t
 
    ![Een beleidsdefinitie op de pagina Toewijzingen toewijzen](../media/create-and-manage/select-assign-policy.png)
 
-1. Selecteer op de pagina **Beleid toewijzen** het **bereik** door te klikken op het beletselteken en een beheergroep of abonnement te selecteren. U kunt ook een resourcegroep selecteren. Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen.  Klik vervolgens op **Selecteren** aan de onderkant van de pagina **Bereik**.
+1. Selecteer op de pagina **Beleid toewijzen** het **bereik** door te klikken op het beletselteken en een beheergroep of abonnement te selecteren. U kunt ook een resourcegroep selecteren. Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen. Klik vervolgens op **Selecteren** aan de onderkant van de pagina **Bereik**.
 
    In dit voorbeeld wordt het abonnement **Contoso** gebruikt. U hebt waarschijnlijk een ander abonnement.
 
-1. Resources kunnen worden uitgesloten op basis van het **bereik**.  **Uitsluitingen** starten op één niveau lager dan het niveau van het **bereik**. **Uitsluitingen** zijn optioneel, dus laat dit veld nu nog leeg.
+1. Resources kunnen worden uitgesloten op basis van het **bereik**. **Uitsluitingen** starten op één niveau lager dan het niveau van het **bereik**. **Uitsluitingen** zijn optioneel, dus laat dit veld nu nog leeg.
 
 1. Selecteer het weglatingsteken **Beleidsdefinitie** om de lijst van beschikbare definities te openen. U kunt het **Type** van de beleidsdefinitie filteren op *Ingebouwd* om alles te bekijken en de beschrijvingen te lezen.
 
@@ -54,7 +54,8 @@ De eerste stap bij het afdwingen van naleving met Azure Policy bestaat uit het t
 
    ![Zoekfilter gebruiken om te vinden van een beleid](../media/create-and-manage/select-available-definition.png)
 
-1. De **Toewijzingsnaam** wordt automatisch ingevuld met de naam van het beleid dat u hebt geselecteerd, maar u kunt dit wijzigen. In dit voorbeeld houden we *SQL Server-versie 12.0 vereisen*. U kunt ook een optionele **Beschrijving** opgeven. De beschrijving bevat details over deze beleidstoewijzing.  **Toegewezen door** wordt automatisch ingevuld op basis van degene die is aangemeld. Dit veld is optioneel, dus u kunt aangepaste waarden invoeren.
+1. De **Toewijzingsnaam** wordt automatisch ingevuld met de naam van het beleid dat u hebt geselecteerd, maar u kunt dit wijzigen. In dit voorbeeld houden we *SQL Server-versie 12.0 vereisen*. U kunt ook een optionele **Beschrijving** opgeven. De beschrijving bevat details over deze beleidstoewijzing.
+   **Toegewezen door** wordt automatisch ingevuld op basis van degene die is aangemeld. Dit veld is optioneel, dus u kunt aangepaste waarden invoeren.
 
 1. Laat **Beheerde identiteit maken** uitgeschakeld. Dit vak _moet_ worden ingeschakeld wanneer het beleid of initiatief dat wordt toegewezen beleid bevat met het effect [deployIfNotExists](../concepts/effects.md#deployifnotexists). Omdat het beleid dat voor deze zelfstudie wordt gebruikt deze regel niet bevat, laat u deze optie uitgeschakeld. Zie [Beheerde identiteiten](../../../active-directory/managed-identities-azure-resources/overview.md) en [Hoe herstelbeveiliging werkt](../how-to/remediate-resources.md#how-remediation-security-works) voor meer informatie.
 
@@ -116,7 +117,7 @@ Nu u een ingebouwde beleidsdefinitie hebt toegewezen, kunt u meer kunt doen met 
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Een beleidsdefinitie maken met de REST API
 
-U kunt een beleid maken met de REST API voor beleidsdefinities. Met de REST API kunt u beleidsdefinities maken en verwijderen en informatie over bestaande definities ophalen. Gebruik het volgende voorbeeld om een beleidsdefinitie te maken:
+U kunt een beleid maken met de REST-API voor Azure-beleidsdefinities. Met de REST API kunt u beleidsdefinities maken en verwijderen en informatie over bestaande definities ophalen. Gebruik het volgende voorbeeld om een beleidsdefinitie te maken:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ Voeg aanvraagtekst toe die soortgelijk is aan het volgende voorbeeld:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Een beleidsdefinitie maken met PowerShell
 
-Zorg ervoor dat u de nieuwste versie van de Az van Azure PowerShell-module hebt geïnstalleerd voordat u doorgaat met het PowerShell-voorbeeld. 
+Zorg ervoor dat u de nieuwste versie van de Az van Azure PowerShell-module hebt geïnstalleerd voordat u doorgaat met het PowerShell-voorbeeld.
 
 U kunt een beleidsdefinitie maken met de `New-AzPolicyDefinition`-cmdlet.
 
@@ -369,13 +370,14 @@ Met een initiatiefdefinitie kunt u verschillende beleidsdefinities groeperen om 
 
    ![Een definitie van de pagina definitie initiatief toewijzen](../media/create-and-manage/assign-definition.png)
 
-   U kunt ook met de rechtermuisknop op de geselecteerde rij of met de linkermuisknop op het beletselteken aan het einde van de rij klikken voor een contextmenu.  Selecteer daarna **Toewijzen**.
+   U kunt ook met de rechtermuisknop op de geselecteerde rij of met de linkermuisknop op het beletselteken aan het einde van de rij klikken voor een contextmenu. Selecteer daarna **Toewijzen**.
 
    ![Andere opties voor een initiatief](../media/create-and-manage/select-right-click.png)
 
 1. Vul de pagina **Beveiligen: Initiatief toewijzen** in door de volgende voorbeeldinformatie in te voeren. U kunt uw eigen gegevens gebruiken.
 
-   - Bereik: de beheergroep of het abonnement waarin u het initiatief hebt opgeslagen, wordt de standaardwaarde.  U kunt het bereik wijzigen om het initiatief toe te wijzen aan een abonnement of resourcegroep in de opslaglocatie.
+   - Bereik: de beheergroep of het abonnement waarin u het initiatief hebt opgeslagen, wordt de standaardwaarde.
+     U kunt het bereik wijzigen om het initiatief toe te wijzen aan een abonnement of resourcegroep in de opslaglocatie.
    - Uitsluitingen: configureer alle resources binnen het bereik om te voorkomen dat de initiatieftoewijzing erop wordt toegepast.
    - Definitie van het initiatief en naam van de toewijzing: Beveiligen (vooraf ingevuld als de naam van het initiatief dat wordt toegewezen).
    - Beschrijving: deze initiatieftoewijzing heeft als doel deze groep beleidsdefinities af te dwingen.
@@ -389,7 +391,8 @@ Met een initiatiefdefinitie kunt u verschillende beleidsdefinities groeperen om 
 
 1. Selecteer **Naleving** links op de Azure Policy-pagina.
 
-1. Zoek het initiatief **Bron ophalen**. De _Nalevingsstatus_ hiervan is waarschijnlijk nog **Niet gestart**. Klik op het initiatief voor volledige informatie over de voortgang van de toewijzing.
+1. Zoek het initiatief **Bron ophalen**. De _Nalevingsstatus_ hiervan is waarschijnlijk nog **Niet gestart**.
+   Klik op het initiatief voor volledige informatie over de voortgang van de toewijzing.
 
    ![Initiatiefnaleving pagina - evaluaties niet gestart](../media/create-and-manage/compliance-status-not-started.png)
 

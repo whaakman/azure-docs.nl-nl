@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/14/2019
-ms.openlocfilehash: 404450584fa9928b6a345cf7ab13006d11587c46
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: d8d767b97e335feeb31851c89a9b21eddf7157ea
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872943"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962209"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Zelfstudie: Een Azure Red Hat OpenShift-cluster maken
 
@@ -35,7 +35,7 @@ In deze zelfstudiereeks leert u het volgende:
 > [!IMPORTANT]
 > In deze zelfstudie is versie 2.0.65 van de Azure CLI vereist.
 >    
-> Voordat u Azure Red Hat Openshift gebruiken kunt, moet u kopen van gereserveerde virtuele Azure-machine-instanties, zoals beschreven in [instellen van uw ontwikkelomgeving Azure Red Hat Openshift](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
+> Voordat u Azure Red Hat OpenShift gebruiken kunt, moet u een minimum van 4 Azure Red Hat OpenShift gereserveerd toepassing knooppunten kopen, zoals beschreven in [instellen van uw ontwikkelomgeving Azure Red Hat OpenShift](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
 
 Voor u met deze zelfstudie begint:
 

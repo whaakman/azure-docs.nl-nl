@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 7507e5d23898fd069797c14d0fa18419b8345d78
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.openlocfilehash: 840b1fe55556cfd853e0928164891d6b21b17cc2
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888261"
+ms.locfileid: "65956864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Zelfstudie: Azure Active Directory-integratie met TigerText Secure Messenger
 
@@ -156,7 +156,7 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door haar toegang verlenen tot TigerText Secure Messenger.
+In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken ze door toegang te verlenen tot TigerText Secure Messenger.
 
 1. Selecteer in de Azure portal, **bedrijfstoepassingen** > **alle toepassingen** > **TigerText Secure Messenger**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 724d47695c2878caf6ae18e2622f72dc59767ea0
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: HT
+ms.openlocfilehash: d42e266de9c958c8a71cc5fa680a78c2278cec6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921707"
+ms.locfileid: "65956787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Zelfstudie: Azure Active Directory-integratie met NetDocuments
 
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met NetDocuments, moet u
     b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmelding-URL en antwoord-URL. ID van de opslagplaats is een waarde die beginnen met CA-gevolgd door code van 8 tekens die zijn gekoppeld aan uw opslagplaats NetDocuments. U kunt controleren de [NetDocuments federatieve identiteit ondersteuningsdocument](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) voor meer informatie. U kunt ook contact met [NetDocuments Client ondersteuningsteam](https://support.netdocuments.com/hc/) om op te halen van deze waarden hebt u dificulties configureren met behulp van de bovenstaande informatie. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmelding-URL en antwoord-URL. ID van de opslagplaats is een waarde die beginnen met CA-gevolgd door code van 8 tekens die zijn gekoppeld aan uw opslagplaats NetDocuments. U kunt controleren de [NetDocuments federatieve identiteit ondersteuningsdocument](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) voor meer informatie. U kunt ook contact met [NetDocuments Client ondersteuningsteam](https://support.netdocuments.com/hc/) om op te halen van deze waarden hebt u problemen bij het configureren met behulp van de bovenstaande informatie. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f9dc6e98e184e6eeeca3a56ff4a28739369a3d24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800482"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979671"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Zelfstudie: Een aangepaste beleidsdefinitie maken
 
@@ -46,12 +46,11 @@ Voordat u de beleidsdefinitie gaat maken, is het belangrijk te weten wat de inte
 
 In uw vereisten moet zowel de gewenste als de ongewenste situatie duidelijk worden geïdentificeerd.
 
-Hoewel we de verwachte status van de resource hebben gedefinieerd, hebben we nog niet gedefinieerd wat we willen doen met niet-compatibele resources. Policy ondersteunt een aantal [effecten](../concepts/effects.md). Voor deze zelfstudie definiëren we de vereiste dat het maken van resources moet worden verhinderd als deze niet voldoen aan de bedrijfsregels. Om dit doel te bereiken, gebruiken we het effect [Deny](../concepts/effects.md#deny) (weigeren). We willen ook de optie hebben om het beleid te onderbreken voor speciale toewijzingen. Hiervoor gebruiken we het effect [Uitgeschakeld](../concepts/effects.md#disabled), waarvan we een [parameter](../concepts/definition-structure.md#parameters) maken in de beleidsdefinitie.
+Hoewel we de verwachte status van de resource hebben gedefinieerd, hebben we nog niet gedefinieerd wat we willen doen met niet-compatibele resources. Azure Policy ondersteunt een aantal [effecten](../concepts/effects.md). Voor deze zelfstudie definiëren we de vereiste dat het maken van resources moet worden verhinderd als deze niet voldoen aan de bedrijfsregels. Om dit doel te bereiken, gebruiken we het effect [Deny](../concepts/effects.md#deny) (weigeren). We willen ook de optie hebben om het beleid te onderbreken voor speciale toewijzingen. Hiervoor gebruiken we het effect [Uitgeschakeld](../concepts/effects.md#disabled), waarvan we een [parameter](../concepts/definition-structure.md#parameters) maken in de beleidsdefinitie.
 
 ## <a name="determine-resource-properties"></a>Resource-eigenschappen bepalen
 
-Volgens de vereiste van het bedrijf is de Azure-resource die met Policy moet worden gecontroleerd een opslagaccount.
-Maar we weten nog niet welke eigenschappen in de beleidsdefinitie moeten worden gebruikt. Policy voert evaluaties uit op basis van de JSON-weergave van de resource, dus moeten we de beschikbare eigenschappen van die resource begrijpen.
+Op basis van de vereiste van het bedrijf, is de Azure-resource om te controleren met Azure Policy een opslagaccount. Maar we weten nog niet welke eigenschappen in de beleidsdefinitie moeten worden gebruikt. Azure Policy wordt geëvalueerd op basis van de JSON-weergave van de resource, zodat we moeten begrijpen welke eigenschappen beschikbaar zijn voor die bron.
 
 Er zijn veel manieren om de eigenschappen van een Azure-resource te bepalen. In deze zelfstudie bekijken we elk daarvan:
 
@@ -121,8 +120,7 @@ Onder **properties** is een waarde met de naam **supportsHttpsTrafficOnly** inge
 
 #### <a name="create-a-resource-in-the-portal"></a>Een resource maken in de portal
 
-Een andere manier via de portal is het maken van een resource. Bij het maken van een opslagaccount via de portal is ziet u op het tabblad **Geavanceerd** de optie **Veilige overdracht vereist**.
-Deze eigenschap heeft de opties _Uitgeschakeld_ en _Ingeschakeld_. Het informatiepictogram biedt aanvullende tekst die bevestigt dat deze optie waarschijnlijk de eigenschap is die we zoeken. In dit scherm kunnen we echter niet zien wat de naam van de eigenschap is.
+Een andere manier via de portal is het maken van een resource. Bij het maken van een opslagaccount via de portal is ziet u op het tabblad **Geavanceerd** de optie **Veilige overdracht vereist**. Deze eigenschap heeft de opties _Uitgeschakeld_ en _Ingeschakeld_. Het informatiepictogram biedt aanvullende tekst die bevestigt dat deze optie waarschijnlijk de eigenschap is die we zoeken. In dit scherm kunnen we echter niet zien wat de naam van de eigenschap is.
 
 Op het tabblad **Beoordelen en maken** bevindt zich onderaan de pagina de koppeling **Een sjabloon voor Automation downloaden**. Wanneer u deze koppeling selecteert, wordt de sjabloon geopend voor het maken van de resource die we hebben geconfigureerd. In dit geval zien we twee belangrijke gegevens:
 
@@ -181,8 +179,7 @@ In de resultaten zien we een door de opslagaccounts ondersteunde alias met de na
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-In Azure PowerShell wordt de `Get-AzPolicyAlias`-cmdlet gebruikt om te zoeken naar resource-aliassen.
-We filteren op de naamruimte **Microsoft.Storage**, op basis van de gegevens die we eerder over de Azure-resource hebben verkregen.
+In Azure PowerShell wordt de `Get-AzPolicyAlias`-cmdlet gebruikt om te zoeken naar resource-aliassen. We filteren op de naamruimte **Microsoft.Storage**, op basis van de gegevens die we eerder over de Azure-resource hebben verkregen.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -312,7 +309,8 @@ Azure Resource Graph (Preview) kan worden gebruikt via [Cloud Shell](https://she
 
 ## <a name="determine-the-effect-to-use"></a>Bepalen welk effect moet worden gebruikt
 
-Beslissen wat te doen met uw niet-conforme resources is bijna net zo belangrijk als beslissen wat om te beginnen moet worden geëvalueerd. Elk mogelijk antwoord op een niet-conforme resource heet een [effect](../concepts/effects.md). Het effect bepaalt of de niet-conforme resource wordt geregistreerd, geblokkeerd, gegevens krijgt toegevoegd of dat er een implementatie aan is gekoppeld om de resource weer conform te maken.
+Beslissen wat te doen met uw niet-conforme resources is bijna net zo belangrijk als beslissen wat om te beginnen moet worden geëvalueerd. Elk mogelijk antwoord op een niet-conforme resource heet een [effect](../concepts/effects.md).
+Het effect bepaalt of de niet-conforme resource wordt geregistreerd, geblokkeerd, gegevens krijgt toegevoegd of dat er een implementatie aan is gekoppeld om de resource weer conform te maken.
 
 In ons voorbeeld is Deny (weigeren) het gewenste effect, omdat we niet willen dat er niet-conforme resources worden gemaakt in onze Azure-omgeving. Audit (controle) is een goede eerste keuze voor een beleidseffect om te bepalen wat de impact van een beleid is, voordat dit instelt op Weigeren. Eén manier om het wijzigen van het effect per toewijzing gemakkelijker te maken, is door het effect te parametriseren. Zie [parameters](#parameters) hieronder voor informatie over hoe u dat doet.
 

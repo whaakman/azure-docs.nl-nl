@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461071"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949787"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Zelfstudie 1: Kredietrisico voorspellen - Azure Machine Learning Studio
 
@@ -62,7 +62,7 @@ Nadat uw werkruimte is gemaakt, opent u Machine Learning Studio ([https://studio
 ![Selecteer een werkruimte in Studio](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Als u eigenaar bent van de werkruimte, kunt u de experimenten waaraan u werkt met anderen delen door ze uit te nodigen in de werkruimte. U kunt dit doen in Machine Learning Studio op de pagina **SETTINGS** (instellingen). U hebt alleen het Microsoft- of organisatie-account van elke gebruiker nodig.
+> Als u eigenaar bent van de werkruimte, kunt u de experimenten waaraan u werkt met anderen delen door ze uit te nodigen in de werkruimte. U kunt dit doen in Machine Learning Studio op de pagina **SETTINGS** (instellingen). U hoeft alleen de Microsoft-account of organisatie-account voor elke gebruiker.
 > 
 > Klik op de pagina **SETTINGS** op **USERS** (gebruikers) en klik op **INVITE MORE USERS** (meer gebruikers uitnodigen) onderaan het venster.
 > 
@@ -78,7 +78,7 @@ De gegevensset **german.data** bevat rijen met 20 variabelen voor 1000 kredietaa
 
 De UCI-website bevat een beschrijving van de kenmerken van de functievector voor deze gegevens. Deze gegevens omvatten financiële gegevens, kredietgeschiedenis, werknemersstatus en persoonlijke gegevens. Voor elke aanvrager is een binaire beoordeling gegeven die aangeeft of deze een laag of een hoog kredietrisico heeft. 
 
-U gebruikt deze gegevens om een voorspellend model te trainen. Wanneer u klaar bent, moet uw model in staat zijn om een functievector voor een nieuw individu te accepteren en te voorspellen of hij of zij een laag of hoog kredietrisico heeft.  
+U gebruikt deze gegevens om een voorspellend model te trainen. Wanneer u klaar bent, uw model zou het mogelijk om te accepteren van een functie-vector voor een nieuwe persoon en of ze een lage of hoge kredietrisico zijn te voorspellen.  
 
 Er is een interessante wending.
 

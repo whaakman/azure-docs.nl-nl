@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c279a224a7692a64621e24cc8fe2213b78b54ce
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62735615"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Zelfstudie: Azure Active Directory-integratie met TurboRater
 
@@ -70,15 +70,15 @@ Voor het configureren van de integratie van TurboRater in Azure AD, moet u Turbo
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met TurboRater op basis van een testgebruiker met de naam **Britta Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker maken in TurboRater.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met TurboRater op basis van een testgebruiker met de naam **B Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker maken in TurboRater.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met TurboRater, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  zodat uw gebruikers deze functie wilt gebruiken.
 1. **[Configureren van eenmalige aanmelding TurboRater](#configure-turborater-single-sign-on)**  de instellingen voor eenmalige aanmelding configureren aan de toepassing.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Maak een testgebruiker TurboRater](#create-a-turborater-test-user)**  zodat er een gebruiker met de naam Britta Simon in TurboRater die gekoppeld aan de Azure AD-gebruiker met de naam Britta Simon.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  voor het testen van Azure AD eenmalige aanmelding met B. Simon.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  B. Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Maak een testgebruiker TurboRater](#create-a-turborater-test-user)**  zodat er een gebruiker met de naam B. Simon in TurboRater die gekoppeld aan de Azure AD-gebruiker met de naam B. Simon.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -149,9 +149,9 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
     ![De gebruiker-deelvenster](common/user-properties.png)
 
-    1. Voer in het vak **Naam** **Britta Simon**in.
+    1. In de **naam** Voer **BSimon**.
   
-    1. In de **gebruikersnaam** Voer **BrittaSimon\@\<uwbedrijfsdomein >.\< extensie >**. Bijvoorbeeld, **BrittaSimon\@contoso.com**.
+    1. In de **gebruikersnaam** Voer **BSimon\@\<uwbedrijfsdomein >.\< extensie >**. Bijvoorbeeld, **BSimon\@contoso.com**.
 
     1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
 
@@ -159,7 +159,7 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door haar toegang verlenen tot TurboRater.
+In deze sectie maakt inschakelen u B. Simon Azure eenmalige aanmelding gebruiken door hun toegang verlenen tot TurboRater.
 
 1. Selecteer in de Azure portal, **bedrijfstoepassingen** > **alle toepassingen** > **TurboRater**.
 
@@ -177,7 +177,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. In de **gebruikers en groepen** venster **Britta Simon** in de **gebruikers** lijst en kies vervolgens **Selecteer** aan de onderkant van het deelvenster.
+1. In de **gebruikers en groepen** venster **B. Simon** in de **gebruikers** lijst en kies vervolgens **Selecteer** aan de onderkant van het deelvenster.
 
 1. Als u verwacht een waarde voor de rol in het SAML-verklaring, klikt u vervolgens de **rol selecteren** deelvenster, selecteert u de juiste rol voor de gebruiker in de lijst. Kies aan de onderkant van het deelvenster **Selecteer**.
 
@@ -185,7 +185,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-a-turborater-test-user"></a>Maak een testgebruiker TurboRater
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in TurboRater. Werken met de [TurboRater ondersteuningsteam](https://www.getitc.com/support) Britta Simon toevoegen als een gebruiker in TurboRater. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van B. Simon in TurboRater. Werken met de [TurboRater ondersteuningsteam](https://www.getitc.com/support) B. Simon toevoegen als een gebruiker in TurboRater. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 03/14/2019
-ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/20/2019
+ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205793"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953955"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Gebruik de Azure Cosmos-emulator gebruikt voor lokale ontwikkeling en testen
 
@@ -243,7 +243,7 @@ Typ `CosmosDB.Emulator.exe /?` bij de opdrachtprompt om een lijst met opties te 
 | GetStatus |Hiermee haalt u de status van de Azure Cosmos-Emulator. De status wordt aangegeven door de afsluitcode: 1 = starten, 2 = wordt uitgevoerd, 3 = gestopt. Een negatieve afsluitcode geeft aan dat er een fout is opgetreden. Er wordt geen andere uitvoer geproduceerd. | CosmosDB.Emulator.exe /GetStatus| |
 | Afsluiten| De Azure Cosmos-Emulator wordt afgesloten.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Specificeert het pad waarin de gegevensbestanden worden opgeslagen. Standaardwaarde is % LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<gegevenspad\> | \<gegevenspad\>: Een toegankelijk pad |
-|Port | Specificeert het poortnummer dat moet worden gebruikt voor de emulator. Standaardwaarde is 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<poort\>: Enkel poortnummer |
+|Poort | Specificeert het poortnummer dat moet worden gebruikt voor de emulator. Standaardwaarde is 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<poort\>: Enkel poortnummer |
 | MongoPort | Specificeert het poortnummer dat moet worden gebruikt MongoDB compatibiliteit-API. Standaardwaarde is 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongopoort\>: Enkel poortnummer|
 | CassandraPort | Hiermee geeft u het poortnummer dat moet worden gebruikt voor het Cassandra-eindpunt. Standaardwaarde is 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Enkel poortnummer |
 | ComputePort | Het poortnummer dat moet worden gebruikt voor de Compute Interop-gatewayservice opgegeven. Poort test HTTP-eindpunt van de Gateway wordt berekend als ComputePort + 79. Daarom kan moet ComputePort en ComputePort + 79 open zijn en beschikbaar. De standaardwaarden zijn 8900, 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Enkel poortnummer |
@@ -414,7 +414,7 @@ U opent de Data Explorer door naar de volgende URL in uw browser te gaan. Het ei
     https://<emulator endpoint provided in response>/_explorer/index.html
 
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Gebruik de volgende tips voor het oplossen van problemen die met de Azure Cosmos-Emulator optreden:
 

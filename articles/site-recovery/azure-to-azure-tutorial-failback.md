@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc2bd50fda34b493463898d8ef47ed2c246b7d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 339cbf18d79053dfb0704d928b8c9251c73b3a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790110"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951782"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Failback van virtuele Azure-machine tussen Azure-regio 's
 
@@ -29,7 +29,7 @@ In deze zelfstudie wordt beschreven hoe u een enkele virtuele machine van Azure 
 > 
 > [!NOTE]
 > 
-> In deze zelfstudie helpt u bij de failover van een paar virtuele machines naar een doelregio en weer terug naar de regio van de gegevensbron met minimale aanpassingen. Raadpleeg voor meer gedetailleerde instructies, de [instructies begeleidt op Azure Virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/).
+> In deze zelfstudie helpt u bij de failover van een paar virtuele machines naar een doelregio en weer terug naar de regio van de gegevensbron met minimale aanpassingen. Raadpleeg voor meer gedetailleerde instructies, de [instructies begeleidt op Azure Virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/).
 
 ## <a name="before-you-start"></a>Voordat u begint
 

@@ -49,6 +49,7 @@
       items:
         - name: Opslag
           href: storage-account-concept.md
+          displayName: Storage side encryption
         - name: Assets-API
           href: assets-concept.md
     - name: Encoding
@@ -169,6 +170,7 @@
       items:
         - name: Een account maken - CLI
           href: create-account-cli-how-to.md
+          displayName: storage
         - name: De referenties voor het account opnieuw instellen - CLI
           href: cli-reset-account-credentials.md
         - name: Toegang tot API's - CLI

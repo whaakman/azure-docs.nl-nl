@@ -1,27 +1,27 @@
 ---
-title: 'Zelfstudie: Webverkeer routeren op basis van de URL - Azure CLI'
-description: In deze zelfstudie vindt u meer informatie over hoe u webverkeer routeert op basis van de URL naar specifieke, schaalbare servergroepen met behulp van de Azure CLI.
+title: Webverkeer routeren op basis van de URL - Azure CLI
+description: In dit artikel leert u hoe u voor het routeren van webverkeer te genereren op basis van de URL naar specifieke schaalbare pools van servers met behulp van de Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006471"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955520"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Zelfstudie: Webverkeer routeren op basis van de URL met de Azure CLI
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Webverkeer routeren op basis van de URL met de Azure CLI
 
-Als een IT-beheerder die webverkeer beheert, wilt u uw klanten of gebruikers helpen de informatie die ze nodig hebben zo snel mogelijk te verkrijgen. Een manier waarop u hun ervaring kunt optimaliseren is door verschillende soorten webverkeer naar verschillende serverbronnen te routeren. In deze zelfstudie leert u hoe u de Azure CLI gebruikt voor het instellen en configureren van Application Gateway-routering voor verschillende soorten verkeer vanaf uw toepassing. De routering stuurt het verkeer vervolgens door naar verschillende servergroepen op basis van de URL.
+Als een IT-beheerder die webverkeer beheert, wilt u uw klanten of gebruikers helpen de informatie die ze nodig hebben zo snel mogelijk te verkrijgen. Een manier waarop u hun ervaring kunt optimaliseren is door verschillende soorten webverkeer naar verschillende serverbronnen te routeren. Dit artikel ziet u hoe u Azure CLI gebruiken voor het instellen en configureren van Application Gateway routering voor verschillende soorten verkeer van uw toepassing. De routering stuurt het verkeer vervolgens door naar verschillende servergroepen op basis van de URL.
 
 ![Voorbeeld van URL-routering](./media/tutorial-url-route-cli/scenario.png)
 
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een resourcegroep maken voor de netwerkresources die u nodig hebt
@@ -31,13 +31,13 @@ In deze zelfstudie leert u het volgende:
 > * Een schaalset maken voor elke groep, zodat de toepassingen automatisch kunnen worden geschaald
 > * Een test uitvoeren zodat u kunt controleren of de verschillende soorten verkeer naar de juiste groep gaan
 
-U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](tutorial-url-route-powershell.md) of de [Azure-portal](create-url-route-portal.md).
+Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-url-route-powershell.md) of de [Azure-portal](create-url-route-portal.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie de Azure CLI (versie 2.0.4 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel moet u uitvoeren van de Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -165,7 +165,7 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-a-routing-rule"></a>Een routeringsregel toevoegen
+### <a name="add-a-routing-rule"></a>Een regel voor doorsturen toevoegen
 
 De routeringsregel koppelt de URL-toewijzingen aan de listener die u hebt gemaakt. Voeg een regel met de naam *rule2* toe met behulp van `az network application-gateway rule create`.
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>VM-schaalsets maken
 
-In deze zelfstudie maakt u drie schaalsets voor virtuele machines die ondersteuning bieden voor de drie back-end-pools die u hebt gemaakt. U maakt schaalsets met de namen *myvmss1*, *myvmss2* en *myvmss3*. Elke schaalset bevat twee exemplaren van virtuele machines waarop u NGINX installeert.
+In dit artikel maakt u drie virtuele-machineschaalsets die ondersteuning bieden voor de drie back endadresgroepen die u hebt gemaakt. U maakt schaalsets met de namen *myvmss1*, *myvmss2* en *myvmss3*. Elke schaalset bevat twee exemplaren van virtuele machines waarop u NGINX installeert.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Een toepassingsgateway maken met een omleiding op basis van een URL-pad](./tutorial-url-redirect-cli.md)
+* [Een toepassingsgateway maken met een omleiding op basis van een URL-pad](./tutorial-url-redirect-cli.md)

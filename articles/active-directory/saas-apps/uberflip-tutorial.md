@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 69e86e486a9cdb058b972bda5176c14e15f4630a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865672"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Zelfstudie: Azure Active Directory-integratie met Uberflip
 
@@ -72,15 +72,15 @@ Voor het configureren van de integratie van Uberflip in Azure AD, moet u Uberfli
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Uberflip op basis van een testgebruiker met de naam **Britta Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Uberflip vast te stellen.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Uberflip op basis van een testgebruiker met de naam **B Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Uberflip vast te stellen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Uberflip, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  zodat uw gebruikers deze functie wilt gebruiken.
 1. **[Configureren van eenmalige aanmelding Uberflip](#configure-uberflip-single-sign-on)**  de instellingen voor eenmalige aanmelding configureren aan de toepassing.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Maak een testgebruiker Uberflip](#create-an-uberflip-test-user)**  zodat er een gebruiker met de naam Britta Simon in Uberflip die gekoppeld aan de Azure AD-gebruiker met de naam Britta Simon.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  voor het testen van Azure AD eenmalige aanmelding met B. Simon.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  B. Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Maak een testgebruiker Uberflip](#create-an-uberflip-test-user)**  zodat er een gebruiker met de naam B. Simon in Uberflip die gekoppeld aan de Azure AD-gebruiker met de naam B. Simon.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -136,7 +136,7 @@ Voor het configureren van eenmalige aanmelding aan de Uberflip, die u nodig hebt
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azure-portal.
+In deze sectie maakt u een testgebruiker B. Simon met de naam in Azure portal.
 
 1. Selecteer in de Azure-portal aan de linkerkant **Azure Active Directory** > **Gebruikers** > **Alle gebruikers**.
 
@@ -150,9 +150,9 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
     ![De gebruiker-deelvenster](common/user-properties.png)
 
-    1. Voer in het vak **Naam** **Britta Simon**in.
+    1. In de **naam** Voer **BSimon**.
   
-    1. In de **gebruikersnaam** Voer **BrittaSimon\@\<uwbedrijfsdomein >.\< extensie >**. Bijvoorbeeld, **BrittaSimon\@contoso.com**.
+    1. In de **gebruikersnaam** Voer **BSimon\@\<uwbedrijfsdomein >.\< extensie >**. Bijvoorbeeld, **BSimon\@contoso.com**.
 
     1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
 
@@ -160,7 +160,7 @@ In deze sectie gaat u een testgebruiker met de naam Britta Simon maken in de Azu
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door haar toegang verlenen tot Uberflip.
+In deze sectie maakt inschakelen u B. Simon Azure eenmalige aanmelding gebruiken door hun toegang verlenen tot Uberflip.
 
 1. Selecteer in de Azure portal, **bedrijfstoepassingen** > **alle toepassingen** > **Uberflip**.
 
@@ -178,7 +178,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. In de **gebruikers en groepen** venster **Britta Simon** in de **gebruikers** lijst en kies vervolgens **Selecteer** aan de onderkant van het deelvenster.
+1. In de **gebruikers en groepen** venster **B Simon** in de **gebruikers** lijst en kies vervolgens **Selecteer** aan de onderkant van het deelvenster.
 
 1. Als u verwacht een waarde voor de rol in het SAML-verklaring, klikt u vervolgens de **rol selecteren** deelvenster, selecteert u de juiste rol voor de gebruiker in de lijst. Kies aan de onderkant van het deelvenster **Selecteer**.
 
@@ -186,7 +186,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-an-uberflip-test-user"></a>Maak een testgebruiker Uberflip
 
-Een gebruiker met de naam Britta Simon is nu gemaakt in Uberflip. U hoeft te ondernemen om deze gebruiker te maken. Uberflip biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Als een gebruiker met de naam Britta Simon nog niet in Uberflip bestaat, wordt een nieuw gemaakt nadat verificatie.
+Een gebruiker met de naam B. Simon is nu gemaakt in Uberflip. U hoeft te ondernemen om deze gebruiker te maken. Uberflip biedt ondersteuning voor just-in-time-gebruikersinrichting, dat standaard is ingeschakeld. Als een gebruiker met de naam B. Simon nog niet in Uberflip bestaat, wordt een nieuw gemaakt nadat verificatie.
 
 > [!NOTE]
 > Als u maken van een gebruiker handmatig wilt, neem dan contact op met de [Uberflip ondersteuningsteam](mailto:support@uberflip.com).

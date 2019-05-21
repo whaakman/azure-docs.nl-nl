@@ -6,6 +6,9 @@
     - name: Wat is de Azure Machine Learning-service?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
+    - name: De werking van de service
+      displayName: architecture concepts definitions
+      href: concept-azure-machine-learning-architecture.md
 - name: Instellen
   items:
     - name: Een werkruimte maken
@@ -77,9 +80,6 @@
           href: ui-sample-classification-predict-churn.md
 - name: Concepten
   items:
-    - name: De werking van de service
-      displayName: architecture concepts definitions
-      href: concept-azure-machine-learning-architecture.md
     - name: Werkruimte
       displayName: concept definitions architecture
       href: concept-workspace.md

@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145057"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949613"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Zelfstudie: Azure CDN gebruiken om een aangepast domein met SSL in te schakelen voor een statische website
 
@@ -44,8 +44,9 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/) om aan de slag te gaan.
 1. Vul in de sectie **nieuw eindpunt** de velden in om een nieuw CDN-eindpunt te maken.
 1. Geef een naam op voor het eindpunt, zoals *mystaticwebsiteCDN*.
 1. Geef uw website-domein op als hostnaam voor uw CDN-eindpunt.
-1. Geef het eindpunt voor de statische website op als hostnaam van oorsprong. Voor het opzoeken van het eindpunt voor uw statische website gaat u naar de sectie **Statische website** voor uw opslagaccount en kopieert u het eindpunt. 
+1. Geef het eindpunt voor de statische website op als hostnaam van oorsprong. Als u uw eindpunt voor statische website zoekt, gaat u naar de **statische website** sectie voor uw opslagaccount en kopieert u het eindpunt (Verwijder de voorgaande https://)
 1. Test uw CDN-eindpunt door naar *mywebsitecdn.azureedge.net* in uw browser te navigeren.
+1. Leafobject controleren door te navigeren naar de **nieuw eindpunt** onder instellingen van oorsprong om te zien als het Oorsprongtype dat is ingesteld op *aangepaste oorsprong* en *hostnaam van oorsprong* geeft de statische naam van het eindpunt webiste.
 
 ## <a name="enable-custom-domain-and-ssl"></a>Aangepast domein en SSL inschakelen
 

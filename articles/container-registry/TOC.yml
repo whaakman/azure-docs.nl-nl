@@ -75,9 +75,10 @@
       items:
         - name: Toegang beperken met een virtueel netwerk (preview)
           href: container-registry-vnet.md
-        - name: Verificatieoverzicht
-          href: container-registry-authentication.md
+        - name: Verificatie
           items:
+            - name: Verificatieoverzicht
+              href: container-registry-authentication.md
             - name: Verificatie van service-principal
               href: container-registry-auth-service-principal.md
             - name: Verificatie van beheerde identiteit
@@ -143,3 +144,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-registry'
     - name: Video's
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'
+    - name: Veelgestelde vragen
+      href: container-registry-faq.md

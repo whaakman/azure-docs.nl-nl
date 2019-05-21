@@ -3,25 +3,23 @@ title: Een toepassingsgateway maken waarop meerdere websites worden gehost - Azu
 description: Informatie over het maken van een toepassingsgateway waarop meerdere websites worden gehost met Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100714"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955626"
 ---
-# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken waarop meerdere websites worden gehost met Azure CLI
+# <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Een toepassingsgateway maken waarop meerdere websites worden gehost met Azure CLI
 
-U kunt Azure CLI gebruiken om [het hosten van meerdere websites](multiple-site-overview.md) te configureren als u een [toepassingsgateway maakt](overview.md). In deze zelfstudie definieert u back-endadresgroepen met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www\.contoso.com* en *www\.fabrikam.com*.
+U kunt Azure CLI gebruiken om [het hosten van meerdere websites](multiple-site-overview.md) te configureren als u een [toepassingsgateway maakt](overview.md). In dit artikel definieert u de back-end-adresgroepen met behulp van schaalsets voor virtuele machines. Vervolgens configureert u listeners en regels op basis van domeinen waarvan u eigenaar bent om er zeker van te zijn dat webverkeer bij de juiste servers in de pools binnenkomen. In dit artikel wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar bent *www\.contoso.com* en *www\.fabrikam.com*.
 
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Het netwerk instellen
@@ -33,8 +31,7 @@ In deze zelfstudie leert u het volgende:
 
 ![Voorbeeld van routeren voor meerdere sites](./media/tutorial-multiple-sites-cli/scenario.png)
 
-
-U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -48,11 +45,11 @@ Een resourcegroep is een logische container waarin Azure-resources worden geïmp
 
 In het volgende voorbeeld wordt de resourcegroep *myResourceGroupAG* gemaakt op de locatie *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Netwerkbronnen maken 
+## <a name="create-network-resources"></a>Netwerkbronnen maken
 
 Maak het virtuele netwerk en de subset *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet). Vervolgens kunt u het subnet dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -254,15 +251,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * Het netwerk instellen
-> * Een toepassingsgateway maken
-> * Back-endlisteners maken
-> * Routeringsregels maken
-> * Schaalsets voor virtuele machines maken met de back-endpools
-> * Een CNAME-record in uw domein maken
-
-> [!div class="nextstepaction"]
-> [Een toepassingsgateway maken met omleidingsregels op basis van een URL-pad](./tutorial-url-route-cli.md)
+* [Een toepassingsgateway maken met omleidingsregels op basis van een URL-pad](./tutorial-url-route-cli.md)

@@ -5,62 +5,54 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/15/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: eb86dc8c5c3b215a2c90380b4009efd00d2a243c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ac1ae7ed761099a19accf55e9e4dab61193c2de7
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723140"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967800"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Zelfstudie: Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-in-azure-hdinsight"></a>Zelfstudie: Uitpakken, transformeren en laden van gegevens met behulp van Apache Hive in Azure HDInsight
 
-In deze zelfstudie gaat u een CSV-bestand met onbewerkte gegevens importeren in een cluster van HDInsight, waarna u de gegevens transformeert met behulp van [Apache Hive](https://hive.apache.org/) in Azure HDInsight. Als de gegevens zijn getransformeerd, laadt u die gegevens met behulp van [Apache Sqoop](https://sqoop.apache.org/) in een Azure SQL-database. In dit artikel gebruikt u vluchtgegevens die vrij beschikbaar zijn.
+In deze zelfstudie een onbewerkte CSV-gegevensbestand van vluchtgegevens van openbaar beschikbare nemen, importeren in de opslag van een HDInsight-cluster en transformeert u de gegevens met [Apache Hive](https://hive.apache.org/) in Azure HDInsight. Als de gegevens zijn getransformeerd, laadt u die gegevens met behulp van [Apache Sqoop](https://sqoop.apache.org/) in een Azure SQL-database.
 
-> [!IMPORTANT]  
-> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in Azure HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
-
-Deze zelfstudie bestaat uit de volgende taken: 
+Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * De voorbeeldbestanden met vluchtgegevens downloaden
 > * Gegevens uploaden naar een HDInsight-cluster
 > * De gegevens transformeren met Hive
-> * Een tabel maken in de Azure SQL-database
-> * Sqoop gebruiken om gegevens te exporteren naar de Azure SQL-database
-
+> * Een tabel maken in een Azure SQL database
+> * Sqoop gebruiken om gegevens te exporteren naar een Azure SQL database
 
 In de volgende afbeelding ziet u een typische werkstroom van een ETL-toepassing.
 
 ![ETL-bewerking met Apache Hive in Azure HDInsight](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "ETL-bewerking met Apache Hive in Azure HDInsight")
 
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een Hadoop-cluster op basis van Linux in HDInsight**. Zie [Aan de slag met Apache Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) voor stapsgewijze instructies voor het maken van een nieuw op Linux gebaseerd HDInsight-cluster.
+* Een Apache Hadoop-cluster in HDInsight. Zie [aan de slag met HDInsight op Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Azure SQL-database**. U gebruikt een Azure SQL-database als doelgegevensopslag. Als u geen SQL-database hebt, raadpleegt u [Een Azure SQL-database maken in Azure Portal](../sql-database/sql-database-get-started.md).
+* An Azure SQL Database. U gebruikt een Azure SQL-database als doelgegevensopslag. Als u geen SQL-database hebt, raadpleegt u [Een Azure SQL-database maken in Azure Portal](../sql-database/sql-database-single-database-get-started.md).
 
-* **Azure CLI**. Als u de Azure CLI nog niet hebt geïnstalleerd, raadpleegt u [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor meer stappen.
-
-* **Een SSH-client**. Zie voor meer informatie [Verbinding maken met HDInsight (Apache Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Een SSH-client. Zie voor meer informatie [Verbinding maken met HDInsight (Apache Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>De vluchtgegevens downloaden
 
-1. Blader naar [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
+1. Blader naar [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-2. Selecteer de volgende waarden op de pagina:
+2. Op de pagina, schakel alle velden en selecteer vervolgens de volgende waarden:
 
-   | Naam | Waarde |
+   | Name | Waarde |
    | --- | --- |
-   | Filterjaar |2013 |
+   | Filterjaar |2019 |
    | Filterperiode |Januari |
-   | Velden |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
-   
-   Wis alle andere velden. 
+   | Velden |Jaar, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, oorsprong, OriginCityName, OriginState, DestAirportID, doel, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
 
 3. Selecteer **Download**. U krijgt een ZIP-bestand met de gegevensvelden die u hebt geselecteerd.
 
@@ -68,36 +60,39 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 Er zijn veel manieren om gegevens te uploaden naar de opslag die is gekoppeld aan een HDInsight-cluster. In dit gedeelte gebruikt u `scp` om gegevens te uploaden. Zie [Gegevens uploaden naar HDInsight](hdinsight-upload-data.md) voor informatie over andere manieren om gegevens te uploaden.
 
-1. Open een opdrachtprompt en gebruik de volgende opdracht om het ZIP-bestand te uploaden naar het hoofdknooppunt van het HDInsight-cluster:
+1. Upload het ZIP-bestand naar het hoofdknooppunt van HDInsight-cluster. De onderstaande opdracht bewerken door te vervangen `FILENAME` met de naam van het ZIP-bestand en `CLUSTERNAME` met de naam van het HDInsight-cluster. Open een opdrachtprompt, instellen van uw werkmap naar de locatie van het bestand en voer vervolgens de opdracht.
 
-    ```bash
-    scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:<FILENAME.zip>
+    ```cmd
+    scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    Vervang *FILENAME* door de naam van het ZIP-bestand. Vervang *USERNAME* door de SSH-aanmelding voor het HDInsight-cluster. Vervang *CLUSTERNAME* door de naam van het HDInsight-cluster.
+2. Nadat het uploaden is voltooid, maakt u via SSH verbinding met het cluster. De onderstaande opdracht bewerken door te vervangen `CLUSTERNAME` met de naam van het HDInsight-cluster. Voer vervolgens de volgende opdracht in:
 
-   > [!NOTE]  
-   > Als u een wachtwoord gebruikt om uw SSH-aanmelding te verifiëren, wordt u gevraagd om het wachtwoord. Als u een openbare sleutel gebruikt, moet u mogelijk de parameter `-i` gebruiken en het pad naar de bijbehorende persoonlijke sleutel opgeven. Bijvoorbeeld `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
-
-2. Nadat het uploaden is voltooid, maakt u via SSH verbinding met het cluster. Voer op de opdrachtprompt de volgende opdracht in:
-
-    ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Gebruik de volgende opdracht om ZIP-bestand uit te pakken:
+3. Omgevingsvariabele instellen wanneer een SSH-verbinding tot stand is gebracht. Vervang `FILE_NAME`, `SQL_SERVERNAME`, `SQL_DATABASE`, `SQL_USER`, en `SQL_PASWORD` met de juiste waarden. Voer de opdracht:
 
     ```bash
-    unzip FILENAME.zip
+    export FILENAME=FILE_NAME
+    export SQLSERVERNAME=SQL_SERVERNAME
+    export DATABASE=SQL_DATABASE
+    export SQLUSER=SQL_USER
+    export SQLPASWORD='SQL_PASWORD'
     ```
 
-    Met deze opdracht wordt een CSV-bestand uitgepakt van ongeveer 60 MB.
+4. Pak het ZIP-bestand met de onderstaande opdracht:
 
-4. Gebruik de volgende opdrachten om een map te maken in de HDInsight-opslag en kopieer het CSV-bestand vervolgens naar de map:
+    ```bash
+    unzip $FILENAME.zip
+    ```
+
+5. Maak een map op HDInsight-opslag, en vervolgens het CSV-bestand kopiëren naar de map met de onderstaande opdracht:
 
     ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
-    hdfs dfs -put <FILENAME>.csv /tutorials/flightdelays/data/
+    hdfs dfs -put $FILENAME.csv /tutorials/flightdelays/data/
     ```
 
 ## <a name="transform-data-using-a-hive-query"></a>Gegevens transformeren met behulp van een Hive-query
@@ -106,7 +101,7 @@ Er zijn veel manieren om een Hive-taak uit te voeren in een HDInsight-cluster. I
 
 Als onderdeel van de Hive-taak, importeert u de gegevens uit het CSV-bestand naar een Hive-tabel met de naam **Delays**.
 
-1. Gebruik op de SSH-prompt die al is geopend voor het HDInsight-cluster de volgende opdracht om een nieuw bestand met de naam **flightdelays.hql** te maken en bewerken:
+1. De SSH-opdrachtprompt die u al voor het HDInsight-cluster hebt en gebruik de volgende opdracht uit om te maken en bewerken van een nieuw bestand met de naam **flightdelays.hql**:
 
     ```bash
     nano flightdelays.hql
@@ -174,21 +169,21 @@ Als onderdeel van de Hive-taak, importeert u de gegevens uit het CSV-bestand naa
     FROM delays_raw;
     ```
 
-2. Om het bestand op te slaan, drukt u op **Esc** en voert u vervolgens `:x` in.
+3. Om het bestand hebt opgeslagen, drukt u op **Ctrl + X**, klikt u vervolgens **y**, voert u.
 
-3. Gebruik de volgende opdracht om Hive te starten en het bestand **flightdelays.hql** uit te voeren:
+4. Gebruik de volgende opdracht om Hive te starten en het bestand **flightdelays.hql** uit te voeren:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-4. Als het script __flightdelays.hql__ is voltooid, gebruikt u de volgende opdracht om een interactieve Beeline-sessie te openen:
+5. Als het script **flightdelays.hql** is voltooid, gebruikt u de volgende opdracht om een interactieve Beeline-sessie te openen:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-5. Wanneer u de prompt `jdbc:hive2://localhost:10001/>` ziet, gebruikt u de volgende query om gegevens op te halen uit de geïmporteerde gegevens van vertraagde vluchten:
+6. Wanneer u de prompt `jdbc:hive2://localhost:10001/>` ziet, gebruikt u de volgende query om gegevens op te halen uit de geïmporteerde gegevens van vertraagde vluchten:
 
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -202,33 +197,23 @@ Als onderdeel van de Hive-taak, importeert u de gegevens uit het CSV-bestand naa
 
     Met deze query haalt u een lijst op met plaatsen waar er vertragingen door het weer zijn ontstaan, samen met de gemiddelde vertragingstijd. Deze gegevens worden opgeslagen in `/tutorials/flightdelays/output`. Later worden de gegevens met Sqoop vanaf deze locatie gelezen en geëxporteerd naar Azure SQL Database.
 
-6. Sluit Beeline af door `!quit` in te voeren bij de opdrachtprompt.
+7. Sluit Beeline af door `!quit` in te voeren bij de opdrachtprompt.
 
 ## <a name="create-a-sql-database-table"></a>Een SQL-databasetabel maken
 
-In dit gedeelte wordt ervan uitgegaan dat u al een Azure SQL-database hebt gemaakt. Als u nog geen SQL-database hebt, gebruikt u de informatie in [Een Azure SQL-database maken in Azure Portal](../sql-database/sql-database-get-started.md) om er een te maken.
+Er zijn veel manieren om verbinding te maken met SQL Database en een tabel te maken. In de volgende stappen wordt [FreeTDS](http://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
 
-Als u al een SQL-database hebt, moet u de naam van de server opvragen. Ga hiervoor naar [Azure Portal](https://portal.azure.com), selecteer **SQL-databases** en filter vervolgens op de naam van de database die u wilt gebruiken. De naam van de server wordt vermeld in de kolom **Server**.
-
-![Gegevens van Azure SQL-server opvragen](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Gegevens van Azure SQL-server opvragen")
-
-> [!NOTE]  
-> Er zijn veel manieren om verbinding te maken met SQL Database en een tabel te maken. In de volgende stappen wordt [FreeTDS](http://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
-
-
-1. Gebruik de volgende opdracht vanuit een SSH-verbinding met het cluster om FreeTDS te installeren:
+1. Als u wilt installeren FreeTDS, gebruik de volgende opdracht uit de open SSH-verbinding met het cluster:
 
     ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. Nadat de installatie is voltooid, gebruikt u de volgende opdracht om verbinding te maken met de SQL Database-server. Vervang **serverName** door de naam van de SQL Database-server. Vervang **adminLogin** en **adminPassword** door de aanmeldingsgegevens voor SQL Database. Vervang **databaseName** door de naam van de database.
+2. Nadat de installatie is voltooid, gebruikt u de volgende opdracht om verbinding te maken met de SQL Database-server.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
     ```
-
-    Voer desgevraagd het wachtwoord voor een beheerdersaccount voor SQL Database in.
 
     U ziet uitvoer die vergelijkbaar is met de volgende tekst:
 
@@ -236,22 +221,22 @@ Als u al een SQL-database hebt, moet u de naam van de server opvragen. Ga hiervo
     locale is "en_US.UTF-8"
     locale charset is "UTF-8"
     using default charset "UTF-8"
-    Default database being set to sqooptest
+    Default database being set to <yourdatabase>
     1>
     ```
 
-4. Voer de volgende regels in bij de prompt `1>`:
+3. Voer de volgende regels in bij de prompt `1>`:
 
     ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
-    CONSTRAINT [PK_delays] PRIMARY KEY CLUSTERED   
+    CONSTRAINT [PK_delays] PRIMARY KEY CLUSTERED
     ([origin_city_name] ASC))
     GO
     ```
 
-    Wanneer u de instructie `GO` invoert, worden de vorige instructies geëvalueerd. Met deze query maakt u een tabel met de naam **delays**, met een geclusterde index.
+    Wanneer u de instructie `GO` invoert, worden de vorige instructies geëvalueerd. Deze instructie maakt een tabel met de naam **vertragingen**, met een geclusterde index.
 
     Gebruik de volgende query om te controleren of de tabel is gemaakt:
 
@@ -267,32 +252,32 @@ Als u al een SQL-database hebt, moet u de naam van de server opvragen. Ga hiervo
     databaseName       dbo             delays        BASE TABLE
     ```
 
-5. Voer `exit` als reactie op de prompt `1>` om het hulpprogramma tsql af te sluiten.
+4. Voer `exit` als reactie op de prompt `1>` om het hulpprogramma tsql af te sluiten.
 
 ## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Gegevens met Apache Sqoop exporteren naar een SQL-database
 
-In de vorige gedeelten hebt u de getransformeerde gegevens op `/tutorials/flightdelays/output` gekopieerd. In dit gedeelte gebruikt u Sqoop om de gegevens in '/tutorials/flightdelays/output' te exporteren naar de tabel die u hebt gemaakt in Azure SQL-database. 
+In de vorige gedeelten hebt u de getransformeerde gegevens op `/tutorials/flightdelays/output` gekopieerd. In deze sectie gebruikt u Sqoop om de gegevens in `/tutorials/flightdelays/output` te exporteren naar de tabel die u hebt gemaakt in Azure SQL-database.
 
-1. Gebruik de volgende opdracht om te controleren of Sqoop de SQL-database kan zien:
+1. Controleren of Sqoop uw SQL-database zien kan door te voeren van de volgende opdracht:
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
     ```
 
-    Deze opdracht retourneert een lijst met databases, met inbegrip van de database waarin u eerder de tabel delays hebt gemaakt.
+    Met deze opdracht retourneert een lijst van databases, met inbegrip van de database waarin u gemaakt de `delays` eerdere tabel.
 
-2. Gebruik de volgende opdracht om gegevens uit hivesampletable te exporteren naar de tabel delays:
+2. Gegevens exporteren uit `/tutorials/flightdelays/output` naar de `delays` tabel met de onderstaande opdracht:
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+    sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop maakt verbinding met de database met daarin de tabel delays en exporteert gegevens uit de map `/tutorials/flightdelays/output` naar de tabel delays.
+    Sqoop maakt verbinding met de database bevat de `delays` tabel en exporteert u gegevens uit de `/tutorials/flightdelays/output` map naar de `delays` tabel.
 
-3. Als de sqoop-opdracht is voltooid, gebruikt u het hulpprogramma tsql om verbinding te maken met de database:
+3. Nadat de sqoop-opdracht is voltooid, moet u de tsql-hulpprogramma gebruiken om te verbinden met de database met de onderstaande opdracht:
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
     ```
 
     Gebruik de volgende instructies om te controleren of de gegevens zijn geëxporteerd naar de tabel delays:
@@ -306,44 +291,24 @@ In de vorige gedeelten hebt u de getransformeerde gegevens op `/tutorials/flight
 
     Typ `exit` om het hulpprogramma tsql af te sluiten.
 
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Nadat u de zelfstudie hebt voltooid, kunt u het cluster verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt.
+
+Als u wilt verwijderen van een cluster, Zie [verwijderen van een HDInsight-cluster met behulp van uw browser, PowerShell of Azure CLI](./hdinsight-delete-cluster.md).
+
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u gegevens kunt extraheren, transformeren en laden met behulp van een Apache Hadoop-cluster in HDInsight. Ga verder met de volgende zelfstudie als u wilt weten hoe u op aanvraag Hadoop-clusters van HDInsight maakt met Azure Data Factory.
+In deze zelfstudie maakt u een onbewerkte duurde CSV-gegevensbestand importeren in de opslag van een HDInsight-cluster en vervolgens de gegevens met Apache Hive in Azure HDInsight getransformeerd.  Ga verder met de volgende zelfstudie als u wilt weten hoe u op aanvraag Hadoop-clusters van HDInsight maakt met Azure Data Factory.
 
 > [!div class="nextstepaction"]
 >[Apache Hadoop-clusters op aanvraag maken in HDInsight met behulp van Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md)
 
 Zie de volgende artikelen voor andere manieren om te werken met gegevens in HDInsight:
 
-* [Zelfstudie: Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
-* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
-* [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
-* [Java MapReduce-programma's ontwikkelen voor Apache Hadoop in HDInsight][hdinsight-develop-mapreduce]
+* [Zelfstudie: Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight](../storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive.md)
+* [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
+* [Java MapReduce-programma's ontwikkelen voor Apache Hadoop op HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Apache Oozie gebruiken met HDInsight][hdinsight-use-oozie]
-* [Apache Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
-
-
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-
-[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
-
-[hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-
-[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+* [Apache Oozie gebruiken met HDInsight](hdinsight-use-oozie-linux-mac.md)
+* [Apache Sqoop gebruiken met HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)

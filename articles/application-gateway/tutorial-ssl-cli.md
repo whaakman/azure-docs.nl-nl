@@ -7,39 +7,39 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8689918bf33b0efdd9bbfabc6d3751672959c6bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233245"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955697"
 ---
-# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken met SSL-beëindiging met behulp van de Azure CLI
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Een toepassingsgateway maken met SSL-beëindiging met behulp van de Azure CLI
 
 U kunt de Azure CLI gebruiken om een ​​[toepassingsgateway](overview.md) te maken met een certificaat voor [SSL-beëindiging](ssl-overview.md) die een [ virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) gebruikt voor back-endservers. In dit voorbeeld bevat de schaalset twee virtuele-machine-instanties die zijn toegevoegd aan de standaard back-endpool van de toepassingsgateway.
 
-In deze zelfstudie leert u het volgende:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een zelfondertekend certificaat maken
 > * Een netwerk instellen
 > * Een toepassingsgateway maken met behulp van het certificaat
-> * Een virtuele-machineschaalset maken met de standaard back-endgroep
+> * Een virtuele-machineschaalset maken met de standaard back-endpool
 
-U kunt deze zelfstudie desgewenst volgen met behulp van [Azure PowerShell](tutorial-ssl-powershell.md).
+Als u liever, kunt u het gebruik van deze procedure te voltooien [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie de Azure CLI (versie 2.0.4 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel moet u uitvoeren van de Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-self-signed-certificate"></a>Een zelfondertekend certificaat maken
 
-Voor gebruik in de productie moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider. U maakt voor deze zelfstudie een zelfondertekend certificaat en pfx-bestand via de openssl-opdracht.
+Voor gebruik in de productie moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider. In dit artikel maakt u een zelfondertekend certificaat en pfx-bestand met de openssl-opdracht.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -183,5 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Een toepassingsgateway maken waarop meerdere websites worden gehost](./tutorial-multiple-sites-cli.md)
+* [Een toepassingsgateway maken waarop meerdere websites worden gehost](./tutorial-multiple-sites-cli.md)
