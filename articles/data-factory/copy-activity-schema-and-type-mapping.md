@@ -91,11 +91,11 @@ De volgende eigenschappen worden ondersteund onder `translator`  ->  `mappings` 
 | Eigenschap | Description                                                  | Vereist |
 | -------- | ------------------------------------------------------------ | -------- |
 | naam     | Naam van de bron- of -sink-kolom.                           | Ja      |
-| Volgnummer  | De kolomindex. Beginnen met 1. <br>Toepassen en vereist wanneer met behulp van tekst zonder kopregel gescheiden. | Nee       |
-| pad     | JSON-padexpressie voor elk veld op te halen of toewijzen. Van toepassing op hiërarchische gegevens bijvoorbeeld MongoDB/REST.<br>Voor velden onder het hoofdobject begint JSON-pad met root $; voor velden binnen de matrix die is gekozen door `collectionReference` eigenschap, JSON-pad begint met het matrixelement. | Nee       |
+| ordinal  | De kolomindex. Beginnen met 1. <br>Toepassen en vereist wanneer met behulp van tekst zonder kopregel gescheiden. | Nee       |
+| path     | JSON-padexpressie voor elk veld op te halen of toewijzen. Van toepassing op hiërarchische gegevens bijvoorbeeld MongoDB/REST.<br>Voor velden onder het hoofdobject begint JSON-pad met root $; voor velden binnen de matrix die is gekozen door `collectionReference` eigenschap, JSON-pad begint met het matrixelement. | Nee       |
 | type     | Data Factory tussentijdse gegevenstype van de bron- of -sink-kolom. | Nee       |
-| cultuur  | De cultuur van de bron- of -sink-kolom. <br>Van toepassing wanneer het type is `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee       |
-| Indeling   | Indeling van tekenreeks die moet worden gebruikt als type `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee       |
+| culture  | De cultuur van de bron- of -sink-kolom. <br>Van toepassing wanneer het type is `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee       |
+| format   | Indeling van tekenreeks die moet worden gebruikt als type `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee       |
 
 De volgende eigenschappen worden ondersteund onder `translator`  ->  `mappings` naast het object met `source` en `sink`:
 
@@ -287,7 +287,7 @@ Data Factory ondersteunt de volgende tijdelijke gegevenstypen: U kunt onderstaan
 
 * Byte[]
 * Boolean
-* DateTime
+* Datetime
 * Datetimeoffset
 * Decimal
 * Double
@@ -297,7 +297,7 @@ Data Factory ondersteunt de volgende tijdelijke gegevenstypen: U kunt onderstaan
 * Int64
 * Single
 * String
-* Periode
+* Timespan
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de andere artikelen van de Kopieeractiviteit:
