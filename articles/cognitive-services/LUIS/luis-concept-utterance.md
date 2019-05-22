@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598408"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65073159"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Inzicht in wat goede uitingen zijn voor uw LUIS-app
 
@@ -74,13 +74,47 @@ LUIS bouwt effectieve modellen met uitingen die zorgvuldig worden geselecteerd d
 
 Het is beter om te beginnen met een paar uitingen vervolgens [eindpunt uitingen bekijken](luis-how-to-review-endpoint-utterances.md) voor het juiste intentie voorspelling en entiteit ophalen.
 
-## <a name="punctuation-marks"></a>Leestekens
+## <a name="utterance-normalization"></a>Utterance normalisering
 
-LUIS negeren niet leestekens, standaard, omdat sommige clienttoepassingen betekenis op deze markeringen kunnen plaatsen. Zorg ervoor dat uw voorbeeld-uitingen gebruikt zowel interpunctie en geen interpunctie in volgorde voor beide stijlen naar de dezelfde relatieve scores. Als er interpunctie is geen specifieke betekenis in uw clienttoepassing, kunt u overwegen [wordt genegeerd interpunctie](#ignoring-words-and-punctuation) met behulp van patronen. 
+Utterance normalisatie is het proces van de gevolgen van interpunctie en diakritische tekens worden genegeerd tijdens het trainen en voorspellen.
 
-## <a name="ignoring-words-and-punctuation"></a>Woorden en leestekens worden genegeerd
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Utterance normalisering voor diakritische tekens en leestekens
 
-Als u wilt dat specifieke woorden of de interpunctieteken in het voorbeeld utterance negeren, gebruikt u een [patroon](luis-concept-patterns.md#pattern-syntax) met de _negeren_ syntaxis. 
+Utterance normalisering wordt gedefinieerd bij het maken of importeren van de app omdat het een instelling in de JSON-bestand van de app. De utterance normalisatie-instellingen zijn standaard uitgeschakeld. 
+
+Diakritische tekens zijn merken of tekens in de tekst, zoals: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+Als uw app normalisering ingeschakeld wordt, beoordeelt de **Test** deelvenster,, batchtests en eindpunt query's verandert er voor alle uitingen diakritische tekens of leestekens.
+
+Schakel utterance normalisering voor diakritische tekens of de interpunctieteken naar uw LUIS-JSON-app-bestand in de `settings` parameter.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+Normaliseren **interpunctie** betekent dat voordat uw modellen ontvang training en voordat u uw eindpunt query's ophalen voorspeld, interpunctie wordt verwijderd uit de uitingen. 
+
+Normaliseren **diakritische tekens** vervangt de tekens met diakritische tekens in uitingen met gewone tekens. Bijvoorbeeld: `Je parle français` wordt `Je parle francais`. 
+
+Normalisering betekent niet dat u wordt niet Zie interpunctie en diakritische tekens in uw voorbeeld-uitingen of voorspelling antwoorden, alleen dat ze worden genegeerd tijdens het trainen en voorspellen.
+
+
+### <a name="punctuation-marks"></a>Leestekens
+
+Als leestekens niet is genormaliseerd, negeren niet LUIS leestekens, standaard, omdat sommige clienttoepassingen betekenis op deze markeringen kunnen plaatsen. Zorg ervoor dat uw voorbeeld-uitingen gebruikt zowel interpunctie en geen interpunctie in volgorde voor beide stijlen naar de dezelfde relatieve scores. 
+
+Als interpunctie geen specifieke betekenis in uw clienttoepassing heeft, kunt u overwegen [wordt genegeerd interpunctie](#utterance-normalization) door het normaliseren van leestekens. 
+
+### <a name="ignoring-words-and-punctuation"></a>Woorden en leestekens worden genegeerd
+
+Als u negeren specifieke woorden of de interpunctieteken in patronen wilt, gebruikt u een [patroon](luis-concept-patterns.md#pattern-syntax) met de _negeren_ syntaxis van tussen vierkante haken, `[]`. 
 
 ## <a name="training-utterances"></a>Training-uitingen
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510732"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002990"
 ---
 # <a name="what-are-the-speech-services"></a>Wat zijn de Speech Services?
 
@@ -42,7 +42,9 @@ Deze functies zijn vormen van de Azure-Services voor spraak. Gebruik de koppelin
 Meer informatie over wat is er nieuw in de Azure-Services voor spraak.
 
 * Mei 2019 - documentatie is nu beschikbaar voor [conversatie transcriptie](conversation-transcription-service.md), [Call Center transcriptie](call-center-transcription.md), en [stem op de eerste virtuele assistenten](voice-first-virtual-assistants.md).
-* Mei 2019 - Speech SDK 1.5.0 uitgebracht. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
+* Mei 2019
+    * Spraak SDK 1.5.1 uitgebracht. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
+    * Spraak SDK 1.5.0 uitgebracht. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
 * April 2019 - die zijn uitgebracht spraak SDK 1.4.0 met ondersteuning voor tekst naar spraak (bèta) voor C++ C#, en Java in Windows en Linux. Bovendien de SDK biedt nu ondersteuning voor MP3- en Opus/Ogg audio-indelingen voor C++ en C# op Linux. Zie voor een volledige lijst van updates, verbeteringen en bekende problemen, [opmerkingen bij de Release](releasenotes.md).
 * Maart 2019 - is een nieuw eindpunt voor spraak die als resultaat een volledige lijst met beschikbare stemmen in een bepaalde regio geeft nu beschikbaar. Bovendien worden nieuwe regio's worden nu ondersteund voor TTS. Zie voor meer informatie, [Text to Speech-API reference (REST)](rest-text-to-speech.md).
 

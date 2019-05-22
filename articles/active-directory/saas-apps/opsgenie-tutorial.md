@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f395ae51d51e56668482ad6c8d446bdd31050fea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870621"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987494"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Zelfstudie: Azure Active Directory-integratie met OpsGenie
 
@@ -71,16 +71,16 @@ Voor het configureren van de integratie van OpsGenie in Azure AD, moet u OpsGeni
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met OpsGenie op basis van een testgebruiker met de naam **Britta Simon**.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met OpsGenie op basis van een testgebruiker met de naam **B. Simon**.
 Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in OpsGenie tot stand worden gebracht.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met OpsGenie, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding OpsGenie](#configure-opsgenie-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker OpsGenie](#create-opsgenie-test-user)**  : als u wilt een equivalent van Britta Simon in OpsGenie die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met B. Simon.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - B. Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Maken van de testgebruiker OpsGenie](#create-opsgenie-test-user)**  : als u wilt een equivalent van B. Simon in OpsGenie die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -149,7 +149,7 @@ Azure AD eenmalige aanmelding configureren met OpsGenie, moet u de volgende stap
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal B. Simon genoemd.
 
 1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
@@ -163,10 +163,10 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam** **Britta Simon**in.
+    a. In de **naam** veld **B. Simon**.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
-    Bijvoorbeeld: BrittaSimon@contoso.com
+    b. In het veld **Gebruikersnaam** typt u **bsimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
@@ -174,7 +174,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan OpsGenie.
+In deze sectie maakt inschakelen u B. Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan OpsGenie.
 
 1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **OpsGenie**.
 
@@ -192,7 +192,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+5. In de **gebruikers en groepen** dialoogvenster Selecteer **B. Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
 
 6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
@@ -200,7 +200,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-opsgenie-test-user"></a>OpsGenie testgebruiker maken
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in OpsGenie. 
+Het doel van deze sectie is het maken van een gebruiker met de naam van B. Simon in OpsGenie. 
 
 1. In een browservenster, meld u aan bij uw tenant OpsGenie als beheerder.
 
@@ -214,14 +214,14 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
    
     ![Instellingen voor OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-    a. In de **e** tekstvak, typ het e-mailadres van BrittaSimon behandeld in Azure Active Directory.
+    a. In de **e** tekstvak, typ het e-mailadres van B. Simon behandeld in Azure Active Directory.
    
-    b. In de **volledige naam** tekstvak, type **Britta Simon**.
+    b. In de **volledige naam** tekstvak, type **B. Simon**.
    
     c. Klik op **Opslaan**. 
 
 >[!NOTE]
->Julia ontvangt een e-mail met instructies voor het instellen van haar profiel.
+>B. Steen ontvangt een e-mail met instructies voor het instellen van het profiel.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

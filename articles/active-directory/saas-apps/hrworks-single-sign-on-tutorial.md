@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707642"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Zelfstudie: Azure Active Directory-integratie met HRworks Single Sign-On
 
@@ -130,7 +130,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met HRworks Single Sign-
 
 2. Klik op **beheerder** > **basisbeginselen** > **Security** > **Single Sign-on** uit aan de linkerkant van het menu van de balk en voer de volgende stappen uit:
 
-       ![Eenmalige aanmelding configureren](./media/hrworks-single-sign-on-tutorial/configure01.png)
+       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Controleer de **gebruik Single Sign-on** vak.
 
@@ -138,7 +138,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met HRworks Single Sign-
 
     c. Selecteer **afzonderlijke NameID id** als **waarde voor de NameID**.
 
-    d. In Kladblok, opent u de Metadata XML die u hebt gedownload van de Azure-portal, Kopieer de inhoud en plak deze in de **metagegevens** tekstvak.
+    d. In Kladblok, opent u de Metadata XML die u hebt gedownload van de Azure-portal, Kopieer de inhoud en plak deze in de **metagegevens** tekstvak.
 
     e. Klik op **Opslaan**.
 
@@ -202,7 +202,7 @@ Als u wilt dat Azure AD-gebruikers, meld u aan in op HRworks Single Sign-On, ze 
 
 2. Klik op **beheerder** > **personen** > **personen** > **nieuwe persoon** vanuit de Klik linksboven in de menubalk.
 
-     ![Eenmalige aanmelding configureren](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Eenmalige aanmelding configureren](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. Klik in het pop-upvenster op **volgende**.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8ff026743ccda0a47ce176db51dbc7913376f46
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862392"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Zelfstudie: Azure Active Directory-integratie met Bersin
 
@@ -51,7 +51,7 @@ In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD 
 
 Voor het configureren van de integratie van Bersin in Azure AD, moet u Bersin uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Bersin uit de galerie, moet u de volgende stappen uitvoeren:**
+**Bersin uit de galerie toevoegen**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
@@ -86,7 +86,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met Bersin, moet 
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voor het configureren van Azure AD eenmalige aanmelding met Bersin, moet u de volgende stappen uitvoeren:
+Voor het configureren van Azure AD eenmalige aanmelding met Bersin, voer de volgende stappen uit:
 
 1. In de [Azure-portal](https://portal.azure.com/)op de **Bersin** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
@@ -100,7 +100,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Bersin, moet u de vo
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
+4. Op de **SAML-basisconfiguratie** sectie, als u wilt configureren van de toepassing in **IDP** gestart modus, voert de volgende stap:
 
     ![Bersin domein en URL's, eenmalige aanmelding informatie](common/idp-identifier-relay.png)
 
@@ -110,7 +110,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Bersin, moet u de vo
 
     c. In het tekstvak **Relaystatus** typt u een URL met de volgende notatie: `https://www.bersin.com/secure/`
 
-5. Klik op **Extra URL's instellen** en voer de volgende stappen uit als u de toepassing in de met **SP** geïnitieerde modus wilt configureren:
+5. Klik op **extra URL's instellen** en voer de volgende stappen uit als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Bersin domein en URL's, eenmalige aanmelding informatie](common/metadata-upload-additional-signon.png)
 
@@ -132,7 +132,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met Bersin, moet u de vo
 
 ### <a name="configure-bersin-single-sign-on"></a>Bersin voor eenmalige aanmelding configureren
 
-Het configureren van eenmalige aanmelding op **Bersin** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Bersin ondersteuningsteam](mailto:ramansabde@gmail.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op **Bersin** zijde, verzendt de gedownloade **federatieve metagegevens-XML** en toepassing van de gekopieerde URL's van Azure portal om te [Bersin ondersteuningsteam](mailto:ramansabde@gmail.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -146,13 +146,13 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Knop Nieuwe gebruiker](common/new-user.png)
 
-3. In Gebruikerseigenschappen voert u de volgende stappen uit.
+3. Voer de volgende stappen uit in de eigenschappen van de gebruiker.
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam** **Britta Simon**in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -181,13 +181,13 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+6. Als u verwacht een waarde voor de rol in het SAML-verklaring, klikt u vervolgens de **rol selecteren** dialoogvenster, selecteer de juiste rol voor de gebruiker in de lijst. Klik op de **Selecteer** knop aan de onderkant van het scherm.
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
 ### <a name="create-bersin-test-user"></a>Bersin testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Bersin. Werken met de [Bersin ondersteuningsteam](mailto:USBersinServiceClient@deloitte.com) om toe te voegen de gebruikers in het platform Bersin of het domein dat nodig is om te worden opgenomen in de whitelist in het Bersin-platform. Als het domein is toegevoegd door het team, krijgen automatisch gebruikers ingericht voor het Bersin-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Bersin. Werken met de [Bersin ondersteuningsteam](mailto:USBersinServiceClient@deloitte.com) om toe te voegen de gebruikers in het platform Bersin of het domein dat moet worden toegevoegd aan een acceptatielijst voor het platform Bersin. Als het domein is toegevoegd door het team, krijgen automatisch gebruikers ingericht voor het Bersin-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 

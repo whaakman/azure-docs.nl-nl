@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
-ms.openlocfilehash: f25c3801553b0ac0c725170cda95f5c1eacc3637
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 67f2531b24796de1e00505fdc757f3c2244c5054
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020746"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002340"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Quickstart: Het herkennen van gesproken tekst in Objective-C in macOS met behulp van de spraak-SDK
 
@@ -34,7 +34,7 @@ Voordat u begint, bekijkt u de lijst vereisten:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.5.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.5.1`.
 
 De Cognitive Services spraak-SDK voor Mac wordt gedistribueerd als een bundel framework.
 Het kan worden gebruikt in Xcode-projecten als een [CocoaPod](https://cocoapods.org/), of die zijn gedownload van https://aka.ms/csspeech/macosbinary en handmatig worden gekoppeld. Deze handleiding wordt een CocoaPod gebruikt.
@@ -71,7 +71,7 @@ Maak in de dialoogvensters die volgen de volgende selecties:
     ```
     target 'helloworld' do
         platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.0'
+        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.1'
     end
     ```
 1. Navigeer naar de `helloworld` map in een terminal en voer de opdracht `pod install`. Dit genereert een `helloworld.xcworkspace` Xcode-werkruimte met zowel de voorbeeld-app en de SDK spraak als een afhankelijkheid. Deze werkruimte wordt gebruikt in het volgende.
@@ -79,7 +79,8 @@ Maak in de dialoogvensters die volgen de volgende selecties:
 ## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
 
 1. Open de `helloworld.xcworkspace` werkruimte in Xcode.
-1. Vervang de inhoud van de automatisch gegenereerde `AppDelegate.m` door het bestand: [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
+1. Vervang de inhoud van het automatisch gegenereerde bestand `AppDelegate.m` door:  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
 1. Vervang de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.
 1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
 

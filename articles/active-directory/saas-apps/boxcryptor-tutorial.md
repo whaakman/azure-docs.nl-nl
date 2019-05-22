@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc04a307779b47b50cd16a81c0566b72bafab95
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c4beac0ab739d62eb7acb00e6b2db717b5f43e15
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900700"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Zelfstudie: Azure Active Directory-integratie met Boxcryptor
 
@@ -181,7 +181,7 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 ### <a name="create-boxcryptor-test-user"></a>Testgebruiker maken in Boxcryptor
 
-In deze sectie gaat u in Boxcryptor een gebruiker maken met de naam Britta Simon. Werk samen met het  [ondersteuningsteam van Boxcryptor](mailto:support@boxcryptor.com)  om de gebruiker die of het domein dat in het Boxcryptor-platform in de whitelist moet worden opgenomen, toe te voegen. Als het team het domein heeft toegevoegd, worden gebruikers automatisch ingericht voor het Boxcryptor-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie gaat u in Boxcryptor een gebruiker maken met de naam Britta Simon. Werken met [Boxcryptor ondersteuningsteam](mailto:support@boxcryptor.com) om toe te voegen de gebruikers of het domein dat moet worden toegevoegd aan een acceptatielijst voor het platform Boxcryptor. Als het team het domein heeft toegevoegd, worden gebruikers automatisch ingericht voor het Boxcryptor-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

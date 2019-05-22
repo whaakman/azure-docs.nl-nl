@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898696"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Zelfstudie: Azure Active Directory-integratie met CX Suite voorzien
 
@@ -194,7 +194,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 ### <a name="create-foresee-cx-suite-test-user"></a>Met CX Suite voorzien testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in CX Suite voorzien. Werken met [voorzien CX Suite ondersteuningsteam](mailto:support@foresee.com) de gebruikers of het domein dat nodig is om te worden opgenomen in het platform, CX Suite voorzien in de whitelist toe te voegen. Als het domein is toegevoegd door het team, krijgen automatisch gebruikers ingericht voor het platform CX Suite voorzien. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in CX Suite voorzien. Werken met [voorzien CX Suite ondersteuningsteam](mailto:support@foresee.com) om toe te voegen de gebruikers of het domein dat moet worden toegevoegd aan een acceptatielijst voor het platform CX Suite voorzien. Als het domein is toegevoegd door het team, krijgen automatisch gebruikers ingericht voor het platform CX Suite voorzien. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

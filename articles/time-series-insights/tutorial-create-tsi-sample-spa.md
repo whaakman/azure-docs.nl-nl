@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Een web-app van Azure Time Series Insights met één pagina maken | Microsoft Docs'
-description: Lees hoe u een webtoepassing met één pagina maakt waarmee gegevens in een TSI-omgeving worden opgevraagd en weergegeven.
+description: Informatie over het maken van een webtoepassing van één pagina waarmee query's en gegevens uit een Azure Time Series Insights-omgeving wordt weergegeven.
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
@@ -8,20 +8,22 @@ ms.date: 04/25/2019
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 18f5c14a9427f4d7e34a802b2bcc0612a51a804a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c2de4bd1f9d487cbb58be9581a0395bf1caa3f9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573094"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991900"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Zelfstudie: Een web-app van Azure Time Series Insights met één pagina maken
 
-In deze zelfstudie leidt u door het proces voor het maken van uw eigen één pagina web-App voor toegang tot gegevens van de Time Series Insights. Specifiek, vindt u meer over:
+In deze zelfstudie leidt u door het proces voor het maken van uw eigen webtoepassing één pagina (SPA) voor toegang tot Azure Time Series Insights-gegevens. 
+
+In deze zelfstudie wordt aandacht besteed aan:
 
 > [!div class="checklist"]
 > * Het ontwerp van de toepassing
-> * Registreren van de toepassing bij Azure Active Directory (AD)
+> * Informatie over het registreren van uw toepassing met Azure Active Directory (Azure AD)
 > * Maken, publiceren en testen van de webtoepassing
 
 > [!NOTE]
@@ -30,105 +32,103 @@ In deze zelfstudie leidt u door het proces voor het maken van uw eigen één pag
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Meld u aan voor een [gratis Azure-abonnement](https://azure.microsoft.com/free/) als u nog geen abonnement hebt.
+* Zich aanmelden voor een [gratis Azure-abonnement](https://azure.microsoft.com/free/) als u er nog geen hebt.
 
-* U moet ook een gratis exemplaar van Visual Studio. Download de [Community-versie 2017 of 2019](https://www.visualstudio.com/downloads/) aan de slag.
+* Een gratis exemplaar van Visual Studio. Download de [2017 of 2019 Community versies](https://www.visualstudio.com/downloads/) aan de slag.
 
-* U moet ook de **IIS Express**, **Web Deploy**, en **core-hulpprogramma's voor Azure Cloud Services** onderdelen voor Visual Studio. Voeg deze door het wijzigen van de installatie van Visual Studio.
+* De IIS Express, Web Deploy en Azure Cloud Services-hulpprogramma's basisonderdelen voor Visual Studio. De onderdelen toevoegen door het wijzigen van de installatie van Visual Studio.
 
-## <a name="application-design-overview"></a>Overzicht van ontwerp van de toepassing
+## <a name="application-design"></a>Toepassingsontwerp
 
-De Time Series Insights één pagina voorbeeld-app vormt de basis voor het ontwerp en de code die wordt gebruikt in deze zelfstudie. Voor de code wordt de JavaScript-bibliotheek voor de TSI-client gebruikt. De TSI-clientbibliotheek biedt een abstractie voor twee API-hoofdcategorieën:
+De Time Series Insights-voorbeeld beveiligd-WACHTWOORDVERIFICATIE vormt de basis voor het ontwerp en de code die wordt gebruikt in deze zelfstudie. De code maakt gebruik van de Time Series Insights JavaScript-clientbibliotheek. De clientbibliotheek van Time Series Insights biedt een abstractie van twee API-hoofdcategorieën:
 
-- **Wrapper-methoden voor het aanroepen van de Query-API's voor TSI**: REST-API's waarmee u met behulp van JSON-expressies query's kunt uitvoeren op TSI-gegevens. De methoden zijn georganiseerd onder de `TsiClient.server`-naamruimte van de bibliotheek.
+- **Wrapper methoden voor het aanroepen van de Time Series Insights query API's**: REST API's die kunt u gegevens op te vragen voor Time Series Insights met behulp van JSON-expressies. De methoden zijn ingedeeld in de naamruimte TsiClient.server van de bibliotheek.
 
-- **Methoden voor het maken en vullen van verschillende typen grafiekbesturingselementen**: Methoden die worden gebruikt om de TSI-gegevens te visualiseren op een webpagina. De methoden zijn georganiseerd onder de `TsiClient.ux`-naamruimte van de bibliotheek.
+- **Methoden voor het maken en vullen van verschillende typen grafiekbesturingselementen**: Methoden die u gebruiken kunt om Time Series Insights-gegevens in een webpagina te visualiseren. De methoden zijn ingedeeld in de naamruimte TsiClient.ux van de bibliotheek.
 
-In deze zelfstudie worden ook de gegevens uit TSI-omgeving van de voorbeeldtoepassing gebruikt. Zie de zelfstudie [JavaScript-clientbibliotheek van Azure Time Series Insights ontdekken](tutorial-explore-js-client-lib.md) voor meer informatie over de structuur van de TSI-voorbeeldtoepassing en het gebruik van de TSI-clientbibliotheek.
+In deze zelfstudie wordt ook gegevens uit de voorbeeldtoepassing Time Series Insights-omgeving. Zie de zelfstudie voor meer informatie over de structuur van de Time Series Insights-voorbeeldtoepassing en hoe deze maakt gebruik van de Time Series Insights-clientbibliotheek [verkennen van de Azure Time Series Insights JavaScript-clientbibliotheek](tutorial-explore-js-client-lib.md).
 
 ## <a name="register-the-application-with-azure-ad"></a>Toepassing registreren bij Azure AD
 
-Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registratieproces zorgt ervoor dat de identiteit voor een toepassing wordt geconfigureerd, zodat de toepassing OAuth-ondersteuning kan gebruiken voor eenmalige aanmelding. OAuth vereist dat SPA's de 'impliciete' autorisatietoekenning gebruiken, die u gaat bijwerken in het manifest van de toepassing. Een toepassingsmanifest is een JSON-weergave van de identiteitsconfiguratie van de toepassing.
+Voordat u de toepassing bouwt, moet u deze registreren bij Azure AD. Registratie biedt de configuratie van de identiteit, zodat de toepassing OAuth-ondersteuning voor eenmalige aanmelding kunt. OAuth vereist kuuroorden gebruik van de impliciete toekenning autorisatietype. U kunt de autorisatie in het toepassingsmanifest bijwerken. Een toepassingsmanifest is een JSON-weergave van de identiteitsconfiguratie van de toepassing.
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met uw Azure-abonnementsaccount.  
-1. Selecteer de **Azure Active Directory** resource in het linkerdeelvenster vervolgens **App-registraties**, klikt u vervolgens **+ nieuwe toepassing registreren**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van de account van uw Azure-abonnement.  
+1. Selecteer achtereenvolgens **Azure Active Directory** > **App-registraties** > **Registratie van nieuwe toepassing**.
 
-   [![Azure-portal Azure AD-toepassing registreren](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
+   [![Azure portal - Begin het Azure AD-toepassing registreren](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
 
-1. Op de **maken** pagina, vult u de vereiste parameters.
+1. In de **maken** deelvenster, vul de vereiste parameters.
 
    Parameter|Description
    ---|---
-   **Naam** | Geef een zinvolle naam op voor de registratie.  
-   **Toepassingstype** | Omdat u een SPA-webtoepassing maakt, kunt u Web-app/-API laten staan.
-   **Aanmeldings-URL** | Voer de URL in voor de startpagina/aanmeldingspagina van de toepassing. Omdat de toepassing zal worden gehost in Azure App Service (hoger), moet u een URL in de ' https:\//azurewebsites.net "domein. In dit voorbeeld is de naam gebaseerd op de naam van de registratie.
+   **Naam** | Voer een naam zinvolle registratie.  
+   **Toepassingstype** | Laat de **Web-app/API**.
+   **Aanmeldings-URL** | Voer de URL voor de aanmeldingspagina (thuis) opgeven van de toepassing. Omdat de toepassing zal later worden gehost in Azure App Service, moet u een URL in de https:\//azurewebsites.net domein. In dit voorbeeld is de naam gebaseerd op de naam van de registratie.
 
-   Als u klaar bent, klikt u op **Maken** om de registratie van de nieuwe toepassing te voltooien.
+   Selecteer **maken** te maken van de nieuwe toepassing registreren.
 
-   [![Registratie in Azure portal Azure AD-toepassing - maken](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
+   [![Azure portal - optie de maken in het deelvenster Azure AD-toepassing registreren](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
 
-1. Resourcetoepassingen bieden REST-API's voor gebruik door andere toepassingen en zijn ook geregistreerd bij Azure AD. API's bieden nauwkeurige/beveiligde toegang tot clienttoepassingen, door het beschikbaar stellen van 'scopes'. Omdat uw toepassing de API 'Azure Time Series Insights' gaat aanroepen, moet u de API en de scope opgeven, waarvoor dan tijdens runtime een machtiging wordt aangevraagd/verleend. Selecteer **instellingen**, klikt u vervolgens **vereiste machtigingen**, klikt u vervolgens **+ toevoegen**.
+1. Resource-toepassingen bieden REST-API's dat andere toepassingen kunnen gebruiken. De API's zijn ook geregistreerd bij Azure AD. API's bieden nauwkeurige, beveiligde toegang tot clienttoepassingen bij het blootstellen van *scopes*. Omdat de Azure Time Series Insights-API wordt aangeroepen door uw toepassing, moet u de API en het bereik opgeven. Machtiging is verleend aan de API en het bereik tijdens runtime. Selecteer **instellingen** > **vereiste machtigingen** > **toevoegen**.
 
-   [![Azure-portal Azure AD machtigingen toevoegen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
+   [![Azure portal - optie voor het toevoegen van Azure AD-machtigingen voor het toevoegen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
 
-1. Klik op de pagina **API-toegang toevoegen** op **1 Een API selecteren** om de API van TSI op te geven. Typ op de pagina **Een API selecteren** 'azure time' in het zoekveld. Vervolgens selecteert u de 'Azure Time Series Insights' API in de lijst met resultaten en klikt u op **Selecteer**.
+1. In de **API-toegang toevoegen** venster **1 een API selecteren** om op te geven van de Azure Time Series Insights-API. In de **Select an API** deelvenster in het zoekvak invoeren **azure tijd**. Selecteer **Azure Time Series Insights** in de lijst met resultaten. Kies **Selecteren**.
 
-   [![Machtigingen - API van Azure portal Azure AD toevoegen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
+   [![Azure portal: de zoekoptie voor het toevoegen van Azure AD-machtigingen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
 
-1. Geef nu een scope op voor de API. Klik terug op de pagina **API-toegang toevoegen** op **2 Machtigingen selecteren**. Selecteer op de pagina **Toegang inschakelen** de scope 'Access Azure Time Series Insights service'. Klik op **Selecteer**, waarmee u wordt geretourneerd de **API-toegang toevoegen** pagina, waarbij u klikken op **gedaan**.
+1. Een bereik voor de API, selecteren in de **API-toegang toevoegen** venster **2 bevoegdheid Select**. In de **toegang inschakelen** venster de **toegang tot Azure Time Series Insights-service** bereik. Kies **Selecteren**. U bent terug naar de **API-toegang toevoegen** deelvenster. Selecteer **Done**.
 
-   [![Azure-portal Azure AD machtigingen - bereik toevoegen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
+   [![Azure-portal: een bereik voor het toevoegen van Azure AD-machtigingen instellen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
 
-1. Als u terugkeert naar de pagina **Vereiste machtigingen**, ziet u dat daar nu de API 'Azure Time Series inzicht' wordt vermeld. U moet de toepassing ook vooraf toegang geven tot de API en scope, voor alle gebruikers. Klik op de **machtigingen verlenen** aan de bovenkant en selecteer **Ja**.
+1. In de **vereiste machtigingen** in het deelvenster van de Azure Time Series Insights-API wordt nu weergegeven. U moet ook de machtiging vóór toestemming voor de toepassing voor toegang tot de API en het bereik voor alle gebruikers opgeven. Selecteer **machtigingen verlenen**, en selecteer vervolgens **Ja**.
 
-   [![Azure-portal Azure AD - machtigingen voor toestemming vereist](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png#lightbox)
+   [![Azure portal - optie voor het verlenen machtigingen voor het toevoegen van Azure AD vereiste machtigingen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png#lightbox)
 
-1. Zoals eerder vermeld, moet u ook het manifest van de toepassing bijwerken. Klik op de naam van de toepassing in de breadcrumbs om terug te keren naar de pagina **Geregistreerde app**. Selecteer **Manifest**, wijzigt de `oauth2AllowImplicitFlow` eigenschap `true`, klikt u vervolgens op **opslaan**.
+1. Zoals we eerder besproken, moet u ook het toepassingsmanifest bijwerken. Selecteer in het horizontale menu aan de bovenkant van het deelvenster (de ' breadcrumbs'), de naam van de toepassing om terug te keren naar de **geregistreerde app** deelvenster. Selecteer **Manifest**, wijzigt de `oauth2AllowImplicitFlow` eigenschap `true`, en selecteer vervolgens **opslaan**.
 
-   [![Manifest van de Azure-portal Azure AD-update](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
+   [![Azure portal - Update de Azure AD-manifest](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
 
-1. Klik tot slot op de breadcrumbs om weer terug te keren naar de pagina **Geregistreerde app** en kopieer de URL voor de **startpagina** en de **toepassings-id** voor uw toepassing. U gebruikt deze eigenschappen in een latere stap.
+1. Selecteer in het koppelingenmenu, de naam van de toepassing om terug te keren naar de **geregistreerde app** deelvenster. Kopieer de waarden voor **startpagina** en **toepassings-ID** voor uw toepassing. U kunt deze eigenschappen gebruiken verderop in de zelfstudie.
 
-   [![Azure-portal Azure AD-eigenschappen](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png#lightbox)
+   [![Azure portal: Kopieer de URL van startpagina en toepassings-ID-waarden voor uw toepassing](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png#lightbox)
 
 ## <a name="build-and-publish-the-web-application"></a>Webtoepassing bouwen en publiceren
 
-1. Maak een map voor het opslaan van de projectbestanden van uw toepassing. Blader vervolgens naar elk van de volgende URL's, met de rechtermuisknop op de koppeling 'Raw' in het bovenste juiste gebied van de pagina en 'Opslaan als' in de directory van uw project.
+1. Maak een map voor het opslaan van de projectbestanden van uw toepassing. Vervolgens gaat u naar elk van de volgende URL's. Met de rechtermuisknop op de **Raw** koppelen in de rechterbovenhoek van de pagina en selecteer vervolgens **opslaan als** om op te slaan van de bestanden in uw projectmap.
+
+   - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML en JavaScript voor de pagina
+   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): Opmaakmodel
 
    > [!NOTE]
-   > Afhankelijk van de browser moet u de bestandsextensie misschien wijzigen (in HTML of CSS) voordat u het bestand opslaat.
+   > Afhankelijk van de browser moet u mogelijk de bestandsextensies .html of CSS wijzigen voordat u het bestand opslaat.
 
-   - [**index.html**](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML en JavaScript voor de pagina.
-   - [**sampleStyles.css**]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): Opmaakmodel.
+1. Controleer of de vereiste onderdelen zijn geïnstalleerd in Visual Studio. De IIS Express, Web Deploy en Azure Cloud Services core extra onderdelen voor Visual Studio moeten worden geïnstalleerd.
 
-1. Controleer of u Visual Studio heeft de vereiste onderdelen geïnstalleerd.
-
-    [![VS - geïnstalleerde onderdelen wijzigen](media/tutorial-create-tsi-sample-spa/vs-installation.png)](media/tutorial-create-tsi-sample-spa/vs-installation.png#lightbox)
-
-    * U moet de **IIS Express**, **Web Deploy**, en **core-hulpprogramma's voor Azure Cloud Services** onderdelen voor Visual Studio.
+    [![Visual Studio - wijzigen van de geïnstalleerde onderdelen](media/tutorial-create-tsi-sample-spa/vs-installation.png)](media/tutorial-create-tsi-sample-spa/vs-installation.png#lightbox)
 
     > [!NOTE]
-    > Uw Visual Studio-ervaring kan enigszins afwijken van de beschreven voorbeelden, afhankelijk van de versie en configuratie-instellingen.
+    > Uw ervaring met Visual Studio kan enigszins afwijken van de beschreven voorbeelden, afhankelijk van uw versie en configuratie-instellingen.
 
-1. Meld u aan bij Visual Studio om een project voor de webtoepassing te maken. Selecteer in het menu **File** de optie **Open** en dan **Web Site**.
+1. Open Visual Studio en meld u aan. Een project voor de web-App maken op de **bestand** in het menu **Open** > **website**.
 
-    [![Visual Studio - nieuwe oplossing maken](media/tutorial-create-tsi-sample-spa/vs-solution-create.png)](media/tutorial-create-tsi-sample-spa/vs-solution-create.png#lightbox)
+    [![Visual Studio - een nieuwe oplossing maken](media/tutorial-create-tsi-sample-spa/vs-solution-create.png)](media/tutorial-create-tsi-sample-spa/vs-solution-create.png#lightbox)
 
-1. Op de **Open Web Site** dialoogvenster, selecteert u de werkmap waarin u de HTML en CSS-bestanden hebt opgeslagen en klik vervolgens op **Open**.
+1. In de **Open Web Site** deelvenster, selecteert u de werkmap waarin u de HTML en CSS-bestanden hebt opgeslagen, en selecteer vervolgens **Open**.
 
-   [![Visual Studio - website van bestand openen](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png#lightbox)
+   [![Visual Studio - het menu bestand met de Open- en website-opties](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png#lightbox)
 
-1. Open **Solution Explorer** via het menu **View** van Visual Studio. U ziet uw nieuwe oplossing met een website-project (pictogram van globe), die de HTML en CSS-bestanden bevat.
+1. In de Visual Studio **weergave** in het menu **Solution Explorer**. Hiermee opent u de nieuwe oplossing. Een website-project (pictogram van globe), waarin de HTML en CSS-bestanden bevat.
 
-   [![Visual Studio - nieuwe oplossing voor solution explorer](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png#lightbox)
+   [![Visual Studio - de nieuwe oplossing in Solution Explorer](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png#lightbox)
 
-1. Voordat u uw app publiceert, moet u de configuratie-instellingen in alter **index.html**.
+1. Voordat u uw app publiceert, moet u de configuratie-instellingen in alter *index.html*.
 
-   a. Overschakelen van de afhankelijkheden van ontwikkeling tot productie door de drie regels onder de opmerking uncommenting `"PROD RESOURCE LINKS"`. Een opmerking bij de drie regels onder de opmerking `"DEV RESOURCE LINKS"`.
+   1. Verwijder de opmerkingen in de drie regels onder de opmerking `"PROD RESOURCE LINKS"` om over te schakelen van de afhankelijkheden van ontwikkeling naar productie. Een opmerking bij de drie regels onder de opmerking `"DEV RESOURCE LINKS"`.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
-      De afhankelijkheden moeten overeenkomstig worden toegelicht:
+      De afhankelijkheden moeten waaraan opmerkingen worden toegevoegd als in het volgende voorbeeld:
 
       ```HTML
       <!-- PROD RESOURCE LINKS -->
@@ -142,7 +142,7 @@ Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registr
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   b. Configureer vervolgens de app voor het gebruik van uw Azure Active Directory-app-registratie-ID. Wijzig de `clientID` en `postLogoutRedirectUri` velden moeten worden gebruikt de **toepassings-ID** en **URL van startpagina** u gekopieerd **stap 9** van [registreren de toepassingen met Azure AD](#register-the-application-with-azure-ad).
+   1. Voor het configureren van de app voor het gebruik van uw Azure AD-app-registratie-ID wijzigt de `clientID` en `postLogoutRedirectUri` waarden voor gebruik van de waarden voor **toepassings-ID** en **startpagina** die u hebt gekopieerd in stap 9 in [ De toepassing registreren bij Azure AD](#register-the-application-with-azure-ad).
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -153,58 +153,58 @@ Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registr
       postLogoutRedirectUri: 'https://tsispaapp.azurewebsites.net',
       ```
 
-   c. Sla **index.html** wanneer u klaar bent met deze wijzigingen worden aangebracht.
+   1. Wanneer u klaar wijzigingen worden aangebracht bent, slaat *index.html*.
 
-1. Nu, publiceer de webtoepassing in uw Azure-abonnement als een Azure App Service:  
+1. Publiceer de webtoepassing in uw Azure-abonnement als een Azure App Service.  
 
    > [!NOTE]
-   > Verschillende velden in de volgende dialoogvensters worden automatisch ingevuld met gegevens uit uw Azure-abonnement. Hierdoor kan het een paar seconden duren voordat een dialoogvenster volledig is laden en u verder kunt gaan.  
+   > Verschillende opties in de schermafbeeldingen die worden weergegeven in de volgende stappen worden automatisch ingevuld met gegevens uit uw Azure-abonnement. Het duurt een paar seconden voor elk deelvenster volledig is geladen.  
 
-   a. Klik met de rechtermuisknop op het projectknooppunt website in **Solution Explorer**, en selecteer **Web-App publiceren**.  
+   1. Klik in Solution Explorer met de rechtermuisknop op de website projectknooppunt en selecteer vervolgens **Web-App publiceren**.  
 
-      [![VS - solution explorer web-app publiceren](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png#lightbox)
+      [![Visual Studio - Selecteer de optie Solution Explorer publiceren Web-App](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png#lightbox)
 
-   b. Selecteer **Start** om te beginnen met uw app publiceren.
+   1. Selecteer **Start** om te beginnen met uw app publiceren.
 
-      [![VS - publicatieprofiel](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
+      [![Visual Studio - het publiceren profiel deelvenster](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
-   c. Selecteer het abonnement dat u gebruiken wilt voor het publiceren van de toepassing. Selecteer de **TsiSpaApp** project. Vervolgens **OK**:
+   1. Selecteer het abonnement dat u wilt gebruiken voor het publiceren van de toepassing. Selecteer de **TsiSpaApp** project. Selecteer vervolgens **OK**.
 
-      [![VS - profiel - appservice publiceren](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
+      [![Visual Studio - het publicatieprofiel deelvenster van de App Service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
 
-   d. Klik op **publiceren** om de webtoepassing te implementeren.
+   1. Selecteer **publiceren** om de webtoepassing te implementeren.
 
-      [![VS - Web-app publiceren - uitvoer van publicatielogboek](media/tutorial-create-tsi-sample-spa/vs-publish-profile-output.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-output.png#lightbox)
+      [![Visual Studio - de optie publiceren en de logboekuitvoer publiceren](media/tutorial-create-tsi-sample-spa/vs-publish-profile-output.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-output.png#lightbox)
 
-   e. U ziet een bericht in het venster **Outlook** van Visual Studio dat de publicatie is gelukt. Als de implementatie is voltooid, wordt de webtoepassing ook in Visual Studio geopend op een browsertabblad, met het verzoek om u aan te melden. Na geslaagde aanmelding ziet u alle TSI-besturingselementen die worden ingevuld met gegevens.
+   1. Een geslaagde publiceren logboek wordt weergegeven in de Visual Studio **uitvoer** deelvenster. Wanneer de implementatie is voltooid, wordt Visual Studio wordt de web-App op een browsertabblad geopend en wordt gevraagd voor aanmelden. De Time Series Insights-besturingselementen worden na geslaagde aanmelding wordt gevuld met gegevens.
 
-## <a name="troubleshooting"></a>Problemen oplossen  
+## <a name="troubleshoot"></a>Problemen oplossen  
 
 Foutcode/-conditie | Description
 ---------------------| -----------
-*AADSTS50011: No reply address is registered for the application.* | De Azure AD-registratie ontbreekt de **antwoord-URL** eigenschap. Ga naar de pagina **Instellingen** / **Antwoord-URL's** voor de registratie van uw Azure AD-toepassing. Controleer de **Sign-on** -URL opgeven **stap 3** van [de toepassing registreren bij Azure AD](#register-the-application-with-azure-ad) aanwezig is.
-*AADSTS50011: Het antwoord op de url die is opgegeven in de aanvraag komt niet overeen met de antwoord-URL's geconfigureerd voor de toepassing: '\<Application ID GUID >'.* | De `postLogoutRedirectUri` die is opgegeven in stap 4.b van [Webtoepassing bouwen en publiceren](#build-and-publish-the-web-application) moet overeenkomen met de waarde die is opgegeven onder de eigenschap **Instellingen** / **Antwoord-URL's** in de registratie van uw Azure AD-toepassing. Zorg ervoor dat u ook wijzigen **doel-URL** gebruiken `https`, per **stap 5** van [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application).
-De webtoepassing wordt geladen, maar heeft een aanmeldingspagina met alleen tekst zonder opmaak, met een witte achtergrond. | Controleer of de paden die worden beschreven **stap 4** van [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application) juist zijn. Als de webtoepassing de CSS-bestanden niet kan vinden, wordt de pagina niet goed opgemaakt.
+*AADSTS50011: No reply address is registered for the application.* | De Azure AD-registratie ontbreekt de **antwoord-URL** eigenschap. Ga naar **instellingen** > **antwoord-URL's** voor de registratie van uw Azure AD-toepassing. Controleer de **Sign-on** URL die is opgegeven in stap 3 in [de toepassing registreren bij Azure AD](#register-the-application-with-azure-ad) aanwezig is.
+*AADSTS50011: Het antwoord op de url die is opgegeven in de aanvraag komt niet overeen met de antwoord-URL's geconfigureerd voor de toepassing: '\<Application ID GUID >'.* | De `postLogoutRedirectUri` opgegeven in stap 6 van [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application) moet overeenkomen met de waarde die is opgegeven onder **instellingen** > **antwoord-URL's** in de registratie van uw Azure AD-toepassing. Zorg ervoor dat u ook Wijzig de waarde voor **doel-URL** gebruiken *https* per stap 5 in [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application).
+De web-App wordt geladen, maar heeft een opgemaakte, alleen tekst aanmeldingspagina, met een witte achtergrond. | Controleer of de paden die worden beschreven stap 4 in [bouwen en publiceer de webtoepassing](#build-and-publish-the-web-application) juist zijn. Als de webtoepassing de CSS-bestanden niet kan vinden, wordt de pagina niet goed opgemaakt.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-In deze zelfstudie worden verschillende actieve Azure-services gemaakt. Als u niet van plan bent om deze reeks zelfstudies verder uit te voeren, raden we u aan alle resources te verwijderen, om onnodige kosten te voorkomen.
+In deze zelfstudie worden verschillende actieve Azure-services gemaakt. Als u niet van plan bent om te voltooien in deze reeks zelfstudies, wordt u aangeraden dat u alle resources om te voorkomen dat er onnodige kosten in rekening verwijderen.
 
-In het linkermenu van de Azure-portal:
+In Azure portal menu aan de linkerkant:
 
-1. Selecteer **resourcegroepen**, selecteer vervolgens de resourcegroep die u hebt gemaakt voor de TSI-omgeving. Klik bovenaan de pagina op **Resourcegroep verwijderen**, voer de naam van de resourcegroep in en klik op **Verwijderen**.
-1. Selecteer **resourcegroepen**, selecteer vervolgens de resourcegroep die is gemaakt door de oplossingsversneller voor simulatie van apparaat. Klik bovenaan de pagina op **Resourcegroep verwijderen**, voer de naam van de resourcegroep in en klik op **Verwijderen**.
+1. Selecteer **resourcegroepen**, en selecteer vervolgens de resourcegroep die u hebt gemaakt voor de Time Series Insights-omgeving. Aan de bovenkant van de pagina, selecteer **resourcegroep verwijderen**, voer de naam van de resourcegroep en selecteer vervolgens **verwijderen**.
+1. Selecteer **resourcegroepen**, en selecteer vervolgens de resourcegroep die is gemaakt door de oplossingsversneller voor simulatie van apparaat. Aan de bovenkant van de pagina, selecteer **resourcegroep verwijderen**, voer de naam van de resourcegroep en selecteer vervolgens **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
+In deze zelfstudie hebt u geleerd over:
 
 > [!div class="checklist"]
 > * Het ontwerp van de toepassing
-> * Registreren van de toepassing bij Azure Active Directory (AD)
+> * Informatie over het registreren van uw toepassing met Azure AD
 > * Maken, publiceren en testen van de webtoepassing
 
-Tijdens deze zelfstudie wordt Azure AD gebruikt, waarbij een toegangstoken wordt verkregen met behulp van de id van de aangemelde gebruiker. Ga naar deze zelfstudie als u wilt weten hoe u toegang tot de TSI-API krijgt met behulp van de identiteit van een service/daemon-toepassing:
+In deze zelfstudie kan worden geïntegreerd met Azure AD en maakt gebruik van de identiteit van de gebruiker die is aangemeld bij een toegangstoken verkrijgen. Zie voor meer informatie over toegang tot de Time Series Insights-API met behulp van de identiteit van een service of -daemon-toepassing, in dit artikel:
 
 > [!div class="nextstepaction"]
 > [Verificatie en autorisatie voor Azure Time Series Insights-API](time-series-insights-authentication-and-authorization.md)

@@ -54,7 +54,7 @@
 - name: Concepten
   items:
     - name: Sjabloonbestandstructuur
-      displayName: 'parameters,variables,resources,outputs'
+      displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
     - name: Best practices voor sjablonen
       href: template-best-practices.md

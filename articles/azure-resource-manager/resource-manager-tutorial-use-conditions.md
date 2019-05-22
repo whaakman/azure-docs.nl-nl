@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ad7c87161c550c4728978e9c975252cab34f76ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a03707246f27bcba9cc46168ec04893b7bbc4c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389758"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990806"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Zelfstudie: Voorwaarde gebruiken in Azure Resource Manager-sjablonen
 
 Leer hoe u Azure-resources implementeert die zijn gebaseerd op voorwaarden.
 
-In de zelfstudie [Resource-implementatievolgorde instellen](./resource-manager-tutorial-create-templates-with-dependent-resources.md) maakt u een virtuele machine, een virtueel netwerk en enkele andere afhankelijke resources, waaronder een opslagaccount. In plaats van elke keer een nieuw opslagaccount te maken, laat u gebruikers kiezen of ze een nieuw opslagaccount willen maken of een bestaand opslagaccount willen gebruiken. Om dit doel te bereiken, definieert u een extra parameter. Als de waarde van de parameter 'new' is, wordt er een nieuw opslagaccount gemaakt.
+In de zelfstudie [Resource-implementatievolgorde instellen](./resource-manager-tutorial-create-templates-with-dependent-resources.md) maakt u een virtuele machine, een virtueel netwerk en enkele andere afhankelijke resources, waaronder een opslagaccount. In plaats van elke keer een nieuw opslagaccount te maken, laat u gebruikers kiezen of ze een nieuw opslagaccount willen maken of een bestaand opslagaccount willen gebruiken. Om dit doel te bereiken, definieert u een extra parameter. Als de waarde van de parameter 'new' is, wordt er een nieuw opslagaccount gemaakt. Anders wordt wordt een bestaand opslagaccount met de opgegeven naam gebruikt.
 
 ![Voorwaarde een diagram van Resource Manager sjabloon gebruiken](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -35,6 +35,13 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * De sjabloon aanpassen
 > * De sjabloon implementeren
 > * Resources opschonen
+
+In deze zelfstudie heeft alleen betrekking op een algemeen scenario van het gebruik van voorwaarden. Zie voor meer informatie:
+
+* [Bestandsstructuur sjabloon: Voorwaarde](./resource-group-authoring-templates.md#condition).
+* [Een resource in een Azure Resource Manager-sjabloon voorwaardelijk implementeren](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md).
+* [Sjabloonfunctie: If](./resource-group-template-functions-logical.md#if).
+* [Van vergelijkingsfuncties voor Azure Resource Manager-sjablonen](./resource-group-template-functions-comparison.md)
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -48,6 +55,7 @@ Als u dit artikel wilt voltooien, hebt u het volgende nodig:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault is ontworpen om cryptografische sleutels en andere geheimen te beveiligen. Zie [Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md) voor meer informatie. We raden u ook aan om uw wachtwoord elke drie maanden te wijzigen.
 
 ## <a name="open-a-quickstart-template"></a>Een snelstartsjabloon openen
@@ -60,6 +68,7 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Selecteer **Openen** om het bestand te openen.
 4. Er worden vijf resources gedefinieerd met de sjabloon:
 
@@ -82,12 +91,11 @@ Breng de volgende twee wijzigingen aan in de bestaande sjabloon:
 Hier volgt de procedure waarmee de wijzigingen kunnen worden aangebracht:
 
 1. Open **azuredeploy.json** in Visual Studio Code.
-2. Vervang **variables('storageAccountName')** overal in de sjabloon door **parameters('storageAccountName')**.  **variables('storageAccountName')** komt op drie plaatsen voor.
+2. Vervang de drie **variables('storageAccountName')** met **parameters('storageAccountName')** in de volledige sjabloon.
 3. Verwijder de volgende variabeledefinitie:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-    ```
+    ![Voorwaarde een diagram van Resource Manager sjabloon gebruiken](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+
 4. Voeg de volgende twee parameters toe aan de sjabloon:
 
     ```json
@@ -95,13 +103,14 @@ Hier volgt de procedure waarmee de wijzigingen kunnen worden aangebracht:
       "type": "string"
     },
     "newOrExisting": {
-      "type": "string", 
+      "type": "string",
       "allowedValues": [
-        "new", 
+        "new",
         "existing"
       ]
     },
     ```
+
     De bijgewerkte parameterdefinitie ziet er als volgt uit:
 
     ![Voorwaarde gebruiken in Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
@@ -117,7 +126,7 @@ Hier volgt de procedure waarmee de wijzigingen kunnen worden aangebracht:
     De bijgewerkte definitie van het opslagaccount ziet er als volgt uit:
 
     ![Voorwaarde gebruiken in Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Werk **storageUri** bij met de volgende waarde:
+6. Update de **storageUri** eigenschap van de resourcedefinitie voor de virtuele machine met de volgende waarde:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -129,11 +138,7 @@ Hier volgt de procedure waarmee de wijzigingen kunnen worden aangebracht:
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Volg de instructies in [De sjabloon implementeren](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) om de sjabloon te implementeren.
-
-Wanneer u de sjabloon met behulp van Azure PowerShell implementeert, moet u één extra parameter opgeven. Gebruik een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine om de beveiliging te verhogen. Zie [Vereisten](#prerequisites).
+Volg de instructies in [implementeren van de sjabloon](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) naar de cloudshell openen en de bijgewerkte sjabloon uploaden en voer de volgende PowerShell-script om de sjabloon te implementeren.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -162,12 +167,12 @@ Maak in dat geval een andere implementatie door **newOrExisting** in te stellen 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen.
+Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen. Selecteer wilt verwijderen van de resourcegroep **uitproberen** naar de cloudshell te openen. Als u het PowerShell-script, met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**.
 
-1. Selecteer **Resourcegroep** in het linkermenu van Azure Portal.
-2. Voer de naam van de resourcegroep in het veld **Filter by name** in.
-3. Selecteer de naam van de resourcegroep.  U ziet in totaal zes resources in de resourcegroep.
-4. Selecteer **Resourcegroep verwijderen** in het bovenste menu.
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

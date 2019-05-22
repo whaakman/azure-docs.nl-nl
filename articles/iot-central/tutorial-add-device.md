@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e9378f8d2b31bfed4c464951c427b1e9d00b7893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b073a270fabb8657be19b79601fa90f1b9a0351b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699377"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015234"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaat toevoegen aan uw Azure IoT Central-toepassing
 
@@ -348,7 +348,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Leren hoe clientcode aan toepassing wordt toegewezen
 > * Clientcode voor echt apparaat configureren
 
-Nu dat u een echt apparaat met uw Azure IoT Central-toepassing verbonden bent, vindt hier u de voorgestelde volgende stappen:
+Nu dat u een echt apparaat met uw Azure IoT Central-toepassing verbonden bent, hier enkele Voorgestelde volgende stappen te volgen.
 
 Als operator leert u het volgende:
 

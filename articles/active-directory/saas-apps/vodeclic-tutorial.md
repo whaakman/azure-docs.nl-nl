@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865297"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990548"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Zelfstudie: Azure Active Directory-integratie met Vodeclic
 
@@ -191,7 +191,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 In deze sectie maakt u een gebruiker met de naam van Britta Simon in Vodeclic. Werken met [Vodeclic ondersteuningsteam](mailto:hotline@vodeclic.com) om toe te voegen de gebruikers in het Vodeclic-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 > [!NOTE]
-> Volgens de toepassingsvereisten van moet u mogelijk uw machine in de whitelist opgenomen ophalen. Voor die worden uitgevoerd, moet u voor het delen van uw openbare IP-adres met de [Vodeclic ondersteuningsteam](mailto:hotline@vodeclic.com).
+> Volgens de toepassingsvereisten van moet u mogelijk uw machine toegevoegd aan een acceptatielijst. Voor die worden uitgevoerd, moet u voor het delen van uw openbare IP-adres met de [Vodeclic ondersteuningsteam](mailto:hotline@vodeclic.com).
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 

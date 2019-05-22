@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813330"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Zelfstudie: Azure Active Directory-integratie met iPass SmartConnect
 
@@ -215,7 +215,7 @@ In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebru
 
 ### <a name="create-ipass-smartconnect-test-user"></a>IPass SmartConnect testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in iPass SmartConnect. Werken met [iPass SmartConnect ondersteuningsteam](mailto:help@ipass.com) om toe te voegen de gebruikers of het domein dat nodig is om te worden opgenomen in de whitelist in het iPass SmartConnect-platform. Als het domein is toegevoegd door het team, krijgen automatisch gebruikers ingericht voor het iPass SmartConnect-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in iPass SmartConnect. Werken met [iPass SmartConnect ondersteuningsteam](mailto:help@ipass.com) om toe te voegen de gebruikers of het domein dat moet worden toegevoegd aan een acceptatielijst voor het iPass SmartConnect-platform. Als het domein is toegevoegd door het team, krijgen automatisch gebruikers ingericht voor het iPass SmartConnect-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
