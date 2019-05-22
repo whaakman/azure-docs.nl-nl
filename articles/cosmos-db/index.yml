@@ -4,14 +4,14 @@ title: Documentatie voor Azure Cosmos DB
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: 'Documentatie voor Azure Cosmos DB - zelfstudies, API-verwijzing'
-  description: 'Meer informatie over het bouwen van wereldwijd verspreide databases met meerdere modellen met behulp van Azure Cosmos DB. In de zelfstudies leert u hoe u document-, sleutel/waarde- en grafiekdatabases bouwt en een query uitvoert.'
+  description: 'Meer informatie over het gebruik van een wereldwijd verspreide databaseservice met meerdere modellen met behulp van Azure Cosmos DB. In de zelfstudies leert u hoe u document-, sleutel/waarde- en grafiekdatabases bouwt en een query uitvoert.'
   author: SnehaGunda
   ms.author: sngun
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 05/20/2019
 abstract:
-  description: 'Azure Cosmos DB is een wereldwijd gedistribueerde databaseservice met meerdere modellen waarmee databases voor document-, sleutelwaarde-, kolom- en grafiekdatabases worden ondersteund. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Cosmos DB gebruikt.'
+  description: 'Azure Cosmos DB is een volledig beheerde databaseservice met een kant-en-klare wereldwijde distributie en transparante replicatie voor meerdere masters. U kunt voor transactiegegevens in uw database operationele workloads en analyseworkloads uitvoeren met wereldwijde distributie, lage latentie en AI-ondersteuning. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Cosmos DB gebruikt.'
   aside:
     image:
       alt: null

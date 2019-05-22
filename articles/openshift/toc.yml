@@ -1,21 +1,47 @@
-- name: OpenShift-documentatie
-  href: index.md
-- name: Snelstartgidsen
-  expanded: true
+- name: Azure Red Hat OpenShift
+  href: index.yml
+- name: Overzicht
   items:
-    - name: 'OpenShift:  Communitysjabloon'
-      href: 'https://azure.microsoft.com/resources/templates/openshift-origin-rhel/'
+    - name: Over Azure Red Hat OpenShift
+      href: intro-openshift.md
 - name: Zelfstudies
   items:
-    - name: Implementeren naar Azure-VM's
-      href: /azure/virtual-machines/linux/openshift-get-started
+    - name: Een Azure Red Hat OpenShift-cluster maken en beheren
+      items:
+        - name: '1: Een Azure Red Hat OpenShift-cluster maken'
+          href: tutorial-create-cluster.md
+        - name: '2: De schaal van een Azure Red Hat OpenShift-cluster wijzigen'
+          href: tutorial-scale-cluster.md
+        - name: '3: Een Azure Red Hat OpenShift-cluster verwijderen'
+          href: tutorial-delete-cluster.md
+- name: Handleidingen
+  expanded: true
+  items:
+    - name: Een Azure Red Hat OpenShift-ontwikkelaarsomgeving instellen
+      href: howto-setup-environment.md
+      expanded: true
+      items:
+        - name: Een Azure Active Directory-tenant maken
+          href: howto-create-tenant.md
+        - name: Een object en gebruiker maken voor Azure AD-apps
+          href: howto-aad-app-configuration.md
+- name: Naslaginformatie
+  items:
+    - name: CLI voor Azure Red Hat OpenShift
+      href: /cli/azure/openshift
+    - name: REST API's voor Azure Red Hat OpenShift
+      href: /rest/api/openshift
 - name: Resources
   items:
+    - name: Veelgestelde vragen
+      href: openshift-faq.md
+    - name: Problemen oplossen
+      href: troubleshoot.md
+    - name: Ondersteunde resources
+      href: supported-resources.md
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Red Hat OpenShift-documentatie
+      href: 'https://docs.openshift.com/aro/welcome/index.html'
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: OpenShift-containersjabloon
-      href: 'https://github.com/Microsoft/openshift-container-platform'
-    - name: OpenShift Origin
-      href: 'https://docs.openshift.org/latest/getting_started/index.html'
-    - name: OpenShift-site
-      href: 'https://docs.openshift.org/latest/welcome/index.html'

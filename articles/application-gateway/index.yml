@@ -5,12 +5,11 @@ metadata:
   title: Documentatie voor Azure Application Gateway - zelfstudies en API-verwijzing
   meta.description: 'Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
   services: application-gateway
-  author: davidmu1
-  manager: jeconnocfte
+  author: vhorne
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 02/01/2018
-  ms.author: davidmu
+  ms.date: 5/20/2019
+  ms.author: victorh
 abstract:
   description: 'Meer informatie over de implementatie van de Azure Application Gateway-ADC (application delivery controller) als een service. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u routering op toepassingsniveau en taakverdelingsservices kunt instellen om een schaalbaar en maximaal beschikbaar webfront-end te bouwen.'
 sections:
@@ -40,12 +39,12 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/application-gateway/tutorial-manage-web-traffic-cli">Webverkeer beheren met een toepassingsgateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-restrict-web-traffic-cli">Webverkeer beperken met een firewall voor webtoepassingen in een toepassingsgateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-ssl-cli">SSL-beëindiging inschakelen in een toepassingsgateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-multiple-sites-cli">Meerdere websites hosten met behulp van een toepassingsgateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-route-cli">Routeverkeer op basis van de URL in een toepassingsgateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Verkeer omleiden naar specifieke servers in een gatewaygroep voor toepassingen.</a>
+          - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Een toepassingsgateway met een Web Application Firewall maken</a>
+          - html: <a href="/azure/application-gateway/create-ssl-portal">Een toepassingsgateway configureren met SSL-beëindiging</a>
+          - html: <a href="/azure/application-gateway/create-multiple-sites-portal">Een toepassingsgateway maken en configureren waarop meerdere websites worden gehost</a>
+          - html: <a href="/azure/application-gateway/create-url-route-portal">Een toepassingsgateway maken met omleidingsregels op basis van een pad</a>
+          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Een toepassingsgateway maken met een omleiding op basis van een URL-pad</a>
+          - html: <a href="/azure/application-gateway/tutorial-autoscale-ps">Een toepassingsgateway maken die de toegang tot de webtoepassing verbetert</a>
   - title: Voorbeelden
     items:
       - type: paragraph

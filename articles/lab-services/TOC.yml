@@ -116,8 +116,9 @@
             - name: Een retentiebeleid instellen en opschoningsscripts uitvoeren
               href: image-factory-set-retention-policy-cleanup.md
         - name: DevTest Labs in het bedrijf
-          href: devtest-lab-guidance-prescriptive-adoption.md
           items:
+            - name: DevTest Labs op enterprise-schaal
+              href: devtest-lab-guidance-prescriptive-adoption.md
             - name: Referentiearchitectuur
               href: devtest-lab-reference-architecture.md
             - name: Uw DevTest Labs-implementatie omhoog schalen

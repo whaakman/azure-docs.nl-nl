@@ -18,19 +18,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: |
-    Leer hoe u de Speech Services met REST API's of met de Speech-SDK gebruikt om spraakfuncties toe te voegen aan uw apps. U kunt de Speech-SDK gebruiken om de volgende mogelijkheden (en meer) aan uw apps toe te voegen&colon; 
-    <div class="row" style="font-size:16px"><div class="column"><ul>
-    <li><b><a href="speech-to-text.md">spraak naar tekst</a></b> (spraakherkenning/SR)</li>
-    <li><b><a href="speech-devices-sdk-create-kws.md">aangepast activeringswoord</a></b> (woorden herkennen/KWS)</li>
-    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">intentie</a></b></li>
-    <li><b><a href="speech-translation.md">vertaling</a></b></li>
-    <li><b><a href="speech-container-howto.md">on-premises container</a></b></li></ul></div><div class="column"><ul>
-    <li><b><a href="text-to-speech.md">tekst naar spraak</a></b> (TTS)</li>
-    <li><b><a href="conversation-transcription-service.md">gesprektranscriptie</a></b> (CTS)</li>
-    <li><b><a href="how-to-phrase-lists.md">gepersonaliseerde frasenlijst</a>/<a href="how-to-custom-speech.md">gepersonaliseerde spraakaanpassing</a></b></li>
-    <li><b><a href="voice-first-virtual-assistants.md">voice-first virtuele assistent</a></b></li>
-    <li><b><a href="call-center-transcription.md">callcentertranscriptie</a></b></li></ul></div></div>
+  description: U kunt gebruikmaken van onze spraak Speech SDK of REST API.
 sections:
   - items:
       - type: list
@@ -53,10 +41,26 @@ sections:
             image:
               src: ../media/index/i_guidelines.svg
             title: Speech Devices SDK
+  - title: Inleiding
+    items:
+      - type: paragraph
+        text: |
+          U kunt de Speech-SDK gebruiken om de volgende mogelijkheden (en meer) aan uw apps toe te voegen&colon; 
+          <div class="row"><div class="column"><ul>
+          <li><b><a href="speech-to-text.md">spraak naar tekst</a></b> (spraakherkenning/SR)</li>
+          <li><b><a href="speech-devices-sdk-create-kws.md">aangepast activeringswoord</a></b> (woorden herkennen/KWS)</li>
+          <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">intentie</a></b></li>
+          <li><b><a href="speech-translation.md">vertaling</a></b></li>
+          <li><b><a href="speech-container-howto.md">on-premises container</a></b></li></ul></div><div class="column"><ul>
+          <li><b><a href="text-to-speech.md">tekst naar spraak</a></b> (TTS)</li>
+          <li><b><a href="conversation-transcription-service.md">gesprektranscriptie</a></b> (CTS)</li>
+          <li><b><a href="how-to-phrase-lists.md">gepersonaliseerde frasenlijst</a>/<a href="how-to-custom-speech.md">gepersonaliseerde spraakaanpassing</a></b></li>
+          <li><b><a href="voice-first-virtual-assistants.md">voice-first virtuele assistent</a></b></li>
+          <li><b><a href="call-center-transcription.md">callcentertranscriptie</a></b></li></ul></div></div>
   - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
-        text: 'Meer informatie over het downloaden, installeren en gebruiken van de SDK door pijlkoppelingen te selecteren <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>Alle pijlkoppelingen <img src="media/index/link.jpg" height="15" width="15"></img> verwijzen standaard naar een quickstart over spraak naar tekst. Van daaruit kunt u andere quickstarts selecteren (<a href="scenario-availability.md">indien beschikbaar</a>), bijvoorbeeld over tekst naar spraak of over de voice-first virtuele assistent.'
+        text: 'Meer informatie over het downloaden, installeren en gebruiken van de SDK door pijlkoppelingen te selecteren <img src="media/index/link.jpg" height="15" width="15"></img>.<br/>Alle pijlkoppelingen <img src="media/index/link.jpg" height="15" width="15"></img> verwijzen standaard naar een quickstart over spraak naar tekst. Van daaruit kunt u andere quickstarts selecteren (<a href="scenario-availability.md">indien beschikbaar</a>), bijvoorbeeld over tekst naar spraak of over de voice-first virtuele assistent.'
       - type: table
         style: dataMatrix
         columns:

@@ -99,6 +99,16 @@
       href: sql-database-implement-geo-distributed-database.md
     - name: Azure SQL Data Sync instellen
       href: sql-database-get-started-sql-data-sync.md
+    - name: Machine Learning Services
+      items:
+        - name: Een voorspellend model bouwen en implementeren in R
+          items:
+            - name: '1: De gegevens voorbereiden'
+              href: sql-database-tutorial-predictive-model-prepare-data.md
+            - name: '2: Het model maken'
+              href: sql-database-tutorial-predictive-model-build-compare.md
+            - name: '3: Het model implementeren'
+              href: sql-database-tutorial-predictive-model-deploy.md
 - name: Voorbeelden
   items:
     - name: Codevoorbeelden

@@ -42,6 +42,8 @@
           href: automation-onboard-solutions-from-vm.md
         - name: Onboarding vanuit een Automation-account
           href: automation-onboard-solutions-from-automation-account.md
+        - name: Regiotoewijzingen
+          href: how-to/region-mappings.md
     - name: Updatebeheer
       items:
         - name: Overzicht van updatebeheer

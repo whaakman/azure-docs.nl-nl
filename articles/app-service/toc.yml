@@ -92,11 +92,11 @@
   items:
     - name: App configureren
       items:
-        - name: App-instellingen gebruiken
-          href: web-sites-configure.md
+        - name: Algemene instellingen configureren
+          href: configure-common.md
         - name: PHP configureren
           href: web-sites-php-configure.md
-        - name: Gids voor Java-ontwikkelaars
+        - name: Java configureren
           href: configure-language-java.md
         - name: Verbinding maken met on-premises bronnen
           href: web-sites-integrate-with-vnet.md
