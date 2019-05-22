@@ -57,7 +57,7 @@ De volgende eigenschappen worden ondersteund voor Teradata gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Teradata** | Ja |
 | server | Naam van de Teradata-server. | Ja |
 | authenticationType | Het type verificatie gebruikt voor verbinding met de Teradata-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows**. | Ja |
-| gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de Teradata-database. | Ja |
+| username | Geef de naam van de gebruiker verbinding maken met de Teradata-database. | Ja |
 | password | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
@@ -167,37 +167,37 @@ Het kopiëren van gegevens uit Teradata, worden de volgende toewijzingen uit Ter
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| char |String |
-| CLOB |String |
+| Char |String |
+| Clob |String |
 | Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| Afbeelding |String |
-| Geheel getal |Int32 |
+| Graphic |String |
+| Integer |Int32 |
 | Interval Day |TimeSpan |
-| Interval voor dag uur |TimeSpan |
-| Interval voor dag minuut |TimeSpan |
-| Tweede interval dag |TimeSpan |
-| Interval uur |TimeSpan |
-| Interval voor uur minuut |TimeSpan |
-| Tweede interval uur |TimeSpan |
-| Interval minuut |TimeSpan |
-| Tweede interval minuut |TimeSpan |
-| Interval van maand |String |
-| Interval voor tweede |TimeSpan |
-| Interval van jaar |String |
-| Interval voor jaar tot maand |String |
-| Aantal |Double |
-| Period(date) |String |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Month |String |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Number |Double |
+| Period(Date) |String |
 | Period(Time) |String |
-| Periode (tijd met tijdzone) |String |
-| Period(timestamp) |String |
-| Periode (Timestamp met tijdzone) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Tijd met de tijdzone |String |
-| Tijdstempel |DateTime |
-| Tijdstempel met tijdzone |DateTimeOffset |
+| Time With Time Zone |String |
+| Timestamp |DateTime |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
