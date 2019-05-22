@@ -131,12 +131,12 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van een kopieeractiviteit moet worden ingesteld op: **kopiëren** | Ja |
-| invoer | Geef op de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
-| uitvoer | Geef op de gegevensset die u hebt gemaakt die verwijst naar de sink-gegevens. Kopieeractiviteit ondersteunt slechts één uitvoer. | Ja |
+| inputs | Geef op de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
+| outputs | Geef op de gegevensset die u hebt gemaakt die verwijst naar de sink-gegevens. Kopieeractiviteit ondersteunt slechts één uitvoer. | Ja |
 | typeProperties | Een groep met eigenschappen te configureren van de kopieeractiviteit. | Ja |
 | source | Het brontype voor kopiëren en de bijbehorende eigenschappen opgeven over het ophalen van gegevens.<br/><br/>Meer details in de sectie 'Eigenschappen van de Kopieeractiviteit' connector-artikel die worden vermeld in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
 | sink | Geef de sink-type voor kopiëren en de bijbehorende eigenschappen voor het schrijven van gegevens.<br/><br/>Meer details in de sectie 'Eigenschappen van de Kopieeractiviteit' connector-artikel die worden vermeld in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
-| Translator | Geef expliciete kolomtoewijzingen van bron naar een sink. Is van toepassing wanneer het standaardgedrag van het exemplaar kan niet voldoen aan uw behoeften.<br/><br/>Informatie over de details van [toewijzing van het type Schema en gegevens](copy-activity-schema-and-type-mapping.md). | Nee |
+| translator | Geef expliciete kolomtoewijzingen van bron naar een sink. Is van toepassing wanneer het standaardgedrag van het exemplaar kan niet voldoen aan uw behoeften.<br/><br/>Informatie over de details van [toewijzing van het type Schema en gegevens](copy-activity-schema-and-type-mapping.md). | Nee |
 | dataIntegrationUnits | Geef de powerfulness van [Azure Integration Runtime](concepts-integration-runtime.md) om te kopiëren van gegevens. Voorheen bekend als cloud Data Movement eenheden (DMU). <br/><br/>Informatie over de details van [integratie gegevenseenheden](copy-activity-performance.md#data-integration-units). | Nee |
 | parallelCopies | Geef de parallelle uitvoering die u wilt dat Copy-activiteit naar het sink-wordt gebruikt bij het lezen van gegevens uit de bron en het schrijven van gegevens.<br/><br/>Informatie over de details van [kopie parallelle](copy-activity-performance.md#parallel-copy). | Nee |
 | enableStaging<br/>stagingSettings | Wilt u de tussentijdse gegevens in een blob-opslag in plaats van rechtstreeks gegevens kopiëren van bron naar het sink-fase.<br/><br/>Meer informatie over de handige scenario's en de configuratiedetails van de van [gefaseerd kopiëren](copy-activity-performance.md#staged-copy). | Nee |
@@ -173,14 +173,14 @@ Details van uitvoering van activiteit kopiëren en prestatiekenmerken worden ook
 
 | Naam van eigenschap  | Description | Eenheid |
 |:--- |:--- |:--- |
-| DataRead | Grootte van de gegevens lezen van bron | Waarde voor Int64 in **bytes** |
-| Datawritten door | Grootte van gegevens naar een sink geschreven | Waarde voor Int64 in **bytes** |
+| dataRead | Grootte van de gegevens lezen van bron | Waarde voor Int64 in **bytes** |
+| datawritten door | Grootte van gegevens naar een sink geschreven | Waarde voor Int64 in **bytes** |
 | filesRead | Het aantal bestanden die bij het kopiëren van gegevens uit de opslag van bestanden worden gekopieerd. | Waarde voor Int64 (geen unit) |
 | filesWritten | Het aantal bestanden die bij het kopiëren van gegevens met file storage worden gekopieerd. | Waarde voor Int64 (geen unit) |
 | rowsRead | Het aantal rijen wordt gelezen van bron (niet van toepassing voor binaire kopie). | Waarde voor Int64 (geen unit) |
 | rowsCopied | Het aantal rijen wordt gekopieerd naar een sink (niet van toepassing voor binaire kopie). | Waarde voor Int64 (geen unit) |
 | rowsSkipped | Het aantal niet-compatibele rijen wordt overgeslagen. U kunt de functie inschakelen door de set 'enableSkipIncompatibleRow' op ' True '. | Waarde voor Int64 (geen unit) |
-| Doorvoer | Verhouding tussen het waarmee gegevens worden overgedragen. | Drijvendekommagetal in **KB/s** |
+| throughput | Verhouding tussen het waarmee gegevens worden overgedragen. | Drijvendekommagetal in **KB/s** |
 | copyDuration | De duur van de kopie. | Int32-waarde in seconden |
 | sourcePeakConnections | Hoogste aantal gelijktijdige verbindingen met de bron-gegevensopslag tijdens het kopiëren. | Int32-waarde |
 | sinkPeakConnections| Hoogste aantal gelijktijdige verbindingen tot stand gebracht met het sink-gegevensarchief tijdens het kopiëren.| Int32-waarde |
