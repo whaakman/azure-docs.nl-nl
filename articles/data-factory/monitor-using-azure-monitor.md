@@ -109,12 +109,12 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | serviceBusRuleId |String | De service bus regel-ID van de service bus-naamruimte waarin u hebben van Event Hubs gemaakt wilt voor het streamen van diagnostische logboeken. De regel-ID van de indeling is: "{service bus-resource-ID} /authorizationrules/ {naam} '.|
 | workspaceId | Complex Type | Matrix van metrische tijd rijstkorrels en hun beleid voor het bewaren. Deze eigenschap is momenteel leeg. |
 |metrics| Parameterwaarden van de pijplijn uitvoeren om te worden doorgegeven aan de pijplijn aangeroepen| Namen van parameters toe te wijzen aan de waarden van het argument een JSON-object |
-| logboeken| Complex Type| De naam van een categorie diagnostische logboeken voor een resourcetype. Als u de lijst met categorieën van diagnostische logboeken voor een resource, moet u eerst een GET-bewerking voor diagnostische instellingen uitvoeren. |
+| logs| Complex Type| De naam van een categorie diagnostische logboeken voor een resourcetype. Als u de lijst met categorieën van diagnostische logboeken voor een resource, moet u eerst een GET-bewerking voor diagnostische instellingen uitvoeren. |
 | category| String| Matrix van logboekcategorieën en hun bewaarbeleid |
 | timeGrain | String | De granulatie van metrische gegevens die zijn vastgelegd in ISO 8601-notatie voor de duur. Moet PT1M (één minuut)|
-| ingeschakeld| Boolean | Hiermee geeft u op of de verzameling van deze categorie metrische gegevens of logboekbestanden is ingeschakeld voor deze resource|
+| enabled| Boolean | Hiermee geeft u op of de verzameling van deze categorie metrische gegevens of logboekbestanden is ingeschakeld voor deze resource|
 | retentionPolicy| Complex Type| Beschrijft het bewaarbeleid voor categorie metrische gegevens of logboek. Voor de optie voor het opslagaccount alleen wordt gebruikt.|
-| dagen| Int| Het aantal dagen te bewaren van de metrische gegevens en Logboeken. Een waarde van 0 worden de logboeken voor onbepaalde tijd bewaard. Voor de optie voor het opslagaccount alleen wordt gebruikt. |
+| days| Int| Het aantal dagen te bewaren van de metrische gegevens en Logboeken. Een waarde van 0 worden de logboeken voor onbepaalde tijd bewaard. Voor de optie voor het opslagaccount alleen wordt gebruikt. |
 
 **Antwoord**
 
