@@ -14,18 +14,21 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/21/2019
 ms.author: jowargo
-ms.openlocfilehash: 2793f64528baa2b9a84c671fc73bbe399e2387ea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c5793d2388ddd7bb59d68f8f7fd7af773179ed41
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411620"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988207"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar iOS met Azure Notification Hubs
 
-[!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+> [!div class="op_single_selector"]
+> * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+> * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+
 
 In deze zelfstudie gebruikt u Azure Notification Hubs om pushmeldingen te verzenden naar een iOS-toepassing. U maakt een lege iOS-app die pushmeldingen ontvangt met de [Apple Push Notification Service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
@@ -56,25 +59,6 @@ De volledige code voor deze zelfstudie vindt u [op GitHub](https://github.com/Az
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor iOS-apps.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>De Notification Hub voor iOS-pushmeldingen configureren
-
-In deze sectie maakt u een Notification Hub en configureert u verificatie met APNS met het **.p12**-pushcertificaat dat u eerder hebt gemaakt. Als u een Notification Hub wilt gebruiken die u al hebt gemaakt, kunt u doorgaan naar stap 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-your-notification-hub-with-apns-information"></a>Uw Notification Hub configureren met APNS-gegevens
-
-1. Selecteer **Apple (APNS)** onder **Notification Services**.
-2. Selecteer **Certificaat**.
-3. Selecteer het **bestandspictogram**.
-4. Selecteer het **.p12**-bestand dat u eerder hebt geëxporteerd.
-5. Geef het juiste **wachtwoord** op.
-6. Selecteer de modus **Sandbox**. Gebruik **Productie** alleen als u pushmeldingen wilt verzenden naar gebruikers die uw app in de winkel hebben aangeschaft.
-
-    ![APNS-certificering in Azure Portal configureren][7]
-
-De Notification Hub is nu geconfigureerd om te werken met APNS en u hebt de verbindingsreeksen om uw app te registreren en pushmeldingen te verzenden.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Uw iOS-app verbinden met Notification Hubs
 
