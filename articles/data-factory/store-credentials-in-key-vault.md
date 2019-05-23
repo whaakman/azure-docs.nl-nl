@@ -79,7 +79,7 @@ De volgende eigenschappen worden ondersteund wanneer u een veld in de gekoppelde
 | type | De eigenschap type van het veld moet worden ingesteld op: **AzureKeyVaultSecret**. | Ja |
 | secretName | De naam van het geheim in azure key vault. | Ja |
 | secretVersion | De versie van het geheim in azure key vault.<br/>Indien niet opgegeven, gebruikt deze altijd de nieuwste versie van de geheime sleutel.<br/>Als u opgeeft, klikt u vervolgens vastprikken het naar de opgegeven versie.| Nee |
-| Store | Verwijst naar een Azure Key Vault gekoppelde service die u gebruikt voor het opslaan van de referentie. | Ja |
+| store | Verwijst naar een Azure Key Vault gekoppelde service die u gebruikt voor het opslaan van de referentie. | Ja |
 
 **Met behulp van gebruikersinterface ontwerpen:**
 
