@@ -212,11 +212,11 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
    | Eigenschap | Genest onder | Description |
    |:--- |:--- |:--- |
    | type | properties |De eigenschap type wordt ingesteld op **AzureBlob**, omdat de gegevens zich in de blobopslag bevinden. |
-   | linkedServiceName | Indeling |Deze eigenschap verwijst naar AzureStorageLinkedService, die u eerder hebt gemaakt. |
+   | linkedServiceName | format |Deze eigenschap verwijst naar AzureStorageLinkedService, die u eerder hebt gemaakt. |
    | folderPath | typeProperties | Deze eigenschap verwijst naar de blobcontainer en de map die de blobs voor invoer bevat. | 
    | fileName | typeProperties |Deze eigenschap is optioneel. Als u deze eigenschap niet opgeeft, worden alle bestanden uit folderPath gekozen. In deze zelfstudie wordt alleen het input.log-bestand verwerkt. |
-   | type | Indeling |Omdat de logboekbestanden tekstbestanden zijn, gebruikt u **TextFormat**. |
-   | columnDelimiter | Indeling |De kolommen in de logboekbestanden worden gescheiden door een komma (`,`). |
+   | type | format |Omdat de logboekbestanden tekstbestanden zijn, gebruikt u **TextFormat**. |
+   | columnDelimiter | format |De kolommen in de logboekbestanden worden gescheiden door een komma (`,`). |
    | frequency/interval | availability |Als frequency wordt ingesteld op **Month** en de interval **1** is, betekent dit dat de invoersegmenten één keer per maand beschikbaar worden gemaakt. |
    | external | properties | Deze eigenschap wordt ingesteld op **true** als de invoergegevens niet worden gegenereerd door deze pijplijn. In deze zelfstudie wordt het bestand input.log niet gegenereerd door deze pijplijn. Daarom is de eigenschap ingesteld op **true**. |
 
