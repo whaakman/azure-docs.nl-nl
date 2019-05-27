@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/03/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595670"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002491"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -24,12 +24,12 @@ Wanneer u een uitvoeren als-account maakt, maakt u een nieuwe service-principalg
 
 Er zijn twee typen uitvoeren als-Accounts:
 
-* **Azure uitvoeren als-Account** -dit account wordt gebruikt om Resource Manager deployment model resources te beheren.
+* **Azure uitvoeren als-Account** -dit account wordt gebruikt voor het beheren van [Resource Manager-implementatiemodel](../azure-resource-manager/resource-manager-deployment-model.md) resources.
   * Er wordt een Azure AD-toepassing met een zelf-ondertekend certificaat gemaakt. Daarnaast wordt er voor de toepassing in Azure AD een service-principalaccount gemaakt en wordt aan dit account de rol Inzender toegewezen in uw huidige abonnement. U kunt deze instelling wijzigen in Eigenaar of een andere rol. Zie [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie.
   * Er wordt een Automation-certificaatasset gemaakt met de naam *AzureRunAsCertificate* in het opgegeven Automation-account. Het certificaatasset bevat de persoonlijke sleutel van het certificaat die wordt gebruikt door de Azure AD-toepassing.
   * Er wordt een Automation-verbindingsasset gemaakt met de naam *AzureRunAsConnection* in het opgegeven Automation-account. Het verbindingsasset bevat de toepassing-id, tenant-id, abonnement-id en certificaatvingerafdruk.
 
-* **Azure klassieke uitvoeren als-Account** -dit account wordt gebruikt om klassieke implementatie model resources te beheren.
+* **Azure klassieke uitvoeren als-Account** -dit account wordt gebruikt voor het beheren van [klassieke implementatiemodel](../azure-resource-manager/resource-manager-deployment-model.md) resources.
   * Hiermee maakt u een beheercertificaat in het abonnement
   * Er wordt een Automation-certificaatasset gemaakt met de naam *AzureClassicRunAsCertificate* in het opgegeven Automation-account. Het certificaatasset bevat de persoonlijke sleutel van het certificaat die wordt gebruikt door het beheercertificaat.
   * Er wordt een Automation-verbindingsasset gemaakt met de naam *AzureClassicRunAsConnection* in het opgegeven Automation-account. Het verbindingsasset bevat de naam van het abonnement, de abonnements-id en de certificaatassetnaam.
@@ -43,20 +43,20 @@ Er zijn twee typen uitvoeren als-Accounts:
 
 ## <a name="permissions"></a>Machtigingen voor het uitvoeren als-accounts configureren
 
-Als u wilt maken of bijwerken van een uitvoeren als-account, moet u de specifieke rechten en machtigingen hebben. Een globale beheerder/Medebeheerder kunt voltooien van de taken. In een situatie waarin u werkt met scheiding van functies, ziet de volgende tabel u een overzicht van de taken, de cmdlet equivalent en de machtigingen die nodig zijn:
+Als u wilt maken of bijwerken van een uitvoeren als-account, moet u de specifieke rechten en machtigingen hebben. Alle taken kunt voltooien door een globale beheerder in Azure Active Directory en een eigenaar in een abonnement. In een situatie waarin u werkt met scheiding van functies, ziet de volgende tabel u een overzicht van de taken, de cmdlet equivalent en de machtigingen die nodig zijn:
 
 |Taak|Cmdlet  |Minimale machtigingen  |Wanneer u de machtigingen instellen|
 |---|---------|---------|---|
 |Azure AD-toepassing maken|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Developer toepassingsrol<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registraties |
 |Een referentie toevoegen aan de toepassing.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Beheerder van de toepassing of globale beheerder<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registraties|
-|Maken en een Azure AD-service-principal ophalen|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Beheerder van de toepassing of globale beheerder        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registraties|
-|Toewijzen of de RBAC-rol voor de opgegeven principal ophalen|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Beheerder van gebruikerstoegang of eigenaar        | [Abonnement](../role-based-access-control/role-assignments-portal.md)</br>Start > abonnementen > \<abonnementsnaam\> -Access Control (IAM)|
+|Maken en een Azure AD-service-principal ophalen|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Beheerder van de toepassing of globale beheerder<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registraties|
+|Toewijzen of de RBAC-rol voor de opgegeven principal ophalen|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | U moet de volgende machtigingen hebben:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>Of a:</br></br>Beheerder van gebruikerstoegang of eigenaar        | [Abonnement](../role-based-access-control/role-assignments-portal.md)</br>Start > abonnementen > \<abonnementsnaam\> -Access Control (IAM)|
 |Maken of verwijderen van een Automation-certificaat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Inzender voor resourcegroep         |Resourcegroep van Automation-Account|
 |Maken of verwijderen van een Automation-verbinding|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Inzender voor resourcegroep |Resourcegroep van Automation-Account|
 
-<sup>1</sup> kunnen gebruikers zonder beheerdersrechten in uw Azure AD-tenant [AD-toepassingen registreren](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) als de Azure AD-tenant **gebruikers kunnen toepassingen registreren** optie **gebruikersinstellingen**pagina is ingesteld op **Ja**. Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
+<sup>1</sup> kunnen gebruikers zonder beheerdersrechten in uw Azure AD-tenant [AD-toepassingen registreren](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) als de Azure AD-tenant **gebruikers kunnen toepassingen registreren** optie **gebruikersinstellingen**pagina is ingesteld op **Ja**. Als de instelling app-registraties is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een **hoofdbeheerder** in Azure AD.
 
-Als u niet lid zijn van Active Directory-exemplaar van het abonnement voordat u bent toegevoegd aan de globale beheerder/medebeheerder rol van het abonnement, bent u als Gast toegevoegd. In dit geval ontvangt u een `You do not have permissions to create…` waarschuwing op de **Automation-Account toevoegen** pagina. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
+Als u niet lid zijn van Active Directory-exemplaar van het abonnement voordat u bent toegevoegd aan de **hoofdbeheerder** rol van het abonnement, u bent toegevoegd als gast. In dit geval ontvangt u een `You do not have permissions to create…` waarschuwing op de **Automation-Account toevoegen** pagina. Gebruikers die zijn toegevoegd aan de **hoofdbeheerder** rol eerst kan worden verwijderd uit Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 
 ## <a name="permissions-classic"></a>Machtigingen voor het klassieke uitvoeren als-accounts configureren
 

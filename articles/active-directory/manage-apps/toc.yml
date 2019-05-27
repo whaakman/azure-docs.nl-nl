@@ -111,8 +111,6 @@
           href: application-proxy-remove-personal-data.md
         - name: Aangepast domein configureren
           href: application-proxy-configure-custom-domain.md
-        - name: Configuratiefouten
-          href: application-proxy-troubleshoot.md
         - name: Publicatie-overzicht
           items:
             - name: Integreren met Cloud App Security
@@ -129,6 +127,12 @@
               href: application-proxy-qlik.md
         - name: Probleemoplossing toepassingsproxy
           items:
+            - name: Stroomdiagram voor problemen oplossen met connector
+              href: application-proxy-debug-connectors.md
+            - name: Stroomdiagram voor problemen oplossen met toepassing
+              href: application-proxy-debug-apps.md
+            - name: Configuratiefouten
+              href: application-proxy-troubleshoot.md
             - name: Probleem bij weergeven app-pagina
               href: application-proxy-page-appearance-broken-problem.md
             - name: Applicatie laden duurt te lang

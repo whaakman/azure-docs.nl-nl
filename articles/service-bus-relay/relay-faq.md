@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111467"
 ---
 # <a name="azure-relay-faqs"></a>Veelgestelde vragen over Azure Relay
 
@@ -38,7 +38,7 @@ Een [naamruimte](relay-create-namespace-portal.md) is een scoping container die 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Wat is er gebeurd met Service Bus Relay-service?
 De eerder benoemde Service Bus Relay-service heet nu [WCF Relay](relay-wcf-dotnet-get-started.md). U kunt echter ook doorgaan met deze service zoals gebruikelijk. De functie Hybrid Connections is een bijgewerkte versie van een service die wordt is getransplanteerd van Azure BizTalk Services. WCF-Relay en hybride verbindingen nog steeds ondersteund.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 In deze sectie vindt u antwoorden op enkele veelgestelde vragen over de prijsstructuur Relay. U kunt ook zien de [Veelgestelde vragen over Azure-ondersteuning](https://azure.microsoft.com/support/faq/) voor algemene Azure informatie over prijzen. Zie voor meer informatie over de prijzen voor Relay [Service Bus prijsinformatie][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Hoe u kosten in rekening gebracht voor hybride verbindingen en WCF-Relay?
@@ -79,11 +79,11 @@ Een bericht verzenden naar een Service Bus relay wordt behandeld als een 'volled
 
 Relays die worden geopend met behulp van de **netTCPRelay** WCF binding behandelen berichten niet als afzonderlijke berichten, maar als een stroom van gegevens die binnenkomen via het systeem. Wanneer u deze binding gebruikt, hebben alleen de afzender en de listener inzicht in de verwoording van de afzonderlijke berichten verzonden en ontvangen. Voor doorgeeft die gebruikmaken van de **netTCPRelay** verbinding maakt, alle gegevens worden vervolgens beschouwd als een stroom voor het berekenen van factureerbare berichten. In dit geval, berekent Service Bus de totale hoeveelheid gegevens verzonden of ontvangen via een afzonderlijke relay op basis van 5 minuten. Vervolgens wordt dat totale hoeveelheid gegevens verdeeld met 64 KB om te bepalen het aantal factureerbare berichten voor de desbetreffende relay in die periode.
 
-## <a name="quotas"></a>Quota
-| Quotumnaam | Bereik |  Opmerkingen | Value |
+## <a name="quotas"></a>Quota's
+| Quotumnaam | Scope |  Opmerkingen | Value |
 | --- | --- | --- | --- |
 | Gelijktijdige listeners op een relay |Entiteit |De volgende aanvragen voor extra verbindingen worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |25 |
-| Gelijktijdige relay-verbindingen per alle relay-eindpunten in een service-naamruimte |Naamruimte |- |5.000 |
+| Gelijktijdige relay-verbindingen per alle relay-eindpunten in een service-naamruimte |Naamruimte |- |5,000 |
 | Omleidingseindpunten per service-naamruimte |Naamruimte |- |10.000 |
 | Berichtgrootte voor [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) en [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) relays |Naamruimte |Binnenkomende berichten die groter zijn dan deze quota worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |64 kB |
 | Berichtgrootte voor [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) en [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) relays |Naamruimte |Geen limiet voor grootte van het bericht. |Onbeperkt |

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f526ea3d1a53ef2ae80f36c863e7a19797e9142
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545992"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001210"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Quickstart: Een AngularJS-app met één pagina compileren voor aanmelden en afmelden met Azure Active Directory
 
@@ -63,20 +63,15 @@ Als u wilt inschakelen voor de app om gebruikers te verifiëren en tokens te ver
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Als u bent aangemeld bij meerdere mappen, moet u mogelijk controleren of dat u de juiste map bekijkt. Klik op uw account op de bovenste balk om dit te doen. Kies de Azure AD-tenant waar u uw toepassing wilt registreren onder de lijst **Directory**.
 1. Selecteer **Alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
-1. Klik op **App-registraties** en selecteer vervolgens **Toevoegen**.
-1. Volg de prompts voor het maken van een nieuwe webtoepassing en/of web-API:
-
-    * **Name** beschrijft uw toepassing voor gebruikers.
-    * **Aanmeldings-URL** is de locatie waarop Azure AD tokens retourneert. De standaardlocatie voor dit voorbeeld is `https://localhost:44326/`.
-
-1. Nadat u de registratie hebt voltooid, wijst Azure AD een unieke toepassings-id toe aan uw app. U hebt deze waarde nodig in de volgende secties. Kopieer deze daarom vanaf het toepassingstabblad.
-1. Adal.js gebruikt de impliciete flow OAuth om te communiceren met Azure AD. U moet de impliciete flow inschakelen voor uw toepassing:
-
-    1. Klik op de toepassing en selecteer **Manifest** om de inline manifest-editor te openen.
-    1. Zoek de `oauth2AllowImplicitFlow` eigenschap. Stel de waarde op `true`.
-    1. Klik op **Opslaan** om het manifest op te slaan.
-
-1. Machtigingen verlenen binnen uw tenant voor uw toepassing. Ga naar **instellingen > Vereiste machtigingen**, en selecteer de knop **Machtigingen verlenen** op de bovenste balk.
+1. Klik op **App-registraties**, en selecteer vervolgens **registratie van nieuwe**.
+1. Wanneer de pagina **Een toepassing registreren** wordt weergegeven, voert u een naam in voor de toepassing.
+1. Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
+1. Selecteer de **Web** platform onder de **omleidings-URI** sectie en stel de waarde voor `https://localhost:44326/` (de locatie waarop Azure AD tokens retourneert).
+1. Selecteer **Registreren** wanneer u klaar bent. Noteer de waarde **Toepassings-id (client)** op de app-pagina **Overzicht**.
+1. Adal.js gebruikt de impliciete flow OAuth om te communiceren met Azure AD. U moet de impliciete stroom inschakelen voor uw toepassing. Selecteer in het deelvenster aan de linkerkant van de geregistreerde toepassing de optie **Verificatie**.
+1. Schakel in **Geavanceerde instellingen**, onder **Impliciete toekenning**, de selectievakjes **Id-tokens** en **toegangstoken** in. Id-tokens en toegangstokens zijn vereist, omdat via de app gebruikers moeten worden aangemeld en een API moet worden aangeroepen.
+1. Selecteer **Opslaan**.
+1. Machtigingen verlenen binnen uw tenant voor uw toepassing. Ga naar **API-machtigingen**, en selecteer de **verlenen beheerderstoestemming** knop onder **toestemming verlenen**.
 1. Selecteer **Ja** om te bevestigen.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Stap 2: ADAL installeren en de app met één pagina configureren

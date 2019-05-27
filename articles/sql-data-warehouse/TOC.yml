@@ -257,6 +257,10 @@
       items:
         - name: Uw workload analyseren
           href: analyze-your-workload.md
+        - name: Het belang van workload beheren en bewaken
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: Het belang van workload configureren
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
     - name: Beheren en bewaken
       items:
         - name: Upgraden naar Gen2

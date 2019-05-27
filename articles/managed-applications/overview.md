@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: da6c9bb6cbd94ab5078641f25e42ad2203ff7a53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251036"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001802"
 ---
 # <a name="azure-managed-applications-overview"></a>Overzicht van Azure Managed Applications
 
@@ -33,7 +33,7 @@ Hoewel klanten deze beheerde toepassingen implementeren in hun abonnementen, hoe
 
 Met beheerde toepassingen kunnen IT-teams de gebruikers in hun organisatie vooraf goedgekeurde oplossingen aanbieden. U weet dat deze oplossingen voldoen aan de organisatiestandaarden.
 
-Beheerde toepassingen op dit moment geen ondersteuning bieden voor [beheerde identiteiten voor een Azure-resources](../active-directory/managed-identities-azure-resources/overview.md).
+Beheerde toepassingen ondersteuning [beheerde identiteiten voor een Azure-resources](./publish-managed-identity.md).
 
 ## <a name="types-of-managed-applications"></a>Soorten beheerde toepassingen
 
@@ -73,7 +73,7 @@ Deze resourcegroep bevat alle resources die de beheerde toepassing nodig heeft. 
 
 Wanneer de gebruiker de beheerde toepassing verwijdert, wordt ook de beheerde resourcegroep verwijderd.
 
-## <a name="azure-policy"></a>Azure Policy
+## <a name="azure-policy"></a>Azure-beleid
 
 U kunt een [Azure Policy](../governance/policy/overview.md) toepassen op uw beheerde toepassing. U past beleidsregels toe om te verzekeren dat geïmplementeerde exemplaren van uw beheerde toepassing aan gegevens- en beveiligingsvereisten voldoen. Als uw toepassing met gevoelige gegevens werkt, zorg er dan voor dat u hebt geëvalueerd hoe die moeten worden beschermd. Als uw toepassing bijvoorbeeld met gegevens uit Office 365 werkt, past u een beleid toe om te verzekeren dat gegevensversleuteling is ingeschakeld.
 

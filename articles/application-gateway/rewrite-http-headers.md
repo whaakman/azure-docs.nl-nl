@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947181"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000974"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Herschrijf de HTTP-headers met Application Gateway
 
@@ -157,9 +157,7 @@ U kunt een HTTP-aanvraag of antwoord-header voor de aanwezigheid van een variabe
 
 - Naam van de header mag alfanumerieke tekens en symbolen zoals gedefinieerd in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Het onderstrepingsteken momenteel niet ondersteund (\_) speciaal teken in naam van de Header.
 
-## <a name="need-help"></a>Hulp nodig?
-
-Neem contact op met ons op [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) als u hulp met deze functie nodig hebt.
+- Als een antwoord meerdere kopteksten met dezelfde naam bevat, resulteert vervolgens herschrijven van de waarde van een van deze headers in de andere headers verwijderen in het antwoord.
 
 ## <a name="next-steps"></a>Volgende stappen
 

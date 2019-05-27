@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/14/2019
-ms.openlocfilehash: dc8ba315d08f3a130ff0adf91afc90f545baf4e4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/22/2019
+ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604434"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002211"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Veelvoorkomende problemen met Azure Database Migration Service en-fouten oplossen
 
@@ -28,7 +28,7 @@ Wanneer u nieuwe activiteiten in een Azure Database Migration Service-project ma
 
 | Oorzaak         | Oplossing |
 | ------------- | ------------- |
-| Dit probleem treedt op wanneer de Azure Database Migration Service-exemplaar heeft bereikt de maximumcapaciteit voor lopende taken die gelijktijdig worden uitgevoerd. Een nieuwe activiteit is in de wachtrij geplaatst totdat de capaciteit beschikbaar. | Valideer de Data Migration Service-exemplaar heeft het uitvoeren van activiteiten in projecten. U kunt blijven maken van nieuwe activiteiten automatisch toegevoegd aan de wachtrij voor uitvoering. Als een van de bestaande uitvoeren van activiteiten hebt voltooid, wordt de volgende activiteit in de wachtrij wordt uitgevoerd en de status gewijzigd in staat automatisch worden uitgevoerd. U hoeft te ondernemen actie meer om de migratie van activiteit in de wachtrij te starten.<br> |
+| Dit probleem treedt op wanneer de Azure Database Migration Service-exemplaar heeft bereikt de maximumcapaciteit voor lopende taken die gelijktijdig worden uitgevoerd. Een nieuwe activiteit is in de wachtrij geplaatst totdat de capaciteit beschikbaar. | Valideer de Data Migration Service-exemplaar heeft het uitvoeren van activiteiten in projecten. U kunt blijven maken van nieuwe activiteiten automatisch toegevoegd aan de wachtrij voor uitvoering. Als een van de bestaande uitvoeren van activiteiten hebt voltooid, wordt de volgende activiteit in de wachtrij wordt uitgevoerd en de status gewijzigd in staat automatisch worden uitgevoerd. U hoeft te ondernemen actie meer om de migratie van activiteit in de wachtrij te starten.<br><br> |
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>Max. aantal databases die zijn geselecteerd voor migratie
 
@@ -48,7 +48,7 @@ Wanneer u van MySQL met Azure Database voor MySQL met behulp van Azure Database 
 
 | Oorzaak         | Oplossing |
 | ------------- | ------------- |
-| Deze fout kan optreden wanneer de gebruiker die de migratie uitvoert de rol ReplicationAdmin en/of de bevoegdheden van de replicatie-CLIENT, REPLICA-replicatie en SUPER (eerdere versies dan MySQL 5.6.6 ontbreekt,).<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Zorg ervoor dat de [vereiste bevoegdheden](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) voor de gebruiker account zijn geconfigureerd nauwkeurig op de Azure Database for MySQL-exemplaar. Bijvoorbeeld, kunnen de volgende stappen worden uitgevoerd voor het maken van een gebruiker met de naam 'migrateuser' met de vereiste bevoegdheden:<br>1. CREATE USER migrateuser@'%' geïdentificeerd door 'geheim'; <br>2. Verleent alle rechten op db_name.* naar migrateuser'@'% aangeduid met 'geheim'; Herhaal deze stap voor het verlenen van toegang tot meer databases <br>3. Verleen replicatie slave op *.* naar migrateuser'@'% aangeduid met 'geheim';<br>4. Replicatie-client verlenen op *.* naar migrateuser'@'% aangeduid met 'geheim';<br>5. Bevoegdheden; leegmaken |
+| Deze fout kan optreden wanneer de gebruiker die de migratie in de rol ReplicationAdmin en/of de bevoegdheden van de replicatie-CLIENT, REPLICA-replicatie en SUPER (eerdere versies dan MySQL 5.6.6 ontbreekt).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Zorg ervoor dat de [vereiste bevoegdheden](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) voor de gebruiker account zijn geconfigureerd nauwkeurig op de Azure Database for MySQL-exemplaar. Bijvoorbeeld, kunnen de volgende stappen worden uitgevoerd voor het maken van een gebruiker met de naam 'migrateuser' met de vereiste bevoegdheden:<br>1. CREATE USER migrateuser@'%' geïdentificeerd door 'geheim'; <br>2. Verleent alle rechten op db_name.* naar migrateuser'@'% aangeduid met 'geheim'; Herhaal deze stap voor het verlenen van toegang tot meer databases <br>3. Verleen replicatie slave op *.* naar migrateuser'@'% aangeduid met 'geheim';<br>4. Replicatie-client verlenen op *.* naar migrateuser'@'% aangeduid met 'geheim';<br>5. Bevoegdheden; leegmaken |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Fout bij het stoppen van de Azure Database Migration Service
 
@@ -68,7 +68,7 @@ Wanneer u een online migratie van SQL Server naar een beheerd exemplaar voor Azu
 
 | Oorzaak         | Oplossing    |
 | ------------- | ------------- |
-| Deze fout wijst op de toepassings-principal wordt gebruikt voor online migratie van SQL Server naar een beheerd exemplaar voor Azure SQL Database biedt geen machtiging voor het abonnement hebt bijdragen. Bepaalde API-aanroepen met Managed Instance op dit moment moeten deze machtiging op abonnement voor de herstelbewerking. <br><br><br><br><br><br><br><br><br><br> | Gebruik de `Get-AzureADServicePrincipal` PowerShell-cmdlet met `-ObjectId` beschikbaar is via het foutbericht om de weergavenaam van de toepassings-ID wordt gebruikt.<br><br> De machtigingen om deze toepassing te valideren en zorg ervoor dat er de [rol van Inzender](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) op het abonnementsniveau. <br><br> De Azure Database Migration Service Engineering-Team werkt aan beperkt de vereiste toegang vanaf de huidige rol op abonnement bijdragen. Als u een bedrijfsvereiste die geen gebruik van rol bijdragen, neem contact op met de ondersteuning van Azure voor meer informatie. |
+| Deze fout wijst op de toepassings-principal wordt gebruikt voor online migratie van SQL Server naar een beheerd exemplaar voor Azure SQL Database biedt geen machtiging voor het abonnement hebt bijdragen. Bepaalde API-aanroepen met Managed Instance op dit moment moeten deze machtiging op abonnement voor de herstelbewerking. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Gebruik de `Get-AzureADServicePrincipal` PowerShell-cmdlet met `-ObjectId` beschikbaar is via het foutbericht om de weergavenaam van de toepassings-ID wordt gebruikt.<br><br> De machtigingen om deze toepassing te valideren en zorg ervoor dat er de [rol van Inzender](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) op het abonnementsniveau. <br><br> De Azure Database Migration Service Engineering-Team werkt aan beperkt de vereiste toegang vanaf de huidige rol op abonnement bijdragen. Als u een bedrijfsvereiste die geen gebruik van rol bijdragen, neem contact op met de ondersteuning van Azure voor meer informatie. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Fout bij het verwijderen van de NIC die is gekoppeld aan Azure Database Migration Service
 
@@ -78,7 +78,7 @@ Wanneer u probeert te verwijderen van een netwerkkaart die zijn gekoppeld aan Az
 
 | Oorzaak         | Oplossing    |
 | ------------- | ------------- |
-| Dit probleem treedt op wanneer de Azure Database Migration Service-exemplaar mogelijk nog steeds aanwezig en gebruiken van de NIC. <br><br><br><br><br><br> | Als u wilt verwijderen van deze NIC, verwijdert u de DMS-service-exemplaar dat de NIC die wordt gebruikt door de service automatisch verwijderd.<br><br> **Belangrijke**: Zorg ervoor dat de Azure Database Migration Service-exemplaar wordt verwijderd, heeft geen actieve activiteiten.<br><br> Nadat alle projecten en activiteiten die zijn gekoppeld aan het Azure Database Migration Service-exemplaar zijn verwijderd, kunt u het service-exemplaar verwijderen. De NIC die wordt gebruikt door de service-exemplaar is automatisch opgeschoond als onderdeel van de service verwijderen. |
+| Dit probleem treedt op wanneer de Azure Database Migration Service-exemplaar mogelijk nog steeds aanwezig en gebruiken van de NIC. <br><br><br><br><br><br><br><br> | Als u wilt verwijderen van deze NIC, verwijdert u de DMS-service-exemplaar dat de NIC die wordt gebruikt door de service automatisch verwijderd.<br><br> **Belangrijke**: Zorg ervoor dat de Azure Database Migration Service-exemplaar wordt verwijderd, heeft geen actieve activiteiten.<br><br> Nadat alle projecten en activiteiten die zijn gekoppeld aan het Azure Database Migration Service-exemplaar zijn verwijderd, kunt u het service-exemplaar verwijderen. De NIC die wordt gebruikt door de service-exemplaar is automatisch opgeschoond als onderdeel van de service verwijderen. |
 
 ## <a name="connection-error-when-using-expressroute"></a>Verbindingsfout bij het gebruik van ExpressRoute
 
@@ -86,7 +86,7 @@ Wanneer u probeert verbinding maken met de gegevensbron in de wizard Azure Datab
 
 | Oorzaak         | Oplossing    |
 | ------------- | ------------- |
-| Bij het gebruik van [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [vereist](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) drie service-eindpunten op het subnet van het Virtueelnetwerk dat is gekoppeld aan de service wordt ingericht:<br> --Service Bus-eindpunt<br> --Opslageindpunt<br> --Gericht op database-eindpunt (bijvoorbeeld SQL-eindpunt, Cosmos DB-eindpunt)<br><br><br><br> | [Schakel](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) de vereiste service-eindpunten voor ExpressRoute-connectiviteit tussen de bron- en Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| Bij het gebruik van [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [vereist](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) drie service-eindpunten op het subnet van het Virtueelnetwerk dat is gekoppeld aan de service wordt ingericht:<br> --Service Bus-eindpunt<br> --Opslageindpunt<br> --Gericht op database-eindpunt (bijvoorbeeld SQL-eindpunt, Cosmos DB-eindpunt)<br><br><br><br><br> | [Schakel](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) de vereiste service-eindpunten voor ExpressRoute-connectiviteit tussen de bron- en Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Time-out bij het migreren van een MySQL-database naar Azure MySQL
 
@@ -96,7 +96,17 @@ Wanneer u een MySQL-database naar een Azure Database for MySQL-exemplaar via Azu
 
 | Oorzaak         | Oplossing    |
 | ------------- | ------------- |
-| Deze fout treedt op wanneer de migratie mislukt vanwege de time-out voor wachten op vergrendeling tijdens de migratie.<br><br> | Vergroot de waarde van serverparameter **'innodb_lock_wait_timeout'**. De hoogste toegestane waarde is 1073741824. |
+| Deze fout treedt op wanneer de migratie mislukt vanwege de time-out voor wachten op vergrendeling tijdens de migratie. | Vergroot de waarde van serverparameter **'innodb_lock_wait_timeout'**. De hoogste toegestane waarde is 1073741824. |
+
+## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Fout bij het verbinding maken met de bron-SQL Server bij het gebruik van dynamische poort of benoemd exemplaar
+
+Wanneer u probeert verbinding maken met Azure Database Migration Service SQL Server-bron die wordt uitgevoerd op een benoemd exemplaar of een dynamische poort, mislukt de verbinding vanwege de volgende fout:
+
+* **Fout**: -1 - SQL-verbinding is mislukt. Een netwerkgerelateerde of exemplaarspecifieke fout is opgetreden bij het maken van een verbinding met SQL Server. De server wordt niet gevonden of toegang tot de server is niet mogelijk. Controleer of dat de exemplaarnaam juist is en dat SQL Server is geconfigureerd voor het toestaan van externe verbindingen. (provider: SQL-netwerkinterfaces, fout: 26 - fout bij het zoeken van de opgegeven Server/exemplaar)
+
+| Oorzaak         | Oplossing    |
+| ------------- | ------------- |
+| Dit probleem treedt op wanneer de bron SQL Server-exemplaar dat Azure Database Migration Service probeert verbinding maken met een dynamische poort is of van een benoemd exemplaar gebruikmaakt. De SQL Server Browser-service luistert op UDP-poort 1434 voor binnenkomende verbindingen op een benoemd exemplaar of bij het gebruik van een dynamische poort. De dynamische poort veranderen telkens wanneer SQL Server-service opnieuw wordt opgestart. U kunt de dynamische poort is toegewezen aan een exemplaar via network configuration in SQL Server Configuration Manager controleren.<br><br><br> |Controleer of dat Azure Database Migration Service verbinding met de bron SQL Server Browser-service op UDP-poort 1434 en de SQL Server-exemplaar via de dynamisch toegewezen TCP-poort, zoals van toepassing maken kan. |
 
 ## <a name="additional-known-issues"></a>Aanvullende bekende problemen
 

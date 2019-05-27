@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458707"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019776"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Continue integratie in Azure DevOps-Services met behulp van Azure Resource Group deployment projecten
 Voor het implementeren van een Azure-sjabloon, kunt u taken uitvoeren in verschillende fasen: Bouw, Test, kopiëren naar Azure (ook wel "Staging"), en implementeren van sjablonen. Er zijn twee verschillende manieren om sjablonen te implementeren met Azure DevOps-Services. Beide methoden bieden dezelfde resultaten, daarom kiest die het beste past bij uw werkstroom.
@@ -93,7 +93,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
       
       Gebruik voor Azure CLI:
       
-      `azure account show`
+      `az account show`
    8. Ophalen van een Service-Principal-ID, Service-Principal-sleutel en Tenant-ID, volg de procedure in [een Active Directory-toepassing en serviceprincipal maken met portal](active-directory/develop/howto-create-service-principal-portal.md) of [verifiëren van een service-principal met Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. De Service-Principal-ID, Service-Principal-sleutel en Tenant-ID Voeg waarden toe aan de **Azure-abonnement toevoegen** dialoogvenster vak en kies vervolgens de **OK** knop.
       
@@ -109,7 +109,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
     ![Pad naar script bewerken][10]
 8. In de **scriptargumenten** voert u de volgende parameters (op één regel). Wanneer u het script in Visual Studio uitvoeren, kunt u zien hoe Visual Studio maakt gebruik van de parameters in de **uitvoer** venster. U kunt dit gebruiken als uitgangspunt voor het instellen van de parameterwaarden in uw build-stap.
    
-   | Parameter | Beschrijving |
+   | Parameter | Description |
    | --- | --- |
    | -ResourceGroupLocation |De waarde van de geo-locatie waar de resourcegroep zich bevindt, zoals **eastus** of **'VS-Oost'**. (Enkele aanhalingstekens toevoegen als er een ruimte in de naam). Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor meer informatie. |
    | -ResourceGroupName |De naam van de resourcegroep die is gebruikt voor deze implementatie. |

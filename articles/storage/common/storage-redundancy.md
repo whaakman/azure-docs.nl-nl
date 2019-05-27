@@ -9,18 +9,20 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789985"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002828"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage-redundantie
 
 De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en hoge beschikbaarheid te garanderen. Azure Storage worden gekopieerd van uw gegevens zodat deze wordt beschermd tegen geplande en ongeplande gebeurtenissen, met inbegrip van tijdelijke hardwarefouten, het netwerk of stroomstoringen en enorme natuurrampen. U kunt uw gegevens binnen hetzelfde Datacenter repliceren in zonegebonden datacenters binnen dezelfde regio bevinden of geografisch gescheiden regio's.
 
 Replicatie zorgt ervoor dat uw opslagaccount voldoet aan de [Service-Level Agreement (SLA) voor opslag](https://azure.microsoft.com/support/legal/sla/storage/), zelfs wanneer er fouten optreden. Raadpleeg de SLA voor informatie over de garanties van Azure Storage voor duurzaamheid en beschikbaarheid.
+
+Azure Storage controleert regelmatig de integriteit van gegevens die zijn opgeslagen met cyclische redundantie controles (CRC's). Als beschadiging van gegevens wordt gedetecteerd, is deze met behulp van redundante gegevens hersteld. Azure-opslag wordt ook berekend controlesommen op al het netwerkverkeer voor het detecteren van beschadiging van gegevenspakketten wanneer op te slaan of het ophalen van gegevens.
 
 ## <a name="choosing-a-redundancy-option"></a>Een optie voor redundantie te kiezen
 

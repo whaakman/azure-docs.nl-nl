@@ -10,18 +10,18 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19873256f8253fff75cfd42df7b876106a9e98e5
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 70f9c34957b977aff9fc6211bf79415ed9abe255
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464794"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016513"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Aan de slag met Azure Machine Learning voor Visual Studio Code
 
-In dit artikel leert u hoe u de extensie voor Azure Machine Learning voor Visual Studio Code gebruiken om te trainen en implementeren van machine learning en deep learning-modellen met behulp van de Azure Machine Learning-service in Visual Studio Code.
+In dit artikel leert u hoe u de extensie voor Azure Machine Learning voor Visual Studio Code gebruiken om te trainen en implementeren van machine learning en deep learning-modellen.
 
-De Azure Machine Learning-service biedt ondersteuning voor experimenten die u lokaal en op externe compute-doelen worden uitgevoerd. Voor elke experiment, u kunt bijhouden van meerdere wordt uitgevoerd als u wilt vaak iteratief probeert verschillende technieken en hyperparameters. Azure Machine Learning kunt u aangepaste metrische gegevens bijhouden en experimenteren wordt uitgevoerd, data science reproduceerbaarheid en controleerbaarheid inschakelen.
+De [Azure Machine Learning-service](overview-what-is-azure-ml.md) biedt ondersteuning voor experimenten die u lokaal en op afstand uitvoeren van-doelen COMPUTE. Voor elke experiment, u kunt bijhouden van meerdere wordt uitgevoerd als u wilt vaak iteratief probeert verschillende technieken en hyperparameters. Azure Machine Learning kunt u aangepaste metrische gegevens bijhouden en experimenteren wordt uitgevoerd, data science reproduceerbaarheid en controleerbaarheid inschakelen.
 
 U kunt ook deze modellen implementeren voor uw behoeften testen en productie.
 
@@ -69,13 +69,13 @@ De Azure Machine Learning-extensie installeren:
 
    ![Kies de-interpreter](./media/vscode-tools-for-ai/python.png)
 
-1. In de rechterbenedenhoek van het venster weergegeven een melding dat aangeeft dat de SDK van Azure Machine Learning automatisch wordt geïnstalleerd. De zojuist gemaakte Python-omgeving is lokaal en particuliere en heeft de Visual Studio Code-vereisten voor het werken met de Azure Machine Learning-service.
+1. In de rechterbenedenhoek van het venster een melding weergegeven dat aangeeft dat de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) automatisch wordt geïnstalleerd. De zojuist gemaakte Python-omgeving is lokaal en particuliere en heeft de Visual Studio Code-vereisten voor het werken met de Azure Machine Learning-service.
 
    ![De Azure Machine Learning-SDK voor Python installeren](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Aan de slag met Azure Machine Learning
 
-Voordat u training en implementeren van machine learning-modellen in Visual Studio Code, die u wilt maken een [werkruimte van Azure Machine Learning-service](concept-azure-machine-learning-architecture.md#workspace) in de cloud. Deze werkruimte bevat uw modellen en resources. 
+Voordat u training en implementeren van machine learning-modellen in Visual Studio Code, die u wilt maken een [werkruimte van Azure Machine Learning-service](concept-workspace.md) in de cloud. Deze werkruimte bevat uw modellen en resources. 
 
 Een werkruimte maken en toevoegen van uw eerste experiment:
 

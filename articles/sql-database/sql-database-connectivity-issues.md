@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202127"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019826"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Werken met SQL Database-verbindingsproblemen en tijdelijke fouten
 
@@ -134,7 +134,7 @@ Als uw clientprogramma verbinding met SQL-Database maakt met behulp van de .NET 
 Wanneer u bouwt de [verbindingsreeks](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) voor uw **SqlConnection** object, de coördinatie van de waarden onder de volgende parameters:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;standaardwaarde is 1. Bereik is 0 tot en met 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;standaardwaarde is 1 seconde. Bereik ligt tussen 1 en 60.
+- **ConnectRetryInterval**:&nbsp;&nbsp;standaardinstelling is 10 seconden. Bereik ligt tussen 1 en 60.
 - **Time-out voor verbindingen**:&nbsp;&nbsp;standaardwaarde is 15 seconden. Bereik is 0 en 2147483647.
 
 De gekozen waarden moeten specifiek, moet u de volgende gelijkheid true: Time-out voor verbindingen ConnectRetryCount = * ConnectionRetryInterval
@@ -215,7 +215,7 @@ Als u werkt met ADO.NET 4.0 of eerder gebruikt, raden wij aan dat u een upgrade 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## <a name="diagnostics"></a>Diagnostiek
+## <a name="diagnostics"></a>Diagnostische gegevens
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
@@ -275,7 +275,7 @@ Enterprise-bibliotheek 6 (EntLib60) biedt beheerde .NET-klassen om u te helpen b
 
 Hier volgen enkele Transact-SQL SELECT-instructies die foutenlogboeken en andere informatie opvragen.
 
-| Query van logboek | Beschrijving |
+| Query van logboek | Description |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |De [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) weergave biedt informatie over afzonderlijke gebeurtenissen, waaronder enkele die leiden tijdelijke fouten of fouten in de netwerkconnectiviteit tot kunnen.<br/><br/>U kunt in het ideale geval correleren de **start_time** of **end_time** waarden met informatie over wanneer uw clientprogramma problemen ondervonden.<br/><br/>U moet verbinding maken met de *master* database deze query uit te voeren. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |De [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) weergave biedt samengevoegde tellingen van gebeurtenistypen voor aanvullende diagnostische gegevens.<br/><br/>U moet verbinding maken met de *master* database deze query uit te voeren. |

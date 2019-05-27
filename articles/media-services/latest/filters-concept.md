@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465533"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002383"
 ---
-# <a name="define-account-filters-and-asset-filters"></a>Accountfilters en asset filters definiëren  
+# <a name="filters"></a>Filters
 
 Wanneer uw inhoud levert aan klanten (Live Streaming-gebeurtenissen of Video on Demand) is de client mogelijk meer flexibiliteit dan wat wordt beschreven in het manifestbestand van de standaard-asset. Azure Media Services kunt u accountfilters en filters actief voor uw inhoud definiëren. 
 
@@ -88,11 +88,9 @@ Eigenschap van de filtervoorwaarden bijhouden beschrijven tracktypen, waarden (i
 |**Naam**|Gebruik de naam van de track voor het filteren.|
 |**Type**|Gebruik het type van het spoor voor het filteren.<br/><br/>De volgende waarden zijn toegestaan: "video", 'audio' of 'tekst'.|
 
-## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
+### <a name="example"></a>Voorbeeld
 
-U kunt een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. De [dynamische packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dynamische manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
-
-## <a name="definition-example"></a>Voorbeeld van de definitie
+Het volgende voorbeeld definieert een Live Streaming-filter: 
 
 ```json
 {
@@ -146,6 +144,15 @@ U kunt een lijst met activa of account filters, die voor uw Streaming-Locator ge
   }
 }
 ```
+
+## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
+
+U kunt een lijst opgeven met [asset of account filters](filters-concept.md), die gelden voor uw [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). De [dynamische Packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dynamische Manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
+
+Zie de volgende voorbeelden:
+
+* [Filters koppelen met Streaming-Locator - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [Filters koppelen met Streaming-Locator - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
 ## <a name="next-steps"></a>Volgende stappen
 
