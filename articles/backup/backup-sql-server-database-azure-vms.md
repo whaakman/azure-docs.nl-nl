@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: ae1f5f9148fa516c98d78afdd57887d4279f92dc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827689"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952934"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines
 
@@ -51,7 +51,7 @@ Verbinding maken met behulp van een van de volgende opties:
 
 - **Toestaan dat de IP-adresbereiken Azure datacenter**. Met deze optie kunt [IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653) in de download. Voor toegang tot een netwerkbeveiligingsgroep (NSG), gebruikt u de cmdlet Set-AzureNetworkSecurityRule. Als u in de whitelist aan enige regio-specifieke IP-adressen, u zult ook moet aan lijst met geaccepteerde Azure Active Directory (Azure AD) servicetag als verificatie wilt inschakelen.
 
-- **Toegang met behulp van labels NSG**. Als u nsg's gebruiken om te beperken van connectiviteit, wordt deze optie een regel toegevoegd aan uw NSG waarmee uitgaande toegang tot Azure back-up met behulp van de AzureBackup-tag. Naast deze tag kunt u moet ook overeenkomen [regels](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) voor Azure AD en Azure Storage om toe te staan connectiviteit voor verificatie en gegevensoverdracht. De AzureBackup-tag is alleen op dit moment beschikbaar zijn in PowerShell. Een regel maken met behulp van de AzureBackup-tag:
+- **Toegang met behulp van labels NSG**. Als u nsg's gebruiken om te beperken van connectiviteit, wordt deze optie een regel toegevoegd aan uw NSG waarmee uitgaande toegang tot Azure back-up met behulp van de AzureBackup-tag. Naast deze tag kunt u moet ook overeenkomen [regels](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) voor Azure AD en Azure Storage om toe te staan connectiviteit voor verificatie en gegevensoverdracht. De AzureBackup-tag is alleen op dit moment beschikbaar zijn in PowerShell. Een regel maken met behulp van de AzureBackup-tag:
 
     - Referenties voor Azure-account toevoegen en bijwerken van de nationale clouds<br/>
     `Add-AzureRmAccount`
@@ -67,7 +67,7 @@ Verbinding maken met behulp van een van de volgende opties:
 
   - De Netwerkbeveiligingsgroep opslaan<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-- **Toegang toestaan door het gebruik van Azure-Firewall tags**. Als u Azure-Firewall, een toepassing-regel maken met behulp van de AzureBackup [FQDN tag](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags). Hiermee kunt uitgaande toegang tot Azure Backup.
+- **Toegang toestaan door het gebruik van Azure-Firewall tags**. Als u Azure-Firewall, een toepassing-regel maken met behulp van de AzureBackup [FQDN tag](https://docs.microsoft.com/azure/firewall/fqdn-tags). Hiermee kunt uitgaande toegang tot Azure Backup.
 - **Een HTTP-proxy-server implementeren om verkeer te routeren**. Wanneer u een back-up van een SQL Server-database maakt op een Azure VM, gebruikt de back-upextensie op de virtuele machine de HTTPS-API's voor het verzenden van opdrachten voor beheer met Azure Backup en gegevens naar Azure Storage. Azure AD de Backup-extensie gebruikt voor verificatie. Leid het verkeer van de back-upextensie voor deze drie services via de HTTP-proxy. De extensies zijn het enige onderdeel dat geconfigureerd voor toegang tot het openbare internet.
 
 Opties voor netwerkconnectiviteit zijn onder andere de volgende voordelen en nadelen:

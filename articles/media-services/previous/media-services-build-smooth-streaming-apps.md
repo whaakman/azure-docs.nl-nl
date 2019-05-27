@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466041"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949624"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Over het bouwen van een toepassing met probleemloze Streaming Windows Store  
 
@@ -507,7 +507,7 @@ Dezelfde gebeurtenissen zijn beschikbaar op adaptieve bron Manager niveau, die k
    ```
 
    > [!NOTE]
-   > CoreDispatcher wordt gebruikt om wijzigingen aanbrengen in de UI-thread van niet-UI-Thread. In het geval van knelpunt op dispatcher-thread kunt ontwikkelaars gebruiken functie voor berichtverzending geleverd door de UI-element komt wil bijwerken.  Bijvoorbeeld:
+   > CoreDispatcher wordt gebruikt om wijzigingen aanbrengen in de UI-thread van niet-UI-Thread. In het geval van knelpunt op dispatcher-thread kunt ontwikkelaars gebruiken functie voor berichtverzending geleverd door de UI-element ze van plan bent om bij te werken.  Bijvoorbeeld:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ Een Smooth Streaming-presentatie kan bevatten meerdere videobestanden gecodeerd 
          </ListBox>
          </StackPanel>
    ```
-3. Druk op **CTRL + S** hij wijzigingen op te slaan
+3. Druk op **CTRL + S** de wijzigingen op te slaan
 
 ### <a name="to-modify-the-code-behind-file"></a>Wijzigen van het codebestand
 
