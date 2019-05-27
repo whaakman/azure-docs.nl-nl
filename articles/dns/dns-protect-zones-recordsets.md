@@ -2,17 +2,18 @@
 title: Azure DNS-Zones en Records beschermen
 description: Het beveiligen van DNS-zones en -recordsets in Microsoft Azure DNS.
 services: dns
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
-ms.author: victorh
+origin.date: 12/4/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66121389"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS-zones en records beschermen
 
@@ -22,7 +23,7 @@ DNS-zones en records zijn kritieke bronnen. Verwijderen van een DNS-zone of zelf
 
 In dit artikel wordt uitgelegd hoe Azure DNS kunt u uw DNS-zones en records tegen dergelijke wijzigingen beveiligen.  We twee krachtige beveiligingsfuncties die worden geleverd door Azure Resource Manager toepassen: [op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) en [resourcevergrendelingen](../azure-resource-manager/resource-group-lock-resources.md).
 
-## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
+## <a name="role-based-access-control"></a>Role-based access control
 
 Azure Role-Based Access Control (RBAC) kunt over Geavanceerd toegangsbeheer voor Azure-gebruikers, groepen en resources. Met RBAC, verleent u nauwkeurig de mate van toegang dat gebruikers moeten hun werk. Zie voor meer informatie over hoe met RBAC kunt u bij het beheren van toegang, [wat is toegangsbeheer op basis van rollen](../role-based-access-control/overview.md).
 
@@ -117,8 +118,7 @@ Het volgende voorbeeld ziet de definitie van een aangepaste rol voor het beheren
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Support/*"
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
     ],
     "NotActions": [
     ],

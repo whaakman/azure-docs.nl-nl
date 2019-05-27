@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 5bde217601d27129e044b64d90184727ea717950
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132963"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132884"
 ---
 Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie Parameters die alle parameterwaarden bevat.
 U moet een parameter voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving die u om te implementeren wilt definiëren. Definieer geen parameters voor waarden die worden altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd. 
@@ -18,7 +18,7 @@ Bij het definiëren van parameters, gebruikt u de **allowedValues** aan te geven
 
 Wordt wordt elke parameter in de sjabloon beschreven.
 
-### <a name="sitename"></a>Sitenaam
+### <a name="sitename"></a>siteName
 De naam van de web-app die u wilt maken.
 
     "siteName":{
@@ -32,7 +32,7 @@ De naam van de App Service-plan te gebruiken voor het hosten van de web-app.
       "type":"string"
     }
 
-### <a name="sku"></a>SKU
+### <a name="sku"></a>sku
 De prijscategorie voor het hostingabonnement.
 
     "sku": {

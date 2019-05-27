@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/13/2019
-ms.openlocfilehash: f244a67abab5c7f8cd14277f87f055ac6d48b8d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762437"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978015"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters"></a>Beperking van verkeer uitgaand netwerkverkeer voor Azure HDInsight-clusters configureren
+# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Beperking van verkeer uitgaand netwerkverkeer voor Azure HDInsight-clusters (Preview) configureren
 
 In dit artikel bevat de stappen waarmee u voor het beveiligen van het uitgaande verkeer van uw HDInsight-cluster met behulp van Azure-Firewall. De onderstaande stappen wordt ervan uitgegaan dat u een Azure-Firewall voor een bestaand cluster wilt configureren. Als u een nieuw cluster implementeert en achter een firewall bevindt, eerst maken van uw HDInsight-cluster en het subnet en volg de stappen in deze handleiding.
 
@@ -27,7 +27,7 @@ Er zijn verschillende afhankelijkheden waarmee binnenkomend verkeer vereist. Het
 
 De afhankelijkheden van HDInsight uitgaand verkeer zijn bijna volledig gedefinieerd met FQDN's, waarvoor geen statische IP-adressen achter deze. Het ontbreken van statische adressen betekent dat Netwerkbeveiligingsgroepen (nsg's) kan niet worden gebruikt voor het vergrendelen van het uitgaande verkeer van een cluster. De adressen wijzigen vaak genoeg dat kan niet een regels op basis van de huidige naamomzetting instellen en die gebruiken voor het instellen van NSG-regels.
 
-De oplossing voor beveiliging van de uitgaande adressen is het gebruik van een firewall-apparaat dat uitgaand verkeer op basis van domeinnamen kunt beheren. Firewall van Azure kunt beperken uitgaande HTTP en HTTPS-verkeer op basis van de FQDN-naam van de bestemming.
+De oplossing voor beveiliging van de uitgaande adressen is het gebruik van een firewall-apparaat dat uitgaand verkeer op basis van domeinnamen kunt beheren. Firewall van Azure kunt beperken uitgaande HTTP en HTTPS-verkeer op basis van de FQDN-naam van de bestemming of [FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Firewall voor Azure configureren met HDInsight
 
@@ -80,7 +80,7 @@ Op de **regelverzameling toepassing toevoegen** scherm, voer de volgende stappen
         1. Voer `https:443` onder **Protocol: poort** en `sqm.telemetry.microsoft.com` onder **FQDN's als doel**.
     1. Als uw cluster wordt ondersteund door WASB en u de bovenstaande service-eindpunten niet gebruikt, voegt u een regel voor WASB:
         1. In de **doel FQDN's** sectie, bieden een **naam**, en stel **adressen van bron** naar `*`.
-        1. Voer `wasb` onder **Protocol: poort** en `*` onder **FQDN's als doel**.
+        1. Voer `http` of [https] afhankelijk van wanneer gebruikt u wasb: / / of wasbs: / / onder **Protocol: poort** en de url van de opslag onder **doel FQDN's**.
 1. Klik op **Toevoegen**.
 
 ![Titel: Details van verzameling regel invoeren](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)

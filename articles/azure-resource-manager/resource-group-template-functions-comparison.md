@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268701"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128687"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Van vergelijkingsfuncties voor Azure Resource Manager-sjablonen
 
@@ -250,7 +250,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| checkInts | Bool | Onwaar |
 | checkStrings | Bool | True |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
@@ -326,7 +326,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| checkInts | Bool | Onwaar |
 | checkStrings | Bool | True |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
@@ -403,7 +403,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkStrings | Bool | Onwaar |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -479,7 +479,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkStrings | Bool | Onwaar |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 

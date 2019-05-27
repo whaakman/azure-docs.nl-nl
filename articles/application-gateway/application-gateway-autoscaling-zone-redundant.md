@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827427"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986876"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisch schalen en Zone-redundante Application Gateway 
 
@@ -93,8 +93,6 @@ Prijs per eenheid voor capaciteit 744(hours) = * Max (compute-eenheid Max(25/50 
 
 Totale prijs = $267.84 + $85.71 $353.55 =
 
-De [pagina met prijzen](https://azure.microsoft.com/pricing/details/application-gateway/) wordt bijgewerkt naar aanleiding van regionale prijzen op 14 mei 2019. Facturering is gepland om te beginnen op 1 juni 2019.
-
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Application Gateway en WAF v2 schalen
 
 Application Gateway en WAF kan worden geconfigureerd om te schalen in twee modi:
@@ -138,7 +136,7 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
 |Gebruiker gedefinieerde Route (UDR) op Application Gateway-subnet|Niet ondersteund|
 |NSG voor binnenkomende poortbereik| -65200 tot en met 65535 voor Standard_v2 SKU<br>-65503 tot 65534 voor standaard-SKU.<br>Zie voor meer informatie de [Veelgestelde vragen over](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestatielogboeken in Azure diagnostics|Wordt niet ondersteund.<br>Metrische gegevens van Azure moet worden gebruikt.|
-|Facturering|De facturering is gepland om te beginnen op 1 juni 2019.|
+|Facturering|De facturering is gepland om te beginnen op 1 juli 2019.|
 |FIPS-modus|Deze worden momenteel niet ondersteund.|
 |Alleen ILB-modus|Dit wordt momenteel niet ondersteund. Openbare en samen ILB-modus wordt ondersteund.|
 |Integratie van het netwerk controleren|Wordt niet ondersteund.|

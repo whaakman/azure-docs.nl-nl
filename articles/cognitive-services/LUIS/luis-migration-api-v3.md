@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233545"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123889"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Preview: Migreren naar API-versie 3.x voor LUIS-apps
 
@@ -343,6 +343,9 @@ Het antwoord voorspelling bevat die entiteit lijst met alle andere voorspelde en
 
 **In V3**, de entiteit is gemarkeerd met `startIndex` en `entityLength`.
 
+## <a name="deprecation"></a>Afschaffing 
+
+De V2-API worden niet ten minste 9 maanden na de preview van V3 afgeschaft. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

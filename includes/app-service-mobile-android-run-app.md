@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 505eac0996129a17b6b68e8ab4ea2d4fc80fd473
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132859"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140991"
 ---
 1. Ga naar de [Azure Portal]. Klik op **Door alles bladeren** > **Mobile Apps** > de back-end die u zojuist hebt gemaakt. Klik in de instellingen van de mobiele app op **Quickstart** > **Android**. Onder **Uw clienttoepassing configureren** klikt u op **Downloaden**. Er wordt dan voor een app een volledig Android-project gedownload dat vooraf is geconfigureerd om verbinding te maken met uw back-end. 
 2. Open het project met **Android Studio** via **Project importeren (Eclipse ADT, Gradle enzovoort)**. Zorg ervoor dat u deze importselectie maakt om eventuele JDK-fouten te voorkomen.

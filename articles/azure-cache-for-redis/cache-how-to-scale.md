@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
 ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66132926"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Het schalen van Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en functies. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. Dit artikel ziet u hoe u de schaal van uw cache met behulp van de Azure-portal en hulpprogramma's, zoals Azure PowerShell en Azure CLI.
@@ -39,7 +39,7 @@ Als u vaststelt dat de cache niet langer voldoen aan de vereisten van uw toepass
 ## <a name="scale-a-cache"></a>Een cache schalen
 Voor het schalen van uw cache [bladert u naar de cache](cache-configure.md#configure-azure-cache-for-redis-settings) in de [Azure-portal](https://portal.azure.com) en klikt u op **schaal** uit de **resourcemenu**.
 
-![Schalen](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Schaal aanpassen](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selecteer de gewenste prijscategorie van de **Selecteer prijscategorie** blad en klik op **Selecteer**.
 

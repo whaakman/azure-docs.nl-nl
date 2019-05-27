@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: 15047b9782ea86b91ba78e0d745c67892fdc8b76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710255"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124126"
 ---
 De matrix `response` voor het toevoegen van de voorbeelduitingen toont of de voorbeelden zijn geslaagd of mislukt. Hiervoor wordt de eigenschap `hasError` gebruikt. Het volgende JSON-antwoord bevat dat beide uitingen die zijn toegevoegd. 
 

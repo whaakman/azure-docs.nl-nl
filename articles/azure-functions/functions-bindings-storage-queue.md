@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 72e51deb31ad2894ccfc0fc71884c99863184f5b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2f6b693e11ccbb759b59c949b24690e8a2054f94
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203660"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132412"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -39,7 +39,7 @@ De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensi
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="encoding"></a>Encoding
+## <a name="encoding"></a>Codering
 Functies verwacht een *base64* gecodeerde tekenreeks. Alle aanpassingen van het type codering (als u wilt voorbereiden van gegevens als een *base64* gecodeerde tekenreeks) moet worden geïmplementeerd in de aanroepende-service.
 
 ## <a name="trigger"></a>Trigger
@@ -254,7 +254,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction**| N.v.t. | In de *function.json* alleen het bestand. Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
 |**De naam** | N.v.t. |De naam van de variabele met de nettolading van de wachtrij-item in de functiecode aan te geven.  |
 |**queueName** | **Wachtrijnaam**| De naam van de wachtrij te peilen. |
-|**verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**verbinding** | **verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -363,7 +363,7 @@ Hier volgt de *function.json* bestand:
       "direction": "out",
       "name": "$return",
       "queueName": "outqueue",
-      "connection": "MyStorageConnectionAppSetting",
+      "connection": "MyStorageConnectionAppSetting"
     }
   ]
 }
@@ -424,7 +424,7 @@ Hier volgt de *function.json* bestand:
       "direction": "out",
       "name": "$return",
       "queueName": "outqueue",
-      "connection": "MyStorageConnectionAppSetting",
+      "connection": "MyStorageConnectionAppSetting"
     }
   ]
 }
@@ -508,7 +508,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij in functiecode aan te geven. Ingesteld op `$return` om te verwijzen naar de geretourneerde waarde van de functie.|
 |**queueName** |**Wachtrijnaam** | De naam van de wachtrij. |
-|**verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+|**verbinding** | **verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -566,7 +566,7 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------|
-|maxPollingInterval|00:00:02|Het maximale interval tussen de wachtrij worden opgevraagd. Minimaal is 00:00:00.100 (100 ms). |
+|maxPollingInterval|00:00:01|Het maximale interval tussen de wachtrij worden opgevraagd. Minimaal is 00:00:00.100 (100 ms). |
 |visibilityTimeout|00:00:00|Het tijdsinterval tussen nieuwe pogingen bij het verwerken van een bericht is mislukt. |
 |batchSize|16|Het aantal Wachtrijberichten waarmee de Functions-runtime gelijktijdig worden opgehaald en parallel worden verwerkt. Als het getal dat wordt verwerkt opgehaald omlaag naar de `newBatchThreshold`, de runtime opgehaald van een andere batch en start deze berichten worden verwerkt. Zodat het maximum aantal gelijktijdige berichten worden verwerkt per functie `batchSize` plus `newBatchThreshold`. Deze limiet geldt afzonderlijk voor elke wachtrij-geactiveerde functie. <br><br>Als u voorkomen dat de parallelle uitvoering voor berichten in een wachtrij ontvangen wilt, kunt u instellen `batchSize` op 1. Deze instelling elimineert echter gelijktijdigheid alleen zo lang uw functie-app wordt uitgevoerd op een enkele virtuele machine (VM). Als de functie-app wordt geschaald naar meerdere virtuele machines, kan één exemplaar van elke wachtrij-geactiveerde functie uitvoeren in elke virtuele machine.<br><br>De maximale `batchSize` is 32. |
 |maxDequeueCount|5|Het aantal keren dat probeert een bericht verwerken voordat u deze verplaatst naar de wachtrij onverwerkbare.|

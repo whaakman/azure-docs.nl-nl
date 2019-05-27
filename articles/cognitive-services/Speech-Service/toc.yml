@@ -170,7 +170,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Aangepaste model implementeren
               href: how-to-custom-speech-deploy-model.md
-            - name: 'Handleiding: door mensen gelabelde transcripties maken'
+            - name: Gids voor door mensen gelabelde transcripties maken
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Tekst naar spraak
           items:
@@ -195,14 +195,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: Vanuit de Translator Speech-API
           href: how-to-migrate-from-translator-speech-api.md
-    - name: On-premises containers gebruiken
+    - name: Containers gebruiken
       items:
-        - name: On-premises containers installeren en uitvoeren
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+        - name: Containers installeren en uitvoeren
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
           href: speech-container-howto.md
         - name: Containers configureren
           href: speech-container-configuration.md
-          displayName: 'docker, container, billing, apikey, pull, logging'
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
 - name: Voorbeelden
   items:
     - name: Speech-SDK
@@ -314,6 +314,8 @@
       href: support.md
     - name: Prijzen en beperkingen
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Naleving
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacy en cookies

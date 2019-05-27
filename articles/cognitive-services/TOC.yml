@@ -23,6 +23,8 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
     - name: Prijscalculator
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Naleving
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Video's
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: Service-updates

@@ -9,11 +9,11 @@ ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
 ms.openlocfilehash: a02144914e73ca1788976d8b01ccd95d1b9e9a1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741876"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133056"
 ---
 Als u van plan bent om door te gaan naar de volgende zelfstudie, houd u de resources die u in deze Quick Start hebt gemaakt. U kunt ze opnieuw gebruiken in de volgende zelfstudie.
 

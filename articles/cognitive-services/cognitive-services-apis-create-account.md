@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: b5adb5b8bddd0f379ac581f3268f0121791cf0bc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546375"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145945"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Quickstart: Een Cognitive Services-account maken in Azure portal
 
@@ -92,6 +92,8 @@ Nadat de resource is gemaakt, kunt u openen vanuit het Azure-dashboard als u dez
 Binnen uw Cognitive Services-resource, kunt u de eindpunt-URL en sleutels in de **overzicht** sectie om te beginnen met het maken van API-aanroepen in uw toepassingen.
 
 ![Scherm](media/cognitive-services-apis-create-account/resourceScreen.png)
+
+Noteer de locatie en de sleutels. U kunt de sleutels krijgen door het selecteren van **sleutels** onder **resourcebeheer**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

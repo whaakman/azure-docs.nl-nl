@@ -284,13 +284,13 @@ Wanneer u gegevens van en naar Oracle kopiëren, worden de volgende toewijzingen
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimal, String (als precisie > 28) |
-| INTEGER |Decimal, String (als precisie > 28) |
+| FLOAT |Decimaal getal, tekenreeks (als precisie > 28) |
+| GEHEEL GETAL ZIJN |Decimaal getal, tekenreeks (als precisie > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, String (als precisie > 28) |
+| AANTAL |Decimaal getal, tekenreeks (als precisie > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

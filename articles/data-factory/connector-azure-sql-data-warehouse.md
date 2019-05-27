@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 6d2ed8ba13fac03a60d9a0730776bc8348876b62
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153428"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153577"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -149,7 +149,7 @@ Volg deze stappen voor het gebruik van service-principal op basis van Azure AD-t
 4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    EXEC sp_addrolemember db_owner, [your application name];
     ```
 
 5. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
@@ -199,7 +199,7 @@ Volg deze stappen voor het gebruik van beheerde verificatie:
 3. **De Data Factory beheerde identiteit vereist machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    EXEC sp_addrolemember db_owner, [your Data Factory name];
     ```
 
 5. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
@@ -375,7 +375,7 @@ Om gegevens te kopiëren naar Azure SQL Data Warehouse, stelt u het sink-type in
 | rejectValue | Hiermee geeft u het getal of het percentage van de rijen die kunnen worden afgewezen voordat de query is mislukt.<br/><br/>Meer informatie over de PolyBase-weigeringsopties in de sectie argumenten van [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Toegestane waarden zijn 0 (standaardinstelling), 1, 2, enzovoort. |Nee |
 | rejectType | Hiermee geeft u op of de **rejectValue** optie is een letterlijke waarde of een percentage.<br/><br/>Toegestane waarden zijn **waarde** (standaard) en **Percentage**. | Nee |
 | rejectSampleValue | Bepaalt het aantal rijen om op te halen voordat PolyBase berekent het percentage van geweigerde rijen opnieuw.<br/><br/>Toegestane waarden zijn 1, 2, enzovoort. | Ja, als de **rejectType** is **percentage**. |
-| useTypeDefault | Hiermee geeft u ontbrekende waarden in de tekstbestanden verwerken als PolyBase worden gegevens opgehaald uit het tekstbestand.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Toegestane waarden zijn **waar** en **False** (standaard). | Nee |
+| useTypeDefault | Hiermee geeft u ontbrekende waarden in de tekstbestanden verwerken als PolyBase worden gegevens opgehaald uit het tekstbestand.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Toegestane waarden zijn **waar** en **False** (standaard).<br><br>**Zie [tips voor probleemoplossing](#polybase-troubleshooting) met betrekking tot deze instelling.** | Nee |
 | writeBatchSize | Aantal rijen dat moet worden ingevoegd in de SQL-tabel **per batch**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). Standaard bepalen Data Factory dynamisch van de juiste batchgrootte op basis van de rijgrootte. | Nee |
 | writeBatchTimeout | Wachttijd voor de bewerking voor het invoegen van batch worden voltooid voordat er een optreedt time-out. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Data Warehouse in elke uitvoering. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
@@ -405,6 +405,9 @@ Met behulp van [PolyBase](https://docs.microsoft.com/sql/relational-databases/po
 * Als de brongegevens bevinden zich in **Azure Blob, Azure Data Lake Storage Gen1 of Azure Data Lake Storage Gen2**, en de **indeling is compatibel PolyBase**, kunt u activiteit kopiëren om aan te roepen rechtstreeks PolyBase zodat Azure SQL Data Warehouse ophalen van de gegevens uit de bron. Zie voor meer informatie,  **[directe kopiëren met behulp van PolyBase](#direct-copy-by-using-polybase)**.
 * Als de bron-gegevensopslag en -indeling wordt niet oorspronkelijk ondersteund door PolyBase, gebruikt u de **[gefaseerd kopiëren met behulp van PolyBase](#staged-copy-by-using-polybase)** functie in plaats daarvan. De functie gefaseerd kopiëren biedt u ook betere doorvoer. De gegevens wordt automatisch geconverteerd in PolyBase-compatibele indeling. En de gegevens worden opgeslagen in Azure Blob-opslag. Vervolgens worden de gegevens in SQL Data Warehouse geladen.
 
+>[!TIP]
+>Meer informatie over [aanbevolen procedures voor het gebruik van PolyBase](#best-practices-for-using-polybase).
+
 ### <a name="direct-copy-by-using-polybase"></a>Directe kopiëren met behulp van PolyBase
 
 SQL Data Warehouse PolyBase biedt rechtstreeks ondersteuning voor Azure BLOB Storage, Azure Data Lake Storage Gen1 en Gen2 Azure Data Lake-opslag. Als de brongegevens voldoet aan de criteria die in deze sectie beschreven, moet u PolyBase gebruiken om te kopiëren rechtstreeks vanuit de bron-gegevensopslag naar Azure SQL Data Warehouse. Gebruik anders [gefaseerd kopiëren met behulp van PolyBase](#staged-copy-by-using-polybase).
@@ -418,9 +421,12 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
 
     | Type gegevensopslag ondersteunde bron | Ondersteunde bron-verificatietype |
     |:--- |:--- |
-    | [Azure Blob](connector-azure-blob-storage.md) | Verificatie van account-sleutel |
+    | [Azure Blob](connector-azure-blob-storage.md) | Account sleutelverificatie, verificatie van de beheerde identiteit |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Verificatie van service-principal |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Verificatie van account-sleutel |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account sleutelverificatie, verificatie van de beheerde identiteit |
+
+    >[!IMPORTANT]
+    >Als uw Azure-opslag met VNet-service-eindpunt is geconfigureerd, moet u verificatie van de beheerde identiteit. Raadpleeg [gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
 
 2. De **Brongegevensindeling** is van het **Parquet**, **ORC**, of **tekst met scheidingstekens**, met de volgende configuraties:
 
@@ -515,9 +521,28 @@ Voor het gebruik van PolyBase, moet de gebruiker die gegevens in SQL Data Wareho
 
 ### <a name="row-size-and-data-type-limits"></a>Typ limieten rijgrootte en gegevens
 
-PolyBase-loads zijn beperkt tot de rijen die kleiner is dan 1 MB. Ze kunnen niet laden voor VARCHR(MAX), NVARCHAR(MAX) of VARBINARY(MAX). Zie voor meer informatie, [capaciteitslimieten voor SQL Data Warehouse-service](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+PolyBase-loads zijn beperkt tot de rijen die kleiner is dan 1 MB. Het kan niet worden gebruikt om te laden naar VARCHR(MAX), NVARCHAR(MAX) of VARBINARY(MAX). Zie voor meer informatie, [capaciteitslimieten voor SQL Data Warehouse-service](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 Wanneer de brongegevens rijen die groter is dan 1 MB bevat, is het raadzaam om te splitsen verticaal de brontabellen in verschillende kleine netwerken. Zorg ervoor dat de maximale grootte van elke rij de limiet niet overschrijdt. De kleinere tabellen kunnen vervolgens worden geladen met behulp van PolyBase en samengevoegd in Azure SQL Data Warehouse.
+
+U kunt ook voor gegevens met dergelijke brede kolommen, kunt u niet-PolyBase te laden van de gegevens met behulp van ADF, door het uitschakelen van 'PolyBase toestaan' instelling.
+
+### <a name="polybase-troubleshooting"></a>Het oplossen van PolyBase
+
+**Het laden van de decimale kolom**
+
+Als de brongegevens bevinden zich in de tekstindeling en deze waarde is leeg als u wilt worden geladen in SQL Data Warehouse decimale kolom bevat, kunt u de volgende fout mogelijk bereikt:
+
+```
+ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
+```
+
+De oplossing is selectie "**gebruik het standaardtype**" optie (als onwaar) in de copy-activiteit-sink -> PolyBase-instellingen. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+)' is een systeemeigen PolyBase-configuratie die hoe de ontbrekende waarden in de tekstbestanden verwerken bepaalt wanneer PolyBase worden gegevens opgehaald uit het tekstbestand. 
+
+**Andere**
+
+Raadpleeg voor meer knonw PolyBase problemen, [laden voor het oplossen van Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse resourceklasse
 
@@ -558,6 +583,9 @@ Informatie over de details van [bron transformatie](data-flow-source.md) en [sin
 
 Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volgende toewijzingen van Azure SQL Data Warehouse-gegevenstypen gebruikt om Azure Data Factory tussentijdse gegevenstypen. Zie [schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe Copy Activity in het schema en de gegevens van een brontype toegewezen aan de sink.
 
+>[!TIP]
+>Raadpleeg [gegevenstypes in Azure SQL Data Warehouse tabel](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) artikel op SQL DW ondersteunde gegevenstypen en de oplossingen voor niet-ondersteunde resources.
+
 | Azure SQL Data Warehouse-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | bigint | Int64 |
@@ -575,23 +603,18 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 | int | Int32 |
 | money | Decimal |
 | nchar | String, Char[] |
-| ntext | String, Char[] |
-| numerieke | Decimal |
+| numeric | Decimal |
 | nvarchar | String, Char[] |
 | real | Single |
 | rowversion | Byte[] |
 | smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Object |
-| tekst | String, Char[] |
 | time | TimeSpan |
-| timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
-| Varbinary | Byte[] |
+| varbinary | Byte[] |
 | varchar | String, Char[] |
-| xml | Xml |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de Kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md##supported-data-stores-and-formats).

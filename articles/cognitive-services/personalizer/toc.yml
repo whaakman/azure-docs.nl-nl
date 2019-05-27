@@ -24,7 +24,7 @@
       displayName: 'best practice, design'
     - name: Fundamentele concepten
       items:
-        - name: 'Functies: Actie en context'
+        - name: Actie en context
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
         - name: Voordelen
@@ -65,6 +65,8 @@
   items:
     - name: Regionale beschikbaarheid
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Naleving
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure-roadmap
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
     - name: Prijzen

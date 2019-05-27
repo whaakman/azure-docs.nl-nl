@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e5b34171af53a72ef231bb8beb758b7ff97cf5d9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576780"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146701"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Zelfstudie: Ontwikkelen van IoT Edge-modules voor Linux-apparaten
 
@@ -51,7 +51,7 @@ De volgende tabel bevat de ondersteunde scenario's voor **Linux-containers** in 
 | **Architectuur van de Linux-apparaat** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure-services** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Talen** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Meer informatie** | [Azure IoT Edge voor Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Meer informatie** | [Azure IoT Edge voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
 In deze zelfstudie leert de stappen ontwikkeling voor Visual Studio Code. Als u echter liever Visual Studio 2017, raadpleegt u de instructies in [gebruik van Visual Studio 2017 om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge](how-to-visual-studio-develop-module.md).
 

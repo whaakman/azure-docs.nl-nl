@@ -9,13 +9,13 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468353"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145927"
 ---
-Kortstondige OS-schijven worden gemaakt op de lokale opslag van de virtuele Machine (VM) en niet persistent gemaakt met de externe Azure-opslag. Tijdelijke besturingssysteemschijven werken goed bij staatloze werkbelastingen moeten waarbij toepassingen zijn gevoelig voor afzonderlijke VM-fouten, maar zijn meer betrokken zijn bij de tijd die nodig is voor grootschalige implementaties of tijd aan de installatiekopie van de afzonderlijke VM-exemplaren terugzetten. Het is ook geschikt voor toepassingen die zijn geïmplementeerd met behulp van het klassieke implementatiemodel naar het Resource Manager-implementatiemodel. Met een kortstondige besturingssysteemschijf, zou u merkt lagere latentie voor lezen/schrijven naar de besturingssysteemschijf en snellere VM terugzetten. Bovendien kortstondige besturingssysteemschijf gratis is, worden er geen opslagkosten voor de besturingssysteemschijf. 
+Kortstondige OS-schijven worden gemaakt op de lokale opslag van de virtuele Machine (VM) en niet persistent gemaakt met de externe Azure-opslag. Tijdelijke besturingssysteemschijven werken goed bij staatloze werkbelastingen moeten waarbij toepassingen zijn gevoelig voor afzonderlijke VM-fouten, maar zijn meer betrokken zijn bij de tijd die nodig is voor grootschalige implementaties of tijd aan de installatiekopie van de afzonderlijke VM-exemplaren terugzetten. Het is ook geschikt voor toepassingen die zijn geïmplementeerd met behulp van het klassieke implementatiemodel naar het Resource Manager-implementatiemodel. Met Ephemeral OS Disk krijgt u een lagere lees/schrijf-wachttijd voor de OS-schijf en een snellere terugzetting van de VM-installatiekopie. Bovendien kortstondige besturingssysteemschijf gratis is, worden er geen opslagkosten voor de besturingssysteemschijf. 
  
 De belangrijkste functies van tijdelijke schijven zijn: 
 - Ze kunnen worden gebruikt met zowel Marketplace-installatiekopieën en aangepaste installatiekopieën.
@@ -30,7 +30,7 @@ Belangrijke verschillen tussen permanente en tijdelijke besturingssysteemschijve
 |                             | Permanente OS-schijf                          | Kortstondige besturingssysteemschijf                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | De maximale grootte voor de besturingssysteemschijf      | 2 TiB                                                                                        | In de cache-grootte voor de VM-grootte of 2TiB, afhankelijk van wat kleiner - is [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), en [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| VM-grootten ondersteund          | Alle                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
+| Ondersteunde VM-grootten          | Alle                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Ondersteuning voor het type van schijven           | Beheerde en onbeheerde schijf met besturingssysteem                                                                | Alleen beheerde OS-schijf                                                               |
 | Ondersteuning voor regio              | Alle regio 's                                                                                  | Alle regio 's                              |
 | Gegevenspersistentie            | OS-schijfgegevens geschreven naar de schijf met besturingssysteem zijn opgeslagen in Azure Storage                                  | Gegevens geschreven naar de schijf met besturingssysteem wordt opgeslagen in de lokale VM-opslag en is niet persistent gemaakt met Azure Storage. |

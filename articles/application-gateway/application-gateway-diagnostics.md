@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
 ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135520"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-endstatus, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -210,7 +210,7 @@ Het logboekbestand voor prestaties is gegenereerd, alleen als u deze op elk toep
 |requestCount     | Het aantal aanvragen.        |
 |latentie | Gemiddelde latentie (in milliseconden) van aanvragen van het exemplaar naar de back-end die een registratiesysteem de aanvragen vormt. |
 |failedRequestCount| Het aantal mislukte aanvragen.|
-|Doorvoer| Gemiddelde doorvoersnelheid sinds de laatste logboek, gemeten in bytes per seconde.|
+|throughput| Gemiddelde doorvoersnelheid sinds de laatste logboek, gemeten in bytes per seconde.|
 
 ```json
 {
@@ -249,7 +249,7 @@ De firewall-logboek is gegenereerd, alleen als u deze voor elke application gate
 |ruleSetVersion     | Regelset versie die wordt gebruikt. Beschikbare waarden zijn 2.2.9 en 3.0.     |
 |ruleId     | Regel-ID van de activerende gebeurtenis.        |
 |message     | Gebruiksvriendelijke bericht voor de triggergebeurtenis. Meer informatie vindt u in de detailsectie.        |
-|action     |  De actie die wordt uitgevoerd op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
+|actie     |  De actie die wordt uitgevoerd op de aanvraag. Beschikbare waarden zijn geblokkeerd en toegestaan.      |
 |site     | De site waarvoor het logboek is gegenereerd. Op dit moment alleen Global vermeld omdat er regels zijn van toepassing.|
 |details     | De details van de triggergebeurtenis.        |
 |Details.Message     | Beschrijving van de regel.        |

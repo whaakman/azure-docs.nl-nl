@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576631"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130988"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Web-apps instrumenteren tijdens runtime met Application Insights Status Monitor
 
@@ -149,6 +149,8 @@ We volgen dit probleem [hier](https://github.com/Microsoft/ApplicationInsights-H
 * Zo uitgebreide Logboeken, wijzigt u het configuratiebestand: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` en toe te voegen `<add key="TraceLevel" value="All" />` naar de `appsettings`.
 Start opnieuw op statusmonitor.
 
+* Status Monitor is een .NET-toepassing kunt u ook inschakelen [.net tracering met diagnostische gegevens over de juiste toe te voegen aan het configuratiebestand](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Bijvoorbeeld, in sommige gevallen kan het nuttig zijn om te zien wat er gebeurt op het niveau van het netwerk door [netwerktracering configureren](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
 ### <a name="insufficient-permissions"></a>Onvoldoende machtigingen
   
 * Als u op de server een bericht over 'insufficient permissions' (onvoldoende machtigingen) ziet, probeert u het volgende:
@@ -184,7 +186,7 @@ Ondersteuning van het besturingssysteem voor Application Insights Status Monitor
 * Windows Server 2012 R2
 * Windows Server 2016
 
-met het nieuwste SP en .NET-framework 4.5
+met het nieuwste SP en .NET Framework 4.5 (Status Monitor is gebaseerd op deze versie van het framework)
 
 Op de client: Windows 7, 8, 8.1 en 10, eveneens met .NET Framework 4.5
 
@@ -276,7 +278,9 @@ Wanneer u een web-app selecteert die u met Status Monitor wilt instrumenteren:
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Welke versie van Application Insights-SDK installeren Status Monitor?
 
-Vanaf nu kunt Status Monitor alleen Application Insights-SDK-versie 2.3 of 2.4 installeren.
+Vanaf nu kunt Status Monitor alleen Application Insights-SDK-versie 2.3 of 2.4 installeren. 
+
+De Application Insights SDK versie 2.4 is de [recentste versie van de ondersteuning voor .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) die was [EOL januari 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Vanaf nu kunt Status Monitor daarom worden gebruikt om een .NET 4.0-toepassing instrumenteren. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Moet ik Status Monitor telkens uitvoeren wanneer ik de app heb bijgewerkt?
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405411"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145861"
 ---
 Het is belangrijk om uw virtuele machine (VM) te beveiligen voor de toepassingen die u uitvoert. Beveiligen van uw virtuele machines, kunt u een of meer Azure-services en functies die betrekking hebben op beveiligde toegang tot uw VM's en beveiligde opslag van uw gegevens opnemen. In dit artikel bevat informatie waarmee u uw virtuele machine en toepassingen om veilig te houden.
 
@@ -47,7 +47,7 @@ Dit probleem wordt opgelost met de functie Beheerde identiteiten voor Azure-reso
 
 [Beleid voor Azure](../articles/azure-policy/azure-policy-introduction.md) kan worden gebruikt voor het definiëren van het gewenste gedrag voor uw organisatie [Windows VMs](../articles/virtual-machines/windows/policy.md) en [virtuele Linux-machines](../articles/virtual-machines/linux/policy.md). Met behulp van beleid, kan het afdwingen van een organisatie verschillende conventies en regels in de hele onderneming. Afdwinging van het gewenste gedrag kunt risico's te beperken tijdens een bijdrage levert aan het succes van de organisatie.
 
-## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
+## <a name="role-based-access-control"></a>Role-based access control
 
 Met behulp van [op rollen gebaseerd toegangsbeheer (RBAC)](../articles/role-based-access-control/overview.md), kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers op de virtuele machine die ze nodig hebben om hun werk te kunnen. In plaats van zodat iedereen onbeperkte machtigingen op de virtuele machine, kunt u alleen bepaalde acties toestaan. U kunt Toegangsbeheer configureren voor de virtuele machine in de [Azure-portal](../articles/role-based-access-control/role-assignments-portal.md), met de [Azure CLI](https://docs.microsoft.com/cli/azure/role), of[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 297f71cef41f91a2e9595a0ccca08e2803bd6201
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 033baa80eaa10581777061b40c64afe6331a2e92
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787298"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979065"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: een Python-app maken met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.locfileid: "65787298"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel maken en query uitvoeren op documenten, sleutel/waarde- en graph-databases. Al deze bewerkingen profiteren van de distributie en de schaal van Azure Cosmos DB.
+Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel maken en query uitvoeren op documenten, sleutel/waarde, brede kolom en graph-databases. Al deze bewerkingen profiteren van de distributie en de schaal van Azure Cosmos DB.
 
 Deze snelstart laat zien hoe u een [SQL API](sql-api-introduction.md)-account van Azure Cosmos DB, een documentdatabase en een container kunt maken met behulp van de Azure-portal. Vervolgens ontwikkelt u een console-app die is gebouwd met de Python SDK voor [SQL API](sql-api-sdk-python.md) en voert u deze uit. Deze snelstartgids maakt gebruik van versie 3.0 van de [Python SDK](https://pypi.org/project/azure-cosmos).
 

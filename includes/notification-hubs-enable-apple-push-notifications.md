@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c016e7b4b70368eb1ca2bd517ed7f48d223e24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60426472"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140566"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Het bestand met de aanvraag voor certificaatondertekening genereren
 
@@ -25,7 +25,7 @@ Genereer het bestand met de aanvraag voor certificaatondertekening dat door Appl
 2. Klik op **Toegang tot sleutelhanger**, vouw **Certificaatassistent** uit, klik vervolgens op **Een certificaat bij een certificaatautoriteit aanvragen...**.
 
     ![Toegang tot sleutelhanger gebruiken om een nieuw certificaat aan te vragen](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. Selecteer uw **gebruikers-e-mailadres** en **algemene naam**, controleer of **Opgeslagen op schijf** is geselecteerd en klik vervolgens op **Doorgaan**. Laat het veld **E-mailadres CA** leeg omdat dit niet is vereist.
+3. Selecteer uw **gebruikers-e-mailadres** en **algemene naam**, controleer of **Opgeslagen op schijf** is geselecteerd en klik vervolgens op **Doorgaan**. Laat de **e-mailadres CA** veld leeg als het is niet vereist.
 
     ![Vereiste certificaatgegevens](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
@@ -39,16 +39,16 @@ Vervolgens gaat u uw app registreren bij Apple, pushmeldingen inschakelen en het
 
 ## <a name="register-your-app-for-push-notifications"></a>Uw app voor pushmeldingen registreren
 
-U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmeldingen te kunnen verzenden naar een iOS-app.  
+Als u wilt pushmeldingen verzenden naar een iOS-app, uw toepassing registreren met Apple en zich ook registreren voor pushmeldingen te verzenden.  
 
-1. Als u uw app nog niet hebt geregistreerd, gaat u naar de [iOS-inrichtingsportal](https://go.microsoft.com/fwlink/p/?LinkId=272456), meldt u zich aan bij het Apple Developer Center met uw Apple ID, klikt u op **Id's**, klikt u vervolgens op **App-id's** en ten slotte op het **+**-teken om een nieuwe app te registreren.
+1. Als u uw app nog niet hebt geregistreerd, gaat u naar de [iOS-Inrichtingsportal](https://go.microsoft.com/fwlink/p/?LinkId=272456) bij het Apple Developer Center, zich aanmelden met uw Apple-ID, klikt u op **id's**, klikt u vervolgens op **App-id's** , en ten slotte op de **+** Meld u aan om een nieuwe app te registreren.
 
     ![App-id-pagina van iOS-inrichtingsportal](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
 2. Werk de volgende drie velden voor uw nieuwe app bij en klik vervolgens op **Doorgaan**:
 
    * **Naam**: Typ een beschrijvende naam voor uw app in de **naam** veld in de **beschrijving App-ID** sectie.
-   * **Bundel-id**: Onder de **expliciete App-ID** sectie, voer een **bundel-id** in het formulier `<Organization Identifier>.<Product Name>` zoals vermeld in de [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). De *organisatie-id* en *productnaam* die u gebruikt, moeten overeenkomen met de organisatie-id en productnaam die u gebruikt als u een XCode-project gaat maken. In de volgende schermopname wordt *NotificationHubs* gebruikt als de organisatie-id en *GetStarted* als de productnaam. Door ervoor te zorgen dat deze waarde overeenkomt met de waarde die u gaat gebruiken in uw XCode-project, is het mogelijk om het juiste publicatieprofiel met XCode te gebruiken.
+   * **Bundel-id**: Onder de **expliciete App-ID** sectie, voer een **bundel-id** in het formulier `<Organization Identifier>.<Product Name>` zoals vermeld in de [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). De *organisatie-id* en *productnaam* die u gebruikt, moeten overeenkomen met de organisatie-id en productnaam die u gebruikt als u een XCode-project gaat maken. In de volgende schermafbeelding *NotificationHubs* waarde wordt gebruikt als een organisatie-id en *GetStarted* wordt gebruikt als naam van het product. Door ervoor te zorgen dat deze waarde overeenkomt met de waarde die u gaat gebruiken in uw XCode-project, is het mogelijk om het juiste publicatieprofiel met XCode te gebruiken.
    * **Pushmeldingen verzenden**: Controleer de **Pushmeldingen** optie in de **App Services** sectie.
 
      ![Formulier voor het registreren van een nieuwe app-id](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
@@ -104,7 +104,7 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
 
     ![Certificaat exporteren in p12-indeling](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
-    Noteer de bestandsnaam en locatie van het geëxporteerde .p12-certificaat. Dit wordt gebruikt om verificatie met APNS mogelijk te maken.
+    Noteer de bestandsnaam en locatie van het geëxporteerde .p12-certificaat. Het wordt gebruikt voor het inschakelen van verificatie met APNS.
 
     > [!NOTE]
     > Tijdens deze zelfstudie wordt een QuickStart.p12-bestand gemaakt. De naam en locatie van uw bestand kunnen afwijken.
@@ -136,3 +136,21 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
 7. Als het nieuwe inrichtingsprofiel is gemaakt, klikt u erop om het te downloaden en op uw machine met de Xcode-ontwikkelcode te installeren. Klik vervolgens op **Gereed**.
 
     ![Het inrichtingsprofiel downloaden](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+
+## <a name="create-a-notification-hub"></a>Een Notification Hub maken
+In deze sectie maakt u een Notification Hub en configureert u verificatie met APNS met het **.p12**-pushcertificaat dat u eerder hebt gemaakt. Als u een Notification Hub wilt gebruiken die u al hebt gemaakt, kunt u doorgaan naar stap 5.
+
+[!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
+
+## <a name="configure-your-notification-hub-with-apns-information"></a>Uw Notification Hub configureren met APNS-gegevens
+
+1. Selecteer **Apple (APNS)** onder **Notification Services**.
+2. Selecteer **Certificaat**.
+3. Selecteer het **bestandspictogram**.
+4. Selecteer het **.p12**-bestand dat u eerder hebt geëxporteerd.
+5. Geef het juiste **wachtwoord** op.
+6. Selecteer de modus **Sandbox**. Gebruik de modus **Productie** alleen als u pushmeldingen wilt verzenden naar gebruikers die uw app in de Store hebben gekocht.
+
+    ! [APNS-certificering configureren in Azure portal] [7]
+
+De Notification Hub is nu geconfigureerd om te werken met APNS en u hebt de verbindingsreeksen om uw app te registreren en pushmeldingen te verzenden.
