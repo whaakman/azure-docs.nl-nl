@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fc03751859160f2c234810dcb01e1579cb3e2a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782656"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859542"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>De toepassingsproxy en Qlik Sense 
 Azure Active Directory-toepassingsproxy en Qlik Sense zijn een partnerschap aangegaan samen om te controleren of dat u zich eenvoudig kunt toepassingsproxy gebruiken voor externe toegang voor uw implementatie Qlik Sense.  
@@ -60,7 +60,9 @@ Volg dezelfde stappen als voor de toepassing #1, met de volgende uitzonderingen:
 Uw toepassing is nu gereed om te testen. Toegang tot de externe URL die u gebruikt voor het publiceren van QlikSense in #-toepassing 1 en meld u aan als een gebruiker die is toegewezen aan beide toepassingen.  
 
 ## <a name="additional-references"></a>Aanvullende naslaginformatie
-Raadpleeg voor meer informatie over publiceren Qlik Sense met Application Proxy, de Qlik Community-artikel: [Azure AD met geïntegreerde Windows-verificatie met behulp van een Kerberos-beperkte overdracht met Qlik Sense](https://community.qlik.com/docs/DOC-20183).
+Raadpleeg de artikelen van de Community Qlik te volgen voor meer informatie over publiceren Qlik Sense met Application Proxy: 
+- [Azure AD met geïntegreerde Windows-verificatie met behulp van een Kerberos-beperkte overdracht met Qlik Sense](https://community.qlik.com/docs/DOC-20183)
+- [Integratie met Azure AD-toepassingsproxy Qlik Sense](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785382"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861546"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory?
 
-U kunt bepalen hoe gebruikers toegang tot uw cloud-apps met behulp van [voorwaardelijke toegang van Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In een beleid voor voorwaardelijke toegang, definieert u het antwoord ("Voer dit") met de reden voor het activeren van uw beleid ('als dit gebeurt'). 
+U kunt bepalen hoe gebruikers toegang tot uw cloud-apps met behulp van [voorwaardelijke toegang van Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In een beleid voor voorwaardelijke toegang, definieert u het antwoord ("Voer dit") met de reden voor het activeren van uw beleid ('als dit gebeurt').
 
 ![Reden en het antwoord](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ In de context van voorwaardelijke toegang, **wanneer dit gebeurt** heet een **vo
 ![Beleid voor voorwaardelijke toegang](./media/conditions/61.png)
 
 
-Voorwaarden die u hebt nog niet hebt geconfigureerd in een beleid voor voorwaardelijke toegang niet toegepast. Sommige omstandigheden [verplichte](best-practices.md) beleid voor voorwaardelijke toegang toepassen op een omgeving. 
+Voorwaarden die u hebt nog niet hebt geconfigureerd in een beleid voor voorwaardelijke toegang niet toegepast. Sommige omstandigheden [verplichte](best-practices.md) beleid voor voorwaardelijke toegang toepassen op een omgeving.
 
 In dit artikel wordt een overzicht van de voorwaarden en hoe ze worden gebruikt in een beleid voor voorwaardelijke toegang. 
 
@@ -73,7 +73,7 @@ Organisaties kunnen ervoor kiezen uit de volgende opties:
 > [!NOTE]
 > U kunt specifieke apps uitsluiten van een beleid. Deze apps zijn echter nog steeds afhankelijk van het beleid toegepast op de services die ze gebruiken.
 
-**Acties van de gebruiker** zijn taken die kunnen worden uitgevoerd door een gebruiker. Is de enige actie die momenteel ondersteunde **beveiligingsgegevens (preview) registreren**, waarmee het beleid voor voorwaardelijke toegang om af te dwingen wanneer een gebruiker de informatie over de beveiliging registreert.
+**Acties van de gebruiker** zijn taken die kunnen worden uitgevoerd door een gebruiker. Is de enige actie die momenteel ondersteunde **beveiligingsgegevens (preview) registreren**, waarmee het beleid voor voorwaardelijke toegang om af te dwingen bij gebruikers die zijn ingeschakeld voor de registratie van de gecombineerde probeert te registreren van de beveiliging informatie. Meer informatie vindt u in het artikel [inschakelen security informatie registratie (preview) gecombineerd](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Aanmeldingsrisico
 

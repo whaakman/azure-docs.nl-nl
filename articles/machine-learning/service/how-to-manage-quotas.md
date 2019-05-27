@@ -11,16 +11,18 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523990"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851124"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Beheren en quota's voor Azure-resources aanvragen
 
-Als met andere Azure-services, er gelden beperkingen voor bepaalde resources die zijn gekoppeld aan de Azure Machine Learning-service. Deze limieten variëren van een bovengrens voor het aantal werkruimten kunt u limieten op de werkelijke onderliggende rekenresources die wordt gebruikt voor trainingen of inferentietaken uw modellen. In dit artikel geeft meer informatie over de vooraf geconfigureerde limieten voor verschillende Azure-resources voor uw abonnement en bevat ook handige koppelingen om aanvraag quotum verbeteringen voor elk type resource. Deze limieten zijn geplaatst om te voorkomen dat te veel uitgevoerd vanwege fraude budget en capaciteitsbeperkingen voor Azure in acht neemt.
+Als met andere Azure-services, er gelden beperkingen voor bepaalde resources die zijn gekoppeld aan de Azure Machine Learning-service. Het bereik van deze limieten van een bovengrens voor het aantal werkruimten kunt u limieten op de werkelijke onderliggende rekenresources die wordt gebruikt voor het model trainen of Deductie/scoren maken. 
+
+In dit artikel geeft meer informatie over de vooraf geconfigureerde limieten voor verschillende Azure-resources voor uw abonnement en bevat ook handige koppelingen om aanvraag quotum verbeteringen voor elk type resource. Deze limieten zijn geplaatst om te voorkomen dat te veel uitgevoerd vanwege fraude budget en capaciteitsbeperkingen voor Azure in acht neemt.
 
 Houd er rekening mee als u deze quota ontwerp en de schaal van uw resources van de service Azure Machine Learning voor productieworkloads. Bijvoorbeeld, als uw cluster niet wordt bereikt het doelaantal knooppunten die u hebt opgegeven, klikt u vervolgens u mogelijk hebt een Azure Machine Learning-Computing kernen limiet bereikt voor uw abonnement. Als u de is besteed of wanneer het quotum boven de limiet standaard verhogen wilt, opent u een online ondersteuningsverzoek gratis. De limieten kunnen niet worden verhoogd boven de maximumlimiet-waarde die wordt weergegeven in de volgende tabellen vanwege beperkingen van Azure-capaciteit. Als er geen kolom maximumlimiet is, klikt u vervolgens de resource geen instelbare limieten.
 

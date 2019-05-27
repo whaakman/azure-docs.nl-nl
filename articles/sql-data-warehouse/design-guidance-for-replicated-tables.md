@@ -2,20 +2,20 @@
 title: Ontwerprichtlijnen voor gerepliceerde tabellen - Azure SQL Data Warehouse | Microsoft Docs
 description: Aanbevelingen voor het ontwerpen gerepliceerde tabellen in uw Azure SQL Data Warehouse-schema. 
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/19/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 050a0183fd73e64a08550fede440a9bce138a98c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61082917"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850559"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Ontwerprichtlijnen voor het gebruik van gerepliceerde tabellen in Azure SQL Data Warehouse
 In dit artikel biedt aanbevelingen voor het ontwerpen van gerepliceerde tabellen in uw SQL Data Warehouse-schema. Gebruik deze aanbevelingen om queryprestaties te verbeteren door minder gegevens verplaatsen en query complex.

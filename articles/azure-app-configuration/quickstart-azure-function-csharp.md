@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a0c677e25be86e0f82b821a7931bda0af2b35127
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408661"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864780"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Quickstart: Een Azure-functie maken met app-configuratie
 
@@ -31,7 +31,7 @@ Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](http
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Zorg ervoor dat de werkbelasting **Azure development** ook is geïnstalleerd. Installeer ook de [nieuwste hulpprogramma's voor Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Als u wilt doen in deze Quick Start, installeert u [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Zorg ervoor dat de werkbelasting **Azure development** ook is geïnstalleerd. Installeer ook de [nieuwste hulpprogramma's voor Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

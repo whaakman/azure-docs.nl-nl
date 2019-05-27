@@ -2,21 +2,20 @@
 title: Tijdelijke tabellen in SQL Data Warehouse | Microsoft Docs
 description: Essentiële instructies voor het gebruik van tijdelijke tabellen en belangrijke functies van de beginselen van de sessie op tijdelijke tabellen.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: XiaoyuL-Preview
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-origin.date: 04/17/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.subservice: development
+ms.date: 04/01/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56c15a9505b3f0e4344c9164268082da1ff7cc22
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474892"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851574"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tijdelijke tabellen in SQL Data Warehouse
 In dit artikel bevat essentiële instructies voor het gebruik van tijdelijke tabellen en markeert u de beginselen van de sessie op tijdelijke tabellen. Gebruik de informatie in dit artikel kunt u modularize van uw code, om zowel herbruikbaarheid en eenvoudig onderhoud van uw code te verbeteren.

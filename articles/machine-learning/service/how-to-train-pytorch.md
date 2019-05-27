@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 11819730e05e425066e1f060769e14d5290f877d
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024576"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851980"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Trainen PyTorch-modellen met Azure Machine Learning-service
 
@@ -105,7 +105,7 @@ run = exp.submit(pt_est)
 
 ## <a name="export-to-onnx"></a>Exporteren naar de ONNX
 
-Om op te halen geoptimaliseerde inferentietaken met de [ONNX-Runtime](concept-onnx.md), kunt u het getrainde model voor PyTorch converteren naar de ONNX-indeling. Zie de [zelfstudie](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) voor een voorbeeld.
+Om te optimaliseren interferentie met de [ONNX-Runtime](concept-onnx.md), het getrainde model voor PyTorch converteren naar de ONNX-indeling. Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens. Zie de [zelfstudie](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) voor een voorbeeld.
 
 ## <a name="examples"></a>Voorbeelden
 

@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830467"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864821"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Snelstart: Een ASP.NET-web-app maken 
 
 ## <a name="introduction"></a>Inleiding
 
-In deze snelstart ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert in Azure App Service met behulp van Visual Studio 2017. De voorbeeldtoepassing maakt verbinding met Azure Cache voor Redis om gegevens uit de cache op te slaan en op te halen. Nadat u de snelstart hebt voltooid, hebt u een actieve web-app die wordt gehost in Azure en waarmee lees- en schrijfbewerkingen naar Azure Cache voor Redis kunnen worden uitgevoerd.
+Deze quickstart laat zien hoe u kunt maken en implementeren van een ASP.NET-toepassing in Azure App Service met behulp van Visual Studio 2019. De voorbeeldtoepassing maakt verbinding met Azure Cache voor Redis om gegevens uit de cache op te slaan en op te halen. Nadat u de snelstart hebt voltooid, hebt u een actieve web-app die wordt gehost in Azure en waarmee lees- en schrijfbewerkingen naar Azure Cache voor Redis kunnen worden uitgevoerd.
 
 ![Eenvoudige test voltooid in Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -34,7 +34,7 @@ In deze snelstart ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om deze snelstart te kunnen voltooien moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) zijn geïnstalleerd met de volgende omgevingen:
+Als u wilt de Quick Start hebt voltooid, moet u installeren [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende omgevingen:
 * ASP.NET-ontwikkeling en webontwikkeling
 * Azure-ontwikkeling
 
@@ -274,7 +274,7 @@ Nadat het lokaal testen van de app is geslaagd, implementeert u de app in Azure 
 
 3. Breng in het dialoogvenster**App Service maken** de volgende wijzigingen aan:
 
-    | Instelling | Aanbevolen waarde | Beschrijving |
+    | Instelling | Aanbevolen waarde | Description |
     | ------- | :---------------: | ----------- |
     | **Naam van app** | Gebruik de standaard. | De app-naam is de hostnaam voor de app wanneer deze is geïmplementeerd in Azure. Aan de naam is mogelijk een tijdstempel als achtervoegsel toegevoegd om deze uniek te maken, indien nodig. |
     | **Abonnement** | Kies uw Azure-abonnement. | Voor dit abonnement worden eventuele gerelateerde hostingkosten in rekening gebracht. Als u meerdere Azure-abonnementen hebt, controleert u of het gewenste abonnement is geselecteerd.|

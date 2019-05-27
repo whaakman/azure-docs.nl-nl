@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442418"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849729"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>U kunt ONNX en Azure Machine Learning: Maken en ML-modellen te versnellen
 
-Informatie over hoe met de [Open Neural Network-Exchange](https://onnx.ai) (ONNX) kunt optimaliseren van uw machine learning-modellen.
+Informatie over hoe met de [Open Neural Network-Exchange](https://onnx.ai) (ONNX) de Deductie van uw machine learning-model kunt optimaliseren. Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens. 
 
-Optimaliseren machine learning-modellen voor Deductie is moeilijk, omdat u het model en de Deductie-bibliotheek moet om optimaal te benutten de hardwaremogelijkheden af te stemmen. Het probleem wordt zeer moeilijk is als u wilt om de optimale prestaties op verschillende soorten platforms (cloud/edge, CPU/GPU, enzovoort), aangezien elk een heeft verschillende mogelijkheden en -kenmerken. Als u modellen van tal van frameworks die nodig zijn om uit te voeren op diverse platformen, wordt de complexiteit verhoogd. Het is zeer veel tijd in beslag om te optimaliseren van de verschillende combinaties van frameworks en hardware. Er is een oplossing voor het trainen één keer in uw favoriete framework en overal worden uitgevoerd op de cloud of edge nodig. Dit is waar u kunt ONNX is beschikbaar in.
+Optimaliseren machine learning-modellen voor Deductie (of het model scoren) is moeilijk, omdat u het model en de Deductie-bibliotheek moet om optimaal te benutten de hardwaremogelijkheden af te stemmen. Het probleem wordt zeer moeilijk is als u wilt om de optimale prestaties op verschillende soorten platforms (cloud/edge, CPU/GPU, enzovoort), aangezien elk een heeft verschillende mogelijkheden en -kenmerken. Als u modellen van tal van frameworks die nodig zijn om uit te voeren op diverse platformen, wordt de complexiteit verhoogd. Het is zeer veel tijd in beslag om te optimaliseren van de verschillende combinaties van frameworks en hardware. Er is een oplossing voor het trainen één keer in uw favoriete framework en overal worden uitgevoerd op de cloud of edge nodig. Dit is waar u kunt ONNX is beschikbaar in.
 
 Microsoft en een community van partners die zijn ONNX gemaakt als een open standaard voor de vertegenwoordiging van machine learning-modellen. Modellen vanuit [veel frameworks](https://onnx.ai/supported-tools) waaronder TensorFlow, PyTorch SciKit-informatie, Keras, Chainer, MXNet en MATLAB kan worden geëxporteerd of geconverteerd naar de standard ONNX-indeling. Zodra de modellen in de ONNX-indeling, kunnen ze worden uitgevoerd op verschillende platforms en apparaten.
 

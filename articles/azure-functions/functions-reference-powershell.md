@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530381"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833522"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Ontwikkelaarshandleiding voor Azure Functions-PowerShell
 
@@ -23,9 +23,9 @@ In dit artikel bevat informatie over hoe u Azure Functions met behulp van PowerS
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-Een PowerShell-functie wordt weergegeven als een PowerShell-script dat wordt uitgevoerd wanneer geactiveerd. Elk script functie heeft een bijbehorende function.json waarmee wordt gedefinieerd hoe de functie zich gedraagt, zoals hoe deze wordt geactiveerd en de invoer- en parameters. Zie voor meer informatie, de [Triggers en binding artikel](functions-triggers-bindings.md). 
+Een PowerShell Azure-functie (functie) wordt weergegeven als een PowerShell-script dat wordt uitgevoerd wanneer geactiveerd. Elke functie script heeft een bijbehorende `function.json` -bestand dat hoe de functie zich gedraagt definieert, zoals hoe deze wordt geactiveerd en de bijbehorende invoer- en -parameters. Zie voor meer informatie, de [Triggers en binding artikel](functions-triggers-bindings.md). 
 
-Net als andere soorten functies wordt PowerShell-script in de parameters die overeenkomen met de namen van alle invoerbindingen gedefinieerd in de function.json. Een `TriggerMetadata` parameter wordt ook doorgegeven die bevat aanvullende informatie over de trigger die de functie gestart.
+Net als andere soorten functies, functies voor PowerShell-script uitvoeren in de parameters die overeenkomen met de namen van alle invoerbindingen gedefinieerd in de `function.json` bestand. Een `TriggerMetadata` parameter wordt ook doorgegeven die bevat aanvullende informatie over de trigger die de functie gestart.
 
 In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md). U moet ook hebben voltooid de [Functions-Snelstartgids voor PowerShell](functions-create-first-function-powershell.md) om uw eerste PowerShell-functie te maken.
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-In de hoofdmap van het project, er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.ps1) en de binding-configuratiebestand (function.json). De naam van `function.json`van bovenliggende map is altijd de naam van uw functie.
+In de hoofdmap van het project, er is een gedeelde [ `host.json` ](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.ps1) en het configuratiebestand van de binding (`function.json`). De naam van de bovenliggende map van de function.json-bestand is altijd de naam van uw functie.
 
-Bepaalde bindingen vereist de aanwezigheid van een `extensions.csproj`. Binding-extensies, vereist in [versie 2.x](functions-versions.md) van de Functions-runtime, zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
+Bepaalde bindingen vereist de aanwezigheid van een `extensions.csproj` bestand. Binding-extensies, vereist in [versie 2.x](functions-versions.md) van de Functions-runtime, zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 In PowerShell-functie-Apps kan eventueel hebt u een `profile.ps1` die wordt uitgevoerd wanneer een functie-app begint te lopen (anders weten als een  *[koude start](#cold-start)*. Zie voor meer informatie, [PowerShell profiel](#powershell-profile).
 

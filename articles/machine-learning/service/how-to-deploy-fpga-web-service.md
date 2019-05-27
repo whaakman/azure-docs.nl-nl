@@ -1,7 +1,7 @@
 ---
 title: Modellen op FPGA's implementeren
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u een webservice implementeren met een model uitvoeren op een FPGA met Azure Machine Learning-service voor inferentietaken zeer lage latentie.
+description: Leer hoe u een webservice implementeren met een model uitvoeren op een FPGA met Azure Machine Learning-service voor zeer lage latentie Deductie.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149610"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852035"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning-service
 
-U kunt een model implementeren als een webservice op [programmable gate arrays (FPGA's) veld](concept-accelerate-with-fpgas.md) met Azure Machine Learning Hardware versnelde-modellen. Met behulp van FPGA's biedt zeer lage latentie inferentietaken, zelfs met een enkele batchgrootte.
+U kunt een model implementeren als een webservice op [programmable gate arrays (FPGA's) veld](concept-accelerate-with-fpgas.md) met Azure Machine Learning Hardware versnelde-modellen. Met behulp van FPGA's biedt zeer lage latentie Deductie, zelfs met een enkele batchgrootte. Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens.
 
 Deze modellen zijn momenteel beschikbaar:
   - ResNet 50
@@ -160,9 +160,9 @@ print(output_tensors)
 ```
 
 > [!IMPORTANT]
-> Sla de invoer en uitvoer tensors omdat u deze conversie- en inferentietaken modelaanvragen moet.
+> Sla de invoer en uitvoer tensors omdat u deze conversie en Deductie modelaanvragen moet.
 
-De beschikbare modellen en de bijbehorende standaard classificatie uitvoer tensors zijn hieronder, dit is wat u wilt gebruiken tijdens inferentietaken als u de classificatie standaard gebruikt.
+De beschikbare modellen en de bijbehorende standaard classificatie uitvoer tensors zijn hieronder, dit is wat u wilt gebruiken voor Deductie als u de classificatie standaard gebruikt.
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

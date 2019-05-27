@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866870"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852151"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -46,7 +46,7 @@ De Implementatieoptie Managed Instance biedt extra compatibiliteit met on-premis
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - De [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) -component van de [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instructie
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Back-up
 
 Beheerde exemplaren beschikken over automatische back-ups, zodat gebruikers van volledige database maken kunnen `COPY_ONLY` back-ups. Differentiële, het logboek en bestand momentopnameback-ups worden niet ondersteund.
 
@@ -471,7 +471,7 @@ De volgende variabelen, taken en weergaven kunt u verschillende resultaten retou
 
 ### <a name="tempdb-size"></a>Grootte van TEMPDB
 
-De maximale bestandsgrootte van `tempdb` mag niet groter zijn dan 24 GB per kern op een categorie Algemeen gebruik. De maximale `tempdb` grootte op een laag bedrijfskritiek is beperkt met de grootte van de instantie. De `tempdb` database altijd is opgesplitst in 12 gegevensbestanden. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen worden toegevoegd aan `tempdb`. Aantal query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 24 GB per kern in `tempdb`.
+De maximale bestandsgrootte van `tempdb` mag niet groter zijn dan 24 GB per kern op een categorie Algemeen gebruik. De maximale `tempdb` grootte op een laag bedrijfskritiek is beperkt met de grootte van de instantie. De `tempdb` database altijd is opgesplitst in 12 gegevensbestanden. Deze maximale grootte per bestand kan niet worden gewijzigd en nieuwe bestanden kunnen niet worden toegevoegd aan `tempdb`. Aantal query's mogelijk een fout geretourneerd als ze nodig hebben meer dan 24 GB per kern in `tempdb`. `tempdb` wordt altijd opnieuw als een lege database gemaakt wanneer de exemplaar-starten of failover- en een in-en-klare wijzigen `tempdb` blijft niet behouden. 
 
 ### <a name="cant-restore-contained-database"></a>Kan de ingesloten database niet herstellen.
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894529"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860894"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een ASP.NET-web-app maken met behulp van een Azure Cosmos DB SQL API-account
 
@@ -37,7 +37,7 @@ In deze quickstart wordt gebruikgemaakt van versie 3.0+ van de Azure Cosmos DB .
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg dat u de workload **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+Als u Visual Studio 2019 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg dat u de workload **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -120,7 +120,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-dotnet/keys.png)
 
-2. Open in Visual Studio 2017 het bestand **web.config**. 
+2. Open in Visual Studio, de **web.config** bestand. 
 
 3. Kopieer de URI-waarde vanuit de portal (met de knop Kopiëren) en geef deze op als waarde voor de ``endpoint``-sleutel in web.config. 
 

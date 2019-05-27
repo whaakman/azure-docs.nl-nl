@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08794a7605ffbd3cd5d4b021b783f32afb190727
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414664"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861585"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedure: Wachtwoord opnieuw instellen van Windows 7, 8 en 8.1 inschakelen
 
@@ -60,6 +60,8 @@ U moet registreren voor self-service voor Wachtwoordherstel voordat u wordt moge
 ![Aanvullende beveiligingsgegevens nodig is voor uw wachtwoord opnieuw instellen](media/howto-sspr-windows-7-8/windows-7-sspr-need-security-info.png)
 
 Uw wachtwoord opnieuw instellen met behulp van de Microsoft Authenticator-app voor meldingen en codes werkt niet in deze eerste release. Gebruikers moeten beschikken over alternatieve methoden geregistreerd en die voldoen aan de vereisten van uw beleid.
+
+Als meer dan één 3rd party Referentieprovider op uw computer is ingeschakeld, wordt gebruikers meer dan één gebruikersprofiel zien op het aanmeldingsscherm.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

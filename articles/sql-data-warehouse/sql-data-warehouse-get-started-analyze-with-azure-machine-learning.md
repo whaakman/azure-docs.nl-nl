@@ -2,20 +2,20 @@
 title: Gegevens analyseren met Azure Machine Learning | Microsoft Docs
 description: Gebruik Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: anumjs
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 03/22/2019
-ms.author: anjangsh
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439894"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860832"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Gegevens analyseren met Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Wanneer het experiment is uitgevoerd, klikt u op de uitvoerpoort onder in de mod
 ![Geïmporteerde gegevens weergeven][3]
 
 ## <a name="2-clean-the-data"></a>2. De gegevens opschonen
-Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant zijn voor het model. Om dit te doen:
+Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant zijn voor het model. Dit kunt u op de volgende manier doen:
 
 1. Sleep de **Select Columns in Dataset** module onder **gegevenstransformatie < manipulatie** naar het canvas. Verbinding maken met deze module aan de **importgegevens** module.
 2. Klik in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten) om de kolommen op te geven die u wilt verwijderen.

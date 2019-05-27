@@ -13,32 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198621"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864829"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
-Dit artikel wordt beschreven hoe u een Azure WebJobs SDK-project maken, lokaal uitvoeren, en vervolgens implementeert met Visual Studio 2017 [Azure App Service](overview.md). Het project dat u maakt, is een .NET Core-console-app die gebruikmaakt van versie 3.x van de WebJobs SDK. Als u geïnteresseerd in versie bent 2.x, die gebruikmaakt van .NET Framework, Zie [ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs](webjobs-dotnet-deploy-vs.md).
+In dit artikel ziet u hoe u Visual Studio 2019 aan een Azure WebJobs SDK-project maken, lokaal uitvoeren, en vervolgens implementeert [Azure App Service](overview.md). Het project dat u maakt, is een .NET Core-console-app die gebruikmaakt van versie 3.x van de WebJobs SDK. Als u geïnteresseerd in versie bent 2.x, die gebruikmaakt van .NET Framework, Zie [ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs](webjobs-dotnet-deploy-vs.md).
 
 Zie voor meer informatie over het werken met de WebJobs SDK [over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde](webjobs-sdk-how-to.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Installeer Visual Studio 2017](/visualstudio/install/) met de **Azure-ontwikkeling** werkbelasting. Als u al van Visual Studio hebt maar geen die werkbelasting, het toevoegen van de werkbelasting door te selecteren **Tools > hulpprogramma's en onderdelen**.
+* [Installeer Visual Studio 2019](/visualstudio/install/) met de **Azure-ontwikkeling** werkbelasting. Als u al van Visual Studio hebt maar geen die werkbelasting, het toevoegen van de werkbelasting door te selecteren **Tools > hulpprogramma's en onderdelen**.
 
 * U moet hebben [een Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) de WebJobs SDK-project kunt publiceren naar Azure.
 
 ## <a name="create-a-project"></a>Een project maken
 
-1. Selecteer in Visual Studio, **bestand > Nieuw > Project**.
+1. Selecteer in Visual Studio, **een nieuw Project maken**.
 
-2. Selecteer **.NET Core > consoletoepassing (.NET Core)**.
+2. Selecteer **consoletoepassing (.NET Core)**.
 
-3. Noem het project *WebJobsSDKSample*, en selecteer vervolgens **OK**.
+3. Noem het project *WebJobsSDKSample*, en selecteer vervolgens **maken**.
 
    ![Het dialoogvenster Nieuw project](./media/webjobs-sdk-get-started/new-project.png)
 

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143059"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864516"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Een door HTTP geactiveerde functie maken in Azure
 
@@ -108,7 +108,7 @@ Een submap met de naam _HttpTrigger_ is gemaakt, waarin de volgende bestanden:
 
   Elke binding is vereist voor een richting, type en een unieke naam. De HTTP-trigger heeft een Invoerbinding van het type [ `httpTrigger` ](functions-bindings-http-webhook.md#trigger) en de uitvoer van de binding van het type [ `http` ](functions-bindings-http-webhook.md#output).
 
-* **__Init__.py**: scriptbestand dat uw met HTTP geactiveerde functie. Bekijk dit script en dat deze een standaard bevat `main()`. HTTP-gegevens van de trigger wordt doorgegeven aan deze functie gebruikt de `req` bindende parameter met de naam. Gedefinieerd in de function.json, `req` is een exemplaar van de [azure.functions.HttpRequest klasse](/python/api/azure-functions/azure.functions.httprequest). 
+* **\_\_Init\_\_.py**: scriptbestand dat uw met HTTP geactiveerde functie. Bekijk dit script en dat deze een standaard bevat `main()`. HTTP-gegevens van de trigger wordt doorgegeven aan deze functie gebruikt de `req` bindende parameter met de naam. Gedefinieerd in de function.json, `req` is een exemplaar van de [azure.functions.HttpRequest klasse](/python/api/azure-functions/azure.functions.httprequest). 
 
     Het geretourneerde object, dat is gedefinieerd als `$return` in function.json, is een exemplaar van [azure.functions.HttpResponse klasse](/python/api/azure-functions/azure.functions.httpresponse). Zie voor meer informatie, [Azure Functions-HTTP-triggers en bindingen](functions-bindings-http-webhook.md).
 

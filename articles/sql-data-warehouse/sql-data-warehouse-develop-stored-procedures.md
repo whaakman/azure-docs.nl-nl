@@ -2,20 +2,20 @@
 title: Met behulp van opgeslagen procedures in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips voor het implementeren van opgeslagen procedures in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/02/2019
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8a53a63b7425935e117d7af951717999bc9340b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 200433d95d62edf2e878e58e5089a6baff290775
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439695"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850574"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Met behulp van opgeslagen procedures in SQL Data Warehouse
 Tips voor het implementeren van opgeslagen procedures in Azure SQL Data Warehouse om oplossingen te ontwikkelen.

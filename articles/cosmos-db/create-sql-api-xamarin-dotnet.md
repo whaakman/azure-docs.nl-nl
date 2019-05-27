@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 1f86690b97fc7d65afed650664a76200ef490f33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60891252"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860887"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een taken-app maken met Xamarin met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Deze snelstart laat zien hoe u een SQL API-account van Azure Cosmos DB, een docu
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Windows gebruikt en Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** en **Mobile Development met .NET**-workloads inschakelt tijdens de installatie van Visual Studio.
+Als u voor Windows ontwikkelt en Visual Studio 2019 geïnstalleerd nog niet hebt, kunt u downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** en **Mobile Development met .NET**-workloads inschakelt tijdens de installatie van Visual Studio.
 
 Als u een Mac gebruikt, kunt u **gratis** [Visual Studio voor Mac](https://www.visualstudio.com/vs/mac/) downloaden.
 
@@ -92,7 +92,7 @@ Ga terug naar Azure Portal om de API-sleutelgegevens op te halen en deze in de a
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Open het bestand APIKeys.cs vanuit de map azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers in Visual Studio 2017 of Visual Studio voor Mac.
+2. Open het bestand APIKeys.cs vanuit de map azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers in Visual Studio 2019 of Visual Studio voor Mac.
 
 3. Kopieer uw URI-waarde vanuit de portal (met de kopieerknop) en geef deze op als waarde voor de variabele `CosmosEndpointUrl` in APIKeys.cs.
 
