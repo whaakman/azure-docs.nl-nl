@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: d35f0ef783a2c48f8211657bc8829635c19495aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409918"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171908"
 ---
 #### <a name="to-enter-maintenance-mode"></a>Om in te voeren van onderhoudsmodus
 1. Kies in het menu van de seriële console optie 1, **Meld u aan met volledige toegang tot de**.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818491"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153601"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modellen trainen met Azure Machine Learning met behulp van estimator
 
@@ -26,7 +26,7 @@ In het kader deep learning-modeltraining, Azure Machine Learning Python SDK bied
 
 ## <a name="train-with-an-estimator"></a>Trainen met een estimator
 
-Als u hebt gemaakt uw [werkruimte](concept-azure-machine-learning-architecture.md#workspace) en stel uw [ontwikkelomgeving](how-to-configure-environment.md), trainen van een model in Azure Machine Learning omvat de volgende stappen:  
+Als u hebt gemaakt uw [werkruimte](concept-workspace.md) en stel uw [ontwikkelomgeving](how-to-configure-environment.md), trainen van een model in Azure Machine Learning omvat de volgende stappen:  
 1. Maak een [externe compute-doel](how-to-set-up-training-targets.md) (opmerking die u kunt ook de lokale computer gebruiken als compute-doel)
 2. Upload uw [trainingsgegevens](how-to-access-data.md) met gegevensarchief (optioneel)
 3. Maak uw [trainingsscript](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -119,6 +119,10 @@ Ten slotte verzendt u de trainingstaak:
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>GitHub bijhouden en integratie
+
+Wanneer u een training uitgevoerd waarbij de bronmap is een lokale Git-opslagplaats start, wordt informatie over de opslagplaats opgeslagen in de uitvoeringsgeschiedenis. Bijvoorbeeld, wordt de huidige doorvoer-ID voor de opslagplaats die vastgelegd als onderdeel van de geschiedenis.
 
 ## <a name="examples"></a>Voorbeelden
 Zie voor een notitieblok waarin de basisbeginselen van estimator patroon:

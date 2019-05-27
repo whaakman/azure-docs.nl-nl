@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b7a86963c657524fa91c4eb824ced1a495391f3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819043"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66172178"
 ---
 #### <a name="to-delete-a-storsimple-backup-policy"></a>Verwijderen van een back-upbeleid van StorSimple
 
@@ -21,7 +21,7 @@ ms.locfileid: "60819043"
 
 3. U wordt gevraagd om bevestiging. Houd er rekening mee dat het verwijderen van een back-upbeleid alle gekoppelde back-ups worden verwijderd. Klik op **Ja** te verwijderen.
 
-    ![De verwijdering bevestigen](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
+    ![Verwijderen bevestigen](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
 
 De lijst met back-upbeleid wordt bijgewerkt om de nieuwe lijst met beleidsregels weer te geven.
 

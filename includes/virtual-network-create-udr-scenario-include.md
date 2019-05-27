@@ -2,19 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743353"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170873"
 ---
 ## <a name="scenario"></a>Scenario
 Dit document wordt u beter laten zien hoe u udr's maken, het volgende scenario:
@@ -29,3 +28,4 @@ In dit scenario maakt u een UDR voor het *Front-end-subnet* en een andere UDR vo
   * **RouteToFrontend**. Deze route verzendt alle verkeer naar het front-end-subnet aan de **FW1** virtuele machine.
 
 De combinatie van deze routes zorgt ervoor dat al het verkeer dat bestemd is van het ene subnet naar een andere wordt doorgestuurd naar de **FW1** virtuele machine, die wordt gebruikt als een virtueel apparaat. U moet ook in te schakelen doorsturen via IP voor de **FW1** VM, om te controleren of het verkeer dat bestemd is voor andere virtuele machines kan ontvangen.
+

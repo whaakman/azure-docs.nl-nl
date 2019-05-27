@@ -6,14 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
-ms.author: victorh
+origin.date: 08/06/2018
+ms.date: 04/16/2019
+ms.author: v-junlch
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135197"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway overzicht van statuscontrole
 
@@ -85,7 +86,7 @@ De volgende tabel bevat de definities voor de eigenschappen van een aangepaste s
 | Name |De naam van de test. Deze naam wordt gebruikt om te verwijzen naar de test in de back-end-HTTP-instellingen. |
 | Protocol |Het protocol dat wordt gebruikt voor het verzenden van de test. De test wordt gebruikt voor het protocol dat is gedefinieerd in de back-end-HTTP-instellingen |
 | Host |De naam van de host voor het verzenden van de test. Van toepassing alleen als er meerdere sites is geconfigureerd in Application Gateway, anders gebruiken '127.0.0.1'. Deze waarde verschilt van de VM-hostnaam. |
-| Pad |Relatief pad van de test. Ongeldig pad begint met '/'. |
+| `Path` |Relatief pad van de test. Ongeldig pad begint met '/'. |
 | Interval |Testinterval in seconden. Deze waarde is het tijdsinterval tussen twee opeenvolgende tests. |
 | Time-out |Test time-out in seconden. Als een geldige reactie niet binnen deze time-outperiode ontvangen is is, wordt de test is gemarkeerd als mislukt.  |
 | Drempelwaarde voor onjuiste status |Aantal nieuwe pogingen-test. De back-endserver is gemarkeerd omlaag nadat het aantal opeenvolgende fouten de drempelwaarde voor onjuiste status heeft bereikt. |
@@ -104,3 +105,5 @@ Bovendien uitgaande verbinding met Internet kan niet worden geblokkeerd en binne
 Nadat u meer over Application Gateway-statuscontrole, kunt u een [aangepaste statustest](application-gateway-create-probe-portal.md) in Azure portal of een [aangepaste statustest](application-gateway-create-probe-ps.md) met behulp van PowerShell en Azure Resource Manager implementatiemodel.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
+
+<!-- Update_Description: wording update -->

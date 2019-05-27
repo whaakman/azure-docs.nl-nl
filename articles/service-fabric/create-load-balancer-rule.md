@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66147474"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Poorten openen voor een Service Fabric-cluster
 
@@ -61,7 +61,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 De Azure CLI-opdracht heeft een aantal parameters die in de volgende tabel worden beschreven:
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --------- | ----------- |
 | `--backend-port`  | De poort van de Service Fabric-toepassing luistert. |
 | `--frontend-port` | De poort van de load balancer wordt aangegeven voor externe verbindingen. |

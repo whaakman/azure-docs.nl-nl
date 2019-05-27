@@ -1,24 +1,23 @@
 ---
 title: Azure Data Factory gegevenspatronen stroom kolom toewijzen
-description: Azure Data Factory toewijzing gegevens kolom patronen van verkeersstromen worden gebruikt om de patronen gegeneraliseerde sjabloon voor het transformeren van velden in een gegevensstroom ongeacht de metagegevens van het onderliggende schema te maken
+description: Informatie over het gebruik van Azure Data Factory kolom patronen in de gegevensstroom toewijzen om gegeneraliseerde sjabloon patronen voor het transformeren van velden in een gegevensstroom ongeacht de metagegevens van het onderliggende schema te maken
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 53d3300ea11a86c34909ba6ce0fd6c8c0c38b4b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61269664"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155239"
 ---
-# <a name="azure-data-factory-mapping-data-flow-concepts"></a>Azure Data Factory gegevensstroom concepten toewijzen
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory toewijzingsgegevens stromen kolom patronen
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Verschillende transformaties gegevensstroom van Azure Data Factory ondersteunt het idee van "Kolommen patronen" zodat u kunt sjabloon kolommen op basis van patronen in plaats van de namen van vastgelegde kolommen maken. U kunt deze functie binnen de opbouwfunctie voor expressies gebruiken voor het definiëren van patronen zodat deze overeenkomen met kolommen voor transformatie in plaats van dat xact, specifieke veldnamen. Patronen zijn nuttig wanneer binnenkomende bronvelden vaak wijzigen, met name voor het wijzigen van kolommen in de tekstbestanden of NoSQL-databases. Dit wordt soms 'Schema Drift' genoemd.
+Verschillende transformaties gegevensstroom van Azure Data Factory ondersteunt het idee van "Kolommen patronen" zodat u kunt sjabloon kolommen op basis van patronen in plaats van de namen van vastgelegde kolommen maken. U kunt deze functie binnen de opbouwfunctie voor expressies gebruiken voor het definiëren van patronen zodat deze overeenkomen met kolommen voor transformatie in plaats van dat xact, specifieke veldnamen. Patronen zijn handig als binnenkomende bronvelden vaak wijzigen, met name voor het wijzigen van kolommen in de tekstbestanden of NoSQL-databases. Deze voorwaarde wordt ook wel 'Schema Drift' genoemd.
 
 ![kolom patronen](media/data-flow/columnpattern2.png "kolom patronen")
 

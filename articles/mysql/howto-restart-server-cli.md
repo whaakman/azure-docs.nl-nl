@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/28/2019
 ms.openlocfilehash: d00aa35437f93c010ce48f3036b4a684910702c0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623151"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66160434"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Opnieuw opstarten van Azure Database voor MySQL-server met de Azure CLI
 In dit onderwerp wordt beschreven hoe u een Azure Database for MySQL-server opnieuw kunt starten. Mogelijk moet u de server voor onderhoudsredenen, waardoor een korte onderbreking als de server de bewerking voert opnieuw.
@@ -30,7 +30,7 @@ Voor deze handleiding, hebt u het volgende nodig:
 > In deze gebruiksaanwijzing vereist het gebruik van Azure CLI versie 2.0 of hoger. Als u wilt controleren welke versie, bij de Azure CLI-opdrachtprompt, voer `az --version`. Als u wilt installeren of upgraden, Zie [Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 
-## <a name="restart-the-server"></a>Start de server opnieuw
+## <a name="restart-the-server"></a>De server opnieuw opstarten
 
 Start opnieuw op de server met de volgende opdracht:
 

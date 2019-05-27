@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409950"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171899"
 ---
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Installeren van reguliere hotfixes via Windows PowerShell voor StorSimple
 1. Verbinding maken met de seriële console van het apparaat. Zie voor meer informatie, [stap 1: Verbinding maken met de seriële console](../articles/storsimple/storsimple-update-device.md#step1).

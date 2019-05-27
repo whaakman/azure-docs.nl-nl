@@ -2,19 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines-windows
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 09/12/2018
-ms.date: 11/12/2018
-ms.author: v-yeche
+ms.date: 09/12/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405377"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154784"
 ---
 U een poort openen of maken van een eindpunt dat aan een virtuele machine (VM) in Azure met het maken van een netwerk-filter op een subnet of een VM-netwerkinterface. U plaatst deze filters, die binnenkomend en uitgaand verkeer worden beheerd, op een netwerkbeveiligingsgroep die is gekoppeld aan de resource die het verkeer ontvangt.
 
@@ -34,4 +33,8 @@ Nadat u een virtuele machine die geconfigureerd voor de webaanvragen worden verw
 
 3. De netwerkbeveiligingsgroep koppelen aan het VM-netwerkinterface of subnet.
 
-    Hoewel in dit voorbeeld een eenvoudige regel wordt HTTP-verkeer toe te staan, kunt u ook netwerkbeveiligingsgroepen en regels gebruiken om te maken van complexere configuraties van het netwerk.
+Hoewel in dit voorbeeld een eenvoudige regel wordt HTTP-verkeer toe te staan, kunt u ook netwerkbeveiligingsgroepen en regels gebruiken om te maken van complexere configuraties van het netwerk. 
+
+
+
+

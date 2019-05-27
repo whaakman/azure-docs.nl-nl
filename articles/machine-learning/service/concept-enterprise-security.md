@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821385"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151195"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Bedrijfsbeveiliging voor Azure Machine Learning-service
 
@@ -101,7 +101,7 @@ Azure Machine Learning-service maakt u een extra toepassing (de naam begint met 
 
 De Azure Machine Learning-service is afhankelijk van andere Azure-services voor compute-resources. COMPUTE-resources (compute-doelen) worden gebruikt om te trainen en modellen te implementeren. Deze compute-doelen kunnen worden gemaakt binnen een virtueel netwerk. Bijvoorbeeld, kunt u de Microsoft Data Science Virtual Machine naar een model te trainen en implementeer vervolgens het model naar Azure Kubernetes Service (AKS).  
 
-Zie voor meer informatie, [experimenten en inferentietaken uitvoeren in een virtueel netwerk](how-to-enable-virtual-network.md).
+Zie voor meer informatie, [experimenten en Deductie uitvoeren in een virtueel netwerk](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Gegevensversleuteling
 
@@ -154,7 +154,7 @@ Het volgende diagram toont de werkstroom van de werkruimte maken.
 Gebruiker meldt zich aan bij Azure AD in elk van de ondersteunde clients Azure Machine Learning-service (Azure CLI, Python-SDK-portal) en het juiste Azure Resource Manager-token aanvragen.  Gebruiker roept vervolgens Azure Resource Manager voor het maken van de werkruimte.  Azure Resource Manager-contactpersonen de Azure Machine Learning-service-Resourceprovider voor het inrichten van de werkruimte.  Aanvullende bronnen worden gemaakt in het abonnement van de klant tijdens het maken van de werkruimte:
 * Key Vault (voor het opslaan van geheimen)
 * Een Azure Storage-account (met inbegrip van de Blob & bestandsshare)
-* Azure Container Registry (voor het opslaan van docker-installatiekopieën voor inferentietaken en experimenten)
+* Azure Container Registry (voor het opslaan van docker-installatiekopieën voor Deductie/scoren en experimenten)
 * Application Insights (voor het opslaan van telemetrie)
 
 Andere berekeningen die is gekoppeld aan een werkruimte (Azure Kubernetes Service, virtuele machine enzovoort) kunnen ook worden ingericht door klanten zo nodig. 
@@ -172,7 +172,7 @@ Het volgende diagram toont de training-werkstroom.
 * Azure Machine Learning-service wordt aangeroepen met de momentopname-ID voor de momentopname van de code hebt opgeslagen
 * Azure Machine Learning-service maakt uitvoert (optioneel)-ID & token uit Azure Machine Learning-service, die later wordt gebruikt door de compute-doelen, zoals Machine Learning Compute/VM kunnen praten met Azure Machine Learning-service
 * U kunt een beheerde compute (ex.) Machine Learning-Computing) of niet-beheerde compute (ex.) Virtuele machine) uw trainingstaken uit te voeren. De gegevensstroom wordt uitgelegd voor zowel de volgende scenario's:
-* (Virtuele machine/HDInsight/lokaal – geopend met behulp van SSH-referenties in Key Vault in Microsoft-abonnement) Azure Machine Learning-service wordt beheer code uitgevoerd op de compute-doel dat:
+* (Virtuele machine/HDInsight – geopend met behulp van SSH-referenties in Key Vault in Microsoft-abonnement) Azure Machine Learning-service wordt beheer code uitgevoerd op de compute-doel dat:
     1.  De omgeving voorbereid (Opmerking: Docker is ook een optie voor virtuele machine/lokale. Zie de stappen voor het Machine Learning-Computing hieronder om te begrijpen hoe actieve experiment op docker-container werkt)
     2.  De code downloaden
     3.  Stelt u de omgeving variabelen/configuraties
@@ -189,7 +189,7 @@ Deze stap wordt weergegeven in de stroom waar training schrijfbewerkingen comput
 ![Schermafbeelding van de maken werkruimte werkstroom](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>Het maken van webservices
-Het volgende diagram toont de inferentietaken werkstroom waarin model is geïmplementeerd als een webservice.
+Het volgende diagram toont de werkstroom Deductie. Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens.
 Zie de informatie hieronder:
 * Gebruiker zich registreert voor een model met behulp van een client, zoals Azure ML-SDK
 * Gebruiker maakt een installatiekopie met behulp van model, score bestands- en andere afhankelijkheden model

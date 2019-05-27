@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236674"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153504"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Stroomactiviteit gegevens uitvoeren in Azure Data Factory
 De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing (sandbox) pijplijnuitvoeringen en geactiveerde pijplijnuitvoeringen gebruiken.
@@ -64,6 +64,10 @@ Gebruik de gegevens stromen foutopsporing gebruikmaken van een verwarmde cluster
 Dit is een verplicht veld waarmee wordt gedefinieerd welke Integration Runtime moet worden gebruikt voor de uitvoering van de activiteit gegevens stromen. Data Factory gebruikt standaard de standaard automatisch oplossen Azure Integration runtime. U kunt echter uw eigen Azure-Integratieruntimes die specifieke regio's definiëren, compute-type, kerngeheugens en TTL-waarde voor de uitvoering van de activiteit van de gegevensstroom maken.
 
 De standaardinstelling voor uitvoeringen gegevensstroom is 8 kernen reken-en algemene met een TTL-waarde van 60 minuten.
+
+U hebt controle over de Spark-uitvoeringsomgeving voor uw activiteiten gegevensstroom. In de [Azure integratieruntime](concepts-integration-runtime.md) zijn instellingen voor het instellen van het type compute (algemeen gebruik, geoptimaliseerd voor geheugen en geoptimaliseerde rekenkracht), aantal worker-kernen en time-to-live zodat deze overeenkomen met de engine voor het uitvoeren met uw compute gegevensstroom vereisten. Bovendien kunt TTL instelling u een warm-cluster dat is onmiddellijk beschikbaar voor taakuitvoeringen onderhouden.
+
+![Azure Integratieruntime](media/data-flow/ir-new.png "Azure Integratieruntime")
 
 ### <a name="staging-area"></a>Faseringsgebied
 

@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
 ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162218"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementeren in Azure App Service met Jenkins en de Azure CLI
 Als u een Java-web-app wilt implementeren in Azure, kunt u de Azure CLI in de [Jenkins-pijplijn](https://jenkins.io/doc/book/pipeline/) gebruiken. In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:
@@ -152,7 +152,7 @@ Open Jenkins in een webbrowser en klik op **Nieuw item**.
 * Selecteer bij **Definitie** de optie **Pijplijnscript uit SCM**.
 * Bij **SCM** selecteert u **Git**.
 * Voer de GitHub-URL voor de vertakte opslagplaats in: https:\<uw vertakte opslagplaats\>.git
-* Klik op **Opslaan**.
+* Klik op **Opslaan**
 
 ## <a name="test-your-pipeline"></a>Test uw pijplijn
 * Ga naar de pijplijn die u hebt gemaakt en klik op **Nu maken**

@@ -17,11 +17,11 @@ ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171842"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Zelfstudie: Virtuele Linux-machines maken en beheren met de Azure CLI
 
@@ -38,7 +38,7 @@ Virtuele machines in Azure bieden een volledig geconfigureerde en flexibele comp
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-## <a name="create-resource-group"></a>Een resourcegroep maken
+## <a name="create-resource-group"></a>Resourcegroep maken
 
 Een resourcegroep maken met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group). 
 
@@ -155,7 +155,7 @@ De grootte van een virtuele machine bepaalt de hoeveelheid rekenresources, zoals
 
 In de volgende tabel zijn grootten gecategoriseerd in use-cases.  
 
-| Type                     | Grootten           |    Beschrijving       |
+| Type                     | Grootten           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Algemeen doel](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Evenwichtige CPU-geheugenverhouding. Ideaal voor ontwikkelen/testen en in kleine tot middelgrote toepassingen en gegevensoplossingen.  |
 | [Geoptimaliseerde rekenkracht](sizes-compute.md)   | Fs, F             | Hoge CPU-geheugenverhouding. Goed voor middelgrootte verkeerstoepassingen, netwerkapparatuur en batchprocessen.        |
@@ -252,7 +252,7 @@ Een Azure VM kan op een van de vele energiestatussen worden ingesteld. Deze stat
 
 ### <a name="power-states"></a>Energiestatussen
 
-| Energiestatus | Beschrijving
+| Energiestatus | Description
 |----|----|
 | Starten | Geeft aan dat de virtuele machine wordt gestart. |
 | In uitvoering | Geeft aan dat de virtuele machine wordt uitgevoerd. |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581073"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157684"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Met beheerde schijven in Azure Resource Manager-sjablonen
 
@@ -202,7 +202,7 @@ Verwijzen naar de schijfobject moet worden gekoppeld in het VM-object. Opgeven v
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Beheerde beschikbaarheidssets maken met virtuele machines met beheerde schijven
 
-Maken van beheerde beschikbaarheidssets met virtuele machines met beheerde schijven, toe te voegen de `sku` object op de beschikbaarheid van resource ingesteld en de `name` eigenschap `Aligned`. Deze eigenschap zorgt ervoor dat de schijven voor elke virtuele machine voldoende geïsoleerd van elkaar zijn om te voorkomen dat single point of failure. Merk ook op dat de `apiVersion` voor de beschikbaarheid van de resource is ingesteld op `2017-03-30`.
+Maken van beheerde beschikbaarheidssets met virtuele machines met beheerde schijven, toe te voegen de `sku` object op de beschikbaarheid van resource ingesteld en de `name` eigenschap `Aligned`. Deze eigenschap zorgt ervoor dat de schijven voor elke virtuele machine voldoende geïsoleerd van elkaar zijn om te voorkomen dat single point of failure. Merk ook op dat de `apiVersion` voor de beschikbaarheid van de resource is ingesteld op `2018-10-01`.
 
 ```json
 {

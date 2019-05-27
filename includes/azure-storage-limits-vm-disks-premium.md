@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386294"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148212"
 ---
 **Premium niet-beheerde VM-schijven: De limieten per account**
 
@@ -26,7 +26,7 @@ ms.locfileid: "60386294"
 | Schijftype voor Premium Storage | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
 | Schijfgrootte |128 GiB |512 GiB |1.024 giB (1 TB) |2,048 GiB (2 TB)|4095 giB (4 TB)|
-| Maximum aantal IOP's per schijf |500 |2.300 |5.000 |7.500 |7.500 |
+| Maximum aantal IOP's per schijf |500 |2,300 |5.000 |7.500 |7,500 |
 | Maximale doorvoer per schijf |100 MB/sec | 150 MB/sec |200 MB per seconde |250 MB/sec |250 MB/sec |
 | Maximum aantal schijven per opslagaccount gebruikt |280 |70 |35 | 17 | 8 |
 

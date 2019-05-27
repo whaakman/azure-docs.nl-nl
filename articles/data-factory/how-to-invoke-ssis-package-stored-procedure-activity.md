@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155005"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de opgeslagen Procedure-activiteit in Azure Data Factory
 Dit artikel wordt beschreven hoe u een SSIS-pakket uitvoert in een Azure Data Factory-pijplijn met behulp van een opgeslagen Procedure-activiteit. 
@@ -80,7 +80,7 @@ In deze stap gebruikt u de gebruikersinterface van Data Factory om een pijplijn 
 3. Ga in het eigenschappenvenster voor de opgeslagen procedure-activiteit naar de **SQL-Account** tabblad en klik op **+ nieuw**. U maakt een verbinding met de Azure SQL-database die als host fungeert voor de SSIS-catalogus (SSIDB-database). 
    
     ![Knop Nieuwe gekoppelde service](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
-4. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit: 
+4. Voer in het venster **New Linked Service** de volgende stappen uit: 
 
     1. Selecteer **Azure SQL Database** voor **Type**.
     2. Selecteer de **standaard** Azure Integration Runtime verbinding maken met de Azure SQL-Database die als host fungeert voor de `SSISDB` database.

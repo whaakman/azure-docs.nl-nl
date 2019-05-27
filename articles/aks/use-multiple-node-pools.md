@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506911"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142646"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Preview - maken en beheren van meerdere knooppuntgroepen voor een cluster in Azure Kubernetes Service (AKS)
 
@@ -332,7 +332,7 @@ Alleen schillen waarvoor deze beïnvloeding toegepast kunnen worden gepland op k
 
 In dit artikel hebt u een AKS-cluster met knooppunten op basis van GPU gemaakt. Om onnodige kosten reduceren, kunt u verwijdert de *gpunodepool*, of het hele AKS-cluster.
 
-Als u wilt verwijderen van het knooppunt op basis van GPU pool, gebruiken de [az aks knooppuntgroep verwijderen] [ az-aks-nodepool-delete] opdracht zoals wordt weergegeven in het volgende voorbeeld:
+Als u wilt verwijderen van het knooppunt op basis van GPU pool, gebruiken de [az aks nodepool verwijderen] [ az-aks-nodepool-delete] opdracht zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -348,8 +348,10 @@ az group delete --name myResourceGroup --yes --no-wait
 
 In dit artikel hebt u geleerd over het maken en beheren van meerdere groepen in een AKS-cluster. Zie voor meer informatie over het beheren van pods in knooppuntgroepen [aanbevolen procedures voor geavanceerde scheduler-functies in AKS][operator-best-practices-advanced-scheduler].
 
+Als u wilt maken en gebruiken van groepen met Windows Server-container, Zie [een Windows Server-container in AKS maakt][aks-windows].
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -376,3 +378,4 @@ In dit artikel hebt u geleerd over het maken en beheren van meerdere groepen in 
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

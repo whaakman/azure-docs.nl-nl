@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480490"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159289"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -131,6 +131,8 @@ Stream Analytics biedt momenteel geen ondersteuning deserialiseren AVRO die zijn
 > [!NOTE]
 > Stream Analytics biedt geen ondersteuning voor inhoud toevoegen aan een bestaand blobbestand. Stream Analytics wordt elk bestand slechts één keer weergeven en eventuele wijzigingen die in het bestand plaatsvinden nadat de taak van de gegevens lezen niet worden verwerkt. Beste manier is om alle gegevens voor een blob-bestand tegelijk uploaden en vervolgens aanvullende nieuwere gebeurtenissen toevoegen aan een andere, nieuwe blob-bestand.
 > 
+
+Uploaden van een zeer groot aantal blobs in één keer kan leiden tot Stream Analytics voor het lezen van enkele blobs in zeldzame gevallen overslaan. Het verdient aanbeveling ten minste 2 seconden elkaar naar de Blob storage voor blobs uploaden. Als deze optie niet haalbaar is is, kunt u Event Hubs tot grote volumes van de stroom van gebeurtenissen. 
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Blob-opslag als een stroom invoer configureren 
 

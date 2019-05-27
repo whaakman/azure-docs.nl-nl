@@ -9,11 +9,11 @@ ms.date: 11/19/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: c3cbfda674abaeea1adf35c3ee0d2b5ddf6b2f84
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853253"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153754"
 ---
 U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een database en een verzameling te maken. 
 
@@ -25,7 +25,7 @@ U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een datab
 
 2. Geef op de pagina **Verzameling toevoegen** de instellingen voor de nieuwe verzameling op.
 
-    Instelling|Voorgestelde waarde|Beschrijving
+    Instelling|Voorgestelde waarde|Description
     ---|---|---
     Database-id|*Taken*|Voer *Taken* in als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen /, \\, # of ? bevatten en mogen niet eindigen met een spatie.
     Verzamelings-id|*Items*|Voer *Items* in als de naam voor de nieuwe verzameling. Voor id’s van verzamelingen gelden dezelfde tekenvereisten als voor databasenamen.

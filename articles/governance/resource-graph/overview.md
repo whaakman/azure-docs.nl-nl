@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137784"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162083"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Overzicht van de Azure Resource Graph-service
 
@@ -38,12 +38,12 @@ Met Azure Resource Graph hebt u toegang tot de eigenschappen die de resourceprov
 Met Azure Resource Graph, kunt u het volgende doen:
 
 - Toegang tot de eigenschappen die zijn geretourneerd door de resourceproviders zonder afzonderlijke aanroepen naar elke resourceprovider.
-- Weergeven van de afgelopen 14 dagen van de wijzigingsgeschiedenis die zijn aangebracht in de bron om te zien wat er eigenschappen gewijzigd en wanneer. (preview)
+- Weergeven van de afgelopen 14 dagen van de wijzigingsgeschiedenis die zijn aangebracht in de bron om te zien wat er eigenschappen gewijzigd en wanneer. (preview-versie)
 
 ## <a name="how-resource-graph-is-kept-current"></a>Hoe Resourcegrafiek wordt bijgewerkt
 
 Wanneer een Azure-resource wordt bijgewerkt, Resource Graph is op de hoogte gesteld door Resource Manager van de wijziging.
-Grafiek van resources werkt vervolgens de database. Grafiek van resources is ook een gewone _volledige scan_. Deze scan zorgt ervoor dat Resource de grafiekgegevens zijn huidige in het geval van gemiste meldingen of wanneer een resource buiten Resource Manager wordt bijgewerkt.
+Grafiek van resources werkt vervolgens de database. Grafiek van resources is ook een gewone _volledige scan_. Deze scan zorgt ervoor dat Resource de grafiekgegevens zijn huidige als er gemiste meldingen of wanneer een resource buiten Resource Manager wordt bijgewerkt.
 
 ## <a name="the-query-language"></a>De querytaal
 
@@ -61,11 +61,17 @@ Om Resource Graph te kunnen gebruiken, moet u over de juiste machtigingen beschi
 > [!NOTE]
 > Grafiek van resources maakt gebruik van de abonnementen die beschikbaar zijn voor een principal tijdens het aanmelden. Als u wilt zien van resources van een nieuw abonnement gedurende een actieve sessie toegevoegd, moet de principal de context vernieuwen. Deze actie wordt automatisch uitgevoerd wanneer u zich af te melden en opnieuw aanmelden.
 
-## <a name="throttling"></a>Beperking
+## <a name="throttling"></a>Beperken
 
-Als een gratis service, worden query's voor Resource Graph beperkt voor de beste ervaring en antwoord-tijd voor alle klanten. Als uw organisatie wil de Resource Graph API gebruiken voor grootschalige en regelmatig query's, gebruikt u de portal 'Feedback' van de Resource Graph-pagina. Omschrijf uw bedrijfsscenario en vergeet niet om het selectievakje 'Microsoft mag per e-mail contact met u opnemen over uw feedback', zodat het team contact met u kan opnemen.
+Als een gratis service, worden query's voor Resource Graph beperkt voor de beste ervaring en antwoord-tijd voor alle klanten. Als uw organisatie wil de Resource Graph API gebruiken voor grootschalige en regelmatig query's, gebruiken die portal 'Feedback' in de [Resource Graph-portalpagina](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Geef uw bedrijfsscenario en schakelt u het selectievakje 'Microsoft kunt u een e-mail over uw feedback, zodat het team contact met u opnemen.
 
-Grafiek van resources beperkt op het tenantniveau van de. De service vervangt en stelt de `x-ms-ratelimit-remaining-tenant-reads` reactieheader om aan te geven van de resterende beschikbare query door de gebruiker in de tenant. Resourcegrafiek wordt het quotum om de vijf seconden in plaats van per uur. Zie voor meer informatie, [beperking Resource Manager-aanvragen](../../azure-resource-manager/resource-manager-request-limits.md).
+Grafiek van resources beperkt query's op het gebruikersniveau van de. Antwoord van de service bevat de volgende HTTP-headers:
+
+- `x-ms-user-quota-remaining` (int): Het resterende resourcequotum voor de gebruiker. Deze waarde wordt toegewezen aan het aantal query's.
+- `x-ms-user-quota-resets-after` het uu: mm (:): De tijdsduur van de totdat van een gebruiker quotumverbruik wordt opnieuw ingesteld
+
+Zie voor meer informatie, [beperking Resource Manager-aanvragen](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>Uw eerste query uitvoeren
 

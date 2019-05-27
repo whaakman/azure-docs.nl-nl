@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125355"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66167089"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migreren naar Azure Resource Manager IaaS-resources van het klassieke implementatiemodel
 Eerst, is het belangrijk te begrijpen van het verschil tussen data plane en beheervlak bewerkingen op de infrastructuur als een service (IaaS)-resources.
@@ -154,12 +154,12 @@ U vindt het klassieke implementatiemodel en Resource Manager-versies van de reso
 | Gereserveerde IP-adressen |Openbaar IP-adres met een statische toewijzingsmethode |Gereserveerd IP-adressen die zijn gekoppeld aan de load balancer worden gemigreerd, samen met de migratie van de cloudservice of de virtuele machine. Niet-gekoppelde gereserveerde IP-migratie wordt momenteel niet ondersteund. |
 | Openbaar IP-adres per VM |Openbaar IP-adres met een dynamische toewijzingsmethode |Het openbare IP-adres dat is gekoppeld aan de virtuele machine wordt geconverteerd naar een openbare IP-adresresource. De toewijzingsmethode wordt ingesteld op statisch. |
 | NSG's |NSG's |Netwerkbeveiligingsgroepen die zijn gekoppeld aan een subnet worden gekloond als onderdeel van de migratie naar het Resource Manager-implementatiemodel. De NSG in het klassieke implementatiemodel wordt niet verwijderd tijdens de migratie. De bewerkingen op het beheervlak voor de NSG worden echter geblokkeerd wanneer de migratie wordt uitgevoerd. |
-| DNS-servers |DNS-servers |DNS-servers die zijn gekoppeld aan een virtueel netwerk of de virtuele machine worden gemigreerd als onderdeel van de bijbehorende resourcemigratie, samen met alle eigenschappen. |
+| DNS-servers |DNS-Servers |DNS-servers die zijn gekoppeld aan een virtueel netwerk of de virtuele machine worden gemigreerd als onderdeel van de bijbehorende resourcemigratie, samen met alle eigenschappen. |
 | UDR's |UDR's |Door de gebruiker gedefinieerde routes die zijn gekoppeld aan een subnet worden gekloond als onderdeel van de migratie naar het Resource Manager-implementatiemodel. De UDR in het klassieke implementatiemodel wordt niet verwijderd tijdens de migratie. De bewerkingen op het beheervlak voor de UDR worden geblokkeerd wanneer de migratie wordt uitgevoerd. |
 | De eigenschap Doorsturen via IP op de netwerkconfiguratie van een virtuele machine |De eigenschap Doorsturen via IP op de NIC |De eigenschap Doorsturen via IP op een virtuele machine wordt tijdens de migratie geconverteerd naar een eigenschap op de netwerkinterface. |
 | Load balancer met meerdere IP-adressen |Load balancer met meerdere openbare IP-resources |Elke openbaar IP-adres dat is gekoppeld aan de load balancer is geconverteerd naar een openbare IP-resource en die zijn gekoppeld aan de load balancer na de migratie. |
 | Interne DNS-namen op de virtuele machine |Interne DNS-namen op de NIC |Tijdens de migratie worden de interne DNS-achtervoegsels voor de virtuele machines gemigreerd naar een alleen-lezeneigenschap met de naam 'InternalDomainNameSuffix' op de NIC. Het achtervoegsel blijft ongewijzigd na de migratie en VM-resolutie moet blijven werken als voorheen. |
-| Gateway van een virtueel netwerk |Gateway van een virtueel netwerk |Eigenschappen van de gateway virtuele netwerken worden ongewijzigd gemigreerd. Het VIP dat is gekoppeld aan de gateway wordt ook niet gewijzigd. |
+| Virtuele netwerkgateway |Virtuele netwerkgateway |Eigenschappen van de gateway virtuele netwerken worden ongewijzigd gemigreerd. Het VIP dat is gekoppeld aan de gateway wordt ook niet gewijzigd. |
 | Lokale netwerksite |Lokale netwerkgateway |Lokale netwerk site-eigenschappen worden ongewijzigd gemigreerd aan een nieuwe resource met de naam een lokale netwerkgateway. Hiermee wordt on-premises adresvoorvoegsels en het IP-adres voor de RAS-gateway. |
 | Verwijzingen naar verbindingen |Verbinding |Verwijzingen naar verbindingen tussen de gateway en de lokale netwerksite in de configuratie van het netwerk wordt vertegenwoordigd door een nieuwe resource-verbinding genoemd. Alle eigenschappen van verwijzingen naar verbindingen met een netwerk-configuratiebestanden worden ongewijzigd gekopieerd naar de resource verbinding. Connectiviteit tussen virtuele netwerken in het klassieke implementatiemodel wordt bereikt door twee IPsec-tunnels naar lokale netwerksites die de virtuele netwerken maken. Dit wordt omgezet naar het verbindingstype van virtuele-netwerk-naar-virtueel-netwerk in het Resource Manager-model, zonder lokale netwerkgateways. |
 

@@ -1,10 +1,15 @@
 ---
+author: wesmc7777
+ms.author: wesmc
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
 ms.openlocfilehash: 72ccad94301e053d8103ca949d41202e58d9f5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780449"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146546"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
@@ -19,8 +24,11 @@ Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (m
 Apparaatdubbels om te gebruiken:
 
 * Metagegevens van apparaten uit de back-end van uw oplossing Store.
+
 * Rapport informatie over de huidige status, zoals de beschikbare mogelijkheden en voorwaarden (bijvoorbeeld: de connectiviteit-methode gebruikt) van uw apparaat-app.
+
 * De status van langlopende werkstromen (zoals firmware en configuratie-updates) tussen een apparaat-app en een back-end-app worden gesynchroniseerd.
+
 * Query uitvoeren op de metagegevens van apparaten, de configuratie of de status.
 
 Apparaatdubbels zijn ontworpen voor synchronisatie en voor het uitvoeren van query's apparaatconfiguraties en voorwaarden. Meer informatie over het gebruik van apparaatdubbels vindt u [meer informatie over apparaatdubbels](../articles/iot-hub/iot-hub-devguide-device-twins.md).
@@ -28,7 +36,9 @@ Apparaatdubbels zijn ontworpen voor synchronisatie en voor het uitvoeren van que
 Apparaatdubbels zijn opgeslagen in een IoT-hub en bevatten:
 
 * *tags*, de metagegevens van de apparaten is alleen toegankelijk is voor de back-end oplossing;
+
 * *gewenste eigenschappen*, JSON-objecten die kunnen worden gewijzigd door de oplossing back-end en zichtbaar zijn door de apparaat-app; en
+
 * *gerapporteerde eigenschappen*, JSON-objecten kunnen worden aangepast door de apparaat-app en kan worden gelezen door de back-end van de oplossing. Labels en eigenschappen mag geen matrices bevatten, maar objecten kunnen worden genest.
 
 ![Apparaat dubbele-functionaliteit voor weergeven van afbeeldingen](./media/iot-hub-selector-twin-get-started/twin.png)
@@ -40,14 +50,5 @@ Raadpleeg [meer informatie over apparaatdubbels](../articles/iot-hub/iot-hub-dev
 In deze zelfstudie ontdekt u hoe u:
 
 * Maakt een back-end-app die wordt toegevoegd *tags* een apparaatdubbel en een gesimuleerde apparaat-app die rapporten van het kanaal verbinding als een *gerapporteerde eigenschap* op het dubbele apparaat.
+
 * Query uitvoeren op apparaten van uw back-end-app met behulp van filters op de labels en eigenschappen van eerder hebt gemaakt.
-
-<!-- images -->
-[img-twin]: media/iot-hub-selector-twin-get-started/twin.png
-
-<!-- links -->
-[lnk-query]: ../articles/iot-hub/iot-hub-devguide-query-language.md
-[lnk-twins]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
-[lnk-d2c]: ../articles/iot-hub/iot-hub-devguide-messaging.md#device-to-cloud-messages
-[lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md

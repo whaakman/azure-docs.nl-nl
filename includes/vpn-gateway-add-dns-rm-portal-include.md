@@ -9,17 +9,17 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: fe90de618df04063a5486af80bdade67fb886a48
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444068"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157274"
 ---
 1. In de **instellingen** sectie van uw virtuele netwerk weergeeft, schakelt **DNS-servers** openen de **DNS-servers** pagina.
 
 2. Op de **DNS-servers** pagina, vult u de volgende waarden:
 
-   - **DNS-servers**: Selecteer **aangepaste**.
+   - **DNS-servers**: selecteer **Aangepast**.
 
    - **DNS-server toevoegen**: Voer het IP-adres van de DNS-server die u wilt gebruiken voor naamomzetting.
 

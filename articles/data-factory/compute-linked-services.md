@@ -12,21 +12,21 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155249"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE-omgevingen die worden ondersteund door Azure Data Factory
 In dit artikel vindt u verschillende rekenomgevingen die u kunt gebruiken voor gegevens verwerken en transformeren. Het biedt ook meer informatie over de verschillende configuraties (op aanvraag en voeg uw eigen) ondersteund door Data Factory bij het configureren van gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
 
 De volgende tabel bevat een lijst met compute-omgevingen wordt ondersteund door Data Factory en de activiteiten die kunnen worden uitgevoerd op deze. 
 
-| Compute-omgeving                                          | activities                                                   |
+| Compute-omgeving                                          | activiteiten                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight-cluster](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service)                   | [Aangepast](transform-data-using-dotnet-custom-activity.md)     |
+| [Azure Batch](#azure-batch-linked-service)                   | [Aangepaste](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-activiteiten: Batchuitvoering en resources bijwerken](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](transform-data-using-stored-procedure.md) |
@@ -104,7 +104,7 @@ De volgende JSON definieert een service op aanvraag gekoppeld HDInsight op basis
 | clusterResourceGroup         | Het HDInsight-cluster is gemaakt in deze resourcegroep. | Ja      |
 | timetolive                   | De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag na voltooiing van een activiteit die wordt uitgevoerd als er geen andere actieve taken in het cluster actief blijft. De minimaal toegestane waarde is 5 minuten (00: 05:00).<br/><br/>Bijvoorbeeld, als de uitvoering van een activiteit kan 6 minuten en timetolive is ingesteld op 5 minuten, blijft het cluster actief gedurende vijf minuten na het uitvoeren van de zes minuten van de verwerking van de activiteit. Als een andere activiteit die wordt uitgevoerd met het venster 6 minuten wordt uitgevoerd, wordt verwerkt door hetzelfde cluster.<br/><br/>Het maken van een on-demand HDInsight-cluster is een dure bewerking (kan even duren), dus gebruik deze instelling als die nodig zijn om prestaties te verbeteren van een data factory door opnieuw een on-demand HDInsight-cluster te gebruiken.<br/><br/>Als u timetolive waarde op 0 instelt, wordt het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Dat, als u een hoge waarde hebt ingesteld, het cluster niet actief is voor u om aan te melden voor het oplossen van enkele problemen kan blijven, maar het doel kan leiden tot hoge kosten. Het is daarom belangrijk dat u de juiste waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive op de juiste wijze is ingesteld, kan meerdere pijplijnen het exemplaar van de HDInsight-cluster op aanvraag kunnen delen. | Ja      |
 | clusterType                  | Het type van de HDInsight-cluster te maken. Toegestane waarden zijn 'hadoop' en 'spark'. Indien niet opgegeven, is de standaardwaarde hadoop. Enterprise-beveiligingspakket ingeschakelde cluster op aanvraag, kan niet worden gemaakt in plaats daarvan gebruiken een [bestaande cluster / doen om uw eigen compute](#azure-hdinsight-linked-service). | Nee       |
-| versie                      | De versie van het HDInsight-cluster. Indien niet opgegeven, wordt deze met behulp van de huidige versie van de HDInsight-gedefinieerde standaard. | Nee       |
+| version                      | De versie van het HDInsight-cluster. Indien niet opgegeven, wordt deze met behulp van de huidige versie van de HDInsight-gedefinieerde standaard. | Nee       |
 | hostSubscriptionId           | De Azure-abonnement-ID die wordt gebruikt voor het maken van HDInsight-cluster. Als niet is opgegeven, wordt de abonnements-ID van de context van uw Azure-aanmelding. | Nee       |
 | clusterNamePrefix           | Het voorvoegsel van HDI-clusternaam en een tijdstempel wordt automatisch toegevoegd aan het einde van de naam van het cluster| Nee       |
 | sparkVersion                 | De versie van spark als het clustertype is "Spark" | Nee       |
@@ -288,8 +288,8 @@ U kunt een Azure HDInsight gekoppelde service voor het registreren van uw eigen 
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | De eigenschap type moet worden ingesteld op **HDInsight**.            | Ja      |
 | clusterUri        | De URI van het HDInsight-cluster.                            | Ja      |
-| gebruikersnaam          | Geef de naam van de gebruiker moet worden gebruikt om te verbinden met een bestaand HDInsight-cluster. | Ja      |
-| wachtwoord          | Wachtwoord voor het gebruikersaccount opgeven.                       | Ja      |
+| username          | Geef de naam van de gebruiker moet worden gebruikt om te verbinden met een bestaand HDInsight-cluster. | Ja      |
+| password          | Wachtwoord voor het gebruikersaccount opgeven.                       | Ja      |
 | linkedServiceName | De naam van de gekoppelde Azure Storage-service die naar de Azure blob-opslag die wordt gebruikt door het HDInsight-cluster verwijst. <p>Momenteel kunt opgeven u niet dat een Azure Data Lake Store gekoppelde service voor deze eigenschap. Als het HDInsight-cluster toegang tot de Data Lake Store heeft, kan u toegang tot gegevens in de Azure Data Lake Store via Hive/Pig-scripts. </p> | Ja      |
 | isEspEnabled      | Geef '*waar*' als het HDInsight-cluster is [Enterprise-beveiligingspakket](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction) ingeschakeld. De standaardwaarde is '*false*'. | Nee       |
 | connectVia        | De Integratieruntime moet worden gebruikt om te verdelen van de activiteiten van deze gekoppelde service. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken. Als niet is opgegeven, wordt de standaard Azure Integration Runtime. <br />Enterprise Security Package (ESP) ingeschakeld HDInsight-cluster gebruikt een zelf-hostende integratieruntime met peeren aan het cluster of het moet worden geïmplementeerd in hetzelfde Virtueelnetwerk als het ESP HDInsight-cluster. | Nee       |

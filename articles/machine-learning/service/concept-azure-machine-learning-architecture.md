@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: MT
+ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502077"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151165"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -34,39 +34,23 @@ De machine learning-werkstroom volgt in het algemeen in deze reeks:
 1. Nadat een goede uitvoering wordt gevonden, registreert u het persistente model in de **model register**.
 1. Een scoring-script dat gebruikmaakt van het model te ontwikkelen en **het model implementeren** als een **webservice** in Azure of naar een **IoT Edge-apparaat**.
 
+U uitvoeren deze stappen met het volgende:
++ [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++  De [visuele interface (preview) voor Azure Machine Learning-service](ui-concept-visual-interface.md)
 
 > [!NOTE]
 > Hoewel dit artikel definieert termen en concepten die worden gebruikt door Azure Machine Learning-service, worden niet gedefinieerd door termen en begrippen voor het Azure-platform. Zie voor meer informatie over Azure-platform terminologie, het [verklarende woordenlijst voor Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="workspace"></a>Werkruimte
 
-De werkruimte is de resource op het hoogste niveau voor Azure Machine Learning-service. Het biedt een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service.
-
-De werkruimte houdt een lijst met compute-doelen die u gebruiken kunt voor uw model te trainen. Het houdt ook een geschiedenis bij van de training wordt uitgevoerd, met inbegrip van Logboeken, metrische gegevens, uitvoer en een momentopname van uw scripts. U kunt deze informatie gebruiken om te bepalen welke run training levert het beste model.
-
-U registreren modellen bij de werkruimte. U een geregistreerde model en scoring-scripts gebruiken een model implementeren in Azure Container Instances, Azure Kubernetes Service, of op een veld-programmable gate array (FPGA) als een HTTP op basis van REST-eindpunt. U kunt ook de installatiekopie naar een Azure IoT Edge-apparaat implementeren als een module. Intern, is een docker-installatiekopie gemaakt voor het hosten van de geïmplementeerde installatiekopie. Indien nodig, kunt u uw eigen installatiekopie opgeven.
-
-U kunt meerdere werkruimten maken en elke werkruimte kan worden gedeeld door meerdere personen. Wanneer u een werkruimte deelt, kunt u toegang tot deze kunt beheren door het toewijzen van gebruikers aan de volgende rollen:
-
-* Eigenaar
-* Inzender
-* Lezer
-
-Zie voor meer informatie over deze rollen, de [toegang tot een Azure Machine Learning-werkruimte beheren](how-to-assign-roles.md) artikel.
-
-Wanneer u een nieuwe werkruimte maakt, wordt automatisch verschillende Azure-resources die worden gebruikt door de werkruimte gemaakt:
-
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Hiermee registreert u docker-containers die u tijdens de training en wanneer u een model implementeert gebruiken.
-* [Azure-opslagaccount](https://azure.microsoft.com/services/storage/): Wordt gebruikt als de standaard gegevensopslag voor de werkruimte.
-* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Winkels controlegegevens over uw modellen.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Winkels geheimen die worden gebruikt door compute-doelen en andere gevoelige informatie die nodig is door de werkruimte.
-
-> [!NOTE]
-> Naast het maken van nieuwe versies, kunt u ook bestaande Azure-services gebruiken.
+[De werkruimte](concept-workspace.md) is de resource op het hoogste niveau voor Azure Machine Learning-service. Het biedt een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service.
 
 Een taxonomie van de werkruimte wordt weergegeven in het volgende diagram:
 
 [![Taxonomie van werkruimte](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+Zie voor meer informatie over werkruimten [wat is een Azure Machine Learning-werkruimte?](concept-workspace.md).
 
 ## <a name="experiment"></a>Experiment
 
@@ -170,6 +154,10 @@ U maken een uitvoering wanneer u een script voor een model te trainen verzendt. 
 
 Zie voor een voorbeeld van het weergeven van uitvoeringen die worden geproduceerd door het trainen van een model [Quick Start: Aan de slag met Azure Machine Learning-service](quickstart-run-cloud-notebook.md).
 
+## <a name="github-tracking-and-integration"></a>GitHub bijhouden en integratie
+
+Wanneer u een training uitgevoerd waarbij de bronmap is een lokale Git-opslagplaats start, wordt informatie over de opslagplaats opgeslagen in de uitvoeringsgeschiedenis. Bijvoorbeeld, wordt de huidige doorvoer-ID voor de opslagplaats die vastgelegd als onderdeel van de geschiedenis. Dit werkt met uitvoeringen die zijn verzonden met behulp van een estimator, ML-pijplijn of script uitvoeren. Het werkt ook voor ingediend vanaf de SDK of de Machine Learning CLI worden uitgevoerd.
+
 ## <a name="snapshot"></a>Momentopname
 
 Wanneer u een uitvoering verzendt, wordt de map die het script als een zip-bestand bevat en verzendt dit naar de compute-doel in Azure Machine Learning gecomprimeerd. Het zip-bestand wordt vervolgens opgehaald en wordt er in het script worden uitgevoerd. Azure Machine Learning worden ook het zip-bestand opgeslagen als een momentopname als onderdeel van de record die uitvoeren. Iedereen met toegang tot de werkruimte kan een uitvoerregistratie bladeren en downloaden van de momentopname.
@@ -228,7 +216,7 @@ Azure IoT Edge zorgt ervoor dat de module wordt uitgevoerd en deze controleert h
 
 ## <a name="pipeline"></a>Pijplijn
 
-Gebruik van machine learning pijplijnen maken en beheren van werkstromen die samen te voegen voor machine learning-fasen. Een pijplijn kan bijvoorbeeld gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken fasen. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten.
+Gebruik van machine learning pijplijnen maken en beheren van werkstromen die samen te voegen voor machine learning-fasen. Een pijplijn kan bijvoorbeeld gegevens voor te bereiden, modeltraining modelimplementatie en Deductie/scoren fasen. Elke fase kan meerdere stappen, die kan worden uitgevoerd zonder toezicht in diverse compute-doelen omvatten.
 
 Zie voor meer informatie over machine learning-pijplijnen met deze service [pijplijnen en Azure Machine Learning](concept-ml-pipelines.md).
 

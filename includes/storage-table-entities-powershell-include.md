@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541380"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159739"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Met deze opdracht levert resultaat is vergelijkbaar met de volgende tabel:
 
-| userid | gebruikersnaam | partitie | rowkey |
+| userid | username | partitie | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partitie1 | CA |
 | 3 | Christine | Partitie1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 De resultaten in de volgende tabel als volgt uitzien:
 
-| userid | gebruikersnaam | partitie | rowkey |
+| userid | username | partitie | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partitie1 | CA |
 | 3 | Christine | Partitie1 | WA |
@@ -101,10 +101,10 @@ Get-AzTableRow -table $cloudTable `
 
 Deze query wordt één record opgehaald.
 
-|Veld|waarde|
+|Veld|value|
 |----|----|
 | userid | 1 |
-| gebruikersnaam | Chris |
+| username | Chris |
 | PartitionKey | Partitie1 |
 | RowKey      | CA |
 
@@ -118,10 +118,10 @@ Get-AzTableRow `
 
 Deze query wordt één record opgehaald.
 
-|Veld|waarde|
+|Veld|value|
 |----|----|
 | userid | 1 |
-| gebruikersnaam | Chris |
+| username | Chris |
 | PartitionKey | Partitie1 |
 | RowKey      | CA |
 
@@ -153,10 +153,10 @@ Get-AzTableRow -table $cloudTable `
 
 De resultaten weergegeven de record Jessie2.
 
-|Veld|waarde|
+|Veld|value|
 |----|----|
 | userid | 2 |
-| gebruikersnaam | Jessie2 |
+| username | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 

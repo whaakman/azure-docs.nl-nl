@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 3ced8c9fdadf547ec234c6d1bd5f3ddb8af7bc05
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817460"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140244"
 ---
 1. Maak een nieuwe klasse in het project met de naam `ToDoBroadcastReceiver`.
 2. Voeg de volgende using-instructies toe aan **ToDoBroadcastReceiver** klasse:
@@ -109,7 +109,7 @@ ms.locfileid: "42817460"
     }
     ```
 
-    Deze methode maakt gebruik van de geretourneerde GCM-registratie-ID te registreren bij Azure voor pushmeldingen. Tags kunnen alleen worden toegevoegd aan de registratie nadat deze is gemaakt. Zie voor meer informatie, [hoe: labels toevoegen aan de installatie van een apparaat om in te schakelen van push-naar-tags](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Deze methode maakt gebruik van de geretourneerde GCM-registratie-ID te registreren bij Azure voor pushmeldingen. Tags kunnen alleen worden toegevoegd aan de registratie nadat deze is gemaakt. Zie voor meer informatie, [het: Labels toevoegen aan de installatie van een apparaat om in te schakelen van push-naar-tags](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Overschrijf de **OnMessage** methode in **PushHandlerService** door de volgende code:
 

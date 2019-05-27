@@ -1,5 +1,5 @@
 ---
-title: Verken en voorbereiden van gegevens (klasse gegevensset)
+title: Verken en transformeren van gegevens (klasse gegevensset)
 titleSuffix: Azure Machine Learning service
 description: Verken gegevens met behulp van de samenvattende statistieken en voorbereiden van gegevens via het opschonen van gegevens, transformatie en feature-engineering
 services: machine-learning
@@ -10,17 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/23/2019
+ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603154"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146301"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Verken en voorbereiden van gegevens met de gegevensset-klasse (Preview)
 
-Meer informatie over het verkennen en voorbereiden van gegevens met de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). De [gegevensset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) klasse (preview) kunt u om te verkennen en voorbereiden van uw gegevens door te geven van functies, zoals: steekproeven, samenvattende statistieken en intelligente transformaties. Stappen voor gegevenstransformatie worden opgeslagen in [definities van de gegevensset](how-to-manage-dataset-definitions.md) met de mogelijkheid voor het afhandelen van meerdere grote bestanden van verschillende schema's in een zeer schaalbare manier.
+Meer informatie over het verkennen en voorbereiden van gegevens met de azureml-gegevenssets-pakket in de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). De [gegevensset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) klasse (preview) kunt u om te verkennen en voorbereiden van uw gegevens door te geven van functies, zoals: steekproeven, samenvattende statistieken en intelligente transformaties. Stappen voor gegevenstransformatie worden opgeslagen in [definities van de gegevensset](how-to-manage-dataset-definitions.md) met de mogelijkheid voor het afhandelen van meerdere grote bestanden van verschillende schema's in een zeer schaalbare manier.
 
 > [!Important]
 > Bepaalde klassen gegevensset (preview) zijn afhankelijk van de [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pakket (GA). Terwijl transformatiefuncties u rechtstreeks met de GA'ed doen kunnen [gegevensvoorbereiding functies](how-to-transform-data.md), wordt aangeraden de gegevensset pakket wrappers die worden beschreven in dit artikel als u een nieuwe oplossing bouwt. Azure Machine Learning-gegevenssets (preview) kunt u niet alleen uw om gegevens te transformeren, maar ook [momentopnamegegevens](how-to-create-dataset-snapshots.md) en op te slaan [versioned gegevenssetdefinities](how-to-manage-dataset-definitions.md). Gegevenssets is de volgende versie van de Data Prep-SDK biedt uitgebreide functionaliteit voor het beheren van gegevenssets in AI-oplossingen.
@@ -33,7 +33,7 @@ Om te verkennen en uw gegevens voorbereiden, hebt u het volgende nodig:
 
 * Een werkruimte van Azure Machine Learning-service. Zie [maken van een werkruimte van Azure Machine Learning-service](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* De Azure Machine Learning-SDK voor Python (versie 1.0.21 of hoger). Als u wilt installeren of bijwerken naar de nieuwste versie van de SDK, Zie [installeren of bijwerken van de SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* De Azure Machine Learning-SDK voor Python (versie 1.0.21 of hoger), waaronder het pakket azureml-gegevenssets. Als u wilt installeren of bijwerken naar de nieuwste versie van de SDK, Zie [installeren of bijwerken van de SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * The Azure Machine Learning Data Prep SDK. Als u wilt installeren of bijwerken naar de nieuwste versie, Zie [installeren of bijwerken van de SDK voor Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
 

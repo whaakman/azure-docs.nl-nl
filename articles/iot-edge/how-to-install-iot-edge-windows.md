@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152696"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151721"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>De Azure IoT Edge-runtime installeren op Windows
 
@@ -76,6 +76,13 @@ In dit voorbeeld ziet u een handmatige installatie met Windows-containers:
 
 2. Voer PowerShell uit als beheerder.
 
+   >[!NOTE]
+   >IoT Edge, niet PowerShell (x86) installeert met behulp van een AMD64-sessie van PowerShell. Als u niet zeker weet welke Sessietype die u gebruikt, moet u de volgende opdracht uitvoeren:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. De **implementeren IoTEdge** opdracht controleert of uw Windows-machine op een ondersteunde versie is, schakelt de functie voor containers en downloadt vervolgens de moby-runtime en de IoT Edge-runtime. De opdracht standaard gebruik van Windows-containers. 
 
    ```powershell
@@ -111,12 +118,19 @@ In deze tweede optie, moet u het apparaat met IoT Hub Device Provisioning Servic
 
 Het volgende voorbeeld ziet u een automatische installatie met Windows-containers:
 
-1. Volg de stappen in [maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows](how-to-auto-provision-simulated-device-windows.md) de Device Provisioning Service instellen en ophalen van de **bereik-ID**, TPM-apparaat simuleren en op te halen de  **Registratie-ID**, maakt u een afzonderlijke inschrijving. Nadat het apparaat is geregistreerd in uw IoT-hub, gaat u verder met deze stappen van de installatie.  
+1. Volg de stappen in [maken en inrichten van een gesimuleerd TPM IoT Edge-apparaat op Windows](how-to-auto-provision-simulated-device-windows.md) de Device Provisioning Service instellen en ophalen van de **bereik-ID**, TPM-apparaat simuleren en ophalen van de **Registratie-ID**, maakt u een afzonderlijke inschrijving. Nadat het apparaat is geregistreerd in uw IoT-hub, gaat u verder met deze stappen van de installatie.  
 
    >[!TIP]
    >Houd het venster met de TPM-simulator openen tijdens het installeren en testen. 
 
 2. Voer PowerShell uit als beheerder.
+
+   >[!NOTE]
+   >IoT Edge, niet PowerShell (x86) installeert met behulp van een AMD64-sessie van PowerShell. Als u niet zeker weet welke Sessietype die u gebruikt, moet u de volgende opdracht uitvoeren:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. De **implementeren IoTEdge** opdracht controleert of uw Windows-machine op een ondersteunde versie is, schakelt de functie voor containers en downloadt vervolgens de moby-runtime en de IoT Edge-runtime. De opdracht standaard gebruik van Windows-containers. 
 
@@ -212,7 +226,7 @@ Zie voor meer informatie over opdrachten die u kunt gebruiken om te communiceren
 
 ## <a name="update-an-existing-installation"></a>Een bestaande installatie van update
 
-Als u hebt al IoT Edge-runtime op een apparaat hebt geïnstalleerd en ingericht met een identiteit van de IoT Hub, kunt u de runtime bijwerken zonder dat de apparaatgegevens van uw opnieuw moet invoeren. 
+Als u hebt al IoT Edge-runtime op een apparaat hebt geïnstalleerd en ingericht met een identiteit van de IoT Hub, kunt u de runtime bijwerken zonder dat de apparaatgegevens van uw opnieuw in te voeren. 
 
 Zie voor meer informatie, [bijwerken van de IoT Edge security-daemon en de runtime](how-to-update-iot-edge.md).
 

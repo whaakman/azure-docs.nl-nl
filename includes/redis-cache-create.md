@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527763"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132827"
 ---
 1. Als u een cache wilt maken, meldt u zich eerst aan bij [Azure Portal](https://portal.azure.com). Selecteer vervolgens **Een resource maken** > **Databases** > **Azure Cache voor Redis**.
 
@@ -28,7 +28,7 @@ ms.locfileid: "60527763"
     | **Resourcegroep** |  *TestResources* | Naam voor de nieuwe resourcegroep waarin de cache moet worden gemaakt. Door alle resources voor een app in een groep te plaatsen, kunt u ze samen beheren. Als u bijvoorbeeld de resourcegroep verwijdert, worden alle resources verwijderd die bij de app behoren. | 
     | **Locatie** | US - oost | Kies een [regio](https://azure.microsoft.com/regions/) vlakbij de andere services die gaan gebruikmaken van de cache. |
     | **[Prijscategorie](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  De prijscategorie bepaalt de grootte, prestaties en functies die beschikbaar zijn voor de cache. Zie het [Azure Cache voor Redis-overzicht](../articles/azure-cache-for-redis/cache-overview.md) voor meer informatie. |
-    | **Vastmaken aan dashboard** |  Geselecteerd | Maak de nieuwe cache vast aan het dashboard, zodat u deze gemakkelijk kunt vinden. |
+    | **Vastmaken aan dashboard** |  geselecteerd | Maak de nieuwe cache vast aan het dashboard, zodat u deze gemakkelijk kunt vinden. |
 
     ![Cache maken](media/redis-cache-create/redis-cache-cache-create.png) 
 

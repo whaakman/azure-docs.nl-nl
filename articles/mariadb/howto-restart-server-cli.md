@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/28/2019
 ms.openlocfilehash: a6e0509d941d9bfdfe6db7a8b93ee49c5bece1a6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623076"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "66171442"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Opnieuw opstarten van Azure Database voor MariaDB-server met de Azure CLI
 In dit onderwerp wordt beschreven hoe u een Azure Database voor MariaDB-server opnieuw kunt starten. Mogelijk moet u de server voor onderhoudsredenen, waardoor een korte onderbreking als de server de bewerking voert opnieuw.
@@ -30,7 +30,7 @@ Voor deze handleiding, hebt u het volgende nodig:
 > In deze gebruiksaanwijzing vereist het gebruik van Azure CLI versie 2.0 of hoger. Als u wilt controleren welke versie, bij de Azure CLI-opdrachtprompt, voer `az --version`. Als u wilt installeren of upgraden, Zie [Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 
-## <a name="restart-the-server"></a>Start de server opnieuw
+## <a name="restart-the-server"></a>De server opnieuw opstarten
 
 Start opnieuw op de server met de volgende opdracht:
 

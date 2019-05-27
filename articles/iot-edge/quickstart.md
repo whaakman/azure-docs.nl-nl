@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ce6703c507e955ffe98e71f26feca08f9f37dfe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148085"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146763"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Quickstart: Uw eerste IoT Edge-module van Azure portal naar een Windows-apparaat implementeren
 
@@ -138,6 +138,13 @@ Gebruik PowerShell om de IoT Edge-runtime te downloaden en te installeren. Gebru
 1. Als u niet hebt gedaan, volgt u de stappen in [een nieuwe Azure IoT Edge-apparaat registreren](how-to-register-device-portal.md) op uw apparaat registreren en de verbindingsreeks op te halen. 
 
 2. Voer PowerShell uit als beheerder.
+
+   >[!NOTE]
+   >IoT Edge, niet PowerShell (x86) installeert met behulp van een AMD64-sessie van PowerShell. Als u niet zeker weet welke Sessietype die u gebruikt, moet u de volgende opdracht uitvoeren:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. De **implementeren IoTEdge** wordt gecontroleerd dat uw Windows-machine op een ondersteunde versie, Hiermee schakelt u de functie voor containers, de runtime moby downloadt en vervolgens de IoT Edge-runtime downloadt.
 

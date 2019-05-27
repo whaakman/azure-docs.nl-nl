@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596980"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158945"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -374,7 +374,7 @@ Nadat de controller opnieuw wordt geïnstalleerd, implementeert u uw schillen op
 De gebruiker toegang tot de controller Azure Dev spaties moet toegang hebben tot de beheerder lezen *kubeconfig* op het AKS-cluster. Bijvoorbeeld: met deze machtiging is beschikbaar in de [ingebouwde Azure Kubernetes Service-Cluster beheerdersrol](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). De gebruiker toegang tot de controller Azure Dev spaties moet ook de *Inzender* of *eigenaar* RBAC-rol voor de controller.
 
 ### <a name="try"></a>Proberen
-Meer informatie over het bijwerken van een gebruiker machtigingen voor een AKS-cluster is beschikbaar [hier](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+Meer informatie over het bijwerken van een gebruiker machtigingen voor een AKS-cluster is beschikbaar [hier](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
 Bijwerken van de gebruiker RBAC-rol voor de controller:
 

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
 ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154173"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 
@@ -447,7 +447,7 @@ De wizard begeleidt u bij het instellen van de vereiste parameters voor het make
      * **Diagnostische gegevens over opstarten**: U kunt selecteren **uitschakelen** voor diagnostische gegevens over opstarten.
      * **Diagnostische gegevens van Guest OS**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens.
 
-1. **Summary**:
+1. **Samenvatting**:
 
    Controleer uw selecties en selecteer vervolgens **OK**.
 
@@ -586,7 +586,7 @@ De wizard begeleidt u bij het instellen van de vereiste parameters voor het make
      * **Diagnostische gegevens over opstarten**: U kunt selecteren **uitschakelen** voor diagnostische gegevens over opstarten.
      * **Diagnostische gegevens van Guest OS**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens.
 
-1. **Summary**:
+1. **Samenvatting**:
 
    Controleer uw selecties en selecteer vervolgens **OK**.
 

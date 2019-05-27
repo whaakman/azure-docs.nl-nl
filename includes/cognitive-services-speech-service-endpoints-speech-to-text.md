@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 6b64d8ea32e0c99c6f9468b84ea02c377c7441f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65404931"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146029"
 ---
 | Regio | Eindpunt |
 |--------|----------|
@@ -27,7 +27,7 @@ ms.locfileid: "65404931"
 | Europa - noord | `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | US - zuid-centraal | `https://southcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Azië - zuidoost | `https://southeastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| VK Zuid | `https://uksouth.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| Verenigd Koninkrijk Zuid | `https://uksouth.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Europa -west | `https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | US - west | `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | US - west 2 | `https://westus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |

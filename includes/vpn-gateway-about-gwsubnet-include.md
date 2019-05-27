@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0334f9fd2d749b88580ff3857d705de2ae961902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407566"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157730"
 ---
 De virtuele netwerkgateway maakt gebruik van een specifiek subnet: het gatewaysubnet. Het gatewaysubnet maakt deel uit van het IP-adresbereik van het virtuele netwerk dat u opgeeft bij het configureren ervan. Het bevat de IP-adressen waarvan de resources en services van de virtuele netwerkgateway gebruikmaken. Het subnet moet de naam 'GatewaySubnet' hebben zodat Azure de gatewayresources kan implementeren. U kunt niet een ander subnet opgeven waarnaar de gatewayresources moeten worden geïmplementeerd. Als u geen subnet met de naam 'GatewaySubnet' hebt wanneer u uw VPN-gateway maakt, mislukt dit.
 

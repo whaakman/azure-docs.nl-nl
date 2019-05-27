@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542597"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156248"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regio's en beschikbaarheid voor virtuele machines in Azure
 Azure werkt vanuit diverse datacentra, op locaties overal wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit heeft bij het kiezen waar u uw toepassingen ontwikkelt. Het is belangrijk om inzicht te hebben in hoe en waar uw virtuele machines (VM's) in Azure werken, evenals in wat uw mogelijkheden zijn om de prestaties, beschikbaarheid en redundantie te maximaliseren. Dit artikel biedt een overzicht van de mogelijkheden van Azure op het gebied van beschikbaarheid en redundantie.
@@ -95,6 +95,8 @@ Zie [prijzen van Azure Storage](https://azure.microsoft.com/pricing/details/stor
 Een beschikbaarheidsset is een logische groepering van virtuele machines in een datacenter die Azure kan begrijpen hoe uw toepassing is gebouwd om te voorzien in redundantie en beschikbaarheid. Het wordt aangeraden dat twee of meer virtuele machines worden gemaakt binnen een beschikbaarheidsset te voorzien in een maximaal beschikbare toepassing en om te voldoen aan de [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Er zijn geen kosten verbonden voor de Beschikbaarheidsset zelf, u betaalt alleen voor elke VM-instantie die u maakt. Wanneer een enkele virtuele machine gebruikmaakt [Azure premium SSD's](../articles/virtual-machines/windows/disks-types.md#premium-ssd), de Azure-SLA van toepassing op niet-gepland onderhoud.
 
 Een beschikbaarheidsset bestaat uit twee extra groepen die bescherming tegen hardwarestoringen en om updates voor veilig kunnen toepassen: foutdomeinen (FD's) en update-domeinen (ud's). Lees meer over het beheren van de beschikbaarheid van [Linux-VM's](../articles/virtual-machines/linux/manage-availability.md) of [Windows VM's](../articles/virtual-machines/windows/manage-availability.md).
+
+Bij het toewijzen van meerdere compute-resources die geen gebruik maken van de constructies voor hoge beschikbaarheid van domeinen met fouten er is een hoge waarschijnlijkheid van anti-affiniteit, maar dit anti-affiniteit kan niet worden gegarandeerd.
 
 ### <a name="fault-domains"></a>Foutdomeinen
 Een foutdomein is een logische groep onderliggende hardware met een gemeenschappelijke voeding en netwerkswitch, vergelijkbaar met een rack in een on-premises datacenter. Wanneer u virtuele machines in een beschikbaarheidsset maakt, verdeelt het Azure-platform uw virtuele machines automatisch tussen deze foutdomeinen. Deze aanpak beperkt de gevolgen van mogelijke problemen met de fysieke hardware, netwerkstoringen of stroomonderbrekingen.

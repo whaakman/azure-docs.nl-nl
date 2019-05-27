@@ -1,5 +1,5 @@
 ---
-title: Maak en registreer gegevenssets met uw werkruimte
+title: Gegevenssets voor toegang tot gegevens met azureml-gegevenssets maken
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het maken van gegevenssets uit verschillende bronnen en gegevenssets registreren met uw werkruimte
 services: machine-learning
@@ -10,34 +10,59 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/21/2019
+ms.openlocfilehash: 949468dfe26b076b5c5cf5cab8bbdc2038c7bd2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800836"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165884"
 ---
-# <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Maken en registreren van Azure Machine Learning-gegevenssets (Preview)
+# <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Maken en toegang tot gegevenssets (Preview) in Azure Machine Learning
 
-In dit artikel leert u de Azure Machine Learning-werkstromen voor het maken en registreren van gegevenssets en hoe u toegang tot deze opnieuw kunt gebruiken voor lokale en externe experimenten.
+In dit artikel leert u hoe u Azure Machine Learning-gegevenssets (preview) maakt en hoe u toegang tot de gegevens van lokale en externe experimenten.
 
-Azure Machine Learning-gegevenssets (preview) kunt gemakkelijker toegang tot en met uw gegevens kunt werken. Gegevenssets beheren van gegevens in verschillende scenario's zoals modeltraining en pijplijn maken. Met behulp van de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), u kunt werken met gegevens in veelgebruikte bestandsindelingen, toegang tot de onderliggende opslag, verkennen en voorbereiden van gegevens, beheren van de levenscyclus van definities van de verschillende gegevensset en vergelijken tussen gegevenssets die worden gebruikt training en in de productieomgeving.
+Met beheerde gegevenssets, kunt u het volgende doen: 
+* **Eenvoudig toegang krijgen tot gegevens tijdens het trainen van het model** zonder opnieuw verbinding maken met de onderliggende winkels
+
+* **Zorg ervoor dat de consistentie van gegevens en reproduceerbaarheid** met behulp van de dezelfde aanwijzer over experimenten: laptops, geautomatiseerde ml, pijplijnen, visuele interface
+
+* **Gegevens delen en samenwerken** met andere gebruikers
+
+* **Gegevens verkennen** & levenscyclus van momentopnamen en versies beheren
+
+* **Gegevens vergelijken** in training naar productie
+
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet maken en registreren van gegevenssets:
+Als u wilt maken en werken met gegevenssets, hebt u het volgende nodig:
 
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-* Een werkruimte van Azure Machine Learning-service. Zie [maken van een werkruimte van Azure Machine Learning-service](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Een [werkruimte voor Azure Machine Learning-service werkruimte Azure Machine Learning-service](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
-* De Azure Machine Learning-SDK voor Python. Als u wilt installeren of bijwerken naar de nieuwste versie van de SDK, Zie [installeren of bijwerken van de SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* De [Azure Machine Learning-SDK voor Python geïnstalleerd](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), waaronder het pakket azureml-gegevenssets.
 
 > [!Note]
 > Bepaalde klassen gegevensset (preview) zijn afhankelijk van de [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pakket (GA). Voor Linux-gebruikers, worden deze klassen alleen op de volgende distributies ondersteund:  Red Hat Enterprise Linux, Ubuntu, Fedora en CentOS.
 
-## <a name="create-datasets-from-local-files"></a>Gegevenssets maken van lokale bestanden
+## <a name="data-formats"></a>Opmaak van gegevens
+
+U kunt een Azure Machine Learning-gegevensset maken van de volgende gegevens:
++ [gescheiden](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-)
++ [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
++ [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
++ [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
++ [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
++ [Azure SQL Database](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
++ [Azure Data Lake gen. 1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
+
+## <a name="create-datasets"></a>Gegevenssets maken 
+
+U kunt werken met uw gegevenssets met de azureml-gegevenssets-pakket in de [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) en met name [de `Dataset` klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py).
+
+### <a name="create-from-local-files"></a>Maken van lokale bestanden
 
 Bestanden laden vanaf uw lokale computer door op te geven het pad van het bestand of map met de [ `auto_read_files()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) methode van de `Dataset` klasse.  Deze methode voert de volgende stappen uit zonder dat u het bestandstype opgeven of het parseren van de argumenten:
 
@@ -52,13 +77,14 @@ from azureml.core.dataset import Dataset
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
 
-De bestand-specifieke functies ook gebruiken voor het beheren van expliciet het parseren van het bestand. De SDK Datasets ondersteunt momenteel [gescheiden](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-), [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-), [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-), [binaire](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-), en [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-) bestandsindelingen.
+De bestand-specifieke functies ook gebruiken voor het beheren van expliciet het parseren van het bestand. 
 
-## <a name="create-datasets-from-azure-datastores"></a>Gegevenssets maken vanuit Azure gegevensopslag
 
-Voor het maken van gegevenssets uit een Azure-gegevensarchief, moet u:
+### <a name="create-from-azure-datastores"></a>Maken op basis van Azure-gegevensopslag
 
-* Controleer of dat u hebt Inzender of eigenaar de toegang tot de geregistreerde Azure-gegevensopslag.
+Gegevenssets uit een Azure-gegevensarchief maken:
+
+* Controleer of u hebt `contributor` of `owner` toegang tot de geregistreerde Azure-gegevensopslag.
 
 * Importeren van de [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) en [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) en `Dataset` pakketten van de SDK.
 
@@ -90,17 +116,11 @@ dataset = Dataset.from_delimited_files(datapath)
 dataset.head(5)
 ```
 
-||Id|Nummer van de aanvraag|Date|Blokkeren|IUCR|Het primaire Type|Description|Beschrijving van locatie|Aanhoudingsbevel|Binnenlandse|...|Ward|Community-gebied|Code van de FBI|X-coördinaat|Y-coördinaat|Jaar|Bijgewerkt op|Breedtegraad|Lengtegraad|Locatie|
-|--|--|---|---|---|---|----|------|-------|------|-----|---|----|----|-----|-----|------|----|-----|----|----|-----
-|0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|MISLEIDENDE PRAKTIJK|DIEFSTAL VAN FINANCIËLE IDENTITEITEN VIA $ 300|ANDERE|DE WAARDE FALSE|DE WAARDE FALSE|...|9|50|11|1183356|1831503|2016|5/11/2016 15:48|41.69283384|-87.60431945|(41.692833841, -87.60431945)|
-1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD OPSLAAN|890|DIEFSTAL| VANAF HET OPSTELLEN|WOONPLAATS|DE WAARDE FALSE|DE WAARDE FALSE|...|21|71|6|1166776|1850053|2016|5/12/2016 15:48|41.74410697|-87.66449429|(41.744106973, -87.664494285)
-2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO OPSLAAN|1154|MISLEIDENDE PRAKTIJK|DIEFSTAL VAN FINANCIËLE IDENTITEITEN $300 EN KLIKT U ONDER|WOONPLAATS|DE WAARDE FALSE|DE WAARDE FALSE|...|19|74|11|||2016|5/12/2016 15:50
-3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE OPSLAAN|1120|MISLEIDENDE PRAKTIJK|KUNNEN WORDEN VERVALST|WOONPLAATS|DE WAARDE FALSE|DE WAARDE FALSE|...|9|49|10|||2016|5/13/2016 15:51
-4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE OPSLAAN|890|DIEFSTAL|VANAF HET OPSTELLEN|SCHOOL, OPENBAAR, HET BOUWEN VAN|DE WAARDE FALSE|DE WAARDE FALSE|...|40|13|6|||2016|5/25/2016 15:59|
+## <a name="register-datasets"></a>Gegevenssets registreren
 
-## <a name="register-your-datasets-with-workspace"></a>Registreren van uw gegevenssets met de werkruimte
+Registreren voor het voltooien van het proces voor het maken, uw gegevenssets met werkruimte:
 
-Gebruik de [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) methode voor het registreren van gegevenssets aan uw werkruimte voor het delen en opnieuw te gebruiken binnen uw organisatie en tussen verschillende experimenten.
+Gebruik de [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) methode voor het registreren van gegevenssets aan uw werkruimte, zodat ze kunnen worden gedeeld met anderen en voor verschillende experimenten hergebruikt.
 
 ```Python
 dataset = dataset.register(workspace = workspace,
@@ -111,38 +131,19 @@ dataset = dataset.register(workspace = workspace,
 ```
 
 >[!NOTE]
-> De standaardinstelling voor de parameter voor `register()` is `exist_ok = False`. Als u probeert te registreren van een gegevensset met dezelfde naam zonder deze instelling wordt een fout resulteert.
+> Als `exist_ok = False` (standaard), en u probeert te registreren van een gegevensset met dezelfde naam als een andere, een fout optreedt. Ingesteld op `True` overschrijven bestaande.
 
-De `register()` methode retourneert de reeds geregistreerde gegevensset met de parameterinstelling van de `exist_ok = True`.
-
-```Python
-dataset = dataset.register(workspace = workspace,
-                           name = 'dataset_crime',
-                           description = 'Training data',
-                           exist_ok = True
-                           )
-```
-
-Gebruik `list()` om alle van de geregistreerde gegevenssets in uw werkruimte te bekijken.
-
-```Python
-Dataset.list(workspace_name)
-```
-
-De bovenstaande code resulteert in het volgende:
-
-```Python
-[Dataset(Name: dataset_crime,
-         Workspace: workspace_name)]
-```
-
-## <a name="access-datasets-in-workspace"></a>Toegang tot gegevenssets in de werkruimte
+## <a name="access-data-in-datasets"></a>Toegang tot gegevens in gegevenssets
 
 Geregistreerde gegevenssets zijn toegankelijk en analyserapporten lokaal, extern en op rekenclusters zoals de Azure Machine Learning-berekeningen. Naar uw geregistreerde gegevensset gebruiken voor experimenten en compute-omgevingen, gebruik de volgende code om op te halen van uw werkruimte en de geregistreerde gegevensset met de naam.
 
 ```Python
 workspace = Workspace.from_config()
 
+# See list of datasets registered in workspace.
+Dataset.list(workspace)
+
+# Get dataset by name
 dataset = workspace.datasets['dataset_crime']
 ```
 
