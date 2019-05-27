@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: diberry
-ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afd29c1689d6d467a42a7c3c60f9a1dccd1a66f0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599414"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242613"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker-containers configureren 
 
@@ -108,9 +108,9 @@ De volgende tabel beschrijft de instellingen die worden ondersteund.
 
 De volgende voorbeelden gebruiken de configuratie-instellingen om te laten zien hoe u om te schrijven en gebruik `docker run` opdrachten.  Zodra actief is, de container blijft actief totdat u [stoppen](luis-container-howto.md#stop-the-container) deze.
 
-
-* **Voortzetting van regel tekens**: De docker-opdrachten in de volgende secties gebruiken de backslash `\`, als een voortzetting van regel tekens. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. 
-* **Argument order**: Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met docker-containers.
+* Deze voorbeelden gebruiken de map uit de `c:` station om te voorkomen van machtigingsconflicten op Windows. Als u gebruiken van een specifieke map als de invoermap wilt, moet u mogelijk de docker verlenen machtiging-service. 
+* Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met docker-containers.
+* Als u een ander besturingssysteem gebruikt, gebruikt u de juiste console/terminal, de syntaxis van de map voor koppelingen en regel voortzetting teken voor uw systeem. Deze voorbeelden wordt ervan uitgegaan dat een Windows-console met een voortzetting van regel tekens `^`. Omdat de container een Linux-besturingssysteem is, gebruikt het koppelpunt van het doel een Linux-stijl map-syntaxis.
 
 Houd er rekening mee te nemen de `luis/v2.0` routering in de URL, zoals wordt weergegeven in de volgende tabel.
 
@@ -129,32 +129,28 @@ Vervang {_argument_name_} door uw eigen waarden:
 
 Het volgende voorbeeld is de minst argumenten mogelijk uit te voeren van de container:
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis:latest ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
-
-> [!Note] 
-> De voorgaande opdracht maakt gebruik van de map uit de `c:` station om te voorkomen van machtigingsconflicten op Windows. Als u gebruiken van een specifieke map als de invoermap wilt, moet u mogelijk de docker verlenen machtiging-service. De voorgaande docker-opdracht maakt gebruik van de backslash `\`, als een voortzetting van regel tekens. Vervang of verwijder deze op basis van uw [hostcomputer](luis-container-howto.md#the-host-computer) vereisten van het besturingssysteem. Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met docker-containers.
-
 
 ### <a name="applicationinsights-example"></a>Voorbeeld van de Application Insights
 
 Het volgende voorbeeld wordt de Application Insights-argument voor het verzenden van telemetrie naar Application Insights, terwijl de container wordt uitgevoerd:
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={ENDPOINT_KEY}
+```console
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis:latest ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
+ApiKey={ENDPOINT_KEY} ^
 InstrumentationKey={INSTRUMENTATION_KEY}
 ```
 
@@ -162,14 +158,14 @@ InstrumentationKey={INSTRUMENTATION_KEY}
 
 De volgende opdracht stelt het niveau van logboekregistratie, `Logging:Console:LogLevel`, het configureren van het niveau van logboekregistratie voor [ `Information` ](https://msdn.microsoft.com). 
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={ENDPOINT_KEY} \
+```console
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis:latest ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
+ApiKey={ENDPOINT_KEY} ^
 Logging:Console:LogLevel:Default=Information
 ```
 

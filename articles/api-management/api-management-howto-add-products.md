@@ -12,15 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-origin.date: 08/10/2018
-ms.date: 12/03/2018
+ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: eff827937adbae7cfdfdd86392593df8d698053c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112526"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241772"
 ---
 # <a name="create-and-publish-a-product"></a>Een product maken en publiceren  
 
@@ -51,9 +50,9 @@ In deze zelfstudie leert u het volgende:
 
     | Name                     | Description                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Weergavenaam             | De naam zoals u wilt dat deze wordt weergegeven in de **ontwikkelaarsportal**.                                                                                                                                                                                                                                                        |
+    | `Display name`             | De naam zoals u wilt dat deze wordt weergegeven in de **ontwikkelaarsportal**.                                                                                                                                                                                                                                                        |
     | Name                     | Een beschrijvende naam van het product.                                                                                                                                                                                                                                                                                      |
-    | Beschrijving              | In het veld **Beschrijving** kunt u gedetailleerde informatie over het product opgeven, zoals het doel, de API's waartoe het product toegang biedt, en andere nuttige informatie.                                                                                                                                               |
+    | Description              | In het veld **Beschrijving** kunt u gedetailleerde informatie over het product opgeven, zoals het doel, de API's waartoe het product toegang biedt, en andere nuttige informatie.                                                                                                                                               |
     | Status                    | Druk op **Gepubliceerd** als u het product wilt publiceren. Voordat de API's in een product kunnen worden aangeroepen, moet het product worden gepubliceerd. Nieuwe producten zijn standaard niet-gepubliceerd, en alleen zichtbaar voor gebruikers in de groep **Beheerders**.                                                                                      |
     | Abonnement is vereist    | Schakel **Abonnement vereisen**in als een gebruiker een abonnement moet hebben om het product te kunnen gebruiken.                                                                                                                                                                                                                                   |
     | Goedkeuring vereist        | Schakel **Goedkeuring vereisen** in als u wilt dat een beheerder abonnementspogingen voor dit product beoordeelt en accepteert of weigert. Als het selectievakje uitgeschakeld is, worden abonnementspogingen automatisch goedgekeurd.                                                                                                                         |
@@ -87,7 +86,7 @@ Ontwikkelaars moeten zich eerst abonneren op een product om toegang tot de API t
 4. Kies een API en klik op **Selecteren**.
 
 > [!TIP]
-> U kunt het abonnement van een gebruiker maken of bijwerken naar een *Product* met aangepaste abonnementssleutels [via een REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) of een PowerShell-opdracht.
+> U kunt het abonnement van een gebruiker maken of bijwerken naar een *Product* met aangepaste abonnementssleutels [via een REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) of een PowerShell-opdracht.
 
 ## <a name="next-steps"></a>Volgende stappen
 

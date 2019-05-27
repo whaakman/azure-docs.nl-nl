@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 7794cf256ed8063007b4eee7c5c928be85723982
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 7aab7f75e6489fcaea1ecafee34823ad546a6b48
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170204"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244378"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren van pijplijn
 
@@ -611,7 +611,7 @@ catch (Exception e)
 
 Waarschuwingen komen veel voor bij sommige combinaties van bronbestand en vaardigheid en wijzen niet altijd op een probleem. In deze zelfstudie zijn de waarschuwingen onschadelijk (bijvoorbeeld geen tekstinvoeren van de JPEG-bestanden).
  
-## <a name="verify-content"></a>Inhoud verifiëren
+## <a name="query-your-index"></a>Een query uitvoeren in uw index
 
 Nadat de indexeren is voltooid, kunt u query's die de inhoud van afzonderlijke velden retourneren kunt uitvoeren. Standaard retourneert Azure Search de 50 hoogste resultaten. De voorbeeldgegevens zijn beperkt, dus de standaardinstelling werkt prima. Als u echter werkt met grotere gegevenssets, moet u mogelijk parameters opnemen in de queryreeks om meer resultaten te retourneren. Zie [How to page results in Azure Search](search-pagination-page-layout.md) (Resultaten genereren in Azure Search) voor instructies.
 

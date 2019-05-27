@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: e45b3b19821644142176c5c0cc7646c4643fe17c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962206"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235211"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-deelname configureren voor beheerde domeinen
 
@@ -178,7 +178,7 @@ Daarnaast moet u **Statusbalkupdates via scripts toestaan** inschakelen in de zo
 
 ### <a name="configure-seamless-sso"></a>Naadloze SSO configureren
 
-Voor het goed uitvoeren van Hybride Azure AD Join van uw downlevel Windows-apparaten in een beheerd domein dat Pass through-verificatie of wachtwoordhashsynchronisatie als uw Azure AD-cloudverificatiemethode gebruikt, moet u ook [Naadloze eenmalige aanmelding configureren](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Als u problemen bij het configureren van naadloze eenmalige aanmelding ondervindt, Zie het artikel [oplossen van Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
+Voor het goed uitvoeren van Hybride Azure AD Join van uw downlevel Windows-apparaten in een beheerd domein dat Pass through-verificatie of wachtwoordhashsynchronisatie als uw Azure AD-cloudverificatiemethode gebruikt, moet u ook [Naadloze eenmalige aanmelding configureren](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Als u problemen bij het configureren van naadloze eenmalige aanmelding ondervindt, Zie het artikel [oplossen van Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Downlevel Windows-apparaten beheren 

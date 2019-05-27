@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235821"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: Translate
 
@@ -54,7 +54,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Optionele parameter</em>.<br/>Een tekenreeks op te geven de categorie (domein) van de vertaling. Deze parameter wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met <a href="../customization.md">aangepaste Translator</a>. De categorie-ID van uw aangepaste Translator-project toevoegen aan deze parameter om het gebruik van uw geïmplementeerde aangepaste systeem. Standaardwaarde: <code>general</code>.</td>
+    <td><em>Optionele parameter</em>.<br/>Een tekenreeks op te geven de categorie (domein) van de vertaling. Deze parameter wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met <a href="../customization.md">aangepaste Translator</a>. De categorie-ID van uw aangepaste Translator toevoegen <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">projectdetails</a> aangepast voor deze parameter gebruiken uw geïmplementeerde systeem. Standaardwaarde: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190288"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243850"
 ---
 # <a name="what-is-conversation-transcription"></a>Wat is conversatie transcriptie?
 
@@ -67,6 +67,11 @@ Conversatie transcriptie wordt verwacht dat meerdere kanalen audiostreams en geb
 > Zie voor meer informatie-specificatie en -ontwerp, [Microsoft Speech Device SDK microfoon](https://aka.ms/cts/microphone). Zie voor meer informatie of een development kit aanschaffen, [Microsoft Speech apparaat-SDK ophalen](https://aka.ms/cts/getsdk).
 
 Zie voor meer informatie over het gebruik van de conversatie transcriptie met de SDK van de apparaten spraak, [over het gebruik van de conversatie transcriptie](https://aka.ms/cts/howto).
+
+
+## <a name="quick-start-with-a-sample-app"></a>Snel starten met een voorbeeld-app
+
+Microsoft Speech Device SDK heeft een snel aan de slag-voorbeeld-app voor alle apparaten die betrekking hebben voorbeelden. Conversatie transcriptie is een van beide. U vindt deze in [android Quick Start voor een apparaat-SDK voor spraak](https://aka.ms/sdsdk-quickstart) met voorbeeld-app en de broncode ter referentie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

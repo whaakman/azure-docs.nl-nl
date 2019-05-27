@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: d42e266de9c958c8a71cc5fa680a78c2278cec6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1a1acde81baa596e71b7e39763b0464c8de2fb86
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956787"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Zelfstudie: Azure Active Directory-integratie met NetDocuments
 
@@ -52,7 +52,7 @@ Voor het configureren van de integratie van NetDocuments in Azure AD, moet u Net
 
 **Als u wilt toevoegen NetDocuments uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)** , klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Az
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met NetDocuments, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** : als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Configureren van eenmalige aanmelding NetDocuments](#configure-netdocuments-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Maken van de testgebruiker NetDocuments](#create-netdocuments-test-user)**  : als u wilt een equivalent van Britta Simon in NetDocuments die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD eenmalige aanmelding met NetDocuments, moet u
     b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmelding-URL en antwoord-URL. ID van de opslagplaats is een waarde die beginnen met CA-gevolgd door code van 8 tekens die zijn gekoppeld aan uw opslagplaats NetDocuments. U kunt controleren de [NetDocuments federatieve identiteit ondersteuningsdocument](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) voor meer informatie. U kunt ook contact met [NetDocuments Client ondersteuningsteam](https://support.netdocuments.com/hc/) om op te halen van deze waarden hebt u problemen bij het configureren met behulp van de bovenstaande informatie. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmelding-URL en antwoord-URL. ID van de opslagplaats is een waarde die beginnen met **CA -** gevolgd door code van 8 tekens die zijn gekoppeld aan uw opslagplaats NetDocuments. U kunt controleren de [NetDocuments federatieve identiteit ondersteuningsdocument](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) voor meer informatie. U kunt ook contact met [NetDocuments Client ondersteuningsteam](https://support.netdocuments.com/hc/) om op te halen van deze waarden hebt u problemen bij het configureren met behulp van de bovenstaande informatie. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

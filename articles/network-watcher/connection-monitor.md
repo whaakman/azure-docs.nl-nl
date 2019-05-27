@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715816"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233894"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Zelfstudie: Netwerkcommunicatie tussen twee virtuele machines bewaken met behulp van de Azure-portal
 
@@ -77,7 +77,7 @@ Voer de stappen in [De eerste virtuele machine maken](#create-the-first-vm) opni
 | 3 | Naam                                  | myVm2                                                                   |
 | 3 | Verificatietype                   | Plak uw openbare SSH-sleutel of selecteer **Wachtwoord** en voer een wachtwoord in. |
 | 3 | Resourcegroep                        | Selecteer **Bestaande gebruiken** en selecteer **myResourceGroup**.                 |
-| 6 | Extensies                            | **Netwerkagent voor Linux**                                             |
+| 6 | Uitbreidingen                            | **Network Watcher Agent for Linux**                                             |
 
 Het implementeren van de VM duurt een paar minuten. Wacht tot de VM is geïmplementeerd voordat u doorgaat met de resterende stappen.
 
@@ -109,7 +109,7 @@ Maak een verbindingsmonitor om communicatie via TCP-poort 22 van *myVm1* naar *m
 
     ![Verbindingsmonitors](./media/connection-monitor/connection-monitors.png)
 
-2. Selecteer de monitor met de naam **myVm1-myVm2(22)**, zoals in de vorige afbeelding, om details te bekijken voor de monitor, zoals in de volgende afbeelding:
+2. Selecteer de monitor met de naam **myVm1-myVm2(22)** , zoals in de vorige afbeelding, om details te bekijken voor de monitor, zoals in de volgende afbeelding:
 
     ![Details van de monitor](./media/connection-monitor/vm-monitor.png)
 

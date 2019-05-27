@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60515427"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech-API
@@ -41,7 +41,7 @@ Content-Length: 0
 
 De vereiste header-informatie voor token-toegang is als volgt.
 
-Name| Indeling | Description
+Name| Notatie | Description
 ----|----|----
 OCP-Apim-Subscription-Key | ASCII | Uw abonnementssleutel
 
@@ -60,13 +60,13 @@ Clients moeten het volgende eindpunt gebruiken voor toegang tot de Text to Speec
 
 De volgende tabel ziet u de HTTP-headers die worden gebruikt voor spraak synthese aanvragen.
 
-Header |Value |Opmerkingen
+Koptekst |Value |Opmerkingen
 ----|----|----
-Content-Type | application/ssml+xml | De invoer inhoudstype.
+Inhoudstype | application/ssml+xml | De invoer inhoudstype.
 X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bits-mono-tts <br> **2.** raw-16 khz-16-bits-mono-pcm <br>**3.** audio-16 khz-16 kbps-mono-siren <br> **4.** riff-16 khz-16 kbps-mono-siren <br> **5.** riff-16 khz-16-bits-mono-pcm <br> **6.** audio-16 khz-128kbitrate-mono-mp3 <br> **7.** audio-16 khz-64kbitrate-mono-mp3 <br> **8.** audio-16 khz-32kbitrate-mono-mp3 | De uitvoer audio-indeling.
 X-Search-AppId | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de clienttoepassing wordt aangeduid. Dit kan de opslag-ID voor apps zijn. Als een niet beschikbaar is, kan de ID gebruiker gegenereerd voor een toepassing zijn.
 X-Search-ClientID | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de instantie van een toepassing voor elke installatie wordt aangeduid.
-Gebruikersagent | De naam van de toepassing | De toepassingsnaam is vereist en moet minder dan 255 tekens.
+Gebruikersagent | Toepassingsnaam | De toepassingsnaam is vereist en moet minder dan 255 tekens.
 Autorisatie | Autorisatietoken |  Zie de <a href="#Subscription">Autorisatietoken</a> sectie.
 
 ### <a name="InputParam"></a>Invoerparameters

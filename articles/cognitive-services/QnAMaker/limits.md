@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/22/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce6c5f3059041d8dbb097470cf4a415e73d9156b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518974"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237259"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kennisdatabase limieten en grenzen
 Uitgebreide lijst met limieten voor QnA Maker.
@@ -51,19 +51,19 @@ Algemene beperkingen met betrekking tot de inhoud in het knowledge base:
 * Ondersteunde tekens in voor de metagegevenswaarde: Overal behalve in: en | 
 * De lengte van bestandsnaam: 200
 * Ondersteunde bestandsindelingen: ".tsv", '.pdf', '.txt', ".docx", '.xlsx'.
-* Maximum aantal alternatieve vragen: 100
+* Maximum aantal alternatieve vragen: 300
 * Maximum aantal paren met vraag-antwoord: Afhankelijk van de [Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) gekozen. Een sleutelpaar met een vraag en antwoord toegewezen aan een document van Azure Search-index. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Limieten voor Knowledge base-aanroep maken:
 Deze vertegenwoordigen de limieten voor elk maken knowledge base-actie. dat wil zeggen, te klikken op *maken KB* of de CreateKnowledgeBase-API aan te roepen.
-* Maximum aantal alternatieve vragen per antwoord: 100
+* Maximum aantal alternatieve vragen per antwoord: 300
 * Maximum aantal URL's: 10
 * Maximum aantal bestanden: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Knowledge base-aanroep limieten bijwerken
 Dit zijn de limieten voor elke update-actie. dat wil zeggen, te klikken op *opslaan en trainen* of de UpdateKnowledgeBase-API aan te roepen.
 * De lengte van de bronnaam van elke: 300
-* Maximum aantal alternatieve vragen toegevoegd of verwijderd: 100
+* Maximum aantal alternatieve vragen toegevoegd of verwijderd: 300
 * Maximum aantal metagegevensvelden toegevoegd of verwijderd: 10
 * Maximum aantal URL's die kunnen worden vernieuwd: 5
 

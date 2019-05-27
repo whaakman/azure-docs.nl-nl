@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b4c1de8edf04e15b540adeac01bcbf0cb1d1b8af
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766930"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225880"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
 
@@ -49,7 +49,7 @@ Zie de [Bing spellingcontrole controleren-API-versie 7](luis-tutorial-bing-spell
 Als u wilt uw LUIS-app via een programma bewerken, gebruikt u de [API ontwerpen](https://go.microsoft.com/fwlink/?linkid=2092087). Zie [aanroepen LUIS API ontwerpen](./luis-quickstart-node-add-utterance.md) en [een LUIS-App via een programma met behulp van Node.js](./luis-tutorial-node-import-utterances-csv.md) voor voorbeelden van hoe u de API ontwerpen aan te roepen. De API ontwerpen vereist het gebruik van een [ontwerpen sleutel](luis-concept-keys.md#authoring-key) in plaats van een eindpuntsleutel. Programmatische ontwerpen kan maximaal 1.000.000 aanroepen per maand en 5 transacties per seconde. Zie voor meer informatie over de sleutels die u met LUIS gebruikt [sleutels beheren](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Waar is de functie patroon die reguliere expressie opgegeven die overeenkomt met?
-De vorige **patroonfunctie** momenteel is afgeschaft, vervangen door  **[patronen](luis-concept-patterns.md)**.
+De vorige **patroonfunctie** momenteel is afgeschaft, vervangen door  **[patronen](luis-concept-patterns.md)** .
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Hoe gebruik ik een entiteit voor het ophalen van de juiste gegevens?
 Zie [entiteiten](luis-concept-entity-types.md) en [gegevensextractie](luis-concept-data-extraction.md).
@@ -297,6 +297,10 @@ De volgende functies zijn op de Build-conferentie 2019 vrijgegeven:
 * [Verbeterde vooraf gemaakte domeinen](luis-reference-prebuilt-domains.md) 
 * [Lijst met dynamische entiteiten](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Externe entiteiten](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
+Video's:
+
+* [Hoe u Azure communicerende AI gebruiken om te schalen van uw bedrijf voor de volgende generatie](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Volgende stappen
 

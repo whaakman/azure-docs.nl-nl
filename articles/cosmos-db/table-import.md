@@ -1,22 +1,20 @@
 ---
 title: Bestaande gegevens migreren naar een Table-API-account in Azure Cosmos DB
 description: Informatie over hoe migreren of importeren van on-premises of gegevens naar Azure Table-API-account in Azure Cosmos DB in de cloud.
-author: rockboyfor
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-origin.date: 12/07/2017
-ms.date: 04/15/2019
-ms.author: v-yeche
+ms.date: 12/07/2017
+ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935847"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242577"
 ---
-<!--Verify sucessfully-->
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Gegevens migreren naar een Azure Cosmos DB Table-API-account
 
 In deze zelfstudie vindt u instructies voor het importeren van gegevens voor gebruik met de Azure Cosmos DB [Table-API](table-introduction.md). Als u gegevens hebt opgeslagen in Azure Table Storage, kunt u het gegevensmigratieprogramma of AzCopy gebruiken om de gegevens te importeren in Azure Cosmos DB Table-API. Als u gegevens hebt opgeslagen in een Azure Cosmos DB Table-API-account (preview), moet u het gegevensmigratieprogramma gebruiken om uw gegevens te migreren. 
@@ -43,18 +41,18 @@ Als u tabelgegevens wilt migreren, moet u de volgende taken uitvoeren:
 1. Download het migratieprogramma op [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Voer `dt.exe` uit met de opdrachtregelargumenten voor uw scenario. `dt.exe` wordt uitgevoerd met een opdracht in de volgende indeling:
 
-    ```bash
+   ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-    ```
+   ```
 
-    Opties voor de opdracht zijn:
+Opties voor de opdracht zijn:
 
-        /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
-        /OverwriteErrorLog: Optional. Overwrite error log file
-        /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
-        /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
-        /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
-        /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
+    /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
+    /OverwriteErrorLog: Optional. Overwrite error log file
+    /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
+    /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
+    /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
+    /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
 
 ### <a name="command-line-source-settings"></a>Broninstellingen voor de opdrachtregel
 
@@ -92,33 +90,33 @@ Gebruik de volgende doelopties bij het definiëren van de Azure Cosmos DB Table-
     /t.Throughput: Optional, service defaults if not specified. Specifies throughput to configure for table
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
-<a name="azure-table-storage"></a>
+<a id="azure-table-storage"></a>
 ### <a name="sample-command-source-is-azure-table-storage"></a>Voorbeeldopdracht: bron is Azure-tabelopslag
 
 Hier ziet u een voorbeeld van een opdrachtregel voor het importeren vanuit Azure Table Storage in Table-API:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.cn:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
-<a name="table-api-preview"></a>
+<a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Voorbeeldopdracht: bron is Azure Cosmos DB Table-API (preview)
 
 Hier ziet u een voorbeeld van een opdrachtregel voor het importeren vanuit Table-API preview in een algemeen beschikbare Table-API:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.cn; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.cn:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
 ## <a name="migrate-data-by-using-azcopy"></a>Gegevens migreren met AzCopy
 
-U kunt ook met het AzCopy-opdrachtregelprogramma gegevens vanuit Azure Table Storage migreren naar de Azure Cosmos DB Table-API. Als u AzCopy wilt gebruiken, exporteert u eerst de gegevens zoals wordt beschreven in [Gegevens exporteren vanuit Azure Table Storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage) en importeert u de gegevens vervolgens in Azure Cosmos DB zoals wordt beschreven in [Azure Cosmos DB Table-API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
+U kunt ook met het AzCopy-opdrachtregelprogramma gegevens vanuit Azure Table Storage migreren naar de Azure Cosmos DB Table-API. Als u AzCopy wilt gebruiken, exporteert u eerst de gegevens zoals wordt beschreven in [Gegevens exporteren vanuit Azure Table Storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage) en importeert u de gegevens vervolgens in Azure Cosmos DB zoals wordt beschreven in [Azure Cosmos DB Table-API](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage).
 
 Bij het importeren in Azure Cosmos DB kunt u de volgende opdracht als voorbeeld nemen. Houd er rekening mee dat de waarde voor /Dest cosmosdb is en niet core.
 
 Voorbeeld van opdracht voor importeren:
 
 ```
-AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.chinacloudapi.cn/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
+AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
 ## <a name="migrate-from-table-api-preview-to-table-api"></a>Migreren vanuit Table-API (preview) naar Table-API
@@ -150,6 +148,3 @@ U kunt nu verdergaan met de volgende zelfstudie om te leren hoe u query's uitvoe
 
 > [!div class="nextstepaction"]
 >[Hoe kan ik query’s uitvoeren op gegevens?](../cosmos-db/tutorial-query-table.md)
-
-<!--Update_Description: new articles on table import -->
-<!--ms.date: 03/18/2019-->

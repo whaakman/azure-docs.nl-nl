@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 83f7cc7c0da2682244fa9c4e0e2b153aff2e2380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d4f707d4bf9bac5e2208eadb94983af368b9f521
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473209"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072248"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Aantal vooraf gedefinieerde entiteit voor een LUIS-app
 Er zijn veel manieren waarin numerieke waarden te kwantificeren, express en beschrijven stukjes informatie worden gebruikt. Dit artikel behandelt alleen enkele van de mogelijke voorbeelden. LUIS interpreteert de variaties faciliteren voor de gebruiker uitingen en consistente numerieke waarden als resultaat. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen voorbeeld uitingen met getal tot de toepassing intents. 
@@ -41,6 +41,10 @@ Aantal wordt beheerd via de [kenmerken tekst](https://github.com/Microsoft/Recog
 LUIS omvat de herkende waarde van een **`builtin.number`** entiteit in de `resolution` veld van het JSON-antwoord wordt geretourneerd.
 
 ## <a name="resolution-for-prebuilt-number"></a>Oplossing voor vooraf gedefinieerde getal
+
+
+### <a name="api-version-2x"></a>API-versie 2.x
+
 Het volgende voorbeeld ziet een JSON-antwoord van LUIS, die de resolutie van de waarde van 24 uur per dag, voor de utterance "tientallen" bevat.
 
 ```json
@@ -76,6 +80,64 @@ Het volgende voorbeeld ziet een JSON-antwoord van LUIS, die de resolutie van de 
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Preview-API-versie 3.x
+
+De volgende JSON is met de `verbose` parameter ingesteld op `false`:
+
+```json
+{
+    "query": "order two dozen eggs",
+    "prediction": {
+        "normalizedQuery": "order two dozen eggs",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "number": [
+                24
+            ]
+        }
+    }
+}
+```
+
+De volgende JSON is met de `verbose` parameter ingesteld op `true`:
+
+```json
+{
+    "query": "order two dozen eggs",
+    "prediction": {
+        "normalizedQuery": "order two dozen eggs",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "number": [
+                24
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "two dozen",
+                        "startIndex": 6,
+                        "length": 9,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

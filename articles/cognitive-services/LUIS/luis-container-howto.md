@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: diberry
-ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: b379ebeeec7d9309cdf150b8b90ddd006e3bcd9a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124290"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240215"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -36,7 +36,7 @@ Om uit te voeren de LUIS-container, moet u het volgende hebt:
 |--|--|
 |Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|Azure `Cognitive Services` resource en LUIS [app-pakket](luis-how-to-start-new-app.md#export-app-for-containers) bestand |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>* A _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `luis/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br>* Een getraind of gepubliceerde app verpakt als een gekoppelde invoer voor de container met de bijbehorende App-ID. U kunt de pakketbestanden ophalen vanuit de LUIS-portal of de API's voor ontwerpen. Als uw LUIS-verpakte app uit de [API's ontwerpen](#authoring-apis-for-package-file), moet u ook uw _ontwerpen sleutel_.<br><br>Deze vereisten worden gebruikt voor de opdrachtregelargumenten doorgeven aan de volgende variabelen:<br><br>**{AUTHORING_KEY}** : Deze sleutel wordt gebruikt voor het ophalen van de app-pakket van de LUIS-service in de cloud en de logboeken voor query's uploaden naar de cloud. De indeling is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Deze ID wordt gebruikt om de App te selecteren. De indeling is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Deze sleutel wordt gebruikt voor het starten van de container. U vindt de eindpuntsleutel op twee plaatsen. De eerste is de Azure-portal binnen de _Cognitive Services_ lijst met resources van sleutels. De eindpuntsleutel is ook beschikbaar in de LUIS-portal op de sleutels en het eindpunt instellingenpagina. Gebruik niet de starter-sleutel.<br><br>**{BILLING_ENDPOINT}**: Een voorbeeld is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>De [ontwerpen en eindpuntsleutel](luis-boundaries.md#key-limits) hebben verschillende doeleinden. Gebruik deze niet door elkaar. |
+|Azure `Cognitive Services` resource en LUIS [app-pakket](luis-how-to-start-new-app.md#export-app-for-containers) bestand |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>* A _Cognitive Services_ Azure-resource en de bijbehorende facturering sleutel voor de facturering URI van het eindpunt. Beide waarden zijn beschikbaar op de pagina overzicht en sleutels voor de resource en zijn verplicht om de container te starten. U moet toevoegen de `luis/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende BILLING_ENDPOINT_URI-voorbeeld. <br>* Een getraind of gepubliceerde app verpakt als een gekoppelde invoer voor de container met de bijbehorende App-ID. U kunt de pakketbestanden ophalen vanuit de LUIS-portal of de API's voor ontwerpen. Als uw LUIS-verpakte app uit de [API's ontwerpen](#authoring-apis-for-package-file), moet u ook uw _ontwerpen sleutel_.<br><br>Deze vereisten worden gebruikt voor de opdrachtregelargumenten doorgeven aan de volgende variabelen:<br><br>**{AUTHORING_KEY}** : Deze sleutel wordt gebruikt voor het ophalen van de app-pakket van de LUIS-service in de cloud en de logboeken voor query's uploaden naar de cloud. De indeling is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Deze ID wordt gebruikt om de App te selecteren. De indeling is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Deze sleutel wordt gebruikt voor het starten van de container. U vindt de eindpuntsleutel op twee plaatsen. De eerste is de Azure-portal binnen de _Cognitive Services_ lijst met resources van sleutels. De eindpuntsleutel is ook beschikbaar in de LUIS-portal op de sleutels en het eindpunt instellingenpagina. Gebruik niet de starter-sleutel.<br><br>**{BILLING_ENDPOINT}** : Een voorbeeld is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>De [ontwerpen en eindpuntsleutel](luis-boundaries.md#key-limits) hebben verschillende doeleinden. Gebruik deze niet door elkaar. |
 
 ### <a name="authoring-apis-for-package-file"></a>API's ontwerpen voor pakketbestand
 
@@ -136,7 +136,7 @@ De gepubliceerde app-pakket is beschikbaar via de **mijn Apps** pagina.
 1. Aanmelden bij de LUIS [portal](https://www.luis.ai).
 1. Schakel het selectievakje aan de linkerkant van de naam van de app in de lijst. 
 1. Selecteer de **exporteren** item uit de contextuele werkbalk boven de lijst.
-1. Selecteer **exporteren voor container (GZIP)**.
+1. Selecteer **exporteren voor container (GZIP)** .
 1. Selecteer de omgeving van **productiesite** of **Staging-site**.
 1. Het pakket wordt gedownload vanuit de browser.
 
@@ -152,7 +152,7 @@ De ervaren app-pakket is beschikbaar via de **versies** pagina.
 1. Selecteer **versies** in de linker navigatiebalk.
 1. Schakel het selectievakje aan de linkerkant van de versienaam van de in de lijst.
 1. Selecteer de **exporteren** item uit de contextuele werkbalk boven de lijst.
-1. Selecteer **exporteren voor container (GZIP)**.
+1. Selecteer **exporteren voor container (GZIP)** .
 1. Het pakket wordt gedownload vanuit de browser.
 
 ![Exporteren van het getrainde pakket voor de container in op de pagina versies Export menu](./media/luis-container-how-to/export-trained-package-for-container.png)
@@ -223,20 +223,24 @@ Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandli
 |{ENDPOINT_KEY} | Deze sleutel wordt gebruikt voor het starten van de container. Gebruik niet de starter-sleutel. |
 |{BILLING_ENDPOINT} | De eindpuntwaarde facturering vindt u op de Azure-portal `Cognitive Services` pagina overzicht. U moet toevoegen de `luis/v2.0` routering naar de URI van het eindpunt, zoals wordt weergegeven in het volgende voorbeeld: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
-Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
+Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht. Voer de opdracht in de Windows-console.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> De voorgaande opdracht maakt gebruik van de map uit de `c:` station om te voorkomen van machtigingsconflicten op Windows. Als u gebruiken van een specifieke map als de invoermap wilt, moet u mogelijk de docker verlenen machtiging-service. De voorgaande docker-opdracht maakt gebruik van de backslash `\`, als een voortzetting van regel tekens. Vervang of verwijder deze op basis van uw [hostcomputer](#the-host-computer) vereisten van het besturingssysteem. Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met docker-containers.
+* In dit voorbeeld wordt de map uit de `c:` station om te voorkomen van machtigingsconflicten op Windows. Als u gebruiken van een specifieke map als de invoermap wilt, moet u mogelijk de docker verlenen machtiging-service. 
+* Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met docker-containers.
+* Als u een ander besturingssysteem gebruikt, gebruikt u de juiste console/terminal, de syntaxis van de map voor koppelingen en regel voortzetting teken voor uw systeem. Deze voorbeelden wordt ervan uitgegaan dat een Windows-console met een voortzetting van regel tekens `^`. Omdat de container een Linux-besturingssysteem is, gebruikt het koppelpunt van het doel een Linux-stijl map-syntaxis.
+
 
 
 Met deze opdracht:

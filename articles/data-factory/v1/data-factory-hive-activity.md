@@ -216,7 +216,7 @@ Als u wilt gebruiken met parameters Hive-script, doet u het volgende
       }
     }
     ```
-* In de Hive-Script, verwijzen naar de parameter met behulp van **${hiveconf:parameterName}**. 
+* In de Hive-Script, verwijzen naar de parameter met behulp van **${hiveconf:parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906988"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235610"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en ophalen van gegevens met behulp van de REST-API met cURL
 
@@ -108,7 +108,7 @@ Vervolgens u een document analyseren en extraheren van sleutel / waarde-paren en
 
 1. Vervang `<Endpoint>` met het eindpunt dat u hebt verkregen via uw abonnementssleutel formulier herkenning. U vindt deze voor uw resource formulier herkenning **overzicht** tabblad.
 1. Vervang `<modelID>` met de model-ID die u in de vorige sectie hebt ontvangen.
-1. Vervang `<path to your form>` met het pad van het formulier.
+1. Vervang `<path to your form>` met het pad van het formulier. Bijvoorbeeld c:\temp\file.pdf. 
 1. Vervang `<file type>` met het bestandstype. Ondersteunde typen: pdf-, afbeelding/jpeg, afbeelding/png.
 1. Vervang `<subscription key>` door uw abonnementssleutel.
 

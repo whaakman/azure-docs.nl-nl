@@ -161,7 +161,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset. De **typePrope
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** van de gegevensset moet worden ingesteld op **Http**. | Ja |
-| relativeUrl | Een relatieve URL naar de resource die de gegevens bevat. Als het pad is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. <br><br> Kan de URL van een dynamische, kunt u [Data Factory-functies en systeemvariabelen](data-factory-functions-variables.md). Voorbeeld: **relativeUrl**: **$$Text.Format ('/ Mijn/rapport? maand = {0: yyyy}-{0:MM} & fmt csv =', slicestart-waarde)**. | Nee |
+| relativeUrl | Een relatieve URL naar de resource die de gegevens bevat. Als het pad is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. <br><br> Kan de URL van een dynamische, kunt u [Data Factory-functies en systeemvariabelen](data-factory-functions-variables.md). Voorbeeld: **relativeUrl**: **$$Text.Format ('/ Mijn/rapport? maand = {0: yyyy}-{0:MM} & fmt csv =', slicestart-waarde)** . | Nee |
 | requestMethod | De HTTP-methode. Toegestane waarden zijn **ophalen** en **POST**. | Nee <br />(de standaardwaarde is **ophalen**) |
 | additionalHeaders | Extra kopteksten die HTTP-aanvraag. | Nee |
 | requestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |

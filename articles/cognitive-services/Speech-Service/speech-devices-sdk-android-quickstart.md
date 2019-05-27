@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: d5af2bb61eeb986f02a31d45ff9236ecc0c8427e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026193"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234494"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Quickstart: De voorbeeld-app SDK voor spraak-apparaten worden uitgevoerd op Android
 
-In deze snelstartgids leert u hoe u de spraak-apparaten-SDK voor Android gebruiken om te maken van een product spraak ingeschakeld.
+In deze snelstartgids leert u hoe u de spraak-apparaten-SDK voor Android gebruiken om te maken van een product spraak ingeschakeld of worden gebruikt als een [conversatie transcriptie](conversation-transcription-service.md) apparaat.
 
 Deze handleiding is vereist een [Azure Cognitive Services](get-started.md) -account met een resource Speech Services. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
@@ -33,9 +33,11 @@ Voordat u met de SDK van de apparaten spraak begint, moet u naar:
 
 * Download de nieuwste versie van de [spraak Devices SDK](https://aka.ms/sdsdk-download), en pak het ZIP naar uw werkmap.
    > [!NOTE]
-   > Het ZIP-bestand bevat de Android-voorbeeld-app.
+   > Het Android-voorbeeld-Release.zip-bestand bevat de Android-voorbeeld-app en deze snelstartgids wordt ervan uitgegaan dat de app wordt uitgepakt naar C:\SDSDK\Android-Sample-Release
 
 * Om op te halen een [sleutel van de Azure-abonnement voor spraakservices](get-started.md)
+
+* Als u van plan bent te gebruiken van de conversatie transcriptie moet u een [circulaire microfoon apparaat](get-speech-devices-sdk.md) en de service is momenteel alleen beschikbaar voor 'en-US' en 'zh-CN' in de regio's, "centralus" en 'Oost-Aziatische'. U moet een spraak-sleutel in een van deze regio's te gebruiken van de conversatie transcriptie hebben.
 
 * Als u van plan bent de Speech Services gebruiken om te identificeren van intents (of acties) van de gebruiker uitingen, moet u een [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) abonnement. Zie voor meer informatie over LUIS en intentieherkenning [spraak intents met LUIS, herkent C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
@@ -82,16 +84,23 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
 
 1. Uw abonnementssleutel spraak toevoegen aan de broncode. Als u proberen intentieherkenning wilt, voegt u ook uw [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonnementssleutel en de toepassing-id.
 
-   De toepassingsgegevens van uw sleutels en gaat u in de volgende regels in het bronbestand MainActivity.java:
+   Uw gegevens krijgt MainActivity.java voor spraak en LUIS:
 
    ```java
-   // Subscription
-   private static final String SpeechSubscriptionKey = "[your speech key]";
-   private static final String SpeechRegion = "westus";
-   private static final String LuisSubscriptionKey = "[your LUIS key]";
-   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-   private static final String LuisAppId = "[your LUIS app ID]"
+    // Subscription
+    private static String SpeechSubscriptionKey = "<enter your subscription info here>";
+    private static String SpeechRegion = "westus"; // You can change this if your speech region is different.
+    private static String LuisSubscriptionKey = "<enter your subscription info here>";
+    private static String LuisRegion = "westus2"; // you can change this, if you want to test the intent, and your LUIS region is different.
+    private static String LuisAppId = "<enter your LUIS AppId>";
    ```
+
+    Als u conversatie transcriptie zijn ook uw sleutel en de regio spraakgegevens in conversation.java nodig:
+
+   ```java
+    private static final String CTSKey = "<Conversation Transcription Service Key>";
+    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
+    ```
 
 1. Het standaard wake woord (trefwoord) is 'Computer'. U kunt ook een van de opgegeven andere woorden, zoals 'Machine' of 'Assistent' activeren. De bronbestanden voor deze alternatieve wake-woorden zijn in de SDK van de spraak-apparaten in de map trefwoord. C:\SDSDK\Android-Sample-Release\keyword\Computer bevat bijvoorbeeld de bestanden die worden gebruikt voor de wake-woord 'Computer'.
 
@@ -126,7 +135,7 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
    |||Voor een lineaire dev kit die gebruikmaakt van alle microfoon: `Linear4`|
    |||Voor een lineaire dev kit die gebruikmaakt van twee microfoon: `Linear2`|
 
-1. De toepassing te bouwen, op de **uitvoeren** in het menu **uitvoeren 'app'**. De **implementatiedoel Selecteer** in het dialoogvenster wordt weergegeven.
+1. De toepassing te bouwen, op de **uitvoeren** in het menu **uitvoeren 'app'** . De **implementatiedoel Selecteer** in het dialoogvenster wordt weergegeven.
 
 1. Selecteer uw apparaat en selecteer vervolgens **OK** om de toepassing op het apparaat te implementeren.
 
@@ -135,6 +144,10 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
 1. De voorbeeldtoepassing met spraak Devices SDK wordt gestart en worden de volgende opties weergegeven:
 
    ![Voorbeeld van de voorbeeldtoepassing spraak Devices SDK en opties](media/speech-devices-sdk/qsg-8.png)
+
+1. Toegevoegde is de conversatie transcriptie demo. Start te transcriberen met sessie starten. Standaard is iedereen Gast, maar als u van deelnemer stem handtekeningen hebben ze in een bestand /video/participants.properties op het apparaat kunnen worden geplaatst. Voor het genereren van het uiterlijk van de handtekening stem op [(SDK) gesprekken transcriberen](how-to-use-conversation-transcription-service.md).
+
+   ![Conversatie transcriptie demotoepassing](media/speech-devices-sdk/qsg-15.png)
 
 1. Experiment!
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813839"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073013"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Entiteit rollen voor contextuele subtypen
 
@@ -79,12 +79,6 @@ Het volgende voorbeeld-uitingen entiteiten en functies gebruiken:
 |--|--|
 |Ik ben interessante meer te weten over **Seattle**|Ik wil graag meer weten over {Location}|
 |Kopen van een ticket van Seattle naar New York|Kopen van een ticket bij {locatie: oorsprong} naar {locatie: Destination}|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>Hoe worden de rollen aan hiërarchische entiteiten gerelateerd?
-
-Rollen zijn nu beschikbaar voor alle entiteiten in de voorbeeld-uitingen, evenals het vorige gebruik van patronen. Omdat ze overal beschikbaar zijn, vervangen ze de noodzaak voor hiërarchische entiteiten. Nieuwe entiteiten moeten worden gemaakt met de rol, in plaats van met behulp van hiërarchische entiteiten. 
-
-Hiërarchische entiteiten worden uiteindelijk afgeschaft.
 
 ## <a name="how-are-roles-used-in-patterns"></a>Hoe worden de rollen in patronen gebruikt?
 Rollen worden gebruikt in een patroon van sjabloon utterance, binnen de utterance: 

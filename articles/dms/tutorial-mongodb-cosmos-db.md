@@ -1,6 +1,6 @@
 ---
-title: "Zelfstudie: MongoDB migreren naar Azure Cosmos DB's API voor offline MongoDB met behulp van Azure Database Migration Service | Microsoft Docs"
-description: Leer hoe u on-premises MongoDB kunt migreren naar Azure Cosmos DB's API voor offline MongoDB met behulp van Azure Database Migration Service.
+title: 'Zelfstudie: Azure Database Migration Service gebruiken voor het migreren van MongoDB naar Azure Cosmos DB-API voor MongoDB offline | Microsoft Docs'
+description: Informatie over het migreren van MongoDB on-premises naar Azure Cosmos DB-API voor MongoDB offline met behulp van Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,27 +10,27 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/16/2019
-ms.openlocfilehash: 3260ffaba2ab91ee561a0430310883bda8f65269
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/24/2019
+ms.openlocfilehash: d0b0c7dec8ad29b65695289f97f5a9317feb2798
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794078"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243818"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Zelfstudie: MongoDB migreren naar Azure Cosmos DB's API voor offline MongoDB met behulp van DMS
 
-Met Azure Database Migration Service kunt u een offline (eenmalige) migratie van databases uitvoeren van MongoDB on-premises of in de cloud naar Azure Cosmos DB's API voor MongoDB.
+Azure Database Migration Service kunt u een offline (eenmalig) worden gemigreerd van databases uitvoeren vanaf een on-premises of in de cloud van exemplaar van MongoDB naar Azure Cosmos DB-API voor MongoDB.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 >
-> * De Azure-portal gebruiken om een Azure Database Migration Service-exemplaar te maken.
-> * Een migratieproject maken met behulp van de Azure Database Migration Service.
+> * Maak een instantie van Azure Database Migration Service.
+> * Een migratieproject maken met behulp van Azure Database Migration Service.
 > * De migratie uitvoeren.
 > * De migratie controleren.
 
-In deze zelfstudie migreert u een gegevensset die in MongoDB wordt gehost in een virtuele Azure-machine naar Azure Cosmos DB's API voor MongoDB met behulp van Azure Database Migration Service. Als u nog geen MongoDB-bron hebt ingesteld, raadpleegt u het artikel over het [installeren en configureren van MongoDB op een Windows-VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
+In deze zelfstudie maakt migreren u een gegevensset in die wordt gehost in een virtuele Machine van Azure naar Azure Cosmos DB-API voor MongoDB met Azure Database Migration Service MongoDB. Als u nog geen MongoDB-bron hebt ingesteld, raadpleegt u het artikel over het [installeren en configureren van MongoDB op een Windows-VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,7 +38,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * [De vóór de migratie voltooien](../cosmos-db/mongodb-pre-migration.md) stappen zoals het schatten van de doorvoer, een partitiesleutel en het indexeringsbeleid te kiezen.
 * [Maak een account voor Azure Cosmos DB's API voor MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-* Een Azure Virtual Network (VNet) maken voor de Azure Database Migration Service met behulp van het Azure Resource Manager-implementatiemodel, waarmee u site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Zie voor meer informatie over het maken van een VNet, de [documentatie voor Virtual Network](https://docs.microsoft.com/azure/virtual-network/), en met name de artikelen met vindt u meer details.
+* Een Azure Virtual Network (VNet) maken voor Azure Database Migration Service met behulp van Azure Resource Manager-implementatiemodel, waarmee u site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Zie voor meer informatie over het maken van een VNet, de [documentatie voor Virtual Network](https://docs.microsoft.com/azure/virtual-network/), en met name de artikelen met vindt u meer details.
 
     > [!NOTE]
     > Tijdens de installatie van de VNet, als u ExpressRoute gebruikt met het naar Microsoft-netwerkpeering, voeg de volgende service [eindpunten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) aan het subnet waarin de service worden ingericht:
@@ -47,11 +47,11 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
     > * Opslageindpunt
     > * Service bus-eindpunt
     >
-    > Deze configuratie is nodig omdat de Azure Database Migration Service beschikt niet over de verbinding met internet.
+    > Deze configuratie is nodig omdat Azure Database Migration Service beschikt niet over de verbinding met internet.
 
 * Zorg ervoor dat uw VNet netwerkbeveiligingsgroepsregels de volgende poorten voor binnenkomende communicatie naar Azure Database Migration Service niet blokkeren: 443, 53, 9354, 445 en 12000. Zie het artikel voor meer informatie over Azure VNet NSG wordt verkeer gefilterd, [netwerkverkeer filteren met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Stel uw Windows-firewall open voor toegang van Azure Database Migration Service tot de bronserver van MongoDB. Standaard verloopt dit via TCP-poort 27017.
-* Wanneer u een firewallapparaat gebruikt voor de brondatabase(s), moet u mogelijk firewallregels toevoegen om voor de Azure Database Migration Service toegang tot de brondatabase(s) voor de migratie toe te staan.
+* Open uw Windows-firewall voor Azure Database Migration Service toegang tot de bron MongoDB-server, die standaard TCP-poort 27017 is.
+* Wanneer u een apparaat voor een firewall voor de brondatabase (s), moet u mogelijk toevoegen van firewallregels om toe te staan van Azure Database Migration Service voor toegang tot de brondatabase (s) voor de migratie.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registreer de Microsoft.DataMigration-resourceprovider
 
@@ -79,11 +79,11 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
   
 3. Geef in het scherm **Migratieservice maken** een naam op voor de service, het abonnement en een nieuwe of bestaande resourcegroep.
 
-4. Selecteer het abonnement waarin u het Azure Database Migration Service-exemplaar wilt maken. 
+4. Selecteer de locatie waarin u wilt maken van het exemplaar van Azure Database Migration Service. 
 
 5. Selecteer een bestaand VNet of maak een nieuwe.
 
-    Het VNet biedt de Azure Database Migration Service met toegang tot de bron-MongoDB-exemplaar en de doel-Azure Cosmos DB-account.
+    Het VNet biedt Azure Database Migration Service toegang tot de bron-MongoDB-exemplaar en de doel-Azure Cosmos DB-account.
 
     Zie het artikel voor meer informatie over het maken van een VNet in Azure portal [een virtueel netwerk maken met de Azure-portal](https://aka.ms/DMSVnet).
 
@@ -101,13 +101,13 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
 1. Selecteer in de Azure-portal **Alle diensten**, zoek naar Azure Database Migration Service, en selecteer vervolgens **Azure Database Migration Service**.
 
-      ![Zoek alle exemplaren van de Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb/dms-search.png)
+      ![Zoeken naar alle exemplaren van Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb/dms-search.png)
 
-2. Zoek in het scherm **Azure Database Migration service** naar de naam van de Azure Database Migration Service-instantie die u hebt gemaakt en selecteer vervolgens het exemplaar.
+2. Op de **Azure Database Migration service** scherm, zoek naar de naam van de Azure Database Migration Service-instantie die u hebt gemaakt en selecteer vervolgens het exemplaar.
 
 3. Selecteer + **Nieuw migratieproject**.
 
-4. Geef in het scherm **Nieuw migratieproject** een naam op voor het project in het tekstvak **bronservertype**, selecteer **MongoDB**, selecteer in het tekstvak **Type doelserver** **CosmosDB (MongoDB-API)**, en selecteer bij **Type activiteit kiezen** de optie **Offline gegevensmigratie**. 
+4. Geef in het scherm **Nieuw migratieproject** een naam op voor het project in het tekstvak **bronservertype**, selecteer **MongoDB**, selecteer in het tekstvak **Type doelserver** **CosmosDB (MongoDB-API)** , en selecteer bij **Type activiteit kiezen** de optie **Offline gegevensmigratie**. 
 
     ![Database Migration Service-project maken](media/tutorial-mongodb-to-cosmosdb/dms-create-project.png)
 
@@ -152,9 +152,9 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
 1. Wijs in het scherm **Toewijzen aan doeldatabases** de bron- en doeldatabase voor de migratie toe.
 
-    Als de doeldatabase de naam van de dezelfde database als de bron-database bevat, wordt in de Azure Database Migration Service de doeldatabase standaard geselecteerd.
+    Als de doel-database de naam van de dezelfde database als de bron-database bevat, selecteert Azure Database Migration Service de doeldatabase standaard.
 
-    Als de tekenreeks **Maken** wordt weergegeven naast de naam van de database, is de doeldatabase niet gevonden door Azure Database Migration Service en wordt de database voor u gemaakt.
+    Als de tekenreeks **maken** wordt weergegeven naast de naam van de database, betekent dit dat Azure Database Migration Service de doeldatabase niet vinden en de service worden de database voor u gemaakt.
 
     Op dit moment in de migratie kunt u [doorvoer inrichten](https://docs.microsoft.com/azure/cosmos-db/set-throughput). In Cosmos DB kunt u doorvoer inrichten op het niveau van de database of afzonderlijk voor elke verzameling. Doorvoer wordt gemeten in [Aanvraageenheden](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU's). Meer informatie over de [prijzen van Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
@@ -163,9 +163,12 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 2. Selecteer **Opslaan**.
 3. Vouw in het scherm **Verzamelingsinstelling** de lijst met verzamelingen uit en bekijk welke verzamelingen worden gemigreerd.
 
-    Houd er rekening mee dat in Azure Database Migration Service automatisch alle verzamelingen op het MongoDB-bronexemplaar worden geselecteerd die niet aanwezig zijn op het Azure Cosmos DB-doelaccount. Als u verzamelingen die al gegevens bevatten opnieuw wilt migreren, moet u die verzamelingen expliciet selecteren op deze blade.
+    Azure Database Migration Service automatisch selecteert alle verzamelingen die aanwezig zijn op de bron-MongoDB-exemplaar dat niet aanwezig zijn op de doel-Azure Cosmos DB-account. Als u verzamelingen die al gegevens bevatten opnieuw wilt migreren, moet u die verzamelingen expliciet selecteren op deze blade.
 
-    U kunt opgeven hoeveel RU's u voor de verzamelingen wilt gebruiken. In Azure Database Migration Service worden slimme standaardinstellingen voorgesteld op basis van de grootte van de verzameling.
+    U kunt opgeven hoeveel RU's u voor de verzamelingen wilt gebruiken. Azure Database Migration Service stelt voor slimme standaardinstellingen op basis van de grootte van de verzameling.
+
+    > [!NOTE]
+    > Voer de migratie van de database en verzameling parallel met behulp van meerdere exemplaren van Azure Database Migration Service, indien nodig, om de snelheid van de uitvoering.
 
     U kunt ook een shardsleutel opgeven om te profiteren van [partitionering in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) voor optimale schaalbaarheid. Lees de [best practices voor het selecteren van een shard-/partitiesleutel](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey).
 
@@ -202,7 +205,7 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
 ## <a name="post-migration-optimization"></a>Na de migratie-optimalisatie
 
-Nadat u de gegevens die zijn opgeslagen in de MongoDB-database naar Azure Cosmos DB-API voor MongoDB migreert, kunt u verbinding maken met Azure Cosmos DB en beheren van de gegevens. U kunt ook andere na de migratie uitvoeren optimalisatie stappen zoals - optimaliseert het indexeringsbeleid, het standaardconsistentieniveau bijwerken of wereldwijde distributie voor uw Azure Cosmos DB-account configureren. Zie voor meer informatie de [na de migratie optimalisatie](../cosmos-db/mongodb-post-migration.md) artikel. 
+Nadat u de gegevens die zijn opgeslagen in de MongoDB-database naar Azure Cosmos DB-API voor MongoDB migreert, kunt u verbinding maken met Azure Cosmos DB en beheren van de gegevens. U kunt ook andere stappen na de migratie optimalisatie zoals de optimalisering van het indexeringsbeleid uitvoeren, het standaardconsistentieniveau bijwerken of globale distributie configureren voor uw Azure Cosmos DB-account. Zie voor meer informatie de [na de migratie optimalisatie](../cosmos-db/mongodb-post-migration.md) artikel.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

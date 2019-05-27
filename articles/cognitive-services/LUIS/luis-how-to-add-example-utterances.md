@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197917"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072859"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Een entiteit toevoegen aan de voorbeeld-uitingen 
 
@@ -89,25 +89,6 @@ Ervan uitgaande dat de utterance `Does John Smith work in Seattle?`, een samenge
 
     ![Schermafbeelding van de intenties pagina, met samengestelde entiteit](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>Een hiërarchische entiteit toevoegen
-
-**Hiërarchische entiteiten worden uiteindelijk afgeschaft. Gebruik [entiteit rollen](luis-concept-roles.md) entiteit subtypen, in plaats van hiërarchische entiteiten bepalen.**
-
-Een hiërarchische entiteit is een soort contextueel geleerde en gerelateerde entiteiten. In het volgende voorbeeld bevat de entiteit bron en doel-locaties. 
-
-In de utterance `Move John Smith from Seattle to Cairo`, Seattle, is de verzendingslocatie en Cairo is de doellocatie. Elke locatie is contextueel verschillende en geleerde van woordvolgorde en word keuze in de utterance.
-
-1. Selecteer op de intentie pagina, in de utterance `Seattle`, voert u de naam van de entiteit `Location`, en selecteer vervolgens op Enter.
-
-1. In de **welk type entiteit wilt u maken?** pop-Schakel _hiërarchische_ voor **entiteitstype**, voeg deze `Origin` en `Destination` als onderliggende items, en selecteer vervolgens **gedaan**.
-
-    ![Schermafbeelding van de intenties pagina, met ToLocation entiteit is gemarkeerd](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. Het woord in de utterance is gelabeld met de bovenliggende hiërarchische entiteit. U moet het woord toewijzen aan een onderliggende entiteit. Ga terug naar de utterance op de detailpagina van de intentie. Selecteert u het woord en kies de naam van de entiteit die u hebt gemaakt in de vervolgkeuzelijst en volgt u het menu aan de rechterkant de juiste onderliggende entiteit kiezen.
-
-    >[!CAUTION]
-    >Namen van de onderliggende entiteiten moeten uniek zijn in alle entiteiten in een enkele app. Twee entiteiten met verschillende hiërarchische mag geen onderliggende entiteiten met dezelfde naam bevatten. 
-
 ## <a name="add-entitys-role-to-utterance"></a>De rol van de entiteit toevoegen aan utterance
 
 Een rol is een benoemde subtype van een entiteit, bepaald door de context van de utterance. U kunt een entiteit binnen een utterance als de entiteit markeren of Selecteer een rol binnen die entiteit. Elke entiteit rollen, inclusief de aangepaste entiteiten die machine geleerd zijn (eenvoudige entiteiten en samengestelde entiteiten) kunt hebben, zich niet hebt geleerd van een machine (vooraf gemaakte entiteiten, reguliere expressie entiteiten, lijst met entiteiten). 
@@ -143,9 +124,6 @@ De volgende oplossingen helpen bij het oplossen van de entiteit voorspelling afw
 |Niet-gelabelde tekst|rode lijn|Onjuiste voorspelling|De huidige uitingen met behulp van deze onjuist entiteit moeten worden gecontroleerd via alle intents. De huidige uitingen hebt LUIS mistaught dat deze tekst de voorspelde entiteit is.
 |Correct gelabelde tekst|blauwe entiteit wilt markeren, rood onderstreept|Onjuiste voorspelling|Geef meer uitingen aan de correct gelabelde entiteit op verschillende locaties en het gebruik. De huidige uitingen zijn niet voldoende is om te leren van LUIS dat dit is de entiteit is of vergelijkbare entiteiten worden weergegeven in de context. Vergelijkbare entiteit moet worden gecombineerd in één enkele entiteit zodat LUIS is niet worden verward. Een andere oplossing is het toevoegen van een woordgroepenlijst om te verbeteren van de betekenis van de woorden. |
 |Onjuist gelabelde tekst|blauwe entiteit wilt markeren, rood onderstreept|Juiste voorspelling| Geef meer uitingen aan de correct gelabelde entiteit op verschillende locaties en het gebruik. 
-
-> [!Note]
-> Wanneer een rood kader rond de gelabelde intentie in de rij van de utterance voorbeeld is een [intentie voorspelling fout](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) is opgetreden. U moet deze corrigeren. 
 
 ## <a name="other-actions"></a>Andere acties
 

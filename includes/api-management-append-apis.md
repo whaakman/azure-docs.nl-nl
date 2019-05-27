@@ -1,10 +1,15 @@
 ---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
 ms.openlocfilehash: 2bfa356deeede1c16bd5a464ea7081132a67faf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798425"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238089"
 ---
 ## <a name="append-other-apis"></a>Andere API's toevoegen
 
@@ -16,8 +21,6 @@ Als u een andere API wilt toevoegen aan uw bestaande API, voert u de volgende st
 
 1. Ga naar uw Azure API Management-exemplaar in Azure Portal.
 2. Selecteer **API's** in het menu aan de linkerkant.
-3. Selecteer het beletselsteken (**...** ) naast de API waaraan u een andere API wilt toevoegen.
+3. Selecteer het beletselsteken ( **...** ) naast de API waaraan u een andere API wilt toevoegen.
 4. Selecteer **Importeren** in de vervolgkeuzelijst.
 5. Selecteer de service waaruit een API moet worden geïmporteerd.
-
-

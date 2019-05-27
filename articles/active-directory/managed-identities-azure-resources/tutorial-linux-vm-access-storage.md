@@ -16,11 +16,11 @@ ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb7de72a435faf100d6992815ef8d5ec00cb3581
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66236163"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Zelfstudie: Een door het Linux-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage 
 
@@ -53,7 +53,7 @@ In deze sectie maakt u een opslagaccount.
 1. Klik op de knop **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
 2. Selecteer **Storage** en vervolgens **Opslagaccount - blob, bestand, tabel, wachtrij**.
 3. Geef onder **Naam** een naam voor het opslagaccount op.  
-4. **Implementatiemodel** en **Soort account** moeten respectievelijk worden ingesteld op **Resource Manager** en **Storage (algemeen gebruik v1)**. 
+4. **Implementatiemodel** en **Soort account** moeten respectievelijk worden ingesteld op **Resource Manager** en **Storage (algemeen gebruik v1)** . 
 5. Zorg ervoor dat de waarden van **Abonnement** en **Resourcegroep** overeenkomen met de waarden die u hebt opgegeven bij het maken van de virtuele machine in de vorige stap.
 6. Klik op **Create**.
 

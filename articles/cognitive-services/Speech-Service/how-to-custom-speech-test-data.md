@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785778"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237958"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Gegevens voorbereiden voor de aangepaste spraak
 
@@ -66,8 +66,8 @@ Als uw audio niet voldoet aan deze eigenschappen of als u controleren wilt als d
 
 | Activiteit | Description | SOx opdracht |
 |----------|-------------|-------------|
-| Controleer de audio-indeling | Deze opdracht gebruiken om te controleren of de audio-indeling. | `soxi <filename>.wav` |
-| Audio-indeling converteren | Met deze opdracht kunt u het audio bestand converteren naar één kanaal, 16-bits, 48 KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
+| Controleer de audio-indeling | Deze opdracht gebruiken om te controleren of de audio-indeling. | `sox --i <filename>` |
+| Audio-indeling converteren | Met deze opdracht kunt u het audio bestand converteren naar één kanaal, 16-bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Audio + human etiket transcript gegevens voor testen/training
 

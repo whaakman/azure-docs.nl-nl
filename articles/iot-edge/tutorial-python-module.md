@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 82da44409c4500ff097805efec33cec8cf6bbedd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 09a3ff744e5e3d4a8c62bf8337179b9d8699c3c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575640"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244553"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Zelfstudie: Ontwikkel en implementeer een Python IoT Edge-module voor Linux-apparaten
 
@@ -178,7 +178,7 @@ Elke sjabloon bevat voorbeeldcode. Met deze code worden gesimuleerde sensorgegev
         print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
     ```
 
-6. Voeg in de **HubManager**-klasse een nieuwe regel aan de **__init__**-methode toe om de zojuist toegevoegde functie **module_twin_callback** te initialiseren:
+6. Voeg in de **HubManager**-klasse een nieuwe regel aan de **__init__** -methode toe om de zojuist toegevoegde functie **module_twin_callback** te initialiseren:
 
     ```python
     # Sets the callback when a module twin's desired properties are updated.
@@ -242,7 +242,7 @@ Als u het implementatiemanifest op uw IoT Edge-apparaat toepast, verzamelt de Io
 
 U kunt de status van uw IoT Edge-apparaat bekijken via de sectie **Azure IoT Hub Devices** van de Visual Studio Code explorer. Vouw de details van uw apparaat uit voor een overzicht van de modules die worden geïmplementeerd en uitgevoerd.
 
-1. In de Visual Studio Code-Verkenner met de rechtermuisknop op de naam van uw IoT Edge-apparaat en selecteer **Start Monitoring D2C berichten**.
+1. In de Visual Studio Code-Verkenner met de rechtermuisknop op de naam van uw IoT Edge-apparaat en selecteer **Start Monitoring ingebouwde gebeurtenis eindpunt**.
 
 2. Bekijk de berichten die binnenkomen in uw IoT-Hub. Het duurt even voor de berichten binnenkomen, omdat het IoT Edge-apparaat moet de nieuwe implementatie ontvangen en alle modules te starten. We de wijzigingen in de code PythonModule wacht totdat de temperatuur machine 25 graden is bereikt voordat het verzenden van berichten. Het berichttype ook toegevoegd **waarschuwing** in de berichten die deze temperatuur drempelwaarde bereikt. 
 
@@ -260,7 +260,7 @@ We de moduledubbel PythonModule in het manifest van de implementatie hebt gebrui
 
 5. Met de rechtermuisknop op een willekeurige plaats in het deelvenster en selecteer Bewerken moduledubbel **Update moduledubbel**. 
 
-5. De binnenkomende berichten voor apparaat-naar-cloud bewaken. U ziet de berichten die niet meer totdat de nieuwe temperatuur drempelwaarde is bereikt. 
+6. De binnenkomende berichten voor apparaat-naar-cloud bewaken. U ziet de berichten die niet meer totdat de nieuwe temperatuur drempelwaarde is bereikt. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 
@@ -269,7 +269,6 @@ Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de 
 Anders kunt u de lokale configuraties en de Azure-resources dat u in dit artikel gebruikt om kosten te vermijden verwijderen. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

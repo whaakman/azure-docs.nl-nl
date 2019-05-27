@@ -1,7 +1,7 @@
 ---
 title: Netwerkverkeer filteren - zelfstudie - Azure Portal
 titlesuffix: Azure Virtual Network
-description: In deze zelfstudie leert u hoe u netwerkverkeer filtert naar een subnet, met een netwerkbeveiligingsgroep, met behulp van Azure Portal.
+description: In deze zelfstudie leert u hoe u netwerkverkeer filtert naar een subnet, met een netwerkbeveiligingsgroep met behulp van de Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: ad34c6a876ca21bc7ef32cce638240e0d23b3177
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723908"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242724"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Zelfstudie: Netwerkverkeer filteren met een netwerkbeveiligingsgroep met behulp van Azure Portal
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Zelfstudie: Netwerkverkeer filteren met een netwerkbeveiligingsgroep met behulp van de Azure portal
 
 U kunt het netwerkverkeer inkomend in en uitgaand naar een subnet van een virtueel netwerk filteren met een netwerkbeveiligingsgroep. Netwerkbeveiligingsgroepen bevatten beveiligingsregels die netwerkverkeer filteren op IP-adres, poort en protocol. Beveiligingsregels worden toegepast op resources die zijn geïmplementeerd in een subnet. In deze zelfstudie leert u het volgende:
 
@@ -111,7 +111,7 @@ Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare functies g
 
     | Instelling                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | Doel             | Selecteer **Toepassingsbeveiligingsgroep** en selecteer vervolgens **myAsgWebServers** als **Toepassingsbeveiligingsgroep**.  |
+    | Bestemming             | Selecteer **Toepassingsbeveiligingsgroep** en selecteer vervolgens **myAsgWebServers** als **Toepassingsbeveiligingsgroep**.  |
     | Poortbereiken van doel | Voer 80,443 in                                                                                                    |
     | Protocol                | Selecteer TCP                                                                                                      |
     | Name                    | Allow-Web-All                                                                                                   |
@@ -120,7 +120,7 @@ Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare functies g
 
     | Instelling                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | Doel             | Selecteer **Toepassingsbeveiligingsgroep** en selecteer vervolgens **myAsgMgmtServers** als **Toepassingsbeveiligingsgroep**. |
+    | Bestemming             | Selecteer **Toepassingsbeveiligingsgroep** en selecteer vervolgens **myAsgMgmtServers** als **Toepassingsbeveiligingsgroep**. |
     | Poortbereiken van doel | Voer 3389 in                                                                                                      |
     | Protocol                | Selecteer TCP                                                                                                      |
     | Prioriteit                | Voer 110 in                                                                                                       |

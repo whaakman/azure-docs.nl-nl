@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d98fd0c3417d54321c492b1e47679ec63f8c1603
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: b9ced0b08ed26057a45959f759fb90cbd7efe2a5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835168"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239795"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Zelfstudie: Ontwikkel een C# IoT Edge-module voor Linux-apparaten
 
@@ -50,7 +50,7 @@ Voordat u deze zelfstudie begint, moet u zijn gebleven door middel van de vorige
 * Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure.
 * Een [Linux-apparaat met Azure IoT Edge](quickstart-linux.md).
 * Een containerregister, bijvoorbeeld [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio Code](https://code.visualstudio.com/) geconfigureerd met de [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extensie.
+* [Visual Studio Code](https://code.visualstudio.com/) geconfigureerd met de [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) geconfigureerd voor het uitvoeren van Linux-containers.
 
 Als u wilt deze zelfstudies hebt voltooid, het voorbereiden van de volgende aanvullende vereisten op uw ontwikkelcomputer: 
@@ -298,7 +298,7 @@ Als u het implementatiemanifest op uw IoT Edge-apparaat toepast, verzamelt de Io
 
 U kunt de status van uw IoT Edge-apparaat bekijken via de sectie **Azure IoT Hub Devices** van de Visual Studio Code explorer. Vouw de details van uw apparaat uit voor een overzicht van de modules die worden geïmplementeerd en uitgevoerd.
 
-1. In de Visual Studio Code-Verkenner met de rechtermuisknop op de naam van uw IoT Edge-apparaat en selecteer **Start Monitoring D2C berichten**.
+1. In de Visual Studio Code-Verkenner met de rechtermuisknop op de naam van uw IoT Edge-apparaat en selecteer **Start Monitoring ingebouwde gebeurtenis eindpunt**.
 
 2. Bekijk de berichten die binnenkomen in uw IoT-Hub. Het duurt even voor de berichten binnenkomen, omdat het IoT Edge-apparaat moet de nieuwe implementatie ontvangen en alle modules te starten. We de wijzigingen in de code CModule wacht totdat de temperatuur machine 25 graden is bereikt voordat het verzenden van berichten. Het berichttype ook toegevoegd **waarschuwing** in de berichten die deze temperatuur drempelwaarde bereikt. 
 

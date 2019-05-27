@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4ee3c0bf344520afee6b3a00eb49759ae1432949
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146701"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239777"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Zelfstudie: Ontwikkelen van IoT Edge-modules voor Linux-apparaten
 
@@ -190,7 +190,7 @@ Elke module kunt hebben meerdere *invoer* en *uitvoer* wachtrijen gedeclareerd i
 
 7. Aan de onderkant van het bestand, zoek de gewenste eigenschappen voor de **$edgeHub** module. 
 
-   Een van de functies van de IoT Edge hub-module is het routeren van berichten tussen de modules in een implementatie. Bekijk de waarden in de **routes** eigenschap. De eerste route **SampleModuleToIoTHub**, gebruikt u een jokerteken (**\***) om aan te geven die afkomstig zijn van een uitvoer-wachtrijen in de module SampleModule berichten. Deze berichten met ingang van *$upstream*, dit is een gereserveerde naam die aangeeft van IoT-Hub. De tweede route, sensorToSampleModule, gebruikt die afkomstig zijn van de module tempSensor berichten ontvangen en doorgestuurd naar de *input1* invoerwachtrij die u hebt gezien in de code SampleModule geïnitialiseerd. 
+   Een van de functies van de IoT Edge hub-module is het routeren van berichten tussen de modules in een implementatie. Bekijk de waarden in de **routes** eigenschap. De eerste route **SampleModuleToIoTHub**, gebruikt u een jokerteken ( **\*** ) om aan te geven die afkomstig zijn van een uitvoer-wachtrijen in de module SampleModule berichten. Deze berichten met ingang van *$upstream*, dit is een gereserveerde naam die aangeeft van IoT-Hub. De tweede route, sensorToSampleModule, gebruikt die afkomstig zijn van de module tempSensor berichten ontvangen en doorgestuurd naar de *input1* invoerwachtrij die u hebt gezien in de code SampleModule geïnitialiseerd. 
 
    ![Routes in deployment.template.json bekijken](./media/tutorial-develop-for-linux/deployment-routes.png)
 
@@ -284,7 +284,7 @@ U verifiëren dat de gemaakte containerinstallatiekopieën worden opgeslagen in 
 
 De code SampleModule ontvangt berichten via de invoerwachtrij en doorgegeven aan via de uitvoerwachtrij. Het manifest implementatie gedeclareerd routes die berichten doorgegeven aan SampleModule van tempSensor en die berichten vanaf SampleModule doorgestuurd naar IoT Hub. De Azure IoT-hulpprogramma's voor Visual Studio Code kunnen u berichten te zien wanneer ze op IoT-Hub van uw afzonderlijke apparaten binnenkomen. 
 
-1. Klik in de Visual Studio Code explorer met de rechtermuisknop op het IoT Edge-apparaat dat u wilt controleren, en selecteer vervolgens **Start Monitoring D2C Message**. 
+1. Klik in de Visual Studio Code explorer met de rechtermuisknop op het IoT Edge-apparaat dat u wilt controleren, en selecteer vervolgens **Start Monitoring ingebouwde gebeurtenis eindpunt**. 
 
 2. Bekijk het uitvoervenster van Visual Studio Code om te zien van berichten die binnenkomen in uw IoT-hub. 
 

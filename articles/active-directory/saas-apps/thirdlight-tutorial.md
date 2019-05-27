@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met ThirdLight | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en ThirdLight.
+description: In deze zelfstudie leert u hoe het configureren van eenmalige aanmelding tussen Azure Active Directory en ThirdLight.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,218 +15,219 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: caee6bad1b944b6d1396ea2e26f163629b3c444f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 67c8dcfffd78d4c0114a96622235d6548627fa92
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888829"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Zelfstudie: Azure Active Directory-integratie met ThirdLight
 
-In deze zelfstudie leert u hoe u ThirdLight integreren met Azure Active Directory (Azure AD).
-ThirdLight integreren met Azure AD biedt u de volgende voordelen:
+In deze zelfstudie leert u hoe u ThirdLight integreert met Azure Active Directory (Azure AD). Deze integratie biedt de volgende voordelen:
 
-* U kunt beheren in Azure AD die toegang tot ThirdLight heeft.
-* U kunt uw gebruikers worden automatisch aangemeld ThirdLight (Single Sign-On) met hun Azure AD-accounts inschakelen.
-* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
+* U kunt Azure AD om te bepalen wie toegang tot ThirdLight heeft gebruiken.
+* U kunt uw gebruikers kunnen automatisch worden aangemeld bij ThirdLight (eenmalige aanmelding) met hun Azure AD-accounts inschakelen.
+* U kunt uw accounts in één centrale locatie kunt beheren: de Azure-portal.
 
-Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u meer informatie over SaaS-app-integratie met Azure AD wilt, Zie [eenmalige aanmelding voor toepassingen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met ThirdLight, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met ThirdLight, moet u beschikken over:
 
-* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/)
-* Eenmalige aanmelding ThirdLight ingeschakeld abonnement
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/).
+* Een ThirdLight-abonnement met eenmalige aanmelding ingeschakeld.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
+In deze zelfstudie configureert en Azure AD eenmalige aanmelding testen in een testomgeving.
 
-* Biedt ondersteuning voor ThirdLight **SP** gestart door SSO
+* ThirdLight biedt ondersteuning voor Serviceprovider geïnitieerde eenmalige aanmelding.
 
-## <a name="adding-thirdlight-from-the-gallery"></a>ThirdLight uit de galerie toe te voegen
+## <a name="add-thirdlight-from-the-gallery"></a>ThirdLight uit de galerie toevoegen
 
-Voor het configureren van de integratie van ThirdLight in Azure AD, moet u ThirdLight uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van ThirdLight in Azure AD instelt, moet u ThirdLight uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen ThirdLight uit de galerie, moet u de volgende stappen uitvoeren:**
+1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster **Azure Active Directory**:
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+    ![Selecteer Azure Active Directory](common/select-azuread.png)
 
-    ![De knop Azure Active Directory](common/select-azuread.png)
-
-2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+2. Ga naar **bedrijfstoepassingen** > **alle toepassingen**:
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+3. Als u wilt een toepassing hebt toegevoegd, selecteert u **nieuwe toepassing** aan de bovenkant van het venster:
 
-    ![De knop Nieuwe toepassing](common/add-new-app.png)
+    ![Nieuwe toepassing selecteren](common/add-new-app.png)
 
-4. Typ in het zoekvak **ThirdLight**, selecteer **ThirdLight** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Voer in het zoekvak **ThirdLight**. Selecteer **ThirdLight** in de zoekresultaten en selecteer vervolgens **toevoegen**.
 
-     ![ThirdLight in de lijst met resultaten](common/search-new-app.png)
+     ![Zoekresultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met ThirdLight op basis van een testgebruiker met de naam **Britta Simon**.
-Voor eenmalige aanmelding om te werken, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in ThirdLight tot stand worden gebracht.
+In deze sectie maakt u configureren en testen van Azure AD eenmalige aanmelding met ThirdLight met behulp van een testgebruiker met de naam Britta Simon.
+Om in te schakelen eenmalige aanmelding, moet u een relatie tussen een Azure AD-gebruiker en de bijbehorende gebruiker in ThirdLight vast te stellen.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met ThirdLight, moet u de volgende bouwstenen voltooien:
+Als u wilt configureren en Azure AD eenmalige aanmelding met ThirdLight testen, moet u deze stappen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Configureren van eenmalige aanmelding ThirdLight](#configure-thirdlight-single-sign-on)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Maken van de testgebruiker ThirdLight](#create-thirdlight-test-user)**  : als u wilt een equivalent van Britta Simon in ThirdLight die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  om in te schakelen van de functie voor uw gebruikers.
+2. **[Configureren van eenmalige aanmelding ThirdLight](#configure-thirdlight-single-sign-on)**  aan de toepassing.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  voor het testen van Azure AD eenmalige aanmelding.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  zodat Azure AD eenmalige aanmelding voor de gebruiker.
+5. **[Maak een testgebruiker ThirdLight](#create-a-thirdlight-test-user)**  dat gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
+In deze sectie schakelt u Azure AD eenmalige aanmelding in de Azure-portal.
 
-Voor het configureren van Azure AD eenmalige aanmelding met ThirdLight, moet u de volgende stappen uitvoeren:
+Voor het configureren van Azure AD eenmalige aanmelding met ThirdLight, de volgende stappen uitvoeren:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **ThirdLight** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/), selecteert u op de pagina ThirdLight toepassingen integratie **eenmalige aanmelding**:
 
-    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
+    ![Schakel eenmalige aanmelding](common/select-sso.png)
 
-2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
+2. In de **selecteert u een methode voor eenmalige aanmelding** in het dialoogvenster, selecteer **SAML/WS-Federation** modus voor eenmalige aanmelding inschakelen:
 
-    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
+    ![Selecteer een methode voor eenmalige aanmelding](common/select-saml-option.png)
 
-3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+3. Op de **instellen van eenmalige aanmelding met SAML** weergeeft, schakelt de **bewerken** pictogram opent de **SAML-basisconfiguratie** in het dialoogvenster:
 
-    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
+    ![Pictogram bewerken](common/edit-urls.png)
 
-4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+4. In de **SAML-basisconfiguratie** dialoogvenster vak, voer de volgende stappen uit.
 
-    ![ThirdLight domein en URL's, eenmalige aanmelding informatie](common/sp-identifier.png)
+    ![In het dialoogvenster van Basic SAML-configuratie](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.thirdlight.com/`
+    1. In de **aanmeldings-URL** vak, een URL opgeven in dit patroon:
+    
+          `https://<subdomain>.thirdlight.com/`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<subdomain>.thirdlight.com/saml/sp`
+    1. In de **id (entiteits-ID)** vak, een URL opgeven in dit patroon:
 
-    > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en -id. Neem contact op met [ThirdLight Client ondersteuningsteam](https://www.thirdlight.com/support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+       `https://<subdomain>.thirdlight.com/saml/sp`
 
-5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
+       > [!NOTE]
+       > Deze waarden zijn tijdelijke aanduidingen. U moet de werkelijke aanmeldings-URL en -id gebruiken. Neem contact op met de [ThirdLight ondersteuningsteam](https://www.thirdlight.com/support) om de waarden te verkrijgen. U kunt ook verwijzen naar de patronen die wordt weergegeven in de **SAML-basisconfiguratie** in het dialoogvenster in de Azure-portal.
 
-    ![De link om het certificaat te downloaden](common/metadataxml.png)
+5. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, selecteer de **downloaden** koppelen naast **federatieve metagegevens-XML** , overeenkomstig uw vereisten en slaat u het bestand op uw computer:
 
-6. Op de **ThirdLight instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+    ![De koppeling om het certificaat te downloaden](common/metadataxml.png)
 
-    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+6. In de **ThirdLight instellen** sectie, kopieert u de juiste URL's, op basis van uw vereisten:
 
-    a. Aanmeldings-URL
+    ![De configuratie van URL's kopiëren](common/copy-configuration-urls.png)
 
-    b. Azure AD-id
+    1. **Aanmeldings-URL**.
 
-    c. Afmeldings-URL
+    1. **Azure AD Identifier**.
 
-### <a name="configure-thirdlight-single-sign-on"></a>ThirdLight voor eenmalige aanmelding configureren
+    1. **Afmeldings-URL van**.
 
-1. In een ander browservenster aanmelden bij uw bedrijf ThirdLight site als beheerder.
+### <a name="configure-thirdlight-single-sign-on"></a>ThirdLight eenmalige aanmelding configureren
 
-1. Ga naar **configuratie \> Systeembeheer**, en klik vervolgens op **SAML2**.
+1. In een nieuw browservenster aanmelden bij uw bedrijf ThirdLight site als een beheerder.
+
+1. Ga naar **configuratie** > **Systeembeheer** > **SAML2**:
 
     ![Systeembeheer](./media/thirdlight-tutorial/ic805843.png "Systeembeheer")
 
-1. In de sectie SAML2-configuratie moet u de volgende stappen uitvoeren:
+1. In de sectie SAML2-configuratie moet u de volgende stappen uitvoeren.
   
-    ![SAML Single Sign-On](./media/thirdlight-tutorial/ic805844.png "SAML Single Sign-On")
+    ![De configuratiesectie SAML2](./media/thirdlight-tutorial/ic805844.png "SAML2-configuratiesectie")
 
-    a. Selecteer **inschakelen SAML2 Single Sign-On**.
+    1. Selecteer **inschakelen SAML2 Single Sign-On**.
 
-    b. Als **bron voor de metagegevens van de IdP**, selecteer **IdP-metagegevens laden van XML**.
+    1. Onder **bron voor de metagegevens van de IdP**, selecteer **IdP-metagegevens laden van XML**.
 
-    c. Open het metagegevensbestand gedownload in de Azure-portal, Kopieer de inhoud en plak deze in de **IdP metagegevens-XML** tekstvak.
+    1. Open het bestand met metagegevens die u hebt gedownload van Azure portal in de vorige sectie. Kopieer de inhoud van het bestand en plak deze in de **IdP metagegevens-XML** vak.
 
-    d. Klik op **opslaan SAML2-instellingen**.
+    1. Selecteer **opslaan SAML2-instellingen**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
+In deze sectie maakt u een testgebruiker Britta Simon met de naam in Azure portal.
 
-1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
+1. Selecteer in de Azure portal, **Azure Active Directory** selecteren in het linkerdeelvenster **gebruikers**, en selecteer vervolgens **alle gebruikers**:
 
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
+    ![Selecteer alle gebruikers](common/users.png)
 
-2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
+2. Selecteer **nieuwe gebruiker** aan de bovenkant van het venster:
 
-    ![Knop Nieuwe gebruiker](common/new-user.png)
+    ![Nieuwe gebruiker selecteren](common/new-user.png)
 
-3. In Gebruikerseigenschappen voert u de volgende stappen uit.
+3. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit.
 
-    ![Het dialoogvenster Gebruiker](common/user-properties.png)
+    ![In het dialoogvenster](common/user-properties.png)
 
-    a. Voer in het veld **Naam** **Britta Simon**in.
+    1. Voer in het vak **Naam** **Britta Simon**in.
   
-    b. In de **gebruikersnaam** veldtype `brittasimon@yourcompanydomain.extension`. Bijvoorbeeld BrittaSimon@contoso.com.
+    1. In de **gebruikersnaam** Voer **BrittaSimon @\<uwbedrijfsdomein >.\< extensie >** . (Bijvoorbeeld BrittaSimon@contoso.com.)
 
-    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
+    1. Selecteer **wachtwoord weergeven**, en noteer de waarde in de **wachtwoord** vak.
 
-    d. Klik op **Create**.
+    1. Selecteer **Maken**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan ThirdLight.
+In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding door haar toegang verlenen tot ThirdLight gebruiken.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **ThirdLight**.
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**, en selecteer vervolgens **ThirdLight**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **ThirdLight**.
+2. Selecteer in de lijst met toepassingen **ThirdLight**.
 
-    ![De koppeling ThirdLight in de lijst met toepassingen](common/all-applications.png)
+    ![Lijst met toepassingen](common/all-applications.png)
 
-3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+3. Selecteer in het linkerdeelvenster **gebruikers en groepen**:
 
-    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+    ![Gebruikers en groepen selecteren](common/users-groups-blade.png)
 
-4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+4. Selecteer **Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+    ![Gebruiker toevoegen selecteren](common/add-assign-user.png)
 
-5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+5. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het venster.
 
-6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+6. Als u een waarde voor de rol in het SAML-verklaring verwacht in de **rol selecteren** dialoogvenster Selecteer de juiste rol voor de gebruiker in de lijst. Klik op de **Selecteer** knop aan de onderkant van het venster.
 
-7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+7. Selecteer **Toewijzen** in het dialoogvenster **Toewijzing toevoegen**.
 
-### <a name="create-thirdlight-test-user"></a>ThirdLight testgebruiker maken
+### <a name="create-a-thirdlight-test-user"></a>Maak een testgebruiker ThirdLight
 
-Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij ThirdLight, moeten ze worden ingericht voor ThirdLight.  
-In het geval van ThirdLight is inrichten een handmatige taak.
+Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij ThirdLight, moet u toe te voegen aan ThirdLight. U moet deze handmatig toevoegen.
 
-**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
+Voor het maken van een gebruikersaccount, de volgende stappen uitvoeren:
 
-1. Aanmelden bij uw **ThirdLight** bedrijf site als beheerder.
+1. Aanmelden bij uw bedrijf ThirdLight site als een beheerder.
 
-1. Ga naar **gebruikers** tabblad.
+1. Ga naar de **gebruikers** tabblad.
 
 1. Selecteer **gebruikers en groepen**.
 
-1. Klik op **nieuwe gebruiker toevoegen** knop.
+1. Selecteer **nieuwe gebruiker toevoegen**.
 
-1. Voer **de gebruikersnaam, naam of beschrijving, E-mail, kiest u een vooraf ingestelde of een groep van de nieuwe leden** van een geldige AAD-account dat u inrichten wilt.
+1. Voer de gebruikersnaam, een naam of beschrijving en het e-mailadres van een geldige Azure AD-account dat u wilt inrichten. Kies een vooraf ingestelde of nieuwe leden van de groep.
 
-1. Klik op **Create**.
+1. Selecteer **Maken**.
 
 > [!NOTE]
-> U kunt alle andere Thirdlight gebruiker-account maken van hulpprogramma's of API's geleverd door Thirdlight aan inrichten AAD-gebruikersaccounts.
+> U kunt een hulpprogramma voor het maken van gebruiker-account gebruiken of API wordt geleverd door ThirdLight voor het inrichten van gebruikersaccounts van de Azure AD.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+Nu moet u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
 
-Wanneer u op de tegel ThirdLight in het toegangsvenster, moet u worden automatisch aangemeld bij de ThirdLight waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u de tegel ThirdLight in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de ThirdLight-exemplaar waarvoor u eenmalige aanmelding hebt ingesteld. Zie voor meer informatie over het toegangsvenster, [toegang en gebruik apps op de portal mijn Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Zelfstudies voor het integreren van SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 

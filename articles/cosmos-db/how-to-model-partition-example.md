@@ -1,18 +1,17 @@
 ---
 title: Het model en partitie gegevens op Azure Cosmos DB met behulp van een voorbeeld van een echte
 description: Meer informatie over het model en Maak partities voor een real-world-voorbeeld met behulp van de Core API van Azure Cosmos DB
-author: rockboyfor
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 03/27/2019
-ms.date: 04/15/2019
-ms.author: v-yeche
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/23/2019
+ms.author: thweiss
+ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61057265"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240987"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Het model en partitie gegevens op Azure Cosmos DB met behulp van een voorbeeld van een echte
 
@@ -141,7 +140,7 @@ Bij het ophalen van een gebruiker wordt uitgevoerd door het lezen van het bijbeh
 
 ### <a name="c2-createedit-a-post"></a>[C2] Een bericht maken/bewerken
 
-Op dezelfde manier naar **[C1]**, we net hebben om te schrijven naar de `posts` container.
+Op dezelfde manier naar **[C1]** , we net hebben om te schrijven naar de `posts` container.
 
 ![Schrijven van één item naar de container berichten](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -200,7 +199,7 @@ Hoewel de belangrijkste query worden gefilterd op de partitiesleutel van de cont
 
 ### <a name="c4-like-a-post"></a>[C4] Als een bericht
 
-Net als bij **[C3]**, maken we het overeenkomstige item in de `posts` container.
+Net als bij **[C3]** , maken we het overeenkomstige item in de `posts` container.
 
 ![Schrijven van één item naar de container berichten](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -210,7 +209,7 @@ Net als bij **[C3]**, maken we het overeenkomstige item in de `posts` container.
 
 ### <a name="q5-list-a-posts-likes"></a>VRAAG [5] Lijst van een bericht likes
 
-Net als bij **[K4]**, we query uitvoeren op de likes voor dit item en klik vervolgens in een statistische hun gebruikersnamen.
+Net als bij **[K4]** , we query uitvoeren op de likes voor dit item en klik vervolgens in een statistische hun gebruikersnamen.
 
 ![Bij het ophalen van alle leuk vinden voor een bericht en de aanvullende gegevens verzamelen](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -283,7 +282,7 @@ We ook wijzigen van opmerkingen en items om toe te voegen van de gebruikersnaam 
 
 Wat we willen bereiken, is dat telkens wanneer er een opmerking of een vergelijkbare toevoegt, we ook verhogen de `commentCount` of de `likeCount` in het bijbehorende bericht. Als onze `posts` container is gepartitioneerd op basis van `postId`, het nieuwe item (opmerkingen of zoals) en de bijbehorende post bevinden zich in dezelfde logische partitie. Als gevolg hiervan kunnen worden gebruikt in een [opgeslagen procedure](stored-procedures-triggers-udfs.md) die bewerking uit te voeren.
 
-Nu bij het maken van een opmerking (**[C3]**), in plaats van alleen toe te voegen een nieuw item in de `posts` container noemen we de volgende opgeslagen procedure op die container:
+Nu bij het maken van een opmerking ( **[C3]** ), in plaats van alleen toe te voegen een nieuw item in de `posts` container noemen we de volgende opgeslagen procedure op die container:
 
 ```javascript
 function createComment(postId, comment) {
@@ -334,7 +333,7 @@ In ons voorbeeld gebruiken we de wijzigingenfeed van de `users` container om te 
 ```javascript
 function updateUsernames(userId, username) {
   var collection = getContext().getCollection();
-
+  
   collection.queryDocuments(
     collection.getSelfLink(),
     `SELECT * FROM p WHERE p.userId = '${userId}'`,
@@ -397,7 +396,7 @@ Exact dezelfde situatie wanneer de likes wordt weergegeven.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Zorg dat zijn alle aanvragen schaalbaar
 
-Onze algemene prestatieverbeteringen bekijkt, er zijn nog steeds twee aanvragen die we nog niet volledig geoptimaliseerd: **[Q3]** en **[Q6]**. Ze zijn de aanvragen met betrekking tot query's die niet filteren op de partitiesleutel van de containers die ze richten.
+Onze algemene prestatieverbeteringen bekijkt, er zijn nog steeds twee aanvragen die we nog niet volledig geoptimaliseerd: **[Q3]** en **[Q6]** . Ze zijn de aanvragen met betrekking tot query's die niet filteren op de partitiesleutel van de containers die ze richten.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Lijst met berichten in verkorte vorm van een gebruiker
 
@@ -577,6 +576,3 @@ Na deze inleiding tot praktische gegevens modelleren en te partitioneren, kunt u
 - [Werken met databases, containers en objecten](databases-containers-items.md)
 - [Partitionering in Azure Cosmos DB](partitioning-overview.md)
 - [In Azure Cosmos DB-wijzigingenfeed](change-feed.md)
-
-<!--Update_Description: new articles on how to model partition example -->
-<!--ms.date: 04/15/2019-->

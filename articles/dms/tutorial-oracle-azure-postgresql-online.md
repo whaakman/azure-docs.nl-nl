@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: b73249a9f72e4616f6d36e16f110913278f04590
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/24/2019
+ms.openlocfilehash: 0b3af3d29e6e938f0301d751a79170c7c1964b45
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415604"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243806"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Zelfstudie: Migreren van Oracle naar Azure Database for PostgreSQL online met behulp van DMS (Preview)
 
@@ -24,6 +24,7 @@ U kunt Azure Database Migration Service gebruiken voor het migreren van de datab
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
+>
 > * De migratie zonder veel moeite met het hulpprogramma ora2pg te beoordelen.
 > * De voorbeeldschema met behulp van het hulpprogramma ora2pg migreren.
 > * Maak een instantie van Azure Database Migration Service.
@@ -411,5 +412,5 @@ Nadat de eerste volledige lading is voltooid, worden de databases gemarkeerd als
 ## <a name="next-steps"></a>Volgende stappen
 
 * Raadpleeg het artikel [Bekende problemen/beperkingen met online migraties naar Azure Database for PostgreSQL](known-issues-azure-postgresql-online.md) voor informatie over bekende problemen en beperkingen bij het uitvoeren van online migraties naar Azure Database for PostgreSQL.
-* Zie het artikel [Wat is de Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview) voor informatie over de Azure Database Migration Service.
+* Zie het artikel voor informatie over de Azure Database Migration Service, [wat is Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 * Zie het artikel voor informatie over Azure Database for PostgreSQL, [wat is Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).

@@ -8,19 +8,18 @@ ms.author: raynew
 ms.date: 01/31/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ee0eccced5757c91fca1ba7f77750839bc017f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eec30ec8ff85f2d9a2ba78da2872b081e90c9e33
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722436"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240168"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Problemen bij het maken van back-ups van Azure-bestanden oplossen
 U kunt met behulp van de informatie in de volgende tabellen problemen en fouten oplossen die optreden tijdens het maken van back-ups van Azure-bestandsshares.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Beperkingen voor het maken van back-ups van Azure-bestandsshares in de preview-versie
 Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ondersteund in de accounts voor algemeen gebruik v1 en v2. De volgende back-upscenario's worden niet ondersteund voor Azure-bestandsshares:
-- U kunt Azure-bestandsshares niet beveiligen in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
 - U kunt Azure-bestandsshares niet beveiligen in opslagaccounts waarvoor virtuele netwerken zijn of een firewall is ingeschakeld.
 - Er is geen CLI beschikbaar voor het beveiligen van Azure Files met behulp van Azure Backup.
 - Het maximumaantal geplande back-ups per dag is één.
@@ -28,8 +27,6 @@ Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ond
 - Gebruik [resourcevergrendelingen](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) voor het opslagaccount om per ongeluk verwijderen van back-ups uit de Recovery Services-kluis te voorkomen.
 - Verwijder geen momentopnamen die met Azure Backup zijn gemaakt. Het verwijderen van momentopnamen kan leiden tot het verlies van herstelpunten en/of herstelfouten.
 - Verwijder geen bestandsshares die zijn beveiligd met Azure Backup. Met de huidige oplossing worden alle momentopnamen die zijn gemaakt met Azure Backup, verwijderd zodra de bestandsshare wordt verwijderd. Alle herstelpunten gaan dan dus verloren
-
-\*Azure-bestandsshares in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS) werken als GRS en hiervoor worden GRS-prijzen in rekening gebracht.
 
 Back-up voor Azure-bestandsshares in opslagaccounts met replicatie via [zone-redundante opslag](../storage/common/storage-redundancy-zrs.md) (ZRS) is momenteel alleen beschikbaar in US - centraal (CUS), US - oost (EUS), US - oost 2 (EUS2),Europa - noord (NE), Azië - zuidoost (SEA), Europa - west (WE) en US - west 2 (WUS2).
 

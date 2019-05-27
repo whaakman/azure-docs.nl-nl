@@ -1,7 +1,7 @@
 ---
 title: Dashboard - Language Understanding
 titleSuffix: Azure Cognitive Services
-description: Intents oplossen met het analytics samenvatting dashboard, een gevisualiseerde rapportagetool in te voeren.
+description: Intents herstellen met de analytics-dashboard, een gevisualiseerde rapportagetool in te voeren.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072494"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236950"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Het gebruik van het Dashboard voor het verbeteren van uw app
 
-Opsporen en oplossen van problemen met uw ervaren app-intents wanneer u de voorbeeld-uitingen gebruikt. Het dashboard samenvatting toont de algemene app-gegevens, met belangrijke functies van intents die moeten worden hersteld. 
+Opsporen en oplossen van problemen met uw ervaren app-intents wanneer u de voorbeeld-uitingen gebruikt. Het dashboard toont de algemene app-gegevens, met belangrijke functies van intents die moeten worden hersteld. 
 
 Bekijk de analyse een iteratief proces is, herhaald als u wijzigen en verbeteren van het model van uw Dashboard.
 
@@ -33,16 +33,16 @@ De drie problemen die worden behandeld in het dashboard zijn:
 |Probleem|Grafiekkleur|Uitleg|
 |--|--|--|
 |Gegevens imbalance|-|Dit gebeurt wanneer de hoeveelheid van voorbeeld-uitingen aanzienlijk varieert. Alle intents moeten beschikken over _ongeveer_ hetzelfde aantal uitingen van de voorbeeld -, behalve de intentie geen. Er mag slechts 10-15% van de totale hoeveelheid uitingen hebben in de app.<br><br> Als de gegevens imbalanced zijn, maar de nauwkeurigheid van de intentie hoger dan een bepaalde drempelwaarde komt is, wordt deze imbalance niet gerapporteerd als een probleem.<br><br>**Beginnen met dit probleem - de hoofdoorzaak van de andere problemen kan zijn.**|
-|Onduidelijk voorspellingen|Orange|Dit wordt weergegeven wanneer het belangrijkste doel en de volgende bedoeling scores dicht genoeg bij elkaar dat ze op de volgende training vanwege spiegelen kunnen [negatieve steekproeven](luis-how-to-train.md#train-with-all-data) of meer voorbeeld uitingen toegevoegd aan de bedoeling. |
+|Onduidelijk voorspellingen|Oranje|Dit wordt weergegeven wanneer het belangrijkste doel en de volgende bedoeling scores dicht genoeg bij elkaar dat ze op de volgende training vanwege spiegelen kunnen [negatieve steekproeven](luis-how-to-train.md#train-with-all-data) of meer voorbeeld uitingen toegevoegd aan de bedoeling. |
 |Onjuiste voorspellingen|Rood|Dit gebeurt wanneer een voorbeeld-utterance niet voor de gelabelde intentie (de bedoeling dat deel uitmaakt) wordt voorspeld.|
 
 Juiste voorspellingen worden weergegeven met de kleur blauw.
 
-Het dashboard overzicht ziet u deze problemen en leest u welke intents worden beïnvloed en stelt wat u moet doen om de app verbeteren. 
+Het dashboard ziet u deze problemen en leest u welke intents worden beïnvloed en stelt wat u moet doen om de app verbeteren. 
 
 ## <a name="before-app-is-trained"></a>Voordat de app wordt getraind. 
 
-Voordat u de app en trainen bevat het dashboard samenvatting suggesties voor oplossingen. Uw app om te zien van deze suggesties trainen.  
+Voordat u de app en trainen bevat het dashboard suggesties voor oplossingen. Uw app om te zien van deze suggesties trainen.  
 
 ## <a name="check-your-publishing-status"></a>Controleer de status van uw publiceren
 
@@ -50,7 +50,7 @@ De **publicatiestatus** kaart bevat informatie over de actieve versie het laatst
 
 Controleer of de actieve versie is de versie die u wilt herstellen. 
 
-![Dashboard overzicht geeft van de app externe services, regio's gepubliceerd en eindpunt treffers samengevoegd.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Dashboard toont app externe services, regio's gepubliceerd en eindpunt treffers samengevoegd.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 Dit ook ziet u een externe services, gepubliceerde regio's en eindpunt treffers samengevoegd. 
 
@@ -96,7 +96,7 @@ De **gegevens imbalance** intentie lijst intents die meer uitingen nodig om te c
 
 * Meer utterances toevoegen aan het doel en opnieuw trainen. 
 
-Voeg geen uitingen op de intentie None, tenzij die op het dashboard Netwerkoverzicht wordt voorgesteld.
+Voeg geen uitingen op de intentie None, tenzij die wordt voorgesteld in het dashboard.
 
 > [!Tip]
 > Gebruik van de derde sectie op de pagina **uitingen per bedoeling** met de **uitingen (getal)** instellen als een snelle visual handleiding die intents meer uitingen nodig.  

@@ -125,8 +125,8 @@ De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het code
 
 | Eigenschap | Description |
 |:--- |:--- |
-| ClusterSize |Grootte van het HDInsight-cluster. |
-| TimeToLive |Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
+| clusterSize |Grootte van het HDInsight-cluster. |
+| timeToLive |Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
 | linkedServiceName |Geeft het opslagaccount aan dat wordt gebruikt voor het opslaan van de logboeken die door HDInsight worden gegenereerd |
 
 Houd rekening met de volgende punten:

@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 194ebcc1f1779c927503e09e9c42a96afddb12c9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575819"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239689"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Zelfstudie: Custom Vision Service gebruiken om afbeeldingsclassificatie uit te voeren aan de rand
 
@@ -437,7 +437,7 @@ Bekijk op uw apparaat de logboeken van de module cameraCapture om de berichten t
    iotedge logs cameraCapture
    ```
 
-Klik in Visual Studio Code met de rechtermuisknop op de naam van uw IoT Edge-apparaat en selecteer **Start monitoring D2C message**. 
+In Visual Studio Code, met de rechtermuisknop op de naam van uw IoT Edge-apparaat en selecteer **Start Monitoring ingebouwde gebeurtenis eindpunt**. 
 
 De resultaten van de Custom Vision-module, die als berichten vanuit de module cameraCapture zijn verzonden, geven de waarschijnlijkheid aan dat de afbeelding een Canadese den of een Japanse kers is. Omdat het een afbeelding van een Canadese den is, moet u de waarschijnlijkheid 1.0 zien. 
 

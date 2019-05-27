@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2694d0f22acfb34c07220ad0145b933457961931
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575924"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239646"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Zelfstudie: Azure-functies implementeren als IoT Edge-modules
 
@@ -71,7 +71,7 @@ Maak een C# functiesjabloon oplossing die u met uw eigen code aanpassen kunt.
    | ----- | ----- |
    | Map selecteren | Kies de locatie op uw ontwikkelcomputer waar VS Code de oplossingsbestanden moet maken. |
    | Een naam opgeven voor de oplossing | Voer een beschrijvende naam voor uw oplossing in, bijvoorbeeld **FunctionSolution**, of accepteer de standaardinstelling. |
-   | Modulesjabloon selecteren | Kies **Azure Functions - C#**. |
+   | Modulesjabloon selecteren | Kies **Azure Functions - C#** . |
    | Een modulenaam opgeven | Geef de module de naam **CSharpFunction**. |
    | Opslagplaats voor Docker-afbeeldingen voor de module opgeven | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. De containerafbeelding wordt vooraf gevuld vanuit de laatste stap. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. De uiteindelijke tekenreeks ziet er ongeveer als volgt uit: \<registernaam\>.azurecr.io/CSharpFunction. |
 
@@ -222,12 +222,11 @@ U kunt de Azure-portal gebruiken om uw functiemodule op een IoT Edge-apparaat te
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
-U kunt alle berichten zien die bij de IoT-hub binnenkomen door in het opdrachtpalet de opdracht **Azure IoT Hub: Start Monitoring D2C Message** (Controle D2C-bericht starten) uit te voeren.
+U kunt alle berichten zien die bij de IoT-hub binnenkomen door in het opdrachtpalet de opdracht **Azure IoT Hub: Ingebouwde gebeurtenis eindpunt bewaking starten** in de command palette.
 
-U kunt de weergave ook filteren om alle berichten te zien die bij de IoT-hub binnenkomen vanuit een specifiek apparaat. Klik met de rechtermuisknop op het apparaat in de sectie **Azure IoT Hub Devices** en selecteer **Start Monitoring D2C Messages**.
+U kunt de weergave ook filteren om alle berichten te zien die bij de IoT-hub binnenkomen vanuit een specifiek apparaat. Met de rechtermuisknop op het apparaat in de **Azure IoT Hub-apparaten** sectie en selecteer **Start Monitoring ingebouwde gebeurtenis eindpunt**.
 
-Als u wilt stoppen met het bewaken van berichten, voert u de opdracht **Azure IoT Hub: Stop monitoring D2C message** in het opdrachtpalet uit. 
-
+Als u wilt stoppen met het bewaken van berichten, voert u de opdracht **Azure IoT Hub: Ingebouwde gebeurtenis eindpunt bewaking stoppen** in de command palette. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -245,4 +244,3 @@ Ga verder met de volgende zelfstudies om te leren hoe Azure IoT Edge u verder ka
 
 > [!div class="nextstepaction"]
 > [Gemiddelden zoeken met een zwevend venster in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
-

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 0ce1c8b811c11d0268cde79a609c05e740a529b6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 09cef1758b247810f4ef03be9ebe01b498238ac9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171576"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242829"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST-zelfstudie: Cognitive Services API's aanroepen in een Azure Search indexeren van pijplijn
 
@@ -419,7 +419,7 @@ Het antwoord geeft aan of de indexeerfunctie wordt uitgevoerd. Gebruik nadat het
 
 Waarschuwingen komen veel voor bij sommige combinaties van bronbestand en vaardigheid en wijzen niet altijd op een probleem. In deze zelfstudie zijn de waarschuwingen onschadelijk (bijvoorbeeld geen tekstinvoeren van de JPEG-bestanden). U kunt het statusantwoord bekijken voor uitgebreide informatie over waarschuwingen die tijdens het indexeren zijn verzonden.
  
-## <a name="verify-content"></a>Inhoud verifiëren
+## <a name="query-your-index"></a>Een query uitvoeren in uw index
 
 Voer nadat het indexeren is voltooid query's uit waarmee de inhoud van afzonderlijke velden wordt geretourneerd. Standaard retourneert Azure Search de 50 hoogste resultaten. De voorbeeldgegevens zijn beperkt, dus de standaardinstelling werkt prima. Als u echter werkt met grotere gegevenssets, moet u mogelijk parameters opnemen in de queryreeks om meer resultaten te retourneren. Zie [How to page results in Azure Search](search-pagination-page-layout.md) (Resultaten genereren in Azure Search) voor instructies.
 

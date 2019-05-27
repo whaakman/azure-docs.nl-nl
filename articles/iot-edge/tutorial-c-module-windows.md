@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 93910fd0baeace9da474073960dbdb83251a1a63
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ee64e5a49bf2825c83c74167d7eb75aa3dc59387
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576556"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239824"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Zelfstudie: Een C IoT Edge-module voor Windows-apparaten ontwikkelen
 
@@ -311,7 +311,7 @@ Zorg ervoor dat uw IoT Edge-apparaat actief en werkend is.
 
 2. Met de rechtermuisknop op de naam van de IoT Edge-apparaat dat u wilt ontvangen van de implementatie. 
 
-3. Selecteer **implementatie maken-**.
+3. Selecteer **implementatie maken-** .
 
 4. Selecteer in de bestandenverkenner de **deployment.windows amd64** bestand in de map van de configuratie van uw oplossing. 
 
@@ -326,7 +326,7 @@ U kunt de hulpprogramma's voor IoT Edge-extensie gebruiken om berichten te bekij
 
 1. Selecteer in de Visual Studio cloud explorer, de naam van uw IoT Edge-apparaat. 
 
-2. In de **acties** in de lijst met **Start Monitoring D2C Message**. 
+2. In de **acties** in de lijst met **Start Monitoring ingebouwde gebeurtenis eindpunt**. 
 
 3. Bekijk de berichten die binnenkomen in uw IoT-Hub. Het duurt even voor de berichten binnenkomen, omdat het IoT Edge-apparaat moet de nieuwe implementatie ontvangen en alle modules te starten. We de wijzigingen in de code CModule wacht totdat de temperatuur machine 25 graden is bereikt voordat het verzenden van berichten. Het berichttype ook toegevoegd **waarschuwing** in de berichten die deze temperatuur drempelwaarde bereikt. 
 

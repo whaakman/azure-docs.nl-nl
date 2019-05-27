@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/13/2019
 ms.author: edjez
-ms.openlocfilehash: 536aad0fac4e833cd9a30bad2cfd10e25b0f1300
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607075"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244234"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Beloning scores sitebeheerpunt van persoonlijke instellingen
 
-De score beloning geeft aan hoe goed de keuze personalisatie [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/rank#rankresponse), heeft voor de gebruiker. De waarde van de score van de prijs wordt bepaald door uw zakelijke logica, op basis van metingen van het gedrag van gebruikers.
+De score beloning geeft aan hoe goed de keuze personalisatie [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), heeft voor de gebruiker. De waarde van de score van de prijs wordt bepaald door uw zakelijke logica, op basis van metingen van het gedrag van gebruikers.
 
 Personalizer traint het machine learning-modellen door het evalueren van de voordelen. 
 

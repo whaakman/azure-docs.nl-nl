@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 28ba4397ca5a5fd3c281555238fc7eec8a82943d
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f712cc34a3d41ea9472bf9428606cb378eef8c18
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413674"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244263"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Zelfstudie: Functievlaggen gebruiken in een .NET Core-app
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u het volgende:
 > * Functie-vlaggen in belangrijke onderdelen van uw toepassing voor het beheren van de beschikbaarheid van functies toevoegen.
 > * Integreren met App-configuratie bij het gebruik van deze functie vlaggen beheren.
 
-## <a name="setup"></a>Installatie
+## <a name="setup"></a>Instellen
 
 De manager van de functie .NET Core `IFeatureManager` functie vlaggen opgehaald uit de systeemeigen configuratiesysteem van het framework. Als gevolg hiervan kunt u definiëren van uw toepassing functie vlaggen met behulp van een configuratiebron die .NET Core wordt ondersteund, met inbegrip van de lokale *appsettings.json* bestand of de omgeving variabelen. Functie manager vertrouwt op afhankelijkheidsinjectie .NET Core. U kunt de functie management-services met behulp van standaard conventies registreren.
 
@@ -66,7 +66,7 @@ public class Startup
 }
 ```
 
-Als u een filter in uw functie-vlaggen gebruiken, moet u omvatten een extra bibliotheek en deze te registreren. Het volgende voorbeeld ziet u hoe u een ingebouwde functie filter met de naam **PercentageFilter "**.
+Als u een filter in uw functie-vlaggen gebruiken, moet u omvatten een extra bibliotheek en deze te registreren. Het volgende voorbeeld ziet u hoe u een ingebouwde functie filter met de naam **PercentageFilter "** .
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -262,6 +262,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 In deze zelfstudie hebt u geleerd hoe u functie vlaggen in uw ASP.NET Core-toepassing implementeert door gebruik te maken de `Microsoft.FeatureManagement` bibliotheken. Zie de volgende bronnen voor meer informatie over ondersteuning voor het beheer van functies in ASP.NET Core- en App-configuratie.
 
-* [Functievlag voor ASP.NET Core-voorbeeldcode]()
-* [Microsoft.FeatureManagement-documentatie]()
+* [Functievlag voor ASP.NET Core-voorbeeldcode](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
+* [Microsoft.FeatureManagement-documentatie](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
 * [Functievlaggen beheren](./manage-feature-flags.md)

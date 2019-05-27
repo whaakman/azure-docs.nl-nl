@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/07/2018
-ms.author: gracez
-ms.openlocfilehash: f915a03e2596e6439cbe184bfc8405910f56e2bd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.date: 05/22/2019
+ms.author: wellsi
+ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002292"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237938"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Opmerkingen bij de release van Cognitive Services spraak Devices SDK
 De volgende secties lijst met wijzigingen in de meest recente versies.
+
+## <a name="speech-devices-sdk-151"></a>Spraak apparaten SDK 1.5.1:
+
+*   Opnemen [conversatie transcriptie](conversation-transcription-service.md) in de voorbeeld-app.
+*   Bijgewerkt de [spraak SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) onderdeel naar versie 1.5.1. Zie voor meer informatie de [opmerkingen bij de release](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Cognitive Services spraak apparaten SDK 1.5.0: 2019 mei release
 

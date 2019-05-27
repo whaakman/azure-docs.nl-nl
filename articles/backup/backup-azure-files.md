@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 30544a49f49714eeefbf54d70e54275d2cf9a7ef
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518911"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243553"
 ---
 # <a name="back-up-azure-file-shares"></a>Een back-up maken van Azure-bestandsshares
 In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
@@ -32,7 +32,6 @@ Voordat u een back-up van een Azure-bestandsshare probeert te maken, moet u naga
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Beperkingen voor het maken van back-ups van Azure-bestandsshares in de preview-versie
 Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ondersteund voor de accounts voor algemeen gebruik v1 en v2. De volgende back-upscenario's worden niet ondersteund voor Azure-bestandsshares:
-- U kunt Azure-bestandsshares niet beveiligen in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
 - U kunt Azure-bestandsshares niet beveiligen in opslagaccounts waarvoor virtuele netwerken zijn of een firewall is ingeschakeld.
 - Er is geen CLI beschikbaar voor het beveiligen van Azure Files met behulp van Azure Backup.
 - Het maximumaantal geplande back-ups per dag is één.
@@ -40,8 +39,6 @@ Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ond
 - Gebruik [resourcevergrendelingen](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) voor het opslagaccount om per ongeluk verwijderen van back-ups uit de Recovery Services-kluis te voorkomen.
 - Verwijder geen momentopnamen die met Azure Backup zijn gemaakt. Het verwijderen van momentopnamen kan leiden tot het verlies van herstelpunten en/of herstelfouten.
 - Verwijder geen bestandsshares die zijn beveiligd met Azure Backup. Met de huidige oplossing worden alle momentopnamen die zijn gemaakt met Azure Backup, verwijderd zodra de bestandsshare wordt verwijderd. Alle herstelpunten gaan dan dus verloren
-
-\*Azure-bestandsshares in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS) werken als GRS en hiervoor worden GRS-prijzen in rekening gebracht.
 
 Back-up voor Azure-bestandsshares in opslagaccounts met replicatie via [zone-redundante opslag](../storage/common/storage-redundancy-zrs.md) (ZRS) is momenteel alleen beschikbaar in US - centraal (CUS), US - oost (EUS), US - oost 2 (EUS2),Europa - noord (NE), Azië - zuidoost (SEA), Europa - west (WE) en US - west 2 (WUS2).
 
@@ -52,7 +49,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u al een Azure-bestandsshare hebt g
 
     ![Kies Azure-bestandsshare als back-updoel](./media/backup-file-shares/overview-backup-page.png)
 
-2. Kies in het menu **Doel van de back-up**, bij **Waarvan wilt u een back-up maken?**, de optie Azure-bestandsshare.
+2. Kies in het menu **Doel van de back-up**, bij **Waarvan wilt u een back-up maken?** , de optie Azure-bestandsshare.
 
     ![Kies Azure-bestandsshare als back-updoel](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -166,7 +163,7 @@ Ga als volgt te werk om de beveiliging van een Azure-bestandsshare te stoppen:
 
    ![Klik op Back-up om de Azure-bestandsshare aan de kluis te koppelen](./media/backup-file-shares/list-of-backup-items.png)
 
-2. In de lijst **Type back-upbeheer** selecteert u **Azure Storage (Azure-bestanden)**. De lijst met back-upitems voor (Azure Storage (Azure-bestanden)) wordt weergegeven.
+2. In de lijst **Type back-upbeheer** selecteert u **Azure Storage (Azure-bestanden)** . De lijst met back-upitems voor (Azure Storage (Azure-bestanden)) wordt weergegeven.
 
    ![Klik op het item om het extra menu te openen](./media/backup-file-shares/azure-file-share-backup-items.png)
 

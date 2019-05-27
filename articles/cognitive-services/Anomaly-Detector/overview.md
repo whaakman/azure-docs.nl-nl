@@ -1,5 +1,5 @@
 ---
-title: Wat is de detectie van afwijkingen API? | Microsoft Docs
+title: Wat is de Anomaly Detector-API? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Gebruik geavanceerde algoritmen afwijkingen Detector-API's om te identificeren van afwijkingen in uw time series-gegevens.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473161"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64415804"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>Wat is de detectie van afwijkingen API?
+# <a name="what-is-the-anomaly-detector-api"></a>Wat is de Anomaly Detector-API?
 
 De detectie van afwijkingen API kunt u om te controleren en detecteren van afwijkingen in uw time series-gegevens met machine learning. De detectie van afwijkingen API worden aangepast door het automatisch identificeren en de best passende modellen toepassen op uw gegevens, ongeacht de branche, scenario of gegevensvolume. Met behulp van uw time series-gegevens, de API bepaalt grenzen voor detectie van afwijkingen, verwachte waarden, en welke gegevenspunten zijn afwijkingen.
 

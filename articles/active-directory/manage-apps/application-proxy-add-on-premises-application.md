@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8b9709e7294e8cb7819afe3ec9f6eb5a06427
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 31992a08c1b6c4fda4053032458879661fe2b740
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015429"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233771"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Zelfstudie: Een on-premises toepassing voor externe toegang toevoegen via Application Proxy in Azure Active Directory
 
@@ -51,9 +51,9 @@ Om een hoge beschikbaarheid in uw productieomgeving te realiseren wordt aangerad
 
 2. De connectorserver en de webservers van toepassingen moeten deel uitmaken van hetzelfde Active Directory-domein of vertrouwde domeinen. De servers die in hetzelfde domein of domeinen vertrouwen is vereist voor het gebruik van eenmalige aanmelding (SSO) met geïntegreerde Windows-verificatie (IWA) en Kerberos-beperkte delegatie (KCD). Als de connectorserver en de webtoepassingsservers zich in verschillende Active Directory-domeinen bevinden, moet u delegatie op basis van resources gebruiken voor eenmalige aanmelding. Zie [KCD voor eenmalige aanmelding met Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md) voor meer informatie.
 
-#### <a name="software-requirements"></a>Softwarevereisten
+#### <a name="tls-requirements"></a>TLS-vereisten
 
-Voor de Windows-connectorserver moet TLS 1.2 zijn ingeschakeld voordat u de Application Proxy-connector installeert. Bestaande connectors met een versie lager dan 1.5.612.0 blijven tot nader order werken in eerdere versies van TLS. 
+Voor de Windows-connectorserver moet TLS 1.2 zijn ingeschakeld voordat u de Application Proxy-connector installeert.
 
 TLS 1.2 inschakelen:
 
@@ -67,6 +67,9 @@ TLS 1.2 inschakelen:
     ```
 
 2. De server opnieuw opstarten.
+
+>[!Important] 
+> Voor de best mogelijke codering voor onze klanten, stellen we updates voor de Application Proxy-service de toegang beperken tot alleen de protocollen TLS 1.2. Op basis van de gereedheid van de klant wijzigingen wordt geleidelijk aan worden geïmplementeerd op klanten die alleen gebruikmaakt van TLS 1.2-protocollen en eventuele gevolgen van deze wijziging niet meer te zien. TLS 1.0 en 1.1 afschaffing wordt voltooid op 31 augustus 2019 en klanten ontvangt van tevoren om voor te bereiden voor deze wijziging. Om voor te bereiden voor deze wijziging Zorg ervoor dat die alle combinaties van client / server- en browser-server bijgewerkt met het gebruik van TLS 1.2 verbinding met de service voor toepassingsproxy onderhouden. Het gaat hierbij om clients die uw gebruikers gebruiken voor toegang tot toepassingen die zijn gepubliceerd via toepassingsproxy. Zie voorbereidingen voor [TLS 1.2 in Office 365](https://docs.microsoft.com/en-us/office365/troubleshoot/prepare-tls-1.2-in-office-365) voor handige naslaginformatie en bronnen.
 
 ## <a name="prepare-your-on-premises-environment"></a>Bereid uw on-premises omgeving voor
 
