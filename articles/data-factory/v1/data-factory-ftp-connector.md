@@ -68,11 +68,11 @@ De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor een FTP-g
 | type |Stel dit in op FtpServer. |Ja |&nbsp; |
 | host |Geef de naam of IP-adres van de FTP-server. |Ja |&nbsp; |
 | authenticationType |Geef het verificatietype. |Ja |Basic-, anonieme |
-| gebruikersnaam |De gebruiker die toegang tot de FTP-server heeft opgeven. |Nee |&nbsp; |
+| username |De gebruiker die toegang tot de FTP-server heeft opgeven. |Nee |&nbsp; |
 | password |Geef het wachtwoord voor de gebruiker (gebruikersnaam). |Nee |&nbsp; |
 | encryptedCredential |Geef de versleutelde referenties voor toegang tot de FTP-server. |Nee |&nbsp; |
 | gatewayName |Geef de naam van de gateway in de Data Management Gateway verbinding maken met een on-premises FTP-server. |Nee |&nbsp; |
-| poort |Geef de poort waarop de FTP-server luistert. |Nee |21 |
+| port |Geef de poort waarop de FTP-server luistert. |Nee |21 |
 | enableSsl |Geef op of u FTP via een SSL/TLS-kanaal. |Nee |true |
 | enableServerCertificateValidation |Geef op of validatie van het servercertificaat SSL inschakelen wanneer u FTP via SSL/TLS-kanaal. |Nee |true |
 
@@ -159,8 +159,8 @@ De **typeProperties** sectie verschilt voor elk type gegevensset. Het bevat info
 | fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een specifiek bestand in de map. Als u een waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Wanneer **fileName** niet is opgegeven voor een uitvoergegevensset, de naam van het gegenereerde bestand bevindt zich in de volgende indeling: <br/><br/>`Data.<Guid>.txt` (Voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nee |
 | fileFilter |Geef een filter op dat moet worden gebruikt voor het selecteren van een subset van de bestanden in de **folderPath**, in plaats van alle bestanden.<br/><br/>Toegestane waarden zijn: `*` (meerdere tekens) en `?` (Eén teken).<br/><br/>Voorbeeld 1: `"fileFilter": "*.log"`<br/>Voorbeeld 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is van toepassing voor een invoergegevensset van de bestandsshare. Deze eigenschap wordt niet ondersteund met Hadoop Distributed File System (HDFS). |Nee |
 | partitionedBy |Hiermee geeft u een dynamisch **folderPath** en **fileName** voor time series-gegevens. Bijvoorbeeld, kunt u een **folderPath** die voor elk uur gegevens met parameters. |Nee |
-| Indeling | De volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling ](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt kopiëren van bestanden, omdat ze tussen winkels op basis van bestanden (binaire kopie zijn), slaat u het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer. |Nee |
-| Compressie | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**, en ondersteunde niveaus zijn **optimale** en **snelste**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
+| format | De volgende bestandsindelingen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [Json-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [Parquet-indeling ](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt kopiëren van bestanden, omdat ze tussen winkels op basis van bestanden (binaire kopie zijn), slaat u het gedeelte indeling in beide definities van de gegevensset voor invoer en uitvoer. |Nee |
+| compression | Geef het type en het niveau van compressie voor de gegevens. Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**, en ondersteunde niveaus zijn **optimale** en **snelste**. Zie voor meer informatie, [bestands- en compressie indelingen in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
 | useBinaryTransfer |Geef op of de binaire overdrachtsmodus gebruiken. De waarden zijn true voor binaire modus (dit is de standaardwaarde), en ONWAAR voor ASCII. Deze eigenschap kan alleen worden gebruikt bij het type van de bijbehorende gekoppelde service is van het type: FtpServer. |Nee |
 
 > [!NOTE]
@@ -206,7 +206,7 @@ In de kopieeractiviteit, wanneer de bron van het type **FileSystemSource**, de v
 
 | Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| recursieve |Geeft aan of de gegevens recursief worden gelezen uit de submappen, of alleen voor de opgegeven map. |True, False (standaard) |Nee |
+| recursive |Geeft aan of de gegevens recursief worden gelezen uit de submappen, of alleen voor de opgegeven map. |True, False (standaard) |Nee |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON-voorbeeld: Gegevens kopiëren van de FTP-server naar Azure Blob
 Dit voorbeeld laat zien hoe u gegevens kopiëren van een FTP-server naar Azure Blob-opslag. Echter gegevens kunnen worden gekopieerd naar een van de sinks vermeld in de de [ondersteunde gegevensarchieven en indelingen](data-factory-data-movement-activities.md#supported-data-stores-and-formats), met behulp van de kopieeractiviteit in Data Factory.
