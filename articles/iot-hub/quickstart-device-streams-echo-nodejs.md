@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub-apparaatstreams met Node.js, quickstart (preview) | Microsoft Docs
+title: Communiceren met een apparaat-app in Node.js via IoT Hub apparaat-streams (preview) | Microsoft Docs
 description: In deze quickstart voert u een Node.js-toepassing aan de servicezijde uit die via een apparaatstream communiceert met een IoT-apparaat.
 author: rezasherafat
 manager: briz
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 0ad9986c2d4d9e44d13f37fe2aa1629373f4841a
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: HT
+ms.openlocfilehash: 9a123c35620cd82059eb08d370939761f7c2fe69
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595151"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834049"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Quickstart: Communiceren met een apparaattoepassing in Node.js via IoT Hub-apparaatstreams (preview)
 
@@ -23,7 +23,11 @@ ms.locfileid: "65595151"
 
 Microsoft Azure IoT Hub apparaat-streams als op dit moment ondersteunt een [preview-functie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub-apparaatstreams](./iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. Gedurende de openbare preview biedt de Node.js SDK alleen ondersteuning voor apparaatstreams aan de servicezijde. Daarom bevat deze quickstart alleen instructies voor het uitvoeren van de toepassing aan de servicezijde. Voer een bijbehorende toepassing aan de apparaatzijde uit. Deze is beschikbaar in de handleiding [Quickstart voor C](./quickstart-device-streams-echo-c.md) of [Quickstart voor C#](./quickstart-device-streams-echo-csharp.md).
+[IoT Hub-apparaatstreams](./iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. Gedurende de openbare preview biedt de Node.js SDK alleen ondersteuning voor apparaatstreams aan de servicezijde. Daarom bevat deze quickstart alleen instructies voor het uitvoeren van de toepassing aan de servicezijde. U moet een bijbehorende apparaat-side '-toepassing uitvoeren vanaf een van de volgende Quick starts:
+
+* [Communiceren met de apparaat-apps in C via IoT Hub apparaat-streams](./quickstart-device-streams-echo-c.md)
+
+* [Communiceren met apps op apparaten in C# via IoT Hub apparaat-streams](./quickstart-device-streams-echo-csharp.md).
 
 De Node.js-toepassing aan de servicezijde in deze quickstart heeft de volgende functionaliteit:
 
@@ -41,12 +45,13 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
 
-  - **US - centraal**
-  - **VS-midden EUAP**
+*  **US - centraal**
+
+*  **VS-midden EUAP**
 
 Voor het uitvoeren van de toepassing aan de serverkant in deze snelstartgids moet u Node.js v10.x.x of hoger op uw ontwikkelcomputer.
 
-U kunt Node.js voor meerdere platforms downloaden van [Node.js.org](https://nodejs.org).
+U kunt Node.js downloaden voor meerdere platforms van [Nodejs.org](https://nodejs.org).
 
 Gebruik de volgende opdracht om de huidige versie van Node.js op uw ontwikkelcomputer te controleren:
 
@@ -62,13 +67,11 @@ az extension add --name azure-cli-iot-ext
 
 Als u dit nog niet hebt gedaan, downloadt u het voorbeeldproject met Node.js van https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip en pakt u het ZIP-archief uit.
 
-
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
 Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-node.md), kunt u deze stap overslaan.
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
-
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
@@ -86,7 +89,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. U hebt ook een _service-verbindingsreeks_ nodig, zodat de back-end-toepassing verbinding kan maken met de IoT-hub en de berichten kan ophalen. Met de volgende opdracht haalt u de serviceverbindingsreeks voor uw IoT-hub op:
+2. U hebt ook een *service-verbindingsreeks* nodig, zodat de back-end-toepassing verbinding kan maken met de IoT-hub en de berichten kan ophalen. Met de volgende opdracht haalt u de serviceverbindingsreeks voor uw IoT-hub op:
 
     **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
@@ -98,53 +101,59 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Communicatie tussen apparaat en service via apparaatstreams
+
+In deze sectie maakt u de apparaat-side '-toepassing en de toepassing aan de serverkant uitvoeren en communicatie tussen de twee.
 
 ### <a name="run-the-device-side-application"></a>De toepassing aan de apparaatzijde uitvoeren
 
-Zoals eerder vermeld, biedt de IoT Hub Node.js SDK alleen ondersteuning voor apparaatstreams aan de servicezijde. Voor de toepassing aan de apparaatzijde gebruikt u de bijbehorende apparaatprogramma’s die beschikbaar zijn in de handleiding [Quickstart voor C](./quickstart-device-streams-echo-c.md) of [Quickstart voor C#](./quickstart-device-streams-echo-csharp.md). Controleer of de toepassing aan apparaatzijde wordt uitgevoerd voordat u naar de volgende stap gaat.
+Zoals eerder vermeld, biedt de IoT Hub Node.js SDK alleen ondersteuning voor apparaatstreams aan de servicezijde. Gebruik de bijbehorende apparaatprogramma beschikbaar in een van deze Quick starts voor apparaat-side '-toepassing:
 
+   * [Communiceren met de apparaat-apps in C via IoT Hub apparaat-streams](./quickstart-device-streams-echo-c.md)
+
+   * [Communiceren met apps op apparaten in C# via IoT Hub apparaat-streams](./quickstart-device-streams-echo-csharp.md)
+
+Controleer of de toepassing aan apparaatzijde wordt uitgevoerd voordat u naar de volgende stap gaat.
 
 ### <a name="run-the-service-side-application"></a>De toepassing aan de servicezijde uitvoeren
 
 Ervan uitgaande dat de toepassing aan de apparaatzijde wordt uitgevoerd, volgt u de volgende stappen voor het uitvoeren van de toepassing aan de serverzijde in Node.js:
 
-- Geef de referenties van uw service en de apparaat-id op als omgevingsvariabelen.
-  ```
-  # In Linux
-  export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
-  export STREAMING_TARGET_DEVICE="MyDevice"
+* Geef de referenties van uw service en de apparaat-id op als omgevingsvariabelen.
+ 
+   ```
+   # In Linux
+   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export STREAMING_TARGET_DEVICE="MyDevice"
 
-  # In Windows
-  SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
-  SET STREAMING_TARGET_DEVICE=MyDevice
-  ```
-  Wijzig `MyDevice` in de apparaat-id die u voor uw apparaat hebt gekozen.
-
-- Navigeer naar `Quickstarts/device-streams-service` in de uitgepakte projectmap en voer het voorbeeld uit met behulp van het knooppunt.
-  ```
-  cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+   # In Windows
+   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET STREAMING_TARGET_DEVICE=MyDevice
+   ```
   
-  # Install the preview service SDK, and other dependencies
-  npm install azure-iothub@streams-preview
-  npm install
+   Wijzig `MyDevice` in de apparaat-id die u voor uw apparaat hebt gekozen.
 
-  node echo.js
-  ```
+* Navigeer naar `Quickstarts/device-streams-service` in de uitgepakte projectmap en voer het voorbeeld uit met behulp van het knooppunt.
 
-Aan het einde van de laatste stap initieert de toepassing aan de servicezijde een stream naar uw apparaat die vervolgens via de stroom een tekenreeksbuffer naar de service verzendt. In dit voorbeeld leest de toepassing aan de serverzijde de stdin op de terminal en verzendt deze naar het apparaat, die de stdin op zijn beurt terugstuurt. Hiermee wordt een geslaagde bidirectionele communicatie tussen de twee toepassingen aangegeven.
+   ```
+   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+    
+   # Install the preview service SDK, and other dependencies
+   npm install azure-iothub@streams-preview
+   npm install
 
-Console-uitvoer aan de servicezijde: ![alt-tekst](./media/quickstart-device-streams-echo-nodejs/service-console-output.PNG "Console-uitvoer aan de servicezijde")
+   node echo.js
+   ```
 
+Aan het einde van de laatste stap initieert de toepassing aan de servicezijde een stream naar uw apparaat die vervolgens via de stroom een tekenreeksbuffer naar de service verzendt. In dit voorbeeld leest het programma aan de serverkant gewoon de `stdin` op de terminal en verzendt dit naar het apparaat en deze wordt vervolgens echo deze terug. Hiermee wordt een geslaagde bidirectionele communicatie tussen de twee toepassingen aangegeven.
+
+![Aan de serverkant console-uitvoer](./media/quickstart-device-streams-echo-nodejs/service-console-output.png)
 
 Vervolgens kunt u het programma beëindigen door nogmaals op Enter te drukken.
 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

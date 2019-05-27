@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a468c2f3b1b3034c817ac19988420b68e18deb83
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192196"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849856"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor beveiliging van clusters en upgrades in Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ Zie voor meer informatie over Azure AD-integratie en RBAC [aanbevolen procedures
 
 Op dezelfde manier dat gebruikers of groepen de minste Verleen aantal bevoegdheden vereist, containers moeten ook worden beperkt tot alleen de acties en processen die ze nodig hebben. Niet configureren om te beperken het risico van aanvallen, toepassingen en containers die geëscaleerde bevoegdheden is vereist of de hoofd-toegang. Bijvoorbeeld, stel `allowPrivilegeEscalation: false` in het manifest schil. Deze *pod beveiligingscontext* zijn ingebouwd in Kubernetes en kunt u extra machtigingen, zoals de gebruiker of groep uit te voeren als, opgeven of de Linux-mogelijkheden om beschikbaar te stellen. Zie voor meer best practices, [pod beveiligde toegang tot resources][pod-security-contexts].
 
-Voor gedetailleerdere controle van de containeracties u kunt ook gebruiken ingebouwde Linux-beveiligingsfuncties, zoals *AppArmor* en *seccomp*. Deze functies zijn gedefinieerd op het knooppuntniveau van het en vervolgens is geïmplementeerd via een pod-manifest.
+Voor gedetailleerdere controle van de containeracties u kunt ook gebruiken ingebouwde Linux-beveiligingsfuncties, zoals *AppArmor* en *seccomp*. Deze functies zijn gedefinieerd op het knooppuntniveau van het en vervolgens is geïmplementeerd via een pod-manifest. Ingebouwde beveiligingsfuncties voor Linux zijn alleen beschikbaar op Linux-knooppunten en schillen.
 
 > [!NOTE]
 > Kubernetes-omgevingen in AKS of ergens anders, zijn niet volledig veilig voor onveilig multitenant gebruik. Aanvullende beveiligingsfuncties zoals *AppArmor*, *seccomp*, *Pod beveiligingsbeleid*, of meer fijnmazig op rollen gebaseerd toegangsbeheer (RBAC) voor knooppunten aanvallen maken moeilijker. Voor de waarde true beveiliging bij het uitvoeren van workloads voor onveilig multitenant, is een hypervisor echter de enige niveau van beveiliging die u moet vertrouwen. Het beveiligingsdomein voor Kubernetes wordt het hele cluster, niet een afzonderlijke knooppunten. Voor deze typen werkbelastingen voor onveilig multitenant, moet u fysiek geïsoleerd clusters.
@@ -193,13 +193,13 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 Zie voor meer informatie over upgrades in AKS [ondersteund Kubernetes-versies in AKS] [ aks-supported-versions] en [een AKS-cluster upgraden][aks-upgrade].
 
-## <a name="process-node-updates-and-reboots-using-kured"></a>Proces knooppunt updates en opnieuw is opgestart met behulp van kured
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Proces Linux knooppunt updates en opnieuw is opgestart met behulp van kured
 
-**Aanbevolen procedurerichtlijn** - AKS automatisch gedownload en geïnstalleerd beveiliging worden opgelost op elk van de worker-knooppunten, maar wordt niet automatisch opnieuw opgestart als dat nodig. Gebruik `kured` wilt bekijken voor in afwachting van opnieuw wordt opgestart, en vervolgens veilig cordon en leegmaken van het knooppunt om toe te staan van het knooppunt opnieuw op te starten, de updates toepassen en net zo veilig mogelijk met betrekking tot het besturingssysteem.
+**Aanbevolen procedurerichtlijn** - AKS automatisch gedownload en geïnstalleerd beveiliging worden opgelost op elke Linux-knooppunten, maar wordt niet automatisch opnieuw opgestart als dat nodig. Gebruik `kured` wilt bekijken voor in afwachting van opnieuw wordt opgestart, en vervolgens veilig cordon en leegmaken van het knooppunt om toe te staan van het knooppunt opnieuw op te starten, de updates toepassen en net zo veilig mogelijk met betrekking tot het besturingssysteem. Voor Windows Server-knooppunten (momenteel in preview in AKS), moet u regelmatig een AKS-upgradebewerking veilig cordon en schillen leegmaken en implementeren van bijgewerkte knooppunten uitvoeren.
 
-Elke avond ophalen de AKS-knooppunten beveiligingspatches beschikbaar via de distributie-kanaal bijwerken. Dit gedrag wordt automatisch geconfigureerd wanneer de knooppunten in een AKS-cluster worden geïmplementeerd. Om te beperken wordt onderbroken en mogelijke impact op actieve werkbelastingen, knooppunten worden niet automatisch opnieuw opgestart als een beveiligingspatch of kernel-update vereist is.
+Elke avond get Linux-knooppunten in AKS-beveiligingspatches beschikbaar via de distributie-kanaal bijwerken. Dit gedrag wordt automatisch geconfigureerd wanneer de knooppunten in een AKS-cluster worden geïmplementeerd. Om te beperken wordt onderbroken en mogelijke impact op actieve werkbelastingen, knooppunten worden niet automatisch opnieuw opgestart als een beveiligingspatch of kernel-update vereist is.
 
-De open-source [kured (KUbernetes opnieuw opstarten Daemon)] [ kured] project door deze te Weaveworks controleert op in behandeling zijnde knooppunt opnieuw wordt opgestart. Wanneer een knooppunt van de toepassing is voor updates waarvoor opnieuw worden opgestart, wordt het knooppunt veilig afgebakend en geleegd om te verplaatsen en plannen van de pods op andere knooppunten in het cluster. Wanneer het knooppunt opnieuw wordt opgestart, wordt deze toegevoegd in het cluster en de Kubernetes-hervat schillen op deze planning. Om te beperken wordt onderbroken, mag slechts één knooppunt tegelijk opnieuw worden opgestart door `kured`.
+De open-source [kured (KUbernetes opnieuw opstarten Daemon)] [ kured] project door deze te Weaveworks controleert op in behandeling zijnde knooppunt opnieuw wordt opgestart. Wanneer een Linux-knooppunt van de toepassing is voor updates waarvoor opnieuw worden opgestart, wordt het knooppunt veilig afgebakend en geleegd om te verplaatsen en plannen van de pods op andere knooppunten in het cluster. Wanneer het knooppunt opnieuw wordt opgestart, wordt deze toegevoegd in het cluster en de Kubernetes-hervat schillen op deze planning. Om te beperken wordt onderbroken, mag slechts één knooppunt tegelijk opnieuw worden opgestart door `kured`.
 
 ![Het proces AKS knooppunt opnieuw opstarten met behulp van kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287971"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864455"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -98,7 +98,7 @@ Als u de gerapporteerde gegevens wilt beperken tot een bepaald niveau, kunt u de
 
 - Gebruiker
 - Toepassing
-- Aanmeldingsstatus
+- Aanmeldstatus
 - Voorwaardelijke toegang
 - Date
 
@@ -127,25 +127,32 @@ Mogelijke waarden zijn:
 - 1 maand
 - 7 dagen
 - 24 uur
-- Aangepast tijdsinterval
+- Aangepaste tijdinterval
 
 Wanneer u een aangepast tijdsbestek selecteert, kunt u een begintijd en eindtijd configureren.
 
-Als u extra velden toevoegt aan uw aanmeldingsweergave, worden deze velden automatisch toegevoegd aan de lijst met filters. Als u bijvoorbeeld het veld **Client-app** aan uw lijst toevoegt, krijgt u ook een andere filteroptie waarmee u de volgende filters kunt instellen:
-
-- Browser      
-- Exchange ActiveSync (ondersteund)               
-- Exchange ActiveSync (niet ondersteund)
-- Andere clients               
-    - IMAP
-    - MAPI
-    - Oudere Office-clients
-    - POP
-    - SMTP
-
-
+Als u extra velden toevoegt aan uw aanmeldingsweergave, worden deze velden automatisch toegevoegd aan de lijst met filters. Als u bijvoorbeeld het veld **Client-app** aan uw lijst toevoegt, krijgt u ook een andere filteroptie waarmee u de volgende filters kunt instellen:  
 ![Aanmeldingsactiviteit](./media/concept-sign-ins/12.png "Aanmeldingsactiviteit")
 
+- **Browser**  
+    Met dit filter worden alle gebeurtenissen waar aanmeldingspogingen zijn uitgevoerd met behulp van browser stromen.
+- **Exchange ActiveSync (ondersteund)**  
+    Met dit filter worden alle aanmeldpogingen waar het Exchange ActiveSync (EAS)-protocol is geprobeerd van ondersteunde platforms zoals iOS, Android en Windows Phone.
+- **Exchange ActiveSync (niet ondersteund)**  
+    Met dit filter worden alle aanmeldpogingen waar de EAS-protocol is geprobeerd van niet-ondersteunde platforms, zoals Linux-distributies.
+- **Mobile Apps en bureaubladclients** met dit filter worden alle aanmeldpogingen die nog geen gebruik van browser stromen. Dit kan zijn mobiele apps van elk platform met behulp van elk protocol of van bureaublad-client-apps zoals Office op Windows of Mac OS.
+  
+- **Andere clients**
+    - **IMAP**  
+        Een verouderde e-mailclient IMAP gebruiken voor het ophalen van e-mail.
+    - **MAPI**  
+        Office 2013, waarin de ADAL is ingeschakeld en het wordt MAPI gebruikt.
+    - **Oudere Office-clients**  
+        Office 2013 in de standaardconfiguratie waarin ADAL niet is ingeschakeld en maakt gebruik van MAPI- of Office 2016 waarbij ADAL zijn uitgeschakeld.
+    - **POP**  
+        Een verouderde e-mailclient POP3 gebruiken voor het ophalen van e-mail.
+    - **SMTP**  
+        Een verouderde e-mailclient via SMTP om e-mail te verzenden.
 
 ## <a name="download-sign-in-activities"></a>Aanmeldactiviteiten downloaden
 
@@ -183,17 +190,17 @@ Elke rij in de lijst met aanmeldingsactiviteiten geeft het volgende weer:
 
 Door op een item te klikken, krijgt u meer informatie over de aanmelding:
 
-- Gebruikers-ID
+- Gebruikers-id
 - Gebruiker
 - Gebruikersnaam
 - Toepassings-id
 - Toepassing
 - Client
-- Location
+- Locatie
 - IP-adres
 - Date
 - MFA vereist
-- Aanmeldingsstatus
+- Aanmeldstatus
 
 > [!NOTE]
 > IP-adressen worden uitgegeven zodanig dat er is geen definitieve verbinding tussen een IP-adres en waar de computer met dit adres zich fysiek bevindt. Toewijzing van IP-adressen wordt bemoeilijkt door het feit dat mobiele providers en VPN's uitgeven IP-adressen uit de centrale pools die vaak erg zijn ver ligt waar het client-apparaat daadwerkelijk wordt gebruikt. In Azure AD-rapporten is IP-adres converteren naar een fysieke locatie momenteel een best-effort op basis van traceringen, register, omgekeerde zoekopdrachten en andere gegevens.

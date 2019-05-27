@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656588"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834552"
 ---
 # <a name="api-management-policy-expressions"></a>API Management-beleidsexpressies
 Dit artikel worden besproken beleidsexpressies syntaxis is C# 7. Elke expressie heeft toegang tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.
@@ -192,7 +192,7 @@ De volgende tabel bevat de typen .NET Framework en de leden die zijn toegestaan 
 |System.Xml.Linq.XComment|Alle|
 |System.Xml.Linq.XContainer|Alle|
 |System.Xml.Linq.XDeclaration|Alle|
-|System.Xml.Linq.XDocument|Alle, met uitzondering van: Belasting|
+|System.Xml.Linq.XDocument|Alle, met uitzondering van: Laden|
 |System.Xml.Linq.XDocumentType|Alle|
 |System.Xml.Linq.XElement|Alle|
 |System.Xml.Linq.XName|Alle|
@@ -210,7 +210,7 @@ Een variabele met de naam `context` is impliciet beschikbaar zijn in elk beleid 
 
 |Context Variable|Toegestane methoden, eigenschappen en parameterwaarden|
 |----------------------|-------------------------------------------------------|
-|context|Api: IApi<br /><br /> Implementatie<br /><br /> Verstreken: TimeSpan - tijdsinterval tussen de waarde van de tijdstempel en de huidige tijd<br /><br /> LastError<br /><br /> Bewerking<br /><br /> Product<br /><br /> Aanvraag<br /><br /> RequestId: GUID - unieke aanvraag-id<br /><br /> Antwoord<br /><br /> Abonnement<br /><br /> Timestamp: Datum/tijd - punt in tijd wanneer de aanvraag is ontvangen<br /><br /> Tracering: Boole - geeft aan of tracering in- of uitschakelen <br /><br /> Gebruiker<br /><br /> Variabelen: IReadOnlyDictionary < string, object ><br /><br /> Ongeldig Trace(message: string)|
+|context|Api: IApi<br /><br /> Implementatie<br /><br /> Verstreken: TimeSpan - tijdsinterval tussen de waarde van de tijdstempel en de huidige tijd<br /><br /> LastError<br /><br /> Bewerking<br /><br /> Product<br /><br /> Aanvragen<br /><br /> RequestId: GUID - unieke aanvraag-id<br /><br /> Antwoord<br /><br /> Abonnement<br /><br /> Timestamp: Datum/tijd - punt in tijd wanneer de aanvraag is ontvangen<br /><br /> Tracering: Boole - geeft aan of tracering in- of uitschakelen <br /><br /> Gebruiker<br /><br /> Variabelen: IReadOnlyDictionary < string, object ><br /><br /> Ongeldig Trace(message: string)|
 |context.Api|ID: tekenreeks<br /><br /> IsCurrentRevision: bool<br /><br />  Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Revisie: tekenreeks<br /><br /> ServiceUrl: IUrl<br /><br /> Versie: tekenreeks |
 |context. Implementatie|Regio: tekenreeks<br /><br /> Servicenaam: tekenreeks<br /><br /> Certificaten: IReadOnlyDictionary<string, X509Certificate2>|
 |context.LastError|Bron: tekenreeks<br /><br /> Reden: tekenreeks<br /><br /> Bericht: tekenreeks<br /><br /> Bereik: tekenreeks<br /><br /> Sectie: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> PolicyId: tekenreeks<br /><br /> Voor meer informatie over context. LastError, Zie [foutafhandeling](api-management-error-handling-policies.md).|
@@ -229,7 +229,7 @@ Een variabele met de naam `context` is impliciet beschikbaar zijn in elk beleid 
 |IUserIdentity|ID: tekenreeks<br /><br /> Provider: tekenreeks|
 |ISubscriptionKeyParameterNames|Koptekst: tekenreeks<br /><br /> Query: tekenreeks|
 |tekenreeks IUrl.Query.GetValueOrDefault (queryParameterName: string, defaultValue: string)|queryParameterName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de door komma's gescheiden waarden van queryparameter of `defaultValue` als de parameter niet wordt gevonden.|
-|T-context. Variables.GetValueOrDefault < T\>(variableName: string, defaultValue: T)|variableName: tekenreeks<br /><br /> Standaardwaarde: T<br /><br /> Retourneert de waarde geconverteerd naar type variabele `T` of `defaultValue` als de variabele is niet gevonden.<br /><br /> Deze methode, wordt er een uitzondering genereert als het opgegeven type komt niet overeen met het werkelijke type van de geretourneerde variabele.|
+|T-context. Variables.GetValueOrDefault < T\>(variableName: string, defaultValue: T)|variableName: tekenreeks<br /><br /> Standaardwaarde: D<br /><br /> Retourneert de waarde geconverteerd naar type variabele `T` of `defaultValue` als de variabele is niet gevonden.<br /><br /> Deze methode, wordt er een uitzondering genereert als het opgegeven type komt niet overeen met het werkelijke type van de geretourneerde variabele.|
 |BasicAuthCredentials AsBasic(input: this string)|invoer: tekenreeks<br /><br /> Als de invoerparameter een geldige HTTP-basisverificatie autorisatie-aanvraag-header-waarde bevat, de methode retourneert een object van het type `BasicAuthCredentials`; anders wordt de methode wordt null geretourneerd.|
 |BOOL TryParseBasic (invoer: deze tekenreeks, resultaat: van BasicAuthCredentials)|invoer: tekenreeks<br /><br /> resultaat: van BasicAuthCredentials<br /><br /> Als de invoerparameter een geldige HTTP-basisverificatie autorisatie-waarde in de aanvraagheader bevat de methode retourneert `true` en de resultatenparameter bevat een waarde van het type `BasicAuthCredentials`; anders wordt de methode retourneert `false`.|
 |BasicAuthCredentials|Wachtwoord: tekenreeks<br /><br /> Gebruikers-id: tekenreeks|
@@ -242,7 +242,8 @@ Een variabele met de naam `context` is impliciet beschikbaar zijn in elk beleid 
 |byte [] versleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - als tekst zonder opmaak moeten worden versleuteld<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Met deze eigenschap wordt versleuteld als tekst zonder opmaak.|
 |byte [] decoderen (invoer: deze byte [], alg: string, sleutel: byte [], iv:byte[])|invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - naam van een symmetrische versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Geeft als resultaat als tekst zonder opmaak.|
 |byte [] decoderen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - versleutelingsalgoritme<br /><br />Geeft als resultaat als tekst zonder opmaak.|
-|byte [] decoderen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Geeft als resultaat als tekst zonder opmaak.|
+|byte [] decoderen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Geeft als resultaat als tekst zonder opmaak.|
+|BOOL VerifyNoRevocation (invoer: deze System.Security.Cryptography.X509Certificates.X509Certificate2)|Voert een validatie van de x.509-certificaatketen zonder te controleren of de intrekkingsstatus van het certificaat.<br /><br />invoer - certificaatobject<br /><br />Retourneert `true` als de validatie slaagt; `false` als de validatie mislukt.|
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c07da0121b8e350c55b139901d56cfe2133386d
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60431203"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864504"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio
 
 Met Azure Functions kunt u uw code in een [serverloze](https://azure.microsoft.com/solutions/serverless/) omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing publiceren.
 
-In dit artikel leert u hoe u met de Visual Studio 2017-hulpprogramma’s voor Azure Functions lokaal een ‘Hallo wereld’-functie kunt maken en testen. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017.
+In dit artikel leert u hoe u Visual Studio 2019 tools voor Azure Functions lokaal maken en testen van een 'Hallo wereld'-functie. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2019.
 
 ![De reactie van de lokale host van de functie in de browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -34,7 +34,7 @@ Dit onderwerp omvat een [video](#watch-the-video) die dezelfde basisstappen laat
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer [Visual Studio 2017](https://azure.microsoft.com/downloads/) en zorg ervoor dat de werkbelasting **Azure development** ook wordt geïnstalleerd.
+* Installeer [Visual Studio 2019](https://azure.microsoft.com/downloads/) en zorg ervoor dat de **Azure-ontwikkeling** werkbelasting is ook geïnstalleerd.
 
 * Zorg ervoor dat u beschikt over de [nieuwste versie van de hulpprogramma's van Azure Functions](functions-develop-vs.md#check-your-tools-version).
 

@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
-ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 74146242ef4084e5990027117689bb1371c3f272
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005840"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832230"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Quickstart: Een apparaat dat is verbonden met een IoT-hub (Python) beheren
 
@@ -37,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in Python. De Microsoft Azure IoT SDK's voor Python momenteel alleen specifieke versies van Python voor elk platform. Zie voor meer informatie, de [Python SDK Leesmij](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-In deze snelstartgids wordt ervan uitgegaan dat u een Windows-ontwikkelcomputer. Voor Windows-systemen, alleen [Python 3.6.x](https://www.python.org/downloads/release/python-368/) wordt ondersteund. Welk Python-installatieprogramma u moet kiezen, hangt af van de architectuur van het systeem waarmee u werkt. Als uw systeem-CPU-architectuur 32-bits en download de x86 installatieprogramma is; voor de 64-bits architectuur, het x86-64-installatieprogramma te downloaden. Controleer ook of de [Microsoft Visual C++ Redistributable voor Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) voor uw architectuur (x86 of x64) is geïnstalleerd.
+In deze snelstartgids wordt ervan uitgegaan dat u een Windows-ontwikkelcomputer. Voor Windows-systemen, alleen [Python 3.6.x](https://www.python.org/downloads/release/python-368/) wordt ondersteund. Welk Python-installatieprogramma u moet kiezen, hangt af van de architectuur van het systeem waarmee u werkt. Als uw systeem-CPU-architectuur 32-bits en download de x86 installatieprogramma is; voor de 64-bits architectuur, het x86-64-installatieprogramma te downloaden. Controleer ook of de [Microsoft Visual C++ Redistributable voor Visual Studio 2015, 2017 en 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) voor uw architectuur (x86 of x64) is geïnstalleerd.
 
 U kunt Python downloaden voor andere platforms van [Python.org](https://www.python.org/downloads/).
 

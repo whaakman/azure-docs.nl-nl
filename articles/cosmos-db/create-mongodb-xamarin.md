@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: c7a80ae704d13934a5d51bc5538bc28693b49e5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890580"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860332"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snelstartgids: Een Xamarin.Forms-app ontwikkelen met de .NET SDK en Azure Cosmos DB-API voor MongoDB
 
@@ -34,7 +34,7 @@ In deze snelstart laten we u zien hoe u een [Cosmos-account maakt dat is geconfi
 
 Als u het voorbeeld wilt uitvoeren, hebt u [Visual Studio](https://www.visualstudio.com/downloads/) of [Visual Studio voor Mac](https://visualstudio.microsoft.com/vs/mac/) en een geldig Azure Cosmos DB-account nodig.
 
-Als u Visual Studio nog niet hebt, downloadt u [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) waarbij de workload **Mobile development with .NET** tijdens het instellen wordt geïnstalleerd.
+Als u Visual Studio nog niet hebt, kunt u downloaden [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/) met de **ontwikkeling van mobiele Apps met .NET** werkbelasting met setup geïnstalleerd.
 
 Als u liever op een Mac werkt, download dan [Visual Studio voor Mac](https://visualstudio.microsoft.com/vs/mac/) en voer de installatie uit.
 
@@ -164,7 +164,7 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 ## <a name="run-the-app"></a>De app uitvoeren
 
-### <a name="visual-studio-2017"></a>Visual Studio 2017
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. Klik in Visual Studio met de rechtermuisknop op elk project in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**.
 2. Klik op **Alle NuGet-pakketten herstellen**.
