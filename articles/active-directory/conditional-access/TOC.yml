@@ -19,8 +19,8 @@
 - name: Concepten
   expanded: false
   items:
-    - name: Basisbescherming
-      href: baseline-protection.md
+    - name: Basisbeschermingsbeleid
+      href: concept-baseline-protection.md
     - name: Voorwaarden
       href: conditions.md
     - name: Locatievoorwaarden
@@ -38,6 +38,16 @@
       href: plan-conditional-access.md
     - name: Aanbevolen procedures
       href: best-practices.md
+    - name: Basislijnbeleid
+      items:
+        - name: MFA vereisen voor beheerders
+          href: howto-baseline-protect-administrators.md
+        - name: Bescherming van de eindgebruiker
+          href: howto-baseline-protect-end-users.md
+        - name: Verouderde verificatie blokkeren
+          href: howto-baseline-protect-legacy-auth.md
+        - name: MFA vereisen voor servicebeheer
+          href: howto-baseline-protect-azure.md
     - name: Verouderde verificatie blokkeren
       href: block-legacy-authentication.md
     - name: Klassieke beleidsregels migreren

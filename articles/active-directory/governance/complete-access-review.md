@@ -12,55 +12,83 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/02/2018
+ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bae204ec1789f227150adc560d4a292404d23b7e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246474"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113302"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Voltooien van een toegangscontrole van groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
-Beheerders kunnen Azure Active Directory (Azure AD) gebruiken om een [toegangsbeoordeling](create-access-review.md) te maken voor groepsleden of gebruikers die zijn toegewezen aan een toepassing. Azure AD stuurt revisoren automatisch een e-mailbericht waarin wordt gevraagd om ze toegang beoordelen. Als een gebruiker een e-mailbericht niet hebt, kunt u ze de instructies in verzenden [toegang met groepen of toepassingen beoordelen](perform-access-review.md). (Houd er rekening mee dat gasten die zijn toegewezen als beoordelaar, maar niet de uitnodiging hebt geaccepteerd niet een e-mailbericht wordt ontvangen van toegangsbeoordelingen, als ze moeten eerst akkoord gaan met een uitnodiging voordat bekijken.) Nadat de periode van de toegangsbeoordeling voltooid is, of als een beheerder de toegangsbeoordeling stopt, volg de stappen in dit artikel om te zien en de resultaten van toepassing.
+Als beheerder, u [maken van een toegangscontrole van groepen of toepassingen](create-access-review.md) en reviewers [uitvoeren van de toegangsbeoordeling](perform-access-review.md). In dit artikel wordt beschreven hoe u de resultaten ziet van de toegangsbeoordeling en de resultaten van toepassing.
 
-## <a name="view-an-access-review-in-the-azure-portal"></a>Een toegangsbeoordeling weergeven in Azure portal
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-1. Ga naar de [pagina toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), selecteer **programma's**, en selecteer het programma dat het toegangsbeheer voor de beoordeling bevat.
+## <a name="prerequisites"></a>Vereisten
 
-2. Selecteer **beheren**, en selecteer het toegangsbeheer voor controle. Als het programma veel besturingselementen bevat, kunt u filteren op besturingselementen van een specifiek type en deze sorteren op status. U kunt ook zoeken op de naam van het besturingselement voor toegangsbeoordeling of op de weergavenaam van de eigenaar die het heeft gemaakt. 
+- Azure AD Premium P2
+- Globale beheerder, beheerder, beveiligingsbeheerder of beveiligingslezer
 
-## <a name="stop-a-review-that-hasnt-finished"></a>Stoppen van een beoordeling die nog niet voltooid
+Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](access-reviews-overview.md#which-users-must-have-licenses).
 
-Als de beoordeling nog niet de geplande einddatum valt bereikt, een beheerder kan selecteren **stoppen** de beoordeling voortijdig beëindigen. Na het stoppen van de beoordeling, kunnen gebruikers niet meer worden gecontroleerd. U kunt een beoordeling kan niet opnieuw starten nadat deze gestopt.
+## <a name="view-an-access-review"></a>Een toegangsbeoordeling weergeven
 
-## <a name="apply-the-changes"></a>De wijzigingen toepassen 
+U kunt de voortgang volgen de revisoren hun beoordelingen zijn voltooid.
 
-Nadat een toegangsbeoordeling is voltooid, ofwel omdat de einddatum is bereikt of een beheerder handmatig gestopt en automatisch toepassen is niet geconfigureerd voor de beoordeling, kunt u selecteren **toepassen** de wijzigingen handmatig toepassen. Het resultaat van de evaluatie wordt geïmplementeerd door het bijwerken van de groep of toepassing. Als een gebruiker de toegang is geweigerd in de beoordeling wanneer een beheerder deze optie selecteert, wordt de toewijzing van hun lidmaatschap of uw toepassing verwijderd in Azure AD. 
+1. Aanmelden bij Azure portal en open de [pagina toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-Nadat een toegangsbeoordeling is voltooid en automatisch toepassen is geconfigureerd, wordt de status van de beoordeling wordt gewijzigd van voltooide via tussenliggende statussen en ten slotte wordt gewijzigd in staat toegepast. U kunt verwachten geweigerde gebruikers wilt weergeven als een van de resource wordt verwijderd groepstoewijzing-lidmaatschap of uw app in een paar minuten.
+1. Klik in het menu links op **Toegangsbeoordelingen**.
+
+1. In de lijst, klikt u op een toegangscontrole.
+
+    Beoordelingen, gaat u naar de toegangsbeoordeling om weer te geven van een reeks van toegang en vindt u toekomstige voorvallen in geplande beoordelingen.
+
+    Op de **overzicht** pagina, kunt u de voortgang bekijken. Er is geen toegangsrechten worden gewijzigd in de map totdat de controle is voltooid.
+
+    ![Toegangsbeoordelingen wordt uitgevoerd](./media/complete-access-review/overview-progress.png)
+
+1. Als u wilt een toegangsbeoordeling stoppen voordat het de geplande einddatum is bereikt, klikt u op de **stoppen** knop.
+
+    Wanneer een beoordeling stoppen, revisoren niet langer antwoorden meer geven. U kunt een beoordeling kan niet opnieuw starten nadat deze gestopt.
+
+1. Als u niet meer geïnteresseerd in de toegangsbeoordeling bent, kunt u deze verwijderen door te klikken op de **verwijderen** knop.
+
+## <a name="apply-the-changes"></a>De wijzigingen toepassen
+
+Als **automatisch resultaten toepassen op resource** is ingeschakeld en op basis van uw selecties in **na voltooiing van de instellingen**, auto-toepassing zal worden uitgevoerd na de einddatum van de beoordeling of wanneer u de beoordeling handmatig stoppen.
+
+Als **automatisch resultaten toepassen op resource** is niet ingeschakeld voor de evaluatie, klikt u op **toepassen** de wijzigingen handmatig toepassen. Als een gebruiker toegang is geweigerd in de evaluatie, wanneer u klikt op **toepassen**, Azure AD wordt de toewijzing van hun lidmaatschap of uw toepassing verwijderd.
+
+![Toegang controleren wijzigingen toepassen](./media/complete-access-review/apply-changes.png)
+
+De status van de beoordeling wordt gewijzigd van **voltooid** via tussenliggende Staten zoals **toepassen** en tot slot naar status **het resultaat is toegepast**. U kunt verwachten om te zien van geweigerde gebruikers, indien van toepassing, wordt verwijderd uit de groepstoewijzing voor lidmaatschap of uw toepassing in een paar minuten.
 
 Een geconfigureerde automatisch toepassen van controleren of het selecteren van **toepassen** niet van invloed op een groep die afkomstig zijn van een on-premises directory of een dynamische groep hebt. Als u wijzigen van een groep die is afkomstig van wilt on-premises, de resultaten downloaden en deze wijzigingen van toepassing op de weergave van de groep in die map.
 
-## <a name="download-the-results-of-the-review"></a>De resultaten van de evaluatie downloaden
+## <a name="retrieve-the-results"></a>De resultaten ophalen
 
-Als u wilt ophalen van de resultaten van de evaluatie, selecteer **goedkeuringen** en selecteer vervolgens **downloaden**. Het resulterende CSV-bestand kan worden weergegeven in Excel of in andere programma's die UTF-8-codering CSV-bestanden.
+De resultaten voor een eenmalige toegangsbeoordeling weergeven, klikt u op de **resultaten** pagina. Als u alleen de toegang van gebruikers, in het zoekvak, typt u de weergavenaam of UPN van een gebruiker die toegang is gecontroleerd.
 
-## <a name="optional-delete-a-review"></a>Optioneel: Verwijderen van een beoordeling
-Als u niet meer geïnteresseerd in het onderzoek bent, kunt u deze kunt verwijderen. Selecteer **verwijderen** te verwijderen van de beoordeling van Azure AD.
+![Resultaten voor een overzicht van access ophalen](./media/complete-access-review/retrieve-results.png)
 
-> [!IMPORTANT]
-> Er is geen waarschuwing voordat de verwijdering plaatsvindt, dus wees zeker dat u wilt verwijderen van de beoordeling.
-> 
-> 
+Als u de voortgang van een actieve toegangsbeoordeling die wordt herhaald, klikt u op de **resultaten** pagina.
+
+U kunt de resultaten van een voltooide exemplaar van een toegangscontrole die wordt herhaald, klikt u op **geschiedenis bekijken**en selecteer vervolgens het specifieke exemplaar in de lijst van voltooide exemplaren van toegangsbeoordeling, op basis van het exemplaar van de begin- en einddatum. De resultaten van dit exemplaar kunnen worden opgehaald uit de **resultaten** pagina.
+
+Als u wilt ophalen van de resultaten van een toegangscontrole, klikt u op de **downloaden** knop. Het resulterende CSV-bestand kan worden weergegeven in Excel of in andere programma's die UTF-8-codering CSV-bestanden.
+
+## <a name="remove-users-from-an-access-review"></a>Gebruikers verwijderen uit een toegangsbeoordeling
+
+ Standaard geldt dat een verwijderde gebruiker gedurende dertig dagen in Azure AD aanwezig blijft met de status Verwijderd. In deze periode kan de gebruiker eventueel door een beheerder worden teruggezet.  Na dertig dagen wordt die gebruiker definitief verwijderd.  Daarnaast kan een hoofdbeheerder via de Azure Active Directory-portal expliciet [een recentelijk verwijderde gebruiker definitief verwijderen](../fundamentals/active-directory-users-restore.md) voordat de dertig dagen zijn verstreken.  Als een gebruiker definitief is verwijderd, worden gegevens over die gebruiker vervolgens uit actieve toegangsbeoordelingen verwijderd.  Controle-informatie over verwijderde gebruikers blijft in het auditlogboek aanwezig.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Gebruikerstoegang beheren met Azure AD-toegangsbeoordelingen](manage-user-access-with-access-reviews.md)
 - [Gasttoegang beheren met Azure AD-toegangsbeoordelingen](manage-guest-access-with-access-reviews.md)
-- [Programma's en controles voor Azure AD-toegangsbeoordelingen beheren](manage-programs-controls.md)
 - [Een toegangsbeoordeling van groepen of toepassingen maken](create-access-review.md)
 - [Een toegangsbeoordeling maken van gebruikers met een Azure AD-beheerderrol](../privileged-identity-management/pim-how-to-start-security-review.md)

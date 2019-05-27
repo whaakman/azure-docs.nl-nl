@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648649"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872819"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Het uitvoeren van duurzame functies als WebJobs
 
@@ -37,7 +37,7 @@ In dit artikel wordt ervan uitgegaan dat u bekend bent met de basisprincipes van
 
 Voltooi de stappen in dit artikel:
 
-* [Installeer Visual Studio 2017 versie: 15,6 of hoger](https://docs.microsoft.com/visualstudio/install/) met de **Azure-ontwikkeling** werkbelasting.
+* [Installeer Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) met de **Azure-ontwikkeling** werkbelasting.
 
   Als u al Visual Studio hebt, maar geen die werkbelasting, het toevoegen van de werkbelasting door te selecteren **extra** > **hulpprogramma's en onderdelen**.
 

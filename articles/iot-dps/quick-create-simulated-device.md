@@ -2,20 +2,19 @@
 title: Een gesimuleerd TPM-apparaat inrichten voor Azure IoT Hub met behulp van C | Microsoft Docs
 description: In deze snelstart wordt gebruikgemaakt van afzonderlijke inschrijvingen. In deze snelstart maakt u een gesimuleerd TPM-apparaat met de SDK voor C voor Azure IoT Hub Device Provisioning Service en richt u het in.
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262769"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908673"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snelstartgids: Een gesimuleerd TPM-apparaat inrichten met de Azure IoT C SDK
 
@@ -35,7 +34,7 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Visual Studio 2015 of [Visual Studio 2017](https://www.visualstudio.com/vs/) met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 of hoger met de [' bureaubladontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) werkbelasting ingeschakeld.
 * Meest recente versie van [Git](https://git-scm.com/download/) geïnstalleerd.
 
 
@@ -132,7 +131,7 @@ In deze sectie bouwt u een voorbeeld dat de goedkeuringssleutel en registratie-I
     - **Mechanisme:** Selecteer **TPM** als *mechanisme* voor identiteitscontrole.
     - **Goedkeuringssleutel:** Voer de *goedkeuringssleutel* in die u hebt gegenereerd voor uw TPM-apparaat door het project *tpm_device_provision* uit te voeren.
     - **Registratie-id:** Voer de *registratie-id* in die u hebt gegenereerd voor uw TPM-apparaat door het project *tpm_device_provision* uit te voeren.
-    - **IoT Edge-apparaat:** Selecteer **Uitschakelen**.
+    - **IoT Edge-apparaat:** Selecteer **uitschakelen**.
     - **Apparaat-id voor IoT Hub:** Voer **test-docs-device** in als id voor het apparaat.
 
       ![Gegevens van apparaatinschrijving invoeren in de portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  

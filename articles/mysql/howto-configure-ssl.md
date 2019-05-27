@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: f7346d5f40e0fe7dd4dbe892e96549f7ff181cb2
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/21/2019
+ms.openlocfilehash: eb405549ba2d1c97b16f5b465abf0dc54de3b80d
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511013"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000916"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configureren van SSL-connectiviteit in uw toepassing veilig verbinding maken met Azure Database for MySQL
 Azure Database for MySQL ondersteunt verbindingen van uw Azure Database voor MySQL-server voor clienttoepassingen met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
@@ -21,6 +21,9 @@ Download het certificaat nodig om te communiceren via SSL met uw Azure Database 
 **Voor Microsoft Internet Explorer en Microsoft Edge:** Nadat het downloaden is voltooid, wijzig de BaltimoreCyberTrustRoot.crt.pem van het certificaat.
 
 ## <a name="step-2-bind-ssl"></a>Stap 2: Bind SSL
+
+Voor specifieke programming taal met verbindingsreeksen, raadpleegt u de [voorbeeldcode](howto-configure-ssl.md#sample-code) hieronder.
+
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Verbinding maken met server met behulp van de MySQL Workbench via SSL
 Configureer de MySQL Workbench veilig verbinding maken via SSL. In het dialoogvenster Nieuwe verbinding instellen, gaat u naar de **SSL** tabblad. In de **SSL CA-bestand:** en voer de locatie van het bestand van de **BaltimoreCyberTrustRoot.crt.pem**. 
 ![Sla de aangepaste tegel](./media/howto-configure-ssl/mysql-workbench-ssl.png) voor bestaande verbindingen kunt u SSL binden met de rechtermuisknop op het pictogram voor verbinding en kies bewerken. Navigeer naar de **SSL** tabblad en een binding van het certificaat-bestand.
@@ -83,24 +86,44 @@ try:
 except mysql.connector.Error as err:
     print(err)
 ```
+
 ### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
 conn = pymysql.connect(user = 'myadmin@mydemoserver', 
         password = 'yourpassword', 
         database = 'quickstartdb', 
         host = 'mydemoserver.mysql.database.azure.com', 
-        ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+        ssl = {'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
+
+### <a name="django-pymysql"></a>Django (PyMySQL)
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'quickstartdb',
+        'USER': 'myadmin@mydemoserver',
+        'PASSWORD': 'yourpassword',
+        'HOST': 'mydemoserver.mysql.database.azure.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
+        }
+    }
+}
+```
+
 ### <a name="ruby"></a>Ruby
 ```ruby
 client = Mysql2::Client.new(
-        :host     => 'mydemoserver.mysql.database.azure.com', 
-        :username => 'myadmin@mydemoserver',      
-        :password => 'yourpassword',    
+        :host     => 'mydemoserver.mysql.database.azure.com',
+        :username => 'myadmin@mydemoserver',
+        :password => 'yourpassword',
         :database => 'quickstartdb',
         :ssl_ca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
     )
 ```
+
 ### <a name="golang"></a>Golang
 ```go
 rootCertPool := x509.NewCertPool()
@@ -113,7 +136,7 @@ var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')   
 db, _ := sql.Open("mysql", connectionString)
 ```
-### <a name="javajdbc"></a>JAVA(JDBC)
+### <a name="java-mysql-connector-for-java"></a>Java (MySQL-Connector voor Java)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -140,7 +163,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
-### <a name="javamariadb"></a>JAVA(MariaDB)
+### <a name="java-mariadb-connector-for-java"></a>Java (MariaDB-Connector voor Java)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+

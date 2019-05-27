@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: df1ffa07c9b813ee3da4952bbcc394f43c69b7ac
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204240"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001043"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Beveiligingskenmerken voor Azure SQL Database
 
@@ -28,9 +28,9 @@ Azure SQL Database voorziet in beide [individuele database](sql-database-single-
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>| Ja | Aangeduid als 'versleuteling in-gebruik', zoals beschreven in het artikel [Always Encrypted](sql-database-always-encrypted.md). Versleuteling aan de serverzijde van de service maakt gebruik van [transparante gegevensversleuteling](transparent-data-encryption-azure-sql.md) (TDE).|
-| Versleuteling tijdens overdracht:<ul><li>ExpressRoute-versleuteling</li><li>Vnet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | Met behulp van HTTPS. |
-| Versleuteling sleutel verwerken (CMK, BYOK, enz.)| Ja | Verwerking van zowel service beheerd door de klant beheerde sleutels worden aangeboden (de laatste via [Azure Key Vault](../key-vault/index.yml). |
-| Versleuteling op kolom (Azure-gegevensservices)| Ja | Via [Always Encrypted](sql-database-always-encrypted.md). |
+| Versleuteling tijdens overdracht:<ul><li>ExpressRoute-versleuteling</li><li>VNet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | Met behulp van HTTPS. |
+| Versleuteling verwerking (CMK, BYOK, enz.)| Ja | Verwerking van zowel service beheerd door de klant beheerde sleutels worden aangeboden (de laatste via [Azure Key Vault](../key-vault/index.yml). |
+| Versleuteling op kolom (Azure Data Services)| Ja | Via [Always Encrypted](sql-database-always-encrypted.md). |
 | API-aanroepen die zijn versleuteld| Ja | Met behulp van HTTPS/SSL. |
 
 ## <a name="network-segmentation"></a>Segmentatie
@@ -38,9 +38,9 @@ Azure SQL Database voorziet in beide [individuele database](sql-database-single-
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Ondersteuning voor service-eindpunt| Ja | Is van toepassing op [individuele database](sql-database-single-index.yml) alleen. |
-| ondersteuning voor vNET-injectie| Ja | Is van toepassing op [beheerd exemplaar](sql-database-managed-instance.md) alleen. |
-| Netwerkisolatie / netwerkfunctie ondersteuning| Ja | Firewall op beide database - en serverniveau; netwerkisolatie voor [beheerd exemplaar](sql-database-managed-instance.md) alleen |
-| Ondersteuning voor geforceerde tunneling | Ja | [beheerd exemplaar](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| Ondersteuning voor VNet-injectie| Ja | Is van toepassing op [beheerd exemplaar](sql-database-managed-instance.md) alleen. |
+| Netwerkisolatie en ondersteuning netwerkfunctie| Ja | Firewall op beide database - en serverniveau; netwerkisolatie voor [beheerd exemplaar](sql-database-managed-instance.md) alleen |
+| Geforceerde tunneling ondersteuning| Ja | [beheerd exemplaar](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
 ## <a name="detection"></a>Detectie
 
@@ -52,15 +52,15 @@ Azure SQL Database voorziet in beide [individuele database](sql-database-single-
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Toegangsbeheer - verificatie| Ja | Azure Active Directory. |
-| Toegangsbeheer - autorisatie| Ja |  |
+| Verificatie| Ja | Azure Active Directory. |
+| Autorisatie| Ja |  |
 
 
 ## <a name="audit-trail"></a>Audittrail
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Beheer/beheer plannen logboekregistratie en controle| Ja | Ja voor alleen bepaalde gebeurtenissen. |
+| Controle en beheer vlak logboekregistratie en controle| Ja | Ja voor alleen bepaalde gebeurtenissen. |
 | Gegevens vlak logboekregistratie en controle | Ja | Via [SQL audit](sql-database-auditing.md). |
 
 ## <a name="configuration-management"></a>Configuratiebeheer

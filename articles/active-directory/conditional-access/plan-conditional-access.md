@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301365"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001197"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedure: De implementatie van voorwaardelijke toegang in Azure Active Directory plannen
 
@@ -81,7 +81,7 @@ Op dit moment is het een goed moment om te bepalen wat een naamgevingsnorm voor 
  
 ![Naamgevingsnorm](./media/plan-conditional-access/11.png)
 
-Terwijl een beschrijvende naam u helpt bij het bewaren van een overzicht van de implementatie van voorwaardelijke toegang, is het volgnummer is handig als u nodig hebt om te verwijzen naar een beleid in een gesprek. Bijvoorbeeld, als u een andere beheerder op de telefoon praten, kunt u vragen hem open beleid EM063 voor het oplossen van een probleem.
+Terwijl een beschrijvende naam u helpt bij het bewaren van een overzicht van de implementatie van voorwaardelijke toegang, is het volgnummer is handig als u nodig hebt om te verwijzen naar een beleid in een gesprek. Bijvoorbeeld, als u een andere beheerder op de telefoon praten, kunt u vragen deze open beleid EM063 voor het oplossen van een probleem.
 
 
 
@@ -131,7 +131,7 @@ Ter vereenvoudiging van de aanmeldingservaring van uw gebruikers, is het raadzaa
 
 Algemene scenario's om MFA te vereisen zijn toegang:
 
-- [Door beheerders](baseline-protection.md#require-mfa-for-admins)
+- [Door beheerders](howto-baseline-protect-administrators.md)
 - [Tot bepaalde apps](app-based-mfa.md) 
 - [Van netwerklocaties, u niet vertrouwt](untrusted-networks.md).
 

@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716003"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016462"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Quickstart: Instellen en ophalen van een geheim uit Azure Key Vault met behulp van Resource Manager-sjabloon
 
@@ -61,10 +61,10 @@ De sjabloon die wordt gebruikt in deze Quick Start is afkomstig van [Azure Quick
     * **Abonnement**: selecteer een Azure-abonnement.
     * **Resourcegroep**: Selecteer **nieuw**, voer een unieke naam voor de resourcegroep en klik vervolgens op **OK**. 
     * **Locatie**: selecteer een locatie.  Bijvoorbeeld **US - centraal**.
-    * **Key Vault-naam**: Voer een unieke naam voor de key vault.  
-    * **Tenant-id**: met de sjabloonfunctie wordt uw tenant-id automatisch opgehaald.  Wijzig de standaardwaarde niet
+    * **Key Vault-naam**: Voer een naam voor de sleutelkluis die u moet globaal uniek zijn binnen de. vault.azure.net naamruimte.  
+    * **Tenant-id**: met de sjabloonfunctie wordt uw tenant-id automatisch opgehaald.  De standaardwaarde niet te wijzigen.
     * **AD-gebruikers-Id**: Voer uw Azure AD gebruiker object-ID die u hebt opgehaald via [vereisten](#prerequisites).
-    * **Geheime naam**: Voer een naam voor de geheime sleutel die u in de key vault opslaat.  Bijvoorbeeld, **adminpassword**
+    * **Geheime naam**: Voer een naam voor de geheime sleutel die u in de key vault opslaat.  Bijvoorbeeld, **adminpassword**.
     * **Geheime waarde**: Voer de geheime waarde.  Als u een wachtwoord opslaat, is het raadzaam het gegenereerde wachtwoord dat u hebt gemaakt in vereisten.
     * **Ik ga akkoord met de bovenstaande voorwaarden**: Selecteren.
 3. Selecteer **Aankoop**.

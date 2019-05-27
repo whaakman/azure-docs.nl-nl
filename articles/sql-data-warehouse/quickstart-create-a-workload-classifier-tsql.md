@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c84bf84f8ba28a98937b02a463003a900aefaa0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150387"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002899"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Quickstart: Maken van een werkbelasting classificatie met T-SQL
 
@@ -107,6 +107,6 @@ Volg deze stappen voor het opschonen van resources.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt nu een classificatie van de werkbelasting. Enkele query's worden uitgevoerd als TheCEO om te zien hoe ze uitvoeren. Zie [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om query's en het belang toegewezen weer te geven.
-
-Zie voor meer informatie over het beheer van SQL Data Warehouse workload [SQL Data Warehouse Workload belang](sql-data-warehouse-workload-importance.md) en [SQL Data Warehouse Workload classificatie](sql-data-warehouse-workload-classification.md).
+- U hebt nu een classificatie van de werkbelasting. Enkele query's worden uitgevoerd als TheCEO om te zien hoe ze uitvoeren. Zie [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om query's en het belang toegewezen weer te geven.
+- Zie voor meer informatie over het beheer van Azure SQL Data Warehouse workload [werkbelasting belang](sql-data-warehouse-workload-importance.md) en [werkbelasting classificatie](sql-data-warehouse-workload-classification.md).
+- Zie de artikelen met procedures voor [configureren werkbelasting belang](sql-data-warehouse-how-to-configure-workload-importance.md) en hoe u [beheren en bewaken beheer van de werkbelasting](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

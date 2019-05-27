@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 05/21/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7700efb7bfdb60c8f8f82b442cf01aae691f2fc3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: e6afd342a27fa13ae79e037e6e42e582dd9856cc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595576"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015296"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
 Met Azure Application Insights kunt u eenvoudig de beschikbaarheid, de prestaties en het gebruik van een webtoepassing controleren. U kunt ook snel fouten in de toepassing identificeren en er een diagnose voor uitvoeren, zonder dat u hoeft te wachten totdat een gebruiker ze heeft gerapporteerd. 
 
-Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bestaande ASP.NET Core-webtoepassing. Voor meer informatie over het configureren van Application Insights zonder Visual Studio afhandeling dit [artikel](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio).
+Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bestaande ASP.NET Core-webtoepassing. Voor meer informatie over het configureren van Application Insights zonder Visual Studio afhandeling dit [artikel](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -98,6 +98,10 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 5. Op de linkermuisknop op **metrische gegevens**. U kunt de metrics explorer gebruiken als u voor het onderzoeken van de status en het gebruik van uw resource. U kunt op **Nieuwe grafiek toevoegen** klikken om aanvullende aangepaste weergaven te maken, of **Bewerken** selecteren om type, hoogte, kleurenpalet, groeperingen en metrische gegevens van bestaande grafieken te wijzigen. Bijvoorbeeld, kunt u een grafiek waarin de gemiddelde laadtijd van browserpagina 'Laadtijd van browserpagina' kiezen door in de vervolgkeuzelijst voor metrische gegevens en 'Gem.' van aggregatie wordt weergegeven. Voor meer informatie over Azure Metrics Explorer Bezoek [aan de slag met Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
      ![Metrische gegevens op het tabblad: Grafiek met gemiddelde browser pagina laden](./media/dotnetcore-quick-start/8metrics.png)
+
+## <a name="video"></a>Video
+
+- Externe stapsgewijze video over [Application Insights configureren met .NET Core en Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) helemaal.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Wanneer u klaar bent met testen, kunt u de resourcegroep verwijderen en alle gerelateerde resources. Om te dus de volgende stappen.

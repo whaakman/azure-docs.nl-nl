@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c15b9aa0bde704ad3665375d1c1a5bb8a1d32cf
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604122"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015274"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken
 
-Een cloud-gebaseerde notebookserver maken en gebruiken.  In deze snelstartgids hebt u Python-code die de waarden in Logboeken uitvoeren de [werkruimte van Azure Machine Learning-service](concept-azure-machine-learning-architecture.md). De werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. 
+Geen installatie vereist.  Aan de slag met Azure Machine Learning-service met behulp van een beheerde notebook-server in de cloud. Als u installeren in plaats daarvan de SDK in uw eigen Python-omgeving wilt, Zie [Quick Start: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning](quickstart-run-local-notebook.md).
 
-Deze quickstart laat zien hoe u een cloudresource maken in uw Azure Machine Learning-werkruimte, geconfigureerd met de Python-omgeving die nodig zijn om uit te voeren van Azure Machine Learning. Als u wilt gebruiken in plaats daarvan uw eigen omgeving, Zie [Quick Start: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning](quickstart-run-local-notebook.md).  
+Deze quickstart laat zien hoe u kunt de [werkruimte van Azure Machine Learning-service](concept-azure-machine-learning-architecture.md) voor het bijhouden van uw machine learning-experimenten.  U maakt een [notebook VM (Preview)](how-to-configure-environment.md#notebookvm), een veilige, cloud-gebaseerde Azure werkstation dat voorziet in een Jupyter-notebook-server, Jjupyterlab en een volledig voorbereid ML-omgeving. U kunt vervolgens een Python-notebook uitvoeren op deze virtuele machine die zich aanmelden waarden in de werkruimte.
 
 In deze snelstart voert u de volgende acties uit:
 
-* Maak een nieuwe cloud-gebaseerde notebookserver in uw werkruimte.
+* Een werkruimte maken
+* Maak een VM-notebook in uw werkruimte.
 * Start de Jupyter-webinterface.
 * Open een laptop met code voor een schatting van pi en logboeken voor fouten bij elke iteratie.
 * Uitvoeren van het notitieblok.
@@ -35,11 +36,11 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken
 
-Als u een Azure Machine Learning-service-werkruimte hebt, gaat u naar de [volgende sectie](#create-a-cloud-based-notebook-server). Anders wordt er nu een maken.
+Als u een Azure Machine Learning-service-werkruimte hebt, gaat u naar de [volgende sectie](#create-notebook). Anders wordt er nu een maken.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>Een cloud-gebaseerde notebookserver maken
+## <a name="create-notebook"></a>Een VM-notebook maken
 
  Vanuit uw werkruimte maken van een cloudresource om te beginnen met Jupyter-notebooks. Deze resource biedt u een cloud-gebaseerde platform vooraf geconfigureerd met alles wat die u nodig hebt om uit te voeren van Azure Machine Learning-service.
 
@@ -59,6 +60,7 @@ Als u een Azure Machine Learning-service-werkruimte hebt, gaat u naar de [volgen
     ![Een nieuwe virtuele machine maken](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Wacht u ongeveer 4 en 5 minuten, totdat de status gewijzigd in **met**.
+
 
 ## <a name="launch-jupyter-web-interface"></a>Jupyter-webinterface starten
 
@@ -143,6 +145,7 @@ U kunt de resourcegroep ook bewaren en slechts één werkruimte verwijderen. Bek
 
 In deze Quick Start, moet u deze taken uitgevoerd:
 
+* Een werkruimte maken
 * Een VM-notebook maken.
 * Start de Jupyter-webinterface.
 * Open een laptop met code voor een schatting van pi en logboeken voor fouten bij elke iteratie.

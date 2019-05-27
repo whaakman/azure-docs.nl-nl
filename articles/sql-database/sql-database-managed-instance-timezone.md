@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/25/2019
-ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/22/2019
+ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866949"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016377"
 ---
-# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Tijdzones in Azure SQL Database Managed Instance (preview)
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tijdzones in Azure SQL Database Managed Instance
 
 Coordinated Universal Time (UTC) is de aanbevolen tijdzone voor de gegevenslaag van cloudoplossingen. Azure SQL Database Managed Instance biedt ook een keuze uit tijdzones om te voldoen aan de behoeften van bestaande toepassingen die opslaan van waarden voor datum en tijd en datum en tijd functies met een impliciete context van een bepaalde tijdzone aanroepen.
 
@@ -103,27 +103,27 @@ Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundair
 | Datumgrens (standaardtijd) | (UTC-12:00) Internationale Datumgrens West |
 | UTC-11 | (UTC-11:00) Coordinated Universal Time-11 |
 | Aleoeten (standaardtijd) | (UTC-10:00) Aleoeten |
-| Hawaï (standaardtijd) | (UTC-10:00) Hawaï |
+| Hawaï (standaardtijd) | (UTC-10:00) Hawaii |
 | Marquesas (standaardtijd) | (UTC-09:30) Marquesaseilanden |
 | Alaska (standaardtijd) | (UTC-09:00) Alaska |
 | UTC-09 | (UTC-09:00) Coordinated Universal Time-09 |
 | Pacific (standaardtijd, Mexico) | (UTC-08:00) Baja California |
 | UTC-08 | (UTC-08:00) Coordinated Universal Time-08 |
-| Pacific (standaardtijd) | (UTC-08:00) Pacific Time (VS & Canada) |
+| Pacific (standaardtijd) | (UTC-08:00) Pacific Time (VS en Canada) |
 | US Mountain (standaardtijd) | (UTC-07:00) Arizona |
 | Mountain (standaardtijd, Mexico) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
-| Mountain (standaardtijd) | (UTC-07:00) Mountain Time (VS & Canada) |
+| Mountain (standaardtijd) | (UTC-07:00) Mountain Time (VS en Canada) |
 | Centraal-Amerika (stnd. tijd) | (UTC-06:00) Centraal-Amerika |
-| Central (standaardtijd) | (UTC-06:00) Central Time (US & Canada) |
+| Central (standaardtijd) | (UTC-06:00) Central Time (VS en Canada) |
 | Paaseiland (standaardtijd) | (UTC-06:00) Paaseiland |
-| Central (standaardtijd, Mexico) | (UTC-06:00) Guadalajara, Mexico-stad, Monterrey |
+| Central (standaardtijd, Mexico) | (UTC-06:00) Guadalajara, Mexico, Monterrey |
 | Canada - centraal (standaardtijd) | (UTC-06:00) Saskatchewan |
 | SA Pacific (standaardtijd) | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
 | Eastern (standaardtijd, Mexico) | (UTC-05:00) Chetumal |
-| Eastern (standaardtijd) | (UTC-05:00) Eastern Time (VS & Canada) |
+| Eastern (standaardtijd) | (UTC-05:00) Eastern Time (VS en Canada) |
 | Haïti (standaardtijd) | (UTC-05:00) Haïti |
 | Cuba (standaardtijd) | (UTC-05:00) Havana |
-| US - oost (standaardtijd) | (UTC-05:00) Indiana (Oost) |
+| US - oost (standaardtijd) | (UTC-05:00) Indiana (East) |
 | Turks- en Caicoseilanden (standaardtijd) | (UTC-05:00) Turks- en Caicoseilanden |
 | Paraguay (standaardtijd) | (UTC-04:00) Asuncion |
 | Atlantic (standaardtijd) | (UTC-04:00) Atlantic Time (Canada) |
@@ -142,7 +142,7 @@ Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundair
 | Saint-Pierre (standaardtijd) | (UTC-03:00) Saint-Pierre en Miquelon |
 | Bahia standaardtijd | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Coordinated Universal Time-02 |
-| Mid-Atlantic (standaardtijd) | (UTC-02:00) Mid-Atlantic - Oud |
+| Mid-Atlantic (standaardtijd) | (UTC-02:00) Mid-Atlantic - verouderd |
 | Azoren (standaardtijd) | (UTC-01:00) Azoren |
 | Cape Verde Standard Time | (UTC-01:00) Cabo Verde |
 | UTC | (UTC) Coordinated Universal Time |
@@ -154,7 +154,7 @@ Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundair
 | Marokko (standaardtijd) | (UTC +01:00) Casablanca |
 | Standaardtijd van Sao Tomé | (UTC+01:00) Sao Tomé |
 | Europa centraal (standaardtijd) | (UTC+01:00) Sarajevo, Skopje, Warschau, Zagreb |
-| W. Centraal-Afrika (standaardtijd) | (UTC+01:00) Centraal-Afrika - West |
+| W. Centraal-Afrika (standaardtijd) | (UTC+01:00) West Central Africa |
 | Jordanië (standaardtijd) | (UTC+02:00) Amman |
 | GTB (standaardtijd) | (UTC+02:00) Athene, Boekarest |
 | Midden-Oosten (standaardtijd) | (UTC+02:00) Beiroet |
@@ -179,15 +179,15 @@ Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundair
 | Arabisch schiereiland (st.tijd) | (UTC+04:00) Abu Dhabi, Muscat |
 | Astrachan (standaardtijd) | (UTC+04:00) Astrachan, Oeljanovsk |
 | Azerbeidzjan (standaardtijd) | (UTC+04:00) Bakoe |
-| Rusland Time Zone 3 | (UTC+04:00) Izjevsk, Samara |
+| Rusland Time Zone 3 | (UTC+04:00) Izhevsk, Samara |
 | Mauritius (standaardtijd) | (UTC+04:00) Port Louis |
 | Saratov (standaardtijd) | (UTC+04:00) Saratov |
 | Georgië (standaardtijd) | (UTC+04:00) Tbilisi |
 | Volgograd (standaardtijd) | (UTC+04:00) Volgograd |
-| Kaukasus (standaardtijd) | (UTC+04:00) Jerevan |
-| Afghanistan (standaardtijd) | (UTC+04:30) Kabul |
+| Kaukasus (standaardtijd) | (UTC+04:00) Jerevan  |
+| Afghanistan (standaardtijd) | (UTC+04:30) Kaboel |
 | West Asia (standaardtijd) | (UTC+05:00) Asjchabad, Tasjkent |
-| Ekaterinburg (standaardtijd) | (UTC+05:00) Ekaterinenburg |
+| Ekaterinburg (standaardtijd) | (UTC+05:00) Jekaterinenburg |
 | Pakistan (standaardtijd) | (UTC+05:00) Islamabad, Karachi |
 | India (standaardtijd) | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
 | Sri Lanka (standaardtijd) | (UTC+05:30) Sri Jayawardenepura |
@@ -197,12 +197,12 @@ Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundair
 | Omsk (standaardtijd) | (UTC+06:00) Omsk |
 | Myanmar (standaardtijd) | (UTC+06:30) Yangon (Rangoon) |
 | Zuidoost-Azië (standaardtijd) | (UTC+07:00) Bangkok, Hanoi, Jakarta |
-| Altaj (standaardtijd) | (UTC+07:00) Barnaul, Gorno-Altajsk |
+| Altaj (standaardtijd) | (UTC+07:00) Barnaoel, Gorno-Altajsk |
 | W. Mongolia Standard Time | (UTC+07:00) Hovd |
 | North Asia (standaardtijd) | (UTC+07:00) Krasnoyarsk |
 | N. Central Asia (standaardtijd) | (UTC+07:00) Novosibirsk |
 | Tomsk (standaardtijd) | (UTC+07:00) Tomsk |
-| China (standaardtijd) | (UTC+08:00) Beijing, Chongqing, Hongkong, Urumqi |
+| China (standaardtijd) | (UTC+08:00) Beijing, Chongqing, Hongkong SAR, Urumqi |
 | North Asia East (standaardtijd) | (UTC+08:00) Irkoetsk |
 | Singapore (standaardtijd) | (UTC+08:00) Kuala Lumpur, Singapore |
 | W. Australië (standaardtijd) | (UTC+08:00) Perth |
@@ -224,20 +224,20 @@ Met behulp van dezelfde tijdzone voor de instantie van een primaire en secundair
 | Lord Howe Island (standaardtijd) | (UTC+10:30) Lord Howe Island |
 | Bougainville (standaardtijd) | (UTC+11:00) Bougainville |
 | Rusland-tijdzone 10 | (UTC+11:00) Chokurdakh |
-| Magadan standaardtijd | (UTC+11:00) Magadan |
+| Magadan standaardtijd | (UTC+10:00) Magadan |
 | Norfolk (standaardtijd) | (UTC+11:00) Norfolk |
-| Sachalin (standaardtijd) | (UTC+11:00) Sachalin |
+| Sachalin (standaardtijd) | (UTC+10:00) Sakhalin |
 | Central Pacific (standaardtijd) | (UTC+11:00) Salomonseilanden, Nieuw-Caledonië |
 | Rusland-tijdzone 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamtsjatski |
 | Nieuw-Zeeland (standaardtijd) | (UTC+12:00) Auckland, Wellington |
 | UTC+12 | (UTC+12:00) Coordinated Universal Time+12 |
 | Fiji (standaardtijd) | (UTC+12:00) Fiji |
-| Kamtsjatka (standaardtijd) | (UTC+12:00) Petropavlovsk-Kamtsjatski - Oud |
+| Kamtsjatka (standaardtijd) | (UTC+12:00) Petropavlovsk-Kamtsjatski - verouderd |
 | Chathameilanden (standaardtijd) | (UTC+12:45) Chathameilanden |
 | UTC+13 | (UTC+13:00) Coordinated Universal Time+13 |
 | Tonga (standaardtijd) | (UTC+13:00) Nuku'alofa |
 | Samoa (standaardtijd) | (UTC+13:00) Samoa |
-| Line-eilanden (standaardtijd) | (UTC+14:00) Kiritimati |
+| Line-eilanden (standaardtijd) | (UTC+14:00) Kiritimati-eiland |
 
 ## <a name="see-also"></a>Zie ook 
 

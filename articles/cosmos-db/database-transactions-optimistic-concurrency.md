@@ -4,21 +4,21 @@ description: Dit artikel wordt beschreven databasetransacties en optimistische g
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889352"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978989"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transacties en optimistisch beheer van gelijktijdigheid
 
 Databasetransacties bieden een veilige en voorspelbare programmeermodel gelijktijdige wijzigingen in de gegevens zijn getroffen. Traditionele relationele databases, zoals SQL Server, kunt u het schrijven van de bedrijfslogica met behulp van opgeslagen procedures en/of triggers, verzenden naar de server voor de uitvoering van rechtstreeks in de database-engine. Met traditionele relationele databases, bent u vereist voor het omgaan met twee verschillende programmeertalen de (niet-transactionele) toepassing programmeertaal, zoals JavaScript, Python, C#, Java, enz. en de transactionele programmeer-taal ( zoals T-SQL) is die systeemeigen uitgevoerd door de database.
 
-De database-engine in Azure Cosmos DB ondersteunt volledige ACID (atomisch, consistent, geïsoleerd, duurzaamheid) compatibele transacties met snapshot-isolatie. Alle databasebewerkingen binnen het bereik van een container [logische partitie](partition-data.md) transactioneel worden uitgevoerd in de database-engine die wordt gehost door de replica van de partitie. Deze bewerkingen zijn beide bewerkingen lezen en schrijven (bijwerken van een of meer items in de logische partitie). De volgende tabel ziet u verschillende bewerkingen en transactie-typen:
+De database-engine in Azure Cosmos DB ondersteunt volledige ACID (atomisch, consistent, geïsoleerd, duurzaamheid) compatibele transacties met snapshot-isolatie. Alle databasebewerkingen binnen het bereik van een container [logische partitie](partition-data.md) transactioneel worden uitgevoerd in de database-engine die wordt gehost door de replica van de partitie. Deze bewerkingen zijn beide bewerkingen lezen en schrijven (bijwerken van een of meer items in de logische partitie). De volgende tabel ziet u verschillende bewerkingen en transactietypen:
 
 | **Bewerking**  | **Bewerkingstype** | **Één of meerdere Item transactie** |
 |---------|---------|---------|

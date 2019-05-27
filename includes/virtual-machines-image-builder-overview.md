@@ -6,11 +6,11 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416281"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111458"
 ---
 Installatiekopieën van gestandaardiseerde virtuele machines (VM) kunnen organisaties om te migreren naar de cloud en zorgen voor consistentie in de implementaties. Afbeeldingen bevatten doorgaans vooraf gedefinieerde beveiliging en configuratie-instellingen en software die nodig zijn. Instellen van uw eigen installatiekopieën pijplijn vereist tijd, infrastructuur en configuratie, maar met Azure VM Image Builder alleen bieden een eenvoudige configuratie met een beschrijving van uw installatiekopie, het verzenden naar de service en de installatiekopie is gebouwd en gedistribueerd.
  

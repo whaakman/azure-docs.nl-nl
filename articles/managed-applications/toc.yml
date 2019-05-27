@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: Een geheim van Key Vault gebruiken
           href: key-vault-access.md
+        - name: Implementeren met beheerde identiteit
+          href: publish-managed-identity.md
     - name: Consumenten
       items:
         - name: Beheerde toepassing bewaken

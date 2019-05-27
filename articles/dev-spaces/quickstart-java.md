@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snelle ontwikkeling van Kubernetes met containers, microservices en Java in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Java, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: f39fc0a7094941bb44fbe717879b3a2179c3be25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800886"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979131"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Ontwikkelen met Java op Kubernetes met Azure Dev spaties
 
@@ -41,7 +41,7 @@ U moet maken van een AKS-cluster in een [ondersteunde regio](https://docs.micros
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Azure Dev spaties inschakelen in uw AKS-cluster
@@ -122,7 +122,7 @@ Als u stopt de `azds up` met behulp van de opdracht *Ctrl + c*, de service wordt
 Voor het implementeren van een bijgewerkte versie van uw service, kunt u elk bestand in uw project bijwerken en opnieuw de `azds up` opdracht. Bijvoorbeeld:
 
 1. Als `azds up` is nog steeds uitgevoerd, drukt u op *Ctrl + c*.
-1. Update [16 in regel `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) aan:
+1. Update [regel 19 in `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) aan:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -178,17 +178,17 @@ Klik op *Debug* vervolgens *Stop Debugging* naar het foutopsporingsprogramma sto
 
 Start de service tijdens de foutopsporing modus met *starten Java programma (AZDS)*.
 
-Ga terug naar de *Explorer* weergeven door te klikken op *weergave* vervolgens *Explorer*. Open `src/main/java/com/ms/sample/webfrontend/Application.java` en klik ergens op regel 16 om te zetten de cursor. Om in te stellen van een onderbrekingspunt bereikt *F9* of klik op *Debug* vervolgens *onderbrekingspunt*.
+Ga terug naar de *Explorer* weergeven door te klikken op *weergave* vervolgens *Explorer*. Open `src/main/java/com/ms/sample/webfrontend/Application.java` en klik ergens op regel 19 om te zetten de cursor. Om in te stellen van een onderbrekingspunt bereikt *F9* of klik op *Debug* vervolgens *onderbrekingspunt*.
 
-Open uw service in een browser en er geen bericht wordt weergegeven. Ga terug naar Visual Studio Code en bekijk regel 16 is gemarkeerd. Het onderbrekingspunt die u instelt, heeft de service op de regel 16 onderbroken. Hervat de service, bereikt *F5* of klik op *Debug* vervolgens *doorgaan*. Ga terug naar uw browser en u ziet dat het bericht wordt nu weergegeven.
+Open uw service in een browser en er geen bericht wordt weergegeven. Ga terug naar Visual Studio Code en bekijk regel 19 is gemarkeerd. Het onderbrekingspunt die u instelt, heeft de service op regel 19 onderbroken. Hervat de service, bereikt *F5* of klik op *Debug* vervolgens *doorgaan*. Ga terug naar uw browser en u ziet dat het bericht wordt nu weergegeven.
 
 Tijdens het uitvoeren van uw service in Kubernetes met een foutopsporingsprogramma die is gekoppeld, hebt u volledige toegang tot informatie zoals de aanroepstack, lokale variabelen en informatie over de uitzondering voor foutopsporing.
 
-Het onderbrekingspunt verwijderen door de cursor op regel 16 in `src/main/java/com/ms/sample/webfrontend/Application.java` en op *F9*.
+Het onderbrekingspunt verwijderen door de cursor op regel 19 in `src/main/java/com/ms/sample/webfrontend/Application.java` en op *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Code van de update van Visual Studio Code
 
-Terwijl de service wordt uitgevoerd in de modus voor foutopsporing, werkt u regel 16 in `src/main/java/com/ms/sample/webfrontend/Application.java`. Bijvoorbeeld:
+Terwijl de service wordt uitgevoerd in de modus voor foutopsporing, werkt u regel 19 in `src/main/java/com/ms/sample/webfrontend/Application.java`. Bijvoorbeeld:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596575"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002236"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-querysyntaxis in Azure Search
 U kunt ook query's voor Azure Search op basis van de uitgebreide schrijven [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxis voor het vormen van de speciale query: jokertekens, fuzzy zoeken, zoeken op nabijheid, reguliere expressies zijn een aantal voorbeelden. Veel van de syntaxis van Lucene-Queryparser [intact geïmplementeerd in Azure Search](search-lucene-query-architecture.md), met uitzondering van *bereik zoekopdrachten* die zijn gebouwd in Azure Search via `$filter` expressies. 
@@ -79,7 +79,7 @@ Het bovenstaande voorbeeld is de tilde (~), maar de hetzelfde geldt voor elke op
  Speciale tekens moeten worden weergegeven om te worden gebruikt als onderdeel van de zoektekst. U kunt deze escape door het voorvoegsel wordt deze gemaakt met een backslash (\\). Speciale tekens die moeten worden weergegeven, omvatten het volgende:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Bijvoorbeeld, om te escapen een jokerteken, gebruik \\*.
+ Bijvoorbeeld, om te escapen een jokerteken, gebruik \\ \*.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codering onveilige en gereserveerde tekens in URL 's
 

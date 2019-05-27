@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407592"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003101"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Een Linux-PHP-app configureren voor Azure App Service
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Toegang tot omgevingsvariabelen
 
-In App Service, kunt u [app-instellingen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) buiten de app-code. Vervolgens kunt u ze met behulp van de standaard openen [getenv()](https://secure.php.net/manual/function.getenv.php) patroon. Voor toegang tot bijvoorbeeld de app-instelling `DB_HOST` gebruikt u de volgende code:
+In App Service, kunt u [app-instellingen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) buiten de app-code. Vervolgens kunt u ze met behulp van de standaard openen [getenv()](https://secure.php.net/manual/function.getenv.php) patroon. Voor toegang tot bijvoorbeeld de app-instelling `DB_HOST` gebruikt u de volgende code:
 
 ```php
 getenv("DB_HOST")
@@ -147,7 +147,7 @@ Als u wijzigingen aanbrengen in uw PHP-installatie moet, kunt u een van de [php.
 > De beste manier om te zien van de PHP-versie en de huidige *php.ini* configuratie is om aan te roepen [phpinfo()](https://php.net/manual/function.phpinfo.php) in uw app.
 >
 
-### <a name="customize-non-phpinisystem-directives"></a>Niet-PHP_INI_SYSTEM richtlijnen aanpassen
+### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Richtlijnen voor aanpassen van-niet-PHP_INI_SYSTEM
 
 Om aan te passen PHP_INI_USER PHP_INI_PERDIR en PHP_INI_ALL richtlijnen (Zie [php.ini richtlijnen](https://www.php.net/manual/ini.list.php)), Voeg een *.htaccess* bestand naar de hoofdmap van uw app.
 
@@ -228,7 +228,7 @@ De wijzigingen van kracht, start de app opnieuw.
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Wanneer een werkende PHP-app zich anders in App Service gedraagt of fouten heeft, probeert u het volgende:
 
@@ -237,7 +237,7 @@ Wanneer een werkende PHP-app zich anders in App Service gedraagt of fouten heeft
     - Afhankelijk van uw *composer.json*, verschillende pakketten kunnen worden geïnstalleerd voor de productiemodus (`require` versus `require-dev`).
     - Bepaalde web-frameworks kunnen statische bestanden in productiemodus anders implementeren.
     - Bepaalde web-frameworks kunnen aangepaste opstartscripts gebruiken bij het uitvoeren in productiemodus.
-- Het uitvoeren van uw app in App Service in de foutopsporingsmodus. Bijvoorbeeld, in [Laravel](https://meanjs.org/), kunt u uw app zo foutopsporingsberichten in productie door [instelling de `APP_DEBUG` app-instelling op `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Het uitvoeren van uw app in App Service in de foutopsporingsmodus. Bijvoorbeeld, in [Laravel](https://meanjs.org/), kunt u uw app zo foutopsporingsberichten in productie door [instelling de `APP_DEBUG` app-instelling op `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ### <a name="robots933456"></a>robots933456
 

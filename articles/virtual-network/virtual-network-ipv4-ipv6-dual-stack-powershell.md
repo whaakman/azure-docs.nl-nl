@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: f26391e36e3208996160fffad01e39ec2f182318
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130897"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000996"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Implementeren van een IPv6 dual stack-toepassing in Azure - PowerShell (Preview)
 
@@ -151,7 +151,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-load-balancer"></a>Load balancer maken
 
-Maak de Basic Load Balancer met [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). Het volgende voorbeeld wordt een openbare Basic Load Balancer met de naam *myLoadBalancer* met behulp van de IPv4 en IPv6-frontend-IP-configuraties, back-endpools tests, taakverdeling regels en NAT-regels die u hebt gemaakt de voorgaande stappen:
+Maak de Basic Load Balancer met [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). Het volgende voorbeeld wordt een openbare Basic Load Balancer met de naam *myLoadBalancer* met behulp van de IPv4 en IPv6-frontend-IP-configuraties, back-endpools en taakverdelingsregels die u hebt gemaakt in de voorgaande stappen:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `

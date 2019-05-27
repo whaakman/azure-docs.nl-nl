@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: Locaties per provider
           href: expressroute-locations.md
-    - name: Virtuele ExpressRoute-netwerkgateway en FastPath
+    - name: Virtuele netwerkgateway en FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Vereisten
       href: expressroute-prerequisites.md

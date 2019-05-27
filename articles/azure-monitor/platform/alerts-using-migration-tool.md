@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 55e6b515328df635a423e0ecf736b03e17a90b8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698427"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015627"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Gebruik het hulpprogramma voor migratie op vrijwillige basis voor het migreren van de klassieke waarschuwingsregels
 
-Als [eerder aangekondigd](monitoring-classic-retirement.md), klassieke waarschuwingen in Azure Monitor worden stopgezet in juli 2019. Een hulpprogramma voor migratie is beschikbaar in de Azure-portal voor klanten die gebruik van klassieke waarschuwingsregels en willen voor het activeren van de migratie zelf. In dit artikel wordt uitgelegd hoe u het hulpprogramma voor migratie gebruiken voor het migreren van de klassieke waarschuwingsregels vrijwillig voordat de automatische migratie wordt gestart in juli 2019.
+Als [eerder aangekondigd](monitoring-classic-retirement.md), klassieke waarschuwingen in Azure Monitor worden stopgezet in September 2019 (oorspronkelijk juli 2019 is). Een hulpprogramma voor migratie is beschikbaar in de Azure-portal voor klanten die gebruik van klassieke waarschuwingsregels en willen voor het activeren van de migratie zelf. In dit artikel wordt uitgelegd hoe u het hulpprogramma voor migratie gebruiken voor het migreren van de klassieke waarschuwingsregels vrijwillig voordat de automatische migratie wordt gestart in September 2019.
+
+> [!NOTE]
+> Vertraging in de uitrol van hulpprogramma voor migratie van de vervaldatum voor de migratie van de klassieke waarschuwingen is vanwege [uitgebreid tot en met 31 augustus 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) vanaf de oorspronkelijk aangekondigde datum van 30 juni 2019.
 
 ## <a name="benefits-of-new-alerts"></a>Voordelen van nieuwe waarschuwingen
 
@@ -78,7 +81,7 @@ Volg deze stappen voor het activeren van de migratie van de klassieke waarschuwi
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Waarom wordt mijn abonnement vermeld als niet gereed voor migratie?
 
-Het Migratiehulpmiddel is beschikbaar voor klanten in fasen. In de eerste fasen, meeste of alle van uw abonnementen kan worden gemarkeerd als **niet gereed voor migratie**. Mid-april echter moeten alle abonnementen zijn klaar om te migreren.
+Het Migratiehulpmiddel is beschikbaar voor klanten in fasen. In de eerste fasen, meeste of alle van uw abonnementen kan worden gemarkeerd als **niet gereed voor migratie**. 
 
 Wanneer een abonnement gereed voor migratie is, moet u eigenaar van het abonnement ontvangt een e-mailbericht dat aangeeft dat het hulpprogramma beschikbaar is. Houd gaten af voor dit bericht.
 

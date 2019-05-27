@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294227"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113129"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Beveiligingsproblemen die worden gedetecteerd door Azure Active Directory Identity Protection
 
@@ -30,20 +30,18 @@ De volgende secties vindt u een overzicht van de beveiligingsproblemen die zijn 
 
 Dit beveiligingsprobleem helpt bij het beoordelen van de implementatie van Azure multi-factor Authentication in uw organisatie.
 
-Als u wilt weergeven van het aantal voor gebruikers die niet zijn geregistreerd voor MFA, klikt u op worden het beveiligingslek en u omgeleid naar statistieken binnen identiteit Secure Score.
-
 Azure multi-factor Authentication biedt een tweede beveiligingslaag voor verificatie van de gebruiker. Deze om de toegang tot gegevens en toepassingen beveiligen terwijl aan de wensen van gebruikers voor een eenvoudige aanmeldprocedure. Azure multi-factor Authentication biedt verificatieopties voor van eenvoudig te gebruiken, zoals:
 
 * Telefoonoproep
 * Sms-bericht
-* Meldingen via mobiele app
+* Melding van een mobiele app
 * OTP-verificatiecode
 
 Het is raadzaam dat u Azure multi-factor Authentication voor gebruikersaanmeldingen nodig hebt. Meervoudige verificatie speelt een belangrijke rol in het beleid voor voorwaardelijke toegang op basis van risico beschikbaar via Identity Protection.
 
 Voor meer informatie raadpleegt u [Wat is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 
-## <a name="unmanaged-cloud-apps"></a>Niet-beheerde cloud-apps
+## <a name="unmanaged-cloud-apps"></a>Onbeheerde cloud-apps
 
 Hierdoor kunt u niet-beheerde cloud-apps in uw organisatie identificeren.
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 1f3ae120bbbb902188d893d5a04582a6e9547bdf
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 297a6f9058b220d1f2e3a0ca69d018858218b774
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937949"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909718"
 ---
 # <a name="your-marketplace-benefits"></a>Uw Marketplace-voordelen
 
@@ -34,11 +34,7 @@ De Go-to-Market-voordelen zijn toegankelijk voor partners die een aanbieding onl
 2. Microsoft Marketplaces Consultation: Profiteer van deze [gratis consultatie](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) om u te helpen bij het plannen van de architectuur van uw app in de marketplace.
 3. Marketplace-Forums: Stel uw vragen rechtstreeks naar Microsoft-werknemers en andere marketplace-partners in de [forum van Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 4. Technische ondersteuning: Gebruik het menu Help in [Cloud Partner-Portal](https://cloudpartner.azure.com/) om hulp te krijgen op uw vragen met betrekking tot marketplace. 
-5. Ontwikkeling testen Sponsorship: In aanmerking te komen hieronder controleren en verzenden van uw aanvraag voor sponsorship met behulp van de [registratieformulier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3omd2bW7etLoEoufw2-vMdUNUkxSjQ5V0hJOEtZSks3ME45TDJNTkVUTi4u):
-    * Ontwikkelen en testen zijn voor publicatie naar de Azure Marketplace.
-    * De financiering kan niet worden gebruikt voor andere doeleinden.
-    * De award is $5000 negentig dagen van gebruik, vanaf wanneer de eerste actie in het toegewezen abonnement wordt uitgevoerd.
-    * De app die wordt getest moet live gaan in de Azure Marketplace binnen 30 dagen na de laatste dag van de financiering: Bijvoorbeeld, als u deze financiering gebruikt vanaf 1 December, moet klikt u vervolgens de app live op 31 maart.
+5. AAD-integratie en ontwikkeling en testen sponsorship: u wordt worden aangemeld wanneer u live gaan met een transactable (kan worden geïmplementeerd en factureerbare-aanbieding). Zie de volgende sectie voor informatie over het aan de slag met go-to-market-voordelen.
 
 ## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Voordelen van de Go-to-market (GTM) in de Marketplace
 
@@ -46,8 +42,8 @@ Nieuwe aanbiedingen in Azure Marketplace en AppSource komen in aanmerking voor h
 
 | Storefront | Aanvullende beschikbare voordelen |
 |:--- |:--- |
-| AppSource |  Microsoft Gold-partners <br> Proefversie Apps |
-| De Azure Marketplace | Transact-aanbiedingen <br> Proefaanbiedingen |
+| AppSource |  Microsoft Gold-partners <br> Transact aanbiedingen: voordelen van Marketplace <br> Proefversie Apps |
+| De Azure Marketplace | Transact aanbiedingen: voordelen van Marketplace <br> Proefaanbiedingen |
 
 De GTM-ondersteuning omvat sjablonen, webinhoud, training en hulpprogramma's voor het promoten van uw bedrijf.
 
@@ -56,21 +52,25 @@ Voor toegang tot deze voordelen, moet u naar:
 1. Een aanbieding publiceren in Azure Marketplace of AppSource.
 2. Zorg ervoor dat u hebt een marketing contactpersoon in de **contactgegevens** gedeelte van uw aanbieding. Dit moet een toegewezen marketing resource, in plaats van een catch-all-alias. (Internet Explorer, Vermijd het gebruik van ' ondersteunen\@', ' info\@"," marketing\@', enzovoort.)
 
-Op basis van de oplossingsstatus van uw, voorstel lijst, proefversie of Transact, ontvangt u een e-mail met bronnen voor zelfhulp of een uitnodiging voor een aanroep van overleg met een toegewezen Engagement Manager. U hoeft niet verder niets voor het starten van de aanroep te doen, het Marketplace-Voorbereidingsteam neemt contact met u op basis van de informatie die u opgeeft in de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
+Op basis van de oplossingsstatus van uw, voorstel lijst, proefversie of Transact-opbrengst van Marketplace, ontvangt u een e-mail met bronnen voor zelfhulp of een uitnodiging voor een aanroep van overleg met een toegewezen Engagement Manager. U hoeft niet verder niets voor het starten van de aanroep te doen, het Marketplace-Voorbereidingsteam neemt contact met u op basis van de informatie die u opgeeft in de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
 
-Het bereik van de activiteiten die beschikbaar zijn voor u uitgebreid naarmate u uw aanbiedingen op marketplace groeit. Alle aanbiedingen ontvangen een basisniveau aan optimalisatie aanbevelingen en de promotie.  Deze aanbiedingen zijn ook in aanmerking komen voor extra marketing voordelen op basis van de oplossingsstatus (lijst, proefversie of Transact), marketplace en de prestatie van de competentie voor het Microsoft-Partner gekozen.
+Het bereik van de activiteiten die beschikbaar zijn voor u uitgebreid naarmate u uw aanbiedingen op marketplace groeit. Alle aanbiedingen ontvangen een basisniveau aan optimalisatie aanbevelingen en de promotie.  Deze aanbiedingen zijn ook in aanmerking komen voor extra marketing voordelen op basis van de oplossing status (lijst, proefversie of Transact - marketplace beloningen), gekozen marketplace en de prestatie van de competentie voor het Microsoft-Partner.
 
-De onderstaande tabel geven een overzicht van de vereisten voor geschiktheid:
+De onderstaande tabel geven een overzicht van de vereisten voor geschiktheid voor de lijst en Proefaanbiedingen:
 
-![](./media/marketplace-publishers-guide/gtm-activities-table.png)
+![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
 \* Silver- of gold-competentie vereist. <br>
 \*\* Gold-competentie voor vereist. <br>
 \*\*\* Vereist gold-competentie voor en CO-sell Ready in aanbiedingen die Partner. <br>
 ^ Transact alleen van toepassing op Azure Marketplace.
 
+## <a name="marketplace-rewards-for-transact-partners"></a>Marketplace-voordelen voor transact-partners
+
+De volledige lijst van de voordelen voor marketplace beloningen kan worden weergegeven in de [programma samenvatting dia's](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/) maken en configureren uw aanbieding.
+Aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/) maken en configureren uw aanbieding.
 
 ---

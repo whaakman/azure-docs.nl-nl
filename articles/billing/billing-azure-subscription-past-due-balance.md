@@ -13,32 +13,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 056ece53fa154e86cf0b5f5fb24a8842cf5a4261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60617721"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66023405"
 ---
-# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Verschuldigd saldo voor uw Azure-abonnement nadat ze een e-mailbericht van Azure
+# <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Verschuldigd saldo voor uw Azure-abonnement
 
-Als uw betaling is niet ontvangen of als uw betaling kan niet worden verwerkt, kan u een e-mail ontvangen of er een waarschuwing weergegeven in het Accountcentrum of Azure-portal. Het bericht is mogelijk, zoals:
+Als uw betaling is niet ontvangen of als uw betaling kan niet worden verwerkt, kunt u een e-mail ontvangen of raadpleegt u een waarschuwing in de Azure portal of de Account Center.
+Als u de [accountbeheerder](billing-subscription-transfer.md#whoisaa), u kunt de openstaande bedragen het [Azure-portal](https://portal.azure.com). Als u van een factuur-modus van betaling gebruikmaakt, verzendt u de betaling naar de locatie die aan de onderkant van uw factuur.
 
-**We zijn niet uw creditcard voor uw abonnement. Werk de betalingsgegevens bij om te voorkomen dat een service wordt onderbroken.**
+> [!IMPORTANT]
+> * Als u meerdere abonnementen met behulp van de creditcard hebt en ze alle vervallen zijn, moet u de volledige openstaande saldo in één keer betaalt.
+> * De betalingswijze die u kunt de openstaande bedragen worden de nieuwe actieve betalingswijze voor alle abonnementen die zijn met de mislukte betalingswijze.
 
-Volg de stappen in het artikel om op te lossen van de laatste saldo verschuldigd.
+## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Verschuldigd saldo in Azure portal
 
-## <a name="resolve-the-past-due-balance"></a>Oplossen van het verleden saldo verschuldigd
-
-* Als de geregistreerde creditcard is afgewezen of verlopen, [wijzigen van de creditcard die is gebruikt om te betalen voor het abonnement](billing-how-to-change-credit-card.md) of neem contact op met uw bank om het probleem te verhelpen. Wanneer u de betalingswijze bijwerkt, wordt in Azure onmiddellijk de betaling voor alle openstaande kosten die worden verwerkt. Betaling is ook verwerkt voor andere Microsoft-services waarin u werkt met openstaande bedragen.
-
-* Als u van een factuur-modus van betaling gebruikmaakt, verzendt u de betaling naar de locatie die aan de onderkant van uw factuur. Als u hulp nodig hebt, neem dan contact op met [ondersteuning voor Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-* Als u niet een factuur ziet doordat de accountbeheerder het bedrijf of een andere rol heeft verlaten, neem dan contact op met [ondersteuning voor Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om het probleem te verhelpen.
-
-* Als u bekend bent met uw betaling is verwerkt, maar uw abonnement nog steeds is uitgeschakeld, neem contact op met [ondersteuning voor Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als de accountbeheerder.
+1. Zoek naar **kostenbeheer en facturering**.
+1. Op de pagina overzicht ziet u een lijst van uw abonnementen. Als de abonnementsstatus van uw verstreken is, klikt u op de **saldo vereffenen** koppeling.
+    ![Schermafbeelding van koppeling saldo vereffenen](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
+1. Het totale aantal openstaande saldo weerspiegelt openstaande kosten in rekening gebracht voor alle Microsoft-services met behulp van de mislukte betalingswijze.
+1. Selecteer een betalingswijze wordt gebruikt om het saldo te betalen. Deze betalingsmethode wordt de actieve betalingswijze wordt gebruikt voor alle abonnementen op dit moment met behulp van de mislukte betalingswijze.
+    ![Schermafbeelding van de koppeling van de methode selecteren betaling](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
+1. Als de geselecteerde betalingswijze ook openstaande kosten in rekening gebracht voor Microsoft-services heeft, wordt dit weerspiegeld in het totale aantal openstaande saldo. U moet deze openstaande bedragen te betalen.
+1. Klik op **betalen**.
 
 ## <a name="not-getting-billing-email-notifications"></a>Niet ophalen van facturering e-mailmeldingen?
 
@@ -47,6 +50,8 @@ Als u de accountbeheerder bent [controleren welk e-mailadres wordt gebruikt voor
 ## <a name="if-i-forget-to-pay-what-happens"></a>Wat gebeurt er als ik bent vergeten om te betalen?
 
 De service is geannuleerd en uw resources zijn niet meer beschikbaar. Uw Azure-gegevens wordt verwijderd van 90 dagen nadat de service is beëindigd. Zie voor meer informatie, [Microsoft Trust Center - hoe we uw gegevens beheren](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+
+Als u bekend bent met uw betaling is verwerkt, maar uw abonnement nog steeds is uitgeschakeld, neem contact op met [ondersteuning voor Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
