@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25b8669e5ca2abe2d763d9bc14f27ed9c4460886
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825955"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015481"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Werken met bestaande on-premises proxy-servers
 
@@ -112,7 +112,7 @@ Sta toegang tot de volgende URL's toe:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure gebruikt deze URL's om certificaten te controleren |
 | login.windows.net<br>login.microsoftonline.com | De connector gebruikt deze URL's tijdens het registratieproces. |
 
-Als uw firewall of proxyserver opname in een DNS-whitelist toestaat, kunt u verbindingen met \*msappproxy.net en \* in de whitelist opnemen. Als dat niet het geval is, moet u toegang toestaan tot de [IP-bereiken van Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653), die overigens elke week worden bijgewerkt.
+Als u uw firewall of proxy configureren van DNS lijsten toestaan, kunt u verbindingen met \*. msappproxy.net en \*. servicebus.windows.net. Als dat niet het geval is, moet u toegang toestaan tot de [IP-bereiken van Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653), die overigens elke week worden bijgewerkt.
 
 
 Als u kunt geen kunt u met FQDN-naam en moet in plaats daarvan IP-adresbereiken opgeven, gebruikt u deze opties:

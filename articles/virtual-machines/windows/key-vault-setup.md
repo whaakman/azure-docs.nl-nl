@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: f4344be1ef13daa85477b22aa0434347873aec40
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: e9d2b518af50aaec43bc7075e51829e80cdeddf5
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826136"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016134"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Key Vault instellen voor virtuele machines in Azure Resource Manager
 
@@ -49,6 +49,10 @@ Voor bestaande key vaults, kunt u deze PowerShell-cmdlet:
 Zie voor informatie over het maken van een key vault met behulp van de opdrachtregelinterface (CLI) [Key Vault beheren met behulp van CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
 Voor CLI moet u de key vault maken voordat u de implementatiebeleid toewijst. U gebruikt hiervoor de volgende opdracht:
+
+    az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
+    
+Om in te schakelen Key Vault voor gebruik met de sjabloonimplementatie, voer de volgende opdracht uit:
 
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
