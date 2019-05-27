@@ -4,14 +4,14 @@ description: Meer informatie over de Azure Cosmos DB Spark-connector waarmee u v
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 60afd8128224050d456699e798d814a259e106ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc0f2044f70c674177f9c9786f56f0441db2e282
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330243"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978909"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Versnel de analyse van big data met behulp van de Apache Spark op Azure Cosmos DB-connector
 
@@ -31,7 +31,7 @@ U kunt de connector met [Azure Databricks](https://azure.microsoft.com/services/
 > Voor Cosmos DB Cassandra-API, gebruikt u de [Cassandra Spark-connector](https://github.com/datastax/spark-cassandra-connector).
 >
 
-## <a name="quickstart"></a>Snelstartgids
+## <a name="quickstart"></a>Quick Start
 
 * Volg de stappen in [aan de slag met de Java SDK](sql-api-async-java-get-started.md) instellen van een Cosmos DB-account en enkele gegevens invullen.
 * Volg de stappen in [Azure Databricks aan de slag](https://docs.azuredatabricks.net/getting-started/index.html) voor het instellen van een Azure Databricks-werkruimte en het cluster.

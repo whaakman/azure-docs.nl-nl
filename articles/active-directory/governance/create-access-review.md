@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247111"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113500"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Maken van een toegangscontrole van groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
@@ -30,8 +30,11 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 
 ## <a name="prerequisites"></a>Vereisten
 
+- Azure AD Premium P2
 - [Toegangsbeoordelingen ingeschakeld](access-reviews-overview.md)
 - Globale beheerder of Gebruikerbeheerder
+
+Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-one-or-more-access-reviews"></a>Maken van een of meer toegangsbeoordelingen
 
@@ -77,9 +80,13 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 
     ![Een toegangsbeoordeling - revisoren maken](./media/create-access-review/reviewers.png)
 
-1. In de **programma's** sectie, selecteer het programma dat u wilt gebruiken. U kunt bijhouden en verzamelen van toegangsbeoordelingen voor verschillende doeleinden door ze te ordenen in programma's vereenvoudigen. **Standaardprogramma dat** is altijd aanwezig is, of u kunt een ander programma maken. Bijvoorbeeld, u kunt een programma voor elke initiatief naleving of zakelijke doelstelling.
+1. In de **programma's** sectie, selecteer het programma dat u wilt gebruiken. **Standaardprogramma dat** altijd aanwezig is.
 
     ![Een toegangsbeoordeling - programma's maken](./media/create-access-review/programs.png)
+
+    U kunt bijhouden en verzamelen van toegangsbeoordelingen voor verschillende doeleinden door ze te ordenen in programma's vereenvoudigen. Elke toegangsbeoordeling die kan worden gekoppeld aan een programma. Klik wanneer u rapporten voor één auditor voorbereidt, u zich kunt richten op de toegangsbeoordelingen binnen het bereik van een bepaalde initiatief. Programma's en resultaten van de toegangsbeoordeling zijn zichtbaar voor gebruikers in de globale beheerder, beheerder, beveiligingsbeheerder of rol van beveiligingslezer.
+
+    Een lijst met programma's wilt bekijken, gaat u naar de toegang beoordeelt pagina en selecteer **programma's**. Als u in een globale beheerder of de gebruikersrol beheerder bent, kunt u aanvullende programma's maken. Bijvoorbeeld, u kunt een programma voor elke initiatief naleving of zakelijke doelstelling. Als u een programma niet meer nodig hebt en dit niet alle besturingselementen die zijn gekoppeld hoeft, kunt u deze kunt verwijderen.
 
 ### <a name="upon-completion-settings"></a>Na voltooiing van de instellingen
 
@@ -110,6 +117,8 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 
 1. Stel **herinneringen** naar **inschakelen** om in Azure AD herinneringen stuurt van toegangsbeoordelingen wordt uitgevoerd naar de revisors die de beoordeling nog niet hebben voltooid.
 
+    Standaard ontvangen de beoordelaars die nog niet hebben gereageerd halverwege de einddatum automatisch een herinnering van Azure AD.
+
 ## <a name="start-the-access-review"></a>Start de toegangsbeoordeling
 
 Nadat u de instellingen voor een overzicht van access hebt opgegeven, klikt u op **Start**. De toegangsbeoordeling wordt weergegeven in de lijst met een indicatie van de status ervan.
@@ -118,19 +127,7 @@ Nadat u de instellingen voor een overzicht van access hebt opgegeven, klikt u op
 
 Standaard verzendt Azure AD een e-mailbericht naar de revisors kort nadat de evaluatie wordt gestart. Als u geen Azure AD-tenant het e-mailbericht verzenden, zorg er dan voor dat laten weten de revisoren een toegangsbeoordeling wordt gewacht om uit te voeren. U ze kunt weergeven, kunt u de instructies voor het [toegang met groepen of toepassingen beoordelen](perform-access-review.md). Als uw beoordeling voor gasten op hun eigen toegang beoordelen, geven ze de instructies voor het [toegang beoordelen zelf aan groepen of toepassingen](review-your-access.md).
 
-Als sommige van de revisoren gasten, gasten krijgt een melding via e-mail alleen als ze al hun uitnodiging hebt geaccepteerd.
-
-## <a name="manage-the-access-review"></a>Beheren van de toegangsbeoordeling
-
-U kunt de voortgang volgen de revisoren hun beoordelingen zijn voltooid op de **overzicht** pagina van de toegangsbeoordeling. Er is geen toegangsrechten worden gewijzigd in de map tot [de beoordeling is voltooid](complete-access-review.md).
-
-![Toegangsbeoordelingen wordt uitgevoerd](./media/create-access-review/overview-progress.png)
-
-Als dit een eenmalige beoordeling, klikt u vervolgens of de beheerder van de toegangsbeoordeling, stopt de periode van de toegangsbeoordeling is via de stappen in [een toegangscontrole van groepen of toepassingen voltooien](complete-access-review.md) om te zien en de resultaten van toepassing.  
-
-Voor het beheren van een reeks beoordelingen, gaat u naar de toegangsbeoordeling en u toekomstige voorvallen niet vinden in de geplande beoordelingen, en de einddatum bewerken of toevoegen/verwijderen revisoren dienovereenkomstig.
-
-Op basis van uw selecties in **na voltooiing van de instellingen**, wordt automatisch toepassen worden uitgevoerd na de einddatum van de beoordeling of wanneer u de beoordeling handmatig stoppen. De status van de beoordeling wordt gewijzigd van **voltooid** via tussenliggende Staten zoals **toepassen** en tot slot naar status **toegepast**. U kunt verwachten om te zien van geweigerde gebruikers, indien van toepassing, wordt verwijderd uit de groepstoewijzing voor lidmaatschap of uw toepassing in een paar minuten.
+Als u gasten als beoordelaar hebt toegewezen en ze de uitnodiging niet hebben geaccepteerd, wordt ze een e-mailbericht niet ontvangen van toegangsbeoordelingen omdat ze moeten eerst akkoord gaan met de uitnodiging voordat controleren.
 
 ## <a name="create-reviews-via-apis"></a>Beoordelingen via API's maken
 

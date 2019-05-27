@@ -8,12 +8,12 @@ ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001933"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953184"
 ---
 # <a name="how-to-annotate-data-sources"></a>Aantekeningen toevoegen aan gegevensbronnen
 ## <a name="introduction"></a>Inleiding
@@ -27,9 +27,9 @@ Data Catalog herkent dat verschillende gebruikers verschillende perspectieven he
 * De databasebeheerder weet de back-upschema voor elke database en de windows toegestane ETL-verwerking.
 * Eigenaar van het systeem kent het proces voor gebruikers om aan te vragen van toegang tot de gegevensbron.
 * De data steward weet hoe de elementen en kenmerken in de gegevensbron aan de enterprise-gegevensmodel toegewezen.
-* De analist weet hoe de gegevens wordt gebruikt in de context van de bedrijfsprocessen die hij ondersteunt.
+* De analist weet hoe de gegevens wordt gebruikt in de context van de bedrijfsprocessen die worden ondersteund.
 
-Elk van deze perspectieven is enorm waardevol en Data Catalog maakt gebruik van een crowdsourcing-methode voor metagegevens waarmee elke service worden vastgelegd en gebruikt voor een compleet beeld van de geregistreerde gegevensbronnen. Met behulp van de Data Catalog-portal, kan elke gebruiker toevoegen en bewerken van zijn of haar eigen aantekeningen, terwijl u aantekeningen die door andere gebruikers weergeven.
+Elk van deze perspectieven is enorm waardevol en Data Catalog maakt gebruik van een crowdsourcing-methode voor metagegevens waarmee elke service worden vastgelegd en gebruikt voor een compleet beeld van de geregistreerde gegevensbronnen. Met behulp van de Data Catalog-portal, kan elke gebruiker toevoegen en bewerken van hun eigen aantekeningen, terwijl u aantekeningen die door andere gebruikers weergeven.
 
 ## <a name="different-types-of-annotations"></a>Verschillende typen aantekeningen
 Data Catalog ondersteunt de volgende typen aantekeningen:

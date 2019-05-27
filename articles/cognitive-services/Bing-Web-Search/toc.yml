@@ -105,6 +105,8 @@
       href: language-support.md
     - name: Analytische gegevens voor Bing Webzoekopdrachten-API
       href: bing-web-stats.md
+    - name: Naleving
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Ondersteuning
       items:
         - name: User Voice-forum

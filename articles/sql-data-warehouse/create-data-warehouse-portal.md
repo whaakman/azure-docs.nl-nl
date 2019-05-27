@@ -2,20 +2,20 @@
 title: 'Quickstart: Maken en query uitvoeren op Azure SQL Data Warehouse - Azure Portal | Microsoft Docs'
 description: Maken en het opvragen van een datawarehouse met Azure SQL Data Warehouse in Azure portal.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 08/02/2018
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732826"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169262"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Quickstart: Een Azure SQL-datawarehouse maken en hier een query voor uitvoeren in Azure Portal
 
@@ -194,7 +194,7 @@ Volg deze stappen om de resources op te schonen zoals gewenst.
 
     ![Resources opschonen](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Als u het berekenen wilt onderbreken, klikt u op de knop **Onderbreken**. Als het datawarehouse is onderbroken, ziet u een knop **Start**. Als u het berekenen wilt hervatten, klikt u op **Start**.
+2. Als u het berekenen wilt onderbreken, klikt u op de knop **Onderbreken**. Wanneer het datawarehouse wordt onderbroken, ziet u een **hervatten** knop. Als u wilt hervatten compute, klikt u op **hervatten**.
 
 3. Als u de datawarehouse wilt verwijderen zodat er geen kosten in rekening worden gebracht voor berekenen of opslaan, klikt u op **Verwijderen**.
 

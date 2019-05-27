@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 62eb51e48ab688abcf39ba3c8d57aaccf6f47cb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3943332179a6d283a8ed3ca66ea559d5cea53a10
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002395"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953189"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Aanpak en proces voor het overstappen op Azure Data Catalog
 
@@ -54,7 +54,7 @@ Hier volgen enkele tips voor het definiëren van uw visie:
 
 Hier vindt u een voorbeeld van een visie voor een overstapplan naar Data Catalog voor het fictieve bedrijf Adventure Works.
 
-**Azure Data Catalog** biedt uitgebreide mogelijkheden met het team van Adventure Works Financiën samenwerken aan belangrijke Databronnen, zodat elk teamlid eenvoudig kan vinden en gebruiken van de gegevens en ze haar kennis kunnen delen met het hele team.
+**Azure Data Catalog** biedt uitgebreide mogelijkheden met het team van Adventure Works Financiën samenwerken aan belangrijke Databronnen, zodat elk teamlid eenvoudig kan vinden en gebruiken van de gegevens en ze hun kennis met het hele team kunnen delen.
 
 Zodra u een heldere visie hebt gemaakt, moet u een geschikt proefproject bepalen voor Data Catalog. Er zijn verschillende scenario's voor Data Catalog. Daarom bevat de volgende sectie een aantal tips om relevante gebruiksvoorbeelden te herkennen.
 

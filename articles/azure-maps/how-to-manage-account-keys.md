@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794146"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957308"
 ---
 # <a name="manage-your-azure-maps-account"></a>Uw Azure-kaarten-account beheren
 
@@ -43,10 +43,14 @@ Vervolgens ziet u een bevestigingspagina. U kunt het verwijderen van uw account 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Informatie over het beheren van een prijscategorie Azure kaarten-account:
-    > [!div class="nextstepaction"] 
-    > [Een prijscategorie beheren](./how-to-manage-pricing-tier.md)
+Verificatie met Azure Maps instellen:
+> [!div class="nextstepaction"]
+> [Verificatie beheren](how-to-manage-authentication.md)
 
-* Meer informatie over om te zien van de metrische gegevens over gebruik API voor uw Azure kaarten-account:
-    > [!div class="nextstepaction"] 
-    > [Metrische gegevens weergeven](./how-to-view-api-usage.md)
+Informatie over het beheren van een prijscategorie Azure kaarten-account:
+> [!div class="nextstepaction"] 
+> [Een prijscategorie beheren](how-to-manage-pricing-tier.md)
+
+Meer informatie over om te zien van de metrische gegevens over gebruik API voor uw Azure kaarten-account:
+> [!div class="nextstepaction"] 
+> [Metrische gegevens weergeven](how-to-view-api-usage.md)

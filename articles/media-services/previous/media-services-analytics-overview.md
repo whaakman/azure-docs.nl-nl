@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61245262"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991792"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics op de Media Services-platform 
 
@@ -38,7 +38,7 @@ Media Analytics-mediaprocessoren produceren MP4- of JSON-bestanden. Als een Medi
 
 ## <a name="media-analytics-services"></a>Media Analytics-services
 
-### <a name="indexer"></a>Indexer
+### <a name="indexer"></a>Indexeerfunctie
 Met Azure Media Indexer, kunt u doorzoekbare inhoud en het genereren van ondertitels sporen te wissen. Vergeleken met de vorige versie, heeft Azure Media Indexer 2-Preview-indexering en sneller bredere taal ondersteunen. Ondersteunde talen zijn Engels, Spaans, Frans, Duits, Italiaans, Chinees, Portugees en Arabisch. Zie voor gedetailleerde informatie en voorbeelden, [video's verwerken met Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
 ### <a name="motion-detector"></a>Bewegingsherkenning
 Bewegingsherkenning kunt u beweging detecteren in een video met een stilstaande achtergrond. Dit maakt het mogelijk om te controleren voor fout-positieven op bewegingsgebeurtenissen van surveillancecamera's gedetecteerd. Zie voor gedetailleerde informatie en voorbeelden, [Bewegingsdetectie voor Azure Media Analytics](media-services-motion-detection.md).
@@ -58,7 +58,6 @@ Media Analytics-organisaties kan helpen en ondernemingen vindt nieuwe inzichten 
 
 * **Callcenters**. Zelfs met de komst van sociale media vergemakkelijken klant callcenters nog steeds een groot percentage van de klantenservice transacties. In deze audiogegevens gecodeerd, is een grote hoeveelheid klantgegevens die kan worden geanalyseerd voor het bereiken van hogere klanttevredenheid. Organisaties kunnen met behulp van Media Indexer, haal de tekst en maak zoekindexen en dashboards. Vervolgens kunnen ze intelligence rond algemene klachten, bronnen van klachten en andere relevante gegevens extraheren.
 * **Door gebruikers gegenereerde inhoudstoezicht**. Veel organisaties hebben van nieuws mediakanalen aan de politie afdelingen, openbare-portals die door gebruikers gegenereerde media zoals video's en afbeeldingen te accepteren. Het volume van de inhoud kan piekbelastingen vanwege onverwachte gebeurtenissen. In deze scenario's is het moeilijk om uit te voeren van effectieve handmatige beoordelingen van inhoud voor geschiktheid. Klanten kunnen zijn afhankelijk van de service beheer van inhoud kunt richten op de inhoud die van toepassing is.
-* **Toezicht**. Met de groei in het gebruik van IP-camera's afkomstig is een groeiende inventarisatie van toezicht video. Handmatig controleren toezicht video is het tijd intensieve en gevoelig voor menselijke fouten. Media Analytics biedt services, zoals bewegingsdetectie, gezichtsdetectie en Hyperlapse om het proces van het controleren, beheren en afgeleiden eenvoudiger maken.
 
 ## <a name="media-analytics-media-processors"></a>Media Analytics-mediaprocessoren
 Deze sectie geeft een lijst van de media-processors van Media Analytics en laat zien hoe u .NET of REST gebruiken voor het ophalen van een mediaobject processor (MP).
@@ -66,7 +65,6 @@ Deze sectie geeft een lijst van de media-processors van Media Analytics en laat 
 ### <a name="mp-names"></a>MP-namen
 * Azure Media Indexer 2-Preview
 * Azure Media Indexer
-* Azure Media Hyperlapse
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
@@ -105,7 +103,7 @@ Aanvraag:
     x-ms-version: 2.12
     Host: media.windows.net
 
-Reactie:
+Antwoord:
 
     . . .
 
@@ -123,7 +121,7 @@ Reactie:
        ]
     }
 
-## <a name="demos"></a>Demo’s
+## <a name="demos"></a>Demo 's
 Zie [demo's van Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## <a name="provide-feedback"></a>Feedback geven

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138127"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952483"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Windows-computers verbinden met Azure Monitor
 
@@ -54,9 +54,9 @@ Voordat u de Log Analytics-agent voor Windows installeert, moet u de werkruimte-
 Het configureren van gebruik van de [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) protocol voor communicatie tussen de Windows-agent en de Log Analytics-service, u kunt de volgende stappen om in te schakelen voordat de agent is geïnstalleerd op de virtuele machine of later.   
 
 1. Ga naar de volgende registersubsleutel: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
-2. Maak een subsleutel onder **protocollen** voor TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
-3. Maak een **Client** subsleutels onder de subsleutel TLS 1.2-protocol versie u eerder hebt gemaakt. Bijvoorbeeld, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
-4. Maken van de volgende DWORD-waarden onder **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
+2. Maak een subsleutel onder **protocollen** voor TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. Maak een **Client** subsleutels onder de subsleutel TLS 1.2-protocol versie u eerder hebt gemaakt. Bijvoorbeeld, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Maken van de volgende DWORD-waarden onder **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
 
     * **Ingeschakeld** [waarde = 1]
     * **DisabledByDefault** [waarde = 0]  

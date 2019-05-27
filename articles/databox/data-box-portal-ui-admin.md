@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406133"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953367"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>De Azure-portal gebruiken om uw Data Box te beheren
 
@@ -105,7 +105,7 @@ Voer de volgende stappen uit om de order te bewerken.
 
 ## <a name="edit-notification-details"></a>Meldingsdetails bewerken
 
-U moet wellicht wijzigen welke gebruikers de e-mails met de orderstatus ontvangen. Een voorbeeld: Een bepaalde gebruiker moet worden geïnformeerd wanneer de schijf wordt afgeleverd of opgehaald. Een andere gebruiker moet worden geïnformeerd wanneer het kopiëren van de gegevens is voltooid, zodat hij kan verifiëren dat de gegevens zich in het Azure-opslagaccount bevinden voordat hij ze uit de bron verwijdert. In deze gevallen kunt u de meldingsdetails bewerken.
+U moet wellicht wijzigen welke gebruikers de e-mails met de orderstatus ontvangen. Een voorbeeld: Een bepaalde gebruiker moet worden geïnformeerd wanneer de schijf wordt afgeleverd of opgehaald. Een andere gebruiker mogelijk op de hoogte worden gebracht bij het kopiëren van gegevens voltooid is, zodat ze kunnen controleren of dat de gegevens zich in de Azure storage-account voordat deze worden verwijderd uit de bron. In deze gevallen kunt u de meldingsdetails bewerken.
 
 Voer de volgende stappen uit om meldingsdetails te bewerken.
 

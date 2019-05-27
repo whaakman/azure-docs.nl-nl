@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: bb47a1b828084673961a6d2c5657793b4437f294
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160573"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151709"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Gebruik van IoT Edge op Windows om uit te voeren van Linux-containers
 
@@ -64,6 +64,13 @@ U kunt meer lezen over de verschillende installatieopties en parameters in het a
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. Voer PowerShell uit als beheerder.
+
+   >[!NOTE]
+   >IoT Edge, niet PowerShell (x86) installeert met behulp van een AMD64-sessie van PowerShell. Als u niet zeker weet welke Sessietype die u gebruikt, moet u de volgende opdracht uitvoeren:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. De **implementeren IoTEdge** opdracht controleert of uw Windows-machine op een ondersteunde versie is, schakelt de functie voor containers en downloadt vervolgens de runtime moby (die niet wordt gebruikt voor Linux-containers) en de IoT Edge-runtime. De opdracht standaard ingesteld op Windows-containers, declareren dus Linux als het besturingssysteem van de gewenste container. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650706"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963252"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Smooth Streaming Protocol (MS-SSTR) amendement voor HEVC 
 
@@ -40,11 +40,11 @@ De volgende voorwaarden zijn gedefinieerd in *[MS-GLOS]*:
 
 De volgende voorwaarden zijn specifiek voor dit document:
 
->  **samenstelling tijd:** De tijd een voorbeeld dat wordt weergegeven op de client, zoals gedefinieerd in [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>  **samenstelling tijd:** De tijd een voorbeeld dat wordt weergegeven op de client, zoals gedefinieerd in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Algemene versleuteling als gedefinieerd in [ISO/IEC 23001-7] tweede editie.
 > 
->   **decoderen tijd:** De tijd een voorbeeld dat is vereist om te worden gedecodeerd op de client, zoals gedefinieerd in [[ISO/IEC https://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   **decoderen tijd:** De tijd een voorbeeld dat is vereist om te worden gedecodeerd op de client, zoals gedefinieerd in [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragment:** Een afzonderlijk downloadbare eenheid **media** die bestaat uit een of meer **voorbeelden**.
 
@@ -52,11 +52,11 @@ De volgende voorwaarden zijn specifiek voor dit document:
 > 
 >   **manifest:** Metagegevens over de **presentatie** waarmee een client om aan te vragen voor **media**. **Media:** Gecomprimeerd audio, video en tekst gegevens die door de client wordt gebruikt om af te spelen een **presentatie**. **Media-indeling:** Een zorgvuldig gedefinieerde indeling voor de weergave van audio of video als een gecomprimeerd **voorbeeld**.
 > 
->   **presentatie:** De set met alle **streams** en verwante metagegevens die nodig zijn voor het afspelen van een enkele film. **Aanvraag:** Een HTTP-bericht verzonden vanaf de client naar de server, zoals gedefinieerd in [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Antwoord:** Een HTTP-bericht verzonden vanaf de server aan de client, zoals gedefinieerd in [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **presentatie:** De set met alle **streams** en verwante metagegevens die nodig zijn voor het afspelen van een enkele film. **Aanvraag:** Een HTTP-bericht verzonden vanaf de client naar de server, zoals gedefinieerd in [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **reactie:** Een HTTP-bericht verzonden vanaf de server aan de client, zoals gedefinieerd in [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **Voorbeeld:** De kleinste fundamentele eenheid (zoals een frame) waarin **media** wordt opgeslagen en verwerkt.
 > 
->   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** Deze termen (in hoofdletters) worden gebruikt, zoals beschreven in [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Alle instructies voor het gebruik van verschijnsel dat ofwel kan SHOULD of niet moet.
+>   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** Deze termen (in hoofdletters) worden gebruikt, zoals beschreven in [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) alle instructies voor het gebruik van verschijnsel dat ofwel kan SHOULD of niet moet.
 
 ## <a name="12-references"></a>1.2-verwijzingen
 

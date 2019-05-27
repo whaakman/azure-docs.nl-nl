@@ -4,15 +4,15 @@ description: Beschikbaarheid en prestaties van optimalisatie voor verschillende 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894025"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990228"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissen tussen consistentie, beschikbaarheid en prestaties 
 
@@ -55,9 +55,9 @@ De onderstaande tabel definieert u de relatie tussen consistentie-model en gegev
 |1|Enkele of meerdere masters|Een Consistentieniveau|< 240 minuten|<1 Week|
 |>1|Single Master|Sessie, Consistent voorvoegsel, uiteindelijke|< 15 minuten|< 15 minuten|
 |>1|Single Master|Gebonden veroudering|*K* & *T*|< 15 minuten|
+|>1|Single Master|Sterk|0|< 15 minuten|
 |>1|Meerdere masters|Sessie, Consistent voorvoegsel, uiteindelijke|< 15 minuten|0|
 |>1|Meerdere masters|Gebonden veroudering|*K* & *T*|0|
-|>1|Enkele of meerdere masters|Sterk|0|< 15 minuten|
 
 *K* = het aantal *'K'* versies (dat wil zeggen, updates) van een item.
 

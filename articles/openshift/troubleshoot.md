@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 9ef32273c007e7319b7f6df99f3d904f805c31f2
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 82678091c1d0b71e6209f6d03e9d1a0ca60fe03e
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550914"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992158"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Probleemoplossing voor Azure Red Hat OpenShift
 
@@ -23,10 +23,6 @@ Dit artikel worden enkele veelvoorkomende problemen aangetroffen tijdens het mak
 
 Als het maken van een Azure Red Hat OpenShift cluster met behulp van de `az` CLI-opdracht mislukt, opnieuw wordt geprobeerd de maken blijft mislukken.
 Gebruik `az openshift delete` als u wilt verwijderen van het cluster is mislukt, moet u vervolgens een volledig nieuw cluster maken.
-
-## <a name="untrusted-azure-red-hat-openshift-server-certificate"></a>Niet-vertrouwd servercertificaat van Azure Red Hat OpenShift
-
-De OpenShift-console gebruikt een zelfondertekend certificaat. Wanneer u hierom wordt gevraagd in uw browser, de waarschuwing negeren en accepteren van de 'niet-vertrouwd' certificaat.
 
 ## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>Verborgen Azure Red Hat OpenShift-clusterresourcegroep
 

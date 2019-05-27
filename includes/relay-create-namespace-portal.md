@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419902"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111547"
 ---
 1. Meld u aan bij [Azure Portal][Azure portal].
 2. Selecteer **+ Een resource maken** in het menu aan de linkerkant. Selecteer vervolgens **Integratie** > **Relay**. Als u **Relay** niet in de lijst ziet staan, selecteert u rechtsboven **Alles weergeven**. 
@@ -18,7 +18,7 @@ ms.locfileid: "60419902"
 5. Kies in het veld [Resourcegroep](../articles/azure-resource-manager/manage-resource-groups-portal.md) een bestaande resourcegroep waarin de naamruimte moet worden opgenomen of maak een nieuwe resourcegroep.  
 6. Kies bij **Locatie** het land of de regio waarin uw naamruimte moet worden gehost.
    
-    ![Een naamruimte maken][create-namespace]
+    ![Naamruimte maken][create-namespace]
 7. Selecteer **Maken**. Uw naamruimte wordt gemaakt en ingeschakeld. Na enkele minuten stelt het systeem resources ter beschikking voor uw account.
 
 ### <a name="get-management-credentials"></a>Beheerreferenties ophalen

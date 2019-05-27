@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3500ce1f1f80d975555edef56d95f2f1d27ca7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783760"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956890"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML eenmalige aanmelding voor on-premises toepassingen met Application Proxy (Preview)
 
@@ -50,8 +50,9 @@ Houd rekening met het volgende wanneer u de zelfstudie gaan:
 1. Selecteer **SAML** als de methode voor eenmalige aanmelding.
 1. In de **instellen van eenmalige aanmelding met SAML** pagina, bewerken de **SAML-basisconfiguratie** gegevens, en volg de stappen in [Enter basisconfiguratie SAML](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configureren op basis van SAML verificatie voor de toepassing.
 
-   * Zorg ervoor dat de **antwoord-URL** komt overeen met of een pad is onder de **externe URL** voor de on-premises toepassing die u hebt gepubliceerd via toepassingsproxy. Als uw toepassing een andere vereist **antwoord-URL** voor de SAML-configuratie, voeg deze toe als de **eerste** URL in de lijst en houd de **externe URL** als een extra URL na de eerste gerangschikt.
-   * Zorg ervoor dat de toepassing ook de juiste opgegeven **antwoord-URL** of URL van de Bevestigingsconsumerservice te gebruiken voor het ontvangen van het verificatietoken.
+   * Zorg ervoor dat de **antwoord-URL** komt overeen met of een pad is onder de **externe URL** voor de on-premises toepassing die u hebt gepubliceerd via toepassingsproxy. 
+   * Als uw toepassing een andere vereist **antwoord-URL** voor de SAML-configuratie toevoegen als een **extra** URL in de lijst en het selectievakje is ingeschakeld voor deze aanwijzen als de primaire  **Antwoord-URL** IDP geïnitieerde SAML-reacties te verzenden.
+   * Zorg ervoor dat de toepassing ook de juiste opgegeven voor een Serviceprovider geïnitieerde flow **antwoord-URL** of URL van de Bevestigingsconsumerservice te gebruiken voor het ontvangen van het verificatietoken.
 
      ![Voer basisgegevens voor SAML-configuratie](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

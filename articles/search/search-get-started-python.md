@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 1ab6bb069f60f4d2dbb4cfaecda54c3c2ef20adc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806429"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117346"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Quickstart: Maken van een Azure Search-index met behulp van Python voor Jupyter notebooks
 > [!div class="op_single_selector"]
@@ -26,17 +26,17 @@ ms.locfileid: "65806429"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search [index](search-what-is-an-index.md) met behulp van Python en de [Azure Search Service REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u uw eigen notebook stap voor stap bouwen. U kunt eventueel een voltooide notebook uitvoeren. Als u wilt een kopie downloaden, gaat u naar [opslagplaats voor Azure-Search-python-voorbeelden](https://github.com/Azure-Samples/azure-search-python-samples).
+Bouw een Jupyter-notebook die wordt gemaakt, wordt geladen en query's van een Azure Search-index met behulp van Python en de [Azure Search REST API's](https://docs.microsoft.com/rest/api/searchservice/). In dit artikel wordt uitgelegd hoe u een stap voor stap, helemaal vanaf-notebook maken. U kunt ook een voltooide notebook uitvoeren. Als u wilt een kopie downloaden, gaat u naar [opslagplaats voor Azure-Search-python-voorbeelden](https://github.com/Azure-Samples/azure-search-python-samples).
 
-Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint en meldt u zich daarna aan voor [Azure Search](search-create-service-portal.md).
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
 De volgende services en hulpprogramma's worden gebruikt in deze Quick Start. 
 
-+ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. 
-
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), bieden Python 3.x en Jupyter-Notebooks.
+
++ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. 
 
 ## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
@@ -67,9 +67,9 @@ Een Jupyter-notebook openen en controleer of de verbinding vanaf uw lokale werks
 1. Voer in de tweede cel in de aanvraag-elementen die constanten bij elke aanvraag worden. Vervang de naam van de zoekopdracht-service (uw-SEARCH-SERVICE-naam) en beheer-API-sleutel (uw-ADMIN-API-sleutel) met geldige waarden. 
 
    ```python
-    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-    api_version = '?api-version=2019-05-06'
-    headers = {'Content-Type': 'application/json',
+   endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
+   api_version = '?api-version=2019-05-06'
+   headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
@@ -98,7 +98,6 @@ Tenzij u de portal, wordt een index moet bestaan op de service voordat u gegeven
 De Veldenverzameling definieert u de structuur van een *document*. Vereiste elementen van een index bevatten een naam en een verzameling van velden. Elk veld heeft een naam, type en kenmerken die bepalen hoe deze wordt gebruikt (bijvoorbeeld, of het volledige-tekstindex is kan worden doorzocht, gefilterd of worden opgehaald in de zoekresultaten). In een index, een van de velden van het type `Edm.String` moet worden aangemerkt als de *sleutel* voor de id van het document.
 
 Deze index met de naam "hotels-py" en heeft de velddefinities u hieronder ziet. Dit is een subset van een grotere [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) gebruikt in andere scenario's. We stelling in deze Quick Start voor kort te houden.
-
 
 1. Plak het volgende voorbeeld in een cel voor het schema in de volgende cel. 
 
@@ -152,7 +151,7 @@ Deze index met de naam "hotels-py" en heeft de velddefinities u hieronder ziet. 
 
 Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpunt van uw index. De REST-API is [toevoegen, bijwerken of verwijderen documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Documenten zijn afkomstig uit [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) op GitHub.
 
-1. In een nieuwe cel bieden drie documenten die aan het indexschema voldoen. Een actie uploaden voor elk document opgeven.
+1. In een nieuwe cel, bieden u vier documenten die aan het indexschema voldoen. Een actie uploaden voor elk document opgeven.
 
     ```python
     documents = {
@@ -212,7 +211,25 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
-        }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "4",
+        "HotelName": "Sublime Cliff Hotel",
+        "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+        "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+        "Category": "Boutique",
+        "Tags": [ "concierge", "view", "24-hour front desk service" ],
+        "ParkingIncluded": "true",
+        "LastRenovationDate": "1960-02-06T00:00:00Z",
+        "Rating": 4.60,
+        "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+       }
       }
      ]
     }
@@ -242,6 +259,10 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
            {'errorMessage': None,
             'key': '3',
             'status': True,
+            'statusCode': 201}]},
+           {'errorMessage': None,
+            'key': '4',
+            'status': True,
             'statusCode': 201}]}
      ```
 
@@ -266,7 +287,7 @@ In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Sea
    pprint(query)
    ```
 
-   Resultaten zijn vergelijkbaar zijn met de volgende uitvoer.
+   Resultaten zijn vergelijkbaar zijn met de volgende uitvoer. De resultaten zijn geen positie (search.score = 1,0) omdat we geen criteria bieden moet overeenkomen.
 
    ```
    {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
@@ -279,14 +300,17 @@ In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Sea
                'HotelName': 'Twin Dome Motel'},
               {'@search.score': 1.0,
                'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'}]}
+               'HotelName': 'Triple Landscape Hotel'},
+              {'@search.score': 1.0,
+               'HotelId': '4',
+               'HotelName': 'Sublime Cliff Hotel'}]}
    ```
 
-3. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt een filter toepassen, worden de twee bovenste resultaten, sorteren op een bepaald veld of 
+3. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt een filter toepassen, worden de twee bovenste resultaten of sorteren op een bepaald veld.
 
    + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
 
-   + `searchstring = '&search=hotel&$top=2&$select=HotelId,HotelName,Description'`
+   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
 
    + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
 
@@ -311,7 +335,7 @@ pprint(index_list)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over scenario's en query-syntaxis.
+In deze Quick Start gebruikt als een vereenvoudiging, een verkorte versie van de index Hotels. U kunt de volledige versie voor het uitproberen van interessante query's maken. Uitvoeren om de volledige versie en alle 50 documenten, het **gegevens importeren** wizard selecteren *hotels-sample* van de ingebouwde voorbeeld-gegevensbronnen.
 
 > [!div class="nextstepaction"]
-> [Een eenvoudige query maken](search-query-overview.md)
+> [Snelstart: Een index maken in Azure portal](search-get-started-portal.md)

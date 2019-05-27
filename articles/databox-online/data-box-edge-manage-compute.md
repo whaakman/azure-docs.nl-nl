@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785800"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953118"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Compute voor uw Azure Data Box-edge-apparaten beheren
 
@@ -129,24 +129,6 @@ De volgende stappen uitvoeren in Azure portal om te synchroniseren van de toegan
 
 3. Sluit het dialoogvenster wanneer de synchronisatie is voltooid.
 
-## <a name="enable-a-network-interface-for-compute"></a>Inschakelen van een netwerkinterface voor compute
-
-U moet mogelijk toegang tot een module die wordt uitgevoerd op uw gegevens in het Edge-apparaat. Voor toegang tot de module extern, moet u een IP-adres toewijzen aan een netwerkinterface op uw apparaat. U kunt deze beheren compute-instellingen van de lokale webgebruikersinterface.
-
-De volgende stappen op de lokale web-UI compute-instellingen configureren.
-
-1. Ga in de lokale webgebruikersinterface naar **Configuration > Compute instellingen**.  
-
-2. **Schakel** de netwerkinterface die u gebruiken wilt voor verbinding met de compute-modules op het apparaat. 
-
-    - Als u statische IP-adressen gebruikt, voert u een IP-adres voor de netwerkinterface.
-    - Als u DHCP gebruikt, wordt de IP-adressen automatisch toegewezen.
-
-3. Selecteer **toepassen** instellingen te kunnen toepassen.
-
-    ![Schakel de compute-instellingen](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [Gebruikers beheren via Azure Portal](data-box-edge-manage-users.md).
+- Meer informatie over het [beheren Edge compute netwerk via Azure portal](data-box-edge-extend-compute-access-modules.md).

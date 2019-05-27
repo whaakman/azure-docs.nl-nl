@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
-ms.author: monhaber
-ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: v-mohabe
+ms.openlocfilehash: e65e3869d420607ad2721df8ba0ef1005c923f73
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121806"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968172"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources, niet-Azure-servers en virtuele machines. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -111,10 +111,10 @@ Als u wilt inzoomen in de aanbevelingen voor beveiliging voor elke virtuele mach
 Hier ziet u de beveiligingsdetails voor de virtuele machine of computer. Onderin ziet u de aanbevolen actie en de ernst van elk probleem.
 ![Cloudservices](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
-### <a name="cloud-services"></a>Cloud services
+### <a name="cloud-services"></a>Cloudservices
 Voor cloudservices, wordt een aanbeveling gemaakt wanneer de versie van het besturingssysteem verouderd is.
 
-![Cloud services](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
+![Cloudservices](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
 
 In een scenario waarin u een aanbeveling krijgt (wat is niet het geval is bij het vorige voorbeeld) hebt, moet u de stappen in de aanbeveling voor de versie van het besturingssysteem bij te werken. Wanneer een update beschikbaar is, ontvangt u een waarschuwing (rood of oranje, afhankelijk van de ernst van het probleem). Wanneer u deze waarschuwing selecteert in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) rijen, ziet u meer informatie over deze aanbeveling.
 
@@ -160,7 +160,7 @@ Er zijn drie soorten pictogrammen weergegeven in deze lijst:
 
      ![App Service-herstel](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets"></a>Virtuele-machineschaalsets
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 Security Center detecteert automatisch of u ingesteld voor schalen hebt en raadt u aan de Microsoft Monitoring Agent installeren op deze scale sets. 
 
 De Microsoft Monitoring Agent installeren: 
@@ -206,31 +206,31 @@ Als u wilt instellen, alle bestaande schaalsets voor het installeren van Microso
 |Rekenresources (servicebus)|1|Alle autorisatieregels behalve RootManageSharedAccessKey van Service Bus-naamruimte verwijderen |Service Bus-clients moeten een beleid voor het toegangsniveau van naamruimte die toegang tot alle wachtrijen en onderwerpen in een naamruimte biedt niet gebruiken. Om uit te lijnen met minimale bevoegdheden beveiligingsmodel, moet u toegangsbeleid maken op het entiteitsniveau van de voor wachtrijen en onderwerpen voor toegang tot alleen de specifieke entiteit.|
 |Rekenresources (event hub)|1|Alle autorisatieregels behalve RootManageSharedAccessKey uit de Event Hub-naamruimte verwijderen |Event Hub-clients moeten een beleid voor het toegangsniveau van naamruimte die toegang tot alle wachtrijen en onderwerpen in een naamruimte biedt niet gebruiken. Om uit te lijnen met minimale bevoegdheden beveiligingsmodel, moet u toegangsbeleid maken op het entiteitsniveau van de voor wachtrijen en onderwerpen voor toegang tot alleen de specifieke entiteit.|
 |Rekenresources (event hub)|5|Autorisatieregels definiëren voor de Event Hub-entiteit|Controle van autorisatieregels voor de Event Hub-entiteit minste bevoegdheden toegang te verlenen.|
-|Machine|50|Bewakingsagent op uw machines installeren|Installeer de agent bewaking voor het verzamelen van gegevens, updates scannen, basislijnen te scannen en endpoint protection op elke machine inschakelen.|
+|Apparaat|50|Bewakingsagent op uw machines installeren|Installeer de agent bewaking voor het verzamelen van gegevens, updates scannen, basislijnen te scannen en endpoint protection op elke machine inschakelen.|
 |Machine|50|Automatische inrichting en verzamelen van gegevens voor uw abonnementen inschakelen |Automatische inrichting en verzamelen van gegevens voor computers in uw abonnementen om gegevens te verzamelen, updates scannen, basislijnen te scannen en endpoint protection op elke machine die is toegevoegd aan uw abonnementen inschakelen.|
 |Machine|40|Statusproblemen van bewakingsagenten oplossen op uw machines|Voor volledige beveiliging van Security Center, oplossen van problemen met de bewaking agent op uw virtuele machines door de instructies in de gids voor probleemoplossing| 
 |Machine|40|Statusproblemen met eindpuntbescherming oplossen voor uw machines|Voor volledige Security Center beveiliging oplossen monitoring agent op uw virtuele machines door de instructies in de gids voor probleemoplossing.|
 |Machine|40|Problemen oplossen met ontbrekende scangegevens op uw machines|Problemen met ontbrekende Scangegevens op virtuele machines en computers. Ontbrekende Scangegevens op de resultaten van uw machines beveiligingscontroles zoals ontbrekende update scannen, basislijn scannen en ontbrekende endpoint protection solution scannen.|
 |Machine|40|Systeemupdates installeren op uw machines|Ontbrekende systeembeveiliging en essentiële updates voor het beveiligen van uw Windows- en Linux-machines en computers installeren
-|Machine|15|Een firewall voor webtoepassingen toevoegen| Een web application firewall (WAF)-oplossing voor het beveiligen van uw webtoepassingen implementeren. |
-|Machine|40|Besturingssysteemversie voor rollen van uw cloudservice bijwerken|De versie van besturingssysteem (OS) voor rollen van uw cloudservice worden bijgewerkt naar de meest recente versie die beschikbaar is voor uw type besturingssysteem.|
+|Apparaat|15|Een firewall voor webtoepassingen toevoegen| Een web application firewall (WAF)-oplossing voor het beveiligen van uw webtoepassingen implementeren. |
+|Apparaat|40|Besturingssysteemversie voor rollen van uw cloudservice bijwerken|De versie van besturingssysteem (OS) voor rollen van uw cloudservice worden bijgewerkt naar de meest recente versie die beschikbaar is voor uw type besturingssysteem.|
 |Machine|35|Problemen met de beveiligingsconfiguratie van virtuele machines verhelpen|Beveiligingsproblemen in de configuratie van de beveiliging op uw virtuele machines te beschermen tegen aanvallen herstellen. |
 |Machine|35|Beveiligingsproblemen in de configuratie van de beveiliging van uw containers herstellen|Beveiligingsproblemen verhelpen in de beveiligingsconfiguratie van computers waarop Docker is geïnstalleerd, om beveiliging tegen aanvallen te bieden.|
 |Machine|25|Besturingselementen voor adaptieve toepassingen inschakelen|Toepassing voor welke toepassingen kunnen worden uitgevoerd op uw virtuele machines die zich in Azure inschakelen. Hiermee kunt u beveiliging van uw virtuele machines tegen schadelijke software. Security Center maakt gebruik van machine learning voor het analyseren van de toepassingen die worden uitgevoerd op elke virtuele machine en helpt die u toepassen met behulp van deze informatie regels toestaan. Deze mogelijkheid vereenvoudigt het proces van het configureren en onderhouden van de toepassing regels voor toestaan.|
 |Machine|20|Oplossing voor eindpuntbeveiliging installeren op uw machines|Installeer een oplossing voor eindpuntbeveiliging op uw virtuele machines, Beveilig ze tegen bedreigingen en zwakke plekken.|
 |Machine|20|Start uw machines opnieuw op om systeemupdates toe te passen|Start uw machines opnieuw op om de systeemupdates toe te passen en de machine vanuit beveiligingsproblemen te beveiligen.|
-|Machine|15|Schijfversleuteling toepassen op uw virtuele machines|Versleutel de schijven van uw virtuele machines met Azure Disk Encryption zowel voor Windows en Linux-machines. Azure Disk Encryption (ADE) maakt gebruik van de branche standaard BitLocker-functie van Windows en de DM-Crypt-functie van Linux voor besturingssysteem en schijfversleuteling om u te helpen te beschermen en uw gegevens veilig houden en te voldoen aan uw organisatie beveiliging en naleving verplichtingen klant Azure sleutelkluis. Wanneer uw behoeften nalevings- en moet u de end-to-end met behulp van uw versleutelingssleutels, met inbegrip van versleuteling van de kortstondige schijf in de (lokaal gekoppelde tijdelijke), gebruikt Azure disk encryption-gegevens versleutelen. U kunt ook standaard zijn beheerde schijven at-rest standaard versleuteld met behulp van Azure Storage-Serviceversleuteling waar de versleutelingssleutels beheerd door Microsoft-sleutels in Azure worden. Als deze voldoet aan uw nalevings- en beveiligingsvereisten, kunt u gebruikmaken van de standaard beheerde schijf-versleuteling om te voldoen aan uw vereisten.|
-|Machine|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
+|Apparaat|15|Schijfversleuteling toepassen op uw virtuele machines|Versleutel de schijven van uw virtuele machines met Azure Disk Encryption zowel voor Windows en Linux-machines. Azure Disk Encryption (ADE) maakt gebruik van de branche standaard BitLocker-functie van Windows en de DM-Crypt-functie van Linux voor besturingssysteem en schijfversleuteling om u te helpen te beschermen en uw gegevens veilig houden en te voldoen aan uw organisatie beveiliging en naleving verplichtingen klant Azure sleutelkluis. Wanneer uw behoeften nalevings- en moet u de end-to-end met behulp van uw versleutelingssleutels, met inbegrip van versleuteling van de kortstondige schijf in de (lokaal gekoppelde tijdelijke), gebruikt Azure disk encryption-gegevens versleutelen. U kunt ook standaard zijn beheerde schijven at-rest standaard versleuteld met behulp van Azure Storage-Serviceversleuteling waar de versleutelingssleutels beheerd door Microsoft-sleutels in Azure worden. Als deze voldoet aan uw nalevings- en beveiligingsvereisten, kunt u gebruikmaken van de standaard beheerde schijf-versleuteling om te voldoen aan uw vereisten.|
+|Apparaat|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
 |Machine|15|Een firewall voor webtoepassingen toevoegen| Een web application firewall (WAF)-oplossing voor het beveiligen van uw webtoepassingen implementeren. |
 |Machine|30|Beveiligingsproblemen met behulp van een oplossing voor evaluatie van beveiligingsproblemen herstellen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
-|Machine|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
-|Machine|1|Virtuele machines migreren naar nieuwe Azure Resource Manager-resources|Gebruik Azure Resource Manager voor uw virtuele machines voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van Resource Manager-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, Azure AD gebaseerde verificatie en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer. |
-|Machine|30|Beveiligingsproblemen met behulp van een oplossing voor evaluatie van beveiligingsproblemen herstellen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
-|Schaalset voor virtuele machines |4|Diagnostische logboeken inschakelen in virtuele-machineschaalsets|Logboeken inschakelen en behouden voor maximaal een jaar. Hiermee kunt u activiteit sporen onderzoek opnieuw te maken. Dit is handig wanneer een beveiligingsincident voordoet, of uw netwerk is gecompromitteerd.|
-|Schaalset voor virtuele machines|35|Problemen met de beveiligingsconfiguratie van virtuele-machineschaalsets verhelpen|Beveiligingsproblemen verhelpen in de beveiligingsconfiguratie van uw virtuele-machineschaalsets om beveiliging tegen aanvallen te bieden. |
-|Schaalset voor virtuele machines|5|Statusfouten in de eindpuntbeveiliging van virtuele-machineschaalsets verhelpen|Fouten in de eindpuntbeveiligingsstatus van uw virtuele-machineschaalsets verhelpen om deze te beschermen tegen bedreigingen en beveiligingsproblemen. |
-|Schaalset voor virtuele machines|10|Oplossing voor eindpuntbeveiliging installeren op virtuele-machineschaalsets|Installeer een oplossing voor eindpuntbeveiliging op uw virtuele-machineschaalsets, ze te beschermen tegen bedreigingen en zwakke plekken. |
-|Schaalset voor virtuele machines|40|Systeemupdates installeren op virtuele-machineschaalsets|Ontbrekende systeembeveiliging en essentiële updates installeren ter beveiliging van de virtuele-machineschaalsets voor Windows en Linux. |
+|Apparaat|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
+|Apparaat|1|Virtuele machines migreren naar nieuwe Azure Resource Manager-resources|Gebruik Azure Resource Manager voor uw virtuele machines voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van Resource Manager-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, Azure AD gebaseerde verificatie en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer. |
+|Apparaat|30|Beveiligingsproblemen met behulp van een oplossing voor evaluatie van beveiligingsproblemen herstellen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
+|Virtuele-machineschaalset |4|Diagnostische logboeken inschakelen in virtuele-machineschaalsets|Logboeken inschakelen en behouden voor maximaal een jaar. Hiermee kunt u activiteit sporen onderzoek opnieuw te maken. Dit is handig wanneer een beveiligingsincident voordoet, of uw netwerk is gecompromitteerd.|
+|Virtuele-machineschaalset|35|Problemen met de beveiligingsconfiguratie van virtuele-machineschaalsets verhelpen|Beveiligingsproblemen verhelpen in de beveiligingsconfiguratie van uw virtuele-machineschaalsets om beveiliging tegen aanvallen te bieden. |
+|Virtuele-machineschaalset|5|Statusfouten in de eindpuntbeveiliging van virtuele-machineschaalsets verhelpen|Fouten in de eindpuntbeveiligingsstatus van uw virtuele-machineschaalsets verhelpen om deze te beschermen tegen bedreigingen en beveiligingsproblemen. |
+|Virtuele-machineschaalset|10|Oplossing voor eindpuntbeveiliging installeren op virtuele-machineschaalsets|Installeer een oplossing voor eindpuntbeveiliging op uw virtuele-machineschaalsets, ze te beschermen tegen bedreigingen en zwakke plekken. |
+|Virtuele-machineschaalset|40|Systeemupdates installeren op virtuele-machineschaalsets|Ontbrekende systeembeveiliging en essentiële updates installeren ter beveiliging van de virtuele-machineschaalsets voor Windows en Linux. |
  
 
 

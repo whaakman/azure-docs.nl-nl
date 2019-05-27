@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c88857c877440be724ddea0bdb239768621c8c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764788"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997253"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Wat is voorwaardelijke toegang in Azure Active Directory?
 
@@ -86,9 +86,9 @@ Wanneer het geconfigureerde beleid voor voorwaardelijke toegang meervoudige veri
 
 Nadat de gebruiker is aangemeld bij de federatieve verificatieservice, worden andere beleidsvereisten, zoals het nalevingsbeleid voor apparaten of een goedgekeurde toepassing, door Azure Active Directory verwerkt.
 
-## <a name="license-requirements-for-using-conditional-access"></a>Licentievereisten voor het gebruik van voorwaardelijke toegang
+## <a name="license-requirements"></a>Licentievereisten
 
-Als u voorwaardelijke toegang wilt gebruiken, hebt u een Azure AD Premium-licentie nodig. Zie [Algemeen beschikbare functies van de edities Gratis, Basic en Premium vergelijken](https://azure.microsoft.com/pricing/details/active-directory/) als u een licentie zoekt die bij uw vereisten past.
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

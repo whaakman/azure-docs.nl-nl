@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: aaf54907ca0cf218b126fc9fc74080c02ef6cf6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721604"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906511"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive query via het JDBC-stuurprogramma in HDInsight
 
@@ -144,7 +144,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Oorzaak**: Deze fout wordt veroorzaakt door een oudere versie commons codec.jar-bestand met SQuirreL opgenomen.
 
-**Oplossing**: U kunt deze fout oplossen, gebruik de volgende stappen uit:
+**Resolutie**: U kunt deze fout oplossen, gebruik de volgende stappen uit:
 
 1. SQuirreL afsluiten en gaat u naar de map waar SQuirreL is geïnstalleerd op uw systeem. In de map SquirreL onder de `lib` directory, vervangen de bestaande commons codec.jar met de versie die is gedownload van het HDInsight-cluster.
 
@@ -156,7 +156,7 @@ Nu dat u hebt geleerd hoe JDBC gebruiken om te werken met Hive, gebruikt u de vo
 
 * [Apache Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Interactive Query Hive-gegevens visualiseren met Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Apache Zeppelin gebruiken voor het Apache Hive-query's uitvoeren in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Apache Zeppelin gebruiken voor het Apache Hive-query's uitvoeren in Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Excel verbinden met Apache Hadoop met Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Verbinding maken met Azure HDInsight en Apache Hive-query's uitvoeren met behulp van Data Lake Tools voor Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

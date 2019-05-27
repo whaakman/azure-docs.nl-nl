@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744081"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132232"
 ---
 ## <a name="publish-the-project-to-azure"></a>Het project naar Azure publiceren
 
@@ -27,7 +27,7 @@ In dit artikel wordt ervan uitgegaan dat u een nieuwe functie-app maakt.
 
 1. In de **Azure: Functies** gebied, selecteer de implementeren naar functie-App-pictogram.
 
-    ![Instellingen voor functie-app](./media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Instellingen voor functie-apps](./media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Als niet aangemeld, u wordt gevraagd te **aanmelden bij Azure**. U kunt ook **maken van een gratis Azure-account**. Na geslaagde zich heeft aangemeld vanuit de browser, Ga terug naar Visual Studio Code. 
 

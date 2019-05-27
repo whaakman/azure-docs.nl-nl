@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919788"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956173"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Een Linux-Node.js-app configureren voor Azure App Service
 
@@ -137,7 +137,7 @@ Wanneer u klaar bent met het opsporen van fouten, het foutopsporingsprogramma st
 
 ## <a name="access-environment-variables"></a>Toegang tot omgevingsvariabelen
 
-In App Service, kunt u [app-instellingen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) buiten de app-code. Vervolgens kunt u ze met het standaardpatroon voor Node.js openen. Voor toegang tot bijvoorbeeld de app-instelling `NODE_ENV` gebruikt u de volgende code:
+In App Service, kunt u [app-instellingen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) buiten de app-code. Vervolgens kunt u ze met het standaardpatroon voor Node.js openen. Voor toegang tot bijvoorbeeld de app-instelling `NODE_ENV` gebruikt u de volgende code:
 
 ```javascript
 process.env.NODE_ENV
@@ -253,7 +253,7 @@ Wanneer een werkende Node.js-app zich anders in App Service gedraagt of fouten h
     - Afhankelijk van uw *package.json*, verschillende pakketten kunnen worden geïnstalleerd voor de productiemodus (`dependencies` versus `devDependencies`).
     - Bepaalde web-frameworks kunnen statische bestanden in productiemodus anders implementeren.
     - Bepaalde web-frameworks kunnen aangepaste opstartscripts gebruiken bij het uitvoeren in productiemodus.
-- Het uitvoeren van uw app in App Service in de Ontwikkelingsmodus. Bijvoorbeeld, in [MEAN.js](https://meanjs.org/), kunt u uw app instellen op Ontwikkelingsmodus in runtime door [instelling de `NODE_ENV` app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Het uitvoeren van uw app in App Service in de Ontwikkelingsmodus. Bijvoorbeeld, in [MEAN.js](https://meanjs.org/), kunt u uw app instellen op Ontwikkelingsmodus in runtime door [instelling de `NODE_ENV` app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## <a name="next-steps"></a>Volgende stappen
 

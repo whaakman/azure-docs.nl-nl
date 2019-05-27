@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b54c4ef1b188896a70cf8b2f9352d0b76874fd50
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204294"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921935"
 ---
 # <a name="connect-data-sources"></a>Verbinding maken met gegevensbronnen
 
@@ -53,7 +53,7 @@ De volgende gegevens verbindingsmethoden worden ondersteund door Azure Sentinel:
 - **Externe oplossingen via API**: Sommige gegevensbronnen zijn verbonden met behulp van API's die worden geleverd door de verbonden gegevensbron. De meeste beveiligingstechnologieën bieden doorgaans een reeks API's via welke gebeurtenislogboeken kunnen worden opgehaald. De API's verbinding maken met Azure Sentinel en specifieke gegevenstypen verzamelen en ze verzenden naar Azure Log Analytics. Apparaten die zijn verbonden via de API zijn onder andere:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Externe oplossingen via agent**: Azure Sentinel kan worden verbonden met alle andere gegevensbronnen die real-time logboek streamen met de Syslog-protocol, via een agent kunnen uitvoeren. <br>De meeste apparaten maken gebruik van het Syslog-protocol om gebeurtenisberichten te verzenden met het logboek zelf en gegevens over het logboek. De indeling van de logboeken is, maar de meeste apparaten ondersteunen de standaard Common Event Format (CEF). <br>De agent Sentinel van Azure, die is gebaseerd op de OMS-agent, zet CEF opgemaakt logboeken naar een indeling die door Log Analytics kan worden opgenomen. Afhankelijk van het apparaattype, wordt de agent rechtstreeks op het apparaat, of op een eigen Linux-server geïnstalleerd. De agent voor Linux gebeurtenissen vanuit de Syslog-daemon ontvangt via UDP, maar in gevallen waarin een Linux-machine voor het verzamelen van een groot aantal Syslog-gebeurtenissen worden verwacht, ze via TCP worden verzonden vanuit de Syslog-daemon naar de agent en van daaruit naar Log Analytics.
+- **Externe oplossingen via agent**: Azure Sentinel kan worden verbonden met alle andere gegevensbronnen die real-time logboek streamen met de Syslog-protocol, via een agent kunnen uitvoeren. <br>De meeste apparaten maken gebruik van het Syslog-protocol om gebeurtenisberichten te verzenden met het logboek zelf en gegevens over het logboek. De indeling van de logboeken is, maar de meeste apparaten ondersteunen de standaard Common Event Format (CEF). <br>De agent Sentinel van Azure, die is gebaseerd op de Microsoft Monitoring Agent, converteert opgemaakt CEF-logboeken naar een indeling die door Log Analytics kan worden opgenomen. Afhankelijk van het apparaattype, wordt de agent rechtstreeks op het apparaat, of op een eigen Linux-server geïnstalleerd. De agent voor Linux gebeurtenissen vanuit de Syslog-daemon ontvangt via UDP, maar in gevallen waarin een Linux-machine voor het verzamelen van een groot aantal Syslog-gebeurtenissen worden verwacht, ze via TCP worden verzonden vanuit de Syslog-daemon naar de agent en van daaruit naar Log Analytics.
     - Firewalls, proxy's en -eindpunten:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fe5e819c4f1079b6eb1fa8bb19d337ecfed600d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474149"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955147"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>PostgreSQL installeren en configureren op Azure
 PostgreSQL is een geavanceerde open-source-database die vergelijkbaar is met Oracle en DB2. Het bevat enterprise-ready-functies zoals volledige ACID naleving, betrouwbare transactionele verwerking en gelijktijdigheidsbeheer voor meerdere versies. Het biedt ook ondersteuning voor standaarden, zoals ANSI SQL en SQL/MED (met inbegrip van externe gegevens wrappers voor Oracle, MySQL, MongoDB en nog veel meer). Het is maximaal worden uitgebreid met ondersteuning voor meer dan 12 procedurele talen GIN en basisvertalingen indexen, ruimtelijke gegevens en ondersteuning meerdere NoSQL-achtige functies voor JSON of toepassingen op basis van sleutel-waarde.
@@ -232,7 +232,7 @@ Hiermee verwijdert u alle informatie in de rij 'John'. De uitvoer is:
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Gegevens in een tabel bijwerken
-Gebruik de volgende opdracht uit om gegevens in een tabel te werken. Voor deze een heeft Sandy bevestigd dat ze bijwonen, zodat we haar RSVP van "N" naar "Y" wijzigen:
+Gebruik de volgende opdracht uit om gegevens in een tabel te werken. Voor deze een heeft Sandy bevestigd dat ze aanwezig zijn, zodat we de RSVP van "N" naar "Y" wijzigen:
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

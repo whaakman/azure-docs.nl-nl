@@ -4,27 +4,17 @@ description: Vind antwoorden op veelgestelde vragen over Azure Cosmos DB, een we
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e4ae9b7c96677ce494bea31a49b8db83d6bcb3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793792"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954147"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Veelgestelde vragen over de verschillende API's in Azure Cosmos DB
-
-### <a name="what-happened-to-the-documentdb-api"></a>Wat is er gebeurd met de DocumentDB-API?
-
-De DocumentDB-API van Azure Cosmos DB of SQL (DocumentDB)-API is nu bekend als Azure Cosmos DB SQL API. U hoeft niet te wijzigen van alles om door te gaan met het uitvoeren van uw apps die zijn gebouwd met DocumentDB-API. De functionaliteit blijft hetzelfde.
-
-Als u een DocumentDB-API-account voordat u had, hebt u nu een SQL API-account, zonder veranderingen in uw facturering.
-
-### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Wat is er gebeurd met Azure DocumentDB als een service?
-
-De Azure DocumentDB-service is nu een onderdeel van de Azure Cosmos DB-service en manifesten zelf in de vorm van de SQL-API. Toepassingen die zijn gebouwd met Azure DocumentDB wordt uitgevoerd zonder deze te wijzigen op Azure Cosmos DB SQL API. Cosmos DB implementeert ook wire-protocollen voor[Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) en [Azure Table Storage](table-introduction.md) rechtstreeks op de service. Daardoor kunt u stuurprogramma's (en hulpprogramma's) van clients voor de meestgebruikte NoSQL-API's rechtstreeks naar uw Cosmos-database verwijzen.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Wat zijn typische gebruiksvoorbeelden voor Azure Cosmos DB?
 
@@ -32,9 +22,9 @@ Azure Cosmos DB is een goede keuze voor nieuwe web, mobiel, gaming en IoT-toepas
 
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Hoe biedt Azure Cosmos DB voorspelbare prestaties?
 
-Een [aanvraageenheid](request-units.md) (ru/s) is de maateenheid voor doorvoer in Azure Cosmos DB. Een doorvoer van 1 RU komt overeen met de doorvoer van het ophalen van een document van 1 KB. Elke bewerking in Azure Cosmos DB, met inbegrip van leesbewerkingen, schrijfbewerkingen, SQL-query's en uitvoeringen van opgeslagen procedures, heeft een deterministische RU-waarde die gebaseerd op de doorvoer die is vereist om de bewerking te voltooien. In plaats van nadenken over de CPU, IO en geheugen en hoe ze elke invloed op de doorvoer van uw toepassing, kunt u denken in termen van één RU maateenheid.
+Een [aanvraageenheid](request-units.md) (ru/s) is de maateenheid voor doorvoer in Azure Cosmos DB. Een doorvoer 1RU komt overeen met de doorvoer van het ophalen van een document van 1 KB. Elke bewerking in Azure Cosmos DB, met inbegrip van leesbewerkingen, schrijfbewerkingen, SQL-query's en uitvoeringen van opgeslagen procedures, heeft een deterministische RU-waarde die gebaseerd op de doorvoer die is vereist om de bewerking te voltooien. In plaats van nadenken over de CPU, IO en geheugen en hoe ze elke invloed op de doorvoer van uw toepassing, kunt u denken in termen van één RU maateenheid.
 
-U kunt elke Azure Cosmos DB-container configureren met een ingerichte doorvoer in termen van Aanvraageenheden aan doorvoer per seconde. U kunt voor toepassingen van elke omvang, benchmarken van afzonderlijke aanvragen voor het meten van de RU-waarden en inrichten van een container voor het afhandelen van het totaal aantal aanvraageenheden voor alle aanvragen. U kunt ook omhoog of omlaag doorvoer van uw container schalen naarmate de behoeften van uw toepassing veranderen. Voor meer informatie over aanvraageenheden en hulp bij het bepalen van de containerbehoeften van uw, probeert de [doorvoer calculator](https://www.documentdb.com/capacityplanner).
+U kunt elke Azure Cosmos-container configureren met een ingerichte doorvoer in termen van Aanvraageenheden aan doorvoer per seconde. U kunt voor toepassingen van elke omvang, benchmarken van afzonderlijke aanvragen voor het meten van de RU-waarden en inrichten van een container voor het afhandelen van het totaal aantal aanvraageenheden voor alle aanvragen. U kunt ook omhoog of omlaag doorvoer van uw container schalen naarmate de behoeften van uw toepassing veranderen. Voor meer informatie over aanvraageenheden en hulp bij het bepalen van de containerbehoeften van uw, probeert de [doorvoer calculator](https://www.documentdb.com/capacityplanner).
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Hoe biedt Azure Cosmos DB ondersteuning voor verschillende gegevensmodellen zoals sleutel/waarde, in kolomvorm, document en een graaf?
 
@@ -91,12 +81,13 @@ Probeer Azure Cosmos DB-abonnementen worden weergegeven in de Azure-portal naast
 
 De volgende voorwaarden van toepassing op abonnementen Try Azure Cosmos DB:
 
-* Een container per abonnement voor SQL, Gremlin-API en tabel accounts.
-* Maximaal drie verzamelingen per abonnement voor MongoDB-accounts.
+* Een [ingerichte doorvoer-container](./set-throughput.md#set-throughput-on-a-container) per abonnement voor SQL, Gremlin-API en tabel accounts.
+* Maximaal drie [doorvoer verzamelingen ingericht](./set-throughput.md#set-throughput-on-a-container) per abonnement voor MongoDB-accounts.
+* Een [ingerichte doorvoer-database](./set-throughput.md#set-throughput-on-a-database) per abonnement. Ingerichte doorvoer databases kunnen een onbeperkt aantal containers binnen bevatten.
 * Opslagcapaciteit van 10 GB.
 * Globale replicatie is beschikbaar in de volgende [Azure-regio's](https://azure.microsoft.com/regions/): VS-midden, Noord-Europa en Zuidoost-Azië
 * Maximale doorvoer van 5 K RU/s ingericht op het niveau van de container.
-* De doorvoer van het maximum van 20 K RU/s ingericht op het databaseniveau van de.
+* Maximale doorvoer van 20 K RU/s ingericht op het databaseniveau van de.
 * Abonnementen verlopen na 30 dagen en kunnen worden uitgebreid tot een maximum van het totaal aantal 31 dagen.
 * Azure ondersteuningstickets kunnen niet worden gemaakt voor Try Azure Cosmos DB-accounts; echter, wordt ondersteuning geboden voor abonnees met bestaande ondersteuningsabonnementen.
 
@@ -530,7 +521,7 @@ Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hoe kan ik beveiligen tegen aanvallen via injectie met behulp van Gremlin-stuurprogramma's?
 
-Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Meest systeemeigen Apache Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Waarom krijg ik de ' Fout bij Schemacompilatie Gremlin-Query: Kan een willekeurige methode vinden' fout?
 
@@ -755,7 +746,7 @@ Ja, kunt u de syntaxis van de reguliere samengestelde partitiesleutel maken.
 
 Nee, de Preview-versie moet stabiele loader wordt niet ondersteund.
 
-### <a name="can-an-on-premises-cassandra-cluster-be-paired-with-azure-cosmos-dbs-apache-cassandra-api"></a>Kan een on-premises cassandra-cluster worden gekoppeld aan Azure Cosmos DB Apache Cassandra-API?
+### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Kan een on-premises Apache Cassandra-cluster worden gekoppeld met de Cassandra-API van Azure Cosmos DB?
 
 Op dit Azure Cosmos DB heeft een optimale ervaring voor cloudomgeving zonder de overhead van bewerkingen. Als u nodig hebt met het koppelen, verzend een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com) met een beschrijving van uw scenario.
 

@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626567"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166343"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Internet of Things (IoT)-beveiligingsarchitectuur
 
@@ -181,10 +181,10 @@ In elk van de categorieën die worden beschreven in de Azure IoT-architectuur is
 
 | **Onderdeel** | **Threat** | **Risicobeperking** | **Risk** | **Implementatie** |
 | --- | --- | --- | --- | --- |
-| Apparaat |S |Identiteit toewijzen aan het apparaat en het apparaat te verifiëren |Apparaat of een deel van het apparaat vervangen door een ander apparaat. Hoe weet u dat het nu op het juiste apparaat? |Het apparaat, met behulp van Transport Layer Security (TLS) of IPSec-verificatie. Infrastructuur moet ondersteunen met behulp van vooraf gedeelde sleutel (PSK) op apparaten die volledige asymmetrische cryptografische kunnen niet worden verwerkt. Gebruikmaken van Azure AD [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+| Apparaat |Z |Identiteit toewijzen aan het apparaat en het apparaat te verifiëren |Apparaat of een deel van het apparaat vervangen door een ander apparaat. Hoe weet u dat het nu op het juiste apparaat? |Het apparaat, met behulp van Transport Layer Security (TLS) of IPSec-verificatie. Infrastructuur moet ondersteunen met behulp van vooraf gedeelde sleutel (PSK) op apparaten die volledige asymmetrische cryptografische kunnen niet worden verwerkt. Gebruikmaken van Azure AD [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Toepassen tamperproof mechanismen waarmee u kunt het apparaat, bijvoorbeeld door waardoor het moeilijk is zelfs onmogelijk om op te halen van sleutels en andere cryptografische materiaal van het apparaat. |Het risico is als iemand het apparaat (fysieke interferentie) is geknoeid. Hoe weet u zeker dat, dat het apparaat is niet geknoeid met. |De meest effectieve oplossing is een vertrouwd platform module (TPM)-functie waarmee het opslaan van sleutels in speciale op-chip circuits van waaruit de sleutels kunnen niet worden gelezen, maar kunnen alleen worden gebruikt voor cryptografische bewerkingen die de sleutel gebruiken maar nooit vrijgeven van de sleutel. Geheugen-versleuteling van het apparaat. Sleutelbeheer voor het apparaat. Ondertekening van de code. |
 || E |Toegangsbeheer van het apparaat hebben. Het autorisatieschema voor. |Als het apparaat kunt u afzonderlijke acties worden uitgevoerd op basis van de opdrachten van een externe bron, of zelfs waarmee is geknoeid sensoren, kan de aanval voor het uitvoeren van bewerkingen niet toegankelijk is. |Autorisatieschema voor het apparaat hebben |
-| Veldgateway |S |Verificatie van de gateway van het veld naar de Cloud-Gateway (zoals certificaat, PSK, of Claim.) |Als iemand Veldgateway vervalsen kan, klikt u vervolgens deze kan worden weergegeven als een apparaat. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Dezelfde sleutel problemen voor de opslag en attestation van apparaten in het algemeen – aanbevolen case is TPM gebruiken. 6LowPAN-extensie voor IPSec-ter ondersteuning van draadloze Sensor netwerken (WSN). |
+| Veldgateway |Z |Verificatie van de gateway van het veld naar de Cloud-Gateway (zoals certificaat, PSK, of Claim.) |Als iemand Veldgateway vervalsen kan, klikt u vervolgens deze kan worden weergegeven als een apparaat. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Dezelfde sleutel problemen voor de opslag en attestation van apparaten in het algemeen – aanbevolen case is TPM gebruiken. 6LowPAN-extensie voor IPSec-ter ondersteuning van draadloze Sensor netwerken (WSN). |
 || TRID |Beveiligen van de Veldgateway tegen knoeien (TPM)? |Spoofing aanvallen die verleiden om de cloud gateway denken dat deze met een veldgateway communiceert kan leiden tot vrijgeven van informatie en geknoei met gegevens |Geheugen versleuteling, TPM van, verificatie. |
 || E |Mechanisme voor toegangsbeheer voor Veldgateway | | |
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871162"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949822"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Grote gegevenssets in Azure Search indexeren
 
@@ -67,7 +67,7 @@ Voor niet-routine, rekenintensieve indexering vereisten - zoals OCR op gescande 
 Parallelle verwerking heeft de volgende elementen:
 
 + Verdeel brongegevens tussen meerdere containers of meerdere virtuele mappen in dezelfde container. 
-+ Elke mini gegevensset toewijzen aan een eigen [Datumbron](https://docs.microsoft.com/rest/api/searchservice/create-data-source), in een eigen gekoppelde [indexeerfunctie](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Elke mini gegevensset toewijzen aan een eigen [gegevensbron](https://docs.microsoft.com/rest/api/searchservice/create-data-source), in een eigen gekoppelde [indexeerfunctie](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + Verwijzen naar hetzelfde voor cognitief zoeken [vaardigheden](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in elke definitie van de indexeerfunctie.
 + Schrijven naar het hetzelfde doel search-index. 
 + Alle indexeerfuncties om uit te voeren op hetzelfde moment plannen.

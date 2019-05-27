@@ -2,18 +2,19 @@
 title: Over het inrichten van apparaten voor multitenancy in de Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Over het inrichten van apparaten voor multitenancy met uw device provisioning service-exemplaar
 author: wesmc7777
-ms.author: wesmc
-ms.date: 04/10/2019
+ms.author: v-yiso
+origin.date: 04/10/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66116106"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Inrichten voor multitenancy 
 
@@ -41,8 +42,6 @@ In dit artikel wordt een voorbeeld van het gesimuleerde apparaat van de [Azure I
 
 * Voltooiing van de [IoT Hub Device Provisioning Service instellen met de Azure-portal](./quick-setup-auto-provision.md) Quick Start.
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-two-regional-iot-hubs"></a>Twee regionale IoT-hubs maken

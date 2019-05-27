@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791501"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949921"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nieuwe DBA in de cloud, uw één en gepoolde databases in Azure SQL Database beheren
 
@@ -160,7 +160,7 @@ Voor het beveiligen van uw gevoelige gegevens die onderweg zijn en at-rest, SQL 
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Hoe kan ik toegang tot gevoelige gegevens in mijn database beperken
 
-Elke toepassing heeft een bepaalde deel van de gevoelige gegevens in de database die moet worden beveiligd tegen het voor iedereen zichtbaar wordt. Bepaalde personeel binnen de organisatie moeten deze gegevens weergeven, maar anderen mag niet mogelijk om deze gegevens weer te geven. Een voorbeeld hiervan is salarissen. Een manager zou moeten toegang hebben tot de loongegevens van zijn/haar directe ondergeschikten echter, de afzonderlijke teamleden al dan niet mogen toegang hebben tot de salarisgegevens van hun collega's. Een ander scenario is ontwikkelaars van gegevens die mogelijk interactie met gevoelige gegevens tijdens de fasen van de ontwikkeling of tests, bijvoorbeeld burgerservicenummers van klanten. Deze gegevens niet opnieuw hoeft te worden blootgesteld aan de ontwikkelaar. In dergelijke gevallen kan moet de gevoelige gegevens ofwel worden gemaskeerd of niet helemaal worden blootgesteld. SQL Database biedt twee manieren om te voorkomen dat onbevoegde gebruikers de mogelijkheid om gevoelige gegevens weer te geven:
+Elke toepassing heeft een bepaalde deel van de gevoelige gegevens in de database die moet worden beveiligd tegen het voor iedereen zichtbaar wordt. Bepaalde personeel binnen de organisatie moeten deze gegevens weergeven, maar anderen mag niet mogelijk om deze gegevens weer te geven. Een voorbeeld hiervan is salarissen. Een manager zou moeten toegang hebben tot de loon-informatie voor hun directe ondergeschikten echter, de afzonderlijke teamleden al dan niet mogen toegang hebben tot de salarisgegevens van hun collega's. Een ander scenario is ontwikkelaars van gegevens die mogelijk interactie met gevoelige gegevens tijdens de fasen van de ontwikkeling of tests, bijvoorbeeld burgerservicenummers van klanten. Deze gegevens niet opnieuw hoeft te worden blootgesteld aan de ontwikkelaar. In dergelijke gevallen kan moet de gevoelige gegevens ofwel worden gemaskeerd of niet helemaal worden blootgesteld. SQL Database biedt twee manieren om te voorkomen dat onbevoegde gebruikers de mogelijkheid om gevoelige gegevens weer te geven:
 
 [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) is een functie voor het maskeren van gegevens waarmee u beperken van blootstelling van gevoelige gegevens door deze te maskeren voor niet-gemachtigde gebruikers op de toepassingslaag. U definieert een maskeringsregel dat een patroon maskering kunt maken (bijvoorbeeld weer te geven alleen de laatste vier cijfers van een nationale ID SSN: XXX-xx-0000 en markeert u de meeste van deze als Xs) en nagaan welke gebruikers moeten worden uitgesloten van de maskeringsregel. De maskering vindt plaats op het begeven en er zijn verschillende maskeringsfuncties beschikbaar voor verschillende gegevenscategorieën. Dynamische gegevensmaskering kunt u automatisch detecteren van gevoelige gegevens in uw database en maskering erop van toepassing.
 

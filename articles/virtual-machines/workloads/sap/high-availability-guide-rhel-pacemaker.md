@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: b844c93a1f3e83d682b51db6f9854f11b24d82e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127115"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992153"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Pacemaker op Red Hat Enterprise Linux in Azure instellen
 
@@ -37,7 +37,7 @@ ms.locfileid: "61127115"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
 > [!NOTE]
 > Pacemaker op Red Hat Enterprise Linux maakt gebruik van de Azure omheining-Agent op een clusterknooppunt omheining indien nodig. Een failover kan maximaal 15 minuten duren, als een resource stoppen is mislukt of als de clusterknooppunten kunnen niet worden gecommuniceerd die elkaar meer. Lees voor meer informatie, [virtuele Azure-machine die wordt uitgevoerd als lid van een hoge beschikbaarheid voor RHEL-cluster een zeer lang duren worden omheinde of de eerste optie mislukt / tijden-out voordat de virtuele machine wordt afgesloten](https://access.redhat.com/solutions/3408711)

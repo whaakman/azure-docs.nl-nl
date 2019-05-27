@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597485"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990201"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -166,7 +166,7 @@ Hier zijn de limieten voor aangepaste connectors die u van web-API's maken kunt.
 
 | Name | Limiet |
 | ---- | ----- |
-| Aantal logische apps met het systeem toegewezen identiteit per Azure-abonnement beheerd | 10 |
+| Aantal logische apps met het systeem toegewezen identiteit per Azure-abonnement beheerd | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,7 +241,7 @@ Alle logische apps in dezelfde regio gebruiken de dezelfde IP-adresbereiken. Ter
 
 Ter ondersteuning van de aanroepen die [door Microsoft beheerde connectors](../connectors/apis-list.md) maken, instellen van uw firewall met *alle* de [uitgaande](#outbound) IP-adressen die worden gebruikt door deze connectors, op basis van de regio's waar uw logische apps bestaan. Deze adressen worden weergegeven onder de **uitgaand** koptekst in deze sectie en per regio worden gesorteerd.
 
-Voor [Azure Government](../azure-government/documentation-government-overview.md) en [Azure China 21Vianet](/azure/china/china-welcome), gereserveerde IP-adressen voor connectors niet op dit moment beschikbaar zijn.
+Voor [Azure Government](../azure-government/documentation-government-overview.md) en [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), gereserveerde IP-adressen voor connectors niet op dit moment beschikbaar zijn.
 
 > [!IMPORTANT]
 >

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171425"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Een Azure Database for MariaDB-server maken met behulp van de Azure CLI
 
@@ -55,7 +55,7 @@ geo-redundant-backup | **Uitgeschakeld** | Of geografisch redundante back-ups mo
 location | **westus** | De Azure-locatie voor de server.
 ssl-enforcement | **Ingeschakeld** | Of SSL moet worden ingeschakeld voor deze server. Toegestane waarden: **Ingeschakeld**, **Uitgeschakeld**.
 storage-size | **51200** | De opslagcapaciteit van de server (de eenheid is MB). Geldige opslagruimten zijn 5.120 MB (minimaal) met verhogingen in stappen van 1024 MB. Zie [Prijscategorieën](./concepts-pricing-tiers.md) voor meer informatie over de opslaglimieten. 
-versie | **10.2** | De versie van de hoofd-engine van MariaDB.
+version | **10.2** | De versie van de hoofd-engine van MariaDB.
 admin-user | **myadmin** | De gebruikersnaam voor aanmelding als beheerder. De parameter voor **admin-user** kan niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.
 admin-password | *Uw wachtwoord* | Het wachtwoord van het beheerdersaccount. Uw wachtwoord moet tussen 8 en 128 tekens bevatten. Het moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers en niet-alfanumerieke tekens.
 

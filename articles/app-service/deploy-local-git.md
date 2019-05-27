@@ -15,11 +15,11 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65956056"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -158,21 +158,21 @@ Hier volgen algemene fouten of problemen bij het publiceren naar een App Service
 
 **Oorzaak**: Deze fout kan optreden als de app niet actief en werkend.
 
-**Oplossing**: De app te starten in Azure portal. GIT-implementatie is niet beschikbaar wanneer de Web-App is gestopt.
+**Resolutie**: De app te starten in Azure portal. GIT-implementatie is niet beschikbaar wanneer de Web-App is gestopt.
 
 ---
 **Symptoom**: `Couldn't resolve host 'hostname'`
 
 **Oorzaak**: Deze fout kan optreden als de gegevens hebt ingevoerd bij het maken van de 'azure' remote onjuist is.
 
-**Oplossing**: Gebruik de `git remote -v` opdracht om een lijst van alle remotes, samen met de bijbehorende URL. Controleer of dat de URL voor de externe 'azure' juist is. Indien nodig, verwijderen en opnieuw maken van deze externe met behulp van de juiste URL.
+**Resolutie**: Gebruik de `git remote -v` opdracht om een lijst van alle remotes, samen met de bijbehorende URL. Controleer of dat de URL voor de externe 'azure' juist is. Indien nodig, verwijderen en opnieuw maken van deze externe met behulp van de juiste URL.
 
 ---
 **Symptoom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
 **Oorzaak**: Deze fout kan optreden als u geen dat een vertakking tijdens opgeeft `git push`, of als u dit nog niet hebt ingesteld de `push.default` waarde in de `.gitconfig`.
 
-**Oplossing**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
+**Resolutie**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **Oorzaak**: Deze fout kan optreden als u probeert te pushen naar een vertakking dan master in de 'azure' remote.
 
-**Oplossing**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
+**Resolutie**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
 
 ```bash
 git push azure master
@@ -194,7 +194,7 @@ git push azure master
 
 **Oorzaak**: Deze fout kan optreden als u probeert een grote git-opslagplaats pushen via HTTPS.
 
-**Oplossing**: Wijzigen van de git-configuratie op de lokale computer naar de postBuffer groter maken
+**Resolutie**: Wijzigen van de git-configuratie op de lokale computer naar de postBuffer groter maken
 
 ```bash
 git config --global http.postBuffer 524288000
@@ -205,14 +205,14 @@ git config --global http.postBuffer 524288000
 
 **Oorzaak**: Deze fout kan optreden als u een Node.js-app met implementeert een _package.json_ -bestand dat aanvullende vereiste modules specificeert.
 
-**Oplossing**: Extra berichten met "npm ERR!" voordat u deze fout moet worden vastgelegd en kunt aanvullende context te bieden over de fout. Hier volgen enkele bekende oorzaken van deze fout en de bijbehorende 'npm ERR!" Bericht:
+**Resolutie**: Extra berichten met "npm ERR!" voordat u deze fout moet worden vastgelegd en kunt aanvullende context te bieden over de fout. Hier volgen enkele bekende oorzaken van deze fout en de bijbehorende 'npm ERR!" Bericht:
 
 * **Onjuist gevormd package.json-bestand**: npm ERR! Afhankelijkheden kan niet worden gelezen.
 * **Systeemeigen module die een binaire distributie voor Windows geen**:
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
-      OF
+      OR
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
 ## <a name="additional-resources"></a>Aanvullende resources

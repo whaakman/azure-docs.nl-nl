@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 6be1d2b1e68c52d45a42027be5f6d69cc2c25adc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: bd53ae3346882cf20ae7464548fa9ef2c0329f05
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509929"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957023"
 ---
 # <a name="smart-contract-integration-patterns"></a>Slimme contract integratiepatronen
 
@@ -180,7 +180,7 @@ In dit model waarbij een bericht in een standaardindeling niet rechtstreeks kan 
 
 Een gebruikelijk integratiescenario is het opnemen van telemetrische gegevens afkomstig van sensoren in een slim contract. Op basis van door sensoren geleverde gegevens kunnen slimme contracten gepaste acties ondernemen en de status van het contract wijzigen.
 
-Als de temperatuur van een vrachtwagen die geneesmiddelen bezorgt, bijvoorbeeld boven de 45 graden komt, zou dat de effectiviteit van het geneesmiddel kunnen verminderen, en zou er een probleem  voor de openbare veiligheid kunnen ontstaan als dit niet wordt gedetecteerd en het geneesmiddel niet uit de toeleveringsketen wordt verwijderd. Als een automobilist harder rijdt dan 160 km/uur, zou de resulterende sensorinformatie kunnen leiden tot het annuleren van de verzekering door de verzekeraar. Als de auto een huurauto was, zouden GPS-gegevens kunnen aangeven dat de bestuurder buiten het gebied van de huurovereenkomst is gegaan, en zou het verhuurbedrijf een boete kunnen berekenen.
+Als de temperatuur van een vrachtwagen die geneesmiddelen bezorgt, bijvoorbeeld boven de 45 graden komt, zou dat de effectiviteit van het geneesmiddel kunnen verminderen, en zou er een probleem  voor de openbare veiligheid kunnen ontstaan als dit niet wordt gedetecteerd en het geneesmiddel niet uit de toeleveringsketen wordt verwijderd. Als een stuurprogramma hun auto tot 100 mijl per uur versnelde, kan de resulterende sensorinformatie bij een annulering van de verzekering door hun verzekering provider activeren. Als de auto een huurauto was, zouden GPS-gegevens kunnen aangeven dat de bestuurder buiten het gebied van de huurovereenkomst is gegaan, en zou het verhuurbedrijf een boete kunnen berekenen.
 
 De uitdaging is dat deze sensoren op constante basis gegevens kunnen leveren en het niet gepast is om al deze gegevens naar een slim contract te sturen. Een typische benadering is om het aantal berichten dat naar de blockchain wordt verzonden te beperken terwijl alle berichten aan een secundaire opslag worden bezorgd. Lever bijvoorbeeld ontvangen berichten alleen met een vast interval, bijvoorbeeld eenmaal per uur, en wanneer een ingesloten waarde buiten een overeengekomen bereik voor een slim contract valt. Het controleren van waarden die buiten de toleranties vallen, zorgt ervoor dat de gegevens die relevant zijn voor de zakelijke logica van de contracten worden ontvangen en uitgevoerd. Door de waarde op het interval te controleren, wordt bevestigd dat de sensor nog steeds rapporteert. Alle gegevens worden verzonden naar een secundaire rapportageopslag om een bredere rapportering, analyse en machine-learning mogelijk te maken. Het is bijvoorbeeld mogelijk dat het voor een slim contract niet nodig is om elke minuut sensormetingen voor GPS te ontvangen, maar het kan interessante gegevens opleveren die in rapporten of mappingroutes kunnen worden gebruikt.
 

@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866444"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113393"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Beleid: Voor gebruikers in uw directory
 
@@ -34,6 +34,9 @@ Volg deze stappen als u wilt dat uw beleid voor gebruikers en groepen in uw dire
 ### <a name="policy-for-users-not-in-your-directory"></a>Beleid: Voor gebruikers die niet in uw directory
 
 Volg deze stappen als u wilt dat uw beleid voor gebruikers die niet in uw directory dat dit pakket toegang kunnen vragen. Mappen moeten worden geconfigureerd om te worden toegestaan in de **organisatie relaties samenwerkingsbeperkingen** instellingen.
+
+> [!NOTE]
+> Een gastgebruikersaccount zullen worden gemaakt voor een gebruiker in uw directory waarvan aanvraag is goedgekeurd of automatisch goedgekeurd nog niet. De Gast wordt uitgenodigd, maar ontvangt een e-mailbericht voor de uitnodiging niet. In plaats daarvan ontvangen ze een e-mailbericht wanneer hun pakkettoekenning toegang wordt geleverd. Als dat niet langer gastgebruiker heeft standaard alle toegangstoewijzingen pakket, omdat de laatste toewijzing is verlopen of is geannuleerd, dat gastgebruikersaccount worden geblokkeerd voor aanmelden en verwijderd. Als u wilt dat gastgebruikers ook kunnen voor onbepaalde tijd in uw directory, zelfs als ze geen pakket toegangstoewijzingen hebben, kunt u de instellingen voor de rechten van een management-configuratie wijzigen.
 
 1. In de **gebruikers die toegang kunnen vragen** sectie, selecteer **voor gebruikers die niet in uw directory**.
 
@@ -66,7 +69,7 @@ Volg deze stappen als u wilt dat uw beleid wilt omzeilen toegangsaanvragen en ku
 
 1. Ga omlaag naar de [beleid: Vervaldatum](#policy-expiration) sectie.
 
-### <a name="policy-request"></a>Beleid: Aanvraag
+### <a name="policy-request"></a>Beleid: Aanvragen
 
 In de sectie aanvraag geeft u instellingen voor goedkeuring wanneer gebruikers het pakket toegang aanvraagt.
 

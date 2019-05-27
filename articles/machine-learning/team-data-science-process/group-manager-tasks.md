@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305191"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950098"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Taken voor een groepmanager op een data science-teamproject
 
-In dit onderwerp bevat de taken die wordt verwacht dat de Manager van een groep zijn voltooid voor historie / haar data science-organisatie. Het doel is het opzetten van gezamenlijke groepsomgeving die standaardiseert op de [Team Data Science Process](overview.md) (TDSP). Voor een overzicht van de rollen personeel en de bijbehorende taken die worden beheerd door een team van gegevenswetenschappers standaardiseren over dit proces, Zie [Team Data Science Process rollen en taken](roles-tasks.md).
+In dit onderwerp bevat de taken die de beheerder van een groep is opslagbewerkingen uit te voeren voor hun data science-organisatie. Het doel is het opzetten van gezamenlijke groepsomgeving die standaardiseert op de [Team Data Science Process](overview.md) (TDSP). Voor een overzicht van de rollen personeel en de bijbehorende taken die worden beheerd door een team van gegevenswetenschappers standaardiseren over dit proces, Zie [Team Data Science Process rollen en taken](roles-tasks.md).
 
 De **groepsbeheerder** is de manager van de volledige data science-eenheid in een onderneming. Een data science-eenheid mogelijk meerdere teams, die elk is bezig met meerdere data science-projecten in afzonderlijk zakelijk verticalen. De Manager van een groep kunnen hun taken delegeren aan een vervangend, maar de taken die zijn gekoppeld aan de rol zijn hetzelfde. Er zijn zes belangrijkste taken, zoals wordt weergegeven in het volgende diagram:
 

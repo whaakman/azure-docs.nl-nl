@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405719"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951105"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview
 
@@ -28,7 +28,7 @@ Wanneer u een Time Series Insights Preview betalen per gebruik SKU-omgeving maak
 * Een Time Series Insights-omgeving.
 * Een Azure-opslag voor algemeen gebruik V1-account waar de gegevens worden opgeslagen.
 
-Time Series Insights Preview maakt gebruik van Azure Blob-opslag met het type Parquet-bestand. Time Series Insights beheert alle gegevensbewerkingen, waaronder het maken van blobs, indexering en partitioneren van de gegevens in de Azure storage-account. U kunt deze blobs maken met behulp van een Azure storage-account.
+De Preview van Time Series Insights maakt gebruik van Azure Blob-opslag met het type Parquet-bestand. Time Series Insights beheert alle gegevensbewerkingen, waaronder het maken van blobs, indexering en partitioneren van de gegevens in de Azure storage-account. U kunt deze blobs maken met behulp van een Azure storage-account.
 
 Zoals andere Azure Storage-blobs kunnen blobs Time Series Insights is gemaakt u lezen en schrijven naar ter ondersteuning van verschillende scenario's voor integratie.
 
@@ -101,12 +101,12 @@ Een fysieke partitie is een blok-blob die opgeslagen in uw storage-account. De w
 
 ### <a name="logical-partitions"></a>Logische partities
 
-Een logische partitie is een partitie in een fysieke partitie waarin alle gegevens die zijn gekoppeld aan een sleutelwaarde van één partitie. Time Series Insights Preview partities logisch elke blob op basis van twee eigenschappen:
+Een logische partitie is een partitie in een fysieke partitie waarin alle gegevens die zijn gekoppeld aan een sleutelwaarde van één partitie. De Preview van Time Series Insights partities logisch elke blob op basis van twee eigenschappen:
 
 * **Time Series-ID**: De partitiesleutel voor alle Time Series Insights-gegevens in de gebeurtenisstroom en het model.
 * **Tijdstempel**: De tijd op basis van de eerste inkomend verkeer.
 
-Time Series Insights Preview biedt goed presterende query's die zijn gebaseerd op deze twee eigenschappen. Deze twee eigenschappen bieden ook de meest efficiënte methode voor het snel leveren van Time Series Insights-gegevens.
+De Preview van Time Series Insights biedt krachtige query's die zijn gebaseerd op deze twee eigenschappen. Deze twee eigenschappen bieden ook de meest efficiënte methode voor het snel leveren van Time Series Insights-gegevens.
 
 Het is belangrijk om te selecteren van een juiste ID in de reeks tijd, omdat het is een onveranderbare eigenschap. Zie voor meer informatie, [kiezen Time Series-id's](./time-series-insights-update-how-to-id.md).
 
@@ -120,7 +120,7 @@ Time Series Insights publiceert maximaal twee exemplaren van elke gebeurtenis in
 
 Time Series Insights repartitions bovendien de Parquet-bestanden om te optimaliseren voor de Time Series Insights API's. Het meest recent repartitioned bestand wordt ook opgeslagen.
 
-Gegevens worden tijdens de openbare Preview voor onbepaalde tijd opgeslagen in uw Azure storage-account.
+Gegevens worden tijdens de openbare preview voor onbepaalde tijd opgeslagen in uw Azure storage-account.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Schrijven en bewerken van Time Series Insights-blobs
 
@@ -146,13 +146,13 @@ U kunt toegang tot uw gegevens op drie algemene manieren:
 
 ### <a name="data-deletion"></a>Gegevens verwijderen
 
-Geen blobs niet verwijderen omdat Time Series Insights Preview metagegevens over de blobs erin houdt.
+Geen blobs niet verwijderen. Niet alleen zijn ze handig voor het controleren en onderhouden van een record van uw gegevens, behoudt de Preview van Time Series Insights blobmetagegevens binnen elke blob.
 
 ## <a name="time-series-insights-data-ingress"></a>Opname van Time Series Insights-gegevens
 
 ### <a name="ingress-policies"></a>Beleid voor inkomend verkeer
 
-Time Series Insights Preview biedt ondersteuning voor de dezelfde bronnen van gebeurtenissen en de bestandstypen die op dit moment Time Series Insights ondersteunt.
+De Preview van Time Series Insights ondersteunt dezelfde bronnen van gebeurtenissen en bestandstypen die op dit moment Time Series Insights ondersteunt.
 
 Ondersteunde gebeurtenisbronnen zijn onder andere:
 
@@ -168,7 +168,7 @@ Ondersteunde bestandstypen zijn onder andere:
 
 ### <a name="data-availability"></a>Beschikbaarheid van gegevens
 
-Time Series Insights Preview gegevens met behulp van een strategie voor optimalisatie van de grootte van de blob worden geïndexeerd. Gegevens beschikbaar om op te vragen nadat deze geïndexeerd, die is gebaseerd op hoeveel gegevens er in en welke uit te voeren.
+De Preview van Time Series Insights gegevens met behulp van een strategie voor optimalisatie van de grootte van de blob worden geïndexeerd. Gegevens beschikbaar om op te vragen nadat deze geïndexeerd, die is gebaseerd op hoeveel gegevens er in en welke uit te voeren.
 
 > [!IMPORTANT]
 > * De Time Series Insights-versie voor algemene beschikbaarheid (GA) maken beschikbaar voor gegevens in 60 seconden van een gebeurtenisbron te maken. 
@@ -177,7 +177,7 @@ Time Series Insights Preview gegevens met behulp van een strategie voor optimali
 
 ### <a name="scale"></a>Schaal aanpassen
 
-Time Series Insights Preview biedt ondersteuning voor de schaal van een eerste inkomend verkeer van maximaal 6 Mega Bytes per seconde (Mbps) per omgeving. Uitgebreide ondersteuning voor vergroten/verkleinen wordt momenteel is. We willen onze documentatie bij zodat deze verbeteringen bijwerken
+De Preview van Time Series Insights biedt ondersteuning voor de schaal van een initiële inkomend verkeer van maximaal 1 Mega bytes per seconde (Mbps) per omgeving. Uitgebreide ondersteuning voor vergroten/verkleinen wordt momenteel is. We willen onze documentatie bij zodat deze verbeteringen bijwerken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

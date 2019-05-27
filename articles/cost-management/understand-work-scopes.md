@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003007"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991385"
 ---
 # <a name="understand-and-work-with-scopes"></a>Bereiken begrijpen en gebruiken
 
@@ -60,14 +60,14 @@ Kostenbeheer ondersteunt de volgende ingebouwde rollen voor elk van de volgende 
 - [**De eigenaar van** ](../role-based-access-control/built-in-roles.md#owner) : kunt u kosten wilt weergeven en alles beheren, inclusief configuratie van de kosten.
 - [**Inzender** ](../role-based-access-control/built-in-roles.md#contributor) : kunt u kosten wilt weergeven en alles beheren, inclusief configuratie van de kosten, maar met uitzondering van toegangsbeheer.
 - [**Lezer** ](../role-based-access-control/built-in-roles.md#reader) : alles, inclusief de voor kostengegevens en configuratie, kunt bekijken, maar u kunt geen wijzigingen aanbrengen.
-- [**Inzender voor versiebeheer voor kosten** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : kunt u kosten wilt weergeven en configuratie van de kosten beheren.
-- [**Kosten Management lezer** ](../role-based-access-control/built-in-roles.md#cost-management-reader) : gegevens van cost en configuratie kunt bekijken.
+- [**Inzender voor versiebeheer voor kosten** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : kunt u kosten wilt weergeven, configuratie van de kosten beheren en aanbevelingen weergeven.
+- [**Kosten Management lezer** ](../role-based-access-control/built-in-roles.md#cost-management-reader) : kunnen inzien voor kosten, configuratie, kosten, en aanbevelingen weergeven.
 
 Cost Management inzenders is de aanbevolen minimale bevoegdheden-rol. Deze personen toegang maken en beheren van budgetten en de uitvoer naar meer effectief bewaken en rapporteren van kosten. Management kostenposten mogelijk ook aanvullende functies voor de ondersteuning van scenario's voor het beheer van kosten voor end-to-end. Houd rekening met de volgende scenario's:
 
 - **Handelen wanneer budgetten worden overschreden** – kostenposten Management moet ook toegang tot het maken en/of beheren van actiegroepen om automatisch reageren op overschrijdingen. Houd rekening met het verlenen van [bewaking Inzender](../role-based-access-control/built-in-roles.md#monitoring-contributor) naar een resourcegroep met de actiegroep voor het gebruik van wanneer budgetdrempelwaarden worden overschreden. Specifieke acties automatiseren vereist aanvullende functies voor de specifieke services gebruikt, zoals Automation en Azure Functions.
 - **Schema exporteren van gegevens kosten** – kostenposten Management moet ook toegang tot het beheer van opslagaccounts voor het plannen van een export gegevens te kopiëren naar een opslagaccount. Houd rekening met het verlenen van [Inzender voor Opslagaccounts](../role-based-access-control/built-in-roles.md#storage-account-contributor) aan een resourcegroep met de opslag account waar kostengegevens wordt geëxporteerd.
-- **Kostenbesparend aanbevelingen weergeven** – Cost Management lezers en medewerkers hebt geen toegang tot aanbevelingen standaard. Toegang tot aanbevelingen moet leestoegang tot afzonderlijke resources. Houd rekening met het verlenen van [lezer](../role-based-access-control/built-in-roles.md#reader) of een [servicespecifieke rollen](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Kostenbesparend aanbevelingen weergeven** – Cost Management lezers en kostenposten Management hebben toegang tot *weergave* aanbevelingen kosten standaard. Toegang om te reageren op de aanbevelingen voor kosten vereist echter toegang tot afzonderlijke resources. Houd rekening met het verlenen van een [servicespecifieke rollen](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) als u wilt om te reageren op een aanbeveling op basis van kosten.
 
 ## <a name="enterprise-agreement-scopes"></a>Enterprise Agreement-bereiken
 

@@ -2,19 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309928"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170307"
 ---
 ## <a name="scenario"></a>Scenario
 Dit document wordt u beter laten zien hoe u nsg's maken, het volgende scenario:
@@ -31,3 +30,4 @@ In dit scenario maakt u een NSG voor elk subnet in de **TestVNet** virtueel netw
   * **Web-regel**. Alle internetverkeer van weigert de *back-end* subnet.
 
 De combinatie van deze regels maken een DMZ-achtige-scenario, waarin de back-end-subnet kan alleen inkomend verkeer voor SQL ontvangen van het front-end-subnet, en heeft geen toegang tot het Internet, terwijl het front-end-subnet kan met Internet communiceren en ontvangen binnenkomende HTTP-aanvragen alleen.
+

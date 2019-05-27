@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073966"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956384"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Gebruik van kubenet netwerken met uw eigen IP-adresbereiken in Azure Kubernetes Service (AKS)
 
@@ -22,6 +22,9 @@ Standaard-AKS clusters gebruik [kubenet][kubenet], en een Azure-netwerk en subne
 Met [Azure Container netwerken Interface (CNI)][cni-networking], elke pod krijgt u een IP-adres van het subnet en kunnen rechtstreeks worden geopend. Deze IP-adressen moeten uniek zijn in de adresruimte van uw netwerk, en moeten vooraf worden gepland. Elk knooppunt heeft een configuratieparameter voor het maximum aantal schillen worden ondersteund. Het equivalente aantal IP-adressen per knooppunt worden vervolgens een gereserveerd voor dat knooppunt. Deze aanpak vereist meer planning en leidt vaak tot uitputting van IP-adres of de noodzaak voor het opnieuw opbouwen van clusters in een groter subnet aan de vereisten van uw toepassing.
 
 In dit artikel leest u hoe u *kubenet* netwerken maken en een subnet van een virtueel netwerk gebruiken voor een AKS-cluster. Zie voor meer informatie over opties voor netwerken en overwegingen met betrekking tot [netwerk basisbegrippen voor Kubernetes en AKS][aks-network-concepts].
+
+> [!WARNING]
+> Voor het gebruik van Windows Server-knooppuntgroepen (momenteel in preview in AKS), moet u Azure CNI gebruiken. Het gebruik van kubenet als het netwerk-objectmodel is niet beschikbaar voor Windows Server-containers.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -149,6 +152,8 @@ De volgende IP-adresbereiken zijn ook worden gedefinieerd als onderdeel van het 
     * Dit adresbereik moet groot genoeg is voor het aantal knooppunten die u verwacht te schalen tot. U kunt dit adresbereik niet wijzigen nadat het cluster is geïmplementeerd als u meer adressen voor extra knooppunten nodig hebt.
     * De schil IP-adresbereik wordt gebruikt om toe te wijzen een */24* -adresruimte aan elk knooppunt in het cluster. In het volgende voorbeeld wordt de *--pod-cidr* van *192.168.0.0/16* het eerste knooppunt toegewezen *192.168.0.0/24*, het tweede knooppunt *192.168.1.0/24*, en het derde knooppunt *192.168.2.0/24*.
     * Als het cluster schalen of upgrades worden uitgevoerd blijft het Azure-platform een pod IP-adresbereik toewijzen aan elke nieuwe knooppunt.
+    
+* De *--docker-bridge-adres* kiest, kunnen de AKS-knooppunten met het onderliggende management-platform communiceren. Dit IP-adres mag niet binnen het virtuele netwerk IP-adresbereik van het cluster, en mag niet overlappen met andere adresbereiken in gebruik is op uw netwerk.
 
 ```azurecli-interactive
 az aks create \

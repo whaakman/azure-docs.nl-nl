@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60261002"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Zelfstudie: Azure Active Directory-integratie met Land echte reus-Client
 
@@ -47,7 +47,7 @@ Voor het configureren van Azure AD-integratie met Land echte reus-Client, moet u
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
 
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - U moet uw productie-omgeving, niet gebruiken als dit nodig is.
 - Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
@@ -71,11 +71,11 @@ Voor het configureren van de integratie van Land echte reus Client in Azure AD, 
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Applicaties][2]
+    ![Toepassingen][2]
     
 1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
-    ![Applicaties][3]
+    ![Toepassingen][3]
 
 1. Typ in het zoekvak **Land echte reus Client**.
 
@@ -87,7 +87,7 @@ Voor het configureren van de integratie van Land echte reus Client in Azure AD, 
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Land echte reus-Client op basis van een testgebruiker 'Julia steen' genoemd.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Land echte reus-Client op basis van een testgebruiker met de naam 'B. Steen'.
 
 Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Land echte reus Client is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Land echte reus Client tot stand worden gebracht.
 
@@ -97,8 +97,8 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met Land echte re
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met een beperkte groep.
-1. **[Het maken van een testgebruiker Land echte reus](#creating-a-land-gorilla-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Het maken van een testgebruiker Land echte reus](#creating-a-land-gorilla-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met B. Simon.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - B. Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
@@ -142,7 +142,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
     ![Eenmalige aanmelding configureren](./media/landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
 
-1. Klik op de knop **Save**.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/landgorilla-tutorial/tutorial_general_400.png) 
 
@@ -150,7 +150,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in de Azure Management portal Britta Simon genoemd.
+Het doel van deze sectie is het maken van een testgebruiker in de Azure Management portal B. Simon genoemd.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -172,9 +172,9 @@ Het doel van deze sectie is het maken van een testgebruiker in de Azure Manageme
  
     ![Het maken van een Azure AD-testgebruiker](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+    a. In de **naam** tekstvak, type **B. Simon**.
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van B. Simon.
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
@@ -186,11 +186,11 @@ Neem contact op met [Land echte reus ondersteuningsteam](https://www.landgorilla
     
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie maakt inschakelen u Britta Simon haar door toegang te verlenen aan de grond echte reus Client gebruik van Azure eenmalige aanmelding.
+In deze sectie maakt inschakelen u B. Simon Azure eenmalige aanmelding gebruiken ze door toegang te verlenen aan de grond echte reus Client.
 
 ![Gebruiker toewijzen][200] 
 
-**Als u wilt toewijzen Britta Simon Land echte reus client, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen B. Simon Land echte reus client, moet u de volgende stappen uitvoeren:**
 
 1. Open de weergave toepassingen in de Azure-beheerportal, en vervolgens gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
@@ -208,7 +208,7 @@ In deze sectie maakt inschakelen u Britta Simon haar door toegang te verlenen aa
 
     ![Gebruiker toewijzen][203]
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **B. Simon** in de lijst gebruikers.
 
 1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 

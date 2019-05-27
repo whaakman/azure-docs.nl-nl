@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107090"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872787"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -29,16 +29,16 @@ Azure Functions biedt ondersteuning voor C# en C#-script programmeertalen. Als u
 In dit artikel wordt ervan uitgegaan dat u de volgende artikelen al hebt gelezen:
 
 * [Azure Functions-handleiding voor ontwikkelaars](functions-reference.md)
-* [Azure Functions Visual Studio 2017 Tools](functions-develop-vs.md)
+* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Functions-klassebibliotheekproject
 
 In Visual Studio, de **Azure Functions** projectsjabloon, maken een C#-klasse bibliotheek-project gemaakt met de volgende bestanden:
 
 * [host.JSON](functions-host-json.md) -configuratie-instellingen die van invloed zijn op alle functies in het project bij het uitvoeren van lokaal of in Azure worden opgeslagen.
-* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -app-instellingen en verbindingsreeksen die worden gebruikt bij het uitvoeren van lokaal worden opgeslagen. Dit bestand bevat geheimen en niet worden gepubliceerd in uw functie-app in Azure. In plaats daarvan moet u [app-instellingen toevoegen aan uw functie-app](functions-develop-vs.md#function-app-settings).
+* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -app-instellingen en verbindingsreeksen die worden gebruikt bij het uitvoeren van lokaal worden opgeslagen. Dit bestand bevat geheimen en niet worden gepubliceerd in uw functie-app in Azure. In plaats daarvan [app-instellingen toevoegen aan uw functie-app](functions-develop-vs.md#function-app-settings).
 
-Wanneer u het project bouwt, wordt in een mapstructuur die lijkt op het volgende wordt gegenereerd in de build directory uitvoer:
+Wanneer u het project, een mapstructuur die lijkt op het volgende voorbeeld wordt gegenereerd in de uitvoermap build bouwen:
 
 ```
 <framework.version>
@@ -50,7 +50,7 @@ Wanneer u het project bouwt, wordt in een mapstructuur die lijkt op het volgende
  | - host.json
 ```
 
-Deze map is wat wordt geïmplementeerd naar uw functie-app in Azure. De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn [toegevoegd aan het project als NuGet-pakketten](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
+Deze map is wat wordt geïmplementeerd naar uw functie-app in Azure. De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn [toegevoegd aan het project als NuGet-pakketten](./functions-bindings-register.md#c-class-library-with-visual-studio-2019).
 
 > [!IMPORTANT]
 > De buildproces maakt een *function.json* -bestand voor elke functie. Dit *function.json* bestand is niet bedoeld voor rechtstreeks worden bewerkt. Bindingsconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. Zie voor informatie over het uitschakelen van een functie, [functies uitschakelen](disable-function.md#functions-2x---c-class-libraries).
@@ -72,7 +72,7 @@ public static class SimpleExample
 } 
 ```
 
-De `FunctionName` kenmerk markeert de methode als een functie-ingangspunt. De naam moet uniek zijn binnen een project, met een letter beginnen en alleen letters, cijfers, spaties `_` en `-`, maximaal 127 tekens. Project-sjablonen maken vaak een methode met de naam `Run`, maar de naam van de methode kan een geldige C#-methode-naam.
+De `FunctionName` kenmerk markeert de methode als een functie-ingangspunt. De naam moet uniek zijn binnen een project, met een letter beginnen en alleen letters, cijfers, spaties `_`, en `-`, maximaal 127 tekens. Project-sjablonen maken vaak een methode met de naam `Run`, maar de naam van de methode kan een geldige C#-methode-naam.
 
 De triggerkenmerk geeft het triggertype en invoergegevens koppelt aan een parameter van de methode. De voorbeeldfunctie wordt geactiveerd door een wachtrijbericht en bericht uit de wachtrij wordt doorgegeven aan de methode in de `myQueueItem` parameter.
 
@@ -181,7 +181,7 @@ Hetzelfde pakket wordt gebruikt voor beide versie 1.x en 2.x van de Functions-ru
 </ItemGroup>
 ```
 
-Tussen de `Sdk` pakketafhankelijkheden zijn triggers en bindingen. Een 1.x-project verwijst naar de 1.x-triggers en bindingen omdat die zijn gericht op het .NET Framework, terwijl 2.x triggers en bindingen gericht op .NET Core.
+Tussen de `Sdk` pakketafhankelijkheden zijn triggers en bindingen. Een 1.x-project verwijst naar de 1.x-triggers en bindingen omdat deze triggers en bindingen gericht op het .NET Framework, terwijl 2.x triggers en bindingen gericht op .NET Core.
 
 De `Sdk` pakket ook afhankelijk van [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), en klik op indirect [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Deze afhankelijkheden Zorg ervoor dat het project gebruikmaakt van de versies van de pakketten die met Functions runtime-versie werken die de project-doelen. Bijvoorbeeld, `Newtonsoft.Json` versie 11 voor .NET Framework 4.6.1 is, maar de Functions-runtime die gericht is op .NET Framework 4.6.1 is alleen compatibel is met `Newtonsoft.Json` 9.0.1. Zodat uw functiecode aan te geven in dat project ook heeft gebruik van `Newtonsoft.Json` 9.0.1.
 

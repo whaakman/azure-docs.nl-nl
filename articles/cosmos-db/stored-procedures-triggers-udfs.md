@@ -4,15 +4,15 @@ description: In dit artikel bevat de concepten, zoals opgeslagen procedures, tri
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935565"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965697"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Opgeslagen procedures, triggers en gebruikersgedefinieerde functies
 
@@ -79,7 +79,7 @@ Deze sectie beschrijft de twee soorten triggers:
 
 ### <a name="pre-triggers"></a>Vooraf triggers
 
-Azure Cosmos DB biedt triggers die kunnen worden aangeroepen door het uitvoeren van een bewerking op een Azure Cosmos DB-item. U kunt bijvoorbeeld een pre-trigger opgeven wanneer u een item maakt. De vooraf trigger wordt in dit geval worden uitgevoerd voordat het item wordt gemaakt. Pre-triggers kunnen geen invoerparameters hebben. Indien nodig, kan de Aanvraagobject kan worden gebruikt om bij te werken van de hoofdtekst van het document in de oorspronkelijke aanvraag. Als triggers zijn geregistreerd, kunnen gebruikers de bewerkingen die het kan worden uitgevoerd met opgeven. Als een trigger is gemaakt met `TriggerOperation.Create`, betekent dit dat met behulp van de trigger in een vervangingsbewerking niet worden toegestaan. Zie voor voorbeelden van [over het schrijven van triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) artikel.
+Azure Cosmos DB biedt triggers die kunnen worden aangeroepen door het uitvoeren van een bewerking op een Azure Cosmos DB-item. U kunt bijvoorbeeld een pre-trigger opgeven wanneer u een item maakt. De vooraf trigger wordt in dit geval worden uitgevoerd voordat het item wordt gemaakt. Vooraf triggers kunnen geen invoer parameters hebben. Indien nodig, kan de Aanvraagobject kan worden gebruikt om bij te werken van de hoofdtekst van het document in de oorspronkelijke aanvraag. Als triggers zijn geregistreerd, kunnen gebruikers de bewerkingen die het kan worden uitgevoerd met opgeven. Als een trigger is gemaakt met `TriggerOperation.Create`, betekent dit dat met behulp van de trigger in een vervangingsbewerking niet worden toegestaan. Zie voor voorbeelden van [over het schrijven van triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) artikel.
 
 ### <a name="post-triggers"></a>Na triggers
 

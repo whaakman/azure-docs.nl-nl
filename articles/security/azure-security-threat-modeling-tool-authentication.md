@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610880"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951711"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Beveiliging-Frame: Verificatie | Oplossingen 
 
@@ -44,7 +44,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
@@ -55,7 +55,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
@@ -66,7 +66,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
@@ -77,7 +77,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
@@ -88,7 +88,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
@@ -99,18 +99,18 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
-| Details | <p>Wachtwoord- en beleid voldoen aan het organisatiebeleid en aanbevolen procedures moet worden geïmplementeerd.</p><p>Bescherming tegen brute-force en woordenlijst op basis van raden: Beleid voor sterke wachtwoorden moet worden geïmplementeerd om ervoor te zorgen dat gebruikers een complex wachtwoord (bijvoorbeeld de minimale lengte 12 tekens, alfanumerieke tekens en speciale tekens) maken.</p><p>Het beleid voor accountvergrendeling mogen worden uitgevoerd in de volgende manier:</p><ul><li>**Soft lock-out:** Dit is een goede optie voor het beveiligen van uw gebruikers tegen beveiligingsaanvallen. Bijvoorbeeld, wanneer de gebruiker een onjuist wachtwoord invoert drie keer de toepassing kan worden vergrendeld in het account voor een minuut om het proces van het forceren van zijn/haar wachtwoord minder winstgevende voor de aanvaller om door te gaan waardoor brute vertragen. Als u tegenmaatregelen harde lock-out voor dit voorbeeld dat u een 'Dos' door accounts definitief worden vergrendeld. U kunt ook toepassing mag een OTP (één keer wachtwoord) genereren en te verzenden out-of-band (via e-mail, sms, enz.) aan de gebruiker. Een andere benadering mogelijk voor het implementeren van CAPTCHA nadat een drempelwaarde voor aantal mislukte pogingen is bereikt.</li><li>**Vaste lock-out:** Dit type vergrendeling moet worden toegepast wanneer u een gebruiker is een aanval op uw toepassing en een teller hem met behulp van permanent zijn account vergrendelen totdat een team antwoord gehad doen van hun forensische detecteren. Na dit proces die u bepalen kunt dat de gebruiker back-ups maken zijn account of verder juridische acties tegen hem uitvoeren. Dit soort aanpak voorkomt dat de aanvaller verder die uw toepassing en de infrastructuur.</li></ul><p>Om u te beschermen tegen aanvallen op de standaard- en voorspelbare accounts, controleert u of alle sleutels en wachtwoorden vervangen worden, en die zijn gegenereerd of vervangen na de installatie.</p><p>Als de toepassing heeft voor het automatisch genereren van wachtwoorden, ervoor zorgen dat de gegenereerde wachtwoorden willekeurige en hoge entropie hebben.</p>|
+| Details | <p>Wachtwoord- en beleid voldoen aan het organisatiebeleid en aanbevolen procedures moet worden geïmplementeerd.</p><p>Bescherming tegen brute-force en woordenlijst op basis van raden: Beleid voor sterke wachtwoorden moet worden geïmplementeerd om ervoor te zorgen dat gebruikers een complex wachtwoord (bijvoorbeeld de minimale lengte 12 tekens, alfanumerieke tekens en speciale tekens) maken.</p><p>Het beleid voor accountvergrendeling mogen worden uitgevoerd in de volgende manier:</p><ul><li>**Soft lock-out:** Dit is een goede optie voor het beveiligen van uw gebruikers tegen beveiligingsaanvallen. Bijvoorbeeld, wanneer de gebruiker een onjuist wachtwoord invoert drie keer de toepassing kan worden vergrendeld in het account voor een minuut om het proces van het forceren van hun wachtwoord minder winstgevende voor de aanvaller om door te gaan waardoor brute vertragen. Als u tegenmaatregelen harde lock-out voor dit voorbeeld dat u een 'DoS' door accounts definitief worden vergrendeld. U kunt ook toepassing mag een OTP (één keer wachtwoord) genereren en te verzenden out-of-band (via e-mail, sms, enz.) aan de gebruiker. Een andere benadering mogelijk voor het implementeren van CAPTCHA nadat een drempelwaarde voor aantal mislukte pogingen is bereikt.</li><li>**Vaste lock-out:** Dit type vergrendeling moet worden toegepast wanneer u een gebruiker is een aanval op uw toepassing en een teller ze met behulp van permanent buiten hun account te sluiten tot een reactie-team heeft doen van hun forensische detecteren. Na dit proces die u bepalen kunt dat de gebruiker back-ups maken hun account of verder juridische acties met betrekking tot deze uitvoeren. Dit soort aanpak voorkomt dat de aanvaller verder die uw toepassing en de infrastructuur.</li></ul><p>Om u te beschermen tegen aanvallen op de standaard- en voorspelbare accounts, controleert u of alle sleutels en wachtwoorden vervangen worden, en die zijn gegenereerd of vervangen na de installatie.</p><p>Als de toepassing heeft voor het automatisch genereren van wachtwoorden, ervoor zorgen dat de gegenereerde wachtwoorden willekeurige en hoge entropie hebben.</p>|
 
 ## <a id="controls-username-enum"></a>Besturingselementen om te voorkomen dat de gebruikersnaam (opsomming) worden geïmplementeerd.
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
@@ -121,7 +121,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Database | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | OnPrem |
 | **Kenmerken**              | Versie van SQL - alle |
 | **Verwijzingen**              | [SQL Server - een verificatiemodus kiezen](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -132,7 +132,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Database | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | SQL Azure |
 | **Kenmerken**              | Versie van SQL - V12 |
 | **Verwijzingen**              | [Verbinding maken met SQL Database met behulp van Azure Active Directory-verificatie](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -143,7 +143,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Database | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [SQL Server-wachtwoordbeleid](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -154,7 +154,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Database | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | OnPrem, SQL Azure |
 | **Kenmerken**              | SQL-versie - MSSQL2012, versie van SQL - V12 |
 | **Verwijzingen**              | [Aanbevolen procedures voor beveiliging met ingesloten Databases](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -165,7 +165,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Azure Event Hub | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Event-Hubs verificatie- en beveiligingsmodellen](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -231,7 +231,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Identiteitsserver | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [IdentityServer3: het totaalbeeld](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -264,7 +264,7 @@ ms.locfileid: "60610880"
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | WCF | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemeen, NET Framework 3 |
 | **Kenmerken**              | N/A |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
@@ -304,7 +304,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | WCF | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | .NET Framework 3 |
 | **Kenmerken**              | Het referentietype client - None |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
@@ -320,7 +320,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | WCF | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemeen, .NET Framework 3 |
 | **Kenmerken**              | Het referentietype client - None |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
@@ -336,7 +336,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Web-API | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Verificatie en autorisatie in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [Services van externe verificatie met ASP.NET Web-API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
@@ -347,7 +347,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Azure AD | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Verificatiescenario's voor Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [codevoorbeelden van Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [ontwikkelaarsgids van Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -358,7 +358,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Azure AD | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Moderne verificatie met Azure Active Directory voor webtoepassingen](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [als ADAL-tokencache met behulp van Redis](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
@@ -369,7 +369,7 @@ De `<netMsmqBinding/>` element van het configuratiebestand WCF Hiermee geeft u W
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Azure AD | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Moderne verificatie met Azure Active Directory voor webtoepassingen](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
@@ -430,7 +430,7 @@ Houd er rekening mee dat als u wilt de effectiviteit van deze configuratie, meld
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Azure AD | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -441,7 +441,7 @@ Houd er rekening mee dat als u wilt de effectiviteit van deze configuratie, meld
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | IoT Field Gateway | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
@@ -452,7 +452,7 @@ Houd er rekening mee dat als u wilt de effectiviteit van deze configuratie, meld
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | IoT Cloud Gateway | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemeen, C#, Node.JS,  |
 | **Kenmerken**              | Niet van toepassing want keuze van de Gateway - Azure IoT Hub |
 | **Verwijzingen**              | Niet van toepassing want [Azure IoT hub met .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [aan de slag met IoT hub en Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [IoT met SAS en certificaten beveiligen](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git-opslagplaats](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
@@ -552,7 +552,7 @@ await deviceClient.SendEventAsync(message);
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | IoT Cloud Gateway  | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | Keuze van de gateway - Azure IoT Hub |
 | **Verwijzingen**              | [Beveiligingstokens van Azure IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -563,7 +563,7 @@ await deviceClient.SendEventAsync(message);
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Azure Storage | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | StorageType - Blob |
 | **Verwijzingen**              | [Anonieme leestoegang tot containers en blobs beheren](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [handtekeningen voor gedeelde toegang, deel 1: Inzicht in het SAS-model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -574,7 +574,7 @@ await deviceClient.SendEventAsync(message);
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Azure Storage | 
-| **SDL-fase**               | Ontwikkelen |  
+| **SDL-fase**               | Build |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A |
 | **Verwijzingen**              | [Shared Access Signatures, deel 1: Inzicht in het SAS-model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [handtekeningen voor gedeelde toegang, deel 2: Maken en een SAS gebruiken met Blob-opslag](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [hoe u toegang tot objecten in uw account met behulp van handtekeningen voor gedeelde toegang en opgeslagen toegangsbeleid delegeren](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |

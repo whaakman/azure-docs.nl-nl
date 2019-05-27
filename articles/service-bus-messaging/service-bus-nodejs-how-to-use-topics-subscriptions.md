@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591814"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992100"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Gebruik Service Bus-onderwerpen en abonnementen met behulp van Node.js
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Gebruik Service Bus-onderwerpen en abonnementen met Node.js en de azure-sb-pakket
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+In deze zelfstudie leert u over het maken van Node.js-toepassingen voor het verzenden van berichten naar een Service Bus-onderwerp en ontvangen van berichten van een Service Bus-abonnement met de [azure sb](https://www.npmjs.com/package/azure-sb) pakket. De voorbeelden zijn geschreven in JavaScript en gebruik van de Node.js [Azure-module](https://www.npmjs.com/package/azure) die intern maakt gebruik van de `azure-sb` pakket.
 
-Deze handleiding wordt beschreven hoe u Service Bus-onderwerpen en abonnementen van Node.js-toepassingen. De behandelde scenario's zijn onder andere:
+De [azure sb](https://www.npmjs.com/package/azure-sb) maakt gebruik van het pakket [runtime-API's van Service Bus REST](/rest/api/servicebus/service-bus-runtime-rest). U krijgt een snellere ervaring met behulp van de nieuwe [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pakket dat gebruikmaakt van de snellere [AMQP 1.0-protocol](service-bus-amqp-overview.md). Zie voor meer informatie over het nieuwe pakket, [over het gebruik van Service Bus-onderwerpen en abonnementen met behulp van Node.js en @azure/service-bus pakket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), anders blijven lezen voor meer informatie over gebruik van de [azure](https://www.npmjs.com/package/azure) pakket.
+
+De hier behandelde scenario's zijn onder andere:
 
 - Het maken van onderwerpen en abonnementen 
 - Het maken van abonnementsfilters 
@@ -36,8 +41,8 @@ Deze handleiding wordt beschreven hoe u Service Bus-onderwerpen en abonnementen 
 Zie voor meer informatie over onderwerpen en abonnementen, [Vervolgstappen](#next-steps) sectie.
 
 ## <a name="prerequisites"></a>Vereisten
-1. Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als Visual Studio of MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Volg de stappen in de [Quick Start: De Azure portal gebruiken voor het maken van een Service Bus-onderwerp en -abonnementen naar het onderwerp](service-bus-quickstart-topics-subscriptions-portal.md) te maken van een Service Bus **naamruimte** en ontvang de **verbindingsreeks**.
+- Een Azure-abonnement. U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt uw [voordelen als Visual Studio of MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) zich ook aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Volg de stappen in de [Quick Start: De Azure portal gebruiken voor het maken van een Service Bus-onderwerp en -abonnementen naar het onderwerp](service-bus-quickstart-topics-subscriptions-portal.md) te maken van een Service Bus **naamruimte** en ontvang de **verbindingsreeks**.
 
     > [!NOTE]
     > U maakt een **onderwerp** en een **abonnement** naar het onderwerp met behulp van **Node.js** in deze Quick Start. 
@@ -329,6 +334,9 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
     }
 });
 ```
+
+> [!NOTE]
+> U kunt Service Bus-resources beheren [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). De Service Bus Explorer kunnen gebruikers verbinding maken met een Service Bus-naamruimte en berichtentiteiten op een eenvoudige manier te beheren. Het hulpprogramma biedt geavanceerde functies zoals import/export-functionaliteit of de mogelijkheid om te testen, onderwerp, wachtrijen, abonnementen, relayservices, notification hubs en gebeurtenissen hubs. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u de basisprincipes van Service Bus-onderwerpen hebt geleerd, volgt u deze koppelingen voor meer informatie.

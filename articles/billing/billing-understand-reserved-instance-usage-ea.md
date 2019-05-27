@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789378"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126849"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Kosten voor Enterprise Agreement-reservering en gebruiksgegevens ophalen
 
@@ -42,9 +42,9 @@ Vergelijking van twee gegevenssets:
 
 | Gegevens | Werkelijke kosten-gegevensset | Afgeschreven kosten-gegevensset |
 | --- | --- | --- |
-| Aankopen in de reservering | Beschikbaar in deze weergave.<br>  Voor dit gegevensfilter over ChargeType = &quot;aankoop&quot;. <br> Raadpleeg ReservationID of ReservationName weten welke reservering is bedoeld voor de kosten in rekening gebracht.  | Niet van toepassing op deze weergave. <br> Aankoop kosten zijn niet opgegeven in de afgeschreven gegevens. |
+| Aankopen in de reservering | Beschikbaar in deze weergave.<br><br>  Voor dit gegevensfilter over ChargeType = &quot;aankoop&quot;. <br><br> Raadpleeg ReservationID of ReservationName weten welke reservering is bedoeld voor de kosten in rekening gebracht.  | Niet van toepassing op deze weergave. <br><br> Aankoop kosten zijn niet opgegeven in de afgeschreven gegevens. |
 | EffectivePrice | De waarde is nul voor gebruik dat opgehaald van de reserveringskorting. | De waarde is de kosten per uur Pro rata berekend van de reservering voor gebruik met de reserveringskorting. |
-| Niet-gebruikte reservering (biedt het aantal uren dat de reservering niet is gebruikt in een dag en de monetaire waarde van de verspilling) | Niet van toepassing in deze weergave. | Beschikbaar in deze weergave.<br> Als u deze gegevens, filteren op ChargeType = &quot;UnusedReservation&quot;.<br>  Raadpleeg ReservationID of ReservationName weten welke reservering is gebruikt. Dit is de hoeveelheid van de reservering is verloren voor die dag.  |
+| Niet-gebruikte reservering (biedt het aantal uren dat de reservering niet is gebruikt in een dag en de monetaire waarde van de verspilling) | Niet van toepassing in deze weergave. | Beschikbaar in deze weergave.<br><br> Als u deze gegevens, filteren op ChargeType = &quot;UnusedReservation&quot;.<br><br>  Raadpleeg ReservationID of ReservationName weten welke reservering is gebruikt. Dit is de hoeveelheid van de reservering is verloren voor die dag.  |
 | Prijs per eenheid (prijs van de bron van de prijslijst) | Beschikbaar | Beschikbaar |
 
 Andere informatie die beschikbaar zijn in gebruik van Azure-gegevens is gewijzigd:
@@ -77,12 +77,12 @@ Informatie over metrische gegevens en filter in de volgende tabel kunt voor rese
 | **Type van de gegevens van de API** | API-aanroep actie |
 | --- | --- |
 | **Alle kosten (gebruik en aankopen)** | {Metriek} vervangen door ActualCost |
-| **Gebruik dat de reserveringskorting is** | {Metriek} vervangen door ActualCost<br>{Filter} vervangen door: properties/reservationId%20ne%20 |
-| **Gebruik dat is de reserveringskorting niet ophalen** | {Metriek} vervangen door ActualCost<br>{Filter} vervangen door: properties/reservationId%20eq%20 |
+| **Gebruik dat de reserveringskorting is** | {Metriek} vervangen door ActualCost<br><br>{Filter} vervangen door: properties/reservationId%20ne%20 |
+| **Gebruik dat de reserveringskorting is niet ontvangen** | {Metriek} vervangen door ActualCost<br><br>{Filter} vervangen door: properties/reservationId%20eq%20 |
 | **Afgeschreven kosten (gebruik en aankopen)** | {Metriek} vervangen door AmortizedCost |
-| **Rapport voor niet-gebruikte reservering** | {Metriek} vervangen door AmortizedCost<br>{Filter} vervangen door: properties/ChargeType%20eq%20'UnusedReservation' |
-| **Aankopen in de reservering** | Vervang {metriek} door {filter} ActualCostReplace door: properties/ChargeType%20eq%20'Purchase'  |
-| **Restituties** | {Metriek} vervangen door ActualCost<br>{Filter} vervangen door: properties/ChargeType%20eq%20'Refund' |
+| **Rapport voor niet-gebruikte reservering** | {Metriek} vervangen door AmortizedCost<br><br>{Filter} vervangen door: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Aankopen in de reservering** | {Metriek} vervangen door ActualCost<br><br>{Filter} vervangen door: properties/ChargeType%20eq%20'Purchase'  |
+| **Restituties** | {Metriek} vervangen door ActualCost<br><br>{Filter} vervangen door: properties/ChargeType%20eq%20'Refund' |
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Het gebruik van CSV-bestand met nieuwe gegevens downloaden
 

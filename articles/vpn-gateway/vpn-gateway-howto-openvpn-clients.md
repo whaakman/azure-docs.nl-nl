@@ -5,22 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 1/15/2019
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274669"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989083"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>OpenVPN clients configureren voor Azure VPN-Gateway (Preview)
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>OpenVPN clients voor Azure VPN-Gateway configureren
 
 Dit artikel helpt u bij het configureren **OpenVPN® Protocol** clients.
-
-> [!IMPORTANT]
-> Deze openbare preview-versie wordt aangeboden zonder serviceovereenkomst en moet niet worden gebruikt voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -138,6 +134,6 @@ Controleer of dat u de stappen voor het configureren van OpenVPN voor uw VPN-gat
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt dat de VPN-clients kunnen toegang krijgen tot bronnen in een ander VNet (productie), klikt u vervolgens de instructies op de [VNet-naar-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artikel voor het instellen van een vnet-naar-vnet-verbinding. Zorg ervoor dat u BGP wilt inschakelen op de gateways en verbindingen, anders niet het verkeer.
+Als u de VPN-clients kunnen toegang krijgen tot bronnen in een ander VNet wilt, klikt u vervolgens de instructies op de [VNet-naar-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artikel voor het instellen van een vnet-naar-vnet-verbinding. Zorg ervoor dat u BGP wilt inschakelen op de gateways en verbindingen, anders niet het verkeer.
 
 **"OpenVPN" is een handelsmerk van OpenVPN Inc.**

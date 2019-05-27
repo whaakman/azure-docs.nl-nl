@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073008"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124290"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -256,6 +256,10 @@ Meer [voorbeelden](luis-container-configuration.md#example-docker-run-commands) 
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+## <a name="endpoint-apis-supported-by-the-container"></a>Eindpunt API's ondersteund door de container
+
+Beide V2 en [V3 (Preview)](luis-migration-api-v3.md) versies van de API zijn beschikbaar met de container. 
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het eindpunt voorspelling van de container
 
 De container biedt eindpunt van de voorspelling query op basis van REST API's. Eindpunten voor gepubliceerde (fasering of productie)-apps hebben een _verschillende_ route dan eindpunten voor getrainde apps. 
@@ -329,7 +333,7 @@ Als u wilt afsluiten van de container, in de opdrachtregelomgeving waarop de con
 
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](luis-container-configuration.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 De LUIS container verzendt factuurgegevens naar Azure, met behulp van een _Cognitive Services_ resource voor uw Azure-account. 
 
@@ -358,7 +362,7 @@ Niet-ondersteunde app-configuraties|Details|
 |Niet-ondersteunde entiteiten voor alle culturen|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) vooraf gemaakte entiteiten voor alle culturen|
 |Niet-ondersteunde entiteiten voor de cultuur Engels (en-US)|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) vooraf gemaakte entiteiten|
 |Spraak voorbereiden|Externe afhankelijkheden worden niet ondersteund in de container.|
-|Sentimentanalyse|Externe afhankelijkheden worden niet ondersteund in de container.|
+|Stemmingsanalyse|Externe afhankelijkheden worden niet ondersteund in de container.|
 
 ## <a name="summary"></a>Samenvatting
 

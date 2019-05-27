@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 32032f729283cb3f2a786412b563fdee88ba4c8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729613"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113776"
 ---
 Lokaal redundante opslag (LRS) biedt ten minste 99,999999999% (11 nines) duurzaamheid van objecten in een bepaald jaar. LRS biedt de duurzaamheid van dit object door te repliceren van uw gegevens naar een opslagschaaleenheid. Een datacenter, zich in de regio waar u uw storage-account hebt gemaakt als host fungeert voor de eenheid voor opslag schalen. Een schrijfaanvraag naar een opslagaccount LRS retourneert is pas mogelijk nadat de gegevens worden geschreven naar alle replica's. Elke replica bevindt zich in afzonderlijke foutdomeinen en upgradedomeinen in een opslagschaaleenheid.
 
@@ -22,4 +22,4 @@ Een opslag-schaaleenheid is een verzameling van rekken opslagknooppunten. Een fo
 LRS is de laagste kosten replicatie-optie en biedt de minste duurzaamheid in vergelijking met andere opties. Als een datacenter noodgevel op het niveau (bijvoorbeeld brand of overstroming), zijn alle replica's verloren of niet kan worden hersteld. Als u wilt dit risico te beperken, wordt aangeraden met behulp van de zone-redundante opslag (ZRS) of geografisch redundante opslag (GRS).
 
 * Als uw toepassing gegevens op die u kunt eenvoudig opnieuw worden samengesteld slaat als er gegevensverlies optreedt, kunt u kiezen voor LRS.
-* Sommige toepassingen zijn beperkt tot het repliceren van gegevens binnen een land/regio vanwege de vereisten voor gegevens. In sommige gevallen kunnen de gekoppelde regio's in die de gegevens worden gerepliceerd voor GRS-accounts worden in een ander land. Zie voor meer informatie over gekoppelde regio's, [Azure-regio's](https://azure.microsoft.com/regions/).
+* Sommige toepassingen zijn beperkt tot het repliceren van gegevens binnen een land/regio vanwege de vereisten voor gegevens. In sommige gevallen kunnen de gekoppelde regio's in die de gegevens worden gerepliceerd voor GRS-accounts worden in een ander land/regio. Zie voor meer informatie over gekoppelde regio's, [Azure-regio's](https://azure.microsoft.com/regions/).

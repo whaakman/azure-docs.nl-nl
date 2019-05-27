@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903843"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957283"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Aangepaste rapporten met Azure Application Insights-gegevens automatiseren
 
@@ -93,6 +93,9 @@ availabilityResults
    ![Maak een nieuwe functie-schermafbeelding](./media/automate-custom-reports/function-app-03.png)
 
 5. Selecteer de  **_Application Insights geplande samenvatting sjabloon_**.
+
+     > [!NOTE]
+     > Functie-apps worden standaard gemaakt met de runtime-versie 2.x. U moet [doelversie van Azure Functions runtime](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x met de Application Insights gepland digest-sjabloon.
 
    ![Nieuwe functiesjabloon Application Insights-schermafbeelding](./media/automate-custom-reports/function-app-04.png)
 

@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4630e11ef4001c546aecfe74dbced346b6d30e4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154211"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000124"
 ---
 # <a name="sql-data-warehouse-workload-classification"></a>SQL Data Warehouse workload classificatie
 
@@ -81,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Om te beginnen met het maken van een classificatie, Zie de [WERKBELASTING classificatie maken (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Zie voor meer informatie over SQL Data Warehouse workload classificatie en urgentie [maken van een classificatie van de werkbelasting](quickstart-create-a-workload-classifier-tsql.md) en [SQL Data Warehouse belang](sql-data-warehouse-workload-importance.md). Zie [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om query's en het belang toegewezen weer te geven.
+- Zie voor meer informatie over het maken van een classificatie van de [WERKBELASTING classificatie maken (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Zie de Quick Start voor het maken van een classificatie van de werkbelasting [maken van een classificatie van de werkbelasting](quickstart-create-a-workload-classifier-tsql.md).
+- Zie de artikelen met procedures voor [configureren werkbelasting belang](sql-data-warehouse-how-to-configure-workload-importance.md) en hoe u [beheren en controleren van beheer van de werkbelasting](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Zie [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om query's en het belang toegewezen weer te geven.

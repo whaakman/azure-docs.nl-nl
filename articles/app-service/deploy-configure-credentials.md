@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765445"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955976"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie voor Azure App Service configureren
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](deploy-local-git.md) en [FTP/S implementatie](deploy-ftp.md). Deze referenties zijn niet gelijk zijn aan uw Azure Active Directory-referenties.
 
-* **De referenties op gebruikersniveau**: één set referenties voor de gehele Azure-account. Het kan worden gebruikt voor het implementeren in App Service voor apps, in elk abonnement dat het Azure-account gemachtigd is voor toegang tot. Het is een standaardreeks die in de portal GUI wordt opgehaald (zoals de **overzicht** en **eigenschappen** van van de app [resourcepagina](../azure-resource-manager/manage-resources-portal.md#manage-resources)). Als een gebruiker is toegang tot Apps via Role-Based Access Control (RBAC) of coadmin machtigingen worden verleend, kan die gebruiker zijn of haar eigen gebruikersniveau-referenties gebruiken totdat de toegang is ingetrokken. U mag deze referenties niet delen met andere Azure-gebruikers.
+* **De referenties op gebruikersniveau**: één set referenties voor de gehele Azure-account. Het kan worden gebruikt voor het implementeren in App Service voor apps, in elk abonnement dat het Azure-account gemachtigd is voor toegang tot. Het is een standaardreeks die in de portal GUI wordt opgehaald (zoals de **overzicht** en **eigenschappen** van van de app [resourcepagina](../azure-resource-manager/manage-resources-portal.md#manage-resources)). Als een gebruiker is toegang tot Apps via Role-Based Access Control (RBAC) of coadmin machtigingen worden verleend, kan die gebruiker hun eigen referenties op gebruikersniveau gebruiken totdat de toegang is ingetrokken. U mag deze referenties niet delen met andere Azure-gebruikers.
 
 * **De referenties op App-niveau**: één set referenties voor elke app. Het kan worden gebruikt om te implementeren voor die app alleen. De referenties voor elke app worden automatisch gegenereerd tijdens het maken van apps. Ze kunnen niet handmatig worden geconfigureerd, maar u kunnen op elk gewenst moment opnieuw instellen. Voor een gebruiker toegang heeft tot de referenties op app-niveau via (RBAC) worden verleend, moet die gebruiker Inzender of hoger op de app. Lezers zijn niet toegestaan om te publiceren, en geen toegang tot deze referenties.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6a917b5e4586e9b2f54fee5816a9a0bcfcca2eee
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793302"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956249"
 ---
 # <a name="azure-api-management-faqs"></a>Veelgestelde vragen over de Azure API Management
 De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API Management.
@@ -39,7 +39,7 @@ De antwoorden op veelgestelde vragen, patronen en best practices voor Azure API 
 * [Hoe stel ik meerdere omgevingen in één API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Kan ik SOAP gebruiken met API Management?](#can-i-use-soap-with-api-management)
 * [De constante API Management gateway-IP-adres is? Kan ik deze in de firewall-regels gebruiken?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* Kan ik een OAuth 2.0-autorisatie-server configureren met AD FS-beveiliging?
+* [Kan ik een OAuth 2.0-autorisatie-server configureren met AD FS-beveiliging?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [Welke routeringsmethode gebruikt API Management in implementaties van verschillende geografische locaties?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Kan ik een Azure Resource Manager-sjabloon gebruiken voor het maken van een exemplaar van API Management-service?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [Kan ik een zelfondertekend SSL-certificaat gebruiken voor een back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)

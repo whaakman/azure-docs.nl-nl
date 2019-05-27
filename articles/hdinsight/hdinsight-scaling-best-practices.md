@@ -7,22 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 59b9c2bf6e17dadc0d084d3e3f257f8ad91073ca
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595862"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990541"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
-HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aantal worker-knooppunten in uw clusters schalen. Hiermee kunt u een cluster verkleinen na uur of in het weekend en vouwt u het tijdens piek bedrijfsbehoeften te voldoen.
+HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aantal worker-knooppunten in uw clusters schalen. Deze flexibiliteit, kunt u verkleinen van een cluster nadat uur of in het weekend en vouwt u het tijdens piek bedrijfsbehoeften te voldoen.
 
-Bijvoorbeeld, hebt u enkele batchverwerking in dat geval één keer per dag of één keer per maand, de HDInsight-cluster kan worden opgeschaald een paar minuten vóór de geplande gebeurtenis, zodat er voldoende geheugen en CPU-rekenkracht.  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
+Als u periodieke batchverwerking, kan het HDInsight-cluster worden opgeschaald een paar minuten vóór deze bewerking, zodat uw cluster voldoende geheugen en CPU-kracht heeft.  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
 
 U kunt een cluster handmatig met behulp van een van de methoden worden hieronder beschreven, of gebruik [voor automatisch schalen](hdinsight-autoscale-clusters.md) opties om het systeem automatisch omhoog en omlaag schalen in reactie op CPU, geheugen en andere metrische gegevens.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="utilities-to-scale-clusters"></a>Hulpprogramma's voor het schalen van clusters
 
@@ -33,7 +31,7 @@ Microsoft biedt de volgende hulpprogramma's voor het schalen van clusters:
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
 |[Azure-CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ hdinsight vergroten of verkleinen](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resourcegroep \<resourcegroep >--naam \<Clusternaam >--target-instance-count \<NewSize >|
-|[CLI van Azure Classic](hdinsight-administer-use-command-line.md)|Azure hdinsight-cluster formaat \<clusterName > \<doel exemplaren > |
+|[Azure-CLI](hdinsight-administer-use-command-line.md)|Azure hdinsight-cluster formaat \<clusterName > \<doel exemplaren > |
 |[Azure Portal](https://portal.azure.com)|Uw HDInsight-cluster deelvenster te openen, selecteert u **clustergrootte** in het menu links en vervolgens in het deelvenster van de grootte van Cluster, typt u in het aantal worker-knooppunten en selecteer opslaan.|  
 
 ![Cluster schalen](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
@@ -44,19 +42,27 @@ Met behulp van een van deze methoden, kunt u uw HDInsight-cluster omhoog of omla
 > * De klassieke Azure-CLI is verouderd en moet alleen worden gebruikt met het klassieke implementatiemodel. Voor alle andere implementaties, gebruikt u de [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
 > * De PowerShell AzureRM-module is afgeschaft.  Gebruik de [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) indien mogelijk.
 
-## <a name="scaling-impacts-on-running-jobs"></a>Gevolgen voor het uitvoeren van taken schalen
+## <a name="impact-of-scaling-operations"></a>Gevolgen van omhoog schalen van bewerkingen
 
-Wanneer u **toevoegen** knooppunten aan uw actieve HDInsight-cluster niet alle taken die in behandeling of actief worden beïnvloed. Bovendien kunnen nieuwe taken worden veilig verzonden terwijl het proces voor vergroten/verkleinen wordt uitgevoerd. Als de vergroten / verkleinen voor een bepaalde reden mislukken, wordt de fout probleemloos uitgevoerd, verlaat de cluster in een functionele staat.
+Wanneer u **toevoegen** knooppunten aan uw actief HDInsight-cluster (Omhoog schalen), in behandeling of actieve taken worden niet beïnvloed. Nieuwe taken kunnen veilig worden verzonden terwijl het proces voor vergroten/verkleinen wordt uitgevoerd. Als de vergroten/verkleinen bewerking om een bepaalde reden mislukt, wordt de fout wordt afgehandeld als u wilt laten van uw cluster in een functionele staat.
 
-Echter, als u uw cluster door zijn verkleint **verwijderen** knooppunten, alle taken die in behandeling of wordt uitgevoerd, mislukken wanneer de vergroten/verkleinen bewerking is voltooid. Deze fout wordt veroorzaakt door een van de services opnieuw te starten tijdens het proces.
+Als u **verwijderen** knooppunten (neerschalen), een wordt uitgevoerd of in behandeling zijnde taken mislukken wanneer de vergroten/verkleinen bewerking is voltooid. Deze fout wordt veroorzaakt door een van de services opnieuw te starten tijdens het vergroten/verkleinen. Er is ook een risico dat uw cluster vastgelopen in veilige modus krijgt tijdens een handmatige bewerking schalen.
 
-Om dit probleem op te lossen, kunt u de taken zijn voltooid voordat u uw cluster verkleint, handmatig de taken beëindigd of de taken opnieuw nadat de vergroten/verkleinen bewerking heeft de diagnose afgerond wachten.
+## <a name="how-to-safely-scale-down-a-cluster"></a>Hoe u veilig omlaag een cluster schalen
 
-U ziet een lijst van in behandeling en taken die worden uitgevoerd, kunt u de YARN ResourceManager-interface, volgende stappen:
+### <a name="scale-down-a-cluster-with-running-jobs"></a>Verkleinen van een cluster met het uitvoeren van taken
+
+Om te voorkomen dat uw taken die worden uitgevoerd mislukken tijdens een bewerking omlaag schalen, kunt u proberen drie dingen:
+
+1. Wacht tot de taken zijn voltooid voordat u uw cluster verkleint.
+1. De taken handmatig beëindigen.
+1. De taken opnieuw nadat de bewerking vergroten/verkleinen is gesloten.
+
+U ziet een lijst van in behandeling en taken die worden uitgevoerd, kunt u de YARN **ResourceManager UI**, volgende stappen:
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 2. Aan de linkerkant, gaat u naar **alle services** > **Analytics** > **HDInsight-Clusters**, en selecteer vervolgens uw cluster.
-3. Vanuit de hoofdweergave, navigeert u naar **Clusterdashboards** > **Ambari home**. Voer uw referenties voor clusteraanmelding.
+3. Vanuit de hoofdweergave, navigeert u naar **Clusterdashboards** > **Ambari home**. Voer de clusterreferenties van uw.
 4. Selecteer in de UI Ambari **YARN** in de lijst met services in het menu links.  
 5. Selecteer in de pagina YARN **snelkoppelingen** en beweeg de muisaanwijzer over de actieve hoofdknooppunt en selecteer vervolgens **ResourceManager UI**.
 
@@ -80,182 +86,29 @@ Bijvoorbeeld:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-apache-hbase-cluster"></a>Herverdeling van een Apache HBase-cluster
+### <a name="getting-stuck-in-safe-mode"></a>Zitten in de veilige modus
 
-Regioservers worden automatisch verdeeld binnen een paar minuten na voltooiing van de bewerking vergroten/verkleinen. Handmatig evenwichtige regioservers, gebruikt u de volgende stappen uit:
+Wanneer u omlaag een cluster schaalt, HDInsight maakt gebruik van Apache Ambari-beheerinterfaces eerst uit bedrijf nemen de extra worker-knooppunten, die hun HDFS-blokken worden gerepliceerd naar andere online worker-knooppunten. Hierna schaalt HDInsight veilig het cluster omlaag. HDFS gaat in de veilige modus tijdens het vergroten/verkleinen, en moet afkomstig zijn uit als de schaal is voltooid. In sommige gevallen echter HDFS vastloopt in de veilige modus tijdens een bewerking voor vergroten/verkleinen vanwege een te voorzichtige bestandsreplicatie blokkeren.
 
-1. Verbinding maken met het HDInsight-cluster via SSH. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+HDFS is standaard geconfigureerd met een `dfs.replication` van 3, waarmee wordt bepaald hoeveel kopieën van elk bestand blok beschikbaar zijn. Elk exemplaar van een bestand wordt opgeslagen op een ander knooppunt van het cluster.
 
-2. Start de HBase-shell:
-
-        hbase shell
-
-3. Gebruik de volgende opdracht om handmatig de regioservers:
-
-        balancer
-
-## <a name="scale-down-implications"></a>Gevolgen verkleinen
-
-Zoals eerder vermeld, worden alle in behandeling of actieve taken beëindigd na het voltooien van een bewerking omlaag schalen. Er zijn echter andere mogelijke gevolgen voor de schaal omlaag die zich kan voordoen.
-
-## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>HDInsight naam knooppunt blijft in de veilige modus na het omlaag schalen
-
-Als u uw cluster naar het minimum van een worker-knooppunt verkleinen, zijn Apache HDFS vastgelopen in de veilige modus als de worker-knooppunten opnieuw worden opgestart vanwege het toepassen van patches of onmiddellijk nadat de vergroten/verkleinen is uitgevoerd.
-
-De belangrijkste oorzaak hiervan is dat Hive enkele gebruikt `scratchdir` bestanden en standaard wordt verwacht dat de drie replica's van elk blok, maar er is slechts één replica mogelijk als u omlaag naar het ten minste één worker-knooppunt schalen. Als gevolg, de bestanden in de `scratchdir` worden *under-gerepliceerde*. Dit kan ertoe leiden dat HDFS om te blijven in de veilige modus wanneer de services opnieuw na de schaalbewerking gestart zijn.
-
-Als een neerschalen poging gebeurt, is HDInsight is afhankelijk van de Apache Ambari-management-interfaces voor het eerst uit bedrijf nemen de extra ongewenste worker-knooppunten, die hun HDFS-blokken worden gerepliceerd naar andere online worker-knooppunten, en het cluster veilig omlaag te schalen. HDFS gaat op een veilige modus tijdens het onderhoudsvenster, en moet afkomstig zijn uit als de schaal is voltooid. Het is op dit moment dat de HDFS kan zijn vastgelopen in de veilige modus.
-
-HDFS is geconfigureerd met een `dfs.replication` instellen van 3. Dus zijn de blokken van de tijdelijke bestanden under-gerepliceerde wanneer er minder dan drie werkknooppunten online zijn, omdat er niet de verwachte drie kopieën van elk bestand blok beschikbaar.
-
-U kunt een opdracht om HDFS buiten de veilige modus uitvoeren. Bijvoorbeeld, als u weet dat de enige reden veilige modus ingeschakeld is omdat de tijdelijke bestanden under-gerepliceerde, kunt klikt u vervolgens u veilig laten veilige modus. Dit komt doordat de under-gerepliceerde bestanden tijdelijke werkbestanden Hive zijn.
-
-```bash
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
-```
-
-Na de veilige modus te verlaten, kunt u handmatig de tijdelijke bestanden verwijderen of wacht Hive uiteindelijk opschonen ze automatisch.
+Wanneer u HDFS detecteert dat het verwachte aantal blok kopieën zijn niet beschikbaar, HDFS in de veilige modus geplaatst en Ambari genereert waarschuwingen. Als HDFS in de veilige modus voor een bewerking voor vergroten/verkleinen geplaatst, maar kan niet veilige modus sluit omdat het vereiste aantal knooppunten worden niet gedetecteerd voor replicatie, kan het cluster zijn vastgelopen in de veilige modus.
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Voorbeeld van de fouten wanneer de veilige modus is ingeschakeld
 
-* Kan H070 om Hive-sessie te openen. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Kan map niet maken** /tmp/hive/hive/819c215c-6d 87-4311-97 c 8-4f0b9d2adcf0. **De naam van knooppunt zich in de veilige modus**. De gerapporteerde blokken 75 moet extra 12 blokken aan de drempelwaarde 0.9900 van blokken 87 bereiken. Het aantal live datanodes 10 heeft het minimale aantal 0 bereikt. Veilige modus wordt automatisch uitgeschakeld wanneer de drempelwaarden hebben bereikt.
+```
+org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
+```
 
-* H100 geen instructie indienen databases weergeven: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Verbinding maken met hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. Internal.cloudapp.NET/1.1.1.1] is mislukt: **Verbinding geweigerd**
-
-* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Http-verbinding met de HTTP-kan niet worden gemaakt:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Http-verbinding met de HTTP-kan niet worden gemaakt:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Verbinding geweigerd**
-
-* In de Hive-Logboeken: Waarschuwen [main]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)): fout bij het starten van HiveServer2 poging 21, probeert in 60 seconden java.lang.RuntimeException: Fout bij het autorisatiebeleid voor toepassen van hive-configuratie: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Kan map niet maken** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **De naam van knooppunt zich in de veilige modus**.
-    De gerapporteerde blokken 0 moet extra 9 blokken aan de drempelwaarde 0.9900 van blokken 9 bereiken.
-    Het aantal live datanodes 10 heeft het minimale aantal 0 bereikt. **Veilige modus wordt automatisch worden uitgeschakeld zodra de drempelwaarden hebben bereikt**.
-    at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
+```
+org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
+```
 
 U kunt de naam van knooppuntlogboeken van bekijken de `/var/log/hadoop/hdfs/` map in de buurt van de tijd wanneer het cluster is geschaald om te zien wanneer deze veilige modus hebt ingevoerd. De naam van de logboekbestanden `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
 De hoofdoorzaak van de vorige fouten is dat Hive afhankelijk van tijdelijke bestanden in HDFS is tijdens het uitvoeren van query's. Wanneer u HDFS in veilige modus, kan niet Hive query's uitvoeren omdat er niet op HDFS. De tijdelijke bestanden in HDFS bevinden zich in het lokale station gekoppeld aan de afzonderlijke worker-knooppunt VM's en gerepliceerd met andere worker-knooppunten op drie replica's, minimaal.
 
-De `hive.exec.scratchdir` parameter in Hive is geconfigureerd in `/etc/hive/conf/hive-site.xml`:
-
-```xml
-<property>
-    <name>hive.exec.scratchdir</name>
-    <value>hdfs://mycluster/tmp/hive</value>
-</property>
-```
-
-### <a name="view-the-health-and-state-of-your-hdfs-file-system"></a>Bekijk de status en de status van uw HDFS-bestandssysteem
-
-Hier vindt u een statusrapport van elk knooppunt naam om te zien of er knooppunten in de veilige modus zijn. Het rapport, voeg SSH toe aan elke hoofdknooppunt weergeven en voer de volgende opdracht uit:
-
-```
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
-```
-
-![Veilige modus uitschakelen](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
-
-> [!NOTE]  
-> De `-D` switch is nodig omdat het standaardbestandssysteem in HDInsight Azure Storage of Azure Data Lake-opslag. `-D` Hiermee geeft u op dat de opdrachten op basis van de lokale HDFS-bestandssysteem uitvoeren.
-
-Vervolgens kunt u een rapport met de details van de HDFS-status weergeven:
-
-```
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -report
-```
-
-Met deze opdracht resulteert in het volgende op een gezonde cluster waar alle blokken worden gerepliceerd naar de verwachte mate:
-
-![Veilige modus uitschakelen](./media/hdinsight-scaling-best-practices/report.png)
-
-HDFS ondersteunt de `fsck` opdracht om te controleren op inconsistenties met verschillende bestanden, zoals ontbrekende geblokkeerd voor een bestand of under-gerepliceerde blokken. Om uit te voeren de `fsck` opdracht op basis van de `scratchdir` (tijdelijke scratch-schijf)-bestanden:
-
-```
-hdfs fsck -D 'fs.default.name=hdfs://mycluster/' /tmp/hive/hive
-```
-
-Wanneer uitgevoerd op een gezonde HDFS-bestandssysteem met geen under-gerepliceerde blokken, ziet u uitvoer die vergelijkbaar is met het volgende:
-
-```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
-FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:07:01 UTC 2017
-..Status: HEALTHY
- Total size:    53 B
- Total dirs:    5
- Total files:   2
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2 (avg. block size 26 B)
- Minimally replicated blocks:   2 (100.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       0 (0.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     3.0
- Corrupt blocks:                0
- Missing replicas:              0 (0.0 %)
- Number of data-nodes:          4
- Number of racks:               1
-FSCK ended at Thu Jul 06 20:07:01 UTC 2017 in 3 milliseconds
-
-
-The filesystem under path '/tmp/hive/hive' is HEALTHY
-```
-
-Daarentegen, wanneer de `fsck` opdracht wordt uitgevoerd op een HDFS-bestandssysteem met sommige under-gerepliceerde blokken, de uitvoer is vergelijkbaar met het volgende:
-
-```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
-FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:13:58 UTC 2017
-.
-/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info:  Under replicated BP-1867508080-10.0.0.21-1499348422953:blk_1073741826_1002. Target Replicas is 3 but found 1 live replica(s), 0 decommissioned replica(s) and 0 decommissioning replica(s).
-.
-/tmp/hive/hive/e7c03964-ff3a-4ee1-aa3c-90637a1f4591/inuse.info: CORRUPT blockpool BP-1867508080-10.0.0.21-1499348422953 block blk_1073741825
-
-/tmp/hive/hive/e7c03964-ff3a-4ee1-aa3c-90637a1f4591/inuse.info: MISSING 1 blocks of total size 26 B.Status: CORRUPT
- Total size:    53 B
- Total dirs:    5
- Total files:   2
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2 (avg. block size 26 B)
-  ********************************
-  UNDER MIN REPL'D BLOCKS:      1 (50.0 %)
-  dfs.namenode.replication.min: 1
-  CORRUPT FILES:        1
-  MISSING BLOCKS:       1
-  MISSING SIZE:         26 B
-  CORRUPT BLOCKS:       1
-  ********************************
- Minimally replicated blocks:   1 (50.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       1 (50.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     0.5
- Corrupt blocks:                1
- Missing replicas:              2 (33.333332 %)
- Number of data-nodes:          1
- Number of racks:               1
-FSCK ended at Thu Jul 06 20:13:58 UTC 2017 in 28 milliseconds
-
-
-The filesystem under path '/tmp/hive/hive' is CORRUPT
-```
-
-U kunt ook de HDFS-status bekijken in Ambari UI door het selecteren van de **HDFS** service aan de linkerkant of met `https://<HDInsightClusterName>.azurehdinsight.net/#/main/services/HDFS/summary`.
-
-![Ambari HDFS-status](./media/hdinsight-scaling-best-practices/ambari-hdfs.png)
-
-U ziet ook een of meer kritieke fouten op de actieve of stand-by NameNodes. Als u de status van de blokken NameNode, selecteert u de koppeling NameNode naast de waarschuwing.
-
-![NameNode blokken Health](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
-
-Als u de tijdelijke bestanden, die de replicatiefouten blok verwijderen, wilt opschonen SSH op elk knooppunt te gaan en voer de volgende opdracht uit:
-
-```
-hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
-```
-
-> [!NOTE]  
-> Met deze opdracht kunt Hive verbreken als sommige taken worden nog steeds uitgevoerd.
-
-### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Voorkomen dat HDInsight zitten in de veilige modus vanwege under-gerepliceerde blokken
+### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode"></a>Voorkomen dat HDInsight zitten in de veilige modus
 
 Er zijn verschillende manieren om te voorkomen dat HDInsight wordt links in de veilige modus:
 
@@ -270,20 +123,28 @@ De volgende secties worden deze opties.
 
 Alle Hive-taken stoppen voordat het omlaag schalen naar een worker-knooppunt. Als uw werkbelasting is gepland, Voer uw omlaag schalen wanneer Hive werk is voltooid.
 
-Dit helpt Beperk het aantal nieuwe bestanden in de map tmp (indien aanwezig).
+Stoppen van de Hive-taken voor het schalen, minimaliseren helpt het aantal nieuwe bestanden in de map tmp (indien aanwezig).
 
 #### <a name="manually-clean-up-hives-scratch-files"></a>Hive van tijdelijke bestanden handmatig opschonen
 
 Als Hive heeft verlaten achter tijdelijke bestanden, en vervolgens u handmatig die bestanden opschonen kunt voordat u omlaag geschaald naar voorkomen dat de veilige modus.
 
-1. Hive-services stoppen en zorg ervoor dat alle query's en taken zijn voltooid.
+1. Controleer welke locatie wordt gebruikt voor de tijdelijke bestanden Hive door te kijken de `hive.exec.scratchdir` configuratie-eigenschap. Deze parameter is ingesteld in `/etc/hive/conf/hive-site.xml`:
 
-2. De inhoud van de `hdfs://mycluster/tmp/hive/` directory om te zien als deze bestanden bevat:
+    ```xml
+    <property>
+        <name>hive.exec.scratchdir</name>
+        <value>hdfs://mycluster/tmp/hive</value>
+    </property>
+    ```
+
+1. Hive-services stoppen en zorg ervoor dat alle query's en taken zijn voltooid.
+2. De inhoud van de bovenstaande gevonden scratchdirectory `hdfs://mycluster/tmp/hive/` om te zien als deze bestanden bevat:
 
     ```
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
-    
+
     Hier volgt een voorbeeld van uitvoer wanneer bestanden bestaan:
 
     ```
@@ -303,27 +164,40 @@ Als Hive heeft verlaten achter tijdelijke bestanden, en vervolgens u handmatig d
     ```
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
-    
-#### <a name="scale--hdinsight-to-three-worker-nodes"></a>HDInsight op drie worker-knooppunten schalen
 
-Als zitten in de veilige modus is een permanente probleem en de vorige stappen zijn niet opties, en vervolgens kunt u om te voorkomen dat het probleem door alleen schalen naar drie worker-knooppunten. Dit is mogelijk niet optimaal zijn, vanwege kostenbeperkingen, in vergelijking met het omlaag schalen naar één knooppunt. Echter, met slechts één worker-knooppunt, HDFS kan niet garanderen drie replica's van de gegevens zijn beschikbaar voor het cluster.
+#### <a name="scale-hdinsight-to-three-or-more-worker-nodes"></a>HDInsight met drie of meer worker-knooppunten schalen
+
+Als uw clusters in de veilige modus zitten vaak wanneer u omlaag naar minder dan drie worker-knooppunten en de vorige stappen niet werken, kunt u uw cluster gaan op de veilige modus helemaal door de beveiliging van ten minste drie werkknooppunten te voorkomen.
+
+Behoud van drie worker-knooppunten is duurder dan het omlaag schalen naar slechts één worker-knooppunt, maar deze wordt voorkomen dat uw cluster zitten in de veilige modus.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Voer de opdracht uit om te laten veilige modus
 
-De laatste mogelijkheid is om te bekijken voor de zeldzame gevallen waarin HDFS in veilige modus geplaatst en vervolgens de veilige modus laat opdracht niet uitvoeren. Nadat u hebt vastgesteld dat de reden HDFS heeft ingevoerd de veilige modus is vanwege de Hive-bestanden worden under-gerepliceerde, voert u de volgende opdracht uit om te laten veilige modus:
+De laatste mogelijkheid is de veilige modus laat opdracht uit te voeren. Als u weet dat de reden voor het invoeren van de veilige modus HDFS vanwege een te voorzichtige bestandsreplicatie Hive is, kunt u de volgende opdracht uit om te laten veilige modus uitvoeren:
 
-* HDInsight op Linux:
+
+```bash
+hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
+```
+
+### <a name="scale-down-an-apache-hbase-cluster"></a>Omlaag een Apache HBase-cluster schalen
+
+Regioservers worden automatisch verdeeld binnen een paar minuten na het voltooien van een bewerking voor vergroten/verkleinen. Handmatig evenwichtige regioservers, voert u de volgende stappen uit:
+
+1. Verbinding maken met het HDInsight-cluster via SSH. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+
+2. Start de HBase-shell:
 
     ```bash
-    hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
+    hbase shell
     ```
-    
-* HDInsight op Windows:
+
+3. Gebruik de volgende opdracht om handmatig de regioservers:
 
     ```bash
-    hdfs dfsadmin -fs hdfs://headnodehost:9000 -safemode leave
+    balancer
     ```
-    
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Automatisch schalen van Azure HDInsight-clusters](hdinsight-autoscale-clusters.md)

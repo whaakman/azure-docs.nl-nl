@@ -1,113 +1,70 @@
 ---
-title: Wat is een id-beveiligingsscore? - Azure Active Directory (openbare preview) | Microsoft Docs
-description: Informatie over het gebruiken van de id-beveiligingsscore om het beveiligingspostuur van uw Azure AD-tenant te verbeteren.
+title: Wat is er beveiligde score identiteit? - Azure Active Directory
+description: Hoe u de identiteit beveiligde score kunt gebruiken voor het verbeteren van de beveiligingsstatus van uw directory
 services: active-directory
-keywords: id-beveiligingsscore, Azure AD, beveiligde toegang tot bedrijfsbronnen
-documentationcenter: ''
-author: MarkusVi
-manager: daveba
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.topic: overview
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 09/19/2018
-ms.author: markvi
-ms.reviewer: nigu
-ms.custom: it-pro
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8617442c811dc2fe8f961038f35ebcf218a58302
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247355"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988695"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>Wat is de id-beveiligingsscore in Azure Active Directory? (openbare preview)
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Wat is de id-beveiligingsscore in Azure Active Directory?
 
-Hoe veilig is uw Azure AD-tenant? Als u het antwoord op deze vraag schuldig moet blijven, leest u dit artikel om erachter te komen hoe de id-beveiligingsscore kan helpen om het beveiligingspostuur van uw identiteit te controleren en te verbeteren. 
+Hoe veilig is uw Azure AD-tenant? Als u niet hoe u deze vragen te beantwoorden weet, wordt er in dit artikel wordt uitgelegd hoe u de identiteit beveiligde score kunt bewaken en verbeteren van de beveiligingsstatus van uw identiteit.
 
 ## <a name="what-is-an-identity-secure-score"></a>Wat is een id-beveiligingsscore?
 
-De id-beveiligingsscore is een getal tussen 1 en 248 dat aangeeft in welke mate u voldoet aan de aanbevolen procedures van Microsoft inzake beveiliging.
+De identiteit beveiligde score is getal tussen 1 tot 223 op die fungeert als een indicator van hoe uitgelijnde u bent met de aanbevelingen van Microsoft voor beveiliging. Elke actie verbetering in beveiligde score identiteit wordt aangepast aan uw specifieke configuratie.  
 
-
-![Beveiligingsscore](./media/identity-secure-score/01.png)
-
-
+![Veiligheidsscore](./media/identity-secure-score/identity-secure-score-overview.png)
 
 De score helpt bij het volgende:
 
 - Objectief meten van het beveiligingspostuur van uw identiteit
-
 - Plannen van verbeteringen aan de identiteitsbeveiliging
-
-- Evalueren van het succes van uw verbeteringen 
-
+- Evalueren van het succes van uw verbeteringen
 
 De score en verwante informatie zijn toegankelijk via het dashboard Identity Secure Score. In dit dashboard vindt u deze informatie:
 
-- Uw id-beveiligingsscore
-
-    ![Beveiligingsscore](./media/identity-secure-score/02.png)
-
-- Een vergelijkingsgrafiek
-
-    ![Beveiligingsscore](./media/identity-secure-score/03.png)
-
-- Een trendgrafiek
-
-    ![Beveiligingsscore](./media/identity-secure-score/04.png)
-
-- Een lijst met verbeteringsacties. 
-
-    ![Beveiligingsscore](./media/identity-secure-score/05.png)
-
+- Uw identiteit beveiligde score
+- Een vergelijking van de grafiek wordt weergegeven hoe de score voor het beveiligen van uw identiteit vergelijkt met andere tenants in de dezelfde bedrijfstak en vergelijkbare grootte
+- Een grafiek trend is hoe uw beveiligde score identiteit is gewijzigd na verloop van tijd weergeven
+- Een lijst van mogelijke verbeteringen
 
 Door de verbeteringsacties te volgen, kunt u het volgende doen:
 
-- Uw beveiligingspostuur en uw score verbeteren.
- 
-- Gebruikmaken van de functies van Microsoft Identity. 
-
-
+- Verbeter uw beveiligingspostuur en uw score
+- Maak gebruik van de functies die beschikbaar zijn voor uw organisatie als onderdeel van uw investeringen in identiteit
 
 ## <a name="how-do-i-get-my-secure-score"></a>Hoe kom ik aan mijn beveiligde score?
 
-De id-beveiligingsscore is beschikbaar in alle edities van Azure AD.
+De identiteit beveiligde score is beschikbaar in alle edities van Azure AD. U kunt de score bekijken door naar het [dashboard Overzicht van Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore) te gaan.
 
-U kunt de score bekijken door naar het [dashboard Overzicht van Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore) te gaan.
+## <a name="how-does-it-work"></a>Hoe werkt dit?
 
+Elke 48 uur wordt uw beveiligingsconfiguratie geanalyseerd door Azure en worden uw instellingen vergeleken met de aanbevolen procedures. Op basis van het resultaat van deze evaluatie, wordt een nieuwe score berekend voor uw directory. Het is mogelijk dat de beveiligingsconfiguratie is niet volledig afgestemd op de richtlijnen voor best practices en de acties voor verbetering slechts gedeeltelijk wordt voldaan. In deze scenario's worden u alleen toegekend in een deel van de maximale score die beschikbaar zijn voor het besturingselement.
 
+Elke aanbeveling wordt gemeten op basis van uw Azure AD-configuratie. Als u van producten van derden gebruikmaakt om in te schakelen van een best practice-aanbeveling, kunt u deze configuratie in de instellingen van een actie voor verbetering aangeven. U hebt ook de mogelijkheid om in te stellen van de aanbevelingen voor moeten worden genegeerd als ze niet van toepassing op uw omgeving. Een genegeerde aanbeveling draagt niet bij aan de berekening van de score.
 
-## <a name="how-does-it-work"></a>Hoe werkt het?
-
-Elke 48 uur wordt uw beveiligingsconfiguratie geanalyseerd door Azure en worden uw instellingen vergeleken met de aanbevolen procedures. Op basis van het resultaat van deze evaluatie wordt er een nieuwe score berekend voor uw tenant. Dit betekent dat het tot 48 uur kan duren duurt voordat een wijziging in uw configuratie is verwerkt in uw score. 
-
-Elke aanbeveling wordt gemeten op basis van uw Azure AD-configuratie. Als u producten van derden gebruikt om een aanbevolen procedure toe te passen, kunt u dit aangeven in de instellingen van een verbeteringsactie.
-
-![Beveiligingsscore](./media/identity-secure-score/07.png)
-
-
-Bovendien hebt u de mogelijkheid om aanbevelingen te negeren als deze niet van toepassing zijn op uw omgeving. Een genegeerde aanbeveling draagt niet bij aan de berekening van de score. 
- 
-![Beveiligingsscore](./media/identity-secure-score/06.png)
-
-
+![Negeren of actie markeren als van derden vallen](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
 
 ## <a name="how-does-it-help-me"></a>Wat heb ik eraan?
 
 De id-beveiligingsscore helpt bij het volgende:
 
 - Objectief meten van het beveiligingspostuur van uw identiteit
-
 - Plannen van verbeteringen aan de identiteitsbeveiliging
-
 - Evalueren van het succes van uw verbeteringen
-
-
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 
@@ -116,8 +73,12 @@ De id-beveiligingsscore helpt bij het volgende:
 De id-beveiligingsscore kan worden gebruikt door de volgende rollen:
 
 - Globale beheerder
-- Beveiligingsbeheerder 
-- Beveiligingslezers 
+- Beveiligingsbeheerder
+- Beveiligingslezers
+
+### <a name="how-are-controls-scored"></a>Hoe kan ik besturingselementen beoordeeld?
+
+Besturingselementen kunnen op twee manieren worden beoordeeld. Sommige binaire wijze worden beoordeeld: u 100% van de score ophalen als de functie of instelling geconfigureerd op basis van onze aanbeveling. Andere scores worden berekend als een percentage van de configuratie van de totale. Bijvoorbeeld, als u de aanbeveling voor verbetering statussen krijgt u 30 punten als u al uw gebruikers met MFA beveiligt en u alleen 5 van 100 totaal aantal gebruikers die zijn beveiligd hebt, u wilt toekennen aan een gedeeltelijke score ongeveer 2 punten (5-beveiligd / totaal 100 * 30 max punten = 2 punten gedeeltelijke score) .
 
 ### <a name="what-does-not-scored-mean"></a>Wat betekent [Geen score]?
 
@@ -127,40 +88,32 @@ Acties met het label [Geen score] zijn acties die u kunt uitvoeren in uw organis
 
 De score wordt één keer per dag berekend (om ongeveer 01:00 PST). Als u een wijziging aanbrengt in een gemeten actie, wordt de score automatisch de volgende dag bijgewerkt. Het duurt maximaal 48 uur voordat een wijziging is verwerkt in de score.
 
-
 ### <a name="my-score-changed-how-do-i-figure-out-why"></a>Mijn score is gewijzigd. Hoe kom ik erachter waarom?
 
-Klik op de pagina van Score Analyzer in de [portal van Secure Score](https://securescore.microsoft.com/#!/score) op een gegevenspunt voor een bepaalde dag en scrol omlaag om de voltooide en niet-voltooide acties voor die dag te zien en erachter te komen wat er is veranderd.
+Ga naar de [Microsoft 365 security center](https://security.microsoft.com/), waar u vindt de volledige beveiligde score van Microsoft. U kunt gemakkelijk alle wijzigingen aan uw beveiligde score zien aan de hand van de uitgebreide wijzigingen op het tabblad Geschiedenis.
 
-### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>Geeft de id-beveiligingsscore een indicatie van de kans dat ik te maken krijg met een beveiligingsprobleem?
+### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>De beveiligde score meten Mijn risico van het ophalen van geschonden?
 
-Nee, dat niet. De beveiligingsscore is geen absolute indicatie van hoe groot de kans is dat u te maken gaat krijgen met een beveiligingsprobleem. De score geeft aan in welke mate u functies hebt geïmplementeerd die het risico van een beveiligingsprobleem beperken. Er bestaan geen services die volledige bescherming kunnen bieden tegen een beveiligingsschending. De beveiligingsscore mag dan ook op geen enkele manier worden geïnterpreteerd als een garantie hiertegen.
+Nee, dat niet. De beveiligde score heeft een absolute meting niet express van hoe waarschijnlijk u staat op te halen geschonden. De score geeft aan in welke mate u functies hebt geïmplementeerd die het risico van een beveiligingsprobleem beperken. Er is geen service kan niet garanderen dat u niet wordt geschonden, en de beveiligde score moet niet worden geïnterpreteerd als garantie op geen enkele manier.
 
 ### <a name="how-should-i-interpret-my-score"></a>Hoe moet ik mijn score interpreteren?
 
-U krijgt punten voor het configureren van aanbevolen beveiligingsfuncties of het uitvoeren van beveiligingstaken (zoals het lezen van rapporten). Sommige acties krijgen een score voor gedeeltelijke uitvoering, zoals het inschakelen van meervoudige verificatie (MFA) voor uw gebruikers. Uw beveiligingsscore is een directe afspiegeling van de Microsoft-beveiligingsservices die u gebruikt. Vergeet niet dat beveiliging altijd in balans moet zijn met bruikbaarheid. Alle beveiligingsmechanismen hebben in meer of mindere mate impact op de gebruiker. Mechanismen met een kleine impact op de gebruiker hebben geen tot nauwelijks gevolgen voor de dagelijkse taken van uw gebruikers.
+U krijgt punten voor het configureren van aanbevolen beveiligingsfuncties of het uitvoeren van beveiligingstaken (zoals het lezen van rapporten). Sommige acties krijgen een score voor gedeeltelijke uitvoering, zoals het inschakelen van meervoudige verificatie (MFA) voor uw gebruikers. Uw beveiligde score is rechtstreeks van de Microsoft security-services die u gebruikt. Houd er rekening mee dat de beveiliging moet worden verdeeld met bruikbaarheid. Alle beveiligingsmechanismen hebben in meer of mindere mate impact op de gebruiker. Mechanismen met een kleine impact op de gebruiker hebben geen tot nauwelijks gevolgen voor de dagelijkse taken van uw gebruikers.
 
-Als u de geschiedenis van uw beveiligingsscore wilt zien, gaat u naar de pagina van Score Analyzer in de [portal van Secure Score](https://securescore.microsoft.com/#!/score). Kies een specifieke datum om te zien welke mechanismen waren ingeschakeld voor die dag en wat dat voor punten heeft opgeleverd.
+Als u wilt zien van de geschiedenis van een score, Ga naar de [Microsoft 365-Beveiligingscentrum](https://security.microsoft.com/) en controleren van uw algehele beveiligde score van Microsoft. U kunt wijzigingen bekijken op uw algemene beveiligde score klikt u op de geschiedenis weergeven. Kies een specifieke datum om te zien welke mechanismen waren ingeschakeld voor die dag en wat dat voor punten heeft opgeleverd.
 
+### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Hoe is id-beveiligingsscore gerelateerd aan de beveiligingsscore van Office 365?
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Hoe is id-beveiligingsscore gerelateerd aan de beveiligingsscore van Office 365? 
-
-De [beveiligingsscore van Office 365](https://docs.microsoft.com/office365/securitycompliance/office-365-secure-score) wordt binnenkort gemigreerd naar een aggregatie van vijf verschillende scores:
+De [Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) bevat vijf verschillende beheer- en score categorieën:
 
 - Identiteit
-
 - Gegevens
-
 - Apparaten
-
 - Infrastructuur
-
 - Apps
 
-De id-beveiligingsscore vertegenwoordigt het identiteitsdeel van de beveiligingsscore van Office 365. Dit betekent dat uw aanbevelingen voor de id-beveiligingsscore en de identiteitsscore in Office 365 hetzelfde zijn. 
-
+De identiteit beveiligde score geeft het deel van de identiteit van de beveiligde score van Microsoft. Deze overlapping betekent dat uw aanbevelingen voor de identiteit van de beveiligde score en de score identiteit in Microsoft hetzelfde zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u een video wilt zien over de beveiligingsscore van Office 365 wilt, klikt u [hier](https://www.youtube.com/watch?v=jzfpDJ9Kg-A).
- 
+[Meer informatie over beveiligde Microsoft-score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)

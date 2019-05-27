@@ -3,8 +3,8 @@ title: Verouderde met Azure virtual network VPN-gateway-SKU's | Microsoft Docs
 description: Over het werken met de oude virtuele netwerkgateway SKU 's Basic, Standard en HighPerformance.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: jpconnock
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
-ms.author: cherylmc
+origin.date: 03/20/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 5a9e3f63a484069bf8cd39f8a545d7c37f05c63c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66159200"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Werken met virtual network gateway-SKU's (verouderde SKU's)
 
@@ -67,3 +68,5 @@ U kunt ook het formaat van een gateway in Azure portal.
 Zie voor meer informatie over de nieuwe Gateway-SKU's, [Gateway-SKU's](vpn-gateway-about-vpngateways.md#gwsku).
 
 Zie voor meer informatie over configuratie-instellingen, [over VPN-gatewayconfiguratie-instellingen](vpn-gateway-about-vpn-gateway-settings.md).
+
+<!--Update_Description: wording update-->

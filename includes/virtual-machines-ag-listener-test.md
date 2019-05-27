@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097672"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165424"
 ---
 In deze stap test u de beschikbaarheidsgroep-listener met behulp van een clienttoepassing die wordt uitgevoerd op hetzelfde netwerk.
 
@@ -30,4 +29,3 @@ Een voorbeeld is het verbinding maken met de listener van een van de virtuele ma
 
 Wanneer u de listener test, moet u de beschikbaarheidsgroep om ervoor te zorgen dat clients verbinding met de listener voor failovers maken kunnen failover.
 
-<!-- Update_Description: update meta properties -->

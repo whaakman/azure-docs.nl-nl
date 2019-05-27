@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764654"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950997"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: In het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
 
@@ -47,7 +47,7 @@ Er zijn twee mogelijke redenen waarom u mogelijk de uitgegeven claims in het SAM
 Bewerken van de NameID (naam-id-waarde):
 
 1. Open de **naam id-waarde** pagina.
-1. Selecteer het kenmerk of de transformatie die u wilt toepassen op het kenmerk. Desgewenst kunt u de indeling die u wilt dat hij de claim NameID hebben.
+1. Selecteer het kenmerk of de transformatie die u wilt toepassen op het kenmerk. Desgewenst kunt u de indeling die u wilt dat de claim NameID hebben.
 
    ![Bewerk de waarde NameID (naam-id)](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 
@@ -75,7 +75,7 @@ Selecteer de gewenste bron voor de `NameIdentifier` (of NameID) claim. U kunt ki
 
 | Name | Description |
 |------|-------------|
-| E-mailen | E-mailadres van de gebruiker |
+| Email | E-mailadres van de gebruiker |
 | userprincipalName | User principal name (UPN) van de gebruiker |
 | onpremisessamaccount | SAM-accountnaam die zijn gesynchroniseerd van on-premises Azure AD |
 | object-id | object-id van de gebruiker in Azure AD |

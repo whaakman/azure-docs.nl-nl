@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384517"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113191"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Toegang beoordelen zelf aan groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
 Azure Active Directory (Azure AD) vereenvoudigt hoe bedrijven toegang tot groepen of toepassingen beheren in Azure AD en andere Microsoft Online Services met een functie met de naam van de toegang van Azure AD-toegangsbeoordelingen.
 
 In dit artikel wordt beschreven hoe u uw eigen toegang tot een groep of een toepassing bekijken.
+
+## <a name="prerequisites"></a>Vereisten
+
+- Azure AD Premium P2
+
+Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Open de toegangsbeoordeling
 
@@ -70,7 +76,7 @@ Nadat u de toegangsbeoordeling hebt geopend, ziet u de toegang.
 
     ![Toegangscontrole uitvoeren](./media/review-your-access/perform-access-review-submit.png)
 
-1. Klik op **Submit**
+1. Klik op **Indienen**.
 
     Uw selectie wordt verzonden en keert u terug naar de MyApps-portal.
 

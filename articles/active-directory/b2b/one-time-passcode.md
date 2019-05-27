@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 577f370c3be0f232be4e6628dd6754c4164ab93f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785262"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952858"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-mailbericht eenmalige wachtwoordcode verificatie (preview)
 
@@ -64,7 +64,7 @@ U kunt gastgebruikers die worden geverifieerd met eenmalige wachtwoordcodes in A
 > Wanneer een gebruiker een eenmalige wachtwoordcode wordt ingewisseld en later een MSA, Azure AD-account of andere federatieve-account verkrijgt, blijven deze gewoon worden geverifieerd met een eenmalige wachtwoordcode. Als u bijwerken hun verificatiemethode wilt, kunt u hun gastgebruikersaccount verwijderen en ze kunt uitnodigen.
 
 ### <a name="example"></a>Voorbeeld
-Gastgebruiker alexdoe@gmail.com wordt uitgenodigd voor Fabrikam, waarvoor geen Google federation instellen. Alex beschikt niet over een Microsoft-account. Hij ontvangt een eenmalige wachtwoordcode voor verificatie.
+Gastgebruiker alexdoe@gmail.com wordt uitgenodigd voor Fabrikam, waarvoor geen Google federation instellen. Alex beschikt niet over een Microsoft-account. Ze ontvangt een eenmalige wachtwoordcode voor verificatie.
 
 ## <a name="opting-in-to-the-preview"></a>Inschrijving voor de Preview-versie 
 Het duurt een paar minuten voor de actie opt-in te voeren. Hierna wordt alleen de zojuist uitgenodigde gebruikers die voldoen aan de bovenstaande voorwaarden eenmalige wachtwoordcode verificatie gebruiken. Gastgebruikers die eerder ingewisseld een uitnodiging wordt echter ook doorgaan met de dezelfde methode voor verificatie.

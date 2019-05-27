@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996119"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153207"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +97,7 @@ Amazon S3 biedt ondersteuning voor de client- en versleuteling van data-at-rest.
 #### <a name="amazon-redshift"></a>Amazon Redshift
 Amazon Redshift ondersteunt cluster versleuteling voor data-at-rest. Zie voor meer informatie, [Amazon Redshift-Databaseversleuteling](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
-#### <a name="salesforce"></a>SalesForce
+#### <a name="salesforce"></a>Salesforce
 SalesForce ondersteunt Shield Platform versleuteling waarmee het coderen van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie, [inzicht in de Web Server OAuth-Verificatiestroom](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Hybride scenario 's
@@ -135,7 +135,7 @@ Azure-netwerk is een logische weergave van uw netwerk in de cloud. U kunt een on
 
 De volgende tabel geeft een overzicht van het netwerk en aanbevelingen voor de configuratie van zelf-hostende integration runtime op basis van verschillende combinaties van bron- en locaties voor hybride verplaatsing van gegevens.
 
-| Bron      | Doel                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
+| Source      | Bestemming                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec-VPN (punt-naar-site of site-naar-site) | De zelf-hostende integratieruntime moet worden geïnstalleerd op een Azure-machine in het virtuele netwerk.  |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (persoonlijke peering)           | De zelf-hostende integratieruntime moet worden geïnstalleerd op een Azure-machine in het virtuele netwerk.  |
@@ -158,7 +158,7 @@ In een onderneming is een bedrijfsfirewall wordt uitgevoerd op de centrale-route
 
 De volgende tabel bevat de vereisten voor uitgaande poort en het domein voor zakelijke firewalls:
 
-| Domeinnamen                  | Uitgaande poorten | Beschrijving                              |
+| Domeinnamen                  | Uitgaande poorten | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Vereist door de zelf-hostende integratieruntime verbinding maken met services voor gegevensverplaatsing in Data Factory. |
 | `*.frontend.clouddatahub.net` | 443            | Vereist door de zelf-hostende integratieruntime verbinding maken met de Data Factory-service. |

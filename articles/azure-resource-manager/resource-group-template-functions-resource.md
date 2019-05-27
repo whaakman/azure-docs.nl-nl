@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager-sjabloonfuncties - resources | Microsoft Docs
 description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebruikt voor het ophalen van waarden over resources.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/09/2019
+ms.date: 05/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcad4b988f37d46a0b843fbf905e18011bc4e313
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783004"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990760"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Functies van de resource voor Azure Resource Manager-sjablonen
 
@@ -175,7 +169,7 @@ Andere functies van de lijst met hebben verschillende retour bestandsindelingen.
 
 De resource met behulp van de resourcenaam opgeven of de [resourceId functie](#resourceid). Wanneer u een lijst met door de functie in dezelfde sjabloon waarmee de resource waarnaar wordt verwezen, wordt geïmplementeerd, gebruikt u de naam van de resource.
 
-Als u een **lijst** functie in een resource voorwaardelijk wordt geïmplementeerd, is de functie is geëvalueerd, zelfs als de resource is niet geïmplementeerd. Er treedt een fout als de **lijst** functie verwijst naar een resource die niet bestaat. Gebruik de **als** functie om ervoor te zorgen dat de functie wordt pas geëvalueerd wanneer de resource is opgeslagen. Zie de [als functie](resource-group-template-functions-logical.md#if) voor een voorbeeldsjabloon die wordt gebruikt als en een lijst met een resource voorwaardelijk geïmplementeerd.
+Als u een **lijst** functie in een resource voorwaardelijk wordt geïmplementeerd, is de functie is geëvalueerd, zelfs als de resource is niet geïmplementeerd. Er treedt een fout als de **lijst** functie verwijst naar een resource die niet bestaat. Gebruik de **als** functie om ervoor te zorgen dat de functie wordt pas geëvalueerd wanneer de resource wordt geïmplementeerd. Zie de [als functie](resource-group-template-functions-logical.md#if) voor een voorbeeldsjabloon die wordt gebruikt als en een lijst met een resource voorwaardelijk geïmplementeerd.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -343,11 +337,11 @@ Elk resourcetype geeft als resultaat van de verschillende eigenschappen voor de 
 
 De functie verwijzing haalt de runtimestatus van een eerder geïmplementeerde resource of een resource in de huidige sjabloon wordt geïmplementeerd. In dit artikel ziet u voorbeelden voor beide scenario's. Wanneer u verwijst naar een resource in de huidige sjabloon, geef de naam van de resource als parameter. Wanneer u verwijst naar een eerder geïmplementeerde resource, bieden u de resource-ID en een API-versie voor de resource. U kunt geldige API-versies bepalen voor uw resource in de [sjabloonverwijzing](/azure/templates/).
 
-De referentie-functie kan alleen worden gebruikt in de eigenschappen van de resourcedefinitie van een en de uitvoersectie van een sjabloon of de implementatie.
+De referentie-functie kan alleen worden gebruikt in de eigenschappen van de resourcedefinitie van een en de uitvoersectie van een sjabloon of de implementatie. Gebruikt in combinatie met [eigenschap iteratie](resource-group-create-multiple.md#property-iteration), kunt u de referentie-functie voor `input` omdat de expressie is toegewezen aan de resource-eigenschap. U kunt niet gebruiken met `count` omdat het aantal moet worden bepaald voordat de functie verwijzing opgelost is.
 
 Met behulp van de referentie-functie, declareert u impliciet dat een resource afhankelijk van een andere resource is als de bron waarnaar wordt verwezen, is ingericht in dezelfde sjabloon en u naar de resource met de naam (geen resource-ID verwijst). U hoeft niet te gebruiken ook de eigenschap DEPENDSON te maken. De functie wordt niet geëvalueerd totdat de resource waarnaar wordt verwezen, de implementatie is voltooid.
 
-Als u de **verwijzing** functie in een resource voorwaardelijk wordt geïmplementeerd, is de functie is geëvalueerd, zelfs als de resource is niet geïmplementeerd.  Er treedt een fout als de **verwijzing** functie verwijst naar een resource die niet bestaat. Gebruik de **als** functie om ervoor te zorgen dat de functie wordt pas geëvalueerd wanneer de resource is opgeslagen. Zie de [als functie](resource-group-template-functions-logical.md#if) voor een voorbeeldsjabloon die wordt gebruikt als en een referentie met een resource voorwaardelijk geïmplementeerde.
+Als u de **verwijzing** functie in een resource voorwaardelijk wordt geïmplementeerd, is de functie is geëvalueerd, zelfs als de resource is niet geïmplementeerd.  Er treedt een fout als de **verwijzing** functie verwijst naar een resource die niet bestaat. Gebruik de **als** functie om ervoor te zorgen dat de functie wordt pas geëvalueerd wanneer de resource wordt geïmplementeerd. Zie de [als functie](resource-group-template-functions-logical.md#if) voor een voorbeeldsjabloon die wordt gebruikt als en een referentie met een resource voorwaardelijk geïmplementeerde.
 
 Als u wilt zien de namen van eigenschappen en waarden voor een resourcetype, een sjabloon die wordt geretourneerd van het object in de uitvoersectie te maken. Als u een bestaande resource van dat type hebt, retourneert de sjabloon voor het object zonder nieuwe resources te implementeren. 
 

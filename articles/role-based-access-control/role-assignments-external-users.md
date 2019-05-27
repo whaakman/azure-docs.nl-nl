@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345298"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952203"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Toegang tot Azure-resources voor externe gebruikers met RBAC beheren
 
@@ -57,7 +57,7 @@ Na het selecteren van het abonnement, de gebruiker met beheerdersrechten moet kl
 
 De volgende stap is het selecteren van de functie moet worden toegewezen en de gebruiker waaraan de RBAC-rol wordt toegewezen aan. In de **rol** in het vervolgkeuzemenu, de gebruiker met beheerdersrechten ziet alleen de ingebouwde RBAC-rollen die beschikbaar in Azure zijn. Zie voor meer uitleg van elke rol en hun toewijsbare bereiken gedetailleerde, [ingebouwde rollen voor Azure-resources](built-in-roles.md).
 
-De gebruiker met beheerdersrechten moet vervolgens de e-mailadres van de externe gebruiker toevoegen. Het verwachte gedrag is voor de externe gebruiker worden niet weergegeven in de bestaande tenant. Nadat de externe gebruiker is uitgenodigd, hij is zichtbaar onder **abonnementen > Access Control (IAM)** met de huidige gebruikers die momenteel een RBAC-rol op het abonnementsbereik zijn toegewezen.
+De gebruiker met beheerdersrechten moet vervolgens de e-mailadres van de externe gebruiker toevoegen. Het verwachte gedrag is voor de externe gebruiker worden niet weergegeven in de bestaande tenant. Nadat de externe gebruiker is uitgenodigd, deze is zichtbaar onder **abonnementen > Access Control (IAM)** met de huidige gebruikers die momenteel een RBAC-rol op het abonnementsbereik zijn toegewezen.
 
 ![Voeg machtigingen toe aan het nieuwe RBAC-rol](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ De gebruiker met beheerdersrechten moet vervolgens de e-mailadres van de externe
 De gebruiker "chessercarlton@gmail.com" is uitgenodigd moet een **eigenaar** voor het abonnement 'Gratis'. Nadat de uitnodiging is verzonden, ontvangt de externe gebruiker een e-mailbevestiging met een activeringskoppeling.
 ![e-mailuitnodiging voor RBAC-rol](./media/role-assignments-external-users/5.png)
 
-Wordt buiten de organisatie, heeft de nieuwe gebruiker geen bestaande kenmerken in de map 'Standaardtenant Azure'. Ze worden gemaakt nadat de externe gebruiker toestemming heeft gegeven moeten worden vastgelegd in de map die is gekoppeld aan het abonnement hij een rol is toegewezen.
+Wordt buiten de organisatie, heeft de nieuwe gebruiker geen bestaande kenmerken in de map 'Standaardtenant Azure'. Ze worden gemaakt nadat de externe gebruiker toestemming heeft gegeven moeten worden vastgelegd in de map die is gekoppeld aan het abonnement dat deze een rol is toegewezen.
 
 ![e-mailbericht met de uitnodiging voor RBAC-rol](./media/role-assignments-external-users/6.png)
 

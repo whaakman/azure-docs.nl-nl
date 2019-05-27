@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544502"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961446"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
@@ -24,7 +24,7 @@ Voor scenario's waar uw logic apps en de integratieaccounts toegang hebben tot m
 
 In dit artikel laat zien hoe deze taken uit te voeren:
 
-* Poorten instellen in uw Azure-netwerk, zodat verkeer kan worden verzonden via de integratie van service-omgeving (ISE) via subnetten in het virtuele netwerk.
+* Zorg ervoor dat alle vereiste poorten in een virtueel netwerk zijn geopend zodat verkeer kan worden verzonden via de integratie van service-omgeving (ISE) via de subnetten in dit virtuele netwerk.
 
 * Maak de integratie van service-omgeving (ISE).
 
@@ -60,11 +60,13 @@ Zie voor meer informatie over de integratie van service-omgevingen, [toegang tot
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>Instellen van netwerk-poorten
+## <a name="check-network-ports"></a>Controleer de netwerk-poorten
 
-Voor het goed werkt en blijven toegankelijk is, moet de integratie van service-omgeving (ISE) specifieke poorten zijn beschikbaar in het virtuele netwerk. Anders als een van deze poorten niet beschikbaar zijn, u mogelijk geen toegang meer voor uw ISE, te werken. Wanneer u een ISE in een virtueel netwerk gebruikt, is een veelvoorkomend probleem voor setup heeft een of meer geblokkeerde poorten. Voor verbindingen tussen uw ISE en het doelsysteem, de connector die u mogelijk ook een eigen port requirements for Windows. Bijvoorbeeld, als u met een FTP-systeem kunnen communiceren met behulp van de FTP-connector, zorg ervoor dat de poort die u op dat de FTP-systeem, zoals poort 21 voor het verzenden van opdrachten, beschikbaar is.
+Wanneer u een integratie van service-omgeving (ISE) met een virtueel netwerk gebruiken, is een veelvoorkomend probleem voor setup heeft een of meer geblokkeerde poorten. De connectors die u gebruikt voor het maken van verbindingen tussen uw ISE en het doelsysteem hebben mogelijk ook hun eigen Poortvereisten. Bijvoorbeeld, als u met een FTP-systeem kunnen communiceren met behulp van de FTP-connector, zorg ervoor dat de poort die u op dat de FTP-systeem, zoals poort 21 voor het verzenden van opdrachten, beschikbaar is.
 
-Voor het beheren van het verkeer tussen subnetten van het virtuele netwerk waarin u uw ISE implementeren, kunt u instellen [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) voor deze subnetten door [netwerkverkeer filteren tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt van uw ISE en waar deze poorten ophalen gebruikt. De [Resource Manager-servicetags](../virtual-network/security-overview.md#service-tags) vertegenwoordigt een groep IP-adresvoorvoegsels die helpen bij het minimaliseren van complexiteit bij het maken van beveiligingsregels.
+Voor het beheren van het verkeer via subnetten van het virtuele netwerk waarin u ISE implementeren, kunt u instellen [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) door [netwerkverkeer filteren tussen subnetten](../virtual-network/tutorial-filter-network-traffic.md). Uw ISE moet echter specifieke poorten zijn geopend op het virtuele netwerk dat gebruikmaakt van netwerkbeveiligingsgroepen hebben. Op die manier uw ISE blijft toegankelijk is en correct kan werken, zodat je geen toegang tot uw ISE verliest. Anders, als alle vereiste poorten beschikbaar zijn, uw ISE werkt niet meer.
+
+Deze tabellen beschrijven de poorten in het virtuele netwerk dat gebruikmaakt van uw ISE en waar deze poorten ophalen gebruikt. De [Resource Manager-servicetags](../virtual-network/security-overview.md#service-tags) vertegenwoordigt een groep IP-adresvoorvoegsels die helpen bij het minimaliseren van complexiteit bij het maken van beveiligingsregels.
 
 > [!IMPORTANT]
 > Voor de interne communicatie binnen de subnetten van ISE vereist is dat u alle poorten binnen deze subnetten openen.

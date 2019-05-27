@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193361"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124739"
 ---
 Bing statistieken biedt analytics voor Bing zoeken-API's. Analytics bevat aanroepvolume, top queryreeksen en geografische verdeling. Om in te schakelen Bing statistieken in uw Bing Search betaald abonnement, gaat u naar uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), selecteert u uw betaalde abonnement en klikt u op inschakelen Bing statistieken. Het aantal abonnementen iets inschakelen van Bing statistieken verhoogt (Zie [prijzen](https://aka.ms/bingstatisticspricing)).
 
@@ -35,7 +35,7 @@ Standaard wordt alle metrische gegevens die u toegang tot hebt weer door de diag
 
 - **Resource-ID**: De unieke resource-ID waarmee uw Azure-abonnement. De lijst bevat meerdere id's als u zich op meer dan één Bing zoeken-API-laag abonneert. Standaard worden alle resources geselecteerd.  
   
-- **Markten**: De markten waar de resultaten afkomstig zijn uit. Bijvoorbeeld, en-us (Engels, Verenigde Staten). Overal zijn standaard ingeschakeld. Houd er rekening mee dat de markt en WW de markt die Bing gebruikt als de aanroep een markt niet is opgegeven en Bing is niet mogelijk te bepalen van de gebruiker markt.  
+- **Markets**: De markten waar de resultaten afkomstig zijn uit. Bijvoorbeeld, en-us (Engels, Verenigde Staten). Overal zijn standaard ingeschakeld. Houd er rekening mee dat de markt en WW de markt die Bing gebruikt als de aanroep een markt niet is opgegeven en Bing is niet mogelijk te bepalen van de gebruiker markt.  
   
 - **Eindpunten**: De Bing zoeken-API-eindpunten. De lijst bevat alle eindpunten waarvoor u een betaald abonnement hebt. Alle eindpunten zijn standaard ingeschakeld.  
 
@@ -71,7 +71,7 @@ Hier volgen de mogelijke metrische gegevens. Elke metrische opmerkingen bij de e
 
   - /images/trending
   - / afbeeldingen/details
-  - / afbeeldingen/visualsearch
+  - /images/visualsearch
   - /videos/trending
   - / video's / details
   - /News

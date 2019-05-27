@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: b480f9720cabddbba9e9c35c12ca1f8dda7ab5ab
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2614c9290bf31813d59ee753a31622bccf0682b8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190039"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114518"
 ---
 | Resource | Doel | Vaste limiet |
 |----------|--------------|------------|
@@ -23,10 +23,12 @@ ms.locfileid: "65190039"
 | Cloudeindpunten per groep voor synchronisatie | 1 cloudeindpunt | Ja |
 | Servereindpunten per groep voor synchronisatie | 50 servereindpunten | Nee |
 | Servereindpunten per server | 30 servereindpunten | Ja |
-| Grootte van eindpunt | 4 TiB | Nee |
 | -Bestandssysteem (mappen en bestanden) per groep voor synchronisatie | 25 miljoen objecten | Nee |
 | Maximum aantal bestandssysteemobjecten (mappen en bestanden) in een map | 1 miljoen objecten | Ja |
 | Maximale grootte van object (mappen en bestanden) security descriptor | 64 KiB | Ja |
 | Bestandsgrootte | 100 GiB | Nee |
 | Minimale bestandsgrootte voor een bestand in tiers worden verdeeld | 64 KiB | Ja |
 | Gelijktijdige synchronisatiesessies | V4-agent en hoger: De limiet is afhankelijk van beschikbare systeemresources. <BR> V3-agent: Twee ActiveSync-sessies per processor- of maximaal acht ActiveSync sessies per server. | Ja
+
+> [!Note]  
+> Een Azure File Sync-eindpunt kunt omhoog schalen naar de grootte van een Azure-bestandsshare. Als de Azure file share-limiet is bereikt, kunnen synchroniseren is niet uitgevoerd.

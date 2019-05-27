@@ -9,48 +9,55 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/02/2019
+ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9736cc3ab20d43cc3731bc237bed9eb9b5370cb4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 88e4e305e0f66c61ab4d73bcfef21319b4d02946
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800773"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989793"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
-Geautomatiseerde machine learning, ook wel AutoML, kan gegevenswetenschappers, bedrijfsanalisten en ontwikkelaars voor het bouwen van ML-modellen met grote schaal, efficiëntie en productiviteit terwijl sustaining kwaliteit van model. 
+Geautomatiseerde voor machine learning, is ook wel genoemd automatische ML, het proces van de tijd in beslag nemen, iteratieve Taakautomatisering van machine learning-model-ontwikkeling. Hierdoor kan gegevenswetenschappers, bedrijfsanalisten en ontwikkelaars voor het bouwen van ML-modellen met grote schaal, efficiëntie en productiviteit terwijl sustaining kwaliteit van model.
 
-Geautomatiseerde ML bouwt een set met ML-modellen automatisch, op intelligente wijze de modellen voor training selecteren en vervolgens raadt het programma de beste is voor u. Traditionele machine learning-model ontwikkeling is resource-intensieve waarvoor aanzienlijke domeinkennis en tijd produceren en tientallen modellen met elkaar vergelijken. Met geautomatiseerde ML, zult u de tijd die nodig zijn om op te halen gereed is voor productie ML-modellen met geweldige eenvoudig en efficiënt te versnellen.
+Traditionele machine learning-model ontwikkeling is resource-intensieve, waarvoor aanzienlijke domeinkennis en tijd produceren en tientallen modellen met elkaar vergelijken. Geautomatiseerde ML van toepassing als u wilt dat Azure Machine Learning te trainen en afstemmen van een model voor u gemaakt met de doel-metric die u opgeeft. ML-algoritmen die zijn gekoppeld aan de functie selecties, waarbij elke herhaling een model met een score training levert doorloopt de service vervolgens. Hoe hoger de score, hoe beter het model wordt beschouwd als "passen" uw gegevens.
 
-Uw trainingsgegevens is achter de schermen die zijn gemaakt met een gedefinieerd doel-functie en intelligente herhaald na via combinaties van ML-algoritmes en -onderdelen. Vervolgens, op basis van scores van de training, het beste model is geïdentificeerd en aan u zijn aanbevolen. 
+Met geautomatiseerde machine learning, zult u de tijd die nodig zijn om op te halen gereed is voor productie ML-modellen met geweldige eenvoudig en efficiënt te versnellen.
 
-U hebt nog steeds controle over uw experiment en transparantie over wat er gebeurt. U kunt beperkingen definiëren en doelstellingen op basis van tijd, nauwkeurigheid, of het aantal iteraties, bijvoorbeeld experimenteren. U kunt elk model dat is gegenereerd voor uw experiment, de training-stroom voor elke herhaling en de meest invloedrijke functies voor een bepaald model bekijken.
+## <a name="when-to-use-automated-ml"></a>Wanneer u geautomatiseerde ML
+
+Geautomatiseerde ML democratizes van de machine learning-model ontwikkelingsproces en biedt uitgebreide mogelijkheden met de gebruikers, ongeacht hun data science-ervaring voor het identificeren van een end-to-end machine learning-pijplijn voor elk probleem.
+
+Gegevenswetenschappers, bedrijfsanalisten en ontwikkelaars in branches kunnen geautomatiseerde ML te gebruiken:
+
++ Machine learning-oplossingen zonder uitgebreide kennis van programmeren implementeren
++ Bespaar tijd en resources
++ Gebruikmaken van best practices voor data science
++ Geef flexibele oplossen van problemen
 
 ## <a name="how-automated-ml-works"></a>Hoe geautomatiseerde ML werkt
 
 Met behulp van **Azure Machine Learning-service**, u kunt ontwerpen en uitvoeren van uw geautomatiseerde experimenten voor ML-training met deze stappen:
 
 1. **Het probleem ML** moet worden opgelost: classificatie, prognoses of regressie
-   
+
 1. **Geef de bron en de indeling van de gelabelde trainingsgegevens**: Numpy matrices of Pandas dataframe
 
 1. **Configureren van de compute-doel voor modeltraining**, zoals uw [lokale computer, Azure Machine Learning berekent, externe virtuele machines of Azure Databricks](how-to-set-up-training-targets.md).  Meer informatie over geautomatiseerde training [op een externe bron](how-to-auto-train-remote.md).
 
 1. **Configureer de geautomatiseerde machine learning-parameters** om te bepalen wanneer het aantal iteraties via verschillende modellen, hyperparameter instellingen, geavanceerde voorverwerking/parametrisatie en welke metrische gegevens om te kijken bij het bepalen van het beste model.  U kunt de instellingen voor automatische trainingsexperiment configureren [in Azure portal](how-to-create-portal-experiments.md) of [met de SDK](how-to-configure-auto-train.md).
 
-1. **Dien de training uitvoeren.** 
+1. **Dien de training uitvoeren.**
 
+  ![Geautomatiseerde Machine learning](./media/how-to-automated-ml/automl-concept-diagram.png)
 
-[![Geautomatiseerde Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
-
-Tijdens de training maakt de Azure Machine Learning-service een aantal pijplijnen die verschillende algoritmen en parameters probeert. Deze wordt gestopt zodra dit bij het afsluitcriteria die zijn gedefinieerd in het experiment aankomt. 
+Tijdens de training maakt de Azure Machine Learning-service een aantal in parallelle pijplijnen die verschillende algoritmen en parameters. Deze wordt gestopt zodra dit bij het afsluitcriteria die zijn gedefinieerd in het experiment aankomt.
 
 U kunt ook de geregistreerde uitvoeren gegevens, metrische gegevens die zijn verzameld tijdens de uitvoering met inspecteren. De uitvoering van de training levert een Python-geserialiseerd object (`.pkl` bestand) dat het model en de voorverwerking van de gegevens bevat.
 
-
-Terwijl de modelopbouw is geautomatiseerd, kunt u ook [informatie over hoe belangrijk of desbetreffende functies zijn](how-to-configure-auto-train.md#explain) naar de gegenereerde modellen. 
+Terwijl de modelopbouw is geautomatiseerd, kunt u ook [informatie over hoe belangrijk of desbetreffende functies zijn](how-to-configure-auto-train.md#explain) naar de gegenereerde modellen.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -61,22 +68,25 @@ Terwijl de modelopbouw is geautomatiseerd, kunt u ook [informatie over hoe belan
 In elke geautomatiseerde machine learning-experiment, is uw gegevens met behulp van de standaardmethoden en eventueel via geavanceerde voorverwerking voorverwerkte.
 
 ### <a name="automatic-preprocessing-standard"></a>Automatische voorverwerking (standaard)
+
 Uw gegevens is in elke geautomatiseerde machine learning-experiment, automatisch geschaald of genormaliseerd zodat algoritmen presteren.  Tijdens het trainen van het model, wordt een van de volgende schalen of normalisering technieken worden toegepast op elk model.
 
 |Schalen&nbsp;&&nbsp;normalisering| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Functies standaardiseren door te verwijderen van het gemiddelde en schalen naar eenheid afwijking  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Functies door het schalen van elke functie door de minimum en maximum van die kolom getransformeerd  |
-| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |    Elke functie schalen door de maximale absolute waarde |  
-| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |   Deze Scaler-functies voor het bereik dat hun kwantiel |
-| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) | Lineaire dimensionaliteitsvermindering met behulp van enkelvoudige waarde ontleding van de gegevens aan het project deze tot een lagere dimensionale ruimte | 
-| [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |    Lineaire dimensionaliteitsvermindering uitvoert deze transformator met behulp van de afgekapte enkelvoudige waarde ontleding (SVD). Niet overeenkomstig PCA center deze estimator de gegevens voordat u de enkelvoudige waarde ontleding computing niet. Dit betekent dat het efficiënt kunt werken met scipy.sparse matrices | 
-| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Elk voorbeeld (dat wil zeggen, elke rij van de matrix gegevens) met ten minste één niet-nul-component is schaal gebracht weglating onafhankelijk van andere voorbeelden zodat een gelijk is aan de norm (l1 of l2) | 
+| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |Elke functie schalen door de maximale absolute waarde |
+| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |Deze Scaler-functies voor het bereik dat hun kwantiel |
+| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |Lineaire dimensionaliteitsvermindering met behulp van enkelvoudige waarde ontleding van de gegevens aan het project deze tot een lagere dimensionale ruimte |
+| [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Lineaire dimensionaliteitsvermindering uitvoert deze transformator met behulp van de afgekapte enkelvoudige waarde ontleding (SVD). Niet overeenkomstig PCA center deze estimator de gegevens voordat u de enkelvoudige waarde ontleding computing niet. Dit betekent dat het efficiënt kunt werken met scipy.sparse matrices |
+| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Elk voorbeeld (dat wil zeggen, elke rij van de matrix gegevens) met ten minste één niet-nul-component is opnieuw geschaald onafhankelijk van andere voorbeelden, zodat een gelijk is aan de norm (l1 of l2) |
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Geavanceerde voorverwerking: optionele parametrisatie
 
 Als u meer geavanceerde voorverwerking en parametrisatie zijn ook beschikbaar is, zoals ontbrekende waarden toerekening, codering en -transformaties. [Meer informatie over welke parametrisatie opgenomen is](how-to-create-portal-experiments.md#preprocess). Schakel deze instelling met:
-+ Azure Portal: Selecteren van de **voorverwerken** selectievakje in de **geavanceerde instellingen** [met deze stappen](how-to-create-portal-experiments.md). 
+
++ Azure Portal: Selecteren van de **voorverwerken** selectievakje in de **geavanceerde instellingen** [met deze stappen](how-to-create-portal-experiments.md).
+
 + Python-SDK: Op te geven `"preprocess": True` voor de [ `AutoMLConfig` klasse](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 ## <a name="ensemble-models"></a>Ensembles modellen
@@ -90,8 +100,9 @@ U kunt met Azure Machine Learning, geautomatiseerde ML gebruiken om te maken van
 ## <a name="automated-ml-across-microsoft"></a>Geautomatiseerde ML overal bij Microsoft
 
 Geautomatiseerde ML is ook beschikbaar in andere Microsoft-oplossingen, zoals:
+
 + In .NET-apps met behulp van Visual Studio en Visual Studio Code met [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
-+ [Op HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), waar u uw geautomatiseerde ML trainingstaken op Spark in HDInsight-clusters parallel uitschalen. 
++ [Op HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), waar u uw geautomatiseerde ML trainingstaken op Spark in HDInsight-clusters parallel uitschalen.
 + [In Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -100,10 +111,10 @@ Zie de voorbeelden en informatie over het bouwen van modellen met behulp van gea
 
 + Ga als volgt de [zelfstudie: Automatisch een classificatie model trainen met Azure geautomatiseerde Machine Learning](tutorial-auto-train-models.md)
 
-+ Configureer de instellingen voor automatische trainingsexperiment: 
-   + In Azure portal-interface, [Volg deze stappen](how-to-create-portal-experiments.md).
-   + Met de Python-SDK [Volg deze stappen](how-to-configure-auto-train.md).
++ Configureer de instellingen voor automatische trainingsexperiment:
+  + In Azure portal-interface, [Volg deze stappen](how-to-create-portal-experiments.md).
+  + Met de Python-SDK [Volg deze stappen](how-to-configure-auto-train.md).
   
- + Meer informatie over het automatisch van de trein met behulp van time series-gegevens, [Volg deze stappen](how-to-auto-train-forecast.md).
++ Meer informatie over het automatisch van de trein met behulp van time series-gegevens, [Volg deze stappen](how-to-auto-train-forecast.md).
 
 + Probeer [Jupyter-Notebook-voorbeelden](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)

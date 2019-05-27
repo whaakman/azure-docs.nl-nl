@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926424"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967043"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Blobs toevoegen aan objecten in Azure, digitale dubbels
 
@@ -54,11 +54,11 @@ JSON-blob-metagegevens voldoet aan de volgende model:
 | Kenmerk | Type | Description |
 | --- | --- | --- |
 | **parentId** | String | De bovenliggende entiteit te koppelen aan de blob (spaties, apparaten of gebruikers) |
-| **De naam** |String | Een human-beschrijvende naam voor de blob |
+| **name** |String | Een human-beschrijvende naam voor de blob |
 | **type** | String | Kan geen gebruik van het type van de blob - *type* en *typeId*  |
-| **typeId** | Geheel getal | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
+| **typeId** | Integer | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
 | **subtype** | String | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
-| **subtypeId** | Geheel getal | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
+| **subtypeId** | Integer | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
 | **Beschrijving** | String | Aangepaste beschrijving van de blob |
 | **delen** | String | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
 
@@ -111,12 +111,12 @@ Afzonderlijk geretourneerde blobs voldoen aan de volgende JSON-schema:
 | Kenmerk | Type | Description |
 | --- | --- | --- |
 | **id** | String | De unieke id voor de blob |
-| **De naam** |String | Een human-beschrijvende naam voor de blob |
+| **name** |String | Een human-beschrijvende naam voor de blob |
 | **parentId** | String | De bovenliggende entiteit te koppelen aan de blob (spaties, apparaten of gebruikers) |
 | **type** | String | Kan geen gebruik van het type van de blob - *type* en *typeId*  |
-| **typeId** | Geheel getal | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
+| **typeId** | Integer | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
 | **subtype** | String | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
-| **subtypeId** | Geheel getal | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
+| **subtypeId** | Integer | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
 | **delen** | String | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
 | **Beschrijving** | String | Aangepaste beschrijving van de blob |
 | **contentInfos** | Matrix | Hiermee geeft u de metagegevens van niet-gestructureerde gegevens met inbegrip van versie |

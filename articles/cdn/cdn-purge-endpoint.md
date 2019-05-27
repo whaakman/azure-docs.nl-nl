@@ -5,21 +5,21 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324881"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909677"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Een Azure CDN-eindpunt leegmaken
 ## <a name="overview"></a>Overzicht
@@ -69,7 +69,7 @@ In deze zelfstudie helpt u bij het opschonen van de activa van alle edge-knooppu
     ![Knop verwijderen](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Opschonen van aanvragen nodig ongeveer 2-3 minuten om te verwerken met **Azure CDN van Verizon** (standaard en premium), en ongeveer 7 minuten met **Azure CDN van Akamai**.  Azure CDN heeft een limiet van 50 gelijktijdige aanvragen voor wissen op een bepaald moment op het niveau van het profiel. 
+> Opschonen van aanvragen nodig ongeveer twee minuten om het proces met **Azure CDN van Microsoft** en **Azure CDN van Verizon** (standaard en premium), en ongeveer 10 seconden met **Azure CDN van Akamai**.  Azure CDN heeft een limiet van 50 gelijktijdige aanvragen voor wissen op een bepaald moment op het niveau van het profiel. 
 > 
 > 
 
