@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150498"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatisch herstel na noodgevallen oplossing met behulp van Azure Site Recovery voor bestandsshares die worden gehost op StorSimple
 
@@ -321,7 +321,7 @@ Tijdens een failback volumecontainers StorSimple zijn een failover naar het fysi
    
    ![Starten van Failback](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
-## <a name="best-practices"></a>Beste praktijken
+## <a name="best-practices"></a>Aanbevolen procedures
 ### <a name="capacity-planning-and-readiness-assessment"></a>Capaciteit plannen en readiness assessment
 #### <a name="hyper-v-site"></a>Hyper-V-site
 Gebruik de [gebruiker Capaciteitsplanner](https://www.microsoft.com/download/details.aspx?id=39057) ontwerpen van de server-, opslag- en netwerkinfrastructuur voor uw Hyper-V replica-omgeving.

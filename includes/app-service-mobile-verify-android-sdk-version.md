@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133819"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141194"
 ---
 Vanwege de lopende ontwikkeling mogelijk de Android SDK-versie is geïnstalleerd in Android Studio niet overeen met de versie in de code. De Android SDK waarnaar wordt verwezen in deze zelfstudie is versie 26, het laatste nieuws op het moment van schrijven. Het versienummer verhogen als nieuwe versies van de SDK worden weergegeven en wordt geadviseerd om de meest recente beschikbare versie.
 

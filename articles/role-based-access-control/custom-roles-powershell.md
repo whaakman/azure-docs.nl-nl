@@ -15,11 +15,11 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158456"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Aangepaste rollen maken voor Azure-resources met behulp van Azure PowerShell
 
@@ -34,7 +34,7 @@ Zie voor een stapsgewijze zelfstudie voor het maken van een aangepaste rol [zelf
 Voor het maken van aangepaste rollen, hebt u het volgende nodig:
 
 - Machtigingen voor het maken van aangepaste rollen, zoals [Eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator)
-- [Azure Cloudshell](../cloud-shell/overview.md) of [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure Cloud Shell](../cloud-shell/overview.md) of [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-custom-roles"></a>Aangepaste rollen opvragen
 
@@ -128,7 +128,7 @@ PS C:\> (Get-AzRoleDefinition "Virtual Machine Operator").Actions
 "Microsoft.Support/*"
 ```
 
-## <a name="create-a-custom-role"></a>Een aangepaste rol maken
+## <a name="create-a-custom-role"></a>Een aangepast rol maken
 
 U kunt een aangepaste rol maken met de [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) opdracht. Er zijn twee methoden voor het structureren van de rol, met behulp van `PSRoleDefinition` object of een JSON-sjabloon. 
 

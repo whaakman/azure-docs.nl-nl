@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419217"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147478"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Maximaal beschikbare Service Fabric betrouwbare schijf op basis van volume in een Service Fabric-NET-toepassing koppelen 
 De algemene methode voor permanente status met container-apps is het gebruik van externe opslag, zoals Azure File Storage- of -database, zoals Azure Cosmos DB. Dit leidt tot aanzienlijke lezen en schrijven netwerklatentie naar de externe opslag.
@@ -73,7 +73,7 @@ U ziet de naam van de gateway-resource die is, typt u als resource `Microsoft.Se
 
 Zodra de toepassing met succes is geïmplementeerd, krijgt u het IP-adres van de gateway-resource voor de app. Gebruik de naam van de gateway die u hebt gezien tijdens boven de sectie.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 De uitvoer moet een eigenschap `ipAddress` is het openbare IP-adres voor de service-eindpunt. Openen vanuit een browser. Een webpagina wordt weergegeven met de itemwaarde die elke seconde wordt bijgewerkt.

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66166194"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
 
@@ -343,9 +343,9 @@ IoT Hub registreert dit logboek wanneer een bericht weergegeven met de eigenscha
 
 Hier `durationMs` niet is berekend als de klok van de IoT Hub mogelijk niet gesynchroniseerd met de apparaatklok en een duur van de berekening kan dus misleidend. Het is raadzaam schrijven logica met behulp van de tijdstempels in de `properties` sectie om vast te leggen van pieken in de latentie van apparaat-naar-cloud.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Geheel getal | De grootte van apparaat-naar-cloud bericht in bytes |
+| **messageSize** | Integer | De grootte van apparaat-naar-cloud bericht in bytes |
 | **deviceId** | Tekenreeks van ASCII-7-bits alfanumerieke tekens | De identiteit van het apparaat |
 | **callerLocalTimeUtc** | UTC timestamp | De aanmaaktijd van het bericht, zoals gemeld door de lokale klok van apparaat |
 | **calleeLocalTimeUtc** | UTC timestamp | De tijd van aankomst bericht bij de IoT-Hub gateway zoals gemeld door IoT Hub-service kant klok |
@@ -377,7 +377,7 @@ IoT Hub registreert dit logboek bij het bericht met geldige trace-eigenschappen 
 
 In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend verkeer.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | True of false, geeft u aan of Routering van berichten is ingeschakeld in de IoT-Hub |
 | **parentSpanId** | String | De [bereik-id](https://w3c.github.io/trace-context/#parent-id) van het bericht bovenliggende, die in dit geval de D2C message-tracering zijn |
@@ -409,7 +409,7 @@ IoT Hub records dit melden wanneer [routering](iot-hub-devguide-messages-d2c.md)
 
 In de `properties` sectie, dit logboek bevat aanvullende informatie over bericht inkomend verkeer.
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | De naam van het eindpunt van de routering |
 | **endpointType** | String | Het type van het eindpunt van de routering |

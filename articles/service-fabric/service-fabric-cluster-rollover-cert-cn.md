@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
 ms.openlocfilehash: dd4b6026772a20c522532e1ba65c6846addfa161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66159902"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Handmatig een Service Fabric-cluster-certificaat vernieuwen
 Als een Service Fabric-clustercertificaat bijna verloopt, moet u het certificaat bijwerken.  Rollover van certificaten is eenvoudig als het cluster is [ingesteld voor gebruik certificaten op basis van de algemene naam](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (in plaats van vingerafdruk).  Haal een nieuw certificaat van een certificeringsinstantie met een nieuwe vervaldatum.  Zelfondertekende certificaten worden niet ondersteund voor productie Service Fabric-clusters, om op te nemen van certificaten die zijn gegenereerd tijdens de Azure portal Cluster maken-werkstroom. Het nieuwe certificaat moet dezelfde algemene naam als het certificaat voor oudere hebben. 

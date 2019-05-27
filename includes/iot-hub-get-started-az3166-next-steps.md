@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 06/09/2018
 ms.author: liydu
 ms.openlocfilehash: 783921009a1668647a238f1c344885ec807d5b8a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380587"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166956"
 ---
 Zie de volgende om door te gaan aan de slag met Azure IoT Hub en andere IoT-scenario's met behulp van IoT DevKit verkennen:
 

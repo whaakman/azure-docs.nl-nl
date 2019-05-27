@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 4/8/2019
 ms.author: mjbrown
 ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151214"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Beheer van Azure Cosmos-resources met behulp van Azure CLI
 
@@ -21,7 +21,7 @@ De volgende handleiding wordt beschreven veelgebruikte opdrachten voor het autom
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
-## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
+## <a name="create-an-azure-cosmos-db-account"></a>Een Azure Cosmos DB-account maken
 
 Als u wilt een Azure Cosmos DB-account maken met SQL-API, sessieconsistentie in regio's VS-Oost en VS-West, voer de volgende opdracht:
 

@@ -1,10 +1,15 @@
 ---
+author: wesmc7777
+ms.author: wesmc
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
 ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346127"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156367"
 ---
 > [!div class="op_single_selector"]
 > * [Het apparaat: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
@@ -15,6 +20,7 @@ ms.locfileid: "60346127"
 Back-end-apps kunnen gebruiken primitieven van Azure IoT Hub, zoals [apparaatdubbel] [ lnk-devtwin] en [directe methoden][lnk-c2dmethod], op afstand starten en bewaken van apparaat van de beheeracties op apparaten. In deze zelfstudie leert u hoe een back-end-app en een apparaat-app samenwerken kunnen om te starten en te bewaken van een extern apparaat opnieuw opstarten met behulp van IoT-Hub.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Gebruik een rechtstreekse methode apparaat management om acties te starten (zoals opnieuw opstarten, Fabrieksinstellingen terugzetten en firmware-update) vanuit een back-end-app in de cloud. Het apparaat is verantwoordelijk voor:
 
 * Verwerken van de methode-aanvraag verzonden vanuit IoT Hub.

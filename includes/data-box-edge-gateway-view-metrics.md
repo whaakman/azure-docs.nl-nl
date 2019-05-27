@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754957"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161312"
 ---
 U kunt ook de metrische gegevens voor het controleren van de prestaties van het apparaat en in sommige gevallen voor het oplossen van problemen met het apparaat weergeven.
 
@@ -17,7 +17,7 @@ De volgende stappen uitvoeren in Azure portal een grafiek voor metrische gegeven
 
 1. Voor uw resource in Azure portal, gaat u naar **bewaking > metrische gegevens** en selecteer **metrische waarde toevoegen**.
 
-    ![Waarde toevoegen](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
+    ![Metrische waarde toevoegen](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
 
 2. De resource wordt automatisch ingevuld.  
 

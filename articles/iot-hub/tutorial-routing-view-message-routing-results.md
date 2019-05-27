@@ -10,11 +10,11 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162762"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Zelfstudie: Deel 2: de gerouteerde berichten weergeven
 
@@ -26,7 +26,7 @@ ms.locfileid: "59045830"
 
 Dit zijn de regels voor de routering van berichten; Deze zijn ingesteld in deel 1 van deze zelfstudie, zodat u ze werken in dit tweede deel.
 
-|waarde |Resultaat|
+|value |Resultaat|
 |------|------|
 |niveau = 'opslag' |Schrijf naar Azure Storage.|
 |niveau = 'kritiek' |Schrijf naar een Service Bus-wachtrij. Een logische app haalt het bericht op uit de wachtrij en gebruikt Office 365 om het bericht via e-mail te versturen.|

@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794983"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169659"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Herstellen van niet-compatibele resources met Azure Policy
 
-Resources die niet voldoen aan een **deployIfNotExists** beleid kan worden geplaatst in een compatibele status via **herstel**. Herstel wordt bereikt door het beleid om uit te voeren dat de **deployIfNotExists** effect van het toegewezen beleid op uw bestaande resources. Dit artikel laat de stappen die nodig zijn om te begrijpen en uitvoeren van herstel met het beleid.
+Resources die niet voldoen aan een **deployIfNotExists** beleid kan worden geplaatst in een compatibele status via **herstel**. Herstel wordt gerealiseerd door Azure Policy om uit te voeren de **deployIfNotExists** effect van het toegewezen beleid op uw bestaande resources. Dit artikel laat de stappen die nodig zijn om te begrijpen en uitvoeren van herstel met Azure Policy.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Hoe herstel beveiliging werkt
 
-Wanneer de sjabloon in beleid wordt uitgevoerd de **deployIfNotExists** beleidsdefinitie, dit gebeurt met behulp van een [beheerde identiteit](../../../active-directory/managed-identities-azure-resources/overview.md).
-Beleid moet wordt gemaakt van een beheerde identiteit voor elke toewijzing echter over meer informatie over welke functies voor het verlenen van de beheerde identiteit. Als de beheerde identiteit rollen ontbreekt, wordt deze fout weergegeven tijdens de toewijzing van het beleid of een initiatief. Wanneer u de portal, beleid wordt automatisch de beheerde identiteit de vermelde rollen toewijzen als toewijzing is gestart.
+Wanneer de sjabloon in Azure Policy wordt uitgevoerd de **deployIfNotExists** beleidsdefinitie, dit gebeurt met behulp van een [beheerde identiteit](../../../active-directory/managed-identities-azure-resources/overview.md).
+Azure Policy moet wordt gemaakt van een beheerde identiteit voor elke toewijzing echter over meer informatie over welke functies voor het verlenen van de beheerde identiteit. Als de beheerde identiteit rollen ontbreekt, wordt deze fout weergegeven tijdens de toewijzing van het beleid of een initiatief. Wanneer u de portal, Azure Policy wordt automatisch de beheerde identiteit de vermelde rollen toewijzen als toewijzing is gestart.
 
 ![Beheerde identiteit - ontbrekende functie](../media/remediate-resources/missing-role.png)
 
@@ -39,7 +39,7 @@ De eerste stap is het definiëren van de rollen die **deployIfNotExists** moet i
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -57,7 +57,7 @@ Get-AzRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Handmatig configureren van de beheerde identiteit
 
-Wanneer u een toewijzing met behulp van de portal maakt, beleid zowel genereert de beheerde identiteit en verleent het de rollen die zijn gedefinieerd in **roleDefinitionIds**. Stappen voor het maken van de beheerde identiteit en machtigingen toewijzen moeten handmatig worden gedaan in de volgende voorwaarden:
+Bij het maken van een toewijzing met behulp van de portal, Azure Policy zowel genereert de beheerde identiteit en geeft deze de rollen die zijn gedefinieerd in **roleDefinitionIds**. Stappen voor het maken van de beheerde identiteit en machtigingen toewijzen moeten handmatig worden gedaan in de volgende voorwaarden:
 
 - Tijdens het gebruik van de SDK (zoals Azure PowerShell)
 - Wanneer een resource buiten het bereik van de roltoewijzing is gewijzigd door de sjabloon
@@ -126,7 +126,8 @@ Een rol toevoegen aan de beheerde identiteit van de toewijzing, de volgende stap
 
 1. Klik op de **toegangsbeheer (IAM)** op de pagina resources koppelen en klik op **+ roltoewijzing toevoegen** aan de bovenkant van de pagina voor het beheer van toegang.
 
-1. Selecteer de juiste rol die overeenkomt met een **roleDefinitionIds** van de beleidsdefinitie. Laat **toegang toewijzen aan** ingesteld op de standaardwaarde van 'Azure AD gebruiker, groep of toepassing'. In de **Selecteer** vak, plakt of typt u het gedeelte van de resource-ID van toewijzing zich eerder hebt. Wanneer de zoekopdracht is voltooid, klikt u op het object met dezelfde naam-ID selecteren en op **opslaan**.
+1. Selecteer de juiste rol die overeenkomt met een **roleDefinitionIds** van de beleidsdefinitie.
+   Laat **toegang toewijzen aan** ingesteld op de standaardwaarde van 'Azure AD gebruiker, groep of toepassing'. In de **Selecteer** vak, plakt of typt u het gedeelte van de resource-ID van toewijzing zich eerder hebt. Wanneer de zoekopdracht is voltooid, klikt u op het object met dezelfde naam-ID selecteren en op **opslaan**.
 
 ## <a name="create-a-remediation-task"></a>Een herstel-taak maken
 
@@ -193,9 +194,9 @@ Zie voor andere herstel-cmdlets en voorbeelden, de [Az.PolicyInsights](/powershe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk voorbeelden op [Azure Policy-voorbeelden](../samples/index.md)
-- Controleer de [structuur van beleidsdefinities](../concepts/definition-structure.md)
-- Beoordeling [effecten beleid begrijpen](../concepts/effects.md)
-- Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md)
-- Meer informatie over het [Nalevingsgegevens ophalen](getting-compliance-data.md)
-- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](../../management-groups/overview.md)
+- Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
+- Lees over de [structuur van Azure Policy-definities](../concepts/definition-structure.md).
+- Lees [Informatie over de effecten van het beleid](../concepts/effects.md).
+- Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md).
+- Meer informatie over het [ophalen compatibiliteitsgegevens](getting-compliance-data.md).
+- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../../management-groups/overview.md).

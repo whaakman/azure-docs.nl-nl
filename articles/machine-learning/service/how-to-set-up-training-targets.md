@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236948"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160485"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
+# <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen 
 
 Met Azure Machine Learning-service, kunt u uw model op een groot aantal bronnen of omgevingen, gezamenlijk aangeduid als trainen [ __compute-doelen__](concept-azure-machine-learning-architecture.md#compute-target). Een compute-doel is een lokale computer of een cloudresource, zoals een Azure Machine Learning-Computing, Azure HDInsight of een externe virtuele machine.  U kunt ook compute-doelen voor de implementatie van model maken zoals beschreven in ["waar en hoe u uw modellen implementeren '](how-to-deploy-and-where.md).
 
@@ -38,7 +38,7 @@ In dit artikel leert u hoe u met verschillende compute-doelen voor modeltraining
 Azure Machine Learning-service heeft verschillende ondersteuning voor verschillende compute-doelen. Een typische model ontwikkelingscyclus begint met dev/experimenten op een kleine hoeveelheid gegevens. In deze fase, wordt u aangeraden een lokale omgeving. Bijvoorbeeld, de lokale computer of een cloud-gebaseerde VM. Als u uw training voor grotere gegevenssets opschalen of gedistribueerde training doen, wordt u aangeraden een één of meerdere node cluster maken dat automatisch wordt geschaald telkens wanneer die u een uitvoering verzenden met Azure Machine Learning-Computing. U kunt ook uw eigen compute-resource koppelen, hoewel ondersteuning voor verschillende scenario's als variëren kunnen hieronder uitgelegd:
 
 
-|COMPUTE-doel voor training| GPU-versnelling | Geautomatiseerd<br/> hyperparameter afstemmen | Geautomatiseerd</br> machine learning | Azure Machine Learning-pijplijnen |
+|COMPUTE-doel voor training| GPU-versnelling | Geautomatiseerd<br/> hyperparameter afstemmen | Geautomatiseerd<br/> machine learning | Azure Machine Learning-pijplijnen |
 |----|:----:|:----:|:----:|:----:|
 |[Lokale computer](#local)| Misschien | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-Computing](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -418,6 +418,10 @@ Of u kunt:
 
 * Verzenden van het experiment met een `Estimator` object, zoals wordt weergegeven in [Train ML-modellen met loopt](how-to-train-ml-models.md). 
 * Een experiment verzenden [met behulp van de CLI-extensie](reference-azure-machine-learning-cli.md#experiments).
+
+## <a name="github-tracking-and-integration"></a>GitHub bijhouden en integratie
+
+Wanneer u een training uitgevoerd waarbij de bronmap is een lokale Git-opslagplaats start, wordt informatie over de opslagplaats opgeslagen in de uitvoeringsgeschiedenis. Bijvoorbeeld, wordt de huidige doorvoer-ID voor de opslagplaats die vastgelegd als onderdeel van de geschiedenis.
 
 ## <a name="notebook-examples"></a>Laptop-voorbeelden
 

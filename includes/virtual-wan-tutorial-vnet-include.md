@@ -9,11 +9,11 @@ ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744076"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150829"
 ---
 Voor het snel maken van een VNet, kunt u 'Try It' in dit artikel om een PowerShell-console te openen. Pas de waarden aan en kopieer en plak de opdrachten in het consolevenster. Zie voor meer informatie over de nieuwe Az-module en compatibiliteit met AzureRM [Introductie van de nieuwe Az-module van Azure PowerShell](/powershell/azure/new-azureps-module-az). Zie voor instructies over Az-module installeren, [Azure PowerShell installeren](/powershell/azure/install-az-ps).
 
