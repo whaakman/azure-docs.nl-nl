@@ -4,15 +4,15 @@ description: In dit artikel wordt uitgelegd hoe u meer informatie over uw factuu
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115534"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965639"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Meer informatie over uw factuur voor Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Als u ingerichte doorvoer voor een container of een set met containers om 9:30 u
 
 * Als uw doorvoer moet worden gewijzigd en u de ingerichte doorvoer van elke database met 10 K RU/sec. voor elke database verhoogd, en u een nieuwe container aan de eerste database met speciaal toegewezen doorvoermodus met 15 K RU/sec. met uw database gedeelde doorvoer toevoegen, uw totale ingerichte capaciteit zou 155-K RU/sec. (60 K RU/sec. + 80 K RU/sec. + 15 K RU/sec.) zijn.  
 
-* Uw factuur's vervolgens gewijzigd in: 1.550 * $0.008 = $12.40 / uur.  
+* Uw factuur zou dan worden: 1.550 * $0.008 = $12.40 / uur.  
 
 * In een maand van 720 uur als 300 uur ingerichte doorvoer 120-K RU/sec. is en voor de resterende 420 uur ingerichte doorvoer 155-K RU/sec., is factuur uw maandelijkse: 300 x $9.60 / uur + 420 x $12.40 / uur = $2,880 + $5,208 = $8,088 / maand. 
 
@@ -212,7 +212,7 @@ Laten we eens een ander voorbeeld, waarin u wilt proactief schatting van uw fact
 
 |**Doorvoer kosten** | | | |
 |----|----|----|----|
-|Type bewerking| Aanvragen/sec| Gem. RU/request| RU's die nodig zijn|
+|Bewerkingstype| Aanvragen/sec| Gem. RU/request| RU's die nodig zijn|
 |Schrijven| 100 | 5 | 500|
 |Lezen| 400| 1| 400|
 
@@ -252,7 +252,7 @@ Wat u daadwerkelijk hebt aangeschaft, is een tegoed van $8 per uur voor 100 K RU
 |----|----|----|----|----|
 |US - oost|$0.008 |50 K|$4|$2,880 |
 |Japan - oost|$0.009 |50 K| $4.50 |$3,240 |
-|||Betalen naar gebruik|$8.50|$6120|
+|||Betalen per gebruik|$8.50|$6120|
 |Aangeschafte gereserveerde capaciteit|$0.0064 (20% korting) |100 RU/sec. of vooraf aangeschafte $8-capaciteit |-$8|-$5,760 |
 |Nettofactuur|||$0.50 |$360 |
 

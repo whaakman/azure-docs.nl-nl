@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306135"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962910"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Opslaan in cache met de Service Azure voordeur
 Het volgende document bevat gedrag voor voordeur met regels voor doorsturen die opslaan in cache ingeschakeld.
@@ -101,7 +101,7 @@ Cache worden op de voordeur zijn niet hoofdlettergevoelig. Bovendien zijn ze que
 ## <a name="cache-expiration"></a>Vervaltijd van de cache
 De volgende volgorde van headers wordt gebruikt om te bepalen hoe lang een item zijn in de cache opgeslagen:</br>
 1. Cache-Control: s-maxage =\<seconden >
-2. Cache-Control: maxage =\<seconden >
+2. Cache-Control: max-age=\<seconds>
 3. Verloopt: \<http-datum >
 
 Cache-Control-antwoordheaders die aangeven dat het antwoord in de cache wordt niet worden opgeslagen, zoals Cache-Control: privé, Cache-Control: niet-cache en het Cache-Control: Nee-archief worden herkend. Als er meerdere aanvragen die onderweg zijn op een pop-server voor de dezelfde URL, kunnen ze het antwoord delen. Als er geen Cache-Control aanwezig is is het standaardgedrag dat AFD cache worden opgeslagen door de resource voor X hoeveelheid tijd waarin X willekeurig tussen 1 tot 3 dagen wordt opgehaald.
