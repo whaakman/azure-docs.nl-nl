@@ -9,12 +9,12 @@ ms.date: 04/12/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7029f07b494630cc1ebe4a2dbfb297e73d85ec5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153193"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65874118"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage-verbindingsreeksen configureren
 
@@ -35,7 +35,7 @@ De toepassing nodig heeft voor toegang tot de verbindingsreeks in runtime voor h
 
 De verbindingsreeks opslaan in een configuratiebestand, kunt u eenvoudig om bij te werken van de verbindingsreeks in te schakelen tussen de opslagemulator en Azure storage-account in de cloud. U hoeft alleen te bewerken van de verbindingsreeks om te verwijzen naar uw doelomgeving.
 
-U kunt de [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) voor toegang tot uw verbindingsreeks in runtime, ongeacht waar uw toepassing wordt uitgevoerd.
+U kunt de [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) voor toegang tot uw verbindingsreeks in runtime, ongeacht waar uw toepassing wordt uitgevoerd.
 
 ## <a name="create-a-connection-string-for-the-storage-emulator"></a>Maken van een verbindingsreeks voor de opslagemulator
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
@@ -107,7 +107,7 @@ Als u een opslageindpunt hebt toegewezen aan een aangepast domein en dat eindpun
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Een verbindingsreeks met het achtervoegsel van een eindpunt maken
-Gebruik de volgende indeling van de verbindingsreeks voor het maken van een verbindingsreeks voor een opslagservice in regio's of instanties met een ander eindpunt achtervoegsels, zoals voor Azure China of Azure Government. Aangeven of u wilt verbinding maken met de storage-account via HTTPS (aanbevolen) of HTTP, Vervang `myAccountName` vervangen door de naam van uw opslagaccount, `myAccountKey` door uw toegangssleutel en vervang `mySuffix` met het URI-achtervoegsel:
+Gebruik de volgende indeling van de verbindingsreeks voor het maken van een verbindingsreeks voor een opslagservice in regio's of instanties met een ander eindpunt achtervoegsels, zoals voor Azure China 21Vianet of Azure Government. Aangeven of u wilt verbinding maken met de storage-account via HTTPS (aanbevolen) of HTTP, Vervang `myAccountName` vervangen door de naam van uw opslagaccount, `myAccountKey` door uw toegangssleutel en vervang `mySuffix` met het URI-achtervoegsel:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -116,7 +116,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Hier volgt een voorbeeld van de verbindingsreeks voor storage-services in Azure China:
+Hier volgt een voorbeeld van de verbindingsreeks voor storage-services in Azure China 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;

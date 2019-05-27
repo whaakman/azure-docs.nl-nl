@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 05/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415127"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956572"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 
@@ -27,6 +27,9 @@ ms.locfileid: "60415127"
 Nu u hebt vastgesteld dat on-premises Multi-Factor Authentication-server moet worden gebruikt, gaat u aan de slag. Op deze pagina vindt u informatie over een nieuwe installatie van de server en leert u deze in te stellen met on-premises Active Directory. Als u de MFA-server hebt geïnstalleerd en op zoek bent naar een upgrade, raadpleegt u [Upgraden naar de meest recente Azure Multi-Factor Authentication-server](howto-mfaserver-deploy-upgrade.md). Zie [De webservice voor de mobiele app van de Azure Multi-Factor Authentication-server implementeren](howto-mfaserver-deploy-mobileapp.md) voor meer informatie over het installeren van de webservice.
 
 ## <a name="plan-your-deployment"></a>Uw implementatie plannen
+
+> [!WARNING]
+> Vanaf maart van de MFA-Server 2019 is downloads alleen beschikbaar voor betaalde tenants. Gratis proefversie/tenants wordt niet langer kunnen downloaden of genereren en gebruiken van activering.
 
 Voordat u de Multi-Factor Authentication-server downloadt, moet u bedenken wat uw laadvereisten en de vereisten voor hoge beschikbaarheid zijn. Gebruik deze informatie om te bepalen hoe en waar u wilt implementeren.
 
@@ -90,6 +93,9 @@ Als u de functie Gebeurtenisbevestiging niet gebruikt en gebruikers geen mobiele
 
 ## <a name="download-the-mfa-server"></a>De MFA-server downloaden
 
+> [!WARNING]
+> Vanaf maart van de MFA-Server 2019 is downloads alleen beschikbaar voor betaalde tenants. Gratis proefversie/tenants wordt niet langer kunnen downloaden of genereren en gebruiken van activering.
+
 Volg deze stappen om de Azure Multi-Factor Authentication-server te downloaden via Azure Portal:
 
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
@@ -102,9 +108,6 @@ Volg deze stappen om de Azure Multi-Factor Authentication-server te downloaden v
 5. Houd deze pagina open want er wordt naar verwezen na het uitvoeren van het installatieprogramma.
 
 ## <a name="install-and-configure-the-mfa-server"></a>De MFA-server installeren en configureren
-
-> [!WARNING]
-> Vanaf maart van de MFA-Server 2019 is downloads alleen beschikbaar voor betaalde tenants. Gratis proefversie/tenants wordt niet langer kunnen downloaden of genereren en gebruiken van activering.
 
 Nu u de server hebt gedownload, kunt u deze installeren en configureren. Zorg ervoor dat de server waarop u deze installeert aan de vereisten in de planningssectie voldoet.
 

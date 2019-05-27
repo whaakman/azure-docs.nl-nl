@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 556c10cc5ec5e528857a120dadb16c2a10202ed3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe548b0e8c791d5e7e3bdbc7bd4612a130ff8168
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61250946"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873291"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Aan de slag met Apparaatbeheer (.NET/.NET)
 
@@ -36,7 +36,7 @@ Aan het eind van deze zelfstudie beschikt u over twee .NET-consoletoepassingen:
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Visual Studio 2017.
+* Visual Studio.
 
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 

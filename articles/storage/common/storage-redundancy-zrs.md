@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146185"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961438"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -32,10 +32,10 @@ ZRS is algemeen beschikbaar in de volgende regio's:
 - Frankrijk - centraal
 - Japan - oost
 - Verenigd Koninkrijk Zuid
+- US - centraal
 - US - oost
 - US - oost 2
 - US - west 2
-- US - centraal
 
 Microsoft blijft ZRS in extra Azure-regio's inschakelen. Controleer de [Azure Service-Updates](https://azure.microsoft.com/updates/) pagina regelmatig voor informatie over nieuwe regio's.
 
@@ -75,6 +75,7 @@ Houd rekening met de volgende beperkingen voor livemigratie:
 - U kunt alleen gegevens binnen dezelfde regio migreren. Als u migreren van uw gegevens in een ZRS-account zich in een regio die anders is dan de bronaccount wilt, moet u een handmatige migratie uitvoeren.
 - Alleen standard storage-accounttypen ondersteunen livemigratie. Premium storage-accounts moeten handmatig worden gemigreerd.
 - Livemigratie van ZRS LRS, GRS of RA-GRS wordt niet ondersteund. U moet handmatig de gegevens te verplaatsen naar een nieuwe of een bestaand opslagaccount.
+- Beheerde schijven zijn alleen beschikbaar voor LRS en kunnen niet worden gemigreerd naar ZRS. Voor integratie met de beschikbaarheid van Zie stelt [Inleiding tot Azure beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets). U kunt momentopnamen en installatiekopieën voor Standard-SSD Managed Disks opslaan op Standard HDD-opslag en [kiezen tussen LRS- als ZRS-opties](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 U kunt aanvragen livemigratie via de [ondersteuning van Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Selecteer het opslagaccount dat u wilt converteren naar ZRS vanuit de portal.
 1. Selecteer **nieuwe ondersteuningsaanvraag**
@@ -96,7 +97,7 @@ Een ondersteuningsmedewerker zal contact met u opnemen en bieden hulp die u nodi
 
 **Moet ik rekening houden met uitvaltijd tijdens de migratie?**
 
-Er is geen downtime die is veroorzaakt door de migratie. Tijdens een livemigratie, kunt u uw storage-account blijven terwijl uw gegevens worden gemigreerd tussen bron- en storage stempels. Tijdens het migratieproces hebt u dezelfde mate van duurzaamheid en beschikbaarheid SLA als u gewend bent.
+Er is geen downtime die is veroorzaakt door de migratie. U kunt tijdens een livemigratie blijven uw storage-account gebruiken terwijl uw gegevens worden gemigreerd tussen bron- en storage stempels. Tijdens het migratieproces hebt u dezelfde mate van duurzaamheid en beschikbaarheid SLA als u gewend bent.
 
 **Is er verlies van gegevens die zijn gekoppeld aan de migratie?**
 

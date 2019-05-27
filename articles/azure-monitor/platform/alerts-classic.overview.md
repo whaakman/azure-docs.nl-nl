@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776616"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914718"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
@@ -24,7 +24,7 @@ Waarschuwingen kunnen u voorwaarden configureren voor gegevens en een melding te
 
 ## <a name="old-and-new-alerting-capabilities"></a>Oude en nieuwe waarschuwingsfuncties
 
-In het verleden Azure Monitor, Application Insights, Log Analytics en status van de Service afzonderlijke heeft waarschuwingsfuncties. Overwerk, Azure, is verbeterd en combinatie van de gebruikersinterface en de verschillende methoden van waarschuwingen. De samenvoeging is nog steeds in behandeling. Waarschuwingen
+In het verleden Azure Monitor, Application Insights, Log Analytics en status van de Service afzonderlijke heeft waarschuwingsfuncties. Overwerk, Azure, is verbeterd en combinatie van de gebruikersinterface en de verschillende methoden van waarschuwingen. De samenvoeging is nog steeds in behandeling.
 
 Klassieke waarschuwingen ziet u alleen in het scherm van de gebruiker klassieke waarschuwingen in de Azure Portal. Dit scherm wordt weergegeven in de **klassieke waarschuwingen weergeven** knop op het scherm waarschuwingen. 
 

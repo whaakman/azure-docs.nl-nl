@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337ea9d55a119c3aec6e94649cdbf049f99e9d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783687"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113087"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Meer informatie over Azure AD Application Proxy connectors
 
@@ -87,7 +87,9 @@ Zie voor meer informatie over connectorgroepen [publiceren van toepassingen op a
 
 ## <a name="capacity-planning"></a>Capaciteitsplanning 
 
-Het is belangrijk om te controleren of dat u voldoende capaciteit tussen connectors voor het afhandelen van het verwachte verkeersvolume hebt gepland. In het algemeen, des te meer gebruikers hebt, des te groter een virtuele machine moet u. Hieronder vindt u een tabel geeft een overzicht van het volume andere machines kan worden verwerkt. Houd er rekening mee is alle gebaseerd op verwachte transacties Per seconde (TPS) in plaats van door gebruiker sinds gebruik patronen variëren en kunnen niet worden gebruikt om te voorspellen laden. Er worden ook enkele verschillen op basis van de grootte van de antwoorden en de reactietijd van de back-end-toepassing - grotere reactieformaat en langzamer reactietijden zal leiden tot een lagere maximale TPS. We raden u aan als u meer machines zodat de gedistribueerde belasting van de machines ongeveer 50 is %. De extra capaciteit weet u zeker dat u voor hoge beschikbaarheid en tolerantie hebt.
+Het is belangrijk om te controleren of dat u voldoende capaciteit tussen connectors voor het afhandelen van het verwachte verkeersvolume hebt gepland. U wordt aangeraden dat elke connectorgroep ten minste twee connectors heeft voor hoge beschikbaarheid en schaal. Met drie connectors is optimale geval moet u mogelijk een virtuele machine op elk gewenst moment-service. 
+
+In het algemeen, des te meer gebruikers hebt, des te groter een virtuele machine moet u. Hieronder volgt een tabel geeft een overzicht van het volume en de verwachte latentie verschillende computers kunnen worden verwerkt. Houd er rekening mee is alle gebaseerd op verwachte transacties Per seconde (TPS) in plaats van door gebruiker sinds gebruik patronen variëren en kunnen niet worden gebruikt om te voorspellen laden. Er worden ook enkele verschillen op basis van de grootte van de antwoorden en de reactietijd van de back-end-toepassing - grotere reactieformaat en langzamer reactietijden zal leiden tot een lagere maximale TPS. Het beste ook aanvullende machines met zodat de gedistribueerde belasting van de machines altijd ruime buffer biedt. De extra capaciteit weet u zeker dat u voor hoge beschikbaarheid en tolerantie hebt.
 
 |Kerngeheugens|RAM|Verwachte latentie (MS)-P99|Max TPS|
 | ----- | ----- | ----- | ----- |

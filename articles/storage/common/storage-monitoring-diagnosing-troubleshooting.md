@@ -9,12 +9,12 @@ ms.date: 05/11/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192172"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912324"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -426,7 +426,7 @@ Als de **percentthrottlingerror aan** metrische gegevens geven een toename in he
 Een toename van **percentthrottlingerror aan** vaak optreedt op hetzelfde moment als een toename van het aantal aanvragen voor opslag, of wanneer u in eerste instantie bent laden van uw toepassing testen. Dit kan ook zelf in de client als '503 Server bezet' of '500 time-out van de bewerking' http-statusberichten-opslagbewerkingen manifest.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Tijdelijke toename in percentthrottlingerror aan
-Als er pieken in de waarde van **percentthrottlingerror aan** die overeenkomen met perioden met veel activiteit voor de toepassing, het implementeren van een (niet-lineaire) uitstel strategie voor exponentieel voor nieuwe pogingen in uw client. Back-off nieuwe pogingen de onmiddellijke belasting van de partitie te verminderen en zodat uw toepassing te gebruiken om pieken in verkeer. Zie voor meer informatie over het implementeren van beleid voor opnieuw proberen met behulp van de Storage-clientbibliotheek [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
+Als er pieken in de waarde van **percentthrottlingerror aan** die overeenkomen met perioden met veel activiteit voor de toepassing, het implementeren van een (niet-lineaire) uitstel strategie voor exponentieel voor nieuwe pogingen in uw client. Back-off nieuwe pogingen de onmiddellijke belasting van de partitie te verminderen en zodat uw toepassing te gebruiken om pieken in verkeer. Zie voor meer informatie over het implementeren van beleid voor opnieuw proberen met behulp van de Storage-clientbibliotheek de [Microsoft.Azure.Storage.RetryPolicies naamruimte](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > U ziet ook pieken in de waarde van **percentthrottlingerror aan** die niet samenvallen met perioden met veel activiteit voor de toepassing: de meest waarschijnlijke oorzaak hier is de storage-service voor het verplaatsen van partities voor het verbeteren van de taakverdeling.
@@ -467,17 +467,17 @@ De meest voorkomende oorzaak van deze fout is een client verbinding verbreken vo
 ### <a name="the-client-is-receiving-403-messages"></a>De client ontvangt berichten van HTTP 403 (verboden)
 Als de clienttoepassing een HTTP 403-fout (verboden) weergeeft, is een vermoedelijke oorzaak dat de client gebruikmaakt van een verlopen Shared Access Signature (SAS) bij het verzenden van een opslagaanvraag (hoewel andere mogelijke oorzaken een tijdverschil, ongeldige sleutels of lege headers kunnen zijn). Als een verlopen SAS-sleutel de oorzaak is, ziet u geen vermeldingen in de logboekgegevens voor logboekregistratie voor opslag aan de serverzijde. De volgende tabel ziet u een voorbeeld van de client-side-logboekbestanden die worden gegenereerd door de Storage-clientbibliotheek die laat dit probleem optreedt zien:
 
-| Bron | Uitgebreidheid | Uitgebreidheid | Clientaanvraag-id | Bewerking tekst |
+| Source | Uitgebreidheid | Uitgebreidheid | Clientaanvraag-id | Bewerking tekst |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-… |Bewerking met de primaire locatie per locatiemodus PrimaryOnly starten. |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Synchrone verzoek om te beginnen <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Wachten op antwoord. |
-| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens het wachten op reactie: De externe server heeft een fout geretourneerd: (403) Verboden. |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Antwoord ontvangen. Statuscode 403, aanvraag-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, inhoud MD5 = =, ETag =. |
-| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens de bewerking: De externe server heeft een fout geretourneerd: (403)-verboden... |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Controleren als de bewerking opnieuw moet worden uitgevoerd. Aantal nieuwe pogingen = 0, HTTP-statuscode 403, uitzondering = = van de externe server heeft een fout geretourneerd: (403)-verboden... |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |De volgende locatie is ingesteld op de primaire, op basis van de locatiemodus. |
-| Microsoft.WindowsAzure.Storage |Fout |1 |85d077ab -… |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server heeft een fout geretourneerd: (403) Verboden. |
+| Microsoft.Azure.Storage |Informatie |3 |85d077ab-… |Bewerking met de primaire locatie per locatiemodus PrimaryOnly starten. |
+| Microsoft.Azure.Storage |Informatie |3 |85d077ab -… |Synchrone verzoek om te beginnen <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Informatie |3 |85d077ab -… |Wachten op antwoord. |
+| Microsoft.Azure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens het wachten op reactie: De externe server heeft een fout geretourneerd: (403) Verboden. |
+| Microsoft.Azure.Storage |Informatie |3 |85d077ab -… |Antwoord ontvangen. Statuscode 403, aanvraag-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, inhoud MD5 = =, ETag =. |
+| Microsoft.Azure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens de bewerking: De externe server heeft een fout geretourneerd: (403)-verboden... |
+| Microsoft.Azure.Storage |Informatie |3 |85d077ab -… |Controleren als de bewerking opnieuw moet worden uitgevoerd. Aantal nieuwe pogingen = 0, HTTP-statuscode 403, uitzondering = = van de externe server heeft een fout geretourneerd: (403)-verboden... |
+| Microsoft.Azure.Storage |Informatie |3 |85d077ab -… |De volgende locatie is ingesteld op de primaire, op basis van de locatiemodus. |
+| Microsoft.Azure.Storage |Fout |1 |85d077ab -… |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server heeft een fout geretourneerd: (403) Verboden. |
 
 In dit scenario, moet u onderzoeken waarom het SAS-token is verlopen voordat de client het token naar de server stuurt:
 

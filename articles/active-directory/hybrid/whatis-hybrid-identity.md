@@ -1,6 +1,6 @@
 ---
-title: Active Directory verbinden met Azure Active Directory. | Microsoft Docs
-description: Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD.
+title: Wat is hybride identiteit met Azure Active Directory?
+description: Hybride identiteit heeft een gemeenschappelijke gebruikersidentiteit in voor verificatie en autorisatie zowel on-premises en in de cloud.
 keywords: inleiding tot Azure AD Connect, overzicht Azure AD Connect, wat is Azure AD Connect, Active Directory installeren
 services: active-directory
 author: billmath
@@ -9,24 +9,26 @@ ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6393d363c85fd22b28a3bc2ac5ef02047ebaacf0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784357"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896830"
 ---
-# <a name="what-is-hybrid-identity"></a>Wat is hybride identiteit?
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Wat is hybride identiteit met Azure Active Directory?
 
-Vandaag de dag maken organisaties en bedrijven steeds meer gebruik van een mix van on-premises toepassingen en cloudtoepassingen.  Gebruikers hebben zowel on-premises als in de cloud toegang tot deze toepassingen nodig. Deze vereiste is een uitdaging geworden. 
+Vandaag de dag maken organisaties en bedrijven steeds meer gebruik van een mix van on-premises toepassingen en cloudtoepassingen.  Gebruikers hebben zowel on-premises als in de cloud toegang tot deze toepassingen nodig. Beheren van gebruikers zowel on-premises en in de cloud poses lastig scenario's. 
 
 De identiteitsoplossingen van Microsoft kunnen zowel on-premises als in de cloud worden gebruikt.  Met deze oplossingen wordt een algemene gebruikersidentiteit gemaakt voor verificatie en autorisatie voor alle resources, ongeacht de locatie. We noemen dit **hybride identiteit**.
 
-Voor het verwezenlijken van hybride identiteit kan, afhankelijk van uw scenario's, gebruik worden gemaakt van drie verificatiemethoden.   Deze methoden zijn: 
+Met hybride identiteiten met Azure AD en hybride identity management deze scenario's worden mogelijk.
+
+Als u wilt bereiken voor hybride identiteit met Azure AD, kan een van drie verificatiemethoden worden gebruikt, afhankelijk van uw scenario's.   Deze methoden zijn: 
 
 - **[Synchronisatie van wachtwoord-hashes (PHS)](whatis-phs.md)**  
 - **[Pass-through-verificatie (PTA)](how-to-connect-pta.md)**  

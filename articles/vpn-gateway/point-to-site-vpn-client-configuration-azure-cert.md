@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66113881"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Maken en VPN-clientconfiguratiebestanden voor native Azure certificate authentication P2S-configuraties installeren
 
@@ -154,7 +154,7 @@ De volgende instructies zijn gemaakt via strongSwan 5.5.1 op Ubuntu 17.0.4. Ubun
 
    ![naam van de kopieerbewerking](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
 6. Plak de naam in de **adres** veld van uw nieuwe VPN-verbinding in de **Gateway** sectie. Selecteer vervolgens het mappictogram aan het einde van de **certificaat** veld, Ga naar de **algemene** map en selecteer de **VpnServerRoot** bestand.
-7. In de **Client** sectie van de verbinding voor **verificatie**, selecteer **certificaten/persoonlijk sleutelpaar**. Voor **certificaat** en **privésleutel**, kiest u het certificaat en de persoonlijke sleutel die eerder zijn gemaakt. In **opties**, selecteer **aanvragen van een interne IP-adres**. Klik vervolgens op **Toevoegen**.
+7. In de **Client** sectie van de verbinding voor **verificatie**, selecteer **certificaten/persoonlijk sleutelpaar**. Voor **certificaat** en **privésleutel**, kiest u het certificaat en de persoonlijke sleutel die eerder zijn gemaakt. In **opties**, selecteer **aanvragen van een interne IP-adres**. Klik vervolgens op **toevoegen**.
 
    ![een interne IP-adres aanvragen](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
 8. Klik op de **netwerkbeheerder** pictogram (omhoog-pijl/pijl-omlaag) en houd de muis boven **VPN-verbindingen**. U ziet dat de VPN-verbinding die u hebt gemaakt. Klik op de verbinding tot stand brengt.

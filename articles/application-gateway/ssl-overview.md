@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715216"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849812"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Overzicht van SSL-beëindiging en end-to-end SSL met Application Gateway
 
@@ -36,7 +36,7 @@ Een SSL-certificaat is vereist voor het configureren van SSL-beëindiging, moet 
 Voor de SSL-verbinding om te werken, moet u ervoor zorgen dat het SSL-certificaat voldoet aan de volgende voorwaarden:
 
 - Dat de huidige datum en tijd is binnen de "Geldig vanaf" en "Geldig tot" datumbereik op het certificaat.
-- Deze naam van het certificaat' algemene' (CN) komt overeen met de host-header in de aanvraag. Bijvoorbeeld, als de client een aanvraag voor `https://www.contoso.com/`, moet de algemene naam `www.contoso.com`.
+- De algemene naam (CN) van het certificaat komt overeen met de host-header in de aanvraag. Als de client bijvoorbeeld een aanvraag indient bij `https://www.contoso.com/`, moet de algemene naam `www.contoso.com` zijn.
 
 ### <a name="certificates-supported-for-ssl-termination"></a>Certificaten die worden ondersteund voor SSL-beëindiging
 
@@ -48,6 +48,9 @@ Application gateway ondersteunt de volgende typen certificaten:
 - Zelfondertekende certificaten: Clientbrowsers deze certificaten niet vertrouwt, en de gebruiker wordt gewaarschuwd dat de virtuele servicecertificaat niet deel van een vertrouwensketen uitmaakt. Zelfondertekende certificaten zijn goed voor test- of omgevingen waar beheerders bepalen van de clients en beveiligingswaarschuwingen van de browser veilig kunnen negeren. Werkbelastingen voor productie mag nooit gebruik van zelfondertekende certificaten.
 
 Zie voor meer informatie, [configureren van SSL-beëindiging met application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+### <a name="size-of-the-certificate"></a>Grootte van het certificaat
+De Personal Information Exchange (PFX)-bestand met de gegevens van het SSL-certificaat mag niet meer dan 10 KB groot zijn.
 
 ## <a name="end-to-end-ssl-encryption"></a>End-to-end SSL-versleuteling
 

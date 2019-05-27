@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdb3de88fde2fbc7ec2aaffdb7d82433845db34b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545950"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121915"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Quickstart: Bouw een Xamarin-app die Microsoft-aanmelding integreert
 
@@ -57,14 +57,14 @@ Als u de app wilt instellen voor het ophalen van tokens, moet u de app eerst reg
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op uw account op de bovenste balk. Kies vervolgens onder **Directory** de Active Directory-tenant waar u de app wilt registreren.
 3. Selecteer **Alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
-4. Klik op **App-registraties** en selecteer vervolgens **Toevoegen**.
-5. Volg de aanwijzingen voor het maken van een nieuwe **systeemeigen clienttoepassing**.
+4. Klik op **App-registraties**, en selecteer vervolgens **registratie van nieuwe**.
+5. Volg de aanwijzingen voor het maken van een nieuwe clienttoepassing.
    * **Naam** beschrijft de app voor gebruikers.
+   * Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
    * **Omleidings-URI** is een combinatie van een schema en een tekenreeks die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde (bijvoorbeeld `http://DirectorySearcher`).
 6. Wanneer de registratie is voltooid, wijst Azure AD een unieke toepassings-id toe aan uw app. Kopieer de waarde vanaf het tabblad **Toepassing**, omdat u die later nodig hebt.
-7. Selecteer op de pagina **Instellingen** de **Vereiste machtigingen** en selecteer vervolgens **Toevoegen**.
-8. Selecteer **Microsoft Graph** als API. Voeg onder **Gedelegeerde machtigingen** de machtiging **Mapgegevens lezen** toe. 
-   Hierdoor kan de app de Graph API voor gebruikers doorzoeken.
+7. Uit de **API-machtigingen** weergeeft, schakelt **toevoegen van een machtiging**. Binnen **Select an API** Selecteer ***Microsoft Graph***.
+8. Onder **overgedragen machtigingen**, selecteer de machtiging **User.Read**, drukt u op **toevoegen** om op te slaan. Hiermee machtigt u de toepassing om gegevens uit de Azure AD Graph-API op te vragen voor gebruikers.
 
 ## <a name="step-3-install-and-configure-adal"></a>Stap 3: ADAL installeren en configureren
 

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192270"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954466"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR-taken naar te verwijzen: YAML
 
@@ -95,7 +95,7 @@ Het geheime object heeft de volgende eigenschappen.
 | Eigenschap | Type | Optioneel | Description | Standaardwaarde |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | Nee | De id van de geheime sleutel. | Geen |
-| `akv` | string | Ja | De geheime URL van de Azure Key Vault (AKV). | Geen |
+| `keyvault` | string | Ja | De URL van de Azure Key Vault-geheim. | Geen |
 | `clientID` | string | Ja | De client-ID van de gebruiker toegewezen identiteit voor Azure-resources worden beheerd. | Geen |
 
 ### <a name="network"></a>netwerk

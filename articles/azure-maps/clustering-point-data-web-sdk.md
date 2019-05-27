@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795928"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957329"
 ---
 # <a name="clustering-point-data"></a>Gegevens van clusters
 
@@ -33,7 +33,7 @@ var datasource = new atlas.source.DataSource(null, {
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
 
-    //The maximium zoom level in which clustering occurs.
+    //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15 
 });
@@ -46,9 +46,9 @@ De `DataSource` klasse heeft ook de volgende methoden met betrekking tot het clu
 
 | Methode | Retourtype | Description |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promise&lt;functie&lt;geometrie, eventuele&gt; \| vorm&gt; | Hiermee haalt u de onderliggende objecten van het opgegeven cluster op de volgende zoomniveau. Deze onderliggende items kunnen bestaan uit een combinatie van vormen en subclusters. De subclusters worden functies met eigenschappen die overeenkomen met ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Promise&lt;matrix&lt;functie&lt;geometrie, eventuele&gt; \| vorm&gt;&gt; | Hiermee haalt u de onderliggende objecten van het opgegeven cluster op de volgende zoomniveau. Deze onderliggende items kunnen bestaan uit een combinatie van vormen en subclusters. De subclusters worden functies met eigenschappen die overeenkomen met ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;getal&gt; | Berekent een zoomniveau waarmee het cluster wordt gestart uitbreiden of splitsen. |
-| getClusterLeaves (clusterId: aantal, limiet: getal, offset: getal) | Promise&lt;functie&lt;geometrie, eventuele&gt; \| vorm&gt; | Hiermee haalt u alle punten in een cluster. Stelt de `limit` te retourneren van een subset van de punten en gebruik de `offset` naar pagina door de punten. |
+| getClusterLeaves (clusterId: aantal, limiet: getal, offset: getal) | Promise&lt;matrix&lt;functie&lt;geometrie, eventuele&gt; \| vorm&gt;&gt; | Hiermee haalt u alle punten in een cluster. Stelt de `limit` te retourneren van een subset van de punten en gebruik de `offset` naar pagina door de punten. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Clusters met behulp van een laag bel weergeven
 
@@ -89,7 +89,7 @@ Wanneer muisgebeurtenissen worden uitgevoerd in een laag die geclusterde gegeven
 | cluster | booleaans | Hiermee wordt aangegeven als functie staat voor een cluster. |
 | cluster_id | string | Een unieke ID voor het cluster dat kan worden gebruikt met de gegevensbron `getClusterExpansionZoom`, `getClusterChildren`, en `getClusterLeaves` methoden. |
 | point_count | getal | Het aantal punten die het cluster bevat. |
-| point_count_abbreviated | string | Een tekenreeks is die de waarde point_count afkorting als het lang is. (bijvoorbeeld 4.000 wordt voor 4K) |
+| point_count_abbreviated | string | Een tekenreeks is die beperkt de `point_count` waarde op als het lang is. (bijvoorbeeld 4.000 wordt voor 4K) |
 
 In dit voorbeeld wordt een bel laag die cluster punten wordt weergegeven en voegt een gebeurtenis die wanneer ze worden geactiveerd, berekenen en de kaart Inzoomen op het volgende zoomniveau waarmee het cluster worden verbroken elkaar met behulp van de `getClusterExpansionZoom` -methode van de `DataSource` klasse en de `cluster_id` eigenschap van het aantal malen aangeklikt geclusterde gegevenspunt. 
 

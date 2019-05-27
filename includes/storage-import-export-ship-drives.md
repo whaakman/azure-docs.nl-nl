@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: d28244d75da540948093c775ffc525a80e362526
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478989"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115399"
 ---
 FedEx, UPS of DHL kan worden gebruikt voor het verzenden van het pakket naar Azure-datacenter. Als u gebruiken van een provider dan FedEx/DHL wilt, neem dan contact op met de Azure Data Box operationele team op `adbops@microsoft.com`
 

@@ -27,8 +27,6 @@
           href: manage-guest-access-with-access-reviews.md
         - name: Gebruikerstoegang beheren met beoordelingen
           href: manage-user-access-with-access-reviews.md
-        - name: Programma's en de bijbehorende besturingselementen beheren
-          href: manage-programs-controls.md
         - name: Gebruikers beheren die geen voorwaardelijke toegang hebben
           href: conditional-access-exclusion.md
 - name: Handleidingen
@@ -64,8 +62,6 @@
               href: review-your-access.md
             - name: Een toegangsbeoordeling voltooien
               href: complete-access-review.md
-            - name: Resultaten van toegangsbeoordeling ophalen
-              href: retrieve-access-review.md
         - name: Azure AD-rollen
           items:
             - name: Een toegangsbeoordeling maken

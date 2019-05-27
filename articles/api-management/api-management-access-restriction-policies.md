@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541698"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921213"
 ---
 # <a name="api-management-access-restriction-policies"></a>Beleid voor toegangsbeperking API Management
 
@@ -315,8 +315,6 @@ Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.mi
 De `quota-by-key` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per sleutel. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door met behulp van een beleidsexpressie voor een. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen moeten worden geteld naar het quotum. Als er meerdere beleidsregels opgehoogd dezelfde sleutelwaarde, wordt er slechts één keer verhoogd per aanvraag. Als de oproep is bereikt, wordt de oproepende functie ontvangt een `403 Forbidden` antwoordstatuscode.
 
 Zie voor meer informatie en voorbeelden van dit beleid [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
-
-> [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van het beleid voor dit beleid.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 

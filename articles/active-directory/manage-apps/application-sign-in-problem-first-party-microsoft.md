@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825218"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956842"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
@@ -87,7 +87,7 @@ Hieronder vindt u enkele veelvoorkomende problemen mensen ondervindt wanneer hun
 
 - Voor **Microsoft** **toepassingen waarvoor een licentie niet**, Hier volgen enkele dingen om te controleren:
 
-  * Als de toepassing aanvraagt **op gebruikersniveau machtigingen** (bijvoorbeeld ' toegang tot deze gebruiker Postvak"), zorg ervoor dat de gebruiker is aangemeld bij de toepassing en is uitgevoerd. een **toestemming op gebruikersniveau bewerking** zodat de toepassing toegang tot haar gegevens.
+  * Als de toepassing aanvraagt **op gebruikersniveau machtigingen** (bijvoorbeeld ' toegang tot deze gebruiker Postvak"), zorg ervoor dat de gebruiker is aangemeld bij de toepassing en is uitgevoerd. een **toestemming op gebruikersniveau bewerking** zodat de toepassing toegang tot hun gegevens.
 
   * Als de toepassing aanvraagt **administratormachtigingen** (bijvoorbeeld ' toegang tot postvakken van alle gebruikers'), zorg ervoor dat een globale beheerder is uitgevoerd. een **bewerking op beheerdersniveau toestemming andere gebruikers van alle gebruikers** in de organisatie.
 

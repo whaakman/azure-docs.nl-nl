@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: android
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
-ms.reviewer: dadobali
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 288581ed3ca339ad9126336556e7b0b565fbbafa
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545690"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121996"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snelstartgids: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
@@ -86,19 +85,18 @@ U dient een native client-toepassing geregistreerd te hebben bij Microsoft via h
     - Selecteer ***Azure Active Directory*** > ***App-registraties***.
 
 2. De app maken
-    - Selecteer **Nieuwe toepassing registreren**.
+    - Selecteer **registratie van nieuwe**.
     - Voer een app-naam in het veld **Naam** in.
-    - In **Soort toepassing** selecteer **Native**.
-    - In **URI omleiding**, voert u `http://localhost` in.
+    - Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
+    - In **omleidings-URI**, selecteer **openbare client (mobiele en bureaubladtoepassingen)** in de vervolgkeuzelijst en voer `http://localhost`.
+    - Klik op **registreren**.
 
 3. Microsoft Graph configureren
-    - Selecteer **Instellingen > Vereiste machtigingen**.
-    - Selecteer **Toevoegen**, in **Selecteer een API** selecteer ***Microsoft Graph***.
-    - Selecteer de machtiging **Inloggen en gebruikersprofiel lezen**, en klik dan op **Selecteren** om op te slaan.
-        - Deze machtiging gaat over de `User.Read` omvang.
-    - Optioneel: Verwijder in **Vereiste machtigingen > Windows Azure Active Directory** de geselecteerde machtiging **Aanmelden en gebruikersprofiel lezen**. Daarmee wordt voorkomen dat de pagina gebruikerstoestemming de machtiging twee keer laat zien.
-
-4. Gefeliciteerd! Uw app is geconfigureerd. In het volgende deel dient u:
+    - Selecteer **API-machtigingen**.
+    - Selecteer **toevoegen van een machtiging**, in **Select an API** Selecteer ***Microsoft Graph***.
+    - Onder **overgedragen machtigingen**, selecteer de machtiging **User.Read**, drukt u op **toevoegen** om op te slaan.        
+    
+4. Gefeliciteerd. Uw app is geconfigureerd. In het volgende deel dient u:
     - `Application ID`
     - `Redirect URI`
 

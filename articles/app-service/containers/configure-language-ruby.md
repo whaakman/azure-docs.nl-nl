@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 402c85e7902c8c2f612ad6c777d8f6773a4d0ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 412efac3742acf7ad1cdc3d08f9d90c4d39bad3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60854864"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956112"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Een Linux-Ruby-app configureren voor Azure App Service
 
@@ -65,7 +65,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Toegang tot omgevingsvariabelen
 
-In App Service, kunt u [app-instellingen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) buiten de app-code. Vervolgens kunt u ze met behulp van de standaard openen [ENV ['< pad-naam >']](https://ruby-doc.org/core-2.3.3/ENV.html) patroon. Voor toegang tot bijvoorbeeld de app-instelling `WEBSITE_SITE_NAME` gebruikt u de volgende code:
+In App Service, kunt u [app-instellingen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) buiten de app-code. Vervolgens kunt u ze met behulp van de standaard openen [ENV ['< pad-naam >']](https://ruby-doc.org/core-2.3.3/ENV.html) patroon. Voor toegang tot bijvoorbeeld de app-instelling `WEBSITE_SITE_NAME` gebruikt u de volgende code:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -82,7 +82,7 @@ Wanneer u implementeert een [Git-opslagplaats](../deploy-local-git.md?toc=%2fazu
 
 ### <a name="use---without-flag"></a>Gebruik--zonder de vlag
 
-Om uit te voeren `bundle install` met de [--zonder](https://bundler.io/man/bundle-install.1.html) markeren, stelt u de `BUNDLE_WITHOUT` [app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) naar een door komma's gescheiden lijst met groepen. Bijvoorbeeld, de volgende opdracht wordt het op `development,test`.
+Om uit te voeren `bundle install` met de [--zonder](https://bundler.io/man/bundle-install.1.html) markeren, stelt u de `BUNDLE_WITHOUT` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar een door komma's gescheiden lijst met groepen. Bijvoorbeeld, de volgende opdracht wordt het op `development,test`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
@@ -92,7 +92,7 @@ Als deze instelling is gedefinieerd, wordt de implementatie-engine wordt uitgevo
 
 ### <a name="precompile-assets"></a>Vooraf compileren van assets
 
-De stappen na de implementatie niet vooraf compileren van assets standaard. Om in te schakelen Precompilatie van de asset, stel de `ASSETS_PRECOMPILE` [app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) naar `true`. Vervolgens de opdracht `bundle exec rake --trace assets:precompile` aan het einde van de stappen na de implementatie wordt uitgevoerd. Bijvoorbeeld:
+De stappen na de implementatie niet vooraf compileren van assets standaard. Om in te schakelen Precompilatie van de asset, stel de `ASSETS_PRECOMPILE` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar `true`. Vervolgens de opdracht `bundle exec rake --trace assets:precompile` aan het einde van de stappen na de implementatie wordt uitgevoerd. Bijvoorbeeld:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -121,7 +121,7 @@ U kunt het proces opstarten in de volgende manieren aanpassen:
 De Rails-server in de Ruby-container wordt uitgevoerd in de productiemodus standaard, en [wordt ervan uitgegaan dat assets vooraf geschreven zijn en worden geleverd door uw webserver](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Voor het leveren van statische elementen uit de Rails-server, moet u twee dingen doen:
 
 - **Vooraf compileren van de assets** - [vooraf compileren van de statische assets lokaal](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) en deze handmatig te implementeren. De implementatie-engine verwerkt; het in plaats daarvan ook (Zie [vooraf compileren van assets](#precompile-assets).
-- **Inschakelen voor de statische bestanden** : als u wilt leveren van statische elementen uit de Ruby-container, stelt u de `RAILS_SERVE_STATIC_FILES` [stelt de `RAILS_SERVE_STATIC_FILES` app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) naar `true`. Bijvoorbeeld:
+- **Inschakelen voor de statische bestanden** : als u wilt leveren van statische elementen uit de Ruby-container, stelt u de `RAILS_SERVE_STATIC_FILES` [stelt de `RAILS_SERVE_STATIC_FILES` app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar `true`. Bijvoorbeeld:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -129,13 +129,13 @@ De Rails-server in de Ruby-container wordt uitgevoerd in de productiemodus stand
 
 ### <a name="run-in-non-production-mode"></a>Uitvoeren in de modus voor niet-productie
 
-De Rails-server wordt standaard uitgevoerd in productiemodus. Als u wilt uitvoeren in de Ontwikkelingsmodus, bijvoorbeeld instellen de `RAILS_ENV` [app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) naar `development`.
+De Rails-server wordt standaard uitgevoerd in productiemodus. Als u wilt uitvoeren in de Ontwikkelingsmodus, bijvoorbeeld instellen de `RAILS_ENV` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar `development`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-Deze instelling alleen echter zorgt ervoor dat de Rails-server te starten in de Ontwikkelingsmodus die localhost aanvragen alleen accepteert en is niet toegankelijk buiten de container. Voor het accepteren van aanvragen van externe clients, stel de `APP_COMMAND_LINE` [app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) naar `rails server -b 0.0.0.0`. Deze app-instelling kunt u een aangepaste opdracht uitvoeren in de Ruby-container. Bijvoorbeeld:
+Deze instelling alleen echter zorgt ervoor dat de Rails-server te starten in de Ontwikkelingsmodus die localhost aanvragen alleen accepteert en is niet toegankelijk buiten de container. Voor het accepteren van aanvragen van externe clients, stel de `APP_COMMAND_LINE` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) naar `rails server -b 0.0.0.0`. Deze app-instelling kunt u een aangepaste opdracht uitvoeren in de Ruby-container. Bijvoorbeeld:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
@@ -143,7 +143,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secretkeybase-manually"></a>Secret_key_base handmatig instellen
 
-Gebruik uw eigen `secret_key_base` waarde in plaats van App Service genereren van een voor u, instellen zodat de `SECRET_KEY_BASE` [app-instelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) met de gewenste waarde. Bijvoorbeeld:
+Gebruik uw eigen `secret_key_base` waarde in plaats van App Service genereren van een voor u, instellen zodat de `SECRET_KEY_BASE` [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) met de gewenste waarde. Bijvoorbeeld:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"

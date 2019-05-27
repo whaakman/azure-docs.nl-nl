@@ -8,16 +8,26 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 4f11eac106fe984aa06e41083c2d4f66c7d0e62c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551725"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872918"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift Veelgestelde vragen
 
 In dit artikel komen de antwoorden op veelgestelde vragen over Microsoft Azure Red Hat OpenShift.
+
+## <a name="how-do-i-get-started"></a>Hoe ga ik aan de slag?
+
+Voordat u Azure Red Hat OpenShift gebruiken kunt, moet u een minimum van 4 Azure Red Hat OpenShift gereserveerd toepassing knooppunten kopen.
+
+Als u een Azure-klant bent,[Azure Red Hat OpenShift gereserveerde instanties kopen](https://aka.ms/openshift/buy) via Azure portal. Na de aankoop, wordt uw abonnement binnen 24 uur, waarna u wordt mogelijk clusters inrichten worden geactiveerd.
+
+Als u niet een Azure-klant, [Neem contact op met verkoop](https://aka.ms/openshift/contact-sales) en vul het formulier de omzet in aan de onderkant van de pagina om het proces te starten.
+
+Raadpleeg de [Azure Red Hat OpenShift pagina met prijzen](https://aka.ms/openshift/pricing) voor meer informatie.
 
 ## <a name="which-azure-regions-are-supported"></a>Welke Azure-regio's worden ondersteund?
 

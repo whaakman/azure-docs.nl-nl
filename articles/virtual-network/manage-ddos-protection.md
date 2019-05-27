@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203537"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911265"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS Protection Standard met behulp van de Azure-portal beheren
 
@@ -102,7 +102,7 @@ Kunt u een van de beschikbare DDoS protection metrische gegevens om u te waarsch
     |Abonnement             | Selecteer het abonnement dat u meldingen wilt ontvangen voor het openbare IP-adres bevat.        |
     |Resourcegroep           | Selecteer de resourcegroep die u meldingen wilt ontvangen voor het openbare IP-adres bevat.      |
     |Resource                 | Selecteer het openbare IP-adres dat u meldingen wilt ontvangen voor het openbare IP-adres bevat. DDoS bewaakt openbare IP-adressen toegewezen aan bronnen binnen een virtueel netwerk. Als u niet alle resources met openbare IP-adressen in het virtuele netwerk hebt, moet u eerst een resource maken met een openbaar IP-adres. U kunt het openbare IP-adres van alle resources die zijn geïmplementeerd via Resource Manager (niet klassiek) die worden vermeld in bewaken [virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), met uitzondering van Azure App Service-omgevingen en Azure VPN-Gateway. Als u wilt doorgaan met deze zelfstudie, kunt u snel maken een [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine.                   |
-    |Gegevens                   | Bij DDoS-aanvallen, of niet                                                                            |
+    |Metric                   | Bij DDoS-aanvallen, of niet                                                                            |
     |Drempelwaarde                | 1 - **1** betekent dat u bij een aanval. **0** betekent dat u bent geen aangevallen.                         |
     |Periode                   | Selecteer de waarde die u kiest.                                                                   |
     |Een melding via E-mail         | Schakel het selectievakje in                                                                                  |
@@ -203,6 +203,19 @@ Microsoft is een partnerschap aangegaan met [BreakingPoint Cloud](https://www.ix
 - Optimaliseer het incidentreactieproces terwijl onder DDoS-aanval
 - Document DDoS-naleving
 - Uw netwerk beveiligingsteams trainen
+
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>DDoS protection-waarschuwingen weergeven in Azure Security Center
+
+Azure Security Center geeft een lijst van [beveiligingswaarschuwingen](/azure/security-center/security-center-managing-and-responding-alerts), met informatie over het onderzoeken en oplossen van problemen. Met deze functie krijgt u een geïntegreerde weergave van waarschuwingen, met inbegrip van DDoS-aanval met betrekking tot waarschuwingen en de acties te beperken van de aanval in in de buurt van de tijd.
+Er zijn twee specifieke waarschuwingen wordt weergegeven die u voor een DDoS-aanvallen detectie en risicobeperking:
+
+- **DDoS-aanval gedetecteerd voor openbare IP-adres**: Deze waarschuwing wordt gegenereerd wanneer de DDoS protection-service detecteert dat een van uw openbare IP-adressen het doel van een DDoS-aanval is.
+- **DDoS-aanval verholpen voor openbare IP-adres**: Deze waarschuwing wordt gegenereerd wanneer een aanval op het openbare IP-adres wordt beperkt.
+Als u wilt de waarschuwingen bekijken, opent u **Security Center** in Azure portal. Onder **Threat Protection**, selecteer **beveiligingswaarschuwingen**. De volgende Schermafbeelding toont een voorbeeld van de waarschuwingen van DDoS-aanval.
+
+![DDoS-waarschuwing in Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+De waarschuwingen bevatten algemene informatie over de openbare IP-adres dat ligt onder de aanval, geo en informatie over bedreigingen en stappen voor herstel.
 
 ## <a name="permissions"></a>Machtigingen
 

@@ -8,12 +8,12 @@ ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003694"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953114"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gegevensassets in Azure Data Catalog beheren
 ## <a name="introduction"></a>Inleiding
@@ -52,7 +52,7 @@ Gewoon als een gegevensasset is al eigendom, andere gebruikers kunnen geen eigen
 ### <a name="remove-owners"></a>Eigenaren verwijderen
 Net als de eigenaar van een asset mede-eigenaars toevoegen kunt, kan de eigenaar van een asset een mede-eigenaar kunt verwijderen.
 
-De asset kan niet meer beheren door de eigenaar van een asset die zichzelf als eigenaar van een verwijderd. Als de eigenaar van de asset zichzelf als eigenaar van een verwijderd en er geen andere mede-eigenaars zijn, wordt de asset naar een zonder eigenaar status terugkeert.
+De asset kan niet meer beheren door de eigenaar van een asset die zich als een eigenaar verwijdert. Als de eigenaar van de asset zelf als een eigenaar verwijdert en er geen andere mede-eigenaars zijn, wordt de asset naar een zonder eigenaar status terugkeert.
 
 ## <a name="control-visibility"></a>Besturingselement voor zichtbaarheid
 Gegevensasset eigenaren kunnen de zichtbaarheid van de gegevensassets die ze beheren. Als u wilt beperken zichtbaarheid als de standaardconfiguratie, waarbij alle Data Catalog-gebruikers kunnen detecteren en weergeven van de gegevensasset, de eigenaar van de asset de zichtbaarheidsinstelling van kunt schakelen **iedereen** naar **eigenaars en deze gebruikers** in de eigenschappen voor de asset. Eigenaren kunnen vervolgens specifieke gebruikers en beveiligingsgroepen toevoegen.

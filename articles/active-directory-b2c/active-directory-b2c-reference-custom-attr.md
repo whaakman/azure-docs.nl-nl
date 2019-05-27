@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4debd5408abda7e6ae7a7ebf2210fb69210582ae
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 629b872f78a30592fc00cb268066970b12b20561
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687932"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952804"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Aangepaste kenmerken definiëren in Azure Active Directory B2C
 
  Elke toepassing klantgerichte heeft unieke vereisten van de gegevens die moeten worden opgehaald. Uw Azure Active Directory (Azure AD) B2C-tenant wordt geleverd met een ingebouwde groep die zijn opgeslagen in kenmerken, zoals de voornaam, achternaam, plaats en postcode. Met Azure AD B2C, kunt u de set kenmerken die zijn opgeslagen op elke klantaccount uitbreiden. 
  
- Kunt u aangepaste kenmerken in de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw proefaccount gebruikersstromen, registreren of aanmelden gebruikersstromen of gebruikersstromen bewerken van profielen. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Aangepaste kenmerken in Azure AD B2C gebruikt [Azure AD Graph API Directory-Schemauitbreidingen](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ Kunt u aangepaste kenmerken in de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw proefaccount gebruikersstromen, registreren of aanmelden gebruikersstromen of gebruikersstromen bewerken van profielen. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Aangepaste kenmerken in Azure AD B2C gebruikt [Azure AD Graph API Directory-Schemauitbreidingen](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).  
+
+> [!NOTE]
+> Ondersteuning voor nieuwere [Microsoft Graph API](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) voor query's in Azure AD B2C-tenant zich nog in ontwikkeling.
+>
 
 ## <a name="create-a-custom-attribute"></a>Een aangepast kenmerk maken
 
@@ -41,7 +45,8 @@ ms.locfileid: "64687932"
 7. Geef eventueel een **beschrijving** ter informatie bedoeld. 
 8. Klik op **Create**.
 
-Het aangepaste kenmerk is nu beschikbaar in de lijst met **gebruikerskenmerken** en voor gebruik in uw gebruikersstromen. Een aangepast kenmerk wordt alleen de eerste keer dat deze wordt gebruikt in een beleid gemaakt, en niet wanneer u deze toevoegen aan de lijst met **gebruikerskenmerken**.
+Het aangepaste kenmerk is nu beschikbaar in de lijst met **gebruikerskenmerken** en voor gebruik in uw gebruikersstromen. Een aangepast kenmerk wordt alleen de eerste keer dat deze wordt gebruikt in een beleid gemaakt, en niet wanneer u deze toevoegen aan de lijst met **gebruikerskenmerken**. 
+
 
 ## <a name="use-a-custom-attribute-in-your-user-flow"></a>Gebruik een aangepast kenmerk in de gebruikersstroom
 
@@ -51,5 +56,5 @@ Het aangepaste kenmerk is nu beschikbaar in de lijst met **gebruikerskenmerken**
 5. Selecteer **toepassingsclaims** en selecteer vervolgens het aangepaste kenmerk. 
 6. Klik op **Opslaan**.
 
-U kunt de **gebruikersstroom uitvoeren** functie op de gebruikersstroom om te controleren of de ervaring van de klant. U ziet nu **ShoeSize** in de lijst met kenmerken die zijn verzameld tijdens de registratie reis, en het in het token verzonden naar de toepassing te zien.
+Als u een nieuwe gebruiker met behulp van een beleid dat gebruikmaakt van het zojuist gemaakte aangepaste kenmerk hebt gemaakt, het object kan worden doorzocht [Azure AD Graph Explorer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). U kunt ook kunt u de [ **gebruikersstroom uitvoeren** ](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) functie op de gebruikersstroom om te controleren of de ervaring van de klant. U ziet nu **ShoeSize** in de lijst met kenmerken die zijn verzameld tijdens de registratie reis, en het in het token verzonden naar de toepassing te zien. 
 

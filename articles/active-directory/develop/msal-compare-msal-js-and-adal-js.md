@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72da1130efc288c03229d990b75bc96c941265d7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544304"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121956"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Verschillen tussen MSAL JS en ADAL JS
 
@@ -63,7 +63,7 @@ In versie 2.0, met behulp van de `https://login.microsoftonline.com/common` -ins
 
     v2.0: bereik = https://graph.microsoft.com/User.Read
 
-    U kunt aanvragen bereiken voor elke resource API met behulp van de URI van de API in deze indeling: appidURI of het bereik voor een voorbeeld: https://mytenant.onmicrosoft.com/myapi/api.read
+    U kunt aanvragen bereiken voor elke resource API met behulp van de URI van de API in deze indeling: appidURI/bereik bijvoorbeeld: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
     Alleen voor de MS Graph API, een waarde voor het bereik `user.read` wordt toegewezen aan https://graph.microsoft.com/User.Read en door elkaar kunnen worden gebruikt.
 

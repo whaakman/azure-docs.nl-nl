@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880280"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908012"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Verificatie van de eindgebruiker met Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
@@ -30,26 +30,18 @@ ms.locfileid: "60880280"
 In dit artikel leert u over het gebruik van de .NET SDK doet eindgebruikersverificatie met Azure Data Lake Storage Gen1. Zie voor service-naar-serviceverificatie met Data Lake Storage Gen1 met .NET SDK, [Service-naar-serviceverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="prerequisites"></a>Vereisten
-* **Visual Studio 2013, 2015 of 2017**. In onderstaande instructies wordt Visual Studio 2017 gebruikt.
+* **Visual Studio 2013 of hoger**. De onderstaande instructies wordt Visual Studio 2019 gebruikt.
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Maken van een Azure Active Directory-toepassing voor 'Native'**. U moet zijn voltooid de stappen in [eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Een .NET-toepassing maken
-1. Open Visual Studio en maak een consoletoepassing.
-2. Klik in het menu **File** op **New** en klik vervolgens op **Project**.
-3. In **New Project** typt of selecteert u de volgende waarden:
+1. Selecteer in Visual Studio, de **bestand** in het menu **nieuw**, en vervolgens **Project**.
+2. Kies **Console-App (.NET Framework)**, en selecteer vervolgens **volgende**.
+3. In **projectnaam**, voer `CreateADLApplication`, en selecteer vervolgens **maken**.
 
-   | Eigenschap | Value |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |Console Application |
-   | Name |CreateADLApplication |
-
-4. Klik op **OK** om het project aan te maken.
-
-5. Voeg de NuGet-pakketten toe aan het project.
+4. Voeg de NuGet-pakketten toe aan het project.
 
    1. Klik in Solution Explorer met de rechtermuisknop op de projectnaam en klik op **Manage NuGet Packages**.
    2. Controleer op het tabblad **NuGet Package Manager** of **Package source** is ingesteld op **nuget.org** en of het selectievakje **Include prerelease** is ingeschakeld.
@@ -61,8 +53,8 @@ In dit artikel leert u over het gebruik van de .NET SDK doet eindgebruikersverif
         ![Een NuGet-bron toevoegen](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Een nieuw Azure Data Lake-account maken")
    4. Sluit de **NuGet Package Manager**.
 
-6. Open **Program.cs**
-7. Vervang de met behulp van instructies met de volgende regels:
+5. Open **Program.cs**
+6. Vervang de met behulp van instructies met de volgende regels:
 
     ```csharp
     using System;

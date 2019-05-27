@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: c0591a7850516a419cb59045754cc4eb02979dfd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560783"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122586"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -167,6 +167,9 @@ Voor het gebruik van beheerde identiteiten voor verificatie van de Azure-resourc
 >- **Data-hulpprogramma voor kopiëren** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
 >Als u de bezorgdheid over het verlenen van toestemming op accountniveau hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Kopieeractiviteit zullen nog steeds werken, zolang de beheerde identiteit wordt verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
+
+>[!IMPORTANT]
+>Als u gebruikmaakt van PolyBase om te laden van gegevens van ADLS Gen2 in SQL DW, als verificatie met behulp van ADLS Gen2 wordt beheerd, moet u ook SQL DW goed voor het gebruik van MSI-bestand naar ADLS Gen2 opslag configureren, volg de stappen #1 #3.b in [deze richtlijnen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Als uw ADLS-Gen2 is geconfigureerd met VNet-service-eindpunt, voor het gebruik van PolyBase om gegevens te laden, moet u verificatie van de beheerde identiteit.
 
 Deze eigenschappen worden ondersteund in de gekoppelde service:
 

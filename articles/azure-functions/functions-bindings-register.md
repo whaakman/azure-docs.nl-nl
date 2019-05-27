@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 802e177b6f3844abe4d24c26b7ea2d0d4fb1688c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697000"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864548"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions-binding extensies registreren
 
-Vanaf Azure Functions versie 2.x [bindingen](./functions-triggers-bindings.md) zijn beschikbaar als afzonderlijke pakketten in de functions-runtime. Terwijl de .NET-functies via NuGet-pakketten toegang krijgen tot bindingen, extensie bundels andere functies toegang geven tot alle bindingen via een configuratie-instelling.
+In Azure Functions versie 2.x [bindingen](./functions-triggers-bindings.md) zijn beschikbaar als afzonderlijke pakketten in de functions-runtime. Terwijl de .NET-functies via NuGet-pakketten toegang krijgen tot bindingen, extensie bundels andere functies toegang geven tot alle bindingen via een configuratie-instelling.
 
 Houd rekening met de volgende items die betrekking hebben op het binden van extensies:
 
-- Bindinguitbreidingen expliciet worden niet geregistreerd in de functies 1.x, behalve wanneer [het maken van een C# met behulp van Visual Studio 2017-klassenbibliotheek vormt](#local-csharp).
+- Bindinguitbreidingen expliciet worden niet geregistreerd in de functies 1.x, behalve wanneer [het maken van een C# klassebibliotheek met behulp van Visual Studio 2019](#local-csharp).
 
-- HTTP- en timer triggers standaard worden ondersteund en vereisen geen extensie.
+- HTTP- en timer triggers standaard worden ondersteund en vereisen een uitbreiding.
 
 De volgende tabel geeft aan wanneer en hoe u de bindingen registreren.
 
@@ -33,7 +33,7 @@ De volgende tabel geeft aan wanneer en hoe u de bindingen registreren.
 |-------------------------|------------------------------------|------------------------------------|
 |Azure Portal|Automatisch|Automatisch|
 |Niet-.NET-talen of lokale Azure Core Tools-ontwikkeling|Automatisch|[Gebruik Azure Functions Core Tools en extensie bundels](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
-|C#-klassenbibliotheek vormt met behulp van Visual Studio 2017|[NuGet-hulpprogramma's gebruiken](#c-class-library-with-visual-studio-2017)|[NuGet-hulpprogramma's gebruiken](#c-class-library-with-visual-studio-2017)|
+|C#met behulp van Visual Studio 2019 klassebibliotheek|[NuGet-hulpprogramma's gebruiken](#c-class-library-with-visual-studio-2019)|[NuGet-hulpprogramma's gebruiken](#c-class-library-with-visual-studio-2019)|
 |C#-klassenbibliotheek vormt met behulp van Visual Studio Code|N/A|[.NET Core CLI gebruiken](#c-class-library-with-visual-studio-code)|
 
 ## <a name="local-development-with-azure-functions-core-tools-and-extension-bundles"></a>Lokale ontwikkeling met Azure Functions Core Tools en extensie bundels
@@ -41,9 +41,9 @@ De volgende tabel geeft aan wanneer en hoe u de bindingen registreren.
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 <a name="local-csharp"></a>
-## <a name="c-class-library-with-visual-studio-2017"></a>C#-klassenbibliotheek vormt met Visual Studio 2017
+## <a name="c-class-library-with-visual-studio-2019"></a>C#klassebibliotheek met Visual Studio 2019
 
-In **Visual Studio 2017**, u kunt pakketten installeren vanuit de Package Manager-Console met behulp van de [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+In **Visual Studio 2019**, u kunt pakketten installeren vanuit de Package Manager-Console met behulp van de [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>

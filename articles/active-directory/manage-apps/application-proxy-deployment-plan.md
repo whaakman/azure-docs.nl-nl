@@ -15,16 +15,18 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442539"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113013"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Een Azure AD Application Proxy-implementatie plannen
 
-Toepassingsproxy van Azure Active Directory (Azure AD) is een veilige en voordelige RAS-oplossing voor on-premises toepassingen. Het biedt een pad direct overgang voor 'Cloud First' organisaties voor het beheren van toegang tot bestaande on-premises toepassingen die nog niet kan worden van het gebruik van moderne protocollen. Zie voor aanvullende inleidende informatie [wat is Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) en [hoe Application Proxy werkt](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+Toepassingsproxy van Azure Active Directory (Azure AD) is een veilige en voordelige RAS-oplossing voor on-premises toepassingen. Het biedt een pad direct overgang voor 'Cloud First' organisaties voor het beheren van toegang tot bestaande on-premises toepassingen die nog niet kan worden van het gebruik van moderne protocollen. Zie voor aanvullende inleidende informatie [wat is Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+
+De toepassingsproxy wordt aanbevolen voor externe gebruikers toegang geven tot interne bronnen. Toepassingsproxy vervangt de noodzaak van een VPN of een omgekeerde proxy voor deze gebruiksvoorbeelden voor externe toegang. Het is niet bedoeld voor gebruikers die zich op het bedrijfsnetwerk bevinden. Deze gebruikers die de Application Proxy voor toegang tot het intranet gebruiken kunnen ongewenste prestatieproblemen ondervinden.
 
 Dit artikel bevat de resources die u wilt plannen, te gebruiken en beheren van Azure AD-toepassingsproxy. 
 
@@ -41,25 +43,30 @@ U moet voldoen aan de volgende vereisten voordat u begint met uw implementatie. 
    * Een virtuele machine die worden gehost in een hypervisor-oplossing
    * Een virtuele machine die wordt gehost in Azure om in te schakelen uitgaande verbinding met de Application Proxy-service.
 
-Zie [inzicht in Azure AD App Proxy Connectors](application-proxy-connectors.md) voor een gedetailleerder overzicht.
+* Zie [inzicht in Azure AD App Proxy Connectors](application-proxy-connectors.md) voor een gedetailleerder overzicht.
 
-   * Connector fungeert als host moet [worden ingeschakeld voor TLS 1.2](application-proxy-add-on-premises-application.md) voordat u de connectors installeert.
+     * Connector machines moet [worden ingeschakeld voor TLS 1.2](application-proxy-add-on-premises-application.md) voordat u de connectors installeert.
 
-   * Indien mogelijk implementeren connectors in de [hetzelfde netwerk](application-proxy-network-topology.md) en segment als de back-end web-toepassingsservers. Het is raadzaam voor de implementatie van connector hosts na het voltooien van een detectie van toepassingen.
+     * Indien mogelijk implementeren connectors in de [hetzelfde netwerk](application-proxy-network-topology.md) en segment als de back-end web-toepassingsservers. Het is raadzaam om te implementeren connectors na het voltooien van een detectie van toepassingen.
+     * U wordt aangeraden dat elke connectorgroep ten minste twee connectors heeft voor hoge beschikbaarheid en schaal. Met drie connectors is optimale geval moet u mogelijk een virtuele machine op elk gewenst moment-service. Controleer de [gegevenstabel voor capaciteit connector](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) om te helpen bij het bepalen van welk type machine om connectors te installeren op. Hoe groter de machine de meer buffer en goed presterende is de connector.
 
-* **Instellingen voor toegang tot het netwerk**: Azure AD Application Proxy connectors [probeert verbinding maken met Azure via HTTPS (TCP-poort 443) en HTTP (TCP-poort 80)](application-proxy-add-on-premises-application.md). 
+* **Instellingen voor toegang tot het netwerk**: Azure AD Application Proxy connectors [verbinding maken met Azure via HTTPS (TCP-poort 443) en HTTP (TCP-poort 80)](application-proxy-add-on-premises-application.md). 
 
    * Afsluitende connector TLS-verkeer wordt niet ondersteund en wordt voorkomen dat connectors tot stand brengen van een beveiligd kanaal met hun respectieve toepassingsproxy van Azure-eindpunten.
 
    * Voorkomen dat alle vormen van inline inspectie op uitgaande TLS-communicatie tussen connectors en Azure. Interne controle tussen een connector en back-end-toepassingen is mogelijk, maar de gebruikerservaring kan afnemen en als zodanig wordt niet aanbevolen.
 
-   * De taakverdeling van de Proxy-connectors zelf wordt ook niet ondersteund, of zelfs nodig.
+   * De taakverdeling van de connectors zelf wordt ook niet ondersteund, of zelfs nodig.
 
 ### <a name="important-considerations-before-configuring-azure-ad-application-proxy"></a>Belangrijke overwegingen voor het configureren van Azure AD-toepassingsproxy
 
 De volgende belangrijke vereisten moeten worden voldaan om te configureren en implementeren van Azure AD-toepassingsproxy.
 
 *  **Azure onboarding**: Voordat u implementeert toepassingsproxy, moeten gebruikers-id's worden gesynchroniseerd vanuit een on-premises directory of die rechtstreeks in uw Azure AD-tenants zijn gemaakt. Identiteitssynchronisatie kunt vooraf om gebruikers te verifiëren voordat ze toegang verlenen tot de App Proxy toepassingen gepubliceerde en dat de id-gegevens van de gebruiker nodig om uit te voeren eenmalige aanmelding (SSO) met Azure AD.
+
+* **Vereisten voor voorwaardelijke toegang**: We raden niet toepassingsproxy gebruiken voor toegang tot het intranet omdat deze wordt toegevoegd latentie die is van invloed op gebruikers. U wordt aangeraden met Application Proxy met vooraf-verificatie en voorwaardelijke toegangsbeleid voor externe toegang via internet.  Een benadering voor voorwaardelijke toegang voor gebruik van het intranet is het moderniseren van toepassingen zodat ze diretly kunnen worden geverifieerd met AAD. Raadpleeg [Resources voor het migreren van toepassingen voor AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) voor meer informatie. 
+
+* **Servicelimieten**: Ter bescherming tegen zijn overmatig van resources door er afzonderlijke tenants bandbreedtebeperking limieten instellen per toepassing en tenant. Om te zien van deze limieten die verwijzen naar [limieten en beperkingen voor Azure AD-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Deze beperkingslimieten zijn gebaseerd op een benchmark tot nu toe boven de typische gebruiksvolume en ruime buffer biedt voor een meerderheid van implementaties.
 
 * **Openbaar certificaat**: Als u aangepaste domeinnamen gebruikt, moet u een openbaar certificaat dat is uitgegeven door een vertrouwde certificeringsinstantie van niet-Microsoft aanschaffen. Afhankelijk van de behoeften van uw organisatie aan een certificaat kan enige tijd duren en het is raadzaam dat begint met het proces zo vroeg mogelijk. Azure Application Proxy biedt ondersteuning voor standaard, [jokertekens](application-proxy-wildcard.md), of op basis van SAN-certificaten.
 
@@ -73,13 +80,11 @@ De volgende belangrijke vereisten moeten worden voldaan om te configureren en im
 
 * **Beheerdersrechten en -rollen**
 
-   * **Installatie van connector** moet lokale beheerdersrechten voor de Windows-server die wordt geïnstalleerd op. Hiervoor wordt ook een minimum van de rol van beheerder van de toepassing te verifiëren en het exemplaar van de connector voor uw Azure AD-tenant te registreren. 
+   * **Installatie van connector** moet lokale beheerdersrechten voor de Windows-server die wordt geïnstalleerd op. Het is ook vereist een minimum van een *toepassingsbeheerder* rol te verifiëren en het exemplaar van de connector voor uw Azure AD-tenant te registreren. 
 
    * **Toepassingen publiceren en beheer** vereisen de *toepassingsbeheerder* rol. Beheerders kunnen alle toepassingen in de map inclusief registraties, SSO-instellingen, gebruiker en toewijzingen van groepen en licentieverlening, Application Proxy-instellingen en toestemming beheren. Het verlenen niet de mogelijkheid voor het beheren van voorwaardelijke toegang. De *beheerder van de Cloudtoepassing* rol heeft alle mogelijkheden van de beheerder van de toepassing, behalve dat het beheer van de Application Proxy-instellingen niet toelaat.
 
-* **Licentieverlening**: Application Proxy is beschikbaar via de Azure AD Basic-abonnement. Raadpleeg de [prijzen Azure Active Directory-pagina](https://azure.microsoft.com/pricing/details/active-directory/) voor een volledige lijst van licenties en -functies. 
-
-* Een rol kan leiden tot misbruik mogelijk vereist voor het verkrijgen van de rechten van de beheerder van de toepassing via [Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (PIM), dus zorg ervoor dat uw account in aanmerking komt. 
+* **Licentieverlening**: Application Proxy is beschikbaar via de Azure AD Basic-abonnement. Raadpleeg de [prijzen Azure Active Directory-pagina](https://azure.microsoft.com/pricing/details/active-directory/) voor een volledige lijst van licenties en -functies.  
 
 ### <a name="application-discovery"></a>Toepassingsdetectie
 
@@ -107,9 +112,9 @@ Hieronder vindt u gebieden waarvoor u de bedrijfsbehoeften van uw organisatie mo
 
  **Toegang**
 
-* Domein- en Azure AD-gebruikers hebben toegang tot gepubliceerde toepassingen veilig met naadloze eenmalige aanmelding (SSO) wanneer met behulp van een domein of Azure AD apparaten gekoppelde.
+* Externe gebruikers met een domein of Azure AD gekoppelde apparaten gebruikers hebben toegang tot gepubliceerde toepassingen veilig met naadloze eenmalige aanmelding (SSO).
 
-* Gebruikers met goedgekeurde persoonlijke apparaten kunnen veilig toegang krijgen tot gepubliceerde toepassingen mits ze zijn ingeschreven bij MFA en de Microsoft Authenticator-app op hun mobiele telefoon hebt geregistreerd als een verificatiemethode.
+* Externe gebruikers met goedgekeurde persoonlijke apparaten kunnen veilig toegang krijgen tot gepubliceerde toepassingen mits ze zijn ingeschreven bij MFA en de Microsoft Authenticator-app op hun mobiele telefoon hebt geregistreerd als een verificatiemethode.
 
 **Governance** 
 
@@ -121,7 +126,7 @@ Hieronder vindt u gebieden waarvoor u de bedrijfsbehoeften van uw organisatie mo
 
 **Prestaties**
 
-* Er is geen verslechtering van toepassingsprestaties in vergelijking met toegang tot de toepassing vanaf het interne netwerk.
+* Er is geen verslechtering van toepassingsprestaties in vergelijking met toegang tot de toepassing van het interne netwerk.
 
 **Gebruikerservaring**
 
@@ -164,7 +169,7 @@ De volgende ontwerpelementen moeten het succes van uw implementatie test rechtst
 
 ### <a name="deploy-application-proxy"></a>Toepassingsproxy implementeren
 
-De stappen voor het implementeren van de toepassingsproxy worden behandeld in deze [zelfstudie voor het toevoegen van een on-premises toepassing voor externe toegang](application-proxy-add-on-premises-application.md). Als de installatie niet met succes is voltooid, selecteert u **Troubleshoot Application Proxy** in de portal of gebruik de gids voor probleemoplossing[voor problemen met het installeren van de Toepassingsproxyagent](application-proxy-connector-installation-problem.md).
+De stappen voor het implementeren van de toepassingsproxy worden behandeld in deze [zelfstudie voor het toevoegen van een on-premises toepassing voor externe toegang](application-proxy-add-on-premises-application.md). Als de installatie niet met succes is voltooid, selecteert u **Troubleshoot Application Proxy** in de portal of gebruik de gids voor probleemoplossing [voor problemen met het installeren van de Toepassingsproxyagent](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Publiceren van toepassingen via de toepassingsproxy
 
@@ -174,7 +179,7 @@ U kunt ook toepassingen publiceren met behulp van [PowerShell](https://docs.micr
 
 Hieronder volgen enkele aanbevolen procedures te volgen bij het publiceren van een toepassing:
 
-* **Connectorgroepen gebruiken**: Een connectorgroep die is aangewezen voor het publiceren van de desbetreffende toepassing toewijzen.
+* **Connectorgroepen gebruiken**: Een connectorgroep die is aangewezen voor het publiceren van de desbetreffende toepassing toewijzen. U wordt aangeraden dat elke connectorgroep ten minste twee connectors heeft voor hoge beschikbaarheid en schaal. Met drie connectors is optimale geval moet u mogelijk een virtuele machine op elk gewenst moment-service. Zie ook [publiceren van toepassingen op afzonderlijke netwerken en locaties met connectorgroepen](application-proxy-connector-groups.md) om te zien hoe u ook connectorgroepen kunt gebruiken bij het segmenteren van uw connectors door network of een locatie.
 
 * **De time-out van de back-end-toepassing instelt**: Deze instelling is nuttig in scenario's waar de toepassing mogelijk meer dan 75 seconden voor het verwerken van een clienttransactie. Bijvoorbeeld fungeert wanneer een client stuurt een query naar een webtoepassing die als een front-end naar een database. De front-end verzendt deze query naar de back-end-database-server en wachten op antwoord, maar op het moment dat het een antwoord is ontvangen, wordt de client-zijde van de conversatie time-out optreedt. De time-out wordt ingesteld op de lange biedt 180 seconden langer transacties te voltooien.
 
@@ -190,7 +195,7 @@ Hieronder volgen enkele aanbevolen procedures te volgen bij het publiceren van e
 
 * **URL's vertalen in de hoofdtekst van de toepassing**: Hoofdtekst van de toepassing koppeling vertaling voor een app inschakelen als u wilt dat de koppelingen vanuit deze app moet worden vertaald in antwoorden terug naar de client. Indien ingeschakeld, biedt deze functie een poging moeite bij het vertalen van alle interne koppelingen die App Proxy worden gevonden in HTML en CSS-antwoorden aan clients wordt geretourneerd. Dit is handig bij het publiceren van apps die vastgelegde absolute of NetBIOS-shortname koppelingen in de inhoud bevatten of apps met inhoud die is gekoppeld aan andere on-premises toepassingen.
 
-Voor scenario's waarbij een gepubliceerde app wordt gekoppeld aan andere apps gepubliceerde inschakelen, vertaling van koppelingen of elke toepassing zodat u controle over de gebruikerservaring op het niveau van de per-app hebt.
+Inschakelen voor scenario's waarbij een gepubliceerde app wordt gekoppeld aan andere apps gepubliceerde, koppeling vertaling voor elke toepassing die u controle over de gebruikerservaring op het niveau van de per-app hebt.
 
 Stel bijvoorbeeld dat u hebt drie toepassingen die zijn gepubliceerd via toepassingsproxy dat alle aan elkaar koppelen: Voordelen, kosten, en reizen, plus een vierde Feedback, die niet worden gepubliceerd via toepassingsproxy-app.
 
@@ -225,7 +230,7 @@ Zodra uw toepassing is gepubliceerd, moet toegankelijk is door de externe URL in
 
 ### <a name="enable-pre-authentication"></a>Verificatie vooraf inschakelen
 
-Controleer of uw toepassing toegankelijk is via de toepassingsproxy. 
+Controleer of uw toepassing toegankelijk zijn via de toepassingsproxy wordt benaderd via de externe URL. 
 
 1. Navigeer naar **Azure Active Directory** > **bedrijfstoepassingen** > **alle toepassingen** en kies de app die u wilt beheren.
 
@@ -233,7 +238,7 @@ Controleer of uw toepassing toegankelijk is via de toepassingsproxy.
 
 3. In de **pre-authenticatie** veld, gebruikt u de vervolgkeuzelijst selecteren **Azure Active Directory**, en selecteer **opslaan**.
 
-Azure AD daag je uit voor de verificatie met vooraf-verificatie ingeschakeld, en vervolgens de back-endtoepassing moet ook daag je uit als deze verificatie is vereist. De externe URL met HTTPS, het wijzigen van de pre-authenticatie van Passthrough naar Azure AD ook worden geconfigureerd, zodat elke toepassing in eerste instantie geconfigureerd voor HTTP wordt nu beveiligd met HTTPS.
+Azure AD een uitdaging voor gebruikers eerst voor verificatie met vooraf-verificatie ingeschakeld, en als eenmalige aanmelding configued is vervolgens de back-endtoepassing ook controleert of de gebruiker om toegang tot de toepassing te krijgen. De externe URL met HTTPS, het wijzigen van de pre-authenticatie-modus van Passthrough naar Azure AD ook worden geconfigureerd, zodat elke toepassing in eerste instantie geconfigureerd voor HTTP wordt nu beveiligd met HTTPS.
 
 ### <a name="enable-single-sign-on"></a>Eenmalige aanmelding inschakelen
 
@@ -241,7 +246,7 @@ Eenmalige aanmelding biedt de best mogelijke gebruikerservaring en de beveiligin
 
 Kies de **Passthrough** optie kunnen gebruikers toegang krijgen tot de gepubliceerde toepassing zonder te verifiëren met Azure AD.
 
-Uitvoeren van eenmalige aanmelding is alleen mogelijk dat als Azure AD kan worden herkend door de gebruiker toegang tot een bron aanvraagt, zodat uw toepassing vooraf om gebruikers te verifiëren bij de toegang voor eenmalige aanmelding voor de functie moet worden geconfigureerd, anders wordt de SSO-opties uitgeschakeld.
+Uitvoeren van eenmalige aanmelding is alleen mogelijk dat als Azure AD kan de gebruiker toegang tot een bron aanvraagt, zodat uw toepassing moet zijn geconfigureerd voor verificatie vooraf van gebruikers met Azure AD Access voor eenmalige aanmelding functie hebt geïdentificeerd, anders wordt de SSO-opties uitgeschakeld.
 
 Lezen [Single sign-on bij toepassingen in Azure AD](what-is-single-sign-on.md) aan bij het kiezen van de meest geschikte methode voor eenmalige aanmelding bij het configureren van uw toepassingen.
 
@@ -265,7 +270,7 @@ De volgende mogelijkheden kunnen worden gebruikt voor de ondersteuning van Azure
 
 * Risico's gebaseerde voorwaardelijke toegang: Uw gegevens te beschermen tegen schadelijke hackers met een [beleid voor voorwaardelijke toegang op basis van risico](https://www.microsoft.com/cloud-platform/conditional-access) die kunnen worden toegepast op alle apps en voor alle gebruikers, of on-premises of in de cloud.
 
-* Deelvenster Azure AD-toepassing: Met uw service voor toepassingsproxy geïmplementeerd, en de toepassingen veilig gepubliceerd, biedt uw gebruikers een eenvoudige hub om te ontdekken en toegang tot al hun toepassingen. Verhoog de productiviteit met selfservice mogelijkheden, zoals de mogelijkheid aan te vragen van toegang tot nieuwe apps en -groepen of beheren van toegang tot deze bronnen namens anderen, via de [Toegangsvenster](https://aka.ms/AccessPanelDPDownload).
+* Azure AD-Toegangsvenster: Met uw service voor toepassingsproxy geïmplementeerd, en de toepassingen veilig gepubliceerd, biedt uw gebruikers een eenvoudige hub om te ontdekken en toegang tot al hun toepassingen. Verhoog de productiviteit met selfservice mogelijkheden, zoals de mogelijkheid aan te vragen van toegang tot nieuwe apps en -groepen of beheren van toegang tot deze bronnen namens anderen, via de [Toegangsvenster](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Beheren van uw implementatie
 
@@ -290,7 +295,7 @@ Als u meer inzicht in uw organisatie gebruikersinrichting gebruik en de operatio
 
 #### <a name="application-audit-logs"></a>Auditlogboeken van toepassingen
 
-Deze logboeken details aanmeldingen bij de toepassingen die zijn geconfigureerd met Application Proxy, evenals informatie over het apparaat en de gebruiker toegang tot de toepassing. Ze bevinden zich in de Azure-portal en Audit-API.
+Deze logboeken bevatten gedetailleerde informatie over aanmeldingen bij de toepassingen die zijn geconfigureerd met Application Proxy en het apparaat en de gebruiker toegang tot de toepassing. Auditlogboeken bevinden zich in de Azure-portal en Audit-API voor het exporteren.
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Windows-gebeurtenislogboeken en prestatiemeteritems
 
@@ -300,7 +305,7 @@ Connectors zijn zowel de beheerder als de sessie Logboeken. De beheerder-logboek
 
 Meer informatie over veelvoorkomende problemen en hoe u deze kunt oplossen met onze handleiding voor [probleemoplossing](application-proxy-troubleshoot.md) foutberichten. 
 
-Deze artikelen voor de algemene scenario's, maar u kunt ook uw eigen handleidingen voor probleemoplossing voor uw ondersteuningsorganisatie maken. 
+De volgende artikelen voor de algemene scenario's die kunnen ook worden gebruikt om te maken van de handleidingen voor probleemoplossing voor uw ondersteuningsorganisatie. 
 
 * [Probleem bij weergeven app-pagina](application-proxy-page-appearance-broken-problem.md)
 * [Applicatie laden duurt te lang](application-proxy-page-load-speed-problem.md)

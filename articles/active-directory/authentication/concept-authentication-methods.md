@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359252"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119367"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -33,7 +33,7 @@ Microsoft raadt beheerders kunnen gebruikers meer dan de minimaal vereiste aanta
 | E-mailadres | Alleen SSPR |
 | Microsoft Authenticator-app | MFA en preview-versie voor SSPR |
 | OATH-token van Hardware | Openbare preview-versie van MFA en Self-service voor Wachtwoordherstel |
-| Sms | MFA en Self-service voor Wachtwoordherstel |
+| SMS | MFA en Self-service voor Wachtwoordherstel |
 | Spraakoproep | MFA en Self-service voor Wachtwoordherstel |
 | App-wachtwoorden | MFA alleen in bepaalde gevallen |
 
@@ -165,7 +165,7 @@ Hardware-OATH-tokens worden ondersteund als onderdeel van een openbare preview. 
 Zodra de tokens worden verkregen moet het worden geüpload in een indeling met door komma's gescheiden waarden (CSV) met inbegrip van de UPN, serienummer, geheime sleutel, tijdsinterval, de fabrikant en model als in het voorbeeld hieronder ziet.
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
@@ -180,7 +180,7 @@ Wanneer er fouten zijn opgelost, de beheerder vervolgens kan activeren elke sleu
 
 Gebruikers hebben mogelijk een combinatie van maximaal vijf OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
 
-## <a name="mobile-phone"></a>Mobiele telefoon
+## <a name="mobile-phone"></a>Telefoon (mobiel)
 
 Er zijn twee opties beschikbaar voor gebruikers met mobiele telefoons.
 

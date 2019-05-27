@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938633"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964043"
 ---
 # <a name="marketplace-faqs"></a>Veelgestelde vragen over Marketplace
 
@@ -310,7 +310,7 @@ Controleer de [Uitgevershandleiding voor](https://docs.microsoft.com/azure/marke
 
 **Hoe ik aan de slag om te publiceren in Azure Marketplace?**
 
-Start uw Azure Marketplace-vermelding aan de hand van de [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) en [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Uw toepassing vervolgens verzenden door te voeren de [Nominatieformulier voor Azure Marketplace](https://azuremarketplace.microsoft.com/sell/signup).
+Start uw Azure Marketplace-vermelding aan de hand van de [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) en [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Vervolgens dien uw toepassing door [indienen van uw aanbieding](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Zie hoe u [maken van een account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) voor meer informatie.
 
 **Heb ik lid zijn van het Microsoft Partner Network (MPN) om mijn toepassingen en services in de Azure Marketplace?**
 

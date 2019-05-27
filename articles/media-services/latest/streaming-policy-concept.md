@@ -9,28 +9,40 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 510899e44e4ea4a90e21473ee6af546744c2be2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230893"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120199"
 ---
 # <a name="streaming-policies"></a>Beleid voor streaming
 
-In Azure Media Services v3, [beleid Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) kunt u voor het definiëren van protocollen voor streaming- en versleutelingsopties voor uw [Streaming-Locators](streaming-locators-concept.md). U kunt een van de vooraf gedefinieerde Streaming beleidsregels gebruiken of een aangepast beleid gemaakt. De vooraf gedefinieerde Streaming beleidsregels die momenteel beschikbaar zijn: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
+In Azure Media Services v3, [beleid Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) kunt u voor het definiëren van protocollen voor streaming- en versleutelingsopties voor uw [Streaming-Locators](streaming-locators-concept.md). Media Services v3 biedt dat enkele vooraf gedefinieerde Streaming beleid zodat u ze voor evaluatie- of productie gebruiken kunt. 
 
+De momenteel beschikbare vooraf gedefinieerd beleid Streaming:<br/>'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
+
+Als u speciale vereisten (bijvoorbeeld, als u wilt opgeven van verschillende protocollen, moet een aangepaste sleutelleveringsservice gebruiken of wilt gebruiken, schakel audiotrack) hebt, kunt u een aangepast beleid voor Streaming. 
+
+ 
 > [!IMPORTANT]
 > * Eigenschappen van **beleid Streaming** die van de datum/tijd zijn altijd in UTC-notatie zijn.
-> * U moet een beperkte set beleidsregels ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw Streaming-Locators wanneer dezelfde opties nodig zijn. 
+> * U moet een beperkte set beleidsregels ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw Streaming-Locators wanneer dezelfde opties nodig zijn. Zie voor meer informatie, [quota en beperkingen](limits-quotas-constraints.md).
+
+## <a name="decision-tree"></a>Beslissingsstructuur
+
+De volgende beslissingsstructuur wordt bij het kiezen van een vooraf gedefinieerd beleid Streaming voor uw scenario.
+
+Klik op de afbeelding om deze in volledig formaat weer te geven.  <br/>
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
 
 ## <a name="examples"></a>Voorbeelden
 
 ### <a name="not-encrypted"></a>Niet-versleuteld
 
-Als u wilt het streamen van uw bestand in-the-wissen (niet-versleutelde), stelt u de vooraf gedefinieerde duidelijk streaming beleid: naar 'Predefined_ClearStreamingOnly' (in .NET, kunt u PredefinedStreamingPolicy.ClearStreamingOnly).
+Als u wilt het streamen van uw bestand in-the-wissen (niet-versleutelde), stelt u de vooraf gedefinieerde duidelijk streaming beleid: naar 'Predefined_ClearStreamingOnly' (in .NET, kunt u de enum PredefinedStreamingPolicy.ClearStreamingOnly).
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
@@ -70,5 +82,5 @@ Zie [filteren, bestellen, voor het wisselbestand van Media Services-entiteiten](
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een bestand streamen](stream-files-dotnet-quickstart.md)
-* [Dynamische AES-128-versleuteling en de sleutelleveringsservice gebruiken](protect-with-aes128.md)
+* [Gebruik dynamische AES-128-versleuteling en de sleutelleveringsservice](protect-with-aes128.md)
 * [Gebruik DRM dynamische versleuteling en licentie leveringsservice voor](protect-with-drm.md)

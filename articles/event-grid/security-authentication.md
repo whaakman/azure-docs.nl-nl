@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822854"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117011"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -45,6 +45,9 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 
     Dit verificatiemechanisme vereist ook de webhook-eindpunt naar een HTTP-statuscode 200 retourneren zodat het weet dat het bericht voor de validatiegebeurtenis is geaccepteerd voordat deze kan worden geplaatst in de modus handmatig worden gevalideerd. Met andere woorden, als het eindpunt als 200 resultaat maar niet een validatie respons terug via een programma, wordt de modus overgezet naar de modus handmatig worden gevalideerd. Als er een download van de validatie-URL binnen 5 minuten is, wordt de validatie-handshake gezien om succesvol te zijn.
 
+> [!NOTE]
+> Met behulp van zelfondertekende certificaten voor de validatie wordt niet ondersteund. Gebruik in plaats daarvan een ondertekend certificaat van een certificeringsinstantie (CA).
+
 ### <a name="validation-details"></a>Validatiedetails
 
 * Event Grid berichten op het moment van gebeurtenis-abonnement maken/bijwerken, een abonnement validatiegebeurtenis naar het doel-eindpunt. 
@@ -64,8 +67,8 @@ Een voorbeeld SubscriptionValidationEvent wordt weergegeven in het volgende voor
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
+    "validationCode": "0000000000-0000-0000-0000-00000000000000",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",

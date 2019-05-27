@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fe9b70d74e326166afae366becc47fbcc8b2ea56
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66120281"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Maken van de configuratie van een SAP NetWeaver-multi-SID
 
@@ -105,7 +105,7 @@ Om voor te bereiden op uw infrastructuur, kunt u een extra SAP ASCS/SCS-exemplaa
 
 U kunt extra exemplaren van de SAP ASCS/SCS installeren in de bestaande WSFC-cluster met twee knooppunten:
 
-| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Statisch IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Vast IP-adres |
 | --- | --- | --- |
 | 1e clusterknooppunt voor ASCS/SCS-exemplaar |pr1-ascs-0 |10.0.0.10 |
 | 2e clusterknooppunt voor ASCS/SCS-exemplaar |pr1-ascs-1 |10.0.0.9 |

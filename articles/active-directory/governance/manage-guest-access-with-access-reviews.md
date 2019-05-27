@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350963"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113260"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gasttoegang beheren met Azure AD toegangsbeoordelingen
 
@@ -31,16 +31,13 @@ Met Azure Active Directory (Azure AD), kunt u eenvoudig inschakelen samenwerking
 U kunt eenvoudig Zorg er ook voor dat gastgebruikers ook kunnen de juiste toegang hebben. U kunt de gasten stellen zelf of een besluitvormer deel te nemen aan een toegangsbeoordeling en opnieuw certificeren (of bevestigen) voor toegang tot de gasten. De beoordelaars kunnen op basis van suggesties uit Azure AD hun mening geven over de mate waarin een gebruiker per se toegang moet krijgen. Wanneer een toegangsbeoordeling is voltooid, kunt u vervolgens wijzigingen aanbrengen en verwijderen van toegang voor gasten die deze niet meer nodig hebben.
 
 > [!NOTE]
-> Dit document is gericht op het controleren van toegang van gastgebruikers. Als u wilt bekijken van alle gebruikers toegang, niet alleen gasten, Zie [gebruikerstoegang beheren met toegangsbeoordelingen](manage-user-access-with-access-reviews.md). Als u wilt bekijken, lidmaatschap van een gebruiker in een beheerderrol, zoals globale beheerder, raadpleegt u [een toegangsbeoordeling starten in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md). 
->
->
+> Dit document is gericht op het controleren van toegang van gastgebruikers. Als u wilt bekijken van alle gebruikers toegang, niet alleen gasten, Zie [gebruikerstoegang beheren met toegangsbeoordelingen](manage-user-access-with-access-reviews.md). Als u wilt bekijken, lidmaatschap van een gebruiker in een beheerderrol, zoals globale beheerder, raadpleegt u [een toegangsbeoordeling starten in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Vereisten 
+## <a name="prerequisites"></a>Vereisten
 
+- Azure AD Premium P2
 
-Toegangsbeoordelingen zijn beschikbaar met de Premium P2-editie van Azure AD, die deel uitmaakt van Microsoft Enterprise Mobility + Security, E5. Zie [Azure Active Directory-edities](../fundamentals/active-directory-whatis.md) voor meer informatie. Elke gebruiker die deze functie gebruikt (waaronder het maken van een beoordeling, het invullen van een beoordeling of het bevestigen van de toegang), heeft een licentie nodig. 
-
-U kunt ook vragen gastgebruikers ook kunnen op hun eigen toegang beoordelen. Voor elke betaalde Azure AD Premium P2-licentie die u aan een van de gebruikers van uw eigen organisatie toewijst, kunt u maximaal vijf gastgebruiker onder de aftrek van de externe gebruiker uitnodigen B2B. Deze gastgebruikers kunnen functies van Azure AD Premium P2 ook gebruiken. Zie voor meer informatie, [licentieverlening van Azure AD B2B-samenwerking](../b2b/licensing-guidance.md).
+Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Maken en een toegangscontrole uitvoeren voor gasten
 

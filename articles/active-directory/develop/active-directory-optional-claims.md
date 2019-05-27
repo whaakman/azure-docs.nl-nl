@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544569"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119724"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedure: Geef optioneel claims voor uw Azure AD-app
 
@@ -125,6 +125,9 @@ Dit object OptionalClaims zorgt ervoor dat de ID-token dat is geretourneerd naar
 ## <a name="configuring-optional-claims"></a>Optionele claims configureren
 
 U kunt optioneel claims voor uw toepassing configureren door het wijzigen van het toepassingsmanifest (Zie onderstaand voorbeeld). Zie voor meer informatie de [inzicht in de Azure AD application manifest artikel](reference-app-manifest.md).
+
+> [!IMPORTANT]
+> Toegangstokens zijn **altijd** gegenereerd met behulp van het manifest van de resource, niet door de client.  Dit het geval is in de aanvraag `...scope=https://graph.microsoft.com/user.read...` de resource is Graph.  Het toegangstoken is zo gemaakt met behulp van het manifest van de grafiek, niet het manifest van de client.  Het manifest voor uw toepassing worden nooit wijzigt, tokens voor Graph anders.  Als u wilt valideren dat uw `accessToken` wijzigingen worden van kracht, aanvragen van een token voor uw toepassing, niet een andere app.  
 
 **Voorbeeldschema:**
 

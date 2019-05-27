@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60694008"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952564"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Verificatie van Azure Maps beheren
 
@@ -98,4 +98,8 @@ Zie voor meer informatie over het aanvragen van tokens voor toegang van Azure AD
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over Azure AD-verificatie en de Web-SDK van Azure Maps, [Azure AD en Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Zie voor meer informatie over Azure AD-verificatie en de Web-SDK van Azure Maps, [Azure AD en Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+
+Meer informatie over om te zien van de metrische gegevens over gebruik API voor uw Azure kaarten-account:
+> [!div class="nextstepaction"] 
+> [Metrische gegevens weergeven](how-to-view-api-usage.md)

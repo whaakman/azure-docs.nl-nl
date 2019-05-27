@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 12565d2b8004a5119add25473e5b088c9162035f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780501"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850415"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installeren en gebruiken van Istio in Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ In dit artikel leert u het volgende:
 
 De stappen die worden beschreven in dit artikel wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt (Kubernetes `1.11` en hoger, met RBAC ingeschakeld) en tot stand hebt gebracht een `kubectl` verbinding met het cluster. Als u hulp nodig met een van deze items, Zie de [Quick Start voor AKS][aks-quickstart].
 
-U moet [Helm] [ helm] Volg deze instructies en Istio installeren. Het verdient aanbeveling dat u versie hebt `2.12.2` of later correct geïnstalleerd en geconfigureerd in uw cluster. Als u hulp bij het installeren van Helm nodig hebt, raadpleegt de [AKS Helm installatie richtlijnen][helm-install].
+U moet [Helm] [ helm] Volg deze instructies en Istio installeren. Het verdient aanbeveling dat u versie hebt `2.12.2` of later correct geïnstalleerd en geconfigureerd in uw cluster. Als u hulp bij het installeren van Helm nodig hebt, raadpleegt de [AKS Helm installatie richtlijnen][helm-install]. Alle Istio schillen moeten ook worden gepland voor uitvoering op Linux-knooppunten.
 
 In dit artikel worden gescheiden van de richtlijnen van de installatie Istio in meerdere afzonderlijke stappen. Het eindresultaat is hetzelfde als in de structuur als de installatie van de officiële Istio [richtlijnen][istio-install-helm].
 
@@ -336,6 +336,9 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 De `istio` Helm-diagram implementeert een groot aantal objecten. U ziet de lijst uit de uitvoer van uw `helm install` bovenstaande opdracht. De implementatie van de onderdelen Istio kunt 4 tot en met 5 minuten duren, afhankelijk van uw clusteromgeving.
+
+> [!NOTE]
+> Alle Istio schillen moeten worden gepland voor uitvoering op Linux-knooppunten. Als u Windows Server-knooppuntgroepen naast Linux knooppuntgroepen in uw cluster hebt, controleert u of dat alle Istio schillen zijn gepland voor uitvoering op Linux-knooppunten.
 
 U hebt op dit moment Istio geïmplementeerd naar uw AKS-cluster. Om ervoor te zorgen dat we beschikken over een geslaagde implementatie van Istio, laten we doorgaan naar de volgende sectie voor [valideren van de installatie van de Istio](#validate-the-istio-installation).
 

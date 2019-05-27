@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61254342"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910817"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ De volgende procedure bevat stapsgewijze instructies voor het maken van een aang
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Walkthrough: een aangepaste activiteit maken
 ### <a name="prerequisites"></a>Vereisten
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Vereisten voor Azure Batch
@@ -100,10 +100,10 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
 ### <a name="procedure"></a>Procedure
 1. Maak een **.NET-klassebibliotheek** project.
    <ol type="a">
-     <li>Start <b>Visual Studio 2017</b> of <b>Visual Studio 2015</b> of <b>Visual Studio 2013</b> of <b>Visual Studio 2012</b>.</li>
+     <li>Launch Visual Studio.</li>
      <li>Klik op <b>File</b>, houd de muisaanwijzer op <b>New</b> en klik op <b>Project</b>.</li>
      <li>Vouw <b>Templates</b> uit en selecteer <b>Visual C#</b>. In dit scenario maakt u C#, maar u kunt een .NET-taal gebruiken voor het ontwikkelen van de aangepaste activiteit.</li>
-     <li>Selecteer <b>Class Library</b> uit de lijst met projecttypen aan de rechterkant. Kies in Visual Studio 2017, <b>Class Library (.NET Framework)</b> </li>
+     <li>Selecteer <b>Class Library</b> uit de lijst met projecttypen aan de rechterkant. Kies in Visual Studio <b>Class Library (.NET Framework)</b> </li>
      <li>Voer <b>MyDotNetActivity</b> voor de <b>naam</b>.</li>
      <li>Selecteer <b>C:\ADFGetStarted</b> voor de <b>locatie</b>.</li>
      <li>Klik op <b>OK</b> om het project aan te maken.</li>
