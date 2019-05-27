@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097649"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165386"
 ---
 In deze stap maakt u een firewall-regel om de testpoort voor het eindpunt met load balancing (zoals eerder opgegeven 59999) te openen en een andere regel om te openen, de poort beschikbaarheidsgroeplistener. Omdat u het met load balancing-eindpunt op de virtuele machines die replica's van beschikbaarheidsgroepen bevatten gemaakt, moet u de testpoort en de listener-poort op de desbetreffende VM's te openen.
 
@@ -30,4 +29,3 @@ In deze stap maakt u een firewall-regel om de testpoort voor het eindpunt met lo
 
 8. Herhaal de voorgaande stappen voor de poort beschikbaarheidsgroeplistener (zoals is opgegeven als eerder in de parameter $EndpointPort van het script) en geef vervolgens een naam voor de desbetreffende regel, zoals **altijd op Listener-poort**.
 
-<!-- Update_Description: update meta properties -->

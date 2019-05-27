@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 02/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 79af6512e9ce3d3f897be216ee3626c5d4fbcf1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733880"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155756"
 ---
 ## <a name="create-a-media-services-account"></a>Een Media Services-account kunt maken
 
@@ -22,6 +22,8 @@ U moet u eerst een Media Services-account maken. Deze sectie wordt beschreven wa
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Gebruik de volgende opdracht om een resourcegroep te maken. Een Azure-resourcegroep is een logische container waarin resources, zoals Azure Media Services-accounts en bijbehorende Storage-accounts worden geïmplementeerd en beheerd.
+
+U kunt ook `amsResourceGroup` met de waarde.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -35,7 +37,7 @@ U kunt maar één **primaire** opslagaccount koppelen aan uw Media Services-acco
 
 In dit voorbeeld maakt u een Standard LRS-account voor algemeen gebruik (v2). Als u wilt experimenteren met opslagaccounts, gebruikt u `--sku Standard_LRS`. Als u echter een SKU voor productie selecteert, kunt u overwegen om `--sku Standard_RAGRS` te gebruiken. Deze biedt geografische replicatie voor bedrijfscontinuïteit. Zie [Opslagaccounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest) voor meer informatie.
  
-Met de volgende opdracht maakt u een Storage-account die wordt gekoppeld aan de Media Services-account. In het onderstaande script kunt u `storageaccountforams` door uw waarde vervangen. De accountnaam moet uit minder dan 24 tekens bestaan.
+Met de volgende opdracht maakt u een Storage-account die wordt gekoppeld aan de Media Services-account. In het onderstaande script kunt u `storageaccountforams` door uw waarde vervangen. `amsResourceGroup` moet overeenkomen met de waarde die u hebt opgegeven voor de resourcegroep in de vorige stap. Naam van het opslagaccount moet de lengte van minder dan 24 uur per dag hebben.
 
 ```azurecli
 az storage account create --name storageaccountforams \  

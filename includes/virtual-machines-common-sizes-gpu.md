@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 7a13dab50b5735d1a1e54a029daba742176bedfb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: c0d73b2e37046f75a1cea700d9099c5bbb5f6e0c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744080"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170422"
 ---
 GPU-geoptimaliseerde VM-grootten zijn gespecialiseerde virtuele machines die beschikbaar zijn met één of meerdere NVIDIA GPU's. Deze grootten zijn ontworpen voor intensieve compute- en grafisch intensieve visualisatie werkbelastingen. In dit artikel bevat informatie over het aantal en type van GPU's, vcpu's, gegevensschijven en NIC's. De doorvoer en netwerkbandbreedte Storage zijn ook opgenomen voor elke grootte in deze groepering. 
 
@@ -23,7 +23,7 @@ GPU-geoptimaliseerde VM-grootten zijn gespecialiseerde virtuele machines die bes
 
 * De **NCSv3**, **NCSv2**, en **ND** grootten voorzien van een Intel Xeon® E5-2690 v4 2,60 GHz.
                       
-* **NV en NVv2** grootten zijn geoptimaliseerd en ontworpen voor externe visualisatie, streaming, games, codering, en VDI-scenario's met behulp van frameworks als OpenGL en DirectX.  Deze VM's worden ondersteund door NVIDIA Tesla M60 GPU.
+* **NV en NVv3** grootten zijn geoptimaliseerd en ontworpen voor externe visualisatie, streaming, games, codering, en VDI-scenario's met behulp van frameworks als OpenGL en DirectX.  Deze VM's worden ondersteund door NVIDIA Tesla M60 GPU.
 
 
 ## <a name="nc-series"></a>NC-serie
@@ -153,22 +153,24 @@ Elke GPU in NV-exemplaren wordt geleverd met een licentie RASTER. Deze licentie 
 
 1 GPU = halve M60-kaart.
 
-## <a name="nvv2-series-preview"></a>NVv2-serie (Preview)
+## <a name="nvv3-series-preview-sup1sup"></a>NVv3-serie (Preview) <sup>1</sup>
 
 Premium-opslag:  Ondersteund
 
 Premium Storage opslaan in cache:  Ondersteund
 
-Virtuele machines uit de NVv2-serie worden aangedreven door [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU's en NVIDIA GRID technologie van Intel Broadwell CPU's. Deze virtuele machines zijn bedoeld voor GPU grafische toepassingen versnelde en virtuele bureaubladen waar klanten willen hun gegevens visualiseren, resultaten wilt weergeven, werken met CAD- of render en stream-inhoud te simuleren. Daarnaast kunnen deze virtuele machines enkelvoudige, nauwkeurige workloads uitvoeren zoals encoding en renderen. NVv2 virtuele machines ondersteunt Premiumopslag en worden geleverd met twee keer het systeemgeheugen (RAM) in vergelijking met diens voorganger NV-serie.  
+Virtuele machines uit de NVv3-serie worden aangedreven door [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU's en NVIDIA GRID technologie van Intel Broadwell CPU's. Deze virtuele machines zijn bedoeld voor GPU grafische toepassingen versnelde en virtuele bureaubladen waar klanten willen hun gegevens visualiseren, resultaten wilt weergeven, werken met CAD- of render en stream-inhoud te simuleren. Daarnaast kunnen deze virtuele machines enkelvoudige, nauwkeurige workloads uitvoeren zoals encoding en renderen. NVv3 virtuele machines ondersteunt Premiumopslag en worden geleverd met twee keer het systeemgeheugen (RAM) in vergelijking met diens voorganger NV-serie.  
 
-Elke GPU in NVv2 exemplaren wordt geleverd met een licentie RASTER. Deze licentie geeft u de flexibiliteit om te gebruiken een NV-exemplaar als een virtuele werkstation voor één gebruiker of 25 gelijktijdige gebruikers verbinding kunnen maken met de virtuele machine voor een virtuele toepassing-scenario.
+Elke GPU in NVv3 exemplaren wordt geleverd met een licentie RASTER. Deze licentie geeft u de flexibiliteit om te gebruiken een NV-exemplaar als een virtuele werkstation voor één gebruiker of 25 gelijktijdige gebruikers verbinding kunnen maken met de virtuele machine voor een virtuele toepassing-scenario.
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | GPU-geheugen: GiB | Max. aantal gegevensschijven | Max. aantal NIC's | Virtuele werkstations | Virtuele toepassingen | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6s_v2 |6 |112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
-| Standard_NV12s_v2 |12 |224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
-| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
+| Standard_NV6s_v3 | 12 | 112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v3 | 24 | 224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v3 | 48 | 448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
 1 GPU = halve M60-kaart.
+
+<sup>1</sup> NVv3-serie VM's zijn uitgerust met Intel® Hyper-Threading-technologie
 
  

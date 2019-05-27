@@ -2,21 +2,20 @@
 title: Resourceklassen voor het beheer van de werkbelasting - Azure SQL Data Warehouse | Microsoft Docs
 description: Richtlijnen voor het gebruik van resource-klassen voor het beheren van gelijktijdigheid van taken en rekenresources voor query's in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 05/22/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475079"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165982"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Beheer van de werkbelasting met resourceklassen in Azure SQL Data Warehouse
 
@@ -80,13 +79,14 @@ De dynamische resourceklassen worden geïmplementeerd met deze vooraf gedefiniee
 
 Wanneer op de details van dynamische resourceklassen op Gen1 bestuderen, zijn er enkele gegevens die extra complexiteit toevoegen tot het begrijpen van hun gedrag:
 
-- De klasse van de resources smallrc werkt met een vaste geheugenmodel als een statische resourceklasse.  Query's Smallrc krijg dynamisch niet meer geheugen als het serviceniveau van de wordt verhoogd.
+**On Gen1**
+- De klasse van de resources smallrc werkt met een vaste geheugenmodel als een statische resourceklasse.  Query's Smallrc krijg dynamisch niet meer geheugen als het serviceniveau van de wordt verhoogd. 
 - Als het niveau van service wijzigt, kan de gelijktijdigheid van de beschikbare query omhoog of omlaag gaan.
-- Serviceniveaus schalen biedt geen een proportionele wijziging het geheugen toegewezen aan de dezelfde resourceklassen.
+- Serviceniveaus schalen biedt geen een proportionele wijziging in het geheugen toegewezen aan de dezelfde resourceklassen.
 
-Op **Gen2 alleen**, dynamische resourceklassen worden echt dynamische adressen van de hierboven genoemde punten.  De nieuwe regel is 3-10-22-70 voor percentage geheugentoewijzingen voor kleine-medium-groot-xlarge resourceklassen, **ongeacht serviceniveau**.  De onderstaande tabel bevat de geconsolideerde details van het geheugen toegewezen percentages en het minimum aantal gelijktijdige query's die worden uitgevoerd, ongeacht het serviceniveau van de.
+**In Gen2**, dynamische resourceklassen worden echt dynamische adressen van de hierboven genoemde punten.  De nieuwe regel is 3-10-22-70 voor percentage geheugentoewijzingen voor kleine-medium-groot-xlarge resourceklassen, **ongeacht serviceniveau**.  De onderstaande tabel bevat de geconsolideerde details van het geheugen toegewezen percentages en het minimum aantal gelijktijdige query's die worden uitgevoerd, ongeacht het serviceniveau van de.
 
-| Resourceklasse | Percentage geheugen | Min gelijktijdige query 's |
+| Bronklasse | Percentage geheugen | Min gelijktijdige query 's |
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | 3%                | 32                     |
 | mediumrc       | 10%               | 10                     |
@@ -116,7 +116,7 @@ Deze bewerkingen zijn onderworpen aan resource-klassen:
 - Selecteer (bij het opvragen van gebruikerstabellen)
 - ALTER INDEX - opnieuw samenstellen of REORGANIZE
 - ALTER TABLE OPNIEUW MAKEN
-- INDEX MAKEN
+- CREATE INDEX
 - GECLUSTERDE COLUMNSTORE-INDEX MAKEN
 - CREATE TABLE AS SELECT (CTAS)
 - Gegevens laden
@@ -134,7 +134,7 @@ De volgende instructies zijn vrijgesteld van resource-klassen en altijd in small
 - MAKEN of DROP TABLE
 - DE TABEL WIJZIGEN... SWITCH, splitsen of samenvoegen partitie
 - ALTER INDEX UITSCHAKELEN
-- INDEX VERWIJDEREN
+- DROP INDEX
 - MAKEN, bijwerken of DROP STATISTICS
 - TRUNCATE TABLE
 - ALTER AUTORISATIE
@@ -942,7 +942,6 @@ Zie voor meer informatie over het beheren van databasegebruikers en beveiliging 
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-<!-- Update_Description: update link, wording update-->

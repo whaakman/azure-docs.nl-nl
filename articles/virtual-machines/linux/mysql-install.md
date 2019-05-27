@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: f9e0582a1338bcae7b330c7ece7c3d8cc8593cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21ad3f9baf4b8e117f881d9a36fc606af04e17a5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543913"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158445"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>MySQL installeren op Azure
 In dit artikel leert u hoe u kunt installeren en configureren van MySQL op een Azure-machine waarop Linux wordt uitgevoerd.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="install-mysql-on-your-virtual-machine"></a>MySQL installeren op uw virtuele machine
 > [!NOTE]
 > U moet al een Microsoft Azure-virtuele machine waarop Linux wordt uitgevoerd om te kunnen voltooien van deze zelfstudie hebben. Raadpleeg de [zelfstudie voor Azure Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) maken en instellen van een Linux-VM met `mysqlnode` als naam van de VM en `azureuser` als gebruiker voordat u doorgaat.
 > 
@@ -35,147 +33,208 @@ In dit artikel leert u hoe u kunt installeren en configureren van MySQL op een A
 
 In dit geval poort 3306 gebruiken als de MySQL-poort.  
 
-Verbinding maken met de Linux VM die u hebt gemaakt via putty. Als dit de eerste keer dat u virtuele Azure Linux-machine gebruikt, ziet u hoe u putty verbinding maken met een Linux-VM [hier](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 We gebruiken opslagplaats pakket MySQL5.6 installeren als een voorbeeld in dit artikel. MySQL5.6 heeft eigenlijk meer verbetering in de prestaties dan MySQL5.5.  Meer informatie [hier](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 
-### <a name="how-to-install-mysql56-on-ubuntu"></a>Over het installeren van MySQL5.6 op Ubuntu
-Er wordt hier Linux-VM met Ubuntu van Azure gebruiken.
+## <a name="install-mysql56-on-ubuntu"></a>MySQL5.6 installeren op Ubuntu
+We gebruiken een Linux-VM met Ubuntu.
 
-* Stap 1: Installatie van MySQL Server 5.6 overschakelen naar `root` gebruiker:
-  
-            #[azureuser@mysqlnode:~]sudo su -
-  
-    Mysql-server 5.6 installeren:
-  
-            #[root@mysqlnode ~]# apt-get update
-            #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
-  
-    Tijdens de installatie, ziet u een dialoogvenster weergegeven om aan te vragen u om in te stellen van de MySQL-hoofdwachtwoord hieronder en moet u hier het wachtwoord instelt.
-  
-    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
-    Voer het wachtwoord nogmaals in ter bevestiging.
+### <a name="install-mysql"></a>MySQL installeren
 
-    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+5.6 voor MySQL-Server installeren door het overschakelen naar de `root` gebruiker:
 
-* Stap 2: Login MySQL Server
-  
-    Wanneer de installatie van MySQL-server is voltooid, MySQL-service automatisch gestart. U kunt zich aanmelden met de MySQL-Server `root` gebruiker.
-    Gebruik de onderstaande opdracht aanmeldings- en invoer-wachtwoord.
-  
-             #[root@mysqlnode ~]# mysql -uroot -p
-* Stap 3: De service MySQL beheren
-  
-    (a) de status van de MySQL-service ophalen
-  
-             #[root@mysqlnode ~]# service mysql status
-  
-    (b) Start MySQL Service
-  
-             #[root@mysqlnode ~]# service mysql start
-  
-    (c) MySQL-service stoppen
-  
-             #[root@mysqlnode ~]# service mysql stop
-  
-    (d) de MySQL-service opnieuw starten
-  
-             #[root@mysqlnode ~]# service mysql restart
+```bash  
+sudo su -
+```
 
-### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>MySQL installeren op Red Hat OS-familie, zoals CentOS, Oracle Linux
+Mysql-server 5.6 installeren:
+
+```bash  
+apt-get update
+apt-get -y install mysql-server-5.6
+```
+
+  
+Tijdens de installatie, ziet u een dialoogvenster weergegeven om aan te vragen u om in te stellen van de MySQL-hoofdwachtwoord hieronder en moet u hier het wachtwoord instelt.
+  
+![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+
+Voer het wachtwoord nogmaals in ter bevestiging.
+
+![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+
+### <a name="sign-in"></a>Aanmelden
+  
+Wanneer de installatie van MySQL-server is voltooid, MySQL-service automatisch gestart. U kunt zich aanmelden met MySQL-Server met de `root` gebruiker, en voer uw wachtwoord in.
+
+```bash  
+mysql -uroot -p
+```
+
+
+### <a name="manage-the-mysql-service"></a>De MySQL-service beheren
+
+Status van de MySQL-service ophalen
+
+```bash   
+service mysql status
+```
+  
+MySQL-Service starten
+
+```bash  
+service mysql start
+```
+  
+MySQL-service stoppen
+
+```bash  
+service mysql stop
+```
+  
+De MySQL-service opnieuw starten
+
+```bash  
+service mysql restart
+```
+
+## <a name="install-mysql-on-red-hat-os-centos-oracle-linux"></a>MySQL installeren op OS van Red Hat, CentOS, Oracle Linux
 We gebruiken Linux-VM hier bij CentOS of Oracle Linux.
 
-* Stap 1: De MySQL Yum-opslagplaats Switch toevoegen aan `root` gebruiker:
-  
-            #[azureuser@mysqlnode:~]sudo su -
-  
-    Download en installeer het releasepakket van MySQL:
-  
-            #[root@mysqlnode ~]# wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
-            #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
-* Stap 2: Onder bestand om te schakelen van de MySQL-opslagplaats voor het downloaden van het pakket MySQL5.6 bewerken.
-  
-            #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
-  
-    Werk elke waarde van dit bestand hieronder:
-  
-        \# *Enable to use MySQL 5.6*
-  
-        [mysql56-community]
-        name=MySQL 5.6 Community Server
-  
-        baseurl=http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/
-  
-        enabled=1
-  
-        gpgcheck=1
-  
-        gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* Stap 3: MySQL installeren uit de MySQL-opslagplaats MySQL installeren:
-  
-           #[root@mysqlnode ~]#yum install mysql-community-server
-  
-    MySQL-RPM-pakket en alle gerelateerde pakketten worden geïnstalleerd.
-* Stap 4: De service MySQL beheren
-  
-    (a) Controleer de status van de service van de MySQL-server:
-  
-           #[root@mysqlnode ~]#service mysqld status
-  
-    (b) Controleer of de standaard poort van de MySQL-server wordt uitgevoerd:
-  
-           #[root@mysqlnode ~]#netstat  –tunlp|grep 3306
+### <a name="add-the-mysql-yum-repository"></a>De MySQL-yum-opslagplaats toevoegen
+    
+Schakel over naar `root` gebruiker:
 
-    (c) start de MySQL-server:
+```bash  
+sudo su -
+```
 
-           #[root@mysqlnode ~]#service mysqld start
+Download en installeer het releasepakket van MySQL:
 
-    (d) de MySQL-server stoppen:
+```bash  
+wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+yum localinstall -y mysql-community-release-el6-5.noarch.rpm
+```
 
-           #[root@mysqlnode ~]#service mysqld stop
+### <a name="enable-the-mysql-repository"></a>De MySQL-opslag inschakelen
+Onder bestand om te schakelen van de MySQL-opslagplaats voor het downloaden van het pakket MySQL5.6 bewerken.
 
-    (e) set MySQL te starten wanneer het systeem start-up:
+```bash  
+vim /etc/yum.repos.d/mysql-community.repo
+```
 
-           #[root@mysqlnode ~]#chkconfig mysqld on
+  
+Werk elke waarde van dit bestand hieronder:
+
+```  
+\# *Enable to use MySQL 5.6*
+  
+[mysql56-community]
+name=MySQL 5.6 Community Server
+  
+baseurl=http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/
+  
+enabled=1
+  
+gpgcheck=1
+  
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+```
+
+### <a name="install-mysql"></a>MySQL installeren 
+
+MySQL installeren vanuit de opslagplaats.
+
+```bash  
+yum install mysql-community-server
+```
+  
+De MySQL-RPM-pakket en alle gerelateerde pakketten worden geïnstalleerd.
 
 
-### <a name="how-to-install-mysql-on-suse-linux"></a>MySQL in SUSE Linux installeren
+## <a name="manage-the-mysql-service"></a>De MySQL-service beheren
+  
+Controleer de status van de service van de MySQL-server:
+
+```bash  
+service mysqld status\
+```
+  
+Controleer of de standaard poort van de MySQL-server wordt uitgevoerd:
+
+```bash  
+netstat  –tunlp|grep 3306
+```
+
+Start de MySQL-server:
+
+```bash
+service mysqld start
+```
+
+Stop de MySQL-server:
+
+```bash
+service mysqld stop
+```
+
+Instellen van MySQL te starten wanneer het systeem start-up:
+
+```bash
+chkconfig mysqld on
+```
+
+## <a name="install-mysql-on-suse-linux"></a>MySQL in SUSE Linux installeren
+
 Er wordt hier Linux-VM met OpenSUSE gebruiken.
 
-* Stap 1: Download en installeer de MySQL-Server
+### <a name="download-and-install-mysql-server"></a>Download en installeer de MySQL-Server
   
-    Schakel over naar `root` gebruiker via de onderstaande opdracht:  
-  
-           #sudo su -
-  
-    Download en installeer de MySQL-pakket:
-  
-           #[root@mysqlnode ~]# zypper update
-  
-           #[root@mysqlnode ~]# zypper install mysql-server mysql-devel mysql
-* Stap 2: De service MySQL beheren
-  
-    (a) Controleer de status van de MySQL-server:
-  
-           #[root@mysqlnode ~]# rcmysql status
-  
-    (b) Controleer of de standaard-poort van de MySQL-server:
-  
-           #[root@mysqlnode ~]# netstat  –tunlp|grep 3306
+Schakel over naar `root` gebruiker via de onderstaande opdracht:  
 
-    (c) start de MySQL-server:
+```bash  
+sudo su -
+```
+  
+Download en installeer de MySQL-pakket:
 
-           #[root@mysqlnode ~]# rcmysql start
+```bash  
+zypper update
+zypper install mysql-server mysql-devel mysql
+```
 
-    (d) de MySQL-server stoppen:
+### <a name="manage-the-mysql-service"></a>De MySQL-service beheren
+  
+Controleer de status van de MySQL-server:
 
-           #[root@mysqlnode ~]# rcmysql stop
+```bash  
+rcmysql status
+```
+  
+Controleer of de standaard-poort van de MySQL-server:
 
-    (e) set MySQL te starten wanneer het systeem start-up:
+```bash  
+netstat  –tunlp|grep 3306
+```
 
-           #[root@mysqlnode ~]# insserv mysql
+Start de MySQL-server:
 
-### <a name="next-step"></a>Volgende stap
-Meer informatie en informatie met betrekking tot MySQL zoeken [hier](https://www.mysql.com/).
+```bash
+rcmysql start
+```
+
+Stop de MySQL-server:
+
+```bash
+rcmysql stop
+```
+
+Instellen van MySQL te starten wanneer het systeem start-up:
+
+```bash
+insserv mysql
+```
+
+## <a name="next-step"></a>Volgende stap
+Zie voor meer informatie de [MySQL](https://www.mysql.com/) website.
 

@@ -9,11 +9,11 @@ ms.date: 11/24/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: 3915df46495e754843009a761e9a07aa2daddae2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686697"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153741"
 ---
 1. Meld u in een nieuw browservenster aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **Een resource maken** > **Databases** > **Azure Cosmos DB**.
@@ -25,7 +25,7 @@ ms.locfileid: "60686697"
     Instelling|Waarde|Description
     ---|---|---
     Abonnement|*Uw abonnement*|Selecteer het Azure-abonnement dat u voor dit Azure Cosmos DB-account wilt gebruiken. 
-    Resourcegroep|Nieuwe maken<br><br>*Voer een unieke naam in*|Selecteer **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in. Gebruik dezelfde naam als uw accountnaam om het uzelf gemakkelijk te maken. 
+    Resourcegroep|Nieuw<br><br>*Voer een unieke naam in*|Selecteer **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in. Gebruik dezelfde naam als uw accountnaam om het uzelf gemakkelijk te maken. 
     Accountnaam|*Voer een unieke naam in*|Voer een unieke naam in om uw Azure Cosmos DB-account te identificeren. Gebruik een unieke id omdat *documents.azure.com* is toegevoegd aan de id die u hebt opgegeven om uw URI te maken.<br><br>De id mag alleen kleine letters, cijfers en het koppelteken (-) bevatten, en moet 3 tot 31 tekens lang zijn.
     API|Core (SQL)|De API bepaalt het type te maken account. Azure Cosmos DB biedt vijf API's: SQL (documentdatabase), Gremlin (grafiekendatabase), MongoDB (documentdatabase), Table-API en Apache Cassandra-API. Momenteel is vereist dat u voor elke API een afzonderlijk account maakt. <br><br>Selecteer **Core SQL** omdat u in dit artikel een documentdatabase maakt en query's uitvoert met SQL-syntaxis. <br><br>[Meer informatie over de SQL-API](../articles/cosmos-db/documentdb-introduction.md)|
     Locatie|*Selecteer de regio die het dichtst bij uw gebruikers is gelegen*|Selecteer een geografische locatie waar u het Azure Cosmos DB-account wilt hosten. Gebruik de locatie die zich het dichtst bij uw gebruikers bevindt, zodat ze de snelst mogelijke toegang tot de gegevens hebben.

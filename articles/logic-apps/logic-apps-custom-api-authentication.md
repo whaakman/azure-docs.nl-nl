@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167314"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Beveiligde aanroepen naar aangepaste API's van Azure Logic Apps
 
@@ -192,7 +192,7 @@ Open de definitie van uw logische app in de weergave van code, gaat u naar de **
 | ------- | -------- | ----------- | 
 | tenant | Ja | De GUID voor de Azure AD-tenant | 
 | Doelgroep | Ja | De GUID voor de doelresource die u openen wilt, die de client-id van de toepassings-id voor uw web-app of API-app | 
-| ClientId | Ja | De GUID voor de client aanvragen van toegang, die de client-id van de toepassings-id voor uw logische app | 
+| clientId | Ja | De GUID voor de client aanvragen van toegang, die de client-id van de toepassings-id voor uw logische app | 
 | geheim | Ja | De sleutel of het wachtwoord van de toepassings-id voor de client die het toegangstoken wordt aangevraagd | 
 | type | Ja | Het verificatietype. De waarde voor ActiveDirectoryOAuth verificatie, heeft `ActiveDirectoryOAuth`. | 
 |||| 
@@ -237,7 +237,7 @@ In de **autorisatie** sectie, voeg deze regel:
 | Element | Vereist | Description | 
 | ------- | -------- | ----------- | 
 | type | Ja | Het verificatietype. Voor SSL-clientcertificaten, de waarde moet `ClientCertificate`. | 
-| wachtwoord | Ja | Het wachtwoord voor toegang tot de clientcertificaat (PFX-bestand) | 
+| password | Ja | Het wachtwoord voor toegang tot de clientcertificaat (PFX-bestand) | 
 | pfx | Ja | De met base64 gecodeerde inhoud van het clientcertificaat (PFX-bestand) | 
 |||| 
 
@@ -254,8 +254,8 @@ In de **autorisatie** sectie, voeg deze regel:
 | Element | Vereist | Description | 
 | ------- | -------- | ----------- | 
 | type | Ja | Het verificatietype dat u wilt gebruiken. Voor basisverificatie, de waarde moet `Basic`. | 
-| gebruikersnaam | Ja | De gebruikersnaam die u wilt gebruiken voor verificatie | 
-| wachtwoord | Ja | Het wachtwoord dat u wilt gebruiken voor verificatie | 
+| username | Ja | De gebruikersnaam die u wilt gebruiken voor verificatie | 
+| password | Ja | Het wachtwoord dat u wilt gebruiken voor verificatie | 
 |||| 
 
 <a name="azure-ad-code"></a>

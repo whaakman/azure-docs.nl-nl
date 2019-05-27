@@ -1,7 +1,7 @@
 ---
 title: Maken, uitvoeren en bijhouden van ML-pijplijnen
 titleSuffix: Azure Machine Learning service
-description: Maken en uitvoeren van een machine learning-pijplijn met de Azure Machine Learning-SDK voor Python. U kunt pijplijnen maken en beheren van de werkstromen die fasen geniet samen machine learning (ML). Deze fasen bevatten gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken.
+description: Maken en uitvoeren van een machine learning-pijplijn met de Azure Machine Learning-SDK voor Python. U kunt pijplijnen maken en beheren van de werkstromen die fasen geniet samen machine learning (ML). Deze fasen bevatten gegevens voor te bereiden, modeltraining, modelimplementatie en Deductie/scoren.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914894"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165877"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Hergebruik van vorige resultaten (`allow_reuse`) is essentieel bij het gebruik van pijplijnen in een samenwerkingsomgeving omdat het elimineren van onnodige heruitvoeringen biedt de flexibiliteit. Dit is het standaardgedrag wanneer de script_name, invoer en de parameters van een stap hetzelfde blijven. Wanneer de uitvoer van de stap opnieuw wordt gebruikt, wordt de taak is niet verzonden naar de compute, in plaats daarvan de resultaten van de vorige uitvoering zijn onmiddellijk beschikbaar voor de volgende stap uitvoeren. Als er voor deze stap wordt ingesteld op false, een nieuw run altijd worden gegenereerd tijdens het uitvoeren van de pijplijn. 
+
 Nadat u de stappen hebt gedefinieerd, kunt u de pijplijn bouwen met behulp van sommige of alle van deze stappen.
 
 > [!NOTE]
@@ -315,6 +317,10 @@ Wanneer u eerst een pijplijn uitvoert, Azure Machine Learning:
 
 Zie voor meer informatie de [experimenteren klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) verwijzing.
 
+## <a name="github-tracking-and-integration"></a>GitHub bijhouden en integratie
+
+Wanneer u een training uitgevoerd waarbij de bronmap is een lokale Git-opslagplaats start, wordt informatie over de opslagplaats opgeslagen in de uitvoeringsgeschiedenis. Bijvoorbeeld, wordt de huidige doorvoer-ID voor de opslagplaats die vastgelegd als onderdeel van de geschiedenis.
+
 ## <a name="publish-a-pipeline"></a>Publiceren van een pijplijn
 
 U kunt een pijplijn uit te voeren met verschillende soorten invoer later publiceren. Voor de REST-eindpunt van een al gepubliceerde pijplijn parameters accepteert, moet u parameter van de pijplijn voordat u publiceert. 
@@ -373,11 +379,11 @@ Zie de lijst van alle uw pijplijnen en de details van de uitvoering:
 ## <a name="caching--reuse"></a>Opslaan in cache & opnieuw gebruiken  
 
 U kunt enkele zaken rondom het in cache opslaan en opnieuw gebruiken om te optimaliseren en het gedrag van uw pijplijnen aanpassen. U kunt bijvoorbeeld, om te kiezen:
-+ **Het standaard hergebruik van de uitvoer stap uitschakelen** door in te stellen `allow_reuse=False` tijdens [stap definitie](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Het standaard hergebruik van de uitvoer stap uitschakelen** door in te stellen `allow_reuse=False` tijdens [definitie stap](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Hergebruik is essentieel bij het gebruik van pijplijnen in een samenwerkingsomgeving omdat het elimineren van onnodige uitvoeringen biedt de flexibiliteit. U kunt er echter voor kiezen buiten dit.
 + **Uitbreiden buiten de script-hashing**om ook een absoluut pad of relatieve paden naar de bronmap naar andere bestanden en mappen met behulp van de `hash_paths=['<file or directory']` 
 + **Afdwingen van uitvoer opnieuw genereren voor alle stappen in een uitvoering** met `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Standaard stap opnieuw gebruiken is ingeschakeld en alleen de belangrijkste scriptbestand wordt gehasht. Als het script voor een bepaalde stap blijft hetzelfde (`script_name`, invoer en de parameters), de uitvoer van een vorige stap uitvoeren opnieuw wordt gebruikt, de taak is niet verzonden naar de rekenkracht en de resultaten van de vorige uitvoering in plaats daarvan zijn onmiddellijk beschikbaar voor de volgende stap .  
+Standaard `allow-reuse` voor stappen is ingeschakeld en alleen de belangrijkste scriptbestand wordt gehasht. Als het script voor een bepaalde stap blijft hetzelfde (`script_name`, invoer en de parameters), de uitvoer van een vorige stap uitvoeren opnieuw wordt gebruikt, de taak is niet verzonden naar de rekenkracht en de resultaten van de vorige uitvoering in plaats daarvan zijn onmiddellijk beschikbaar voor de volgende stap .  
 
 ```python
 step = PythonScriptStep(name="Hello World", 
