@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 528d2fd5b26e06478078711405bd5b9ca51feeda
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721920"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860006"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -56,8 +56,8 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
     |Toegangsbeheer (IAM)|Roltoewijzingen gebruiken.  Zie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).|
     |Tags|Hiermee kunt u instellen van sleutel/waarde-paren voor het definiëren van een aangepaste taxonomie van uw cloud-services. Bijvoorbeeld, u kunt maken met een sleutel met de naam **project**, en vervolgens een overeenkomende waarde gebruiken voor alle services die zijn gekoppeld aan een bepaald project.|
     |Problemen vaststellen en oplossen|Probleemoplossingsinformatie weergeven.|
-    |Snelstartgids|Geeft informatie weer die u helpt aan de slag met HDInsight.|
-    |Hulpprogramma's|Help-informatie voor HDInsight gerelateerde hulpprogramma's.|
+    |Quick Start|Geeft informatie weer die u helpt aan de slag met HDInsight.|
+    |Hulpmiddelen|Help-informatie voor HDInsight gerelateerde hulpprogramma's.|
 
   - **Instellingenmenu**  
 
@@ -68,7 +68,7 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
     |SSH en clusteraanmelding|Ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH)-verbinding. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.|
     |Data Lake Storage Gen1|Toegang tot Data Lake Storage Gen1 configureren.  Zie [Quickstart: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Opslagaccounts|De storage-accounts en de sleutels weergeven. De storage-accounts zijn geconfigureerd tijdens het maken van het cluster.|
-    |Applicaties|HDInsight-toepassingen toevoegen/verwijderen.  Zie [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).|
+    |Toepassingen|HDInsight-toepassingen toevoegen/verwijderen.  Zie [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).|
     |Scriptacties|Bash-scripts uitvoeren op het cluster. Zie [aanpassen Linux gebaseerde HDInsight-clusters met Script Action](hdinsight-hadoop-customize-cluster-linux.md).|
     |Externe metastores|Weergave de [Apache Hive](https://hive.apache.org/) en [Apache Oozie](https://oozie.apache.org/) metastores. De metastores kan alleen worden geconfigureerd tijdens het maken van het cluster.|
     |HDInsight-partner|De huidige HDInsight-Partner toevoegen/verwijderen.|
@@ -89,8 +89,8 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** ](#showCluste
 
     | Item| Description |
     |---|---|
-    |Status van resources|Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).|
-    |Nieuw ondersteuningsverzoek|Hiermee kunt u een ondersteuningsticket maken met Microsoft ondersteuning.|
+    |Resourcestatus|Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).|
+    |Nieuwe ondersteuningsaanvraag|Hiermee kunt u een ondersteuningsticket maken met Microsoft ondersteuning.|
 
 ## <a name="properties"></a> Eigenschappen van cluster
 
@@ -204,7 +204,7 @@ Er zijn veel manieren waarop u het proces kunt programmeren:
 
 * Gebruiker Azure-Gegevensfactory. Zie [maken op aanvraag op basis van Linux Apache Hadoop-clusters in HDInsight met behulp van Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) gekoppelde services voor het maken van HDInsight op aanvraag.
 * Azure PowerShell gebruiken.  Zie [gegevens over vertraagde vluchten analyseren](hdinsight-analyze-flight-delay-data-linux.md).
-* Gebruik Azure klassieke CLI. Zie [beheren HDInsight-clusters met behulp van de klassieke Azure-CLI](hdinsight-administer-use-command-line.md).
+* Azure CLI gebruiken. Zie [beheren Azure HDInsight-clusters met behulp van Azure CLI](hdinsight-administer-use-command-line.md).
 * HDInsight .NET SDK gebruiken. Zie [indienen Apache Hadoop-taken](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Zie voor informatie over de prijzen, [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/). Als een cluster verwijderen uit de Portal, Zie [clusters verwijderen](#delete-clusters)
@@ -284,7 +284,7 @@ HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebben 
 * Oozie
 * Templeton
 
-Standaard worden deze services worden verleend om toegang te krijgen. U kunt in te trekken/verlenen de toegang via [klassieke Azure-CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) en [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+Standaard worden deze services worden verleend om toegang te krijgen. U kunt in te trekken/verlenen de toegang via [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>De abonnements-ID vinden
 Elk cluster is gekoppeld aan een Azure-abonnement.  Het Azure-abonnement-ID zichtbaar zijn vanaf is de [cluster startpagina](#homePage).
@@ -316,7 +316,7 @@ De **gebruik** sectie van de HDInsight-cluster-blade vindt u informatie over het
 In dit artikel hebt u enkele eenvoudige beheerfuncties geleerd. Zie de volgende artikelen voor meer informatie:
 
 * [HDInsight met behulp van Azure PowerShell beheren](hdinsight-administer-use-powershell.md)
-* [HDInsight met behulp van Azure Classic CLI beheren](hdinsight-administer-use-command-line.md)
+* [HDInsight met behulp van Azure CLI beheren](hdinsight-administer-use-command-line.md)
 * [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md)
 * [Meer informatie over het gebruik van de Apache Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)
 * [Informatie over het gebruik van de Apache Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -1,6 +1,6 @@
 ---
 title: Ontwikkel Azure Functions met Visual Studio | Microsoft Docs
-description: Informatie over het ontwikkelen en testen van Azure Functions met behulp van Azure Functions Tools voor Visual Studio 2017.
+description: Informatie over het ontwikkelen en testen van Azure Functions met behulp van Azure Functions Tools voor Visual Studio 2019.
 services: functions
 documentationcenter: .net
 author: ggailey777
@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403662"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864535"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
-Azure Functions-hulpprogramma's voor Visual Studio 2017 is een extensie voor Visual Studio kunt u ontwikkelen, testen en implementeren van C#-functies in Azure. Als deze ervaring uw eerste met Azure Functions is, kunt u meer informatie op [een inleiding tot Azure Functions](functions-overview.md).
+Azure Functions-hulpprogramma's voor Visual Studio 2019 is een extensie voor Visual Studio kunt u ontwikkelen, testen en implementeren van C# functies naar Azure. Als deze ervaring uw eerste met Azure Functions is, kunt u meer informatie op [een inleiding tot Azure Functions](functions-overview.md).
 
 De Azure Functions-hulpprogramma's biedt de volgende voordelen: 
 
@@ -29,16 +29,16 @@ De Azure Functions-hulpprogramma's biedt de volgende voordelen:
 * Ontwikkel en implementeer vooraf gecompileerde C#-functies. Vooraf voldaan functions biedt een betere koude start prestaties dan C#-script op basis van functies. 
 * Uw functies in C#-code terwijl alle van de voordelen van Visual Studio-ontwikkeling. 
 
-Dit artikel bevat informatie over het gebruik van de Azure Functions Tools voor Visual Studio 2017 voor het ontwikkelen van C# functies en deze publiceren naar Azure. Voordat u dit artikel leest, moet u uitvoeren de [Functions-Snelstartgids voor Visual Studio](functions-create-your-first-function-visual-studio.md). 
+Dit artikel bevat informatie over het gebruik van de Azure Functions Tools voor Visual Studio 2019 voor het ontwikkelen van C# functies en deze publiceren naar Azure. Voordat u dit artikel leest, moet u uitvoeren de [Functions-Snelstartgids voor Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Combineer geen lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u in een lokale-project met een functie-app publiceert, worden alle functies die u hebt ontwikkeld in de portal in het implementatieproces overschreven.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure Functions-hulpprogramma's is opgenomen in de Azure-ontwikkelworkload van [Visual Studio 2017 versie 15.5](https://www.visualstudio.com/vs/), of een latere versie. Zorg ervoor dat u de **Azure-ontwikkeling** werkbelasting in uw Visual Studio 2017-installatie:
+Azure Functions-hulpprogramma's is opgenomen in de Azure-ontwikkelworkload van [Visual Studio 2017](https://www.visualstudio.com/vs/), of een latere versie. Zorg ervoor dat u de **Azure-ontwikkeling** werkbelasting in de installatie van Visual Studio 2019:
 
-![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Visual Studio 2019 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Zorg ervoor dat uw Visual Studio up-to-date is en dat u gebruikmaakt van de [meest recente versie](#check-your-tools-version) van de Azure Functions-hulpprogramma's.
 
@@ -185,7 +185,7 @@ Zie voor meer informatie over het gebruik van Azure Functions Core Tools, [Code 
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Instellingen voor functie-app
+## <a name="function-app-settings"></a>Instellingen voor functie-apps
 
 Alle instellingen die u hebt toegevoegd in de local.settings.json moeten ook worden toegevoegd aan de functie-app in Azure. Deze instellingen worden niet automatisch geüpload wanneer u het project publiceren.
 

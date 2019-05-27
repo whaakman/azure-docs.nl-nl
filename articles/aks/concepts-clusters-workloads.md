@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230149"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850532"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -70,9 +70,9 @@ Als u wilt uitvoeren op uw toepassingen en ondersteunende services, moet u een K
 
 De Azure VM-grootte voor uw knooppunten definieert het aantal CPU's, hoeveel geheugen en de grootte en hetzelfde type van de opslagruimte beschikbaar is (zoals hoogwaardige SSD of reguliere HDD). Als u verwacht nodig is voor toepassingen waarvoor grote hoeveelheden CPU en geheugen of opslag met hoge prestaties dat, plan u de grootte van het knooppunt dienovereenkomstig. U kunt ook het aantal knooppunten opschalen in uw AKS-cluster om te voldoen aan de vraag.
 
-De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren.
+De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux of Windows Server 2019. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren.
 
-Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties bevat voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u gebruiken van Windows-containers of in een container runtime dan Moby wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
+Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties bevat voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u een container runtime dan Moby gebruiken wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
 
 ### <a name="resource-reservations"></a>Resource-reserveringen
 
@@ -104,6 +104,27 @@ Knooppunten met dezelfde configuratie zijn gegroepeerd tot *knooppuntgroepen*. E
 Wanneer u een AKS-cluster upgraden of schalen, wordt de actie wordt uitgevoerd op basis van de standaardgroep voor het knooppunt. U kunt ook om te schalen of upgrade van een specifiek knooppunt-groep. Actieve containers worden gepland op andere knooppunten in het knooppunt van toepassingen voor upgrade-bewerkingen, totdat alle knooppunten worden bijgewerkt.
 
 Zie voor meer informatie over het gebruik van meerdere knooppuntgroepen in AKS [maken en beheren van meerdere knooppuntgroepen voor een cluster in AKS][use-multiple-node-pools].
+
+### <a name="node-selectors"></a>Knooppunt selectoren
+
+In een AKS-cluster met meerdere groepen, moet u mogelijk de Kubernetes-Scheduler zien welke knooppuntgroep wilt gebruiken voor een bepaalde resource. Bijvoorbeeld: inkomend controllers mag niet uitvoeren op Windows Server-knooppunten (momenteel in preview in AKS). Knooppunt selectoren kunnen u bij het definiëren van de verschillende parameters, zoals het knooppunt OS, om te bepalen waar een schil moet worden gepland.
+
+De volgende eenvoudige voorbeeld plant u een NGINX-instantie op een Linux-knooppunt met de selector knooppunt *"beta.kubernetes.io/os": linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Zie voor meer informatie over het besturingselement waarbij schillen zijn gepland, [aanbevolen procedures voor geavanceerde scheduler-functies in AKS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pods
 
@@ -248,3 +269,4 @@ Dit artikel vindt u enkele van de belangrijkste onderdelen die Kubernetes en hoe
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

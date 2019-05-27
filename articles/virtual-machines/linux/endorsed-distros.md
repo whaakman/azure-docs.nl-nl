@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/16/2019
 ms.author: szark
-ms.openlocfilehash: db10c95c982132c41193ed1cccfdcdca6f60ba5e
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: a1be0b6870882d3c7b0281dec7933e87c50e49de
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993088"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834557"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Linux-distributies op Azure
 -Partners bieden Linux-installatiekopieën in de Azure Marketplace. We werken met verschillende Linux-community's nog meer varianten toevoegen aan de lijst met distributiepunten die zijn goedgekeurd. In de tussentijd voor distributies die niet beschikbaar zijn vanuit de Marketplace, u kunt altijd brengt uw eigen Linux door de richtlijnen op [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -32,14 +32,14 @@ De Linux Integration Services (LIS) stuurprogramma's voor Hyper-V en Azure zijn 
 
 De Azure Linux Agent al vooraf is geïnstalleerd op de Azure Marketplace-installatiekopieën en is meestal beschikbaar vanuit de distributie van pakket-opslagplaats. Broncode is te vinden in [GitHub](https://github.com/azure/walinuxagent).
 
-  
+
 | Distributie | Versie | Stuurprogramma's | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [LIS downloaden](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Pakket: In [opslagplaats](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) onder "WALinuxAgent" <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |In kernel |Broncode: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7,9 +, 8.2 + |In kernel |Pakket: In de opslagplaats onder 'waagent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |In kernel |Pakket: In de opslagplaats onder "WALinuxAgent" <br/>Broncode: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux |RHEL 6.7 +, 7.1 + |In kernel |Pakket: In de opslagplaats onder "WALinuxAgent" <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Red Hat Enterprise Linux |RHEL 6.7+, 7.1+, 8.0+ |In kernel |Pakket: In de opslagplaats onder "WALinuxAgent" <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES voor SAP<br>11 SP4<br>12 SP1+<br>15|In kernel |Pakket:<p> voor 11 in [Cloud: extra](https://build.opensuse.org/project/show/Cloud:Tools) opslagplaats<br>voor 12 opgenomen in de Module 'Openbare Cloud' onder 'python-azure-agent'<br/>Broncode: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.2 + |In kernel |Pakket: In [Cloud: extra](https://build.opensuse.org/project/show/Cloud:Tools) opslagplaats onder 'python-azure-agent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |In kernel |Pakket: In de opslagplaats onder "walinuxagent" <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |

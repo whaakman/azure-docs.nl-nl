@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753015"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864386"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning
 
-Uw eigen notebook-server gebruiken om code waarmee waarden zich in de [werkruimte van Azure Machine Learning-service](concept-azure-machine-learning-architecture.md). De werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning.
+Gebruik uw eigen Python-omgeving en de Jupyter-Notebook Server aan de slag met Azure Machine Learning-service.  Zie voor een snelstartgids met geen SDK-installatie, [Quick Start: Gebruik van een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
-In deze snelstartgids maakt gebruik van uw eigen Python-omgeving en Jupyter Notebook-Server. Zie voor een snelstartgids met geen SDK-installatie, [Quick Start: Een cloud-gebaseerde notebookserver aan de slag met Azure Machine Learning gebruiken](quickstart-run-cloud-notebook.md) 
+Deze quickstart laat zien hoe u kunt de [werkruimte van Azure Machine Learning-service](concept-azure-machine-learning-architecture.md) voor het bijhouden van uw machine learning-experimenten. U Python-code wordt uitgevoerd die waarden zich in de werkruimte.
 
 Een videoversie van deze quickstart bekijken:
 

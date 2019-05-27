@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450326"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835153"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>OPC Vault helemaal vanaf het begin implementeren
 
@@ -45,7 +45,7 @@ Het configuratiebestand in de opslagplaats verwijst naar bepaalde omgevingsvaria
 
 Visual Studio kunt u snel openen van de toepassing zonder gebruik te maken van een opdrachtprompt zonder iets buiten de IDE configureren.
 
-Met behulp van Visual Studio 2017 stappen:
+U wilt uitvoeren en fouten opsporen in de toepassing met Visual Studio:
 
 1. Open de oplossing met behulp van de `iot-opc-gds-service.sln` bestand.
 

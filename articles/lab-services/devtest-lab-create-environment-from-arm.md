@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 96e3a24b0c9f9ab21652ffcd1b29deeb512581e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202613"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833989"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Multi-VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
 
@@ -54,7 +54,7 @@ Er zijn een aantal regels voor het ordenen van uw Azure Resource Manager-sjablon
     ![Sleutel Azure Resource Manager-sjabloonbestanden](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Als u gebruiken de parameterwaarden die zijn gedefinieerd in een parameterbestand wilt, de parameter-bestand moet de naam `azuredeploy.parameters.json`.
-- U kunt de parameters `_artifactsLocation` en `_artifactsLocationSasToken` kan de parametersLink URI-waarde, zodat u DevTest Labs geneste sjablonen automatisch worden beheerd. Zie voor meer informatie, [hoe Azure DevTest Labs vergemakkelijkt geneste Resource Manager sjabloonimplementaties voor testomgevingen](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
+- U kunt de parameters `_artifactsLocation` en `_artifactsLocationSasToken` kan de parametersLink URI-waarde, zodat u DevTest Labs geneste sjablonen automatisch worden beheerd. Zie voor meer informatie, [geneste Azure Resource Manager-sjablonen voor testomgevingen implementeren](deploy-nested-template-environments.md).
 - Metagegevens kan worden gedefinieerd om de weergavenaam van sjabloon en beschrijving te geven. Deze metagegevens moet zich in een bestand met de naam `metadata.json`. Het volgende voorbeeld-metagegevensbestand ziet u hoe u de weergavenaam en beschrijving opgeven: 
 
     ```json

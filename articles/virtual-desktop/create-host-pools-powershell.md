@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523959"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833972"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Een hostpool maken met PowerShell
 
@@ -78,6 +78,9 @@ Is domain-join, doe dan het volgende op elke virtuele machine:
 3. Selecteer **computernaam**, selecteer **instellingen wijzigen**, en selecteer vervolgens **wijzigen...**
 4. Selecteer **domein** en voer de Active Directory-domein op het virtuele netwerk.
 5. Verifiëren met een domeinaccount met bevoegdheden voor domeindeelname computers.
+
+    >[!NOTE]
+    > Als u bent lid wordt van uw virtuele machines naar een Azure AD Domain Services-omgeving, controleert u of uw lid worden van domeingebruiker ook lid is van de [groep AAD DC Administrators](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registreren van de virtuele machines aan de groep van de host Windows Virtual Desktop Preview
 

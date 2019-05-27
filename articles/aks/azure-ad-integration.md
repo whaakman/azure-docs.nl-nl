@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192108"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849879"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
@@ -23,7 +23,6 @@ Dit artikel leest u over het implementeren van de vereisten voor AKS en Azure AD
 Er gelden de volgende beperkingen:
 
 - Azure AD kan alleen worden ingeschakeld wanneer u een nieuwe, RBAC-functionaliteit cluster maakt. U kunt Azure AD op een bestaand AKS-cluster niet inschakelen.
-- *Gast* gebruikers in Azure AD, bijvoorbeeld als u van een federatieve aanmelding vanaf een andere directory gebruikmaakt, worden niet ondersteund.
 
 ## <a name="authentication-details"></a>Verificatiegegevens
 
@@ -114,6 +113,10 @@ De tweede Azure AD-toepassing wordt gebruikt wanneer u zich aan met de Kubernete
         Wanneer de machtigingen hebt verleend, wordt het volgende bericht weergegeven in de portal:
 
         ![Kennisgeving van geslaagde machtigingen](media/aad-integration/permissions-granted.png)
+
+1. Selecteer op de navigatiebalk links van de Azure AD-toepassing, **verificatie**.
+
+    * Onder **standaard clienttype**, selecteer **Ja** naar *behandelen van de client als een openbare client*.
 
 1. Op de navigatiebalk links van de Azure AD-toepassing, noteer de **toepassings-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Client application ID`.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 Als u klaar bent, wordt het verificatietoken in cache opgeslagen. U wordt alleen reprompted aan te melden wanneer het token is verlopen of het Kubernetes-configuratiebestand opnieuw wordt gemaakt.
 
 Als u een autorisatiefoutbericht ziet na de aanmelding is, controleert u of:
-1. De gebruiker u zich aanmeldt is niet een gast in de Azure AD-exemplaar (in dit scenario is vaak het geval als u een federatieve account maakt vanuit een andere map).
-2. De gebruiker is geen lid van meer dan 200 groepen.
-3. Geheim dat is gedefinieerd in de registratie van de toepassing voor de server komt niet overeen met de waarde die is geconfigureerd met behulp van--aad-server-app-geheim
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. U hebt de juiste object-ID of UPN, afhankelijk van of het gebruikersaccount dat in dezelfde Azure AD-tenant is of niet gedefinieerd.
+2. De gebruiker is geen lid van meer dan 200 groepen.
+3. Geheim dat is gedefinieerd in de registratie van de toepassing voor de server overeenkomt met de waarde die is geconfigureerd met behulp van `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Volgende stappen
 

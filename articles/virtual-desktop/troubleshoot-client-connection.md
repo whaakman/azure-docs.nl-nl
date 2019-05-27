@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522946"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833575"
 ---
 # <a name="remote-desktop-client-connections"></a>Clientverbindingen met extern bureaublad
 
@@ -28,9 +28,9 @@ Controleer of er is verbinding met internet via een andere website. bijvoorbeeld
 
 Gebruik **nslookup** om te bevestigen DNS de FQDN-naam kunt oplossen:
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Probeer verbinding te maken met een andere client, zoals Extern bureaublad-client voor Windows 7 of Windows 10 en controle om te zien als u de webclient kunt openen.
 
@@ -54,7 +54,7 @@ Probeer verbinding te maken met een andere client, zoals Extern bureaublad-clien
 
 1. De browser opnieuw te starten.
 2. Browsercookies wissen. Zie [verwijderen van cookiebestanden in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Cache wissen browser. Zie [Wis de browsercache van de voor uw browser](https://binged.it/2RKyfdU).
+3. Wis de browsercache. Zie [Wis de browsercache van de voor uw browser](https://binged.it/2RKyfdU).
 4. Geopende browservenster in de privémodus.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Web-client niet meer reageert of de verbinding verbreekt
@@ -74,7 +74,7 @@ Als de webclient om referenties vragen blijft, volgt u deze instructies.
 1. Controleer of de dat web client-URL juist is.
 2. Bevestig dat de referenties voor de virtuele Windows-bureaublad-omgeving is gebonden aan de URL zijn.
 3. Browsercookies wissen. Zie [verwijderen van cookiebestanden in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Cache wissen browser. Zie [Wis de browsercache van de voor uw browser](https://binged.it/2RKyfdU).
+4. Wis de browsercache. Zie [Wis de browsercache van de voor uw browser](https://binged.it/2RKyfdU).
 5. Geopende browservenster in de privémodus.
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Extern-bureaubladclient voor Windows 7 of Windows 10 niet meer reageert of kan niet worden geopend
@@ -111,20 +111,20 @@ Volg deze instructies voor algemene probleemoplossing voor de client verbinding-
 4. Met behulp van **Get-RdsHostPool** en **Get-RdsSessionHost** cmdlets, bevestig dat probleemoplossing is wordt uitgevoerd op de juiste host-groep.
 5. Voer de volgende opdracht om een lijst van alle mislukte activiteiten van het type verbinding voor het opgegeven tijdvenster:
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
 6. Met behulp van de **ActivityId** uit de vorige cmdlet-uitvoer, de onderstaande opdracht uitvoeren:
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. De opdracht geeft een resultaat vergelijkbaar met de uitvoer die hieronder wordt weergegeven. Gebruik **ErrorCodeSymbolic** en **ErrorMessage** om op te lossen de hoofdoorzaak te achterhalen.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -159,7 +159,7 @@ Een gebruiker kunt beginnen met extern bureaublad-clients en is geverifieerd, ma
 
 Bevestig dat de gebruiker die de problemen melden is toegewezen aan groepen met behulp van deze vanaf de opdrachtregel:
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

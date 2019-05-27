@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142454"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834018"
 ---
 # <a name="connect-from-a-web-browser"></a>Verbinding maken via een webbrowser
 
@@ -38,6 +38,6 @@ Hoewel elke browser HTML5-ondersteuning werken moet, we officiële ondersteuning
 Navigeer in een browser naar de [virtuele Windows-bureaublad-webclient](https://rdweb.wvd.microsoft.com/webclient) en meld u aan met uw gebruikersaccount.
 
 >[!NOTE]
->Als u al bent aangemeld met een Azure AD-account die anders is dan de versie die u wilt gebruiken voor virtuele Windows-bureaublad, moet u mogelijk meldt u zich af of gebruik een persoonlijk browservenster.
+>Als u al een andere Azure Active Directory-account dan de versie die dat u wilt gebruiken voor virtuele Windows-bureaublad hebt aangemeld, moet u meldt u zich af of gebruik een persoonlijk browservenster.
 
 Na het aanmelden, ziet u nu een lijst met resources. U kunt resources starten door deze te selecteren, zoals u zou een normale app in de **alle Resources** tabblad.

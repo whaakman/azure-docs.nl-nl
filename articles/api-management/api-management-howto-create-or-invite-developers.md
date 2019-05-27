@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 362df8cee163bcd2d1dac73c650e42ee4f0f7751
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3d50746324ddac21f222d4c743f4b7bf6ee9b773
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920105"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864805"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Over het beheren van gebruikersaccounts in Azure API Management
 
@@ -69,7 +69,7 @@ Volg de volgende stappen uit voor het blokkeren van een gebruiker.
 
 ## <a name="reset-a-user-password"></a>Een gebruikerswachtwoord opnieuw instellen
 
-Als u wilt werken via een programma met behulp van gebruikersaccounts, Zie de [gebruikersentiteit](https://docs.microsoft.com/rest/api/apimanagement/user) documentatie in de [API Management REST](/rest/api/apimanagement/) verwijzing. Als u wilt opnieuw instellen van wachtwoord voor een gebruikersaccount op een specifieke waarde, kunt u de [bijwerken van een gebruiker](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) bewerking en geef het gewenste wachtwoord.
+Als u wilt werken via een programma met behulp van gebruikersaccounts, Zie de documentatie van de entiteit gebruiker in de [API Management REST API](/rest/api/apimanagement/) verwijzing. Als u wilt opnieuw instellen van wachtwoord voor een gebruikersaccount op een specifieke waarde, kunt u de [bijwerken van een gebruiker](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) bewerking en geef het gewenste wachtwoord.
 
 ## <a name="next-steps"> </a>Volgende stappen
 Zodra een developer-account is gemaakt, kunt u deze koppelen aan rollen en het abonneren op producten en API's. Zie voor meer informatie, [hoe u groepen maken en gebruiken][How to create and use groups].

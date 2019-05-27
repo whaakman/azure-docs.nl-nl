@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740944"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864433"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub met .NET
 
@@ -46,7 +46,7 @@ Aan het einde van deze zelfstudie moet u twee .NET-consoletoepassingen uitvoeren
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Visual Studio 2017
+* Visual Studio
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]

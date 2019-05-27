@@ -5,18 +5,21 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 8817c8aa7d5d589be5e03cdd04e3a505d7e2be21
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941665"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834203"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>Een bestaande aanbieding van de SaaS-toepassing bijwerken
 
 Er zijn verschillende soorten updates die u doen naar uw aanbieding wilt mogelijk nadat deze wordt gepubliceerd en actief is. Eventuele wijzigingen die u in uw nieuwe versie van uw aanbieding aanbrengt moet worden opgeslagen en opnieuw om deze weer in de Marketplace worden gepubliceerd. In dit artikel wordt stapsgewijs uitgelegd de verschillende aspecten van het bijwerken van uw SaaS-aanbod in de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
+
+> [!IMPORTANT] 
+> SaaS biedt functionaliteit wordt gemigreerd naar de [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alle nieuwe uitgevers moeten Partner Center gebruiken voor het maken van nieuwe SaaS-aanbiedingen en bestaande aanbiedingen beheren.  Huidige uitgevers met SaaS-aanbiedingen zijn batchwise worden gemigreerd van de Cloud Partner-Portal naar het Partnercentrum.  De Cloud Partner-Portal wordt weergegeven statusberichten om aan te geven wanneer specifieke bestaande aanbiedingen zijn gemigreerd.
 
 Er zijn diverse redenen waarom u wilt mogelijk bijwerken van uw aanbieding, zoals:
 
@@ -75,7 +78,7 @@ Historische publicatie-activiteit, selecteer de **geschiedenis** tabblad op de n
 
 ![Zie bieden geschiedenis in de Cloud Partner-Portal](./media/saas-offer-history.png)
 
-U kunt de pagina van de geschiedenis Audit gebruiken om te zoeken naar een specifieke Aanbiedings en toepassen van filters, zoals uitgever, aanbieding en Type van de gebeurtenis (bijvoorbeeld OfferGoLiveRequested.) U kunt ook de controlegeschiedenis downloaden als csv-bestand.
+U kunt de pagina van de geschiedenis Audit gebruiken om te zoeken naar een specifieke Aanbiedings en toepassen van filters zoals uitgever, aanbieding en Type van de gebeurtenis (bijvoorbeeld OfferGoLiveRequested.) U kunt ook de controlegeschiedenis downloaden als csv-bestand.
 
 
 ## <a name="next-steps"></a>Volgende stappen

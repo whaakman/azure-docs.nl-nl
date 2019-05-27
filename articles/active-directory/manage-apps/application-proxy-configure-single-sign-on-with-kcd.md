@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/17/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214d984388869431453267ef18ebf6eb976bc496
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783526"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859626"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Beperkte Kerberos-delegering voor single sign-on bij uw apps met Application Proxy
 
@@ -59,7 +59,8 @@ De Active Directory-configuratie varieert, afhankelijk van of de toepassingsserv
 2. Selecteer de server waarop de connector wordt uitgevoerd.
 3. Met de rechtermuisknop op en selecteer **eigenschappen** > **delegering**.
 4. Selecteer **deze computer mag alleen aan opgegeven services delegeren**. 
-5. Onder **Services waarop dit account gedelegeerde referenties kan presenteren** de waarde voor de identiteit van de SPN-naam van de toepassingsserver toevoegen. Hierdoor kunnen de Connector voor toepassingsproxy te imiteren van gebruikers in AD op basis van de toepassingen die zijn gedefinieerd in de lijst.
+5. Selecteer **elk verificatieprotocol gebruiken**.
+6. Onder **Services waarop dit account gedelegeerde referenties kan presenteren** de waarde voor de identiteit van de SPN-naam van de toepassingsserver toevoegen. Hierdoor kunnen de Connector voor toepassingsproxy te imiteren van gebruikers in AD op basis van de toepassingen die zijn gedefinieerd in de lijst.
 
    ![Schermafbeelding van de eigenschappen van de connector-Server-venster](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 

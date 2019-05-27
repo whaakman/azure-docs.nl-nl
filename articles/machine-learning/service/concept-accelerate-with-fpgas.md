@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025255"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851028"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>What are field-programmable gate arrays (FPGA)
 
@@ -33,13 +33,13 @@ Het volgende diagram en tabel laten u zien hoe FPGA's zich verhouden tot andere 
 |Processor||Description|
 |---|:-------:|------|
 |Toepassingsspecifieke geïntegreerde circuits|ASICs|Aangepaste circuits, zoals Google TensorFlow Processor eenheden (TPU), biedt het hoogste rendement. Ze kunnen niet opnieuw worden geconfigureerd wanneer uw behoeften veranderen.|
-|Veld-programmable gate arrays|FPGAs|FPGA's, zoals die beschikbaar zijn op Azure, levert prestaties dicht bij ASICs. Ze zijn ook flexibele en herconfigureerbare gedurende een periode, om nieuwe logica te implementeren.|
+|Veld-programmable gate arrays|FPGA 's|FPGA's, zoals die beschikbaar zijn op Azure, levert prestaties dicht bij ASICs. Ze zijn ook flexibele en herconfigureerbare gedurende een periode, om nieuwe logica te implementeren.|
 |Grafische verwerkingseenheden|GPU 's|Een populaire optie voor AI-berekeningen. GPU's bieden mogelijkheden voor parallelle verwerking, waardoor het sneller op beeldweergave dan CPU's.|
 |Central processing units|CPU's|Voor algemene doeleinden processors, de prestaties van die niet ideaal voor grafische afbeeldingen en video verwerking is.|
 
 FPGA's in Azure zijn gebaseerd op Intel FPGA-apparaten, welke data scientists en ontwikkelaars met realtime AI-berekeningen te versnellen. Deze architectuur FPGA-functionaliteit biedt prestaties, flexibiliteit en de schaal en is beschikbaar op Azure.
 
-FPGA's maken het mogelijk is om te realiseren met lage latentie voor realtime inferentietaken aanvragen. Asynchrone aanvragen (batchverwerking) niet meer nodig hebt. Batchverwerking kan de latentie, veroorzaken, omdat er meer gegevens moet worden verwerkt. Implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie kan dus minder vaak, vergeleken met de CPU en GPU-processors.
+FPGA's maken het mogelijk is om aanvragen voor lage latentie voor realtime Deductie (of het model scoren). Asynchrone aanvragen (batchverwerking) niet meer nodig hebt. Batchverwerking kan de latentie, veroorzaken, omdat er meer gegevens moet worden verwerkt. Implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie kan dus minder vaak, vergeleken met de CPU en GPU-processors.
 
 ### <a name="reconfigurable-power"></a>Herconfigureerbare power
 U kunt FPGA's voor verschillende soorten machine learning-modellen opnieuw configureren. Deze flexibiliteit maakt het gemakkelijker om te versnellen van de toepassingen op basis van de meest optimale numerieke precisie en model van het geheugen wordt gebruikt. Omdat FPGA's herconfigureerbare, u kunt op de hoogte blijven met de vereisten van snel veranderende AI-algoritmen.

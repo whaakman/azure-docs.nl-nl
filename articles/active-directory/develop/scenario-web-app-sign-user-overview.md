@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46df5e4ec8352b47f744a507fad702c37aa5fba
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6ce534c6eeecba220fd829be829caa679df52055
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075098"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833086"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: Web-app die gebruikers worden aangemeld
+# <a name="scenario-web-app-that-signs-in-users"></a>Scenario: Web-app waarmee gebruikers worden aangemeld
 
 Meer informatie over alles die wat u nodig om te maken van een web-app waarmee gebruikers zich aanmeldt met het Microsoft identity-platform.
 
@@ -40,7 +40,7 @@ Als u maken van uw eerste draagbare (ASP.NET Core) web-apps die zich in gebruike
 Als u liever om te blijven met ASP.NET, probeer de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
-> [Snelstart: ASP.NET Core web-app waarmee gebruikers zich aanmeldt](quickstart-v2-aspnet-webapp.md)
+> [Snelstart: ASP.NET web-app waarmee gebruikers zich aanmeldt](quickstart-v2-aspnet-webapp.md)
 
 ## <a name="overview"></a>Overzicht
 

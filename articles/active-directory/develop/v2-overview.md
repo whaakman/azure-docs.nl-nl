@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3a1525d7b1f9c0a0b6516014ea83fb8abd0376
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544831"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833061"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Overzicht van Microsoft identity-platform (v2.0)
 
-Het Microsoft Identity Platform bouwt voort op de identiteitsservice en het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Deze service kunnen ontwikkelaars toepassingen ontwikkelen die zich in alle Microsoft-identiteit en ophalen van tokens voor het aanroepen van Microsoft APIs, zoals Microsoft Graph of API's waarmee ontwikkelaars hebt gebouwd. Het Microsoft identity-platform bestaat uit:
+Het Microsoft Identity Platform bouwt voort op het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Deze service kunnen ontwikkelaars toepassingen ontwikkelen die zich in alle Microsoft-identiteit en ophalen van tokens voor het aanroepen van Microsoft APIs, zoals Microsoft Graph of API's waarmee ontwikkelaars hebt gebouwd. Het Microsoft identity-platform bestaat uit:
 
 - **OAuth 2.0 en OpenID Connect-standaard-compatibele verificatieservice** die biedt ontwikkelaars de mogelijkheid om te verifiëren van een Microsoft-identiteit, met inbegrip van:
   - Werk- of schoolaccount accounts (ingericht via Azure AD)
@@ -79,4 +79,4 @@ Wanneer u bent klaar om te starten van uw app in een **productieomgeving**, deze
 
 ## <a name="learn-more"></a>Meer informatie
 
-Als u had planningsstap voor het bouwen van een klantgerichte-toepassing die zich aanmeldt sociale en lokale identiteiten, kijk dan eens de [overzicht van Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+Als u van plan bent een klantgerichte toepassing bouwt die zich aanmeldt sociale en lokale identiteiten, Zie de [overzicht van Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

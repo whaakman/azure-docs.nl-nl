@@ -1,7 +1,7 @@
 ---
 title: Interpreteerbaarheid van modellen
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u waarin wordt uitgelegd waarom uw model Hiermee worden voorspellingen gedaan met behulp van de SDK van Azure Machine Learning. Het kan worden gebruikt tijdens de trainings- en inferentietaken om te begrijpen hoe het model voorspellingen maakt.
+description: Leer hoe u waarin wordt uitgelegd waarom uw model Hiermee worden voorspellingen gedaan met behulp van de SDK van Azure Machine Learning. Het kan worden gebruikt tijdens de training en Deductie om te begrijpen hoe het model voorspellingen maakt.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926433"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852000"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Model interpretability met Azure Machine Learning-service
 
 In dit artikel leert u hoe waarin wordt uitgelegd waarom het model de voorspellingen gedaan zodanig aan het pakket interpretability van de Azure Machine Learning Python SDK.
 
 De klassen en methoden gebruiken in dit pakket, kunt u krijgen:
-+ Interpretability op echte gegevenssets op schaal, tijdens de trainingstijd- en inferentietaken. 
++ Interpretability op echte gegevenssets op schaal, tijdens de training en Deductie. 
 + Interactieve visualisaties om u te helpen de detectie van patronen in gegevens en uitleg over training tegelijk
 + Functie van waarden van belang: onbewerkte en Social engineering-functies
 
 Modelontwerpers en evaluaties tijdens de fase van de training van het ontwikkelingsproces doet, kunnen gebruiken om uit te leggen van de uitvoer van een model belanghebbenden vertrouwen te bouwen.  Ze het inzicht in het model ook gebruiken voor het opsporen van fouten, valideren model gedrag komt overeen met hun doelstellingen, en om te controleren op de afwijking.
 
-Gegevenswetenschappers kunnen tijdens de fase inferentietaken interpretability om uit te leggen voorspellingen aan de mensen die gebruikmaken van uw model gebruiken. Bijvoorbeeld, waarom het model een lening een weigeren of voorspellen dat een beleggingsportefeuille een hoger risico uitvoert?
+Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens. Tijdens deze fase kunnen gegevenswetenschappers de resulterende voorspellingen aan de mensen die gebruikmaken van uw model uitleggen. Bijvoorbeeld, waarom het model een lening een weigeren of voorspellen dat een beleggingsportefeuille een hoger risico uitvoert?
 
 Gebruik van deze aanbieding, kunt u machine learning-modellen uitleggen **wereldwijd op alle gegevens**, of **lokaal op een bepaald gegevenspunt** met behulp van de geavanceerde technologieën in een eenvoudig te gebruiken en schaalbare manier.
 
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>Interpretability in inferentietaken
+## <a name="interpretability-in-inference"></a>Interpretability in Deductie
 
 De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan worden gebruikt op het scoring-tijd uitleg van lokale gegevens op te geven. Het proces voor het implementeren van een scoring uitleg is vergelijkbaar met het implementeren van een model en bevat de volgende stappen uit:
 

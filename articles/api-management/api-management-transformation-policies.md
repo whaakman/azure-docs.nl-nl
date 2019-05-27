@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407594"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833413"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -375,7 +375,7 @@ De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [Liquid](
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>JSON converteren naar SOAP met behulp van een vloeistof sjabloon
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -405,7 +405,7 @@ De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [Liquid](
 
 |Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|sjabloon|Gebruikt de templating van die het beleid van de hoofdtekst van de set wordt uitgevoerd in de modus te wijzigen. Momenteel is de enige ondersteunde waarde:<br /><br />-liquid - het beleid van de hoofdtekst van de set wordt de liquid templating-engine gebruiken |Nee|Liquid|
+|sjabloon|Gebruikt de templating van die het beleid van de hoofdtekst van de set wordt uitgevoerd in de modus te wijzigen. Momenteel is de enige ondersteunde waarde:<br /><br />-liquid - het beleid van de hoofdtekst van de set wordt de liquid templating-engine gebruiken |Nee||
 
 Voor toegang tot informatie over de aanvraag en respons, kan de Liquid sjabloon worden verbonden met een context-object met de volgende eigenschappen: <br />
 <pre>context.

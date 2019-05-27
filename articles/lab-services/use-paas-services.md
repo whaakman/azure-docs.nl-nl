@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233119"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833916"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Platform-as-a-Service (PaaS)-services gebruiken in Azure DevTest Labs
 PaaS wordt ondersteund in DevTest Labs via de functie omgevingen. Omgevingen in DevTest Labs worden ondersteund door de vooraf geconfigureerde Azure Resource Manager-sjablonen in een Git-opslagplaats. Omgevingen kunnen zowel PaaS en IaaS-resources bevatten. Hiermee kunt u maken van complexe systemen die Azure-resources zoals virtuele machines, databases, virtuele netwerken kunnen opnemen en Web-apps die zijn aangepast om samen te werken. Deze sjablonen kunnen consistente implementatie en verbeterd beheer van omgevingen met broncodebeheer. 
@@ -53,7 +53,7 @@ Er is een aangepast lab-informatie die buiten de resourcegroep en is specifiek v
 De [omgevingen verbinden met virtueel netwerk van het lab](connect-environment-lab-virtual-network.md) artikel wordt beschreven hoe u uw Resource Manager-sjabloon wijzigt de `$(LabSubnetId)` token. Als u een omgeving maakt, de `$(LabSubnetId)` token wordt vervangen door het eerste subnet is ingeschakeld wanneer de **gebruiken in de virtuele machine maken** optie is ingesteld op **waar**. Hiermee kunnen onze omgeving voor netwerken eerder hebt gemaakt. Als u de dezelfde Resource Manager-sjablonen gebruiken in omgevingen in de test als fasering en productie wilt, gebruikt u `$(LabSubnetId)` als een standaardwaarde is opgegeven in de parameter voor een Resource Manager-sjabloon. 
 
 #### <a name="environment-storage-account"></a>Omgeving Storage-Account
-DevTest Labs ondersteunt het gebruik van [geneste Resource Manager-sjablonen](../azure-resource-manager/resource-group-linked-templates.md). De [hoe Azure DevTest Labs vergemakkelijkt geneste Resource Manager sjabloonimplementaties voor testomgevingen](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments) artikel wordt uitgelegd hoe u `_artifactsLocation` en `_artifactsLocationSasToken` van tokens, voor het maken van een URI naar een Resource Manager-sjabloon in dezelfde map als of in een geneste map van de belangrijkste sjabloon. Zie voor meer informatie over deze twee tokens, de **implementatie artefacten** sectie van [Azure Resource Manager-handleiding met aanbevolen procedures](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs ondersteunt het gebruik van [geneste Resource Manager-sjablonen](../azure-resource-manager/resource-group-linked-templates.md). De [[geneste Azure Resource Manager-sjablonen voor testomgevingen implementeren](deploy-nested-template-environments.md) artikel wordt uitgelegd hoe u `_artifactsLocation` en `_artifactsLocationSasToken` tokens voor het maken van een URI naar een Resource Manager-sjabloon in dezelfde map als of in een geneste map van de belangrijkste sjabloon. Zie voor meer informatie over deze twee tokens, de **implementatie artefacten** sectie van [Azure Resource Manager-handleiding met aanbevolen procedures](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## <a name="user-experience"></a>Gebruikerservaring
 

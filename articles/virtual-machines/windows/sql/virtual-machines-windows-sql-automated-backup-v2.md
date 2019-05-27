@@ -16,11 +16,11 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165684"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatische back-up v2 voor virtuele Azure-Machines (Resource Manager)
 
@@ -108,7 +108,7 @@ U hebt een SQL Server-VM met een aantal grote databases.
 Op maandag, kunt u automatische back-up v2 inschakelen met de volgende instellingen:
 
 - Back-upschema: Handmatig
-- Frequentie van volledige back-up: Dagelijks
+- Frequentie van volledige back-up: Per dag
 - Begintijd van volledige back-up: 22:00
 - Tijdvenster volledige back-up: 6 uur
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: beee76bdc443b3a66b4500b83d228075b84eed1e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413866"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864774"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Veelgestelde vragen over de implementatie voor Web-Apps in Azure
 
@@ -38,9 +38,9 @@ Hier zijn enkele opties voor het publiceren van de code van uw web-app:
 
 Zie voor meer informatie, [uw app implementeren in App Service](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Ik zie een foutbericht wanneer ik probeer om vanuit Visual Studio te implementeren. Hoe kan ik dit oplossen?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Ik zie een foutbericht wanneer ik probeer om vanuit Visual Studio te implementeren. Hoe kan ik deze fout oplossen?
 
-Als u het volgende bericht ziet, is het mogelijk dat u een oudere versie van de SDK worden gebruikt: "Fout tijdens de implementatie voor de resource 'YourResourceName' in de resourcegroep 'YourResourceGroup': MissingRegistrationForLocation: Het abonnement is niet geregistreerd voor het brontype 'onderdelen' op de locatie 'VS-midden'. Opnieuw te registreren voor deze provider om toegang te krijgen tot deze locatie." 
+Als u het volgende bericht ziet, is het mogelijk dat u een oudere versie van de SDK worden gebruikt: "Fout tijdens de implementatie voor de resource 'YourResourceName' in de resourcegroep 'YourResourceGroup': MissingRegistrationForLocation: Het abonnement is niet geregistreerd voor het brontype 'onderdelen' op de locatie 'VS-midden'. Nieuwe registratie uit voor deze provider om toegang te krijgen tot deze locatie." 
 
 U kunt deze fout oplossen door een upgrade uitvoert naar de [nieuwste SDK](https://azure.microsoft.com/downloads/). Als u dit bericht ziet en u de nieuwste SDK hebt, moet u een ondersteuningsaanvraag indienen.
 
@@ -59,7 +59,7 @@ Zie voor meer informatie over de structuur van het bestand van uw App Service-ap
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Hoe los ik 'FTP-fout 550 - er is niet genoeg ruimte op de schijf' wanneer ik wil mijn bestanden van de FTP?
 
-Als u dit bericht ziet, is het waarschijnlijk dat u een schijfquotum in het service-plan voor uw web-app ondervindt. U moet mogelijk worden uitgebreid naar een hogere servicelaag op basis van uw behoeften schijf. Zie voor meer informatie over de prijzen voor plannen en resourcelimieten [App Service-prijzen](https://azure.microsoft.com/pricing/details/app-service/).
+Als u dit bericht ziet, is het waarschijnlijk dat u in een schijfquotum in het service-plan voor uw web-app uitvoert. U moet mogelijk worden uitgebreid naar een hogere servicelaag op basis van uw behoeften schijf. Zie voor meer informatie over de prijzen voor plannen en resourcelimieten [App Service-prijzen](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Hoe stel ik continue implementatie voor mijn App Service-web-app?
 
@@ -69,11 +69,11 @@ U kunt instellen van continue implementatie vanuit verschillende bronnen, met in
 
 Zie voor meer informatie over het onderzoeken van problemen met continue implementatie vanuit GitHub of Bitbucket, [doorlopende implementatie onderzoeken](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>Ik kan geen FTP-site en publiceren van mijn code. Hoe kan ik dit oplossen?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Ik kan geen FTP-site en publiceren van mijn code. Hoe kan ik dit probleem oplossen?
 
 FTP-problemen oplossen:
 
-1. Controleer of dat u de correcte hostnaam en referenties invoert. Zie voor gedetailleerde informatie over de verschillende soorten referenties en het gebruik ervan, [implementatiereferenties](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+1. Controleer of dat u de correcte hostnaam en referenties invoeren. Zie voor gedetailleerde informatie over de verschillende soorten referenties en het gebruik ervan, [implementatiereferenties](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Controleer of de FTP-poorten worden niet geblokkeerd door een firewall. De poorten moeten deze instellingen hebben:
     * Verbindingspoort voor FTP-besturingselement: 21
     * Verbindingspoort voor FTP-gegevens: 989, 10001-10300

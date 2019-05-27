@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920171"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835191"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure Active Directory integreren met Azure Kubernetes Service met behulp van de Azure CLI
 
@@ -25,7 +25,6 @@ Zie voor de volledige voorbeeldscript in dit artikel, [voorbeelden van Azure CLI
 Er gelden de volgende beperkingen:
 
 - Azure AD kan alleen worden ingeschakeld wanneer u een nieuwe, RBAC-functionaliteit cluster maakt. U kunt Azure AD op een bestaand AKS-cluster niet inschakelen.
-- *Gast* gebruikers in Azure AD, zoals alsof u een federatieve aanmelding vanaf een andere directory, worden niet ondersteund.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -237,8 +236,9 @@ Als u een autorisatiefoutbericht nadat u hebt aangemeld met een webbrowser zoals
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* De gebruiker die u in dat is niet bent aangemeld een *Gast* in de Azure AD-exemplaar (dit is vaak het geval als u een federatieve aanmelding vanuit een andere map).
+* U hebt de juiste object-ID of UPN, afhankelijk van of het gebruikersaccount dat in dezelfde Azure AD-tenant is of niet gedefinieerd.
 * De gebruiker is geen lid van meer dan 200 groepen.
+* Geheim dat is gedefinieerd in de registratie van de toepassing voor de server overeenkomt met de waarde die is geconfigureerd met behulp van `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Volgende stappen
 

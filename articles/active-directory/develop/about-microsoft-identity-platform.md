@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a4702ac0f70e3fc280501cd9524ccbfb528678
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 807045089f70e117d46754412d974be7fba5a77a
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546249"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832503"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolutie van het Microsoft Identity Platform
 
-Het Microsoft Identity Platform bouwt voort op de identiteitsservice en het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Deze service kunnen ontwikkelaars toepassingen ontwikkelen die aanmelden van gebruikers, het ophalen van tokens voor het aanroepen van API's, zoals Microsoft Graph of API's waarmee ontwikkelaars hebt gemaakt. Het bestaat uit een authentication-service, open source-bibliotheken, registratie van toepassingen en -configuratie (via een portal voor ontwikkelaars en API-toepassing), volledige ontwikkelaarsdocumentatie, Quick Start-voorbeelden, codevoorbeelden, handleidingen, zelfstudies en de inhoud van andere ontwikkelaars. Het Microsoft Identity Platform biedt ondersteuning voor standaardprotocollen als OAuth 2.0 en OpenID Connect.
+Het Microsoft Identity Platform bouwt voort op het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Deze service kunnen ontwikkelaars toepassingen ontwikkelen die aanmelden van gebruikers, het ophalen van tokens voor het aanroepen van API's, zoals Microsoft Graph of API's waarmee ontwikkelaars hebt gemaakt. Het bestaat uit een authentication-service, open source-bibliotheken, registratie van toepassingen en -configuratie (via een portal voor ontwikkelaars en API-toepassing), volledige ontwikkelaarsdocumentatie, Quick Start-voorbeelden, codevoorbeelden, handleidingen, zelfstudies en de inhoud van andere ontwikkelaars. Het Microsoft Identity Platform biedt ondersteuning voor standaardprotocollen als OAuth 2.0 en OpenID Connect.
 
 Tot nu toe hebt de meeste ontwikkelaars gewerkt met de Azure AD v1.0-platform om te verifiëren werk en schoolaccounts (ingericht door Azure AD) door het aanvragen van tokens van het eindpunt van de v1.0 Azure AD met behulp van Azure AD Authentication Library (ADAL) voor Azure-portal registratie van toepassingen en configuratie, en Azure AD Graph-API voor programmatische toepassingsconfiguratie.
 
