@@ -17,15 +17,15 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47430b4bd2f7fa6811785247ae6cd4f6df6f8f5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546133"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962852"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover van ondertekeningssleutel gebruiken in Azure Active Directory
-In dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) om beveiligingstokens te ondertekenen. Het is belangrijk te weten dat de rollover van deze sleutels op periodieke basis en, in geval van nood, direct kan worden meegenomen. Alle toepassingen die gebruikmaken van Azure AD moet kunnen via de programmacode verwerken van het proces sleutelrollover of tot stand brengen van een periodieke handmatige rollover-proces. Lees verder voor u te begrijpen hoe de sleutels werken, het beoordelen wat de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of een rollover van periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig tot stand brengen.
+In dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) om beveiligingstokens te ondertekenen. Het is belangrijk te weten dat deze sleutels op basis van periodieke meegenomen en, in geval van nood, kunnen worden meegenomen onmiddellijk. Alle toepassingen die gebruikmaken van Azure AD moet kunnen via de programmacode verwerken van het proces sleutelrollover of tot stand brengen van een periodieke handmatige rollover-proces. Lees verder voor u te begrijpen hoe de sleutels werken, het beoordelen wat de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of een rollover van periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig tot stand brengen.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Overzicht van het ondertekenen van sleutels in Azure AD
 Azure AD maakt gebruik van cryptografie met openbare sleutels die is gebouwd op industrienormen vertrouwensrelatie tussen zelf en de toepassingen die worden gebruikt. Dit werkt in de praktijk in de volgende manier: Azure AD maakt gebruik van een ondertekeningssleutel die uit een openbare en persoonlijke sleutelpaar bestaat. Wanneer een gebruiker zich aanmeldt bij een toepassing die gebruikmaakt van Azure AD voor verificatie, maakt Azure AD een beveiligingstoken dat informatie over de gebruiker bevat. Dit token is ondertekend door Azure AD met behulp van de persoonlijke sleutel voordat deze wordt verzonden naar de toepassing. Om te controleren dat het token geldig en oorsprong van Azure AD is, de toepassing van het token handtekening met behulp van de openbare sleutel beschikbaar is gemaakt door Azure AD die is opgenomen in de tenant moet worden gevalideerd [OpenID Connect discovery-document](https://openid.net/specs/openid-connect-discovery-1_0.html) of SAML / WS-Federation [document met federatieve metagegevens](azure-ad-federation-metadata.md).
@@ -43,7 +43,7 @@ Hoe uw toepassing omgaat met sleutelrollover, is afhankelijk van variabelen, zoa
 * [Webtoepassingen / API's beveiligen van resources met behulp van .NET OWIN OpenID Connect, WS-Federation of WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
 * [Webtoepassingen / API's beveiligen van resources met behulp van .NET Core OpenID Connect of JwtBearerAuthentication middleware](#owincore)
 * [Webtoepassingen / API's beveiligen van resources met behulp van Node.js passport-azure-ad-module](#passport)
-* [Webtoepassingen / API's beveiligen van bronnen en die zijn gemaakt met Visual Studio 2015 of Visual Studio 2017](#vs2015)
+* [Webtoepassingen / API's beveiligen van bronnen en gemaakt met Visual Studio 2015 of hoger](#vs2015)
 * [Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013](#vs2013)
 * Web-API's beveiligen van bronnen en die zijn gemaakt met Visual Studio 2013
 * [Beveiligen van bronnen en die zijn gemaakt met Visual Studio 2012](#vs2012)
@@ -128,8 +128,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Webtoepassingen / API's beveiligen van bronnen en die zijn gemaakt met Visual Studio 2015 of Visual Studio 2017
-Als uw toepassing is gemaakt met behulp van een sjabloon in Visual Studio 2015 of Visual Studio 2017 en u hebt geselecteerd **werk en Schoolaccounts** uit de **Change Authentication** in het menu deze al heeft de benodigde logica voor het automatisch rollover van ondertekeningssleutel afhandelen. Deze logica, ingesloten in de OpenID Connect OWIN-middleware, opgehaald en de sleutels van het OpenID Connect discovery-document in de cache opslaat en ze worden regelmatig vernieuwd.
+### <a name="vs2015"></a>Webtoepassingen / API's beveiligen van bronnen en gemaakt met Visual Studio 2015 of hoger
+Als uw toepassing is gemaakt met behulp van een sjabloon in Visual Studio 2015 of hoger en u hebt geselecteerd **werk-of Schoolaccounts** uit de **Change Authentication** in het menu heeft al de noodzakelijke logica voor het automatisch rollover van ondertekeningssleutel verwerken. Deze logica, ingesloten in de OpenID Connect OWIN-middleware, opgehaald en de sleutels van het OpenID Connect discovery-document in de cache opslaat en ze worden regelmatig vernieuwd.
 
 Als u verificatie handmatig toegevoegd aan uw oplossing, is uw toepassing mogelijk niet de logica die nodig zijn sleutelrollover. U moet zelf schrijven of volg de stappen in [webtoepassingen / API's met behulp van een andere bibliotheken of handmatig implementeren van een van de ondersteunde protocollen](#other).
 

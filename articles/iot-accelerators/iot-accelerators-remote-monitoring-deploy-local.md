@@ -3,17 +3,17 @@ title: Implementeer de oplossing voor externe controle lokaal (via Visual Studio
 description: In deze gebruiksaanwijzing laat zien hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer met behulp van Visual Studio voor het testen en ontwikkeling.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150957"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967507"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>De bewaking op afstand oplossingsversnellers implementeren lokaal - Visual Studio
 
@@ -60,9 +60,9 @@ Voer de volgende opdracht voor het starten van de Docker-container voor de servi
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Implementatie van alle andere microservices op lokale computer
 
-De volgende stappen laten zien hoe u de microservices bewaking op afstand uitvoeren in Visual Studio 2017:
+De volgende stappen laten zien hoe u de microservices bewaking op afstand uitvoeren in Visual Studio:
 
-1. Start Visual Studio 2017
+1. Launch Visual Studio.
 1. Open de **extern monitoring.sln** oplossing in de **services** map in de lokale kopie van de opslagplaats.
 1. In **Solution Explorer**, met de rechtermuisknop op de oplossing en klik op **eigenschappen**.
 1. Selecteer **algemene eigenschappen > Startup Project**.

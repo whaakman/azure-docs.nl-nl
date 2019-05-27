@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230931"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954944"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [productpagina van Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -84,7 +84,7 @@ Expliciet verwijderen is als een Azure-beheerder Hiermee verwijdert u een gebrui
 Gegevens die niet is geopend voor één jaar ("de bewaarperiode') wordt beschouwd als verouderd en kan worden verwijderd uit de Microsoft-cloud. De bewaarperiode kan worden gewijzigd, maar is niet minder dan 90 dagen. De verouderde gegevens mogelijk een specifieke set Windows/toepassings- of alle instellingen voor een gebruiker. Bijvoorbeeld:
 
 * Als apparaten geen toegang een verzameling bepaalde instellingen tot (bijvoorbeeld een toepassing van het apparaat is verwijderd of een instellingengroep zoals 'Thema' is uitgeschakeld voor alle apparaten van een gebruiker), en vervolgens deze verzameling verlopen na de bewaarperiode is en kan worden verwijderd . 
-* Als een gebruiker heeft de synchronisatie van instellingen op alle apparaten zijn/haar uitgeschakeld, klikt u vervolgens geen van de instellingsgegevens worden geopend en de van instellingsgegevens voor die gebruiker wordt verlopen en na de bewaarperiode kan worden verwijderd. 
+* Als een gebruiker is uitgeschakeld in instellingen synchroniseren op al hun apparaten, klikt u vervolgens geen van de instellingsgegevens worden geopend en de van instellingsgegevens voor die gebruiker wordt verlopen en na de bewaarperiode kan worden verwijderd. 
 * Als de Azure AD-directory-beheerder uitgeschakeld Enterprise State Roaming voor de hele map, klikt u vervolgens alle gebruikers wordt in die map wordt stoppen van de synchronisatie van instellingen en alle instellingsgegevens in de voor alle gebruikers zullen verlopen en na de bewaarperiode kan worden verwijderd. 
 
 ### <a name="deleted-data-recovery"></a>Verwijderde gegevens herstellen

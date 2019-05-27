@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522381"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951973"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -141,9 +141,7 @@ Automatische Updates voor Windows kan leiden tot verlies van beschikbaarheid, om
 
 ## <a name="download-the-app-package"></a>Het app-pakket downloaden
 
-Toepassing echter samen met scripts voor installatie kan worden gedownload vanaf [archief koppeling](https://go.microsoft.com/fwlink/?linkid=869566).
-
-Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
+Toepassingspakket downloaden, gaat u naar GitHub release [pagina](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) van Patch Orchestration-toepassing.
 
 ## <a name="configure-the-app"></a>De app configureren
 
@@ -205,13 +203,15 @@ De patch orchestration-app beschikbaar REST-API's om de historische resultaten v
       {
         "OperationResult": 0,
         "NodeName": "_stg1vm_1",
-        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "OperationTime": "2019-05-13T08:44:56.4836889Z",
+        "OperationStartTime": "2019-05-13T08:44:33.5285601Z",
         "UpdateDetails": [
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
             "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
-            "ResultCode": 0
+            "ResultCode": 0,
+            "HResult": 0
           }
         ],
         "OperationType": 1,
@@ -234,6 +234,9 @@ ResultCode | Kan operationresult niet gelijk | Dit veld wordt resultaat van de i
 OperationType | 1 - installatie<br> 0 - zoeken naar en downloaden.| De installatie is de enige OperationType die standaard wordt weergegeven in de resultaten.
 WindowsUpdateQuery | De standaardwaarde is "IsInstalled = 0" |Windows update-query die is gebruikt om te zoeken naar updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | True - is opnieuw opstarten vereist<br> False - is opnieuw opstarten niet vereist | Hiermee wordt aangegeven als opnieuw opstarten vereist voor het volledige installatie van updates is.
+OperationStartTime | DateTime | Geeft de tijd op welke operation(Download/Installation) gestart.
+OperationTime | DateTime | Geeft de tijd op welke operation(Download/Installation) voltooid.
+HResult | 0 - geslaagd<br> andere - fout| Geeft aan dat de reden van de fout van de update voor windows met update-id '7392acaf-6a85-427c-8a8d-058c25beb0d6'.
 
 Als er geen update nog is gepland, wordt het resultaat JSON is leeg.
 
@@ -255,6 +258,58 @@ Als u wilt inschakelen in de omgekeerde proxy op het cluster, volg de stappen in
 
 ## <a name="diagnosticshealth-events"></a>Diagnostische gegevens/statusgebeurtenissen
 
+De volgende sectie wordt besproken hoe u foutopsporing/problemen met patchupdates via Patch Orchestration-toepassing op Service Fabric-clusters.
+
+> [!NOTE]
+> U hebt v1.4.0 versie van POA geïnstalleerd als u veel van de verbeteringen voor diagnosefuncties van self worden hieronder beschreven.
+
+Hiermee maakt u de NodeAgentNTService [herstellen taken](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) om updates te installeren op de knooppunten. Elke taak wordt vervolgens door CoordinatorService voorbereid op basis van beleid voor goedkeuring van taak. De voorbereide taken worden door de herstel-Manager die wordt een taak niet goedgekeurd als cluster zich in een slechte status ten slotte worden goedgekeurd. Stapsgewijze instructies gaan om te begrijpen hoe updates worden uitgevoerd op een knooppunt kunt.
+
+1. NodeAgentNTService, die worden uitgevoerd op elk knooppunt gezocht naar beschikbare Windows-Update op het geplande tijdstip. Als er updates beschikbaar zijn, gaat het verder en downloadt deze op het knooppunt.
+2. Nadat de updates zijn gedownload, maakt NodeAgentNTService, bijbehorende hersteltaak voor het knooppunt met de naam POS___ < unique_id >. Een vindt deze taken met behulp van cmdlet herstellen [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) of in SFX in het gedeelte van de details knooppunt. Zodra de hersteltaak is gemaakt, snel worden verplaatst naar [geclaimd status](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+3. De service Coordinator periodiek zoekt herstellen taken geclaimde status en gaat verder en bijgewerkt naar de status op basis van de TaskApprovalPolicy voorbereiden. Als de TaskApprovalPolicy is geconfigureerd om te worden NodeWise, een hersteltaak die overeenkomt met een knooppunt is voorbereid alleen als er geen andere hersteltaak momenteel in voorbereiden/goedgekeurd/uitvoering/herstelstatus. Op deze manier in het geval van UpgradeWise TaskApprovalPolicy wordt gewaarborgd op elk gewenst moment enkele taken uitvoeren in de bovenstaande Staten alleen voor de knooppunten die deel uitmaken van hetzelfde domein bijwerken. Zodra een hersteltaak wordt verplaatst naar het voorbereiden van de status, de bijbehorende Service Fabric-knooppunt is [uitgeschakeld](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) met de bedoeling als 'Restart'.
+
+   POA(V1.4.0 and ABOVE) gebeurtenissen met de eigenschap 'ClusterPatchingStatus' nieuwe berichten op CoordinaterService om weer te geven van de knooppunten die zijn wordt gevuld. Onder afbeelding zijn laat zien dat updates op _poanode_0 ophalen geïnstalleerd:
+
+    [![Afbeelding van Cluster patchen van status](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+
+4. Wanneer het knooppunt is uitgeschakeld, worden de hersteltaak wordt verplaatst naar de status van de uitvoering. Let op: een hersteltaak loopt vast bij het voorbereiden van status, na, omdat een knooppunt is vastgelopen tijdens het uitschakelen van de status kan leiden tot nieuwe hersteltaak blokkeren en kan daarom stoppen patchen van het cluster.
+5. Zodra de hersteltaak is bij het uitvoeren van status, begint de installatie van de patch op dat knooppunt. Hier, nadat de patch is geïnstalleerd, het knooppunt kan of kunnen niet opnieuw worden gestart, afhankelijk van de patch. Bericht dat de hersteltaak is verplaatst naar de status, waardoor terug het knooppunt opnieuw en klikt u vervolgens het herstellen is gemarkeerd als voltooid.
+
+   In v1.4.0 en versies van de toepassing vindt u de status van de update door te kijken op de health-gebeurtenissen op NodeAgentService met de eigenschap 'WUOperationStatus-[knooppuntnaam]'. De gemarkeerde gedeelten in de onderstaande afbeeldingen geven de status van windows update op het knooppunt 'poanode_0' en 'poanode_2':
+
+   [![Afbeelding van de status van Windows update-bewerking](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+
+   [![Afbeelding van de status van Windows update-bewerking](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+
+   Een krijgt ook de informatie over het gebruik van powershell, door te verbinden met het cluster en ophalen van de status van de herstel-taak met [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). Zoals hieronder voorbeeld toont dat 'POS__poanode_2_125f2969 933c-4774 85 d 1-ebdf85e79f15"heeft taak status DownloadComplete. Dit betekent dat updates zijn gedownload op het knooppunt 'poanode_2' en installatie worden geprobeerd nadat de taak wordt verplaatst naar de status van de uitvoering.
+
+   ``` powershell
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
+
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k.ExecutorData
+    {"ExecutorSubState":2,"ExecutorTimeoutInMinutes":90,"RestartRequestedTime":"0001-01-01T00:00:00"}
+    ```
+
+   Als er nog steeds meer vervolgens worden gevonden, meld u aan specifieke VM/virtuele machines voor meer informatie over het probleem met behulp van Windows-gebeurtenislogboeken. De hierboven genoemde hersteltaak kan alleen deze onderliggende executor-statussen hebben:
+
+      ExecutorSubState | Detail
+    -- | -- 
+      None=1 |  Geeft aan dat er is een bewerking uitgevoerd waarmee op het knooppunt niet. Mogelijke statusovergangen.
+      DownloadCompleted=2 | Downloaden is voltooid met de bewerking is geslaagd, gedeeltelijke impliceert mislukt of fout.
+      InstallationApproved=3 | Impliceert downloaden eerder is voltooid en Reparatiemanager heeft goedgekeurd dat de installatie.
+      InstallationInProgress=4 | Komt overeen met de status van de uitvoering van de hersteltaak.
+      InstallationCompleted=5 | Houdt de installatie is voltooid met succes, gedeeltelijk geslaagd of mislukt.
+      RestartRequested=6 | Impliceert patch uitvoeren voor de installatie is voltooid en er is een actie in behandeling opnieuw opstarten op het knooppunt.
+      RestartNotNeeded=7 |  Geeft aan dat opnieuw opstarten is niet nodig is na voltooiing van de patchinstallatie.
+      RestartCompleted = 8 | Geeft aan dat opnieuw opstarten is voltooid.
+      OperationCompleted=9 | Windows update-bewerking is voltooid.
+      OperationAborted=10 | Geeft aan dat windows update-bewerking is afgebroken.
+
+6. In v1.4.0 en hoger van de toepassing bij poging van de update op een knooppunt is voltooid, een gebeurtenis met de eigenschap 'WUOperationStatus-[knooppuntnaam]' wordt geplaatst op de NodeAgentService op de hoogte stellen wanneer wordt het volgende proberen, te downloaden en installeren van update, start. Zie de onderstaande afbeelding:
+
+     [![Afbeelding van de status van Windows update-bewerking](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+
 ### <a name="diagnostic-logs"></a>Diagnostische logboeken
 
 Patch orchestration app-logboeken worden verzameld als onderdeel van de logboeken van de Service Fabric-runtime.
@@ -269,12 +324,6 @@ Als u vastleggen van Logboeken via diagnostische hulpprogramma/pijplijn van uw k
 ### <a name="health-reports"></a>Statusrapporten
 
 De patch orchestration-app publiceert ook statusrapporten tegen de Coordinator-Service of de Agent-Service van het knooppunt in de volgende gevallen:
-
-#### <a name="a-windows-update-operation-failed"></a>Een Windows Update-bewerking is mislukt
-
-Als een Windows Update-bewerking is mislukt op een knooppunt, wordt een statusrapport gegenereerd op basis van de Agent-Service van het knooppunt. Details van het statusrapport bevat de naam voor het problematische.
-
-Na het toepassen van patches is voltooid op de problematische knooppunt, wordt het rapport automatisch gewist.
 
 #### <a name="the-node-agent-ntservice-is-down"></a>De Agent knooppunt NTService is niet actief
 
@@ -347,6 +396,14 @@ V. **Hoe ik patch uitvoeren voor clusterknooppunten op Linux?**
 
 A. Zie [schaalset voor virtuele Azure-machine afbeelding van automatische besturingssysteemupgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) voor het indelen van updates op linux.
 
+V.**waarom updatecyclus zo lang duurt?**
+
+A. Query voor het resultaat json, en vervolgens, Ga naar de vermelding van de updatecyclus voor alle knooppunten en vervolgens u kunt proberen om de tijd die door de update-installatie op elk knooppunt met behulp van OperationStartTime en OperationTime(OperationCompletionTime) erachter te komen. Als er een groot tijdsvenster in welke geen update is uitgevoerd, kan het zijn dat het cluster in de foutstatus is en vanwege dat herstel manager geen andere POA herstellen taken heeft goedgekeurd. Als de installatie van de update duurde lang op een willekeurig knooppunt, vervolgens is het mogelijk dat knooppunt niet is bijgewerkt van lange tijd en een aantal updates zijn in afwachting van installatie, wat tijd heeft. Er kan ook worden een aanvraag waarin patches op een knooppunt is geblokkeerd vanwege een knooppunt wordt vastgelopen tijdens het uitschakelen van de status van dit meestal gebeurt omdat het knooppunt uitschakelen kan leiden tot quorum/gegevens verloren gaan situaties.
+
+V. **Waarom is het vereist om uit te schakelen van het knooppunt als POA patching is het?**
+
+A. Patch orchestration toepassing Hiermee schakelt u het knooppunt met 'opnieuw opstarten' intentie die stopt/reallocates alle Service fabric-services die worden uitgevoerd op het knooppunt. Dit wordt gedaan om ervoor te zorgen dat toepassingen niet eindigen met behulp van een combinatie van nieuwe en het oude dll-bestanden, zodat het niet aanbevolen wordt voor het vullen van een knooppunt zonder dat u dit uitschakelt.
+
 ## <a name="disclaimers"></a>Disclaimers
 
 - De patch orchestration app accepteert de gebruiksrechtovereenkomst-licentie van Windows Update namens de gebruiker. In de configuratie van de toepassing kan eventueel de instelling worden uitgeschakeld.
@@ -386,6 +443,9 @@ Een defecte Windows update kan uitvallen van de status van een toepassing of het
 Een beheerder moet waarbij en te bepalen waarom de toepassing of het cluster is geworden vanwege de Windows Update niet in orde.
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+>[!NOTE]
+> Vanaf versie 1.4.0, opmerkingen bij de release en versies kunnen u vinden op GitHub release [pagina](https://github.com/microsoft/Service-Fabric-POA/releases/).
 
 ### <a name="version-110"></a>Versie 1.1.0
 - Openbare versie

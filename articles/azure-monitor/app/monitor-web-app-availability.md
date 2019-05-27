@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76bbcd6fa400111514ec3496005a28ec28ae6ab7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205381"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977905"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -175,8 +175,8 @@ Selecteer **test weergavedetails** van een specifieke test om te zien van het sp
 
 Het is verstandig beschikbaarheidstests of de regels voor waarschuwingen die eraan zijn gekoppeld uit te schakelen wanneer u onderhoud uitvoert op uw service.
 
-![Uitschakelen van een WebTest](./media/monitor-web-app-availability/6disable.png)
-![test bewerken](./media/monitor-web-app-availability/8edittest.png)
+![Een WebTest uitschakelen](./media/monitor-web-app-availability/6disable.png)  
+![Test bewerken](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>Als u mislukte tests ziet
 Klik op een rode punt.

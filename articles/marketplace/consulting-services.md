@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938311"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964125"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Adviesdiensten voor Azure Marketplace en AppSource
 Adviesservices in Azure Marketplace en AppSource biedt Microsoft-partners het doel van de verbindende klanten met services te ondersteunen en uitbreiden van hun gebruik van Azure en zakelijke doelstellingen. 
@@ -80,7 +80,7 @@ Partners zijn vereist om een **silver- of gold-competentie** in het desbetreffen
 De lancering van consulting services gaat live in specifieke geografische regio. Eerste keer opstarten zijn: Verenigde Staten, Canada, het Verenigd Koninkrijk en Australië. De catalogi voor andere landen/regio's wordt na enkele nuttige live gaan en boeiende selectie van service-aanbiedingen zijn ingediend door partners en goedgekeurd door Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Hoe u zich registreren voor Consulting Services in Azure Marketplace en AppSource
-Begin met [registreren](https://azuremarketplace.microsoft.com/sell/signup) de gegevens van uw bedrijf in de marketplace. Uitgevers kunnen verwijzen naar [geworden van een uitgever op Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), voor een volledige lijst van vereisten voor apparaatregistratie. 
+Begin met [registreren](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) de gegevens van uw bedrijf in de marketplace. Uitgevers kunnen verwijzen naar [geworden van een uitgever op Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), voor een volledige lijst van vereisten voor apparaatregistratie. 
 
 **Wat te verwachten na registratie** het Voorbereidingsteam neemt contact met 1-3 werkdagen met een welkomstbericht per e-mail, waaronder de aanmeldingsgegevens voor de Cloud Partner Portal (CPP). [Cloud Partner-Portal](https://cloudpartner.azure.com) is de aanbieding aanbieding portal waar uitgevers aanbieding en inzendingen indienen. 
 

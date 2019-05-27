@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31522436de97062432af2afe101f85d376243a38
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770107"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957249"
 ---
 # <a name="view-azure-maps-api-usage"></a>Azure kaarten-API-gebruik weergeven
 
@@ -59,6 +59,11 @@ Doorgaan naar de volgende sectie als u nodig hebt om aan te passen van de grafie
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over de Azure kaarten-API die u wilt bijhouden voor:
+> [!div class="nextstepaction"] 
+> [Azure Maps Web SDK How-To](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"] 
+> [Procedures voor het Android-SDK van Azure Maps](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Azure kaarten REST-API-documentatie](https://docs.microsoft.com/rest/api/maps)

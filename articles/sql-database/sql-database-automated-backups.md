@@ -11,34 +11,46 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/12/2019
-ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.date: 05/20/2019
+ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678595"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951641"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
-SQL-Database automatisch maakt databaseback-ups die tussen 7 en 35 dagen worden bewaard en geografisch redundante opslag met Azure-leestoegang (RA-GRS) gebruikt om ervoor te zorgen dat ze behouden blijft, zelfs als het datacenter niet beschikbaar is. Deze back-ups worden gemaakt automatisch en zonder extra kosten. U hoeft te doen zodat ze zich voordoen en kunt u [wijzigen van de bewaarperiode voor back-up](#how-to-change-the-pitr-backup-retention-period). Databaseback-ups zijn een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen. Als uw beveiligingsregels is vereist dat uw back-ups beschikbaar voor een lange periode (maximaal 10 jaar zijn), kunt u een [langetermijnretentie](sql-database-long-term-retention.md).
+SQL-Database automatisch wordt gemaakt van de databaseback-ups die tussen 7 en 35 dagen worden bewaard en maakt gebruik van Azure [geo-redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) om ervoor te zorgen dat ze behouden blijft, zelfs als het datacenter niet beschikbaar is. Deze back-ups worden gemaakt automatisch en zonder extra kosten. U hoeft te doen zodat ze zich voordoen. Databaseback-ups zijn een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen. Als uw beveiligingsregels is vereist dat uw back-ups beschikbaar voor een lange periode (maximaal 10 jaar zijn), kunt u een [langetermijnretentie](sql-database-long-term-retention.md) op Singleton-databases en elastische pools.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>Wat is er een back-up van SQL Database
 
-SQL-Database maakt gebruik van SQL Server-technologie maken [volledige](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server), [differentiële](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), en [transactielogboek](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) back-ups voor de doeleinden van Point in time restore (PITR). De transactielogboekback-ups meestal elke 5-10 minuten en plaatsvinden differentiële back-ups in het algemeen elke 12 uur, met de frequentie op basis van de rekencapaciteit en hoeveelheid activiteit in een database. Volledige, differentiële en transactie logboekback-ups kunnen u een database herstellen naar een specifieke point-in-time op dezelfde server die als host fungeert voor de database. De back-ups worden opgeslagen in de RA-GRS-opslag-blobs die worden gerepliceerd naar een [gekoppeld Datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in het datacenter. Wanneer u een database herstelt, wordt de service zoekt uit welke volledige, differentiële en transactie-logboek back-ups moeten worden teruggezet.
+SQL-Database maakt gebruik van SQL Server-technologie maken [volledige back-ups](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) elke week [differentiële back-ups](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) elke 12 uur en [transactielogboekback-ups](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) elke 5-10 minuten. De back-ups worden opgeslagen in [RA-GRS-opslag-blobs](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) die worden gerepliceerd naar een [gekoppeld Datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in het datacenter. Wanneer u een database herstelt, wordt de service zoekt uit welke volledige, differentiële en transactie-logboek back-ups moeten worden teruggezet.
 
 U kunt deze back-ups te gebruiken:
 
-- Een database herstellen naar een punt-in-time binnen de bewaarperiode liggen. Met deze bewerking wordt een nieuwe database maken in dezelfde server als de oorspronkelijke database.
-- Een verwijderde database herstellen naar de tijd die is verwijderd of elk gewenst moment binnen de bewaarperiode liggen. De verwijderde database kan alleen worden hersteld op dezelfde server waar de oorspronkelijke database is gemaakt.
-- Een database herstellen naar een andere geografische regio. Geo-restore kunt u herstellen na een noodgeval geografische wanneer u geen toegang uw server en database tot. Het maakt een nieuwe database in een bestaande server overal ter wereld.
-- Een database van een specifieke langetermijnback-up herstellen als de database is geconfigureerd met een beleid met een langetermijnbewaarperiode (LTR). LTR kunt u een oude versie van de database om te voldoen aan een aanvraag voor naleving of uit te voeren van een oude versie van de toepassing herstellen. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
+- **Een bestaande database herstellen naar een punt-in-time in het verleden** binnen de bewaarperiode liggen die met behulp van de Azure portal, Azure PowerShell, Azure CLI of REST-API. Met deze bewerking wordt een nieuwe database op dezelfde server als de oorspronkelijke database maken in individuele databases en elastische pools. In het beheerde exemplaar kunt met deze bewerking maken van een kopie van de database of dezelfde of verschillende Managed Instance onder hetzelfde abonnement.
+  - **[Wijzigen van de back-up bewaarperiode](#how-to-change-the-pitr-backup-retention-period)**  tussen tot 35 dagen aan uw back-upbeleid configureren.
+  - **Beleid met een langetermijnbewaarperiode gewijzigd van 10 jaar** op individuele databases en elastische Pools met behulp van [de Azure-portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) of [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
+- **Een verwijderde database herstellen tot het moment waarop het werd verwijderd** of op elk gewenst moment binnen de bewaarperiode liggen. De verwijderde database kan alleen worden hersteld in de dezelfde logische server of een beheerd exemplaar waar de oorspronkelijke database is gemaakt.
+- **Een database herstellen naar een andere geografische regio**. Geo-restore kunt u herstellen na een noodgeval geografische wanneer u geen toegang uw server en database tot. Het maakt een nieuwe database in een bestaande server overal ter wereld.
+- **Een database herstellen vanuit een specifieke langetermijnback-up** op één Database of elastische Pool als de database is geconfigureerd met een beleid met een langetermijnbewaarperiode (LTR). LTR kunt u een oude versie van het gebruik van de database terugzetten [de Azure-portal](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) of [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) om te voldoen aan een aanvraag voor naleving of uit te voeren van een oude versie van de toepassing. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 - Als u wilt een herstelbewerking uitvoert, Zie [-database herstellen vanuit back-ups](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
 > In de Azure-opslag, de term *replicatie* verwijst naar het kopiëren van bestanden van de ene locatie naar een andere. De SQL *databasereplicatie* verwijst naar meerdere secundaire databases met een primaire database gesynchroniseerd te houden.
+
+U kunt sommige van deze bewerkingen met behulp van de volgende voorbeelden:
+
+| | Azure Portal | Azure PowerShell |
+|---|---|---|
+| Wijzigen van de back-upretentie | [Individuele Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Beheerd exemplaar](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Individuele Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Beheerd exemplaar](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Langetermijnretentie van back-ups wijzigen | [Individuele database](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance - N.V.T.  | [Individuele Database](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>Managed Instance - N.V.T.  |
+| Database van een point-in-time herstellen | [Individuele database](sql-database-recovery-using-backups.md#point-in-time-restore) | [Individuele database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Beheerd exemplaar](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Verwijderde database herstellen | [Individuele database](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [Individuele database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Beheerd exemplaar](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Database herstellen van Azure Blob-opslag | Individuele database - N.V.T. <br/>Managed Instance - N.V.T.  | Individuele database - N.V.T. <br/>[Beheerd exemplaar](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>Hoe lang worden back-ups opgeslagen
 
@@ -57,13 +69,13 @@ Als u de back-ups langer dan de maximale bewaarperiode houden wilt, kunt u de ba
 
 De bewaartermijn voor een database gemaakt met behulp van het op DTU gebaseerde aankoopmodel, is afhankelijk van de service tier:
 
-- Basis-servicelaag is 1 week.
-- Standaardservicelaag is vijf weken.
-- Premium-servicelaag is vijf weken.
+- Basis-servicelaag is **één** week.
+- Standard-servicelaag **vijf** weken.
+- Premium-servicelaag **vijf** weken.
 
 #### <a name="vcore-based-purchasing-model"></a>Aankoopmodel op basis van vCore
 
-Als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), de bewaartermijn voor back-up is 7 dagen (voor één, gegroepeerd en databases-instantie). Voor alle Azure SQL-databases (één, gegroepeerd, en het exemplaar van databases, kunt u [wijzigen bewaarperiode voor back-tot 35 dagen](#how-to-change-the-pitr-backup-retention-period).
+Als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), is de standaardperiode voor back-upretentie **zeven** dagen (voor één, gegroepeerd en databases-instantie). Voor alle Azure SQL-databases (één, gegroepeerd, en het exemplaar van databases, kunt u [wijzigen bewaarperiode voor back-tot 35 dagen](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Als u de huidige bewaarperiode verkorten, zijn alle bestaande back-ups ouder is dan de nieuwe bewaarperiode niet meer beschikbaar. Als u de huidige retentietermijn verhoogt, wordt SQL Database de bestaande back-ups behouden totdat de langere bewaarperiode is bereikt.
@@ -101,7 +113,7 @@ Regelmatig test het technische team van Azure SQL Database automatisch het terug
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Hoe geautomatiseerde back-ups van invloed zijn op naleving
 
-Wanneer u uw database van een servicelaag op basis van DTU, met de standaard PITR bewaarperiode van 35 dagen, naar een laag vCore-gebaseerde service migreert, wordt de bewaarperiode PITR behouden om ervoor te zorgen dat beleid voor gegevensherstel van uw toepassing niet worden gecompromitteerd. Als de bewaarperiode standaard niet voldoet aan uw vereisten voor naleving, kunt u de bewaarperiode voor PITR met PowerShell of REST-API wijzigen. Zie [bewaarperiode voor back-up wijzigen](#how-to-change-the-pitr-backup-retention-period) voor meer informatie.
+Wanneer u uw database van een servicelaag op basis van DTU, met de standaard PITR bewaarperiode van 35 dagen, naar een laag vCore-gebaseerde service migreert, wordt de bewaarperiode PITR behouden om ervoor te zorgen dat beleid voor gegevensherstel van uw toepassing niet worden gecompromitteerd. Als de bewaarperiode standaard niet voldoet aan uw vereisten voor naleving, kunt u de bewaarperiode voor PITR met PowerShell of REST-API wijzigen. Zie voor meer informatie, [bewaarperiode voor back-up wijzigen](#how-to-change-the-pitr-backup-retention-period).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

@@ -5,18 +5,18 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 09/05/2018
+ms.date: 05/20/2019
 ms.author: lbosq
-ms.openlocfilehash: 36465c253996e4cecc665b2fd1d59c03adc78a2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f5d90f8b825b7076a1a5122dbef3c8b2990e216
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888623"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954260"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Inleiding tot Azure Cosmos DB: Gremlin-API
 
-[Azure Cosmos DB](introduction.md) is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft voor essentiële toepassingen. Deze service beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, graaf- en kolomgegevens. De Azure Cosmos DB Gremlin-API wordt gebruikt om graafgegevens op te slaan en hiermee te werken. De Gremlin-API ondersteunt het maken van modellen voor graafgegevens en biedt API's om de graafgegevens te doorkruisen.
+[Azure Cosmos DB](introduction.md) is de wereldwijd gedistribueerde, multi-model databaseservice van Microsoft voor essentiële toepassingen. Het is een database met meerdere modellen en biedt ondersteuning voor document, sleutel / waarde-, grafiek en kolommen. De Azure Cosmos DB Gremlin-API wordt gebruikt om graafgegevens op te slaan en hiermee te werken. De Gremlin-API ondersteunt het maken van modellen voor graafgegevens en biedt API's om de graafgegevens te doorkruisen.
 
 Dit artikel biedt een overzicht van de Azure Cosmos DB Gremlin API en legt uit hoe u deze kunt gebruiken om zeer grote grafieken met miljarden hoekpunten en randen op te slaan. U kunt query’s uitvoeren voor de grafieken met een latentie van milliseconden en eenvoudig de grafiekstructuur en het schema ontwikkelen. Als u een query wilt uitvoeren voor Azure Cosmos DB, kunt u de taal voor grafiekdoorkruising [Apache TinkerPop](https://tinkerpop.apache.org) gebruiken, of [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
@@ -85,7 +85,7 @@ In de volgende tabel ziet u populaire Gremlin-stuurprogramma’s die u kunt gebr
 
 | Downloaden | Documentatie | Aan de slag | Ondersteunde connectorversie |
 | --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET in GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Grafiek maken met behulp van .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Grafiek maken met behulp van .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Grafiek maken met behulp van Java](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript in GitHub](https://github.com/jbmusso/gremlin-javascript) | [Grafiek maken met behulp van Node.js](create-graph-nodejs.md) | 2.6.0|
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python in GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Grafiek maken met behulp van Python](create-graph-python.md) | 3.2.7 |

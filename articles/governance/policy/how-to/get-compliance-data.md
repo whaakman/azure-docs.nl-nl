@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263766"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979355"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Nalevingsgegevens van Azure-resources ophalen
 
-Een van de grootste voordelen van Azure Policy is het inzicht en de besturingselementen die het biedt ten opzichte van resources in een abonnement of [beheergroep](../../management-groups/overview.md) van abonnementen. Dit besturingselement kan worden uitgeoefend op veel verschillende manieren, zoals het voorkomen van resources die worden gemaakt in de verkeerde locatie afdwingen van het gebruik van de gemeenschappelijke en consistente tag, of bestaande resources van de controle voor configuraties en instellingen van toepassing. In alle gevallen worden gegevens wordt gegenereerd door beleid waarmee u inzicht krijgt in de compatibiliteitsstatus van uw omgeving.
+Een van de grootste voordelen van Azure Policy is het inzicht en de besturingselementen die het biedt ten opzichte van resources in een abonnement of [beheergroep](../../management-groups/overview.md) van abonnementen. Dit besturingselement kan worden uitgeoefend op veel verschillende manieren, zoals het voorkomen van resources die worden gemaakt in de verkeerde locatie afdwingen van het gebruik van de gemeenschappelijke en consistente tag, of bestaande resources van de controle voor configuraties en instellingen van toepassing. In alle gevallen worden gegevens wordt gegenereerd door Azure Policy zodat u inzicht krijgt in de compatibiliteitsstatus van uw omgeving.
 
 Er zijn verschillende manieren toegang krijgen tot de informatie over naleving die zijn gegenereerd door uw beleid en initiatieftoewijzingen:
 
@@ -33,7 +33,7 @@ Voordat u de methoden voor het rapporteren van naleving bekijkt, laten we kijken
 
 ## <a name="evaluation-triggers"></a>Evaluatie-triggers
 
-De resultaten van een voltooide evaluatiecyclus voor installatie zijn beschikbaar in de `Microsoft.PolicyInsights` Resource Provider via `PolicyStates` en `PolicyEvents` bewerkingen. Zie voor meer informatie over de bewerkingen van de Policy Insights REST-API, [Policy Insights](/rest/api/policy-insights/).
+De resultaten van een voltooide evaluatiecyclus voor installatie zijn beschikbaar in de `Microsoft.PolicyInsights` Resource Provider via `PolicyStates` en `PolicyEvents` bewerkingen. Zie voor meer informatie over de bewerkingen van de Azure Policy Insights REST-API, [Azure Policy Insights](/rest/api/policy-insights/).
 
 Evaluatie van toegewezen beleid en de initiatieven gebeuren als gevolg van diverse gebeurtenissen:
 
@@ -88,7 +88,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>De werking van naleving
 
-In een toewijzing, een resource is **niet-compatibele** als deze niet aan de regels voor beleid of initiatief voldoen. De volgende tabel toont hoe verschillende beleid effecten met de evaluatie van de voorwaarden voor de resulterende nalevingsstatus werken:
+In een toewijzing, een resource is **niet-compatibele** als deze niet aan de regels voor beleid of initiatief voldoen.
+De volgende tabel toont hoe verschillende beleid effecten met de evaluatie van de voorwaarden voor de resulterende nalevingsstatus werken:
 
 | De status van resource | Effect | Evaluatie van het beleid | Nalevingsstatus |
 | --- | --- | --- | --- |
@@ -114,7 +115,7 @@ Naast **compatibele** en **niet-compatibele**, beleidsregels en resources hebben
 - **Niet gestart**: De evaluatiecyclus voor installatie van nog niet is gestart voor het beleid of de resource.
 - **Niet geregistreerd**: De Resourceprovider van de Azure-beleid is niet geregistreerd of het account aangemeld is niet gemachtigd om Nalevingsgegevens te lezen.
 
-Maakt gebruik van beleid voor de **type** en **naam** velden in het definitie om te bepalen of een resource een overeenkomst. Wanneer de resource overeenkomt met, deze wordt beschouwd als die van toepassing zijn, en heeft de status van een van beide **compatibele** of **niet-compatibele**. Als een van beide **type** of **naam** is de enige eigenschap in de definitie van alle resources worden beschouwd als die van toepassing zijn en worden geëvalueerd.
+Maakt gebruik van Azure Policy de **type** en **naam** velden in het definitie om te bepalen of een resource een overeenkomst. Wanneer de resource overeenkomt met, deze wordt beschouwd als die van toepassing zijn, en heeft de status van een van beide **compatibele** of **niet-compatibele**. Als een van beide **type** of **naam** is de enige eigenschap in de definitie van alle resources worden beschouwd als die van toepassing zijn en worden geëvalueerd.
 
 Het compatibiliteitspercentage wordt bepaald door het delen van **compatibele** resources door _totaal aantal resources_.
 _Totaal aantal resources_ wordt gedefinieerd als de som van de **compatibele**, **niet-compatibele**, en **conflicterende** resources. De algemene naleving getallen zijn de som van afzonderlijke resources die zijn **compatibele** gedeeld door de som van alle afzonderlijke resources. In de onderstaande afbeelding zijn er 20 verschillende resources die van toepassing zijn en is slechts één **niet-compatibele**. De algemene compatibiliteit van de resource is 95% (19 van 20).
@@ -123,23 +124,22 @@ _Totaal aantal resources_ wordt gedefinieerd als de som van de **compatibele**, 
 
 ## <a name="portal"></a>Portal
 
-De Azure portal brengt een grafische interface van visualiseren en inzicht krijgen in de status van naleving in uw omgeving. Op de **beleid** pagina, de **overzicht** optie bevat details voor beschikbare bereiken op de naleving van beleid en de initiatieven. Samen met de compatibiliteitsstatus en het aantal per toewijzing bevat een grafiek met naleving in de afgelopen zeven dagen.
-De **naleving** pagina bevat veel van dezelfde informatie (met uitzondering van de grafiek), maar bieden aanvullende filteren en sorteren van opties.
+De Azure portal brengt een grafische interface van visualiseren en inzicht krijgen in de status van naleving in uw omgeving. Op de **beleid** pagina, de **overzicht** optie bevat details voor beschikbare bereiken op de naleving van beleid en de initiatieven. Samen met de compatibiliteitsstatus en het aantal per toewijzing bevat een grafiek met naleving in de afgelopen zeven dagen. De **naleving** pagina bevat veel van dezelfde informatie (met uitzondering van de grafiek), maar bieden aanvullende filteren en sorteren van opties.
 
-![Voorbeeld van naleving van het beleid-pagina](../media/getting-compliance-data/compliance-page.png)
+![Voorbeeld van naleving van het beleid Azure-pagina](../media/getting-compliance-data/compliance-page.png)
 
 Omdat een beleid of initiatief kan worden toegewezen aan verschillende bereiken, bevat de tabel in het bereik voor elke toewijzing en het type van de definitie die is toegewezen. Het aantal niet-compatibele resources en niet-conforme beleidsregels voor elke toewijzing worden ook gegeven. Te klikken op een beleid of initiatief in de tabel bevat een stil bij de naleving voor die bepaalde toewijzing.
 
-![Voorbeeld van de pagina met Details van beleid voor naleving](../media/getting-compliance-data/compliance-details.png)
+![Voorbeeld van Details van compatibiliteit van Azure Policy-pagina](../media/getting-compliance-data/compliance-details.png)
 
 De lijst met resources op de **resourcenaleving** tabblad toont de evaluatiestatus van bestaande resources voor de huidige toewijzing. Het tabblad standaard ingesteld op **niet-compatibele**, maar kan worden gefilterd.
 Gebeurtenissen (toevoegen, controleren, weigeren, implementeren) geactiveerd door de aanvraag voor het maken van een resource die wordt weergegeven onder de **gebeurtenissen** tabblad.
 
-![Voorbeeld van gebeurtenissen van de naleving van beleid](../media/getting-compliance-data/compliance-events.png)
+![Voorbeeld van Azure-beleidsnaleving gebeurtenissen](../media/getting-compliance-data/compliance-events.png)
 
 Met de rechtermuisknop op de rij van de gebeurtenis die u wilt meer informatie verzamelen over en selecteer **activiteitlogboeken weergeven**. De pagina activiteitenlogboek wordt geopend en wordt vooraf gefilterd voor de zoekopdracht met de details voor de toewijzing en de gebeurtenissen. Het activiteitenlogboek bevat aanvullende context en informatie over deze gebeurtenissen.
 
-![Voorbeeld van beleid voor naleving-activiteitenlogboek](../media/getting-compliance-data/compliance-activitylog.png)
+![Voorbeeld van activiteitenlogboek van Azure Policy-naleving](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Informatie over niet-naleving
 
@@ -149,7 +149,7 @@ Wanneer een resources blijkt dat **niet-compatibele**, er zijn veel mogelijke oo
 
 ## <a name="command-line"></a>Opdrachtregel
 
-De dezelfde informatie die beschikbaar zijn in de portal kan worden opgehaald met de REST-API (met inbegrip van met [ARMClient](https://github.com/projectkudu/ARMClient)) of Azure PowerShell. Zie voor meer informatie over de REST-API, de [Policy Insights](/rest/api/policy-insights/) verwijzing. De naslaginformatie over REST-API's hebben een groene 'Try It' knop op elke bewerking die kunt u nu uitproberen rechts in de browser.
+De dezelfde informatie die beschikbaar zijn in de portal kan worden opgehaald met de REST-API (met inbegrip van met [ARMClient](https://github.com/projectkudu/ARMClient)) of Azure PowerShell. Zie voor meer informatie over de REST-API, de [Azure Policy Insights](/rest/api/policy-insights/) verwijzing. De naslaginformatie over REST-API's hebben een groene 'Try It' knop op elke bewerking die kunt u nu uitproberen rechts in de browser.
 
 Voor het gebruik van de volgende voorbeelden in Azure PowerShell, maakt u een verificatietoken met deze voorbeeldcode. Vervang vervolgens de $restUri door de tekenreeks in de voorbeelden om op te halen van een JSON-object dat vervolgens kan worden geparseerd.
 
@@ -178,7 +178,7 @@ $response
 
 ### <a name="summarize-results"></a>Resultaten samenvatten
 
-Met de REST-API kan samenvatting worden uitgevoerd door de container, de definitie of de toewijzing. Hier volgt een voorbeeld van het samenvatten op het abonnementsniveau van het met behulp van beleid inzicht [samenvatten voor abonnement](/rest/api/policy-insights/policystates/summarizeforsubscription):
+Met de REST-API kan samenvatting worden uitgevoerd door de container, de definitie of de toewijzing. Hier volgt een voorbeeld van het samenvatten op het abonnementsniveau van het met behulp van Azure Policy Insight [samenvatten voor abonnement](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -288,11 +288,12 @@ De resultaten zien er ongeveer als volgt uit:
 }
 ```
 
-Zie voor meer informatie over het uitvoeren van query's Beleidsgebeurtenissen, de [Beleidsgebeurtenissen](/rest/api/policy-insights/policyevents) naslagartikel.
+Zie voor meer informatie over het uitvoeren van query's Beleidsgebeurtenissen, de [Azure Beleidsgebeurtenissen](/rest/api/policy-insights/policyevents) naslagartikel.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-De Azure PowerShell-module voor het beleid is beschikbaar op de PowerShell Gallery als [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). U PowerShellGet gebruikt, kunt u Installeer de module met `Install-Module -Name Az.PolicyInsights` (Zorg ervoor dat u hebt de meest recente [Azure PowerShell](/powershell/azure/install-az-ps) geïnstalleerd):
+De Azure PowerShell-module voor Azure Policy is beschikbaar op de PowerShell Gallery als [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
+U PowerShellGet gebruikt, kunt u Installeer de module met `Install-Module -Name Az.PolicyInsights` (Zorg ervoor dat u hebt de meest recente [Azure PowerShell](/powershell/azure/install-az-ps) geïnstalleerd):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -417,13 +418,13 @@ Trent Baker
 
 Als u hebt een [Log Analytics-werkruimte](../../../log-analytics/log-analytics-overview.md) met `AzureActivity` uit de [oplossing Activity Log Analytics](../../../azure-monitor/platform/collect-activity-logs.md) gekoppeld aan uw abonnement, kunt u ook niet-naleving resultaten bekijken via de evaluatie cyclus eenvoudige Kusto-query's en de `AzureActivity` tabel. Met de informatie in Azure Monitor-Logboeken, kunnen waarschuwingen worden geconfigureerd als u wilt bekijken voor niet-naleving.
 
-![Naleving van het beleid met behulp van Azure Monitor-Logboeken](../media/getting-compliance-data/compliance-loganalytics.png)
+![Azure naleving van het beleid met behulp van Azure Monitor-Logboeken](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk voorbeelden op [Azure Policy-voorbeelden](../samples/index.md)
-- Controleer de [structuur van beleidsdefinities](../concepts/definition-structure.md)
-- Beoordeling [effecten beleid begrijpen](../concepts/effects.md)
-- Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md)
-- Meer informatie over het [herstellen van niet-compatibele resources](remediate-resources.md)
-- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](../../management-groups/overview.md)
+- Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
+- Lees over de [structuur van Azure Policy-definities](../concepts/definition-structure.md).
+- Lees [Informatie over de effecten van het beleid](../concepts/effects.md).
+- Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md).
+- Meer informatie over het [herstellen van niet-compatibele resources](remediate-resources.md).
+- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../../management-groups/overview.md).

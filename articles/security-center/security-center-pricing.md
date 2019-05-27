@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
-ms.author: monhaber
-ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: 8f6f94fa8602dcc2b8eed19262f595cb18c40b57
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905726"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968318"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging
 Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor werkbelastingen die worden uitgevoerd in Azure, on-premises en in andere clouds. Het biedt zichtbaarheid en controle over hybride cloudworkloads, actieve beveiliging die de blootstelling aan bedreigingen en Slimme detectie om te laten groeien met zich snel ontwikkelende cyberaanvallen verminderen.
@@ -49,7 +49,7 @@ Ophalen van de Standard-laag:
 (De prijzen in de afbeelding zijn bijvoorbeeld uitsluitend.) ![Prijzen van Security Center](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Als u wilt alle Security Center-functies inschakelen, moet u de prijscategorie voor het abonnement de toepasselijke virtuele machines met Standard toepassen. Configureren van de prijzen voor een werkruimte is niet ingeschakeld just-in-time-VM-toegang, besturingselementen voor adaptieve toepassingen en detecties met een netwerk voor Azure-resources.
+> Als u alle Security Center-functies wilt inschakelen, moet u de prijscategorie Standaard toepassen op het abonnement met de toepasselijke virtuele machines. Het configureren van prijzen voor een werkruimte betekent niet dat just-in-time toegang tot VM's wordt ingeschakeld, evenmin als adaptieve toepassingscontroles en netwerkdetecties voor Azure-resources.
 >
 >
 

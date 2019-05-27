@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137879"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955897"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -99,7 +99,7 @@ Functies die zijn gemarkeerd met een * zijn gepland om te worden aangebracht in 
 * Schaalinstellingen
 * WebJobs-planners
 * IP-beperkingen
-* AlwaysOn
+* Altijd aan
 * Instellingen-protocol (HTTP**S**, TLS-versie, clientcertificaten)
 * Instellingen voor diagnostische logboeken
 * CORS
@@ -217,7 +217,7 @@ Bij het gebruik van [automatisch wisselen](#Auto-Swap), sommige apps kunnen aang
 
 Voor meer informatie over het aanpassen van de `applicationInitialization` -element, Zie [meest voorkomende sleuf wisselen fouten bij de implementatie en het oplossen van deze](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-U kunt ook het gedrag warmen met een of meer van de volgende [app-instellingen](web-sites-configure.md):
+U kunt ook het gedrag warmen met een of meer van de volgende [app-instellingen](configure-common.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Het pad naar het pingen voor opwarming uw site. Deze app-instelling toevoegen door een aangepast pad dat begint met een slash als de waarde op te geven. Bijvoorbeeld `/statuscheck`. De standaardwaarde is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Geldige HTTP-responscodes voor de bewerking warmen. Deze app-instelling met een door komma's gescheiden lijst met HTTP-codes toevoegen. Bijvoorbeeld: `200,202` . Als de geretourneerde statuscode zich niet in de lijst, worden de bewerkingen opwarmtijd en wisselen gestopt. Standaard zijn alle responscodes geldig.
@@ -289,7 +289,7 @@ Azure PowerShell is een module die cmdlets voor het beheren van Azure via Window
 Zie voor informatie over het installeren en configureren van Azure PowerShell, en verificatie van Azure PowerShell met uw Azure-abonnement, [installeren en configureren van Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
-### <a name="create-web-app"></a>Een web-app maken
+### <a name="create-web-app"></a>Web-app maken
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

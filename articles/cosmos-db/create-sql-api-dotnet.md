@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: e1b5ade470e3041fc15a8f71db76a4004a33f765
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/20/2019
+ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142666"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954553"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Quickstart: Een .NET-web-app met behulp van de SQL API-account in Azure Cosmos DB maken
 
@@ -35,15 +35,15 @@ In deze snelstartgids hebt u Data Explorer in Azure portal gebruiken voor het ma
 
 ## <a name="prerequisites"></a>Vereisten
 
-Visual Studio 2017 met de Azure-ontwikkeling-werkstroom geïnstalleerd
-- U kunt downloaden en gebruiken de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio. 
+Visual Studio 2019 met de Azure-ontwikkeling-werkstroom geïnstalleerd
+- U kunt downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio. 
 
 Een Azure-abonnement of een gratis proefversie Azure Cosmos DB-account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
+## <a name="create-an-azure-cosmos-db-account"></a>Een Azure Cosmos DB-account maken
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

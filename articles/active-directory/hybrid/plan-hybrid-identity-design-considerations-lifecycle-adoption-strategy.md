@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381265"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950823"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Acceptatiestrategie voor voor de levenscyclus van de identiteit van de hybride bepalen
 In deze taak definieert u de strategie voor het beheer van identiteit voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in [beheertaken voor hybride identiteit bepalen](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -40,9 +40,9 @@ Accounts in geavanceerde IT-bedrijven zijn honderden parameters die de instantie
 | --- | --- | --- | --- |
 | Accountbeheer en inrichting |Met behulp van de serverfunctie Active Directory® Domain Services (AD DS), kunt u een schaalbare, veilige en beheersbare infrastructuur voor gebruikers- en bronbeheer maken en bieden ondersteuning voor Active directory-toepassingen zoals Microsoft® Exchange Server. <br><br> [U kunt groepen in AD DS, via een Identity manager inrichten](https://technet.microsoft.com/library/ff686261.aspx) <br>[U kunt gebruikers in AD DS inrichten](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Beheerders kunnen toegangsbeheer gebruiken voor het beheren van de gebruikerstoegang tot gedeelde bronnen om veiligheidsredenen. In Active Directory, toegangsbeheer wordt beheerd op het objectniveau door verschillende niveaus instellen van toegang en machtigingen voor objecten, zoals volledig beheer, schrijven, lezen of geen toegang. Toegangsbeheer in Active Directory wordt gedefinieerd hoe verschillende gebruikers Active Directory-objecten kunt gebruiken. Machtigingen voor objecten in Active Directory zijn standaard ingesteld op de veiligste instelling. |U moet maken van een account voor elke gebruiker die toegang een Microsoft-cloudservice tot. U kunt ook gebruikersaccounts wijzigen of te verwijderen wanneer ze niet meer nodig zijn. Gebruikers hebben geen beheerdersmachtigingen standaard, maar u kunt deze desgewenst toewijzen. <br><br> In Azure Active Directory is een van de belangrijkste functies de mogelijkheid voor het beheren van toegang tot bronnen. Deze resources kunnen deel uitmaken van de adreslijst, zoals in het geval van machtigingen voor het beheren van objecten door middel van rollen in de adreslijst, of resources die zich buiten de adreslijst bevinden, zoals SaaS-toepassingen, Azure-services, en SharePoint-sites of on-premises resources. <br><br> Management-oplossing is in het midden van van Azure Active Directory toegang tot de beveiligingsgroep. De resource-eigenaar (of de beheerder van de adreslijst of directory) kan een groep toewijzen om een bepaald toegangsrecht in te stellen voor de resources waarvan ze eigenaar zijn. De toegang wordt geleverd door de leden van de groep en de resource-eigenaar het recht voor het beheren van de lijst met leden van een groep aan iemand anders – zoals de afdelingsmanager van een of helpdesk-beheerder kan overdragen<br> <br> De groepen beheren in Azure AD-sectie vindt u meer informatie over het beheren van toegang tot en met groepen. |Active Directory-identiteiten uitbreiden naar de cloud via synchronisatie en Federatie |
 
-## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
+## <a name="role-based-access-control"></a>Role-based access control
 Toegang op basis van rollen (RBAC) maakt gebruik van rollen beheren en beleidsregels om te beoordelen, testen en af te dwingen uw zakelijke processen en regels voor het verlenen van toegang voor gebruikers. Belangrijkste beheerders beleidsregels voor de inrichting maken en toewijzen van gebruikers aan rollen en die sets met rechten om resources voor deze rollen te definiëren. RBAC breidt de oplossing voor identiteitsbeheer voor het gebruik van processen op basis van software en handmatige tussenkomst van de gebruiker in het inrichtingsproces te verminderen.
-Azure AD RBAC beschikt het bedrijf om te beperken van het aantal bewerkingen die een persoon doen kunt wanneer hij toegang tot de Azure-portal heeft. Met RBAC voor het beheren van toegang tot de portal kunnen IT-beheerders ca toegang delegeren met behulp van de volgende methoden voor access management:
+Azure AD RBAC beschikt het bedrijf om te beperken van het aantal bewerkingen die een persoon uitvoeren kunt nadat ze toegang tot de Azure-portal hebben. Met RBAC voor het beheren van toegang tot de portal kunnen IT-beheerders ca toegang delegeren met behulp van de volgende methoden voor access management:
 
 * **Op basis van een groep roltoewijzing**: U kunt toegang toewijzen aan Azure AD-groepen die kunnen worden gesynchroniseerd vanuit uw lokale Active Directory. Hiermee kunt u gebruikmaken van bestaande investeringen die uw organisatie heeft aangebracht in de hulpprogramma's en processen voor het beheren van groepen. U kunt ook de functie voor het beheer van groepen met gemachtigden van Azure AD Premium gebruiken.
 * **Maak gebruik van ingebouwde rollen in Azure**: U kunt drie rollen: eigenaar, Inzender en lezer, om ervoor te zorgen dat gebruikers en groepen gemachtigd alleen de taken die ze nodig hebben om hun werk te doen.

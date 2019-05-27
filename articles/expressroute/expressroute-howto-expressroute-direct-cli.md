@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 2/25/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365091"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965901"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Direct voor ExpressRoute configureren met behulp van de Azure CLI
 
@@ -280,8 +280,9 @@ U kunt standaard 10 circuits maken in het abonnement met de resource ExpressRout
 
 U kunt extra circuit bandbreedten op ExpressRoute Direct alleen ter ondersteuning van de scenario's die hier wordt beschreven. De bandbreedten zijn 40 Gbps en 100 Gbps.
 
-U kunt Standard of Premium-circuits maken. Standard-circuits zijn opgenomen in de kosten van de service. De kosten van Premium-circuits zijn gebaseerd op de bandbreedte die u selecteert. U kunt maken circuits alleen gemeten. Onbeperkte circuits worden niet ondersteund op ExpressRoute Direct.
+**SkuTier** mag lokaal, Standard of Premium.
 
+**SkuFamily** moet MeteredData als onbeperkte wordt niet ondersteund voor ExpressRoute Direct.
 Een circuit maken op de resource ExpressRoute Direct:
 
   ```azurecli

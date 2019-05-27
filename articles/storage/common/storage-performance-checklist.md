@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477287"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951170"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
 Sinds de release van de Microsoft Azure Storage-services, Microsoft heeft ontwikkeld, een aantal bewezen procedures voor het gebruik van deze services op een manier die goed presterende en in dit artikel dient de belangrijkste hiervan consolideren in een lijst controlelijst-stijl. De bedoeling van dit artikel is om te controleren of dat ze bewezen procedures gebruiken met Azure Storage voor ontwikkelaars van toepassingen en voor het identificeren van andere bewezen procedures die zij Overweeg gebruik te maken. In dit artikel wordt niet getracht te dekken van elke mogelijke optimalisatie van prestaties en schaalbaarheid, wordt die in hun invloed kleine of niet algemeen van toepassing zijn uitgesloten. Voor zover dit gedrag van de toepassing kan worden voorspeld tijdens het ontwerpen, is het handig om te blijven in gedachten vroeg om te voorkomen dat mogelijk te maken die wordt uitgevoerd in prestatieproblemen.  
 
-Elke ontwikkelaar met behulp van Azure Storage moet even de tijd in dit artikel lezen en controleren van zijn of haar toepassing volgt elk van de bewezen procedures die hieronder worden vermeld.  
+Elke ontwikkelaar met behulp van Azure Storage moet even de tijd Lees dit artikel en controleren van hun toepassing volgt elk van de bewezen procedures die hieronder worden vermeld.  
 
 ## <a name="checklist"></a>Controlelijst
 In dit artikel worden de bewezen procedures in de volgende groepen ingedeeld. Bewezen procedures die van toepassing op:  
@@ -29,13 +29,13 @@ In dit artikel worden de bewezen procedures in de volgende groepen ingedeeld. Be
 * Tabellen
 * Wachtrijen  
 
-| Klaar | Onderwerp | Category | Vraag |
+| Gereed | Gebied | Category | Vraag |
 | --- | --- | --- | --- |
 | &nbsp; | Alle services |Schaalbaarheidsdoelen |[Is uw toepassing zodanig ontworpen dat de schaalbaarheidsdoelen nadert?](#subheading1) |
 | &nbsp; | Alle services |Schaalbaarheidsdoelen |[Is uw naamconventie ontworpen om in te schakelen beter taakverdeling?](#subheading47) |
-| &nbsp; | Alle services |Netwerken |[Beschikt over clientapparaten kant voldoende hoge bandbreedte en lage latentie om de prestaties die nodig zijn?](#subheading2) |
-| &nbsp; | Alle services |Netwerken |[Hebt clientapparaten naast een koppeling genoeg hoogwaardige?](#subheading3) |
-| &nbsp; | Alle services |Netwerken |[Is de clienttoepassing zich 'in de buurt"het storage-account?](#subheading4) |
+| &nbsp; | Alle services |Netwerk |[Beschikt over clientapparaten kant voldoende hoge bandbreedte en lage latentie om de prestaties die nodig zijn?](#subheading2) |
+| &nbsp; | Alle services |Netwerk |[Hebt clientapparaten naast een koppeling genoeg hoogwaardige?](#subheading3) |
+| &nbsp; | Alle services |Netwerk |[Is de clienttoepassing zich 'in de buurt"het storage-account?](#subheading4) |
 | &nbsp; | Alle services |Inhoudsdistributie |[Gebruikt u een CDN voor distributie van inhoud?](#subheading5) |
 | &nbsp; | Alle services |Directe clienttoegang |[Gebruikt u SAS en CORS voor directe toegang tot opslag in plaats van proxy toestaan?](#subheading6) |
 | &nbsp; | Alle services |Caching |[Uw gegevens opslaan in cache toepassing die meerdere malen wordt gebruikt en wijzigingen zelden is?](#subheading7) |
@@ -44,7 +44,7 @@ In dit artikel worden de bewezen procedures in de volgende groepen ingedeeld. Be
 | &nbsp; | Alle services |Configuratie van .NET |[Hebt u .NET voor het gebruik van een voldoende aantal threads geconfigureerd?](#subheading10) |
 | &nbsp; | Alle services |Configuratie van .NET |[Gebruikt u de .NET 4.5 of hoger, waarop garbagecollection is verbeterd?](#subheading11) |
 | &nbsp; | Alle services |Parallelle uitvoering |[Hebt u gegarandeerd dat parallelle uitvoering op de juiste wijze wordt begrensd zodat u de clientmogelijkheden van uw of de schaalbaarheidsdoelen niet overbelast?](#subheading12) |
-| &nbsp; | Alle services |Hulpprogramma's |[Vindt u de nieuwste versie van Microsoft-clientbibliotheken en hulpprogramma's?](#subheading13) |
+| &nbsp; | Alle services |Hulpmiddelen |[Vindt u de nieuwste versie van Microsoft-clientbibliotheken en hulpprogramma's?](#subheading13) |
 | &nbsp; | Alle services |Nieuwe pogingen |[Weet u exponentieel uitstel met beleid voor het beperken van fouten en time-outs voor opnieuw proberen?](#subheading14) |
 | &nbsp; | Alle services |Nieuwe pogingen |[Is uw toepassing vermijdt pogingen voor niet-herstelbare fouten?](#subheading15) |
 | &nbsp; | Blobs |Schaalbaarheidsdoelen |[Hebt u een groot aantal clients tegelijkertijd toegang krijgen tot een enkel object?](#subheading46) |
@@ -124,7 +124,7 @@ U kunt volgen enkele aanbevolen procedures voor het verminderen van de frequenti
 * Als u uw gegevens met behulp van tijdstempels of numerieke id's ordenen, hebt u ervoor dat u niet een verkeerspatronen van waaraan alleen (of Voeg alleen-lezen). Deze patronen zijn niet geschikt voor een bereik-gebaseerd systeem te partitioneren en kan leiden tot al het verkeer naar één partitie te gaan en beperken van het systeem daadwerkelijk de taakverdeling. Bijvoorbeeld, als u de dagelijkse bewerkingen die gebruikmaken van een blob-object met een tijdstempel zoals JJJJMMDD hebt, wordt klikt u vervolgens al het verkeer voor die dag voor deze bewerking omgeleid naar een enkel object, dat wordt bediend door een server met één partitie. Bekijk of de blob-limieten per en per partitie limieten aan uw behoeften voldoet en kunt u overwegen om deze bewerking in meerdere blobs indien nodig. Op dezelfde manier als u de time series-gegevens in de tabellen opslaat, al het verkeer kan worden omgeleid naar het laatste deel van de belangrijkste naamruimte. Als u tijdstempels of numerieke id's moet gebruiken, het voorvoegsel van de ID met de hash van een 3 cijfers of in het geval van tijdstempels de seconden deel uit van de tijd, zoals ssyyyymmdd voorvoegsel. Als de aanbieding en bewerkingen uitvoeren van query's worden regelmatig uitgevoerd, kiest u een hash-functie die het aantal query's worden beperkt. In andere gevallen kan een willekeurige voorvoegsel voldoende zijn.  
 * Voor meer informatie over het partitieschema gebruikt in Azure Storage, leest u het SOSP-document [hier](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
-### <a name="networking"></a>Netwerken
+### <a name="networking"></a>Netwerk
 Terwijl de API-materiaal aanroepen, hebben het fysieke netwerkbeperkingen van de toepassing vaak een aanzienlijke invloed op de prestaties. De volgende beschrijven een aantal beperkingen die gebruikers kunnen ondervinden.  
 
 #### <a name="client-network-capability"></a>Client-netwerkmogelijkheden

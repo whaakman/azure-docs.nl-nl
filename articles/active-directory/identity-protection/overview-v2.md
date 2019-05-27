@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294278"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956930"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Wat is Azure Active Directory Identity Protection (vernieuwd)?
 
@@ -147,44 +147,44 @@ De basislijn-stroom voor de risicodetectie Identity Protection en de reactietijd
 
 ## <a name="common-scenarios"></a>Algemene scenario's 
 
-Bekijk het voorbeeld van Sarah, een werknemer van Contoso. 
+Bekijk het voorbeeld van een werknemer van Contoso. 
 
-1. Sarah wil zich aanmelden bij Exchange Online in de Tor-browser. Op het moment van aanmelding vaststelt Azure AD dat realtime risicogebeurtenissen. 
+1. Een werknemer wil zich aanmelden bij Exchange Online in de Tor-browser. Op het moment van aanmelding vaststelt Azure AD dat realtime risicogebeurtenissen. 
 
-2. Azure AD detecteert dat Sarah vanaf een anoniem IP-adres aanmeldt zich, een risiconiveau voor middelgrote aanmelding wordt geactiveerd. 
+2. Azure AD detecteert dat de werknemer vanaf een anoniem IP-adres aanmeldt zich, een risiconiveau voor middelgrote aanmelding wordt geactiveerd. 
 
-3. Sarah is sprake van een MFA-prompt, omdat het beleid voor voorwaardelijke toegang aanmeldingsrisico Identity Protection IT-beheerder van Contoso is geconfigureerd. Het beleid vereist MFA voor een aanmeldingsrisico van gemiddeld of hoger. 
+3. De werknemer is sprake van een MFA-prompt, omdat het beleid voor voorwaardelijke toegang aanmeldingsrisico Identity Protection IT-beheerder van Contoso is geconfigureerd. Het beleid vereist MFA voor een aanmeldingsrisico van gemiddeld of hoger. 
 
-4. Sarah wordt doorgegeven dat de MFA-prompt en krijgt toegang tot Exchange Online, en risiconiveau van Sarah van gebruiker is niet gewijzigd. 
+4. De werknemer geeft de MFA-prompt en heeft toegang tot Exchange Online en het risiconiveau van de gebruiker is niet gewijzigd. 
 
-Wat is er gebeurd achter de schermen? Een realtime aanmeldingsrisico de aanmeldingspoging vanuit de browser Tor geactiveerd in Azure AD voor anonieme IP-adres. Als de aanvraag wordt verwerkt door Azure AD, wordt het aanmeldingsrisico-beleid geconfigureerd in Identity Protection, omdat het niveau van aanmeldingsrisico van Sarah is voldaan aan de drempelwaarde (gemiddeld) toegepast. Sarah was eerder ingeschreven voor MFA, kan ze reageren op en geeft de MFA-controle. Haar mogelijkheid om door te geven is de MFA-controle een signaal ontvangen naar Azure AD dat ze waarschijnlijk de eigenaar van de geldige identiteit is en haar risiconiveau van de gebruiker niet stijgt. 
+Wat is er gebeurd achter de schermen? Een realtime aanmeldingsrisico de aanmeldingspoging vanuit de browser Tor geactiveerd in Azure AD voor anonieme IP-adres. Als de aanvraag wordt verwerkt door Azure AD, wordt het aanmeldingsrisico-beleid geconfigureerd in Identity Protection, omdat het niveau van aanmeldingsrisico van de werknemer is voldaan aan de drempelwaarde (gemiddeld) toegepast. Omdat de werknemer eerder was geregistreerd voor MFA, zijn ze kunnen reageren op en geeft de MFA-controle. De mogelijkheid om door te geven is de MFA-controle een signaal ontvangen naar Azure AD dat ze waarschijnlijk de eigenaar van de geldige identiteit zijn en hun risiconiveau van de gebruiker niet stijgt. 
 
 
-Maar wat gebeurt er als Sarah is niet een probeert aan te melden? 
+Maar wat gebeurt er als de werknemer is niet een probeert aan te melden? 
 
-1. Een schadelijke actor met referenties van Sarah probeert aan te melden Sarah van Exchange Online-account vanuit de browser Tor omdat ze willen verbergen van hun IP-adres. 
+1. Een kwaadwillende actor met referenties van de werknemer wil zich aanmelden bij hun Exchange Online-account vanuit de browser Tor omdat ze willen verbergen van hun IP-adres. 
 
 2. Azure AD detecteert dat de aanmeldingspoging is van een anoniem IP-adres, een realtime aanmeldingsrisico activeren. 
 
 3. De schadelijke actor is sprake van een MFA-prompt, omdat de IT-beheerder van Contoso is geconfigureerd de Identity Protection aanmelden risico beleid voor voorwaardelijke toegang om MFA te vereisen wanneer het aanmeldingsrisico is normaal of hoger. 
 
-4. De schadelijke actor de MFA-controle is mislukt en heeft geen toegang tot Sarah van Exchange Online-account. 
+4. De schadelijke actor de MFA-controle is mislukt en heeft geen toegang tot Exchange Online-account van de werknemer. 
 
-5. De mislukte MFA prompt geactiveerd risicogebeurtenis moeten worden vastgelegd, verhogen van Sarah gebruikersrisico voor toekomstige aanmeldingen. 
+5. De mislukte MFA prompt geactiveerd risicogebeurtenis moeten worden vastgelegd, verhogen van de gebruiker risico's voor toekomstige aanmeldingen. 
 
-Nu dat een kwaadwillende actor toegang probeert te krijgen van Sarah account, laten we zien wat er gebeurt met de volgende keer dat Sarah probeert aan te melden. 
+Nu dat een kwaadwillende actor toegang probeert te krijgen van Sarah account, laten we zien wat er gebeurt met de volgende keer dat de werknemer probeert aan te melden. 
 
-1. Sarah wil zich aanmelden bij Exchange Online via Outlook. Op het moment van aanmelding detecteert Azure AD realtime risicogebeurtenissen, evenals alle voorgaande gebruikersrisico. 
+1. De werknemer wil zich aanmelden bij Exchange Online via Outlook. Op het moment van aanmelding detecteert Azure AD realtime risicogebeurtenissen, evenals alle voorgaande gebruikersrisico. 
 
 2. Azure AD een realtime aanmeldingsrisico niet wordt gedetecteerd, maar hoog gebruikersrisico vanwege de afgelopen riskante activiteit wordt gedetecteerd in de vorige scenario's.  
 
-3. Sarah is sprake van een prompt voor wachtwoord opnieuw instellen, omdat Contoso IT-beheerder is geconfigureerd de beleid voor gebruikersrisico's Identity Protection als u wilt wijzigen wachtwoord vereisen wanneer een gebruiker met een hoog risico zich aanmeldt. 
+3. De werknemer is sprake van een prompt voor wachtwoord opnieuw instellen, omdat Contoso IT-beheerder is geconfigureerd de beleid voor gebruikersrisico's Identity Protection als u wilt wijzigen wachtwoord vereisen wanneer een gebruiker met een hoog risico zich aanmeldt. 
 
-4. Sarah is ingeschreven voor SSPR en MFA, ze haar wachtwoord is opnieuw instellen. 
+4. Omdat de werknemer is geregistreerd voor SSPR en MFA, ze hun wachtwoord is opnieuw instellen. 
 
-5. Door haar wachtwoord opnieuw instellen van wachtwoorden van Sarah referenties niet meer zijn aangetast en hun identiteit teruggezet naar een veilige status. 
+5. Referenties van de werknemer niet meer worden aangetast door hun wachtwoord opnieuw instellen van wachtwoorden en hun identiteit teruggezet naar een veilige status. 
 
-6. Sarah van vorige risicogebeurtenissen zijn opgelost en haar risiconiveau van de gebruiker wordt automatisch opnieuw worden ingesteld als reactie op inbreuk op de referenties beperkende. 
+6. Van de werknemer vorige risicogebeurtenissen zijn opgelost en haar risiconiveau van de gebruiker wordt automatisch opnieuw worden ingesteld als reactie op inbreuk op de referenties beperkende. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Hoe configureer ik Identity Protection? 
 

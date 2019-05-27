@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a3d75f09ac21fcdb4862cf8eefff0b5c05fd3369
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937613"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956740"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace en AppSource publicatiehandleiding voor
 
@@ -62,7 +62,7 @@ Nieuwe aanbiedingen op Marketplace komen in aanmerking voor een groot aantal gra
 
 *   Verkoopactiviteiten: Beginnen met of versnel uw overstap naar uw verkopen met Microsoft via de Marketplace. Toegang tot programma's en ondersteuning om het gezamenlijke verkoop met Microsoft-teams te stimuleren.
 
-Nadat u [indienen van uw oplossing](https://azuremarketplace.microsoft.com/sell/signup) op Marketplace, onze voorbereidingsteam neemt contact op met u ter ondersteuning van uw publicatie-ervaring.
+Nadat u [indienen van uw oplossing](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) op Marketplace, onze voorbereidingsteam neemt contact op met u ter ondersteuning van uw publicatie-ervaring.  Zie [over het maken van een account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) voor meer informatie.
 
 Zie voor meer informatie over de voordelen van Microsoft Go-To-Market en manieren om uw bedrijfsactiviteiten in de Marketplace [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 

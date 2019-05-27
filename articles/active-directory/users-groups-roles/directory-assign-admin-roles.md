@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 1107a6df92bf577cd60b9ad31627219da8e1a388
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823570"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956540"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -367,7 +367,7 @@ Maken en beheren van framework vertrouwensbeleid in de Identiteitservaring-Frame
 Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgegevens bijwerken.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -385,7 +385,7 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
 Openen en beheren van bureaubladbeheerhulpprogramma's en services, met inbegrip van Intune.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -458,7 +458,7 @@ Volledige toegang om apparaten te beheren in Azure AD.
 Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identiteiten gebruiken.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -524,7 +524,7 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 365.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -558,7 +558,7 @@ Kan de mogelijkheden van voorwaardelijke toegang beheren.
 Kan alle aspecten van het Dynamics 365-product beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -575,7 +575,7 @@ Kan alle aspecten van het Dynamics 365-product beheren.
 Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klanten goedkeuren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -705,7 +705,7 @@ Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toe
 Kan alle aspecten van het product Exchange beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -765,7 +765,7 @@ Kan wachtwoorden voor niet-beheerders en Helpdesk-medewerkers opnieuw instellen.
 Kan alle aspecten van het product Azure Information Protection beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -781,7 +781,7 @@ Kan alle aspecten van het product Azure Information Protection beheren.
 Kan alle aspecten van het product Intune beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -829,7 +829,7 @@ Kan productlicenties voor gebruikers en groepen beheren.
 Kan alle aspecten van het product Skype voor Bedrijven beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -846,7 +846,7 @@ Kan alle aspecten van het product Skype voor Bedrijven beheren.
 Kan berichten en updates voor hun organisatie alleen in het Office 365-berichtencentrum lezen. 
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -859,7 +859,7 @@ Kan berichten en updates voor hun organisatie alleen in het Office 365-berichten
 Gebruik geen - niet bedoeld voor algemeen gebruik.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -891,7 +891,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 Gebruik geen - niet bedoeld voor algemeen gebruik.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -925,7 +925,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 Kan alle aspecten van het Power BI-product beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -955,7 +955,7 @@ Is gemachtigd voor het weergeven, instellen en opnieuw instellen van de gegevens
 Kan roltoewijzingen in Azure AD en alle aspecten van Privileged Identity Management beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -968,7 +968,7 @@ Kan roltoewijzingen in Azure AD en alle aspecten van Privileged Identity Managem
 Kan rapporten met betrekking tot aanmeldingen en controles lezen.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -984,7 +984,7 @@ Kan rapporten met betrekking tot aanmeldingen en controles lezen.
 Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD en Office 365.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1013,7 +1013,7 @@ Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD
 Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1033,7 +1033,7 @@ Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
 Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1049,7 +1049,7 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 Kan alle aspecten van de SharePoint-service beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1072,7 +1072,7 @@ Kan alle aspecten van de SharePoint-service beheren.
 Kan de aanroep- en vergaderfuncties van de service Microsoft Teams beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1089,7 +1089,7 @@ Kan de aanroep- en vergaderfuncties van de service Microsoft Teams beheren.
 Kan communicatieproblemen in Teams oplossen met geavanceerde hulpprogramma's.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1103,7 +1103,7 @@ Kan communicatieproblemen in Teams oplossen met geavanceerde hulpprogramma's.
 Kan communicatieproblemen in Teams oplossen met basishulpprogramma's.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1117,7 +1117,7 @@ Kan communicatieproblemen in Teams oplossen met basishulpprogramma's.
 Kan de service Microsoft Teams beheren.
 
   > [!NOTE]
-  > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 

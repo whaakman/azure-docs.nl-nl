@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614099"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951494"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Aan de slag met tijdelijke tabellen in Azure SQL-Database
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Stap 2: Uw werkbelasting regelmatig wordt uitgevoerd
 Het belangrijkste voordeel van tijdelijke tabellen is dat u niet wilt wijzigen of aanpassen van uw website op een manier om uit te voeren van wijzigingen bijhouden. Nadat u hebt gemaakt, behouden tijdelijke tabellen transparant eerdere versies van de rij telkens wanneer u wijzigingen op uw gegevens uitvoeren. 
 
-Als u wilt gebruikmaken van automatisch bijhouden voor dit specifieke scenario, gaan we net kolom bijwerken **PagesVisited** telkens wanneer de gebruiker installatieserver sessie op de website beëindigd:
+Als u wilt gebruikmaken van automatisch bijhouden voor dit specifieke scenario, gaan we net kolom bijwerken **PagesVisited** telkens wanneer een gebruiker de sessie op de website wordt beëindigd:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 

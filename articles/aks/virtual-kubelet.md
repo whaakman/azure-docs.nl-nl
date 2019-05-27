@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023714"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956289"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Virtual Kubelet gebruiken met Azure Kubernetes Service (AKS)
 
@@ -26,13 +26,35 @@ Wanneer u de Virtual Kubelet-provider voor Azure Container Instances, kunnen zow
 >
 > Virtual Kubelet is een experimenteel open-source-project en als zodanig moet worden gebruikt. Als u wilt bijdragen, problemen met bestanden, en lees meer over de virtual kubelet, Zie de [Virtual Kubelet GitHub-project][vk-github].
 
-## <a name="prerequisite"></a>Vereiste
+## <a name="before-you-begin"></a>Voordat u begint
 
 Dit document wordt ervan uitgegaan dat u een AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de [Azure Kubernetes Service (AKS)-snelstartgids][aks-quick-start].
 
 U moet ook de Azure CLI-versie **2.0.33** of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 Voor het installeren van de Virtual Kubelet [Helm](https://docs.helm.sh/using_helm/#installing-helm) is ook vereist.
+
+### <a name="register-container-instances-feature-provider"></a>Container Instances functie provider registreren
+
+Als u de service Azure Container exemplaar (ACI) niet eerder hebt gebruikt, moet u de service-provider registreren met uw abonnement. U kunt de status van de registratie van de ACI-provider met de opdracht [az provider list] [az provider list], controleren, zoals wordt weergegeven in het volgende voorbeeld:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+De *Microsoft.ContainerInstance* provider wilt laten rapporteren als *geregistreerde*, zoals weergegeven in de volgende voorbeelduitvoer:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Als de provider wordt weergegeven als *NotRegistered*, de provider met behulp van de [az provider register] [az provider register] registreren, zoals wordt weergegeven in het volgende voorbeeld:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ### <a name="for-rbac-enabled-clusters"></a>Voor clusters met RBAC-ingeschakeld
 

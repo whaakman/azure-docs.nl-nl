@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: 8d024e0bc90724892bc53f8895b270716ad0cefc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61000961"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967756"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Regio-overschrijdende noodherstel voor B2B-integratie-accounts in Azure Logic Apps
 
@@ -62,7 +62,7 @@ Bedrijfscontinuïteit in een integratieaccount voor logische Apps biedt onderste
 
 Tijdens een noodgebeurtenis, wanneer de primaire regio niet beschikbaar voor bedrijfscontinuïteit, verkeer naar de secundaire regio. Een secundaire regio helpt een zakelijke functies snel om te voldoen aan de RPO/RTO herstellen overeengekomen door hun partners. Het minimaliseert ook inspanningen failover van de ene regio naar een andere regio. 
 
-Er is een verwachte latentie tijdens het kopiëren van controlenummers van een primaire regio naar een secundaire regio. Om te voorkomen tijdens een noodgebeurtenis dubbele gegenereerde controlenummers naar partners verzonden, wordt aangeraden de controlenummers in de secundaire regio overeenkomsten verhogen met behulp van [PowerShell-cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+Er is een verwachte latentie tijdens het kopiëren van controlenummers van een primaire regio naar een secundaire regio. Om te voorkomen tijdens een noodgebeurtenis dubbele gegenereerde controlenummers naar partners verzonden, wordt aangeraden de controlenummers in de secundaire regio overeenkomsten verhogen met behulp van [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Terugvallen op een primaire regio na noodgebeurtenis
 
@@ -70,7 +70,7 @@ Als u wilt terugvallen op een primaire regio als deze beschikbaar is, de volgend
 
 1. Accepteert geen berichten van partners in de secundaire regio.  
 
-2. De gegenereerde controlenummers voor alle overeenkomsten in de primaire regio verhogen met behulp van [PowerShell-cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
+2. De gegenereerde controlenummers voor alle overeenkomsten in de primaire regio verhogen met behulp van [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Direct verkeer van de secundaire regio naar de primaire regio.
 

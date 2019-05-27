@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694116"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956690"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
@@ -150,7 +150,9 @@ If the expected encryption state does not match what is being reported in the po
 
 De portal mogelijk een schijf weergegeven als gecodeerde zelfs nadat deze niet-versleutelde binnen de virtuele machine is.  Dit kan gebeuren wanneer op laag niveau opdrachten worden gebruikt om rechtstreeks decoderen: u moet de schijf uit vanuit de virtuele machine, in plaats van het hogere niveau Azure Disk Encryption-opdrachten voor beheer.  Het hogere niveau opdrachten niet alleen decoderen: u moet de schijf uit vanuit de virtuele machine, maar buiten de virtuele machine ze ook bijwerken: versleuteling op bestandsniveau belangrijk platform en extensie-instellingen die zijn gekoppeld aan de virtuele machine.  Als deze niet in overeenstemming worden gehouden, wordt het platform wordt pas weer versleutelingsstatus rapporteren of de virtuele machine correct inrichten.   
 
-Als u wilt uitschakelen correct Azure Disk Encryption, starten vanuit een bekende goede status met versleuteling is ingeschakeld en gebruik vervolgens de [uitschakelen AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) en [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell opdrachten, of de [az vm encryption uitschakelen](/cli/azure/vm/encryption) CLI-opdracht. 
+Als u wilt uitschakelen Azure Disk Encryption met PowerShell, gebruikt u [uitschakelen AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) gevolgd door [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Remove-AzVMDiskEncryptionExtension wordt uitgevoerd voordat de versleuteling is uitgeschakeld, mislukt.
+
+Schakel Azure Disk Encryption met CLI gebruiken [az vm encryption uitschakelen](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

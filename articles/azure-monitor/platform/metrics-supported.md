@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595428"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957151"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 
@@ -70,7 +70,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ShortParsingBusyThreads|Threads: Kort parseren actieve threads|Count|Gemiddeld|Het aantal actieve threads in de ThreadPool voor kort parseren.|ServerResourceType|
 |ShortParsingIdleThreads|Threads: Niet-actieve threads van kort parseren|Count|Gemiddeld|Het aantal niet-actieve threads in de ThreadPool voor kort parseren.|ServerResourceType|
 |ShortParsingJobQueueLength|Threads: Kort parseren lengte van taakwachtrij|Count|Gemiddeld|Het aantal taken in de wachtrij van de ThreadPool voor kort parseren.|ServerResourceType|
-|memory_thrashing_metric|Geheugenthrashing|Procent|Gemiddeld|Gemiddelde geheugenthrashing.|ServerResourceType|
+|memory_thrashing_metric|Geheugenthrashing|Percent|Gemiddeld|Gemiddelde geheugenthrashing.|ServerResourceType|
 |mashup_engine_qpu_metric|M-Engine QPU|Count|Gemiddeld|QPU-gebruik door mashupengineprocessen|ServerResourceType|
 |mashup_engine_memory_metric|M-Enginegeheugen|Bytes|Gemiddeld|Geheugengebruik door mashup-engineprocessen|ServerResourceType|
 
@@ -84,7 +84,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |FailedRequests|Mislukte Gateway-aanvragen|Count|Totaal|Aantal fouten in de gateway-aanvragen|Locatie, hostnaam|
 |OtherRequests|Overige Gateway-aanvragen|Count|Totaal|Het aantal overige gateway-aanvragen|Locatie, hostnaam|
 |Duur|Totale duur van de Gateway-aanvragen|Milliseconden|Gemiddeld|Totale duur van de Gateway-aanvragen in milliseconden|Locatie, hostnaam|
-|Capaciteit|Capaciteit|Procent|Gemiddeld|Gebruik metrische gegevens voor ApiManagement-service|Locatie|
+|Capaciteit|Capaciteit|Percent|Gemiddeld|Gebruik metrische gegevens voor ApiManagement-service|Locatie|
 |EventHubTotalEvents|Totaal aantal Event hub-gebeurtenissen|Count|Totaal|Aantal gebeurtenissen verzonden naar Event hub|Locatie|
 |EventHubSuccessfulEvents|Geslaagde Event hub-gebeurtenissen|Count|Totaal|Aantal geslaagde Event hub-gebeurtenissen|Locatie|
 |EventHubTotalFailedEvents|Mislukte Event hub-gebeurtenissen|Count|Totaal|Aantal mislukte Event hub-gebeurtenissen|Locatie|
@@ -154,12 +154,12 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |totalkeys|Totaal aantal sleutels|Count|Maximum||ShardId|
 |expiredkeys|Verlopen sleutels|Count|Totaal||ShardId|
 |usedmemory|Gebruikt geheugen|Bytes|Maximum||ShardId|
-|usedmemorypercentage|Percentage gebruikt geheugen|Procent|Maximum||ShardId|
+|usedmemorypercentage|Percentage gebruikt geheugen|Percent|Maximum||ShardId|
 |usedmemoryRss|Gebruikt geheugen RSS|Bytes|Maximum||ShardId|
-|serverLoad|Serverbelasting|Procent|Maximum||ShardId|
+|serverLoad|Serverbelasting|Percent|Maximum||ShardId|
 |cacheWrite|Cache schrijven|BytesPerSecond|Maximum||ShardId|
 |cacheRead|Gelezen uit cache|BytesPerSecond|Maximum||ShardId|
-|percentProcessorTime|CPU|Procent|Maximum||ShardId|
+|percentProcessorTime|CPU|Percent|Maximum||ShardId|
 |cacheLatency|Cache Latency Microseconds (Preview)|Count|Gemiddeld||ShardId, SampleType|
 |fouten|Fouten|Count|Maximum||ShardId, ErrorType|
 |connectedclients0|Verbonden Clients (Shard 0)|Count|Maximum||Er zijn geen dimensies|
@@ -174,10 +174,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys0|Verlopen sleutels (Shard 0)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory0|Gebruikt geheugen (Shard 0)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss0|Gebruikt geheugen RSS (Shard 0)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad0|Belasting van de server (Shard 0)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad0|Belasting van de server (Shard 0)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite0|Cache schrijven (Shard 0)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead0|Gelezen uit cache (Shard 0)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime0|CPU (Shard 0)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime0|CPU (Shard 0)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients1|Verbonden Clients (Shard 1)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed1|Totaal aantal bewerkingen (Shard 1)|Count|Totaal||Er zijn geen dimensies|
 |cachehits1|Treffers in cache (Shard 1)|Count|Totaal||Er zijn geen dimensies|
@@ -190,10 +190,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys1|Verlopen sleutels (Shard 1)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory1|Gebruikt geheugen (Shard 1)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss1|Gebruikt geheugen RSS (Shard 1)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad1|Belasting van de server (Shard 1)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad1|Belasting van de server (Shard 1)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite1|Cache schrijven (Shard 1)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead1|Gelezen uit cache (Shard 1)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime1|CPU (Shard 1)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime1|CPU (Shard 1)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients2|Verbonden Clients (Shard 2)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed2|Totaal aantal bewerkingen (Shard 2)|Count|Totaal||Er zijn geen dimensies|
 |cachehits2|Treffers in cache (Shard 2)|Count|Totaal||Er zijn geen dimensies|
@@ -206,10 +206,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys2|Verlopen sleutels (Shard 2)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory2|Gebruikt geheugen (Shard 2)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss2|Gebruikt geheugen RSS (Shard 2)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad2|Belasting van de server (Shard 2)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad2|Belasting van de server (Shard 2)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite2|Cache schrijven (Shard 2)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead2|Gelezen uit cache (Shard 2)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime2|CPU (Shard 2)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime2|CPU (Shard 2)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients3|Verbonden Clients (Shard 3)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed3|Totaal aantal bewerkingen (Shard 3)|Count|Totaal||Er zijn geen dimensies|
 |cachehits3|Treffers in cache (Shard 3)|Count|Totaal||Er zijn geen dimensies|
@@ -222,10 +222,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys3|Verlopen sleutels (Shard 3)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory3|Gebruikt geheugen (Shard 3)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss3|Gebruikt geheugen RSS (Shard 3)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad3|Server Load (Shard 3)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad3|Server Load (Shard 3)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite3|Cache schrijven (Shard 3)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead3|Gelezen uit cache (Shard 3)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime3|CPU (Shard 3)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime3|CPU (Shard 3)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients4|Verbonden Clients (Shard 4)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed4|Totaal aantal bewerkingen (Shard 4)|Count|Totaal||Er zijn geen dimensies|
 |cachehits4|Treffers in cache (Shard 4)|Count|Totaal||Er zijn geen dimensies|
@@ -238,10 +238,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys4|Verlopen sleutels (Shard 4)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory4|Gebruikt geheugen (Shard 4)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss4|Gebruikt geheugen RSS (Shard 4)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad4|Belasting van de server (Shard 4)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad4|Belasting van de server (Shard 4)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite4|Cache schrijven (Shard 4)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead4|Gelezen uit cache (Shard 4)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime4|CPU (Shard 4)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime4|CPU (Shard 4)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients5|Verbonden Clients (Shard 5)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed5|Totaal aantal bewerkingen (Shard 5)|Count|Totaal||Er zijn geen dimensies|
 |cachehits5|Treffers in cache (Shard 5)|Count|Totaal||Er zijn geen dimensies|
@@ -254,10 +254,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys5|Verlopen sleutels (Shard 5)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory5|Gebruikt geheugen (Shard 5)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss5|Gebruikt geheugen RSS (Shard 5)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad5|Server Load (Shard 5)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad5|Server Load (Shard 5)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite5|Cache schrijven (Shard 5)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead5|Cache Read (Shard 5)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime5|CPU (Shard 5)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime5|CPU (Shard 5)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients6|Verbonden Clients (Shard 6)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed6|Totaal aantal bewerkingen (Shard 6)|Count|Totaal||Er zijn geen dimensies|
 |cachehits6|Treffers in cache (Shard 6)|Count|Totaal||Er zijn geen dimensies|
@@ -270,10 +270,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys6|Verlopen sleutels (Shard 6)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory6|Gebruikt geheugen (Shard 6)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss6|Gebruikt geheugen RSS (Shard 6)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad6|Server Load (Shard 6)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad6|Server Load (Shard 6)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite6|Cache schrijven (Shard 6)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead6|Cache Read (Shard 6)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime6|CPU (Shard 6)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime6|CPU (Shard 6)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients7|Verbonden Clients (Shard 7)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed7|Totaal aantal bewerkingen (Shard 7)|Count|Totaal||Er zijn geen dimensies|
 |cachehits7|Treffers in cache (Shard 7)|Count|Totaal||Er zijn geen dimensies|
@@ -286,10 +286,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys7|Verlopen sleutels (Shard 7)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory7|Gebruikt geheugen (Shard 7)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss7|Gebruikt geheugen RSS (Shard 7)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad7|Server Load (Shard 7)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad7|Server Load (Shard 7)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite7|Cache schrijven (Shard 7)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead7|Cache Read (Shard 7)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime7|CPU (Shard 7)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime7|CPU (Shard 7)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients8|Verbonden Clients (Shard 8)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed8|Totaal aantal bewerkingen (Shard 8)|Count|Totaal||Er zijn geen dimensies|
 |cachehits8|Treffers in cache (Shard 8)|Count|Totaal||Er zijn geen dimensies|
@@ -302,10 +302,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys8|Verlopen sleutels (Shard 8)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory8|Gebruikt geheugen (Shard 8)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss8|Gebruikt geheugen RSS (Shard 8)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad8|Server Load (Shard 8)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad8|Server Load (Shard 8)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite8|Cache schrijven (Shard 8)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead8|Cache Read (Shard 8)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime8|CPU (Shard 8)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime8|CPU (Shard 8)|Percent|Maximum||Er zijn geen dimensies|
 |connectedclients9|Verbonden Clients (Shard 9)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed9|Totaal aantal bewerkingen (Shard 9)|Count|Totaal||Er zijn geen dimensies|
 |cachehits9|Treffers in cache (Shard 9)|Count|Totaal||Er zijn geen dimensies|
@@ -318,10 +318,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |expiredkeys9|Verlopen sleutels (Shard 9)|Count|Totaal||Er zijn geen dimensies|
 |usedmemory9|Gebruikt geheugen (Shard 9)|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss9|Gebruikt geheugen RSS (Shard 9)|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad9|Server Load (Shard 9)|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad9|Server Load (Shard 9)|Percent|Maximum||Er zijn geen dimensies|
 |cacheWrite9|Cache schrijven (Shard 9)|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |cacheRead9|Cache Read (Shard 9)|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|percentProcessorTime9|CPU (Shard 9)|Procent|Maximum||Er zijn geen dimensies|
+|percentProcessorTime9|CPU (Shard 9)|Percent|Maximum||Er zijn geen dimensies|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
@@ -403,10 +403,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Uitgaande stromen|Uitgaande stromen (preview-versie)|Count|Gemiddeld|Uitgaande stromen is het aantal huidige stromen in de uitgaande richting (verkeer dat uit de virtuele machine gaat)|Er zijn geen dimensies|
 |Maximale maakfrequentie van binnenkomende stromen|Maximale maakfrequentie van binnenkomende stromen (preview)|CountPerSecond|Gemiddeld|De maximale maakfrequentie van binnenkomende stromen (verkeer dat naar de virtuele machine gaat)|Er zijn geen dimensies|
 |Maximale maakfrequentie van uitgaande stromen|Maximale maakfrequentie van uitgaande stromen (preview)|CountPerSecond|Gemiddeld|De maximale maakfrequentie van uitgaande stromen (verkeer dat uit de virtuele machine komt)|Er zijn geen dimensies|
-|Cachetreffers voor lezen van Premium-gegevensschijf|Cachetreffers voor lezen van Premium-gegevensschijf (preview)|Procent|Gemiddeld|Cachetreffers voor lezen van Premium-gegevensschijf|LUN|
-|Cachemissers voor lezen van Premium-gegevensschijf|Cachemissers voor lezen van Premium-gegevensschijf (preview)|Procent|Gemiddeld|Cachemissers voor lezen van Premium-gegevensschijf|LUN|
-|Cachetreffers voor lezen van Premium-besturingssysteemschijf|Cachetreffers voor lezen van Premium-besturingssysteemschijf (preview)|Procent|Gemiddeld|Cachetreffers voor lezen van Premium-besturingssysteemschijf|Er zijn geen dimensies|
-|Cachemissers voor lezen van Premium-besturingssysteemschijf|Cachemissers voor lezen van Premium-besturingssysteemschijf (preview)|Procent|Gemiddeld|Cachemissers voor lezen van Premium-besturingssysteemschijf|Er zijn geen dimensies|
+|Cachetreffers voor lezen van Premium-gegevensschijf|Cachetreffers voor lezen van Premium-gegevensschijf (preview)|Percent|Gemiddeld|Cachetreffers voor lezen van Premium-gegevensschijf|LUN|
+|Cachemissers voor lezen van Premium-gegevensschijf|Cachemissers voor lezen van Premium-gegevensschijf (preview)|Percent|Gemiddeld|Cachemissers voor lezen van Premium-gegevensschijf|LUN|
+|Cachetreffers voor lezen van Premium-besturingssysteemschijf|Cachetreffers voor lezen van Premium-besturingssysteemschijf (preview)|Percent|Gemiddeld|Cachetreffers voor lezen van Premium-besturingssysteemschijf|Er zijn geen dimensies|
+|Cachemissers voor lezen van Premium-besturingssysteemschijf|Cachemissers voor lezen van Premium-besturingssysteemschijf (preview)|Percent|Gemiddeld|Cachemissers voor lezen van Premium-besturingssysteemschijf|Er zijn geen dimensies|
 |Netwerk inkomend - totaal|Netwerk inkomend - totaal|Bytes|Totaal|Het aantal ontvangen bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer)|Er zijn geen dimensies|
 |Netwerk uitgaand - totaal|Netwerk uitgaand - totaal|Bytes|Totaal|Het aantal verzonden bytes op alle netwerkinterfaces door de virtuele machine(s) (uitgaand verkeer)|Er zijn geen dimensies|
 
@@ -447,10 +447,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Uitgaande stromen|Uitgaande stromen (preview-versie)|Count|Gemiddeld|Uitgaande stromen is het aantal huidige stromen in de uitgaande richting (verkeer dat uit de virtuele machine gaat)|VM-naam|
 |Maximale maakfrequentie van binnenkomende stromen|Maximale maakfrequentie van binnenkomende stromen (preview)|CountPerSecond|Gemiddeld|De maximale maakfrequentie van binnenkomende stromen (verkeer dat naar de virtuele machine gaat)|VM-naam|
 |Maximale maakfrequentie van uitgaande stromen|Maximale maakfrequentie van uitgaande stromen (preview)|CountPerSecond|Gemiddeld|De maximale maakfrequentie van uitgaande stromen (verkeer dat uit de virtuele machine komt)|VM-naam|
-|Cachetreffers voor lezen van Premium-gegevensschijf|Cachetreffers voor lezen van Premium-gegevensschijf (preview)|Procent|Gemiddeld|Cachetreffers voor lezen van Premium-gegevensschijf|LUN, VMName|
-|Cachemissers voor lezen van Premium-gegevensschijf|Cachemissers voor lezen van Premium-gegevensschijf (preview)|Procent|Gemiddeld|Cachemissers voor lezen van Premium-gegevensschijf|LUN, VMName|
-|Cachetreffers voor lezen van Premium-besturingssysteemschijf|Cachetreffers voor lezen van Premium-besturingssysteemschijf (preview)|Procent|Gemiddeld|Cachetreffers voor lezen van Premium-besturingssysteemschijf|VM-naam|
-|Cachemissers voor lezen van Premium-besturingssysteemschijf|Cachemissers voor lezen van Premium-besturingssysteemschijf (preview)|Procent|Gemiddeld|Cachemissers voor lezen van Premium-besturingssysteemschijf|VM-naam|
+|Cachetreffers voor lezen van Premium-gegevensschijf|Cachetreffers voor lezen van Premium-gegevensschijf (preview)|Percent|Gemiddeld|Cachetreffers voor lezen van Premium-gegevensschijf|LUN, VMName|
+|Cachemissers voor lezen van Premium-gegevensschijf|Cachemissers voor lezen van Premium-gegevensschijf (preview)|Percent|Gemiddeld|Cachemissers voor lezen van Premium-gegevensschijf|LUN, VMName|
+|Cachetreffers voor lezen van Premium-besturingssysteemschijf|Cachetreffers voor lezen van Premium-besturingssysteemschijf (preview)|Percent|Gemiddeld|Cachetreffers voor lezen van Premium-besturingssysteemschijf|VM-naam|
+|Cachemissers voor lezen van Premium-besturingssysteemschijf|Cachemissers voor lezen van Premium-besturingssysteemschijf (preview)|Percent|Gemiddeld|Cachemissers voor lezen van Premium-besturingssysteemschijf|VM-naam|
 |Netwerk inkomend - totaal|Netwerk inkomend - totaal|Bytes|Totaal|Het aantal ontvangen bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer)|VM-naam|
 |Netwerk uitgaand - totaal|Netwerk uitgaand - totaal|Bytes|Totaal|Het aantal verzonden bytes op alle netwerkinterfaces door de virtuele machine(s) (uitgaand verkeer)|VM-naam|
 
@@ -532,8 +532,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |CloudUploadThroughput|Uploaddoorvoer cloud|BytesPerSecond|Gemiddeld|De uploaddoorvoer van de cloud naar Azure tijdens de rapportageperiode.|Er zijn geen dimensies|
 |CloudReadThroughput|Downloaddoorvoer cloud|BytesPerSecond|Gemiddeld|De downloaddoorvoer van de cloud naar Azure tijdens de rapportageperiode.|Er zijn geen dimensies|
 |BytesUploadedToCloud|Geüploade cloudbytes (apparaat)|Bytes|Gemiddeld|Het totale aantal bytes dat naar Azure is geüpload vanaf een apparaat tijdens de rapportageperiode.|Er zijn geen dimensies|
-|HyperVVirtualProcessorUtilization|Rand Compute - CPU-Percentage|Procent|Gemiddeld|Percentage CPU-gebruik|InstanceName|
-|HyperVMemoryUtilization|Compute - geheugengebruik rand|Procent|Gemiddeld|Hoeveelheid RAM in gebruik|InstanceName|
+|HyperVVirtualProcessorUtilization|Rand Compute - CPU-Percentage|Percent|Gemiddeld|Percentage CPU-gebruik|InstanceName|
+|HyperVMemoryUtilization|Compute - geheugengebruik rand|Percent|Gemiddeld|Hoeveelheid RAM in gebruik|InstanceName|
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
@@ -552,7 +552,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ActivitySucceededRuns|Metrische gegevens de uitvoeringen van activiteiten is voltooid|Count|Totaal||ActivityType, PipelineName, FailureType, geef de naam|
 |TriggerFailedRuns|Trigger wordt uitgevoerd metrische gegevens is mislukt|Count|Totaal||Name, FailureType|
 |TriggerSucceededRuns|Trigger wordt uitgevoerd metrische gegevens is voltooid|Count|Totaal||Name, FailureType|
-|IntegrationRuntimeCpuPercentage|Integration runtime CPU-gebruik|Procent|Gemiddeld||IntegrationRuntimeName, knooppuntnaam|
+|IntegrationRuntimeCpuPercentage|Integration runtime CPU-gebruik|Percent|Gemiddeld||IntegrationRuntimeName, knooppuntnaam|
 |IntegrationRuntimeAvailableMemory|Beschikbaar geheugen voor Integration runtime|Bytes|Gemiddeld||IntegrationRuntimeName, knooppuntnaam|
 |MaxAllowedResourceCount|Maximale toegestane entiteiten tellen|Count|Maximum||Er zijn geen dimensies|
 |MaxAllowedFactorySizeInGbUnits|Maximale toegestane factory grootte (GB-eenheid)|Count|Maximum||Er zijn geen dimensies|
@@ -584,13 +584,13 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
-|memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
-|io_consumption_percent|I/o-percentage|Procent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
-|storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
+|cpu_percent|CPU-percentage|Percent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
+|memory_percent|Percentage geheugen|Percent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
+|io_consumption_percent|I/o-percentage|Percent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
+|storage_percent|Percentage van de opslag|Percent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
 |storage_used|Opslag gebruikt|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
-|serverlog_storage_percent|Server Log opslag procent|Procent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
+|serverlog_storage_percent|Server Log opslag procent|Percent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
 |serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|Gemiddeld|Server logboekopslag gebruikt|Er zijn geen dimensies|
 |serverlog_storage_limit|Limiet voor opslag van server-logboek|Bytes|Gemiddeld|Limiet voor opslag van server-logboek|Er zijn geen dimensies|
 |active_connections|Actieve verbindingen|Count|Gemiddeld|Actieve verbindingen|Er zijn geen dimensies|
@@ -604,13 +604,13 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
-|memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
-|io_consumption_percent|I/o-percentage|Procent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
-|storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
+|cpu_percent|CPU-percentage|Percent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
+|memory_percent|Percentage geheugen|Percent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
+|io_consumption_percent|I/o-percentage|Percent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
+|storage_percent|Percentage van de opslag|Percent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
 |storage_used|Opslag gebruikt|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
-|serverlog_storage_percent|Server Log opslag procent|Procent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
+|serverlog_storage_percent|Server Log opslag procent|Percent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
 |serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|Gemiddeld|Server logboekopslag gebruikt|Er zijn geen dimensies|
 |serverlog_storage_limit|Limiet voor opslag van server-logboek|Bytes|Gemiddeld|Limiet voor opslag van server-logboek|Er zijn geen dimensies|
 |active_connections|Actieve verbindingen|Count|Gemiddeld|Actieve verbindingen|Er zijn geen dimensies|
@@ -624,13 +624,13 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
-|memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
-|io_consumption_percent|I/o-percentage|Procent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
-|storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
+|cpu_percent|CPU-percentage|Percent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
+|memory_percent|Percentage geheugen|Percent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
+|io_consumption_percent|I/o-percentage|Percent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
+|storage_percent|Percentage van de opslag|Percent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
 |storage_used|Opslag gebruikt|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
-|serverlog_storage_percent|Server Log opslag procent|Procent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
+|serverlog_storage_percent|Server Log opslag procent|Percent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
 |serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|Gemiddeld|Server logboekopslag gebruikt|Er zijn geen dimensies|
 |serverlog_storage_limit|Limiet voor opslag van server-logboek|Bytes|Gemiddeld|Limiet voor opslag van server-logboek|Er zijn geen dimensies|
 |active_connections|Actieve verbindingen|Count|Gemiddeld|Actieve verbindingen|Er zijn geen dimensies|
@@ -645,10 +645,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
-|memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
+|cpu_percent|CPU-percentage|Percent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
+|memory_percent|Percentage geheugen|Percent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
 |iops|IOPS|Count|Gemiddeld|I/o-bewerkingen per seconde|Er zijn geen dimensies|
-|storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
+|storage_percent|Percentage van de opslag|Percent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
 |storage_used|Opslag gebruikt|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
 |active_connections|Actieve verbindingen|Count|Gemiddeld|Actieve verbindingen|Er zijn geen dimensies|
 |network_bytes_egress|Netwerk uit|Bytes|Totaal|Uitgaand netwerkverkeer voor actieve verbindingen|Er zijn geen dimensies|
@@ -747,7 +747,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |MongoRequests|Mongo-aanvragen|Count|Count|Aantal aanvragen van Mongo|Databasenaam, CollectionName, regio, CommandName, foutcode|
 |ProvisionedThroughput|Ingerichte doorvoer|Count|Maximum|Ingerichte doorvoer|DatabaseName, CollectionName|
 |ReplicationLatency|P99 Replicatielatentie|MilliSeconds|Gemiddeld|Replicatievertraging P99 tussen de bron- en regio's voor geo-ingeschakelde account|SourceRegion, TargetRegion|
-|ServiceAvailability|Beschikbaarheid van de service|Procent|Gemiddeld|Beschikbaarheid van aanvragen bij de granulariteit van één uur, dag of maand|Er zijn geen dimensies|
+|ServiceAvailability|Beschikbaarheid van de service|Percent|Gemiddeld|Beschikbaarheid van aanvragen bij de granulariteit van één uur, dag of maand|Er zijn geen dimensies|
 |TotalRequestUnits|Totaal aantal Aanvraageenheden|Count|Totaal|Aanvraag dat eenheden verbruikt|Databasenaam, CollectionName, regio, StatusCode, OperationType|
 |TotalRequests|Totaal aantal aanvragen|Count|Count|Aantal aanvragen|Databasenaam, CollectionName, regio, StatusCode, OperationType|
 
@@ -839,7 +839,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |CaptureBacklog|Achterstand vastleggen. (Preview-versie)|Count|Totaal|Achterstand vastleggen voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
 |CapturedMessages|Vastgelegde berichten. (Preview-versie)|Count|Totaal|Vastgelegde berichten voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
 |CapturedBytes|Vastgelegde bytes. (Preview-versie)|Bytes|Totaal|Vastgelegde bytes voor Microsoft.EventHub. (Preview-versie)|Er zijn geen dimensies|
-|CPU|CPU (Preview)|Procent|Maximum|CPU-gebruik voor het Event Hub-cluster als percentage|Rol|
+|CPU|CPU (Preview)|Percent|Maximum|CPU-gebruik voor het Event Hub-cluster als percentage|Rol|
 |AvailableMemory|Beschikbaar geheugen (Preview)|Count|Maximum|Beschikbaar geheugen voor het Event Hub-cluster in bytes|Rol|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
@@ -848,12 +848,6 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |GatewayRequests|Gateway-aanvragen|Count|Totaal|Aantal gateway-aanvragen|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Gecategoriseerde Gateway-aanvragen|Count|Totaal|Aantal gateway-aanvragen per categorie (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|Automatisch schalen|Metrische gegevens voor automatisch schalen|Count|Maximum|Metrische gegevens voor automatisch schalen|ClusterDnsName, MetricName|
-|AllocatedMB|Toegewezen MB|Count|Maximum|Toegewezen MB|ClusterDnsName, MetricName|
-|AvailableMB|Beschikbare MB|Count|Maximum|Beschikbare MB|ClusterDnsName, MetricName|
-|AppsPending|Apps in behandeling|Count|Maximum|Apps in behandeling|ClusterDnsName, MetricName|
-|AppsRunning|Apps die worden uitgevoerd|Count|Maximum|Apps die worden uitgevoerd|ClusterDnsName, MetricName|
-|AppsSubmitted|Verzonden Apps|Count|Maximum|Verzonden Apps|ClusterDnsName, MetricName|
 |NumActiveWorkers|Aantal actieve werknemers|Count|Maximum|Aantal actieve werknemers|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
@@ -889,8 +883,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |performanceCounters/requestsPerSecond|HTTP-aanvraagsnelheid|CountPerSecond|Gemiddeld|Snelheid per seconde van alle aanvragen aan de toepassing vanaf ASP.NET.|cloud/roleInstance|
 |performanceCounters/exceptionsPerSecond|Aantal uitzonderingen|CountPerSecond|Gemiddeld|Het aantal verwerkte en onverwerkte uitzonderingen dat is gerapporteerd aan Windows, inclusief .NET-uitzonderingen en onbeheerde uitzonderingen die zijn geconverteerd naar .NET-uitzonderingen.|cloud/roleInstance|
 |performanceCounters/processIOBytesPerSecond|I/O-snelheid voor proces|BytesPerSecond|Gemiddeld|Totaal aantal per seconde gelezen en naar bestanden, netwerk en apparaten geschreven bytes.|cloud/roleInstance|
-|performanceCounters/processCpuPercentage|CPU voor proces|Procent|Gemiddeld|Het percentage verstreken tijd dat alle threads de processor hebben gebruikt voor het uitvoeren van instructies. Dit kan variëren van 0 tot 100. Deze metrische waarde geeft de prestaties van het w3wp-proces alleen.|cloud/roleInstance|
-|performanceCounters/processorCpuPercentage|Processortijd|Procent|Gemiddeld|Het tijdspercentage dat de processor spendeert aan niet-inactieve threads.|cloud/roleInstance|
+|performanceCounters/processCpuPercentage|CPU voor proces|Percent|Gemiddeld|Het percentage verstreken tijd dat alle threads de processor hebben gebruikt voor het uitvoeren van instructies. Dit kan variëren van 0 tot 100. Deze metrische waarde geeft de prestaties van het w3wp-proces alleen.|cloud/roleInstance|
+|performanceCounters/processorCpuPercentage|Processortijd|Percent|Gemiddeld|Het tijdspercentage dat de processor spendeert aan niet-inactieve threads.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|Beschikbaar geheugen|Bytes|Gemiddeld|Fysiek geheugen dat direct beschikbaar is voor toewijzing aan een proces of voor systeemgebruik.|cloud/roleInstance|
 |performanceCounters/processPrivateBytes|Proceseigen bytes|Bytes|Gemiddeld|Geheugen exclusief toegewezen aan de processen van de gecontroleerde toepassing.|cloud/roleInstance|
 |aanvragen/duur|Serverreactietijd|MilliSeconds|Gemiddeld|Tijd tussen de ontvangst van een HTTP-aanvraag en het voltooien van het verzenden van de reactie.|aanvraag/performanceBucket, aanvraag/resultCode, bewerking/synthetische, cloud/roleInstance, aanvraag-geslaagd, cloud/roleName|
@@ -914,15 +908,15 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Cache-gebruik|Procent|Gemiddeld|Het gebruiksniveau van binnen het bereik van het cluster|Er zijn geen dimensies|
+|ClusterDataCapacityFactor|Cache-gebruik|Percent|Gemiddeld|Het gebruiksniveau van binnen het bereik van het cluster|Er zijn geen dimensies|
 |QueryDuration|Queryduur van de|Milliseconden|Gemiddeld|Query's de duur in seconden|QueryStatus|
-|IngestionsLoadFactor|Opname-gebruik|Procent|Gemiddeld|Verhouding van de sleuven gebruikte opname in het cluster|Er zijn geen dimensies|
+|IngestionsLoadFactor|Opname-gebruik|Percent|Gemiddeld|Verhouding van de sleuven gebruikte opname in het cluster|Er zijn geen dimensies|
 |IsEngineAnsweringQuery|Actief houden|Count|Gemiddeld|Controle geeft aan dat het cluster reageert op query 's|Er zijn geen dimensies|
 |IngestCommandOriginalSizeInMb|Opname-Volume (In MB)|Count|Totaal|Totale hoeveelheid opgenomen gegevens aan het cluster (in MB)|Er zijn geen dimensies|
 |IngestedEventAgeSeconds|Opnamelatentie (In seconden)|Seconden|Gemiddeld|Opname-tijd van de bron (bijvoorbeeld bericht is in de Event hub) aan het cluster in seconden|Er zijn geen dimensies|
 |EventRecievedFromEventHub|Gebeurtenissen die worden verwerkt (voor Eventhubs)|Count|Totaal|Aantal gebeurtenissen dat door het cluster worden verwerkt wanneer het opnemen van Event Hub|Er zijn geen dimensies|
 |IngestionResult|Opname-resultaat|Count|Count|Aantal opname-bewerkingen|IngestionResultDetails|
-|EngineCPU|CPU|Procent|Gemiddeld|Het gebruiksniveau van CPU|Er zijn geen dimensies|
+|EngineCPU|CPU|Percent|Gemiddeld|Het gebruiksniveau van CPU|Er zijn geen dimensies|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -942,7 +936,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |RunLatency|Latentie van uitvoeringen|Seconden|Gemiddeld|Latentie van voltooide werkstroomuitvoeringen.|Er zijn geen dimensies|
 |RunSuccessLatency|Latentie van geslaagde uitvoeringen|Seconden|Gemiddeld|Latentie van geslaagde werkstroomuitvoeringen.|Er zijn geen dimensies|
 |RunThrottledEvents|Door uitvoering vertraagde gebeurtenissen|Count|Totaal|Aantal door werkstroomactie of trigger vertraagde gebeurtenissen.|Er zijn geen dimensies|
-|RunFailurePercentage|Percentage mislukte uitvoeringen|Procent|Totaal|Percentage mislukte werkstroomuitvoeringen.|Er zijn geen dimensies|
+|RunFailurePercentage|Percentage mislukte uitvoeringen|Percent|Totaal|Percentage mislukte werkstroomuitvoeringen.|Er zijn geen dimensies|
 |ActionsStarted|Gestarte acties |Count|Totaal|Aantal gestarte werkstroomacties.|Er zijn geen dimensies|
 |ActionsCompleted|Voltooide acties |Count|Totaal|Aantal voltooide werkstroomacties.|Er zijn geen dimensies|
 |ActionsSucceeded|Geslaagde acties |Count|Totaal|Aantal geslaagde werkstroomacties.|Er zijn geen dimensies|
@@ -984,7 +978,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |RunSuccessLatency|Latentie van geslaagde uitvoeringen|Seconden|Gemiddeld|Latentie van geslaagde werkstroomuitvoeringen.|Er zijn geen dimensies|
 |RunThrottledEvents|Door uitvoering vertraagde gebeurtenissen|Count|Totaal|Aantal door werkstroomactie of trigger vertraagde gebeurtenissen.|Er zijn geen dimensies|
 |RunStartThrottledEvents|Uitvoering starten vertraagde gebeurtenissen|Count|Totaal|Aantal werkstroom start vertraagde gebeurtenissen.|Er zijn geen dimensies|
-|RunFailurePercentage|Percentage mislukte uitvoeringen|Procent|Totaal|Percentage mislukte werkstroomuitvoeringen.|Er zijn geen dimensies|
+|RunFailurePercentage|Percentage mislukte uitvoeringen|Percent|Totaal|Percentage mislukte werkstroomuitvoeringen.|Er zijn geen dimensies|
 |ActionsStarted|Gestarte acties |Count|Totaal|Aantal gestarte werkstroomacties.|Er zijn geen dimensies|
 |ActionsCompleted|Voltooide acties |Count|Totaal|Aantal voltooide werkstroomacties.|Er zijn geen dimensies|
 |ActionsSucceeded|Geslaagde acties |Count|Totaal|Aantal geslaagde werkstroomacties.|Er zijn geen dimensies|
@@ -1003,10 +997,10 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |TriggerFireLatency|Latentie van triggeractivering |Seconden|Gemiddeld|Latentie van geactiveerde werkstroomtriggers.|Er zijn geen dimensies|
 |TriggerSuccessLatency|Latentie van geslaagde triggers |Seconden|Gemiddeld|Latentie van geslaagde werkstroomtriggers.|Er zijn geen dimensies|
 |TriggerThrottledEvents|Door trigger vertraagde gebeurtenissen|Count|Totaal|Aantal door werkstroomtrigger vertraagde gebeurtenissen.|Er zijn geen dimensies|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Het werkstroomprocessorgebruik voor de integratieserviceomgeving|Procent|Gemiddeld|Het werkstroomprocessorgebruik voor de integratieserviceomgeving.|Er zijn geen dimensies|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Het werkstroomgeheugengebruik voor de integratieserviceomgeving|Procent|Gemiddeld|Het werkstroomgeheugengebruik voor de integratieserviceomgeving.|Er zijn geen dimensies|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Het connectorprocessorgebruik voor de integratieserviceomgeving|Procent|Gemiddeld|Het connectorprocessorgebruik voor de integratieserviceomgeving.|Er zijn geen dimensies|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Het connectorgeheugengebruik voor de integratieserviceomgeving|Procent|Gemiddeld|Het connectorgeheugengebruik voor de integratieserviceomgeving.|Er zijn geen dimensies|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Het werkstroomprocessorgebruik voor de integratieserviceomgeving|Percent|Gemiddeld|Het werkstroomprocessorgebruik voor de integratieserviceomgeving.|Er zijn geen dimensies|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Het werkstroomgeheugengebruik voor de integratieserviceomgeving|Percent|Gemiddeld|Het werkstroomgeheugengebruik voor de integratieserviceomgeving.|Er zijn geen dimensies|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Het connectorprocessorgebruik voor de integratieserviceomgeving|Percent|Gemiddeld|Het connectorprocessorgebruik voor de integratieserviceomgeving.|Er zijn geen dimensies|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Het connectorgeheugengebruik voor de integratieserviceomgeving|Percent|Gemiddeld|Het connectorgeheugengebruik voor de integratieserviceomgeving.|Er zijn geen dimensies|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
@@ -1088,7 +1082,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |QueryVolume|Queryvolume|Count|Totaal|Aantal query's uitgevoerd voor een DNS-zone|Er zijn geen dimensies|
 |RecordSetCount|Set-aantal records|Count|Maximum|Aantal recordsets in een DNS-zone|Er zijn geen dimensies|
-|RecordSetCapacityUtilization|Gebruik van capaciteit van de recordset|Procent|Maximum|Percentage van de recordset capaciteit die door een DNS-zone wordt gebruikt|Er zijn geen dimensies|
+|RecordSetCapacityUtilization|Gebruik van capaciteit van de recordset|Percent|Maximum|Percentage van de recordset capaciteit die door een DNS-zone wordt gebruikt|Er zijn geen dimensies|
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
@@ -1188,7 +1182,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|ProbesFailedPercent|% Tests is mislukt|Procent|Gemiddeld|% van de bewakingstests verbinding is mislukt|Er zijn geen dimensies|
+|ProbesFailedPercent|% Tests is mislukt|Percent|Gemiddeld|% van de bewakingstests verbinding is mislukt|Er zijn geen dimensies|
 |AverageRoundtripMs|Gem. Retourtijd (ms)|MilliSeconds|Gemiddeld|Gemiddelde netwerk retourtijd (ms) voor connectiviteit bewakingstests verzonden tussen bron en bestemming|Er zijn geen dimensies|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
@@ -1201,7 +1195,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |BackendRequestCount|Aantal back-end-aanvragen|Count|Totaal|Het aantal aanvragen dat is verzonden van de proxy HTTP/S back-ends|HttpStatus, HttpStatusGroup, Backend|
 |BackendRequestLatency|Latentie van aanvraag van de back-end|MilliSeconds|Gemiddeld|De tijd berekend op basis van wanneer de aanvraag is verzonden door de proxy HTTP/S naar de back-end totdat de proxy HTTP/S de laatste byte van de reactie van de back-end ontvangen|Back-end|
 |TotalLatency|Totale latentie|MilliSeconds|Gemiddeld|De tijd berekend op basis van wanneer de clientaanvraag is ontvangen door de proxy HTTP/S totdat de client de laatste byte van de reactie van de proxy HTTP/S bevestigd|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
-|BackendHealthPercentage|Percentage van de back-Endstatus|Procent|Gemiddeld|Het percentage van geslaagde statusrapporten tests van de proxy HTTP/S back-ends|Backend, BackendPool|
+|BackendHealthPercentage|Percentage van de back-Endstatus|Percent|Gemiddeld|Het percentage van geslaagde statusrapporten tests van de proxy HTTP/S back-ends|Backend, BackendPool|
 |WebApplicationFirewallRequestCount|Aantal Web Application Firewall-aanvragen|Count|Totaal|Het aantal aanvragen van clients verwerkt door de Web Application Firewall|PolicyName, RuleName, actie|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -1355,7 +1349,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |QueryPoolJobQueueLength|Threads: Lengte van taakwachtrij pool query|Count|Gemiddeld|Het aantal taken in de wachtrij van de querythreadpool.|Er zijn geen dimensies|
 |qpu_high_utilization_metric|Hoog QPU-gebruik|Count|Totaal|QPU hoog gebruik In de laatste minuut, 1 voor hoge QPU-gebruik, anders 0|Er zijn geen dimensies|
 |memory_metric|Geheugen|Bytes|Gemiddeld|Geheugen. Bereik 0-3 GB voor A1-, 0-5 GB voor A2-, 0-10 GB voor de A3, 0-25 GB voor A4, 0-50 GB voor a5 tot en 0-100 GB voor A6|Er zijn geen dimensies|
-|memory_thrashing_metric|Geheugenthrashing|Procent|Gemiddeld|Gemiddelde geheugenthrashing.|Er zijn geen dimensies|
+|memory_thrashing_metric|Geheugenthrashing|Percent|Gemiddeld|Gemiddelde geheugenthrashing.|Er zijn geen dimensies|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -1381,7 +1375,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |SearchLatency|Zoeklatentie|Seconden|Gemiddeld|Gemiddelde zoeklatentie voor de search-service|Er zijn geen dimensies|
 |SearchQueriesPerSecond|Zoekquery's per seconde|CountPerSecond|Gemiddeld|Zoekquery's per seconde voor de search-service|Er zijn geen dimensies|
-|ThrottledSearchQueriesPercentage|Percentage beperkte zoekquery's|Procent|Gemiddeld|Percentage van de zoekquery's die zijn beperkt voor de search-service|Er zijn geen dimensies|
+|ThrottledSearchQueriesPercentage|Percentage beperkte zoekquery's|Percent|Gemiddeld|Percentage van de zoekquery's die zijn beperkt voor de search-service|Er zijn geen dimensies|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -1400,8 +1394,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ActiveMessages|Aantal actieve berichten in een wachtrij/onderwerp. (Preview-versie)|Count|Gemiddeld|Aantal actieve berichten in een wachtrij/onderwerp. (Preview-versie)|EntityName|
 |DeadletteredMessages|Het aantal onbestelbare berichten in een wachtrij/onderwerp. (Preview-versie)|Count|Gemiddeld|Het aantal onbestelbare berichten in een wachtrij/onderwerp. (Preview-versie)|EntityName|
 |ScheduledMessages|Het aantal geplande berichten in een wachtrij/onderwerp. (Preview-versie)|Count|Gemiddeld|Het aantal geplande berichten in een wachtrij/onderwerp. (Preview-versie)|EntityName|
-|CPUXNS|CPU-gebruik per naamruimte|Procent|Maximum|Metrische gegevens voor het CPU-gebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
-|WSXNS|Geheugengebruik per naamruimte|Procent|Maximum|Metrische gegevens voor het geheugengebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
+|CPUXNS|CPU-gebruik per naamruimte|Percent|Maximum|Metrische gegevens voor het CPU-gebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
+|WSXNS|Geheugengebruik per naamruimte|Percent|Maximum|Metrische gegevens voor het geheugengebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1411,8 +1405,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |AllocatedMemory|AllocatedMemory|Bytes|Gemiddeld|Geheugen toegewezen aan deze container in MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualCpu|ActualCpu|Count|Gemiddeld|Werkelijke CPU-gebruik in millicores|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualMemory|ActualMemory|Bytes|Gemiddeld|Gebruik van de werkelijke hoeveelheid geheugen in MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|CpuUtilization|CpuUtilization|Procent|Gemiddeld|Gebruik van de CPU voor deze container als percentage van AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|MemoryUtilization|Procent|Gemiddeld|Gebruik van de CPU voor deze container als percentage van AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|CpuUtilization|CpuUtilization|Percent|Gemiddeld|Gebruik van de CPU voor deze container als percentage van AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|MemoryUtilization|MemoryUtilization|Percent|Gemiddeld|Gebruik van de CPU voor deze container als percentage van AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ApplicationStatus|ApplicationStatus|Count|Gemiddeld|Status van Service Fabric-NET-toepassing|ApplicationName, Status|
 |ServiceStatus|ServiceStatus|Count|Gemiddeld|Status van een service in Service Fabric-NET-toepassing|ApplicationName, Status, ServiceName|
 |ServiceReplicaStatus|ServiceReplicaStatus|Count|Gemiddeld|Status van een service-replica in Service Fabric-NET-toepassing|ApplicationName, Status, ServiceName, ServiceReplicaName|
@@ -1427,70 +1421,70 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |MessageCount|Aantal berichten|Count|Totaal|De totale hoeveelheid berichten.|Er zijn geen dimensies|
 |InboundTraffic|Binnenkomend verkeer|Bytes|Totaal|Het inkomende verkeer van de service|Er zijn geen dimensies|
 |OutboundTraffic|Uitgaand verkeer|Bytes|Totaal|Het uitgaande verkeer van de service|Er zijn geen dimensies|
-|UserErrors|Gebruikersfouten|Procent|Maximum|Het percentage van de gebruikersfouten|Er zijn geen dimensies|
-|SystemErrors|Systeemfouten|Procent|Maximum|Het percentage van fouten in het bestandssysteem|Er zijn geen dimensies|
+|UserErrors|Gebruikersfouten|Percent|Maximum|Het percentage van de gebruikersfouten|Er zijn geen dimensies|
+|SystemErrors|Systeemfouten|Percent|Maximum|Het percentage van fouten in het bestandssysteem|Er zijn geen dimensies|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|cpu_percent|Processorpercentage|Procent|Gemiddeld|Processorpercentage|Er zijn geen dimensies|
-|physical_data_read_percent|Percentage gegevens-IO|Procent|Gemiddeld|Percentage gegevens-IO|Er zijn geen dimensies|
-|log_write_percent|Percentage logboek-IO|Procent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
-|dtu_consumption_percent|DTU-percentage|Procent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
+|cpu_percent|Processorpercentage|Percent|Gemiddeld|Processorpercentage|Er zijn geen dimensies|
+|physical_data_read_percent|Percentage gegevens-IO|Percent|Gemiddeld|Percentage gegevens-IO|Er zijn geen dimensies|
+|log_write_percent|Percentage logboek-IO|Percent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
+|dtu_consumption_percent|DTU-percentage|Percent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
 |opslag|Gebruikte gegevensruimte|Bytes|Maximum|Totale databasegrootte|Er zijn geen dimensies|
 |connection_successful|Geslaagde verbindingen|Count|Totaal|Geslaagde verbindingen|Er zijn geen dimensies|
 |connection_failed|Mislukte verbindingen|Count|Totaal|Mislukte verbindingen|Er zijn geen dimensies|
 |blocked_by_firewall|Geblokkeerd door Firewall|Count|Totaal|Geblokkeerd door Firewall|Er zijn geen dimensies|
 |Impasse|Deadlocks|Count|Totaal|Deadlocks|Er zijn geen dimensies|
-|storage_percent|Gegevensruimte gebruikt procent|Procent|Maximum|Databaseomvangpercentage|Er zijn geen dimensies|
-|xtp_storage_percent|Percentage van in-Memory OLTP-opslag|Procent|Gemiddeld|Percentage van in-Memory OLTP-opslag|Er zijn geen dimensies|
-|workers_percent|Werknemerspercentage|Procent|Gemiddeld|Werknemerspercentage|Er zijn geen dimensies|
-|sessions_percent|Sessiepercentage|Procent|Gemiddeld|Sessiepercentage|Er zijn geen dimensies|
+|storage_percent|Gegevensruimte gebruikt procent|Percent|Maximum|Databaseomvangpercentage|Er zijn geen dimensies|
+|xtp_storage_percent|Percentage van in-Memory OLTP-opslag|Percent|Gemiddeld|Percentage van in-Memory OLTP-opslag|Er zijn geen dimensies|
+|workers_percent|Werknemerspercentage|Percent|Gemiddeld|Werknemerspercentage|Er zijn geen dimensies|
+|sessions_percent|Sessiepercentage|Percent|Gemiddeld|Sessiepercentage|Er zijn geen dimensies|
 |dtu_limit|DTU-limiet|Count|Gemiddeld|DTU-limiet|Er zijn geen dimensies|
 |dtu_used|DTU gebruikt|Count|Gemiddeld|DTU gebruikt|Er zijn geen dimensies|
 |cpu_limit|CPU-limiet|Count|Gemiddeld|CPU-limiet|Er zijn geen dimensies|
 |cpu_used|CPU-gebruik|Count|Gemiddeld|CPU-gebruik|Er zijn geen dimensies|
 |dwu_limit|DWU-limiet|Count|Maximum|DWU-limiet|Er zijn geen dimensies|
-|dwu_consumption_percent|DWU-percentage|Procent|Maximum|DWU-percentage|Er zijn geen dimensies|
+|dwu_consumption_percent|DWU-percentage|Percent|Maximum|DWU-percentage|Er zijn geen dimensies|
 |dwu_used|Gebruikte DWU|Count|Maximum|Gebruikte DWU|Er zijn geen dimensies|
-|dw_cpu_percent|DW knooppuntniveau CPU-percentage|Procent|Gemiddeld|DW knooppuntniveau CPU-percentage|DwLogicalNodeId|
-|dw_physical_data_read_percent|DW knooppunt niveau gegevens i/o-percentage|Procent|Gemiddeld|DW knooppunt niveau gegevens i/o-percentage|DwLogicalNodeId|
-    |cache_hit_percent|Percentage treffers in cache|Procent|Maximum|Percentage treffers in cache|Er zijn geen dimensies|
-|cache_used_percent|Percentage gebruikte cache|Procent|Maximum|Percentage gebruikte cache|Er zijn geen dimensies|
-|local_tempdb_usage_percent|Lokale tempdb-percentage|Procent|Gemiddeld|Lokale tempdb-percentage|Er zijn geen dimensies|
+|dw_cpu_percent|DW knooppuntniveau CPU-percentage|Percent|Gemiddeld|DW knooppuntniveau CPU-percentage|DwLogicalNodeId|
+|dw_physical_data_read_percent|DW knooppunt niveau gegevens i/o-percentage|Percent|Gemiddeld|DW knooppunt niveau gegevens i/o-percentage|DwLogicalNodeId|
+    |cache_hit_percent|Percentage treffers in cache|Percent|Maximum|Percentage treffers in cache|Er zijn geen dimensies|
+|cache_used_percent|Percentage gebruikte cache|Percent|Maximum|Percentage gebruikte cache|Er zijn geen dimensies|
+|local_tempdb_usage_percent|Lokale tempdb-percentage|Percent|Gemiddeld|Lokale tempdb-percentage|Er zijn geen dimensies|
 |app_cpu_billed|Gefactureerde app-CPU|Count|Totaal|Gefactureerde app-CPU|Er zijn geen dimensies|
-|app_cpu_percent|App CPU-percentage|Procent|Gemiddeld|App CPU-percentage|Er zijn geen dimensies|
-|app_memory_percent|Percentage van App-geheugen die wordt gebruikt|Procent|Gemiddeld|Percentage van App-geheugen die wordt gebruikt|Er zijn geen dimensies|
+|app_cpu_percent|App CPU-percentage|Percent|Gemiddeld|App CPU-percentage|Er zijn geen dimensies|
+|app_memory_percent|Percentage van App-geheugen die wordt gebruikt|Percent|Gemiddeld|Percentage van App-geheugen die wordt gebruikt|Er zijn geen dimensies|
 |allocated_data_storage|Toegewezen gegevensruimte|Bytes|Gemiddeld|Toegewezen gegevensruimte|Er zijn geen dimensies|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|cpu_percent|Processorpercentage|Procent|Gemiddeld|Processorpercentage|Er zijn geen dimensies|
-|physical_data_read_percent|Percentage gegevens-IO|Procent|Gemiddeld|Percentage gegevens-IO|Er zijn geen dimensies|
-|log_write_percent|Percentage logboek-IO|Procent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
-|dtu_consumption_percent|DTU-percentage|Procent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
-|storage_percent|Gegevensruimte gebruikt procent||Procent|Gemiddeld|Opslagpercentage|Er zijn geen dimensies|
-|workers_percent|Werknemerspercentage|Procent|Gemiddeld|Werknemerspercentage|Er zijn geen dimensies|
-|sessions_percent|Sessiepercentage|Procent|Gemiddeld|Sessiepercentage|Er zijn geen dimensies|
+|cpu_percent|Processorpercentage|Percent|Gemiddeld|Processorpercentage|Er zijn geen dimensies|
+|physical_data_read_percent|Percentage gegevens-IO|Percent|Gemiddeld|Percentage gegevens-IO|Er zijn geen dimensies|
+|log_write_percent|Percentage logboek-IO|Percent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
+|dtu_consumption_percent|DTU-percentage|Percent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
+|storage_percent|Gegevensruimte gebruikt procent||Percent|Gemiddeld|Opslagpercentage|Er zijn geen dimensies|
+|workers_percent|Werknemerspercentage|Percent|Gemiddeld|Werknemerspercentage|Er zijn geen dimensies|
+|sessions_percent|Sessiepercentage|Percent|Gemiddeld|Sessiepercentage|Er zijn geen dimensies|
 |eDTU_limit|eDTU-limiet|Count|Gemiddeld|eDTU-limiet|Er zijn geen dimensies|
 |storage_limit|Maximale grootte van gegevens|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
 |eDTU_used|eDTU gebruikt|Count|Gemiddeld|eDTU gebruikt|Er zijn geen dimensies|
 |storage_used|Gebruikte gegevensruimte|Bytes|Gemiddeld|Opslag gebruikt|Er zijn geen dimensies|
-|xtp_storage_percent|Percentage van in-Memory OLTP-opslag|Procent|Gemiddeld|Percentage van in-Memory OLTP-opslag|Er zijn geen dimensies|
+|xtp_storage_percent|Percentage van in-Memory OLTP-opslag|Percent|Gemiddeld|Percentage van in-Memory OLTP-opslag|Er zijn geen dimensies|
 |cpu_limit|CPU-limiet|Count|Gemiddeld|CPU-limiet|Er zijn geen dimensies|
 |cpu_used|CPU-gebruik|Count|Gemiddeld|CPU-gebruik|Er zijn geen dimensies|
 |allocated_data_storage|Toegewezen gegevensruimte|Bytes|Gemiddeld|Toegewezen gegevensruimte|Er zijn geen dimensies|
-|allocated_data_storage_percent|Gegevens toegewezen ruimte procent|Procent|Maximum|Gegevens toegewezen ruimte procent|Er zijn geen dimensies|
+|allocated_data_storage_percent|Gegevens toegewezen ruimte procent|Percent|Maximum|Gegevens toegewezen ruimte procent|Er zijn geen dimensies|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
 |virtual_core_count|Aantal virtuele kernen|Count|Gemiddeld|Aantal virtuele kernen|Er zijn geen dimensies|
-|avg_cpu_percent|Gemiddelde CPU-percentage|Procent|Gemiddeld|Gemiddelde CPU-percentage|Er zijn geen dimensies|
+|avg_cpu_percent|Gemiddelde CPU-percentage|Percent|Gemiddeld|Gemiddelde CPU-percentage|Er zijn geen dimensies|
 |reserved_storage_mb|Gereserveerde opslagruimte|Count|Gemiddeld|Gereserveerde opslagruimte|Er zijn geen dimensies|
 |storage_space_used_mb|Opslagruimte die wordt gebruikt|Count|Gemiddeld|Opslagruimte die wordt gebruikt|Er zijn geen dimensies|
 |io_requests|Aantal i/o-aanvragen|Count|Gemiddeld|Aantal i/o-aanvragen|Er zijn geen dimensies|
@@ -1581,7 +1575,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|ResourceUtilization|Gebruikspercentage voor Streaming-eenheden|Procent|Maximum|Gebruikspercentage voor Streaming-eenheden|LogicalName, PartitionId|
+|ResourceUtilization|Gebruikspercentage voor Streaming-eenheden|Percent|Maximum|Gebruikspercentage voor Streaming-eenheden|LogicalName, PartitionId|
 |Invoergebeurtenissen groter is dan|Invoergebeurtenissen|Count|Totaal|Invoergebeurtenissen|LogicalName, PartitionId|
 |InputEventBytes|Invoergebeurtenisbytes|Bytes|Totaal|Invoergebeurtenisbytes|LogicalName, PartitionId|
 |LateInputEvents|Late invoergebeurtenissen|Count|Totaal|Late invoergebeurtenissen|LogicalName, PartitionId|
@@ -1654,8 +1648,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 
 |Metric|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies|
 |---|---|---|---|---|---|
-|CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
-|MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
+|CpuPercentage|CPU-percentage|Percent|Gemiddeld|CPU-percentage|Exemplaar|
+|MemoryPercentage|Geheugenpercentage|Percent|Gemiddeld|Geheugenpercentage|Exemplaar|
 |DiskQueueLength|Lengte van de wachtrij voor de schijf|Count|Gemiddeld|Lengte van de wachtrij voor de schijf|Exemplaar|
 |HttpQueueLength|Lengte van de HTTP-wachtrij|Count|Gemiddeld|Lengte van de HTTP-wachtrij|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
@@ -1782,8 +1776,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Http4xx|Http 4xx|Count|Totaal|Http 4xx|Exemplaar|
 |Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
 |AverageResponseTime|Gemiddelde reactietijd|Seconden|Gemiddeld|Gemiddelde reactietijd|Exemplaar|
-|CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
-|MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
+|CpuPercentage|CPU-percentage|Percent|Gemiddeld|CPU-percentage|Exemplaar|
+|MemoryPercentage|Geheugenpercentage|Percent|Gemiddeld|Geheugenpercentage|Exemplaar|
 |DiskQueueLength|Lengte van de wachtrij voor de schijf|Count|Gemiddeld|Lengte van de wachtrij voor de schijf|Exemplaar|
 |HttpQueueLength|Lengte van de HTTP-wachtrij|Count|Gemiddeld|Lengte van de HTTP-wachtrij|Exemplaar|
 |ActiveRequests|Actieve aanvragen|Count|Totaal|Actieve aanvragen|Exemplaar|
@@ -1799,8 +1793,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |WorkersTotal|Totaalaantal werkrollen|Count|Gemiddeld|Totaalaantal werkrollen|Er zijn geen dimensies|
 |WorkersAvailable|Beschikbare werkrollen|Count|Gemiddeld|Beschikbare werkrollen|Er zijn geen dimensies|
 |WorkersUsed|Gebruikte werkrollen|Count|Gemiddeld|Gebruikte werkrollen|Er zijn geen dimensies|
-|CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
-|MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
+|CpuPercentage|CPU-percentage|Percent|Gemiddeld|CPU-percentage|Exemplaar|
+|MemoryPercentage|Geheugenpercentage|Percent|Gemiddeld|Geheugenpercentage|Exemplaar|
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over metrische gegevens in Azure Monitor](data-platform.md)

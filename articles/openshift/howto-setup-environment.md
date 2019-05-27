@@ -9,14 +9,14 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 6e859f57f9b5f24ea2f0172f5aa35a60d9769f19
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 6ba7e67620ebfd7ff98c1ba81c7cecb133288be7
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551705"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962135"
 ---
-# <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Uw Azure Red Hat OpenShift ontwikkelaarsomgeving instellen
+# <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Een Azure Red Hat OpenShift-ontwikkelaarsomgeving instellen
 
 Als u wilt bouwen en uitvoeren van toepassingen van Microsoft Azure Red Hat OpenShift, moet u het:
 
@@ -29,13 +29,15 @@ Als u wilt bouwen en uitvoeren van toepassingen van Microsoft Azure Red Hat Open
 
 De volgende instructies begeleidt u bij al deze vereisten.
 
-## <a name="purchase-azure-virtual-machine-reserved-instances"></a>Kopen van gereserveerde virtuele Azure-machine-instanties
+## <a name="purchase-azure-red-hat-openshift-application-nodes-reserved-instances"></a>Koop gereserveerde instanties van Azure Red Hat OpenShift toepassing knooppunten
 
-Voordat u Azure Red Hat OpenShift gebruiken kunt, moet u kopen van gereserveerde virtuele Azure-machine-instanties.
+Voordat u Azure Red Hat OpenShift gebruiken kunt, moet u een minimum van 4 Azure Red Hat OpenShift gereserveerde knooppunten van toepassingen, waarna u wordt mogelijk clusters inrichten kopen.
 
-Als u een Azure-klant bent, hier van hoe u [aankoop virtuele machine van Azure gereserveerde instanties](https://aka.ms/openshift/buy). Een reservering vermindert uw uitgaven vooraf betalen voor volledig beheerde Azure-services. Raadpleeg [ *wat zijn Azure-reserveringen* ](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) voor meer informatie over reserveringen en hoe ze u geld besparen.
+Als u een Azure-klant bent, [Azure Red Hat OpenShift gereserveerde instanties kopen](https://aka.ms/openshift/buy) via Azure portal. Na de aankoop, wordt uw abonnement binnen 24 uur zijn geactiveerd.
 
 Als u niet een Azure-klant, [Neem contact op met verkoop](https://aka.ms/openshift/contact-sales) en vul het formulier de omzet in aan de onderkant van de pagina om het proces te starten.
+
+Raadpleeg de [Azure Red Hat OpenShift pagina met prijzen](https://aka.ms/openshift/pricing) voor meer informatie.
 
 ## <a name="install-the-azure-cli"></a>Azure-CLI installeren
 

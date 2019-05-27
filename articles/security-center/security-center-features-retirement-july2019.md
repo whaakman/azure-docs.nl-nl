@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 5ac6603be087e887e3304f6a7e14aa063863e1dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796453"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952132"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Buiten gebruik stellen van Security Center-functies (2019 juli)
 
@@ -160,9 +160,9 @@ Als u bestaande verbonden oplossingen hebt, raden we u om te verplaatsen naar Az
 
 ## Beveiligingsconfiguraties voor beveiligingsbeleid bewerken<a name="menu_securityconfigurations"></a>
 
-Azure Security Center bewaakt beveiligingsconfiguraties door het toepassen van een set [meer dan 150 aanbevolen regels](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). voor het beperken van het besturingssysteem. Deze regels hebben betrekking op firewalls, controle, wachtwoordbeleid en meer. Als een virtuele machine hebben een kwetsbare configuratie wordt gevonden, wordt door Security Center een beveiligingsaanbeveling gegenereerd. De [bewerkingsscherm security configuration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) kunnen klanten om aan te passen de standaard OS-beveiligingsconfiguratie in Security Center.
+Azure Security Center bewaakt beveiligingsconfiguraties door het toepassen van een set [meer dan 150 aanbevolen regels](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). voor het beperken van het besturingssysteem. Deze regels hebben betrekking op firewalls, controle, wachtwoordbeleid en meer. Als er wordt geconstateerd dat een computer een kwetsbare configuratie heeft, wordt er door Security Center een beveiligingsaanbeveling gegenereerd. De [bewerkingsscherm security configuration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) kunnen klanten om aan te passen de standaard OS-beveiligingsconfiguratie in Security Center.
 
-We zijn buiten gebruik stellen van deze preview-functie.
+We zijn buiten gebruik stellen van deze preview-functie. Als u na de vervaldatum, wilt u uw beveiligingsconfiguraties teruggezet op hun standaardwaarden, kunt u doen via de API of Powershell gebruiken de [instructies te volgen](https://aka.ms/ascresetsecurityconfigurations)
 
 ![Beveiligingsconfiguraties bewerken][17]
 

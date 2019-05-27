@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1caa523b2bc43b7b3690e01f589aecf18fd3da9e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937573"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965104"
 ---
 # <a name="register-in-dev-center"></a>Registreren in Dev Center  
 Om te controleren of u bent niet aangemeld bij een account persoonlijke browser, open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie.  
@@ -156,7 +156,7 @@ De bank en btw-informatie is vereist voor alle commerciële aanbiedingen met beh
   > Controleer of dat de postcode is correct te worden ingevoerd. Er is een plaats, postcode validatie.
 
 * **Hoe kan ik een promotiecode krijgen?**
-  > Voltooi de [Marketplace-registratie](https://azuremarketplace.microsoft.com/en-us/sell/signup) formulier voor het ontvangen van een promotiecode Dev Center.
+  > Voltooi de [Marketplace-registratie](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) formulier voor het ontvangen van een promotiecode Dev Center. Zie hoe u [maken van een account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) voor meer informatie.
  
 * **Wat kan ik verwachten als ik het registratieproces te voltooien?**
   > Zoek naar een e-mailbericht van verify@microsoft.com met onderwerpregel "actie vereist: Controleer of uw e-mailaccount met Microsoft'. Klik op de tijd gevoelige verificatiekoppeling om registratie te voltooien. *Als u een e-mailbericht binnen 24 uur niet hebt ontvangen, controleert u de map met ongewenste e-mail.*

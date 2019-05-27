@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311943"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967234"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migreren van Enterprise Agreement naar de klant van Microsoft-overeenkomst API 's
 
@@ -187,14 +187,14 @@ De naam van de eigenschap die de matrix van gebruiksrecords gewijzigd van gegeve
 | ExtendedCost en kosten | costInBillingCurrency | &nbsp;  |
 | Instantie-id | resourceId | &nbsp;  |
 | Terugkerende kosten | Geen | &nbsp;  |
-| Location | location | &nbsp;  |
+| Locatie | location | &nbsp;  |
 | Metercategorie | meterCategory | Exacte tekenreekswaarden verschillen. |
 | Meter-id | meterId | Exacte tekenreekswaarden verschillen. |
 | Meternaam | meterName | Exacte tekenreekswaarden verschillen. |
 | Meterregio | meterRegion | Exacte tekenreekswaarden verschillen. |
 | Metersubcategorie | meterSubCategory | Exacte tekenreekswaarden verschillen. |
 | Maand | Geen | Maand van datum worden geparseerd. |
-| Naam van aanbieding: | Geen | PublisherName en productOrderName gebruiken. |
+| Naam van aanbieding | Geen | PublisherName en productOrderName gebruiken. |
 | OfferId | Geen | &nbsp;  |
 | Ordernummer | Geen | &nbsp;  |
 | PartNumber | Geen | MeterId en productOrderName gebruiken voor het aanduiden van prijzen. |
@@ -216,7 +216,7 @@ De naam van de eigenschap die de matrix van gebruiksrecords gewijzigd van gegeve
 | GUID van het abonnement | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | Abonnementsnaam | subscriptionName | &nbsp;  |
-| Tags | tags | De eigenschap tags is van toepassing op hoofdobject, niet aan de eigenschappen van geneste eigenschap. |
+| Tags | codes | De eigenschap tags is van toepassing op hoofdobject, niet aan de eigenschappen van geneste eigenschap. |
 | Maateenheid | unitOfMeasure | Exacte tekenreekswaarden verschillen. |
 | usageEndDate | date | &nbsp;  |
 | Jaar | Geen | Jaar na de aanmaakdatum worden geparseerd. |
@@ -428,15 +428,15 @@ In het bereik van de EA-inschrijving zijn de API-reactie en eigenschappen identi
 
 De oudere eigenschappen voor [API's van Azure Resource Manager prijs blad](/rest/api/consumption/pricesheet) en dezelfde nieuwe eigenschappen zijn in de volgende tabel.
 
-| Oude Azure Resource Manager-prijs blad API-eigenschap  | Nieuwe Microsoft Customer overeenkomst prijs blad API-eigenschap   | Beschrijving |
+| Oude Azure Resource Manager-prijs blad API-eigenschap  | Nieuwe Microsoft Customer overeenkomst prijs blad API-eigenschap   | Description |
 | --- | --- | --- |
-| Id van de meter | _meterId_ | De unieke id voor de meter. Hetzelfde als meterId. |
+| Meter-id | _meterId_ | De unieke id voor de meter. Hetzelfde als meterId. |
 | Meternaam | meterName | De naam van de meter. Meter vertegenwoordigt het implementeerbare resource zorgen Azure-service. |
 | Metercategorie  | service | De naam van de classificatiecategorie voor de meter. Hetzelfde als de service in de Microsoft Customer Agreement-prijslijst. Exacte tekenreekswaarden verschillen. |
 | Subcategorie van de meter | meterSubCategory | De naam van de meter subclassificatie categorie. Op basis van de indeling van de functies op hoog niveau set differentiatie in de service. Bijvoorbeeld: Basic SQL DB vs standaard SQL-database. |
 | Meterregio | meterRegion | &nbsp;  |
 | Eenheid | _Niet van toepassing_ | Kan worden geparseerd uit unitOfMeasure. |
-| Meeteenheid | unitOfMeasure | &nbsp;  |
+| Maateenheid | unitOfMeasure | &nbsp;  |
 | Onderdeelnummer | _Niet van toepassing_ | Gebruik in plaats van partNumber, productOrderName en MeterId voor het aanduiden van de prijs voor een profiel voor facturering. Velden worden weergegeven op de factuur MCA in plaats van de partNumber in MCA facturen. |
 | Eenheidsprijs | unitPrice | Prijs per eenheid KLANTOVEREENKOMST van Microsoft. |
 | Valutacode | pricingCurrency | Microsoft Customer overeenkomsten vertegenwoordigen de prijzen in de valuta-prijzen en facturering valuta. Valutacode is hetzelfde als de pricingCurrency in Microsoft-klant-overeenkomsten. |
@@ -457,7 +457,7 @@ Het Prijzenoverzicht bevat prijzen voor services waarvan de prijs is gebaseerd o
 
 De volgende velden zijn niet beschikbaar in API's van Microsoft klanten overeenkomst prijs blad of dezelfde velden.
 
-|Buiten gebruik gestelde veld| Beschrijving|
+|Buiten gebruik gestelde veld| Description|
 |---|---|
 | billingPeriodId | Niet van toepassing. Komt overeen met InvoiceId voor MCA. |
 | offerId | Niet van toepassing. Komt overeen met productOrderName in MCA. |

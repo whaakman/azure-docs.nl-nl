@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071980"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956472"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met de Azure-schijven in Azure Kubernetes Service (AKS)
 
@@ -39,6 +39,8 @@ Een AKS-cluster bevat twee vooraf gemaakte Opslagklassen, beide geconfigureerd o
     * Standard-opslag wordt ondersteund door HDD's en biedt een rendabele opslag terwijl u nog steeds goed presterende. Standard-schijven zijn ideaal voor een kostenefficiënte werkbelasting voor ontwikkelen en testen.
 * De *beheerde premium* opslagklasse richt een premium Azure-schijf.
     * Premium-schijven worden ondersteund door hoogwaardige schijven met een lage latentie op basis van SSD. Ideaal voor virtuele machines met een productiewerkbelasting. Als de AKS-knooppunten in uw cluster premiumopslag gebruikt, selecteert u de *beheerde premium* klasse.
+    
+Deze standaard Opslagklassen toestaan niet dat u bij het bijwerken van de grootte van het volume eenmaal is gemaakt. Om in te schakelen door deze mogelijkheid, toevoegen de *allowVolumeExpansion: true* regel op een van de standaard-Opslagklassen of maakt u eigen aangepaste opslagklasse. U kunt bewerken een bestaande opslag klasse met de `kubectl edit sc` opdracht. Zie voor meer informatie over Opslagklassen en het maken van het eigen youor [opslagopties voor toepassingen in AKS][storage-class-concepts].
 
 Gebruik de [kubectl ophalen sc] [ kubectl-get] opdracht om te zien van de vooraf gemaakte Opslagklassen. Het volgende voorbeeld wordt de Opslagklassen die beschikbaar zijn in een AKS-cluster vooraf te maken:
 
@@ -86,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Gebruik de permanent volume
 
-Als de claim permanent volume is gemaakt en de schijf is ingericht, een schil kan worden gemaakt met toegang tot de schijf. De volgende manifest maakt u een eenvoudige NGINX-schil die gebruikmaakt van de permanent volume claim met de naam *azure-beheerde schijf* te koppelen van de Azure-schijf in het pad `/mnt/azure`.
+Als de claim permanent volume is gemaakt en de schijf is ingericht, een schil kan worden gemaakt met toegang tot de schijf. De volgende manifest maakt u een eenvoudige NGINX-schil die gebruikmaakt van de permanent volume claim met de naam *azure-beheerde schijf* te koppelen van de Azure-schijf in het pad `/mnt/azure`. Voor Windows Server-containers (momenteel in preview in AKS), Geef een *mountpath is opgegeven* met behulp van de Windows-pad-overeenkomst, zoals *'D:'*.
 
 Maak een bestand met de naam `azure-pvc-disk.yaml`, en kopieer de volgende manifest.
 
@@ -279,3 +281,4 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure-schijven
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes

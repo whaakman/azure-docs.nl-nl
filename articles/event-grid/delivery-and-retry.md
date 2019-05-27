@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561995"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952881"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Levering van berichten van Event Grid en probeer het opnieuw
 
@@ -24,16 +24,18 @@ Op dit moment Event Grid elke gebeurtenis afzonderlijk naar abonnees worden verz
 
 ## <a name="retry-schedule-and-duration"></a>Schema voor nieuwe pogingen en de duur
 
-Event Grid maakt gebruik van een beleid voor exponentieel uitstel opnieuw proberen voor de bezorging van gebeurtenissen. Als een eindpunt reageert niet of een foutcode retourneert, pogingen Event Grid levering op het volgende schema beste vermogen:
+Event Grid wacht 30 seconden voor een reactie na het leveren van een bericht. Na 30 seconden, als het eindpunt nog niet is gereageerd, het bericht is in de wachtrij voor opnieuw proberen. Event Grid maakt gebruik van een beleid voor exponentieel uitstel opnieuw proberen voor de bezorging van gebeurtenissen. Event Grid pogingen levering op het volgende schema beste vermogen:
 
-1. 10 seconden
-1. 30 seconden
-1. 1 minuut
-1. 5 minuten
-1. 10 minuten
-1. 30 minuten
-1. 1 uur
-1. Per uur voor maximaal 24 uur
+- 10 seconden
+- 30 seconden
+- 1 minuut
+- 5 minuten
+- 10 minuten
+- 30 minuten
+- 1 uur
+- Per uur voor maximaal 24 uur
+
+Als het eindpunt binnen drie minuten reageert, Event Grid wordt geprobeerd de gebeurtenis verwijderen uit de wachtrij voor nieuwe pogingen op beste vermogen maar duplicaten kunnen nog steeds worden ontvangen.
 
 Event Grid een kleine willekeurige toegevoegd aan alle stappen van de nieuwe pogingen en kunt u alleen bepaalde nieuwe pogingen overslaan als een eindpunt consistent beschadigd, omlaag gedurende een lange periode is of lijkt te worden geconfronteerd.
 
@@ -72,7 +74,7 @@ De volgende HTTP-responscodes geven aan dat een gebeurtenis levering is mislukt.
 
 - 400-Ongeldige aanvraag
 - 401-niet toegestaan
-- 404 – Niet gevonden
+- 404 Niet gevonden
 - 408 time-out van aanvraag
 - 413 Aanvraagentiteit te groot
 - 414 URI te lang

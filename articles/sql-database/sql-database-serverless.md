@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
-ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.date: 05/20/2019
+ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823318"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951481"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL-Database zonder server (preview)
 
@@ -81,7 +81,22 @@ In het algemeen databases worden uitgevoerd op een computer met onvoldoende capa
 
 ### <a name="memory-management"></a>Geheugenbeheer van
 
-Geheugen voor serverloze databases wordt vrijgemaakt meer vaak dan voor de ingerichte databases. Dit gedrag is belangrijk om te beheersen in zonder server. In tegenstelling tot de ingerichte Computing-geheugen van de SQL-cache van een database zonder servers vrijgemaakt, wanneer het CPU- of cache gebruik laag is.
+Geheugen voor serverloze databases wordt vrijgemaakt meer vaak dan voor de ingerichte Computing-databases. Dit gedrag is belangrijk om te beheersen in zonder server en de prestaties kan beïnvloeden.
+
+#### <a name="cache-reclaiming"></a>In de cache vrijmaken
+
+In tegenstelling tot databases, ingerichte Computing en geheugen van de SQL-cache van een database zonder servers vrijgemaakt, wanneer het CPU- of cache gebruik laag is.
+
+- Gebruik van de cache wordt beschouwd als laag wanneer de totale grootte van de meest cache vermeldingen valt onder de drempelwaarde voor een bepaalde periode recent.
+- Wanneer het vrijmaken van de cache wordt geactiveerd, de grootte van de doel-cache is incrementeel verkort tot een fractie van de vorige grootte en vrijmaken alleen als u gebruik laag blijft blijft.
+- Wanneer er cache vrijmaken optreedt, is het beleid voor het selecteren van vermeldingen in de cache onbeschikbaar maken hetzelfde beleid selecteren als die voor de ingerichte Computing databases als geheugendruk hoog is.
+- De cachegrootte is nooit verkleind onder de minimale geheugenhoeveelheid zoals gedefinieerd door de minimale vCores, die kan worden geconfigureerd.
+
+Compute-databases, cache vermeldingen kunnen worden verwijderd als alle beschikbare geheugen wordt gebruikt in zowel zonder server en is ingericht.
+
+#### <a name="cache-hydration"></a>Cache-hydratie
+
+De SQL-cache neemt toe naarmate er gegevens worden opgehaald van de schijf op dezelfde manier en met dezelfde snelheid als voor de ingerichte databases. Als de database bezet is, wordt de cache te laten groeien onbeperkte maximaal de maximale geheugenlimiet toegestaan.
 
 ## <a name="autopause-and-autoresume"></a>Autopause en autoresume
 
@@ -115,7 +130,7 @@ Autoresume wordt geactiveerd als een van de volgende voorwaarden voldaan op elk 
 
 ### <a name="connectivity"></a>Connectiviteit
 
-Als een serverloze databases wordt onderbroken, wordt de eerste aanmelding de hervatten van de database en een foutmelding waarin staat dat de database niet beschikbaar met foutcode 40613 is retourneren. Zodra de database wordt hervat, moet de aanmelding opnieuw worden uitgevoerd voor het maken van verbinding. Database-clients met de logica voor opnieuw proberen verbinding hoeft niet te worden gewijzigd.
+Als een database zonder servers wordt onderbroken, wordt de eerste aanmelding de hervatten van de database en een foutmelding waarin staat dat de database niet beschikbaar met foutcode 40613 is retourneren. Zodra de database wordt hervat, moet de aanmelding opnieuw worden uitgevoerd voor het maken van verbinding. Database-clients met de logica voor opnieuw proberen verbinding hoeft niet te worden gewijzigd.
 
 ### <a name="latency"></a>Latentie
 
@@ -267,7 +282,7 @@ De hoeveelheid rekenkracht in rekening gebracht, is het maximum van CPU-gebruik 
 - **Bedrag in rekening gebracht ($)**: de prijs per eenheid vCore * max (min vCores, vCores gebruikt, min memory GB * geheugen van 1/3 GB gebruikt * 1/3) 
 - **Factureringsfrequentie**: Per seconde
 
-De prijs van de eenheid vcore in de kosten per vcore per seconde. Raadpleeg de [pagina met prijzen van Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) voor specifieke eenheidsprijzen in een bepaalde regio.
+De prijs van de eenheid vCore in de kosten per vCore per seconde. Raadpleeg de [pagina met prijzen van Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) voor specifieke eenheidsprijzen in een bepaalde regio.
 
 De hoeveelheid rekenkracht in rekening gebracht, wordt weergegeven met de volgende metrische gegevens:
 
@@ -277,9 +292,9 @@ De hoeveelheid rekenkracht in rekening gebracht, wordt weergegeven met de volgen
 
 Deze hoeveelheid wordt berekend per seconde en meer dan 1 minuut geaggregeerd.
 
-Houd rekening met een serverloze database die is geconfigureerd met 1 minuut vcore en 4 maximale vcores.  Dit komt overeen met ongeveer 3 GB min geheugen en het maximale geheugen van 12 GB.  Stel de vertraging automatisch onderbreken is ingesteld op 6 uur en de werkbelasting van de database actief is gedurende de eerste 2 uur van een periode van 24 uur en anders niet actief.    
+Houd rekening met een serverloze database die is geconfigureerd met 1 minuut vCore en 4 maximale vCores.  Dit komt overeen met ongeveer 3 GB min geheugen en het maximale geheugen van 12 GB.  Stel de vertraging automatisch onderbreken is ingesteld op 6 uur en de werkbelasting van de database actief is gedurende de eerste 2 uur van een periode van 24 uur en anders niet actief.    
 
-In dit geval wordt de database wordt in rekening gebracht voor rekenen en opslag in de eerste 8 uur.  Hoewel de database niet actief starten nadat de 2e uur is, wordt dit nog steeds gefactureerd voor Computing in de volgende zes uur op basis van de minimale compute terwijl de database online is ingericht.  Alleen in rekening gebracht tijdens de rest van de periode van 24 uur tijdens de database is onderbroken.
+In dit geval wordt de database wordt in rekening gebracht voor rekenen en opslag in de eerste 8 uur.  Hoewel de database niet actief gestart na het tweede uur is, wordt dit nog steeds gefactureerd voor Computing in de volgende zes uur op basis van de minimale compute terwijl de database online is ingericht.  Alleen in rekening gebracht tijdens de rest van de periode van 24 uur tijdens de database is onderbroken.
 
 Preciezer nog, wordt de compute-factuur in dit voorbeeld als volgt berekend:
 
@@ -291,7 +306,7 @@ Preciezer nog, wordt de compute-factuur in dit voorbeeld als volgt berekend:
 |8:00-24:00|0|0|Er zijn geen kosten in rekening gebracht terwijl onderbroken compute|seconden van 0 vCore|
 |Totaal aantal vCore seconden meer dan 24 uur in rekening gebracht||||50400 vCore seconden|
 
-Stel de compute-eenheidsprijs $0.000073/vCore/second is.  Klik aan de rekenresources in rekening gebracht voor deze periode van 24 uur het product van de compute-eenheid prijs- en vcore seconden kosten in rekening gebracht is: $0.000073/vCore/second * 50400 vCore seconden = $3,68
+Stel de compute-eenheidsprijs $0.000073/vCore/second is.  Klik aan de rekenresources in rekening gebracht voor deze periode van 24 uur het product van de compute-eenheid prijs- en vCore seconden kosten in rekening gebracht is: $0.000073/vCore/second * 50400 vCore seconden = $3,68
 
 ## <a name="available-regions"></a>Beschikbare regio's
 

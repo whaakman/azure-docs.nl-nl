@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 9026b561f52b2d43fff2d3e36ba569d7b62a4684
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069028"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952103"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Verbindingsproblemen met Azure Database voor PostgreSQL - één-Server oplossen
 
@@ -53,7 +53,7 @@ Als de toepassing niet permanent verbinding maken met Azure Database for Postgre
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Stappen voor het oplossen van problemen met de permanente netwerkverbinding
 
 1. Instellen van [firewall-regels](howto-manage-firewall-using-portal.md) waarmee de client-IP-adres. Voor tijdelijke alleen voor testdoeleinden, stelt u een firewallregel met behulp van 0.0.0.0 als de IP-beginadres en 255.255.255.255 als het laatste IP-adres gebruiken. Hiermee opent u de server aan alle IP-adressen. Als dit het probleem met de netwerkverbinding is opgelost, verwijdert u deze regel en een firewallregel voor een op de juiste wijze beperkt IP-adres of adresbereik maken.
-2. Zorg ervoor dat poort 3306 geopend voor uitgaande verbindingen is op alle firewalls tussen de client en het internet.
+2. Zorg ervoor dat poort 5432 geopend voor uitgaande verbindingen is op alle firewalls tussen de client en het internet.
 3. Controleer of de verbindingsreeks en andere instellingen.
 4. Controleer de status van de service in het dashboard. Als u denkt er is een regionale onderbreking dat, Zie [overzicht van bedrijfscontinuïteit met Azure Database for PostgreSQL](concepts-business-continuity.md) voor stappen om te herstellen naar een nieuwe regio.
 

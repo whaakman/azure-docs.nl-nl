@@ -5,18 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-origin.date: 10/19/2018
-ms.date: 04/09/2019
+ms.date: 10/19/2018
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454639"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950651"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Naslagdocumentatie voor PowerShell-ADConnectivityTools
 
@@ -37,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>BESCHRIJVING
 
 Lokale DNS-connectiviteit testen uitgevoerd.
-Als u wilt de Active Directory-connector configureert, moet gebruiker beide naamomzetting hebben voor de forest he\she verbinding probeert is te ook zoals in de domeincontrollers die zijn gekoppeld aan dit forest.
+Als u wilt de Active Directory-connector configureert, moet de gebruiker beide naamomzetting voor het forest dat ze verbinding proberen te maken naar ook zoals in de domeincontrollers die zijn gekoppeld aan dit forest hebben.
 
 ### <a name="examples"></a>VOORBEELDEN
 
@@ -310,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Als gebruikers niet met behulp van DNS-services geleverd door de AD-Site / Logon DC en vervolgens he\she mogelijk wilt overslaan controleren of poort 53.
+Als gebruikers niet met behulp van DNS-services geleverd door de AD-Site / Logon DC, en ze mogelijk wilt controleren of poort 53 overslaan.
 Gebruiker moet nog steeds mogelijk om op te lossen _.ldap._tcp. \<forestfqdn\> in volgorde voor de configuratie van Active Directory-Connector te voltooien.
 
 ```yml
@@ -964,5 +963,3 @@ Accept wildcard characters: False
 
 Deze cmdlet biedt ondersteuning voor de meest gebruikte parameters: -Debug, - ErrorAction, - ErrorVariable, - InformationAction, -InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable - Verbose, - WarningAction en -WarningVariable.
 Zie about_CommonParameters voor meer informatie (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<!-- Update_Description: wording update -->

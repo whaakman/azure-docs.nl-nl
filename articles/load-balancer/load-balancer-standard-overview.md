@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734509"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957482"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Overzicht van Azure Standard Load Balancer
 
@@ -91,7 +91,7 @@ Beoordeling [gedetailleerde bespreking van de Beschikbaarheidszones gerelateerde
 
 Standard Load Balancer biedt multi-dimensionale metrische gegevens via Azure Monitor.  Deze metrische gegevens kunnen worden gefilterd, gegroepeerd en uitgesplitst voor een opgegeven dimensie.  Beschikt over de huidige en historische informatie over prestaties en status van uw service.  Resource Health wordt ook ondersteund.  Hieronder volgt een kort overzicht van ondersteunde diagnostische gegevens:
 
-| Gegevens | Description |
+| Metric | Description |
 | --- | --- |
 | VIP-beschikbaarheid | Standard Load Balancer oefeningen continu het gegevenspad van binnen een regio aan de Load Balancer front-end helemaal tot aan de SDN-stack die ondersteuning biedt voor uw virtuele machine. Als in orde exemplaren blijven, volgt de meting hetzelfde pad als verkeer met netwerktaakverdeling van uw toepassing. Het gegevenspad die wordt gebruikt door uw klanten wordt ook gevalideerd. De meting is zichtbaar voor uw toepassing en niet van invloed op andere bewerkingen.|
 | Beschikbaarheid van DIP | Standard Load Balancer maakt gebruik van een gedistribueerde health service de status van het toepassingseindpunt van uw op basis van uw configuratie-instellingen controleert te scannen. Met deze metriek bevat een statistische functie of groep per eindpunt gefilterd-weergave van alle afzonderlijke gevallen-eindpunten in de Load Balancer.  U kunt zien hoe de Load Balancer de status van uw toepassing, zoals aangegeven door de configuratie van de health test bekijkt.
@@ -204,7 +204,7 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie om te verplaats
 >
 >Overeenkomende SKU's mogen worden gebruikt voor Load Balancer en openbare IP-resources. U kunt geen een combinatie van standaard-SKU-middelen en basis-SKU. Het is evenmin mogelijk om zelfstandige virtuele machines, virtuele machines in een resource van een beschikbaarheidsset of resources uit schaalset met virtuele machines op beide SKU's tegelijk in te stellen.
 
-## <a name="region-availability"></a>Beschikbaarheid in regio’s
+## <a name="region-availability"></a>Beschikbaarheid voor de regio
 
 Standard Load Balancer is momenteel beschikbaar in alle openbare cloud-regio's.
 
@@ -212,7 +212,7 @@ Standard Load Balancer is momenteel beschikbaar in alle openbare cloud-regio's.
 
 Standard Load Balancers zijn beschikbaar met een SLA van 99,99%.  Controleer de [Standard Load Balancer SLA](https://aka.ms/lbsla) voor meer informatie.
 
-## <a name="pricing"></a>Prijzen
+## <a name="pricing"></a>Prijs
 
 Gebruik van Standard Load Balancer wordt in rekening gebracht.
 
@@ -226,7 +226,6 @@ Ga naar de pagina [Prijs van Load Balancer](https://azure.microsoft.com/pricing/
 - Er zijn geen veranderlijke SKU's. U kunt de SKU van een bestaande resource niet wijzigen.
 - De bron van een zelfstandige virtuele machine resource beschikbaarheidsset of VM scale set resource kan verwijzen naar een SKU, niet beide.
 - Een Load Balancer-regel kan niet twee virtuele netwerken omvatten.  Front-ends en hun bijbehorende back-end-exemplaren moeten zich bevinden in hetzelfde virtuele netwerk.  
-- Load Balancer-front-ends zijn niet toegankelijk voor wereldwijde vnet-peering.
 - [Bewerkingen in het abonnement verplaatsen](../azure-resource-manager/resource-group-move-resources.md) worden niet ondersteund voor Standard SKU LB en PIP-resources.
 - Webwerkrollen zonder dat u een VNet en andere Microsoft-platform-services kunnen worden geopend als alleen een interne standaardversie van Load Balancer wordt gebruikt vanwege een neveneffect van hoe het pre-VNet-services en andere platform functie services. U moet niet afhankelijk zijn van dit als de desbetreffende service zelf of het onderliggende platform kan zonder kennisgeving worden gewijzigd. U moet altijd wordt ervan uitgegaan dat u wilt maken [uitgaande connectiviteit](load-balancer-outbound-connections.md) expliciet indien gewenst bij het gebruik van een interne Standard Load Balancer alleen.
 - Load Balancer is een TCP- of UDP-product voor taakverdeling en Port Forwarding voor deze specifieke IP-protocollen.  Taakverdelingsregels en inkomende NAT-regels worden ondersteund voor TCP en UDP en worden niet ondersteund voor andere IP-protocollen, met inbegrip van ICMP. Load Balancer beëindigt de nettolading van een UDP- of TCP-stroom niet, reageert er niet op of communiceert er op geen enkele andere ander manier mee. Het is geen proxy. Succesvolle validatie van de verbinding met een front-plaats in-band moet uitvoeren met hetzelfde protocol gebruikt in een load balancing of inkomende NAT-regel (TCP of UDP) _en_ moet ten minste één van uw virtuele machines een antwoord genereren voor een client om te zien van een reactie van een front-end.  Niet ontvangen van een in-band-antwoord van de Load Balancer-front-geeft aan dat er waren geen virtuele machines kunnen reageren.  Het is niet mogelijk om te communiceren met een Load Balancer front-end zonder een virtuele machine kunnen reageren.  Dit geldt ook voor uitgaande verbindingen waar [poortmaskering SNAT](load-balancer-outbound-connections.md#snat) alleen wordt ondersteund voor TCP en UDP; andere IP-protocollen, waaronder ICMP, werken ook niet.  Wijs een openbaar IP-adres op instantieniveau toe om dit op te lossen.

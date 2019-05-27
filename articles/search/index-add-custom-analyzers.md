@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021664"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951901"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Analysevoorzieningen aanpassen aan een Azure Search-index toevoegen
 
@@ -223,7 +223,7 @@ Voor analyse, indexkenmerken variëren, afhankelijk van of u vooraf gedefinieerd
 |-|-|  
 |Name|Deze mag alleen letters, cijfers, spaties, streepjes of onderstrepingstekens bevatten, kunnen alleen starten en eindigen met alfanumerieke tekens bevatten en is beperkt tot 128 tekens.|  
 |Type|Moet '#Microsoft.Azure.Search.CustomAnalyzer'.|  
-|CharFilters|Ingesteld op een van de vooraf gedefinieerde char filters worden vermeld de [Char Filters](#CharFilter) tabel of een aangepaste char-filter dat is opgegeven in de indexdefinitie.|  
+|CharFilters|Ingesteld op een van de vooraf gedefinieerde char filters worden vermeld de [Char Filters](#char-filters-reference) tabel of een aangepaste char-filter dat is opgegeven in de indexdefinitie.|  
 |Tokenizer|Vereist. Ingesteld op een van de vooraf gedefinieerde tokenizers die worden vermeld in de [Tokenizers](#Tokenizers) onderstaande tabel of een aangepaste tokenizer opgegeven in de indexdefinitie.|  
 |TokenFilters|Ingesteld op een van de vooraf gedefinieerde token filters die worden vermeld in de [Token filters](#TokenFilters) tabel of een aangepaste token filter dat is opgegeven in de indexdefinitie.|  
 
@@ -236,8 +236,8 @@ Voor analyse, indexkenmerken variëren, afhankelijk van of u vooraf gedefinieerd
 |||  
 |-|-|  
 |Name|Deze mag alleen letters, cijfers, spaties, streepjes of onderstrepingstekens bevatten, kunnen alleen starten en eindigen met alfanumerieke tekens bevatten en is beperkt tot 128 tekens.|  
-|Type|CHAR filtertype in de lijst van ondersteunde char filters. Zie **char_filter_type** kolom in de [Char Filters](#CharFilter) in de volgende tabel.|  
-|Opties|Moet geldige opties van een bepaalde [Char Filters](#CharFilter) type.|  
+|Type|CHAR filtertype in de lijst van ondersteunde char filters. Zie **char_filter_type** kolom in de [Char Filters](#char-filters-reference) in de volgende tabel.|  
+|Opties|Moet geldige opties van een bepaalde [Char Filters](#char-filters-reference) type.|  
 
 ### <a name="tokenizers"></a>Tokenizers
 

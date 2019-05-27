@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853140"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956222"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Verwijzingen van de Key Vault gebruiken voor App Service en Azure Functions (preview)
 
@@ -67,7 +67,7 @@ U kunt ook:
 
 ## <a name="source-application-settings-from-key-vault"></a>Instellingen voor gegevensbron toepassing vanuit Key Vault
 
-Verwijzingen naar de Key Vault kunnen worden gebruikt als waarden voor [toepassingsinstellingen](web-sites-configure.md#app-settings), zodat u kunt het bewaren van geheimen in Key Vault in plaats van de site-configuratie. Toepassingsinstellingen veilig in rust worden versleuteld, maar als u geheime beheermogelijkheden moet, moeten ze worden geplaatst in Key Vault.
+Verwijzingen naar de Key Vault kunnen worden gebruikt als waarden voor [toepassingsinstellingen](configure-common.md#configure-app-settings), zodat u kunt het bewaren van geheimen in Key Vault in plaats van de site-configuratie. Toepassingsinstellingen veilig in rust worden versleuteld, maar als u geheime beheermogelijkheden moet, moeten ze worden geplaatst in Key Vault.
 
 Voor het gebruik van een Key Vault-verwijzing voor de toepassingsinstelling van een, moet u de verwijzing instellen als de waarde van de instelling. Uw app kunt verwijzen naar het geheim via de sleutel als normaal. Er zijn geen codewijzigingen vereist.
 

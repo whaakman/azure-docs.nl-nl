@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205499"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951312"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met RA-GRS ontwerpen
 
@@ -54,7 +54,7 @@ Er is het doel van dit artikel leert u hoe u aan het ontwerpen van een toepassin
 
 De voorgestelde oplossing wordt ervan uitgegaan dat het is mogelijk verlopen gegevens terug naar de aanroepende toepassing worden geaccepteerd. Omdat gegevens in de secundaire regio uiteindelijk consistent is, is het mogelijk dat de primaire regio kan ontoegankelijk worden voordat een update naar de secundaire regio repliceren is voltooid.
 
-Stel bijvoorbeeld dat uw klant een update met succes worden verzonden, maar de primaire regio niet voordat de update is doorgegeven aan de secundaire regio. Wanneer de klant wordt gevraagd om de gegevens terug te lezen, ontvangt hij de verouderde gegevens van de secundaire regio in plaats van de bijgewerkte gegevens. Bij het ontwerpen van uw toepassing, moet u bepalen of dit acceptabel is, en als dit het geval is, hoe u de klant wordt weergegeven. 
+Stel bijvoorbeeld dat uw klant een update met succes worden verzonden, maar de primaire regio niet voordat de update is doorgegeven aan de secundaire regio. Wanneer de klant wordt gevraagd om de gegevens terug te lezen, ontvangen ze de verouderde gegevens van de secundaire regio in plaats van de bijgewerkte gegevens. Bij het ontwerpen van uw toepassing, moet u bepalen of dit acceptabel is, en als dit het geval is, hoe u de klant wordt weergegeven. 
 
 Verderop in dit artikel laten we zien hoe om te controleren of de tijd van laatste synchronisatie voor de secundaire gegevens om te controleren of de secundaire up-to-date is.
 
@@ -197,14 +197,14 @@ Voor het derde scenario wanneer de primaire opslag-eindpunt te pingen weer gesla
 
 RA-GRS werkt door transacties te repliceren van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio worden *uiteindelijk consistent*. Dit betekent dat alle transacties in de primaire regio uiteindelijk wordt weergegeven in de secundaire regio, maar dat er mogelijk een vertraging voordat ze worden weergegeven en er is geen garantie dat de transacties binnenkomen in de secundaire regio in dezelfde volgorde als waarin ze oorspronkelijk zijn toegepast in de primaire regio. Als uw transacties in de secundaire regio andere volgorde binnenkomen, u *kan* Houd rekening met uw gegevens in de secundaire regio zich in een inconsistente status totdat de service de resultaten.
 
-De volgende tabel ziet u een voorbeeld van wat er gebeuren kan wanneer u de details van een werknemer haar om lid te maken van de *beheerders* rol. Dit voorbeeldscenario hiervoor moet u bijwerken de **werknemer** entiteits- en update een **beheerdersrol** entiteit met een telling van het totale aantal beheerders. U ziet hoe de updates niet de juiste volgorde in de secundaire regio worden toegepast.
+De volgende tabel ziet u een voorbeeld van wat er gebeuren kan wanneer u de details van een werknemer zodat ze lid zijn van de *beheerders* rol. Dit voorbeeldscenario hiervoor moet u bijwerken de **werknemer** entiteits- en update een **beheerdersrol** entiteit met een telling van het totale aantal beheerders. U ziet hoe de updates niet de juiste volgorde in de secundaire regio worden toegepast.
 
 | **tijd** | **Transactie**                                            | **Replicatie**                       | **Laatst gesynchroniseerd op** | **Resultaat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transactie A: <br> Werknemer invoegen <br> entiteit in primaire |                                   |                    | Transactie een ingevoegd op primaire,<br> nog niet gerepliceerd. |
 | T1       |                                                            | Een transactie <br> gerepliceerd naar<br> secundair | T1 | Een transactie is gerepliceerd naar de secundaire. <br>Tijd van laatste synchronisatie bijgewerkt.    |
-| T2       | Transactie B:<br>Update<br> Werknemer-entiteit<br> in de primaire  |                                | T1                 | Transactie B naar primair, geschreven<br> nog niet gerepliceerd.  |
-| T3       | Transactie C:<br> Update <br>beheerder<br>entiteit in rol<br>primair |                    | T1                 | Transactie geschreven naar primair, C<br> nog niet gerepliceerd.  |
+| T2       | Transactie B:<br>Bijwerken<br> Werknemer-entiteit<br> in de primaire  |                                | T1                 | Transactie B naar primair, geschreven<br> nog niet gerepliceerd.  |
+| T3       | Transactie C:<br> Bijwerken <br>beheerder<br>entiteit in rol<br>primair |                    | T1                 | Transactie geschreven naar primair, C<br> nog niet gerepliceerd.  |
 | *T4*     |                                                       | Transactie C <br>gerepliceerd naar<br> secundair | T1         | Transactie C gerepliceerd naar de secundaire.<br>Niet bijgewerkt omdat LastSyncTime <br>transactie B is nog niet gerepliceerd.|
 | *T5*     | Entiteiten lezen <br>uit de secundaire regio                           |                                  | T1                 | U krijgt de verouderde waarde voor werknemer <br> entiteit omdat transactie B nog niet <br> nog gerepliceerd. U krijgt de nieuwe waarde voor<br> Administrator-rol entiteit omdat er voor C<br> gerepliceerd. Tijd van laatste synchronisatie is nog niet<br> is bijgewerkt, omdat de transactie B<br> nog niet is gerepliceerd. U kunt zien de<br>Administrator-rol entiteit komt niet overeen <br>omdat de entiteit-datum/tijd na <br>de tijd van laatste synchronisatie. |
 | *T6*     |                                                      | Transactie B<br> gerepliceerd naar<br> secundair | T6                 | *T6* – alle transacties via C <br>zijn gerepliceerd, tijd van laatste synchronisatie<br> is bijgewerkt. |

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365074"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964257"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>ExpressRoute Direct configureren
 
@@ -226,7 +226,9 @@ U kunt standaard 10 circuits maken in het abonnement waarin de resource ExpressR
 
 Er zijn aanvullende circuit bandbreedten die kunnen worden gebruikt op ExpressRoute Direct alleen ter ondersteuning van de scenario's die hierboven worden beschreven. Dit zijn: 40Gbps en 100Gbps.
 
-Standard- of premium circuits kunnen worden gemaakt. Standard-circuits zijn opgenomen in de kosten, terwijl premium-circuits kosten verbonden op basis van de bandbreedte die is geselecteerd zijn. Circuits kunnen alleen worden gemaakt als de verbindingen naar gebruik, als onbeperkte wordt niet ondersteund voor ExpressRoute Direct.
+**SkuTier** mag lokaal, Standard of Premium.
+
+**SkuFamily** moet MeteredData als onbeperkte wordt niet ondersteund voor ExpressRoute Direct.
 
 Een circuit maken op de resource ExpressRoute Direct.
 

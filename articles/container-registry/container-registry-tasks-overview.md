@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582411"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977206"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>OS- en framework patchen met ACR taken automatiseren
 
@@ -94,6 +94,16 @@ U kunt bijvoorbeeld een taak meerdere stappen waarmee de volgende maken:
 Taken met meerdere stappen kunnen u het gebouw, uitvoeren en testen van een afbeelding in meer samenstelbare stappen, met ondersteuning voor de afhankelijkheid tussen stap splitsen. Met meerdere stappen taken in de ACR-taken hebt u meer nauwkeurige controle over de installatiekopie van het ontwikkelen, testen, en OS en framework werkstromen patches.
 
 Meer informatie over taken meerdere stappen in [WebTest met meerdere stappen bouwen, testen en patch-taken uitvoeren in ACR taken](container-registry-tasks-multi-step.md).
+
+## <a name="view-task-logs"></a>Logboeken van de taak weergeven
+
+Elke uitvoering van de taak genereert logboekuitvoer die u controleren kunt om te bepalen of de taakstappen is uitgevoerd. Als u de [az acr build](/cli/azure/acr#az-acr-build), [az acr uitvoeren](/cli/azure/acr#az-acr-run), of [az acr-taak uitvoeren](/cli/azure/acr/task#az-acr-task-run) opdracht voor het activeren van de taak, logboekuitvoer voor de taak wordt uitgevoerd worden gestreamd naar de console en ook worden opgeslagen voor later voor het ophalen. De logboeken voor een taak uitvoeren in Azure portal of gebruik de [az acr taak logboeken](/cli/azure/acr/task#az-acr-task-logs) opdracht.
+
+Vanaf juli 2019, gegevens en logboeken voor de taak wordt uitgevoerd in een register wordt worden standaard 30 dagen bewaard en vervolgens automatisch opgeschoond. Als u archiveren van de gegevens voor een taak wordt uitgevoerd wilt, schakelt u archiveren met behulp van de [az acr update-uitgevoerd](/cli/azure/acr/task#az-acr-task-update-run) opdracht. Het volgende voorbeeld wordt het archiveren van de taak uitvoeren *cf11* in register *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

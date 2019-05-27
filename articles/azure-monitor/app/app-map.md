@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba4643118c5d90b91c3e51d569e9a628c84159fc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780015"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964033"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren van gedistribueerde toepassingen
 
@@ -94,7 +94,9 @@ Als u wilt weergeven van actieve waarschuwingen en de onderliggende regels die e
 
 Overzicht van de toepassing maakt gebruik van de **cloudrolnaam** eigenschap om de onderdelen op de kaart te identificeren. De Application Insights-SDK wordt automatisch de naameigenschap van de cloud-rol toegevoegd aan de telemetrie die is verzonden door onderdelen. Bijvoorbeeld, wordt de SDK een naam van website of naam van de rol service toevoegen aan de naameigenschap van de cloud-rol. Er zijn echter gevallen waar kunt u de standaardwaarde overschrijven. Cloudrolnaam overschrijven en wat wordt weergegeven op de kaart van de toepassing wijzigen:
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**Schrijf aangepaste TelemetryInitializer zoals hieronder.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -117,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**De initialisatiefunctie laden**
+**Initialisatieprogramma, zodat de actieve TelemetryConfiguration laden**
 
 In ApplicationInsights.config:
 
@@ -131,7 +133,10 @@ In ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-Een alternatieve methode is het instantiëren van de initialisatiefunctie in code, bijvoorbeeld in Global.aspx.cs:
+> [!NOTE]
+> Toe te voegen initialisatiefunctie met behulp van `ApplicationInsights.config` is niet geldig voor ASP.NET Core-toepassingen.
+
+Een alternatieve methode voor ASP.NET-Web-apps is het instantiëren van de initialisatiefunctie in code, bijvoorbeeld in Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ Een alternatieve methode is het instantiëren van de initialisatiefunctie in cod
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+Voor [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) toepassingen toe te voegen een nieuwe `TelemetryInitializer` wordt uitgevoerd door toe te voegen aan de container Afhankelijkheidsinjectie, zoals hieronder wordt weergegeven. Dit wordt gedaan `ConfigureServices` -methode van uw `Startup.cs` klasse.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9d18c92cccac6bfb0bd359767ecdb51951268735
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407009"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962534"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Desktop-app die web-API's - roept een token verkrijgen
 
@@ -163,7 +163,7 @@ Het team van MSAL.NET hebben onze UI-tests als u wilt gebruikmaken van dit mecha
 
 #### <a name="other-optional-parameters"></a>Overige optionele parameters
 
-Meer informatie over alle andere optionele parameters voor `AcquireTokenInteractive` uit de naslagdocumentatie voor [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+Meer informatie over alle andere optionele parameters voor `AcquireTokenInteractive` uit de naslagdocumentatie voor [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="integrated-windows-authentication"></a>Geïntegreerde Windows-verificatie
 
@@ -283,7 +283,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Zie voor een lijst van mogelijke parameters op AcquireTokenByIntegratedWindowsAuthentication, [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+Zie voor een lijst van mogelijke parameters op AcquireTokenByIntegratedWindowsAuthentication, [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="username--password"></a>Gebruikersnaam / wachtwoord
 
@@ -519,7 +519,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Voor meer informatie over de parameters die kunnen worden toegepast op `AcquireTokenByUsernamePassword`, Zie [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+Voor meer informatie over de parameters die kunnen worden toegepast op `AcquireTokenByUsernamePassword`, Zie [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="command-line-tool-without-web-browser"></a>Opdrachtregel-hulpprogramma (zonder webbrowser)
 

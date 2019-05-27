@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: b90e495e0901c0caa14d9451f365e17f6c075e2b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/20/2019
+ms.openlocfilehash: e58a8cd286e4d416dd5f4e6d3fddedf1897fed1c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65070795"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954170"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Globale gegevensdistributie met Azure Cosmos DB - overzicht
 
@@ -21,7 +21,7 @@ Azure Cosmos DB is een wereldwijd gedistribueerde databaseservice die is ontwikk
 
 U kunt uw databases zijn wereldwijd gedistribueerde en beschikbaar zijn in een van de Azure-regio's configureren. Als u wilt de latentie verlagen, moet u de gegevens dicht bij waar uw gebruikers zijn geplaatst. De vereiste regio's te kiezen, is afhankelijk van het wereldwijde bereik van uw toepassing en waar uw gebruikers zich bevinden. Cosmos DB repliceert de gegevens transparant naar alle regio's die zijn gekoppeld aan uw Cosmos-account. Het biedt één integraal beeld van de wereldwijd gedistribueerde Azure Cosmos-database en de containers die uw toepassing kunt lezen en schrijven naar lokaal. 
 
-U kunt met Azure Cosmos DB, toevoegen of verwijderen van de regio's die zijn gekoppeld aan uw account op elk gewenst moment. Uw toepassing hoeft niet te worden onderbroken of opnieuw als u wilt toevoegen of verwijderen van een regio zijn geïmplementeerd. Worden maximaal beschikbare voortdurend vanwege de multi-homingmogelijkheden die de service systeemeigen biedt blijft.
+U kunt met Azure Cosmos DB, toevoegen of verwijderen van de regio's die zijn gekoppeld aan uw account op elk gewenst moment. Uw toepassing hoeft niet te worden onderbroken of opnieuw te worden geïnstalleerd als u een regio wilt toevoegen of verwijderen. Worden maximaal beschikbare voortdurend vanwege de multi-homingmogelijkheden die de service systeemeigen biedt blijft.
 
 ![Maximaal beschikbare implementatietopologie](./media/distribute-data-globally/deployment-topology.png)
 

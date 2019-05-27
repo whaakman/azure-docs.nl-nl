@@ -2,20 +2,20 @@
 title: T-SQL-instructies - Azure SQL Data Warehouse | Microsoft Docs
 description: Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 05/01/2019
-ms.author: twounder
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5bab83c2cb3874ad662ad54a9646cc3fc406046e
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 984d8ffa9f901437f1413e1d5d3145cabba80883
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561358"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954983"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-instructies ondersteund in Azure SQL Data Warehouse
 Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
@@ -52,7 +52,7 @@ Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL
 * [WEERGAVE VERWIJDEREN](https://msdn.microsoft.com/library/ms173492.aspx)
 * [WORKLOAD-CLASSIFICATIE VERWIJDEREN](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [WIJZIG DE NAAM](https://msdn.microsoft.com/library/mt631611.aspx)
-* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-statements-transact-sql) (Preview)
+* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) (Preview)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
