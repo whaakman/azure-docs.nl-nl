@@ -4,14 +4,14 @@ description: Geeft een lijst van de Azure-resource-typen die kunnen worden verpl
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/16/2019
+ms.date: 5/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: d662607eaaabb8ccfad89f625165c542af81b0fa
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794522"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872555"
 ---
 # <a name="move-operation-support-for-resources"></a>Ondersteuning voor resources verplaatsen
 In dit artikel wordt aangegeven of een Azure-resourcetype de verplaatsing ondersteunt. Hoewel een resourcetype de verplaatsing ondersteunt, kunnen er omstandigheden die verhinderen dat de resource die wordt verplaatst. Zie voor meer informatie over voorwaarden die invloed hebben op verplaatsingsbewerkingen [resources verplaatsen naar een nieuwe resourcegroep of abonnement](resource-group-move-resources.md).
@@ -848,7 +848,7 @@ Als u dezelfde gegevens als een bestand met door komma's gescheiden waarden, dow
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | ----------- | ---------- |
-| deviceservices | Ja | Ja |
+| deviceservices | Nee | Nee |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
 | Resourcetype | Resourcegroep | Abonnement |

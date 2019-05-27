@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823543"
+ms.locfileid: "65872142"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS vervulling API's versie 2 
 
-Dit artikel vindt u de API waarmee u onafhankelijke softwareleveranciers (ISV's) om hun SaaS-toepassingen te verkopen in de Azure Marketplace en AppSource. Deze API is een vereiste voor het aanbieden van SaaS biedt op de Azure Marketplace en AppSource.
+Dit artikel vindt u de API waarmee u onafhankelijke softwareleveranciers (ISV's) om hun SaaS-toepassingen te verkopen in de Azure Marketplace en AppSource. Deze API is dat een vereiste voor transactable SaaS biedt op de Azure Marketplace en AppSource.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>De levenscyclus van de SaaS-abonnementen beheren
 

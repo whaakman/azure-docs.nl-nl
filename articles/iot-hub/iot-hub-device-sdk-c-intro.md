@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 05/17/2019
 ms.author: yizhon
-ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401244"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910321"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device-SDK voor C
 
@@ -126,7 +126,7 @@ De Windows-versie van de **iothub_client\_voorbeelden\_iothub_convenience_sample
   ![Visual Studio Solution Explorer](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> Als u dit project in Visual Studio 2017 openen, accepteert u de aanwijzingen voor het stelt u het project naar de nieuwste versie.
+> Als Visual Studio u stelt u het project naar de nieuwste versie vraagt, de prompt te accepteren.
 
 Deze oplossing bevat een enkel project. Er zijn vier NuGet-pakketten geïnstalleerd in deze oplossing:
 
@@ -339,7 +339,7 @@ In de **serializer** map in de [azure-iot-sdk-c-opslagplaats](https://github.com
   ![Visual Studio-oplossing voor het mqtt-voorbeeld](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> Als u dit project in Visual Studio 2017 openen, accepteert u de aanwijzingen voor het stelt u het project naar de nieuwste versie.
+> Als Visual Studio u stelt u het project naar de nieuwste versie vraagt, de prompt te accepteren.
 
 Net als bij het vorige voorbeeld bevat deze een enkele NuGet-pakketten:
 

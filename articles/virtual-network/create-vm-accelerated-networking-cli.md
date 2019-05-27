@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713726"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873422"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Een Linux-machine maken met versnelde netwerken
 
@@ -224,6 +224,10 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 Versneld netwerken is nu ingeschakeld voor uw virtuele machine.
+
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Dynamische binding en intrekken van de virtuele functie verwerken 
+Toepassingen moeten worden uitgevoerd via de synthetische NIC die wordt weergegeven in de virtuele machine. Als de toepassing wordt uitgevoerd boven op de NIC VF, het ontvangt geen **alle** pakketten die bestemd zijn voor de virtuele machine, aangezien sommige pakketten worden weergegeven via de interface van synthetische.
+Als u een toepassing via de synthetische NIC uitvoert, dit zorgt ervoor dat de toepassing ontvangt **alle** pakketten die bestemd zijn toe. Deze ook zorgt ervoor dat de toepassing blijft actief, zelfs als de VF wordt ingetrokken wanneer de host wordt onderhouden. Toepassingen koppelen aan de synthetische NIC is een **verplichte** vereiste voor alle toepassingen die profiteren van **versnelde netwerken**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Versnelde netwerken op bestaande virtuele machines inschakelen
 Als u een virtuele machine zonder versnelde netwerken hebt gemaakt, is het mogelijk is deze functie op een bestaande virtuele machine in te schakelen.  De virtuele machine moet bieden ondersteuning voor versnelde netwerken voldoen aan de volgende vereisten die ook hierboven worden beschreven:

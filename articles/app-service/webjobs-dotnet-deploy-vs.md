@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ede7e2fe3a2ab4c0dfd4efaea5ec789924968194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832301"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873010"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs
 
@@ -92,7 +92,7 @@ U kunt een project implementeren als een WebJob zelfstandig of koppelen aan een 
 
 Als u Visual Studio 2015 gebruikt, installeert u de [Azure SDK voor .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-Als u Visual Studio 2017 gebruikt, installeert u de [Azure-ontwikkelworkload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+Als u Visual Studio 2019, installeert u de [Azure-ontwikkelworkload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
 ### <a id="convert"></a> WebJobs-implementatie voor een bestaande consoletoepassingsproject inschakelen
 
@@ -239,7 +239,7 @@ De volgende instellingen worden ondersteund door WebJobs:
 | **Instelling** | **Type**  | **Beschrijving** |
 | ----------- | --------- | --------------- |
 | `is_in_place` | Alle | Kan de taak om uit te voeren in plaats zonder het eerst wordt gekopieerd naar een tijdelijke map. Zie voor meer informatie, [WebJobs werkmap](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Continu | Alleen de webtaken worden uitgevoerd op een enkele instantie als uitgeschaald. Zie voor meer informatie, [een continue taak instellen als singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `is_singleton` | Doorlopend | Alleen de webtaken worden uitgevoerd op een enkele instantie als uitgeschaald. Zie voor meer informatie, [een continue taak instellen als singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Geactiveerd | De webtaak uitvoeren volgens een schema op basis van een CRON. Zie voor meer informatie, de [naslagartikel voor timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Alle | Biedt controle over het afsluitgedrag. Zie voor meer informatie, [correct afsluiten](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 

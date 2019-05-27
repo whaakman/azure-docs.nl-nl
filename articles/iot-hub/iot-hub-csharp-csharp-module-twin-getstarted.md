@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 3b10ae0998acbb010e61ebb41c602c7d42bc14fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5421423441d03a7375feea2ca0dfe289993145ee
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741811"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873226"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van .NET-back-end en .NET-apparaat
 
@@ -31,7 +31,7 @@ Aan het eind van deze zelfstudie beschikt u over twee .NET-consoletoepassingen:
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Visual Studio 2017.
+* Visual Studio.
 
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820297"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908996"
 ---
 # <a name="access-data-from-your-datastores"></a>Toegang tot gegevens uit uw gegevensopslag
 
@@ -30,7 +30,7 @@ Deze procedure ziet u voorbeelden van de volgende taken:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van gegevensopslag, moet u eerst een [werkruimte](concept-azure-machine-learning-architecture.md#workspace).
+Voor het gebruik van gegevensopslag, moet u eerst een [werkruimte](concept-workspace.md).
 
 Begin door een van beide [het maken van een nieuwe werkruimte](setup-create-workspace.md#sdk) of bij het ophalen van een bestaande:
 

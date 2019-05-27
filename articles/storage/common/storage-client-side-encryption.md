@@ -9,18 +9,18 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d8ef24bfec541ec65c74f77a90aa9476a8b298b2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153271"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911918"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Overzicht
-De [Azure Storage-clientbibliotheek voor .NET Nuget-pakket](https://www.nuget.org/packages/WindowsAzure.Storage) ondersteunt de versleuteling van gegevens binnen clienttoepassingen voordat u uploadt naar Azure Storage en de ontsleuteling van gegevens tijdens het downloaden van de client. De bibliotheek ondersteunt ook integratie met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor sleutelbeheer voor storage-account.
+De [Azure Storage-clientbibliotheek voor .NET](/dotnet/api/overview/azure/storage/client) ondersteunt de versleuteling van gegevens binnen clienttoepassingen voordat u uploadt naar Azure Storage en de ontsleuteling van gegevens tijdens het downloaden van de client. De bibliotheek ondersteunt ook integratie met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor sleutelbeheer voor storage-account.
 
 Zie voor een stapsgewijze zelfstudie u door het proces leidt van het versleutelen van blobs met behulp van versleuteling op de client en de Azure Key Vault, [blobs versleutelen en ontsleutelen in Microsoft Azure Storage met behulp van Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 04/26/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7365fa4cac5e32962477ef7f2441825327a0eb64
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894438"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912714"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Bulksgewijs executor .NET-clientbibliotheek gebruiken voor het bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos D
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Als u Visual Studio 2017 geïnstalleerd nog niet hebt, kunt u downloaden en gebruiken de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u tijdens de installatie van Visual Studio Azure-ontwikkeling inschakelt.
+* Als u Visual Studio 2019 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u tijdens de installatie van Visual Studio Azure-ontwikkeling inschakelt.
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint. 
 

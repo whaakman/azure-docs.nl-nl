@@ -16,14 +16,14 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abe2f7deef2a1dbe82f4702fd3477303891ab2e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873577"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921070"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is Azure AD recht management? (Preview)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is Azure AD recht management? (Preview-versie)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) waar u recht op management is momenteel in openbare preview.
@@ -114,7 +114,7 @@ Het volgende diagram toont een voorbeeld van de verschillende elementen in het b
 
 Wanneer u de [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) uitnodigen ervaring, moet u het e-mailadressen van de externe gastgebruikers die u wilt voldoen aan de directory van uw resource en werken met al weten. Dit werkt prima als u aan een project kleiner of op korte termijn werkt en u alle deelnemers al kent, maar dit is het moeilijker om te beheren, hebt u veel gebruikers die u werken wilt met of als de deelnemers verloop van tijd veranderen.  Bijvoorbeeld, u mogelijk werken met een andere organisatie en één punt van contact met deze organisatie hebt, maar het na verloop van tijd meer gebruikers van deze organisatie ook toegang nodig voor.
 
-U kunt een beleid waarmee gebruikers van organisaties die u opgeeft, die ook van Azure AD gebruikmaken om aanvragen van een pakket toegang te kunnen definiëren met beheer van rechten. U kunt opgeven of de goedkeuring is vereist en een vervaldatum voor toegang tot de. Als goedkeuring vereist is, kunt u ook opgeven als een goedkeurder een of meer gebruikers van de externe organisatie die u eerder hebt uitgenodigd - omdat ze waarschijnlijk om te weten welke externe gebruikers van hun organisatie toegang nodig hebben. Nadat u het pakket toegang hebt geconfigureerd, kunt u een koppeling naar het pakket toegang verzenden naar de contactpersoon van de externe organisatie. Deze contactpersoon gebruikers in de externe organisatie met anderen kunt delen en ze kunnen deze koppeling gebruiken om aan te vragen van de access-pakket.  Gebruikers van die organisatie die al in uw directory zijn uitgenodigd kunnen die koppeling ook gebruiken.
+U kunt een beleid waarmee gebruikers van organisaties die u opgeeft, die ook van Azure AD gebruikmaken om aanvragen van een pakket toegang te kunnen definiëren met beheer van rechten. U kunt opgeven of de goedkeuring is vereist en een vervaldatum voor toegang tot de. Als goedkeuring vereist is, kunt u ook opgeven als een goedkeurder een of meer gebruikers van de externe organisatie die u eerder hebt uitgenodigd - omdat ze waarschijnlijk om te weten welke externe gebruikers van hun organisatie toegang nodig hebben. Nadat u het pakket toegang hebt geconfigureerd, kunt u een koppeling naar het pakket toegang verzenden naar de contactpersoon van de externe organisatie. Deze contactpersoon in de externe organisatie kunt delen met andere gebruikers en ze kunnen deze koppeling gebruiken om aan te vragen van de access-pakket.  Gebruikers van die organisatie die al in uw directory zijn uitgenodigd kunnen die koppeling ook gebruiken.
 
 Wanneer een aanvraag is goedgekeurd, wordt de gebruiker met de benodigde toegang, waaronder de gebruiker uitnodigen als ze niet al in uw directory inrichten in beheer van rechten. Azure AD maakt automatisch een B2B-account voor hen.  Houd er rekening mee dat een beheerder eerder welke organisaties zijn toegestaan voor samenwerking beperkte mogelijk, door in te stellen een [B2B toestaan of weigeren van lijst](../b2b/allow-deny-list.md) uitnodigingen toestaan of blokkeren op andere organisaties.  Als de gebruiker is niet toegestaan door de lijst met toegestane of geblokkeerde, en vervolgens worden ze niet worden uitgenodigd.
 
@@ -129,8 +129,8 @@ Voor meer informatie over waar u recht op beheer en de bijbehorende documentatie
 | beheer van rechten | Een service die wordt toegewezen, trekt en beheert de toegang tot pakketten. |
 | Access-pakket | Een verzameling van machtigingen en het beleid in de bronnen die gebruikers kunnen aanvragen. Een pakket toegang altijd zich in een catalogus. |
 | aanvraag voor toegang tot | Een aanvraag voor toegang tot een package toegang. Een aanvraag wordt gewoonlijk verwerkt via een werkstroom. |
-| policy | Een reeks regels waarin de levenscyclus van toegang, zoals hoe gebruikers toegang krijgen, die kunnen goedkeuren en hoe lang gebruikers toegang hebben. Voorbeelden van beleidsregels zijn toegang van werknemers en externe toegang. |
-| catalogus | Een container met gerelateerde resources en toegang tot pakketten. |
+| beleid | Een reeks regels waarin de levenscyclus van toegang, zoals hoe gebruikers toegang krijgen, die kunnen goedkeuren en hoe lang gebruikers toegang hebben. Voorbeelden van beleidsregels zijn toegang van werknemers en externe toegang. |
+| catalog | Een container met gerelateerde resources en toegang tot pakketten. |
 | Algemene catalogus | Een ingebouwde catalogus die altijd beschikbaar is. U kunt resources toevoegen aan de algemene catalogus nodig bepaalde machtigingen. |
 | Bron | Een asset of service (zoals een groep, toepassing of site) die een gebruiker kan machtigingen worden verleend. |
 | resourcetype | Het type resource, met inbegrip van groepen, toepassingen en SharePoint Online-sites. |

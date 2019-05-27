@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730406"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872420"
 ---
 # <a name="test-your-app-in-azure"></a>Uw app in Azure testen 
-Dit artikel bevat stappen voor het testen van uw toepassing in Azure met DevTest Labs. Eerst een bestandsshare in een lab instellen en deze koppelen als een station op uw lokale ontwikkelcomputer en een virtuele machine in een testomgeving. Daarna gebruikt u Visual Studio 2017 aan uw app implementeren in de bestandsshare, zodat u de app op de virtuele machine in het lab uitvoeren kunt.  
+Dit artikel bevat stappen voor het testen van uw toepassing in Azure met DevTest Labs. Eerst een bestandsshare in een lab instellen en deze koppelen als een station op uw lokale ontwikkelcomputer en een virtuele machine in een testomgeving. Daarna gebruikt u Visual Studio 2019 aan uw app implementeren in de bestandsshare, zodat u de app op de virtuele machine in het lab uitvoeren kunt.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Dit artikel bevat stappen voor het testen van uw toepassing in Azure met DevTest
 ## <a name="publish-your-app-from-visual-studio"></a>Publiceer uw app vanuit Visual Studio
 In deze sectie maakt publiceren u uw app vanuit Visual Studio om een test-VM in de cloud te.
 
-1. Een bureaublad/web-App maken met behulp van Visual Studio 2017.
+1. Een bureaublad/web-App maken met behulp van Visual Studio 2019.
 2. Uw app te bouwen.
 3. Voor het publiceren van uw app, met de rechtermuisknop op uw project in de **Solution Explorer**, en selecteer **publiceren**. 
 4. In de **wizard Publiceren**, voer de **station** die toegewezen aan de bestandsshare.

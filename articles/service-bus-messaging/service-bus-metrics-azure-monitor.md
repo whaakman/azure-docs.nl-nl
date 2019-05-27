@@ -1,6 +1,6 @@
 ---
 title: Metrische gegevens van Azure Service Bus in Azure Monitor (preview) | Microsoft Docs
-description: Bewaking van Azure gebruiken voor het bewaken van Service Bus-entiteiten
+description: Azure Monitor gebruiken voor het bewaken van Service Bus-entiteiten
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716109"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921228"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
 
@@ -44,7 +44,7 @@ U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit
 
 Voor metrische gegevens voor ondersteuning van dimensies, moet u filteren met de gewenste dimensiewaarde.
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 Met metrische gegevens in Azure Monitor is gratis tijdens preview. Echter, als u aanvullende oplossingen die metrische gegevens opnemen, u mogelijk worden kosten in rekening gebracht door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als u metrische gegevens om een Azure Storage-account te archiveren. U wordt ook gefactureerd door Azure Monitor-Logboeken, als u metrische gegevens naar Azure Monitor-logboeken voor geavanceerde analyse streamen.
 
@@ -99,8 +99,8 @@ De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 
 | Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-|CPU-gebruik per naamruimte (preview)|Het percentage CPU-gebruik van de naamruimte.<br/><br/> Eenheid: Procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
-|Geheugengebruik per naamruimte (preview)|Het geheugengebruik van het percentage van de naamruimte.<br/><br/> Eenheid: Procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
+|CPU-gebruik per naamruimte (preview)|Het percentage CPU-gebruik van de naamruimte.<br/><br/> Eenheid: Percent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
+|Geheugengebruik per naamruimte (preview)|Het geheugengebruik van het percentage van de naamruimte.<br/><br/> Eenheid: Percent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens over dimensies
 
@@ -138,7 +138,7 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
     2. Voer een **beschrijving** voor de waarschuwing.
     3. Selecteer **ernst** voor de waarschuwing. 
 
-        ![Meldingsdetails](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Waarschuwingsdetails](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Op de **maken regel** pagina uit, vouw **actiegroep definiëren**, selecteer **nieuwe actiegroep**, en de volgende acties uitvoeren op de **pagina van de groep toevoegen actie**. 
     1. Voer een naam voor de actiegroep.
     2. Voer een korte naam voor de actiegroep. 
@@ -152,7 +152,7 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
         2. Type de **e-mailadres**. 
         3. Selecteer **OK**.
 
-            ![Meldingsdetails](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Waarschuwingsdetails](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. Op de **actiegroep toevoegen** weergeeft, schakelt **OK**. 
 1. Op de **maken regel** weergeeft, schakelt **waarschuwingsregel maken**. 
 
@@ -160,7 +160,7 @@ Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in A
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [overzicht Azure Monitoring](../monitoring-and-diagnostics/monitoring-overview.md).
+Zie de [overzicht van Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

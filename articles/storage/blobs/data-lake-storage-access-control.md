@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233993"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949568"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangsbeheer in Azure Data Lake Storage Gen2
 
@@ -150,7 +150,7 @@ De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eige
 
 #### <a name="the-owning-group"></a>De groep die eigenaar is
 
-In de POSIX ACL's is elke gebruiker is gekoppeld aan een *hoofdgroep*. Gebruiker 'Els' kan bijvoorbeeld behoren tot de groep 'Financiën'. Els kan behoren tot meerdere groepen, maar één groep is altijd ingesteld als haar hoofdgroep. Wanneer Els in POSIX een bestand maakt, wordt de groep die eigenaar van het bestand is als haar hoofdgroep ingesteld. In dit geval is dit 'Financiën'. De groep die eigenaar is, gedraagt zich op dezelfde manier als toegewezen machtigingen voor andere gebruikers/groepen.
+In de POSIX ACL's is elke gebruiker is gekoppeld aan een *hoofdgroep*. Gebruiker 'Els' kan bijvoorbeeld behoren tot de groep 'Financiën'. Els kan ook behoren tot meerdere groepen, maar één groep is altijd ingesteld als hun primaire groep. Wanneer Els in POSIX een bestand maakt, wordt de groep die eigenaar van het bestand is als haar hoofdgroep ingesteld. In dit geval is dit 'Financiën'. De groep die eigenaar is, gedraagt zich op dezelfde manier als toegewezen machtigingen voor andere gebruikers/groepen.
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>De groep die eigenaar is van een nieuw bestand of map toewijzen
 

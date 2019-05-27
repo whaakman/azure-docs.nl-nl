@@ -11,26 +11,26 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0288d9c0932d012bc83f23053b661c5a7ea2ef82
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731512"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872956"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Uw eerste Durable Function maken in C\#
 
-*Durable Functions* is een extensie van [Azure Functions](../functions-overview.md) waarmee u stateful functies kunt schrijven in een serverloze omgeving. De extensie beheert status, controlepunten en het opnieuw opstarten voor u.
+*Durable Functions* is een extensie van [Azure Functions](../functions-overview.md) waarmee u stateful functies kunt schrijven in een serverloze omgeving. Met de extensie worden status, controlepunten en het opnieuw opstarten voor u beheerd.
 
-In dit artikel leert u hoe u met de Visual Studio 2017-hulpprogramma’s voor Azure Functions lokaal een ‘Hallo wereld’-functie kunt maken en testen.  Met deze functie organiseert en koppelt u aanroepen naar andere functies. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017.
+In dit artikel leert u hoe u Visual Studio 2019 tools voor Azure Functions lokaal maken en een duurzame 'Hallo wereld'-functie testen.  Met deze functie organiseert en koppelt u aanroepen naar andere functies. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2019.
 
-![Durable Function uitvoeren in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![Duurzame functie uitvoeren in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer [Visual Studio 2017](https://azure.microsoft.com/downloads/). Zorg ervoor dat de werkbelasting **Azure development** ook is geïnstalleerd.
+* Installeer [Visual Studio 2019](https://azure.microsoft.com/downloads/). Zorg ervoor dat de werkbelasting **Azure development** ook is geïnstalleerd.
 
 * Zorg ervoor dat u beschikt over de [nieuwste versie van de hulpprogramma's van Azure Functions](../functions-develop-vs.md#check-your-tools-version).
 
@@ -76,7 +76,7 @@ In de volgende stappen wordt een sjabloon gebruikt om de code van de Durable Fun
 
 Er wordt een nieuwe Durable Function toegevoegd aan de app.  Open het nieuwe CS-bestand om de inhoud te bekijken. Deze Durable Function is een eenvoudig voorbeeld van het koppelen van functies met behulp van de volgende methoden:  
 
-| Methode | FunctionName | Beschrijving |
+| Methode | FunctionName | Description |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Hiermee beheert u de Durable-indeling. In dit geval wordt de indeling gestart, wordt er een lijst gemaakt en wordt het resultaat van drie functieaanroepen aan de lijst toegevoegd.  Wanneer de drie functieaanroepen zijn voltooid, wordt de lijst geretourneerd. |
 | **`SayHello`** | `<file-name>_Hello` | De functie geeft 'Hello' als resultaat. Dit is de functie die de bedrijfslogica bevat die wordt ingedeeld. |

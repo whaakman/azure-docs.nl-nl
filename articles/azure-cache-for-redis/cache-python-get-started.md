@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8682a335372a1516be49b35400a2605f08d6b45e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830113"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873004"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Snelstart: Azure Cache voor Redis met Python gebruiken
 
@@ -46,7 +46,7 @@ Deze snelstart toont hoe u verbinding maakt met een Azure Cache voor Redis-insta
 
 [Redis-py](https://github.com/andymccurdy/redis-py) is een Python-interface voor Azure Cache voor Redis. Gebruik het hulpprogramma voor Python-pakketten, *pip*, om het redis-py-pakket te installeren. 
 
-Het volgende voorbeeld gebruikt *pip3* voor Python3 om het redis-py-pakket te installeren op Windows 10 met behulp van een Visual Studio 2017 Developer-opdrachtprompt die wordt uitgevoerd met verhoogde Administrator-bevoegdheden.
+Het volgende voorbeeld wordt *pip3* voor Python3 de redis-py om pakket te installeren op Windows 10 met behulp van een Visual Studio 2019 Developer-opdrachtprompt met verhoogde beheerdersbevoegdheden.
 
     pip3 install redis
 

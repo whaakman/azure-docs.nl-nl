@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 2a27ec63ea4ae25823c604612bd3bcf3a057da61
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: ae5a1708b56db45bec38a4482b5dfd936bdedd4a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "61249950"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901230"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snelstartgids: Een gesimuleerd X.509-apparaat inrichten met de Azure IoT C SDK
 
@@ -35,7 +35,7 @@ In dit artikel worden afzonderlijke registraties gedemonstreerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Visual Studio 2015 of [Visual Studio 2017](https://www.visualstudio.com/vs/) met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 of hoger met de [' bureaubladontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) werkbelasting ingeschakeld.
 * Meest recente versie van [Git](https://git-scm.com/download/) geïnstalleerd.
 
 
