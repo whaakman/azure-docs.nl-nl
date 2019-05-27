@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 79dbee33928fbc7560d0ea27be3af25cc510e996
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641890"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132286"
 ---
 ## <a name="create-an-azure-functions-project"></a>Een Azure Functions-project maken
 
 De Azure Functions-projectsjabloon in Visual Studio Code maakt een project dat kan worden gepubliceerd in een functie-app in Azure. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources kunt beheren, implementeren en delen.
 
-1. Selecteer in Visual Studio Code het Azure-logo om het gebied **Azure: Functions** weer te geven. Selecteer vervolgens het pictogram Create New Project (Nieuw project maken).
+1. Selecteer het Azure-logo om weer te geven in Visual Studio Code, de **Azure: Functies** vlak- en selecteer vervolgens het pictogram Nieuw Project maken.
 
     ![Een functie-appproject maken](./media/functions-create-function-app-vs-code/create-function-app-project.png)
 

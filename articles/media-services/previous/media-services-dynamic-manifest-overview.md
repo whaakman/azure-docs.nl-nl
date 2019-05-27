@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 229f89a8803f089c24981f56e00e36efe96de3aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68eeb40e905d089601208d9fc181042c7b434843
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465118"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956794"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
 
@@ -146,7 +146,7 @@ Gefilterde Asset:
 ![Skiën][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Presentatievenster (DVR) aanpassen
-Op dit moment biedt Azure Media Services circulaire archief waar de duur tussen 5 minuten: 25 uur kan worden geconfigureerd. Manifest filteren kan worden gebruikt om u te maken van een rolling DVR-venster op de bovenkant van het archief, zonder te verwijderen van media. Er zijn veel scenario's waarin tv-zenders wilt met een beperkte DVR-venster als u wilt gaan met de rand van het live en op hetzelfde moment een grotere archiveren venster bieden. Een tv-station wilt gebruiken de gegevens die zich buiten de DVR-venster om te markeren clips of he\she wilt voor verschillende DVR-vensters voor verschillende apparaten. De meeste van de mobiele apparaten verwerken niet zo groot DVR windows (u kunt een 2 minuten DVR-venster voor mobiele apparaten en één uur voor bureaublad-clients hebben).
+Op dit moment biedt Azure Media Services circulaire archief waar de duur tussen 5 minuten: 25 uur kan worden geconfigureerd. Manifest filteren kan worden gebruikt om u te maken van een rolling DVR-venster op de bovenkant van het archief, zonder te verwijderen van media. Er zijn veel scenario's waarin tv-zenders wilt met een beperkte DVR-venster als u wilt gaan met de rand van het live en op hetzelfde moment een grotere archiveren venster bieden. Een tv-station mogelijk wilt u de gegevens die zich buiten de DVR-venster om te markeren clips gebruiken of ze wilt voor verschillende DVR-vensters voor verschillende apparaten. De meeste van de mobiele apparaten verwerken niet zo groot DVR windows (u kunt een 2 minuten DVR-venster voor mobiele apparaten en één uur voor bureaublad-clients hebben).
 
 ![DVR-venster][dvr_filter]
 

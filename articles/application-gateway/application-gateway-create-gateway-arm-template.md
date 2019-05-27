@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 113e30ab65f2cd0ff420df1c79807147a62f79f1
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135769"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
 
@@ -47,7 +47,7 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 1. Open het bestand dat u hebt opgeslagen en bekijk de inhoud onder **parameters** in regel
 1. Azure Resource Manager-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
 
-   | Parameter | Beschrijving |
+   | Parameter | Description |
    | --- | --- |
    | **subnetPrefix** |CIDR-blokkering voor het subnet van de gateway. |
    | **applicationGatewaySize** | Grootte van de toepassingsgateway.  WAF kan alleen middelgrote en grote. |

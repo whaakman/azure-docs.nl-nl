@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162258"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Zelfstudie: Metrische gegevens en diagnostische logboeken instellen en gebruiken met een IoT-hub
 
@@ -274,7 +274,7 @@ IoT Hub is nog niet gemigreerd naar de [metrische gegevens in Azure Monitor](/az
 
 Eerder in het scriptinstellingsgedeelte stelt u een apparaat in voor de simulatie via een IoT-apparaat. In deze sectie downloadt u een .NET-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.  
 
-Download de oplossing voor de [IoT-apparaatsimulatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Met deze koppeling downloadt u een opslagplaats die meerdere toepassingen bevat. De oplossing die u zoekt, bevindt zich in iot-hub/Tutorials/Routing/SimulatedDevice/.
+Download de oplossing voor de [IoT-apparaatsimulatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Deze link downloadt u een opslagplaats met meerdere toepassingen in. de oplossing die u zoekt is in iot-hub/zelfstudies/routering /.
 
 Dubbelklik op het oplossingsbestand (SimulatedDevice.sln om de code in Visual Studio) te openen en open vervolgens Program.cs. Vervang `{iot hub hostname}` door de hostnaam van de IoT Hub. De indeling van de hostnaam van de IoT Hub is **{iot-hub-name} .azure-devices.net**. Voor deze zelfstudie is de naam van de hubhost **ContosoTestHub.azure devices.net**. Vervang vervolgens `{device key}` door de apparaatsleutel die u eerder hebt opgeslagen bij het instellen van het gesimuleerde apparaat. 
 
@@ -298,7 +298,7 @@ Voer de consoletoepassing uit. Wacht enkele minuten (10–15). U kunt de bericht
 
 ### <a name="see-the-metrics-in-the-portal"></a>De metrische gegevens bekijken in de portal
 
-Open uw metrische gegevens vanuit het Dashboard. Wijzig de tijdwaarden in *Afgelopen 30 minuten*, met een tijdgranulatie van *1 minuut*. De verzonden telemetrieberichten en het totale aantal gebruikte berichten worden weergegeven in de grafiek, met de meest recente cijfers onderaan de grafiek. 
+Open uw metrische gegevens vanuit het Dashboard. Wijzig de tijdwaarden in *Afgelopen 30 minuten*, met een tijdgranulatie van *1 minuut*. De verzonden telemetrieberichten en het totale aantal gebruikte berichten worden weergegeven in de grafiek, met de meest recente cijfers onderaan de grafiek.
 
    ![Schermafbeelding van de metrische gegevens.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +385,4 @@ In deze zelfstudie hebt u geleerd metrische gegevens en logboeken met diagnostis
 Ga door naar de volgende zelfstudie voor informatie over het beheren van de toestand van een IoT-apparaat. 
 
 > [!div class="nextstepaction"]
-[Uw apparaten configureren vanaf een back-endservice](tutorial-device-twins.md)
+> [Uw apparaten configureren vanaf een back-endservice](tutorial-device-twins.md)

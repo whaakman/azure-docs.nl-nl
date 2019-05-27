@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58794016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130592"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -181,7 +181,7 @@ Als u wilt de Administrator-account voor de eerste keer inschakelt, moet u toest
 
 1. U krijgt een die vergelijkbaar is met het onderstaande venster. Klik op **accepteren**.
     
-    ![toestemming van de beheerder](media/solution-office-365/admin-consent.png)
+    ![Toestemming van de beheerder](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Abonneren op Log Analytics-werkruimte
 
@@ -489,7 +489,7 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
-## <a name="data-collection"></a>Gegevensverzameling
+## <a name="data-collection"></a>Gegevens verzamelen
 
 ### <a name="supported-agents"></a>Ondersteunde agents
 
@@ -512,7 +512,7 @@ Klik op de **Office 365** tegel om te openen de **Office 365** dashboard.
 
 Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de bovenste tien waarschuwingen per aantal die overeenkomen met criteria voor het opgegeven bereik en het tijdsbereik van die kolom. U kunt een logboekzoekopdracht waarmee de volledige lijst door te klikken op Zie alle aan de onderkant van de kolom of door te klikken op de kolomkop uitvoeren.
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 |:--|:--|
 | Bewerkingen | Bevat informatie over de actieve gebruikers in uw alle bewaakte Office 365-abonnementen. Ook mogelijk om het aantal activiteiten die na verloop van tijd plaatsvinden te zien.
 | Exchange | U kunt de uitsplitsing van Exchange Server-activiteiten, zoals toevoegen-machtiging of Set-postvak. |
@@ -614,7 +614,7 @@ Deze records worden gemaakt wanneer er wijzigingen zijn aangebracht aan de confi
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Hiermee geeft u op of de cmdlet is uitgevoerd door een gebruiker in uw organisatie, door medewerkers van Microsoft-datacenter of in een datacenter-service-account, of door een gedelegeerd beheerder. De waarde False geeft aan dat de cmdlet is uitgevoerd door iemand in uw organisatie. De waarde waar geeft aan dat de cmdlet is uitgevoerd door datacenter personeel, een datacenter-service-account of een gedelegeerde beheerder. |
 | ModifiedObjectResolvedName |  Dit is de beschrijvende naam van het object dat door de cmdlet is gewijzigd. Dit wordt alleen weergegeven als het object Hiermee wijzigt u de cmdlet vastgelegd. |
-| OrganizationName | De naam van de tenant. |
+| Organisatienaam | De naam van de tenant. |
 | OriginatingServer | De naam van de server van waaruit u de cmdlet is uitgevoerd. |
 | Parameters | De naam en waarde voor alle parameters die zijn gebruikt met de cmdlet die wordt geïdentificeerd in de Operations-eigenschap. |
 
@@ -710,7 +710,7 @@ Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht i
 
 Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -731,7 +731,7 @@ Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 
 De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords die worden verzameld door deze oplossing.
 
-| Query’s uitvoeren | Description |
+| Query | Description |
 | --- | --- |
 |Telling van alle bewerkingen op uw Office 365-abonnement |OfficeActivity &#124; count() by bewerking samenvatten |
 |Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; samenvatten count() by SiteUrl \| sorteren op aantal asc|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415023"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988610"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Azure Multi-Factor Authentication-server configureren voor IIS-webtoepassingen
 
@@ -30,7 +30,7 @@ Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van verificatie op 
 
 1. Klik op de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-verificatie.
 2. Klik op het tabblad **Op formulier gebaseerd**.
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 4. Variabelen voor de gebruikersnaam, wachtwoord en automatisch detecteren, voert u de aanmeldings-URL (zoals `https://localhost/contoso/auth/login.aspx`) in het dialoogvenster formulier-gebaseerde Website en klik op **OK**.
 5. Schakel het selectievakje **Overeenkomende Multi-Factor Authentication-gebruiker vereisen** in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan Multi-Factor Authentication moeten worden onderworpen. Als een groot aantal gebruikers nog niet is geïmporteerd op de server en/of vrijgesteld zal zijn van meervoudige verificatie, laat u het vakje uitgeschakeld.
 6. Als de paginavariabelen niet automatisch kunnen worden gedetecteerd, klikt u op de **Handmatig opgeven** in het dialoogvenster Formulier-gebaseerde website automatisch configureren.
@@ -54,7 +54,7 @@ Als u een IIS-webtoepassing wilt beveiligen die gebruikmaakt van geïntegreerde 
 
 1. Klik op de Azure Multi-Factor Authentication-server in het menu links op het pictogram IIS-verificatie.
 2. Klik op het tabblad **HTTP**.
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 4. Voer in het dialoogvenster basis-URL toevoegen de URL voor de website waar de HTTP-verificatie wordt uitgevoerd (zoals <http://localhost/owa>) en geef een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
 5. Pas de tijd voor time-out voor inactiviteit en voor Maximale sessie aan als de standaardwaarde niet voldoende is.
 6. Schakel het selectievakje **Overeenkomende Multi-Factor Authentication-gebruiker vereisen** in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan Multi-Factor Authentication moeten worden onderworpen. Als een groot aantal gebruikers nog niet is geïmporteerd op de server en/of vrijgesteld zal zijn van meervoudige verificatie, laat u het vakje uitgeschakeld.
@@ -74,6 +74,6 @@ Nadat u de URL's en instellingen voor op formulier gebaseerde of HTTP-verificati
 De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Factor Authentication over te slaan voor websiteverzoeken die afkomstig zijn van bepaalde IP-adressen of subnetten. Zo kunt u gebruikers vrijstellen van Azure Multi-Factor Authentication wanneer zij zich op kantoor aanmelden. Hiervoor geeft u het subnet van de werkplek op als een goedgekeurd IP-adres. Gebruik de volgende procedure als u goedgekeurde IP-adressen wilt configureren:
 
 1. Klik op het tabblad **Goedgekeurde IP-adressen** in de sectie IIS-verificatie.
-2. Klik op **Add**.
+2. Klik op **Toevoegen**.
 3. Wanneer het dialoogvenster Goedgekeurd IP-adres toevoegen wordt weergegeven, selecteert u het keuzerondje **Eén IP-adres**, **IP-bereik** of **Subnet**.
-4. Voer het IP-adres, het bereik van IP-adressen of het subnet in dat u op de lijst van goedgekeurde IP-adressen wilt plaatsen. Als u een subnet wilt invoeren, selecteert u het geschikte Netmasker en klikt u op **OK**. De lijst van goedgekeurde IP-adressen is toegevoegd.
+4. Voer het IP-adres, bereik van IP-adressen of subnet die moet worden toegestaan. Als u een subnet wilt invoeren, selecteert u het geschikte Netmasker en klikt u op **OK**.

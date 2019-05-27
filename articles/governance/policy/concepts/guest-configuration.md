@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277716"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979514"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informatie over Azure Policy Gast-configuratie
 
@@ -63,7 +63,7 @@ De volgende tabel bevat een overzicht van de lokale hulpprogramma's die op elk o
 
 ### <a name="validation-frequency"></a>Validatie frequentie
 
-De configuratie van de Gast-client controleert nieuwe inhoud om de 5 minuten. Nadat de toewijzing van een Gast is ontvangen, worden de instellingen in een interval van 15 minuten gecontroleerd. Resultaten worden verzonden naar de configuratie van de Gast-resourceprovider als de controle is voltooid. Wanneer een beleid [evaluatie trigger](../how-to/get-compliance-data.md#evaluation-triggers) optreedt, de status van de machine wordt geschreven bij de configuratie van de Gast-resourceprovider. Dit zorgt ervoor dat Azure-beleid om te evalueren van de Azure Resource Manager-eigenschappen. Een evaluatie van het beleid op aanvraag haalt de laatste waarde van de configuratie van de Gast-resourceprovider. Echter activeren niet het van een nieuwe controle van de configuratie van de virtuele machine.
+De configuratie van de Gast-client controleert nieuwe inhoud om de 5 minuten. Nadat de toewijzing van een Gast is ontvangen, worden de instellingen in een interval van 15 minuten gecontroleerd. Resultaten worden verzonden naar de configuratie van de Gast-resourceprovider als de controle is voltooid. Wanneer een beleid [evaluatie trigger](../how-to/get-compliance-data.md#evaluation-triggers) optreedt, de status van de machine wordt geschreven bij de configuratie van de Gast-resourceprovider. Dit zorgt ervoor dat Azure-beleid om te evalueren van de Azure Resource Manager-eigenschappen. Een evaluatie van het Azure-beleid op aanvraag haalt de laatste waarde van de configuratie van de Gast-resourceprovider. Echter activeren niet het van een nieuwe controle van de configuratie van de virtuele machine.
 
 ### <a name="supported-client-types"></a>Ondersteunde client-typen
 
@@ -80,7 +80,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen op Azure-
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuratie van de Gast kunt controleren knooppunten waarop een ondersteund besturingssysteem wordt uitgevoerd.  Als u controleren van virtuele machines die gebruikmaken van een aangepaste installatiekopie wilt, moet u voor het dupliceren van de **DeployIfNotExists** definitie en wijzig de **als** sectie om op te nemen van uw installatiekopie-eigenschappen.
+> Configuratie van de Gast kunt controleren knooppunten waarop een ondersteund besturingssysteem wordt uitgevoerd. Als u controleren van virtuele machines die gebruikmaken van een aangepaste installatiekopie wilt, moet u voor het dupliceren van de **DeployIfNotExists** definitie en wijzig de **als** sectie om op te nemen van uw installatiekopie-eigenschappen.
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
@@ -93,9 +93,7 @@ Om te communiceren met de configuratie van de Gast-resourceprovider in Azure, vi
 Voor een lijst met IP-adres, kunt u downloaden [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt, en heeft de bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken. U hoeft alleen uitgaande toegang tot de IP-adressen in de regio's waar uw virtuele machines worden geïmplementeerd.
 
 > [!NOTE]
-> Het Azure Datacenter IP-adres XML-bestand bevat de IP-adresbereiken die worden gebruikt in de Microsoft Azure-datacenters. Het bestand bevat compute, SQL en storage.
-> Wekelijks wordt een bijgewerkt bestand geplaatst. Het bestand weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken. Nieuwe bereiken die worden weergegeven in het bestand worden niet gebruikt in de datacenters voor ten minste één week.
-> Er is een goed idee om te downloaden van het nieuwe XML-bestand elke week. Werk vervolgens uw site services die worden uitgevoerd in Azure correct kan worden geïdentificeerd. Gebruikers van Azure ExpressRoute Houd er rekening mee dat dit bestand wordt gebruikt voor het bijwerken van de aankondiging Border Gateway Protocol (BGP) van Azure-ruimte in de eerste week van elke maand.
+> Het Azure Datacenter IP-adres XML-bestand bevat de IP-adresbereiken die worden gebruikt in de Microsoft Azure-datacenters. Het bestand bevat compute, SQL en storage. Wekelijks wordt een bijgewerkt bestand geplaatst. Het bestand weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken. Nieuwe bereiken die worden weergegeven in het bestand worden niet gebruikt in de datacenters voor ten minste één week. Er is een goed idee om te downloaden van het nieuwe XML-bestand elke week. Werk vervolgens uw site services die worden uitgevoerd in Azure correct kan worden geïdentificeerd. Gebruikers van Azure ExpressRoute Houd er rekening mee dat dit bestand wordt gebruikt voor het bijwerken van de aankondiging Border Gateway Protocol (BGP) van Azure-ruimte in de eerste week van elke maand.
 
 ## <a name="guest-configuration-definition-requirements"></a>Configuratie van de Gast de definitie van vereisten
 
@@ -140,7 +138,7 @@ Voorbeelden voor configuratie van beleid voor gast zijn beschikbaar in de volgen
 ## <a name="next-steps"></a>Volgende stappen
 
 - Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
-- Bekijk de [structuur van Azure Policy-definities](definition-structure.md).
+- Lees over de [structuur van Azure Policy-definities](definition-structure.md).
 - Lees [Informatie over de effecten van het beleid](effects.md).
 - Begrijpen hoe u [programmatisch beleid maken](../how-to/programmatically-create.md).
 - Meer informatie over het [ophalen compatibiliteitsgegevens](../how-to/getting-compliance-data.md).

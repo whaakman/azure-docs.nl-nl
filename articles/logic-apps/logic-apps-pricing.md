@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
-ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.date: 05/22/2019
+ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544559"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990193"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prijsmodel voor Azure Logic Apps
 
@@ -92,11 +92,15 @@ Nadat u een logische app uitschakelen, kunnen alle exemplaren die momenteel word
 Verbruiksprijzen is van toepassing op [integratieaccounts](logic-apps-enterprise-integration-create-integration-account.md) waar u kunt verkennen, ontwikkelen en testen van de [B2B en EDI](logic-apps-enterprise-integration-b2b.md) en [XML-verwerking](logic-apps-enterprise-integration-xml.md) functies in Azure Logic Apps zonder extra kosten.
 U kunt een integratie-account hebben in elke Azure-regio. Elke integratie-account kan maximaal opslaan op specifieke [aantallen artefacten](../logic-apps/logic-apps-limits-and-config.md), waaronder trading partners, overeenkomsten, kaarten, schema's, assembly's, certificaten, batchconfiguraties enzovoort.
 
-Met Azure Logic Apps biedt ook Basic en Standard-integratieaccounts met ondersteunde SLA van logische Apps. Hier zijn manieren kunt u kiezen of een Basic- of Standard-integratie-account te gebruiken:
+Met Azure Logic Apps biedt gratis, Basic en Standard-integratieaccounts. De lagen basis en standaard worden ondersteund door de Logic Apps service level agreement (SLA), terwijl de gratis laag wordt niet ondersteund door een SLA en limieten is over doorvoer en het gebruik.
 
-* Basic-integratieaccounts gebruiken wanneer u maar afhandeling van berichten wilt of fungeren als een kleine zakelijke partner die een trading partner relatie heeft met een grotere bedrijfsentiteit.
+Kiezen tussen een gratis, Basic of Standard-integratie-account:
 
-* Standard-integratieaccounts gebruiken wanneer u complexere B2B-relaties en wilt verhogen van het aantal entiteiten die u kunt beheren.
+* **Gratis**: Als u wilt proberen experimentele scenario's, niet-productie scenario's.
+
+* **Basic**: Als u wilt dat alleen afhandeling van berichten of om te fungeren als een kleine zakelijke partner heeft die een trading partner-relatie met een grotere bedrijfsentiteit.
+
+* **Standard**: Voor complexere B2B-relaties en een groter aantal entiteiten die u moet beheren.
 
 Zie voor gedetailleerde informatie over prijzen [prijzen voor Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 

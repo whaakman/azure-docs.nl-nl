@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/12/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794750"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991610"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -72,6 +72,7 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 * De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br><br>
   **De volgende services worden niet ondersteund**:
     * CDN
+    * Azure voordeur
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -84,6 +85,7 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Global Services van Azure-community)
 * De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br><br>**De volgende services worden niet ondersteund**:
     * CDN
+    * Azure voordeur
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -220,7 +222,7 @@ Ja. We accepteren maximaal 4000 voorvoegsels van de route voor persoonlijke peer
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Zijn er beperkingen voor IP-adresbereiken die ik via de BGP-sessie adverteren kunt?
 
-We accepteren geen persoonlijke voorvoegsels (RFC1918) voor de Microsoft-peering BGP-sessie.
+We accepteren geen persoonlijke voorvoegsels (RFC1918) voor de Microsoft-peering BGP-sessie. We accepteren elke grootte voorvoegsel (maximaal /32) op de Microsoft- en persoonlijke peering.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Wat gebeurt er als ik het BGP beperkt?
 
@@ -283,6 +285,26 @@ Raadpleeg [prijsinformatie](https://azure.microsoft.com/pricing/details/expressr
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>Moet ik betalen voor de ExpressRoute premium naast standard ExpressRoute-kosten in rekening gebracht?
 
 Ja. ExpressRoute premium kosten gelden boven op de kosten voor ExpressRoute-circuit en de kosten die zijn vereist door de connectiviteitsprovider.
+
+## <a name="expressroute-local"></a>ExpressRoute-lokaal
+### <a name="what-is-expressroute-local"></a>Wat is het lokale ExpressRoute?
+Lokale ExpressRoute is een SKU van ExpressRoute-circuit. Een belangrijke functie van de lokale is dat een lokale circit op een ExpressRoute peeringlocatie u biedt toegang tot slechts aan één of twee Azure-regio's in- of in de buurt van de dezelfde metro. Daarentegen biedt een standaardcircuit u toegang tot alle Azure-regio's in een geopolitieke gebied en een Premium-circuit tot alle Azure-regio's wereldwijd. 
+
+### <a name="what-are-the-benefits-of-expressroute-local"></a>Wat zijn de voordelen van de lokale ExpressRoute?
+Terwijl u nodig hebt om te betalen van uitgaande gegevensoverdracht voor uw Standard of Premium ExpressRoute-circuit, u geen uitgaande gegevensoverdracht dan apart betalen voor uw lokale ExpressRoute-circuit. De prijs van ExpressRoute lokale is met andere woorden, inclusief kosten voor gegevensoverdracht. Lokale ExpressRoute is een meer betaalbare oplossing als u enorme hoeveelheden gegevens over te dragen en u uw gegevens via een persoonlijke verbinding met een ExpressRoute-peering locatie in de buurt van uw gewenste Azure-regio's onderbrengen kunt. 
+
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Welke functies beschikbaar zijn en wat zijn niet op de lokale ExpressRoute?
+Vergeleken met een Standard ExpressRoute-circuit, heeft een lokale circuit dezelfde set functies met uitzondering van:
+* Bereik van de toegang tot Azure-regio's zoals is beschreven bovenstaande
+* ExpressRoute globaal bereik is niet beschikbaar op lokale
+
+ExpressRoute lokale heeft bovendien de grenzen van resources (bijvoorbeeld het aantal vnet's per circuit) als standaard. 
+
+### <a name="how-to-configure-expressroute-local"></a>Het configureren van lokale ExpressRoute? 
+ExpressRoute lokale is alleen beschikbaar op ExpressRoute Direct. U moet dus eerst de ExpressRoute directe poort configureren. Zodra uw directe poort is gemaakt kunt u een lokale circuit de instructies te volgen [hier](expressroute-howto-erdirect.md).
+
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>ExpressRoute lokale waar beschikbaar is en welke Azure-regio's is elke peeringlocatie gekoppeld?
+Lokale ExpressRoute is beschikbaar op de peeringlocaties waarbij één of twee Azure-regio's zijn sluiten door. Het is niet beschikbaar op een locatie waarbij er geen Azure-regio's in die staat of provincie of land/regio. Raadpleeg de exacte toewijzingen op [de locatiepagina](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute voor Office 365
 

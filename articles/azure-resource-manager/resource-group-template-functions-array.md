@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128709"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matrix- en -functies voor Azure Resource Manager-sjablonen
 
@@ -49,7 +49,7 @@ Als u een matrix van tekenreeksen gescheiden door een waarde, Zie [splitsen](res
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>array
+## <a name="array"></a>matrix
 `array(convertToArray)`
 
 De waarde omgezet in een matrix.
@@ -403,11 +403,11 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | False |
+| stringFalse | Bool | Onwaar |
 | objectTrue | Bool | True |
-| objectFalse | Bool | False |
+| objectFalse | Bool | Onwaar |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | Onwaar |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -724,7 +724,7 @@ In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>json
+## <a name="json"></a>JSON
 `json(arg1)`
 
 Retourneert een JSON-object.
@@ -782,7 +782,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
-| nullOutput | Booleaans | True |
+| nullOutput | Boolean | True |
 | paramOutput | Object | {"a": "demo waarde"}
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
@@ -1011,7 +1011,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>min
 `min(arg1)`
 
 Retourneert de minimumwaarde van een matrix met gehele getallen of een door komma's gescheiden lijst met gehele getallen.

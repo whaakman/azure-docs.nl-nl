@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073340"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977772"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 
@@ -56,12 +56,14 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Avere Operator](#avere-operator) | Gebruikt door het Avere vFXT-cluster voor het beheren van het cluster |
 | [Beheerdersrol voor Azure Kubernetes Service-Cluster](#azure-kubernetes-service-cluster-admin-role) | Referentieactie voor clusterbeheer weergeven. |
 | [Azure Kubernetes Service-Cluster-gebruikersrol](#azure-kubernetes-service-cluster-user-role) | Referentieactie voor clustergebruiker weergeven. |
+| [Azure kaarten-gegevenslezer (Preview)](#azure-maps-data-reader-preview) | Hiermee wordt toegang verleend tot gegevens van een leeskaart uit een Azure Maps-account. |
 | [De eigenaar van de Azure Stack-registratie](#azure-stack-registration-owner) | Hiermee kunt u Azure Stack-registraties beheren. |
 | [Back-Inzender](#backup-contributor) | Hiermee kunt u de back-upservice beheren, maar u kunt geen kluizen maken of anderen toegang verlenen |
 | [Back-upoperator](#backup-operator) | Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van back-ups, het maken van kluizen en het verlenen van toegang aan anderen |
 | [Back-Uplezer](#backup-reader) | Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen |
 | [Facturering voor lezer](#billing-reader) | Hiermee wordt leestoegang gegeven tot factureringsgegevens |
 | [BizTalk Contributor](#biztalk-contributor) | Hiermee beheert u BizTalk-services, maar kunt u niet de toegang tot de services beheren. |
+| [Blockchain lid knooppunt toegang (Preview)](#blockchain-member-node-access-preview) | Hiermee wordt toegang toegestaan tot Blockchain-lidknooppunten |
 | [Inzender voor CDN-eindpunt](#cdn-endpoint-contributor) | Kan CDN-eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
 | [Lezer voor CDN-eindpunt](#cdn-endpoint-reader) | Kan CDN-eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
 | [Inzender voor CDN-profiel](#cdn-profile-contributor) | Kan CDN-profielen en de bijbehorende eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
@@ -86,6 +88,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [DevTest Labs User](#devtest-labs-user) | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
 | [Inzender voor DNS-Zone](#dns-zone-contributor) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 | [Inzender voor het DocumentDB-Account](#documentdb-account-contributor) | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
+| [Event Hubs Data Owner](#event-hubs-data-owner) | Volledige toegang tot de Azure Event Hubs-bronnen | 
 | [EventGrid EventSubscription Inzender](#eventgrid-eventsubscription-contributor) | Hiermee kunt u bewerkingen van abonnementen voor EventGrid-gebeurtenissen beheren. |
 | [EventGrid EventSubscription lezer](#eventgrid-eventsubscription-reader) | Hiermee kunt u abonnementen voor EventGrid-gebeurtenissen lezen. |
 | [HDInsight-Cluster-Operator](#hdinsight-cluster-operator) | Hiermee kunt u lezen en wijzigen van configuraties van clusters op HDInsight. |
@@ -116,6 +119,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Beveiligingsbeheerder](#security-admin) | In Security Center: Kan weergeven beveiligingsbeleid, security-status weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
 | [Beveiligingsbeheer (verouderd)](#security-manager-legacy) | Dit is een verouderde rol. Gebruik in plaats hiervan beveiligingsbeheerder |
 | [Beveiligingslezer](#security-reader) | In Security Center: Aanbevelingen en waarschuwingen, weergave beveiligingsbeleid van de status van de beveiliging weergeven, maar kan geen wijzigingen aanbrengen kunt weergeven |
+| [De eigenaar van een service Bus-gegevens](#service-bus-data-owner) | Volledige toegang tot Azure Service Bus-bronnen |
 | [Site Recovery-Inzender](#site-recovery-contributor) | Hiermee kunt u de Site Recovery-service beheren, maar geen kluizen maken of rollen toewijzen |
 | [Site Recovery-Operator](#site-recovery-operator) | Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkingen voor Site Recovery |
 | [Site Recovery-lezer](#site-recovery-reader) | Hiermee kunt u de Site Recovery-status weergeven maar geen andere beheerbewerkingen voor Site Recovery uitvoeren |
@@ -427,7 +431,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="automation-operator"></a>Automation-operator
+## <a name="automation-operator"></a>Operator voor Automation
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -571,6 +575,21 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="azure-maps-data-reader-preview"></a>Azure Maps-gegevenslezer (preview-versie)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee wordt toegang verleend tot gegevens van een leeskaart uit een Azure Maps-account. |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **Acties** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Maps/accounts/data/read | Verleent toegang tot het lezen van gegevens naar een maps-account. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -773,7 +792,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="billing-reader"></a>Lezer voor facturering
+## <a name="billing-reader"></a>Facturering voor lezer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -812,6 +831,21 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="blockchain-member-node-access-preview"></a>Toegang tot Blockchain-lidknooppunt (preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee wordt toegang toegestaan tot Blockchain-lidknooppunten |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **Acties** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Opgehaald of een lijst met bestaande Blockchain lid transactie knooppunten. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Maakt verbinding met een lid van de Blockchain-transactie-knooppunt. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -932,7 +966,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Id** | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Autorisatie lezen |
-> | Microsoft.ClassicStorage/storageAccounts/* | Maken en storage-accounts beheren |
+> | Microsoft.ClassicStorage/storageAccounts/* | Opslagaccounts maken en beheren |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
@@ -1139,6 +1173,8 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/read | Hiermee kunt u de lijst met abonnementen ophalen. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Advisor/configurations/read | Configuraties ophalen |
+> | Microsoft.Advisor/recommendations/read | Aanbevelingen voor leesbewerkingen |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1159,6 +1195,8 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/read | Hiermee kunt u de lijst met abonnementen ophalen. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Advisor/configurations/read | Configuraties ophalen |
+> | Microsoft.Advisor/recommendations/read | Aanbevelingen voor leesbewerkingen |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1198,6 +1236,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Hiermee wordt een lijst gemaakt van niet-versleutelde referenties die betrekking hebben op de bestelling. |
 > | Microsoft.Databox/locations/availableSkus/action | Met deze methode wordt de lijst met beschikbare SKU's geretourneerd. |
+> | Microsoft.Databox/locations/validateAddress/action | Hiermee wordt het verzendadres gevalideerd en eventuele alternatieve adressen opgegeven. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
@@ -1299,6 +1338,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.DevTestLab/*/read | De eigenschappen van een lab lezen |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Claim een willekeurige claimbare virtuele machine in het lab. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | Virtuele machines in een lab maken. |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | Zorg ervoor dat de huidige gebruiker heeft een geldig profiel in het lab. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Verwijderen van formules. |
 > | Microsoft.DevTestLab/labs/formulas/read | Formules worden gelezen. |
 > | Microsoft.DevTestLab/labs/formulas/write | Toevoegen of wijzigen van formules. |
@@ -1369,6 +1409,22 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="event-hubs-data-owner"></a>Eigenaar van gegevens van Event Hubs
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u volledige toegang tot Azure Event Hubs-bronnen. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Acties** |  |
+> | Microsoft.EventHubs/* | Volledig beheer toegang tot de Event Hubs-naamruimte |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHubs/* | Volledige gegevens toegang tot de Event Hubs-naamruimte |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="eventgrid-eventsubscription-contributor"></a>Inzender van abonnement voor EventGrid-gebeurtenissen
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1426,6 +1482,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Resources/deployments/operations/read | Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst. |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
+> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2019,6 +2076,22 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="service-bus-data-owner"></a>De eigenaar van een service Bus-gegevens
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u volledige toegang tot Azure Service Bus-resources. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Acties** |  |
+> | Microsoft.ServiceBus/* | Volledig beheer toegang tot de Service Bus-naamruimte |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | Volledige gegevens toegang tot de Service Bus-naamruimte |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="site-recovery-contributor"></a>Site Recovery-inzender
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2431,7 +2504,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
-> | Microsoft.Storage/storageAccounts/* | Maken en storage-accounts beheren |
+> | Microsoft.Storage/storageAccounts/* | Opslagaccounts maken en beheren |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2482,7 +2555,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Beschrijving** | Biedt volledige toegang tot Azure Storage-blobcontainers en gegevens, zoals het toewijzen van POSIX-toegangsbeheer. Zie voor meer acties zijn vereist voor een bepaalde gegevensbewerking [machtigingen voor het aanroepen van blob- en wachtrijservices gegevensbewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Acties** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Volledige machtigingen voor containers.  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Volledige machtigingen voor containers. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2608,7 +2681,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="user-access-administrator"></a>Beheerder van gebruikerstoegang
+## <a name="user-access-administrator"></a>Administrator voor gebruikerstoegang
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

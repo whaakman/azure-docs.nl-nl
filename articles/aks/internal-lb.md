@@ -2,18 +2,17 @@
 title: Een interne load balancer maken in Azure Kubernetes Service (AKS)
 description: Informatie over het maken en gebruiken van een interne load balancer om uw services met Azure Kubernetes Service (AKS) zichtbaar te maken.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 03/04/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/04/2019
+ms.author: iainfou
+ms.openlocfilehash: 1b5d18a3dfd1181fd06b58fd58f496457e24b58e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465543"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956372"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Een interne load balancer gebruiken met Azure Kubernetes Service (AKS)
 
@@ -27,6 +26,8 @@ Om toegang te beperken tot uw toepassingen in Azure Kubernetes Service (AKS), ku
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
 U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+
+De AKS-clusterservice-principal moet de machtiging voor het beheren van netwerkbronnen als u een bestaand subnet of de resourcegroep. In het algemeen toewijzen de *Inzender voor netwerken* rol aan uw service-principal op de gedeelde resources. Zie voor meer informatie over machtigingen [AKS gemachtigde toegang tot andere Azure-resources][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Een interne load balancer maken
 
@@ -145,10 +146,11 @@ Meer informatie over Kubernetes-services op de [documentatie voor Kubernetes ser
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

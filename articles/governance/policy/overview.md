@@ -7,16 +7,16 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60953086"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979162"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Overzicht van de Azure Policy-service
 
-Governance controleert of uw organisatie haar doelen kan bereiken via een effectief en efficiënt gebruik van IT. Het zorgt voor duidelijkheid tussen zakelijke doelstellingen en IT-projecten.
+Governance valideert dat uw organisatie van de bijbehorende doelstellingen door effectief en efficiënt gebruik van bereiken kan IT. Het zorgt voor duidelijkheid tussen zakelijke doelstellingen en IT-projecten.
 
 Ondervindt uw bedrijf een significant aantal IT-problemen die nooit lijken te worden opgelost?
 Goed IT-beheer omvat het plannen van uw initiatieven en het stellen van prioriteiten op strategisch niveau, zodat problemen beheerst en voorkomen kunnen worden. Hiervoor gebruikt u Azure Policy.
@@ -28,7 +28,7 @@ Azure Policy is een service in Azure die u gebruikt om beleidsregels te maken, t
 
 ## <a name="how-is-it-different-from-rbac"></a>Wat is het verschil met RBAC?
 
-Er zijn enkele belangrijke verschillen tussen beleid en RBAC (op rollen gebaseerd toegangsbeheer). RBAC is gericht op de acties van gebruikers in verschillende bereiken. Mogelijk wordt u voor een resourcegroep toegevoegd aan de rol Inzender, zodat u wijzigingen kunt aanbrengen in die resourcegroep. Beleid is gericht op resource-eigenschappen tijdens de implementatie en voor al bestaande resources. Met het beleid worden eigenschappen bepaald, zoals de typen resources of hun locatie. In tegenstelling tot RBAC is beleid een standaardsysteem voor toestaan en expliciet weigeren.
+Er zijn enkele belangrijke verschillen tussen Azure Policy en op rollen gebaseerd toegangsbeheer (RBAC). RBAC is gericht op de acties van gebruikers in verschillende bereiken. Mogelijk wordt u voor een resourcegroep toegevoegd aan de rol Inzender, zodat u wijzigingen kunt aanbrengen in die resourcegroep. Azure Policy-richt zich op de resource-eigenschappen tijdens de implementatie en voor al bestaande resources. Azure Policy bepaalt de eigenschappen op, zoals de typen of de locaties van resources. In tegenstelling tot RBAC, Azure Policy is een standaardsysteem voor toestaan en expliciet weigeren.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>RBAC-machtigingen in Azure Policy
 
@@ -37,7 +37,7 @@ Azure Policy heeft diverse machtigingen, oftewel bewerkingen, in twee verschille
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Veel ingebouwde rollen wijzen machtigingen toe aan Azure Policy-resources. De rol **Inzender voor resourcebeleid (preview)** bevat de meeste beleidsbewerkingen. Degene met de rol **Eigenaar** heeft volledige rechten. Zowel een **Inzender** als een **Lezer** kan alle beleidsbewerkingen voor lezen gebruiken. Een **Inzender** kan ook herstel activeren.
+Veel ingebouwde rollen wijzen machtigingen toe aan Azure Policy-resources. De **Inzender voor Resourcebeleid (Preview)** rol omvat de meeste Azure Policy-bewerkingen. Degene met de rol **Eigenaar** heeft volledige rechten. Beide **Inzender** en **lezer** kunt alle Azure Policy leesbewerkingen, maar **Inzender** kunnen ook herstel activeren.
 
 Als geen van de ingebouwde rollen de vereiste machtigingen heeft, maakt u een [aangepaste rol](../../role-based-access-control/custom-roles.md).
 
@@ -68,7 +68,7 @@ Een beleidstoewijzing is een beleidsdefinitie die is toegewezen om te worden toe
 
 U kunt op het abonnementsbereik bijvoorbeeld een beleid toepassen op basis waarvan het maken van netwerkresources wordt voorkomen. U kunt echter één resourcegroep binnen het abonnement uitsluiten, namelijk degene die is bedoeld voor netwerkinfrastructuur. U verleent vervolgens toegang tot deze netwerkresourcegroep aan gebruikers aan wie u het maken van de netwerkresourcegroep toevertrouwt.
 
-In een ander voorbeeld wilt u mogelijk een whitelistbeleid voor resourcetypen toewijzen op het niveau van de beheergroep. En vervolgens wilt u een ruimer beleid (zodat meer resourcetypen zijn toegestaan) toewijzen via een onderliggende beheergroep of zelfs rechtstreeks in abonnementen. Dit voorbeeld zou echter niet goed werken, omdat beleid een expliciet weigersysteem is. In plaats daarvan moet u de onderliggende beheergroep of het abonnement uitsluiten van de beleidstoewijzing op beheergroepniveau. Vervolgens kunt u het ruimere beleid toewijzen aan het niveau van de onderliggende beheergroep of het abonnement. Als beleidsresultaten in een resource worden geweigerd, vormt het aanpassen van het weigeringsbeleid de enige manier om de resource toe te staan.
+In een ander voorbeeld wilt u mogelijk een resource toewijzen type lijst toestaan op niveau van de beheergroep. En vervolgens wilt u een ruimer beleid (zodat meer resourcetypen zijn toegestaan) toewijzen via een onderliggende beheergroep of zelfs rechtstreeks in abonnementen. Dit voorbeeld zou echter niet goed werken, omdat beleid een expliciet weigersysteem is. In plaats daarvan moet u de onderliggende beheergroep of het abonnement uitsluiten van de beleidstoewijzing op beheergroepniveau. Vervolgens kunt u het ruimere beleid toewijzen aan het niveau van de onderliggende beheergroep of het abonnement. Als beleidsresultaten in een resource worden geweigerd, vormt het aanpassen van het weigeringsbeleid de enige manier om de resource toe te staan.
 
 Zie [Een beleidstoewijzing maken om niet-compatibele resources in uw Azure-abonnement te identificeren](assign-policy-portal.md) voor meer informatie over het instellen van beleidsdefinities en -toewijzingen via de portal. Er zijn ook stappen voor [PowerShell](assign-policy-powershell.md) en [Azure CLI](assign-policy-azurecli.md) beschikbaar.
 
@@ -115,7 +115,7 @@ In dit scenario hebt u, bij het definiëren van de initiatiefparameters voor **i
 
 Als u waardeopties maakt in een initiatiefdefinitie, is het niet mogelijk om tijdens het toewijzen van het initiatief andere waarden op te geven, omdat deze niet op de lijst staan.
 
-## <a name="maximum-count-of-policy-objects"></a>Maximum aantal Policy-objecten
+## <a name="maximum-count-of-azure-policy-objects"></a>Maximum aantal objecten dat Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -144,8 +144,8 @@ Het volgende overzicht van Azure Policy is afkomstig van build 2018. Voor het do
 
 Nu u een overzicht hebt van Azure Policy en enkele van de belangrijkste geïntroduceerde concepten, ziet u hier de voorgestelde volgende stappen:
 
-- [Een beleidsdefinitie toewijzen met behulp van de portal](assign-policy-portal.md)
-- [Een beleidsdefinitie toewijzen met behulp van Azure CLI](assign-policy-azurecli.md)
-- [Een beleidsdefinitie toewijzen met behulp van PowerShell](assign-policy-powershell.md)
-- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](..//management-groups/overview.md)
-- Bekijk [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Azure-omgeving beheren via Azure Policy) op kanaal 9
+- [Een beleidsdefinitie met behulp van de portal toewijzen](assign-policy-portal.md).
+- [Een beleidsdefinitie met de Azure CLI toewijzen](assign-policy-azurecli.md).
+- [Een beleidsdefinitie met behulp van PowerShell toewijzen](assign-policy-powershell.md).
+- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](..//management-groups/overview.md).
+- Weergave [regelen van uw Azure-omgeving via Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) op Channel 9.

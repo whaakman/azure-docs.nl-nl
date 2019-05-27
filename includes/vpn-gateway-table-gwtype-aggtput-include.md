@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/05/2018
+ms.date: 05/22/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 555a8e3e92dc1d12cb7c6d6e06d2511f15a2c862
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 211935aac56dff8d6e524706c416c126b1a0c3b8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679358"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159397"
 ---
-|**SKU**   | **S2S-/VNet-naar-VNet-<br>tunnels** | **P2S<br> SSTP-verbindingen** | **P2S<br> IKEv2-verbindingen** | **Benchmark cumulatieve<br>doorvoer** | **BGP** |
+|**SKU**   | **S2S-/VNet-naar-VNet-<br>tunnels** | **P2S<br> SSTP-verbindingen** | **P2S<br> IKEv2/OpenVPN verbindingen** | **Benchmark cumulatieve<br>doorvoer** | **BGP** |
 |---       | ---        | ---       | ---            | ---       | --- |
 |**Basic** | Met maximaal 10    | Met maximaal 128  | Niet ondersteund  | 100 Mbps  | Niet ondersteund|
 |**VpnGw1**| Met maximaal 30*   | Met maximaal 128  | Met maximaal 250       | 650 Mbps  | Ondersteund |

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 674ca630aa41d930ad7d7cfebccbe9b44351b68c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754613"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161076"
 ---
 Hier volgt een lijst van de ondersteunde besturingssystemen voor clients of hosts die zijn verbonden met uw apparaat. Deze versies van besturingssystemen zijn intern getest.
 

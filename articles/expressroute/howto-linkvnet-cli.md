@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a6f16df4b827538c1f8bdb9b7382ed06d543b62
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883076"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991524"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit met behulp van CLI
 
@@ -139,6 +139,32 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **Vrij te geven van autorisatie om een verbinding**
 
 U kunt een autorisatie vrijgeven door het verwijderen van de verbinding die het ExpressRoute-circuit aan het virtuele netwerk is gekoppeld.
+
+## <a name="modify-a-virtual-network-connection"></a>Een virtueel netwerkverbinding wijzigen
+U kunt bepaalde eigenschappen van de verbinding van een virtueel netwerk kunt bijwerken. 
+
+**Het gewicht van de verbinding bijwerken**
+
+Het virtuele netwerk kan worden verbonden met meerdere ExpressRoute-circuits. U kunt hetzelfde voorvoegsel van meer dan één ExpressRoute-circuit ontvangen. Om te kiezen welke verbinding voor het verzenden van verkeer dat is bestemd voor dit voorvoegsel, kunt u *RoutingWeight* van een verbinding. Verkeer wordt verzonden via de verbinding met de hoogste *RoutingWeight*.
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+Het bereik van de *RoutingWeight* is 0 tot en met 32.000. De standaardwaarde is 0.
+
+## <a name="configure-expressroute-fastpath"></a>ExpressRoute FastPath configureren 
+U kunt inschakelen [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) als uw ExpressRoute-circuit zich op [ExpressRoute Direct](expressroute-erdirect-about.md) en uw gateway virtuele newtork Ultra-Performance of ErGw3AZ. FastPath verbetert gegevens pad preformance zoals pakketten per seconde en verbindingen per seconde tussen uw on-premises netwerk en het virtuele netwerk. 
+
+> [!NOTE] 
+> Als u al een virtuele netwerkverbinding hebben maar nog niet hebt ingeschakeld FastPath die u wilt verwijderen van de verbinding van het virtuele netwerk en een nieuw wachtwoord maken. 
+> 
+>  
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

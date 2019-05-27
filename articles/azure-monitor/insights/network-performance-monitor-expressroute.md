@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: abshamsft
-ms.openlocfilehash: d0819b57307fc037b3be6ab04ed9ec6c8720a618
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: absha
+ms.openlocfilehash: 7f9c0d905a7b2bc81063e59229d78a1200894d47
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110137"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963923"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute-bewaking
 
@@ -110,7 +110,7 @@ Deze weergave toont virtuele netwerkverbindingen. 
 
 ![ExpressRoute-verbindingen voor virtueel netwerk](media/network-performance-monitor-expressroute/expressroute-vnet.png)
  
-## <a name="diagnostics"></a>Diagnostiek 
+## <a name="diagnostics"></a>Diagnostische gegevens 
 
 Network Performance Monitor kunt u verschillende circuit Verbindingsproblemen vaststellen. Aantal van de problemen die u kunt zien, worden hieronder vermeld.
 

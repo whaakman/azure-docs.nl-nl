@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: dech
-ms.openlocfilehash: 5a5286695508e46fa24eb5c49cdaf0fe1318fc9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1927717062b4da7b077e80f36f1498b578c49ad5
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60891190"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979114"
 ---
 # <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een Node.js-app maken met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Deze snelstart laat zien hoe u een [SQL API](sql-api-introduction.md)-account va
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* Daarnaast doet u het volgende:
+* Daarnaast:
     * [Node.js](https://nodejs.org/en/) versie v6.0.0 of hoger
     * [Git](https://git-scm.com/)
 

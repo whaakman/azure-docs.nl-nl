@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66126438"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -208,17 +208,17 @@ Onder **basisbeginselen**, waarden opgeven voor standard parameters voor elke im
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+Parameternaam|Description|Toegestane waarden|Standaardwaarden
 ---|---|---|---
-Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Create New
-E-mailadres (optioneel)|U ontvangt een e-mailmelding wanneer uw implementatie is voltooid met informatie over uw implementatie.|Geldig e-mailadres|N.v.t.
-VM-gebruikersnaam|Gebruikersnaam voor de beheerder van elke geïmplementeerde VM (alleen alfanumerieke tekens)|1 tot 64 tekens|N.v.t.
+Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Nieuwe maken
+E-mailadres (optioneel)|U ontvangt een e-mailmelding wanneer uw implementatie is voltooid met informatie over uw implementatie.|Geldig e-mailadres|N.V.T.
+VM-gebruikersnaam|Gebruikersnaam voor de beheerder van elke geïmplementeerde VM (alleen alfanumerieke tekens)|1 tot 64 tekens|N.V.T.
 Verificatietype|De methode voor verificatie bij de virtuele machine.|Wachtwoord of openbare SSH-sleutel|Wachtwoord
-Wachtwoord (verificatietype = wachtwoord)|Het wachtwoord voor het beheerdersaccount voor elk van de geïmplementeerde virtuele machines.  Het wachtwoord moet 3 van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12-72 tekens|N.v.t.
-SSH-sleutel (verificatietype = openbare sleutel)|De veilige shell-sleutel die wordt gebruikt voor externe aanmelding.||N.v.t.
-Abonnement|Het abonnement waaraan het implementeren van het netwerk consortium||N.v.t.
-Resourcegroep|De resourcegroep waaraan de consortium network implementeren.||N.v.t.
-Locatie|De Azure-regio voor de resourcegroep.||N.v.t.
+Wachtwoord (verificatietype = wachtwoord)|Het wachtwoord voor het beheerdersaccount voor elk van de geïmplementeerde virtuele machines.  Het wachtwoord moet 3 van de volgende bevatten: 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken. Hoewel alle virtuele machines wordt in eerste instantie hetzelfde wachtwoord hebben, kunt u het wachtwoord kunt wijzigen na het inrichten.|12-72 tekens|N.V.T.
+SSH-sleutel (verificatietype = openbare sleutel)|De veilige shell-sleutel die wordt gebruikt voor externe aanmelding.||N.V.T.
+Abonnement|Het abonnement waaraan het implementeren van het netwerk consortium||N.V.T.
+Resourcegroep|De resourcegroep waaraan de consortium network implementeren.||N.V.T.
+Locatie|De Azure-regio voor de resourcegroep.||N.V.T.
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![basic blade](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -228,14 +228,14 @@ Geef vervolgens onder implementatie regio's, invoer voor het aantal regio('s) im
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+  Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
   Aantal regio('s)|Aantal regio's om de consortium-netwerk te implementeren|1, 2, 3, 4, 5|1
-  Eerste regio|Eerste regio voor de implementatie van het netwerk consortium|Alle toegestaan Azure-regio 's|N.v.t.
-  Tweede regio|Tweede regio voor de implementatie van het netwerk consortium (Visible alleen wanneer het aantal regio's is geselecteerd als 2)|Alle toegestaan Azure-regio 's|N.v.t.
-  Derde regio|Derde regio voor de implementatie van het netwerk consortium (Visible alleen wanneer het aantal regio's is geselecteerd als 3)|Alle toegestaan Azure-regio 's|N.v.t.
-  Vierde regio|Vierde regio voor de implementatie van het netwerk consortium (Visible alleen wanneer het aantal regio's is geselecteerd als 4)|Alle toegestaan Azure-regio 's|N.v.t.
-  Vijfde regio|Vijfde regio voor de implementatie van het netwerk consortium (Visible alleen wanneer het aantal regio's is geselecteerd als 5)|Alle toegestaan Azure-regio 's|N.v.t.
+  Eerste regio|Eerste regio voor de implementatie van het netwerk consortium|Alle toegestaan Azure-regio 's|N.V.T.
+  Tweede regio|Tweede regio voor de implementatie van het netwerk consortium (Visible alleen wanneer het aantal regio's is geselecteerd als 2)|Alle toegestaan Azure-regio 's|N.V.T.
+  Derde regio|Derde regio voor de implementatie van het netwerk consortium (Visible alleen wanneer het aantal regio's is geselecteerd als 3)|Alle toegestaan Azure-regio 's|N.V.T.
+  Vierde regio|Vierde regio voor de implementatie van het netwerk consortium (Visible alleen wanneer het aantal regio's is geselecteerd als 4)|Alle toegestaan Azure-regio 's|N.V.T.
+  Vijfde regio|Vijfde regio voor de implementatie van het netwerk consortium (Visible alleen wanneer het aantal regio's is geselecteerd als 5)|Alle toegestaan Azure-regio 's|N.V.T.
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![implementatie regio's](./media/ethereum-poa-deployment/deployment-regions.png)
 
@@ -274,14 +274,14 @@ Hier volgt een gedetailleerde beschrijving van elke parameter:
 
   Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
-Consortium lid-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. Lid-ID moet in het geval van een particulier netwerk, uniek zijn in verschillende organisaties in hetzelfde netwerk.  Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's. Noteer de waarde van deze parameter omdat, moet u deze delen met andere leden van de gekoppelde om ervoor te zorgen dat er geen conflicten.|0-255|N.v.t.
+Consortium lid-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. Lid-ID moet in het geval van een particulier netwerk, uniek zijn in verschillende organisaties in hetzelfde netwerk.  Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's. Noteer de waarde van deze parameter omdat, moet u deze delen met andere leden van de gekoppelde om ervoor te zorgen dat er geen conflicten.|0-255|N.V.T.
 Netwerk-id|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd.  Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk.|5 - 999,999,999|10101010
-Ethereum-mailadres van beheerder|Het adres Ethereum die wordt gebruikt voor uw deelname aan PoA governance.  We adviseren MetaMask gebruiken voor het genereren van een Ethereum-adres.|42 alfanumerieke tekens beginnen met 0 x|N.v.t.
+Ethereum-mailadres van beheerder|Het adres Ethereum die wordt gebruikt voor uw deelname aan PoA governance.  We adviseren MetaMask gebruiken voor het genereren van een Ethereum-adres.|42 alfanumerieke tekens beginnen met 0 x|N.V.T.
 Geavanceerde opties|Geavanceerde opties voor Ethereum-instellingen|In- of uitschakelen|Uitschakelen
-Openbaar IP-adres (geavanceerde opties = inschakelen)|Het netwerk achter een VNet-Gateway implementeert en peering toegang verwijderd. Als deze optie is geselecteerd, moeten alle leden van een VNet-Gateway voor de verbinding gebruiken om compatibel te zijn.|Openbaar IP-adres privé VNet|Openbare IP
+Openbaar IP-adres (geavanceerde opties = inschakelen)|Het netwerk achter een VNet-Gateway implementeert en peering toegang verwijderd. Als deze optie is geselecteerd, moeten alle leden van een VNet-Gateway voor de verbinding gebruiken om compatibel te zijn.|Openbaar IP-adres privé VNet|Openbaar IP
 Limiet voor Gas blokkeren (geavanceerde opties = inschakelen)|De eerste blok gas limiet van het netwerk|Een numerieke waarde|50000000
 Verzegelen Blokkeringsperiode (sec)|De frequentie waarmee leeg blokken worden gemaakt wanneer er geen transacties in het netwerk zijn. Een hogere frequentie hebben sneller definitieve karakter maar hogere opslagkosten.|Een numerieke waarde|15
-Transactie machtiging Contract (geavanceerde opties = inschakelen)|Bytecode voor de transactie-rollen-contract. Hiermee beperkt u de slimme contract implementatie en uitvoering aan een lijst met toegestane van Ethereum-accounts.|Contract bytecode|N.v.t.
+Transactie machtiging Contract (geavanceerde opties = inschakelen)|Bytecode voor de transactie-rollen-contract. Hiermee beperkt u de slimme contract implementatie en uitvoering aan een lijst met toegestane van Ethereum-accounts.|Contract bytecode|N.V.T.
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![ethereum-instellingen](./media/ethereum-poa-deployment/ethereum-settings.png)
 
@@ -291,13 +291,13 @@ De blade controle kunt u een resource van Azure Monitor-logboeken voor uw netwer
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-  Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
+  Parameternaam|Description|Toegestane waarden|Standaardwaarden
   ---|---|---|---
 Bewaking|Optie voor het inschakelen van bewaking|In- of uitschakelen|Inschakelen
-Verbinding maken met bestaande Azure Monitor-Logboeken|Maak een nieuw exemplaar van Azure Monitor Logboeken of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuwe maken
-Locatie controleren (verbinding maken met bestaande Azure Monitor-logboeken = maken nieuw)|De regio waar de nieuwe Azure Monitor-exemplaar Logboeken wordt geïmplementeerd|Monitor voor alle Azure-regio's Logboeken|N.v.t.
-Bestaande log analytics-werkruimte-ID (verbinding maken met bestaande Azure Monitor-logboeken = bestaande Join)|Werkruimte-ID van de bestaande Azure Monitor-logboeken exemplaar||N.v.t.
-Primaire sleutel van bestaande log analytics (verbinding maken met bestaande Azure Monitor-logboeken = bestaande Join)|De primaire sleutel gebruikt voor verbinding met de bestaande instantie van de Azure Monitor-Logboeken||N.v.t.
+Verbinding maken met bestaande Azure Monitor-Logboeken|Maak een nieuw exemplaar van Azure Monitor Logboeken of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuw
+Locatie controleren (verbinding maken met bestaande Azure Monitor-logboeken = maken nieuw)|De regio waar de nieuwe Azure Monitor-exemplaar Logboeken wordt geïmplementeerd|Monitor voor alle Azure-regio's Logboeken|N.V.T.
+Bestaande log analytics-werkruimte-ID (verbinding maken met bestaande Azure Monitor-logboeken = bestaande Join)|Werkruimte-ID van de bestaande Azure Monitor-logboeken exemplaar||N.V.T.
+Primaire sleutel van bestaande log analytics (verbinding maken met bestaande Azure Monitor-logboeken = bestaande Join)|De primaire sleutel gebruikt voor verbinding met de bestaande instantie van de Azure Monitor-Logboeken||N.V.T.
 
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![met azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
@@ -413,7 +413,7 @@ $MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName
 New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-### <a name="service-monitoring"></a>Servicecontrole
+### <a name="service-monitoring"></a>Servicebewaking
 
 U kunt uw Azure Monitor-portal door de koppeling in de implementatie van e-mailadres of zoeken naar de parameter in de uitvoer van de implementatie vinden \[OMS\_PORTAL\_URL\].
 

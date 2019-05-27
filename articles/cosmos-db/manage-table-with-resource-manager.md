@@ -4,24 +4,24 @@ description: Gebruik Azure Resource Manager-sjablonen maken en configureren van 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 33e47d67365e76142d5b584d49d8e7265445bf03
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82e2a436bf6b25b6164d845d234896390a262292
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077603"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968821"
 ---
-# <a name="create-azure-cosmos-db-table-api-resources-from-a-resource-manager-template"></a>Azure Cosmos DB Table-API-resources van Resource Manager-sjabloon maken
+# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Azure Cosmos DB Table-API-resources met behulp van Azure Resource Manager-sjablonen beheren
 
-Informatie over het maken van een Azure Cosmos DB Table-API-resources met behulp van een Azure Resource Manager-sjabloon. Het volgende voorbeeld wordt een Azure Cosmos DB Table-API van een [Azure Quickstart-sjabloon](https://aka.ms/table-arm-qs). Deze sjabloon wordt een Azure Cosmos-account maken voor tabel-API met een tabel met de doorvoer van 400 RU/s.
+## Azure Cosmos-account en een tabel maken <a id="create-resource"></a>
 
-Hier volgt een kopie van de sjabloon:
+Azure Cosmos DB-resources met behulp van een Azure Resource Manager-sjabloon maken. Deze sjabloon wordt een Azure Cosmos-account maken voor tabel-API met een tabel met een doorvoer van 400 RU/s. De sjabloon te kopiëren en implementeren zoals hieronder wordt weergegeven of Ga naar [Azure Snelstartgalerie](https://azure.microsoft.com/resources/templates/101-cosmosdb-table/) en implementeren vanuit Azure portal. U kunt ook de sjabloon downloaden naar uw lokale computer of maak een nieuwe sjabloon en geef het lokale pad op met de `--template-file` parameter.
 
 [!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
 
-## <a name="deploy-via-powershell"></a>Implementeren via PowerShell
+### <a name="deploy-via-powershell"></a>Implementeren via PowerShell
 
 Implementatie van de Resource Manager-sjabloon met behulp van PowerShell, **kopie** het script en selecteer **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**:
 
@@ -45,12 +45,9 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-Als u ervoor kiest een lokaal geïnstalleerde versie van PowerShell in plaats van uit de Azure Cloud shell te gebruiken, hebt u [installeren](/powershell/azure/install-az-ps) de Azure PowerShell-module. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. 
+Als u ervoor kiest een lokaal geïnstalleerde versie van PowerShell in plaats van uit de Azure Cloud shell te gebruiken, hebt u [installeren](/powershell/azure/install-az-ps) de Azure PowerShell-module. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken.
 
-In het vorige voorbeeld hebt u een sjabloon die is opgeslagen in GitHub een waarnaar wordt verwezen. U kunt ook de sjabloon downloaden naar uw lokale computer of maak een nieuwe sjabloon en geef het lokale pad op met de `--template-file` parameter.
-
-
-## <a name="deploy-via-azure-cli"></a>Implementeren via Azure CLI
+### <a name="deploy-via-azure-cli"></a>Implementeren via Azure CLI
 
 Implementatie van de Resource Manager-sjabloon met behulp van Azure CLI, **kopie** het script en selecteer **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**:
 
@@ -72,8 +69,44 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 De `az cosmosdb show` opdracht geeft u het zojuist gemaakte Azure-Cosmos-account nadat deze is ingericht. Als u ervoor kiest een lokaal geïnstalleerde versie van Azure CLI gebruiken in plaats van CloudShell gebruikt, Zie [Azure-opdrachtregelinterface (CLI)](/cli/azure/) artikel.
 
-In het vorige voorbeeld hebt u een sjabloon die is opgeslagen in GitHub een waarnaar wordt verwezen. U kunt ook de sjabloon downloaden naar uw lokale computer of maak een nieuwe sjabloon en geef het lokale pad op met de `--template-file` parameter.
+## Doorvoer (RU/s) in een tabel bijwerken <a id="table-ru-update"></a>
 
+De volgende sjabloon wordt de doorvoer van een tabel bijgewerkt. De sjabloon te kopiëren en implementeren zoals hieronder wordt weergegeven of Ga naar [Azure Snelstartgalerie](https://azure.microsoft.com/resources/templates/101-cosmosdb-table-ru-update/) en implementeren vanuit Azure portal. U kunt ook de sjabloon downloaden naar uw lokale computer of maak een nieuwe sjabloon en geef het lokale pad op met de `--template-file` parameter.
+
+[!code-json[cosmosdb-table-ru-update](~/quickstart-templates/101-cosmosdb-table-ru-update/azuredeploy.json)]
+
+### <a name="deploy-table-throughput-via-powershell"></a>Tabel doorvoer via PowerShell implementeren
+
+Implementatie van de Resource Manager-sjabloon met behulp van PowerShell, **kopie** het script en selecteer **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**:
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$tableName = Read-Host -Prompt "Enter the table name"
+$throughput = Read-Host -Prompt "Enter new throughput for table"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-table-ru-update/azuredeploy.json" `
+    -accountName $accountName `
+    -tableName $tableName `
+    -throughput $throughput
+```
+
+### <a name="deploy-table-template-via-azure-cli"></a>Sjabloon via Azure CLI implementeren
+
+Selecteer voor het implementeren van de Resource Manager-sjabloon met behulp van Azure CLI, **uitproberen** openen van de Azure Cloud shell. Als u het script, met de rechtermuisknop op de shell en selecteer vervolgens **plakken**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the table name: ' tableName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-table-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName tableName=$tableName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

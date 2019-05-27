@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619719"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978882"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Een aangepaste domeinnaam voor Azure App Service kopen
 
@@ -201,7 +201,9 @@ Navigeer naar de vermelde hostnamen in de browser. In het voorbeeld in de vorige
 
 ## <a name="renew-the-domain"></a>Vernieuwen van het domein
 
-Het App Service-domein dat u hebt gekocht is geldig gedurende één jaar vanaf het moment van aankoop. Het domein is standaard geconfigureerd om te vernieuwen automatisch uw betalingswijze wordt gebruikt voor het komende jaar in rekening gebracht. Als u wilt uitschakelen voor de automatische vernieuwing, of als u wilt handmatig verlengen van uw domein, volgt u deze stappen.
+Het App Service-domein dat u hebt gekocht is geldig gedurende één jaar vanaf het moment van aankoop. Het domein is standaard geconfigureerd om te vernieuwen automatisch uw betalingswijze wordt gebruikt voor het komende jaar in rekening gebracht. Naam van uw domein, kunt u handmatig vernieuwen.
+
+Als u wilt uitschakelen voor de automatische vernieuwing, of als u wilt handmatig verlengen van uw domein, volgt u deze stappen.
 
 In de **App Services** en klik op de naam van uw app, selecteer **instellingen**, en selecteer vervolgens **aangepaste domeinen**.
 
@@ -211,11 +213,25 @@ In de **App Service-domeinen** sectie, selecteer het domein dat u wilt configure
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-Selecteer in het linkernavigatievenster van het domein, **domeinverlenging**. Als u wilt stoppen met het automatisch vernieuwen van uw domein, selecteer **uit**, en vervolgens **opslaan**. 
+Selecteer in het linkernavigatievenster van het domein, **domeinverlenging**. Als u wilt stoppen met het automatisch vernieuwen van uw domein, selecteer **uit**, en vervolgens **opslaan**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Als u wilt uw domein handmatig vernieuwen, selecteert u **vernieuwen domein**. Deze knop is echter niet actief tot 90 dagen vóór de vervaldatum van het domein.
+Als u wilt uw domein handmatig vernieuwen, selecteert u **vernieuwen domein**. Deze knop is echter niet actief tot [90 dagen vóór de vervaldatum van het domein](#when-domain-expires).
+
+Als uw domeinverlenging geslaagd is, ontvangt u een e-mailmelding binnen 24 uur.
+
+## <a name="when-domain-expires"></a>Wanneer domein is verlopen
+
+Azure omgaat met verlopen of verlopen App Service-domeinen als volgt:
+
+* Als automatische vernieuwing is uitgeschakeld: 90 dagen vóór de vervaldatum van het domein, wordt een e-mail met melding voor vernieuwing naar u verzonden en de **vernieuwen domein** knop is geactiveerd in de portal.
+* Als automatische vernieuwing is ingeschakeld: Op de dag na de vervaldatum van uw domein probeert Azure aan u gefactureerd voor het vernieuwen van de domein-naam.
+* Als er een fout optreedt tijdens de automatische vernieuwing (bijvoorbeeld uw creditcard in het bestand is verlopen), of als automatische vernieuwing is uitgeschakeld en u dat het domein om te verlopen, Azure waarschuwt u van de vervaldatum van het domein en parken uw domeinnaam. U kunt [handmatig vernieuwen](#renew-the-domain) uw domein.
+* Op de dag van de 4 en 12 dagen na de verloopdatum wordt stuurt Azure u aanvullende e-mailberichten. U kunt [handmatig vernieuwen](#renew-the-domain) uw domein.
+* Op 19 dag na de verloopdatum, uw domein, blijven in de wachtstand maar valt onder een bedrag inwisselen. U kunt opnemen met klantondersteuning als u wilt vernieuwen van de naam van uw domein, onderworpen aan een vernieuwing van de van toepassing en kosten voor inschrijving.
+* Op 25 dag na de verloopdatum plaatst Azure uw domein voor de aanbieding met een domein naam branche aanbieding-service. U kunt opnemen met klantondersteuning als u wilt vernieuwen van de naam van uw domein, onderworpen aan een vernieuwing van de van toepassing en kosten voor inschrijving.
+* Op de 30 dagen na de verloopdatum u niet meer kunt uw domein inwisselen.
 
 <a name="custom"></a>
 

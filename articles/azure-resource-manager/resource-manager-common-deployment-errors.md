@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405518"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128581"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -63,7 +63,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten in de Azure-implementat
 | MissingRegistrationForLocation | Controleer de status van de registratie van resourceprovider en ondersteunde locaties. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Uw abonnement met de resourceprovider registreren. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Controleer de status van de registratie van resourceprovider. | [Registratie oplossen](resource-manager-register-provider-errors.md) |
-| NotFound | Mogelijk probeert u een afhankelijke resource in combinatie met een bovenliggende resource implementeren. Controleer of u moet een afhankelijkheid toevoegen. | [Omzetten van afhankelijkheden](resource-manager-not-found-errors.md) |
+| Niet gevonden | Mogelijk probeert u een afhankelijke resource in combinatie met een bovenliggende resource implementeren. Controleer of u moet een afhankelijkheid toevoegen. | [Omzetten van afhankelijkheden](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | De implementatie, is er wordt geprobeerd een bewerking die het quotum voor het abonnement, resourcegroep of regio overschrijdt. Wijzig, indien mogelijk, uw implementatie om binnen de quota te blijven. Overweeg anders aanvragen van een wijziging in uw quota's. | [Quota's oplossen](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Zorg ervoor dat een bovenliggende resource bestaat voor het maken van de onderliggende resources. | [Bovenliggende resource oplossen](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | Als u een wachtwoord met te veel tekens hebt geselecteerd of mogelijk hebt omgezet in de password-waarde een beveiligde tekenreeks voordat deze wordt doorgegeven als parameter. Als de sjabloon bevat een **beveiligde tekenreeks** parameter, hoeft u niet de waarde te converteren naar een beveiligde tekenreeks. Geef de waarde van het wachtwoord op als tekst. |  |

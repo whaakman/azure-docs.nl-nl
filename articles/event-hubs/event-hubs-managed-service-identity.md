@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746886"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978475"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Beheerde identiteiten voor Azure-resources met Event Hubs
 
@@ -27,8 +27,28 @@ Met beheerde identiteiten beheert het Azure-platform deze runtime-identiteit. U 
 Zodra deze gekoppeld aan een beheerde identiteit is, kunt alle geautoriseerde bewerkingen uitvoeren in een Event Hubs-client. Autorisatie is verleend door een beheerde identiteit koppelen met behulp van Event Hubs. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs-rollen en machtigingen
+U kunt een beheerde identiteit toevoegen de **Event Hubs-Gegevenseigenaar** rol van een Event Hubs-naamruimte. Deze rol hebben de identiteit, volledig beheer (voor beheer en bewerkingen van gegevens) op alle entiteiten in de naamruimte.
 
-U kunt alleen een beheerde identiteit toevoegen aan de rollen 'Eigenaar' of 'Medewerker' van een Event Hubs-naamruimte, waarmee de identiteit volledig beheer voor alle entiteiten in de naamruimte worden verleend. Beheer van bewerkingen die wijzigen van de naamruimte-topologie in eerste instantie zijn ondersteund echter alleen maar Azure Resource Manager. Het is niet via de systeemeigen Event Hubs REST-beheerinterface. Deze ondersteuning betekent ook dat u de .NET Framework-client niet gebruiken [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object in een beheerde identiteit. 
+>[!IMPORTANT]
+> We eerder toe te voegen beheerde identiteit ondersteund de **eigenaar** of **Inzender** rol. Echter bevoegdheden voor toegang tot de gegevens **eigenaar** en **Inzender** rol niet meer worden herkend. Als u de **eigenaar** of **Inzender** rol, switch voor het gebruik van de **Event Hubs-Gegevenseigenaar** rol.
+
+Volg deze stappen voor het gebruik van de nieuwe ingebouwde rol: 
+
+1. Ga naar [Azure Portal](https://portal.azure.com)
+2. Navigeer naar de Event Hubs-naamruimte.
+3. Op de **Event Hubs Namespace** weergeeft, schakelt **toegang Control(IAM)** in het menu links.
+4. Op de **Access Control (IAM)** weergeeft, schakelt **toevoegen** in de **een roltoewijzing toevoegen** sectie. 
+
+    ![Een knop van de toewijzing van rol toevoegen](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. Op de **roltoewijzing toevoegen** pagina, de volgende stappen uit: 
+    1. Voor **rol**, selecteer **Azure Event Hubs-Gegevenseigenaar**. 
+    2. Selecteer de **identiteit** worden toegevoegd aan de rol.
+    3. Selecteer **Opslaan**. 
+
+        ![Event Hubs eigenaarsrol voor de gegevens](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Schakel over naar de **roltoewijzingen** pagina en Bevestig dat de gebruiker wordt toegevoegd aan de **Azure Event Hubs-Gegevenseigenaar** rol. 
+
+    ![Controleer of de gebruiker is toegevoegd aan de rol](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Event Hubs gebruiken met beheerde identiteiten voor Azure-Resources
 
@@ -54,7 +74,7 @@ Nadat u de functie hebt ingeschakeld, is een nieuwe service-identiteit in uw Azu
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Een nieuwe Event Hubs-naamruimte maken
 
-Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md) in een van de Azure-regio's met Preview-versie-ondersteuning voor beheerde identiteiten voor Azure-resources: **VS Oost**, **VS Oost 2**, of **West-Europa**. 
+Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md). 
 
 Navigeer naar de naamruimte **Access Control (IAM)** pagina in de portal en klik vervolgens op **roltoewijzing toevoegen** om toe te voegen van de beheerde identiteit op de **eigenaar** rol. Om dit te doen, zoekt u de naam van de web-App in de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**. De beheerde identiteit voor de webtoepassing nu heeft toegang tot de Event Hubs-naamruimte en naar de event hub die u eerder hebt gemaakt. 
 

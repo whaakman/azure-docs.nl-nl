@@ -9,18 +9,18 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738983"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133143"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Inschakelen van updatebeheer, wijzigingen bijhouden en inventaris-oplossingen op meerdere virtuele machines
 
 Azure Automation biedt oplossingen voor het beheren van beveiligingsupdates, het bijhouden van wijzigingen en inventaris wat er op uw computers is geïnstalleerd. Er zijn meerdere manieren om Onboarding van machines, u kunt Onboarding van de oplossing [van een virtuele machine](automation-onboard-solutions-from-vm.md), van uw [Automation-account](automation-onboard-solutions-from-automation-account.md), bij het bladeren door virtuele machines of door [runbook](automation-onboard-solutions.md). In dit artikel bevat informatie over onboarding deze oplossingen bij het bladeren door virtuele machines in Azure.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Aanmelden bij Azure op https://portal.azure.com
 
@@ -59,27 +59,10 @@ Als de geselecteerde werkruimte is niet gekoppeld aan een Automation-Account, zi
 
 ![Er is geen werkruimte](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Bij het inschakelen van oplossingen worden slechts bepaalde regio's ondersteund voor het koppelen van een Log Analytics-werkruimte aan een Automation-Account.
-
-De volgende tabel bevat de ondersteunde toewijzingen:
-
-|**Log Analytics-werkruimte regio**|**Azure Automation Region**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|West-Europa|West-Europa|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP en EastUS toewijzingen voor Log Analytics-werkruimten op Automation-Accounts zijn niet een exacte toewijzing van regio naar regio, maar is de juiste toewijzing.
-
-<sup>2</sup> vanwege beperkingen van de capaciteit van de regio is niet beschikbaar bij het maken van nieuwe resources. Dit geldt ook voor Automation-Accounts en Log Analytics-werkruimten. Bestaande gekoppelde resources in de regio moeten echter nog steeds werken.
+> [!NOTE]
+> Bij het inschakelen van oplossingen worden slechts bepaalde regio's ondersteund voor het koppelen van een Log Analytics-werkruimte aan een Automation-Account.
+>
+> Zie voor een lijst van de ondersteunde toewijzingsparen, [regiotoewijzing voor Automation-Account en de Log Analytics-werkruimte](how-to/region-mappings.md).
 
 Schakel het selectievakje naast een virtuele machine die u niet wilt inschakelen. Virtuele machines die kan niet worden ingeschakeld, zijn al uitgeschakeld.
 
@@ -122,6 +105,8 @@ Als u de VM's starten/stoppen buiten kantooruren oplossing gebruikt, kunt indien
 * VM-runbooks starten en stoppen
 * Variabelen
 
+U kunt ook ook uw werkruimte ontkoppelen van uw Automation-Account van uw Log Analytics-werkruimte. Selecteer in de werkruimte **Automation-Account** onder **gerelateerde Resources**. Selecteer op de pagina Automation-Account **-account loskoppelen**.
+
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Wanneer onboarding meerdere machines, kunnen er machines die als **kan niet worden ingeschakeld**. Er zijn verschillende redenen waarom sommige computers niet kunnen worden ingeschakeld. De volgende secties tonen mogelijke redenen voor de **kan niet worden ingeschakeld** staat op een virtuele machine wanneer u probeert te onboarden.
@@ -152,7 +137,7 @@ Wanneer onboarding meerdere machines, kunnen er machines die als **kan niet word
 
 **Oorzaak**: Virtuele machines die gebruikmaken van het klassieke implementatiemodel worden niet ondersteund.
 
-**Oplossing**: De virtuele machine migreren naar het resource manager-implementatiemodel. Zie voor meer informatie hoe u dit doet, [classic deployment model resources migreren](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Oplossing**: Migreer de virtuele machine naar het Resource Manager-implementatiemodel. Zie voor meer informatie hoe u dit doet, [classic deployment model resources migreren](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>Virtuele machine is gestopt. (toewijzing opgeheven)
 

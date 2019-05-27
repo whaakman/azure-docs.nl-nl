@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38bc2f138a8e56fc56b48ccdaf0636a93138f95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2f53243e49cc961f50ef09cf43a7ed174a82a9c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413986"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997275"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Welke verificatiemethoden zijn er beschikbaar?
 
@@ -35,7 +35,7 @@ Aanvullende verificatie kan de vorm hebben van verificatiemethoden zoals:
 
 Met Azure MFA en de selfservice voor het opnieuw instellen van wachtwoorden van Azure AD, hebben beheerders een betere controle over de configuratie, het beleid, bewaking en rapportagemogelijkheden om hun organisatie te beveiligen via Azure AD en Azure Portal.
 
-## <a name="self-service-password-reset"></a>Self-service voor wachtwoord opnieuw instellen
+## <a name="self-service-password-reset"></a>Selfservice voor wachtwoord opnieuw instellen
 
 De selfservice voor het opnieuw instellen van wachtwoorden biedt uw gebruikers de mogelijkheid om waar en wanneer ze dat willen hun wachtwoord opnieuw in te stellen zonder dat er een beheerder bij te pas komt.
 
@@ -50,6 +50,10 @@ De selfservice voor het opnieuw instellen van wachtwoorden omvat onder andere:
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Azure Multi-Factor Authentication (MFA) is een Microsoft-oplossing voor verificatie in twee stappen. Met behulp van door een beheerder goedgekeurde verificatiemethode, helpt Azure MFA met het beveiligen van gegevens en toepassingen, terwijl tegelijkertijd aan de behoefte aan een eenvoudige aanmeldingsprocedure wordt voldaan.
+
+## <a name="license-requirements"></a>Licentievereisten
+
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

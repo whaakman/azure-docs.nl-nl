@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f8827ac290393c9f394c3b13149555a1a2aa6df9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927490"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000154"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-relay"></a>Algemene beveiligingskenmerken voor Azure Service Bus Relay
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Beveiligingskenmerken voor Azure Service Bus Relay
 
-Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Azure Service Bus Relay.
+In dit artikel worden de beveiligingskenmerken die is ingebouwd in Azure Service Bus Relay.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,7 +27,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>|  N/A | Relay is een web socket en gegevens niet bewaard is gebleven. |
-| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>Vnet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | Service is TLS vereist. |
+| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>VNet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | Service is TLS vereist. |
 | Versleuteling verwerking (CMK, BYOK, enz.)| Nee | Alleen Microsoft TLS-certificaten gebruikt.  |
 | Versleuteling op kolom (Azure Data Services)| N/A | |
 | API-aanroepen die zijn versleuteld| Ja | HTTPS. |

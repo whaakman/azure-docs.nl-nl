@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406877"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991479"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met behulp van een event hub
 
@@ -28,27 +28,27 @@ In dit artikel wordt uitgelegd hoe u maken en configureren van een event hub in 
 1. Zie voor meer informatie over het maken van een event hub, de [documentatie voor Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 1. Zoek in het zoekvak **Event Hubs**. Selecteer in de geretourneerde lijst **Event Hubs**.
 1. Selecteer uw event hub.
-1. Wanneer u een event hub maakt, maakt u echt een event hub-naamruimte. Als u nog hebt gemaakt een event hub in de naamruimte in het menu onder **entiteiten**, een event hub maken.  
+1. Wanneer u een event hub maakt, maakt u een event hub-naamruimte. Als u nog hebt gemaakt een event hub in de naamruimte in het menu onder **entiteiten**, een event hub maken.  
 
     [![Lijst met eventhubs](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. Nadat u een event hub maakt, selecteert u dit in de lijst van eventhubs.
-1. In het menu onder **entiteiten**, selecteer **Event Hubs**.
+1. Klik in het menu onder **entiteiten**, selecteer **Event Hubs**.
 1. Selecteer de naam van de event hub te configureren.
 1. Onder **entiteiten**, selecteer **consumentengroepen**, en selecteer vervolgens **Consumergroep**.
 
     [![Een consumentengroep maken](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
-1. Zorg ervoor dat u een consumergroep maakt die uitsluitend door uw Time Series Insights-gebeurtenisbron wordt gebruikt.
+1. Zorg ervoor dat u maakt u een consumentengroep die uitsluitend door uw Time Series Insights-gebeurtenisbron wordt gebruikt.
 
     > [!IMPORTANT]
-    > Zorg ervoor dat deze consumergroep wordt niet gebruikt door een andere service (zoals een Azure Stream Analytics-taak of een andere Time Series Insights-omgeving). Als de consumergroep wordt gebruikt door de andere worden services, leesbewerkingen negatief beïnvloed voor deze omgeving en voor andere services. Als u **$Default** als de consumergroep andere lezers mogelijk uw consumentengroep kunnen gebruiken.
+    > Zorg ervoor dat deze consumergroep wordt niet gebruikt door een andere service, zoals een Azure Stream Analytics-taak of een andere Time Series Insights-omgeving. Als de consumergroep wordt gebruikt door de andere worden services, leesbewerkingen negatief beïnvloed voor deze omgeving en voor andere services. Als u **$Default** als de consumergroep andere lezers mogelijk uw consumentengroep kunnen gebruiken.
 
-1. In het menu onder **instellingen**, selecteer **beleid voor gedeelde toegang**, en selecteer vervolgens **toevoegen**.
+1. Klik in het menu onder **instellingen**, selecteer **beleid voor gedeelde toegang**, en selecteer vervolgens **toevoegen**.
 
     [![Beleid voor gedeelde toegang selecteren en selecteer vervolgens de knop toevoegen](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
-1. In de **nieuw beleid voor gedeelde toegang toevoegen** deelvenster maken van een gedeelde toegang met de naam **MySendPolicy**. U kunt dit beleid voor gedeelde toegang gebruiken om te verzenden van gebeurtenissen in de C# voorbeelden verderop in dit artikel.
+1. In de **nieuw beleid voor gedeelde toegang toevoegen** deelvenster maken van een gedeelde toegang met de naam **MySendPolicy**. U dit beleid voor gedeelde toegang gebruiken om te verzenden van gebeurtenissen in de C# voorbeelden verderop in dit artikel.
 
     [![Voer in het naamvak beleid MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
@@ -70,7 +70,7 @@ De update Time Series Insights maakt gebruik van exemplaren contextuele gegevens
 
 1. Selecteer uw event hub.
 
-1. Ga naar **gedeeld toegangsbeleid** > **RootManageSharedAccessKey**. Kopieer de waarde voor **Connection String-primaire sleutel**.
+1. Ga naar **gedeeld toegangsbeleid** > **RootManageSharedAccessKey**. Kopieer de waarde voor **verbindingsreeks-primaire sleutel**.
 
     [![Kopieer de waarde voor de verbindingsreeks voor de primaire sleutel](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
@@ -81,7 +81,7 @@ De update Time Series Insights maakt gebruik van exemplaren contextuele gegevens
 
 1. Selecteer **Klik hier om te beginnen**. De simulator genereert exemplaar JSON die u rechtstreeks kunt gebruiken.
 
-1. Ga terug naar uw event hub in Azure portal. Op de **overzicht** pagina, ziet u de nieuwe gebeurtenissen worden ontvangen door de event hub.
+1. Ga terug naar uw event hub in Azure portal. Op de **overzicht** pagina, ziet u de nieuwe gebeurtenissen die worden ontvangen door de event hub.
 
     [![Een event hub-overzichtspagina met metrische gegevens voor de event hub](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 

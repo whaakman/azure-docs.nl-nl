@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7fe46712d610d881c21653461d12e4f8efecb468
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: fa5a57afa379c6bbe027be80f400fc176800d289
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827873"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158512"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-cicd-npm-package"></a>Doorlopend integreren en ontwikkelen met Stream Analytics CI/CD npm-pakket
 In dit artikel wordt beschreven hoe u de Azure Stream Analytics CI/CD npm-pakket gebruiken voor het instellen van een continue integratie en implementatie.
@@ -22,10 +22,14 @@ In dit artikel wordt beschreven hoe u de Azure Stream Analytics CI/CD npm-pakket
 
 U kunt inschakelen met continue integratie en implementatie voor Azure Stream Analytics-taken met behulp van de **asa-streamanalytics-cicd** npm-pakket. De npm-pakket biedt de hulpprogramma's voor het genereren van Azure Resource Manager-sjablonen van [Stream Analytics Visual Studio Code-projecten](quick-create-vs-code.md). Het kan worden gebruikt in Windows, macOS en Linux zonder dat Visual Studio Code wordt geïnstalleerd.
 
-Als u eenmaal hebt [het pakket hebt gedownload](https://www.npmjs.com/package/azure-streamanalytics-cicd), gebruik de volgende opdracht om uit te voeren van de Azure Resource Manager-sjablonen. Als de **outputPath** niet is opgegeven, de sjablonen worden geplaatst in de **implementeren** map onder van het project **bin** map.
+Als u eenmaal hebt [het pakket hebt gedownload](https://www.npmjs.com/package/azure-streamanalytics-cicd), gebruik de volgende opdracht om uit te voeren van de Azure Resource Manager-sjablonen. De **scriptPath** argument is het absolute pad op naar de **asaql** bestand in uw project. Zorg ervoor dat de asaproj.json en JobConfig.json bestanden zich in dezelfde map met het scriptbestand. Als de **outputPath** niet is opgegeven, de sjablonen worden geplaatst in de **implementeren** map onder van het project **bin** map.
 
 ```powershell
-asa-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
+azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
+```
+Voorbeeld (op macOS)
+```powershell
+azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/script.asaql" 
 ```
 
 Wanneer een Stream Analytics Visual Studio Code-project met succes wordt gemaakt, genereert de volgende twee Azure Resource Manager sjabloonbestanden onder de **bin / [foutopsporing of stenen] / implementeren** map: 
@@ -38,7 +42,7 @@ Wanneer een Stream Analytics Visual Studio Code-project met succes wordt gemaakt
 
        [ProjectName].JobTemplate.parameters.json   
 
-Er zijn de standaardparameters in het parameters.json-bestand van de instellingen in Visual Studio-project. Als u implementeren naar een andere omgeving wilt, vervang u de parameters daarvan.
+De standaardparameters in het parameters.json-bestand zijn van de instellingen in uw project voor Visual Studio Code. Als u implementeren naar een andere omgeving wilt, vervang u de parameters daarvan.
 
 > [!NOTE]
 > De referenties voor de standaardwaarden zijn ingesteld op null. U bent **vereist** de waarden instellen voordat u naar de cloud implementeren.

@@ -5,22 +5,23 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2017
+ms.date: 05/15/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: fdb05adaf6a4b039ef288ac8b4464f62930e3f9c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797773"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991342"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure Queue storage bewerkingen uitvoeren met Azure PowerShell
 
 Azure Queue storage is een service voor het opslaan van grote aantallen berichten die kunnen worden benaderd vanaf elke locatie ter wereld via HTTP of HTTPS. Zie voor gedetailleerde informatie [Inleiding tot Azure Queues](storage-queues-introduction.md). In dit artikel bevat informatie over algemene wachtrij-opslagbewerkingen. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
+>
 > * Een wachtrij maken
 > * Ophalen van een wachtrij
 > * Een bericht toevoegen
@@ -53,7 +54,7 @@ $location = "eastus"
 
 ## <a name="create-resource-group"></a>Resourcegroep maken
 
-Maak een resourcegroep met de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+Maak een resourcegroep met de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Naam van de resourcegroep Store in een variabele voor toekomstig gebruik. In dit voorbeeld wordt een resourcegroep met de naam *howtoqueuesrg* wordt gemaakt in de *eastus* regio.
 
@@ -114,7 +115,7 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
-# Add two more messages to the queue 
+# Add two more messages to the queue
 $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
@@ -123,15 +124,15 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-Als u de [Azure Storage Explorer](https://storageexplorer.com), u kunt verbinding maken met uw Azure-account en de wachtrijen weergeven in de storage-account en Zoom in op een wachtrij om de berichten in de wachtrij weer te geven. 
+Als u de [Azure Storage Explorer](https://storageexplorer.com), u kunt verbinding maken met uw Azure-account en de wachtrijen weergeven in de storage-account en Zoom in op een wachtrij om de berichten in de wachtrij weer te geven.
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Lees een bericht uit de wachtrij verwijderen
 
 Berichten worden gelezen in volgorde van de beste probeer first in first out. Dit kan niet worden gegarandeerd. Wanneer u het bericht uit de wachtrij leest, wordt het onzichtbaar voor alle andere processen kijken naar de wachtrij. Dit zorgt ervoor dat als uw code niet kan verwerken van het bericht vanwege fout bij de hardware of software, een ander exemplaar van uw code kunt hetzelfde bericht en probeer het opnieuw.  
 
-Dit **de time-out voor onzichtbaarheid** wordt gedefinieerd hoe lang het bericht onzichtbaar blijft voordat deze beschikbaar zijn voor de verwerking van het opnieuw. De standaardwaarde is 30 seconden. 
+Dit **de time-out voor onzichtbaarheid** wordt gedefinieerd hoe lang het bericht onzichtbaar blijft voordat deze beschikbaar zijn voor de verwerking van het opnieuw. De standaardwaarde is 30 seconden.
 
-Uw code leest een bericht uit de wachtrij in twee stappen. Wanneer u aanroepen de [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) methode, krijgt u het volgende bericht in de wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Als u klaar bent met het bericht verwijderen uit de wachtrij, wilt u aanroepen de [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) methode. 
+Uw code leest een bericht uit de wachtrij in twee stappen. Wanneer u aanroepen de [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) methode, krijgt u het volgende bericht in de wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Als u klaar bent met het bericht verwijderen uit de wachtrij, wilt u aanroepen de [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) methode.
 
 In het volgende voorbeeld wordt u via de drie Wachtrijberichten lezen en vervolgens wacht 10 seconden (de time-out voor onzichtbaarheid). En u opnieuw de drie berichten de berichten worden verwijderd lezen na het lezen van deze door aan te roepen **DeleteMessage**. Als u probeert te lezen van de wachtrij de berichten zijn verwijderd, wordt u $queueMessage als NULL geretourneerd.
 
@@ -148,7 +149,7 @@ $queueMessage.Result
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
 $queueMessage.Result
 
-# After 10 seconds, these messages reappear on the queue. 
+# After 10 seconds, these messages reappear on the queue.
 # Read them again, but delete each one after reading it.
 # Delete the message.
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
@@ -167,7 +168,7 @@ $queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Resul
 Als u wilt verwijderen van een wachtrij en alle berichten die erin zijn opgenomen, roept u de cmdlet Remove-AzStorageQueue. Het volgende voorbeeld ziet hoe u de specifieke wachtrij die wordt gebruikt in deze oefening met de cmdlet Remove-AzStorageQueue verwijderen.
 
 ```powershell
-# Delete the queue 
+# Delete the queue
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
@@ -184,11 +185,12 @@ Remove-AzResourceGroup -Name $resourceGroup
 In dit artikel met instructies, hebt u geleerd over eenvoudige wachtrij-opslagbeheer met PowerShell, onder andere:
 
 > [!div class="checklist"]
+>
 > * Een wachtrij maken
 > * Ophalen van een wachtrij
 > * Een bericht toevoegen
 > * Lees het volgende bericht
-> * Een bericht verwijderen 
+> * Een bericht verwijderen
 > * Een wachtrij verwijderen
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage-cmdlets

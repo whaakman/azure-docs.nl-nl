@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714275"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991768"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Aan de slag met Service Bus-wachtrijen
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -387,9 +387,12 @@ Voor het ontvangen van de berichten die u hebt verzonden, maakt u een andere .NE
     ```
 4. Voer het programma uit en controleer de portal opnieuw. De waarden voor **Aantal actieve berichten** en **Huidige** moeten nu **0** zijn.
    
-    ![Wachtrijlengte][queue-message-receive]
+    ![Lengte van wachtrij][queue-message-receive]
 
 Gefeliciteerd! U hebt nu een wachtrij gemaakt, een set berichten verzonden naar die wachtrij en deze berichten ontvangen van dezelfde wachtrij.
+
+> [!NOTE]
+> U kunt Service Bus-resources beheren [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). De Service Bus Explorer kunnen gebruikers verbinding maken met een Service Bus-naamruimte en berichtentiteiten op een eenvoudige manier te beheren. Het hulpprogramma biedt geavanceerde functies zoals import/export-functionaliteit of de mogelijkheid om te testen, onderwerp, wachtrijen, abonnementen, relayservices, notification hubs en gebeurtenissen hubs. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

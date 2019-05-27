@@ -6,43 +6,43 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848177"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966320"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Veelgestelde vragen-Back-up van virtuele Azure-machines
 
 In dit artikel vindt u antwoorden op veelgestelde vragen over back-ups van virtuele Azure-machines met de [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Back-up
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Welke VM-installatiekopieën kunnen worden ingeschakeld voor back-up wanneer ik ze maken?
 Wanneer u een virtuele machine maakt, kunt u back-up inschakelen voor virtuele machines met [ondersteunde besturingssystemen](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Zijn de back-up kosten opgenomen in de VM-kosten? 
+
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Zijn de back-up kosten opgenomen in de VM-kosten?
 
 Nee. Back-kosten zijn gescheiden van de kosten van een virtuele machine. Meer informatie over [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Welke machtigingen zijn vereist voor het inschakelen van back-up voor een virtuele machine? 
 
-Als u een VM-Inzender bent, kunt u back-up op de virtuele machine inschakelen. Als u een aangepaste rol, moet u de volgende machtigingen voor de back-up op de virtuele machine inschakelen: 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Welke machtigingen zijn vereist voor het inschakelen van back-up voor een virtuele machine?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+Als u een VM-Inzender bent, kunt u back-up op de virtuele machine inschakelen. Als u een aangepaste rol, moet u de volgende machtigingen voor de back-up op de virtuele machine inschakelen:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 Als uw Recovery Services-kluis en de virtuele machine hebt verschillende resourcegroepen bevinden, zorg er dan voor dat u hebt schrijfmachtigingen in de resourcegroep voor de Recovery Services-kluis.  
 
 
@@ -140,3 +140,6 @@ De VM een back-up met behulp van het schema en de retentie-instellingen in het g
 3. Opnieuw worden ingeschakeld back-up in de dezelfde of een nieuwe kluis.
 
 U kunt de virtuele machine herstellen met beschikbare herstelpunten die zijn gemaakt voordat de bewerking voor verplaatsen.
+
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Is er een limiet voor het aantal VM's die gekoppeld aan een dezelfde back-upbeleid worden kunnen?
+Ja, er is een limiet van 100 VM's die gekoppeld aan het beleid met dezelfde back-up van de portal worden kunnen. We raden aan dat voor meer dan 100 virtuele machines, meerdere back-upbeleid maken met hetzelfde schema of een ander schema.

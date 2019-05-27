@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414054"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965977"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globale doorvoer netwerkarchitectuur en virtuele WAN
 
@@ -48,7 +48,7 @@ Afbeelding 2 toont de logische weergave van het wereldwijde netwerk waar geograf
 
 ## <a name="crossregion"></a>Regio-overschrijdende verbindingen
 
-Voor een bedrijf volgt een cloudfootprint doorgaans de fysieke footprint. In de meeste bedrijven toegang tot de cloud vanuit een regio het dichtst bij hun fysieke locatie en gebruikers. Een van de sleutel principals van het wereldwijde netwerkarchitectuur is om regio-overschrijdende verbindingen tussen netwerkentiteiten- en eindpunten. Een cloudfootprint kan meerdere regio's omvatten. Dit betekent dat verkeer van een vertakking die is verbonden met de cloud in één regio, een andere vertakking of een VNet in een andere regio bereiken kan.
+Voor een bedrijf volgt een cloudfootprint doorgaans de fysieke footprint. In de meeste bedrijven toegang tot de cloud vanuit een regio het dichtst bij hun fysieke locatie en gebruikers. Een van de sleutel principals van het wereldwijde netwerkarchitectuur is om regio-overschrijdende verbindingen tussen netwerkentiteiten- en eindpunten. Een cloudfootprint kan meerdere regio's omvatten. Dit betekent dat verkeer van een vertakking die is verbonden met de cloud in één regio bereiken kan, een andere vertakking of een VNet in een andere regio met behulp van de hub-naar-hub-connectiviteit die zich momenteel in preview.
 
 ## <a name="any"></a>Any-to-any connectiviteit
 
@@ -89,7 +89,7 @@ Het pad van de externe gebruiker-naar-vertakking kan externe gebruikers die gebr
 
 ### <a name="vnetvnet"></a>VNet-naar-VNet-overdracht met behulp van VNet-peering
 
-Voor vnet's ter ondersteuning van toepassingen met meerdere lagen die worden geïmplementeerd op meerdere VNets met elkaar verbinden, gebruikt u VNet-peering. Een scenario voor het tussenliggende VNet-naar-VNet via Azure virtuele WAN wordt momenteel niet ondersteund, maar is op de Azure-roadmap. VNets verbinden via VNet-Peering is de aanbevolen oplossing voor vnet's die moeten worden verbonden met elkaar. Zie voor meer informatie over VNet-peering, [VNet-Peering overzicht](../virtual-network/virtual-network-peering-overview.md).
+Voor vnet's ter ondersteuning van toepassingen met meerdere lagen die worden geïmplementeerd op meerdere VNets met elkaar verbinden, gebruikt u VNet-peering. Een scenario voor het tussenliggende VNet-naar-VNet via Azure virtuele WAN wordt momenteel niet ondersteund, maar is op de Azure-roadmap. VNets verbinden via VNet-Peering is de aanbevolen oplossing voor vnet's die moeten worden verbonden met elkaar. [Gateway-doorvoer](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (in de context van de VNet-peering) is niet vereist voor virtuele WAN omdat virtuele WAN automatisch gateway-doorvoer kunt.
 
 ### <a name="globalreach"></a>ExpressRoute wereldwijd bereik
 

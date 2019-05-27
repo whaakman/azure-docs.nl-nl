@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129730"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling common metrics
 
@@ -53,22 +53,22 @@ U kunt een waarschuwing voor de volgende metrische gegevens maken:
 
 | Naam van meetwaarde | Eenheid |
 | --- | --- |
-| \Processor(_Total)\% Processor Time |Procent |
-| \Processor(_Total)\% Privileged Time |Procent |
-| \Processor(_Total)\% tijd in gebruikersmodus |Procent |
+| \Processor(_Total)\% Processor Time |Percent |
+| \Processor(_Total)\% Privileged Time |Percent |
+| \Processor(_Total)\% tijd in gebruikersmodus |Percent |
 | \Processor Information(_Total)\Processor Frequency |Count |
 | \System\Processes |Count |
 | \Process(_Total)\Thread Count |Count |
 | \Process(_Total)\Handle Count |Count |
-| \Memory\% toegewezen Bytes In gebruik |Procent |
+| \Memory\% toegewezen Bytes In gebruik |Percent |
 | \Memory\Available Bytes |Bytes |
 | \Memory\Committed bytes |Bytes |
 | \Memory\Commit limiet |Bytes |
 | \Memory\Pool Paged Bytes |Bytes |
 | \Memory\Pool Nonpaged Bytes |Bytes |
-| \PhysicalDisk(_Total)\% schijftijd |Procent |
-| \PhysicalDisk(_Total)\% leestijd schijf |Procent |
-| \PhysicalDisk(_Total)\% schrijftijd schijf |Procent |
+| \PhysicalDisk(_Total)\% schijftijd |Percent |
+| \PhysicalDisk(_Total)\% leestijd schijf |Percent |
+| \PhysicalDisk(_Total)\% schrijftijd schijf |Percent |
 | \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Writes/sec |CountPerSecond |
@@ -78,7 +78,7 @@ U kunt een waarschuwing voor de volgende metrische gegevens maken:
 | \PhysicalDisk(_Total)\Avg. Lengte van de wachtrij voor de schijf |Count |
 | \PhysicalDisk(_Total)\Avg. Wachtrijlengte voor schijf lezen |Count |
 | \PhysicalDisk(_Total)\Avg. Wachtrijlengte voor schijf schrijven |Count |
-| \LogicalDisk(_Total)\% vrije ruimte |Procent |
+| \LogicalDisk(_Total)\% vrije ruimte |Percent |
 | \LogicalDisk(_Total)\Free Megabytes |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Gastbesturingssysteem metrische gegevens over virtuele Linux-machines
@@ -95,25 +95,25 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | Naam van meetwaarde | Eenheid |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
-| \Memory\PercentAvailableMemory |Procent |
+| \Memory\PercentAvailableMemory |Percent |
 | \Memory\UsedMemory |Bytes |
-| \Memory\PercentUsedMemory |Procent |
-| \Memory\PercentUsedByCache |Procent |
+| \Memory\PercentUsedMemory |Percent |
+| \Memory\PercentUsedByCache |Percent |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Bytes |
-| \Memory\PercentAvailableSwap |Procent |
+| \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |Bytes |
-| \Memory\PercentUsedSwap |Procent |
-| \Processor\PercentIdleTime |Procent |
-| \Processor\PercentUserTime |Procent |
-| \Processor\PercentNiceTime |Procent |
-| \Processor\PercentPrivilegedTime |Procent |
-| \Processor\PercentInterruptTime |Procent |
-| \Processor\PercentDPCTime |Procent |
-| \Processor\PercentProcessorTime |Procent |
-| \Processor\PercentIOWaitTime |Procent |
+| \Memory\PercentUsedSwap |Percent |
+| \Processor\PercentIdleTime |Percent |
+| \Processor\PercentUserTime |Percent |
+| \Processor\PercentNiceTime |Percent |
+| \Processor\PercentPrivilegedTime |Percent |
+| \Processor\PercentInterruptTime |Percent |
+| \Processor\PercentDPCTime |Percent |
+| \Processor\PercentProcessorTime |Percent |
+| \Processor\PercentIOWaitTime |Percent |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -147,8 +147,8 @@ U kunt de waarschuwing op basis van of schalen door deze metrische gegevens.
 
 | Naam van meetwaarde | Eenheid |
 | --- | --- |
-| CpuPercentage |Procent |
-| MemoryPercentage |Procent |
+| CpuPercentage |Percent |
+| MemoryPercentage |Percent |
 | DiskQueueLength |Count |
 | HttpQueueLength |Count |
 | BytesReceived |Bytes |
@@ -190,4 +190,3 @@ Voor VM-schaalsets, kunt u de instelling voor automatisch schalen in de Resource
 > Het concept van de groep resource bestaat niet voor Service Bus, maar Azure Resource Manager maakt een standaardresourcegroep per regio. De resourcegroep bevindt zich meestal in de indeling 'Default - ServiceBus-[regio]'. Bijvoorbeeld 'Standaard-ServiceBus-EastUS', 'Standaard-ServiceBus-WestUS', 'Standaard-ServiceBus-AustraliaEast' enzovoort.
 >
 >
-

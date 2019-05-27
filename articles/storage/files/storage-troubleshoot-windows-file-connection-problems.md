@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926385"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991371"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -284,6 +284,8 @@ Fout AadDsTenantNotFound gebeurt er wanneer u te probeert [Azure Active Director
 ### <a name="solution"></a>Oplossing
 
 AAD DS inschakelen op de AAD-tenant van het abonnement dat is geïmplementeerd voor uw storage-account. U hebt beheerdersbevoegdheden van de AAD-tenant te maken van een beheerd domein nodig. Als u niet de beheerder van de Azure AD-tenant, neem contact op met de beheerder en volg de stapsgewijze instructies voor het [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen snel.

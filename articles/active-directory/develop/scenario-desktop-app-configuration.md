@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/o7/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bc0042d6392891e8282c563afea2212031a0f49a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545507"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121882"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Desktop-app dat aanroepen van web-API's - code configureren
 
@@ -38,7 +38,7 @@ Vanuit het oogpunt van code bureaubladtoepassingen openbare clienttoepassingen z
 
 ### <a name="exclusively-by-code"></a>Uitsluitend door code
 
-De volgende code waarmee gebruikers aanmelden in de openbare cloud van Microsoft Azure met hun werk en schoolaccounts, of hun persoonlijke Microsoft-account wordt een openbare client-toepassing.
+De volgende code waarmee de toepassing van een openbare client, wordt gebruikers aanmelden in de openbare cloud van Microsoft Azure, met een werk en school-account of een persoonlijk Microsoft-account.
 
 ```CSharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
@@ -50,8 +50,8 @@ Als u gebruikmaken van interactieve verificatie, wilt zoals hierboven wordt weer
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri(PublicClientApplicationBuilder.DefaultInteractiveDesktopRedirectUri)
-         .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="using-configuration-files"></a>Met behulp van configuratiebestanden
@@ -61,7 +61,8 @@ De volgende code wordt een openbare client-toepassing van een configuratieobject
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-    .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="more-elaborated-configuration"></a>Meer uitgewerkt configuratie
@@ -71,6 +72,7 @@ U kunt de toepassing bouwen door een aantal parameters toe te voegen uitwerken. 
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
         .WithAadAuthority(AzureCloudInstance.AzureUsGovernment,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -167,6 +169,7 @@ Voor het maken van uw toepassing, u hebt nu alleen nodig om de volgende code te 
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
+           .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
            .Build();
 ```
 

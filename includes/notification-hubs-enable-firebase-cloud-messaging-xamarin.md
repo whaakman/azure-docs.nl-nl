@@ -9,11 +9,11 @@ ms.date: 03/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 90ffebf5f3375e94545f82a95f5c240ad845bd94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60423183"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162177"
 ---
 1. Meld u aan bij de [Firebase-console](https://firebase.google.com/console/). Maak een nieuw Firebase-project als u er nog geen hebt.
 2. Nadat u uw project hebt gemaakt, selecteert u **Firebase toevoegen aan uw Android-app**. 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474268"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158515"
 ---
 U hebt een account van Azure nodig als u Azure CLI wilt gebruiken met opdrachten en sjablonen van Resource Manager voor het implementeren van Azure-resources en -werkbelastingen met behulp van resourcegroepen. Als u geen account hebt, kunt u [hier een gratis proefversie starten](https://azure.microsoft.com/pricing/free-trial/).
 

@@ -14,11 +14,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66120433"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>De Azure-SSIS Integration Runtime met Azure SQL Database geo-replicatie en failover configureren
 
@@ -52,11 +52,11 @@ In deze sectie is van toepassing wanneer een van de volgende voorwaarden voldaan
 
 - De Azure-SSIS-IR verwijst naar het eindpunt van de primaire server van de failovergroep. Dit eindpunt wordt gewijzigd wanneer een failover optreedt.
 
-  OF
+  OR
 
 - De Azure SQL Database-server is geconfigureerd met de regel voor virtuele netwerken service-eindpunt.
 
-  OF
+  OR
 
 - De database-server is een SQL Database Managed Instance geconfigureerd met een virtueel netwerk.
 
@@ -107,6 +107,6 @@ Houd rekening met deze andere configuratieopties voor de Azure-SSIS-IR:
 
 - [De Azure-SSIS Integration Runtime voor hoge prestaties configureren](configure-azure-ssis-integration-runtime-performance.md)
 
-- [Setup voor de Azure-SSIS integratieruntime aanpassen](how-to-configure-azure-ssis-ir-custom-setup.md)
+- [Instelling voor Azure-SSIS Integration Runtime aanpassen](how-to-configure-azure-ssis-ir-custom-setup.md)
 
 - [Enterprise-editie voor de Azure-SSIS-Integratieruntime inrichten](how-to-configure-azure-ssis-ir-enterprise-edition.md)

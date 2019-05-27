@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779436"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989851"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -30,6 +30,24 @@ Zie [de lijst met bekende problemen](resource-known-issues.md) voor meer informa
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning-SDK voor Python v1.0.39
 + **Wijzigingen**
   + Uitvoeringsconfiguratie auto_prepare_environment optie wordt afgeschaft, met automatische voorbereiden om de standaardinstelling.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>Azure Machine Learning Data Prep SDK v1.1.3
+
++ **Nieuwe functies**
+  + Er is ondersteuning toegevoegd om te lezen uit een database voor PostgresSQL, door het aanroepen van read_postgresql of met behulp van een gegevensarchief.
+    + Zie de voorbeelden in de handleidingen:
+      + [Gegevens opnemen notebook](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Datastore-notebook](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Fouten opgelost en verbeteringen**
+  + Opgeloste problemen met de kolom typeconversie:
+  + Correct nu een Boolean-waarde of een numerieke kolom geconverteerd naar een Booleaanse kolom.
+  + Nu wordt geen failback uitgevoerd wanneer wordt geprobeerd om in te stellen van een datumkolom moet het datumtype.
+  + Verbeterde JoinType typen en de bijbehorende documentatie. Bij het toevoegen van twee gegevensstromen, kunt u nu een van deze typen join opgeven:
+    + GEEN, OVEREENKOMEN, INTERNE, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, VOLLEDIGE.
+  + Verbeterde gegevenstype inferentietaken meer datumnotaties herkennen.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +385,7 @@ Azure Machine Learning-service is nu algemeen beschikbaar.
 Met deze release, kondigen we een nieuwe beheerde rekenervaring via de [Azure Machine Learning-Computing](how-to-set-up-training-targets.md#amlcompute). Deze compute-doel wordt vervangen door de Azure Batch AI compute voor Azure Machine Learning. 
 
 Deze compute-doel:
-+ Wordt gebruikt voor het model trainings- en batch inferentietaken
++ Wordt gebruikt voor het model trainings- en batch Deductie/scoren
 + Is van één - op meerdere - node compute
 + Het cluster-beheer en taakplanning voor de gebruiker
 + Automatisch wordt geschaald standaard

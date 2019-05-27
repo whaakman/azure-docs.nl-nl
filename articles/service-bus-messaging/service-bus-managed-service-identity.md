@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228390"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978798"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Beheerde identiteiten voor Azure Service Bus-resources 
 
@@ -29,7 +29,23 @@ Met beheerde identiteiten beheert het Azure-platform deze runtime-identiteit. U 
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-rollen en machtigingen
 
-U kunt alleen een beheerde identiteit toevoegen aan de rollen 'Eigenaar' of 'Medewerker' van een Service Bus-naamruimte. Deze biedt de volledige controle van de identiteit op alle entiteiten in de naamruimte. Beheer van bewerkingen die wijzigen van de naamruimte-topologie in eerste instantie zijn ondersteund echter alleen maar Azure Resource Manager. Het is niet via de systeemeigen Service Bus REST-beheerinterface. Deze ondersteuning betekent ook dat u de .NET Framework-client niet gebruiken [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) of de standaard .NET- [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objecten in een beheerde identiteit.
+U kunt een beheerde identiteit toevoegen aan de rol 'Service Bus Gegevenseigenaar' van een Service Bus-naamruimte. Deze biedt de identiteit, volledig beheer (voor beheer en bewerkingen van gegevens) op alle entiteiten in de naamruimte.
+
+>[!IMPORTANT]
+> We eerder toe te voegen beheerde identiteit ondersteund de **'Eigenaar'** of **"Bijdrager"** rol.
+>
+> Echter bevoegdheden voor toegang tot de gegevens **'Eigenaar'** en **"Bijdrager"** rol wordt niet meer worden herkend. Als u de **'Eigenaar'** of **"Bijdrager"** rol en vervolgens die moet worden aangepast aan het gebruik van de **'Service Bus Gegevenseigenaar'** rol.
+
+Voor het gebruik van de nieuwe ingebouwde rol, voer de onderstaande stappen -
+
+1. gaat u verder met de [Azure-portal](https://portal.azure.com)
+2. Navigeer naar de Service Bus-naamruimte waarin u momenteel setup de 'Eigenaar' of ' ' de rol Inzender hebt.
+3. Klik op 'Control(IAM) toegang' in het linkerdeelvenster-menu.
+4. Gaat u verder met het toevoegen van een nieuwe roltoewijzing als hieronder
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Klik op 'Opslaan' om op te slaan van de nieuwe roltoewijzing.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus gebruiken met beheerde identiteiten voor Azure-resources
 
@@ -51,7 +67,7 @@ Nadat u de functie hebt ingeschakeld, is een nieuwe service-identiteit in uw Azu
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Een nieuwe Service Bus Messaging-naamruimte maken
 
-Volgende [maken van een Service Bus Messaging-naamruimte](service-bus-create-namespace-portal.md) in een van de Azure-regio's die ondersteuning bieden voor Preview-versie voor RBAC: **VS Oost**, **VS Oost 2**, of **West-Europa**. 
+Volgende [maken van een Service Bus Messaging-naamruimte](service-bus-create-namespace-portal.md). 
 
 Navigeer naar de naamruimte **Access Control (IAM)** pagina in de portal en klik vervolgens op **roltoewijzing toevoegen** om toe te voegen van de beheerde identiteit op de **eigenaar** rol. Om dit te doen, zoekt u de naam van de web-App in de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**.
 

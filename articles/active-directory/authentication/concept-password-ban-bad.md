@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415703"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977311"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Onjuiste wachtwoorden in uw organisatie te elimineren
 
@@ -75,7 +75,7 @@ Elk van de bovenstaande wachtwoorden komt de uitgesloten wachtwoorden "abcdef" s
 
 Subtekenreeksen op het genormaliseerde wachtwoord wordt gebruikt om te controleren of de gebruiker eerst's en achternaam en de naam van de tenant (Houd er rekening mee dat overeenkomt met de naam van tenant is niet uitgevoerd bij het valideren van wachtwoorden op een Active Directory-domeincontroller).
 
-Voorbeeld: Stel dat we beschikken over een gebruiker Jan de Vries die wil opnieuw instellen van zijn/haar wachtwoord te 'J0hn123fb'. Na normaliseren, zou dit wachtwoord "john123fb" worden. Subtekenreeksen vindt dat het wachtwoord van de gebruiker eerst de naam 'John' bevat. Hoewel 'J0hn123fb' niet specifiek op een lijst met uitgesloten wachtwoorden is, subtekenreeksen 'John' gevonden in het wachtwoord. Dit wachtwoord zou dus worden geweigerd.
+Voorbeeld: Stel dat we beschikken over een gebruiker, Pol, die hun wachtwoord te "P0l123fb" wil. Na normaliseren, zou dit wachtwoord "pol123fb" worden. Subtekenreeksen vindt dat het wachtwoord van de gebruiker eerst de naam "Pol" bevat. Hoewel 'P0l123fb' niet specifiek op een lijst met uitgesloten wachtwoorden is, subtekenreeksen 'Pol' gevonden in het wachtwoord. Dit wachtwoord zou dus worden geweigerd.
 
 #### <a name="score-calculation"></a>Berekening van de risicoscore
 

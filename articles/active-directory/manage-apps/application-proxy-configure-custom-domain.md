@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e258670e863ff195190bae5cd50537e50d40d942
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825644"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956913"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Werken met aangepaste domeinen in Azure AD-toepassingsproxy
 
@@ -71,7 +71,9 @@ Wanneer u deze drie vereisten klaar hebt, volgt u deze stappen voor het instelle
 ### <a name="certificate-format"></a>De indeling van certificaat
 Er is geen beperking voor het certificaat handtekening-methoden. Alle worden Elliptic Curve Cryptography (ECC), SAN Subject Alternative Name () en andere algemene typen certificaten ondersteund. 
 
-U kunt een certificaat met jokertekens gebruiken, zolang het jokerteken komt overeen met de gewenste externe URL. 
+U kunt een certificaat met jokertekens gebruiken, zolang het jokerteken komt overeen met de gewenste externe URL.
+
+U kunt een certificaat dat is uitgegeven door uw eigen openbare-sleutelinfrastructuur (PKI) vanwege beveiligingsoverwegingen niet gebruiken.
 
 ### <a name="changing-the-domain"></a>Wijzigen van het domein
 Alle geverifieerde domeinen worden weergegeven in de vervolgkeuzelijst voor de externe URL voor uw toepassing. Als u wilt wijzigen van het domein, moet u alleen dat veld voor de toepassing bijwerken. Als het domein dat u wilt dat zich niet in de lijst [toe te voegen als een geverifieerd domein](../fundamentals/add-custom-domain.md). Als u een domein dat niet beschikken over een bijbehorende certificaat nog, volgt u stap 5-7 om toe te voegen van het certificaat selecteren. Controleer vervolgens of dat u de DNS-record om te leiden van de nieuwe externe URL bijwerken. 

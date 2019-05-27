@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5dcde10430308eaa1df0e6cca279803c3f7f5fe1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 10d2eb45b6706299336094359f10568e6811e1fb
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935652"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967712"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -24,7 +24,7 @@ In dit artikel bevat informatie over registreren als een cloud-marketplace-uitge
 |:--- |:--- |:--- |:--- |  
 | 1 | Registreren in Microsoft Partner Network | 15 min | [Registreren in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Een Microsoft-Account maken <ul>(vereist voor Azure Marketplace biedt transact; aanbevolen voor anderen)</ul> | 15 min | [Maken van een Microsoft-ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Het registratieformulier marketplace verzenden | 15 min | [De marketplace-nominatieformulier verzenden](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 3 | Een Partner Center-account maken | 15 min | [Een Partner Center-account maken](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Meld u aan bij de Cloud Partner-Portal | 1-3 dagen | [Meld u aan bij de Cloud Partner-Portal](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Registreren in Microsoft Developer Center (Dev Center) (voor Azure Marketplace transact aanbiedingen) | 5-10 dagen | [Registreren in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
@@ -59,14 +59,19 @@ Een Microsoft-account, bijvoorbeeld  *\@outlook.com of \@live.com*, wordt gebrui
 
 ---
 
-## <a name="3-submit-the-marketplace-registration-form"></a>3. Het registratieformulier marketplace verzenden  
+## <a name="3-create-a-partner-center-account"></a>3. Een Partner Center-account maken  
 | 15 min |  
-Voltooien van dit resumé [registratieformulier](https://azuremarketplace.microsoft.com/sell/signup) om te worden van een marketplace-uitgever. De informatie in dit formulier wordt ingediend zal worden gebruikt om een publisher-account maken in de Cloud Partner-Portal waarmee u kunt maken, publiceren en beheren van marketplace-aanbiedingen.
 
-U wordt gevraagd om op te nemen van de volgende informatie:
-*   Meer informatie over uw organisatie, met inbegrip van het Microsoft Partner Network-ID (die u kunt opzoeken in een [Partner Center](https://partnercenter.microsoft.com/partner/home) of [lidmaatschap Partnercentrum](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
-*   Een korte beschrijving van uw eerste app of consulting services bieden die u van plan bent om te publiceren, met inbegrip van de Microsoft-product of service die uw aanbieding meest aansluit
-*   De doelgroep voor uw app of service 
+Nadat u [indienen van uw oplossing](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) op Marketplace, onze voorbereidingsteam neemt contact op met u ter ondersteuning van uw publicatie-ervaring. Zie hoe u [maken van een account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) voor meer informatie.
+
+<!---
+Complete this brief [registration form](https://azuremarketplace.microsoft.com/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
+
+You will be asked to include the following information:
+*   Details about your organization, including your Microsoft Partner Network ID (which you can look up in either [Partner Center](https://partnercenter.microsoft.com/partner/home) or [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
+*   A brief description of your initial app or consulting services offer that you intend to publish, including the Microsoft product or service to which your offer most closely aligns
+*   The target audience for your app or service 
+-->
 
 ---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Meld u aan bij de Cloud Partner-Portal
@@ -90,10 +95,10 @@ De afzonderlijke registratie [Dev Center](https://developer.microsoft.com/store/
 *   Registreren voor een [Dev Center](https://developer.microsoft.com/store/register) account [start hier het aanmeldproces](https://developer.microsoft.com/store/register).
 *   Voor meer informatie over het maken van een Microsoft-account, gaat u naar de *maken van een Microsoft-account* sectie.
  
-Wanneer u hebt de [Dev Center](https://developer.microsoft.com/store/register) registratie, uw Cloud Partner-profiel met een koppeling uw [Dev Center](https://developer.microsoft.com/store/register) rekening (Zie de gedetailleerde stappen). Deze stap moet worden voltooid voordat u uw transact-aanbieding publiceert. 
+Wanneer u hebt de [Dev Center](https://developer.microsoft.com/store/register) registratie, uw Cloud Partner-profiel met een koppeling uw [Dev Center](https://developer.microsoft.com/store/register) account ([Zie gedetailleerde stappen hier](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile)). Deze stap moet worden voltooid voordat u uw transact-aanbieding publiceert. 
 
 >[!Note]
->Om te vervallen de kosten $99 Developer Center registratie, voltooi de [marketplace registratieformulier](https://azuremarketplace.microsoft.com/sell/signup) en u ontvangt een e-mail met uw promotiecode. 
+>Om te vervallen de kosten $99 Developer Center registratie, voltooi de [marketplace registratieformulier](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) en u ontvangt een e-mail met uw promotiecode. Zie hoe u [maken van een account Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) voor meer informatie.
 
 >[!Important]
 >Voordat u een Microsoft Developer Center-account maakt, Controleer of dat uw organisatie nog geen een Dev Center-account om te voorkomen dat dubbele accounts. Voor meer informatie gaat u naar de [registreren in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) sectie.

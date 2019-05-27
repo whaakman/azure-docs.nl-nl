@@ -4,15 +4,15 @@ description: In dit artikel bevat een overzicht van de web application firewall 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518181"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991405"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Web application firewall voor Azure Application Gateway
 
@@ -38,7 +38,7 @@ Deze sectie beschrijft de belangrijkste voordelen van Application Gateway en de 
 
 * Bescherm uw webtoepassingen tegen internetkwetsbaarheden en aanvallen zonder aanpassingen aan back-end-code.
 
-* Beveiligen van meerdere webtoepassingen op hetzelfde moment. Een exemplaar van Application Gateway kan hosten van maximaal 20 websites die worden beveiligd door een firewall voor webtoepassingen.
+* Beveiligen van meerdere webtoepassingen op hetzelfde moment. Een exemplaar van Application Gateway kan hosten van maximaal 100 websites die worden beveiligd door een firewall voor webtoepassingen.
 
 ### <a name="monitoring"></a>Bewaking
 
@@ -46,7 +46,7 @@ Deze sectie beschrijft de belangrijkste voordelen van Application Gateway en de 
 
 * De Application Gateway WAF is geïntegreerd met Azure Security Center. Security Center biedt een centraal overzicht van de beveiligingsstatus van al uw Azure-resources.
 
-### <a name="customization"></a>Aanpassing
+### <a name="customization"></a>Aanpassen
 
 * U kunt aanpassen WAF-regels en regelgroepen om te stemmen op de toepassingsvereisten van uw en fout-positieven te elimineren.
 
@@ -121,12 +121,19 @@ De Application Gateway WAF kan worden geconfigureerd om te worden uitgevoerd in 
 * **Preventiemodus**: Blokken indringers en aanvallen die de regels detecteren. De aanvaller krijgt een uitzondering '403 niet-geautoriseerde toegang' en de verbinding is verbroken. Preventiemodus registreert dergelijke aanvallen in de WAF-Logboeken.
 
 ### <a name="anomaly-scoring-mode"></a>Anomaliedetectie score modus
- 
+
 OWASP heeft twee modi voor het besluit om verkeer te blokkeren: Traditionele en Scoring-Anomaliedetectie-modus.
 
 In de traditionele modus, wordt beschouwd als verkeer dat overeenkomt met elke regel onafhankelijk van eventuele andere overeenkomt met de regel. In deze modus is eenvoudig te begrijpen. Maar het ontbreken van informatie over het aantal regels overeenkomen met een specifieke aanvraag is een beperking. Dus is Anomaliedetectie Scoring-modus geïntroduceerd. Dit is de standaardinstelling voor OWASP 3. *x*.
 
 Verkeer dat overeenkomt met elke regel is niet in de modus voor Anomaliedetectie scoren onmiddellijk geblokkeerd wanneer de firewall preventiemodus wordt. Regels voor hebben een bepaalde prioriteit: *Kritieke*, *fout*, *waarschuwing*, of *kennisgeving*. Deze ernst is van invloed op een numerieke waarde voor de aanvraag, de Anomaliedetectie-Score wordt genoemd. Als bijvoorbeeld een *waarschuwing* regel overeen bijdraagt 3 van de score. Een *kritieke* regel overeen bijdraagt 5.
+
+|Severity  |Value  |
+|---------|---------|
+|Kritiek     |5|
+|Fout        |4|
+|Waarschuwing      |3|
+|Kennisgeving       |2|
 
 Er is een drempelwaarde van 5 voor de Score van afwijkingen verkeer blokkeert. Dus een enkel *Kritiek* overeenkomst van de regel is voldoende voor de Application Gateway WAF een aanvraag, zelfs in preventiemodus blokkeren. Maar één *waarschuwing* regel overeen verhoogt alleen de anomalie Score door 3, die niet voldoende zelf om het verkeer te blokkeren.
 

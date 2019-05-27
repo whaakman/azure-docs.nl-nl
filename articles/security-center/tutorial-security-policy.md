@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
-ms.author: monhaber
-ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: v-mohabe
+ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236299"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967834"
 ---
 # <a name="working-with-security-policies"></a>Werken met beveiligingsbeleid
 
@@ -94,7 +94,7 @@ Ga als volgt te werk als u uw beveiligingsbeleidsregels wilt weergeven in Securi
 > - Wanneer u weergeven aan beleidsregels toegewezen, kunt u meerdere toewijzingen bekijken en kunt u zien hoe elke toewijzing is geconfigureerd op een eigen.
 
 ## <a name="edit-security-policies"></a>Beveiligingsbeleid bewerken
-U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen en beheergroepen in bewerken [Azure Policy](../governance/policy/tutorials/create-and-manage.md). U kunt een beveiligingsbeleid alleen wijzigen als u een eigenaar, bijdrager of beveiligingsbeheerder van dat abonnement bent of van de bovenliggende beheergroep.
+U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen en beheergroepen bewerken in [Azure Policy](../governance/policy/tutorials/create-and-manage.md). U kunt een beveiligingsbeleid alleen wijzigen als u een eigenaar, bijdrager of beveiligingsbeheerder van dat abonnement bent of van de bovenliggende beheergroep.
 
 Zie voor instructies over het bewerken van een beveiligingsbeleid in Azure Policy en [maken en beheren van beleidsregels voor het afdwingen van naleving](../governance/policy/tutorials/create-and-manage.md).
 

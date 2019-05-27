@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 09898ac7dd4a6f3ee9cf0ea26ded607a8673b9f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438241"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987711"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
@@ -144,13 +144,15 @@ Als u wilt controleren of opslaan in cache is uitgeschakeld, zoekt de **cache =*
 
 **Cache = none** geeft aan dat opslaan in cache is uitgeschakeld. De share te koppelen met behulp van de koppelopdracht of door expliciet toe te voegen de **cache = strikte** optie voor de mount-opdracht om ervoor te zorgen dat standaard opslaan in cache of 'strikte' cache-modus is ingeschakeld.
 
-In sommige scenario's de **serverino** mount-optie kan leiden tot de **ls** uit te voeren op basis van elke mapvermelding stat opdracht. Dit gedrag leidt tot verminderde prestaties wanneer u bent een groot map wordt weergegeven. U kunt de koppelingsopties controleren in uw **/etc/fstab** post:
+In sommige scenario's de **serverino** mount-optie kan leiden tot de **ls** uit te voeren op basis van elke mapvermelding stat opdracht. Dit gedrag leidt tot verminderde prestaties wanneer u bent een grote map wordt weergegeven. U kunt de koppelingsopties controleren in uw **/etc/fstab** post:
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 U kunt ook controleren of de juiste opties worden gebruikt door het uitvoeren van de **sudo koppelpunt | grep cifs** opdracht en de uitvoer controleren. Hier volgt een van voorbeelduitvoer:
 
-`//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+```
+//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
+```
 
 Als de **cache = strikte** of **serverino** optie is niet aanwezig zijn, te ontkoppelen en opnieuw koppelen van Azure Files met de koppelopdracht van de [documentatie](../storage-how-to-use-files-linux.md). Vervolgens controleren dat de **/etc/fstab** item heeft de juiste opties.
 
@@ -245,6 +247,8 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 ```
 
 Vervolgens kunt u symlinks maken als voorgestelde op de [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838957"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955738"
 ---
 # <a name="security-in-azure-app-service"></a>Beveiliging in Azure App Service
 
@@ -105,7 +105,7 @@ U kunt veilig toegang krijgen tot on-premises bronnen, zoals databases, op drie 
 
 ## <a name="application-secrets"></a>Toepassingsgeheimen
 
-Toepassingsgeheimen, zoals de databasereferenties, API-tokens en persoonlijke sleutels niet worden opgeslagen in uw code of configuratie bestanden. De algemeen geaccepteerde benadering is voor toegang tot deze als [omgevingsvariabelen](https://wikipedia.org/wiki/Environment_variable) met het standaardpatroon in uw taal naar keuze. In App Service, de manier voor het definiëren van omgevingsvariabelen is via [app-instellingen](web-sites-configure.md#app-settings) (en, met name voor .NET-toepassingen, [verbindingsreeksen](web-sites-configure.md#connection-strings)). App-instellingen en verbindingsreeksen worden versleuteld opgeslagen in Azure en ze zijn ontsleuteld alleen voordat wordt opgenomen in het procesgeheugen van uw app wanneer de app wordt gestart. De versleutelingssleutels worden regelmatig gedraaid.
+Toepassingsgeheimen, zoals de databasereferenties, API-tokens en persoonlijke sleutels niet worden opgeslagen in uw code of configuratie bestanden. De algemeen geaccepteerde benadering is voor toegang tot deze als [omgevingsvariabelen](https://wikipedia.org/wiki/Environment_variable) met het standaardpatroon in uw taal naar keuze. In App Service, de manier voor het definiëren van omgevingsvariabelen is via [app-instellingen](configure-common.md#configure-app-settings) (en, met name voor .NET-toepassingen, [verbindingsreeksen](configure-common.md#configure-connection-strings)). App-instellingen en verbindingsreeksen worden versleuteld opgeslagen in Azure en ze zijn ontsleuteld alleen voordat wordt opgenomen in het procesgeheugen van uw app wanneer de app wordt gestart. De versleutelingssleutels worden regelmatig gedraaid.
 
 U kunt ook uw App Service-app met integreren [Azure Key Vault](/azure/key-vault/) voor het beheer van geavanceerde geheimen. Door [toegang tot de Key Vault met een beheerde identiteit](../key-vault/tutorial-web-application-keyvault.md), uw App Service-app veilig toegang krijgen tot de geheimen die u nodig hebt.
 

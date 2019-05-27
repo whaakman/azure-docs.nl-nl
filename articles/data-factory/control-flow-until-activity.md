@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155174"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>UNTIL-activiteit in Azure Data Factory
 De Until-activiteit biedt dezelfde functionaliteit die een do-totdat lusstructuur in een programmeertaal. Er wordt een reeks activiteiten uitgevoerd totdat de voorwaarde die aan de activiteit is gekoppeld, resulteert in waar. U kunt in Data Factory een time-outwaarde voor de Until-activiteit opgeven. 
@@ -54,10 +54,10 @@ De Until-activiteit biedt dezelfde functionaliteit die een do-totdat lusstructuu
 
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | Naam van de `Until` activiteit. | String | Ja
+name | Naam van de `Until` activiteit. | String | Ja
 type | Moet worden ingesteld op **totdat**. | String | Ja
 expressie | Expressie die moet worden geëvalueerd op waar of ONWAAR | De expressie.  | Ja
-timeout | De-pas na de opgegeven tijd hier time-out lus. | tekenreeks. `d.hh:mm:ss` (of) `hh:mm:ss`. De standaardwaarde is 7 dagen. Maximale waarde is: 90 dagen. | Nee
+time-out | De-pas na de opgegeven tijd hier time-out lus. | tekenreeks. `d.hh:mm:ss` (of) `hh:mm:ss`. De standaardwaarde is 7 dagen. Maximale waarde is: 90 dagen. | Nee
 Activiteiten | Set van activiteiten die worden uitgevoerd totdat de expressie resulteert in `true`. | Matrix van activiteiten. |  Ja
 
 ## <a name="example-1"></a>Voorbeeld 1

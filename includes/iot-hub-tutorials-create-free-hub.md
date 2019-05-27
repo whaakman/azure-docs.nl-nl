@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e3110e4018e214e7e7aa591b811246369c029ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a7a86c6a2661a8a1f30491391fc76f4dc5d71f54
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38945698"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66163549"
 ---
 Een IoT-hub maken met behulp van Azure Portal:
 
@@ -25,16 +25,16 @@ Een IoT-hub maken met behulp van Azure Portal:
 
 1. Gebruik de waarden in de volgende tabellen om uw IoT-hub in de gratis laag te maken:
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
     | Abonnement | Selecteer uw Azure-abonnement in de vervolgkeuzelijst. |
     | Resourcegroep | Nieuwe maken. In deze zelfstudie wordt de naam **tutorials-iot-hub-rg** gebruikt. |
-    | Regio | In deze zelfstudie wordt gebruikgemaakt van **VS-West**. U kunt de regio kiezen die zich het meest in uw buurt bevindt. |
-    | Naam | In de volgende schermafbeelding wordt de naam **tutorials-iot-hub** gebruikt. U moet uw eigen unieke naam kiezen wanneer u uw hub maakt. |
+    | Regio | In deze zelfstudie wordt gebruikgemaakt van **US - west**. U kunt de regio kiezen die zich het meest in uw buurt bevindt. |
+    | Name | In de volgende schermafbeelding wordt de naam **tutorials-iot-hub** gebruikt. U moet uw eigen unieke naam kiezen wanneer u uw hub maakt. |
 
     ![Hub-instellingen 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | ------- | ----- |
     | Prijs- en schaalniveau | F1 Gratis. U kunt maar één hub in de gratis laag in een abonnement hebben. |
     | IoT Hub-eenheden | 1 |

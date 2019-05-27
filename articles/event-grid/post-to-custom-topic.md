@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162042"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Plaatsen op aangepast onderwerp voor Azure Event Grid
 
@@ -39,7 +39,7 @@ Voor het eindpunt voor een aangepast onderwerp met Azure PowerShell, gebruikt u:
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Header
+## <a name="header"></a>Koptekst
 
 Opnemen in de aanvraag een headerwaarde met de naam `aeg-sas-key` die bevat een sleutel voor verificatie.
 
@@ -103,7 +103,7 @@ Na het boeken met het eindpunt onderwerp, moet u een antwoord ontvangt. Het antw
 |Geslaagd  | 200 OK  |
 |Gebeurtenisgegevens heeft een onjuiste indeling | 400-Ongeldige aanvraag |
 |Ongeldige toegangssleutel | 401-niet toegestaan |
-|Onjuiste eindpunt | 404 – Niet gevonden |
+|Onjuiste eindpunt | 404 Niet gevonden |
 |Matrix of een gebeurtenis overschrijdt de maximale grootte | 413 payload te groot |
 
 Voor fouten heeft de hoofdtekst van het bericht de volgende indeling:

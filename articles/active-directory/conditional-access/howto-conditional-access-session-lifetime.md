@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766878"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988579"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Sessiebeheer voor verificatie met voorwaardelijke toegang configureren
 
@@ -50,7 +50,7 @@ De standaard Azure AD voor sessiepersistentie browser kan gebruikers op persoonl
 
 ## <a name="configuring-authentication-session-controls"></a>Configureren van verificatie-sessiebesturingselementen
 
-Voorwaardelijke toegang is een Azure AD Premium-capaciteit en is een premium-licentie vereist. Als u meer informatie over voorwaardelijke toegang wilt, raadpleegt u [wat is voorwaardelijke toegang in Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
+Voorwaardelijke toegang is een Azure AD Premium-capaciteit en is een premium-licentie vereist. Als u meer informatie over voorwaardelijke toegang wilt, raadpleegt u [wat is voorwaardelijke toegang in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
 > Als u de [configureerbare levensduur van vernieuwingstoken](../develop/active-directory-configurable-token-lifetimes.md) functie momenteel in openbare preview, houd er rekening mee dat we bieden geen ondersteuning voor het maken van twee verschillende beleidsregels voor dezelfde gebruiker of app combinatie: met deze functie en een ander subnet met de functie configureerbare levensduur van tokens. Microsoft wil buiten gebruik stellen van de functie configureerbare levensduur van vernieuwingstoken op 15 oktober en vervang deze door de functie voor beheer van voorwaardelijke toegang verificatie-sessie.  
@@ -66,7 +66,7 @@ Voorwaardelijke toegang is een Azure AD Premium-capaciteit en is een premium-lic
 1. Ga naar **toegangsbeheer** > **sessie** en klikt u op **aanmelden frequentie**
 1. Voer de vereiste waarde van dagen en tijdstippen in het eerste tekstvak
 1. Selecteer een waarde van **uur** of **dagen** in vervolgkeuzelijst
-1. U beleid opslaan
+1. Sla het beleid
 
 ![Beleid voor voorwaardelijke toegang is geconfigureerd voor aanmelding in frequentie](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

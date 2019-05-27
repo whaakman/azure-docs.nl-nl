@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343457"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978312"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Actieve Directory Role-Based Access Control (preview)
 
@@ -27,8 +27,13 @@ Voor Azure Event Hubs, het beheer van naamruimten en alle gerelateerde resources
 Een toepassing die gebruikmaakt van Azure AD RBAC hoeft niet voor het afhandelen van SAS-regels en sleutels of een andere specifieke naar Event Hubs toegangstokens. De client-app communiceert met Azure AD om geen verificatiecontext stand te brengen en een toegangstoken opgehaald voor Event Hubs. Met de domeingebruikersaccounts waarvoor interactieve aanmelding, de toepassing verwerkt nooit geen referenties rechtstreeks.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs-rollen en machtigingen
+Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot een Event Hubs-naamruimte:
 
-Voor de eerste openbare preview, kunt u Azure AD-accounts en service-principals alleen toevoegen aan de rollen 'Eigenaar' of 'Medewerker' van een Event Hubs-naamruimte. Met deze bewerking verleent de identiteit volledige controle over alle entiteiten in de naamruimte. -Beheerbewerkingen waarbij wijzigen van de topologie van de naamruimte worden in eerste instantie alleen ondersteund via Azure resource Manager en niet via de systeemeigen Event Hubs REST-beheerinterface. Deze ondersteuning betekent dat ook de .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object kan niet worden gebruikt met een Azure AD-account.  
+De [Event Hubs de eigenaar van gegevens (Preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) rol kunnen toegang tot gegevens in een Event Hubs-naamruimte en de entiteiten (wachtrijen, onderwerpen, abonnementen en filters)
+
+>[!IMPORTANT]
+> We eerder toe te voegen beheerde identiteit ondersteund de **eigenaar** of **Inzender** rol. Echter bevoegdheden voor toegang tot de gegevens **eigenaar** en **Inzender** rol niet meer worden herkend. Als u de **eigenaar** of **Inzender** rol, switch voor het gebruik van de **Event Hubs-Gegevenseigenaar** rol.
+
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Event Hubs gebruiken met een gebruikersaccount voor Azure AD-domein
 
@@ -44,7 +49,7 @@ Als u nog steeds wilt maken van een speciaal account voor dit scenario [als volg
 
 ### <a name="create-an-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken
 
-Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md) in een van de Azure-regio's die Event Hubs preview ondersteuning bieden voor RBAC: **VS Oost**, **VS Oost 2**, of **West-Europa**. 
+Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md). 
 
 Nadat de naamruimte is gemaakt, gaat u naar de **Access Control (IAM)** pagina in de portal en klik vervolgens op **roltoewijzing toevoegen** de Azure AD-gebruikersaccount toevoegen aan de rol van eigenaar. Als u uw eigen gebruikersaccount gebruikt en u de naamruimte hebt gemaakt, bent u al in de rol van eigenaar. Zoek de naam van de web-App in een ander account toevoegen aan de rol, de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**. Het gebruikersaccount heeft nu toegang tot de Event Hubs-naamruimte en naar de event hub die u eerder hebt gemaakt.
  

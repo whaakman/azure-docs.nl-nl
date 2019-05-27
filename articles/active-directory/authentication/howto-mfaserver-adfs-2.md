@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415473"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987764"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Azure Multi-Factor Authentication-server configureren om met AD FS 2.0 te werken
 
@@ -32,7 +32,7 @@ Als u AD FS 2.0 wilt beveiligen met een proxy, installeert u de Multi-Factor Aut
 
 1. Klik op de Azure Multi-Factor Authentication-server in het menu links op het pictogram **IIS-verificatie**.
 2. Klik op het tabblad **Op formulier gebaseerd**.
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 
    ![Venster van de MFA-Server IIS-verificatie](./media/howto-mfaserver-adfs-2/setup1.png)
 
@@ -85,7 +85,7 @@ U hebt IIS-authenticatie ingeschakeld, maar om de pre-authenticatie voor uw Acti
 3. Als gebruikers hun gebruikersnaam invoeren in de opmaak ‘domein\gebruikersnaam’, moet de server het domein van de gebruikersnaam kunnen verwijderen bij het maken van de LDAP-query. Dat kan worden gedaan met behulp van een registerinstelling.
 4. Open de Register-editor en ga op een 64-bits-server naar HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor. Op een 32-bits-server verwijdert u het gedeelte 'Wow6432Node' uit het pad. Maak een DWORD-registersleutel met de naam UsernameCxz_stripPrefixDomain en stel de waarde in op 1. De AD FS-proxy wordt nu beveiligd met Azure Multi-Factor Authentication.
 
-Zorg ervoor dat gebruikers uit Active Directory in de server zijn geïmporteerd. Zie de [sectie Goedgekeurde IP-adressen](#trusted-ips) als u interne IP-adressen op een lijst met toegestane IP-adressen wilt plaatsen, zodat verificatie in twee stappen niet is vereist bij het aanmelden bij de website vanaf die locaties.
+Zorg ervoor dat gebruikers uit Active Directory in de server zijn geïmporteerd. Zie de [sectie goedgekeurde IP-adressen](#trusted-ips) als u wilt toestaan dat interne IP-adressen zodat verificatie in twee stappen niet vereist is aan te melden bij de website vanaf die locaties.
 
 ![Register-editor om de instellingen van het bedrijf configureren](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -95,7 +95,7 @@ U kunt AD FS beveiligen wanneer de AD FS-proxy niet wordt gebruikt. Installeer d
 
 1. Klik in de Azure Multi-Factor Authentication-server in het menu links op het pictogram **IIS-verificatie**.
 2. Klik op het tabblad **HTTP**.
-3. Klik op **Add**.
+3. Klik op **Toevoegen**.
 4. Voer in het dialoogvenster Basis-URL toevoegen in het veld Basis-URL de URL in voor de AD FS-website waar de HTTP-verificatie wordt uitgevoerd (zoals https://sso.domain.com/adfs/ls/auth/integrated). Voer dan een toepassingsnaam in (optioneel). De naam van de toepassing wordt vermeld in Azure Multi-Factor Authentication-rapporten en kan worden weergegeven in verificatieberichten via sms of mobiele apps.
 5. Pas, indien gewenst, de tijd voor Time-out voor inactiviteit en voor Maximale sessie aan.
 6. Schakel het selectievakje **Overeenkomende Azure Multi-Factor Authentication-gebruiker** vereisen in als alle gebruikers zijn of moeten worden geïmporteerd in de server en aan verificatie in twee stappen onderworpen zijn. Als een groot aantal gebruikers nog niet is geïmporteerd in de Azure Multi-Factor Authentication-server en/of vrijgesteld zal zijn van verificatie in twee stappen, laat u het vakje uitgeschakeld.
@@ -109,15 +109,17 @@ U kunt AD FS beveiligen wanneer de AD FS-proxy niet wordt gebruikt. Installeer d
 
 AD FS wordt nu beveiligd met Azure Multi-Factor Authentication.
 
-Zorg ervoor dat gebruikers uit Active Directory in de server zijn geïmporteerd. Zie de sectie Goedgekeurde IP-adressen als u interne IP-adressen op een lijst met toegestane IP-adressen wilt plaatsen, zodat verificatie in twee stappen niet is vereist bij het aanmelden bij de website vanaf die locaties.
+Zorg ervoor dat gebruikers uit Active Directory in de server zijn geïmporteerd. Zie de sectie goedgekeurde IP-adressen als u toestaan dat interne IP-adressen wilt zodat verificatie in twee stappen niet vereist is aan te melden bij de website vanaf die locaties.
 
 ## <a name="trusted-ips"></a>Goedgekeurde IP-adressen
+
 De goedgekeurde IP-adressen bieden gebruikers de mogelijkheid om Azure Multi-Factor Authentication over te slaan voor websiteverzoeken die afkomstig zijn van bepaalde IP-adressen of subnetten. Als u bijvoorbeeld gebruikers wilt uitsluiten van de verificatie in twee stappen wanneer ze zich aanmelden vanaf het kantoor. Hiervoor geeft u het subnet van de werkplek op als een goedgekeurd IP-adres.
 
 ### <a name="to-configure-trusted-ips"></a>Goedgekeurde IP-adressen configureren
+
 1. Klik op het tabblad **Goedgekeurde IP-adressen** in de sectie IIS-verificatie.
 2. Klik op de knop **Toevoegen...** .
 3. Wanneer het dialoogvenster Goedgekeurd IP-adres toevoegen wordt weergegeven, selecteert u het keuzerondje **Eén IP-adres**, **IP-bereik** of **Subnet**.
-4. Voer het IP-adres, het bereik van IP-adressen of het subnet in dat u op de lijst van goedgekeurde IP-adressen wilt plaatsen. Als u een subnet wilt invoeren, selecteert u het geschikte Netmasker en klikt u op de knop **OK**. Het goedgekeurde IP-adres is nu toegevoegd.
+4. Geef de IP-adres, een bereik van IP-adressen of een subnet dat moet worden toegestaan. Als u een subnet wilt invoeren, selecteert u het geschikte Netmasker en klikt u op de knop **OK**.
 
 ![Goedgekeurde IP-adressen naar MFA-Server configureren](./media/howto-mfaserver-adfs-2/trusted.png)

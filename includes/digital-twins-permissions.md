@@ -9,11 +9,11 @@ ms.date: 12/17/2018
 ms.author: alinast
 ms.custom: include file
 ms.openlocfilehash: e8027e16cc1f58fbadbb35ae241ab29010005586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534571"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153709"
 ---
 1. Open in de [Azure-portal](https://portal.azure.com) **Azure Active Directory** in linkerdeelvenster en open vervolgens het deelvenster **Eigenschappen**. Kopieer de **Map-id** naar een tijdelijk bestand. U gebruikt deze waarde om de voorbeeldtoepassing in de volgende sectie te configureren.
 

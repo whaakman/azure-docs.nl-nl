@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "60297634"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120168"
 ---
 ## <a name="test-your-code"></a>Uw code testen
 
@@ -41,7 +41,7 @@ De eerste keer dat u zich aanmelden bij uw toepassing u ook wordt gevraagd voor 
 
 Nadat u zich hebt aangemeld, ziet u de gebruikersgegevens van het profiel dat wordt geretourneerd door de aanroep naar de Microsoft Graph API. De resultaten worden weergegeven in de **API Gespreksresultaten** vak. Algemene informatie over het token dat is verkregen via de aanroep van `AcquireTokenInteractive` of `AcquireTokenSilent` moeten worden weergegeven in de **Token Info** vak. De resultaten bevatten de volgende eigenschappen:
 
-|Eigenschap  |Indeling  |Description |
+|Eigenschap  |Notatie  |Description |
 |---------|---------|---------|
 
 |**Gebruikersnaam**  | <span> user@domain.com </span> | De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren. | | **Token verloopt** | Datum/tijd | De tijd waarop het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token naar behoefte. |

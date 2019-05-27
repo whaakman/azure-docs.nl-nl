@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1c2265ff5f4c444121bf70c35145703f1b9fe981
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691831"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000180"
 ---
-# <a name="common-security-attributes-for-azure-key-vault"></a>Algemene beveiligingskenmerken voor Azure Key Vault
+# <a name="security-attributes-for-azure-key-vault"></a>Beveiligingskenmerken voor Azure Key Vault
 
-Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Azure Key Vault. 
+In dit artikel worden de beveiligingskenmerken die is ingebouwd in Azure Key Vault. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

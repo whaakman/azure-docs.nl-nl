@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868734"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979348"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Oorzaken van niet-naleving bepalen
 
@@ -85,7 +85,7 @@ Deze gegevens wordt uitgelegd waarom een resource is momenteel niet-compatibel, 
 
 De volgende matrix wijst elke mogelijke _reden_ naar de verantwoordelijk [voorwaarde](../concepts/definition-structure.md#conditions) in de beleidsdefinitie:
 
-|Reden | Voorwaarde |
+|Reason | Voorwaarde |
 |-|-|
 |Huidige waarde moet de doelwaarde bevatten als sleutel. |containsKey of **niet** notContainsKey |
 |Huidige waarde moet de doelwaarde bevatten. |bevat of **niet** notContains |
@@ -215,11 +215,11 @@ Als onderdeel van een nieuwe **openbare preview**, de afgelopen 14 dagen van de 
 
 1. Selecteer de **wijzigingsoverzicht (preview)** tabblad op de **Resourcenaleving** pagina. Een lijst met gedetecteerd wijzigingen, als alle bestaan, worden weergegeven.
 
-   ![De wijzigingsgeschiedenis van tabblad beleid op de pagina Resourcenaleving](../media/determine-non-compliance/change-history-tab.png)
+   ![Azure Policy wijzigingsoverzicht tabblad op naleving van de Resource-pagina](../media/determine-non-compliance/change-history-tab.png)
 
 1. Selecteer een van de gedetecteerde wijzigingen. De _visual diff_ voor de resource wordt weergegeven op de **wijzigingsoverzicht** pagina.
 
-   ![Beleid wijzigen geschiedenis Visual Diff op de pagina overzicht wijzigen](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure Policy wijziging geschiedenis Visual Diff op de pagina overzicht wijzigen](../media/determine-non-compliance/change-history-visual-diff.png)
 
 De _visual diff_ aides bij het identificeren van wijzigingen aan een resource. De wijzigingen gedetecteerd kunnen niet worden gerelateerd aan de huidige nalevingsstatus van de resource.
 
@@ -228,7 +228,7 @@ Gegevens van de wijzigingsgeschiedenis wordt geleverd door [Azure Resource Graph
 ## <a name="next-steps"></a>Volgende stappen
 
 - Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
-- Bekijk de [structuur van Azure Policy-definities](../concepts/definition-structure.md).
+- Lees over de [structuur van Azure Policy-definities](../concepts/definition-structure.md).
 - Lees [Informatie over de effecten van het beleid](../concepts/effects.md).
 - Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md).
 - Meer informatie over het [ophalen compatibiliteitsgegevens](getting-compliance-data.md).

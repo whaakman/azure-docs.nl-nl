@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-adgera
+ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926074"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967781"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
@@ -74,7 +74,7 @@ Vervolgens instellen en configureren van Postman als u wilt een Azure Active Dir
     | URL voor terugbellen | `https://www.getpostman.com/oauth2/callback` |
     | Auth.-URL | Gebruik de **autorisatie-URL** uit stap 2 |
     | Client-id | Gebruik de **toepassings-ID** voor de Azure Active Directory-app die is gemaakt of nieuwe bestemming krijgen uit de vorige sectie |
-    | Bereik | Leeg laten |
+    | Scope | Leeg laten |
     | Status | Leeg laten |
     | Clientverificatie | `Send as Basic Auth header` |
 

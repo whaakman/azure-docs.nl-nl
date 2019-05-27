@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922832"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977573"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Overzicht van de Azure monitoring-agents 
 Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillende typen gegevens van virtuele machines met Microsoft Windows en Linux die worden gehost in Azure en uw datacenter of andere cloudproviders. De drie typen van de agents is beschikbaar voor het bewaken van een virtuele machine zijn:
 
 * Azure Diagnostics-extensies
 * Log Analytics-Agent voor Linux en Windows
-* Agent voor afhankelijkheden
+* Dependency Agent
 
 Dit artikel beschrijft de verschillen tussen deze en de bijbehorende mogelijkheden in volgorde voor u om te bepalen welke sjabloon biedt ondersteuning voor uw IT-servicebeheer of algemene controlevereisten.  
 
 ## <a name="azure-diagnostic-extension"></a>Diagnostische Azure-extensie
-De [Azure Diagnostics-extensie](../../azure-monitor/platform/diagnostics-extension-overview.md) (vaak aangeduid als de extensie Windows Azure diagnostische (WAD) of de Linux Azure diagnostische (LAD)), die is opgegeven voor Azure Cloud Services omdat deze algemeen beschikbaar in 2010 is is een agent die biedt eenvoudige verzamelen van diagnostische gegevens van een Azure compute-resource, zoals een virtuele machine en deze bewaard in Azure storage. Wanneer in de opslag, u hebt gekozen om weer te geven met een van de verschillende beschikbare hulpprogramma's, zoals [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) en [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+De [Azure Diagnostics-extensie](../../azure-monitor/platform/diagnostics-extension-overview.md) (vaak aangeduid als de extensie Windows Azure diagnostische (WAD) of de Linux Azure diagnostische (LAD)), die is opgegeven voor Azure Cloud Services omdat deze algemeen beschikbaar in 2010 is is een agent die biedt eenvoudige verzamelen van diagnostische gegevens van een Azure compute-resource, zoals een virtuele machine en deze bewaard in Azure storage. Als in de opslag, u hebt gekozen om weer te geven met een van de verschillende beschikbare hulpprogramma's, zoals [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) en [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 U kunt kiezen voor het verzamelen van:
 
@@ -59,7 +59,7 @@ Voor geavanceerde controle waar u wilt meer dan metrische gegevens worden verzam
 De Log Analytics-agent moet worden gebruikt wanneer u wilt:
 
 * Verzamelen van gegevens uit een groot aantal bronnen, zowel binnen Azure, andere cloudproviders en on-premises bronnen. 
-* Met behulp van een van de Azure Monitor bewakingsoplossingen zoals [Azure Monitor voor virtuele machines](../insights/vminsights-overview.md), [Azure Monitor voor containers](../insights/container-insights-overview.md), enzovoort.  
+* Gebruik een van de Azure Monitor bewakingsoplossingen zoals [Azure Monitor voor virtuele machines](../insights/vminsights-overview.md), [Azure Monitor voor containers](../insights/container-insights-overview.md), enzovoort.  
 * Gebruik een van de Azure management-services zoals [Azure Security Center](../../security-center/security-center-intro.md), [Azure Automation](../../automation/automation-intro.md), enzovoort.
 
 Voorheen verschillende Azure-services zijn gebundeld in de *Operations Management Suite*, en als gevolg hiervan de Log Analytics-agent wordt gedeeld door services zoals Azure Security Center en Azure Automation.  Dit omvat de volledige set met functies die ze bieden, leveren van uitgebreide beheer van uw Azure-VM's gedurende hun levensduur.  Enkele voorbeelden hiervan zijn:
@@ -69,7 +69,7 @@ Voorheen verschillende Azure-services zijn gebundeld in de *Operations Managemen
 * Bijhouden van wijzigingen in de configuratie met [Azure Automation wijzigingen bijhouden en inventaris](../../automation/change-tracking.md).
 * Azure-services zoals [Application Insights](https://docs.microsoft.com/azure/application-insights/) en [Azure Security Center](https://docs.microsoft.com/azure/security-center/), welke systeemeigen slaan hun gegevens rechtstreeks in Log Analytics.  
 
-## <a name="dependency-agent"></a>Agent voor afhankelijkheden
+## <a name="dependency-agent"></a>Dependency Agent
 De agent voor afhankelijkheden is ontwikkeld als onderdeel van de oplossing Serviceoverzicht die oorspronkelijk niet door Microsoft is ontwikkeld. [Serviceoverzicht](../insights/service-map.md) en [Azure Monitor voor virtuele machines](../insights/vminsights-overview.md) vereist een Agent voor afhankelijkheden in Windows en Linux virtuele machines en deze kan worden geïntegreerd met de Log Analytics-agent voor het verzamelen van gedetecteerde gegevens over de processen die worden uitgevoerd op de virtuele machine en extern Procesafhankelijkheden. Het deze gegevens worden opgeslagen in een Log Analytics-werkruimte en visualiseert de gedetecteerde onderling verbonden onderdelen.
 
 Mogelijk moet u een combinatie van deze agenten voor het bewaken van uw virtuele machine. De agents kunnen worden geïnstalleerd naast elkaar als Azure-extensies, maar op Linux, de Log Analytics-agent *moet* worden geïnstalleerd eerste anders de installatie mislukken. 

@@ -8,66 +8,66 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34675333"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66128895"
 ---
-1. Om weer te geven van de labels voor een resource of een resourcegroep, zoekt bestaande labels in het overzicht. Als u nog niet eerder tags hebt toegepast, is de lijst leeg.
+1. Als u wilt weergeven van de tags voor een resource of resourcegroep, zoekt naar de bestaande tags in het overzicht. Als u nog niet eerder tags hebt toegepast, is de lijst leeg.
    
-     ![Codes voor resource of resourcegroep weergeven](./media/resource-manager-tag-resources/view-tags.png)
-1. Selecteer om een label toe **Klik hier om de labels toevoegen**.
+     ![Weergave-tags voor resource of resourcegroep](./media/resource-manager-tag-resources/view-tags.png)
+1. Selecteer om een label toe **Klik hier om tags**.
 
-1. Geef een naam en waarde. Selecteer **+** de label toe te voegen.
+1. Geef een naam en waarde. Selecteer **+** het label toe te voegen.
    
      ![Tag toevoegen](./media/resource-manager-tag-resources/add-tag.png)
-1. Doorgaan naar behoefte labels toe te voegen. Selecteer **Opslaan** wanneer u klaar bent.
+1. Doorgaan met het toevoegen van tags, indien nodig. Selecteer **Opslaan** wanneer u klaar bent.
    
      ![Labels opslaan](./media/resource-manager-tag-resources/save-tags.png)
 1. De labels worden nu weergegeven in het overzicht.
    
-     ![Labels weergeven](./media/resource-manager-tag-resources/view-new-tags.png)
-1. Als u wilt toevoegen of verwijderen van een label, selecteer **wijzigen**.
+     ![Tags weergeven](./media/resource-manager-tag-resources/view-new-tags.png)
+1. Als u wilt toevoegen of verwijderen van een tag, selecteer **wijzigen**.
    
-1. Selecteer het prullenbakpictogram wilt verwijderen van een label. Selecteer vervolgens **Opslaan**.
+1. Selecteer het prullenbakpictogram wilt verwijderen van een tag. Selecteer vervolgens **Opslaan**.
 
      ![Tag verwijderen](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 Bulksgewijs labels toewijzen aan meerdere resources:
 
-1. Schakel het selectievakje voor de bronnen die u wilt toewijzen van de tag uit een lijst met resources.
+1. Selecteer het selectievakje in voor de resources die u wilt toewijzen van de tag in een lijst met resources.
 
      ![Meerdere resources selecteren](./media/resource-manager-tag-resources/select-multiple-resources.png)
 
 1. Selecteer **labels toewijzen**
 
-     ![Labels toewijzen](./media/resource-manager-tag-resources/assign-tags.png)
+     ![Tags toewijzen](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. Selecteer na elke naam en waarde **+**. Wanneer u klaar bent, selecteer **toewijzen**.
+1. Selecteer na elke naam en waarde **+**. Wanneer u klaar bent, selecteert u **toewijzen**.
 
      ![Selecteer toewijzen](./media/resource-manager-tag-resources/select-assign.png)
 
-Alle resources met een label weergeven:
+Alle resources met een tag weergeven:
 
-1. Selecteer **alle services** en **labels**.
+1. Selecteer **alle services** en **Tags**.
 
      ![Zoeken op label](./media/resource-manager-tag-resources/find-tags.png)
 
-1. Selecteer het label voor het weergeven van bronnen.
+1. Selecteer het label voor het weergeven van resources.
 
-     ![Selecteer tag](./media/resource-manager-tag-resources/select-tag.png)
+     ![Tag selecteren](./media/resource-manager-tag-resources/select-tag.png)
 
-1. Alle resources met dit label worden weergegeven.
+1. Alle resources met die tag worden weergegeven.
 
-     ![Resources weergeven per tag](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+     ![Resources met tag weergeven](./media/resource-manager-tag-resources/view-resources-by-tag.png)
 
-1. Maak de weergave aan het dashboard voor snelle toegang.
+1. Voor snelle toegang, zet u de weergave aan het dashboard vast.
 
      ![Vastmaken aan dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
 
-1. De weergave is beschikbaar vanuit het dashboard.
+1. De weergave is beschikbaar via het dashboard.
 
      ![Dashboard](./media/resource-manager-tag-resources/dashboard.png)

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687071"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991419"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migreren van bestaande Azure Service Bus standard-naamruimten naar de premium-laag
 Azure Service Bus aangeboden eerder, naamruimten alleen op de standard-laag. Naamruimten worden instellingen voor meerdere tenants die zijn geoptimaliseerd voor lage doorvoer en ontwikkelaarsomgevingen. De premium-laag biedt toegewezen bronnen per naamruimte voor voorspelbare latentie en verbeterde doorvoer tegen een vaste prijs. De premium-laag is geoptimaliseerd voor hoge doorvoer en productieomgevingen waarvoor extra enterprise-functies.
 
-Dit artikel wordt beschreven hoe u voor het migreren van bestaande naamruimten voor standard-laag naar de premium-laag.
+Dit artikel wordt beschreven hoe u voor het migreren van bestaande naamruimten voor standard-laag naar de premium-laag.  
 
 >[!WARNING]
 > Migratie is bedoeld voor Service Bus standard-naamruimten worden bijgewerkt naar de premium-laag. Het hulpprogramma voor migratie ondersteunt geen downgrade uitvoert.
@@ -33,6 +33,7 @@ Enkele van de die u moet weten:
 - De **premium** naamruimte moet **geen entiteiten** in voor de migratie te voltooien. 
 - Alle **entiteiten** in de standard-naamruimte zijn **gekopieerd** naar de premium-naamruimte tijdens het migratieproces. 
 - Migratie ondersteunt **1000 entiteiten per messaging-eenheid** op de premium-laag. Voor het identificeren van het aantal messaging-eenheden u moet beginnen met het aantal entiteiten die u op uw huidige standard-naamruimte hebt. 
+- U niet rechtstreeks migreren van **basic-laag** naar **premier laag**, maar u kunt zodat indirect doen door te migreren vanaf een basic eerst naar standard en klik in de standaard naar premium in de volgende stap.
 
 ## <a name="migration-steps"></a>Migratiestappen
 Sommige voorwaarden zijn gekoppeld aan het migratieproces. Maak uzelf bekend met de volgende stappen uit om te verminderen de kans op fouten. Deze stappen wordt beschreven hoe u migratie en de stapsgewijze details worden weergegeven in de volgende secties.

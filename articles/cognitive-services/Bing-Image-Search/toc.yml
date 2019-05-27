@@ -115,3 +115,5 @@
       href: language-support.md
     - name: Analytische gegevens voor Bing Afbeeldingen zoeken-API
       href: bing-image-stats.md
+    - name: Naleving
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

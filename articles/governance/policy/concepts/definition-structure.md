@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779294"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979554"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -100,7 +100,8 @@ Een parameter heeft de volgende eigenschappen die worden gebruikt in de beleidsd
   - `displayName`: De beschrijvende naam die wordt weergegeven in de portal voor de parameter.
   - `strongType`: (Optioneel) Gebruikt bij het toewijzen van de beleidsdefinitie via de portal. Geeft een lijst van context-op de hoogte. Zie voor meer informatie, [strongType](#strongtype).
   - `assignPermissions`: (Optioneel) Instellen als _waar_ dat Azure-portal roltoewijzingen maken tijdens de toewijzing van configuratiebeleid. Deze eigenschap is handig als u wilt toewijzen van machtigingen buiten het bereik van de beleidstoewijzing. Er is een roltoewijzing per roldefinitie in het beleid (of roldefinitie in alle beleidsregels in het initiatief). De waarde van parameter moet een geldige resource of het bereik.
-- `defaultValue`: (Optioneel) Hiermee stelt u de waarde van de parameter in een toewijzing, als er geen waarde is opgegeven. Vereist bij het bijwerken van een bestaande beleidsdefinitie die is toegewezen.
+- `defaultValue`: (Optioneel) Hiermee stelt u de waarde van de parameter in een toewijzing, als er geen waarde is opgegeven.
+  Vereist bij het bijwerken van een bestaande beleidsdefinitie die is toegewezen.
 - `allowedValues`: (Optioneel) Biedt een matrix met waarden die de parameter tijdens de toewijzing accepteert.
 
 U kunt bijvoorbeeld een beleidsdefinitie voor het beperken van de locaties waar resources kunnen worden geïmplementeerd definiëren. Een parameter voor de beleidsdefinitie van dit kan worden **allowedLocations**. Deze parameter kan worden gebruikt door elke toewijzing van de beleidsdefinitie om te beperken van de geaccepteerde waarden. Het gebruik van **strongType** biedt een verbeterde ervaring bij het voltooien van de toewijzing via de portal:
@@ -268,8 +269,7 @@ De volgende velden worden ondersteund:
 - de eigenschap aliassen - Zie voor een lijst [aliassen](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, en `tags[tag.with.dots]` zijn nog steeds acceptabel manieren om een velden voor labels declareren.
-> De voorkeur expressies zijn echter die hierboven zijn vermeld.
+> `tags.<tagName>`, `tags[tagName]`, en `tags[tag.with.dots]` zijn nog steeds acceptabel manieren om een velden voor labels declareren. De voorkeur expressies zijn echter die hierboven zijn vermeld.
 
 #### <a name="use-tags-with-parameters"></a>Tags gebruiken met parameters
 

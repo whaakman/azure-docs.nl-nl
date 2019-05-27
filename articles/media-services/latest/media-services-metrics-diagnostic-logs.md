@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728837"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964762"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Diagnostische logboeken en metrische gegevens over Media Services controleren
 
-[Azure Monitor](../../azure-monitor/overview.md) kunt u metrische gegevens controleren en tot diagnostische logboeken waarmee u inzicht in hoe uw toepassingen worden uitgevoerd. Alle gegevens die zijn verzameld door Azure Monitor in een van twee fundamentele typen, metrische gegevens en logboekbestanden past. U kunt diagnostische logboeken van Media Services controleren en maken van waarschuwingen en meldingen voor de verzamelde metrische gegevens en Logboeken. U kunt visualiseren en analyseren van de metrische gegevens via [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). U kunt Logboeken verzenden [Azure Storage](https://azure.microsoft.com/services/storage/), ze te streamen [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en ze te exporteren [Log Analytics](https://azure.microsoft.com/services/log-analytics/), of 3rd party services gebruiken.
+[Azure Monitor](../../azure-monitor/overview.md) kunt u metrische gegevens controleren en tot diagnostische logboeken waarmee u inzicht in hoe uw toepassingen worden uitgevoerd. Alle gegevens die zijn verzameld door Azure Monitor in een van twee fundamentele typen, logboeken en metrische gegevens past. U kunt diagnostische logboeken van Media Services controleren en maken van waarschuwingen en meldingen voor de verzamelde metrische gegevens en Logboeken. U kunt visualiseren en analyseren van de metrische gegevens via [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). U kunt Logboeken verzenden [Azure Storage](https://azure.microsoft.com/services/storage/), ze te streamen [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), en ze te exporteren [Log Analytics](https://azure.microsoft.com/services/log-analytics/), of 3rd party services gebruiken.
 
 Zie voor een gedetailleerd overzicht [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) en [Azure Monitor diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
@@ -34,11 +34,11 @@ Metrische gegevens worden verzameld met regelmatige tussenpozen al dan niet de w
 
 Op dit moment in de volgende Media Services [Streaming-eindpunten](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrische gegevens worden gegenereerd door Azure:
 
-|Name|Description|
-|---|---|
-|Aanvragen|Deze code geeft informatie over het totale aantal aanvragen dat wordt verwerkt door het Streaming-eindpunt.|
-|Uitgaand verkeer|Totaal aantal uitgaande bytes. Bijvoorbeeld: bytes gestreamd door het Streaming-eindpunt.|
-|End-to-end latentie van geslaagde| Biedt informatie over end-to-end latentie van geslaagde aanvragen.|
+|Metric|`Display name`|Description|
+|---|---|---|
+|Aanvragen|Aanvragen|Deze code geeft informatie over het totale aantal aanvragen dat wordt verwerkt door het Streaming-eindpunt.|
+|Uitgaand verkeer|Uitgaand verkeer|Totaal aantal uitgaande bytes. Bijvoorbeeld: bytes gestreamd door het Streaming-eindpunt.|
+|SuccessE2ELatency|End-to-end latentie van geslaagde| Biedt informatie over end-to-end latentie van geslaagde aanvragen.|
 
 Bijvoorbeeld, als u 'Uitgaande' metrische gegevens met CLI, Voer u de volgende `az monitor metrics` CLI-opdracht:
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
 ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152943"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Een trigger die een pijplijn op een tumblingvenster uitvoert maken
 In dit artikel bevat stappen voor het maken, starten en controleren van een tumblingvenstertrigger. Raadpleeg voor algemene informatie over triggers en de ondersteunde typen [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md).
@@ -79,13 +79,13 @@ De volgende tabel bevat een overzicht van de belangrijkste JSON-elementen die be
 | **type** | Het type van de trigger. Het type is het vaste waarde "TumblingWindowTrigger." | String | "TumblingWindowTrigger" | Ja |
 | **runtimeState** | Uitvoeringstijd voor de huidige status van de trigger.<br/>**Opmerking**: Dit element heeft de \<readOnly >. | String | "Started," "Stopped," "Disabled" | Ja |
 | **frequency** | Een tekenreeks waarmee de frequentie-eenheid waarmee de trigger wordt uitgevoerd (minuten of uur). Als de **startTime** date-waarden zijn gedetailleerder zijn dan de **frequentie** waarde, de **startTime** datums worden beschouwd als wanneer de grenzen van het venster worden berekend. Bijvoorbeeld, als de **frequentie** waarde wordt per uur en de **startTime** waarde is 2017-09-01T10:10:10Z, het eerste venster is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | 'minuut', 'uur'  | Ja |
-| **interval** | Een positief geheel getal dat het interval voor de waarde **frequency** aangeeft. Het bepaalt hoe vaak de trigger wordt uitgevoerd. Bijvoorbeeld, als de **interval** 3 is en de **frequentie** 'uur', wordt de trigger elke drie uur uitgevoerd. | Geheel getal | Een positief geheel getal zijn. | Ja |
+| **interval** | Een positief geheel getal dat het interval voor de waarde **frequency** aangeeft. Het bepaalt hoe vaak de trigger wordt uitgevoerd. Bijvoorbeeld, als de **interval** 3 is en de **frequentie** 'uur', wordt de trigger elke drie uur uitgevoerd. | Integer | Een positief geheel getal zijn. | Ja |
 | **startTime**| De eerste instantie, die in het verleden worden kan. Het interval voor de eerste trigger is (**startTime**, **startTime** + **interval**). | DateTime | Een datum / tijdwaarde. | Ja |
 | **endTime**| Het laatste exemplaar, die in het verleden worden kan. | DateTime | Een datum / tijdwaarde. | Ja |
-| **delay** | De hoeveelheid tijd aan het begin van de verwerking van gegevens van het venster van de wachttijd. Uitvoering van de pijplijn wordt gestart na de verwachte tijd voor de uitvoering van plus het bedrag van **vertraging**. De **vertraging** wordt gedefinieerd hoe lang de trigger moet wachten na de vervaldatum tijd voordat een nieuwe uitvoering wordt geactiveerd. De **vertraging** niet van invloed op het venster **startTime**. Bijvoorbeeld, een **vertraging** waarde van 00:10:00 impliceert een vertraging van 10 minuten. | Periode<br/>(uu: mm:)  | Een timespan-waarde waar de standaardwaarde 00:00:00 is. | Nee |
-| **maxConcurrency** | Het aantal gelijktijdige triggeruitvoeringen die zijn geactiveerd voor windows die gereed zijn. Bijvoorbeeld: voor de achtergrondopvulling elk uur wordt uitgevoerd voor gisteren resulteert in 24 windows. Als **maxConcurrency** = 10, worden gebeurtenissen alleen voor de eerste 10 windows trigger (00:00:01: 00 - 09:00-10:00). Nadat de eerste 10 geactiveerde pijplijnuitvoeringen voltooid zijn, worden de triggeruitvoeringen geactiveerd voor de volgende 10 (10:00-11:00-19:00:20: 00) van windows. In dit voorbeeld van **maxConcurrency** = 10, als er 10 windows gereed is, er zijn 10 totale pijplijnuitvoeringen. Als er slechts 1 venster gereed is, is er slechts 1 pijplijnuitvoering. | Geheel getal | Een geheel getal tussen 1 en 50. | Ja |
-| **retryPolicy: Count** | Het aantal nieuwe pogingen voordat de uitvoering van de pijplijn is gemarkeerd als 'Mislukt'.  | Geheel getal | Een geheel getal, waarbij de standaardwaarde 0 (geen nieuwe pogingen is). | Nee |
-| **retryPolicy: intervalInSeconds** | De vertraging tussen nieuwe pogingen in seconden opgegeven. | Geheel getal | Het aantal seconden, waar de standaardwaarde 30 is. | Nee |
+| **delay** | De hoeveelheid tijd aan het begin van de verwerking van gegevens van het venster van de wachttijd. Uitvoering van de pijplijn wordt gestart na de verwachte tijd voor de uitvoering van plus het bedrag van **vertraging**. De **vertraging** wordt gedefinieerd hoe lang de trigger moet wachten na de vervaldatum tijd voordat een nieuwe uitvoering wordt geactiveerd. De **vertraging** niet van invloed op het venster **startTime**. Bijvoorbeeld, een **vertraging** waarde van 00:10:00 impliceert een vertraging van 10 minuten. | Timespan<br/>(uu: mm:)  | Een timespan-waarde waar de standaardwaarde 00:00:00 is. | Nee |
+| **maxConcurrency** | Het aantal gelijktijdige triggeruitvoeringen die zijn geactiveerd voor windows die gereed zijn. Bijvoorbeeld: voor de achtergrondopvulling elk uur wordt uitgevoerd voor gisteren resulteert in 24 windows. Als **maxConcurrency** = 10, worden gebeurtenissen alleen voor de eerste 10 windows trigger (00:00:01: 00 - 09:00-10:00). Nadat de eerste 10 geactiveerde pijplijnuitvoeringen voltooid zijn, worden de triggeruitvoeringen geactiveerd voor de volgende 10 (10:00-11:00-19:00:20: 00) van windows. In dit voorbeeld van **maxConcurrency** = 10, als er 10 windows gereed is, er zijn 10 totale pijplijnuitvoeringen. Als er slechts 1 venster gereed is, is er slechts 1 pijplijnuitvoering. | Integer | Een geheel getal tussen 1 en 50. | Ja |
+| **retryPolicy: Aantal** | Het aantal nieuwe pogingen voordat de uitvoering van de pijplijn is gemarkeerd als 'Mislukt'.  | Integer | Een geheel getal, waarbij de standaardwaarde 0 (geen nieuwe pogingen is). | Nee |
+| **retryPolicy: intervalInSeconds** | De vertraging tussen nieuwe pogingen in seconden opgegeven. | Integer | Het aantal seconden, waar de standaardwaarde 30 is. | Nee |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>WindowStart en WindowEnd systeemvariabelen
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdfd8fd642120f4e829de8fbb013f85aea2a9484
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825562"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956898"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Koppelingen naar de vastgelegd voor apps die zijn gepubliceerd met Azure AD Application Proxy omleiden
 
@@ -59,7 +59,7 @@ Met de extensie van de Browser MyApps zijn alle interne URL's die zijn gepublice
 
 Deze functie wilt gebruiken, wordt de gebruiker moet voor het downloaden van de extensie en zijn aangemeld. Er is geen andere configuratie die nodig zijn voor beheerders of gebruikers. 
 
-Raadpleeg voor meer informatie, inclusief hoe u deze optie configureert de [MyApps browserextensie](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentatie.
+Raadpleeg voor meer informatie, inclusief hoe u deze optie configureert de [MyApps browserextensie](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentatie.
 
 ### <a name="option-3-link-translation-setting"></a>Optie 3: Koppeling NAT-instelling 
 
