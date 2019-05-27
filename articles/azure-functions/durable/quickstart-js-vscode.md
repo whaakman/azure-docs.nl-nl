@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61381969"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921345"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Uw eerste duurzame functie maken in JavaScript
 
@@ -117,7 +117,7 @@ Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitv
 2. U kunt de functie testen door een onderbrekingspunt in de functiecode in te stellen en op F5 te drukken om het functie-appproject te starten. De uitvoer van Core Tools wordt weergegeven in het deelvenster **Terminal**. Als dit de eerste keer is dat u Durable Functions gebruikt, wordt de Durable Functions-extensie geïnstalleerd. Het bouwen kan enkele seconden duren.
 
     > [!NOTE]
-    > Voor JavaScript Durable Functions is versie **1.7.0** of hoger van de extensie **Microsoft.Azure.WebJobs.Extensions.DurableTask** vereist. Controleer of de versie van de Durable Functions-extensie in uw `extensions.csproj`-bestand aan deze vereiste voldoet. Als dat niet het geval is, stopt u de functie-app, wijzigt u de versie en drukt u op F5 om de functie-app opnieuw op te starten.
+    > Voor JavaScript Durable Functions is versie **1.7.0** of hoger van de extensie **Microsoft.Azure.WebJobs.Extensions.DurableTask** vereist. Voer de volgende opdracht vanuit de hoofdmap van uw app in Azure Functions voor het installeren van de extensie duurzame functies `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. Kopieer het URL-eindpunt van de door HTTP getriggerde functie in het deelvenster **Terminal**.
 

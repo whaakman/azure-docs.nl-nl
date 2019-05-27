@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467133"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002473"
 ---
 # <a name="dynamic-manifests"></a>Dynamische manifesten
 
@@ -31,7 +31,7 @@ De volgende tabel ziet u enkele voorbeelden van URL's met filters:
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > De asset en de standaard-manifest voor de activa wijzigen dynamische manifesten niet. De client kunt kiezen om aan te vragen van een stream met of zonder filters. 
 > 
@@ -124,7 +124,7 @@ Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/azure-media-ser
 
 ## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
 
-U kunt een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. De [dynamische packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dynamische manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
+Zie [Filters: koppelen met Streaming-Locators](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Overwegingen en beperkingen
 
@@ -136,7 +136,6 @@ U kunt een lijst met activa of account filters, die voor uw Streaming-Locator ge
     
     - Eigenschappen van de nummers in een actief [ophalen en bekijk het manifestbestand](#get-and-examine-manifest-files).
     - De formule voor het instellen van het filter asset timestamp-eigenschappen: <br/>startTimestamp = &lt;begintijd in het manifest&gt; +  &lt;verwacht filter starttijd in seconden&gt;* tijdschaal
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

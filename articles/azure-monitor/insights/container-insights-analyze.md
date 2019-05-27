@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: magoedte
-ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148848"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906769"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Inzicht in prestaties in een AKS-cluster met Azure Monitor voor containers 
 Met Azure Monitor voor containers, kunt u de van prestatiegrafieken en de status voor het bewaken van de werkbelasting van uw Azure Kubernetes Service (AKS)-clusters vanuit twee perspectieven, rechtstreeks vanuit een AKS-cluster of alle AKS-clusters in een abonnement van Azure Monitor. Weergeven van Azure Container Instances (ACI) is ook mogelijk wanneer u een specifieke AKS-cluster bewaken.
@@ -26,10 +26,6 @@ Met Azure Monitor voor containers, kunt u de van prestatiegrafieken en de status
 Dit artikel krijgt u inzicht in de ervaring tussen de twee perspectieven en hoe Hiermee kunt u snel beoordelen, onderzoeken en oplossen van problemen die zijn gedetecteerd.
 
 Zie voor meer informatie over het inschakelen van Azure Monitor voor containers [ingebouwde Azure-Monitor voor containers](container-insights-onboard.md).
-
-> [!IMPORTANT]
-> Azure Monitor voor containers-ondersteuning voor het bewaken van een AKS-cluster met Windows Server 2019 is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 Azure Monitor biedt een cluster met meerdere weergave voor de status van alle bewaakte AKS-clusters met Linux en Windows Server 2019 geïmplementeerd op verschillende resourcegroepen in uw abonnementen.  Hier ziet u AKS clusters gedetecteerd die niet worden bewaakt door de oplossing. U kunt onmiddellijk clusterstatus begrijpen en hier kunt u inzoomen op de pagina van de prestaties knooppunt en de domeincontroller of Ga om te zien worden prestatiegrafieken weergegeven voor het cluster.  Voor clusters met AKS gedetecteerd en geïdentificeerd als niet-bewaakt, kunt u de bewaking voor dat cluster op elk gewenst moment inschakelen.  
 
@@ -118,7 +114,7 @@ Azure Monitor voor containers biedt ook ondersteuning voor Azure Monitor [metric
 ## <a name="view-container-metrics-in-metrics-explorer"></a>De container metrische gegevens weergeven in metrics explorer
 In metrics explorer u geaggregeerde controleknooppunt en pod metrische gegevens over Resourcegebruik van Azure Monitor voor containers. De volgende tabel geeft een overzicht van de gegevens om te begrijpen hoe u container metrische gegevens visualiseren met de grafieken met metrische gegevens.
 
-|Naamruimte | Gegevens |
+|Naamruimte | Metric |
 |----------|--------|
 | insights.container/nodes | |
 | | cpuUsageMillicores |

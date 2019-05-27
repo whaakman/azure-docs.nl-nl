@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60877428"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900875"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
@@ -32,22 +32,16 @@ In dit artikel leert u hoe u kunt uitvoeren van accountbeheerbewerkingen in Azur
 Zie voor instructies over het uitvoeren van gegevensbeheerbewerkingen in Data Lake Storage Gen1 met .NET SDK [bestandssysteembewerkingen in Data Lake Storage Gen1 met .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Vereisten
-* **Visual Studio 2013, 2015 of 2017**. In onderstaande instructies wordt Visual Studio 2017 gebruikt.
+* **Visual Studio 2013 of hoger**. De onderstaande instructies wordt Visual Studio 2019 gebruikt.
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Een .NET-toepassing maken
-1. Open Visual Studio en maak een consoletoepassing.
-2. Klik in het menu **File** op **New** en klik vervolgens op **Project**.
-3. In **New Project** typt of selecteert u de volgende waarden:
+1. Selecteer in Visual Studio, de **bestand** in het menu **nieuw**, en vervolgens **Project**.
+2. Kies **Console-App (.NET Framework)**, en selecteer vervolgens **volgende**.
+3. In **projectnaam**, voer `CreateADLApplication`, en selecteer vervolgens **maken**.
 
-   | Eigenschap | Value |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |Console Application |
-   | Name |CreateADLApplication |
-4. Klik op **OK** om het project aan te maken.
-5. Voeg de NuGet-pakketten toe aan het project.
+4. Voeg de NuGet-pakketten toe aan het project.
 
    1. Klik in Solution Explorer met de rechtermuisknop op de projectnaam en klik op **Manage NuGet Packages**.
    2. Controleer op het tabblad **NuGet Package Manager** of **Package source** is ingesteld op **nuget.org** en of het selectievakje **Include prerelease** is ingeschakeld.
@@ -58,7 +52,7 @@ Zie voor instructies over het uitvoeren van gegevensbeheerbewerkingen in Data La
 
         ![Een NuGet-bron toevoegen](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Een nieuw Azure Data Lake-account maken")
    4. Sluit de **NuGet Package Manager**.
-6. Open **Program.cs**, verwijder de bestaande code en neem de volgende instructies op om verwijzingen naar naamruimten toe te voegen.
+5. Open **Program.cs**, verwijder de bestaande code en neem de volgende instructies op om verwijzingen naar naamruimten toe te voegen.
 
         using System;
         using System.IO;
@@ -74,7 +68,7 @@ Zie voor instructies over het uitvoeren van gegevensbeheerbewerkingen in Data La
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Declareer de variabelen en vervang de tijdelijke aanduidingen door waarden. Zorg er ook voor dat het lokale pad en de bestandsnaam die u opgeeft al bestaan op de computer.
+6. Declareer de variabelen en vervang de tijdelijke aanduidingen door waarden. Zorg er ook voor dat het lokale pad en de bestandsnaam die u opgeeft al bestaan op de computer.
 
         namespace SdkSample
         {

@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120667"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908168"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions gebruiken voor het verbinding maken met een Azure SQL Database
 
-In dit artikel wordt beschreven hoe u Azure Functions gebruikt om een geplande taak die verbinding met een Azure SQL Database-exemplaar maakt te maken. De functiecode opschonen van rijen in een tabel in de database. De nieuwe C# functie is gemaakt op basis van een vooraf gedefinieerde timer trigger-sjabloon in Visual Studio 2017. Ter ondersteuning van dit scenario, moet u ook een databaseverbindingsreeks instellen als een app-instelling in de functie-app. In dit scenario maakt gebruik van een bulksgewijze bewerking op de database. 
+In dit artikel wordt beschreven hoe u Azure Functions gebruikt om een geplande taak die verbinding met een Azure SQL Database-exemplaar maakt te maken. De functiecode opschonen van rijen in een tabel in de database. De nieuwe C# functie is gemaakt op basis van een vooraf gedefinieerde timer trigger-sjabloon in Visual Studio 2019. Ter ondersteuning van dit scenario, moet u ook een databaseverbindingsreeks instellen als een app-instelling in de functie-app. In dit scenario maakt gebruik van een bulksgewijze bewerking op de database. 
 
 Als dit de eerste ervaring met C# functies, lees de [Azure Functions C# referentie voor ontwikkelaars](functions-dotnet-class-library.md).
 
@@ -64,7 +64,7 @@ U moet eerder de app hebt gepubliceerd naar Azure. Als u dit nog niet hebt gedaa
 
 U moet het NuGet-pakket met de SqlClient-bibliotheek toevoegen. Deze bibliotheek van de toegang tot gegevens nodig is om te verbinden met een SQL-database.
 
-1. Open uw lokale functie-app-project in Visual Studio 2017.
+1. Open uw lokale functie-app-project in Visual Studio 2019.
 
 1. Klik in Solution Explorer met de rechtermuisknop op de functie-app-project en kies **NuGet-pakketten beheren**.
 

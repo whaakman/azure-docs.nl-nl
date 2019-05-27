@@ -8,15 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/23/2018
-ms.date: 03/25/2019
-ms.author: v-junlch
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2018
+ms.author: azfuncdf, glenga
+ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710857"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872863"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Duurzame functies met behulp van de Azure portal maken
 
@@ -24,7 +23,7 @@ De [duurzame functies](durable-functions-overview.md) -extensie voor Azure Funct
 
 > [!NOTE]
 > 
-> * Als u ontwikkelt duurzame functies in C#, kunt u overwegen in plaats daarvan [ontwikkeling in Visual Studio 2017](durable-functions-create-first-csharp.md).
+> * Als u ontwikkelt duurzame functies in C#, kunt u overwegen in plaats daarvan [ontwikkeling in Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Als u duurzame functies in JavaScript ontwikkelt, moet u in plaats daarvan overwegen [Visual Studio Code ontwikkelen](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
@@ -92,7 +91,7 @@ Als u JavaScript duurzame functies maakt, moet u voor het installeren van de [ `
 1. Een HTTP-hulpprogramma, zoals Postman of cURL gebruiken voor het verzenden van een POST-aanvraag naar de URL die u hebt gekopieerd. Het volgende voorbeeld wordt een cURL-opdracht die een POST-aanvraag naar de duurzame functie verzendt:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
     In dit voorbeeld `{your-function-app-name}` is het domein dat is de naam van uw functie-app. Het antwoordbericht bevat een set met URI-eindpunten die u gebruiken kunt om te controleren en beheren van de uitvoering van deze domeinnaam ziet als in het volgende voorbeeld eruit:
@@ -141,5 +140,3 @@ Uw eerste duurzame functie is nu actief en werkend in Azure.
 
 > [!div class="nextstepaction"]
 > [Meer informatie over algemene patronen van duurzame functies](durable-functions-concepts.md)
-
-<!-- Update_Description: wording update -->

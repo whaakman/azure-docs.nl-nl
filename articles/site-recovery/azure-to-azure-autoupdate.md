@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925701"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922184"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-service in de Azure-naar-Azure-replicatie
 
@@ -535,3 +535,14 @@ Als u automatische updates kan niet worden ingeschakeld, ziet u de volgende veel
 - **Fout**: Uitvoeren als-account is niet gevonden. Een van deze is verwijderd of is niet gemaakt: Azure Active Directory-toepassing, Service-Principal, rol, Automation-certificaatasset, Automation-verbindingsasset- of de vingerafdruk is niet identiek certificaat en de verbinding. 
 
     **Aanbevolen actie**: Verwijderen en vervolgens [opnieuw uitvoeren als-account maken](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+
+-  **Fout**: Het Azure uitvoeren als-certificaat dat wordt gebruikt door het automation-account is bijna verlopen. 
+
+    Het zelfondertekende certificaat dat is gemaakt voor het uitvoeren als-account verloopt één jaar na de aanmaakdatum. U kunt het certificaat op elk gewenst moment vernieuwen voordat het verloopt. Als u zich hebt aangemeld voor e-mailmeldingen, wordt u ook e-mailberichten ontvangen wanneer een actie vereist van uw kant is. Deze fout 2 maanden vóór de vervaldatum wordt weergegeven en wordt gewijzigd in een kritieke fout als het certificaat is verlopen. Zodra het certificaat is verlopen, automatisch bijwerken niet worden functionele totdat u dezelfde vernieuwen.
+
+   **Aanbevolen actie**: Klik op 'Herstellen' en klik vervolgens op certificaat vernieuwen om dit probleem te verhelpen.
+    
+   ![vernieuwen van certificaat](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> Nadat u het certificaat vernieuwen, vernieuw de pagina zodat de huidige status is bijgewerkt.

@@ -11,20 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24c8dd49667a359bb0fe7051dd801062f37f3db9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 25f0258b9e6b11e505bd48222dfbca176f963a5e
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718431"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921044"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Aangepaste rollen voor Azure-resources
 
-Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen, kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource-bereiken. Aangepaste rollen worden opgeslagen in een directory van Azure Active Directory (Azure AD) en kunnen worden gedeeld met abonnementen. Elke directory kan maximaal 2000 aangepaste rollen hebben. Aangepaste rollen kunnen worden gemaakt met behulp van Azure PowerShell, Azure CLI of de REST-API.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen, kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource-bereiken.
+
+Aangepaste rollen worden opgeslagen in een directory van Azure Active Directory (Azure AD) en kunnen worden gedeeld met abonnementen. Elke directory kan maximaal hebben **5000** aangepaste rollen. (Voor speciale clouds, zoals Azure Government, Azure Duitsland en Azure China 21Vianet, is de limiet van 2000 aangepaste rollen.) Aangepaste rollen kunnen worden gemaakt met behulp van Azure PowerShell, Azure CLI of de REST-API.
 
 ## <a name="custom-role-example"></a>Voorbeeld van de aangepaste rol
 

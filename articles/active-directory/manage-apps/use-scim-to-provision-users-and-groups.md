@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/06/2019
 ms.author: mimart
-ms.reviewer: asmalser
+ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 143919cb804be771d547e2913818d486c7f8adda
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824487"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015458"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -633,7 +633,7 @@ De eenvoudigste manier voor het implementeren van een eindpunt SCIM inrichting a
 1. In deze map, start u het FileProvisioning\Host\FileProvisioningService.csproj-project in Visual Studio.
 1. Selecteer **extra** > **NuGet Package Manager** > **Package Manager Console**, en voer de volgende opdrachten voor de FileProvisioningService-project op te lossen de verwijzingen van de oplossing:
 
-   ```
+   ```powershell
     Update-Package -Reinstall
    ```
 
@@ -702,6 +702,7 @@ Voor het ontwikkelen van uw eigen webservice die aan de specificatie SCIM voldoe
 ### <a name="building-a-custom-scim-endpoint"></a>Het bouwen van een aangepaste SCIM-eindpunt
 Ontwikkelaars die gebruikmaken van de CLI-bibliotheken kunnen hun services in een uitvoerbaar bestand CLI-assembly of in Internet Information Services hosten. Hier volgt de voorbeeldcode voor het hosten van een service in een uitvoerbaar bestand assembly, op het adres http://localhost:9000: 
 
+   ```csharp
     private static void Main(string[] arguments)
     {
     // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
@@ -770,6 +771,7 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken kunnen hun services in ee
         }
     }
     }
+   ```
 
 Deze service moet beschikken over een HTTP-adres en de server certificaat voor clientverificatie waarvan de basiscertificeringsinstantie een van de volgende namen is: 
 
@@ -791,6 +793,7 @@ De opgegeven waarde voor het argument certhash is hier de vingerafdruk van het c
 
 Voor het hosten van de service in Internet Information Services, zou een ontwikkelaar een assembly CLI code bibliotheek bouwen met een klasse met de naam opstarten in de standaard-naamruimte van de assembly.  Hier volgt een voorbeeld van een klasse bestaat: 
 
+   ```csharp
     public class Startup
     {
     // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
@@ -818,6 +821,7 @@ Voor het hosten van de service in Internet Information Services, zou een ontwikk
         this.starter.ConfigureApplication(builder);
     }
     }
+   ```
 
 ### <a name="handling-endpoint-authentication"></a>Verwerking-eindpuntverificatie
 Aanvragen van Azure Active Directory bevatten een OAuth 2.0-bearer-token.   Elke service die is ontvangen van de aanvraag moet de uitgever als Azure Active Directory voor de verwachte Azure Active Directory-tenant, voor toegang tot de Azure Active Directory Graph-webservice worden geverifieerd.  In het token wordt de verlener wordt geïdentificeerd door een iss-claim, zoals "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/'.  In dit voorbeeld wordt het basisadres van de claimwaarde https://sts.windows.net, identificeert Azure Active Directory als de uitgever, hoewel de relatieve segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is de unieke id van de Azure Active Directory-tenant voor die het token is uitgegeven.  Als het token is uitgegeven voor toegang tot de Azure Active Directory Graph-webservice, moet de id van die service, 00000002-0000-0000-c000-000000000000, zich in de waarde van van het token aud claim.  Elk van de toepassingen die zijn geregistreerd in één tenant wordt dezelfde `iss` claim met SCIM aanvragen.
@@ -826,8 +830,8 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
 
 1. In een provider, implementeert u de eigenschap Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior doordat het retourneren van een methode om te worden aangeroepen wanneer de service wordt gestart: 
 
-   ```
-     public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
+   ```csharp
+     public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
      {
        get
        {
@@ -844,7 +848,7 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
 
 2. Voeg de volgende code toe die methode dat elke aanvraag aan een van de service-eindpunten die zijn geverifieerd als voorzien van een token dat is uitgegeven door Azure Active Directory voor een opgegeven tenant, voor toegang tot de Azure AD Graph-webservice: 
 
-   ```
+   ```csharp
      private void OnServiceStartup(
        Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
        System.Web.Http.HttpConfiguration HttpConfiguration configuration)
@@ -882,12 +886,12 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
     >[!NOTE]
     > Dit is slechts een voorbeeld. Niet alle gebruikers hebben een kenmerk mailNickname en de waarde die een gebruiker heeft misschien niet uniek in de map. Bovendien kan het kenmerk dat wordt gebruikt voor het afstemmen van (dit is in dit geval externalId) worden geconfigureerd in de [Azure AD-kenmerktoewijzingen](customize-application-attributes.md).
 
-   ````
+   ```
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
-   ````
+   ```
    Als de service is gebouwd met behulp van de CLI-bibliotheken geleverd door Microsoft voor het implementeren van services SCIM, wordt klikt u vervolgens de aanvraag omgezet in een aanroep van de Query-methode van de provider van de service.  Dit is de handtekening van deze methode: 
-   ````
+   ```csharp
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -897,9 +901,9 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
-   ````
+   ```
    Hier volgt de definitie van de interface Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters: 
-   ````
+   ```csharp
     public interface IQueryParameters: 
       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
     {
@@ -916,15 +920,16 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
       string SchemaIdentifier 
       { get; }
     }
+   ```
 
    ```
      GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
      Authorization: Bearer ...
    ```
 
-   If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
+   Als de service is gebouwd met behulp van de Common Language Infrastructure-bibliotheken geleverd door Microsoft voor het implementeren van services SCIM, wordt klikt u vervolgens de aanvraag omgezet in een aanroep van de Query-methode van de provider van de service.  Dit is de handtekening van deze methode: 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
      // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
      // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -936,9 +941,9 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
        string correlationIdentifier);
    ```
 
-   Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
+   Hier volgt de definitie van de interface Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters: 
 
-   ```
+   ```csharp
      public interface IQueryParameters: 
        Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
      {
@@ -974,77 +979,167 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
      }
    ```
 
-   In the following sample of a query for a user with a given value for the externalId attribute, values of the arguments passed to the Query method are: 
+   In het volgende voorbeeld van een query voor een gebruiker met een opgegeven waarde voor het kenmerk externalId zijn de waarden van de argumenten doorgegeven aan de Query-methode: 
    * parameters.AlternateFilters.Count: 1
-   * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
+   * de parameters. AlternateFilters.ElementAt(0). AttributePath: "externalId"
    * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
+   * de parameters. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
    * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-2. If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
+2. Als het antwoord op een query met de webservice voor een gebruiker met een externalId kenmerk-waarde die overeenkomt met de waarde van het kenmerk mailNickname van een gebruiker niet alle gebruikers retourneren, klikt u vervolgens Azure Active Directory-aanvragen dat de service inrichten van een gebruiker die overeenkomt met de in Azure Active Directory.  Hier volgt een voorbeeld van een aanvraag voor: 
 
-   ````
-    POST- https://.../scim/Users HTTP/1.1-autorisatie: Bearer...  Inhoudstype: application/scim + json {'schema': ["urn: ietf:params:scim:schemas:core:2.0:User", "urn: ietf:params:scim:schemas:extension:enterprise:2.0User"], "externalId": "jyoung', 'gebruikersnaam': 'jyoung', 'active': true,"adres": null    "displayName": "Joy Young',"e-mailberichten": [{"type":"werkt","waarde":"jyoung@Contoso.com', 'primaire': waar}], 'meta': {'resourceType': 'Gebruiker'}, 'name': {'familyName': 'Jonge","givenName': 'Zelf'}, "phoneNumbers": null is, "preferredLa nguage': null, "title": null is, 'afdeling': null, een 'manager': null}
-   ````
-   The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
-   ````
-    System.Threading.Tasks.Tasks is gedefinieerd in mscorlib.dll.  
-    Microsoft.SystemForCrossDomainIdentityManagement.Resource is gedefinieerd in / / Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
+   ```
+    POST https://.../scim/Users HTTP/1.1
+    Authorization: Bearer ...
+    Content-type: application/scim+json
+    {
+      "schemas":
+      [
+        "urn:ietf:params:scim:schemas:core:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
+      "externalId":"jyoung",
+      "userName":"jyoung",
+      "active":true,
+      "addresses":null,
+      "displayName":"Joy Young",
+      "emails": [
+        {
+          "type":"work",
+          "value":"jyoung@Contoso.com",
+          "primary":true}],
+      "meta": {
+        "resourceType":"User"},
+       "name":{
+        "familyName":"Young",
+        "givenName":"Joy"},
+      "phoneNumbers":null,
+      "preferredLanguage":null,
+      "title":null,
+      "department":null,
+      "manager":null}
+   ```
+   De CLI-bibliotheken die is geleverd door Microsoft voor het implementeren van services SCIM zou dit verzoek vertalen naar een aanroep van de methode voor maken van de service-provider.  De methode voor maken, heeft deze handtekening: 
+   ```csharp
+    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
+    // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
 
-    System.Threading.Tasks.Task < Microsoft.SystemForCrossDomainIdentityManagement.Resource > maken (Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, tekenreeks correlationIdentifier);
-   ````
-   In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
+    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create(
+      Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
+      string correlationIdentifier);
+   ```
+   In een aanvraag voor het inrichten van een gebruiker, is de waarde van de resource-argument een exemplaar van de Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser klasse is gedefinieerd in de bibliotheek Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  Als de aanvraag voor het inrichten van de gebruiker is geslaagd, wordt de implementatie van de methode verwacht om terug te keren een exemplaar van de Microsoft.SystemForCrossDomainIdentityManagement. Klasse van Core2EnterpriseUser, met de waarde van de id-eigenschap ingesteld op de unieke id van de nieuw ingerichte gebruiker.  
 
-3. To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
-   ````
-    HAAL ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1-autorisatie: Bearer...
-   ````
-   In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
-   ````
-    System.Threading.Tasks.Tasks is gedefinieerd in mscorlib.dll.  
-    Microsoft.SystemForCrossDomainIdentityManagement.Resource en / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters / / zijn gedefinieerd in Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
-    System.Threading.Tasks.Task < Microsoft.SystemForCrossDomainIdentityManagement.Resource > ophalen (Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters parameters, tekenreeks correlationIdentifier);
+3. Voor het bijwerken van een gebruiker bekend is dat in een archief voor de klantidentiteit fronted door een SCIM bestaan, wordt Azure Active Directory uitgevoerd door het aanvragen van de huidige status van die gebruiker van de service met een aanvraag, zoals: 
+   ```
+    GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+    Authorization: Bearer ...
+   ```
+   De aanvraag wordt in een service die is gebouwd met behulp van de CLI-bibliotheken die is geleverd door Microsoft voor het implementeren van services SCIM, omgezet in een aanroep van de methode ophalen van de provider van de service.  Dit is de handtekening van de methode ophalen: 
+   ```csharp
+    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
+    // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
+    // are defined in Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
+    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> 
+       Retrieve(
+         Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
+           parameters, 
+           string correlationIdentifier);
 
-    openbare interface Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
-        IRetrievalParameters {Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier ResourceIdentifier {get;}} public interface Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier {tekenreeks id {get; set;} tekenreeks Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier {get; set;}}
-   ````
-   In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+    public interface 
+      Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
+        IRetrievalParameters
+        {
+          Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
+            ResourceIdentifier 
+              { get; }
+    }
+    public interface Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier
+    {
+        string Identifier 
+          { get; set; }
+        string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier 
+          { get; set; }
+    }
+   ```
+   In het voorbeeld van een aanvraag voor het ophalen van de huidige status van een gebruiker, zijn de waarden van de eigenschappen van het object dat is opgegeven als de waarde van het argument parameters als volgt uit: 
   
-   * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-   * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * -ID: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-4. If a reference attribute is to be updated, then Azure Active Directory queries the service to determine whether the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here is an example of a request to determine whether the manager attribute of a particular user object currently has a certain value: 
+4. Als een verwijzingskenmerk worden bijgewerkt, klikt u vervolgens vraagt Azure Active Directory de service om te bepalen of de huidige waarde van het verwijzingskenmerk in het archief voor de klantidentiteit fronted door de service al overeenkomt met de waarde van dit kenmerk in Azure Active De map. Voor gebruikers is het enige kenmerk waarvan de huidige waarde op deze manier wordt gevraagd het kenmerk manager. Hier volgt een voorbeeld van een verzoek om te bepalen of het kenmerk manager van een bepaalde gebruiker-object op dat moment een bepaalde waarde heeft: 
 
-   If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+   Als de service is gebouwd met behulp van de CLI-bibliotheken geleverd door Microsoft voor het implementeren van services SCIM, wordt klikt u vervolgens de aanvraag omgezet in een aanroep van de Query-methode van de provider van de service. De waarde van de eigenschappen van het object dat is opgegeven als de waarde van het argument parameters zijn als volgt: 
   
    * parameters.AlternateFilters.Count: 2
-   * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+   * parameters.AlternateFilters.ElementAt(x).AttributePath: 'Id'
    * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-   * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-   * parameters.RequestedAttributePaths.ElementAt(0): "ID"
-   * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * de parameters. AlternateFilter.ElementAt(x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * de parameters. AlternateFilters.ElementAt(y). AttributePath: "manager"
+   * de parameters. AlternateFilters.ElementAt(y). De vergelijkingsoperator: ComparisonOperator.Equals
+   * de parameters. AlternateFilter.ElementAt(y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+   * parameters.RequestedAttributePaths.ElementAt(0): 'Id'
+   * de parameters. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-   Here, the value of the index x can be 0 and the value of the index y can be 1, or the value of x can be 1 and the value of y can be 0, depending on the order of the expressions of the filter query parameter.   
+   Hier kan de waarde van de x-index kan zijn ingesteld op 0 en de waarde van de index van de y 1, of de x-waarden zijn 1 en de waarde van y kan zijn ingesteld op 0, afhankelijk van de volgorde van de expressies van het filter-queryparameter.   
 
-5. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
-   ````
-    PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1-autorisatie: Bearer...  Inhoudstype: application/scim + json {'schema': ["urn: ietf:params:scim:api:messages:2.0:PatchOp"], "Activiteiten": [{'op': 'Toevoegen', "pad": "manager", "waarde": [{"$ref": "http://.../scim/Users/2819c223-7f76-453a-919d-413861904646", "waarde": "2819c223-7f76-453a-919d-413861904646"}]}]}
-   ````
-   The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
-   ````
-    System.Threading.Tasks.Tasks en / / System.Collections.Generic.IReadOnlyCollection<T> / / zijn gedefinieerd in mscorlib.dll.  
-    Microsoft.SystemForCrossDomainIdentityManagement.IPatch, / / Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, / / Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, / / Microsoft.SystemForCrossDomainIdentityManagement.OperationName, / / Microsoft.SystemForCrossDomainIdentityManagement.IPath en / / Microsoft.SystemForCrossDomainIdentityManagement.OperationValue / / alle gedefinieerd in Microsoft.SystemForCrossDomainIdentityManagement.Protocol zijn. 
+5. Hier volgt een voorbeeld van een aanvraag van Azure Active Directory aan een service SCIM om bij te werken van een gebruiker: 
+   ```
+    PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+    Authorization: Bearer ...
+    Content-type: application/scim+json
+    {
+      "schemas": 
+      [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+      "Operations":
+      [
+        {
+          "op":"Add",
+          "path":"manager",
+          "value":
+            [
+              {
+                "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
+                "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
+   ```
+   De Microsoft-CLI-bibliotheken voor het implementeren van services SCIM vertaalt de aanvraag in een aanroep van de Update-methode van de provider van de service. Dit is de handtekening van de Update-methode: 
+   ```csharp
+    // System.Threading.Tasks.Tasks and 
+    // System.Collections.Generic.IReadOnlyCollection<T>
+    // are defined in mscorlib.dll.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.IPatch, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.OperationName, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.IPath and 
+    // Microsoft.SystemForCrossDomainIdentityManagement.OperationValue 
+    // are all defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
 
-    System.Threading.Tasks.Task bijwerken (Microsoft.SystemForCrossDomainIdentityManagement.IPatch patch, tekenreeks correlationIdentifier);
+    System.Threading.Tasks.Task Update(
+      Microsoft.SystemForCrossDomainIdentityManagement.IPatch patch, 
+      string correlationIdentifier);
 
-    openbare interface Microsoft.SystemForCrossDomainIdentityManagement.IPatch {Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase PatchRequest {get; set;} Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier ResourceIdentifier {get; set;}        
+    public interface Microsoft.SystemForCrossDomainIdentityManagement.IPatch
+    {
+    Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase 
+      PatchRequest 
+        { get; set; }
+    Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
+      ResourceIdentifier 
+        { get; set; }        
     }
 
-    openbare klasse PatchRequest2:    Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase {openbare System.Collections.Generic.IReadOnlyCollection < Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation > Operations {get;}
-
+    public class PatchRequest2: 
+      Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase
+    {
+    public System.Collections.Generic.IReadOnlyCollection
+      <Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation> 
+        Operations
+        { get;}
+   ```
 
    Als de service is gebouwd met behulp van de Common Language Infrastructure-bibliotheken geleverd door Microsoft voor het implementeren van services SCIM, wordt klikt u vervolgens de aanvraag omgezet in een aanroep van de Query-methode van de provider van de service. De waarde van de eigenschappen van het object dat is opgegeven als de waarde van het argument parameters zijn als volgt: 
   
@@ -1084,7 +1179,7 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
 
    De Microsoft Common Language Infrastructure-bibliotheken voor het implementeren van services SCIM vertaalt de aanvraag in een aanroep van de Update-methode van de provider van de service. Dit is de handtekening van de Update-methode: 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks and 
      // System.Collections.Generic.IReadOnlyCollection<T>
      // are defined in mscorlib.dll.  
@@ -1185,7 +1280,7 @@ Ontwikkelaars die gebruikmaken van de CLI-bibliotheken die is geleverd door Micr
 
    Als de service is gebouwd met behulp van de Common Language Infrastructure-bibliotheken geleverd door Microsoft voor het implementeren van services SCIM, wordt klikt u vervolgens de aanvraag omgezet in een aanroep naar de Delete-methode van de provider van de service.   Deze methode heeft deze handtekening: 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
      // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
      // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
@@ -1257,6 +1352,9 @@ Groep resources worden aangeduid met de schema-id en `urn:ietf:params:scim:schem
 | object-id |Id |
 | proxyAddresses |e-mailberichten [Typ eq 'ander']. Waarde |
 
+## <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Toegestaan IP adressen die worden gebruikt door de Azure AD-inrichtingsservice SCIM-aanvragen
+Bepaalde apps kunt inkomend verkeer naar de app. In de volgorde voor de Azure AD-inrichtingsservice werken zoals verwacht, moeten de IP-adressen die worden toegestaan. Zie voor een lijst met IP-adressen voor elke service code/regio, het JSON-bestand - [IP-adresbereiken voor Azure en servicetags: openbare Cloud](https://www.microsoft.com/download/details.aspx?id=56519). U kunt downloaden en deze IP-adressen programmeren in uw firewall, indien nodig. De gereserveerde IP-adresbereiken voor het inrichten van Azure AD kunnen u vinden onder "AzureActiveDirectoryDomainServices."
+ 
 
 ## <a name="related-articles"></a>Verwante artikelen:
 * [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](user-provisioning.md)

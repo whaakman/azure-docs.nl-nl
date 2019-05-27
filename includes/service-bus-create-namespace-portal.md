@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333435"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111116"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Een naamruimte in Azure Portal maken
 Als u Service Bus-berichtenentiteiten wilt gebruiken in Azure, moet u eerst een naamruimte maken met een naam die uniek is binnen Azure. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
@@ -35,7 +35,7 @@ Ga als volgt te werk om een naamruimte te maken:
     6. Kies voor **Locatie** de regio waarin uw naamruimte moet worden gehost.
     7. Selecteer **Maken**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
    
-        ![Een naamruimte maken](./media/service-bus-create-namespace-portal/create-namespace.png)
+        ![Naamruimte maken](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Bevestig dat de Service Bus-naamruimte is geïmplementeerd. Als u de meldingen wilt zien, selecteert u het **Klokpictogram (waarschuwingen)** op de werkbalk. Selecteer de **naam van de resourcegroep** in de melding zoals weergegeven in de afbeelding. U ziet de resourcegroep die de Service Bus-naamruimte bevat.
 
     ![Implementatiemelding](./media/service-bus-create-namespace-portal/deployment-alert.png)

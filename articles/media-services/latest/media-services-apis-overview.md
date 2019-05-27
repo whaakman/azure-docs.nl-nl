@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556234"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890961"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Ontwikkelen met mediaservices v3 API 's
 
@@ -133,6 +133,10 @@ Zie [filteren, bestellen en van Azure Media Services-entiteiten](entities-overvi
 ## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 
 Bekijk de [Azure Media Services-community](media-services-community.md) artikel om te zien van verschillende manieren kunt u vragen stellen, feedback te geven en updates over Media Services ophalen.
+
+## <a name="see-also"></a>Zie ook
+
+[Azure-CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Volgende stappen
 

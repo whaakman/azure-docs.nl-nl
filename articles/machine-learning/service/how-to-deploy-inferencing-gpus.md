@@ -1,7 +1,7 @@
 ---
-title: Model implementeren voor inferentietaken met GPU
+title: Een model implementeren voor Deductie met GPU
 titleSuffix: Azure Machine Learning service
-description: Informatie over het implementeren van een deep learning-model als een webservice die gebruikmaakt van een GPU voor inferentietaken. In dit artikel wordt een model Tensorflow geïmplementeerd op een Azure Kubernetes Service-cluster. Het cluster maakt gebruik van een VM met GPU score inferentietaken verzoeken en host de webservice.
+description: Informatie over het implementeren van een deep learning-model als een webservice die gebruikmaakt van een GPU voor Deductie. In dit artikel wordt een model Tensorflow geïmplementeerd op een Azure Kubernetes Service-cluster. Het cluster maakt gebruik van een VM met GPU score Deductie verzoeken en host de webservice.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,35 +10,39 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 64d42b9082895e372bb780d2db023294c1a0a380
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595656"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884728"
 ---
-# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>Een deep learning-model voor inferentietaken met GPU implementeren
+# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Een deep learning-model voor Deductie met GPU implementeren
 
-Informatie over het gebruik van GPU inferentietaken voor een machine learning-model is geïmplementeerd als een webservice. In dit artikel leert u hoe u de Azure Machine Learning-service gebruiken voor het implementeren van een voorbeeld Tensorflow deep learning-model. Het model wordt geïmplementeerd op een Azure Kubernetes Service (AKS)-cluster dat gebruik maakt van een VM met GPU voor het hosten van de service. Wanneer aanvragen worden verzonden naar de service, het model de GPU gebruikt om uit te voeren inferentietaken.
+Informatie over het gebruik van GPU Deductie voor een machine learning-model is geïmplementeerd als een webservice. Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens.
 
-GPU's bieden de prestatievoordelen ten opzichte van CPU's op maximaal worden opgestart berekening. Training en inferentietaken deep learning-modellen (vooral voor grote batches van aanvragen) zijn uitstekende gebruiksvoorbeelden voor GPU's.  
+In dit artikel leert u hoe u de Azure Machine Learning-service gebruiken voor het implementeren van een voorbeeld Tensorflow deep learning-model met een cluster Azure Kubernetes Service (AKS) op een GPU ingeschakeld virtuele machine (VM). Wanneer aanvragen worden verzonden naar de service, het model de GPU gebruikt om uit te voeren van de werkbelastingen Deductie.
 
-In dit voorbeeld wordt beschreven hoe u een opgeslagen TensorFlow-model implementeren voor Azure Machine Learning door:
-* Het maken van een AKS met GPU-cluster
-* Implementeren van een model met Tensorflow-GPU
+GPU's bieden de prestatievoordelen ten opzichte van CPU's op maximaal worden opgestart berekening. Uitstekende use cases voor virtuele machines met GPU zijn deep learning model voor training en Deductie, met name voor grote batches van aanvragen.
+
+In dit voorbeeld ziet u hoe u een TensorFlow model opgeslagen in Azure Machine Learning implementeren. U uitvoeren de volgende stappen:
+
+* Een AKS met GPU-cluster maken
+* Een Tensorflow GPU-model implementeren
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure Machine Learning-services-werkruimte
-* Python
-* Tensorflow SavedModel geregistreerd. Voor meer informatie over het registreren van modellen Zie [modellen implementeren](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
+* De werkruimte van een Azure Machine Learning-services
+* Een Python-distributie
+* Een geregistreerde Tensorflow opgeslagen model. Zie voor meer informatie over het registreren van modellen, [modellen implementeren](../service/how-to-deploy-and-where.md#registermodel).
 
-In dit artikel is gebaseerd op Jupyter-notebook [Tensorflow-modellen implementeren naar AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), die gebruikmaakt van opgeslagen TensorFlow-modellen en implementeert in een AKS-cluster. Met kleine wijzigingen aan de scoring-bestand en het omgevingsbestand is het echter van toepassing op elke machine learning-frameworks die ondersteuning bieden voor GPU's.  
+In dit artikel is gebaseerd op de Jupyter-notebook [Tensorflow-modellen implementeren naar AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb). De Jupyter-notebook gebruikt TensorFlow modellen opgeslagen en worden ze geïmplementeerd op een AKS-cluster. U kunt ook de notebook toepassen op elke machine learning-framework die ondersteuning biedt voor GPU's met kleine wijzigingen aanbrengen in het scoring-bestand en het omgevingsbestand.  
 
-## <a name="provision-aks-cluster-with-gpus"></a>AKS-cluster inrichten met GPU 's
-Azure heeft veel verschillende GPU-mogelijkheden, die allemaal kunnen worden gebruikt voor Inferentietaken. Zie [de lijst met N-serie](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) voor een volledig overzicht van de mogelijkheden en kosten. 
+## <a name="provision-an-aks-cluster-with-gpus"></a>Een AKS-cluster met GPU's inrichten
 
-Zie voor meer informatie over het gebruik van AKS met Azure Machine Learning-service de [over het implementeren en artikel.](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#create-a-new-cluster)
+Azure heeft veel verschillende GPU-opties. U kunt ze gebruiken voor inferentietaken. Zie [de lijst met virtuele machines uit de N-serie](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) voor een volledig overzicht van de mogelijkheden en kosten.
+
+Zie voor meer informatie over het gebruik van AKS met Azure Machine Learning-service [implementeren en waar](../service/how-to-deploy-and-where.md#deploy-aks).
 
 ```python
 # Provision AKS cluster with GPU machine
@@ -55,11 +59,9 @@ aks_target.wait_for_deployment()
 > [!IMPORTANT]
 > Azure stuurt u een factuur, zolang het AKS-cluster is ingericht. Zorg ervoor dat u uw AKS-cluster verwijderen wanneer u klaar bent met het.
 
+## <a name="write-the-entry-script"></a>De post-script schrijven
 
-## <a name="write-entry-script"></a>Post-script schrijven
-
-Sla uw werkmap als `score.py`. Dit bestand wordt gebruikt om afbeeldingen te beoordelen als ze worden verzonden naar uw service. Dit bestand de TensorFlow opgeslagen model wordt geladen, en vervolgens op elk bericht aanvraag geeft de afbeelding aan de TensorFlow-sessie en retourneert de resulterende scores.
-Andere frameworks inferentietaken moeten verschillende scoring-bestanden.
+Sla de volgende code naar uw werkmap als `score.py`. Dit bestand beoordeelt installatiekopieën als ze worden verzonden naar uw service. Het laden van het model TensorFlow opgeslagen, wordt de afbeelding aan de sessie TensorFlow doorgegeven op elke POST-aanvraag en retourneert vervolgens de resulterende scores. Andere frameworks inferentietaken waarbij verschillende scoring-bestanden.
 
 ```python
 import tensorflow as tf
@@ -107,8 +109,10 @@ if __name__ == "__main__":
 
 ```
 
-## <a name="define-conda-environment"></a>Conda-omgeving definiëren
-Maak een conda-omgeving-bestand met de naam `myenv.yml` om op te geven van de afhankelijkheden voor uw service. Het is belangrijk om op te geven dat u gebruikmaakt van `tensorflow-gpu` versnelde prestaties bereiken.
+## <a name="define-the-conda-environment"></a>Het conda-omgeving definiëren
+
+Maak een conda-omgeving-bestand met de naam `myenv.yml` om op te geven van de afhankelijkheden voor uw service. Het is belangrijk om op te geven dat u `tensorflow-gpu` versnelde prestaties bereiken.
+
 ```yaml
 name: aml-accel-perf
 channels:
@@ -122,9 +126,9 @@ dependencies:
     - azureml-contrib-services
 ```
 
-## <a name="define-gpu-inferenceconfig"></a>GPU-InferenceConfig definiëren
+## <a name="define-the-gpu-inferenceconfig-class"></a>De klasse GPU InferenceConfig definiëren
 
-Maak een [ `InferenceConfig` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) dat aangeeft dat u GPU wilt inschakelen. Dit zorgt ervoor dat CUDA met uw installatiekopie is geïnstalleerd.
+Maak een `InferenceConfig` object waarmee de GPU's en zorgt ervoor dat CUDA is geïnstalleerd met de Docker-installatiekopie.
 
 ```python
 from azureml.core.model import Model
@@ -143,7 +147,11 @@ inference_config = InferenceConfig(runtime= "python",
                                    gpu_enabled=True)
 ```
 
-Zie voor meer informatie, [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) en [AksServiceDeploymentConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py).
+Zie voor meer informatie:
+
+- [InferenceConfig klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)
+- [AksServiceDeploymentConfiguration klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
+
 ## <a name="deploy-the-model"></a>Het model implementeren
 
 Het model implementeert naar uw AKS-cluster en wacht tot het maken van uw service.
@@ -161,13 +169,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Azure Machine Learning-service wordt niet geïmplementeerd voor een model met een `InferenceConfig` die GPU wordt verwacht dat aan een cluster zonder GPU.
+> Azure Machine Learning-service wordt niet implementeren van een model met een `InferenceConfig` -object dat wordt verwacht dat de GPU naar een cluster waarop een GPU die niet zijn ingeschakeld.
 
-Zie voor meer informatie, [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Zie voor meer informatie, [Modelklasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a name="issue-sample-query-to-deployed-model"></a>Voorbeeldquery probleem naar geïmplementeerd model
+## <a name="issue-a-sample-query-to-your-deployed-model"></a>Een voorbeeldquery uitgeven aan uw geïmplementeerde model
 
-Geven een voorbeeld-query voor het model van uw geïmplementeerde. Dit model wordt een jpeg-afbeelding die u als een post-aanvraag naar deze verzenden score. 
+Een testquery naar de geïmplementeerd model verzenden. Wanneer u een JPEG-afbeelding naar het model verzenden, beoordeelt het de installatiekopie.
 
 ```python
 scoring_url = aks_service.scoring_uri
@@ -180,14 +188,14 @@ r = requests.post(scoring_url, data = img_data, headers=headers)
 ```
 
 > [!IMPORTANT]
-> Voor het optimaliseren van latentie en doorvoer, moet uw client zich in dezelfde Azure-regio als het eindpunt.  Op dit moment worden de API's gemaakt in de oostelijke VS Azure-regio.
+> Latentie minimaliseren en optimaliseren van doorvoer, zorg ervoor dat uw client zich in dezelfde Azure-regio als het eindpunt. In dit voorbeeld worden de API's gemaakt in de oostelijke VS Azure-regio.
 
-## <a name="cleaning-up-the-resources"></a>De resources opschonen
+## <a name="clean-up-the-resources"></a>De resources opschonen
 
-Uw resources te verwijderen nadat u klaar bent met de demo.
+Uw resources te verwijderen wanneer u klaar bent met het volgende voorbeeld.
 
 > [!IMPORTANT]
-> Azure brengt kosten in rekening op basis van hoe lang het AKS-cluster is geïmplementeerd. Zorg ervoor dat om op te schonen als u klaar bent met het.
+> Azure gefactureerd die op basis van hoe lang het AKS-cluster is geïmplementeerd. Zorg ervoor dat om op te schonen als u klaar bent met het.
 
 ```python
 aks_service.delete()
@@ -196,6 +204,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Implementeren op FPGA-model](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service)
-* [Model met ONNX implementeren](https://docs.microsoft.com/azure/machine-learning/service/how-to-build-deploy-onnx#deploy)
-* [Tensorflow DNN modellen trainen](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow)
+* [Implementeren op FPGA-model](../service/how-to-deploy-fpga-web-service.md)
+* [Model met ONNX implementeren](../service/concept-onnx.md#deploy-onnx-models-in-azure)
+* [Tensorflow DNN modellen trainen](../service/how-to-train-tensorflow.md)

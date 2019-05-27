@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344400"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921156"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>RBAC voor Azure-resources oplossen
 
@@ -36,7 +36,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over op rollen gebaseer
 - Als u stappen voor het maken van een aangepaste rol nodig hebt, raadpleegt u de aangepaste rol zelfstudies met behulp van [Azure PowerShell](tutorial-custom-role-powershell.md) of [Azure CLI](tutorial-custom-role-cli.md).
 - Als u zich niet aan een bestaande aangepaste rol bijwerken, controleert u of u momenteel bent aangemeld bij een gebruiker die een rol heeft die is toegewezen de `Microsoft.Authorization/roleDefinition/write` machtiging zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator).
 - Als het u niet lukt om een aangepaste rol te verwijderen en het foutbericht 'There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)' (Er zijn bestaande roltoewijzingen die aan een rol refereren (code: RoleDefinitionHasAssignments)) verschijnt, dan zijn er roltoewijzingen die nog altijd de aangepaste rol gebruiken. Verwijder deze roltoewijzingen en probeer de aangepaste rol opnieuw te verwijderen.
-- Als tijdens het maken van een nieuwe aangepaste rol het foutbericht 'Role definition limit exceeded. No more role definitions can be created (RoleDefinitionLimitExceeded)' Geen roldefinities meer kunnen worden gemaakt (code: RoleDefinitionLimitExceeded) ' wanneer u probeert te maken van een nieuwe aangepaste rol, verwijdert u eventuele aangepaste rollen die niet worden gebruikt. Azure biedt ondersteuning voor maximaal **2000** aangepaste rollen in een tenant.
+- Als tijdens het maken van een nieuwe aangepaste rol het foutbericht 'Role definition limit exceeded. No more role definitions can be created (RoleDefinitionLimitExceeded)' Geen roldefinities meer kunnen worden gemaakt (code: RoleDefinitionLimitExceeded) ' wanneer u probeert te maken van een nieuwe aangepaste rol, verwijdert u eventuele aangepaste rollen die niet worden gebruikt. Azure biedt ondersteuning voor maximaal **5000** aangepaste rollen in een tenant. (Voor speciale clouds, zoals Azure Government, Azure Duitsland en Azure China 21Vianet, is de limiet van 2000 aangepaste rollen.)
 - Als u een fout optreedt die vergelijkbaar is met het "de client is gemachtigd om uit te voeren actie 'Microsoft.Authorization/roleDefinitions/write' over scope '/ subscriptions / {subscriptionid}', maar het gekoppelde abonnement is niet gevonden" wanneer u probeert een aangepaste rol bijwerken, controleren of een of meer [toewijsbare bereiken](role-definitions.md#assignablescopes) in de tenant is verwijderd. Als het bereik is verwijderd, maakt u een ondersteuningsticket, aangezien hiervoor op dit moment geen selfserviceoplossing beschikbaar is.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>RBAC herstellen als abonnementen tussen tenants zijn verplaatst
@@ -108,7 +108,7 @@ Deze items nodig **schrijven** toegang tot de **virtuele machine**:
 * Eindpunten  
 * IP-adressen  
 * Disks  
-* Extensies  
+* Uitbreidingen  
 
 Hiervoor is **schrijven** toegang tot zowel de **virtuele machine**, en de **resourcegroep** (samen met de naam van het domein) dat zich in:  
 

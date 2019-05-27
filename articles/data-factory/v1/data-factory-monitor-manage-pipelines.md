@@ -14,11 +14,11 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123139"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Controleren en beheren van Azure Data Factory-pijplijnen met behulp van de Azure-portal en PowerShell
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ De segmenten van de gegevensset in de data factory kunnen een van de volgende st
     <th align="left">Status</th><th align="left">Substatus</th><th align="left">Description</th>
 </tr>
 <tr>
-    <td rowspan="8">Wachten</td><td>ScheduleTime</td><td>De tijd is niet afkomstig zijn van het segment uit te voeren.</td>
+    <td rowspan="8">In behandeling</td><td>ScheduleTime</td><td>De tijd is niet afkomstig zijn van het segment uit te voeren.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>De upstream-afhankelijkheden zijn niet gereed.</td>

@@ -2,19 +2,19 @@
 title: 'Quickstart: Instellen en ophalen van een geheim uit Azure Key Vault met behulp van een .NET-web-app - Azure Key Vault | Microsoft Docs'
 description: In deze quickstart gaat u met behulp van een .NET-web-app een geheim instellen in Azure Key Vault en dit geheim vervolgens ophalen
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 0d2b3f16086bc3dc653124ecfa9e7116f71bc585
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925432"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872542"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Quickstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van een .NET-web-app
 
@@ -39,7 +39,7 @@ Neem eerst de [basisconcepten voor Key Vault](key-vault-whatis.md#basic-concepts
 ## <a name="prerequisites"></a>Vereisten
 
 * In Windows:
-  * [Visual Studio 2017 versie 15.7.3 of hoger](https://www.microsoft.com/net/download/windows) met de volgende workloads:
+  * [Visual Studio 2019](https://www.microsoft.com/net/download/windows) met de volgende workloads:
     * ASP.NET-ontwikkeling en webontwikkeling
     * Platformoverschrijdende ontwikkelmogelijkheden van .NET Core
   * [.NET Core 2.1 SDK of hoger](https://www.microsoft.com/net/download/windows)
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 Bewerk het bestand program.cs om het voorbeeld met de naam van uw specifieke sleutelkluis uit te voeren:
 
 1. Ga naar de map key-vault-dotnet-core-quickstart.
-2. Open het bestand key-vault-dotnet-core-quickstart.sln in Visual Studio 2017.
+2. Open het bestand key-vault-dotnet-core-quickstart.sln in Visual Studio 2019.
 3. Open het bestand Program.cs en vervang de tijdelijke aanduiding *YourKeyVaultName* door de naam van de sleutelkluis die u eerder hebt gemaakt.
 
 Deze oplossing maakt gebruik van NuGet-bibliotheken van [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 ## <a name="run-the-app"></a>De app uitvoeren
 
-Selecteer **Fouten opsporen** > **Starten** zonder foutopsporing in het hoofdmenu van Visual Studio 2017. Wanneer de browser wordt weergegeven, gaat u naar de pagina **Over**. De waarde voor **AppGeheim** wordt weergegeven.
+Selecteer in het hoofdmenu van Visual Studio 2019 **Debug** > **starten zonder foutopsporing**. Wanneer de browser wordt weergegeven, gaat u naar de pagina **Over**. De waarde voor **AppGeheim** wordt weergegeven.
 
 ## <a name="publish-the-web-application-to-azure"></a>De webtoepassing publiceren in Azure
 

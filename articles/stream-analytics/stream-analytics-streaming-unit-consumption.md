@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761650"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916038"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
@@ -51,7 +51,7 @@ In het algemeen is de aanbevolen procedure is om te beginnen met 6 su's voor que
 Zie voor meer informatie over het kiezen van het juiste aantal su's op deze pagina: [Schalen van Azure Stream Analytics-taken voor een betere doorvoer](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Hoeveel su's zijn vereist voor een bepaalde taak is afhankelijk van de partitieconfiguratie voor de invoer en de query die is opgegeven voor de taak. U kunt maximaal uw quotum in su's voor een taak selecteren. Elk Azure-abonnement heeft standaard een quotum van maximaal 200 su's voor alle analytics-taken in een bepaalde regio. Als u wilt verhogen su's voor uw abonnementen buiten dit quotum, neem contact op met [Microsoft Support](https://support.microsoft.com). Geldige waarden voor su's per taak zijn 1, 3, 6, en in stappen van 6.
+> Hoeveel su's zijn vereist voor een bepaalde taak is afhankelijk van de partitieconfiguratie voor de invoer en de query die is opgegeven voor de taak. U kunt maximaal uw quotum in su's voor een taak selecteren. Elk Azure-abonnement heeft standaard een quotum van maximaal 500 su's voor alle analytics-taken in een bepaalde regio. Als u wilt verhogen su's voor uw abonnementen buiten dit quotum, neem contact op met [Microsoft Support](https://support.microsoft.com). Geldige waarden voor su's per taak zijn 1, 3, 6, en in stappen van 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Factoren die gebruikspercentage voor verhogen 
 

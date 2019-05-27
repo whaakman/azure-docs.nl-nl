@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387232"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117247"
 ---
 De Azure CLI kunt u maken en beheren van uw Azure-resources op macOS, Linux en Windows. Dit artikel worden enkele van de meest voorkomende opdrachten voor het maken en beheren van virtuele machines (VM's).
 
@@ -38,7 +38,7 @@ Voor meer informatie over specifieke opdrachtregelparameters en opties, kunt u d
 ### <a name="get-vm-info"></a>VM ophalen
 | Taak | Azure CLI-opdrachten |
 | --- | --- |
-| Lijst met VM's opvragen | `az vm list` |
+| Lijst met VM's | `az vm list` |
 | Informatie over een VM ophalen | `az vm show --resource-group myResourceGroup --name myVM` |
 | Verbruik van VM-resources opvragen | `az vm list-usage --location eastus` |
 | Alle beschikbare VM-grootten opvragen | `az vm list-sizes --location eastus` |

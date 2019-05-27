@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 883042e7c8abb43338c55a76bba3d64844ce1c56
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
+ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604341"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66179811"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Een Linux Java-app configureren voor Azure App Service
 
@@ -65,7 +65,7 @@ De ingebouwde Java-installatiekopieën op basis van de [Alpine Linux](https://al
 
 Azure App Service voor Linux ondersteunt buiten het vak afstemmen en aanpassen via de Azure portal en CLI. Raadpleeg de volgende artikelen voor de configuratie van niet-Java-specifieke web-app:
 
-- [App Service-instellingen configureren](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [App-instellingen configureren](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
 - [Een aangepast domein instellen](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [SSL inschakelen](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Een CDN toevoegen](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -73,7 +73,7 @@ Azure App Service voor Linux ondersteunt buiten het vak afstemmen en aanpassen v
 
 ### <a name="set-java-runtime-options"></a>Java runtime-opties instellen
 
-Toegewezen geheugen of andere JVM-runtime-opties instellen in de Tomcat- en Java SE-omgevingen, maakt u een [toepassingsinstelling](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) met de naam `JAVA_OPTS` met de opties. App Service Linux geeft deze instelling als een omgevingsvariabele aan de Java-runtime wanneer deze wordt gestart.
+Toegewezen geheugen of andere JVM-runtime-opties instellen in de Tomcat- en Java SE-omgevingen, maakt u een [app-instelling](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) met de naam `JAVA_OPTS` met de opties. App Service Linux geeft deze instelling als een omgevingsvariabele aan de Java-runtime wanneer deze wordt gestart.
 
 In de Azure-portal onder **toepassingsinstellingen** voor de web-app, maakt u een nieuwe appinstelling met de naam `JAVA_OPTS` die bevat de aanvullende instellingen, zoals `-Xms512m -Xmx1204m`.
 
@@ -140,11 +140,45 @@ Java-toepassingen die worden uitgevoerd in App Service for Linux hebben dezelfde
 
 ### <a name="authenticate-users"></a>Gebruikers verifiëren
 
-Instellen van app-verificatie in Azure portal met de **verificatie en autorisatie** optie. Van daaruit kunt u verificatie met behulp van Azure Active Directory of sociale aanmeldingen als Facebook, Google of GitHub. Configuratie van Azure portal werkt alleen bij het configureren van een enkele verificatieprovider. Zie voor meer informatie, [configureren van uw App Service-app voor het gebruik van Azure Active Directory-aanmelding](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) en de bijbehorende artikelen voor andere id-providers.
+Instellen van app-verificatie in Azure portal met de **verificatie en autorisatie** optie. Van daaruit kunt u verificatie met behulp van Azure Active Directory of sociale aanmeldingen als Facebook, Google of GitHub. Configuratie van Azure portal werkt alleen bij het configureren van een enkele verificatieprovider. Zie voor meer informatie, [configureren van uw App Service-app voor het gebruik van Azure Active Directory-aanmelding](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) en de bijbehorende artikelen voor andere id-providers. Als u nodig hebt om in te schakelen van meerdere providers voor aanmelden, volg de instructies in de [App Service-verificatie aanpassen](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) artikel.
 
-Als u nodig hebt om in te schakelen van meerdere providers voor aanmelden, volg de instructies in de [App Service-verificatie aanpassen](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) artikel.
+#### <a name="tomcat"></a>Tomcat
 
- Spring Boot-ontwikkelaars kunnen gebruikmaken van de [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) voor het beveiligen van toepassingen met bekende Spring Security aantekeningen en API's. Zorg ervoor dat u het verhogen van de maximale header-grootte in uw `application.properties` bestand. Een waarde van het is raadzaam `16384`.
+Uw toepassing Tomcat van de gebruiker toegang tot claims rechtstreeks vanaf de servlet Tomcat door het gebruik van de Principal-object op een kaartobject. Het object Map wordt elke claimtype worden toegewezen aan een verzameling van de claims voor dat type. In de onderstaande code, `request` is een exemplaar van `HttpServletRequest`.
+
+```java
+Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
+```
+
+Nu kunt u controleren de `Map` -object voor een specifieke claim. Bijvoorbeeld het volgende codefragment doorloopt de claimtypen en de inhoud van elke verzameling wordt afgedrukt.
+
+```java
+for (Object key : map.keySet()) {
+        Object value = map.get(key);
+        if (value != null && value instanceof Collection {
+            Collection claims = (Collection) value;
+            for (Object claim : claims) {
+                System.out.println(claims);
+            }
+        }
+    }
+```
+
+Gebruikers afmelden en andere acties worden uitgevoerd, Raadpleeg de documentatie over [gebruik van App Service-verificatie en autorisatie](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Er is ook officiële documentatie over de Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) en de bijbehorende methoden. De volgende servlet methoden ook zijn gemigreerd, is afhankelijk van uw App Service-configuratie:
+
+```java
+public boolean isSecure()
+public String getRemoteAddr()
+public String getRemoteHost()
+public String getScheme()
+public int getServerPort()
+```
+
+Als u wilt deze functie uitschakelen, maakt u een toepassingsinstelling met de naam `WEBSITE_AUTH_SKIP_PRINCIPAL` met een waarde van `1`. Als wilt uitschakelen alle servlet filters toegevoegd door App Service, maakt u een instelling met de naam `WEBSITE_SKIP_FILTERS` met een waarde van `1`.
+
+#### <a name="spring-boot"></a>Spring Boot
+
+Spring Boot-ontwikkelaars kunnen gebruikmaken van de [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) voor het beveiligen van toepassingen met bekende Spring Security aantekeningen en API's. Zorg ervoor dat u het verhogen van de maximale header-grootte in uw `application.properties` bestand. Een waarde van het is raadzaam `16384`.
 
 ### <a name="configure-tlsssl"></a>TLS/SSL configureren
 
@@ -232,7 +266,7 @@ Voor het configureren van Tomcat voor het gebruik van Java-Database Connectivity
 </appSettings>
 ```
 
-Of stel de omgevingsvariabelen in de blade 'Instellingen' in de Azure-portal.
+Of stel de omgevingsvariabelen de **configuratie** > **toepassingsinstellingen** pagina in de Azure portal.
 
 Bepaal vervolgens als de gegevensbron moet beschikbaar zijn voor één toepassing of voor alle toepassingen die worden uitgevoerd op de Tomcat-servlet.
 
@@ -327,10 +361,7 @@ Ten slotte, plaatst u de stuurprogramma-JAR-bestanden in het klassepad Tomcat en
 
 Als u wilt verbinding maken met gegevensbronnen in Spring Boot-toepassingen, stellen we voor het maken van verbindingstekenreeksen en injecteren ze naar uw `application.properties` bestand.
 
-1. In de sectie 'Instellingen' van de App Service-blade een naam voor de tekenreeks instellen, plak uw JDBC-verbindingsreeks in het waardeveld en het type in 'Aangepast' instellen. U kunt deze verbindingsreeks (optioneel) instellen als site-instelling.
-
-    ! [Het maken van een verbindingsreeks in de Portal.]
-    
+1. In de sectie "Configuratie" van de App Service-pagina instellen van een naam op voor de tekenreeks en plak uw JDBC-verbindingsreeks in het waardeveld instellen van het type in 'Aangepast'. U kunt deze verbindingsreeks (optioneel) instellen als site-instelling.
 
     Deze verbindingsreeks is toegankelijk voor de toepassing als een omgevingsvariabele met de naam `CUSTOMCONNSTR_<your-string-name>`. Bijvoorbeeld, de verbindingsreeks die eerder is gemaakt de naam `CUSTOMCONNSTR_exampledb`.
 
@@ -383,13 +414,13 @@ Uploaden van het opstartscript naar `/home/site/deployments/tools` in uw App Ser
 
 Stel de **opstartscript** veld in de Azure-portal naar de locatie van uw shell opstartscript bijvoorbeeld `/home/site/deployments/tools/your-startup-script.sh`.
 
-Geef [app-instellingen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) in de configuratie van de toepassing om door te geven van omgevingsvariabelen voor gebruik in het script. Toepassingsinstellingen houden en verbindingsreeksen en andere geheimen die nodig zijn voor het configureren van uw toepassing buiten-versiebeheer.
+Geef [app-instellingen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in de configuratie van de toepassing om door te geven van omgevingsvariabelen voor gebruik in het script. Toepassingsinstellingen houden en verbindingsreeksen en andere geheimen die nodig zijn voor het configureren van uw toepassing buiten-versiebeheer.
 
 ### <a name="modules-and-dependencies"></a>Modules en afhankelijkheden
 
 Voor het installeren van modules en de bijbehorende afhankelijkheden in het klassepad van de Wildfly via de CLI JBoss, moet u de volgende bestanden in hun eigen directory maken. Sommige modules en afhankelijkheden moet mogelijk aanvullende configuratie, zoals JNDI naming of andere API-specifieke configuratie, zodat deze lijst een minimale set is van wat u moet een afhankelijkheid configureren in de meeste gevallen.
 
-- Een [XML-module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Dit XML-bestand definieert de naam, de kenmerken en de afhankelijkheden van uw module. Dit [module.xml voorbeeldbestand](https://access.redhat.com/documentation/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) definieert een Postgres-module, het JDBC-afhankelijkheid van de JAR-bestand en andere vereiste module-afhankelijkheden.
+- Een [XML-module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Dit XML-bestand definieert de naam, de kenmerken en de afhankelijkheden van uw module. Dit [module.xml voorbeeldbestand](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) definieert een Postgres-module, het JDBC-afhankelijkheid van de JAR-bestand en andere vereiste module-afhankelijkheden.
 - Eventuele benodigde JAR-bestandsafhankelijkheden voor uw module.
 - Een script met uw JBoss CLI-opdrachten voor het configureren van de nieuwe module. Dit bestand bevat de opdrachten die worden uitgevoerd door de CLI JBoss de server voor het gebruik van de afhankelijkheid configureren. Zie voor documentatie over de opdrachten voor het toevoegen van modules, gegevensbronnen en messaging-providers, [dit document](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - Een opstartscript Bash aanroepen van de CLI JBoss en voer het script uit in de vorige stap. Dit bestand wordt uitgevoerd wanneer uw App Service-exemplaar opnieuw wordt opgestart of wanneer nieuwe exemplaren zijn ingericht in een scale-out. Deze opstartscript is waar u kunt uitvoeren alle andere configuraties voor uw toepassing zoals de opdrachten JBoss worden doorgegeven aan de JBoss CLI. Dit bestand is ten minste één opdracht uw script JBoss CLI-opdracht doorgeven aan de CLI JBoss:
@@ -401,7 +432,7 @@ Voor het installeren van modules en de bijbehorende afhankelijkheden in het klas
 Zodra u de bestanden en inhoud voor uw module hebt, volgt u de stappen hieronder om de module aan de toepassingsserver Wildfly toevoegen.
 
 1. Uw bestanden naar de FTP- `/home/site/deployments/tools` in uw App Service-exemplaar. Zie dit document voor instructies over het gebruik van uw FTP-referenties.
-2. In de blade toepassingsinstellingen van de Azure-portal en het "Opstartscript" veld instellen op de locatie van uw shell opstartscript bijvoorbeeld `/home/site/deployments/tools/your-startup-script.sh` .
+2. In de **configuratie** > **algemene instellingen** pagina van de Azure portal, stel het "opstartscript" veld naar de locatie van uw shell opstartscript bijvoorbeeld `/home/site/deployments/tools/your-startup-script.sh` .
 3. Uw App Service-exemplaar opnieuw opstarten door op de **opnieuw** knop in de **overzicht** sectie van de portal of met de Azure CLI.
 
 ### <a name="configure-data-source-connections"></a>Gegevensbronverbindingen configureren

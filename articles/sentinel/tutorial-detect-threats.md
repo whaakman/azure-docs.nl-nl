@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 319ec5d09a6daddb5c1fc36f680ee6d0d856e337
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205429"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921811"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Zelfstudie: Detectie van bedreigingen met Azure Sentinel Preview
 
@@ -45,7 +45,7 @@ Detectieregels zijn gebaseerd op de typen dreigingen en afwijkingen die gebruikt
 
 1. Selecteer in de Azure-portal onder Azure Sentinel **Analytics**.
 
-   ![Analyse](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analytische gegevens](./media/tutorial-detect-threats/alert-rules.png)
 
 2. Klik in de bovenste menubalk op **+ toevoegen**.  
 
@@ -59,6 +59,10 @@ Detectieregels zijn gebaseerd op de typen dreigingen en afwijkingen die gebruikt
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
         | where ActivityStatus == "Succeeded"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+
+   > [!NOTE]
+   > De lengte van de query moet tussen 1 en 10.000 tekens en mag ' search * "en" union * ".
+
 
 5. In de **entiteitstoewijzing** sectie, gebruikt u de velden onder **entiteitstype** toewijzen van de kolommen in uw query aan entiteitsvelden wordt herkend door het Azure-Sentinel. Voor elk veld de betreffende kolom in de query die u hebt gemaakt in Log Analytics, naar het entiteitveld juiste worden toegewezen. Selecteer de naam van de desbetreffende kolom onder de **eigenschap**. Elke entiteit bevat meerdere velden, zoals SID, GUID, enzovoort. U kunt de entiteit op basis van een van de velden, niet alleen de bovenste niveau entiteit toewijzen.
 

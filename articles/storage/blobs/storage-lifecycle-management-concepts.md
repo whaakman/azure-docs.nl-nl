@@ -5,16 +5,16 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 26ff592ea0d0a57049ae11a981fe8d8e77ca876f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606940"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001745"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>De levenscyclus van de Azure Blob storage beheren
 
@@ -393,8 +393,12 @@ Voor gegevens die is gewijzigd en gedurende hun levensduur regelmatig geopend, w
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-**Ik heb een nieuw beleid, waarom worden de acties die niet direct uitvoeren gemaakt?**  
+**Ik heb een nieuw beleid, waarom de acties Voer niet direct gemaakt?**  
 Het platform wordt één keer per dag uitgevoerd de lifecycle-beleid. Wanneer u een beleid configureert, duurt het tot 24 uur voor sommige acties uit te voeren voor de eerste keer.  
+
+**Kan ik een blob gearchiveerde handmatig gereactiveerd, hoe ik voorkomen dat deze wordt verplaatst naar de laag archief was tijdelijk?**  
+Wanneer een blob wordt verplaatst van een toegangslaag naar een andere laag voor access, wordt de tijd van laatste wijziging niet gewijzigd. Als u handmatig een gearchiveerde blob naar de warme laag rehydrate, zou deze worden teruggezet naar laag archiveren door lifecycle management engine. U kunt voorkomen dat deze door de regel die van invloed op deze blob tijdelijk uit te schakelen. U kunt de blob kopiëren naar een andere locatie als nodig is om te blijven bij de warme laag definitief. U kunt de regel opnieuw inschakelen wanneer de blob veilig teruggeplaatst kan in laag archiveren. 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

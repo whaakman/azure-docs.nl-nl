@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711953"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001466"
 ---
-# <a name="common-security-attributes-for-azure-storage"></a>Algemene beveiligingskenmerken voor Azure Storage
+# <a name="security-attributes-for-azure-storage"></a>Beveiligingskenmerken voor Azure Storage
 
-Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Azure Storage. 
+In dit artikel worden de beveiligingskenmerken die is ingebouwd in Azure Storage. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -62,7 +62,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 | Controle en beheer vlak logboekregistratie en controle | Ja | Azure Resource Manager-activiteitenlogboek |
 | Gegevens vlak logboekregistratie en controle| Ja | Diagnostische logboeken en vanaf preview logboekregistratie van Azure Monitor  |
 
-## <a name="configuration-management"></a>Configuration Management
+## <a name="configuration-management"></a>Configuratiebeheer
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 5dc311538055d9ecb7aba21f95d819a914cd1db7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826553"
+ms.locfileid: "65849706"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace commercieel transactiemogelijkheden en aandachtspunten
 
@@ -144,7 +144,7 @@ Deze optie moet worden geconfigureerd om te mogen verkopen via Microsoft en kan 
 |Microsoft betaalt u 80% van de kosten van uw licentie <br> \* Microsoft betaalt u 90% van de kosten van uw licentie voor een gekwalificeerde SaaS-apps   |   $80,00 per maand <br> \* $90,00 per maand    |
 |Microsoft houdt 20% van de kosten van uw licentie <br> \* Microsoft houdt 10% van de kosten van uw licentie voor alle gekwalificeerde SaaS-apps.  |  $20,00 per maand <br> \* $10.00     |
 
-* **Kosten van de lagere Marketplace-Service:** Voor bepaalde SaaS-producten die u op onze commerciële Marketplace publiceert, Microsoft beperkt u de servicevergoeding voor Marketplace van 20% (zoals beschreven in de Microsoft-overeenkomst voor uitgevers) tot 10%.  In de volgorde voor uw Product in aanmerking komt, ten minste één van uw producten worden aangewezen door Microsoft als IP gezamenlijke verkoop gereed of IP-gezamenlijke verkoop-prioriteit. Voor het ontvangen van deze lagere servicevergoeding voor Marketplace gedurende de maand, moet de in aanmerking komen worden voldaan aan ten minste vijf (5) werkdagen vóór het einde van deze maand. Marketplace-Service bedrag wordt niet van toepassing op virtuele machines, beheerde Apps of andere producten beschikbaar gesteld via onze commerciële Marketplace verminderd.  Deze kosten verminderd Marketplace-Service is beschikbaar voor gekwalificeerde aanbiedingen met verzameld door Microsoft tussen 31 mei 2019 en 30 juni 2020-licentiekosten.  Na deze periode wordt retourneren de servicevergoeding voor Marketplace aan de normale hoeveelheid.
+* **Kosten van de lagere Marketplace-Service:** Voor bepaalde SaaS-producten die u op onze commerciële Marketplace publiceert, Microsoft beperkt u de servicevergoeding voor Marketplace van 20% (zoals beschreven in de Microsoft-overeenkomst voor uitgevers) tot 10%.  In de volgorde voor uw Product in aanmerking komt, ten minste één van uw producten worden aangewezen door Microsoft als IP gezamenlijke verkoop gereed of IP-gezamenlijke verkoop-prioriteit. Voor het ontvangen van deze lagere servicevergoeding voor Marketplace gedurende de maand, moet de in aanmerking komen worden voldaan aan ten minste vijf (5) werkdagen vóór het einde van deze maand. Marketplace-Service bedrag wordt niet van toepassing op virtuele machines, beheerde Apps of andere producten beschikbaar gesteld via onze commerciële Marketplace verminderd.  Deze kosten verminderd Marketplace-Service is beschikbaar voor gekwalificeerde aanbiedingen met verzameld door Microsoft tussen 1 mei 2019 en 30 juni 2020-licentiekosten.  Na deze periode wordt retourneren de servicevergoeding voor Marketplace aan de normale hoeveelheid.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Klantfacturering, betaling en facturering en verzamelingen
 

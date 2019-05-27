@@ -8,12 +8,12 @@ ms.author: sngun
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e43b2d6f5a127f7f0f81c2dfc2fd3737c9ee787
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894121"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861312"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Quickstart: Een Cassandra-app bouwen met .NET SDK en Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen.
 
 U hebt verder nodig: 
-* Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+* Als u Visual Studio 2019 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 * Installeer [Git](https://www.git-scm.com/) zodat u het voorbeeld kunt klonen.
 
 <a id="create-account"></a>
@@ -118,11 +118,11 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 1. Selecteer **Verbindingsreeks** in de [Azure-portal](https://portal.azure.com/).
 
-    Gebruik de ![knop Kopiëren](./media/create-cassandra-dotnet/copy.png) aan de rechterkant van het scherm om de waarde USERNAME te kopiëren.
+    Gebruik de ![Knop Kopiëren](./media/create-cassandra-dotnet/copy.png) aan de rechterkant van het scherm om de waarde USERNAME te kopiëren.
 
     ![Een toegangssleutel in Azure Portal bekijken en kopiëren op de pagina Verbindingsreeks](./media/create-cassandra-dotnet/keys.png)
 
-2. Open in Visual Studio 2017 het bestand Program.cs. 
+2. Open het bestand Program.cs in Visual Studio. 
 
 3. Plak de USERNAME-waarde uit de portal over `<FILLME>` op regel 13 heen.
 

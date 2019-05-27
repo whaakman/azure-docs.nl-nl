@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498811"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116207"
 ---
 # <a name="understand-azure-policy-effects"></a>Informatie over Azure Policy-effecten
 
@@ -30,7 +30,7 @@ Er zijn momenteel zes effecten die in de beleidsdefinitie van een worden onderst
 
 ## <a name="order-of-evaluation"></a>Volgorde van de evaluatie
 
-Aanvragen voor het maken of bijwerken van een resource via Azure Resource Manager worden eerst door het beleid geëvalueerd. Beleid maakt een lijst van alle toewijzingen die gelden voor de resource en evalueert vervolgens de resource op basis van elke definitie. Groepsbeleid verwerkt meerdere van de gevolgen voordat de aanvraag naar de juiste Resource Provider. Zo voorkomt u dat overbodige verwerkingstijd door een Resourceprovider als een resource niet voldoet aan de besturingselementen ontworpen governance van beleid.
+Aanvragen voor het maken of bijwerken van een resource via Azure Resource Manager worden eerst geëvalueerd door Azure Policy. Azure Policy wordt een lijst van alle toewijzingen die gelden voor de resource en evalueert vervolgens de resource op basis van elke definitie. Azure Policy verwerkt meerdere van de gevolgen voordat de aanvraag naar de juiste Resource Provider. Zo voorkomt u dat overbodige verwerkingstijd door een Resourceprovider als een resource niet voldoet aan de besturingselementen ontworpen governance van Azure Policy.
 
 - **Uitgeschakelde** wordt eerst gecontroleerd om te bepalen als de beleidsregel moet worden geëvalueerd.
 - **Toevoeg-** wordt vervolgens geëvalueerd. Aangezien toevoegen kan de aanvraag wijzigen, een wijziging aangebracht door toevoegen mogelijk te voorkomen dat een controle of effect van het triggeren van weigeren.
@@ -88,8 +88,7 @@ Voorbeeld 2: Twee **veld/waarde** paren toe te voegen een set van labels.
 }
 ```
 
-Voorbeeld 3: Één **veld/waarde** worden gekoppeld met behulp van een niet -**[\*]**
-[alias](definition-structure.md#aliases) met een matrix **waarde** IP-regels instellen op een Storage-account. Wanneer het niet -**[\*]** alias is een matrix, het effect voegt de **waarde** als de volledige matrix. Als de matrix al bestaat, treedt een gebeurtenis weigeren op van het conflict.
+Voorbeeld 3: Één **veld/waarde** worden gekoppeld met behulp van een niet -**[\*]** [alias](definition-structure.md#aliases) met een matrix **waarde** IP-regels instellen op een storage-account. Wanneer het niet -**[\*]** alias is een matrix, het effect voegt de **waarde** als de volledige matrix. Als de matrix al bestaat, treedt een gebeurtenis weigeren op van het conflict.
 
 ```json
 "then": {
@@ -149,7 +148,7 @@ Controle wordt gebruikt om u te maken van een waarschuwingsgebeurtenis in het ac
 
 ### <a name="audit-evaluation"></a>Audit-evaluatie
 
-Controle is het laatste effect is door het beleid wordt ingeschakeld tijdens het maken of bijwerken van een resource. Beleid verzendt vervolgens de resource bij de Resourceprovider. Controle werkt hetzelfde voor een resource-aanvraag en een evaluatiecyclus van een. Beleid wordt toegevoegd een `Microsoft.Authorization/policies/audit/action` bewerking voor het activiteitenlogboek en de resource als niet-compatibel worden gemarkeerd.
+Controle is het laatste effect gecontroleerd door Azure Policy tijdens het maken of bijwerken van een resource. Azure Policy verzendt vervolgens de resource bij de Resourceprovider. Controle werkt hetzelfde voor een resource-aanvraag en een evaluatiecyclus van een. Azure Policy wordt toegevoegd een `Microsoft.Authorization/policies/audit/action` bewerking voor het activiteitenlogboek en de resource als niet-compatibel worden gemarkeerd.
 
 ### <a name="audit-properties"></a>Audit-eigenschappen
 
@@ -171,7 +170,7 @@ AuditIfNotExists kunt controleren voor bronnen die voldoen aan de **als** voorwa
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists-evaluatie
 
-AuditIfNotExists wordt uitgevoerd nadat een Resourceprovider is afgehandeld door een resourceaanvraag maken of bijwerken en een code van de status geslaagd heeft geretourneerd. De controle vindt plaats als er geen verwante bronnen zijn of als de resources die zijn gedefinieerd door **ExistenceCondition** niet resulteren in waar. Beleid wordt toegevoegd een `Microsoft.Authorization/policies/audit/action` bewerking naar de activiteit Meld u aan de dezelfde manier als het effect van de audit. Wanneer ze worden geactiveerd, de resource die voldaan aan de **als** situatie doet zich voor de resource die is gemarkeerd als niet-compatibel.
+AuditIfNotExists wordt uitgevoerd nadat een Resourceprovider is afgehandeld door een resourceaanvraag maken of bijwerken en een code van de status geslaagd heeft geretourneerd. De controle vindt plaats als er geen verwante bronnen zijn of als de resources die zijn gedefinieerd door **ExistenceCondition** niet resulteren in waar. Azure Policy wordt toegevoegd een `Microsoft.Authorization/policies/audit/action` bewerking naar de activiteit Meld u aan de dezelfde manier als het effect van de audit. Wanneer ze worden geactiveerd, de resource die voldaan aan de **als** situatie doet zich voor de resource die is gemarkeerd als niet-compatibel.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists eigenschappen
 
@@ -300,7 +299,7 @@ Voorbeeld: Evalueert de SQL Server-databases om te bepalen of transparentDataEnc
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -369,9 +368,9 @@ Elke toewijzing afzonderlijk geëvalueerd. Daarom is er geen een kans op een res
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk voorbeelden op [Azure Policy-voorbeelden](../samples/index.md)
-- Controleer de [structuur van beleidsdefinities](definition-structure.md)
-- Begrijpen hoe u [programmatisch beleid maken](../how-to/programmatically-create.md)
-- Meer informatie over het [Nalevingsgegevens ophalen](../how-to/getting-compliance-data.md)
-- Meer informatie over het [herstellen van niet-compatibele resources](../how-to/remediate-resources.md)
-- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](../../management-groups/overview.md)
+- Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
+- Lees over de [structuur van Azure Policy-definities](definition-structure.md).
+- Begrijpen hoe u [programmatisch beleid maken](../how-to/programmatically-create.md).
+- Meer informatie over het [ophalen compatibiliteitsgegevens](../how-to/getting-compliance-data.md).
+- Meer informatie over het [herstellen van niet-compatibele resources](../how-to/remediate-resources.md).
+- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../../management-groups/overview.md).

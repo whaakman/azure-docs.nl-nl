@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 85e162773f95272ac2af36469480f1786b260e26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ebf371c45868d8e620413f8f54b3531b1a17f817
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806249"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949593"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Overzicht van de portal voor commerciële Marketplace in de Partner Center
 
@@ -36,7 +36,7 @@ Bestaande marketplace-uitgevers vindt een ervaring maar verbeterde gebruikerserv
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Verbeteringen voor de gebruikerservaring en facturering
 
-Met de overgang naar de Partner Center is de nieuwe functionaliteit beschikbaar voor uitgevers, naast de verbeteringen voor de gebruikerservaring. SaaS-aanbiedingen die kunnen worden gefactureerd maandelijks of jaarlijks, ondersteuning voor licentieverlening (seat-indeling) naast (proportionele) per site per gebruiker. Nieuw model voor deze verkopen is ideaal voor zakelijke software. De introductie van de licentieverlening van SaaS-per-gebruiker wordt uitgelijnd met de nieuwe functionaliteit, waardoor klanten kunnen aankopen in AppSource, commerciële marketplace voor bedrijven en oplossingen van Microsoft te voltooien. 
+Met de overgang naar de Partner Center is de nieuwe functionaliteit beschikbaar voor uitgevers, naast de verbeteringen voor de gebruikerservaring. SaaS-aanbiedingen, die kunnen worden gefactureerd maandelijks of jaarlijks, ondersteuning voor licentieverlening (seat-indeling) naast per site licentieverlening (platte-tarief) per gebruiker. Nieuw model voor deze verkopen is ideaal voor zakelijke software. De introductie van de licentieverlening van SaaS-per-gebruiker wordt uitgelijnd met de nieuwe functionaliteit waarmee klanten aankopen in de volledige in AppSource, de commerciële marketplace van Microsoft voor handel en industrie-oplossingen. 
 
 ### <a name="account-and-user-management-updates"></a>Account en gebruiker management updates
 
@@ -58,3 +58,4 @@ Meer informatie over recente en toekomstige releases door naar de pagina de [mar
 
 - Zie voor geïnteresseerd in de publicatie van een SaaS nieuwe Microsoft-partners de marktplaatsen bieden, [een commerciële Marketplace-account maken in de Partner Center](./create-account.md).
 - Voor bestaande partners die u hebt eerder aanbiedingen gepubliceerd in de Cloud Partner-Portal [uw commerciële Marketplace-account in de Partner Center beheren](./manage-account.md). 
+- Meer informatie over het beheer van cloud-marketplace verplaatsen naar de Partner Center in deze [Partner-Community-blogbericht](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), met inbegrip van een demovideo.

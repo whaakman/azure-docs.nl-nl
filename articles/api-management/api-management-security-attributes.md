@@ -1,24 +1,23 @@
 ---
-title: Algemene beveiligingskenmerken voor Azure API Management
+title: Beveiligingskenmerken voor Azure API Management
 description: Een controlelijst met algemene beveiligingskenmerken voor het evalueren van API Management
 services: api-management
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 040d628f9fe89f68a1c5ab91a1522c6a3cb724d9
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64508142"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001094"
 ---
-# <a name="common-security-attributes-for-api-management"></a>Algemene beveiligingskenmerken voor API Management
+# <a name="security-attributes-for-api-management"></a>Beveiligingskenmerken voor API Management
 
-Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in API Management.
+In dit artikel worden de beveiligingskenmerken die is ingebouwd in API Management.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -30,7 +29,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 | Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>VNet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | [Express Route](../expressroute/index.yml) en VNet-versleuteling geleverd door [Azure-netwerken](../virtual-network/index.yml). |
 | Versleuteling verwerking (CMK, BYOK, enz.)| Nee | Alle versleutelingssleutels zijn per service-exemplaar en service die wordt beheerd. |
 | Versleuteling op kolom (Azure Data Services)| N/A | |
-| API-aanroepen die zijn versleuteld| Ja | Vlak beheeraanroepen worden aangeleverd via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. Een geldig JSON webtoken (JWT) is vereist.  Gegevens vlak aanroepen kunnen worden beveiligd met TLS en een van de ondersteunde verificatiemechanismen (bijvoorbeeld clientcertificaat of JWT).
+| API-aanroepen die zijn versleuteld| Ja | Vlak beheeraanroepen worden aangeleverd via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. Een geldig JSON webtoken (JWT) is vereist.  Gegevens vlak aanroepen kunnen worden beveiligd met TLS- en een van de ondersteunde verificatiemechanismen (bijvoorbeeld clientcertificaat of JWT).
  |
 
 ## <a name="network-segmentation"></a>Segmentatie
@@ -75,4 +74,4 @@ In deze sectie worden algemene beveiligingsproblemen, dat niet van invloed zijn 
 
 | Beveiligingsprobleem               | Description                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ticketbleed (CVE-2016-9244) | Ticketbleed is door een beveiligingslek in de implementatie van de gevonden in sommige producten F5 SessionTicket TLS-extensie. Hierdoor kan het lekken van gegevens ('uiterst') van de tot 31 bytes van gegevens uit het geheugen niet geïnitialiseerd. Dit wordt veroorzaakt door de TLS-stack opvulling van een sessie-ID doorgegeven door de client, met de gegevens gemakkelijk 32-bits lang. |
+| Ticketbleed (CVE-2016-9244) | Ticketbleed is door een beveiligingslek in de implementatie van de gevonden in sommige producten F5 SessionTicket TLS-extensie. Hierdoor kan het lekken van gegevens ('uiterst') van de tot 31 bytes van gegevens uit het geheugen niet geïnitialiseerd. Dit wordt veroorzaakt door de TLS-stack opvulling van een sessie-ID van de client, met de gegevens gemakkelijk 32-bits lang is doorgegeven. |

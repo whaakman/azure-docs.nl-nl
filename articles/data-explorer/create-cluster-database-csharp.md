@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 9ae46d623c0525edf93a4f984393060888fcd009
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 719aba498c08617b42d248d3c677499f8eb3e4b2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143012"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900827"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Een cluster van Azure Data Explorer en -database maken met behulp vanC#
 
@@ -28,7 +28,7 @@ Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalys
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Als u geen Visual Studio 2017 is geïnstalleerd, kunt u downloaden en gebruiken de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+* Als u Visual Studio 2019 geïnstalleerd hebt, kunt u downloaden en gebruiken de **gratis** [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 

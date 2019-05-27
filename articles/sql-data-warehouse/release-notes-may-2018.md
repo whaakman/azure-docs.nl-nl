@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse opmerkingen bij de Release mei 2018 | Microsoft Docs
 description: Opmerkingen bij de release voor Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 07/23/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: eb933e8085ec956be713a18602b8baff9c87084b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402697"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912197"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Mei 2018 
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in mei 2018. 

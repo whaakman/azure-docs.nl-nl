@@ -9,11 +9,11 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117890"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Connectiviteit ExpressRoute controleren
 Dit artikel helpt u bij het controleren en oplossen van ExpressRoute-connectiviteit. ExpressRoute, wat een on-premises netwerk naar de Microsoft cloud via een persoonlijke verbinding die mogelijk gemaakt door een connectiviteitsprovider uitbreidt wordt, omvat de volgende drie afzonderlijke network-zones:
@@ -157,7 +157,7 @@ Een van het voorbeeldantwoord is:
     Sku                              : Standard
     Status                           : Enabled
 
-Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht besteden aan de volgende velden: ServiceProviderProvisioningState : Ingerichte Status: Ingeschakeld
+Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht besteden aan de volgende velden: ServiceProviderProvisioningState : Ingerichte Status: Enabled
 
 > [!NOTE]
 > Als de *Status* is niet ingeschakeld, neem contact op met [Microsoft Support][Support]. Als de *ServiceProviderProvisioningState* is niet ingericht, neem contact op met uw serviceprovider.

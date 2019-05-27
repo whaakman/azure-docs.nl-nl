@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 4c7b4733d05f18d3c30e45fd08c3cf9c50354ebc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730596"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872814"
 ---
 # <a name="what-are-durable-functions"></a>Wat is Durable Functions?
 
@@ -49,9 +49,9 @@ Durable Functions ondersteunt momenteel de volgende talen:
 
 Durable Functions heeft als doel alle [Azure Functions-talen](../supported-languages.md) te ondersteunen. Zie [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) voor de laatste voortgangsstatus van de ondersteuning voor meer talen.
 
-Net als bij Azure Functions zijn er sjablonen om u te helpen bij het ontwikkelen van Durable Functions met behulp van [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md) en de [Azure-portal](durable-functions-create-portal.md).
+Net als Azure Functions, worden sjablonen gebruiken om u te helpen bij het ontwikkelen van duurzame functies met behulp van [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), en de [Azure-portal](durable-functions-create-portal.md).
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 Durable Functions worden op dezelfde manier in rekening gebracht als Azure Functions. Zie [Prijzen voor Azure Functions](https://azure.microsoft.com/pricing/details/functions/) voor meer informatie.
 
@@ -59,7 +59,7 @@ Durable Functions worden op dezelfde manier in rekening gebracht als Azure Funct
 
 U kunt in minder dan 10 minuten aan de slag gaan met Durable Functions door een van deze taalspecifieke quickstart-zelfstudies te volgen:
 
-* [C# met Visual Studio 2017](durable-functions-create-first-csharp.md)
+* [C#met behulp van Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript met Visual Studio Code](quickstart-js-vscode.md)
 
 In beide quickstarts maakt en test u een lokale ‘hallo wereld’-duurzame functie. Vervolgens publiceert u de functiecode op Azure. De functie die u maakt, organiseert en koppelt aanroepen naar andere functies.

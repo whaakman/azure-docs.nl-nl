@@ -13,18 +13,21 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 8c786f46308848c6b9182453510744942a8eb9e8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 0d85bad5328c9d28c8690b389fca18731ea17644
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472434"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002363"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Filters maken met Media Services .NET SDK
 
-Wanneer uw inhoud levert aan klanten (streaming Live gebeurtenissen of Video on Demand) is de client mogelijk meer flexibiliteit dan wat wordt beschreven in het manifestbestand van de standaard-asset. Azure Media Services kunt u accountfilters en filters actief voor uw inhoud definiëren. Zie voor meer informatie, [Filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
+Wanneer uw inhoud levert aan klanten (streaming Live gebeurtenissen of Video on Demand) is de client mogelijk meer flexibiliteit dan wat wordt beschreven in het manifestbestand van de standaard-asset. Azure Media Services kunt u accountfilters en filters actief voor uw inhoud definiëren. Zie voor meer informatie, [Filters](filters-concept.md) en [dynamische manifesten](filters-dynamic-manifest-overview.md).
 
 In dit onderwerp wordt beschreven hoe Media Services .NET SDK gebruiken om te definiëren van een filter voor een Video op aanvraag asset en maak [Accountfilters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) en [Asset Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+
+> [!NOTE]
+> Controleer [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Vereisten 
 
@@ -79,7 +82,7 @@ client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, enc
 
 ## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
 
-U kunt een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. De [dynamische packager (Streaming-eindpunt)](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dynamische manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
+U kunt een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. De [dynamische Packager (Streaming-eindpunt)](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dynamische Manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
 
 De volgende C# code laat zien hoe u een Streaming-Locator te maken en geef `StreamingLocator.Filters`. Dit is een optionele eigenschap waarmee een `IList<string>` van filterfunctie namen.
 

@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045835"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872742"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -75,7 +75,7 @@ Houd rekening met het premium-abonnement voor Azure Functions in de volgende gev
 
 Bij het uitvoeren van JavaScript-functies op een Premium-abonnement, moet u een exemplaar dat minder vcpu's is kiezen. Zie voor meer informatie de [single-core Premium-abonnementen kiezen](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## <a name="app-service-plan"></a>App Service-plan
+## <a name="app-service-plan"></a>App Service-abonnement
 
 Uw functie-apps kunnen ook uitvoeren op de dezelfde toegewezen virtuele machines als andere App Service-apps (Basic, Standard, Premium en geïsoleerd SKU's). App Service-plannen ondersteuning voor Linux.
 
@@ -165,3 +165,9 @@ De facturering voor het abonnement Consumption wordt in detail beschreven op de 
 Handige query's en informatie over hoe u meer informatie over uw factuur verbruik vindt [in de facturering Veelgestelde vragen over](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Pagina prijzen voor Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>Servicelimieten
+
+De volgende tabel staan de limieten die betrekking hebben op de functie-apps bij uitvoering in de verschillende hostingabonnementen:
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

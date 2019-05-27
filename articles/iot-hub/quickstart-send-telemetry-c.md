@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 1299b627c70b23714ea48dbc62af36ca1f27290e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 92575f2fc8e6dbcfc5767a179ddf60df1bce0c83
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499900"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872619"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Quickstart: Telemetrie vanaf een apparaat verzenden naar een IoT-hub en lezen met een back-endtoepassing (C)
 
@@ -33,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) installeren met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
+* Installeer [Visual Studio 2019](https://www.visualstudio.com/vs/) met de [' bureaubladontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) werkbelasting ingeschakeld.
 * Installeer de meest recente versie van [Git](https://git-scm.com/download/).
 * Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
 
@@ -43,23 +43,23 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden
 
-Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-sdk-c-intro.md). 
+In deze Quick Start hebt u de [Azure IoT device-SDK voor C](iot-hub-device-sdk-c-intro.md). 
 
 U kunt de SDK door het installeren van de pakketten en bibliotheken voor de volgende omgevingen gebruiken:
 
-* **Linux**: apt-get-pakketten zijn beschikbaar voor Ubuntu 16.04 en 18.04 met de volgende CPU-architectuur: amd64 arm64, armhf en i386. Zie [Gebruik van apt-get om een project C apparaat-client op Ubuntu te maken](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md) voor meer informatie.
+* **Linux**: apt-get-pakketten zijn beschikbaar voor Ubuntu 16.04 en 18.04 met de volgende CPU-architectuur: amd64 arm64, armhf, en i386. Zie [Gebruik van apt-get om een project C apparaat-client op Ubuntu te maken](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md) voor meer informatie.
 
-* **mbed**: voor ontwikkelaars die toepassingen voor apparaten maken op het platform mbed, hebben we een bibliotheek en voorbeelden gepubliceerd waarmee u binnen enkele minuten met Azure IoT Hub bent gestart. Zie voor meer informatie, [Gebruik van de bibliotheek mbed](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
+* **mbed**: Voor het maken van toepassingen voor apparaten op het platform mbed-ontwikkelaars, hebben we een bibliotheek en voorbeelden die u aan de slag met Azure IoT Hub minuten gepubliceerd. Zie voor meer informatie, [Gebruik van de bibliotheek mbed](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
 
-* **Arduino**: als u op Arduino ontwikkelt, kunt u gebruikmaken van de Azure IoT-bibliotheek die beschikbaar is in de Arduino IDE-bibliotheekbeheerder. Zie voor meer informatie, [De Azure IoT Hub-bibliotheek voor Arduino](https://github.com/azure/azure-iot-arduino).
+* **Arduino**: Als u op Arduino ontwikkelt, kunt u gebruikmaken van de Azure IoT-bibliotheek beschikbaar zijn in de bibliotheek Arduino IDE manager. Zie voor meer informatie, [De Azure IoT Hub-bibliotheek voor Arduino](https://github.com/azure/azure-iot-arduino).
 
 * **iOS**: de IoT Hub apparaat-SDK is beschikbaar als CocoaPods voor de ontwikkeling van Mac- en iOS-apparaten. Zie [iOS-voorbeelden voor Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient) voor meer informatie.
 
-In deze snelstartgids bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Azure IoT C-SDK](https://github.com/Azure/azure-iot-sdk-c) van GitHub te klonen en te bouwen. De SDK op GitHub bevat de voorbeeldcode gebruikt in deze snelstartgids. 
+In deze snelstartgids hebt u een ontwikkelomgeving die is gebruikt om te klonen en bouw voorbereiden de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) vanuit GitHub. De SDK op GitHub bevat de voorbeeldcode gebruikt in deze snelstartgids. 
 
 1. Download de [CMake-bouwsysteem](https://cmake.org/download/).
 
-    Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
+    Is het belangrijk dat de Visual Studio-vereisten (Visual Studio en de ' bureaubladontwikkeling met C++' werkbelasting) zijn geïnstalleerd op uw computer **voordat** vanaf de `CMake` installatie. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
 
 2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit voor het klonen van de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats:
     
@@ -83,7 +83,7 @@ In deze snelstartgids bereidt u een ontwikkelomgeving voor die wordt gebruikt om
     cmake ..
     ```
     
-    Als `cmake` uw C++-compiler niet kan vinden, kunnen er fouten in de build optreden tijdens het uitvoeren van de bovenstaande opdracht. Als dit gebeurt, voert u deze opdracht uit bij de [Visual Studio-opdrachtprompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Als `cmake` vindt geen uw C++ compiler, kunnen er build optreden tijdens het uitvoeren van de bovenstaande opdracht. Als dit gebeurt, voert u deze opdracht uit bij de [Visual Studio-opdrachtprompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Zodra het bouwen is voltooid, zijn de laatste paar uitvoerregels vergelijkbaar met de volgende uitvoer:
 
@@ -108,21 +108,21 @@ In deze snelstartgids bereidt u een ontwikkelomgeving voor die wordt gebruikt om
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
-Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze sectie gebruikt u Azure Cloud Shell met de [IoT-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) om een gesimuleerd apparaat te registreren.
+Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze sectie gebruikt u de Azure Cloud Shell met de [IoT-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) om een gesimuleerd apparaat te registreren.
 
 1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
 
-   **YourIoTHubName** : vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
+   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
-   **MyCDevice** : dit is de naam van het geregistreerde apparaat. Gebruik MyCDevice, zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
+   **MyCDevice**: dit is de naam van het geregistreerde apparaat. Gebruik MyCDevice, zoals wordt weergegeven. Als u een andere naam voor uw apparaat, moet u ook deze naam in dit artikel gebruiken en bijwerken van de naam van het apparaat in de voorbeeldtoepassingen voordat u ze uit te voeren.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
     ```
 
-2. Voer de volgende opdrachten uit in Azure Cloud Shell om de _apparaatverbindingsreeks_ op te halen voor het apparaat dat u zojuist hebt geregistreerd:
+2. Voer de volgende opdrachten uit in Azure Cloud Shell om op te halen de _apparaatverbindingsreeks_ voor het apparaat dat u hebt geregistreerd:
 
-   **YourIoTHubName** : vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
+   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
@@ -177,11 +177,11 @@ De toepassing voor het gesimuleerde apparaat maakt verbinding met een apparaatsp
 ## <a name="read-the-telemetry-from-your-hub"></a>De telemetrie van uw hub lezen
 
 
-In deze sectie gebruikt u Azure Cloud Shell met de [IoT-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) voor het bewaken van de apparaatberichten die worden verzonden door het gesimuleerde apparaat.
+In deze sectie gebruikt u de Azure Cloud Shell met de [IoT-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) voor het bewaken van de apparaat-berichten die worden verzonden door het gesimuleerde apparaat.
 
 1. Voer met de Azure Cloud Shell de volgende opdracht uit om te verbinden en berichten te lezen uit uw IoT-hub:
 
-   **YourIoTHubName** : vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
+   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table

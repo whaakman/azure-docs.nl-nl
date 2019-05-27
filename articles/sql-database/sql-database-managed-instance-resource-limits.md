@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/22/2019
+ms.openlocfilehash: e091ec29c810fce7a39ad5aa5cc8f0ddae711752
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560582"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016406"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
@@ -56,7 +56,7 @@ Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en bedrijfskritiek. 
 | Maximumaantal databases per exemplaar | 100 | 100 |
 | Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
 | Gegevens/Log IOPS (bij benadering) | 500 - 7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
-| Logboek-doorvoer | 22 MB/s per exemplaar | 4 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
+| Logboek-doorvoer | 3MB/s per vCore<br/>Max 22 MB/s per exemplaar | 4 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
 | Doorvoer van gegevens (bij benadering) | 100 - 250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
 | Maximumgrootte van tempDB | 192 - 1,920 GB (24 GB per vCore) | Er zijn geen beperkingen - beperkt door de grootte van de maximale sessie |

@@ -2,20 +2,20 @@
 title: SQL Data Warehouse Business Intelligence-partners | Microsoft Docs
 description: Lijsten van derden business intelligence partners met oplossingen die ondersteuning bieden voor SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87379631cc7f7b9e31def157ba38336e41b693d8
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477007"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873815"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partners
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw end-to-end datawarehouse-oplossing.  In dit artikel ziet u Microsoft partnerbedrijven met officiële business intelligence (BI)-oplossingen is ondersteuning van Azure SQL Data Warehouse.

@@ -2,21 +2,20 @@
 title: Azure Stream Analytics gebruiken met SQL datawarehouse | Microsoft Docs
 description: Tips voor het gebruik van Azure Stream Analytics met Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
-origin.date: 03/22/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: integration
+ms.date: 03/22/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474307"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873266"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Azure Stream Analytics gebruiken met SQL datawarehouse
 Azure Stream Analytics is een volledig beheerde service met lage latentie, maximaal beschikbare, schaalbare complexe verwerking van gebeurtenissen die via het streamen van gegevens in de cloud. U leert de beginselen door te lezen [Inleiding tot Azure Stream Analytics][Introduction to Azure Stream Analytics]. U kunt vervolgens informatie over het maken van een end-to-end-oplossing met Stream Analytics door de volgende de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.
@@ -85,6 +84,4 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse dev
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: /stream-analytics/
-
-<!-- Update_Description: update meta properties, wording update -->
+[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/
