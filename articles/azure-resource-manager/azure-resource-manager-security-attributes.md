@@ -8,16 +8,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ebc39dcd9fe921c794add48cc677a799841cbb78
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943628"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002259"
 ---
-# <a name="common-security-attributes-for-azure-resource-manager"></a>Algemene beveiligingskenmerken voor Azure Resource Manager
+# <a name="security-attributes-for-azure-resource-manager"></a>Beveiligingskenmerken voor Azure Resource Manager
 
-Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel worden de algemene beveiligingskenmerken gebouwd in Azure Resource Manager.
+In dit artikel worden de beveiligingskenmerken gebouwd in Azure Resource Manager.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,7 +26,7 @@ Beveiliging is geïntegreerd in elk aspect van een Azure-service. In dit artikel
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Versleuteling-at-rest:<ul><li>Versleuteling aan de serverzijde</li><li>Versleuteling op de server met de klant beheerde sleutels</li><li>Andere versleutelingsfuncties (zoals client-side altijd versleuteld, enz.)</ul>| Ja |  |
-| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>Vnet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | HTTPS/TLS. |
+| Versleuteling tijdens overdracht:<ul><li>Express route-versleuteling</li><li>VNet-versleuteling</li><li>VNet-VNet-versleuteling</ul>| Ja | HTTPS/TLS. |
 | Versleuteling verwerking (CMK, BYOK, enz.)| N/A | Azure Resource Manager slaat geen inhoud van de klant, alleen de gegevens van het besturingselement. |
 | Versleuteling op kolom (Azure Data Services)| Ja | |
 | API-aanroepen die zijn versleuteld| Ja | |

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0516c954bd23d5a2e339c5df447a923528e09d93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430627"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002026"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Veelgestelde vragen over Cloudyn
 
@@ -74,9 +74,9 @@ Nadat u de voorgaande stappen hebt voltooid, kunt u optimaliseren aanbevelingen 
 
 Eerst laten we bekijken met de meest gebruikte scenario dat ervoor zorgt dat de accounts voor gebruikers om op te halen *initiallySuspended*.
 
-> Admin1 mogelijk Microsoft Cloud Solution Provider- of Enterprise Agreement-gebruiker. De organisatie is klaar om te beginnen met behulp van Cloudyn.  Hij wordt geregistreerd via Azure portal en zich bij de Cloudyn-portal aanmeldt. Als de persoon die de Cloudyn-service en zich bij de Cloudyn-portal registreert, wordt hij de *primaire beheerder*. Admin1 maakt niet alle gebruikersaccounts. Echter met behulp van de Cloudyn-portal, hij maakt Azure-accounts en stelt u een hiërarchie voor entiteitskosten. Admin1 informeert Admin2, tenantbeheerder die hij nodig heeft om te registreren bij Cloudyn en meld u aan bij de Cloudyn-portal.
-> 
-> Admin2 wordt geregistreerd via Azure portal. Echter wanneer hij wil zich aanmelden bij de Cloudyn-portal, hij krijgt een foutmelding met de mededeling zijn account is **onderbroken**. De primaire Admin1,-beheerder is op de hoogte gesteld van de account-onderbreking. Admin1 moet Admin2 van account activeren en verleen *entiteit beheerderstoegang* voor de juiste entiteiten en kunt u toegang tot de gebruiker en actieve account van de gebruiker.
+> Admin1 mogelijk een Microsoft Cloud Solution Provider of een Enterprise Agreement-gebruiker. De organisatie is klaar om te beginnen met behulp van Cloudyn.  Hij wordt geregistreerd via Azure portal en zich bij de Cloudyn-portal aanmeldt. Als de persoon die de Cloudyn-service en zich bij de Cloudyn-portal registreert, Admin1 wordt de *primaire beheerder*. Admin1 maakt niet alle gebruikersaccounts. Echter met behulp van de Cloudyn-portal, deze Azure-accounts maken en instellen van een hiërarchie voor entiteitskosten. Admin1 informeert Admin2, tenantbeheerder die ze nodig hebben om te registreren bij Cloudyn en meld u aan bij de Cloudyn-portal.
+>
+> Admin2 wordt geregistreerd via Azure portal. Maar wanneer ze proberen zich aanmeldt bij de Cloudyn-portal, deze foutmelding krijgt dat hun account **onderbroken**. De primaire Admin1,-beheerder is op de hoogte gesteld van de account-onderbreking. Admin1 moet Admin2 van account activeren en verleen *entiteit beheerderstoegang* voor de juiste entiteiten en kunt u toegang tot de gebruiker en actieve account van de gebruiker.
 
 
 Als u een waarschuwing met een verzoek om toegang te verlenen voor een gebruiker ontvangt, moet u het gebruikersaccount activeren.

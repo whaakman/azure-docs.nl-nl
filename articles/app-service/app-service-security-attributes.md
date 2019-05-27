@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d22fca27943be7ac7db8b8edd5882b9fa4ab3ab9
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607256"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001704"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Beveiligingskenmerken voor Azure App Service
 
@@ -27,9 +27,9 @@ In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Az
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Versleuteling-at-rest (zoals versleuteling op de server, server-side-versleuteling met de klant beheerde sleutels en andere versleutelingsfuncties) | Ja | Website-inhoud wordt opgeslagen in Azure Storage, codeert automatisch de inhoud in rust. Zie [Azure Storage-versleuteling van data-at-rest](../storage/common/storage-service-encryption.md).<br><br>Geheimen van de klant worden verstrekt worden in rust versleuteld. De geheimen zijn versleuteld in rust terwijl ze zijn opgeslagen in App Service-configuratie-databases.<br><br>Lokaal gekoppelde schijven kunnen desgewenst worden gebruikt als tijdelijke opslag door websites (D:\local en % TMP %). Lokaal gekoppelde schijven zijn niet versleuteld in rust. |
-| Versleuteling tijdens overdracht (zoals ExpressRoute-codering in Vnet-versleuteling en versleuteling van de VNet-VNet)| Ja | Klanten kunnen web sites vereisen en het gebruik van HTTPS voor binnenkomend verkeer te configureren. Zie het blogbericht [hoe u een Azure App Service enkel HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
-| Versleuteling sleutel verwerken (CMK, BYOK, enz.)| Ja | Klanten kunnen kiezen voor de toepassingsgeheimen in Key Vault opslaan en halen ze tijdens runtime. Zie [gebruik Key Vault naslaginformatie over App Service en Azure Functions (preview)](app-service-key-vault-references.md).|
-| Versleuteling op kolom (Azure-gegevensservices)| N/A | |
+| Versleuteling tijdens overdracht (zoals ExpressRoute-codering in VNet-versleuteling en versleuteling van de VNet-VNet)| Ja | Klanten kunnen web sites vereisen en het gebruik van HTTPS voor binnenkomend verkeer te configureren. Zie het blogbericht [hoe u een Azure App Service enkel HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
+| Versleuteling verwerking (CMK, BYOK, enz.)| Ja | Klanten kunnen kiezen voor de toepassingsgeheimen in Key Vault opslaan en halen ze tijdens runtime. Zie [gebruik Key Vault naslaginformatie over App Service en Azure Functions (preview)](app-service-key-vault-references.md).|
+| Versleuteling op kolom (Azure Data Services)| N/A | |
 | API-aanroepen die zijn versleuteld| Ja | Van beheeraanroepen naar App Service configureren plaatsvinden [Azure Resource Manager](../azure-resource-manager/index.yml) aanroepen via HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentatie
@@ -37,9 +37,9 @@ In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Az
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen |
 |---|---|--|
 | Ondersteuning voor service-eindpunt| Ja | Op dit moment beschikbaar zijn in Preview-versie voor App Service. Zie [toegangsbeperkingen voor Azure App Service](app-service-ip-restrictions.md). |
-| ondersteuning voor vNET-injectie| Ja | App Service-omgevingen zijn persoonlijke implementaties van App Service speciaal voor één klant opgenomen in het virtuele netwerk van een klant. Zie [Inleiding tot de App Service-omgevingen](environment/intro.md). |
+| Ondersteuning voor VNet-injectie| Ja | App Service-omgevingen zijn persoonlijke implementaties van App Service speciaal voor één klant opgenomen in het virtuele netwerk van een klant. Zie [Inleiding tot de App Service-omgevingen](environment/intro.md). |
 | Ondersteuning voor netwerkisolatie en Firewalling| Ja | Klanten kunnen netwerk ACL's (IP-beperkingen) voor toegestaan binnenkomend verkeer configureren voor de openbare multitenant variatie van App Service.  Zie [toegangsbeperkingen voor Azure App Service](app-service-ip-restrictions.md).  App Service-omgevingen worden geïmplementeerd in virtuele netwerken en daarom kunnen worden beveiligd met nsg's. |
-| Ondersteuning voor geforceerde tunneling | Ja | App Service-omgevingen kunnen worden geïmplementeerd in een klant-netwerk waarin de geforceerde tunneling is geconfigureerd. Klanten moeten Volg de aanwijzingen in [uw App Service Environment configureren met geforceerde tunnels](environment/forced-tunnel-support.md). |
+| Geforceerde tunneling ondersteuning| Ja | App Service-omgevingen kunnen worden geïmplementeerd in een klant-netwerk waarin de geforceerde tunneling is geconfigureerd. Klanten moeten Volg de aanwijzingen in [uw App Service Environment configureren met geforceerde tunnels](environment/forced-tunnel-support.md). |
 
 ## <a name="detection"></a>Detectie
 
@@ -59,7 +59,7 @@ In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Az
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Beheer/beheer plannen logboekregistratie en controle| Ja | Alle bewerkingen uitgevoerd op App Service-objecten plaatsvinden [Azure Resource Manager](../azure-resource-manager/index.yml). Historische logboeken van deze bewerkingen zijn beschikbaar in de portal en via de CLI; Zie [Azure Resource Manager-resourceproviderbewerkingen](../role-based-access-control/resource-provider-operations.md#microsoftweb) en [az monitor-activiteitenlogboek](/cli/azure/monitor/activity-log). |
+| Controle en beheer vlak logboekregistratie en controle| Ja | Alle bewerkingen uitgevoerd op App Service-objecten plaatsvinden [Azure Resource Manager](../azure-resource-manager/index.yml). Historische logboeken van deze bewerkingen zijn beschikbaar in de portal en via de CLI; Zie [Azure Resource Manager-resourceproviderbewerkingen](../role-based-access-control/resource-provider-operations.md#microsoftweb) en [az monitor-activiteitenlogboek](/cli/azure/monitor/activity-log). |
 | Gegevens vlak logboekregistratie en controle | Nee | De gegevenslaag voor App Service is een externe bestandsshare die van de klant geïmplementeerde website-inhoud bevat.  Er is geen controle van de externe bestandsshare. |
 
 ## <a name="configuration-management"></a>Configuratiebeheer

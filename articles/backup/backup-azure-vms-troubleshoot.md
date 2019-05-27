@@ -2,23 +2,23 @@
 title: Back-problemen oplossen met Azure virtual machines
 description: Problemen oplossen met back-up en herstel van virtuele machines van Azure
 services: backup
-author: srinathv
+author: srinathvasireddy
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: srinathv
-ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/22/2019
+ms.author: srinathvasireddy
+ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550019"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002317"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
-U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens die worden vermeld in de volgende tabel kunt oplossen:
+U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met de onderstaande informatie op te lossen:
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Back-up
 
 ### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-kopiëren van back-ups van gegevens uit de kluis is een time-out
 
@@ -82,7 +82,7 @@ Start opnieuw op VSS-schrijvers in orde. Voer vanuit een opdrachtprompt met verh
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - fout bij het parseren van de configuratie voor de Backup-extensie
 
 Foutcode: ExtensionConfigParsingFailure<br/>
-Foutbericht: Parseren van de configuratie voor de back-upextensie mislukt.
+Foutbericht: Er is een fout opgetreden bij het parseren van de configuratie voor de back-upextensie.
 
 Deze fout treedt op vanwege een gewijzigde machtigingen op de **als** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 Voer de volgende opdracht uit en controleer of dat machtigingen voor de **als** directory zijn standaard labels:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
@@ -159,9 +159,9 @@ Deze opdracht zorgt ervoor dat de momentopnamen worden gemaakt via host in plaat
 
 ### <a name="common-vm-backup-errors"></a>Veelvoorkomende fouten voor VM-back-up
 
-| Foutdetails | Tijdelijke oplossing |
+| Details van fout | Tijdelijke oplossing |
 | ------ | --- |
-| Foutcode: 320001<br/> Foutbericht: Kan de bewerking niet uitvoeren omdat de VM niet meer bestaat. <br/> <br/> Foutcode: 400094 <br/> Foutbericht: De virtuele machine bestaat niet <br/> <br/>  Een virtuele machine van Azure is niet gevonden.  |Deze fout treedt op wanneer de primaire virtuele machine is verwijderd, maar de back-upbeleid is nog steeds ziet er voor een virtuele machine back-up. U kunt deze fout oplossen door de volgende stappen uitvoeren: <ol><li> Maak de virtuele machine met dezelfde naam en dezelfde Resourcegroepnaam **cloudservicenaam**,<br>**or**</li><li> De beveiliging van de virtuele machine met of zonder te verwijderen van de back-upgegevens stoppen. Zie voor meer informatie, [stoppen met het beveiligen van virtuele machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| Foutcode: 320001<br/> Foutbericht: Kan de bewerking niet uitvoeren omdat de VM niet meer bestaat. <br/> <br/> Foutcode: 400094 <br/> Foutbericht: De virtuele machine bestaat niet <br/> <br/>  Een virtuele machine van Azure is niet gevonden.  |Deze fout treedt op wanneer de primaire virtuele machine is verwijderd, maar de back-upbeleid is nog steeds ziet er voor een virtuele machine back-up. U kunt deze fout oplossen door de volgende stappen uitvoeren: <ol><li> Maak de virtuele machine met dezelfde naam en dezelfde Resourcegroepnaam **cloudservicenaam**,<br>**of**</li><li> De beveiliging van de virtuele machine met of zonder te verwijderen van de back-upgegevens stoppen. Zie voor meer informatie, [stoppen met het beveiligen van virtuele machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | De virtuele machine is mislukte Inrichtingsstatus: <br>Opnieuw opstarten van de virtuele machine en controleer of dat de virtuele machine wordt uitgevoerd of afsluiten. | Deze fout treedt op wanneer een van de extensie-fouten in mislukte Inrichtingsstatus heeft de virtuele machine wordt geplaatst. Ga aan de lijst met extensies als er een uitbreiding is mislukt is, verwijdert u deze en probeer het opnieuw opstarten van de virtuele machine. Als alle extensies actief is, controleert u of de VM-Agent-service wordt uitgevoerd. Als dat niet het geval is, start de VM-Agent-service opnieuw. |
 |Foutcode: UserErrorBCMPremiumStorageQuotaError<br/> Foutbericht: Kan de momentopname van de virtuele machine, vanwege onvoldoende beschikbare ruimte in het opslagaccount niet kopiëren | Voor premium-VM's op de VM-back-upstack V1 kopiëren we de momentopname van het naar het opslagaccount. Deze stap zorgt ervoor dat verkeer van de back-upbeheer, dat op de momentopname werkt, heeft geen beperkingen voor het aantal IOP's beschikbaar voor de toepassing met behulp van premium-schijven. <br><br>Het is raadzaam dat u alleen 50 procent van de totale opslagruimte voor de account 17,5 TB toewijzen. De Azure Backup-service kan de momentopname vervolgens kopiëren naar de storage-account en de overdracht van gegevens vanaf deze locatie gekopieerd in het opslagaccount naar de kluis. |
 | Kan niet Microsoft Recovery Services-uitbreiding installeren als de virtuele machine wordt niet uitgevoerd <br>De VM-Agent is een vereiste voor de Azure Recovery Services-extensie. De Azure VM-Agent installeren en opnieuw starten van de bewerking voor de registratie. |<ol> <li>Controleer of de VM-Agent correct is geïnstalleerd. <li>Zorg ervoor dat de vlag aan de configuratie van de virtuele machine correct is ingesteld.</ol> Meer informatie over het installeren van de VM-Agent en hoe u de installatie van de VM-Agent te valideren. |
@@ -175,16 +175,16 @@ Deze opdracht zorgt ervoor dat de momentopnamen worden gemaakt via host in plaat
 
 ## <a name="jobs"></a>Taken
 
-| Foutdetails | Tijdelijke oplossing |
+| Details van fout | Tijdelijke oplossing |
 | --- | --- |
 | Annulering wordt niet ondersteund voor dit taaktype: <br>Wacht totdat de taak is voltooid. |Geen |
-| De taak niet in een is annuleerbaar status: <br>Wacht totdat de taak is voltooid. <br>**or**<br> De geselecteerde taak heeft geen is annuleerbaar status: <br>Wacht tot de taak is voltooid. |Is het waarschijnlijk dat de taak bijna voltooid is. Wacht totdat de taak is voltooid.|
+| De taak niet in een is annuleerbaar status: <br>Wacht totdat de taak is voltooid. <br>**of**<br> De geselecteerde taak heeft geen is annuleerbaar status: <br>Wacht tot de taak is voltooid. |Is het waarschijnlijk dat de taak bijna voltooid is. Wacht totdat de taak is voltooid.|
 | Back-up kan de taak niet annuleren omdat deze niet wordt uitgevoerd: <br>Annulering wordt alleen ondersteund voor taken worden uitgevoerd. Probeer het annuleren van een taak wordt uitgevoerd. |Deze fout treedt op vanwege een tijdelijke status. Wacht even en probeer de annuleringsbewerking. |
 | Back-up annuleren van de taak is mislukt: <br>Wacht totdat de taak is voltooid. |Geen |
 
 ## <a name="restore"></a>Herstellen
 
-| Foutdetails | Tijdelijke oplossing |
+| Details van fout | Tijdelijke oplossing |
 | --- | --- |
 | Herstellen is mislukt vanwege een interne fout van de cloud. |<ol><li>De cloudservice waarnaar u wilt herstellen, is geconfigureerd met DNS-instellingen. U kunt controleren: <br>**$deployment = get-Azure-implementatie - servicenaam 'Servicenaam'-sleuf 'Productie' Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Als **adres** is geconfigureerd, wordt de DNS-instellingen zijn geconfigureerd.<br> <li>De cloudservice waarnaar u wilt herstellen, is geconfigureerd met **ReservedIP**, en bestaande VM's in de cloudservice in de status ' gestopt '. U kunt controleren dat een service in de cloud een IP-adres is gereserveerd met behulp van de volgende PowerShell-cmdlets: **$deployment = Get-Azure-implementatie - servicenaam 'servicenaam'-sleuf 'Productie' $dep. ReservedIPName**. <br><li>U probeert te herstellen van een virtuele machine met de volgende speciale netwerkconfiguraties in dezelfde cloudservice: <ul><li>Virtuele machines in onder de load balancer-configuratie, interne en externe.<li>Virtuele machines met meerdere gereserveerde IP-adressen. <li>Virtuele machines met meerdere NIC's. </ul><li>Selecteer een nieuwe cloudservice in de gebruikersinterface of Zie [herstellen overwegingen met betrekking tot](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) voor virtuele machines met speciale netwerkconfiguraties.</ol> |
 | De geselecteerde DNS-naam wordt al gebruikt: <br>Geef een andere DNS-naam en probeer het opnieuw. |Deze DNS-naam verwijst naar de naam van de cloudservice, gewoonlijk eindigt **. cloudapp.net**. Deze naam moet uniek zijn. Als u deze fout optreedt, moet u een andere VM-naam kiezen tijdens het terugzetten. <br><br> Deze fout wordt alleen voor gebruikers van de Azure-portal weergegeven. De herstelbewerking via PowerShell slaagt omdat deze alleen de schijven worden hersteld en de virtuele machine niet maken. De fout zal worden geconfronteerd bij de virtuele machine expliciet door u gemaakt is nadat de herstelbewerking van de schijf. |
@@ -205,22 +205,22 @@ Als uw back-up meer dan 12 uur duurt, of herstel meer dan 6 uur duurt, controlee
 ### <a name="set-up-the-vm-agent"></a>Instellen van de VM-Agent
 Normaal gesproken is de VM-Agent al aanwezig in virtuele machines die zijn gemaakt op basis van de Azure-galerie. Maar virtuele machines die zijn gemigreerd vanuit on-premises datacenters geen de VM-Agent is geïnstalleerd. Voor deze virtuele machines moet de VM-Agent expliciet worden geïnstalleerd.
 
-#### <a name="windows-vms"></a>Virtuele Windows-machines
+#### <a name="windows-vms"></a>Windows-VM's
 
 * Download en installeer de [agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet een Administrator-bevoegdheden om de installatie te voltooien.
 * Voor virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel, [bijwerken van de VM-eigenschap](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) om aan te geven dat de agent is geïnstalleerd. Deze stap is niet vereist voor virtuele machines van Azure Resource Manager.
 
-#### <a name="linux-vms"></a>Virtuele Linux-machines
+#### <a name="linux-vms"></a>Linux VM's
 
 * Installeer de nieuwste versie van de agent uit de opslagplaats voor distributie. Zie voor meer informatie over de naam van het pakket, de [Linux-Agent opslagplaats](https://github.com/Azure/WALinuxAgent).
 * Voor virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel, [gebruiken deze blog](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) voor het bijwerken van de eigenschap van de virtuele machine en controleer of de agent is geïnstalleerd. Deze stap is niet vereist voor virtuele machines Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>De VM-Agent bijwerken
-#### <a name="windows-vms"></a>Virtuele Windows-machines
+#### <a name="windows-vms"></a>Windows-VM's
 
 * Voor het bijwerken van de VM-Agent opnieuw de [binaire bestanden voor VM-Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Voordat u de agent bijwerkt, zorg er dan voor dat er geen back-upbewerkingen optreden tijdens het bijwerken van de VM-Agent.
 
-#### <a name="linux-vms"></a>Virtuele Linux-machines
+#### <a name="linux-vms"></a>Linux VM's
 
 * Volg de instructies in het artikel voor het bijwerken van de Linux VM-Agent, [bijwerken van de Linux VM-Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -251,7 +251,7 @@ Back-up van virtuele machine is afhankelijk van de van momentopnameopdrachten na
 - **Als meer dan vier virtuele machines delen dezelfde cloudservice, de virtuele machines verdeeld over meerdere back-upbeleid**. De back-uptijden, dus er is geen dat back-ups van meer dan vier VM starten op hetzelfde moment spreiden. Probeer te scheiden van de begintijden in het beleid door ten minste een uur.
 - **De virtuele machine wordt uitgevoerd op een hoog CPU of geheugen**. Als de virtuele machine wordt uitgevoerd op meer dan 90 procent, veel geheugen of CPU-gebruik, wordt de momentopname-taak in de wachtrij geplaatst en vertraagd. Uiteindelijk er een time-out optreedt. Als dit probleem treedt op, probeert u een on-demand back-up.
 
-## <a name="networking"></a>Netwerken
+## <a name="networking"></a>Netwerk
 Net als alle extensies van nodig back-up-extensies toegang tot het openbare internet om te werken. Toegang kunt krijgen tot het openbare internet, kan zich op verschillende manieren manifest:
 
 * Installatie van de extensie kan mislukken.

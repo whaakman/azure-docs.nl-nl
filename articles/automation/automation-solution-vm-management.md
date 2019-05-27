@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501965"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002481"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -49,7 +49,7 @@ Het verdient aanbeveling een afzonderlijk Automation-Account gebruiken voor het 
 
 ### <a name="permissions-needed-to-deploy"></a>Machtigingen die nodig zijn om te implementeren
 
-Er zijn bepaalde machtigingen die een gebruiker hebben moet tot het starten/stoppen van VM's uit uur oplossing implementeren. Deze machtigingen zijn verschillend als een vooraf gemaakte Automation-Account en de Log Analytics-werkruimte gebruiken of nieuwe maken tijdens de implementatie.
+Er zijn bepaalde machtigingen die een gebruiker hebben moet tot het starten/stoppen van VM's uit uur oplossing implementeren. Deze machtigingen zijn verschillend als een vooraf gemaakte Automation-Account en de Log Analytics-werkruimte gebruiken of nieuwe maken tijdens de implementatie. Als u een bijdrager voor het abonnement en een globale beheerder in uw Azure Active Directory-tenant bent, hoeft u niet om de volgende machtigingen te configureren. Als u geen deze rechten hebben of moet een aangepaste rol configureren, raadpleegt u de machtigingen die vereist zijn hieronder.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Bestaande Automation-Account en de Log Analytics-account
 
@@ -79,41 +79,21 @@ Het starten/stoppen van VM's uit uur oplossing implementeren in een Automation-A
 
 Als u wilt implementeren, het starten/stoppen van VM's buiten kantooruren moet oplossing voor een nieuwe Automation-Account en de Log Analytics-werkruimte de gebruiker die de oplossing implementeert de machtigingen die zijn gedefinieerd in de vorige sectie, evenals de volgende machtigingen:
 
-- CO-beheerder van abonnement: dit is nodig om het klassieke uitvoeren als-Account maken
-- Deel uitmaken van de **toepassingsontwikkelaar** rol. Zie voor meer informatie over het configureren van uitvoeren als-Accounts [machtigingen voor het configureren van uitvoeren als-accounts](manage-runas-account.md#permissions).
+- CO-beheerder van abonnement: dit is alleen nodig voor het maken van het klassieke uitvoeren als-Account
+- Deel uitmaken van de [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **toepassingsontwikkelaar** rol. Zie voor meer informatie over het configureren van uitvoeren als-Accounts [machtigingen voor het configureren van uitvoeren als-accounts](manage-runas-account.md#permissions).
+- Inzender voor het abonnement of de volgende machtigingen.
 
 | Machtiging |Scope|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Abonnement|
+| Microsoft.Authorization/permissions/read |Abonnement|
 | Microsoft.Authorization/roleAssignments/read | Abonnement |
 | Microsoft.Authorization/roleAssignments/write | Abonnement |
+| Microsoft.Authorization/roleAssignments/delete | Abonnement |
 | Microsoft.Automation/automationAccounts/connections/read | Resourcegroep |
 | Microsoft.Automation/automationAccounts/certificates/read | Resourcegroep |
 | Microsoft.Automation/automationAccounts/write | Resourcegroep |
 | Microsoft.OperationalInsights/workspaces/write | Resourcegroep |
-
-### <a name="region-mappings"></a>Regio-toewijzingen
-
-Bij het inschakelen van VM's starten/stoppen buiten kantooruren, worden alleen bepaalde regio's worden ondersteund voor het koppelen van een Log Analytics-werkruimte en een Automation-Account.
-
-De volgende tabel bevat de ondersteunde toewijzingen:
-
-|**Log Analytics-werkruimte regio**|**Azure Automation Region**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|West-Europa|West-Europa|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP en EastUS toewijzingen voor Log Analytics-werkruimten op Automation-Accounts zijn niet een exacte toewijzing van regio naar regio, maar is de juiste toewijzing.
-
-<sup>2</sup> vanwege beperkingen van de capaciteit van de regio is niet beschikbaar bij het maken van nieuwe resources. Dit geldt ook voor Automation-Accounts en Log Analytics-werkruimten. Bestaande gekoppelde resources in de regio moeten echter nog steeds werken.
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
@@ -140,6 +120,11 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
    - Voor **resourcegroep**, u kunt maken van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep.
    - Selecteer een **locatie**. Op dit moment de enige beschikbare locaties zijn **Australië-Zuidoost**, **Canada-centraal**, **centraal-India**, **VS-Oost**, **Japan (Oost)**, **Zuidoost-Azië**, **UK-Zuid**, **West-Europa**, en **VS-West 2**.
    - Selecteer een **prijscategorie**. Kies de **Per GB (zelfstandig)** optie. Azure Monitor-logboeken heeft bijgewerkt [prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) en de Per GB-laag is de enige optie.
+
+   > [!NOTE]
+   > Bij het inschakelen van oplossingen worden slechts bepaalde regio's ondersteund voor het koppelen van een Log Analytics-werkruimte aan een Automation-Account.
+   >
+   > Zie voor een lijst van de ondersteunde toewijzingsparen, [regiotoewijzing voor Automation-Account en de Log Analytics-werkruimte](how-to/region-mappings.md).
 
 5. Na het opgeven van de vereiste gegevens op de **Log Analytics-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang bijhouden onder **meldingen** in het menu dat gaat u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
 6. Op de **oplossing toevoegen** weergeeft, schakelt **Automation-account**. Als u een nieuwe Log Analytics-werkruimte maakt, kunt u een nieuw Automation-account worden gekoppeld aan het maken of Selecteer een bestaand Automation-Account die nog niet is gekoppeld aan een Log Analytics-werkruimte. Selecteer een bestaand Automation-Account of klik op **maken van een Automation-account**, en klik op de **Automation-account toevoegen** pagina, geef de volgende informatie:
@@ -433,7 +418,9 @@ Als u besluit dat u niet meer nodig hebt om de oplossing te gebruiken, kunt u he
 
 Als u wilt verwijderen van de oplossing, moet u de volgende stappen uitvoeren:
 
-1. Selecteer in uw Automation-account **werkruimte** op de pagina naar links.
+1. In uw Automation-account onder **gerelateerde resources**, selecteer **gekoppelde werkruimte**.
+1. Selecteer **gaat u naar werkruimte**.
+1. Onder **algemene**, selecteer **oplossingen**. 
 1. Op de **oplossingen** pagina, selecteert u de oplossing **Start-Stop-VM [Workspace]**. Op de **VMManagementSolution [Workspace]** pagina, in het menu Selecteer **verwijderen**.<br><br> ![VM-Mgmt-oplossing verwijderen](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. In de **oplossing verwijderen** venster bevestigen dat u wilt verwijderen van de oplossing.
 1. Hoewel de informatie wordt gecontroleerd en de oplossing wordt verwijderd, u kunt de voortgang bijhouden onder **meldingen** in het menu. U keert terug naar de **oplossingen** pagina nadat het proces voor het verwijderen van de oplossing is gestart.

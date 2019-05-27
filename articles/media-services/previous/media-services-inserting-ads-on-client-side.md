@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687729"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002979"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Advertenties invoeren op de client
 In dit artikel bevat informatie over het invoegen van verschillende typen advertenties op de client.
@@ -160,7 +160,7 @@ Niet-lineaire advertenties zijn opgegeven in een `<Creative>` element ook. Het v
     </Creative>
 ```
 
-De <**NonLinearAds**> element kan bevatten een of meer <**NonLinear**>-elementen, die elk een niet-lineaire Active Directory kunt beschrijven. De <**NonLinear**> element Hiermee geeft u de resource voor de niet-lineaire ad. De bron kan bestaan uit een <**StaticResource**>, een <**IFrameResource**>, of een <**HTMLResource**>. <**StaticResource**> Beschrijving van een niet-HTML-bron en definieert een creativeType-kenmerk geeft aan hoe de resource wordt weergegeven:
+De <**NonLinearAds**> element kan bevatten een of meer <**NonLinear**>-elementen, die elk een niet-lineaire Active Directory kunt beschrijven. De <**NonLinear**> element Hiermee geeft u de resource voor de niet-lineaire ad. De bron kan bestaan uit een <**StaticResource**>, een <**IFrameResource**>, of een <**HTMLResource**>. \<**StaticResource**> Beschrijving van een niet-HTML-bron en definieert een creativeType-kenmerk geeft aan hoe de resource wordt weergegeven:
 
 Afbeelding/gif, afbeelding/jpeg, afbeelding/png: de resource wordt weergegeven in een HTML-code <**img**> tag.
 
