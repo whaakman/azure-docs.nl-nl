@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
-ms.openlocfilehash: db34734e9fbb8635f1a62def8a877d83d02e2206
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216336"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864485"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Taken plannen en uitzenden (.NET/.NET)
 
@@ -49,7 +49,7 @@ Aan het einde van deze zelfstudie, beschikt u over twee .NET (C#)-consoletoepass
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Visual Studio 2017.
+* Visual Studio.
 * Een actief Azure-account. Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken

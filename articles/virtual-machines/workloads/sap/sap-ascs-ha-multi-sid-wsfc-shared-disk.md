@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbc21922be66c793e76882cbd145f19681684252
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66143273"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -271,7 +271,7 @@ Om voor te bereiden op uw infrastructuur, kunt u een extra SAP ASCS/SCS-exemplaa
 
 U kunt extra exemplaren van de SAP ASCS/SCS installeren in de bestaande WSFC-cluster met twee knooppunten:
 
-| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Statisch IP-adres |
+| Virtuele-machinefunctie | Hostnaam van de virtuele machine | Vast IP-adres |
 | --- | --- | --- |
 | Eerste clusterknooppunt voor ASCS/SCS-exemplaar |pr1-ascs-0 |10.0.0.10 |
 | Tweede clusterknooppunt voor ASCS/SCS-exemplaar |pr1-ascs-1 |10.0.0.9 |

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b3192d848e77c59d0ff6950e647d1faf172484b5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606410"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965716"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Wat is Windows Virtual Desktop Preview? 
 
@@ -54,11 +54,6 @@ U kunt ook toewijzen en gebruikers verbinding met uw virtuele bureaubladen:
 
 Er zijn enkele dingen die u moet het virtuele Windows-bureaublad instellen en uw gebruikers verbinding maken met hun Windows-desktops en toepassingen.
 
-Virtuele Windows-bureaublad ondersteunt momenteel alleen de volgende twee besturingssystemen:
-
-* Windows 10 Enterprise meerdere sessies
-* Windows Server 2016
-
 We willen is ondersteuning toegevoegd voor de volgende besturingssystemen, dus zorg ervoor dat u hebt de [licenties nodig](https://azure.microsoft.com/pricing/details/virtual-desktop/) voor uw gebruikers op basis van het bureaublad en de apps die u van plan bent om te implementeren:
 
 |OS|Vereiste licentie|
@@ -78,9 +73,7 @@ Uw infrastructuur moet de volgende zaken ter ondersteuning van virtuele Windows-
 De Azure virtuele machines die u voor virtuele Windows-bureaublad maken moet zijn:
 
 * [Standaard domein](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) of [toegevoegd aan Hybrid AD-join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtuele machines kan niet lid van Azure AD.
-* Een van de volgende ondersteunde OS-installatiekopieën uitgevoerd:
-  * Windows 10 Enterprise meerdere sessies
-  * Windows Server 2016
+* Met een van de volgende [OS-installatiekopieën ondersteund](#supported-virtual-machine-os-image).
 
 >[!NOTE]
 >Als u een Azure-abonnement nodig hebt, kunt u [zich registreren voor een gratis proefversie van één maand](https://azure.microsoft.com/free/). Als u de gratis evaluatieversie van Azure, moet u Azure AD Domain Services naar uw Windows Server Active Directory met Azure Active Directory gesynchroniseerd houden.
@@ -92,6 +85,21 @@ Voor optimale prestaties, zorg ervoor dat uw netwerk voldoet aan de volgende ver
 * Latentie van de round-trip (RTT) vanaf het netwerk van de client naar de Azure-regio waar de groepen van de host zijn geïmplementeerd moet minder dan 150 ms.
 * Netwerkverkeer kan buiten land/regio randen flow wanneer virtuele machines die als host desktops en apps fungeren verbinding met de management-service maken.
 * Om te optimaliseren voor prestaties van het netwerk, wordt u aangeraden dat de sessie-hosten van virtuele machines in dezelfde Azure-regio als de management-service worden samengevoegd.
+
+## <a name="supported-remote-desktop-clients"></a>Ondersteunde extern bureaublad-clients
+
+De volgende extern bureaublad-clients bieden ondersteuning voor virtuele Windows-bureaublad:
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+
+## <a name="supported-virtual-machine-os-image"></a>Ondersteunde VM OS-installatiekopie
+
+Virtuele Windows-bureaublad ondersteunt de volgende installatiekopieën van het besturingssysteem:
+
+* Windows 10 Enterprise meerdere sessies
+* Windows Server 2016
 
 ## <a name="provide-feedback"></a>Feedback geven
 

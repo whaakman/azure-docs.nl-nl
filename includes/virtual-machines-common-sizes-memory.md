@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 0b0e03b163d4de7a441bb7d2714be23b58c95028
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561259"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170362"
 ---
 Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-snelheid voor relationele-databaseservers, middelgrote tot grote caches en analysefuncties in het geheugen die. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
@@ -98,15 +98,57 @@ Premium Storage opslaan in cache: Ondersteund
 
 Write Accelerator: [Ondersteund](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
+De Mv2-reeks functies hoge doorvoer en lage latentie en rechtstreeks toegewezen lokale NVMe opslag uitgevoerd op een hyper-threaded Intel® Xeon® Platinum 8180 M 2,5 GHz (Skylake)-processor met een alle core base frequentie van 2,5 GHz en een maximale turbo frequentie van 3,8 GHz. Alle Mv2-serie VM-grootten kunnen permanente schijven van zowel standard als premium gebruiken. Mv2-series-instanties zijn geoptimaliseerd voor geheugen VM-grootten ongeëvenaarde rekenkracht ter ondersteuning van grote in-memory-databases en workloads, met een hoge geheugen-naar-CPU-snelheid die ideaal is voor relationele-databaseservers, grote cachegeheugens en in het geheugen Analytics. 
+
 |Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor opslag in cache en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximale doorvoer voor schijf zonder caching: IOPS / MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
-| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
 
 Mv2-serie VM's zijn uitgerust met Intel® Hyper-Threading-technologie  
 
-<sup>1</sup> deze grote vCPU's is een van deze ondersteunde gastbesturingssystemen vereist: WindowsServer 2016, WindowsServer 2019, SLES 12 SP4, SLES 15 en RHEL 7,6
+<sup>1</sup> deze grote VM's is een van deze ondersteunde gastbesturingssystemen vereist: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
+<sup>2</sup> Mv2-serie VM's zijn van de 2e generatie alleen. Als u Linux gebruikt, raadpleegt u de volgende sectie voor informatie over het zoeken en selecteer een SUSE Linux-installatiekopie.
+
+#### <a name="find-a-suse-image"></a>Een installatiekopie SUSE vinden
+
+Selecteer een geschikte SUSE Linux-installatiekopie in Azure portal: 
+
+1. Selecteer in de Azure portal, **een resource maken** 
+1. Zoek naar "SUSE SAP" 
+1. SLES voor SAP generatie 2-installatiekopieën zijn beschikbaar als een van beide betalen per gebruik, of breng uw eigen abonnement (BYOS). Vouw de categorie van de gewenste installatiekopie in de lijst met zoekresultaten:
+
+    * SUSE Linux Enterprise Server (SLES) voor SAP
+    * SUSE Linux Enterprise Server (SLES) voor SAP (BYOS)
+    
+1. Installatiekopieën van SUSE compatibel is met de Mv2-serie worden voorafgegaan door de naam van de `GEN2:`. De volgende SUSE-installatiekopieën zijn beschikbaar voor Mv2-serie VM's:
+
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 voor SAP-toepassingen
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 voor SAP-toepassingen
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 voor SAP-toepassingen (BYOS)
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 voor SAP-toepassingen (BYOS)
+
+#### <a name="select-a-suse-image-via-azure-cli"></a>Selecteer de installatiekopie van een SUSE via Azure CLI
+
+Voor een overzicht van de momenteel beschikbare SLES voor SAP-installatiekopie voor Mv2-serie VM's, gebruikt u de volgende [ `az vm image list` ](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) opdracht:
+
+```azurecli
+az vm image list --output table --publisher SUSE --sku gen2 --all
+```
+
+De opdracht levert de momenteel beschikbare generatie 2 VM's beschikbaar van SUSE voor Mv2-serie VM's. 
+
+Voorbeelduitvoer:
+
+```
+Offer          Publisher  Sku          Urn                                        Version
+-------------  ---------  -----------  -----------------------------------------  ----------
+SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
+SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
+```
 
 ## <a name="m-series"></a>M-serie 
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192276"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966390"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 
@@ -118,3 +118,15 @@ Beperkingen voor naamgeving worden geïmplementeerd door de Azure-platform en de
 
 * De AKS *MC_* groepsnaam voor accountresources combineert de naam van resourcegroep en de resourcenaam van de. De syntaxis van de automatisch gegenereerde van `MC_resourceGroupName_resourceName_AzureRegion` mag niet langer zijn dan 80 tekens. Indien nodig, Reduceer de lengte van de naam van de resourcegroep of de naam van de AKS-cluster.
 * De *dnsPrefix* moet beginnen en eindigen met alfanumerieke waarden. Geldige tekens zijn alfanumerieke waarden en afbreekstreepjes (-). De *dnsPrefix* mag geen speciale tekens zoals een punt (.) bevatten.
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Ik krijg fouten bij het maken, bijwerken, schalen, verwijderen of upgraden van cluster, dat de bewerking is niet toegestaan omdat een andere bewerking uitgevoerd wordt.
+
+*Deze hulp bij probleemoplossing is van aka.ms/aks-in behandeling-bewerking gericht*
+
+Bewerkingen voor een cluster worden beperkt wanneer een eerdere bewerking nog steeds uitgevoerd wordt. Als u wilt een gedetailleerde status van uw cluster ophalen, gebruikt u de `az aks show -g myResourceGroup -n myAKSCluster -o table` opdracht. Gebruik uw eigen resourcegroep en de naam van de AKS-cluster naar behoefte.
+
+Op basis van de uitvoer van de status van het cluster:
+
+* Als het cluster zich in een Inrichtingsstatus dan *geslaagd* of *mislukt*, wachten totdat de bewerking (*upgraden / bijwerken / maken / schalen / verwijderen / migreren*) wordt beëindigd. Wanneer de vorige bewerking is voltooid, probeert u opnieuw de meest recente bewerking van het cluster.
+
+* Als het cluster een mislukte upgrade heeft, volgt u de stappen die worden beschreven [ben ik fouten optreden met mijn cluster mislukte status en upgraden of schalen werkt niet totdat het probleem is opgelost](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

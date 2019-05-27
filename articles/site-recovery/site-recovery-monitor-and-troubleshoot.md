@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: rayne-wiselman
-ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: raynew
+ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278091"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969385"
 ---
 # <a name="monitor-site-recovery"></a>Monitor voor Site Recovery
 
@@ -194,4 +194,4 @@ In de kluis > **bewaking en rapporten** sectie, klikt u op **Site Recovery-gebeu
 1. Klik op **e-mailmeldingen**.
 1. In **e-mailmelding**, meldingen inschakelen en opgeven aan wie de om naar te verzenden. U kunt verzenden naar alle abonnementsbeheerders worden verzonden, meldingen en desgewenst specifieke e-mailadressen.
 
-    ![E-mailmeldingen](./media/site-recovery-monitor-and-troubleshoot/email.png)
+    ![E-mailwaarschuwingen](./media/site-recovery-monitor-and-troubleshoot/email.png)

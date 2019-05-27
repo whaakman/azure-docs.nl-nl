@@ -93,3 +93,5 @@
       href: entity-search-endpoint.md
     - name: Analytische gegevens voor Bing Entiteiten zoeken-API
       href: bing-entity-stats.md
+    - name: Naleving
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

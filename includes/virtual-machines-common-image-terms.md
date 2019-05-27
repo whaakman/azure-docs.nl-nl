@@ -2,19 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: virtual-machines-windows, virtual-machines-linux
-author: rockboyfor
+author: dlepow
 ms.service: multiple
 ms.topic: include
-origin.date: 10/09/2018
-ms.date: 04/01/2019
-ms.author: v-yeche
+ms.date: 10/09/2018
+ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 50d71a3967e61e5d531f4bfeae3582b56230a0d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880539"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117314"
 ---
 ## <a name="terminology"></a>Terminologie
 
@@ -28,5 +27,3 @@ Een Marketplace-installatiekopie in Azure heeft de volgende kenmerken:
 Geef deze waarden afzonderlijk als parameters voor het identificeren van een Marketplace-installatiekopie wanneer u een virtuele machine via een programma implementeert. Sommige hulpprogramma's voor een afbeelding accepteren *URN*, die deze waarden, gescheiden door het teken dubbele punt (:) worden gecombineerd: *Uitgever*:*bieden*:*Sku*:*versie*. In een URN, kunt u vervangen het versienummer met 'nieuwste', de meest recente versie van de installatiekopie te selecteren. 
 
 Als de installatiekopie-uitgever biedt een extra licentie en Aankoopvoorwaarden, moet u deze voorwaarden akkoord en programmatische implementatie inschakelen. U moet ook opgeven *abonnement aanschaffen* parameters bij het implementeren van een virtuele machine via een programma. Zie [een installatiekopie implementeren met de voorwaarden van Marketplace](#deploy-an-image-with-marketplace-terms).
-
-<!-- Update_Description: wording update -->

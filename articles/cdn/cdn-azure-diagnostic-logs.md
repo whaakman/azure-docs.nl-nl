@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66125979"
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
 U kunt met diagnostische logboeken in Azure, core analytics bekijken en sla deze in een of meer doelen, met inbegrip van:
 
- - Azure Storage-account
+ - Azure-opslagaccount
  - Azure Event Hubs
  - [Log Analytics-werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
@@ -242,55 +242,55 @@ Volg deze stappen voor het toevoegen van een Azure-Monitor voor controle:
 
 3. In de **bewaking en beheer** weergeeft, schakelt **alle**.
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. Zoeken naar CDN in het zoekvak in.
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. Selecteer **basisanalyse van Azure CDN**. 
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6. Nadat u hebt geselecteerd **maken**, wordt u gevraagd een nieuwe Log Analytics-werkruimte maken of gebruik een bestaande resourcegroep. 
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7. Selecteer de werkruimte die u eerder hebt gemaakt. Vervolgens moet u een automation-account toevoegen.
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. Het volgende scherm ziet u het formulier van de automation-account dat moet invullen. 
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. Als u het automation-account hebt gemaakt, bent u gereed voor het toevoegen van uw oplossing. Selecteer de knop **Create** (Maken).
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. Uw oplossing is nu is toegevoegd aan uw werkruimte. Ga terug naar uw Azure portal-dashboard.
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Selecteer de Log Analytics-werkruimte die u gaat u naar uw werkruimte hebt gemaakt. 
 
 11. Selecteer de **OMS-Portal** tegel voor uw nieuwe oplossing.
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. De portal moet er nu uitzien zoals het volgende scherm:
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Selecteer een van de tegels om te zien van verschillende weergaven in uw gegevens.
 
-    ![Alles bekijken](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Alles weergeven](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     U kunt bladeren links of rechts om te zien van verdere tegels voor afzonderlijke weergaven in de gegevens. 
 
     Selecteer een van de tegels voor meer informatie over uw gegevens.
 
-     ![Alles bekijken](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Alles weergeven](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Aanbiedingen en Prijscategorieën
 
@@ -300,11 +300,11 @@ U kunt zien, aanbiedingen en Prijscategorieën voor oplossingen voor het beheer 
 
 U kunt de weergave aanpassen in uw gegevens met behulp van de **Weergaveontwerper**. Om te beginnen met het ontwerpen, gaat u naar uw Log Analytics-werkruimte en selecteer de **Weergaveontwerper** tegel.
 
-![Designer weergeven](./media/cdn-diagnostics-log/27_Designer.png)
+![Ontwerper weergeven](./media/cdn-diagnostics-log/27_Designer.png)
 
 Slepen en neerzetten om de typen van grafieken en vul de gegevens details u wilt analyseren.
 
-![Designer weergeven](./media/cdn-diagnostics-log/28_Designer.png)
+![Ontwerper weergeven](./media/cdn-diagnostics-log/28_Designer.png)
 
     
 ## <a name="log-data-delays"></a>Logboek gegevens vertragingen
@@ -323,7 +323,7 @@ Microsoft biedt momenteel core analytics Logboeken alleen die metrische gegevens
 De volgende tabel bevat een overzicht van metrische gegevens beschikbaar zijn in de core analytics-logboeken voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**. Niet alle metrische gegevens zijn beschikbaar van alle providers, hoewel deze verschillen minimaal zijn. De tabel geeft ook aan of een bepaalde meetwaarde beschikbaar via een provider is. De metrische gegevens zijn beschikbaar voor de CDN-eindpunten die verkeer op deze hebben.
 
 
-|Gegevens                     | Description | Microsoft | Verizon | Akamai |
+|Metric                     | Description | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Totaal aantal treffers in de aanvraag tijdens deze periode. | Ja | Ja |Ja |
 | RequestCountHttpStatus2xx | Telling van alle aanvragen dat heeft geresulteerd in een 2xx HTTP-code (bijvoorbeeld 200, 202). | Ja | Ja |Ja |

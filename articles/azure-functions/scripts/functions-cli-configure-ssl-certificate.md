@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84cc4e92419e683f8d2c29883b26148fdef23356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee655dc39fbe7d0e3eb5cb41b091aea24d8dbea3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325718"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131290"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Een aangepast SSL-certificaat koppelen aan een functie-app
 
@@ -27,7 +27,7 @@ Met dit voorbeeldscript wordt een functie-app in App Service gemaakt met de bijb
 * Een geldig PFX-bestand en het bijbehorende wachtwoord voor het SSL-certificaat dat u wilt uploaden en koppelen.
 * Een geconfigureerde A-record in uw aangepaste domein die naar de standaarddomeinnaam van uw web-app wijst. Zie de [instructies van Aangepast domein toewijzen voor Azure App Service](https://aka.ms/appservicecustomdns) voor meer informatie.
 
-Als u een SSL-certificaat wilt koppelen, moet de functie-app worden gemaakt in een App Service-abonnement en niet in een verbruiksabonnement.
+Als u wilt verbinden een SSL-certificaat, moet uw functie-app worden gemaakt in een Premium-abonnement of een App Service-plan en niet in een verbruiksabonnement.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

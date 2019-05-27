@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035446"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989868"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Maken en het verkennen van geautomatiseerde experimenten voor machine learning in Azure portal (Preview)
 
@@ -40,7 +40,7 @@ Ga naar het linkerdeelvenster van uw werkruimte. Selecteer geautomatiseerde Mach
 
 ![Landingspagina van Azure portal experiment](media/how-to-create-portal-experiments/landing-page.png)
 
-Anders is, ziet u uw automatische machine learning-dashboard met een overzicht van al uw geautomatiseerde experimenten voor machine learning, inclusief verbindingen met de SDK worden uitgevoerd. Hier kunt u filteren en verkennen van uw uitvoerbewerkingen per datum, naam experimenteren en status worden uitgevoerd.
+Anders is, ziet u uw automatische machine learning-dashboard met een overzicht van al uw geautomatiseerde machine learning-experimenten, met inbegrip van die zijn gemaakt met de SDK. Hier kunt u filteren en verkennen van uw uitvoerbewerkingen per datum, naam experimenteren en status worden uitgevoerd.
 
 ![Experiment met Azure portal-dashboard](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -184,6 +184,63 @@ Inzoomen op een van de uitvoer-modellen om te zien uitvoeren-gegevens, zoals met
 
 ![Details van de herhaling](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>Model implementeren
+
+Nadat u het beste model bij de hand hebt, is het tijd om het te implementeren als een webservice om te voorspellen op nieuwe gegevens.
+
+Geautomatiseerde ML helpt u bij het implementeren van het model zonder code te schrijven:
+
+1. U hebt een aantal opties voor implementatie. 
+    1. Als u wilt implementeren, het beste model op basis van de metrische criteria u instellen voor het experiment, selecteer **beste Model implementeren** uit de **uitvoeren details** pagina.
+
+        ![Knop model implementeren](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. Als u implementeren van een specifiek model iteratie wilt, Inzoomen op het model op de detailpagina voor het specifieke uitvoeren openen en selecteer **Model implementeren**.
+
+        ![Knop model implementeren](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. Eerste stap is het model te registreren bij de service. Selecteer "Model registreren" en wacht totdat het registratieproces te voltooien.
+
+    ![Blade model implementeren](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. Zodra het model is geregistreerd, moet u mogelijk zijn om te downloaden van het scoring-script (scoring.py) en het script met de omgeving (condaEnv.yml) moet worden gebruikt tijdens de implementatie.
+
+1. Als het scoring-script en het script omgeving zijn gedownload, gaat u naar de **activa** blade van het navigatiedeelvenster links in en selecteer **modellen**.
+
+    ![Navigatie deelvenster modellen](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Selecteer het model dat u hebt geregistreerd, en selecteer 'Installatiekopie maken'.
+
+    U kunt het model identificeren door de omschrijving, waaronder de run-ID, het aantal herhalingen, in de volgende indeling: *< Run_ID > _ < Iteration_number > _Model*
+
+    ![Modellen: Installatiekopie maken](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Voer een naam voor de installatiekopie. 
+1. Selecteer de **Bladeren** knop naast het vak 'File scoren' voor het uploaden van het scoring-bestand (scoring.py) u eerder hebt gedownload.
+
+1. Selecteer de **Bladeren** knop naast het vak 'Conda File' voor het uploaden van het omgevingsbestand (condaEnv.yml) die u eerder hebt gedownload.
+
+    U kunt uw eigen scoring-script en conda-bestand gebruiken, evenals aanvullende bestanden uploaden. [Meer informatie over de scoring-script](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+      >[!Important]
+      > Bestandsnamen moeten worden onder 32 tekens bevatten en moet beginnen en eindigen met alfanumerieke tekens. Streepjes, onderstrepingstekens, punten en alfanumerieke tekens tussen kan worden opgenomen. Spaties zijn niet toegestaan.
+
+    ![Installatiekopie maken](media/how-to-create-portal-experiments/create-image.png)
+
+1. Selecteer de knop 'Maken' om te beginnen met het maken van de installatiekopie. Dit duurt enkele minuten om te voltooien, één keer uitgevoerd, ziet u een bericht op de bovenste balk.
+1. Ga naar het tabblad 'Installatiekopieën', schakel het selectievakje in naast de installatiekopie die u wilt implementeren en selecteer 'Implementatie maken'. [Meer informatie over implementaties](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+
+    Er zijn 2 opties voor implementatie.
+     + Azure Container Instance (ACI) - dit meer wordt gebruikt voor het testen van gebruik in plaats van operationele implementatie op grote schaal. Zorg ervoor dat u de waarden voor ten minste één core voor invullen _CPU-reservecapaciteit_, en ten minste één gigabyte (GB) voor _Geheugenreservecapaciteit_
+     + Azure Kubernetes Service (AKS)) - deze optie is voor implementatie op grote schaal. U moet een AKS op basis van compute gereed hebben.
+
+     ![Installatiekopieën: Implementatie maken](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. Wanneer u klaar bent, selecteert u **Maken**. Implementeren van het model kan enkele minuten duren voor elke pijplijn die wordt uitgevoerd.
+
+1. Dat is alles. U hebt een operationele webservice voor het genereren van voorspellingen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie over geautomatiseerde machine learning](concept-automated-ml.md) en Azure Machine Learning.
+* [Meer informatie over het gebruik van een webservice](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

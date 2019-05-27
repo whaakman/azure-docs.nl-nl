@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309139"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122528"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Structuurdefinitie opgeven voor rechthoekige gegevenssets
 De sectie structuur in de gegevenssets JSON wordt een **optionele** sectie voor rechthoekige tabellen (met rijen en kolommen) en bevat een verzameling van kolommen voor de tabel. U gebruikt de sectie structuur voor beide met type-informatie voor typeconversies of kolomtoewijzingen doen. De volgende secties worden deze functies in detail beschreven. 
@@ -20,8 +20,8 @@ Elke kolom bevat de volgende eigenschappen:
 | --- | --- | --- |
 | naam |Naam van de kolom. |Ja |
 | type |Het gegevenstype van de kolom. Zie type conversies hieronder voor meer informatie met betrekking tot wanneer moet u informatie opgeven |Nee |
-| cultuur |.NET gebaseerde cultuur moet worden gebruikt wanneer het type is opgegeven en .NET-type datum/tijd- of Datetimeoffset. De standaardwaarde is "en-us '. |Nee |
-| Indeling |Tekenreeks die moet worden gebruikt bij het type is opgegeven en .NET-type datum/tijd- of Datetimeoffset-indeling. |Nee |
+| culture |.NET gebaseerde cultuur moet worden gebruikt wanneer het type is opgegeven en .NET-type datum/tijd- of Datetimeoffset. De standaardwaarde is "en-us '. |Nee |
+| format |Tekenreeks die moet worden gebruikt bij het type is opgegeven en .NET-type datum/tijd- of Datetimeoffset-indeling. |Nee |
 
 Het volgende voorbeeld toont de sectie met de structuur JSON voor een tabel met drie kolommen gebruikers-id, naam en lastlogindate.
 
@@ -56,9 +56,9 @@ Data factory ondersteunt de volgende CLS compatibele .NET op basis van typewaard
 * Bool
 * String 
 * Guid
-* DateTime
+* Datetime
 * Datetimeoffset
-* Periode 
+* Timespan 
 
 U kunt eventueel ook 'Cultuur' & '-indeling'-tekenreeks in het kader van uw aangepaste datum/tijd-tekenreeks parseren voor datum/tijd & Datetimeoffset opgeven. Zie het voorbeeld voor conversie van onderstaande.
 

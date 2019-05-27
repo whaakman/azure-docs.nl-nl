@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769324"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955962"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Automatisch schalen en App Service Environment v1
 
@@ -63,7 +63,7 @@ Automatisch schalen van een App Service environment kan door te gaan met een sce
 Dit artikel wordt uitgelegd van de benodigde overwegingen bij het instellen van automatisch schalen. Het artikel helpt u bij de interacties die aan de orde komen als u automatisch schalen App Service-omgevingen die worden gehost in App Service-omgeving.
 
 ### <a name="scenario-introduction"></a>Scenario-Inleiding
-Frank is een sysadmin voor een onderneming die een deel van de werklasten die hij beheert is gemigreerd naar een App Service-omgeving.
+Frank is een sysadmin voor een onderneming die een deel van de werklasten die ze beheren is gemigreerd naar een App Service-omgeving.
 
 De App Service-omgeving is geconfigureerd voor handmatig schalen als volgt:
 
@@ -76,7 +76,7 @@ Groep met werkrollen 1 wordt gebruikt voor werkbelastingen voor productie, terwi
 
 De App Service-plannen voor QA en dev zijn ingesteld op handmatig schalen. De productie-App Service-plan is ingesteld op automatisch schalen te bekommeren om variaties in de belasting en het verkeer.
 
-Frank is erg bekend zijn met de toepassing. Hij weet dat de piekuren voor taakverdeling tussen 9:00 uur en 18:00:00 uur zijn omdat dit een line-of-business (LOB)-toepassing die werknemers gebruiken terwijl ze op kantoor zijn. Gebruik komt hierna als gebruikers zijn klaar voor die dag. Buiten de piekuren is er nog steeds bepaalde laden omdat gebruikers toegang hebben tot de app op afstand met behulp van hun mobiele apparaten of home-pc's. De productie-App Service-plan is al geconfigureerd voor automatisch schalen op basis van CPU-gebruik met de volgende regels:
+Frank is erg bekend zijn met de toepassing. Ze weet dat de piekuren voor taakverdeling tussen 9:00 uur en 18:00:00 uur omdat dit een line-of-business (LOB)-toepassing die werknemers gebruiken terwijl ze op kantoor zijn. Gebruik komt hierna als gebruikers zijn klaar voor die dag. Buiten de piekuren is er nog steeds bepaalde laden omdat gebruikers toegang hebben tot de app op afstand met behulp van hun mobiele apparaten of home-pc's. De productie-App Service-plan is al geconfigureerd voor automatisch schalen op basis van CPU-gebruik met de volgende regels:
 
 ![Specifieke instellingen voor LOB-app.][asp-scale]
 

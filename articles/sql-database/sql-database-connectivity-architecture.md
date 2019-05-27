@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66164463"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -67,7 +67,7 @@ De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van 
 | Australië - zuidoost | 191.239.192.109 | 13.73.109.251 |
 | Brazilië - zuid | 104.41.11.5 | |
 | Canada - midden | 40.85.224.249 | |
-| Canada - oost | 40.86.226.166 | |
+| Canada Oost | 40.86.226.166 | |
 | US - centraal | 23.99.160.139 | 13.67.215.62 |
 | China Oost 1 | 139.219.130.35 | |
 | China - oost 2 | 40.73.82.1 | |
@@ -80,18 +80,18 @@ De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van 
 | Duitsland - centraal | 51.4.144.100 | |
 | Duitsland-Noordoost | 51.5.144.179 | |
 | India - centraal | 104.211.96.159 | |
-| India - zuid | 104.211.224.146 | |
+| India, zuiden | 104.211.224.146 | |
 | India - west | 104.211.160.80 | |
 | Japan - oost | 191.237.240.43 | 13.78.61.196 |
 | Japan - west | 191.238.68.11 | 104.214.148.156 |
-| Korea - centraal | 52.231.32.42 | |
+| Korea Centraal | 52.231.32.42 | |
 | Korea - zuid | 52.231.200.86 |  |
 | US - noord-centraal | 23.98.55.75 | 23.96.178.199 |
 | Europa - noord | 191.235.193.75 | 40.113.93.91 |
 | US - zuid-centraal | 23.98.162.75 | 13.66.62.124 |
 | Azië - zuidoost | 23.100.117.95 | 104.43.15.0 |
 | Verenigd Koninkrijk Zuid | 51.140.184.11 | |
-| Verenigd Koninkrijk West | 51.141.8.11| |
+| VK West | 51.141.8.11| |
 | US - west-centraal | 13.78.145.25 | |
 | Europa -west | 191.237.232.75 | 40.68.37.158 |
 | VS-West 1 | 23.99.34.75 | 104.42.238.205 |

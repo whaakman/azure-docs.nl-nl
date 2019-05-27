@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728085"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967957"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappe
 1. De ontwikkelaar van gegevens maakt een zelf-hostende integratieruntime binnen een Azure data factory met behulp van een PowerShell-cmdlet. De Azure-portal biedt momenteel geen ondersteuning voor deze functie.
 2. Een gekoppelde service voor een on-premises gegevensarchief maakt de ontwikkelaar van gegevens door het exemplaar van de zelf-hostende integration runtime die moet worden gebruikt verbinding maken met de opgeslagen gegevens op te geven.
 3. De zelf-hostende integration runtime-knooppunt versleutelt de referenties met behulp van Windows Data Protection Application Programming Interface (DPAPI) en de referenties die lokaal wordt opgeslagen. Als meerdere knooppunten voor hoge beschikbaarheid zijn ingesteld, worden de referenties verder gesynchroniseerd op andere knooppunten. Elk knooppunt versleutelt de referenties met behulp van DPAPI en slaat deze lokaal. Synchronisatie van referenties is transparant voor de ontwikkelaar van de gegevens en wordt verwerkt door de zelf-hostende IR    
-4. De Data Factory-service communiceert met de zelf-hostende integratieruntime voor planning en het beheer van taken via een *besturingskanaal* die gebruikmaakt van een gedeelde Azure Service Bus-wachtrij. Wanneer de activiteitstaak van een worden uitgevoerd moet, wordt in Data Factory de aanvraag, samen met een referentie-informatie wachtrijen (als referenties niet al in de zelf-hostende integratieruntime opgeslagen zijn). De zelf-hostende integratieruntime is serversysteemstatus van de taak na polling van de wachtrij.
+4. De Data Factory-service communiceert met de zelf-hostende integratieruntime voor planning en het beheer van taken via een *besturingskanaal* die gebruikmaakt van een gedeelde [Azure Service Bus Relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay). Wanneer de activiteitstaak van een worden uitgevoerd moet, wordt in Data Factory de aanvraag, samen met een referentie-informatie wachtrijen (als referenties niet al in de zelf-hostende integratieruntime opgeslagen zijn). De zelf-hostende integratieruntime is serversysteemstatus van de taak na polling van de wachtrij.
 5. De zelf-hostende integratieruntime worden gegevens gekopieerd van een on-premises gegevensopslag naar een opslag in de cloud, of vice versa, afhankelijk van hoe de copy-activiteit is geconfigureerd in de pijplijn. Voor deze stap communiceert de zelf-hostende integratieruntime rechtstreeks met cloud-gebaseerde services zoals Azure Blob-opslag via een beveiligde (HTTPS)-kanaal.
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Overwegingen voor het gebruik van een zelf-hostende IR

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f4ecc01f42d491f5d9d967b9983e773c1df22298
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779848"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986816"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Aan de slag met aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ ms.locfileid: "65779848"
 ## <a name="add-signing-and-encryption-keys"></a>Ondertekening en versleuteling sleutels toevoegen
 
 1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Klik op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen. 
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Klik op de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant. 
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer op de pagina overzicht **Identity-Ervaringsframework**.
 
@@ -70,17 +70,17 @@ Azure AD B2C, moet u twee toepassingen die worden gebruikt voor aanmelden en mel
 
 ### <a name="register-the-identityexperienceframework-application"></a>De toepassing IdentityExperienceFramework registreren
 
-1. Kies **alle services** Zoek in de linkerbovenhoek van Azure portal en selecteer **App-registraties**.
-2. Selecteer **Nieuwe toepassing registreren**.
-3. Voor **naam**, voer `IdentityExperienceFramework`.
-4. Voor **toepassingstype**, kiest u **Web-app/API**.
-5. Voor **aanmeldings-URL**, voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, waarbij `your-tenant-name` is de domeinnaam van uw Azure AD B2C-tenant.
-6. Klik op **Create**. 
-7. Nadat deze gemaakt, kopieert u de toepassings-ID en sla deze voor later gebruik.
+1. Kies **alle services** Zoek in de linkerbovenhoek van Azure portal en selecteer **Azure Active Directory**.
+2. Selecteer in het menu **App-registraties (verouderd)**.
+3. Selecteer **Nieuwe toepassing registreren**.
+4. Voor **naam**, voer `IdentityExperienceFramework`.
+5. Voor **toepassingstype**, kiest u **Web-app/API**.
+6. Voor **aanmeldings-URL**, voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, waarbij `your-tenant-name` is de domeinnaam van uw Azure AD B2C-tenant. Alle URL's moeten nu gebruikmaken van [b2clogin.com](b2clogin.md).
+7. Klik op **Create**. Nadat deze gemaakt, kopieert u de toepassings-ID en sla deze voor later gebruik.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>De toepassing ProxyIdentityExperienceFramework registreren
 
-1. Selecteer **App-registraties**, en selecteer vervolgens **nieuwe toepassing registreren**.
+1. In **App-registraties (verouderd)**, selecteer **nieuwe toepassing registreren**.
 2. Voor **naam**, voer `ProxyIdentityExperienceFramework`.
 3. Voor **toepassingstype**, kiest u **systeemeigen**.
 4. Voor **omleidings-URI**, voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, waarbij `yourtenant` is uw Azure AD B2C-tenant.

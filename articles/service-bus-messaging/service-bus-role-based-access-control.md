@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472247"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979631"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Actieve Directory Role-Based Access Control (preview)
 
@@ -31,11 +31,18 @@ Een toepassing die gebruikmaakt van Azure AD RBAC hoeft niet voor het afhandelen
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-rollen en machtigingen
 
-Voor de eerste openbare preview, kunt u Azure AD-accounts en service-principals alleen toevoegen aan de rollen 'Eigenaar' of 'Medewerker' van een Service Bus Messaging-naamruimte. Met deze bewerking verleent de identiteit volledige controle over alle entiteiten in de naamruimte. -Beheerbewerkingen waarbij wijzigen van de topologie van de naamruimte worden in eerste instantie alleen ondersteund via Azure resource Manager en niet via de systeemeigen Service Bus REST-beheerinterface. Deze ondersteuning betekent dat ook de .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object kan niet worden gebruikt met een Azure AD-account.
+Azure biedt de volgende ingebouwde RBAC-rollen voor het verlenen van toegang tot een Service Bus-naamruimte:
+
+* [Service Bus de eigenaar van gegevens (preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Hiermee kunt toegang tot gegevens in Service Bus-naamruimte en de entiteiten (wachtrijen, onderwerpen, abonnementen en Filters)
+
+>[!IMPORTANT]
+> We eerder toe te voegen beheerde identiteit ondersteund de **'Eigenaar'** of **"Bijdrager"** rol.
+>
+> Echter bevoegdheden voor toegang tot de gegevens **'Eigenaar'** en **"Bijdrager"** rol wordt niet meer worden herkend. Als u de **'Eigenaar'** of **"Bijdrager"** rol en vervolgens die moet worden aangepast aan het gebruik van de **'Service Bus Gegevenseigenaar'** rol.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Service Bus gebruiken met een gebruikersaccount voor Azure AD-domein
 
-De volgende sectie wordt beschreven hoe u maken en uitvoeren van een voorbeeldtoepassing die om een interactieve Azure vraagt AD-gebruiker om aan te melden, hoe u Service Bus toegang verlenen tot dat gebruikersaccount en die identiteit gebruiken voor toegang tot de Event Hubs.
+De volgende sectie wordt beschreven hoe u maken en uitvoeren van een voorbeeldtoepassing die om een interactieve Azure vraagt AD-gebruiker zich aanmeldt, hoe u Service Bus toegang verlenen tot dat gebruikersaccount en die identiteit gebruiken voor toegang tot de Event Hubs.
 
 Deze inleiding beschrijft een eenvoudige consoletoepassing de [code waarvoor is op GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
@@ -47,7 +54,7 @@ Als u nog steeds wilt maken van een speciaal account voor dit scenario [als volg
 
 ### <a name="create-a-service-bus-namespace"></a>Een Service Bus-naamruimte maken
 
-Volgende [maken van een Service Bus Messaging-naamruimte](service-bus-create-namespace-portal.md) in een van de Azure-regio's die ondersteuning bieden voor Preview-versie voor RBAC: **VS Oost**, **VS Oost 2**, of **West-Europa**.
+Volgende [maken van een Service Bus Messaging-naamruimte](service-bus-create-namespace-portal.md).
 
 Nadat de naamruimte is gemaakt, gaat u naar de **Access Control (IAM)** pagina in de portal en klik vervolgens op **roltoewijzing toevoegen** de Azure AD-gebruikersaccount toevoegen aan de rol van eigenaar. Als u uw eigen gebruikersaccount gebruikt en u de naamruimte hebt gemaakt, bent u al in de rol van eigenaar. Zoek de naam van de web-App in een ander account toevoegen aan de rol, de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**.
 
@@ -67,7 +74,7 @@ Voordat u het voorbeeld uitvoeren kunt, bewerkt u het bestand App.config en, afh
 
 - `tenantId`: Ingesteld op **TenantId** waarde.
 - `clientId`: Ingesteld op **ApplicationId** waarde.
-- `clientSecret`: Als u wilt om aan te melden met behulp van het clientgeheim, kunt u deze in Azure AD maken. Een web-app of API ook gebruiken in plaats van een systeemeigen app. Voeg ook de app onder **Access Control (IAM)** in de naamruimte die u eerder hebt gemaakt.
+- `clientSecret`: Als u wilt zich aanmelden met het clientgeheim, kunt u deze in Azure AD maken. Een web-app of API ook gebruiken in plaats van een systeemeigen app. Voeg ook de app onder **Access Control (IAM)** in de naamruimte die u eerder hebt gemaakt.
 - `serviceBusNamespaceFQDN`: Ingesteld op de volledige DNS-naam van uw zojuist gemaakte Service Bus-naamruimte. bijvoorbeeld, `example.servicebus.windows.net`.
 - `queueName`: Stel op de naam van de wachtrij die u hebt gemaakt.
 - De omleidings-URI die u in uw app in de vorige stappen hebt opgegeven.

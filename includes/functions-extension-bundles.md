@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 0b0d2ead4a10d037b09c2a532eb21372ffd0cb82
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64511091"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132066"
 ---
 Als u wilt verwijzen naar de Azure Functions-bindingen 2.x standaard, opent u de *host.json* bestands- en update-inhoud zodat deze overeenkomen met de volgende code.
 

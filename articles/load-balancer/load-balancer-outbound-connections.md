@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190175"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967734"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -34,7 +34,7 @@ Azure maakt gebruik van bron-NAT (SNAT) om uit te voeren van deze functie. Wanne
 Er zijn meerdere [scenario's voor uitgaande](#scenarios). U kunt deze scenario's kunt combineren, indien nodig. Bekijk deze zorgvuldig voor meer informatie over de mogelijkheden, beperkingen en patronen als ze van toepassing op uw implementatiemodel zijn en het toepassingsscenario. Bekijk de richtlijnen voor [beheren van deze scenario's](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Load Balancer en Standard openbaar IP-adres introductie van nieuwe mogelijkheden en ander gedrag aan uitgaande connectiviteit.  Ze zijn niet gelijk zijn aan de basis-SKU's.  Als u uitgaande connectiviteit wilt bij het werken met standaard-SKU's, moet u deze met standaard openbare IP-adressen of standaard openbare Load Balancer expliciet definiëren.  Dit omvat het maken van uitgaande connectiviteit bij het gebruik en intern Standard Load Balancer.  U wordt aangeraden u regels voor uitgaand verkeer altijd op een standaard openbare Load Balancer.  [Scenario 3](#defaultsnat) is niet beschikbaar in standaard-SKU.  Dat betekent dat als een interne Standard Load Balancer wordt gebruikt, u moet nemen stappen voor het maken van uitgaande connectiviteit voor de virtuele machines in de back-endpool als uitgaande connectiviteit vereist is.  In de context van de uitgaande connectiviteit, één zelfstandige VM, alle van de virtuele machine in een Beschikbaarheidsset, worden alle exemplaren in een VMSS functioneren als een groep. Dit betekent dat, als een enkele virtuele machine in een Beschikbaarheidsset gekoppeld aan een standaard-SKU is, alle VM-exemplaren in deze Beschikbaarheidsset nu gedragen zich door dezelfde regels als wanneer ze gekoppeld aan de standaard-SKU zijn, zelfs als een afzonderlijk exemplaar niet rechtstreeks gekoppeld aan het is.  Zorgvuldig door dit hele document om de algemene concepten, controleert u [Standard Load Balancer](load-balancer-standard-overview.md) voor verschillen tussen SKU's en bekijk [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md).  Met behulp van regels voor uitgaand verkeer, kunt u fijnmazige controle over alle aspecten van de uitgaande connectiviteit.
+>Standard Load Balancer en Standard openbaar IP-adres introductie van nieuwe mogelijkheden en ander gedrag aan uitgaande connectiviteit.  Ze zijn niet gelijk zijn aan de basis-SKU's.  Als u uitgaande connectiviteit wilt bij het werken met standaard-SKU's, moet u deze met standaard openbare IP-adressen of standaard openbare Load Balancer expliciet definiëren.  Dit omvat het maken van de uitgaande connectiviteit bij het gebruik van een interne Standard Load Balancer.  U wordt aangeraden u regels voor uitgaand verkeer altijd op een standaard openbare Load Balancer.  [Scenario 3](#defaultsnat) is niet beschikbaar in standaard-SKU.  Dat betekent dat als een interne Standard Load Balancer wordt gebruikt, u moet nemen stappen voor het maken van uitgaande connectiviteit voor de virtuele machines in de back-endpool als uitgaande connectiviteit vereist is.  In de context van de uitgaande connectiviteit, één zelfstandige VM, alle van de virtuele machine in een Beschikbaarheidsset, worden alle exemplaren in een VMSS functioneren als een groep. Dit betekent dat, als een enkele virtuele machine in een Beschikbaarheidsset gekoppeld aan een standaard-SKU is, alle VM-exemplaren in deze Beschikbaarheidsset nu gedragen zich door dezelfde regels als wanneer ze gekoppeld aan de standaard-SKU zijn, zelfs als een afzonderlijk exemplaar niet rechtstreeks gekoppeld aan het is.  Zorgvuldig door dit hele document om de algemene concepten, controleert u [Standard Load Balancer](load-balancer-standard-overview.md) voor verschillen tussen SKU's en bekijk [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md).  Met behulp van regels voor uitgaand verkeer, kunt u fijnmazige controle over alle aspecten van de uitgaande connectiviteit.
 
 ## <a name="scenarios"></a>Scenario-overzicht
 

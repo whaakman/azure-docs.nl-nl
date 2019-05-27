@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228018"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956949"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gebruikers beheren in Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Als een gebruiker wordt geïdentificeerd als een minderjarige, kunt u de gebruik
 
 - **Verzenden van een niet-ondertekende JSON-token naar de toepassing**: Azure AD B2C worden de toepassing op de hoogte gebracht dat de gebruiker een minderjarige en bevat informatie over de status van de ouderlijke toestemming van de gebruiker. De toepassing wordt vervolgens voortgezet door toe te passen van bedrijfsregels. Een geslaagde verificatie met de toepassing niet wordt voltooid door een JSON-token. De toepassing moet verwerken van de niet-geverifieerde gebruiker op basis van de claims die zijn opgenomen in het JSON-token, waaronder **naam**, **e**, **ageGroup**, en **consentProvidedForMinor**.
 
-- **Blokkeren dat de gebruiker**: Als een gebruiker een minderjarige is en ouderlijke toestemming is niet opgegeven, Azure AD B2C kan de gebruiker waarschuwen dat hij of zij is geblokkeerd. Geen token is uitgegeven, de toegang is geblokkeerd en het gebruikersaccount dat is niet gemaakt tijdens een reis registratie. Voor het implementeren van deze melding, bieden u een geschikte inhoud HTML/CSS-pagina om te informeren over de gebruiker en de juiste opties voor aanwezig. Er is geen verdere actie vereist door de toepassing voor nieuwe registraties.
+- **Blokkeren dat de gebruiker**: Als een gebruiker een minderjarige is en ouderlijke toestemming is niet opgegeven, Azure AD B2C kan de gebruiker waarschuwen dat ze worden geblokkeerd. Geen token is uitgegeven, de toegang is geblokkeerd en het gebruikersaccount dat is niet gemaakt tijdens een reis registratie. Voor het implementeren van deze melding, bieden u een geschikte inhoud HTML/CSS-pagina om te informeren over de gebruiker en de juiste opties voor aanwezig. Er is geen verdere actie vereist door de toepassing voor nieuwe registraties.
 
 ## <a name="get-parental-consent"></a>Er is ouderlijke toestemming ophalen
 
@@ -48,7 +48,7 @@ Hier volgt een voorbeeld van een beleid voor het verzamelen van ouderlijke toest
 
 1. Een [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) bewerking, wordt de gebruiker als een minderjarige en de gebruikersgegevens voor de toepassing in de vorm van een niet-ondertekende JSON-token retourneert.
 
-2. De toepassing verwerkt het JSON-token en ziet u een scherm naar de secundaire, hoogte hem of haar dat ouderlijke toestemming vereist is en de toestemming van een bovenliggende online aanvraagt. 
+2. De toepassing verwerkt het JSON-token en ziet u een scherm naar de secundaire, de melding dat er is ouderlijke toestemming vereist is en de toestemming van een bovenliggende online aanvraagt. 
 
 3. Azure AD B2C toont een reis aanmelding dat de gebruiker bij normaal aanmelden kan en problemen met een token bij de toepassing die is ingesteld om op te nemen **legalAgeGroupClassification = "minorWithParentalConsent"**. De toepassing worden verzameld van het e-mailadres van de bovenliggende en controleert of het bovenliggende object een volwassene. Om dit te doen, maakt gebruik van een vertrouwde bron, zoals een nationale ID office-, licentie-verificatie of creditcard bewijs. Als controle geslaagd is, wordt de toepassing gevraagd om de secundaire aan te melden met behulp van de stroom van de gebruiker Azure AD B2C. Als de toestemming is geweigerd (bijvoorbeeld, als **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C retourneert een JSON-token (niet een aanmelding) voor de toepassing de toestemming van het proces opnieuw starten. Het is eventueel mogelijk voor het aanpassen van de gebruikersstroom dat een volwassene of een secundaire weer toegang te van een secundaire account krijgen kunt door een wordt registratiecode verzonden naar e-mailadres van de secundaire of e-mailadres van de volwassene op record.
 

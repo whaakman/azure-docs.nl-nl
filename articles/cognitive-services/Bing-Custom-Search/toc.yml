@@ -110,3 +110,5 @@
       href: endpoint-custom.md
     - name: Ondersteuning voor taal en regio
       href: language-support.md
+    - name: Naleving
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

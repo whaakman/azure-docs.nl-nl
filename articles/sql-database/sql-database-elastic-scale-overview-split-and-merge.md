@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123340"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Gegevens verplaatsen tussen uitgeschaalde clouddatabases
 
@@ -176,7 +176,7 @@ De huidige implementatie van de service voor splitsen en samenvoegen is onderwor
 - In de loop van de verwerking van aanvragen, sommige shardlet-gegevens mogelijk aanwezig zijn zowel op de bron en de doel-shard. Dit is nodig om te beveiligen tegen fouten tijdens de verplaatsing shardlet. De integratie van splitsen en samenvoegen met de shard-toewijzing zorgt ervoor dat verbindingen via de gegevensafhankelijke routering API's via de **OpenConnectionForKey** methode voor de shard-toewijzing een inconsistente tussenliggende statussen niet ziet. Echter, bij het verbinden met de bron of de doel-shards zonder gebruik van de **OpenConnectionForKey** methode, inconsistente tussenliggende Staten mogelijk zichtbaar zijn, wanneer splitsen of samenvoegen/verplaatsen aanvragen gaat op. Deze verbindingen mogelijk gedeeltelijk of dubbele resultaten, afhankelijk van de timing of de shard onderliggende de verbinding weergegeven. Deze beperking wordt momenteel de verbindingen gemaakt door Elastic Scale meerdere Shard-query bevat.
 - De database met metagegevens voor de service voor splitsen en samenvoegen moet niet worden gedeeld tussen verschillende rollen. Bijvoorbeeld, een functie van de splitsen en samenvoegen-service die wordt uitgevoerd in de faseringsmodus moet verwijzen naar een andere metagegevensdatabase dan de productie-rol.
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 De service voor splitsen en samenvoegen wordt uitgevoerd als een cloudservice in uw Microsoft Azure-abonnement. Daarom zijn de kosten voor cloudservices van toepassing op uw exemplaar van de service. Tenzij u vaak splitsen of samenvoegen/verplaatsen bewerkingen wilt uitvoeren, wordt u aangeraden verwijderen van uw cloudservice voor splitsen en samenvoegen. Die kosten voor het werken met opgeslagen of cloud service-exemplaren geïmplementeerd. U kunt opnieuw implementeren en de configuratie van uw direct uitvoerbaar starten wanneer u wilt splitsen of samenvoegen bewerkingen uitvoeren.
 

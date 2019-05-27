@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264409"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165513"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>TCP-poorten in de Windows-firewall openen voor het standaardexemplaar van de database-engine
 1. Maak verbinding met de virtuele machine via Extern bureaublad. Zie [De virtuele machine openen via Extern bureaublad](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop) voor gedetailleerde instructies voor het verbinden met de virtuele machine.
@@ -23,15 +23,15 @@ ms.locfileid: "51264409"
 5. Gebruik in het dialoogvenster **Protocol en poorten** de standaardinstelling **TCP**. Typ in het vak **Specifieke lokale poorten** het poortnummer van het exemplaar van de database-engine (**1433** voor het standaardexemplaar of uw waarde voor de particuliere poort in de eindpuntstap).
    
     ![TCP-poort 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
-6. Klik op **Volgende**.
+6. Klik op **volgende**.
 7. Selecteer **De verbinding toestaan** in het dialoogvenster **Actie** en klik vervolgens op **Volgende**.
    
-    **Opmerking over de beveiliging:** de optie **De verbinding toestaan als deze veilig is** kan extra beveiliging bieden. Selecteer deze optie als u aanvullende beveiligingsopties wilt configureren in uw omgeving.
+    **Opmerking over beveiliging:** Selecteren **de verbinding toestaan als het is veilig** kan bijkomende beveiliging bieden. Selecteer deze optie als u aanvullende beveiligingsopties wilt configureren in uw omgeving.
    
     ![Verbindingen toestaan](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. Selecteer **Openbaar**, **Particulier**, en **Domein** in het dialoogvenster **Profiel**. Klik op **Volgende**.
    
-    **Opmerking over de beveiliging:** de optie **Openbaar** biedt toegang via internet. Selecteer een meer beperkend profiel indien mogelijk.
+    **Opmerking over beveiliging:**  Selecteren **openbare** biedt toegang via internet. Selecteer een meer beperkend profiel indien mogelijk.
    
     ![Openbaar profiel](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. Typ een naam en beschrijving voor deze regel in het dialoogvenster **Naam** en klik vervolgens op **Voltooien**.
@@ -55,7 +55,7 @@ De database-engine van SQL Server kan Windows-verificatie niet gebruiken zonder 
 1. Terwijl u verbinding hebt met de virtuele machine, typt u **SQL Server Management Studio** op de startpagina en klikt u op het geselecteerde pictogram.
    
     Wanneer u Management Studio voor het eerst opent, moet de gebruikersomgeving van Management Studio worden gemaakt. Dit kan even duren.
-2. Het dialoogvenster **Verbinding maken met server** in Management Studio wordt geopend. Typ de naam van de virtuele machine in het vak **Servernaam** om verbinding te maken met de database-engine via Objectverkenner. U kunt in plaats van de naam van de virtuele machine ook **(lokaal)** of een punt gebruiken als de **servernaam**. Selecteer **Windows-verificatie**, en laat u ***uw_vm_naam * \your_local_administrator** in de **gebruikersnaam** vak. Klik op **Verbinden**.
+2. Het dialoogvenster **Verbinding maken met server** in Management Studio wordt geopend. Typ de naam van de virtuele machine in het vak **Servernaam** om verbinding te maken met de database-engine via Objectverkenner. U kunt in plaats van de naam van de virtuele machine ook **(lokaal)** of een punt gebruiken als de **servernaam**. Selecteer **Windows-verificatie**, en laat ***your_VM_name\your_local_administrator*** in de **gebruikersnaam** vak. Klik op **Verbinden**.
    
     ![Verbinding maken met server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. Klik in de SQL Server Management Studio-objectverkenner met de rechtermuisknop op de naam van het SQL Server-exemplaar (de naam van de virtuele machine) en klik vervolgens op **Eigenschappen**.

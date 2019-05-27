@@ -7,12 +7,12 @@ ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498760"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979329"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>De auteur van beleid voor de Matrixeigenschappen van de op Azure-resources
 
@@ -207,9 +207,9 @@ Zie voor meer informatie de [append-voorbeelden](../concepts/effects.md#append-e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk voorbeelden op [Azure Policy-voorbeelden](../samples/index.md)
-- Controleer de [structuur van beleidsdefinities](../concepts/definition-structure.md)
-- Beoordeling [effecten beleid begrijpen](../concepts/effects.md)
-- Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md)
-- Meer informatie over het [herstellen van niet-compatibele resources](remediate-resources.md)
-- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](../../management-groups/overview.md)
+- Bekijk voorbeelden op [voorbeelden voor Azure Policy](../samples/index.md).
+- Lees over de [structuur van Azure Policy-definities](../concepts/definition-structure.md).
+- Lees [Informatie over de effecten van het beleid](../concepts/effects.md).
+- Begrijpen hoe u [programmatisch beleid maken](programmatically-create.md).
+- Meer informatie over het [herstellen van niet-compatibele resources](remediate-resources.md).
+- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../../management-groups/overview.md).

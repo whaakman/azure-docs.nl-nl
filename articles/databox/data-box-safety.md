@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747750"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953023"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Veilig installeren en gebruiken van uw Azure Data Box
 ![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png)
@@ -116,7 +116,7 @@ Wijzigingen of wijzigingen aangebracht aan het apparaat die niet uitdrukkelijk z
 
 ![Let op het pictogram](./media/data-box-safety/notice_icon.png) **kennisgeving:** 
 
-Dit materiaal is getest en om te voldoen aan de limieten voor digitale klasse A-apparaten, overeenkomstig onderdeel 15 van de regels FCC gevonden. Deze limieten zijn ontwikkeld voor redelijke bescherming tegen schadelijke interferentie wanneer de apparatuur wordt gebruikt in een commerciële omgeving. Dit materiaal genereert, wordt gebruikt, en kunt radiate radio frequentie energie en, als niet is geïnstalleerd en in overeenstemming met de handleiding gebruikt schadelijke interferentie te keuzerondje communicatie kan veroorzaken. Gebruik van deze apparatuur in een woonadres gebied is waarschijnlijk schadelijke interferentie in dat geval de gebruiker is vereist om op te lossen de storingen op zijn of haar eigen kosten veroorzaken.
+Dit materiaal is getest en om te voldoen aan de limieten voor digitale klasse A-apparaten, overeenkomstig onderdeel 15 van de regels FCC gevonden. Deze limieten zijn ontwikkeld voor redelijke bescherming tegen schadelijke interferentie wanneer de apparatuur wordt gebruikt in een commerciële omgeving. Dit materiaal genereert, wordt gebruikt, en kunt radiate radio frequentie energie en, als niet is geïnstalleerd en in overeenstemming met de handleiding gebruikt schadelijke interferentie te keuzerondje communicatie kan veroorzaken. Gebruik van deze apparatuur in een woonadres gebied is waarschijnlijk schadelijke interferentie in dat geval de gebruiker is vereist om op te lossen de storingen op hun eigen kosten veroorzaken.
 
 Dit apparaat voldoet aan onderdeel 15 van de FCC regels en de branche Canada licentie vrijgestelde RSS norm of normen. Bewerking is onderworpen aan de volgende twee omstandigheden: (1) Controleer of dit apparaat kan geen schadelijke interferentie veroorzaken en (2) Controleer of dit apparaat moet alle interferentie, met inbegrip van interferentie dat leiden ongewenste bewerking van het apparaat tot kan.
 

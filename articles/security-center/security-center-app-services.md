@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
-ms.author: monhaber
-ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: v-mohabe
+ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62095265"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966808"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Beveiligen van App Service met Azure Security Center
 Dit artikel helpt u Azure Security Center gebruiken om te controleren en beveiligen van uw toepassingen toevoegen aan App Service.
@@ -34,7 +34,7 @@ Security Center maakt gebruik van de schaal van de cloud om te bepalen van aanva
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt controleren en beveiligen van uw App Service, moet u een App Service-plan dat is gekoppeld aan toegewezen machines hebben. Deze abonnementen zijn: Basic, Standard, Premium, geïsoleerd, of Linux. Azure Security Center biedt geen ondersteuning voor de abonnementen gratis, gedeeld of verbruik. Zie voor meer informatie, [App Service-abonnementen](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Als u uw app-service wilt controleren en beveiligen, moet u een App Service-plan hebben dat is gekoppeld aan toegewezen machines. Deze plannen komen in aanmerking: Basic, Standard, Premium, Isolated of Linux. Azure Security Center biedt geen ondersteuning voor de plannen Gratis, Gedeeld of Verbruik. Zie voor meer informatie, [App Service-abonnementen](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 ## <a name="security-center-protection"></a>Security Center-beveiliging
 

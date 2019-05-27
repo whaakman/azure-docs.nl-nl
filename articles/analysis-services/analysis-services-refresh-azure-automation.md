@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 1897193f0ae781029a7303c42ca8eeaa51389892
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920577"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142772"
 ---
 # <a name="refresh-with-azure-automation"></a>Vernieuwen met Azure Automation
 
@@ -148,7 +148,7 @@ De **hoofdtekst** is een JSON-document waarin de volgende eigenschappen:
 |Eigenschap  |Value  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |De naam van de Azure Analysis Services-database <br/> Voorbeeld: AdventureWorksDB         |
-|**AnalysisServicesServer**     |De naam van de Azure Analysis Services-server. <br/> Voorbeeld: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**AnalysisServicesServer**     |De naam van de Azure Analysis Services-server. <br/> Bijvoorbeeld: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |Het type van vernieuwen om uit te voeren. <br/> Voorbeeld: Volledig         |
 
 Voorbeeld van JSON-hoofdtekst:

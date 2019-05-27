@@ -17,11 +17,11 @@ ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169484"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een virtuele Linux-machine bewaken en bijwerken in Azure
 
@@ -29,7 +29,7 @@ Om ervoor te zorgen dat uw virtuele machines (VM's) in Azure correct worden uitg
 
 > [!div class="checklist"]
 > * Diagnostische gegevens over opstarten op de virtuele machine inschakelen
-> * Diagnostische gegevens over opstarten bekijken
+> * Diagnostische gegevens over opstarten weergeven
 > * Metrische gegevens over de host weergeven
 > * De extensie voor diagnostische gegevens inschakelen op de virtuele machine
 > * Metrische gegevens over de VM weergeven
@@ -92,7 +92,7 @@ az vm boot-diagnostics enable \
   --storage $bloburi
 ```
 
-## <a name="view-boot-diagnostics"></a>Diagnostische gegevens over opstarten bekijken
+## <a name="view-boot-diagnostics"></a>Diagnostische gegevens over opstarten weergeven
 
 Wanneer diagnostische gegevens over opstarten zijn ingeschakeld, wordt telkens wanneer u de virtuele machine stopt en start informatie over het opstartproces naar een logboekbestand geschreven. In dit voorbeeld moet u eerst de toewijzing van de virtuele machine als volgt ongedaan maken met de opdracht [az vm deallocate](/cli/azure/vm#az-vm-deallocate):
 
@@ -206,7 +206,7 @@ Als u een nieuwe update-implementatie voor de VM wilt plannen, selecteert u **Up
 * **Naam**: geef een unieke naam op voor het identificeren van de update-implementatie.
 * **Updateclassificatie**: selecteer de typen software die de update-implementatie moet opnemen in de implementatie. De classificatietypen zijn:
   * Essentiële en beveiligingsupdates
-  * Andere Updates
+  * Andere updates
 * **Updates die moeten worden uitgesloten**: u kunt een lijst met namen van pakketten opgeven die moeten worden overgeslagen tijdens de update-implementatie. Pakketnamen bieden ondersteuning voor jokertekens (zoals \*kernel\*).
 
   ![Scherm met instellingen voor de updateplanning](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
@@ -302,7 +302,7 @@ In deze zelfstudie hebt u updates voor een virtuele machine geconfigureerd, geco
 
 > [!div class="checklist"]
 > * Diagnostische gegevens over opstarten op de virtuele machine inschakelen
-> * Diagnostische gegevens over opstarten bekijken
+> * Diagnostische gegevens over opstarten weergeven
 > * Metrische gegevens over de host weergeven
 > * De extensie voor diagnostische gegevens inschakelen op de virtuele machine
 > * Metrische gegevens over de VM weergeven

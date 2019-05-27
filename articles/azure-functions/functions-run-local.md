@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603409"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131410"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -52,51 +52,51 @@ Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x.
 
 ### <a name="v2"></a>Versie 2.x
 
-Versie 2.x van de hulpprogramma's maakt gebruik van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt, met inbegrip van [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Installeer eerst de .NET Core SDK 2.x.
+Versie 2.x van de hulpprogramma's maakt gebruik van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt, met inbegrip van [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). 
+
+> [!IMPORTANT]
+> U kunt overslaan van de vereiste voor het installeren van de .NET Core SDK 2.x met behulp van [extensie bundels].
 
 #### <a name="windows-npm"></a>Windows
 
 De volgende stappen gebruikt npm Core Tools installeren op Windows. U kunt ook [Chocolatey](https://chocolatey.org/). Zie voor meer informatie de [Core Tools Leesmij](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installeer [2.x SDK voor .NET Core voor Windows](https://www.microsoft.com/net/download/windows).
+1. Installeer [Node.js], waaronder npm. Voor versie 2.x van de hulpprogramma's, alleen Node.js 8.5 en latere versies worden ondersteund.
 
-2. Installeer [Node.js], waaronder npm. Voor versie 2.x van de hulpprogramma's, alleen Node.js 8.5 en latere versies worden ondersteund.
-
-3. Installeer het pakket Core-hulpprogramma's:
+1. Installeer het pakket Core-hulpprogramma's:
 
     ```bash
     npm install -g azure-functions-core-tools
     ```
+1. Als u niet van plan bent te gebruiken [extensie bundels], installeert de [.NET Core 2.x SDK voor Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS met Homebrew
 
 De volgende stappen gebruikt Homebrew de essentiële hulpprogramma installeren op macOS.
 
-1. Installeer [.NET Core SDK 2.x voor macOS](https://www.microsoft.com/net/download/macos).
+1. Installeer [Homebrew](https://brew.sh/), als deze nog niet geïnstalleerd.
 
-2. Installeer [Homebrew](https://brew.sh/), als deze nog niet geïnstalleerd.
-
-3. Installeer het pakket Core-hulpprogramma's:
+1. Installeer het pakket Core-hulpprogramma's:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+1. Als u niet van plan bent te gebruiken [extensie bundels], installeer [.NET Core SDK 2.x voor macOS](https://www.microsoft.com/net/download/macos).
+
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) met APT
 
 De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op uw Ubuntu Debian/Linux-distributie. Zie voor andere Linux-distributies, de [Core Tools Leesmij](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installeer [2.x SDK voor .NET Core voor Linux](https://www.microsoft.com/net/download/linux).
-
-2. De sleutel voor de Microsoft-product als vertrouwd registreren:
+1. De sleutel voor de Microsoft-product als vertrouwd registreren:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-3. Controleer of dat de Ubuntu-server een van de juiste versies van de onderstaande tabel wordt uitgevoerd. Als u wilt de apt-bron toevoegen, voert u de volgende uit:
+1. Controleer of dat de Ubuntu-server een van de juiste versies van de onderstaande tabel wordt uitgevoerd. Als u wilt de apt-bron toevoegen, voert u de volgende uit:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -110,11 +110,12 @@ De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-4. Installeer het pakket Core-hulpprogramma's:
+1. Installeer het pakket Core-hulpprogramma's:
 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+1. Als u niet van plan bent te gebruiken [extensie bundels], installeren [.NET Core SDK voor Linux 2.x](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Een lokaal Functions-project maken
 
@@ -186,6 +187,7 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
   "Host": {
     "LocalHttpPort": 7071,
     "CORS": "*"
+    "CORSCredentials": true
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -200,6 +202,7 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 | **`Host`** | Instellingen in deze sectie aanpassen hostproces van de functies bij lokale uitvoering. |
 | **`LocalHttpPort`** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie te gebruiken heeft voorrang op deze waarde. |
 | **`CORS`** | Definieert de oorsprongen toegestaan voor [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
+| **`CORSCredentials`** |  Instellen op true opdat `withCredentials` aanvragen |
 | **`ConnectionStrings`** | Gebruik deze verzameling niet voor de verbindingsreeksen die worden gebruikt door uw functiebindingen. Deze verzameling wordt alleen gebruikt door frameworks die doorgaans downloadt verbindingsreeksen uit de `ConnectionStrings` gedeelte van een configuratie-bestand, zoals [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in deze verzameling zijn niet gepubliceerd naar Azure met andere app-instellingen. U moet expliciet toevoegen met deze waarden naar de `Connection strings` verzameling van de instellingen van uw functie-app. Als u maakt een [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in uw functiecode aan te geven, moet u de connection string-waarde in opslaan **toepassingsinstellingen** in de portal aan met uw andere verbindingen. |
 
 De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie de sectie van de variabelen voor de omgeving van de volgende taalspecifieke referentie-onderwerpen voor meer informatie:
@@ -500,3 +503,4 @@ Naar het bestand een bug of functie-aanvraag [opent u een GitHub-probleem](https
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 ['FUNCTIONS_WORKER_RUNTIME']: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[extensie bundels]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles

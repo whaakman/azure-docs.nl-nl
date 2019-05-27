@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413697"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000109"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatisch schalen van Azure HDInsight-clusters (preview)
+
+> [!Important]
+> De functie voor automatisch schalen werkt alleen voor Spark, Hive en MapReduce-clusters die zijn gemaakt na 8 mei-2019. 
 
 Functie voor automatisch schalen van Azure HDInsight-cluster automatisch het aantal worker-knooppunten in een cluster omhoog of omlaag schaalt. Andere typen knooppunten in het cluster kunnen niet op dit moment worden geschaald.  Tijdens het maken van een nieuw HDInsight-cluster, kan een minimum en maximum aantal worker-knooppunten worden ingesteld. Automatisch schalen vervolgens de resourcevereisten van de belasting analytics bewaakt en wordt het aantal worker-knooppunten omhoog of omlaag wordt geschaald. Er is geen extra kosten voor deze functie.
 
 ## <a name="cluster-compatibility"></a>Cluster-compatibiliteit
-
-> [!Important]
-> De functie voor automatisch schalen werkt alleen voor clusters die zijn gemaakt na de beschikbaarheid van de functie in mei 2019. Werkt niet voor bestaande clusters.
 
 De volgende tabel beschrijft de clustertypen en versies die compatibel met de functie voor automatisch schalen zijn.
 
@@ -189,6 +189,25 @@ Kunt u een HDInsight-cluster met automatisch schalen op basis van een schema voo
 Als u wilt inschakelen voor automatisch schalen op een actieve cluster, selecteer **clustergrootte** onder **instellingen**. Klik vervolgens op **automatisch schalen inschakelen**. Selecteer het type voor automatisch schalen die u wilt gebruiken en voer de opties voor het schalen van belasting of planning gebaseerd. Klik tot slot, **opslaan**.
 
 ![Voor automatisch schalen op basis van een planning inschakelt voor worker-knooppunt](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## <a name="best-practices"></a>Aanbevolen procedures
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Kiezen op basis van een load of op basis van een planning schalen
+
+Houd rekening met de volgende factoren voordat u een beslissing over welke modus om te kiezen:
+
+* Afwijking laden: heeft de belasting van het cluster een consistente patroon volgen op specifieke tijdstippen, op bepaalde dagen. Als dat niet het geval is, is een betere optie laden op basis van planning.
+* SLA-vereisten: Schalen voor automatisch schalen is reactieve in plaats van voorspellende. Worden er een voldoende vertraging tussen wanneer de belasting wordt gestart om te vergroten en wanneer het cluster moet worden op de doelgrootte? Als er strenge vereisten voor de SLA en de belasting een vaste bekende patroon is, is 'schedule op basis van' een betere optie.
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Houd rekening met de latentie van de schaal omhoog of omlaag operations schalen
+
+Het kan 10 tot 20 minuten duren voordat een vergroten/verkleinen bewerking is voltooid. Bij het instellen van een aangepaste planning, plan voor deze vertraging. Bijvoorbeeld, als u de clustergrootte moet 20 om 9:00 uur, de planningstrigger in een eerdere tijd bijvoorbeeld 8:30:00 uur zo instellen dat het schalen van 9:00 uur is voltooid.
+
+### <a name="preparation-for-scaling-down"></a>Voorbereiding voor omlaag schalen
+
+Tijdens het omlaag schalen van cluster, automatisch schalen wordt buiten gebruik stellen de knooppunten om te voldoen aan de doelgrootte. Als er taken op deze knooppunten, wacht automatisch schalen totdat de taken zijn voltooid. Omdat elk werkrolknooppunt ook een rol in HDFS dient, wordt de tijdelijke gegevens worden verplaatst naar de resterende knooppunten. Daarom moet u controleren of er voldoende ruimte is op de resterende knooppunten voor het hosten van de tijdelijke gegevens. 
+
+Taken die worden uitgevoerd blijft worden uitgevoerd en voltooid. De in behandeling zijnde taken wachten totdat de gebruikelijke manier met minder beschikbaar worker-knooppunten worden gepland.
 
 ## <a name="monitoring"></a>Bewaking
 

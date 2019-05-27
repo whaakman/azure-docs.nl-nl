@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123481"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977438"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Monitor-scenario in duurzame functies - weer watcher-voorbeeld
 
@@ -89,7 +89,8 @@ Meerdere exemplaren van orchestrator kunnen tegelijkertijd worden uitgevoerd doo
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Sterk getypeerde gegevensoverdracht (alleen voor .NET)
 
-De orchestrator vereist verschillende soorten gegevens, dus [POCO objecten gedeeld](../functions-reference-csharp.md#reusing-csx-code) worden gebruikt voor sterk getypeerde gegevensoverdracht in C# en C#-script: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+De orchestrator vereist verschillende soorten gegevens, dus [POCO objecten gedeeld](../functions-reference-csharp.md#reusing-csx-code) worden gebruikt voor sterk getypeerde gegevensoverdracht in C# en C#-script:  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 

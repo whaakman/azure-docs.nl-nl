@@ -16,11 +16,11 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550208"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127516"
 ---
 ### <a name="general-requirements"></a>Algemene vereisten
 
@@ -64,14 +64,14 @@ U hoeft netwerkbeveiligingsgroepen niet op te geven op subnetniveau omdat Batch 
 
 **Inkomende beveiligingsregels**
 
-| IP-adressen van bron | Bronservicetag | Bronpoorten | Doel | Doelpoorten | Protocol | Bewerking |
+| IP-adressen van bron | Bronservicetag | Bronpoorten | Bestemming | Doelpoorten | Protocol | Bewerking |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | `BatchNodeManagement` [Servicetag](../articles/virtual-network/security-overview.md#service-tags) | * | Alle | 29876-29877 | TCP | Toestaan |
 | Gebruikersbron-IP's voor externe toegang tot rekenknooppunten en/of compute-knooppunt subnet voor taken met meerdere instanties Linux, indien nodig. | N/A | * | Alle | 3389 (Windows), 22 (Linux) | TCP | Toestaan |
 
 **Uitgaande beveiligingsregels**
 
-| Bron | Bronpoorten | Doel | Doelservicetag | Protocol | Bewerking |
+| Source | Bronpoorten | Bestemming | Doelservicetag | Protocol | Bewerking |
 | --- | --- | --- | --- | --- | --- |
 | Alle | 443 | [Servicetag](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (in dezelfde regio als uw Batch-account en een VNet)  | Alle | Toestaan |
 
@@ -97,13 +97,13 @@ Configureer binnenkomend verkeer op poort 3389 voor Windows als u wilt toestaan 
 
 **Inkomende beveiligingsregels**
 
-| IP-adressen van bron | Bronpoorten | Doel | Doelpoorten | Protocol | Bewerking |
+| IP-adressen van bron | Bronpoorten | Bestemming | Doelpoorten | Protocol | Bewerking |
 | --- | --- | --- | --- | --- | --- |
 Alle <br /><br />Hoewel dit in feite 'alles toestaan' vereist, past de Batch-service een regel voor toegangsbeheerlijsten toe op het niveau van elk knooppunt, die ervoor zorgt dat alle IP-adressen van niet-Batch-services worden uitgefilterd. | * | Alle | 10100, 20100, 30100 | TCP | Toestaan |
 | Optioneel, voor RDP-toegang tot rekenknooppunten. | * | Alle | 3389 | TCP | Toestaan |
 
 **Uitgaande beveiligingsregels**
 
-| Bron | Bronpoorten | Doel | Doelpoorten | Protocol | Bewerking |
+| Source | Bronpoorten | Bestemming | Doelpoorten | Protocol | Bewerking |
 | --- | --- | --- | --- | --- | --- |
 | Alle | * | Alle | 443  | Alle | Toestaan |

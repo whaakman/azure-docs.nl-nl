@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276487"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979316"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmatisch beleid maken en compatibiliteitsgegevens weergeven
 
-Dit artikel helpt u bij het programmatisch beleid maken en beheren. Beleidsdefinities worden verschillende regels en effecten voor uw resources afdwingen. Afdwingen zorgt ervoor dat resources voldoen aan uw bedrijfsnormen en serviceovereenkomsten blijven.
+Dit artikel helpt u bij het programmatisch beleid maken en beheren. Azure beleidsdefinities worden verschillende regels en effecten voor uw resources afdwingen. Afdwingen zorgt ervoor dat resources voldoen aan uw bedrijfsnormen en serviceovereenkomsten blijven.
 
 Zie voor meer informatie over de naleving van [ophalen van Nalevingsgegevens](getting-compliance-data.md).
 
@@ -31,13 +31,13 @@ Voordat u begint, zorg ervoor dat de volgende vereisten wordt voldaan:
 
 1. Uw Azure PowerShell-module bijwerken naar de nieuwste versie. Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps) voor gedetailleerde informatie. Zie voor meer informatie over de nieuwste versie, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registreer de resourceprovider Policy Insights met behulp van Azure PowerShell om te valideren dat uw abonnement hiervoor met de resourceprovider geschikt. Als u wilt een resourceprovider registreren, moet u gemachtigd zijn om uit te voeren van de registreeractie voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
+1. Registreer de resourceprovider van Azure Policy Insights met behulp van Azure PowerShell om te valideren dat uw abonnement hiervoor met de resourceprovider geschikt. Als u wilt een resourceprovider registreren, moet u gemachtigd zijn om uit te voeren van de registreeractie voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Zie voor meer informatie over het registreren en weergeven van resourceproviders [Resourceproviders en typen](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Zie [Resourceproviders en -typen](../../../azure-resource-manager/resource-manager-supported-services.md) voor meer informatie over het registreren en weergeven van resourceproviders.
 
 1. Als u niet hebt gedaan, installeert u Azure CLI. Krijgt u de nieuwste versie [Azure CLI installeren op Windows](/cli/azure/install-azure-cli-windows).
 
@@ -148,7 +148,7 @@ Gebruik de volgende procedure om de beleidsdefinitie van een te maken.
 
    De voorgaande {subscriptionId} vervangen door de ID van uw abonnement of {managementGroupId} met de ID van uw [beheergroep](../../management-groups/overview.md).
 
-   Zie voor meer informatie over de structuur van de query, [beleidsdefinities – maken of bijwerken](/rest/api/resources/policydefinitions/createorupdate) en [beleidsdefinities – maken of bijwerken op beheergroep](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Zie voor meer informatie over de structuur van de query, [Azure-beleidsdefinities – maken of bijwerken](/rest/api/resources/policydefinitions/createorupdate) en [beleidsdefinities – maken of bijwerken op beheergroep](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Gebruik de volgende procedure een beleidstoewijzing maken en toewijzen van de beleidsdefinitie op het niveau van de resource.
 
@@ -230,7 +230,7 @@ Gebruik de volgende procedure voor het maken van een beleidsdefinitie:
    - Abonnement: `/subscriptions/{subID}`
    - Beheergroep- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-U kunt de Beleidstoewijzings-ID opvragen met behulp van PowerShell met de volgende opdracht:
+U kunt de Azure Beleidstoewijzings-ID opvragen met behulp van PowerShell met de volgende opdracht:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +251,5 @@ Raadpleeg de volgende artikelen voor meer informatie over de opdrachten en query
 - [Azure REST API-Resources](/rest/api/resources/)
 - [Azure PowerShell-Modules](/powershell/module/az.resources/#policies)
 - [Azure CLI-opdrachten voor beleid](/cli/azure/policy?view=azure-cli-latest)
-- [Resourceprovider Policy Insights REST API-naslaginformatie](/rest/api/policy-insights)
-- [Resources organiseren met beheergroepen voor Azure](../../management-groups/overview.md)
+- [Azure Policy Insights-resourceprovider REST API-naslaginformatie](/rest/api/policy-insights)
+- [Resources organiseren met beheergroepen Azure](../../management-groups/overview.md).
