@@ -66,7 +66,7 @@ De volgende eigenschappen worden ondersteund voor de Oracle gekoppelde service.
 
 **Versleuteling op Oracle-verbinding inschakelen**, hebt u twee opties:
 
-1.  Gebruik **versleuteling Triple-DES (3DES) en Advanced Encryption Standard (AES)**, Oracle-serverzijde, gaat u naar Oracle Advanced Security (OAS) en de versleutelingsinstellingen configureren, Raadpleeg de details [hier](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle-connector wordt automatisch onderhandelt over de versleutelingsmethode voor het gebruik van de versie die u in OAS configureert bij het maken van verbinding met Oracle.
+1.  Gebruik **versleuteling Triple-DES (3DES) en Advanced Encryption Standard (AES)** , Oracle-serverzijde, gaat u naar Oracle Advanced Security (OAS) en de versleutelingsinstellingen configureren, Raadpleeg de details [hier](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle-connector wordt automatisch onderhandelt over de versleutelingsmethode voor het gebruik van de versie die u in OAS configureert bij het maken van verbinding met Oracle.
 
 2.  Gebruik **SSL**, volg de onderstaande stappen:
 
@@ -290,7 +290,7 @@ Wanneer u gegevens van en naar Oracle kopiëren, worden de volgende toewijzingen
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| AANTAL |Decimaal getal, tekenreeks (als precisie > 28) |
+| NUMBER |Decimaal getal, tekenreeks (als precisie > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

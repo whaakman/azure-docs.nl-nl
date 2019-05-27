@@ -121,6 +121,12 @@
           items:
             - name: Wat is Data Box Disk Heavy?
               href: data-box-heavy-overview.md
+        - name: Concepten
+          items:
+            - name: Vereisten beoordelen
+              href: data-box-heavy-system-requirements.md
+            - name: Limieten begrijpen
+              href: data-box-heavy-limits.md
     - name: Resources
       items:
         - name: Data Box-product
