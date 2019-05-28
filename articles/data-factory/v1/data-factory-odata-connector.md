@@ -66,7 +66,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | type |De eigenschap type moet worden ingesteld op: **OData** |Ja |
 | url |URL van de OData-service. |Ja |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de OData-bron. <br/><br/> Voor cloud OData zijn mogelijke waarden ingesteld op anoniem, basis en OAuth (Opmerking: momenteel alleen ondersteuning voor Azure Data Factory Azure Active Directory op basis van OAuth). <br/><br/> Voor on-premises OData zijn mogelijke waarden ingesteld op anoniem, basis en Windows. |Ja |
-| gebruikersnaam |Geef de gebruikersnaam op als u basisverificatie gebruikt. |Ja (alleen als u basisverificatie gebruikt) |
+| username |Geef de gebruikersnaam op als u basisverificatie gebruikt. |Ja (alleen als u basisverificatie gebruikt) |
 | password |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Ja (alleen als u basisverificatie gebruikt) |
 | authorizedCredential |Als u van OAuth gebruikmaakt, klikt u op **autoriseren** knop in de Kopieerwizard van Data Factory of Editor en voer uw referenties, en vervolgens de waarde van deze eigenschap wordt niet automatisch wordt gegenereerd. |Ja (alleen als u met behulp van OAuth-verificatie) |
 | gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises OData-service. Geef alleen als u gegevens uit on-premises OData-bron kopieert. |Nee |
@@ -148,7 +148,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| pad |Pad naar de OData-resource |Nee |
+| path |Pad naar de OData-resource |Nee |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties & eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle soorten activiteiten.
