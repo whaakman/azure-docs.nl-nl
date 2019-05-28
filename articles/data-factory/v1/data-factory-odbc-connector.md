@@ -69,7 +69,7 @@ De volgende tabel bevat de beschrijving voor JSON-elementen die specifiek zijn v
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesOdbc** |Ja |
 | connectionString |Het niet-access-referentie-gedeelte van de verbindingsreeks en een optionele versleutelde referentie. Zie de voorbeelden in de volgende secties. <br/><br/>U kunt de verbindingsreeks opgeven met een patroon zoals `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, of gebruik de systeem-DSN (gegevensbronnaam) u op de gatewaycomputer met instellen `"DSN=<name of the DSN>;"` (u moet nog steeds opgeven het gedeelte van de referentie in de gekoppelde service dienovereenkomstig). |Ja |
-| referentie |De access-referentie-gedeelte van de verbindingsreeks die is opgegeven in de indeling van de eigenschap / waarde-specifieke stuurprogramma's. Voorbeeld: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nee |
+| credential |De access-referentie-gedeelte van de verbindingsreeks die is opgegeven in de indeling van de eigenschap / waarde-specifieke stuurprogramma's. Voorbeeld: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nee |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de ODBC-gegevensopslag. Mogelijke waarden zijn: Anonieme en Basic. |Ja |
 | username |Geef de gebruikersnaam op als u basisverificatie gebruikt. |Nee |
 | password |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
