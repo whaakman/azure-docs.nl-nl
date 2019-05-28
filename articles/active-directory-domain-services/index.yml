@@ -5,10 +5,10 @@ metadata:
   title: Documentatie voor Azure AD Domain Services
   description: Leer hoe u Active Directory Domain Services kunt gebruiken om virtuele Azure-machines te koppelen aan een domein zonder domeincontrollers. Zelfstudies en andere documentatie laten zien hoe u virtuele machines kunt beheren met groepsbeleid.
   keywords: 'Azure AD, Azure, domeindeelname, groepsbeleid, LDAP, Kerberos, domeincontroller, DC, lift-and-shift'
-  author: mahesh-unnikrishnan
-  ms.author: maheshu
+  author: MikeStephens-MS
+  ms.author: mstephen
   manager: daveba
-  ms.date: 6/1/2018
+  ms.date: 05/22/2019
   ms.topic: landing-page
   ms.devlang: na
   ms.service: active-directory
@@ -23,17 +23,17 @@ sections:
         className: cardsM
         columns: 2
         items:
-          - href: active-directory-ds-overview.md
+          - href: overview.md
             html: <p>Meer informatie over wat Azure AD Domain Services voor u kan betekenen.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_investigate.svg'
             title: Wat is Azure AD Domain Services?
-          - href: active-directory-ds-getting-started.md
+          - href: create-instance.md
             html: <p>Maak uw eigen beheerde domein aan de hand van deze eenvoudige handleiding.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
             title: Aan de slag
-          - href: active-directory-ds-contact-us.md
+          - href: contact-us.md
             html: <p>Krijg hulp wanneer u die nodig hebt.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_support.svg'
@@ -52,39 +52,39 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="active-directory-ds-comparison.md">Hoe weet u of de service geschikt voor u is?</a>
+          - html: <a href="comparison.md">Hoe weet u of de service geschikt voor u is?</a>
           - html: <a href="active-directory-ds-features.md">Functies van Azure AD Domain Services</a>
-          - html: <a href="active-directory-ds-scenarios.md">Waarvoor kunt u de service gebruiken?</a>
-          - html: <a href="active-directory-ds-synchronization.md">Hoe synchronisatie werkt in Azure AD Domain Services</a>
+          - html: <a href="scenarios.md">Waarvoor kunt u de service gebruiken?</a>
+          - html: <a href="synchronization.md">Hoe synchronisatie werkt in Azure AD Domain Services</a>
           - html: '<a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Prijzen van Azure AD Domain Services</a>'
   - title: Apps en Azure AD Domain Services
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="active-directory-ds-deploy-azure-app-proxy.md">Azure AD-app-proxy implementeren</a>
-          - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">Profielsynchronisatie voor SharePoint Server</a>
-          - html: <a href="active-directory-ds-enable-kcd.md">Kerberos-beperkte overdracht configureren</a>
+          - html: <a href="deploy-azure-app-proxy.md">Azure AD-app-proxy implementeren</a>
+          - html: <a href="deploy-sp-profile-sync.md">Profielsynchronisatie voor SharePoint Server</a>
+          - html: <a href="deploy-kcd.md">Kerberos-beperkte overdracht configureren</a>
   - title: Artikelen met procedures
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="active-directory-ds-check-health.md">De status van een beheerd domein controleren </a>
-          - html: <a href="active-directory-ds-csp.md">Azure CSP-abonnementen en Azure AD Domain Services</a>
-          - html: <a href="active-directory-ds-admin-guide-administer-dns.md">DNS beheren</a>
-          - html: <a href="active-directory-ds-networking.md">Een virtueel netwerk selecteren</a>
-          - html: <a href="active-directory-ds-admin-guide-configure-secure-ldap.md">Secure LDAP configureren</a>
-          - html: <a href="active-directory-ds-admin-guide-create-ou.md">Een organisatie-eenheid maken</a>
-          - html: <a href="active-directory-ds-admin-guide-administer-group-policy.md">Groepsbeleid beheren</a>
+          - html: <a href="check-health.md">De status van een beheerd domein controleren </a>
+          - html: <a href="csp.md">Azure CSP-abonnementen en Azure AD Domain Services</a>
+          - html: <a href="manage-dns.md">DNS beheren</a>
+          - html: <a href="network-considerations.md">Een virtueel netwerk selecteren</a>
+          - html: <a href="configure-ldaps.md">Secure LDAP configureren</a>
+          - html: <a href="create-ou.md">Een organisatie-eenheid maken</a>
+          - html: <a href="manage-group-policy.md">Groepsbeleid beheren</a>
   - title: Artikelen over probleemoplossing
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="active-directory-ds-troubleshooting.md">Handleiding voor het oplossen van problemen</a>
-          - html: <a href="active-directory-ds-troubleshoot-alerts.md">Waarschuwingen in een beheerd domein oplossen</a>
-          - html: <a href="active-directory-ds-faqs.md">Veelgestelde vragen</a>
+          - html: <a href="troubleshoot.md">Handleiding voor het oplossen van problemen</a>
+          - html: <a href="troubleshoot-alerts.md">Waarschuwingen in een beheerd domein oplossen</a>
+          - html: <a href="faqs.md">Veelgestelde vragen</a>
           - html: '<a href="https://azure.microsoft.com/support/options/">Ondersteuning krijgen</a>'
   - title: Meer informatie
     items:

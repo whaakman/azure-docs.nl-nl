@@ -8,6 +8,8 @@
   items:
     - name: Plan voor ESP-clusters
       href: apache-domain-joined-architecture.md
+    - name: ESP-clusters maken en synchroniseren met on-premises
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: ESP-clusters configureren met Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Azure AD-gebruikers synchroniseren met een HDInsight-cluster

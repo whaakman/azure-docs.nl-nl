@@ -6,6 +6,8 @@
       href: security-center-intro.md
     - name: Door Security Center ondersteunde platformen en functies
       href: security-center-os-coverage.md
+    - name: Evaluatie van eindpuntbeveiliging en aanbevelingen
+      href: security-center-endpoint-protection.md
 - name: Snelstartgidsen
   expanded: true
   items:

@@ -19,7 +19,7 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60405933"
 ---
-# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory
+# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory2
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-onprem-oracle-connector.md)
 > * [Huidige versie](connector-oracle.md)
@@ -284,13 +284,13 @@ Wanneer u gegevens van en naar Oracle kopiëren, worden de volgende toewijzingen
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimaal getal, tekenreeks (als precisie > 28) |
-| GEHEEL GETAL ZIJN |Decimaal getal, tekenreeks (als precisie > 28) |
+| FLOAT |Decimal, String (als precisie > 28) |
+| INTEGER |Decimal, String (als precisie > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimaal getal, tekenreeks (als precisie > 28) |
+| NUMBER |Decimal, String (als precisie > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

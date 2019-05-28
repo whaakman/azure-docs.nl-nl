@@ -63,28 +63,24 @@
       href: azure-management.md
     - name: Doorlopende bewaking
       href: continuous-monitoring.md
+    - name: Gegevensbronnen
+      href: platform/data-sources.md
     - name: Gegevensplatform
       items:
         - name: Overzicht
           href: platform/data-platform.md
+        - name: Gegevenslocaties
+          href: platform/data-locations.md
         - name: Metrische gegevens
           href: platform/data-platform-metrics.md
         - name: Logboeken
           href: platform/data-platform-logs.md
-    - name: Gegevensbronnen
-      items:
-        - name: Samenvatting gegevensbronnen
-          href: platform/data-sources.md
-        - name: Azure-gegevensbronnen
-          href: platform/data-sources-reference.md
-        - name: Activiteitenlogboek
-          href: platform/activity-logs-overview.md
-        - name: Diagnostische logboeken
-          href: platform/diagnostic-logs-overview.md
         - name: Opnametijd van logboekgegevens
           href: platform/data-ingestion-time.md
-        - name: Aangepaste metrische gegevens naar opslag metrische gegevens
-          href: platform/metrics-custom-overview.md
+    - name: Inzichten
+      href: insights/insights-overview.md
+    - name: Bewakingsoplossingen
+      href: insights/solutions-inventory.md
     - name: Gegevensbeveiliging
       items:
         - name: Logboekgegevens
@@ -93,24 +89,6 @@
           href: platform/personal-data-mgmt.md
         - name: 'Verzameling, retentie en opslag van toepassingsgegevens'
           href: app/data-retention-privacy.md
-    - name: Inzichten
-      items:
-        - name: Application Insights
-          items:
-            - name: Overzicht
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: Gedistribueerde tracering
-              href: app/distributed-tracing.md
-            - name: Vooraf samengevoegde metrische gegevens op basis van logboeken
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Containers
-          href: insights/container-insights-overview.md
-        - name: Virtuele machines
-          href: insights/vminsights-overview.md
-        - name: Bewakingsoplossingen
-          href: insights/solutions-inventory.md
     - name: Reageren op incidenten
       items:
         - name: Waarschuwingen
@@ -189,6 +167,42 @@
               href: platform/service-providers.md
     - name: Gegevens verzamelen
       items:
+        - name: Azure-resources
+          items:
+            - name: Activiteitenlogboek
+              items:
+                - name: Overzicht
+                  href: platform/activity-logs-overview.md
+                - name: Weergeven en ophalen
+                  href: platform/activity-log-view.md
+                - name: Verzamelen en analyseren
+                  href: platform/activity-log-collect.md
+                - name: Verzamelen voor meerdere tenants
+                  href: platform/activity-log-collect-tenants.md
+                - name: Exporteren
+                  href: platform/activity-log-export.md
+                - name: Schema
+                  href: platform/activity-log-schema.md
+            - name: Diagnostische logboeken
+              items:
+                - name: Overzicht
+                  href: platform/diagnostic-logs-overview.md
+                - name: Verzamelen in Logboeken
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Verzamelen van Azure Storage
+                  href: platform/collect-azure-metrics-logs.md
+                - name: Archiveren naar opslag
+                  href: platform/archive-diagnostic-logs.md
+                - name: Gegevens streamen naar Event Hubs
+                  href: platform/diagnostic-logs-stream-event-hubs.md
+                - name: Inschakelen met Resource Manager-sjablonen
+                  href: platform/diagnostic-logs-stream-template.md
+                - name: Servicelogboeken en metrische gegevens
+                  href: platform/azure-storage-iis-table.md
+            - name: Streamen naar Event Hubs
+              href: platform/stream-monitoring-data-event-hubs.md
+            - name: Aangepaste gegevensbronnen correleren
+              href: app/custom-data-correlation.md
         - name: Agents installeren en configureren
           items:
             - name: Overzicht van bewakingsagents
@@ -221,17 +235,15 @@
                   href: platform/diagnostics-extension-stream-event-hubs.md
                 - name: Problemen oplossen
                   href: platform/diagnostics-extension-troubleshooting.md
-                - name: Diagnostische instellingen inschakelen met Resource Manager-sjablonen
-                  href: platform/diagnostic-logs-stream-template.md
                 - name: Voorbereiden op JSON Lines-indeling voor diagnostische logboeken
                   href: platform/diagnostic-logs-append-blobs.md
-                - name: VM-gast naar opslag voor metrische gegevens
+                - name: VM-gast naar metrische gegevens
                   href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: Virtuele-machineschaalsetgast naar opslag voor metrische gegevens
+                - name: Virtuele-machineschaalsetgast naar metrische gegevens
                   href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: Klassieke VM-gast naar opslag voor metrische gegevens
+                - name: Klassieke VM-gast naar metrische gegevens
                   href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: Cloudservice-gast naar opslag voor metrische gegevens
+                - name: Cloudservice-gast naar metrische gegevens
                   href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
             - name: Problemen oplossen
               items:
@@ -341,8 +353,6 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: API Set-ApplicationInsightsMonitoringConfig
                       href: app/status-monitor-v2-api-set-config.md
-                - name: Windows-services
-                  href: app/windows-services.md
                 - name: Windows-bureaublad
                   href: app/windows-desktop.md
                 - name: Console
@@ -432,83 +442,46 @@
                   href: app/proactive-email-notification.md
             - name: Een resource maken
               href: app/create-new-resource.md
-            - name: Problemen oplossen
+            - name: Toepassingsgegevens naar Log Analytics
+              href: platform/app-insights-connector.md
+            - name: Toepassingsgegevens exporteren
               items:
                 - name: Geen gegevens voor .NET
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: Snapshot Debugger
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: Analyse
-                  href: app/analytics-troubleshooting.md
                 - name: Java
                   href: app/java-troubleshoot.md
                 - name: Gebruiksanalyse
                   href: app/usage-troubleshoot.md
-        - name: Azure-resources
-          items:
-            - name: Activiteitenlogboeken van Azure
-              items:
-                - name: Analyse
-                  href: platform/collect-activity-logs.md
-                - name: Verzamelen uit verschillende abonnementen
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: Servicelogboeken en metrische gegevens
-              href: platform/collect-azure-metrics-logs.md
-            - name: Diagnose- of logboekgegevens van Azure Storage
-              href: platform/azure-storage-iis-table.md
-            - name: Azure PaaS-resources
-              href: platform/collect-azurepass-posh.md
-            - name: Aangepaste gegevensbronnen correleren
-              href: app/custom-data-correlation.md
         - name: Aangepaste gegevens verzamelen
           items:
+            - name: Aangepaste metrische gegevens
+              href: platform/metrics-custom-overview.md
             - name: API voor Log Analytics-gegevensverzamelaar
               href: platform/data-collector-api.md
             - name: Pijplijnvoorbeeld voor API voor Log Analytics-gegevensverzamelaar
               href: platform/create-pipeline-datacollector-api.md
-            - name: REST API voor opslag van metrische gegevens
+            - name: REST-API voor metrische gegevens
               href: platform/metrics-store-custom-rest-api.md
-            - name: GuestOS naar opslag voor metrische gegevens als Linux-VM (Telegraf)
+            - name: GuestOS naar metrische gegevens in Linux-VM (Telegraf)
               href: platform/collect-custom-metrics-linux-telegraf.md
         - name: System Center
           items:
             - name: Configuratiebeheer
               href: platform/collect-sccm.md
-            - name: Toepassingsprestaties bewaken met SCOM
-              href: app/scom.md
-        - name: Gegevensroutering
-          items:
-            - name: Het activiteitenlogboek archiveren
-              href: platform/archive-activity-log.md
-            - name: Diagnostische logboeken archiveren
-              href: platform/archive-diagnostic-logs.md
-            - name: Diagnostische logboeken opslaan
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: Activiteitenlogboek streamen naar Event Hubs
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: Logboeken en metrische gegevens naar Event Hub
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: Diagnostische logboeken naar Event Hub
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: Toepassingsgegevens naar Log Analytics
-              href: platform/app-insights-connector.md
-            - name: Toepassingsgegevens exporteren
-              items:
-                - name: Continue export
-                  href: app/export-telemetry.md
-                  items:
-                    - name: Codevoorbeelden
-                      items:
-                        - name: Exporteren naar SQL met Stream Analytics
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: Exporteren naar Stream Analytics
-                          href: app/export-stream-analytics.md
-                - name: Gegevensmodel exporteren
-                  href: app/export-data-model.md
     - name: Inzichten verkrijgen
       items:
         - name: Toepassingen bewaken
           items:
+            - name: Overzicht van Application Insights
+              items:
+                - name: Overzicht
+                  href: app/app-insights-overview.md
+                - name: Gedistribueerde tracering
+                  href: app/distributed-tracing.md
+                - name: Vooraf samengevoegde metrische gegevens op basis van logboeken
+                  href: app/pre-aggregated-metrics-log-metrics.md
             - name: Application Insights-portal
               items:
                 - name: Search
@@ -982,6 +955,8 @@
               href: app/api-filtering-sampling.md
             - name: Steekproeven
               href: app/sampling.md
+            - name: TelemetryChannels
+              href: app/telemetry-channels.md
         - name: Bewakingsoplossingen
           items:
             - name: Ontwerpen en bouwen
@@ -1060,8 +1035,6 @@
       items:
         - name: 'Services, categorieën en schema''s voor diagnostische logboeken'
           href: platform/diagnostic-logs-schema.md
-        - name: Gebeurtenisschema in het activiteitenlogboek
-          href: platform/activity-log-schema.md
         - name: Extensieschema voor Azure Diagnostics
           href: platform/diagnostics-extension-schema.md
           items:

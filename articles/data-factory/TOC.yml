@@ -142,6 +142,8 @@
           href: concepts-data-flow-column-pattern.md
         - name: Bewaking gegevensstroom
           href: concepts-data-flow-monitoring.md
+        - name: Gegevensstroomprestaties
+          href: concepts-data-flow-performance.md
         - name: Knooppunten verplaatsen
           href: concepts-data-flow-move-nodes.md
         - name: Tabblad optimaliseren
@@ -318,6 +320,8 @@
           href: connector-sap-ecc.md
         - name: SAP HANA
           href: connector-sap-hana.md
+        - name: SAP-tabel
+          href: connector-sap-table.md
         - name: ServiceNow
           href: connector-servicenow.md
         - name: SFTP

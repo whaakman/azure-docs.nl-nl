@@ -51,8 +51,6 @@
           href: event-hubs-capture-python.md
     - name: Streamen naar Azure Event Hubs voor Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-    - name: Een toegewezen Event Hubs-cluster maken
-      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Zelfstudies
   items:
     - name: Gegevensafwijkingen visualiseren in Event Hubs-gegevensstromen
@@ -86,14 +84,18 @@
       href: event-hubs-event-processor-host.md
     - name: Programmeergids
       href: event-hubs-programming-guide.md
-    - name: Beheerde identiteit voor Azure-resources
-      href: event-hubs-managed-service-identity.md
-    - name: Op rollen gebaseerd toegangsbeheer (preview)
-      href: event-hubs-role-based-access-control.md
-    - name: Geo-herstel na noodgeval en geo-replicatie
-      href: event-hubs-geo-dr.md
-    - name: Overzicht van authenticatie- en beveiligingsmodellen
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Beveiliging
+      items:
+        - name: Beheerde identiteit voor Azure-resources
+          href: event-hubs-managed-service-identity.md
+        - name: Op rollen gebaseerd toegangsbeheer (preview)
+          href: event-hubs-role-based-access-control.md
+        - name: Geo-herstel na noodgeval en geo-replicatie
+          href: event-hubs-geo-dr.md
+        - name: Overzicht van authenticatie- en beveiligingsmodellen
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Beveiligingskenmerken
+          href: event-hubs-security-attributes.md
     - name: Beschikbaarheid en consistentie
       href: event-hubs-availability-and-consistency.md
     - name: AMQP 1.0-protocolhandleiding

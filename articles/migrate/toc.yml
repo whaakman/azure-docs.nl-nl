@@ -28,36 +28,8 @@
           href: migrate-best-practices-networking.md
         - name: Best practices voor kostenanalyse en bepalen van grootte na migratie
           href: migrate-best-practices-costs.md
-    - name: Migratieserie Contoso
-      items:
-        - name: 1. Contoso - Migratieoverzicht
-          href: contoso-migration-overview.md
-        - name: 2. Contoso - Een Azure-infrastructuur implementeren
-          href: contoso-migration-infrastructure.md
-        - name: 3. Contoso - On-premises resources beoordelen voor een migratie naar Azure
-          href: contoso-migration-assessment.md
-        - name: 4. Contoso - Een app opnieuw hosten op virtuele Azure-machines en een met Azure SQL Database beheerd exemplaar
-          href: contoso-migration-rehost-vm-sql-managed-instance.md
-        - name: 5. Contoso - Een app opnieuw hosten in virtuele Azure-machines
-          href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso - Een app opnieuw hosten in virtuele Azure-machines en Azure SQL Server AlwaysOn-beschikbaarheidsgroepen
-          href: contoso-migration-rehost-vm-sql-ag.md
-        - name: 7. Contoso - Een Linux-app opnieuw hosten in virtuele Azure-machines
-          href: contoso-migration-rehost-linux-vm.md
-        - name: 8. Contoso - Een Linux-app opnieuw hosten in virtuele Azure-machines en Azure MySQL
-          href: contoso-migration-rehost-linux-vm-mysql.md
-        - name: 9. Contoso - Een app herstructureren in Azure Web Apps en Azure SQL Database
-          href: contoso-migration-refactor-web-app-sql.md
-        - name: 10. Contoso - Een Linux-app herstructureren in Azure Web Apps en Azure MySQL
-          href: contoso-migration-refactor-linux-app-service-mysql.md
-        - name: 11. Contoso - TFS migreren naar Azure DevOps Services
-          href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso - Een app opnieuw modelleren in Azure Containers en Azure SQL Database
-          href: contoso-migration-rearchitect-container-sql.md
-        - name: 13. Contoso - Een app opnieuw bouwen in Azure
-          href: contoso-migration-rebuild.md
-        - name: 14. Contoso - De schaal van een migratie aanpassen
-          href: contoso-migration-scale.md
+    - name: Migratie-voorbeelden - Contoso-reeks
+      href: contoso-migration-overview.md
     - name: Een grote omgeving verkennen en beoordelen
       href: how-to-scale-assessment.md
     - name: Machines groeperen
