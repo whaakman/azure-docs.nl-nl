@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035422"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239866"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Richtlijnen voor verantwoordelijk Personalizer-implementatie
 
@@ -128,17 +128,13 @@ De volgende zijn gebieden van ontwerp voor verantwoordelijk implementaties van A
 * Archiveren van gegevens en assets - zoals modellen, learning beleid en andere gegevens - die gebruikmaakt van Personalizer werken, kunnen reproduceren resultaten.
 
 ### <a name="transparency"></a>Transparantie
-*AI-systemen moet Understandable*. Met Personalizer
+*AI-systemen moet Understandable*. Met Personalizer:
 
-• Geeft gebruikers meer informatie over hoe de inhoud is aangepast. Bijvoorbeeld, kunt u weergeven uw gebruikers een knop met de naam "waarom deze suggesties?" welke belangrijkste functies van de gebruiker en de acties die een rol gespeeld bij de resultaten van Personalizer worden weergegeven.
-• Zorg ervoor dat de voorwaarden van de gebruik maken die u informatie over gebruikers en hun gedrag gebruikt voor het aanpassen van de ervaring worden vermeld.
-
-
-* *Geef gebruikers informatie over hoe de inhoud is aangepast.* Bijvoorbeeld, kunt u weergeven uw gebruikers een knop met de naam `Why These Suggestions?` met welke belangrijkste functies van de gebruiker en de acties die een rol gespeeld bij de personalisatie.
-* Zorg ervoor dat uw gebruiksvoorwaarden vermeld die u informatie over gebruikers gebruikt voor het aanpassen van de ervaring.
+* *Geef gebruikers informatie over hoe de inhoud is aangepast.* Bijvoorbeeld, kunt u weergeven uw gebruikers een knop met de naam `Why These Suggestions?` met welke belangrijkste functies van de gebruiker en de acties die een rol gespeeld bij de resultaten van Personalizer.
+* Zorg ervoor dat de voorwaarden van de gebruik maken die u informatie over gebruikers en hun gedrag gebruikt voor het aanpassen van de ervaring worden vermeld.
 
 ### <a name="fairness"></a>Eerlijkheid
-* AI systemen moet alle personen vrij behandelen.
+*AI-systemen moet alle personen vrij behandelen*.
 
 * Gebruik geen Personalizer voor use-cases waarbij de resultaten zijn op de lange termijn, gevolgschade of betrekking hebben op echte schade.
 * Gebruik geen functies die niet geschikt is voor het personaliseren van inhoud met zijn of die kan helpen bij ongewenst vooroordelen doorgegeven. Bijvoorbeeld, ziet iedereen met vergelijkbare financiële omstandigheden de dezelfde persoonlijke aanbevelingen voor de financiële producten.

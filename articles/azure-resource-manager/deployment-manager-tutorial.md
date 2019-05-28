@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/02/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466306"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238853"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen (openbare preview)
 
@@ -55,7 +55,6 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 * Enige ervaring met het ontwikkelen van [Azure Resource Manager-sjablonen](./resource-group-overview.md).
-* Azure Deployment Manager bevindt zich in beperkte preview. Als u zich wilt aanmelden met behulp van Azure Deployment Manager, vult u het [aanmeldingsformulier](https://aka.ms/admsignup) in. 
 * Azure PowerShell. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
 * Deployment Manager-cmdlets. Als u deze prerelease-cmdlets wilt installeren, hebt u de nieuwste versie van PowerShellGet nodig. Zie [PowerShellGet installeren](/powershell/gallery/installing-psget) voor informatie over het ophalen van de nieuwste versie. Nadat u PowerShellGet hebt geïnstalleerd, sluit u het PowerShell-venster. Open een nieuw PowerShell-venster met verhoogde bevoegdheden en gebruik de volgende opdracht:
 
@@ -106,18 +105,18 @@ De map ArtifactStore uit de download bevat twee mappen:
 
 De twee versies (1.0.0.0 en 1.0.0.1) zijn voor de [implementatie van de revisie](#deploy-the-revision). Hoewel zowel de sjabloonartefacten als de binaire artefacten twee versies hebben, zijn alleen de binaire artefacten verschillend tussen de twee versies. In de praktijk worden binaire artefacten vaker bijgewerkt in vergelijking met sjabloonartefacten.
 
-1. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in een teksteditor. Dit is een basissjabloon voor het maken van een nieuw opslagaccount.  
-2. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**. 
+1. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in een teksteditor. Dit is een basissjabloon voor het maken van een nieuw opslagaccount.
+2. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**.
 
     ![Sjabloon voor webtoepassing maken in zelfstudie over Azure Deployment Manager](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
     De sjabloon roept een implementatiepakket aan dat de bestanden van de webtoepassing bevat. In deze zelfstudie bevat het gecomprimeerde pakket alleen een index.html-bestand.
-3. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
+3. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![ContainerRoot sjabloonparameters webtoepassing maken in zelfstudie over Azure Deployment Manager](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     De waarde van deployPackageUri is het pad naar het implementatiepakket. De parameter bevat een **$containerRoot**-variabele. De waarde van $containerRoot wordt verstrekt in de [implementatiesjabloon](#create-the-rollout-template) door de SAS-bronlocatie van het artefact, de artefacthoofdmap en deployPackageUri samen te voegen.
-4. Open **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.  
+4. Open **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.
 
     ```html
     <html>
@@ -257,7 +256,7 @@ Op de volgende schermafbeeldingen wordt de definitie van de wachtstap weergegeve
 
 ![Wachtstap implementatiesjabloonresources in de zelfstudie over Azure Deployment Manager](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-Voor de duur wordt gebruikgemaakt van de [ISO 8601-norm](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (hoofdletters zijn verplicht) is een voorbeeld van 1 minuut wachten. 
+Voor de duur wordt gebruikgemaakt van de [ISO 8601-norm](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (hoofdletters zijn verplicht) is een voorbeeld van 1 minuut wachten.
 
 Op de volgende schermafbeelding worden alleen bepaalde onderdelen van de definitie van de implementatie weergegeven:
 
@@ -278,7 +277,7 @@ U maakt een parameterbestand dat wordt gebruikt in combinatie met de implementat
 2. Vul de parameterwaarden in:
 
     * **namePrefix**: voer een tekenreeks met 4-5 tekens in. Dit voorvoegsel wordt gebruikt om voor Azure unieke resourcenamen te maken.
-    * **azureResourceLocation**: Momenteel kunnen Azure Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in US - centraal of **US - oost 2**.
+    * **azureResourceLocation**: Momenteel kunnen Azure Deployment Manager-resources, met inbegrip van de implementatie, alleen worden gemaakt in **US - centraal** of **US - oost 2**.
     * **artifactSourceSASLocation**: de SAS-URI naar de hoofdmap (de blobcontainer) waar service-eenheidsjabloon- en parameterbestanden worden opgeslagen voor implementatie.  Zie [De artefacten voorbereiden](#prepare-the-artifacts).
     * **binaryArtifactRoot**: gebruik in deze zelfstudie **binaries/1.0.0.0**, tenzij u de mapstructuur van de artefacten wijzigt.
     * **managedIdentityID**: voer de door de gebruiker toegewezen beheerde identiteit in. Zie [Door de gebruiker toegewezen beheerde identiteit maken](#create-the-user-assigned-managed-identity). De syntaxis is:
@@ -292,13 +291,13 @@ U maakt een parameterbestand dat wordt gebruikt in combinatie met de implementat
 
 ## <a name="deploy-the-templates"></a>De sjablonen implementeren
 
-Azure PowerShell kan worden gebruikt om de sjablonen te implementeren. 
+Azure PowerShell kan worden gebruikt om de sjablonen te implementeren.
 
 1. Voer het script uit om de servicetopologie te implementeren.
 
     ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
+    $location = "Central US"
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
 
     # Create a resource group
@@ -429,7 +428,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
     * **&lt;namePrefix > ServiceWUSrg**: bevat de resources die zijn gedefinieerd door ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**: bevat de resources die zijn gedefinieerd door ServiceEUS.
     * De resourcegroep voor de door de gebruiker gedefinieerde beheerde identiteit.
-3. Selecteer de naam van de resourcegroep.  
+3. Selecteer de naam van de resourcegroep.
 4. Selecteer **Resourcegroep verwijderen** in het bovenste menu.
 5. Herhaal de laatste twee stappen als u andere resourcegroepen wilt verwijderen die zijn gemaakt in deze zelfstudie.
 
