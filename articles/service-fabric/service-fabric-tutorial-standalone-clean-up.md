@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 28cc2bf4794620641fb6af46bd4017d74f87e955
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67334a0e8ae3e6dcca86830cd088e6e446331aee
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717999"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306702"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Zelfstudie: Opschonen van uw zelfstandige cluster
 
@@ -60,7 +60,7 @@ The cluster is successfully removed.
 
 ## <a name="clean-up-aws-resources"></a>AWS-resources opschonen
 
-* Meld u aan bij uw AWS-account.
+* Meld u aan bij uw AWS-Account
 * Ga naar de EC2-console.
 * Selecteer de drie knooppunten die u hebt gemaakt in deel een van de zelfstudie.
 * Klik op **Actions** > **Instance State** > **Terminate**

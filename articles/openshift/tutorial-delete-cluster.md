@@ -2,18 +2,18 @@
 title: 'Zelfstudie: een Azure Red Hat OpenShift-cluster verwijderen | Microsoft Docs'
 description: In deze zelfstudie leert u hoe u een Azure Red Hat OpenShift-cluster met behulp van de Azure CLI verwijderen
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/06/2019
-ms.openlocfilehash: 679be645f3c97d30df65c9f410d286d243bca73b
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 627acbfc1f3a460cbb94e322c43445a55fce1ffa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466577"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306167"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Zelfstudie: Een Azure Red Hat OpenShift-cluster verwijderen
 

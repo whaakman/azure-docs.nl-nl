@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/23/2019
+ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ee64e5a49bf2825c83c74167d7eb75aa3dc59387
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 79f3b125a4cb88b3555cf13aa4d4bc5c430df166
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239824"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303903"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Zelfstudie: Een C IoT Edge-module voor Windows-apparaten ontwikkelen
 
@@ -23,7 +23,7 @@ Visual Studio gebruiken voor het ontwikkelen van C-code en deze implementeren in
 U kunt Azure IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie leert u een IoT Edge-module te maken die sensorgegevens filtert. In deze zelfstudie leert u het volgende:    
 
 > [!div class="checklist"]
-> * Visual Studio gebruiken voor het maken van een IoT Edge-module die gebaseerd op de .NET Core-SDK 2.1.
+> * Visual Studio gebruiken voor het maken van een IoT Edge-module die gebaseerd op de C-SDK.
 > * Gebruik Visual Studio en Docker om te maken van een Docker-installatiekopie en deze publiceren naar uw register.
 > * De module implementeren op uw IoT Edge-apparaat.
 > * Gegenereerde gegevens weergeven.
@@ -34,11 +34,11 @@ De IoT Edge-module die u maakt in deze zelfstudie filtert de temperatuurgegevens
 
 ## <a name="solution-scope"></a>Bereik van de oplossing
 
-In deze zelfstudie laat zien hoe u voor het ontwikkelen van een module in **C** met behulp van **Visual Studio 2017**, en hoe u implementeert een **Windows-apparaat**. Als u modules voor Linux-apparaten ontwikkelt, gaat u naar [ontwikkelen van een C IoT Edge-module voor Linux-apparaten](tutorial-c-module.md) in plaats daarvan. 
+In deze zelfstudie laat zien hoe u voor het ontwikkelen van een module in **C** met behulp van **Visual Studio 2019**, en hoe u implementeert een **Windows-apparaat**. Als u modules voor Linux-apparaten ontwikkelt, gaat u naar [ontwikkelen van een C IoT Edge-module voor Linux-apparaten](tutorial-c-module.md) in plaats daarvan. 
 
 Gebruik de volgende tabel om te begrijpen van de opties voor het ontwikkelen en implementeren van modules in C op Windows-apparaten: 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
+| C | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![C-modules voor WinAMD64 in Visual Studio ontwikkelen](./media/tutorial-c-module/green-check.png) |
 
@@ -49,31 +49,35 @@ Voordat u deze zelfstudie begint, moet u zijn gebleven door middel van de vorige
 * Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure.
 * Een [Windows-apparaat met Azure IoT Edge](quickstart.md).
 * Een containerregister, bijvoorbeeld [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017), versie 15.7 of hoger, geconfigureerd met de [hulpprogramma's voor Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extensie.
+* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) geconfigureerd met de [hulpprogramma's voor Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extensie.
 * [Docker CE](https://docs.docker.com/install/) geconfigureerd voor het uitvoeren van Windows-containers.
 * De Azure IoT-SDK voor c 
 
+> [!TIP]
+> Als u gebruikmaakt van Visual Studio 2017 (versie 15.7 of hoger), download en installeer [Azure IoT Edge-hulpprogramma's (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) voor Visual Studio 2017 van de Visual Studio marketplace
+
 ## <a name="create-a-module-project"></a>Een module-project maken
 
-De volgende stappen maakt u een IoT Edge-module-project dat gebaseerd op .NET Core 2.0 SDK met behulp van Visual Studio en de hulpprogramma's voor Azure IoT Edge-extensie. Zodra u een projectsjabloon gemaakt hebt, voegt u nieuwe code toe zodat de module berichten op basis van de gerapporteerde eigenschappen filtert. 
+De volgende stappen maakt u een IoT Edge-module-project dat gebaseerd op de C-SDK met behulp van Visual Studio en de hulpprogramma's voor Azure IoT Edge-extensie. Zodra u een projectsjabloon gemaakt hebt, voegt u nieuwe code toe zodat de module berichten op basis van de gerapporteerde eigenschappen filtert. 
 
 ### <a name="create-a-new-project"></a>Een nieuw project maken
 
 Maak een C-oplossingssjabloon die u met uw eigen code kunt aanpassen.
 
-1. Visual Studio als beheerder uitvoeren.
+1. Start Visual Studio 2019 en selecteer **nieuw Project maken**.
 
-2. Selecteer **Bestand** > **Nieuw** > **Project**. 
-
-3. Selecteer in het venster Nieuw project, de **Azure IoT** type toepassingsproject en kies de **Azure IoT Edge** project. Wijzig de naam van het project en de oplossing iets beschrijvende als volgt aan bij **CTutorialApp**. Selecteer **OK** om het project te maken. 
+2. Zoek in het venster Nieuw project **IoT Edge** toepassingsproject en kies de **Azure IoT Edge (Windows-amd64)** project. Klik op **volgende**. 
 
    ![Een nieuw Azure IoT Edge-project maken](./media/tutorial-c-module-windows/new-project.png)
+
+3. In de configureren uw nieuw projectvenster, wijzig de naam van het project en de oplossing iets beschrijvende als volgt aan bij **CTutorialApp**. Klik op **maken** om het project te maken. 
+
+   ![Een nieuw project voor Azure IoT Edge configureren](./media/tutorial-c-module-windows/configure-project.png)
 
 4. In de IoT Edge-toepassing en het modulevenster, configureert u uw project met de volgende waarden: 
 
    | Veld | Value |
    | ----- | ----- |
-   | Platform voor toepassingen | Schakel het selectievakje **Linux Amd64**, en Controleer **WindowsAmd64**. |
    | Selecteer een sjabloon | Selecteer **C Module**. | 
    | Naam van de module-project | Geef de module de naam **CModule**. | 
    | Opslagplaats voor docker-installatiekopieën | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. Uw containerinstallatiekopie wordt vooraf ingevuld vanuit de waarde van de naam van de module project. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br> De uiteindelijke opslagplaats voor de installatiekopie ziet er ongeveer als volgt uit: \<registernaam\>.azurecr.io/cmodule. |

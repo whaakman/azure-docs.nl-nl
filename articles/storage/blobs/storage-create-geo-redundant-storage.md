@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787918"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306757"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Zelfstudie: Een maximaal beschikbare toepassing bouwen met Blob-opslag
 
@@ -40,7 +40,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+* Installeer [Visual Studio 2019](https://www.visualstudio.com/downloads/) met de volgende workloads:
   - **Azure-ontwikkeling**
 
   ![Azure-ontwikkeling (onder Web en Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ Volg deze stappen om een account voor geografisch redundante opslag met leestoeg
    | **Implementatiemodel** | Resource Manager  | Resource Manager bevat de nieuwste functies.|
    | **Type account** | StorageV2 | Zie [Typen opslagaccounts](../common/storage-introduction.md#types-of-storage-accounts) voor meer informatie over de verschillende typen accounts |
    | **Prestaties** | Standard | Standard is voldoende voor het voorbeeldscenario. |
+   | **Replicatie**| Geografisch redundante opslag met leestoegang (RA-GRS) | Deze instelling is vereist voor het voorbeeld te laten werken. |
+   |**Abonnement** | uw abonnement |Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    | **Replicatie**| Geografisch redundante opslag met leestoegang (RA-GRS) | Dit is nodig om het voorbeeld te laten werken. |
    |**Abonnement** | uw abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    |**ResourceGroup** | myResourceGroup |Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen van resourcegroepen. |
@@ -167,7 +169,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Voor dit voorbeeld moet u de naam en sleutel van uw opslagaccount veilig opslaan. Bewaar ze in omgevingsvariabelen die lokaal zijn op de computer waarop het voorbeeld wordt uitgevoerd. Volg het Linux- of het Windows-voorbeeld, afhankelijk van uw besturingssysteem, voor het maken van de omgevingsvariabelen. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **opdrachtprompt** of shell die u gebruikt opnieuw laadt.
+Voor dit voorbeeld moet u de naam en sleutel van uw opslagaccount veilig opslaan. Bewaar ze in omgevingsvariabelen die lokaal zijn op de computer waarop het voorbeeld wordt uitgevoerd. Volg het Linux- of het Windows-voorbeeld, afhankelijk van uw besturingssysteem, voor het maken van de omgevingsvariabelen. In Windows, de omgevingsvariabele is niet beschikbaar totdat u opnieuw laden de **opdrachtprompt** of shell die u gebruikt.
 
 ### <a name="linux-example"></a>Linux-voorbeeld
 
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 U kunt deze informatie vinden in Azure portal door te navigeren naar uw opslagaccount te selecteren **toegangssleutels** in de **instellingen** sectie.
 
-U moet ook de vereiste afhankelijkheden installeren. U doet dit door open een opdrachtprompt, gaat u naar de Voorbeeldmap, voert u `npm install`.
+Installeer de vereiste afhankelijkheden. U doet dit door open een opdrachtprompt, gaat u naar de Voorbeeldmap, voert u `npm install`.
 
 ---
 
@@ -220,7 +222,7 @@ In de voorbeeldcode wordt de methode `run_circuit_breaker` in het bestand `circu
 
 De functie Opnieuw van het opslagobject is ingesteld op een lineair beleid voor nieuwe pogingen. De functie Opnieuw bepaalt of een aanvraag opnieuw moet worden geprobeerd en geeft het aantal seconden op dat moet worden gewacht voordat opnieuw wordt geprobeerd de aanvraag uit te voeren. Stel de waarde van **retry\_to\_secondary** in op True als de aanvraag bij een volgende poging worden uitgevoerd naar het secundaire eindpunt als de eerste aanvraag naar het primaire eindpunt is mislukt. In de voorbeeldtoepassing is een aangepast beleid voor nieuwe pogingen gedefinieerd in de functie `retry_callback` van het opslagobject.
 
-Vóór het downloaden zijn de functies [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) en [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) van het serviceobject gedefinieerd. Deze functies definiëren gebeurtenis-handlers die worden geactiveerd wanneer een download is voltooid of wanneer een download is mislukt en opnieuw wordt uitgevoerd.
+Voordat u het downloaden van het serviceobject [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) en [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) functie is gedefinieerd. Deze functies definiëren gebeurtenis-handlers die worden geactiveerd wanneer een download is voltooid of wanneer een download is mislukt en opnieuw wordt uitgevoerd.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -231,11 +233,11 @@ Gebruik Maven op de opdrachtregel om het voorbeeld uit te voeren.
 
 In dit voorbeeld wordt een testbestand gemaakt in de standaardmap. Voor Windows-gebruikers, deze map is **AppData\Local\Temp**. Het voorbeeld biedt vervolgens een keuze uit deze opdrachten die u kunt opgeven:
 
-- Voer **P** in voor het uitvoeren van een put blob-bewerking; er wordt een tijdelijk bestand geüpload naar uw opslagaccount.
-- Voer **L** in voor het uitvoeren van een list blob-bewerking; de blobs die momenteel aanwezig zijn in de container worden dan weergegeven.
-- Voer **G** in voor het uitvoeren van een get blob-bewerking; er wordt een bestand van uw opslagaccount naar uw lokale computer gedownload.
-- Voer **D** in voor het uitvoeren van een delete blob-bewerking; de blob wordt verwijderd uit uw opslagaccount.
-- Voer **E** in om het voorbeeld te sluiten; hiermee verwijdert u ook alle resources die in het voorbeeld zijn gemaakt.
+- Voer **P** met deze opdracht wordt voor het uitvoeren van een bewerking put blob, een tijdelijk bestand geüpload naar uw storage-account.
+- Voer **L** om uit te voeren in een lijst met blob-bewerking, met deze opdracht de blobs die momenteel in de container te vermelden.
+- Voer **G** om uit te voeren een get-bewerking blob, met deze opdracht downloadt een bestand van uw storage-account naar uw lokale computer.
+- Voer **D** voor het uitvoeren van een bewerking van de blob verwijderen, deze opdracht verwijdert u de blob van uw opslagaccount.
+- Voer **E** het voorbeeld om af te sluiten met deze opdracht verwijdert u ook alle resources in het voorbeeld dat is gemaakt.
 
 Dit voorbeeld toont uw uitvoer als u de toepassing op Windows uitvoert.
 

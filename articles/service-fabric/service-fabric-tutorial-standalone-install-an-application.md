@@ -1,6 +1,6 @@
 ---
 title: Zelfstudie over het installeren van een toepassing op uw zelfstandige Service Fabric cluster - Azure Service Fabric | Microsoft Docs
-description: In deze zelfstudie leert u hoe u een toepassing kunt installeren in uw zelfstandige Service Fabric-cluster.
+description: In deze zelfstudie leert u hoe u een toepassing installeren in uw zelfstandige Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 17bb5f5d8fe7ee407caf0ea5c34dc5380dbd79b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717936"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302423"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Zelfstudie: Een toepassing op uw zelfstandige Service Fabric cluster implementeren
 
-Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze serie zelfstudies maakt u een op AWS gehoste zelfstandige cluster en implementeert u een toepassing daarop.
+Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. In deze zelfstudie, een zelfstandige cluster die worden gehost op AWS maken en implementeren van een toepassing erin.
 
-Deze zelfstudie is deel drie van een serie.  Zelfstandige Service Fabric-clusters bieden u de mogelijkheid om uw eigen omgeving te kiezen en een cluster te maken als onderdeel van de benadering "Elk besturingssysteem, elke cloud" die we in Service Fabric hanteren. Deze zelfstudie laat zien hoe u de AWS-infrastructuur kunt maken die nodig is om dit zelfstandige cluster te hosten.
+Deze zelfstudie is deel drie van een serie.  Service Fabric zelfstandige clusters bieden u de optie voor het kiezen van uw eigen omgeving en een cluster maken als onderdeel van onze aanpak voor "Elk besturingssysteem, elke cloud" met Service Fabric. Deze zelfstudie laat zien hoe u de AWS-infrastructuur kunt maken die nodig is om dit zelfstandige cluster te hosten.
 
 In deel drie van de serie leert u het volgende:
 
@@ -38,8 +38,8 @@ In deel drie van de serie leert u het volgende:
 
 Voor u met deze zelfstudie begint:
 
-* [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de workloads **Azure-ontwikkeling** en **ASP.NET-ontwikkeling en webontwikkeling**.
-* [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
+* [Installeer Visual Studio 2019](https://www.visualstudio.com/) en installeer de **Azure-ontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
+* [Installeer de Service Fabric-SDK](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>De voorbeeldtoepassing om te stemmen downloaden
 

@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 09a3ff744e5e3d4a8c62bf8337179b9d8699c3c8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244553"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303818"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Zelfstudie: Ontwikkel en implementeer een Python IoT Edge-module voor Linux-apparaten
 
@@ -40,7 +40,7 @@ In deze zelfstudie laat zien hoe u voor het ontwikkelen van een module in **Pyth
 
 Gebruik de volgende tabel om te begrijpen van de opties voor het ontwikkelen en implementeren van Python-modules op Linux: 
 
-| Python | Visual Studio Code | Visual Studio 2017 | 
+| Python | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![VS Code voor Python-modules op Linux AMD64 gebruiken](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![VS Code voor Python-modules op Linux ARM32 gebruiken](./media/tutorial-c-module/green-check.png) |  |

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4ee3c0bf344520afee6b3a00eb49759ae1432949
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239777"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303855"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Zelfstudie: Ontwikkelen van IoT Edge-modules voor Linux-apparaten
 
@@ -42,18 +42,18 @@ Deze zelfstudie leidt u door de ontwikkeling van een IoT Edge-module. Een *IoT E
 
 Bij het ontwikkelen van IoT Edge-modules, is het belangrijk om te begrijpen van het verschil tussen de ontwikkelcomputer en het doel IoT Edge-apparaat waarop de module uiteindelijk zal worden geïmplementeerd. De container die u bouwt voor het opslaan van uw code van de module moet overeenkomen met het besturingssysteem (OS) van de *doelapparaat*. De meest voorkomende scenario is bijvoorbeeld iemand het ontwikkelen van een module op een Windows-computer wilde maken op een Linux-apparaat met IoT Edge. In dat geval is het besturingssysteem van de container Linux. Als u deze zelfstudie doorloopt, houd rekening met het verschil tussen de *ontwikkelcomputer OS* en de *container OS*.
 
-In deze zelfstudie is bedoeld voor Linux-apparaten met IoT Edge. U kunt uw besturingssysteem, voor de meest geschikte ontwikkelings-machine gebruiken, zolang uw ontwikkelcomputer Linux-containers kunt uitvoeren. U wordt aangeraden gebruik van Visual Studio Code voor het ontwikkelen voor Linux-apparaten, dit is wat deze zelfstudie wordt gebruikt. Kunt u Visual Studio 2017, maar er verschillen in de ondersteuning tussen de twee hulpprogramma's zijn.
+In deze zelfstudie is bedoeld voor Linux-apparaten met IoT Edge. U kunt uw besturingssysteem, voor de meest geschikte ontwikkelings-machine gebruiken, zolang uw ontwikkelcomputer Linux-containers kunt uitvoeren. U wordt aangeraden gebruik van Visual Studio Code voor het ontwikkelen voor Linux-apparaten, dit is wat deze zelfstudie wordt gebruikt. U kunt Visual Studio, maar er verschillen in de ondersteuning tussen de twee hulpprogramma's zijn.
 
-De volgende tabel bevat de ondersteunde scenario's voor **Linux-containers** in Visual Studio Code en Visual Studio 2017.
+De volgende tabel bevat de ondersteunde scenario's voor **Linux-containers** in Visual Studio Code en Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Architectuur van de Linux-apparaat** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure-services** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Talen** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Meer informatie** | [Azure IoT Edge voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Meer informatie** | [Azure IoT Edge voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge-Tools voor Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-In deze zelfstudie leert de stappen ontwikkeling voor Visual Studio Code. Als u echter liever Visual Studio 2017, raadpleegt u de instructies in [gebruik van Visual Studio 2017 om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge](how-to-visual-studio-develop-module.md).
+In deze zelfstudie leert de stappen ontwikkeling voor Visual Studio Code. Als u liever Visual Studio, raadpleegt u de instructies in [2019 naar Visual Studio om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge gebruiken](how-to-visual-studio-develop-module.md).
 
 ## <a name="prerequisites"></a>Vereisten
 

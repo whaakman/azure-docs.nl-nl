@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31992a08c1b6c4fda4053032458879661fe2b740
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233771"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299085"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Zelfstudie: Een on-premises toepassing voor externe toegang toevoegen via Application Proxy in Azure Active Directory
 
@@ -69,7 +69,7 @@ TLS 1.2 inschakelen:
 2. De server opnieuw opstarten.
 
 >[!Important] 
-> Voor de best mogelijke codering voor onze klanten, stellen we updates voor de Application Proxy-service de toegang beperken tot alleen de protocollen TLS 1.2. Op basis van de gereedheid van de klant wijzigingen wordt geleidelijk aan worden geïmplementeerd op klanten die alleen gebruikmaakt van TLS 1.2-protocollen en eventuele gevolgen van deze wijziging niet meer te zien. TLS 1.0 en 1.1 afschaffing wordt voltooid op 31 augustus 2019 en klanten ontvangt van tevoren om voor te bereiden voor deze wijziging. Om voor te bereiden voor deze wijziging Zorg ervoor dat die alle combinaties van client / server- en browser-server bijgewerkt met het gebruik van TLS 1.2 verbinding met de service voor toepassingsproxy onderhouden. Het gaat hierbij om clients die uw gebruikers gebruiken voor toegang tot toepassingen die zijn gepubliceerd via toepassingsproxy. Zie voorbereidingen voor [TLS 1.2 in Office 365](https://docs.microsoft.com/en-us/office365/troubleshoot/prepare-tls-1.2-in-office-365) voor handige naslaginformatie en bronnen.
+> Voor de best mogelijke codering voor onze klanten, stellen we updates voor de Application Proxy-service de toegang beperken tot alleen de protocollen TLS 1.2. Op basis van de gereedheid van de klant wijzigingen wordt geleidelijk aan worden geïmplementeerd op klanten die alleen gebruikmaakt van TLS 1.2-protocollen en eventuele gevolgen van deze wijziging niet meer te zien. TLS 1.0 en 1.1 afschaffing wordt voltooid op 31 augustus 2019 en klanten ontvangt van tevoren om voor te bereiden voor deze wijziging. Om voor te bereiden voor deze wijziging Zorg ervoor dat die alle combinaties van client / server- en browser-server bijgewerkt met het gebruik van TLS 1.2 verbinding met de service voor toepassingsproxy onderhouden. Het gaat hierbij om clients die uw gebruikers gebruiken voor toegang tot toepassingen die zijn gepubliceerd via toepassingsproxy. Zie voorbereidingen voor [TLS 1.2 in Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) voor handige naslaginformatie en bronnen.
 
 ## <a name="prepare-your-on-premises-environment"></a>Bereid uw on-premises omgeving voor
 

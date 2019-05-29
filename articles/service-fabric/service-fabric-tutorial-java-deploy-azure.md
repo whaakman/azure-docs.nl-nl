@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: aa7f77299750a969bf936a3ed9b6ae76653a90c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c836fd122d9dba0cd7eb20fe405e63c3ca3f59eb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61388143"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306800"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Zelfstudie: Een Java-toepassing implementeren in een Service Fabric-cluster in Azure
 
@@ -60,7 +60,7 @@ In de volgende stappen maakt u de benodigde resources die vereist zijn voor het 
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
 
-2. Meld u aan bij uw Azure-account
+2. Aanmelden bij uw Azure-account
 
     ```bash
     az login

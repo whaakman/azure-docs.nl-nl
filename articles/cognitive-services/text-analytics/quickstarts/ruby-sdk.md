@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 7def77c0b1cf99fcc2cee77a28782dddaf2ac45d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65994543"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297779"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Quickstart: Roept de Text Analytics-service met behulp van de Ruby-SDK
 
@@ -28,18 +28,12 @@ Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor tec
 
 ## <a name="prerequisites"></a>Vereisten
 
+* [Ruby 2.5.5 of hoger](https://www.ruby-lang.org/)
+* De Text analytics [SDK voor Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
+ 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie. 
-
-Download en installeer Ruby 2.5.5 versie op basis van de systeemarchitectuur van [hier](https://rubyinstaller.org/downloads/).
-
-> [!Tip]
->  Terwijl u kunt aanroepen de [REST API-eindpunten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) rechtstreeks met Ruby, de `Microsoft.Azure.CognitiveServices.TextAnalytics` SDK kunt u eenvoudig de service aanroepen zonder serialiseren en deserialiseren van JSON.
->
-> Een paar handige koppelingen:
-> - [Ruby gem pagina](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
-> - [SDK-code op GitHub](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics/lib/v2.1/generated/azure_cognitiveservices_textanalytics)
 
 <a name="RubyProject"></a>
 

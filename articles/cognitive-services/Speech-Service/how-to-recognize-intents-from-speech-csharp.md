@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699884"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257332"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Zelfstudie: Intenties van gesproken inhoud herkennen met de Speech SDK voor C#
-
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 De [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) van Cognitive Services kan voor **intentieherkenning** worden geïntegreerd met de [Language Understanding-service (LUIS)](https://www.luis.ai/home). Een intentie is iets dat de gebruiker wil doen: een vlucht reserveren, de weersverwachting controleren of iemand bellen. De gebruiker kan elke term gebruiken die natuurlijk aanvoelt. Met behulp van machine learning koppelt LUIS aanvragen van gebruikers aan de intenties die u hebt gedefinieerd.
 
@@ -49,7 +47,7 @@ LUIS kan worden geïntegreerd met de Speech Services voor het herkennen van inte
 
 LUIS maakt gebruik van twee soorten sleutels:
 
-|Type sleutel|Doel|
+|Sleuteltype|Doel|
 |--------|-------|
 |authoring|Hiermee kunt u via programmacode LUIS-apps maken en wijzigen|
 |endpoint |Hiermee kunt u toegang verlenen tot een bepaalde LUIS-app|

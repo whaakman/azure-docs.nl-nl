@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153054"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306560"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installeren en uitvoeren van containers voor spraak-Service
 
@@ -110,7 +110,7 @@ De volgende tabel bevat de ondersteunde landinstellingen voor **spraak-naar-teks
 |Landinstelling voor de taal|Tags|
 |--|--|
 |Chinees|`zh-cn`|
-|Engels |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
+|Nederlands |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |Frans |`fr-ca`<br>`fr-fr`|
 |Duits|`de-de`|
 |Italiaans|`it-it`|
@@ -139,10 +139,10 @@ De volgende tabel bevat de ondersteunde landinstellingen voor **tekst naar spraa
 |Landinstelling voor de taal|Tags|Ondersteunde stemmen|
 |--|--|--|
 |Chinees|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
-|Engels |`en-au`|Catherine<br>hayleyrus|
-|Engels |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
-|Engels |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
-|Engels |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|Nederlands |`en-au`|Catherine<br>hayleyrus|
+|Nederlands |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
+|Nederlands |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
+|Nederlands |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Frans|`fr-ca`|caroline<br>harmonierus|
 |Frans|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
 |Duits|`de-de`|hedda<br>heddarus<br>stefan-apollo|
@@ -274,13 +274,17 @@ De container biedt REST-eindpunt API's die kunnen worden gevonden [hier](https:/
 
 Wanneer u de container uitvoert, wordt de container gebruikt **stdout** en **stderr** naar uitvoerinformatie die is het handig om het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 
 Het verzenden van de containers spraak factuurgegevens naar Azure, met behulp van een _spraak_ resource voor uw Azure-account. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Zie voor meer informatie over deze opties [containers configureren](speech-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Samenvatting
 

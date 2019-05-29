@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f712cc34a3d41ea9472bf9428606cb378eef8c18
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b0e48a0db63eded9e9c4921d33b03af39656ce0d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244263"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299267"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Zelfstudie: Functievlaggen gebruiken in een .NET Core-app
 
-De .NET Core functie Management-bibliotheken bieden idiomatisch ondersteuning voor het implementeren van functie-vlaggen in een .NET- of ASP.NET Core-toepassing. Hiermee kunt u om toe te voegen functie vlaggen in uw code meer declaratief zodat u niet hoeft al te schrijven de `if` -instructies voor deze handmatig. Deze functie vlag levenscycli (bijvoorbeeld, vernieuwen en cache vlag statussen, een vlag status onveranderbaar tijdens het aanroepen van aanvraag garanderen) beheren achter de scène. De ASP.NET Core-bibliotheek biedt bovendien out-of-the-box-integraties met inbegrip van MVC-controller acties, weergaven, routes en middleware.
+De .NET Core functie Management-bibliotheken bieden idiomatisch ondersteuning voor het implementeren van functie-vlaggen in een .NET- of ASP.NET Core-toepassing. Hiermee kunt u om toe te voegen functie vlaggen in uw code meer declaratief zodat u niet hoeft al te schrijven de `if` -instructies voor deze handmatig. Deze functie vlag levenscycli (bijvoorbeeld, vernieuwen en cache vlag statussen, een vlag status onveranderbaar tijdens het aanroepen van aanvraag garanderen) beheren achter de schermen. De ASP.NET Core-bibliotheek biedt bovendien out-of-the-box-integraties met inbegrip van MVC-controller acties, weergaven, routes en middleware.
 
 De [functie vlaggen toevoegen aan een ASP.NET Core-app](./quickstart-feature-flag-aspnet-core.md) Quick Start ziet u een aantal manieren om toe te voegen functie vlaggen in een ASP.NET Core-toepassing. Deze zelfstudie wordt uitgelegd in meer informatie. Zie de [documentatie over het beheer van het ASP.NET Core-functie](https://go.microsoft.com/fwlink/?linkid=2091410) voor een volledig overzicht.
 
@@ -66,7 +66,7 @@ public class Startup
 }
 ```
 
-Als u een filter in uw functie-vlaggen gebruiken, moet u omvatten een extra bibliotheek en deze te registreren. Het volgende voorbeeld ziet u hoe u een ingebouwde functie filter met de naam **PercentageFilter "** .
+Als u filters in uw functie-vlaggen gebruiken, moet u een extra bibliotheek opnemen en deze te registreren. Het volgende voorbeeld ziet u hoe u een ingebouwde functie filter met de naam **PercentageFilter "** .
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -82,7 +82,7 @@ public class Startup
 }
 ```
 
-Voor het goed functioneren, moet u functie vlaggen buiten de toepassing behouden en ze afzonderlijk beheren. In dat geval kunt u de vlag statussen op elk gewenst moment wijzigen en de wijzigingen die van kracht in de toepassing onmiddellijk. App-configuratie biedt een centrale locatie voor het organiseren en beheren van alle uw functie via een speciale portal UI worden gemarkeerd en levert de vlaggen aan uw toepassing rechtstreeks via de .NET Core-client bibliotheken. De eenvoudigste manier om uw ASP.NET Core-App met App-configuratie verbinding te maken is door de configuratieprovider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. U kunt dit NuGet-pakket in uw code door toe te voegen van de volgende de *Program.cs* bestand:
+Voor het goed functioneren, moet u functie vlaggen buiten de toepassing behouden en ze afzonderlijk beheren. In dat geval kunt u de vlag statussen op elk gewenst moment wijzigen en de wijzigingen die onmiddellijk van kracht in de toepassing. App-configuratie biedt een centrale locatie voor het organiseren en beheren van alle uw functie via een speciale portal UI worden gemarkeerd en levert de vlaggen aan uw toepassing rechtstreeks via de .NET Core-client bibliotheken. De eenvoudigste manier om uw ASP.NET Core-App met App-configuratie verbinding te maken is door de configuratieprovider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. U kunt dit NuGet-pakket in uw code door toe te voegen van de volgende de *Program.cs* bestand:
 
 ```csharp
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;

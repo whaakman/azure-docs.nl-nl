@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162716"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271510"
 ---
 [Berichtroutering](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) kunnen verzenden van telemetriegegevens van uw IoT-apparaten aan ingebouwde Event Hub-compatibele eindpunten of aangepaste eindpunten, zoals blob storage, Service Bus-wachtrijen, Service Bus-onderwerpen en Event Hubs. Voor het configureren van aangepaste berichtroutering, maakt u [routering query's](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) om aan te passen van de route die overeenkomt met een bepaalde voorwaarde. Zodra u deze hebt ingesteld, worden de inkomende gegevens automatisch door de IoT Hub doorgestuurd naar de eindpunten. Als een bericht niet overeenkomt met een van de gedefinieerde routering query's, wordt deze doorgestuurd naar het standaardeindpunt.
 
 In deze zelfstudie 2-onderdeel leert u hoe u kunt instellen en gebruiken van deze aangepaste routering query's met IoT Hub. Routeren van berichten van een IoT-apparaat op een van meerdere eindpunten, met inbegrip van de blob-opslag en een Service Bus-wachtrij. Berichten naar de Service Bus-wachtrij worden opgehaald door een logische App en via e-mail verzonden. Berichten waarop geen aangepaste berichtroutering gedefinieerd zijn verzonden naar het standaardeindpunt worden opgehaald door Azure Stream Analytics en weergegeven in een Power BI-visualisatie.
 
- Volledige delen 1 en 2 van deze zelfstudie, moet u de volgende taken uitvoeren:
+Volledige delen 1 en 2 van deze zelfstudie moet u de volgende taken uitgevoerd:
 
 **Deel i Resources maken en instellen op Routering van berichten**
 > [!div class="checklist"]

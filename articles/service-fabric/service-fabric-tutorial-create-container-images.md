@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865286"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306771"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Zelfstudie: Containerinstallatiekopieën maken in een Service Fabric-cluster in Linux
 
@@ -88,7 +88,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry implementeren
 
-Voer eerst de opdracht **az login** uit om u aan te melden bij uw Azure-account.
+Voer eerst de **az login** opdracht uit om aan te melden bij uw Azure-account.
 
 ```bash
 az login
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 In de rest van deze zelfstudie wordt acrName gebruikt als tijdelijke aanduiding voor de naam van het gekozen containerregister. Noteer deze waarde.
 
-## <a name="log-in-to-your-container-registry"></a>Aanmelden bij het containerregister
+## <a name="sign-in-to-your-container-registry"></a>Meld u aan bij uw containerregister
 
-Meld u aan bij het ACR-exemplaar voordat u installatiekopieën naar het exemplaar pusht. Gebruik de opdracht **az acr login** om de bewerking te voltooien. Geef de unieke naam op die u het containerregister hebt gegeven toen u het maakte.
+Meld u bij het ACR-exemplaar voordat u installatiekopieën kunt pushen naar deze. Gebruik de opdracht **az acr login** om de bewerking te voltooien. Geef de unieke naam op die u het containerregister hebt gegeven toen u het maakte.
 
 ```bash
 az acr login --name <acrName>

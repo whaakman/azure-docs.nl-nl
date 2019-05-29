@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48dd09bf70e99adc250027df872266bea39a786b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158159"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302412"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web-API met behulp van Kestrel
 
@@ -51,8 +51,8 @@ In deze zelfstudiereeks leert u het volgende:
 
 Voor u met deze zelfstudie begint:
 
-* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Installeer Visual Studio 2017](https://www.visualstudio.com/) versie 15.5 of hoger met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingsworkloads**.
+* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Installeer Visual Studio 2019](https://www.visualstudio.com/) versie 15.5 of hoger met de **Azure-ontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
 * [Installeer de Service Fabric-SDK](service-fabric-get-started.md).
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Haal een certificaat op of maak een zelfondertekend ontwikkelingscertificaat.
@@ -185,7 +185,7 @@ private X509Certificate2 GetCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Netwerkservice toegang geven tot de persoonlijke sleutel van het certificaat
 
-In de vorige stap hebt u het certificaat geïmporteerd in het `Cert:\LocalMachine\My`-archief op de ontwikkelcomputer.  Bovendien moet u het account waar de service wordt uitgevoerd (standaard NETWORK SERVICE) expliciet toegang geven tot de persoonlijke sleutel van het certificaat. U kunt dit handmatig doen (met het hulpprogramma certlm.msc), maar het is beter om automatisch een PowerShell-script uit te voeren door [een opstartscript te configureren](service-fabric-run-script-at-service-startup.md) in het **SetupEntryPoint** van het servicemanifest.
+In de vorige stap hebt u het certificaat geïmporteerd in het `Cert:\LocalMachine\My`-archief op de ontwikkelcomputer.  Het account dat de service (standaard NETWORK SERVICE) nu expliciet geven toegang tot de persoonlijke sleutel van het certificaat. U kunt deze stap handmatig doen (met het hulpprogramma certlm.msc), maar het is beter om uit te voeren automatisch een PowerShell-script door [configureren van een opstartscript](service-fabric-run-script-at-service-startup.md) in de **SetupEntryPoint** van het servicemanifest.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Het toegangspunt voor service-instellingen configureren
 

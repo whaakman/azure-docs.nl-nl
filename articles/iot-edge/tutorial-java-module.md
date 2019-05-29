@@ -9,12 +9,12 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a105e59007543ffaf31b586707390954643e8bee
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 95fab84fb6472339c9d6b847f8c09139b55e1466
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239636"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303829"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Zelfstudie: Ontwikkelen van een Java IoT Edge-module voor Linux-apparaten
 
@@ -37,7 +37,7 @@ In deze zelfstudie laat zien hoe u voor het ontwikkelen van een module in **Java
 
 Gebruik de volgende tabel om te begrijpen van de opties voor het ontwikkelen en implementeren van Java-modules: 
 
-| Java | Visual Studio Code | Visual Studio 2017 | 
+| Java | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![VS Code gebruiken voor Java-modules op Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![VS Code gebruiken voor Java-modules op Linux ARM32](./media/tutorial-c-module/green-check.png) |  |

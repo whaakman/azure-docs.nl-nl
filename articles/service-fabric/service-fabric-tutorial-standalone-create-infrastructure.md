@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: aa50cbe640c928c4113fb64c1b503548a95ee0a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718286"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302480"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Zelfstudie: AWS-infrastructuur voor het hosten van een Service Fabric-cluster maken
 
@@ -42,7 +42,7 @@ U hebt een AWS-account nodig om deze zelfstudie te voltooien.  Als u nog geen ac
 
 ## <a name="create-ec2-instances"></a>EC2-exemplaren maken
 
-Meld u aan bij de AWS-console > typ **EC2** in het zoekvak > **EC2 Virtual Servers in the Cloud**.
+Meld u aan bij de AWS-Console > Enter **EC2** in het zoekvak > **EC2 virtuele Servers in de Cloud**
 
 ![Zoeken in AWS-console][aws-console]
 

@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562839"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305079"
 ---
-# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Uw eigen herstel na noodgevallen bouwen voor aangepaste onderwerpen in Azure Event Grid
-
+# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Bouw uw eigen herstel na noodgevallen voor aangepaste in Event Grid-onderwerpen
 Herstel na noodgevallen is gericht op het herstellen van een ernstig verlies van de functionaliteit van de toepassing. In deze zelfstudie wordt u begeleid bij het instellen van uw gebeurtenisarchitectuur bij herstel als de Event Grid-service in een bepaalde regio niet goed functioneert.
 
 In deze zelfstudie leert u hoe u een actief-passief-failover-architectuur voor aangepaste onderwerpen in Event Grid maakt. U bereikt failover door uw onderwerpen en abonnementen voor twee regio's te spiegelen en vervolgens failover te beheren als een onderwerp niet meer in orde is. In deze zelfstudie wordt door de architectuur op alle verkeer failover toegepast. Bij deze instelling is het belangrijk te weten dat gebeurtenissen die al actief zijn, pas worden hersteld als de verdachte regio weer in orde is.
+
+> [!NOTE]
+> Event Grid ondersteunt nu automatische geo-noodherstel (GeoDR) op de server. Als u meer controle over de failoverproces wilt, kunt u nog steeds aan de clientzijde disaster recovery logica implementeren. Zie voor meer informatie over automatische GeoDR [serverzijde geo-noodherstel in Azure Event Grid](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
 

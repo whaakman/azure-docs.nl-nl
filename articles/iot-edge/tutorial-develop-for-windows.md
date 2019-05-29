@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1f2e9bc93b8bea70a58f2e6a544e2088505935a9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 891b64b8e31266360d718255dcd8e8a1f9fb597c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239758"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306598"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Zelfstudie: Ontwikkelen van IoT Edge-modules voor Windows-apparaten
 
-Visual Studio 2017 gebruiken om te ontwikkelen en implementeren van code op Windows-apparaten met IoT Edge.
+Visual Studio gebruiken om te ontwikkelen en implementeren van code op Windows-apparaten met IoT Edge.
 
 In de Quick Start, moet u een IoT Edge-apparaat met een Windows-machine gemaakt en geïmplementeerd een vooraf samengestelde module op basis van de Azure Marketplace. Deze zelfstudie leert wat het duurt om te ontwikkelen en implementeren van uw eigen code in een IoT Edge-apparaat. Deze zelfstudie is een nuttig vereiste voor alle de andere zelfstudies die u meer informatie over specifieke programmeertalen of Azure-services krijgt. 
 
@@ -28,7 +28,7 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Instellen van uw ontwikkelcomputer.
-> * Gebruik de IoT Edge-hulpprogramma's voor Visual Studio 2017 een nieuw project te maken.
+> * Gebruik het IoT Edge-tools voor Visual Studio een nieuw project te maken.
 > * Bouw uw project als een container en op te slaan in een Azure container registry.
 > * Uw code implementeren in een IoT Edge-apparaat. 
 
@@ -41,17 +41,17 @@ Deze zelfstudie leidt u door de ontwikkeling van een IoT Edge-module. Een *IoT E
 
 Bij het ontwikkelen van IoT Edge-modules, is het belangrijk om te begrijpen van het verschil tussen de ontwikkelcomputer en het doel IoT Edge-apparaat waarop de module uiteindelijk zal worden geïmplementeerd. De container die u bouwt voor het opslaan van uw code van de module moet overeenkomen met het besturingssysteem (OS) van de *doelapparaat*. Voor de ontwikkeling van Windows-containers is dit concept eenvoudiger, omdat Windows-containers alleen op Windows-besturingssystemen worden uitgevoerd. Maar u kunt uw Windows-ontwikkelcomputer bijvoorbeeld gebruiken om te bouwen-modules voor Linux IoT Edge-apparaten. In dit scenario moet u om ervoor te zorgen dat uw ontwikkelcomputer Linux-containers werd uitgevoerd. Als u deze zelfstudie doorloopt, houd rekening met het verschil tussen *ontwikkelcomputer OS* en de *container OS*.
 
-In deze zelfstudie is bedoeld voor Windows-apparaten met IoT Edge. Windows IoT Edge-apparaten Windows-containers gebruiken. U wordt aangeraden gebruik van Visual Studio 2017 voor het ontwikkelen voor Windows-apparaten, dit is wat deze zelfstudie wordt gebruikt. U kunt ook Visual Studio Code gebruiken maar er verschillen in de ondersteuning tussen de twee hulpprogramma's zijn.
+In deze zelfstudie is bedoeld voor Windows-apparaten met IoT Edge. Windows IoT Edge-apparaten Windows-containers gebruiken. U wordt aangeraden met Visual Studio ontwikkelen voor Windows-apparaten, dit is wat deze zelfstudie wordt gebruikt. U kunt ook Visual Studio Code gebruiken maar er verschillen in de ondersteuning tussen de twee hulpprogramma's zijn.
 
-De volgende tabel bevat de ondersteunde scenario's voor **Windows containers** in Visual Studio Code en Visual Studio 2017.
+De volgende tabel bevat de ondersteunde scenario's voor **Windows containers** in Visual Studio Code en Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Azure-services** | Azure Functions <br> Azure Stream Analytics |   |
 | **Talen** | C#(foutopsporing niet ondersteund) | C <br> C# |
-| **Meer informatie** | [Azure IoT Edge voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Meer informatie** | [Azure IoT Edge voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge-hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge-Tools voor Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-In deze zelfstudie leert de stappen ontwikkeling voor Visual Studio 2017. Als u in plaats van Visual Studio Code gebruikt, raadpleegt u de instructies in [gebruik van Visual Studio Code te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge](how-to-vs-code-develop-module.md).
+In deze zelfstudie leert de stappen ontwikkeling voor Visual Studio 2019. Als u in plaats van Visual Studio Code gebruikt, raadpleegt u de instructies in [gebruik van Visual Studio Code te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge](how-to-vs-code-develop-module.md). Als u gebruikmaakt van Visual Studio 2017 (versie 15.7 of hoger), plrease downloadt en installeert [Azure IoT Edge-Tools voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -94,19 +94,19 @@ Gebruik de Docker-documentatie om te installeren op uw ontwikkelcomputer:
 
 ## <a name="set-up-visual-studio-and-tools"></a>Instellen van Visual Studio en hulpprogramma 's
 
-De IoT-extensies voor Visual Studio 2017 gebruiken voor het ontwikkelen van IoT Edge-modules. Deze uitbreidingen bevatten projectsjablonen, het maken van het manifest implementatie automatiseren en kunnen u controleren en beheren van IoT Edge-apparaten. In deze sectie kunt u Visual Studio en de IoT Edge-extensie installeren en vervolgens uw Azure-account instellen voor het beheren van IoT Hub-resources vanuit Visual Studio. 
+De IoT-extensies voor Visual Studio 2019 gebruiken voor het ontwikkelen van IoT Edge-modules. Deze uitbreidingen bevatten projectsjablonen, het maken van het manifest implementatie automatiseren en kunnen u controleren en beheren van IoT Edge-apparaten. In deze sectie kunt u Visual Studio en de IoT Edge-extensie installeren en vervolgens uw Azure-account instellen voor het beheren van IoT Hub-resources vanuit Visual Studio. 
 
-1. Als u geen Visual Studio al op uw ontwikkelcomputer hebt [Visual Studio 2017 installeren](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) met de volgende workloads: 
+1. Als u geen Visual Studio al op uw ontwikkelcomputer hebt [2019 Visual Studio installeren](https://docs.microsoft.com/visualstudio/install/install-visual-studio) met de volgende workloads: 
 
    * Azure-ontwikkeling
    * Desktopontwikkeling metC++
    * Platformoverschrijdende ontwikkelmogelijkheden van .NET Core
 
-1. Als u Visual Studio 2017 al op uw ontwikkelcomputer hebt, zorg ervoor dat de versie 15.7 of hoger. Volg de stappen in [Visual Studio wijzigen](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017) om toe te voegen van de vereiste werkbelastingen als u nog geen hebt.
+1. Als u Visual Studio 2019 al op uw ontwikkelcomputer hebt. Volg de stappen in [Visual Studio wijzigen](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) om toe te voegen van de vereiste werkbelastingen als u nog geen hebt.
 
-2. Download en installeer de [hulpprogramma's voor Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) -extensie voor Visual Studio 2017. 
+2. Download en installeer de [hulpprogramma's voor Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) -extensie voor Visual Studio 2019. 
 
-3. Wanneer uw installaties voltooid zijn, opent u Visual Studio.
+3. Wanneer uw installaties voltooid zijn, opent u Visual Studio 2019 en selecteer **doorgaan zonder code**.
 
 4. Selecteer **weergave** > **Cloud Explorer**. 
 
@@ -122,24 +122,25 @@ De IoT-extensies voor Visual Studio 2017 gebruiken voor het ontwikkelen van IoT 
 
 ## <a name="create-a-new-module-project"></a>Maak een nieuw project in de module
 
-De hulpprogramma's voor Azure IoT Edge-extensie biedt projectsjablonen voor alle ondersteunde IoT Edge module talen in Visual Studio 2017. Deze sjablonen zijn alle bestanden en code die u nodig hebt voor het implementeren van een module werken als u wilt testen van IoT Edge of geeft u een beginpunt voor het aanpassen van de sjabloon met uw eigen bedrijfslogica. 
+De hulpprogramma's voor Azure IoT Edge-extensie biedt projectsjablonen voor alle ondersteunde IoT Edge module talen in Visual Studio. Deze sjablonen zijn alle bestanden en code die u nodig hebt voor het implementeren van een module werken als u wilt testen van IoT Edge of geeft u een beginpunt voor het aanpassen van de sjabloon met uw eigen bedrijfslogica. 
 
-1. Visual Studio als beheerder uitvoeren.
+1. Selecteer **bestand** > **nieuwe** > **Project...**
 
-2. Selecteer **Bestand** > **Nieuw** > **Project**. 
-
-3. Selecteer in het venster Nieuw project, de **Azure IoT** type toepassingsproject en kies de **Azure IoT Edge** project. Wijzig de naam van het project en de oplossing of accepteer de standaardwaarde **AzureIoTEdgeApp1**. Selecteer **OK** om het project te maken. 
+2. In het nieuwe projectvenster 2. Zoek in het venster Nieuw project **IoT Edge** toepassingsproject en kies de **Azure IoT Edge (Windows-amd64)** project. Klik op **volgende**. 
 
    ![Een nieuw Azure IoT Edge-project maken](./media/tutorial-develop-for-windows/new-project.png)
+
+3. In de configureren uw nieuw projectvenster, wijzig de naam van het project en de oplossing iets beschrijvende als volgt aan bij **CTutorialApp**. Klik op **maken** om het project te maken.
+
+   ![Een nieuw project voor Azure IoT Edge configureren](./media/tutorial-develop-for-windows/configure-project.png)
+ 
 
 4. In de IoT Edge-toepassing en het modulevenster, configureert u uw project met de volgende waarden: 
 
    | Veld | Value |
    | ----- | ----- |
-   | Platform voor toepassingen | Schakel het selectievakje **Linux Amd64**, en Controleer **WindowsAmd64**. |
-   | Selecteer een sjabloon | Selecteer **C Module**. | 
-   | Naam van de module-project | Accepteer de standaardwaarde **IoTEdgeModule1**. | 
-   | Opslagplaats voor docker-installatiekopieën | Een opslagplaats voor afbeeldingen bevat de naam van het containerregister en de naam van uw containerafbeelding. Uw containerinstallatiekopie wordt vooraf ingevuld vanuit de waarde van de naam van de module project. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br> De opslagplaats voor de uiteindelijke installatiekopie ziet eruit als \<registernaam\>.azurecr.io/iotedgemodule1. |
+
+   | Selecteer een sjabloon | Selecteer **C Module**. | | Module projectnaam | Accepteer de standaardwaarde **IoTEdgeModule1**. | | Opslagplaats voor docker-installatiekopieën | Een opslagplaats voor de installatiekopie bevat de naam van het containerregister en de naam van uw containerinstallatiekopie. Uw containerinstallatiekopie wordt vooraf ingevuld vanuit de waarde van de naam van de module project. Vervang **localhost:5000** door de waarde van de aanmeldingsserver uit uw Azure-containerregister. U vindt de aanmeldingsserver op de overzichtspagina van het containerregister in de Azure-portal. <br><br> De opslagplaats voor de uiteindelijke installatiekopie ziet eruit als \<registernaam\>.azurecr.io/iotedgemodule1. |
 
    ![Configureren van uw project voor het doelapparaat en module-type containerregister](./media/tutorial-develop-for-windows/add-application-and-module.png)
 
@@ -332,7 +333,7 @@ De opdrachten in deze sectie zijn voor uw IoT Edge-apparaat, niet op uw ontwikke
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie, Visual Studio 2017 instellen op uw ontwikkelcomputer en uw eerste IoT Edge module op basis van deze geïmplementeerd. Nu u de basisbegrippen kent, kunt u proberen functionaliteit toevoegen aan een module zodat deze de passeren gegevens kunt analyseren. Kies de taal van uw voorkeur: 
+In deze zelfstudie, Visual Studio 2019 instellen op uw ontwikkelcomputer en uw eerste IoT Edge module op basis van deze geïmplementeerd. Nu u de basisbegrippen kent, kunt u proberen functionaliteit toevoegen aan een module zodat deze de passeren gegevens kunt analyseren. Kies de taal van uw voorkeur: 
 
 > [!div class="nextstepaction"] 
 > [C](tutorial-c-module-windows.md)

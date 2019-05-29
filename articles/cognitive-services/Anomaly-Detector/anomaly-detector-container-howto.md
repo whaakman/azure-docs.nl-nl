@@ -7,14 +7,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: aahi
-ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233610"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306985"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installeren en uitvoeren van containers voor de detectie van afwijkingen
 
@@ -22,7 +22,7 @@ De detectie van afwijkingen heeft de volgende container:
 
 |Function|Functies|
 |-|-|
-|Detectie van afwijkingen| <li> Afwijkingen detecteert wanneer deze zich in realtime voordoen. <li> Detecteert afwijkingen in uw gegevensset als een batch. <li> Infereert het verwachte normale bereik van uw gegevens. <li> Ondersteunt anomaliedetectie detectie gevoeligheid correctie voor een beter aanpassen aan uw gegevens. |
+|Anomaly Detector| <li> Afwijkingen detecteert wanneer deze zich in realtime voordoen. <li> Detecteert afwijkingen in uw gegevensset als een batch. <li> Infereert het verwachte normale bereik van uw gegevens. <li> Ondersteunt anomaliedetectie detectie gevoeligheid correctie voor een beter aanpassen aan uw gegevens. |
 
 Raadpleeg voor gedetailleerde informatie over de API's:
 * [Meer informatie over Anomaliedetectie Detector API-service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -165,7 +165,7 @@ Gebruikmaken van de host https://localhost:5000, voor de container met API's.
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u de container wordt uitgevoerd met een uitvoer [koppelen](anomaly-detector-container-configuration.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
@@ -176,6 +176,10 @@ De detectie van afwijkingen containers verzenden factuurgegevens naar Azure, met
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Zie voor meer informatie over deze opties [containers configureren](anomaly-detector-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Samenvatting
 
