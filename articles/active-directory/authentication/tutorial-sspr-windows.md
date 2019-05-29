@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861533"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253069"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Zelfstudie: Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -29,7 +29,7 @@ In deze zelfstudie gaat u gebruikers in staat stellen om hun wachtwoorden op het
 
 ## <a name="prerequisites"></a>Vereisten
 
-* U moet ten minste de Windows 10-versie van de update van april 2018 gebruiken. Daarnaast moeten de apparaten:
+* U moet actief ten minste Windows 10, versie April 2018 Update (v1803) en de apparaten moeten zijn:
    * [aan Azure AD zijn gekoppeld](../device-management-azure-portal.md) of
    * [aan een hybride Azure AD zijn gekoppeld](../device-management-hybrid-azuread-joined-devices-setup.md), met netwerkconnectiviteit aan een domeincontroller.
 * U moet self-service voor wachtwoordherstel voor Azure AD inschakelen.
@@ -122,7 +122,7 @@ Wanneer u deze functionaliteit test met Extern bureaublad of een Verbeterde VM-s
 
 * Wachtwoordherstel wordt momenteel niet ondersteund vanaf een extern bureaublad.
 
-Als Ctrl+Alt+Del vanwege beleid in versies van Windows 10 vóór versie 1809 is vereist, werkt **Wachtwoord opnieuw instellen** niet.
+Als u Ctrl + Alt + Del is vereist door het beleid in versies van Windows 10 voordat u v1809, **wachtwoord opnieuw instellen** werkt niet.
 
 Als meldingen voor het vergrendelen van het scherm zijn uitgeschakeld, werkt **Wachtwoord opnieuw instellen** niet.
 
