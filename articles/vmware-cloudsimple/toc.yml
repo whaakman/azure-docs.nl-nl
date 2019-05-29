@@ -6,7 +6,7 @@
         - name: Wat is de VMware-oplossing van CloudSimple?
           href: cloudsimple-vmware-solutions-overview.md
         - name: Belangrijkste concepten voor beheer
-          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+          href: key-concepts.md
     - name: Snelstartgids
       expanded: true
       items:
@@ -21,7 +21,7 @@
     - name: Concepten
       items:
         - name: Service
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+          href: cloudsimple-service.md
         - name: Knooppunten
           href: cloudsimple-node.md
         - name: Privécloud
@@ -45,13 +45,13 @@
         - name: VMware in privécloud
           href: vmware-components.md
         - name: Beveiligingsoverzicht
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+          href: cloudsimple-security.md
         - name: Knooppuntenquotum
           href: node-quota.md
         - name: Onderhoud en updates
           href: cloudsimple-maintenance-updates.md
         - name: Veelgestelde vragen
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+          href: cloudsimple-faq.md
     - name: Zelfstudies
       items:
         - name: Resourceprovider inschakelen

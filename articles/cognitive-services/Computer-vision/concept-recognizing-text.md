@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368001"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357183"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Afgedrukte en handgeschreven tekst herkennen
 
@@ -24,12 +24,12 @@ Computer Vision biedt een aantal services die Detecteer en extraheer gedrukte of
 
 ## <a name="read-api"></a>Lezen-API
 
-De API lezen detecteert tekstinhoud in een afbeelding met behulp van onze nieuwste modellen voor spraakherkenning en wordt de herkende tekst geconverteerd naar een machinaal leesbare tekenstroom. Deze is geoptimaliseerd voor tekst maken veel afbeeldingen (zoals documenten die digitaal zijn gescand) en voor installatiekopieën met een groot aantal visual ruis. Het uitvoeren van asynchroon omdat grotere documenten enige tijd duren kunnen om een resultaat te retourneren.
+De API lezen detecteert tekstinhoud in een afbeelding met behulp van onze nieuwste modellen voor spraakherkenning en wordt de herkende tekst geconverteerd naar een machinaal leesbare tekenstroom. Dit geoptimaliseerd voor tekst maken veel afbeeldingen (zoals documenten die digitaal zijn gescand) en voor installatiekopieën met een groot aantal visual ruis. Het zal bepalen welk model u erkenning wilt gebruiken voor elke regel tekst, afbeeldingen met afdrukken en handgeschreven tekst ondersteunen. De lezen-API wordt asynchroon uitgevoerd omdat grotere documenten enige tijd duren kunnen om een resultaat te retourneren.
 
 De leesbewerking onderhoudt de oorspronkelijke regel groeperingen van herkende woorden in de uitvoer ervan weergegeven. Elke regel wordt geleverd met het selectiekader vak coördinaten en elk woord in de regel is ook een eigen coördinaten. Als een woord is herkend met weinig vertrouwen, wordt deze informatie ook overgebracht. Zie de [lezen API-referentiedocumenten](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) voor meer informatie.
 
 > [!NOTE]
-> Deze functie is momenteel in preview en is alleen beschikbaar voor Engelse tekst.
+> Deze functie is alleen beschikbaar voor Engelse tekst.
 
 ### <a name="image-requirements"></a>Vereisten voor installatiekopieën
 
@@ -80,7 +80,7 @@ De Text-API herkent werkt met de installatiekopieën die voldoen aan de volgende
 - De afmetingen van de afbeelding moet tussen 50 x 50 en 4200 x 4200 pixels.
 - De grootte van de afbeelding moet minder dan 4 megabyte (MB).
 
-## <a name="improve-results"></a>Resultaten verbeteren
+## <a name="limitations"></a>Beperkingen
 
 De nauwkeurigheid van de tekst herkenning van bewerkingen, is afhankelijk van de kwaliteit van de installatiekopieën. De volgende factoren kunnen ertoe leiden dat een onjuist lezen:
 

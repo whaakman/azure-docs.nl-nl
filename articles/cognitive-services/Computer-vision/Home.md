@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901099"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357397"
 ---
 # <a name="what-is-computer-vision"></a>Wat is Computer Vision?
 
@@ -46,7 +46,7 @@ U kunt afbeeldingen analyseren om inzicht te krijgen in de visuele kenmerken en 
 
 U kunt de Computer Vision gebruiken om tekst te extraheren uit een afbeelding in een machineleesbare teken stream met [optische tekenherkenning (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd en worden de framecoördinaten van elk woord weergegeven. OCR ondersteunt 25 talen en detecteert automatisch de taal van de herkende tekst.
 
-U kunt ook de [lezen API](concept-recognizing-text.md#read-api) voor het extraheren van afdrukken en handgeschreven tekst uit afbeeldingen en tekst maken veel documenten. De lezen-API maakt gebruik van bijgewerkte modellen en werkt voor een verschillende objecten met verschillende oppervlakken en achtergronden, zoals ontvangstbevestigingen voor e-mails, posters, visitekaartjes, letters en whiteboards. Op dit moment de lezen-API is beschikbaar als preview en Engels is de enige ondersteunde taal.
+U kunt ook de [lezen API](concept-recognizing-text.md#read-api) voor het extraheren van afdrukken en handgeschreven tekst uit afbeeldingen en tekst maken veel documenten. De lezen-API maakt gebruik van bijgewerkte modellen en werkt voor een verschillende objecten met verschillende oppervlakken en achtergronden, zoals ontvangstbevestigingen voor e-mails, posters, visitekaartjes, letters en whiteboards. Engels is momenteel de enige ondersteunde taal.
 
 ## <a name="moderate-content-in-images"></a>Beheren van inhoud in afbeeldingen
 

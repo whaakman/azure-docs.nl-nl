@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0d201baec253abee9ad8a998dd36968927a25a6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692070"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357595"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Routes vinden voor verschillende manieren van reizen met Azure Maps
 
@@ -216,7 +216,7 @@ Deze sectie wordt beschreven hoe u met de route service API van kaarten zoeken n
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   De `SubscriptionKeyCredential` maakt een `SubscriptionKeyCredentialPolicy` om HTTP-aanvragen naar Azure kaarten met de abonnementssleutel te verifiëren. De `atlas.service.MapsURL.newPipeline()` wordt in de `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) exemplaar. De `routeURL` vertegenwoordigt een URL naar Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) bewerkingen.
+   De `SubscriptionKeyCredential` maakt een `SubscriptionKeyCredentialPolicy` om HTTP-aanvragen naar Azure kaarten met de abonnementssleutel te verifiëren. De `atlas.service.MapsURL.newPipeline()` wordt in de `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) exemplaar. De `routeURL` vertegenwoordigt een URL naar Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) bewerkingen.
 
 2. Na het instellen van referenties en de URL toevoegen de volgende JavaScript code voor het maken van een route vanaf het begin naar het eindpunt voor een vrachtwagen uitvoering USHazmatClass2 lading ingedeeld en de resultaten weer te geven.
 
@@ -245,7 +245,7 @@ Deze sectie wordt beschreven hoe u met de route service API van kaarten zoeken n
     });
     ```
 
-    Dit codefragment bovenstaande query's voor de routering Azure Maps-service via de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) methode. De route-regel wordt vervolgens opgehaald uit de verzameling van de functie GeoJSON uit het antwoord dat wordt opgehaald met behulp van de `geojson.getFeatures()` methode. De route-regel wordt vervolgens toegevoegd aan de gegevensbron. Een index 0 om ervoor te zorgen dat deze wordt weergegeven vóór alle andere regels in de gegevensbron worden ook toegevoegd. Dit gebeurt omdat de berekende vrachtwagenroute vaak langzamer uitvalt dan een autoroute, en als de vrachtwagenroute na de autoroute aan de gegevensbron wordt toegevoegd, wordt de vrachtwagenroute bovenop de autoroute weergegeven. Twee eigenschappen worden toegevoegd aan de regel van de route vrachtwagen, de kleur van een lijn die een mooie schaduw van blauw en de breedte van een lijn van negen pixels.
+    Dit codefragment bovenstaande query's voor de routering Azure Maps-service via de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) methode. De route-regel wordt vervolgens opgehaald uit de verzameling van de functie GeoJSON uit het antwoord dat wordt opgehaald met behulp van de `geojson.getFeatures()` methode. De route-regel wordt vervolgens toegevoegd aan de gegevensbron. Een index 0 om ervoor te zorgen dat deze wordt weergegeven vóór alle andere regels in de gegevensbron worden ook toegevoegd. Dit gebeurt omdat de berekende vrachtwagenroute vaak langzamer uitvalt dan een autoroute, en als de vrachtwagenroute na de autoroute aan de gegevensbron wordt toegevoegd, wordt de vrachtwagenroute bovenop de autoroute weergegeven. Twee eigenschappen worden toegevoegd aan de regel van de route vrachtwagen, de kleur van een lijn die een mooie schaduw van blauw en de breedte van een lijn van negen pixels.
 
 3. Voeg de volgende JavaScript-code voor het maken van een route voor een auto en de resultaten weer te geven.
 
@@ -265,7 +265,7 @@ Deze sectie wordt beschreven hoe u met de route service API van kaarten zoeken n
     });
     ```
 
-    Dit codefragment bovenstaande query's voor de routering Azure Maps-service via de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) methode. De route-regel wordt vervolgens opgehaald uit de verzameling van de functie GeoJSON uit het antwoord dat wordt opgehaald met behulp van de `geojson.getFeatures()` methode. De route-regel wordt vervolgens toegevoegd aan de gegevensbron. Twee eigenschappen worden toegevoegd aan de regel van de route auto, de kleur van een lijn die een tint van paarse en de breedte van een lijn van vijf pixels.  
+    Dit codefragment bovenstaande query's voor de routering Azure Maps-service via de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) methode. De route-regel wordt vervolgens opgehaald uit de verzameling van de functie GeoJSON uit het antwoord dat wordt opgehaald met behulp van de `geojson.getFeatures()` methode. De route-regel wordt vervolgens toegevoegd aan de gegevensbron. Twee eigenschappen worden toegevoegd aan de regel van de route auto, de kleur van een lijn die een tint van paarse en de breedte van een lijn van vijf pixels.  
 
 4. Sla het bestand **MapTruckRoute.html** op en vernieuw de browser om het resultaat te bekijken. Bij een succesvolle verbinding met de-API's van Maps ziet de kaart er ongeveer als volgt uit.
 

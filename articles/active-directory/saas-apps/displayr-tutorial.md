@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a2d793a1fbd68d6a71f48b556a77ddcaaaf111
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93a1ad1f9fbc01cd06b3aaffc8a718634e8454d6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66112152"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357035"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Zelfstudie: Displayr integreren met Azure Active Directory
 
@@ -91,11 +91,11 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-1. Displayr toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster Gebruikerskenmerken te openen.
+1. Displayr toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster gebruikerskenmerken te openen.
 
     ![image](common/edit-attribute.png)
 
-1. Bovendien hierboven verwacht Displayr toepassing paar meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de **gebruikerskenmerken en Claims** sectie op de **groepclaims (Preview)** dialoogvenster, voer de volgende stappen uit:
+1. Bovendien hierboven verwacht Displayr toepassing paar meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de **gebruikerskenmerken en Claims** sectie op de **groepclaims (Preview)** dialoogvenster, voer de volgende stappen uit:
 
     a. Klik op de **pen** naast **groepen die worden geretourneerd in de claim**.
 
@@ -133,7 +133,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     ![Configuratie](./media/displayr-tutorial/config01.png)
 
-5. Schakel over naar **instellingen** in het bovenste menu en schuif omlaag in de pagina voor het klikken op **configureren van eenmalige aanmelding op (SAML)**.
+5. Schakel over naar **instellingen** in het bovenste menu en schuif omlaag in de pagina voor het klikken op **configureren van eenmalige aanmelding op (SAML)** .
 
     ![Configuratie](./media/displayr-tutorial/config02.png)
 
