@@ -8,15 +8,6 @@
     - name: Overzicht en voordelen van Azure Marketplace en AppSource
       href: ./marketplace-publishers-guide.md
       items:
-        - name: Uitgever worden op de marketplace
-          href: ./become-publisher.md
-          items:
-            - name: Een Microsoft-account maken
-              href: ./guidelines.md
-            - name: Registreren in Dev Center
-              href: ./register-dev-center.md
-            - name: Gebruikskenmerken van klanten van Azure-partners
-              href: ./azure-partner-customer-usage-attribution.md
         - name: 'Een marketplace, twee webwinkels'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Publicatie-opties en -overwegingen
@@ -30,6 +21,8 @@
               href: ./private-offers.md
             - name: Standaardcontract
               href: ./standard-contract.md
+            - name: Gebruikskenmerken van klanten van Azure-partners
+              href: ./azure-partner-customer-usage-attribution.md
         - name: Publicatiehandleiding op type aanbieding
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -481,6 +474,15 @@
       items:
         - name: Een SaaS-aanbieding maken
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS-uitvoerings-API's
+          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: Een SaaS-toepassing registreren
+              href: ./partner-center-portal/pc-saas-registration.md
+            - name: SaaS-uitvoerings-API's v2
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: SaaS-uitvoerings-API's v1 (afgeschaft)
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: Publicatiestatus
       href: ./partner-center-portal/publishing-status.md
     - name: Bestaande aanbiedingen bijwerken
