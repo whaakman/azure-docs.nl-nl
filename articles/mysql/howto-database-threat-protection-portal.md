@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: 76f6c15fc1e186e254c4edbb53a2a0ccf7050b3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "61458947"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Advanced Threat Protection voor Azure Database for MySQL
@@ -28,7 +28,7 @@ Advanced Threat Protection maakt deel uit van de aanbieding met geavanceerde bev
 
 ## <a name="set-up-threat-detection"></a>Detectie van bedreigingen instellen
 1. Starten van de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
-2. Navigeer naar de configuratiepagina van de Azure Database for MySQL-server die u wilt beveiligen. Selecteer in de beveiligingsinstellingen **Advanced Threat Protection (Preview)**.
+2. Navigeer naar de configuratiepagina van de Azure Database for MySQL-server die u wilt beveiligen. Selecteer in de beveiligingsinstellingen **Advanced Threat Protection (Preview)** .
 3. Op de **Advanced Threat Protection (Preview)** configuratiepagina:
 
    - Advanced Threat Protection inschakelen op de server.
@@ -46,7 +46,7 @@ U ontvangt een e-mailmelding bij detectie van afwijkende activiteiten. Het e-mai
 
     Weergave actieve bedreigingen:
 
-    ![Actieve bedreigingen](./media/howto-database-threat-protection-portal/active-threats.png)
+    ![actieve bedreigingen](./media/howto-database-threat-protection-portal/active-threats.png)
 
 2. Klik op een specifieke waarschuwing om aanvullende gegevens en acties voor deze bedreiging te onderzoeken en oplossen van problemen met toekomstige bedreigingen.
     

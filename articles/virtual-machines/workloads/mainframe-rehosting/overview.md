@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: c1d7b52bdce77ca108781a999a8a85b3e3fca0b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "61487446"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Mainframe opnieuw hosten op Azure virtual machines
@@ -92,7 +92,7 @@ Met Azure IaaS, zoals een virtuele machine, bieden specifieke functies failover-
 
 Mainframes doorgaans opschalen, terwijl cloud omgevingen scale-out. Azure biedt een scala aan [Linux](/azure/virtual-machines/linux/sizes) en [Windows](/azure/virtual-machines/windows/sizes) grootten om te voldoen aan uw behoeften. De cloud kan ook worden geschaald omhoog of omlaag overeenkomst gebruiker exacte specificaties. Rekenkracht, opslag, en services [schaal](/azure/architecture/best-practices/auto-scaling) on-demand onder een factureringsmodel op basis van gebruik.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 In de cloud, hebt u een scala aan opties voor flexibele, schaalbare opslag en u betaalt alleen voor wat u nodig hebt. [Azure Storage](/azure/storage/common/storage-introduction) biedt een hoge mate schaalbare opslag voor gegevensobjecten, een bestandssysteemservice voor de cloud, een berichtenarchief voor betrouwbare en een NoSQL-archief. Beheerde en onbeheerde schijven bieden voor virtuele machines, permanente, beveiligde schijfopslag.
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 339cbf18d79053dfb0704d928b8c9251c73b3a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a3b67e9b0dc41eeb14000400912892fbf29acfe2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951782"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399485"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Failback van virtuele Azure-machine tussen Azure-regio 's
 
@@ -50,7 +50,7 @@ Nadat de virtuele machines opnieuw zijn beveiligd, kunt u een failback naar de p
 5. Nadat de failovertest voltooid is, selecteert u **failovertest** voor het opschonen van resources die in de regio van de gegevensbron voor de testfailover zijn gemaakt.
 6. In **gerepliceerde items**, selecteer de virtuele machine en selecteer vervolgens **Failover**.
 7. In **Failover**, selecteer een herstelpunt om te fungeren als failover voor:
-    - **Meest recente (standaard)**: Verwerkt de gegevens in de Site Recovery-service en biedt het laagste beoogde herstelpunt (RPO).
+    - **Meest recente (standaard)** : Verwerkt de gegevens in de Site Recovery-service en biedt het laagste beoogde herstelpunt (RPO).
     - **Laatst verwerkt**: Hiermee herstelt u de virtuele machine naar de meest recente herstelpunt dat is verwerkt door Site Recovery.
     - **Aangepast**: Failover-schakeling naar een bepaald herstelpunt. Deze optie is handig voor het uitvoeren van een testfailover.
 
