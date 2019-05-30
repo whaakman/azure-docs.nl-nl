@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 30b1b08e27eca826a9f882475723913810b3feb4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a040f3895f710f4ebbdcd3f73568775a909aa64c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721845"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258273"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Snelstart: Een virtueel netwerk maken met PowerShell
 
@@ -140,9 +140,6 @@ Open een opdrachtprompt op de lokale computer. Voer de opdracht `mstsc` uit. Ver
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-Er wordt een Remote Desktop Protocol-bestand (*.rdp*) naar uw computer geopend en een extern bureaublad geopend.
-
 1. Selecteer **Verbinding maken** wanneer hierom wordt gevraagd.
 
 1. Voer de gebruikersnaam en het wachtwoord in die u hebt opgegeven bij het maken van de virtuele machine.

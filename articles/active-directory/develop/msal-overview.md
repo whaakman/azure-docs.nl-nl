@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7aaa0de87ffa8280a6db34c5497779a5ded41c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4bd3e7d47b6e3083af6f388a5cd750da240a76b6
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545877"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392891"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Overzicht van Microsoft Authentication Library (MSAL)
 Microsoft Authentication Library (MSAL) biedt ontwikkelaars de mogelijkheid aan te schaffen [tokens](developer-glossary.md#security-token) van de Microsoft identity-platform-eindpunt voor toegang tot beveiligde Web-API's. Deze Web-API's kunnen worden de Microsoft Graph, andere Microsoft-APIS, Web-API's van derden of uw eigen Web-API. MSAL is beschikbaar voor .NET, JavaScript, Android en iOS-, die ondersteuning bieden voor veel verschillende toepassingsarchitecturen en platforms.
@@ -52,10 +52,10 @@ MSAL kan worden gebruikt in veel toepassingen-scenario's, waaronder het volgende
 
 ## <a name="languages-and-frameworks"></a>Talen en frameworks
 
-| Tapewisselaar | Ondersteunde platforms en frameworks|
+| Bibliotheek | Ondersteunde platforms en frameworks|
 | --- | --- | 
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universal Windows Platform|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript-frameworks, zoals AngularJS, Ember.js of Durandal.js|
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript-frameworks, zoals AngularJS, Ember.js of Durandal.js|
 | ![MSAL voor Android](media/sample-v2-code/logo_Android.png) <br/>[MSAL voor Android (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | ![MSAL voor iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
 

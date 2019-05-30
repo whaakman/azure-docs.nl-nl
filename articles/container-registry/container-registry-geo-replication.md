@@ -6,18 +6,18 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 04/10/2018
+ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: 2dc314dd1d1e728f03c1d0c660d9339254ddc462
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a26b261a900dfae742e00d9540e744524b781815
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60868943"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384104"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicatie in Azure Container Registry
 
-Bedrijven die lokale aanwezigheid willen, of een back-up zonder opnieuw opstarten, kunnen services uitvoeren vanuit meerdere Azure-regio's. Het plaatsen van een containerregister in elke regio waarin installatiekopieën worden uitgevoerd, is een best practice die bewerkingen dicht bij het netwerk mogelijk maakt, wat zorgt voor snelle, betrouwbare overdrachten van installatiekopielagen. Met geo-replicatie kan een Azure-containerregister als één register functioneren en meerdere regio's bedienen met regionale registers voor meerdere masters.
+Bedrijven die lokale aanwezigheid willen, of een back-up zonder opnieuw opstarten, kunnen services uitvoeren vanuit meerdere Azure-regio's. Het plaatsen van een containerregister in elke regio waarin installatiekopieën worden uitgevoerd, is een best practice die bewerkingen dicht bij het netwerk mogelijk maakt, wat zorgt voor snelle, betrouwbare overdrachten van installatiekopielagen. Met geo-replicatie kan een Azure-containerregister als één register functioneren en meerdere regio's bedienen met regionale registers voor meerdere masters. 
 
 Een geo-gerepliceerd register biedt de volgende voordelen:
 
@@ -60,10 +60,11 @@ De functie voor geo-replicatie van Azure Container Registry biedt de volgende vo
 
 * Eén register beheren voor alle regio's: `contoso.azurecr.io`
 * Eén configuratie van installatiekopie-implementaties beheren, omdat voor alle regio's dezelfde installatiekopie-URL wordt gebruikt: `contoso.azurecr.io/public/products/web:1.2`
-* Pushen naar een enkel register, terwijl ACR de geo-replicatie beheert, met inbegrip van regionale webhooks voor lokale meldingen
+* Push naar één register, terwijl ACR de geo-replicatie beheert. U kunt regionale [webhooks](container-registry-webhook.md) aan op de hoogte stellen van de gebeurtenissen in specifieke replica's.
 
 ## <a name="configure-geo-replication"></a>Geo-replicatie configureren
-Het configureren van geo-replicatie is net zo gemakkelijk als regio's aanklikken op een kaart.
+
+Het configureren van geo-replicatie is net zo gemakkelijk als regio's aanklikken op een kaart. U kunt ook de geo-replicatie beheren met behulp van hulpprogramma's zoals de [az acr replicatie](/cli/azure/acr/replication) opdrachten in de Azure CLI.
 
 De functie voor geo-replicatie is alleen voor [Premium-registers](container-registry-skus.md) beschikbaar. Als uw register nog niet Premium is, kunt u overstappen van Basic en Standard naar Premium in de [Azure-portal](https://portal.azure.com):
 
@@ -91,15 +92,19 @@ Als u extra replica's wilt configureren, selecteert u de groene zeshoeken voor a
 
 ACR begint installatiekopieën te synchroniseren voor de geconfigureerde replica's. Zodra dit is voltooid, geeft de portal *Gereed* weer. De status van de replica in de portal wordt niet automatisch bijgewerkt. Gebruik de vernieuwknop om de bijgewerkte status te bekijken.
 
+## <a name="considerations-for-using-a-geo-replicated-registry"></a>Overwegingen voor het gebruik van een geo-gerepliceerde register
+
+* Elke regio in een geo-gerepliceerde register is onafhankelijk eenmaal is ingesteld. Azure Container Registry-Sla's gelden voor elke regio geo-replicatie.
+* Wanneer u push of pull installatiekopieën vanuit een geo-gerepliceerde register, Azure Traffic Manager op de achtergrond verzendt de aanvraag naar het register bevindt zich in de regio het dichtst bij u.
+* Nadat u het bijwerken van een installatiekopie of tag naar de dichtstbijzijnde regio gepusht, duurt het even voor Azure Container Registry voor het repliceren van de manifesten en lagen naar de resterende regio's dat u zich aanmeldde. Grotere afbeeldingen duurt langer dan kleinere repliceren. Installatiekopieën en tags worden gesynchroniseerd tussen de replicatie-regio's met een model voor uiteindelijke consistentie.
+* Voor het beheren van werkstromen die afhankelijk van push-updates naar een geo-gerepliceerde register zijn, wordt aangeraden dat u configureert [webhooks](container-registry-webhook.md) om te reageren op de push-gebeurtenissen. U kunt regionale webhooks binnen een geo-gerepliceerde register instellen om bij te houden van push-gebeurtenissen als ze in de regio's voor geo-replicatie hebt voltooid.
+
+
 ## <a name="geo-replication-pricing"></a>Prijzen van geo-replicatie
 
 Geo-replicatie is een functie van de [Premium SKU](container-registry-skus.md) van Azure Container Registry. Wanneer u een register naar de gewenste regio's repliceert, worden er kosten voor het Premium-register voor elke regio gemaakt.
 
 In het voorgaande voorbeeld ging Contoso van twee registers naar één en voegde het bedrijf replica's toe aan US - oost, Canada - centraal en Europa - west. Contoso zou vier keer per maand Premium betalen, zonder extra configuratie of beheer. Elke regio haalt nu installatiekopieën lokaal op, wat zorgt voor betere prestaties en een hogere betrouwbaarheid zonder kosten voor uitgaand netwerkverkeer voor US - west naar Canada en US - oost.
-
-## <a name="summary"></a>Samenvatting
-
-Met geo-replicatie kunt u uw regionale datacenters als één globale cloud beheren. Aangezien installatiekopieën voor vele Azure-services worden gebruikt, kunt u profiteren van een enkel beheervlak terwijl u een snelle en betrouwbare voorziening van lokale installatiekopieën dicht bij het netwerk in stand houdt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

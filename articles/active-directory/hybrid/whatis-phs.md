@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f588115e38ded07b79568c91b8d166949b34a886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83e172e61411c7c1c098706b5ff4566f565d6bf1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294925"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253858"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Wat is synchronisatie van wachtwoord-hashes met Azure AD?
 Wachtwoord-hashsynchronisatie is een van de aanmeldingsmethoden voor hybride identiteit. Azure AD Connect synchroniseert een hash, van de hash, van het wachtwoord van een gebruiker vanuit een on-premises Active Directory-exemplaar naar een Azure AD-exemplaar in de cloud.
@@ -47,7 +47,7 @@ Zie [Wat is hybride identiteit?](whatis-hybrid-identity.md) voor meer informatie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Wat is hybride identiteit?](whatis-phs.md)
+- [Wat is hybride identiteit?](whatis-hybrid-identity.md)
 - [Wat zijn Azure AD Connect en Connect Health?](whatis-azure-ad-connect.md)
 - [Wat is pass-through-verificatie (PTA)?](how-to-connect-pta.md)
 - [Wat is federatie?](whatis-fed.md)

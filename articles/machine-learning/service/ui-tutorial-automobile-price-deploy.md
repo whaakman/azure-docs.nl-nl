@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787839"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389205"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Zelfstudie: Een machine learning-model met de visuele interface implementeren
 
@@ -95,7 +95,7 @@ Invoergegevens van de gebruiker krijgt uw geïmplementeerd model via de **Web se
 
 U kunt een webservice testen op het tabblad web service in de visuele interface.
 
-1. Ga naar de sectie van de web-service. Ziet u de webservice die u hebt geïmplementeerd met de naam van de **zelfstudie - auto-prijs voorspellen [voorspellende Exp]**.
+1. Ga naar de sectie van de web-service. Ziet u de webservice die u hebt geïmplementeerd met de naam van de **zelfstudie - auto-prijs voorspellen [voorspellende Exp]** .
 
      ![Schermopname van het tabblad web service met de onlangs gemaakte webservice gemarkeerd](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
@@ -107,7 +107,7 @@ U kunt een webservice testen op het tabblad web service in de visuele interface.
 
     ![Schermopname van de webservice-pagina testen](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Voer gegevens testen of de voorbeeldgegevens autofilled gebruikt en selecteer **Test** aan de onderkant. De testaanvraag wordt verzonden naar de webservice en de resultaten worden weergegeven op de pagina.
+1. Voer gegevens testen of de voorbeeldgegevens autofilled gebruikt en selecteer **Test** aan de onderkant. De testaanvraag wordt verzonden naar de webservice en de resultaten worden weergegeven op de pagina. Hoewel de waarde voor een prijs is gegenereerd voor de invoergegevens, wordt deze niet gebruikt voor het genereren van de waarde voor de voorspelling.
 
 ## <a name="manage-the-web-service"></a>De webservice beheren
 

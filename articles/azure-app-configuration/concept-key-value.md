@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408744"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393609"
 ---
 # <a name="keys-and-values"></a>Sleutels en waarden
 
@@ -27,7 +27,7 @@ Azure App-configuratie worden configuratiegegevens opgeslagen als sleutel / waar
 
 Sleutels fungeren als de naam voor de sleutel / waarde-paren en worden gebruikt voor het opslaan en ophalen van de overeenkomstige waarden ervan. Het is een gebruikelijk om naar het indelen van sleutels in een hiërarchische naamruimte met behulp van een scheidingsteken teken, zoals `/` of `:`. Een te gebruiken die het beste geschikt voor uw toepassing gebruiken. Voor App Configuration zijn sleutels een op zichzelf staand object. Deze parseren sleutels om te achterhalen hoe hun namen zijn gestructureerd of een regel op deze af te dwingen niet.
 
-Het gebruik van de opgeslagen configuratie binnen de App-frameworks kan specifieke naming schema's voor sleutelwaarden bepalen. Als een voorbeeld van Java Spring Cloud framework definieert `Environment` bronnen leveren van instellingen aan een Spring-toepassing voor parameters worden gebruikt door de variabelen die zijn *toepassingsnaam* en *profiel*. Sleutels voor Spring Cloud productspecifieke configuratiegegevens beginnen gewoonlijk met deze twee elementen, gescheiden door een scheidingsteken.
+Het gebruik van de configuratiegegevens in toepassingsframeworks kan specifieke naming schema's voor sleutelwaarden bepalen. Als een voorbeeld van Java Spring Cloud framework definieert `Environment` bronnen leveren van instellingen aan een Spring-toepassing voor parameters worden gebruikt door de variabelen die zijn *toepassingsnaam* en *profiel*. Sleutels voor Spring Cloud productspecifieke configuratiegegevens beginnen gewoonlijk met deze twee elementen, gescheiden door een scheidingsteken.
 
 Sleutels die zijn opgeslagen in App Configuration zijn hoofdlettergevoelige tekenreeksen, op basis van Unicode. De sleutels *app1* en *App1* zijn uniek in een configuratiearchief. Houd hier rekening mee wanneer u configuratie-instellingen in een toepassing, omdat bepaalde frameworks configuratiesleutels case-insensitively verwerken. In het ASP.NET Core-configuratiesysteem worden sleutels bijvoorbeeld als niet-hoofdlettergevoelige tekenreeksen behandeld. Om te voorkomen onvoorspelbaar gedrag wanneer u App-configuratie in een ASP.NET Core-toepassing opvraagt, gebruik geen sleutels die alleen qua hoofdlettergebruik verschillen.
 

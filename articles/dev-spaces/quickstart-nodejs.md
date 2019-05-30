@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snelle ontwikkeling van Kubernetes met containers, microservices en Node.js op Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 7507b6741a373f28e0e780af08d076235e377839
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5efacc38ab6b30a1a4ae45772f2b81030e76eb83
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873155"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393931"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Ontwikkelen met Node.js op Kubernetes met Azure Dev spaties
 
@@ -35,7 +35,7 @@ In deze handleiding leert u het volgende:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Een Azure Kubernetes Service-cluster maken
 
-U moet maken van een AKS-cluster in een [ondersteunde regio](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). De onderstaande opdrachten maakt u een resourcegroep met de naam *MyResourceGroup* en een AKS-cluster met de naam *MyAKS*.
+U moet maken van een AKS-cluster in een [ondersteunde regio][supported-regions]. De onderstaande opdrachten maakt u een resourcegroep met de naam *MyResourceGroup* en een AKS-cluster met de naam *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -111,7 +111,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-U kunt zien dat de service wordt uitgevoerd door het openen van de openbare URL, die wordt weergegeven in de uitvoer van de `azds up` opdracht. In dit voorbeeld wordt de openbare URL is *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+U kunt zien dat de service wordt uitgevoerd door het openen van de openbare URL, die wordt weergegeven in de uitvoer van de `azds up` opdracht. In dit voorbeeld wordt de openbare URL is *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Als u stopt de `azds up` met behulp van de opdracht *Ctrl + c*, de service wordt nog uitgevoerd in AKS en de openbare URL blijven beschikbaar.
 
@@ -168,7 +168,7 @@ Klik op *Debug* vervolgens *Stop Debugging* naar het foutopsporingsprogramma sto
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Instellen en het gebruik van onderbrekingspunten voor foutopsporing
 
-Start uw service met *start Server (AZDS)*.
+Start uw service met *start Server (AZDS)* .
 
 Ga terug naar de *Explorer* weergeven door te klikken op *weergave* vervolgens *Explorer*. Open `server.js` en klik ergens op regel 10 om te zetten de cursor. Om in te stellen van een onderbrekingspunt bereikt *F9* of klik op *Debug* vervolgens *onderbrekingspunt*.
 
@@ -211,3 +211,6 @@ Meer informatie over hoe u Azure Dev spaties kunt complexere toepassingen ontwik
 
 > [!div class="nextstepaction"]
 > [Werken met meerdere containers en teamontwikkeling](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

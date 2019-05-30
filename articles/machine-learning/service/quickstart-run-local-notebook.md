@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864386"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237802"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Quickstart: Gebruik uw eigen notebook-server aan de slag met Azure Machine Learning
 
@@ -33,14 +33,29 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
 * Een Python 3.6 notebook-server met de Azure Machine Learning-SDK geïnstalleerd
 * Een werkruimte van Azure Machine Learning-service
-* A workspace configuration file (**.azureml/config.json** ).
+* A workspace configuration file ( **.azureml/config.json**).
 
-Ophalen van deze vereisten van [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md#portal).
+Ophalen van deze vereisten van [maken van een werkruimte van Azure Machine Learning-service](setup-create-workspace.md#sdk).
+
 
 
 ## <a name="use-the-workspace"></a>De werkruimte gebruiken
 
-Maken van een script of start een notitieblok in dezelfde map als het configuratiebestand van uw werkruimte. Deze code die gebruikmaakt van de basic-API's van de SDK voor het bijhouden van experimenten uitvoeren.
+Maken van een script of een notebook te starten in dezelfde map als het configuratiebestand van de werkruimte ( **.azureml/config.json**).
+
+### <a name="attach-to-workspace"></a>Aan werkruimte toevoegen
+
+Deze code leest informatie van het configuratiebestand om te koppelen aan uw werkruimte.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>Log-waarden
+
+Deze code die gebruikmaakt van de basic-API's van de SDK voor het bijhouden van experimenten uitvoeren.
 
 1. Maak een experiment in de werkruimte.
 1. Leg één waarde vast in het experiment.

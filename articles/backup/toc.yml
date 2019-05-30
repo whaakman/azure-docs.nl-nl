@@ -219,18 +219,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Windows Server-systeemstatus herstellen
           href: backup-azure-restore-system-state.md
-        - name: Recovery Services-kluizen beheren en controleren
-          href: backup-azure-manage-windows-server.md
     - name: Recovery Services-kluis
       items:
         - name: Overzicht van Recovery Services-kluizen
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Een Backup-kluis upgraden naar een Recovery Services-kluis
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Een Recovery Services-kluis maken
+          href: backup-create-rs-vault.md
         - name: Een Recovery Services-kluis verwijderen
           href: backup-azure-delete-vault.md
         - name: Een Recovery Services-kluis verplaatsen
           href: backup-azure-move-recovery-services-vault.md
+        - name: Recovery Services-kluizen beheren en controleren
+          href: backup-azure-manage-windows-server.md
     - name: Problemen oplossen
       items:
         - name: Azure VM

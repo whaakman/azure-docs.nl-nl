@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729270"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236356"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
 
@@ -55,6 +55,9 @@ A.  Als u wilt zien waar de Data Box-schijven die momenteel beschikbaar zijn, ga
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>V. In welke regio's kan ik gegevens opslaan met Data Box Disk?
 A. Data Box-schijf wordt ondersteund voor alle regio's binnen de VS, Canada, Australië, West-Europa en Noord-Europa, Korea en Japan. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
+
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>V. Wordt mijn Data Box-schijf cross-land randen tijdens verzending?
+A. Data Box-schijf in hetzelfde land als hun bestemming worden verzonden en wordt niet overschreden door een land. De enige uitzondering hierop is voor bestellingen in de Europese Unie (EU), waarbij schijven verzonden naar en van alle EU-landen worden kunnen.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>V. Met wie moet ik contact opnemen als ik een probleem krijg met Data Box-schijven?
 A. Neem bij problemen met Data Box-schijven contact op met [Microsoft Ondersteuning](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -164,9 +167,9 @@ A. U kunt een kloon maken van uw vorige bestelling. Hierdoor maakt u dezelfde be
 
 ### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>V. Kan ik gegevens naar ManagedDisk map gekopieerd. Ik zie niet alle beheerde schijven met de resourcegroep die is opgegeven voor beheerde schijven. Mijn gegevens geüpload naar Azure en hoe ik hem kunnen vinden?
 A. Ja. Uw gegevens is geüpload naar Azure, maar als er geen beheerde schijven met de opgegeven resource-groepen, is het waarschijnlijk omdat de gegevens niet geldig is. Als de pagina-blobs, blok-blobs, Azure Files, en beheerde schijven niet geldig zijn, zou deze gaat u naar de volgende mappen:
- - Pagina-blobs zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-pb -*.
- - Azure Files zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-af -*.
- - Beheerde schijven zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-md -*.
+ - Pagina-blobs zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-pb -* .
+ - Azure Files zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-af -* .
+ - Beheerde schijven zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-md -* .
 
 ## <a name="next-steps"></a>Volgende stappen
 

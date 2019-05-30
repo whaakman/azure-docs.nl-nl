@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193892"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396527"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -118,7 +118,7 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 > [!WARNING]
 > **Annuleer nooit een failover die in uitvoering is**: De VM-replicatie wordt gestopt voordat de failover start. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.
 
-In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. U zou langere failover-tijden kunnen waarnemen voor fysieke servers, VMware Linux-computers, VMware VM's waarop de DHCP-service niet is ingeschakeld, en VMware VM's die niet de volgende opstartstuurprogramma’s hebben: storvsc, vmbus, storflt, intelide, atapi.
+In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. Ziet u mogelijk meer failover-tijden voor fysieke servers, VMware Linux-machines, VMware-VM's waarop niet de DHCP-service is ingeschakeld en VMware-VM's die niet de volgende opstartstuurprogramma's hebben: storvsc, vmbus, storflt, intelide, atapi.
 
 ## <a name="after-migration"></a>Na de migratie
 
@@ -159,7 +159,7 @@ Enkele stappen kunnen worden geautomatiseerd als onderdeel van het migratieproce
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u on-premises virtuele machines naar virtuele Azure-machines gemigreerd. Nu
+In deze zelfstudie hebt u on-premises virtuele machines naar virtuele Azure-machines gemigreerd. nu
 
 > [!div class="nextstepaction"]
 > [Herstel na noodgevallen instellen](azure-to-azure-replicate-after-migration.md) naar een secundaire Azure-regio voor de Azure VM's.

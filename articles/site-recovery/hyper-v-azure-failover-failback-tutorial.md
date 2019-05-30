@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 53b2c2945062ef348104e24a352895a14eed1a04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4889d82ac1c837581771860f2aba86faf7650ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748999"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399442"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Failover en failback voor virtuele Hyper-V-machines die zijn gerepliceerd naar Azure
 
@@ -73,7 +73,7 @@ Failback is in feite een failover van Azure naar de on-premises site waarna virt
 
 1. Klik in **Instellingen** > **Gerepliceerde items** op de virtuele machine > **Geplande failover**.
 2. Controleer bij **Geplande failover bevestigen** de failover-richting (van Azure) en selecteer de bron- en doellocaties.
-3. Selecteer **Gegevens synchroniseren voor failover (alleen deltawijzigingen synchroniseren)**. Met deze optie beperkt u de downtime van de virtuele machine tot een minimum omdat er wordt gesynchroniseerd zonder de virtuele machine af te sluiten.
+3. Selecteer **Gegevens synchroniseren voor failover (alleen deltawijzigingen synchroniseren)** . Met deze optie beperkt u de downtime van de virtuele machine tot een minimum omdat er wordt gesynchroniseerd zonder de virtuele machine af te sluiten.
 4. Start de failover. U kunt de voortgang van de failover volgen op het tabblad **Taken**.
 5. Als de initiële synchronisatie is voltooid en u de virtuele Azure-machines wilt afsluiten, klikt u op **Taken** > naam-van-geplande-failover-taak> **Failover voltooien**. Hierdoor wordt de virtuele Azure-machine afgesloten, worden de meest recente wijzigingen overgebracht naar on-premises en wordt de on-premises virtuele machine gestart.
 6. Meld u aan bij de on-premises virtuele machine om te controleren of deze inderdaad beschikbaar is.

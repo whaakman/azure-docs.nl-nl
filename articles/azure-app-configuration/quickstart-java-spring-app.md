@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408562"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393556"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Quickstart: een Java Spring-app maken met App Configuration
 
@@ -29,7 +29,7 @@ Een code-editor kunt u de stappen in deze Quick Start. [Visual Studio Code](http
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om te doen in deze Quick Start, installeert u een ondersteunde [Java Development Kit (JDK)](https://aka.ms/azure-jdks) versie 8 en [Apache Maven](https://maven.apache.org/) met versie 3.0 of hoger.
+Om te doen in deze Quick Start, installeert u een ondersteunde [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) versie 8 en [Apache Maven](https://maven.apache.org/) met versie 3.0 of hoger.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,11 +37,11 @@ Om te doen in deze Quick Start, installeert u een ondersteunde [Java Development
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecteer **configuratie Explorer** > **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
+6. Selecteer **configuratie Explorer** >  **+ maken** om toe te voegen van de volgende sleutel-waardeparen:
 
     | Sleutel | Value |
     |---|---|
-    | /application/config.message | Hallo |
+    | /application/config.message | Hallo! |
 
     Laat **Label** en **inhoudstype** voorlopig leeg.
 

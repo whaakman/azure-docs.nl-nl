@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 037f37d6a8e1c41579403dbf7c9dd265efbb5d10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 692bac0e0474ead7a0acd0887c3c10055edf8553
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026954"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399993"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-a-an-azure-blockchain-service-network"></a>Quickstart: Truffle gebruiken voor verbinding met een een Blockchain-Service van Azure-netwerk
 
@@ -26,24 +26,24 @@ Truffle is een blockchain-ontwikkelomgeving die kunt u verbinding maken met een 
 ## <a name="prerequisites"></a>Vereisten
 
 * [Een Azure Blockchain-lid maken](create-member.md)
-* Truffle vereist verschillende hulpprogramma's om te worden geïnstalleerd met [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), en [Truffle](https://github.com/trufflesuite/truffle).
-
-    Om in te stellen snel op Windows 10, installeer [Ubuntu in Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) Installeer voor een Unix-Bash-shell terminal [Truffle](https://github.com/trufflesuite/truffle). Het Ubuntu op Windows-distributiepunt bevat Node.js en Git.
+* Installeer [Truffle](https://github.com/trufflesuite/truffle). Truffle vereist verschillende hulpprogramma's om te worden geïnstalleerd met [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Installeer [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is nodig voor Web3.
 
 ## <a name="create-truffle-project"></a>Truffle-project maken
 
-1. Open een Bash-shell-terminal.
-1. Wijzig de map waar u wilt maken van de projectmap Truffle. Bijvoorbeeld:
-
-    ``` bash
-    cd /mnt/c
-    ```
-
+1. Open een Node.js-opdrachtprompt of de shell.
+1. Wijzig de map waar u wilt maken van de projectmap Truffle.
 1. Maak een map voor het project en wijzig het pad naar de nieuwe map. Bijvoorbeeld:
 
     ``` bash
     mkdir truffledemo
     cd truffledemo
+    ```
+
+1. Het project Truffle initialiseren.
+
+    ``` bash
+    truffle init
     ```
 
 1. Installeer web3 Ethereum JavaScript-API in de projectmap. Op dit moment is versie web3 versie 1.0.0-beta.37 vereist.
@@ -54,12 +54,6 @@ Truffle is een blockchain-ontwikkelomgeving die kunt u verbinding maken met een 
 
     U ontvangt mogelijk npm waarschuwingen tijdens de installatie.
 
-1. Het project Truffle initialiseren.
-
-    ``` bash
-    truffle init
-    ```
-
 1. Start de Truffle interactieve ontwikkeling-console.
 
     ``` bash
@@ -68,9 +62,9 @@ Truffle is een blockchain-ontwikkelomgeving die kunt u verbinding maken met een 
 
     Truffle maakt een blockchain lokale ontwikkeling en biedt een interactieve console.
 
-## <a name="connect-to-transaction-node"></a>Verbinding maken met transactie-knooppunt
+## <a name="connect-to-transaction-node"></a>Verbinding maken met transactieknooppunt
 
-We Web3 gebruiken om verbinding maken met de transactie-knooppunt. U kunt de Web3-verbindingsreeks ophalen uit de Azure-portal.
+Gebruik *Web3* verbinding maken met het knooppunt transactie. U krijgt de *Web3* connection string vanuit de Azure-portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Navigeer naar uw Service voor Azure Blockchain-lid. Selecteer **transactie knooppunten** en de standaardkoppeling van de transactie-knooppunt.
@@ -78,7 +72,7 @@ We Web3 gebruiken om verbinding maken met de transactie-knooppunt. U kunt de Web
     ![Standaard transactie knooppunt selecteren](./media/connect-truffle/transaction-nodes.png)
 
 1. Selecteer **voorbeeldcode > Web3**.
-1. Kopieer het JavaScript van **HTTPS (toegangssleutel 1)**. U moet de code voor Truffle van interactieve ontwikkeling-console.
+1. Kopieer het JavaScript van **HTTPS (toegangssleutel 1)** . U moet de code voor Truffle van interactieve ontwikkeling-console.
 
     ![Web3 code](./media/connect-truffle/web3-code.png)
 
@@ -90,8 +84,7 @@ We Web3 gebruiken om verbinding maken met de transactie-knooppunt. U kunt de Web
     truffle(develop)> var Web3 = require("Web3");
     truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
     truffle(develop)> var web3 = new Web3(provider);
-    truffle(develop)>
-     ```
+    ```
 
     U kunt methoden aanroepen op de **web3** object om te communiceren met uw transactie-knooppunt.
 

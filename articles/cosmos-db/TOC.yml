@@ -216,7 +216,7 @@
           href: online-backup-and-restore.md
         - name: Naleving
           href: compliance.md
-    - name: Limieten
+    - name: Bronlimieten
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB en andere API''s'
   expanded: true

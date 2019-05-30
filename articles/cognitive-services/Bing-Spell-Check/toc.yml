@@ -49,9 +49,9 @@
 - name: Naslaginformatie
   items:
     - name: Bing Spellingcontrole-API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference'
     - name: Bing Spellingcontrole-API v5 (oude versie)
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference'
     - name: SDK's
       items:
         - name: .NET

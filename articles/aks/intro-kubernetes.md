@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465526"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073819"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Azure Kubernetes Service (AKS) maakt het eenvoudig om een ​​beheerd Kubernetes-cluster in Azure te implementeren. AKS verkleint de complexiteit en de operationele overhead die gepaard gaan met het beheer van Kubernetes door veel van deze taken naar Azure over te hevelen. Azure handelt als een gehoste Kubernetes-service cruciale taken voor u af zoals statuscontrole en onderhoud. De Kubernetes-modellen worden beheerd door Azure. U beheert en onderhoudt alleen de agentknooppunten. Als een beheerde Kubernetes-service is AKS gratis. U betaalt alleen voor de agentknooppunten binnen uw clusters, niet voor de masters.
 
-U kunt een AKS-cluster maken in de Azure Portal, met de Azure CLI, of met de sjabloongestuurde implementatieopties, zoals Resource Manager-sjablonen en Terraform. Wanneer u een AKS-cluster implementeert, worden de Kubernetes-master en alle knooppunten voor u geïmplementeerd en geconfigureerd. Extra functies zoals geavanceerd netwerken, Azure Active Directory-integratie en bewaking kunnen ook tijdens het implementatieproces worden geconfigureerd.
+U kunt een AKS-cluster maken in de Azure Portal, met de Azure CLI, of met de sjabloongestuurde implementatieopties, zoals Resource Manager-sjablonen en Terraform. Wanneer u een AKS-cluster implementeert, worden de Kubernetes-master en alle knooppunten voor u geïmplementeerd en geconfigureerd. Extra functies zoals geavanceerd netwerken, Azure Active Directory-integratie en bewaking kunnen ook tijdens het implementatieproces worden geconfigureerd. Ondersteuning voor Windows Server-containers is momenteel in preview in AKS.
 
 Zie voor meer informatie over de basisbeginselen voor Kubernetes, [Kubernetes-concepten voor AKS core][concepts-clusters-workloads].
 
@@ -43,9 +43,9 @@ Om inzicht te krijgen in hoe uw AKS-cluster en geïmplementeerde toepassingen fu
 
 Zie [Containerstatus van Azure Kubernetes Service bewaken][container-health] voor meer informatie.
 
-## <a name="cluster-and-node"></a>Cluster en knooppunt
+## <a name="clusters-and-nodes"></a>Clusters en knooppunten
 
-AKS-knooppunten worden uitgevoerd op virtuele machines in Azure. U kunt opslag met knooppunten en pods verbinden, clusteronderdelen bijwerken en GPU's gebruiken.
+AKS-knooppunten worden uitgevoerd op virtuele machines in Azure. U kunt opslag met knooppunten en pods verbinden, clusteronderdelen bijwerken en GPU's gebruiken. AKS biedt ondersteuning voor Kubernetes-clusters met meerdere knooppuntgroepen ter ondersteuning van verschillende besturingssystemen en Windows Server-containers (momenteel in Preview-versie). Een aangepaste installatiekopie van het besturingssysteem van Ubuntu Linux-knooppunten worden uitgevoerd en Windows Server-knooppunten een aangepaste installatiekopie van het Windows Server 2019 besturingssysteem worden uitgevoerd.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Clusterknooppunten en pods schalen
 

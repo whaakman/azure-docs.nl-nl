@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e471f447b0c50c9c65923d7135b2b48789728df
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a8a200df2f474cead197a0e74ae7e27927f814d2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470698"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242263"
 ---
 # <a name="security-info-preview-overview"></a>Overzicht van beveiligingsgegevens (preview)
 
@@ -28,7 +28,7 @@ De **beveiligingsgegevens** pagina helpt u bij het instellen van uw verificatiem
 >[!Important]
 >Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over hoe u uw Azure Active Directory-omgeving (Azure AD) instelt en beheert in de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-## <a name="security-info-articles"></a>Security info artikelen
+## <a name="security-info-related-articles"></a>Security info-gerelateerde artikelen
 
 Zie de volgende artikelen (op basis van de methode die u wilt gebruiken) voor gedetailleerde informatie en instructies over het toevoegen, bijwerken en verwijderen van je beveiligingsgegevens:
 

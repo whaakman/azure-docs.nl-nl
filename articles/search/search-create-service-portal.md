@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471599"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393781"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
@@ -54,11 +54,11 @@ Vereisten voor servicenaam:
 * Vermijd streepjes (-) bij de eerste 2 tekens of als het allerlaatste teken
 * Zorg ervoor dat er nergens twee opeenvolgende streepjes (--) staan
 
-## <a name="select-a-subscription"></a>Selecteer een abonnement
+## <a name="select-a-subscription"></a>Een abonnement selecteren
 
 Als u meer dan één abonnement hebt, moet u er één kiezen dat ook services voor gegevensopslag of File Storage-services biedt. Azure Search kan automatisch Azure Table- en Blob-opslag, SQL-Database en Azure Cosmos DB detecteren voor indexering via [*indexeerfuncties*](search-indexer-overview.md), maar alleen voor services in hetzelfde abonnement.
 
-## <a name="select-a-resource-group"></a>Selecteer een resourcegroep
+## <a name="select-a-resource-group"></a>Een resourcegroep selecteren
 
 Een resourcegroep is een verzameling Azure-services en -resources die samen worden gebruikt. Als u bijvoorbeeld Azure Search gebruikt om een SQL-database te indexeren, dan moeten beide services deel uitmaken van dezelfde resourcegroep.
 
@@ -67,13 +67,16 @@ Als u resources niet in één groep combineert of als bestaande resourcegroepen 
 > [!TIP]
 > Als u een resourcegroep verwijdert, worden de services binnen die resourcegroep ook verwijderd. Bij prototypeprojecten die gebruikmaken van meerdere services, wordt het opschonen na afloop van het project gemakkelijker als die services zich allemaal in dezelfde resourcegroep bevinden.
 
-## <a name="select-a-location"></a>Een locatie selecteren
+## <a name="select-a-location"></a>Selecteer een locatie
 
-Azure Search kan als Azure-service worden gehost in datacenters over de hele wereld. [Prijzen kunnen verschillen](https://azure.microsoft.com/pricing/details/search/) per regio.
+Azure Search kan als Azure-service worden gehost in datacenters over de hele wereld. De lijst met ondersteunde regio's vindt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/search/). 
 
-Als u bij het indexeren van gegevens geleverd door een andere Azure-service (Azure storage, Azure Cosmos DB, Azure SQL Database), uw Azure Search-service maken in dezelfde regio bevinden om bandbreedte kosten te voorkomen. Er zijn geen kosten voor uitgaande gegevens wanneer de services zijn in dezelfde regio.
+Als u zijn indexeren van de gegevens die zijn opgegeven door een andere Azure-service (Azure storage, Azure Cosmos DB, Azure SQL Database), wordt aangeraden om uw Azure Search-service maken in dezelfde regio bevinden om bandbreedte kosten te voorkomen. Er zijn geen kosten voor uitgaande gegevens wanneer de services zijn in dezelfde regio.
 
 Als u cognitief zoeken AI enrichments gebruikt, moet u uw service maken in dezelfde regio als uw Cognitive Services-resource. CO-locatie van de services is een vereiste voor verrijking AI.
+
+> [!Note]
+> Centraal-India is momenteel niet beschikbaar voor nieuwe services. U kunt opschalen zonder beperkingen voor de services die al in Centraal-India, en uw service wordt volledig ondersteund in deze regio. De beperking voor deze regio is tijdelijk en we zullen deze opmerking verwijderen wanneer deze langer van toepassing is.
 
 ## <a name="select-a-pricing-tier-sku"></a>Een prijscategorie selecteren (SKU)
 

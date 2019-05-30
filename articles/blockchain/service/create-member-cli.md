@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: e1b7558ea83c8948a8984215e15040e4d929cb1b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4589a9de4c2a8fa43e4e653d4447c7a7715a6e42
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141382"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399949"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Quickstart: Maak een Azure Blockchain Service blockchain-lid met behulp van Azure CLI
 
@@ -41,56 +41,23 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-blockchain-member"></a>Een blockchain-lid maken
 
-Een blockchain-lid maken in Azure Blockchain-Service die het Quorum grootboek-protocol in een nieuwe consortium wordt uitgevoerd.
+Een blockchain-lid maken in Azure Blockchain-Service die het Quorum grootboek-protocol in een nieuwe consortium wordt uitgevoerd. Er zijn meerdere parameters en eigenschappen die u nodig hebt om door te geven. Vervang de voorbeeldparameters door uw waarden.
 
-Er zijn meerdere parameters en eigenschappen die u nodig hebt om door te geven. De volgende parameters vervangen door uw waarden.
+```azurecli-interactive
+az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
+```
 
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resourcegroepnaam waar Azure Blockchain-serviceresources worden gemaakt. Gebruik de resourcegroep die u in de vorige sectie hebt gemaakt.
 | **name** | Een unieke naam ter identificatie van uw Azure Blockchain Service blockchain-lid. De naam wordt gebruikt voor het adres van het openbare eindpunt. Bijvoorbeeld `myblockchainmember.blockchain.azure.com`.
 | **location** | Azure-regio waar het lid van de blockchain wordt gemaakt. Bijvoorbeeld `eastus`. Kies de locatie die zich het dichtst bij uw gebruikers of uw andere Azure-toepassingen bevindt.
-| **Wachtwoord** | Het wachtwoord voor het lid. Het wachtwoord voor het lid wordt gebruikt voor verificatie met de blockchain-lid van de openbare eindpunt basisverificatie wordt gebruikt.
+| **Wachtwoord** | Het wachtwoord voor het lid van de standaard transactie knooppunt. Gebruik het wachtwoord voor basisverificatie wordt gebruikt bij het verbinden met blockchain adreslid standaard transactie openbare eindpunt van het knooppunt.
 | **consortium** | De naam van het consortium te koppelen of te maken.
-| **consortiumManagementAccountPassword** | Het wachtwoord van het management consortium. Dit wordt gebruikt voor het lidmaatschap van een consortium.
+| **consortiumAccountPassword** | Het wachtwoord voor het consortium wordt ook wel bekend als het wachtwoord voor het lid. Het wachtwoord voor het lid wordt gebruikt voor het versleutelen van de persoonlijke sleutel voor het Ethereum-account dat is gemaakt voor het lid. U gebruikt de lidaccount en het wachtwoord van het account lid voor consortium management.
 | **skuName** | Laagtype. Gebruik S0 voor Standard- en B0 voor Basic.
 
-```azurecli-interactive
-az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
-```
-
 Het duurt ongeveer 10 minuten om het lid van de blockchain en ondersteunende resources te maken.
-
-De volgende voorbeelduitvoer wordt weergegeven van een geslaagde bewerking maken.
-
-```json
-{
-  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/mymembername",
-  "kind": null,
-  "location": "eastus",
-  "name": "mymembername",
-  "properties": {
-    "ConsortiumMemberDisplayName": "mymembername",
-    "consortium": "myConsortiumName",
-    "consortiumManagementAccountAddress": "0xfe5fbb9d1036298abf415282f52397ade5d5beef",
-    "consortiumManagementAccountPassword": null,
-    "consortiumRole": "ADMIN",
-    "dns": "mymembername.blockchain.azure.com",
-    "protocol": "Quorum",
-    "provisioningState": "Succeeded",
-    "userName": "mymembername",
-    "validatorNodesSku": {
-      "capacity": 2
-    }
-  },
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "name": "S0",
-    "tier": "Standard"
-  },
-  "type": "Microsoft.Blockchain/blockchainMembers"
-}
-```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

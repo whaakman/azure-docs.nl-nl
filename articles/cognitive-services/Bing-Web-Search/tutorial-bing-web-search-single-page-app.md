@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 668c380f38f410083ffe7d2cd6690be447f614dc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798324"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390048"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Zelfstudie: Een app van één pagina maken met de Bing Webzoekopdrachten-API
 
@@ -80,7 +80,7 @@ Deze zelfstudie is gericht op `scripts.js` en de logica die is vereist om de Bin
 
 ## <a name="query-options"></a>Queryopties
 
-Het HTML-formulier bevat opties waarmee queryparameters worden toegewezen in de [Bing Webzoekopdrachten-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Deze tabel bevat een overzicht van de manier waarop gebruikers zoekresultaten kunnen filteren met behulp van de voorbeeld-app:
+Het HTML-formulier bevat opties waarmee queryparameters worden toegewezen in de [Bing Webzoekopdrachten-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Deze tabel bevat een overzicht van de manier waarop gebruikers zoekresultaten kunnen filteren met behulp van de voorbeeld-app:
 
 | Parameter | Beschrijving |
 |-----------|-------------|
@@ -93,7 +93,7 @@ Het HTML-formulier bevat opties waarmee queryparameters worden toegewezen in de 
 | `offset` | Verborgen veld. De verschuiving van het eerste zoekresultaat in de aanvraag. Dit wordt gebruikt voor wisselgeheugengebruik. Deze waarde wordt bij elke nieuwe aanvraag opnieuw ingesteld op `0`. |
 
 > [!NOTE]
-> De Bing Webzoekopdrachten-API biedt aanvullende queryparameters om de zoekresultaten te verfijnen. In dit voorbeeld worden er maar een paar gebruikt. Zie de [Bing Webzoekopdrachten-API v7-naslag](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters) voor een complete lijst met beschikbare parameters.
+> De Bing Webzoekopdrachten-API biedt aanvullende queryparameters om de zoekresultaten te verfijnen. In dit voorbeeld worden er maar een paar gebruikt. Zie de [Bing Webzoekopdrachten-API v7-naslag](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters) voor een complete lijst met beschikbare parameters.
 
 Met de functie `bingSearchOptions()` converteert u deze opties zodat ze overeenkomen met de indeling die voor de Bing Zoeken-API is vereist.
 

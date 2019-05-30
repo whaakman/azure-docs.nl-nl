@@ -67,9 +67,9 @@
 - name: Naslaginformatie
   items:
     - name: Bing Nieuws zoeken-API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference'
     - name: Bing Nieuws zoeken-API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference'
     - name: SDK's
       items:
         - name: .NET

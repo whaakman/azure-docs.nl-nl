@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: scottwhi
-ms.openlocfilehash: 612a3961d901f53147ab2f3cfeea20f9c11d96b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648428"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383416"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Nieuws zoeken met de Bing Nieuws zoeken-API
 
@@ -27,7 +27,7 @@ Terwijl de Bing Nieuws zoeken-API hoofdzakelijk relevante nieuwsartikelen zoekt 
 
 Als u een zoekvak aanbiedt waarin de gebruiker een zoekterm invoert, kunt u de [Automatische suggestie-API voor Bing](../../bing-autosuggest/get-suggested-search-terms.md) gebruiken om de ervaring te verbeteren. De API retourneert voorgestelde queryreeksen op basis van gedeeltelijke zoektermen terwijl de gebruiker typt.
 
-Nadat de gebruiker de zoekterm heeft ingevoerd, past u URL-codering toe op de term voordat u de queryparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query) instelt. Als de gebruiker bijvoorbeeld *sailing dinghies* invoert, stelt u `q` in op `sailing+dinghies` of `sailing%20dinghies`.
+Nadat de gebruiker de zoekterm heeft ingevoerd, past u URL-codering toe op de term voordat u de queryparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query) instelt. Als de gebruiker bijvoorbeeld *sailing dinghies* invoert, stelt u `q` in op `sailing+dinghies` of `sailing%20dinghies`.
 
 ## <a name="get-general-news"></a>Algemeen nieuws ophalen
 
@@ -99,9 +99,9 @@ Hieronder ziet u de respons op de vorige query. Als onderdeel van de [vereisten 
 }
 ```
 
-De respons [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news) bevat de nieuwsartikelen die volgens Bing relevant zijn voor de query. Het veld `totalEstimatedMatches` bevat een schatting van het aantal artikelen dat beschikbaar is om weer te geven. Zie [Nieuwsartikelen per pagina weergeven](../paging-news.md) voor meer informatie over het weergeven van artikelen per pagina.
+De respons [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#news) bevat de nieuwsartikelen die volgens Bing relevant zijn voor de query. Het veld `totalEstimatedMatches` bevat een schatting van het aantal artikelen dat beschikbaar is om weer te geven. Zie [Nieuwsartikelen per pagina weergeven](../paging-news.md) voor meer informatie over het weergeven van artikelen per pagina.
 
-Elk [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#newsarticle) in de lijst bevat de naam en beschrijving van het artikel, plus de URL naar het artikel op de website van de host. Als in het artikel een afbeelding staat, bevat het object een miniatuur van de afbeelding. Gebruik `name` en `url` om een hyperlink te maken waarmee de gebruiker naar het nieuwsartikel op de site van de host gaat. Als het artikel een afbeelding bevat, moet u de afbeelding bovendien klikbaar maken met `url`. Vergeet niet om met `provider` bronvermelding toe te passen voor het artikel.
+Elk [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#newsarticle) in de lijst bevat de naam en beschrijving van het artikel, plus de URL naar het artikel op de website van de host. Als in het artikel een afbeelding staat, bevat het object een miniatuur van de afbeelding. Gebruik `name` en `url` om een hyperlink te maken waarmee de gebruiker naar het nieuwsartikel op de site van de host gaat. Als het artikel een afbeelding bevat, moet u de afbeelding bovendien klikbaar maken met `url`. Vergeet niet om met `provider` bronvermelding toe te passen voor het artikel.
 
 Als Bing de categorie van het nieuwsartikel kan bepalen, bevat het artikel het veld `category`.
 
@@ -135,7 +135,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Gebruik de queryparameter [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) om op te geven welke categorie artikelen u wilt ophalen. Zie [Nieuwscategorieën per markt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-categories-by-market) voor een lijst van nieuwscategorieën die u kunt opgeven.
+Gebruik de queryparameter [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) om op te geven welke categorie artikelen u wilt ophalen. Zie [Nieuwscategorieën per markt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market) voor een lijst van nieuwscategorieën die u kunt opgeven.
 
 De respons voor het ophalen van belangrijk nieuws op categorie is bijna hetzelfde als die voor het ophalen van algemeen nieuws, Alleen bevat de respons alleen artikelen uit de opgegeven categorie.
 
@@ -153,11 +153,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Laat de queryparameter [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) weg.
+Laat de queryparameter [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) weg.
 
 De respons voor het ophalen van nieuwskoppen is hetzelfde als die voor het ophalen van het belangrijkste nieuws. Als het artikel een hoofdartikel is, heeft het veld `headline` de waarde **true**.
 
-De respons bevat standaard maximaal 12 hoofdartikelen. Als u dit aantal wilt wijzigen, geeft u de queryparameter [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headlinecount) op. De respons bevat ook maximaal vier niet-hoofdartikelen per nieuwscategorie.
+De respons bevat standaard maximaal 12 hoofdartikelen. Als u dit aantal wilt wijzigen, geeft u de queryparameter [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount) op. De respons bevat ook maximaal vier niet-hoofdartikelen per nieuwscategorie.
 
 Clusters worden als één artikel geteld. Omdat een cluster verschillende artikelen kan bevatten, kan de respons meer dan 12 hoofdartikelen en meer dan vier niet-hoofdartikelen per categorie bevatten.
 
@@ -223,7 +223,7 @@ De volgende JSON is de respons op de vorige aanvraag. Elk trending nieuwsartikel
 
 ## <a name="getting-related-news"></a>Gerelateerd nieuws ophalen
 
-Als er andere artikelen zijn die gerelateerd zijn aan een nieuwsartikel, kan het nieuwsartikel het veld [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle-clusteredarticles) bevatten. Hieronder ziet u een artikel met geclusterde artikelen.
+Als er andere artikelen zijn die gerelateerd zijn aan een nieuwsartikel, kan het nieuwsartikel het veld [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle-clusteredarticles) bevatten. Hieronder ziet u een artikel met geclusterde artikelen.
 
 ```json
     {

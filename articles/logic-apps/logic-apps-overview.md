@@ -1,26 +1,26 @@
 ---
-title: Bedrijfsintegratie met Azure Logic Apps | Microsoft Docs
-description: In dit overzicht wordt beschreven hoe u oplossingen voor bedrijfsintegratie kunt ontwikkelen door middel van de automatisering van taken, werkstromen en bedrijfsprocessen die apps, gegevens, services en systemen overal in bedrijven en organisaties integreren. Maak oplossingen voor gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en indelingsscenario's.
+title: Bedrijfsintegratie met Azure Logic Apps
+description: Overzicht van de onderneming om integratieoplossingen te ontwikkelen door te automatiseren en organiseren van taken, werkstromen en bedrijfsprocessen te bevorderen die apps, gegevens, services en systemen voor bedrijven en organisaties integreren. Maak oplossingen voor gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en indelingsscenario's.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61318528"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299116"
 ---
 # <a name="what-is-azure-logic-apps"></a>Wat is Azure Logic Apps?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is een cloudservice waarmee u taken, bedrijfsprocessen en [werkstromen](#logic-app-concepts) kunt automatiseren en organiseren wanneer u apps, gegevens, systemen en services in bedrijven of organisaties moet integreren. Logic Apps vereenvoudigt het ontwerpen en maken van schaalbare oplossingen voor [app-integratie](https://azure.microsoft.com/product-categories/integration/), gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en communicatie voor business-to-business (B2B), in de cloud, on-premises of beide.
+[Met Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is een cloudservice die u bij het plannen helpt, automatiseren en organiseren van taken, zakelijke processen, en [werkstromen](#logic-app-concepts) wanneer u moet apps, gegevens, systemen en services integreren in ondernemingen of organisaties. Logic Apps vereenvoudigt het ontwerpen en maken van schaalbare oplossingen voor [app-integratie](https://azure.microsoft.com/product-categories/integration/), gegevensintegratie, systeemintegratie, Enterprise Application Integration (EAI) en communicatie voor business-to-business (B2B), in de cloud, on-premises of beide.
 
 Dit zijn enkele voorbeelden van workloads die u met logische apps kunt automatiseren:
 
@@ -35,7 +35,7 @@ U kunt kiezen uit een steeds groter wordende verzameling met [200+ connectors](.
 
 ## <a name="how-does-logic-apps-work"></a>Hoe werkt Logic Apps? 
 
-Iedere werkstroom van logische apps begint met een trigger, die wordt geactiveerd wanneer een bepaalde gebeurtenis wordt uitgevoerd of wanneer nieuwe beschikbare gegevens aan bepaalde criteria voldoen. Veel triggers bevatten mogelijkheden voor eenvoudige planning waarmee u kunt opgeven met welke regelmaat uw workloads moeten worden uitgevoerd. Voor meer aangepaste planningsscenario's kunt u uw werkstromen beginnen met de planning-trigger. Meer informatie over [het bouwen van werkstromen op basis van planning](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
+Iedere werkstroom van logische apps begint met een trigger, die wordt geactiveerd wanneer een bepaalde gebeurtenis wordt uitgevoerd of wanneer nieuwe beschikbare gegevens aan bepaalde criteria voldoen. Veel triggers geleverd door de connectors in Logic Apps bevatten mogelijkheden voor eenvoudige planning, zodat u kunt instellen welke regelmaat uw workloads worden uitgevoerd. Voor meer complexe planning of geavanceerde terugkeerpatronen, kunt u een trigger met terugkeerpatroon als de eerste stap in een werkstroom. Meer informatie over [werkstromen op basis van een planning](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Telkens wanneer de trigger wordt geactiveerd, maakt de Logic Apps-engine een exemplaar van een logische app waarmee de acties in de werkstroom worden uitgevoerd. Deze acties kunnen ook bestaan uit gegevensconversies en datatransportbesturing, zoals voorwaardelijke instructies, switch-instructies, lussen en vertakking. Deze logische app begint bijvoorbeeld met een Dynamics 365-trigger met 'Wanneer een record wordt bijgewerkt' als ingebouwd criterium. Als de trigger een gebeurtenis detecteert die aan dit criterium voldoet, wordt de trigger geactiveerd, die vervolgens de acties van de werkstroom uitvoert. Hier bestaan de acties uit XML-transformatie, gegevensupdates, vertakking van beslissingen en e-mailmeldingen.
 
@@ -132,14 +132,9 @@ Met al deze services kunt u ongelijksoortige systemen aan elkaar koppelen. Omdat
 
 ## <a name="get-started"></a>Aan de slag 
 
-Logic Apps is een van de vele services die worden gehost op Microsoft Azure. Voordat u kunt beginnen, hebt u een Azure-abonnement nodig. Als u nog geen abonnement hebt, <a href="https://azure.microsoft.com/free/" target="_blank">meld u dan aan voor een gratis Azure-account</a>. 
+Logic Apps is een van de vele services die worden gehost op Microsoft Azure. Voordat u kunt beginnen, hebt u een Azure-abonnement nodig. Als u nog geen abonnement hebt, [meld u dan aan voor een gratis Azure-account](https://azure.microsoft.com/free/). 
 
 Als u wel een Azure-abonnement hebt, kunt u deze [quickstart doornemen voor het maken van uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md), die via een RSS-feed controleert op nieuwe inhoud op een website en een e-mail stuurt wanneer er nieuwe inhoud is.
-
-## <a name="support-and-feedback"></a>Ondersteuning en feedback
-
-* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 

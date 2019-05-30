@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 2bcd8163cb3c6071812d4d247b5b333edcfc89e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 4ea511bec75557bc6f7d37b1724b4b0db65ba9cc
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523030"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299427"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Azure NetApp Files instellen en een NFS-volume maken 
 
@@ -57,7 +57,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-a-netapp-account"></a>Een NetApp-account maken
 
-1. Voer in het zoekvak van de Azure portal, **Azure NetApp Files** en selecteer vervolgens **Azure NetApp Files (preview)** in de lijst die wordt weergegeven.
+1. Voer in het zoekvak van de Azure portal, **Azure NetApp Files** en selecteer vervolgens **Azure NetApp Files** in de lijst die wordt weergegeven.
 
       ![Azure NetApp bestanden selecteren](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Ontwikkelen met .NET Core in AKS met Azure Dev-ruimten en Visual Studio 2017
+title: Ontwikkelen met .NET Core in AKS met Azure Dev spaties en Visual Studio
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -13,30 +13,29 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, 
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765308"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399227"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Quickstart: Ontwikkelen met .NET Core in Kubernetes met Azure Dev spaties (Visual Studio 2017)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Quickstart: Ontwikkelen met .NET Core in Kubernetes met Azure Dev spaties (Visual Studio)
 
 In deze handleiding leert u het volgende:
 
 - Azure Dev Spaces instellen met een beheerd Kubernetes-cluster in Azure.
-- Ontwikkel iteratief code in containers met behulp van Visual Studio 2017.
-- Fouten opsporen in code die wordt uitgevoerd in uw cluster met behulp van Visual Studio 2017.
+- Iteratief code ontwikkelen in containers met Visual Studio.
+- Fouten opsporen in code die wordt uitgevoerd in uw cluster met behulp van Visual Studio.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u nog geen account hebt, kunt u [een gratis account aanmaken](https://azure.microsoft.com/free).
-- Visual Studio 2017 op Windows met de ontwikkeling van Web-werkbelasting geïnstalleerd. Als u deze niet hebt geïnstalleerd, downloadt u deze [hier](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- [Visual Studio-hulpprogramma's voor Kubernetes](https://aka.ms/get-vsk8stools) geïnstalleerd.
+- Visual Studio-2019 op Windows met de Azure-ontwikkelworkload geïnstalleerd. U kunt ook Visual Studio 2017 gebruiken op Windows met de werkbelasting van de ontwikkeling van Web- en [Visual Studio-hulpprogramma's voor Kubernetes](https://aka.ms/get-vsk8stools) geïnstalleerd. Als u geen Visual Studio is geïnstalleerd, downloadt u deze [hier](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Een Azure Kubernetes Service-cluster maken
 
-Moet u een AKS-cluster in een [ondersteunde regio](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Een cluster maken:
+Moet u een AKS-cluster in een [ondersteunde regio][supported-regions]. Een cluster maken:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com)
 1. Selecteer *+ een resource maken > Kubernetes-Service*. 
@@ -55,7 +54,7 @@ Navigeer naar uw AKS-cluster in Azure portal en klikt u op *Dev spaties*. Wijzig
 
 ## <a name="create-a-new-aspnet-web-app"></a>Een nieuwe ASP.NET-web-app maken
 
-1. Open Visual Studio 2017.
+1. Open Visual Studio.
 1. Een nieuw project maken.
 1. Kies *ASP.NET Core-webtoepassing* en geef uw project de naam *webfrontend*.
 1. Klik op *OK*.
@@ -101,7 +100,7 @@ Dit proces kan openbare toegang tot uw service hebt uitgeschakeld. Voor openbare
 
 ## <a name="update-code"></a>Code bijwerken
 
-Als Visual Studio 2017 nog steeds met uw dev-ruimte verbonden is, klikt u op de knop stoppen. Wijzig regel 20 in `Controllers/HomeController.cs` aan:
+Als Visual Studio nog steeds met uw dev-ruimte verbonden is, klikt u op de knop stoppen. Wijzig regel 20 in `Controllers/HomeController.cs` aan:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -113,9 +112,9 @@ In plaats van opnieuw te bouwen en opnieuw implementeren van een nieuwe containe
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Instellen en het gebruik van onderbrekingspunten voor foutopsporing
 
-Als Visual Studio 2017 nog steeds met uw dev-ruimte verbonden is, klikt u op de knop stoppen. Open `Controllers/HomeController.cs` en klik ergens op regel 20 en plaats de cursor bevat. Om in te stellen van een onderbrekingspunt bereikt *F9* of klik op *Debug* vervolgens *onderbrekingspunt*. Voor het starten van uw service in de foutopsporingsmodus in de adresruimte van uw dev, bereikt *F5* of klik op *Debug* vervolgens *Start Debugging*.
+Als Visual Studio nog steeds met uw dev-ruimte verbonden is, klikt u op de knop stoppen. Open `Controllers/HomeController.cs` en klik ergens op regel 20 en plaats de cursor bevat. Om in te stellen van een onderbrekingspunt bereikt *F9* of klik op *Debug* vervolgens *onderbrekingspunt*. Voor het starten van uw service in de foutopsporingsmodus in de adresruimte van uw dev, bereikt *F5* of klik op *Debug* vervolgens *Start Debugging*.
 
-Open uw service in een browser en er geen bericht wordt weergegeven. Ga terug naar Visual Studio 2017 en bekijk regel 20 is gemarkeerd. Het onderbrekingspunt die u instelt, heeft de service op regel 20 onderbroken. Hervat de service, bereikt *F5* of klik op *Debug* vervolgens *doorgaan*. Ga terug naar uw browser en u ziet dat het bericht wordt nu weergegeven.
+Open uw service in een browser en er geen bericht wordt weergegeven. Ga terug naar Visual Studio en bekijk regel 20 is gemarkeerd. Het onderbrekingspunt die u instelt, heeft de service op regel 20 onderbroken. Hervat de service, bereikt *F5* of klik op *Debug* vervolgens *doorgaan*. Ga terug naar uw browser en u ziet dat het bericht wordt nu weergegeven.
 
 Tijdens het uitvoeren van uw service in Kubernetes met een foutopsporingsprogramma die is gekoppeld, hebt u volledige toegang tot informatie zoals de aanroepstack, lokale variabelen en informatie over de uitzondering voor foutopsporing.
 
@@ -135,3 +134,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Werken met meerdere containers en teamontwikkeling](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 08e8050fde6d2cf6249826911117dad9f595b6e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaefcf9af6188867bfd692fad891a70fcadb076
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995625"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386510"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Video's zoeken met de Bing Video's zoeken-API
 
@@ -45,7 +45,7 @@ Als u video's uit een bepaald domein wilt opvragen, gebruikt u de query-operator
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-De respons bevat een antwoord [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) dat bestaat uit een lijst met video's die volgens Bing relevant zijn voor de query. Elk [Video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video)-object in de lijst bevat de URL van de video, de duur, de afmetingen en de coderingsindeling, plus nog verschillende andere kenmerken. Het Video-object bevat ook de URL van een miniatuur van de video en de afmetingen van de miniatuur.
+De respons bevat een antwoord [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) dat bestaat uit een lijst met video's die volgens Bing relevant zijn voor de query. Elk [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video)-object in de lijst bevat de URL van de video, de duur, de afmetingen en de coderingsindeling, plus nog verschillende andere kenmerken. Het Video-object bevat ook de URL van een miniatuur van de video en de afmetingen van de miniatuur.
 
 ```json
 {
@@ -100,7 +100,7 @@ De respons bevat een antwoord [Videos](https://docs.microsoft.com/rest/api/cogni
 
 U kunt alle videominiaturen weergeven of een subset van de miniaturen die zijn geretourneerd door de Bing Video's zoeken-API. Als u kiest voor een subset, geef de gebruiker dan de gelegenheid om ook de overige video's weer te geven. Als onderdeel van de [vereisten voor gebruik en weergave](../UseAndDisplayRequirements.md) van de Bing-API moet u de video's weergeven in de volgorde waarin deze in het antwoord zijn opgenomen. Zie [Formaat van miniaturen wijzigen en miniaturen bijsnijden](../resize-and-crop-thumbnails.md) voor informatie over het aanpassen van het formaat van de miniatuur. 
 
-Als de gebruiker de muisaanwijzer op een miniatuur plaatst, kunt u [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-motionthumbnailurl) gebruiken om een miniatuurversie van de video af te spelen. Vergeet niet om het kenmerk motionThumbnailUrl in te stellen wanneer u de miniatuur weergeeft.
+Als de gebruiker de muisaanwijzer op een miniatuur plaatst, kunt u [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) gebruiken om een miniatuurversie van de video af te spelen. Vergeet niet om het kenmerk motionThumbnailUrl in te stellen wanneer u de miniatuur weergeeft.
 
 <!-- Removing until the images can be sanitized.
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
@@ -108,27 +108,27 @@ Als de gebruiker de muisaanwijzer op een miniatuur plaatst, kunt u [motionThumbn
 
 Wanneer u op een miniatuur klikt, worden er drie opties voor het weergeven van de video aangeboden:
 
-- Gebruik [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-hostpageurl) om de video weer te geven op de hostwebsite (bijvoorbeeld YouTube)
-- Gebruik [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-websearchurl) om de video weer te geven in de videobrowser van Bing
-- Gebruik [embedHtml](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-embedhtml) om de video in te sluiten in uw eigen ervaring 
+- Gebruik [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl) om de video weer te geven op de hostwebsite (bijvoorbeeld YouTube)
+- Gebruik [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl) om de video weer te geven in de videobrowser van Bing
+- Gebruik [embedHtml](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-embedhtml) om de video in te sluiten in uw eigen ervaring 
 
 Vergeet niet om de kenmerken publisher en creator op te geven bij het afspelen van de video.
 
-Zie [Inzicht verkrijgen over een video](../video-insights.md) voor meer informatie over het gebruiken van [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) om inzichten te verkrijgen over de video.
+Zie [Inzicht verkrijgen over een video](../video-insights.md) voor meer informatie over het gebruiken van [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) om inzichten te verkrijgen over de video.
 
 ## <a name="filtering-videos"></a>Video's filteren
 
 De Bing Video's zoeken-API retourneert standaard alle video's die relevant zijn voor de query. Als u alleen gratis video's wilt zien of video's die korter zijn dan vijf minuten, gebruikt u de volgende filterqueryparameters:
 
-- [pricing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#pricing)&mdash;Video's filteren op prijs (bijvoorbeeld video's die gratis zijn of waarvoor u hebt betaald)
-- [resolution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#resolution)&mdash;Video's filteren op resolutie (bijvoorbeeld video's met een resolutie van 720 p of hoger)
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;Video's filteren op videolengte (bijvoorbeeld video's die minder dan vijf minuten lang zijn)
-- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;Video's filteren op leeftijd (bijvoorbeeld video's die in de afgelopen week door Bing zijn gedetecteerd)
+- [pricing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing)&mdash;Video's filteren op prijs (bijvoorbeeld video's die gratis zijn of waarvoor u hebt betaald)
+- [resolution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution)&mdash;Video's filteren op resolutie (bijvoorbeeld video's met een resolutie van 720 p of hoger)
+- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength)&mdash;Video's filteren op videolengte (bijvoorbeeld video's die minder dan vijf minuten lang zijn)
+- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness)&mdash;Video's filteren op leeftijd (bijvoorbeeld video's die in de afgelopen week door Bing zijn gedetecteerd)
 
 Als u video's uit een bepaald domein wilt opvragen, gebruikt u de query-operator [site:](https://msdn.microsoft.com/library/ff795613.aspx) in de queryreeks.
 
 > [!NOTE]
-> Als u de operator `site:` gebruikt, is het afhankelijk van de query mogelijk dat het antwoord inhoud voor volwassenen bevat, ongeacht de instelling van [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch). Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt.
+> Als u de operator `site:` gebruikt, is het afhankelijk van de query mogelijk dat het antwoord inhoud voor volwassenen bevat, ongeacht de instelling van [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch). Gebruik `site:` alleen als u zich bewust bent van de inhoud op de site en uw scenario de mogelijkheid van inhoud voor volwassenen ondersteunt.
 
 Het volgende voorbeeld laat zien hoe u gratis video's van ContosoSailing.com ophaalt die een resolutie van 720p of hoger hebben en die Bing in de afgelopen maand heeft gedetecteerd.
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Query uitbreiden
 
-Als Bing de query kan uitbreiden om de oorspronkelijke zoekopdracht te beperken, bevat het object [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) het veld `queryExpansions`. Als de query bijvoorbeeld *Cleaning Gutters* is, kunnen de uitgebreide query's er als volgt uitzien: Gutter Cleaning **Tools**, Cleaning Gutters **From the Ground**, Gutter Cleaning **Machine** en **Easy** Gutter Cleaning.
+Als Bing de query kan uitbreiden om de oorspronkelijke zoekopdracht te beperken, bevat het object [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) het veld `queryExpansions`. Als de query bijvoorbeeld *Cleaning Gutters* is, kunnen de uitgebreide query's er als volgt uitzien: Gutter Cleaning **Tools**, Cleaning Gutters **From the Ground**, Gutter Cleaning **Machine** en **Easy** Gutter Cleaning.
 
 In het volgende voorbeeld ziet u de uitgebreide query's voor *Cleaning Gutters*.
 
@@ -171,11 +171,11 @@ In het volgende voorbeeld ziet u de uitgebreide query's voor *Cleaning Gutters*.
 }
 ```
 
-Het veld `queryExpansions` bevat een lijst met [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query_obj)-objecten. Het veld `text` bevat de uitgebreide query en het veld `displayText` bevat de term na de uitbreiding. U kunt de velden text en thumbnail gebruiken om de uitgebreide queryreeksen weer te geven aan de gebruiker als de uitgebreide queryreeks is waar ze in feite naar op zoek zijn. Maak de miniatuur en tekst klikbaar met de URL `webSearchUrl` of `searchLink`. Gebruik `webSearchUrl` om de gebruiker om te leiden naar de zoekresultaten of `searchLink` als u een eigen resultatenpagina hebt.
+Het veld `queryExpansions` bevat een lijst met [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj)-objecten. Het veld `text` bevat de uitgebreide query en het veld `displayText` bevat de term na de uitbreiding. U kunt de velden text en thumbnail gebruiken om de uitgebreide queryreeksen weer te geven aan de gebruiker als de uitgebreide queryreeks is waar ze in feite naar op zoek zijn. Maak de miniatuur en tekst klikbaar met de URL `webSearchUrl` of `searchLink`. Gebruik `webSearchUrl` om de gebruiker om te leiden naar de zoekresultaten of `searchLink` als u een eigen resultatenpagina hebt.
 
 ## <a name="pivoting-the-query"></a>De query draaien
 
-Als Bing de oorspronkelijke zoekopdracht kan segmenteren, bevat het object [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) het veld `pivotSuggestions`. Als de oorspronkelijke query bijvoorbeeld *Cleaning Gutters* was, kan Bing de query segmenteren in *Cleaning* en *Gutters*.
+Als Bing de oorspronkelijke zoekopdracht kan segmenteren, bevat het object [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) het veld `pivotSuggestions`. Als de oorspronkelijke query bijvoorbeeld *Cleaning Gutters* was, kan Bing de query segmenteren in *Cleaning* en *Gutters*.
 
 In het volgende voorbeeld ziet u de draaisuggesties voor *Cleaning Gutters*.
 
@@ -222,7 +222,7 @@ In het volgende voorbeeld ziet u de draaisuggesties voor *Cleaning Gutters*.
 }
 ```
 
-Voor elk draaipunt bevat de respons een lijst met [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query_obj)-objecten met voorgestelde query's. Het veld `text` bevat de voorgestelde query en het veld `displayText` de term die het draaipunt in de oorspronkelijke query vervangt, bijvoorbeeld Window Cleaning.
+Voor elk draaipunt bevat de respons een lijst met [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj)-objecten met voorgestelde query's. Het veld `text` bevat de voorgestelde query en het veld `displayText` de term die het draaipunt in de oorspronkelijke query vervangt, bijvoorbeeld Window Cleaning.
 
 U kunt de velden `text` en `thumbnail` gebruiken om de uitgebreide queryreeksen weer te geven aan de gebruiker als de uitgebreide queryreeks is waar ze in feite naar op zoek zijn. Maak de miniatuur en tekst klikbaar met de URL `webSearchUrl` of `searchLink`. Gebruik `webSearchUrl` om de gebruiker om te leiden naar de zoekresultaten of `searchLink` als u een eigen resultatenpagina hebt.
 

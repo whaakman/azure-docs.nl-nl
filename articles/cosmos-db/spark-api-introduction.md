@@ -3,15 +3,15 @@ title: Inleiding tot de ingebouwde operational analytics in Azure Cosmos DB met 
 description: Lees hoe u de ingebouwde ondersteuning voor Apache Spark in Azure Cosmos DB kunt gebruiken om uit te voeren operationele analyse en AI
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/10/2019
+ms.date: 05/23/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: c62639feed7ced9d92e29715e350b952465a94a1
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: b392f7fd6438b25a741aecb86a72f142d785f0e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517733"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237897"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Ingebouwde operational analytics in Azure Cosmos DB met Apache Spark (preview) 
 
@@ -20,7 +20,7 @@ De ingebouwde ondersteuning voor Apache Spark in Azure Cosmos DB kunt u analyses
 Spark compute is automatisch beschikbaar in alle Azure-regio's die zijn gekoppeld aan uw Azure Cosmos-account. Spark-taken met meerdere masters mogelijkheid van de Azure Cosmos DB gebruiken en ze kunnen schrijven of query op basis van de lokale replica's in elke regio. 
 
 > [!NOTE]
-> De ingebouwde ondersteuning voor Apache Spark in Azure Cosmos DB is momenteel in de beperkte Preview-versie. Om u te registreren voor de Preview-versie, gaat u naar [Meld u aan voor de Preview-versie](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB) pagina. 
+> De ingebouwde ondersteuning voor Apache Spark in Azure Cosmos DB is momenteel in de beperkte Preview-versie. Om u te registreren voor de Preview-versie, gaat u naar [Meld u aan voor de preview-pagina](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB). 
 
 De ondersteuning voor Apache Spark in Azure Cosmos DB biedt de volgende voordelen:
 
@@ -67,7 +67,7 @@ In tegenstelling tot traditionele analytische databases met Azure Cosmos DB, geg
 
 Omdat de Apache Spark-taken worden uitgevoerd in de gegevenspartities van uw Azure Cosmos-database, de query's krijgt de [vijf duidelijk gedefinieerde consistentiekeuzen](consistency-levels.md). Deze consistentiemodellen bieden de flexibiliteit om te kiezen strikte consistentie voor de meest nauwkeurige resultaten voor machine learning-algoritmen zonder verlies van de latentie en hoge beschikbaarheid. 
 
-### <a name="slas"></a>SLA's
+### <a name="comprehensive-slas"></a>Uitgebreide SLA's
 
 De Apache Spark-taken heeft de Azure Cosmos DB-voordelen, zoals de toonaangevende uitgebreide [Sla's](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) (99,999) zonder eventuele overhead van het beheer van afzonderlijke Apache Spark-clusters... Deze Sla's omvatten doorvoer en latentie in het 99e percentiel, consistentie en beschikbaarheid. 
 
@@ -77,7 +77,7 @@ De integratie van Apache Spark in Azure Cosmos DB bruggen de scheiding transacti
 
 ## <a name="built-in-jupyter-notebooks-support"></a>Ingebouwde ondersteuning voor Jupyter-notebooks
 
-Azure Cosmos DB biedt ondersteuning voor Jupyter-notebooks voor alle API's, zoals Cassandra, MongoDB, SQL, Gremlin en tabel. De Jupyter-notebooks uitgevoerd binnen de Azure Cosmos DB-accounts en ze verbeteren de ervaring voor ontwikkelaars. De laptop ingebouwde ondersteuning voor alle Azure Cosmos DB-API's en gegevensmodellen kunt u interactief uitvoeren van query's. U kunt ook machine learning-modellen uitvoeren en analyseren van de gegevens die zijn opgeslagen in uw Azure Cosmos-databases. Met behulp van de Jupyter-notebook-ervaring, kunt u de opgeslagen gegevens te analyseren, maken en machine learning-modellen trainen en inferentietaken uitvoeren voor de gegevens in Azure portal, zoals wordt weergegeven in de volgende afbeelding:
+Azure Cosmos DB biedt ondersteuning voor ingebouwde Jupyter-notebooks voor alle API's, zoals Cassandra, MongoDB, SQL, Gremlin en tabel. De Jupyter-notebooks uitgevoerd in de Azure Cosmos-accounts en ze verbeteren de ervaring voor ontwikkelaars. De laptop ingebouwde ondersteuning voor alle Azure Cosmos DB-API's en gegevensmodellen kunt u interactief uitvoeren van query's. U kunt ook machine learning-modellen uitvoeren en analyseren van de gegevens die zijn opgeslagen in uw Azure Cosmos-databases. Met behulp van de Jupyter-notebook-ervaring, kunt u de opgeslagen gegevens te analyseren, maken en machine learning-modellen trainen en inferentietaken uitvoeren voor de gegevens in Azure portal, zoals wordt weergegeven in de volgende afbeelding:
 
 ![Ondersteuning voor Jupyter-notebooks in Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.date: 05/29/2019
+ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898936"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357671"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer
 
@@ -111,22 +111,25 @@ Nu kunt u vanuit Azure Data Explorer verbinding maken met de event hub. Wanneer 
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
     | Naam van gegevensverbinding | *test-hub-connection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
-    | Event Hub-naamruimte | Een unieke naam voor de naamruimte | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
+    | Event hub-naamruimte | Een unieke naam voor de naamruimte | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
     | Event Hub | *test-hub* | De Event Hub die u hebt gemaakt. |
     | Consumentengroep | *test-group* | De consumentengroep die u hebt gedefinieerd in de gemaakte Event Hub. |
     | | |
 
     Doeltabel:
 
-    Er zijn twee opties voor de routering: *statische* en *dynamische*. Voor deze snelstart gebruikt u statische routering (standaardinstelling), waarbij u de tabelnaam, bestandsindeling en toewijzing opgeeft. Laat **Mijn gegevens omvatten routeringsgegevens** daarom uitgeschakeld.
-    U kunt ook dynamische routering gebruiken, waarbij uw gegevens benodigde routeringsgegevens bevatten.
+    Er zijn twee opties voor de opgenomen gegevens-routering: *statische* en *dynamische*. 
+    Voor dit artikel gebruikt u de statische routering, waarin u de tabelnaam, de indeling van gegevens en de toewijzing opgeven. Laat **Mijn gegevens omvatten routeringsgegevens** daarom uitgeschakeld.
 
      **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
     | Tabel | *TestTable* | De tabel die u hebt gemaakt in **TestDatabase**. |
     | Gegevensindeling | *JSON* | Ondersteunde indelingen zijn Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV en TXT. |
-    | Toewijzen van kolommen | *TestMapping* | De toewijzing die u hebt gemaakt in **TestDatabase** en waarmee die binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van **TestTable**.|
+    | Toewijzen van kolommen | *TestMapping* | De toewijzing die u hebt gemaakt in **TestDatabase** en waarmee die binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van **TestTable**. Vereist voor de JSON, MULTILINE JSON of AVRO, en optioneel voor andere indelingen.|
     | | |
+
+    > [!NOTE]
+    > Selecteer **mijn gegevens omvatten informatie routering** voor het gebruik van dynamische routering, waarbij uw gegevens bevat de benodigde routinggegevens zoals te zien is de [voorbeeldapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) opmerkingen. Als zowel statische als dynamische eigenschappen zijn ingesteld, overschrijven de dynamische eigenschappen van de statische adressen. 
 
 ## <a name="copy-the-connection-string"></a>De verbindingsreeks kopiëren
 
@@ -134,7 +137,7 @@ Wanneer u de [voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-
 
 1. Onder de naamruimte van de Event Hub die u hebt gemaakt, selecteert u **Gedeeld toegangsbeleid** en vervolgens **RootManageSharedAccessKey**.
 
-    ![Beleid voor gedeelde toegang](media/ingest-data-event-hub/shared-access-policies.png)
+    ![Gedeeld toegangsbeleid](media/ingest-data-event-hub/shared-access-policies.png)
 
 1. Kopieer **Verbindingsreeks - primaire sleutel**. U plak deze in de volgende sectie.
 

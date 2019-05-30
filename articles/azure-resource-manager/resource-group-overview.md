@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589383"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225904"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 
@@ -55,7 +55,7 @@ Resource Manager biedt diverse voordelen:
 
 Azure biedt vier niveaus van beheerbereik: [beheergroepen](../governance/management-groups/index.md), abonnementen, [resourcegroepen](#resource-groups), en resources. In de volgende afbeelding ziet u een voorbeeld van deze lagen.
 
-![Bereik](./media/resource-group-overview/scope-levels.png)
+![Scope](./media/resource-group-overview/scope-levels.png)
 
 U past beheerinstellingen toe op een of meer bereikniveaus. Het niveau dat u kiest, bepaalt de reikwijdte van de instelling. Lagere niveaus nemen instellingen over van hogere niveaus. Bijvoorbeeld bij het toepassen van een [beleid](../governance/policy/overview.md) tot het abonnement, het beleid wordt toegepast op alle resourcegroepen en resources in uw abonnement. Wanneer u een beleid toepast op wordt de resourcegroep die het beleid is toegepast, de resourcegroep en alle bijbehorende resources. Een andere resourcegroep heeft echter geen deze beleidstoewijzing.
 
@@ -91,7 +91,7 @@ Als de resourcegroep regio tijdelijk niet beschikbaar is, kunt u resources in de
 
 Elke resourceprovider biedt een set resources en bewerkingen voor het werken met deze resources. Als u bijvoorbeeld sleutels en geheimen wilt opslaan, werkt u met de resourceprovider **Microsoft.KeyVault**. Deze resourceprovider biedt een resourcetype **kluizen** voor het maken van de sleutelkluis.
 
-De naam van een resourcetype heeft deze syntaxis: **{resourceprovider}/{resourcetype}**. Het resourcetype voor een sleutelkluis is **Microsoft.keyvault\vaults**.
+De naam van een resourcetype heeft deze syntaxis: **{resourceprovider}/{resourcetype}** . Het resourcetype voor een sleutelkluis is **Microsoft.keyvault\vaults**.
 
 Voordat u aan de slag gaat met de implementatie van uw resources, dient u inzicht te hebben in de beschikbare resourceproviders. Als u de namen van resourceproviders en resources kent, bent u beter in staat resources te definiëren die u wilt implementeren in Azure. Bovendien moet u voor elk resourcetype de geldige locaties en API-versies weten. Zie [Resourceproviders en -typen](resource-manager-supported-services.md) voor meer informatie.
 
@@ -174,7 +174,21 @@ Nadat u de sjabloon hebt gedefinieerd, kunt u de resources in Azure implementere
 
 Wanneer u een complexe service in Azure implementeert, moet u uw service mogelijk implementeren in meerdere regio's en de status ervan controleren voordat u doorgaat met de volgende stap. Gebruik [Azure Deployment Manager](deployment-manager-overview.md) voor de coördinatie van een gefaseerde implementatie van de service. Door de implementatie van uw service te faseren, kunt u potentiële problemen opsporen voordat de service is geïmplementeerd voor alle regio's. Als u deze voorzorgsmaatregelen niet nodig hebt, zijn de implementaties uit de voorgaande sectie de betere optie.
 
-Deployment Manager bevindt zich momenteel in beperkte preview.
+Deployment Manager bevindt zich momenteel in openbare preview.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Tolerantie van Azure Resource Manager
+
+De Azure Resource Manager-service is ontworpen voor tolerantie en continue beschikbaarheid. Resource Manager en het besturingselement vlak bewerkingen (aanvragen verzonden naar management.azure.com) in de REST-API zijn:
+
+* Verdeeld over regio's. Sommige services worden regionaal.
+
+* Verdeeld over Beschikbaarheidszones (zoals en regio's) op locaties die u meerdere Beschikbaarheidszones hebt.
+
+* Niet afhankelijk zijn van één logische datacentrum.
+
+* Nooit het offline gezet voor onderhoudswerkzaamheden.
+
+Deze tolerantie geldt voor services die via Resource Manager-aanvragen worden ontvangen. Bijvoorbeeld, Key Vault voordelen van deze tolerantie.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

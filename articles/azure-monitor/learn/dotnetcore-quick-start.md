@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e6afd342a27fa13ae79e037e6e42e582dd9856cc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: HT
+ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015296"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236598"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
@@ -85,7 +85,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 
 2. Klik op **Toepassingsoverzicht** voor een visueel overzicht van de afhankelijkheidsrelaties tussen de onderdelen van de toepassing. Voor elk onderdeel worden KPI's weergegeven, zoals belasting, prestaties, fouten en waarschuwingen.
 
-   ![Toepassingsoverzicht](./media/dotnetcore-quick-start/5appmap.png)
+   ![Toepassingskaart](./media/dotnetcore-quick-start/5appmap.png)
 
 3. Klik op de **Appanalyses** pictogram ![pictogram Toepassingskaart](./media/dotnetcore-quick-start/006.png) **weergeven in Analytics**. Hierdoor wordt **Application Insights Analytics** geopend. Dit biedt een querytaal met opmaak voor het analyseren van alle gegevens die zijn verzameld met Application Insights. In dit geval wordt er een query gegenereerd waarmee het aantal aanvragen wordt weergegeven als een grafiek. U kunt uw eigen query's schrijven om andere gegevens te analyseren.
 
@@ -102,6 +102,7 @@ Met Application Insights kunnen telemetriegegevens worden verzameld vanuit elke 
 ## <a name="video"></a>Video
 
 - Externe stapsgewijze video over [Application Insights configureren met .NET Core en Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) helemaal.
+- Externe stapsgewijze video over [Application Insights configureren met .NET Core en Visual Studio Code](https://youtu.be/ygGt84GDync) helemaal.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Wanneer u klaar bent met testen, kunt u de resourcegroep verwijderen en alle gerelateerde resources. Om te dus de volgende stappen.

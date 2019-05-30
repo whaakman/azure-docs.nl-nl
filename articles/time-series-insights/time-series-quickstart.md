@@ -1,62 +1,62 @@
 ---
 title: 'Quickstart: Azure Time Series Insights-verkenner | Microsoft Docs'
-description: In deze quickstart wordt beschreven hoe u de verkenner van Azure Time Series Insights kunt gebruiken in uw webbrowser om grote hoeveelheden IoT-gegevens te visualiseren. In dit artikel worden de belangrijkste functies van de verkenner van Azure Time Series Insights behandeld via een rondleiding in een demo-omgeving.
+description: In deze Quick Start laat zien hoe u aan de slag met de Azure Time Series Insights explorer in uw webbrowser grote hoeveelheden IoT-gegevens visualiseren. In dit artikel worden de belangrijkste functies van de verkenner van Azure Time Series Insights behandeld via een rondleiding in een demo-omgeving.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: be663520c9c1afd11ace57cd9dcb8ffb8219b86b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17aee2555a0d0364ca5eb8e260ae10432a19bce6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696962"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244057"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snelstartgids: Azure Time Series Insights verkennen
 
-Een explorer Quick Start wordt verstrekt aan de slag met Azure Time Series Insights in een gratis demo-omgeving. Via deze leert u hoe u uw webbrowser gebruiken voor het visualiseren van grote hoeveelheden IoT gegevens en rondleiding door de belangrijkste functies die momenteel in algemene beschikbaarheid.
+Deze quickstart van Azure Time Series Insights explorer kunt u aan de slag met Time Series Insights in een gratis demo-omgeving. Via deze leert u hoe u uw webbrowser gebruiken voor het visualiseren van grote hoeveelheden IoT gegevens en rondleiding door de belangrijkste functies die nu algemeen beschikbaar.
 
-Azure Time Series Insights is een volledig beheerde analyse-, opslag- en visualisatie-service die hoe vereenvoudigt te verkennen en analyseren van miljarden IoT-gebeurtenissen tegelijkertijd. Dit biedt u een algemeen overzicht van uw gegevens, helpt u snel uw IoT-oplossing te valideren en kostbare stilstand van essentiële apparaten te vermijden. U kunt via Azure Time Series Insights verborgen trends, anomalieën te herkennen, te detecteren en oorzaak-gevolganalyses bijna in realtime uitvoeren.
+Azure Time Series Insights is een volledig beheerde analyse-, opslag- en visualisatie-service die hoe vereenvoudigt te verkennen en analyseren van miljarden IoT-gebeurtenissen tegelijkertijd. Dit biedt u een algemeen overzicht van uw gegevens zodat u snel uw IoT-oplossing te valideren en kostbare stilstand van essentiële apparaten te vermijden. Azure Time Series Insights helpt u bij het detecteren van verborgen trends, anomalieën te herkennen en oorzaak-gevolganalyses bijna in realtime uitvoeren.
 
-Voor meer flexibiliteit, Azure Time Series Insights kan worden toegevoegd aan een bestaande toepassing via de krachtige [REST-API's](./time-series-insights-update-tsq.md) en [client-SDK](./tutorial-create-tsi-sample-spa.md). De API's kunnen u om op te slaan, query time series-gegevens, en gebruiken van time series-gegevens in een clienttoepassing van uw keuze. U kunt ook de client-SDK gebruiken om u te UI-onderdelen toevoegen aan uw bestaande toepassing.
+Voor meer flexibiliteit, kunt u Azure Time Series Insights toevoegen aan een bestaande toepassing via de krachtige [REST-API's](./time-series-insights-update-tsq.md) en [client-SDK](./tutorial-create-tsi-sample-spa.md). De API's kunt u opslaat, query, en gebruiken van time series-gegevens in een clienttoepassing van uw keuze. U kunt ook de client-SDK gebruiken UI-onderdelen toevoegen aan uw bestaande toepassing.
 
-De Time Series Insights explorer een rondleiding van is functies die momenteel in het algemeen beschikbaar.
+In deze snelstartgids van Time Series Insights explorer biedt een rondleiding van functies die nu algemeen beschikbaar.
 
 ## <a name="prepare-the-demo-environment"></a>De demo-omgeving voorbereiden
 
-1. Maak een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) als een nog niet is gemaakt.
+1. Maak een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) als u een al hebt gemaakt.
 
-1. Navigeer in uw browser naar de [demo voor algemene beschikbaarheid](https://insights.timeseries.azure.com/demo).
+1. Ga in uw browser naar de [demo voor algemene beschikbaarheid](https://insights.timeseries.azure.com/demo).
 
-1. Als u hierom wordt gevraagd, moet u zich aanmelden bij de Time Series Insights-Verkenner met de referenties van uw Azure-account.
+1. Als u hierom wordt gevraagd, aanmelden bij de Verkenner van Time Series Insights met behulp van de referenties van uw Azure-account.
 
-1. U ziet nu de eerste pagina van de korte rondleiding door Time Series Insights. Klik op **Next** om de rondleiding te starten.
+1. De Time Series Insights korte Tour langs de pagina wordt weergegeven. Selecteer **volgende** om te beginnen met de rondleiding.
 
    [![Klik op volgende](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>De demo-omgeving verkennen
 
-1. Het venster **Time selection** wordt weergegeven. Gebruik dit venster om het tijdsbestek te selecteren dat u wilt visualiseren.
+1. De **deelvenster tijd selecteren** wordt weergegeven. Gebruik dit venster om het tijdsbestek te selecteren dat u wilt visualiseren.
 
    [![Deelvenster tijd selecteren](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
-1. Klik en sleep in de regio en klik vervolgens op de knop **Search**.
+1. Selecteer een bepaalde periode en sleept u deze in de regio. Selecteer vervolgens **zoeken**.
 
    [![Een tijdsbestek selecteren](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
-   U ziet in Time Series Insights een grafiek met een visualisatie voor het opgegeven tijdsbestek. U kunt verschillende bewerkingen uitvoeren in het lijndiagram, zoals filteren, vastmaken, sorteren en stapelen.
+   U ziet in Time Series Insights een grafiek met een visualisatie voor het opgegeven tijdsbestek. U kunt verschillende bewerkingen uitvoeren in het lijndiagram doen. U kunt bijvoorbeeld filteren, vastmaken, sorteren en stapelen.
 
-   Als u terug wilt naar het venster **Time selection**, klikt u op de pijl-omlaag, zoals wordt aangegeven:
+   Om terug te keren naar de **deelvenster tijd selecteren**, selecteer de pijl-omlaag, zoals wordt weergegeven:
 
    [![Grafiek](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
-1. Klik op **Add** in het venster **Terms** om een nieuwe zoekterm toe te voegen.
+1. Selecteer **toevoegen** in de **deelvenster termen** om toe te voegen een nieuwe zoekterm.
 
    [![Item toevoegen](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
@@ -64,17 +64,17 @@ De Time Series Insights explorer een rondleiding van is functies die momenteel i
 
    [![Gebeurtenissen verkennen](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
-   U ziet een raster met de onbewerkte gegevens uit de regio die u bekijkt:
+   Een raster met de onbewerkte gegevens die worden weergegeven in de regio die u verkent.
 
    [![Rasterweergave](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Selecteren en filteren van gegevens
 
-1. Pas de termen aan om de waarden in de grafiek te wijzigen, en voeg een term toe om verschillende soorten waarden kruislings te correleren:
+1. Bewerk uw voorwaarden om de waarden in de grafiek te wijzigen. Voeg een andere term om kruislings te correleren verschillende soorten waarden.
 
    [![Een term toevoegen](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 
-1. Typ een filterterm in de **reeks filteren...**  vak voor het filteren van geïmproviseerde reeks. Voor deze quickstart voeren we **Station5** in om de temperatuur- en drukwaarden voor dat station kruislings te correleren.
+1. Typ een filterterm in de **reeks filteren** vak voor het filteren van geïmproviseerde reeks. Voor deze quickstart voeren we **Station5** in om de temperatuur- en drukwaarden voor dat station kruislings te correleren.
 
    [![Reeks filteren](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
@@ -82,6 +82,6 @@ Als u klaar bent met de quickstart, kunt u experimenteren met de set voorbeeldge
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt nu uw eigen Time Series Insights-omgeving gaan maken:
+Bent u klaar om uw eigen Time Series Insights-omgeving te maken:
 > [!div class="nextstepaction"]
 > [Uw Time Series Insights-omgeving plannen](time-series-insights-environment-planning.md)

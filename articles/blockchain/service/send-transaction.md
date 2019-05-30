@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 80fabccb8a59bcd472812698f624d49dc26c24fa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777331"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399123"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Zelfstudie: Transacties met Azure Blockchain-Service verzenden
 
@@ -35,10 +35,8 @@ U leert het volgende:
 
 * Volledige [een blockchain-lid met de Azure portal maken](create-member.md)
 * Volledige [Quick Start: Truffle gebruiken voor verbinding met een netwerk consortium](connect-truffle.md)
-* Truffle vereist verschillende hulpprogramma's om te worden geïnstalleerd met [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), en [Truffle](https://github.com/trufflesuite/truffle).
-
-    Om in te stellen snel op Windows 10, installeer [Ubuntu in Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) Installeer voor een Unix-Bash-shell terminal [Truffle](https://github.com/trufflesuite/truffle). Het Ubuntu op Windows-distributiepunt bevat Node.js en Git.
-
+* Installeer [Truffle](https://github.com/trufflesuite/truffle). Truffle vereist verschillende hulpprogramma's om te worden geïnstalleerd met [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Installeer [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is nodig voor Web3.
 * Installeer [Visual Studio Code](https://code.visualstudio.com/Download)
 * Installeer [Solidity van Visual Studio Code-extensie](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
 
@@ -65,9 +63,9 @@ Standaard hebt u één knooppunt van de transactie. We gaan twee meer toevoegen.
 
 U kunt doorgaan met de zelfstudie terwijl de knooppunten worden ingericht. Wanneer de inrichting is voltooid, hebt u drie knooppunten van de transactie.
 
-## <a name="open-truffle-project"></a>Truffle project openen
+## <a name="open-truffle-console"></a>Open de console Truffle
 
-1. Open een Bash-shell-terminal.
+1. Open een Node.js-opdrachtprompt of de shell.
 1. Het pad naar de projectmap Truffle wijzigen van de vereiste [Quick Start: Truffle gebruiken voor verbinding met een netwerk consortium](connect-truffle.md). Bijvoorbeeld:
 
     ```bash
@@ -82,9 +80,9 @@ U kunt doorgaan met de zelfstudie terwijl de knooppunten worden ingericht. Wanne
 
     Truffle maakt een blockchain lokale ontwikkeling en biedt een interactieve console.
 
-## <a name="connect-to-transaction-node"></a>Verbinding maken met transactieknooppunt
+## <a name="create-ethereum-account"></a>Ethereum-account maken
 
-Gebruik Web3 verbinding maken met het standaard-transactie-knooppunt en een account maken. U kunt de Web3-verbindingsreeks ophalen uit de Azure-portal.
+Gebruik Web3 verbinding maken met het standaard-transactie-knooppunt en een Ethereum-account maken. U kunt de Web3-verbindingsreeks ophalen uit de Azure-portal.
 
 1. In de Azure-portal, gaat u naar de standaard-transactie-knooppunt en selecteer **transactie knooppunten > voorbeeldcode > Web3**.
 1. Kopieer het JavaScript van **HTTPS (toegangssleutel 1)** ![Web3 voorbeeldcode](./media/send-transaction/web3-code.png)
@@ -105,7 +103,7 @@ Gebruik Web3 verbinding maken met het standaard-transactie-knooppunt en een acco
     web3.eth.personal.newAccount("1@myStrongPassword");
     ```
 
-    Maak notitie van de accountadres dat is geretourneerd en wachtwoord die u hebt gebruikt voor de volgende sectie.
+    Opmerking van de accountadres dat is geretourneerd en wachtwoord maken. U moet de Ethereum-account-adres en het wachtwoord in de volgende sectie.
 
 1. Sluit de Truffle-ontwikkelomgeving.
 
@@ -138,101 +136,99 @@ U kunt de openbare sleutel ophalen uit de lijst van de transactie-knooppunt. Kop
 1. Open het configuratiebestand Truffle `truffle-config.js`.
 1. Vervang de inhoud van het bestand met de volgende configuratie-informatie. Variabelen met de adressen van eindpunten en accountgegevens toevoegen. De secties punthaak vervangen door waarden die u hebt verzameld in de vorige secties.
 
-``` javascript
-var defaultnode = "<default transaction node connection string>";
-var alpha = "<alpha transaction node connection string>";
-var beta = "<beta transaction node connection string>";
-
-var myAccount = "<account address>";
-var myPassword = "<account password>";
-
-var Web3 = require("web3");
-```
-
-Voeg de configuratiecode aan de **module.exports** sectie van de configuratie.
-
-```javascript
-module.exports = {
-  networks: {
-    defaultnode: {
-      provider:(() =>  {
-      const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-
-      const web3 = new Web3(AzureBlockchainProvider);
-      web3.eth.personal.unlockAccount(myAccount, myPassword);
-
-      return AzureBlockchainProvider;
-      })(),
-
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0,
-      from: myAccount
-    },
-    alpha: {
-      provider: new Web3.providers.HttpProvider(alpha),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
-    },
-    beta: {
-      provider: new Web3.providers.HttpProvider(beta),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
+    ``` javascript
+    var defaultnode = "<default transaction node connection string>";
+    var alpha = "<alpha transaction node connection string>";
+    var beta = "<beta transaction node connection string>";
+    
+    var myAccount = "<Ethereum account address>";
+    var myPassword = "<Ethereum account password>";
+    
+    var Web3 = require("web3");
+    
+    module.exports = {
+      networks: {
+        defaultnode: {
+          provider:(() =>  {
+          const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
+    
+          const web3 = new Web3(AzureBlockchainProvider);
+          web3.eth.personal.unlockAccount(myAccount, myPassword);
+    
+          return AzureBlockchainProvider;
+          })(),
+    
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0,
+          from: myAccount
+        },
+        alpha: {
+          provider: new Web3.providers.HttpProvider(alpha),
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0
+        },
+        beta: {
+          provider: new Web3.providers.HttpProvider(beta),
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0
+        }
+      }
     }
-  }
-}
-```
+    ```
+
+1. Sla de wijzigingen aan `truffle-config.js`.
 
 ## <a name="create-smart-contract"></a>Slimme contract maken
 
-In de map **contracten**, maak een nieuw bestand met de naam `SimpleStorage.sol`. Voeg de volgende code toe.
+1. In de map **contracten**, maak een nieuw bestand met de naam `SimpleStorage.sol`. Voeg de volgende code toe.
 
-```solidity
-pragma solidity >=0.4.21 <0.6.0;
-
-contract SimpleStorage {
-    string public storedData;
-
-    constructor(string memory initVal) public {
-        storedData = initVal;
+    ```solidity
+    pragma solidity >=0.4.21 <0.6.0;
+    
+    contract SimpleStorage {
+        string public storedData;
+    
+        constructor(string memory initVal) public {
+            storedData = initVal;
+        }
+    
+        function set(string memory x) public {
+            storedData = x;
+        }
+    
+        function get() view public returns (string memory retVal) {
+            return storedData;
+        }
     }
+    ```
+    
+1. In de map **migraties**, maak een nieuw bestand met de naam `2_deploy_simplestorage.js`. Voeg de volgende code toe.
 
-    function set(string memory x) public {
-        storedData = x;
-    }
+    ```solidity
+    var SimpleStorage = artifacts.require("SimpleStorage.sol");
+    
+    module.exports = function(deployer) {
+    
+      // Pass 42 to the contract as the first constructor parameter
+      deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"})  
+    };
+    ```
 
-    function get() view public returns (string memory retVal) {
-        return storedData;
-    }
-}
-```
+1. Vervang de waarden in de punthaken.
 
-In de map **migraties**, maak een nieuw bestand met de naam `2_deploy_simplestorage.js`. Voeg de volgende code toe.
+    | Value | Description
+    |-------|-------------
+    | \<de openbare sleutel Alpha-knooppunt\> | Openbare sleutel van het knooppunt voor alpha
+    | \<Adres Ethereum-account\> | Adres Ethereum-account hebt gemaakt in het knooppunt van de transactie standaard
+    
+    In dit voorbeeld wordt de aanvankelijke waarde van de **storeData** waarde is ingesteld op 42.
 
-```solidity
-var SimpleStorage = artifacts.require("SimpleStorage.sol");
+    **privateFor** definieert de knooppunten waarop het contract beschikbaar is. In dit voorbeeld van het standaard transactie knooppunt account kunt cast-conversie persoonlijke transacties naar de **alpha** knooppunt. U moet openbare sleutels toevoegen voor alle persoonlijke Transactiedeelnemers. Als u geen **privateFor:** en **uit:** , de slimme contract transacties openbaar zijn en kan worden bekeken door alle leden van de consortium.
 
-module.exports = function(deployer) {
-
-  // Pass 42 to the contract as the first constructor parameter
-  deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Account address>"})  
-};
-```
-
-Vervang de waarden in de punthaken.
-
-| Value | Description
-|-------|-------------
-| \<de openbare sleutel Alpha-knooppunt\> | Openbare sleutel van het knooppunt voor alpha
-| \<Accountadres\> | Het adres van de account in het knooppunt van de transactie standaard gemaakt.
-
-In dit voorbeeld wordt de aanvankelijke waarde van de **storeData** waarde is ingesteld op 42.
-
-**privateFor** definieert de knooppunten waarop het contract beschikbaar is. In dit voorbeeld van het standaard transactie knooppunt account kunt cast-conversie persoonlijke transacties naar de **alpha** knooppunt. U moet openbare sleutels toevoegen voor alle persoonlijke Transactiedeelnemers. Als u geen **privateFor:** en **uit:**, de slimme contract transacties openbaar zijn en kan worden bekeken door alle leden van de consortium.
-
-Sla alle bestanden door het selecteren van **bestand > opslaan alle**.
+1. Sla alle bestanden door het selecteren van **bestand > opslaan alle**.
 
 ## <a name="deploy-smart-contract"></a>Slimme contract implementeren
 
@@ -247,7 +243,7 @@ Truffle eerst worden gecompileerd en implementeert vervolgens de **SimpleStorage
 Voorbeelduitvoer:
 
 ```
-pat@DESKTOP:/mnt/c/truffledemo$ truffle migrate --network defaultnode
+admin@desktop:/mnt/c/truffledemo$ truffle migrate --network defaultnode
 
 2_deploy_simplestorage.js
 =========================
@@ -279,190 +275,185 @@ Summary
 
 ## <a name="validate-contract-privacy"></a>Contract privacy valideren
 
-Vanwege privacy contract, kunnen alleen waarden van de overeenkomst van knooppunten die zijn gedeclareerd in worden opgevraagd **privateFor**. In dit voorbeeld kunnen we in het knooppunt van de transactie standaard query omdat het account in dat knooppunt bestaat. Met behulp van de console Truffle verbinding maken met het standaard-transactie-knooppunt.
+Vanwege privacy contract, kunnen alleen waarden van de overeenkomst van knooppunten die zijn gedeclareerd in worden opgevraagd **privateFor**. In dit voorbeeld kunnen we in het knooppunt van de transactie standaard query omdat het account in dat knooppunt bestaat. 
 
-```bash
-truffle console --network defaultnode
-```
+1. Met behulp van de console Truffle verbinding maken met het standaard-transactie-knooppunt.
 
-Een opdracht die de waarde van het contract exemplaar retourneert uitvoeren.
+    ```bash
+    truffle console --network defaultnode
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. In de console Truffle code uitvoeren die de waarde van het contract-exemplaar retourneert.
 
-Als het uitvoeren van query's het standaard-transactie-knooppunt is geslaagd, wordt de waarde 42 geretourneerd.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Voorbeelduitvoer:
+    Als het uitvoeren van query's het standaard-transactie-knooppunt is geslaagd, wordt de waarde 42 geretourneerd. Bijvoorbeeld:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network defaultnode
-truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network defaultnode
+    truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    '42'
+    ```
 
-Sluit de console.
+1. Sluit de console Truffle.
 
-```bash
-.exit
-```
+    ```bash
+    .exit
+    ```
 
-Omdat we gedeclareerd **alpha** openbare sleutel van het knooppunt in **privateFor**, we kunnen opvragen de **alpha** knooppunt. Met behulp van de console Truffle verbinding maken met de **alpha** knooppunt.
+Omdat we gedeclareerd **alpha** openbare sleutel van het knooppunt in **privateFor**, we kunnen opvragen de **alpha** knooppunt.
 
-```bash
-truffle console --network alpha
-```
+1. Met behulp van de console Truffle verbinding maken met de **alpha** knooppunt.
 
-Een opdracht die de waarde van het contract exemplaar retourneert uitvoeren.
+    ```bash
+    truffle console --network alpha
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. In de console Truffle code uitvoeren die de waarde van het contract-exemplaar retourneert.
 
-Als het uitvoeren van query's de **alpha** knooppunt is geslaagd, wordt de waarde 42 geretourneerd.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Voorbeelduitvoer:
+    Als het uitvoeren van query's de **alpha** knooppunt is geslaagd, wordt de waarde 42 geretourneerd. Bijvoorbeeld:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network alpha
-truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network alpha
+    truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    '42'
+    ```
 
-Sluit de console.
+1. Sluit de console Truffle.
 
-```bash
-.exit
-```
+    ```bash
+    .exit
+    ```
 
-Omdat we niet heeft declareren **Bèta** openbare sleutel van het knooppunt in **privateFor**, we het niet mogelijk om op te vragen de **Bèta** knooppunt vanwege contract privacy. Met behulp van de console Truffle verbinding maken met de **Bèta** knooppunt.
+Omdat we niet heeft declareren **Bèta** openbare sleutel van het knooppunt in **privateFor**, we het niet mogelijk om op te vragen de **Bèta** knooppunt vanwege contract privacy.
 
-```bash
-truffle console --network beta
-```
+1. Met behulp van de console Truffle verbinding maken met de **Bèta** knooppunt.
 
-Een opdracht die de waarde van het contract exemplaar retourneert uitvoeren.
+    ```bash
+    truffle console --network beta
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Een code de waarde van het contract exemplaar retourneert uitvoeren.
 
-Uitvoeren van query's de **Bèta** knooppunt is mislukt omdat het contract privé is.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Voorbeelduitvoer:
+1. Uitvoeren van query's de **Bèta** knooppunt is mislukt omdat het contract privé is. Bijvoorbeeld:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network beta
-truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-Thrown:
-Error: Returned values aren't valid, did it run Out of Gas?
-    at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
-    at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
-    at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
-    at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network beta
+    truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    Thrown:
+    Error: Returned values aren't valid, did it run Out of Gas?
+        at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
+        at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
+        at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
+        at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
+    ```
 
-Sluit de console.
+1. Sluit de console Truffle.
 
-```bash
-.exit
-```
-
+    ```bash
+    .exit
+    ```
+    
 ## <a name="send-a-transaction"></a>Verzenden van een transactie
 
-Maak een bestand met de naam `sampletx.js`. Opslaan in de hoofdmap van uw project.
+1. Maak een bestand met de naam `sampletx.js`. Opslaan in de hoofdmap van uw project.
+1. Het volgende script wordt het contract **storedData** variabelewaarde op 65. Voeg de code toe aan het nieuwe bestand.
 
-Met dit script wordt het contract **storedData** variabelewaarde op 65. Voeg de code toe aan het nieuwe bestand.
+    ```javascript
+    var SimpleStorage = artifacts.require("SimpleStorage");
+    
+    module.exports = function(done) {
+      console.log("Getting deployed version of SimpleStorage...")
+      SimpleStorage.deployed().then(function(instance) {
+        console.log("Setting value to 65...");
+        return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"});
+      }).then(function(result) {
+        console.log("Transaction:", result.tx);
+        console.log("Finished!");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
 
-```javascript
-var SimpleStorage = artifacts.require("SimpleStorage");
+    Vervang de waarden in de punthaken en sla het bestand.
 
-module.exports = function(done) {
-  console.log("Getting deployed version of SimpleStorage...")
-  SimpleStorage.deployed().then(function(instance) {
-    console.log("Setting value to 65...");
-    return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Account address>"});
-  }).then(function(result) {
-    console.log("Transaction:", result.tx);
-    console.log("Finished!");
-    done();
-  }).catch(function(e) {
-    console.log(e);
-    done();
-  });
-};
-```
+    | Value | Description
+    |-------|-------------
+    | \<de openbare sleutel Alpha-knooppunt\> | Openbare sleutel van het knooppunt voor alpha
+    | \<Adres Ethereum-account\> | Adres van Ethereum-account is gemaakt in het knooppunt van de transactie standaard.
 
-Vervang de waarden in de punthaken en sla het bestand.
+    **privateFor** definieert de knooppunten waarop de transactie beschikbaar is. In dit voorbeeld van het standaard transactie knooppunt account kunt cast-conversie persoonlijke transacties naar de **alpha** knooppunt. U moet openbare sleutels toevoegen voor alle persoonlijke Transactiedeelnemers.
 
-| Value | Description
-|-------|-------------
-| \<de openbare sleutel Alpha-knooppunt\> | Openbare sleutel van het knooppunt voor alpha
-| \<Accountadres\> | Het adres van de account in het knooppunt van de transactie standaard gemaakt.
+1. Truffle gebruiken voor het uitvoeren van het script voor het standaard-transactie-knooppunt.
 
-**privateFor** definieert de knooppunten waarop de transactie beschikbaar is. In dit voorbeeld van het standaard transactie knooppunt account kunt cast-conversie persoonlijke transacties naar de **alpha** knooppunt. U moet openbare sleutels toevoegen voor alle persoonlijke Transactiedeelnemers.
+    ```bash
+    truffle exec sampletx.js --network defaultnode
+    ```
 
-Truffle gebruiken voor het uitvoeren van het script voor het standaard-transactie-knooppunt.
+1. In de console Truffle code uitvoeren die de waarde van het contract-exemplaar retourneert.
 
-```bash
-truffle exec sampletx.js --network defaultnode
-```
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Een opdracht die de waarde van het contract exemplaar retourneert uitvoeren.
+    Als de transactie voltooid is, wordt de waarde 65 geretourneerd. Bijvoorbeeld:
+    
+    ```
+    Getting deployed version of SimpleStorage...
+    Setting value to 65...
+    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+    Finished!
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Sluit de console Truffle.
 
-Als de transactie voltooid is, wordt de waarde 65 geretourneerd.
-
-Voorbeelduitvoer:
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-Sluit de console.
-
-```bash
-.exit
-```
-
+    ```bash
+    .exit
+    ```
+    
 ## <a name="validate-transaction-privacy"></a>Transactie-privacy valideren
 
-Vanwege de transactie-privacy kunnen transacties alleen worden uitgevoerd op knooppunten die zijn gedeclareerd in **privateFor**. In dit voorbeeld kunnen we transacties uitgevoerd, aangezien we gedeclareerd **alpha** openbare sleutel van het knooppunt in **privateFor**. Truffle gebruiken voor het uitvoeren van de transactie op de **alpha** knooppunt.
+Vanwege de transactie-privacy kunnen transacties alleen worden uitgevoerd op knooppunten die zijn gedeclareerd in **privateFor**. In dit voorbeeld kunnen we transacties uitgevoerd, aangezien we gedeclareerd **alpha** openbare sleutel van het knooppunt in **privateFor**. 
 
-```bash
-truffle exec sampletx.js --network alpha
-```
+1. Truffle gebruiken voor het uitvoeren van de transactie op de **alpha** knooppunt.
 
-Een opdracht die de waarde van het contract exemplaar retourneert uitvoeren.
+    ```bash
+    truffle exec sampletx.js --network alpha
+    ```
+    
+1. Code uitvoeren die de waarde van het contract-exemplaar retourneert.
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
+    
+    Als de transactie voltooid is, wordt de waarde 65 geretourneerd. Bijvoorbeeld:
 
-Als de transactie voltooid is, wordt de waarde 65 geretourneerd.
+    ```
+    Getting deployed version of SimpleStorage...
+    Setting value to 65...
+    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+    Finished!
+    ```
+    
+1. Sluit de console Truffle.
 
-Voorbeelduitvoer:
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-Sluit de console.
-
-```bash
-.exit
-```
-
-In deze zelfstudie maakt u twee transactie knooppunten om te demonstreren contract en de transactie privacy toegevoegd. U gebruikt het standaardknooppunt voor het implementeren van een persoonlijke slimme contract. U privacy door een query uitvoeren op contractwaarden en presterende transacties op de blockchain getest.
+    ```bash
+    .exit
+    ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -474,6 +465,8 @@ De resourcegroep verwijderen:
 1. Selecteer **Resourcegroep verwijderen**. Bevestig de verwijdering door de naam van de resourcegroep in te voeren en selecteer **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
+
+In deze zelfstudie maakt u twee transactie knooppunten om te demonstreren contract en de transactie privacy toegevoegd. U gebruikt het standaardknooppunt voor het implementeren van een persoonlijke slimme contract. U privacy door een query uitvoeren op contractwaarden en presterende transacties op de blockchain getest.
 
 > [!div class="nextstepaction"]
 > [Blockchain-toepassingen met Azure Blockchain Service ontwikkelen](develop.md)

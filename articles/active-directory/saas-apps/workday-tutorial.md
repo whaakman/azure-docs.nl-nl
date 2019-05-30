@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9c8d1fb234efd5df297082cfc1001f28ca1656
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990394"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388873"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Zelfstudie: Workday integreren met Azure Active Directory
 
@@ -88,7 +88,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     > [!NOTE]
     > Dit zijn niet de echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL en de antwoord-URL. Uw antwoord-URL bijvoorbeeld een subdomein moet hebben: www, wd2, wd3, wd3 impl, wd5, wd5 impl).
-    > Met behulp van bijvoorbeeld `http://www.myworkday.com` werkt maar `http://myworkday.com` niet bestaat. Neem contact op met [Workday Client ondersteuningsteam](https://www.workday.com/partners-services/services/support.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Met behulp van bijvoorbeeld `http://www.myworkday.com` werkt maar `http://myworkday.com` niet bestaat. Neem contact op met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 6. Uw Workday-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding ziet u de lijst met standaardkenmerken, waarbij **nameidentifier** is toegewezen aan **user.userprincipalname**. WorkDay toepassing verwacht **nameidentifier** worden toegewezen met **user.mail**, **UPN**, enz., dus u de kenmerktoewijzing van het bewerken moet door te klikken op  **Bewerken** pictogram en wijzig de kenmerktoewijzing.
 
@@ -138,7 +138,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
    > [!NOTE]
    > De waarde van het kenmerk van de omgeving is gekoppeld aan de waarde van de tenant-URL:  
    > -Als de domeinnaam van de tenant-URL voor Workday wordt gestart met impl bijvoorbeeld: *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), wordt de **omgeving**kenmerk moet worden ingesteld op implementatie.  
-   > -Als de domeinnaam wordt gestart met iets anders, moet u contact opnemen met [Workday Client ondersteuningsteam](https://www.workday.com/partners-services/services/support.html) om op te halen van de overeenkomende **omgeving** waarde.
+   > -Als de domeinnaam wordt gestart met iets anders, moet u contact opnemen met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) om op te halen van de overeenkomende **omgeving** waarde.
 
 4. In de **SAML Setup** sectie, voert u de volgende stappen uit:
 
@@ -197,7 +197,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     ![Configuratie van eenmalige aanmelding](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-configuratie")
 
-    a.  In de **Service Provider-ID** tekstvak, type **https://www.workday.com**.
+    a.  In de **Service Provider-ID** tekstvak, type **https://www.workday.com** .
 
     b. Selecteer **niet nebo Deflate voor Serviceprovider geïnitieerde verificatieaanvraag**.
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Kubernetes-ontwikkeling met containers en microservices op Azure-team
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 94083639ca769d12b04c4dc316a9f9867e4209b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 74ed1981ba6bf62413d7d7bfd51282eb04afd403
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765231"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393401"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Teamontwikkeling op Kubernetes met Azure Dev spaties
 
@@ -35,7 +35,7 @@ In deze handleiding leert u het volgende:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Een Azure Kubernetes Service-cluster maken
 
-Moet u een AKS-cluster in een [ondersteunde regio](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). De onderstaande opdrachten maakt u een resourcegroep met de naam *MyResourceGroup* en een AKS-cluster met de naam *MyAKS*.
+Moet u een AKS-cluster in een [ondersteunde regio][supported-regions]. De onderstaande opdrachten maakt u een resourcegroep met de naam *MyResourceGroup* en een AKS-cluster met de naam *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -232,3 +232,6 @@ Ontdek hoe Azure Dev Spaces u kan helpen om complexere apps te ontwikkelen binne
 
 > [!div class="nextstepaction"]
 > [Werken met meerdere containers en teamontwikkeling](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

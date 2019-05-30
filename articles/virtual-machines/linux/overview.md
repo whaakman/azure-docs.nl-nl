@@ -16,10 +16,10 @@ ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60542523"
 ---
 # <a name="azure-and-linux"></a>Azure en Linux
@@ -110,7 +110,7 @@ Als u ervoor kiest om een Linux-VM te maken in Azure Portal, kunt u eenvoudig al
 De VM wordt nu uitgevoerd in Azure en u kunt zich gaan aanmelden.  Aanmelden via SSH met behulp van wachtwoorden is onveilig en tijdrovend.  Het gebruik van SSH-sleutels is niet alleen de veiligste manier om u aan te melden, maar ook de snelste.  Wanneer u een Linux-VM maakt via de portal of de CLI, kunt u kiezen uit twee verificatiemogelijkheden.  Als u een wachtwoord kiest voor SSH, wordt de virtuele machine zo geconfigureerd door Azure dat aanmeldingen via wachtwoorden zijn toegestaan.  Als u kiest voor een openbare SSH-sleutel, wordt de virtuele machine zo geconfigureerd dat alleen aanmeldingen via SSH-sleutels zijn toegestaan. Aanmelden met behulp van een wachtwoord is dan niet mogelijk. Als u uw Linux-VM wilt beveiligen door alleen aanmeldingen met een SSH-sleutel toe te staan, gebruikt u de optie voor openbare SSH-sleutels tijdens het maken van de virtuele machine in de portal of de CLI.
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 * [Inleiding tot Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Een schijf toevoegen aan een virtuele Linux-machine](add-disk.md)
 * [Een gegevensschijf koppelen aan een Linux-VM in Azure Portal](attach-disk-portal.md)

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 51775c5534a13fb2515fafa182658beafd38c1eb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 357dc47027582d5c638bb3c7344c839f37f93dc5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026891"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399137"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Quickstart: Maak een Azure Blockchain-Service met behulp van de Azure portal
 
@@ -40,11 +40,12 @@ Azure Blockchain-Service wordt gemaakt met een gedefinieerde set met reken- en o
     Abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken voor uw service. Als u meerdere abonnementen hebt, kiest u het abonnement waarin u wordt gefactureerd voor de resource.
     Resourcegroep | Een nieuwe resourcegroepnaam of een bestaande naam uit uw abonnement.
     Regio | Locatie moet hetzelfde zijn voor alle leden van het consortium.
-    Lid-accountwachtwoord | Geef een nieuw wachtwoord voor het lidaccount. Het wachtwoord voor het lid wordt gebruikt voor verificatie met de blockchain-lid van de openbare eindpunt basisverificatie wordt gebruikt.
+    Lid-accountwachtwoord | Het wachtwoord voor het lid wordt gebruikt voor het versleutelen van de persoonlijke sleutel voor het Ethereum-account dat is gemaakt voor het lid. U gebruikt de lidaccount en het wachtwoord van het account lid voor consortium management.
     De naam van de Consortium | Voer een unieke naam voor een nieuwe consortium. Als u lid wordt van een consortium via een uitnodiging, is de waarde het consortium dat u samenvoegt.
     Description | Beschrijving van het consortium.
     Protocol |  Preview-versie biedt ondersteuning voor het Quorum-protocol.
     Prijzen | De configuratie van de knooppunten voor uw nieuwe service. selecteer **Standaard**. 2 validator knooppunten en 1 transactie knooppunt is de standaardinstelling.
+    Wachtwoord voor transactie-knooppunt | Het wachtwoord voor het lid van de standaard transactie knooppunt. Gebruik het wachtwoord voor basisverificatie wordt gebruikt bij het verbinden met blockchain adreslid standaard transactie openbare eindpunt van het knooppunt.
 
 1. Selecteer **maken** voor het inrichten van de service. De inrichting duurt ongeveer 10 minuten.
 1. Selecteer **meldingen** op de werkbalk om het implementatieproces te bewaken.

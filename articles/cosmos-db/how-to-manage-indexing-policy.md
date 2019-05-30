@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 179b67306803437ccad085cccfb1b5fd40888261
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 05fd369cfebba03c814507f82755fa6cb6a89400
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240865"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386798"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB beheren
 
@@ -167,7 +167,7 @@ Hier volgen enkele voorbeelden van de indexing-beleid wordt weergegeven in de JS
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Opt-out beleid selectief enkele eigenschappaden uitsluiten
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -201,7 +201,7 @@ Hier volgen enkele voorbeelden van de indexing-beleid wordt weergegeven in de JS
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Beleid voor aanmelden enkele eigenschappaden selectief wilt opnemen
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -235,7 +235,7 @@ Opmerking: Het wordt afgeraden om te gebruiken een **opt-out** indexeringsbeleid
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Met behulp van een ruimtelijke index op een bepaalde eigenschap alleen-pad
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -280,7 +280,7 @@ Dit beleid kan worden gebruikt in situaties waar de [Time-to-Live (TTL) functie]
 ### <a name="no-indexing"></a>Er is geen indexeren
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 

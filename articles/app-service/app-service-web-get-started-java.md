@@ -1,222 +1,134 @@
 ---
-title: Een Java-web-app maken - Azure App Service
-description: In dit artikel leest u hoe u door het implementeren van een eenvoudige Java-app leert hoe u web-apps uitvoert in App Service.
+title: Java-web-app maken op Windows - Azure App Service
+description: In deze Quick Start implementeert u uw eerste Java Hello World in Azure App Service onder Windows binnen enkele minuten.
+keywords: azure, app service, web app, windows, java, maven, quickstart
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
-manager: routlaw
+author: msangapu-msft
+manager: jeconnoc
 editor: ''
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
+ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: java
+ms.devlang: Java
 ms.topic: quickstart
-ms.date: 04/23/2019
-ms.author: cephalin;robmcm
-ms.custom: seodec18
-ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/29/2019
+ms.author: jasonfreeberg
+ms.custom: mvc
+ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706137"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393247"
 ---
-# <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
+# <a name="quickstart-create-a-java-app-in-app-service"></a>Quickstart: Een Java-app maken in App Service
 
-Azure App Service biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze quickstart laat zien hoe u een Java-web-app implementeren in App Service met behulp van de Eclipse IDE voor Java EE-ontwikkelaars.
+> [!NOTE]
+> In dit artikel gaat u een app implementeren in App Service onder Windows. Om te implementeren in App Service op _Linux_, Zie [maken-Java-web-app op Linux](./containers/quickstart-java.md).
+>
 
-> [!IMPORTANT]
-> Azure App Service onder Linux is ook een optie voor het hosten van Java WebApps zelf op Linux met behulp van beheerde Tomcat, Java SE en WildFly aanbiedingen. Als u geïnteresseerd bent in aan de slag met App Service onder Linux, raadpleegt u [Quick Start: Een Java-app maken in App Service on Linux](containers/quickstart-java.md).
+[Azure App Service](overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  In deze Quick Start ziet u hoe u de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) met de [Maven-invoegtoepassing voor Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) om een Java web archive (WAR)-bestand te implementeren.
 
-Wanneer u deze quickstart hebt voltooid en uw toepassing in een webbrowser bekijkt, ziet uw toepassing er ongeveer als volgt uit:
-
-!['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
+> [!NOTE]
+> Hetzelfde kan ook worden gedaan met behulp van populaire IDE's, zoals IntelliJ en Eclipse. Bekijk onze soortgelijke documenten op [Azure Toolkit voor IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) of [Azure Toolkit voor Eclipse Quick Start](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+>
+![Voorbeeld-app die wordt uitgevoerd in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
->
-> De stappen in deze snelstart laten zien hoe u de Eclipse IDE kunt gebruiken voor het publiceren van een Java-web-app naar App Service. U kunt de IntelliJ IDEA Ultimate Edition of Community Edition gebruiken. Zie [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) (Een Hallo wereld-web-app voor Azure maken met IntelliJ) voor meer informatie.
->
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="create-a-java-app"></a>Een Java-app maken
 
-Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooien:
+Voer de volgende Maven opdracht uit in de Cloud Shell-prompt om een ​​nieuwe app met de naam `helloworld` te maken:
 
-* De gratis <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE voor Java EE-ontwikkelaars</a>. Deze Quickstart maakt gebruik van Eclipse Neon.
-* De <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit voor Eclipse</a>.
-
-> [!NOTE]
->
-> U moet zich aanmelden bij uw Azure-account met de Azure-toolkit voor Eclipse om de stappen in deze snelstart te voltooien. Om dit te doen, raadpleegt u [Azure Sign In Instructions for the Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) (Azure-aanmeldinstructies voor de Azure-toolkit voor Eclipse).
->
-
-## <a name="create-a-dynamic-web-project-in-eclipse"></a>Een dynamisch webproject maken in Eclipse
-
-Selecteer in Eclipse **Bestand** > **Nieuw** > **Dynamisch webproject**.
-
-Geef het project in het dialoogvenster **Nieuw dynamisch webproject** de naam **MyFirstJavaOnAzureWebApp** en selecteer **Voltooien**.
-   
-![Het dialoogvenster Nieuw dynamisch webproject](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
-
-### <a name="add-a-jsp-page"></a>Een JSP-pagina toevoegen
-
-Geef Projectverkenner weer als dat nu niet het geval is.
-
-![Java EE-werkruimte voor Eclipse](./media/app-service-web-get-started-java/pe.png)
-
-Vouw in Projectverkenner het project **MyFirstJavaOnAzureWebApp** uit.
-Klik met de rechtermuisknop op **WebContent** en selecteer vervolgens **Nieuw** > **JSP-bestand**.
-
-![Menu voor een nieuw JSP-bestand in Projectverkenner](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
-
-In het dialoogvenster **Nieuw JSP-bestand**:
-
-* Noem het bestand **index.jsp**.
-* Selecteer **Finish**.
-
-  ![Het dialoogvenster Nieuw JSP-bestand](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
-
-Vervang in het bestand index.jsp het element `<body></body>` door de volgende code:
-
-```jsp
-<body>
-<h1><% out.println("Hello Azure!"); %></h1>
-</body>
+```bash
+mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
 ```
 
-Sla de wijzigingen op.
+## <a name="configure-the-maven-plugin"></a>De Maven-invoegtoepassing configureren
 
-> [!NOTE]
->
-> Als er een fout optreedt op regel 1 die naar een ontbrekende Java Servlet -klasse verwijst, kunt u deze negeren.
-> 
-> ![Onschadelijke Java Servlet-fout](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
->
+Om te implementeren vanuit Maven, gebruikt u de code-editor in de Cloud Shell om het projectbestand `pom.xml` in de map `helloworld` te openen. 
 
-## <a name="publish-the-web-app-to-azure"></a>De web-app publiceren in Azure
-
-Klik in Projectverkenner met de rechtermuisknop op het project en selecteer vervolgens **Azure** > **Publiceren als Azure Web App**.
-
-![Het contextmenu Publiceren als Azure Web App](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
-
-Als u het dialoogvenster voor **aanmelden bij Azure** te zien krijgt, moet u de stappen in het artikel [Azure Sign In Instructions for the Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) (Azure-aanmeldinstructies voor de Azure-toolkit voor Eclipse) volgen om uw referenties in te voeren.
-
-### <a name="deploy-web-app-dialog-box"></a>Het dialoogvenster Web-app implementeren
-
-Nadat u zich hebt aangemeld bij uw Azure-account, wordt het dialoogvenster **Web-app implementeren** weergegeven.
-
-Selecteer **Maken**.
-
-![Het dialoogvenster Web-app implementeren](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
-
-### <a name="create-app-service-dialog-box"></a>Het dialoogvenster App Service maken
-
-Het dialoogvenster **App Service** wordt weergegeven met standaardwaarden. De numerieke waarde **170602185241** in de volgende afbeelding is anders in het dialoogvenster dat u ziet.
-
-![Het dialoogvenster App Service maken](./media/app-service-web-get-started-java/cas1.png)
-
-In het dialoogvenster **App Service maken**:
-
-* Geef een unieke naam op voor uw web-app of behoud de gegenereerde naam. Deze naam moet uniek zijn binnen Azure. De naam is onderdeel van het URL-adres voor de web-app. Als de web-app bijvoorbeeld de naam **MyJavaWebApp** heeft, is de URL *myjavawebapp.azurewebsites.net*.
-* Gebruik de standaard webcontainer voor deze snelstart.
-* Selecteer een Azure-abonnement.
-* Op het tabblad **App Service-plan**:
-
-  * **Nieuwe maken**: Gebruik de standaardinstelling. Dit is de naam van het App Service-plan.
-  * **Locatie**: Selecteer **West-Europa** of een locatie bij u in de buurt.
-  * **Prijscategorie**: Selecteer de gratis optie. Voor een functiebeschrijving zie [App Service-prijzen](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-    ![Het dialoogvenster App Service maken](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-### <a name="resource-group-tab"></a>Het tabblad Resourcegroep
-
-Selecteer het tabblad **Resourcegroep**. Gebruik de gegenereerde standaardwaarde voor de resourcegroep.
-
-![Het tabblad Resourcegroep](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
-
-[!INCLUDE [resource-group](../../includes/resource-group.md)]
-
-Selecteer **Maken**.
-
-<!--
-### The JDK tab
-
-Select the **JDK** tab. Keep the default, and then select **Create**.
-
-![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
--->
-
-De web-app wordt gemaakt in Azure Toolkit en de voortgang wordt in een dialoogvenster weergegeven.
-
-![Het voortgangsvenster voor het maken van een App Service](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
-
-### <a name="deploy-web-app-dialog-box"></a>Het dialoogvenster Web-app implementeren
-
-Selecteer **Implementeren in hoofdmap** in het dialoogvenster **Web-app implementeren**. Als u een app-service hebt in *wingtiptoys.azurewebsites.net* en u niet in de hoofdmap implementeert, wordt de web-app met de naam **MyFirstJavaOnAzureWebApp** geïmplementeerd in *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
-
-![Het dialoogvenster Web-app implementeren](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
-
-In het dialoogvenster ziet u de selecties voor Azure, JDK en webcontainer.
-
-Selecteer **Implementeren** om de web-app in Azure te publiceren.
-
-Als het publiceren is voltooid, selecteert u de koppeling **Gepubliceerd** in het dialoogvenster **Azure-activiteitenlogboek**.
-
-![Het dialoogvenster Azure-activiteitenlogboek](./media/app-service-web-get-started-java/aal.png)
-
-Gefeliciteerd! De web-app is nu geïmplementeerd in Azure. 
-
-!['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
-
-## <a name="update-the-web-app"></a>De web-app bijwerken
-
-Wijzig de tekst van de JSP-voorbeeldcode.
-
-```jsp
-<body>
-<h1><% out.println("Hello again Azure!"); %></h1>
-</body>
+```bash
+code pom.xml
 ```
 
-Sla de wijzigingen op.
+Voeg vervolgens de volgende invoegtoepassingsdefinitie toe aan het element `<build>` van het bestand `pom.xml`.
 
-Klik in Projectverkenner met de rechtermuisknop op het project en selecteer vervolgens **Azure** > **Publiceren als Azure Web App**.
+```xml
+<plugins>
+    <!--*************************************************-->
+    <!-- Deploy to Tomcat in App Service Windows         -->
+    <!--*************************************************-->
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.4</version>
+        <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+            <!-- Java Runtime Stack for App Service on Windows-->
+            <runtime>
+                <os>windows</os>
+                <javaVersion>1.8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
+        </configuration>
+    </plugin>
+</plugins>
+```
 
-Het dialoogvenster **Web-app implementeren** wordt geopend, met de app-service die u eerder hebt gemaakt. 
+> [!NOTE]
+> In dit artikel werken we alleen met Java-apps die verpakt zijn in WAR-bestanden. De invoegtoepassing biedt ook ondersteuning voor JAR-webtoepassingen. Ga naar [Een Java SE JAR-bestand implementeren in App Service in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om dit uit te proberen.
 
-> [!NOTE] 
-> Selecteer **Implementeren in hoofdmap** telkens wanneer u gaat publiceren. 
-> 
 
-Selecteer de web-app en selecteer **Implementeren** om de wijzigingen te publiceren.
+Werk de volgende tijdelijke aanduidingen bij in de configuratie van de invoegtoepassing:
 
-Wanneer de koppeling **Publiceren** wordt weergegeven, selecteert u deze om naar de web-app te bladeren en de wijzigingen te bekijken.
+| Tijdelijke aanduiding | Description |
+| ----------- | ----------- |
+| `SUBSCRIPTION_ID` | De unieke ID van het abonnement dat u wilt uw app te implementeren. Standaardabonnement-ID kunt u vinden in de Cloud Shell of CLI met behulp van de `az account show` opdracht. Voor de beschikbare abonnementen, gebruikt u de `az account list` opdracht.|
+| `RESOURCEGROUP_NAME` | Naam voor de nieuwe resourcegroep waarin de app moet worden gemaakt. Door alle resources voor een app in een groep te plaatsen, kunt u ze samen beheren. Als u de resourcegroep verwijdert, worden bijvoorbeeld alle resources verwijderd die bij de app behoren. Wijzig deze waarde in een unieke nieuwe resourcegroepnaam, bijvoorbeeld *TestResources*. U gebruikt deze resourcegroepnaam om alle Azure-resources in een volgende sectie op te schonen. |
+| `WEBAPP_NAME` | De app-naam maakt deel uit van de hostnaam voor de app wanneer deze in Azure is geïmplementeerd (NAAM_WEBAPP.azurewebsites.net). Wijzig deze waarde in een unieke naam voor de nieuwe App Service-app, die uw Java-app host, bijvoorbeeld *contoso*. |
+| `REGION` | Een Azure-regio waar de app wordt gehost, bijvoorbeeld `westus2`. U kunt een lijst met regio's van de Cloud Shell of CLI ophalen met behulp van de opdracht `az account list-locations`. |
 
-## <a name="manage-the-web-app"></a>De web-app beheren
+## <a name="deploy-the-app"></a>De app implementeren
 
-Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te zien die u hebt gemaakt.
+Implementeer uw Java-app in Azure met de volgende opdracht:
 
-Selecteer **Resourcegroepen** in het linkermenu.
+```bash
+mvn package azure-webapp:deploy
+```
 
-![Portalnavigatie naar resourcegroepen](media/app-service-web-get-started-java/rg.png)
+Zodra de implementatie is voltooid, bladert u naar de geïmplementeerde toepassing met behulp van de volgende URL in uw webbrowser, bijvoorbeeld `http://<webapp>.azurewebsites.net/`.
 
-Selecteer de resourcegroep. De pagina bevat de resources die u in deze Quickstart hebt gemaakt.
+![Voorbeeld-app die wordt uitgevoerd in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
-![Resourcegroep](media/app-service-web-get-started-java/rg2.png)
+**Gefeliciteerd!** U hebt uw eerste Java-app geïmplementeerd in App Service onder Windows.
 
-Selecteer de web-app (**webapp 170602193915** in de voorgaande afbeelding).
-
-De pagina **Overzicht** wordt weergegeven. Deze pagina geeft u een overzicht van hoe de app presteert. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw starten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuraties die u kunt openen. 
-
-![App Service-pagina in Azure Portal](media/app-service-web-get-started-java/web-app-blade.png)
-
-[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+
+> [!div class="nextstepaction"]
+> [Azure voor Java-ontwikkelaars-Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Aangepast domein toewijzen](app-service-web-tutorial-custom-domain.md)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150464"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236286"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Veelgestelde vragen
 
@@ -184,7 +184,7 @@ A. Gebruik het apparaat niet als het beschadigd is gearriveerd of als er bewijs 
 A. Microsoft verzorgt de verzending van de Data Box van en naar het Azure-datacenter. U kunt de Azure Import/Export-service gebruiken als u uw eigen koerier wilt gebruiken. Ga voor meer informatie naar [Wat is Azure Import/Export-service](../storage/common/storage-import-export-service.md)?
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>V. Wordt mijn apparaten gegevens in meerdere land randen tijdens verzending?
-A. Alle Data Box-apparaten in hetzelfde land als hun bestemming worden verzonden en wordt niet overschreden door een land. De enige uitzondering hierop is voor bestellingen in de Europese Unie (EU), waarbij apparaten verzonden naar en van alle EU-landen worden kunnen.
+A. Alle Data Box-apparaten in hetzelfde land als hun bestemming worden verzonden en wordt niet overschreden door een land. De enige uitzondering hierop is voor bestellingen in de Europese Unie (EU), waarbij apparaten verzonden naar en van alle EU-landen worden kunnen. Dit geldt voor zowel de Data Box als de gegevens in het zware apparaten.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>V. Er wordt geen label voor retourzending weergegeven op het E-ink-display. Wat moet ik doen?
 A. Voer de volgende stappen uit als er geen label voor retourverzending wordt weergegeven op het E-ink-display:

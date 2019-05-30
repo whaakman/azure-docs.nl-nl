@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 9544337ef1322e52cbdf123bb48d283485a8c7dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b847615e8440a8992c8130d12cd6111afe3d33d2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896135"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390224"
 ---
 # <a name="using-the-bing-spell-check-api"></a>De Bing Spellingcontrole-API gebruiken
 
@@ -44,14 +44,14 @@ De standaardmodus is `Proof`. De spellingmodus `Proof` bevat de meest uitgebreid
 
 ## <a name="market-setting"></a>Marktinstelling
 
-Er moet een [marktcode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#market-codes) bij de queryparameter `mkt` worden opgegeven in uw aanvraag. De API gebruikt anders een standaardmarkt op basis van het IP-adres van de aanvraag.
+Er moet een [marktcode](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) bij de queryparameter `mkt` worden opgegeven in uw aanvraag. De API gebruikt anders een standaardmarkt op basis van het IP-adres van de aanvraag.
 
 
 ## <a name="http-post-and-get-support"></a>Ondersteuning voor HTTP POST en GET
 
 De API biedt ondersteuning voor HTTP POST en HTTP GET. Welke u gebruikt, is afhankelijk van de lengte van de tekst die u wilt controleren. Als de tekenreeksen altijd korter zijn dan 1500 tekens, gebruikt u een GET. Gebruik POST ter ondersteuning van tekenreeksen van maximaal 10.000 tekens. De tekstreeks kan een ongeldig UTF-8-teken bevatten.
 
-In het volgende voorbeeld ziet u een POST-aanvraag voor het controleren van de spelling en grammatica van een tekstreeks. Het voorbeeld bevat de queryparameter [mode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#mode) voor de volledigheid (deze kan worden weggelaten omdat `mode` standaard is ingesteld op Controleren). De queryparameter [tekst](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#text) bevat de tekenreeks die moet worden gecontroleerd.
+In het volgende voorbeeld ziet u een POST-aanvraag voor het controleren van de spelling en grammatica van een tekstreeks. Het voorbeeld bevat de queryparameter [mode](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#mode) voor de volledigheid (deze kan worden weggelaten omdat `mode` standaard is ingesteld op Controleren). De queryparameter [tekst](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) bevat de tekenreeks die moet worden gecontroleerd.
   
 ```  
 POST https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
@@ -68,7 +68,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 
 Als u HTTP GET gebruikt, neemt u de queryparameter `text` op in de queryreeks van de URL
   
-Hieronder ziet u het antwoord op de vorige aanvraag. Het antwoord bevat een object [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#spellcheck). 
+Hieronder ziet u het antwoord op de vorige aanvraag. Het antwoord bevat een object [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#spellcheck). 
   
 ```json
 {  
@@ -112,7 +112,7 @@ Hieronder ziet u het antwoord op de vorige aanvraag. Het antwoord bevat een obje
 }  
 ```  
   
-Het veld [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#flaggedtokens) bevat de spel- en grammaticafouten die door de API zijn gevonden in de [tekst](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#text)reeks. Het veld `token` bevat het woord dat moet worden vervangen. Gebruik nu de op nul gebaseerde offset in het veld `offset` om de token te zoeken in de `text`-tekenreeks. Vervang vervolgens het woord op die locatie door het woord in het veld `suggestion`. 
+Het veld [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#flaggedtokens) bevat de spel- en grammaticafouten die door de API zijn gevonden in de [tekst](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text)reeks. Het veld `token` bevat het woord dat moet worden vervangen. Gebruik nu de op nul gebaseerde offset in het veld `offset` om de token te zoeken in de `text`-tekenreeks. Vervang vervolgens het woord op die locatie door het woord in het veld `suggestion`. 
 
 Als het veld `type` RepeatedToken is, vervangt u het token nog steeds door `suggestion`, maar moet u waarschijnlijk ook de afsluitende spatie verwijderen.
 
@@ -123,4 +123,4 @@ Als het veld `type` RepeatedToken is, vervangt u het token nog steeds door `sugg
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Wat is de Bing Spellingcontrole-API?](../overview.md)
-- [Referentie voor de Bing Spellingcontrole-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Referentie voor de Bing Spellingcontrole-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
