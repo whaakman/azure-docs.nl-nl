@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 07/07/2017
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: 7014d09bbb62e78c37a9496628e3509b6eaaa4ac
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ac6c2b0f93c56de6e0a2b559645884b60d761ba8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123328"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240252"
 ---
 # <a name="create-an-apache-cordova-app"></a>Een Apache Cordova-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -43,42 +43,13 @@ U kunt Visual Studio ook omzeilen en de Apache Cordova-opdrachtregel rechtstreek
 ## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-[Bekijk een video van vergelijkbare stappen](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
-
-## <a name="configure-the-server-project"></a>Het serverproject configureren
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>De verbinding met een database maken en configureren van het project client en server
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-apache-cordova-app"></a>De Apache Cordova-app downloaden en uitvoeren
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
-
-## <a name="next-steps"></a>Volgende stappen
-Nu u deze zelfstudie hebt voltooid, gaat u verder met een van de volgende zelfstudies:
-
-* [Voeg offlinegegevens toe](app-service-mobile-cordova-get-started-offline-data.md) aan uw Apache Cordova-app.
-* [Verificatie toevoegen](app-service-mobile-cordova-get-started-users.md) aan uw Apache Cordova-app.
-* [Pushmeldingen toevoegen](app-service-mobile-cordova-get-started-push.md) aan uw Apache Cordova-app.
-
-Meer informatie over belangrijke concepten met Azure App Service.
-
-* [Offlinegegevens]
-* [Verificatie]
-* [Pushmeldingen]
-
-Informatie over het gebruik van de SDK's.
-
-* [Apache Cordova SDK]
-* [ASP.NET Server SDK]
-* [Node.js Server SDK]
-
-<!-- Images. -->
-
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
+
 [Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Offlinegegevens]: app-service-mobile-offline-data-sync.md
-[Verificatie]: app-service-mobile-auth.md
-[Pushmeldingen]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
-[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md

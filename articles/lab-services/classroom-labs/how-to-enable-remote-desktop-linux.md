@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 389d467bd9672743d4a086e8a1c505fb0366dba7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410955"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237143"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Inschakelen en extern bureaublad gebruiken voor virtuele Linux-machines in een lab in Azure Lab Services
 In dit artikel laat zien hoe de volgende taken uitvoeren:
@@ -31,6 +31,10 @@ In dit artikel laat zien hoe de volgende taken uitvoeren:
 Tijdens het maken van lab docenten kunnen inschakelen **verbinding met extern bureaublad** voor **Linux** afbeeldingen. De **verbinding met extern bureaublad inschakelen** optie wordt weergegeven als een Linux-installatiekopie voor de sjabloon is geselecteerd. Wanneer deze optie is ingeschakeld, wordt docenten kunnen verbinden met de sjabloon voor virtuele machine en studenten-VM's via RDP (Remote Desktop). 
 
 ![Verbinding met extern bureaublad voor een Linux-installatiekopie inschakelen](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+
+Op de **verbinding met extern bureaublad inschakelen** berichtvenster, selecteer **doorgaan met extern bureaublad**. 
+
+![Verbinding met extern bureaublad voor een Linux-installatiekopie inschakelen](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
 > Inschakelen van **verbinding met extern bureaublad** alleen wordt geopend de **RDP** poort op Linux-machines. U, als een docent verbinding maken met de Linux-machine via SSH voor de eerste keer en RDP en GUI-pakketten installeren zodat u kunt verbinding maken met de Linux-machine met behulp van RDP later opnieuw. Vervolgens kunt u **publiceren** de installatiekopie dat studenten RDP in op de student virtuele Linux-machines kunnen. 
@@ -54,27 +58,32 @@ U ziet de **extern bureaublad** optie op de startpagina van de testomgeving nada
 
 ![Verbinding maken met sjabloon via RDP nadat het lab is gemaakt](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 
-Wanneer u selecteert de **RDP** optie, het downloadt een RDP-bestand. U opent het verbinding maken met de Linux-machine. 
+Zie voor meer informatie over verbinding maken met de virtuele machine met SSH of RDP [verbinding maken met SSH of RDP]((#connect-using-ssh-or-rdp). 
 
 ## <a name="teachers-connecting-to-a-student-vm-using-rdp"></a>Docenten die verbinding maken met een student VM met behulp van RDP
-Lab-eigenaar (docent) kan verbinding maken met een student virtuele machine bij het overstappen naar de **virtuele Machines** weergeven en selecteren van de **verbinding** pictogram. Voordat u dat docenten moeten **publiceren** de sjablooninstallatiekopie met RDP en GUI-pakketten geïnstalleerd. 
+Een docent verbinding kan maken met een student virtuele machine bij het overstappen naar de **virtuele Machines** weergeven en selecteren van de **verbinding** pictogram. Voordat u dat docenten moeten **publiceren** de sjablooninstallatiekopie met RDP en GUI-pakketten geïnstalleerd. 
 
 ![Verbinding maken met de virtuele machine van de cursist docenten](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
+
+Zie voor meer informatie over verbinding maken met de virtuele machine met SSH of RDP [verbinding maken met SSH of RDP]((#connect-using-ssh-or-rdp). 
 
 ## <a name="students-connecting-to-the-student-vm"></a>Verbinding maken met de virtuele machine van de cursist studenten
 Studenten kunnen RDP in hun virtuele Linux-machines na het lab-eigenaar (docent) **publiceert** de sjabloon voor virtuele machine met RDP en GUI-pakketten geïnstalleerd op de computer. Dit zijn de stappen: 
 
 1. Wanneer een student meldt zich aan bij de portal Labs rechtstreeks (`https://labs.azure.com`) of met behulp van een registratiekoppeling (`https://labs.azure.com/register/<registrationCode>`), een tegel voor elk lab de student toegang tot heeft wordt weergegeven. 
 2. Selecteer op de tegel **Start** als de virtuele machine is gestopt. 
-3. Selecteer **Verbinden**. Deze actie wordt het RDP-bestand naar uw machine gedownload. Opslaan en openen om te verbinden met de Linux-machine via RDP. 
+3. Selecteer **Verbinden**. Ziet u twee opties voor het verbinding maken met de virtuele machine: **SSH** en **extern bureaublad**.
 
-    ![Studenten VM - RDP downloaden](../media/how-to-enable-remote-desktop-linux/student-rdp-download.png)
+    ![VM - opties voor studenten](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-    U kunt nog steeds verbinding maken met de Linux-VM met behulp van SSH. Selecteer **... (ellips)**  om te zien van de SSH-optie. 
-    
-    ![VM - studenten SSH](../media/how-to-enable-remote-desktop-linux/student-ssh.png)
+## <a name="connect-using-ssh-or-rdp"></a>Verbinding maken met SSH of RDP
+Als u selecteert de **SSH** optie, ziet u het volgende **verbinding maken met uw virtuele machine** in het dialoogvenster:  
 
-    Kopiëren en opslaan van de SSH-verbindingsreeks op de **verbinding maken met uw virtuele machine** in het dialoogvenster. Deze verbindingsreeks vanuit een SSH-terminal gebruiken (zoals [Putty](https://www.putty.org/)) verbinding maken met de virtuele machine. 
+![SSH-verbindingsreeks](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
+
+Selecteer de **kopie** knop naast het tekstvak in op naar het Klembord kopiëren. Sla de SSH-verbindingsreeks. Deze verbindingsreeks vanuit een SSH-terminal gebruiken (zoals [Putty](https://www.putty.org/)) verbinding maken met de virtuele machine.
+
+Als u selecteert de **RDP** optie, een RDP-bestand wordt gedownload naar uw machine. Opslaan en open het verbinding maken met de machine. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen:

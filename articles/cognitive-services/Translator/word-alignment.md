@@ -3,20 +3,20 @@ title: Word uitlijning - Translator Text-API
 titlesuffix: Azure Cognitive Services
 description: Word uitlijningsgegevens ontvangen van de Translator Text-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: v-pawal
 ms.custom: seodec18
-ms.openlocfilehash: cc795d6b164a97351ec8806c6b7c8bed0c0c1266
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d48e2dd49eb3c2f449825f988618db3c6b04c0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336742"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387290"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Hoe word uitlijning van de informatie te ontvangen
 
@@ -26,7 +26,7 @@ Van de uitlijningsgegevens ontvangen, gebruikt u de methode vertalen en de optio
 ## <a name="alignment-information-format"></a>Uitlijning van de gegevens opmaken
 Uitlijning wordt geretourneerd als een string-waarde van de volgende indeling voor elk woord in de bron. De gegevens van elk woord wordt gescheiden door een spatie, met inbegrip van niet-een door spaties gescheiden talen (scripts) zoals Chinees:
 
-[[SourceTextStartIndex]:\[SourceTextEndIndex]:[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]:[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 Voorbeeld van de uitlijning van de tekenreeks: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 

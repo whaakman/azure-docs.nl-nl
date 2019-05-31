@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192438"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397886"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -80,7 +80,7 @@ Hieronder vindt u de eigenschappen van de gebruiker die u gebruiken kunt om een 
 | city |Een tekenreekswaarde of *null* |(user.city - eq "waarde") |
 | Land/regio |Een tekenreekswaarde of *null* |(zoals user.country - eq "waarde") |
 | companyName | Een tekenreekswaarde of *null* | (user.companyName -eq "value") |
-| department |Een tekenreekswaarde of *null* |(user.department -eq "value") |
+| Afdeling |Een tekenreekswaarde of *null* |(user.department -eq "value") |
 | displayName |een string-waarde |(user.displayName -eq "value") |
 | werknemer-id |een string-waarde |(user.employeeId -eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber -eq "value") |
@@ -98,7 +98,7 @@ Hieronder vindt u de eigenschappen van de gebruiker die u gebruiken kunt om een 
 | sipProxyAddress |Een tekenreekswaarde of *null* |(user.sipProxyAddress -eq "value") |
 | state |Een tekenreekswaarde of *null* |(user.state - eq "waarde") |
 | streetAddress |Een tekenreekswaarde of *null* |(user.streetAddress -eq "value") |
-| surname |Een tekenreekswaarde of *null* |(user.surname - eq "waarde") |
+| Achternaam |Een tekenreekswaarde of *null* |(user.surname - eq "waarde") |
 | telephoneNumber |Een tekenreekswaarde of *null* |(user.telephoneNumber -eq "value") |
 | usageLocation |Twee letters landcode |(user.usageLocation -eq "US") |
 | userPrincipalName |een string-waarde |(user.userPrincipalName -eq "alias@domain") |
@@ -124,7 +124,7 @@ De volgende tabel bevat de ondersteunde operators en de syntaxis voor één expr
 | Begint niet met |-notStartsWith |
 | Begint met |-startsWith |
 | Bevat niet |-notContains |
-| Contains |-bevat |
+| bevat |-bevat |
 | Komt niet overeen met |-notMatch |
 | Overeenkomst |-overeen met |
 | In | -in |
@@ -353,7 +353,6 @@ De volgende apparaatkenmerken kunnen worden gebruikt.
  deviceManufacturer | een string-waarde | (device.deviceManufacturer -eq "Samsung")
  deviceModel | een string-waarde | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Persoonlijk, bedrijf, onbekend | (device.deviceOwnership - eq 'Bedrijf')
- domainName | een string-waarde | (device.domainName - eq 'contoso.com')
  enrollmentProfileName | Naam van Apple-Inschrijvingsprofiel voor apparaten of Windows Autopilot-profiel | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | waar onwaar | (device.isRooted -eq true)
  managementType | MDM (voor mobiele apparaten)<br>PC (voor computers die worden beheerd door de Intune-PC-agent) | (device.managementType - eq 'MDM')
@@ -372,4 +371,4 @@ Deze artikelen bevatten aanvullende informatie over groepen in Azure Active Dire
 * [Een nieuwe groep maken en leden toevoegen](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Instellingen van een groep beheren](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Lidmaatschappen van een groep beheren](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Dynamische regels voor gebruikers in een groep beheren](groups-dynamic-membership.md)
+* [Dynamische regels voor gebruikers in een groep beheren](groups-create-rule.md)

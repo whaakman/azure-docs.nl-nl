@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
-ms.openlocfilehash: c01870aa7ae4a0ae5cf1cc8302200675ac0e8022
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e461f210dc5b2d0dda0eabd5ea80dfcdc9ccebfb
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861690"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392795"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Aan de slag in Azure Dev Spaces met behulp van Node.js
 
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Een Kubernetes-cluster maken dat is ingeschakeld voor Azure Dev Spaces
 
-Bij de opdrachtprompt, maak de resourcegroep in een [regio die ondersteuning biedt voor Azure Dev spaties](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+Bij de opdrachtprompt, maak de resourcegroep in een [regio die ondersteuning biedt voor Azure Dev spaties][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -272,3 +272,5 @@ In deze configuratie is de container geconfigureerd voor het starten van *nodemo
 > [!div class="nextstepaction"]
 > [Informatie over ontwikkelen van meerdere services](multi-service-nodejs.md)
 
+
+[supported-regions]: about.md#supported-regions-and-configurations
