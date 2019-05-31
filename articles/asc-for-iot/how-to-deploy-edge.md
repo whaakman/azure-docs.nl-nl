@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 5d56c878eab92a7152bc0b248cab5c2ebf7e6dde
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198395"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254297"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Een beveiligingsmodule op uw IoT Edge-apparaat implementeren
 
@@ -136,11 +136,11 @@ Er zijn drie stappen voor het maken van een IoT Edge-implementatie voor Azure Se
 
 #### <a name="step-2-specify-routes"></a>Stap 2: Routes opgeven 
 
-1. In de **Routes opgeven** tabblad, stelt u de **ASCForIoTToIoTHub** routeren naar **' uit/berichten/modules/azureiotsecurity/\* in $upstream '**, en klikt u op  **Volgende**.
+1. In de **Routes opgeven** tabblad, stelt u de **ASCForIoTToIoTHub** routeren naar **' uit/berichten/modules/azureiotsecurity/\* in $upstream '** , en klikt u op  **Volgende**.
 
    ![Routes opgeven](media/howto/edge-onboarding-9.png)
 
-#### <a name="step-3-review-deployment"></a>Stap 3: Implementatie controleren
+#### <a name="step-3-review-deployment"></a>Stap 3: Implementatie bekijken
 
 1. In de **implementatie bekijken** tabblad, uw implementatie-informatie en selecteer vervolgens **indienen** om uit te voeren van de implementatie.
 
@@ -158,7 +158,7 @@ Als u een probleem ondervindt, zijn de logboeken voor containers de beste manier
    
    | Name | AFBEELDING |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
    | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    

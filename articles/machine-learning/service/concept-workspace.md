@@ -1,7 +1,7 @@
 ---
 title: Wat is een werkruimte
 titleSuffix: Azure Machine Learning service
-description: Informatie over wat is een werkruimte en waarom moet u een voor Azure Machine Learning-service.
+description: De werkruimte is de resource op het hoogste niveau voor Azure Machine Learning-service. Dit houdt een geschiedenis bij van alle trainingsuitvoeringen, met inbegrip van Logboeken, metrische gegevens, uitvoer en een momentopname van uw scripts. U deze informatie gebruiken om te bepalen welke run training levert het beste model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 5785bf8f6538f1d91e7a23178e29487ebee14f29
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989836"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388954"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Wat is een Azure Machine Learning-werkruimte?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Wat is een werkruimte van de service Azure Machine Learning?
 
-De werkruimte is de resource op het hoogste niveau voor Azure Machine Learning-service. Het biedt een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service.
+De werkruimte is de resource op het hoogste niveau voor Azure Machine Learning-service, waarmee u een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service.  De werkruimte houdt een geschiedenis bij van alle trainingsuitvoeringen, met inbegrip van Logboeken, metrische gegevens, uitvoer en een momentopname van uw scripts. U kunt deze informatie gebruiken om te bepalen welke run training levert het beste model.  
 
-De werkruimte houdt een geschiedenis bij van de training wordt uitgevoerd, met inbegrip van Logboeken, metrische gegevens, uitvoer en een momentopname van uw scripts. U kunt deze informatie gebruiken om te bepalen welke run training levert het beste model.  
-
-Zodra u een model dat u hebt, kunt u deze registreren met de werkruimte. U het geregistreerde model en de scoring-scripts gebruiken om in Azure Container Instances, Azure Kubernetes Service, of een veld-programmable gate array (FPGA) als een HTTP op basis van REST-eindpunt te implementeren. U kunt ook het model met een Azure IoT Edge-apparaat implementeren als een module.
+Zodra u een model dat u hebt, kunt u deze registreren met de werkruimte. U vervolgens het geregistreerde model en de scoring-scripts om te implementeren in Azure Container Instances, Azure Kubernetes Service, of op een veld-programmable gate array (FPGA) als een HTTP op basis van REST-eindpunt. U kunt ook het model met een Azure IoT Edge-apparaat implementeren als een module.
 
 ## <a name="taxonomy"></a>Taxonomie 
 
@@ -50,7 +48,7 @@ Het diagram ziet u de volgende onderdelen van een werkruimte:
 U kunt werken met uw werkruimte in de volgende manieren:
 
 + Op het web:
-    + [Azure Portal](https://azure.portal.com)
+    + [Azure Portal](https://portal.azure.com)
     + De [visuele interface (preview)](ui-concept-visual-interface.md)
 + Met behulp van Azure Machine Learning in Python [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Op de opdrachtregel met de Azure Machine Learning [CLI-extensie](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)

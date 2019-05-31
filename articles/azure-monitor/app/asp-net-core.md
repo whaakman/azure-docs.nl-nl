@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016372"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226398"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights voor ASP.NET Core-toepassingen
 
@@ -138,7 +138,7 @@ Ondersteuning voor [prestatiemeteritems](https://azure.microsoft.com/documentati
 
 [Logboeken ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) van ernst `Warning` of hoger worden automatisch opgenomen in de SDK-versie 2.7.0-beta3 of hoger.
 
-### <a name="live-metrics"></a>Live Metrics
+### <a name="live-metrics"></a>Live metrics Stream
 
 Het duurt een paar minuten telemetriegegevens om te beginnen met het weergegeven in de portal. Om snel te controleren of alles werkt, is het raadzaam te gebruiken [Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream), terwijl het maken van aanvragen naar de toepassing die wordt uitgevoerd.
 
@@ -383,6 +383,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## <a name="video"></a>Video
 
 - Externe stapsgewijze video over [Application Insights configureren met .NET Core en Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) helemaal.
+- Externe stapsgewijze video over [Application Insights configureren met .NET Core en Visual Studio Code](https://youtu.be/ygGt84GDync) helemaal.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verken Gebruikersstromen](../../azure-monitor/app/usage-flows.md) om te begrijpen hoe gebruikers navigeren via uw app.

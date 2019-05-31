@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587747"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257553"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Azure portal-gebruikersinterface voor uw beheerde toepassing maken
 Dit document beschrijft de belangrijkste concepten van het bestand createUiDefinition.json. Dit bestand in de Azure-portal wordt gebruikt voor het genereren van de gebruikersinterface voor het maken van een beheerde toepassing.
@@ -39,7 +39,7 @@ Dit document beschrijft de belangrijkste concepten van het bestand createUiDefin
 Een CreateUiDefinition bevat altijd drie eigenschappen: 
 
 * Handler
-* versie
+* version
 * parameters
 
 Voor beheerde toepassingen-handler altijd moet worden `Microsoft.Compute.MultiVm`, en de nieuwste ondersteunde versie is `0.1.2-preview`.
@@ -47,6 +47,8 @@ Voor beheerde toepassingen-handler altijd moet worden `Microsoft.Compute.MultiVm
 Het schema van de parameters-eigenschap is afhankelijk van de combinatie van de opgegeven handler en versie. Voor beheerde toepassingen, de ondersteunde eigenschappen zijn `basics`, `steps`, en `outputs`. De eigenschappen van de basisbeginselen en stappen bevatten de _elementen_ - zoals tekstvakken en vervolgkeuzelijsten - moet worden weergegeven in de Azure-portal. De uitvoer-eigenschap wordt gebruikt om de uitvoerwaarden van de opgegeven elementen worden toegewezen aan de parameters van de sjabloon van Azure Resource Manager-implementatie.
 
 Inclusief `$schema` wordt aanbevolen, maar optionele. Als de waarde voor opgegeven `version` moet overeenkomen met de versie in de `$schema` URI.
+
+U kunt een JSON-editor gebruiken om te maken van de definitie van de gebruikersinterface of kunt u de gebruikersinterface van de definitie van Sandbox voor het maken en bekijken van de definitie van de gebruikersinterface. Zie voor meer informatie over de sandbox [testen van de interface van de portal voor Azure Managed Applications](test-createuidefinition.md).
 
 ## <a name="basics"></a>Basics
 De grondbeginselen van stap is altijd de eerste stap van de wizard die wordt gegenereerd wanneer het bestand in de Azure-portal wordt geparseerd. Naast het weergeven van de elementen die zijn opgegeven in `basics`, de portal injects-elementen voor gebruikers een voor het abonnement, resourcegroep en locatie voor de implementatie. Elementen die op te voor distributie-parameters, zoals de naam van de referenties van een cluster of de beheerder vragen, moeten over het algemeen gaat u in deze stap.
@@ -59,7 +61,7 @@ De eigenschap stappen kan nul of meer extra stappen om weer te geven na de basis
 ## <a name="outputs"></a>Uitvoer
 De Azure portal maakt gebruik van de `outputs` eigenschap toe te wijzen van elementen uit `basics` en `steps` aan de parameters van de sjabloon van Azure Resource Manager-implementatie. De sleutels van de woordenlijst zijn de namen van de parameters van de sjabloon en de waarden zijn eigenschappen van de objecten van de uitvoer van de elementen waarnaar wordt verwezen.
 
-Als u wilt de naam van de beheerde toepassing-resource instellen, moet u een waarde met de naam opnemen `applicationResourceName` in de uitvoer-eigenschap. Als deze waarde niet is ingesteld, wordt een GUID voor de naam van de toegewezen door de toepassing. U kunt een tekstvak opnemen in de gebruikersinterface die door een naam op van de gebruiker worden aangevraagd.
+Als u wilt de naam van de beheerde toepassing-resource instellen, moet u een waarde met de naam opnemen `applicationResourceName` in de uitvoer-eigenschap. Als u deze waarde niet instelt, wordt een GUID voor de naam van de toegewezen door de toepassing. U kunt een tekstvak opnemen in de gebruikersinterface die door een naam op van de gebruiker worden aangevraagd.
 
 ```json
 "outputs": {
@@ -72,7 +74,7 @@ Als u wilt de naam van de beheerde toepassing-resource instellen, moet u een waa
 ```
 
 ## <a name="functions"></a>Functions
-Net als bij functies van sjablonen in Azure Resource Manager (zowel in de syntaxis en functionaliteit), CreateUiDefinition biedt functies voor het werken met elementen invoer en uitvoer, evenals functies zoals voorwaardelijke instructies.
+Net als bij functies van sjablonen in Azure Resource Manager (zowel in de syntaxis en functionaliteit), CreateUiDefinition biedt functies voor het werken met de invoer en uitvoer en functies zoals voorwaardelijke instructies-elementen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Het bestand createUiDefinition.json zelf is een eenvoudig schema. De echte diepte van deze zijn afkomstig van de ondersteunde elementen en functies. Deze items worden beschreven in meer detail op:

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949568"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243597"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangsbeheer in Azure Data Lake Storage Gen2
 
@@ -22,13 +22,13 @@ Azure Data Lake Storage Gen2 implementeert een model voor toegangsbeheer die ond
 
 <a id="azure-role-based-access-control-rbac" />
 
-## <a name="role-based-access-control"></a>Role-based access control
+## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
 RBAC gebruik roltoewijzingen voor het effectief sets van machtigingen aan *beveiligings-principals*. Een *beveiligings-principal* is een object dat staat voor een gebruiker, groep, service-principal of beheerde identiteit die is gedefinieerd in Azure Active Directory (AD) die toegang tot Azure-resources aanvraagt.
 
-Normaal gesproken deze Azure-resources worden beperkt tot bronnen op het hoogste niveau (bijvoorbeeld: Azure Storage-accounts). In het geval van Azure Storage, en als gevolg hiervan in Azure Data Lake Storage Gen2, dit mechanisme uitgebreid naar de bron van het systeem bestand.
+Normaal gesproken deze Azure-resources worden beperkt tot bronnen op het hoogste niveau (bijvoorbeeld: Azure Storage-accounts). In het geval van Azure Storage, en als gevolg hiervan in Azure Data Lake Storage Gen2, is dit mechanisme uitgebreid naar de containerresource (bestandssysteem).
 
-Zie voor meer informatie over het toewijzen van rollen aan beveiligings-principals in het bereik van uw opslagaccount, [verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Zie voor meer informatie over het toewijzen van rollen aan beveiligings-principals in het bereik van uw opslagaccount, [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>De impact van roltoewijzingen op bestands- en niveau toegangsbeheerlijsten
 
@@ -49,7 +49,7 @@ Toegestane machtigingen opnemen SAS-tokens als onderdeel van het token. De macht
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Toegangsbeheerlijsten voor bestanden en mappen
 
-U kunt een beveiligings-principal koppelen aan een toegangsniveau voor bestanden en mappen. Deze koppelingen zijn vastgelegd in een *toegangsbeheerlijst (ACL)*. Elk bestand en map in uw storage-account heeft een toegangsbeheerlijst.
+U kunt een beveiligings-principal koppelen aan een toegangsniveau voor bestanden en mappen. Deze koppelingen zijn vastgelegd in een *toegangsbeheerlijst (ACL)* . Elk bestand en map in uw storage-account heeft een toegangsbeheerlijst.
 
 Als u een rol aan een beveiligings-principal op het storage-account-niveau toegewezen, kunt u toegangsbeheerlijsten te verlenen dat die beveiligings-principal met verhoogde bevoegdheden voor toegang tot specifieke bestanden en mappen.
 
@@ -77,8 +77,6 @@ Standaard-ACL's zijn sjablonen van ACL's die zijn gekoppeld aan een map die de t
 
 Beide toegangs-ACL's en standaard-ACL's hebben dezelfde structuur.
 
-Beide toegangs-ACL's en standaard-ACL's hebben dezelfde structuur.
-
 > [!NOTE]
 > Wijzigen van de standaard-ACL voor een bovenliggend item is niet van invloed zijn op de toegang tot de ACL of standaard-ACL van onderliggende items die al bestaan.
 
@@ -91,6 +89,9 @@ De machtigingen voor een bestandssysteemobject zijn **lezen**, **schrijven**, en
 | **Lezen (L)** | Kan de inhoud van een bestand lezen | Vereist **lezen** en **Execute** om de inhoud van de map weer te geven |
 | **Schrijven (S)** | Kan schrijven of toevoegen aan een bestand | Vereist **schrijven** en **Execute** onderliggende items in een map maken |
 | **Uitvoeren (U)** | Betekent niet dat alles in de context van Data Lake Storage Gen2 | Vereist om de onderliggende items van een map te gaan |
+
+> [!NOTE]
+> Als u bij het verlenen van machtigingen met behulp van alleen ACL's (geen RBAC), wordt om toegang te verlenen aan een service principal lezen of schrijven toegang tot een bestand, moet u de service-principal geven **Execute** machtigingen voor het bestandssysteem, en elke map in de hiërarchie van mappen die tot het bestand leiden.
 
 #### <a name="short-forms-for-permissions"></a>Korte formulieren voor machtigingen
 
@@ -281,7 +282,7 @@ Gebruik altijd de Azure AD-beveiligingsgroepen als de toegewezen principal in de
 
 - De oproepende functie supergebruikersmachtigingen '',
 
-Of
+of
 
 - De bovenliggende map moet schrijven + uitvoeren van machtigingen.
 - De map moet worden verwijderd en elke map erin moeten lezen + schrijven + uitvoeren van machtigingen.

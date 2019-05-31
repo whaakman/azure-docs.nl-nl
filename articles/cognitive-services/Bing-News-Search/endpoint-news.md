@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: b680f476345bde61797fd1cc137cad6e5653d0a5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6ea218da23d65696c76008cb15e183fcc4bbda10
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798206"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383234"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Bing nieuws zoeken-API-eindpunten
 
@@ -39,7 +39,7 @@ Retourneert de nieuwsitems op basis van een zoekquery. Als de query leeg is, wor
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Retourneert de nieuws-items per categorie. U kunt de beste zakelijke, sport of entertainment artikelen zijn die specifiek aanvragen `category=business`, `category=sports`, of `category=entertainment`.  De `category` parameter kan alleen worden gebruikt met de `/news` URL. Er zijn een paar formele vereisten voor het opgeven van categorieën; Raadpleeg `category` in de [queryparameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentatie. Verzenden van een query door de url van uw zoekterm codering en u dit toevoegt aan de`q=""` parameter. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-endpoint).
+Retourneert de nieuws-items per categorie. U kunt de beste zakelijke, sport of entertainment artikelen zijn die specifiek aanvragen `category=business`, `category=sports`, of `category=entertainment`.  De `category` parameter kan alleen worden gebruikt met de `/news` URL. Er zijn een paar formele vereisten voor het opgeven van categorieën; Raadpleeg `category` in de [queryparameter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) documentatie. Verzenden van een query door de url van uw zoekterm codering en u dit toevoegt aan de`q=""` parameter. Zie voor beschikbaarheid, [ondersteunde landen/regio's en markten](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Actuele nieuwsonderwerpen op 
 
@@ -51,7 +51,7 @@ Nieuwsonderwerpen retourneert die momenteel zijn populair op sociale netwerken. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [zoeken in Bing nieuws-API versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) verwijzing.
+Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [zoeken in Bing nieuws-API versie 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) verwijzing.
 
 Zie de referentiepagina's voor elk type voor volledige informatie over de parameters die worden ondersteund door elk eindpunt.
 Zie voor meer voorbeelden van basic met behulp van het nieuws zoeken-API-aanvragen [snel starten van zoeken in Bing nieuws](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).

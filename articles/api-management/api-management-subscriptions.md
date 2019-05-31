@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693544"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243248"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnementen in Azure API Management
 
@@ -42,7 +42,7 @@ Abonnementen kunnen worden gekoppeld aan verschillende bereiken: product, alle A
 
 ### <a name="subscriptions-for-a-product"></a>Abonnementen voor een product
 
-Traditioneel abonnementen in API Management zijn altijd gekoppeld aan één [API-product](api-management-terminology.md) bereik. De lijst met producten ontwikkelaars gevonden op de Portal voor ontwikkelaars. Verzend dan ze abonnementaanvragen voor de producten die ze wilden gebruiken. Nadat een aanvraag is goedgekeurd, automatisch of door de API-uitgevers, kan de ontwikkelaar de sleutels in het gebruiken voor toegang tot alle API's in het product.
+Traditioneel abonnementen in API Management zijn altijd gekoppeld aan één [API-product](api-management-terminology.md) bereik. De lijst met producten ontwikkelaars gevonden op de Portal voor ontwikkelaars. Verzend dan ze abonnementaanvragen voor de producten die ze wilden gebruiken. Nadat een aanvraag is goedgekeurd, automatisch of door de API-uitgevers, kan de ontwikkelaar de sleutels in het gebruiken voor toegang tot alle API's in het product. Op dit moment weergegeven developer-portal alleen de product-scope-abonnementen onder de Gebruikersprofielsectie. 
 
 ![Product-abonnementen](./media/api-management-subscriptions/product-subscription.png)
 

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826492"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239421"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Beveiligingsmodel van Azure Notification Hubs
 
@@ -49,7 +49,7 @@ Net als bij andere entiteiten, Notification Hub-bewerkingen zijn toegestaan voor
 | Verzenden    | Berichten verzenden naar de notification hub                | Bericht verzenden |
 | Beheren  | CRUDs op Notification Hubs (inclusief het bijwerken van de PNS-referenties en sleutels) en lezen registraties op basis van tags |Meldingshubs maken/bijwerken/lezen/verwijderen<br><br>Registraties lezen op label |
 
-Notification Hubs verleend door Microsoft Azure Access Control-tokens en handtekening-tokens die zijn gegenereerd met gedeelde sleutels die zijn geconfigureerd op de Notification Hub-mailclaims geaccepteerd.
+Notification Hubs accepteert handtekening tokens gegenereerd met gedeelde sleutels die zijn geconfigureerd op de Notification Hub.
 
 Het is niet mogelijk een melding verzenden naar meer dan één naamruimte. Naamruimten zijn logische container voor notification hubs en niet betrokken bij het verzenden van meldingen.
 Het niveau van de naamruimte-toegangsbeleid (referenties) kunnen worden gebruikt voor bewerkingen op naamruimteniveau, bijvoorbeeld: notification hubs weergeven, maken of verwijderen van notification hubs, enzovoort. Alleen het niveau van de hub toegangsbeleid kunt u meldingen verzendt.

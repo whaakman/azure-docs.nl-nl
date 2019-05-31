@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453063"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243427"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
 
@@ -24,15 +24,15 @@ Veel teams moeten strikt regelen de toegang tot gegevens en instellingen control
 ## <a name="built-in-monitoring-roles"></a>Ingebouwde bewaking rollen
 Azure Monitor ingebouwde rollen zijn ontworpen om te beperken van toegang tot resources in een abonnement terwijl nog steeds die verantwoordelijk zijn voor het bewaken van de infrastructuur voor het downloaden en configureren van de gegevens die ze nodig hebben. Azure Monitor biedt twee out-of-the-box-rollen: Een Monitoring Reader en een controle Inzender.
 
-### <a name="monitoring-reader"></a>Lezer voor bewaking
+### <a name="monitoring-reader"></a>Controlelezer
 Mensen de rol Lezer bewaking toe kunt alle controlegegevens weergeven in een abonnement, maar kan niet alle resource wijzigen of bewerken instellingen met betrekking tot het bewaken van resources. Deze rol is geschikt voor gebruikers in een organisatie, zoals ondersteuning of operations engineers, die nodig kunnen hebben:
 
 * Monitoring dashboards weergeven in de portal en hun eigen persoonlijke monitoring dashboards maken.
-* Waarschuwingsregels is gedefinieerd in weergeven [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md)
-* Query voor het gebruik van metrische gegevens over de [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), of [platformoverschrijdende CLI](../../azure-monitor/platform/cli-samples.md).
+* Waarschuwingsregels is gedefinieerd in weergeven [Azure-waarschuwingen](alerts-overview.md)
+* Query voor het gebruik van metrische gegevens over de [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdlets](powershell-quickstart-samples.md), of [platformoverschrijdende CLI](cli-samples.md).
 * Query uitvoeren op het activiteitenlogboek via de portal, Azure Monitor REST API, PowerShell-cmdlets of platformoverschrijdende CLI.
-* Weergave de [diagnostische instellingen](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) voor een resource.
-* Weergave de [logboekprofiel](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) voor een abonnement.
+* Weergave de [diagnostische instellingen](diagnostic-logs-overview.md#diagnostic-settings) voor een resource.
+* Weergave de [logboekprofiel](activity-log-export.md) voor een abonnement.
 * Bekijk de instellingen voor automatisch schalen.
 * Waarschuwingsactiviteit weergeven en -instellingen.
 * Toegang tot Application Insights-gegevens en gegevens weergeven in Analytics AI.
@@ -48,13 +48,13 @@ Mensen de rol Lezer bewaking toe kunt alle controlegegevens weergeven in een abo
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Bijdrager voor bewaking
+### <a name="monitoring-contributor"></a>Controlebijdrager
 Mensen de rol Inzender bewaking toegewezen kan alle controlegegevens weergeven in een abonnement en maak of controle-instellingen wijzigen, maar alle andere resources kunnen niet worden gewijzigd. Deze rol is een superset van de rol van lezer bewaking en geschikt is voor leden van de controle-team van een organisatie of de providers van beheerde services die naast de bovenstaande, machtigingen en ook moet kunnen:
 
 * Monitoring dashboards als een gedeeld dashboard publiceren.
-* Stel [diagnostische instellingen](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) voor een resource.\*
-* Stel de [logboekprofiel](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) voor een abonnement.\*
-* Activiteit van de regels voor waarschuwingen en-instellingen via [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
+* Stel [diagnostische instellingen](diagnostic-logs-overview.md#diagnostic-settings) voor een resource.\*
+* Stel de [logboekprofiel](activity-log-export.md) voor een abonnement.\*
+* Activiteit van de regels voor waarschuwingen en-instellingen via [Azure-waarschuwingen](alerts-overview.md).
 * Application Insights-webtests en -onderdelen maken.
 * Lijst met Log Analytics-werkruimte gedeelde sleutels.
 * In- of uitschakelen van bewakingspakketten in Log Analytics-werkruimte.

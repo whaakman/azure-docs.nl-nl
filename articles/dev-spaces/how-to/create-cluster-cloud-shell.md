@@ -9,12 +9,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Meer informatie over het snel maken van een Kubernetes-cluster ingeschakeld voor Azure Dev opslagruimten direct vanuit uw browser zonder iets te installeren.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
-ms.openlocfilehash: c9dabc13e85295b88483f43b26ccf0b15406ad9b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 532a094f96817f3c525384694b6fa60a292aa948
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861610"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391661"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Een Kubernetes-cluster maken met behulp van Azure Cloud Shell
 
@@ -22,7 +22,7 @@ U kunt [Azure Cloud Shell](/azure/cloud-shell) gebruiken om een cluster te maken
 
 ## <a name="create-the-cluster"></a>Het cluster maken
 
-Maak eerst de resourcegroep in een [regio die ondersteuning biedt voor Azure Dev spaties](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+Maak eerst de resourcegroep in een [regio die ondersteuning biedt voor Azure Dev spaties][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -39,3 +39,6 @@ Het duurt een paar minuten om het cluster te maken.  Als het gereed is wordt de 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Azure Dev spaties](/azure/dev-spaces/) voor koppelingen naar volledige zelfstudies.
+
+
+[supported-regions]: ../about.md#supported-regions-and-configurations

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711795"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356987"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Het maken van dynamische blauwdrukken via parameters
 
@@ -44,7 +44,8 @@ Als u gebruikmaakt van de blauwdruktoewijzing een **systeem toegewezen identitei
 
 Als u gebruikmaakt van de blauwdruktoewijzing een **gebruiker toegewezen beheerde identiteit**, wordt het Key Vault waarnaar wordt verwezen _kan_ aanwezig zijn in een gecentraliseerde abonnement. De beheerde identiteit moet de juiste rechten in de Key Vault vóór blauwdruktoewijzing verlenen.
 
-In beide gevallen moet de Key Vault moet hebben **inschakelen van toegang tot Azure Resource Manager voor sjabloonimplementatie** geconfigureerd op de **toegangsbeleid** pagina. Zie voor instructies over het inschakelen van deze functie [Key Vault - sjabloonimplementatie inschakelen](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> [!IMPORTANT]
+> In beide gevallen moet de Key Vault moet hebben **inschakelen van toegang tot Azure Resource Manager voor sjabloonimplementatie** geconfigureerd op de **toegangsbeleid** pagina. Zie voor instructies over het inschakelen van deze functie [Key Vault - sjabloonimplementatie inschakelen](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Zie voor meer informatie over Azure Key Vault [Key Vault, overzicht](../../../key-vault/key-vault-overview.md).
 

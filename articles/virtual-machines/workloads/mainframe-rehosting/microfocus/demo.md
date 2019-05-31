@@ -5,12 +5,12 @@ author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125471"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304775"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Micro Focus CICS BankDemo instellen voor Micro Focus Enterprise Developer 4.0 op Azure
 
@@ -20,13 +20,13 @@ CICs staat voor het systeem voor klantinformatie, de transactie-platform dat doo
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een virtuele machine met [Enterprise Developer](set-up-micro-focus-azure.md). Houd er rekening mee dat ontwikkelaar een compleet exemplaar van de Enterprise-Server erop voor ontwikkelings- en testdoeleinden heeft. Dit is het exemplaar van de Enterprise-Server die wordt gebruikt voor de demo.
+- Een virtuele machine met [Enterprise Developer](set-up-micro-focus-azure.md). Houd er rekening mee dat ontwikkelaar een compleet exemplaar van de Enterprise-Server erop voor ontwikkelings- en testdoeleinden heeft. Dit exemplaar is het exemplaar van de Enterprise-Server die wordt gebruikt voor de demo.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Download en installeer deze op de Enterprise Developer-VM. Enterprise-Server vereist een database voor het beheer van CICS regio's en de toepassing BankDemo gebruikt ook een SQL Server-database met de naam BANKDEMO. In deze demo wordt ervan uitgegaan dat u SQL Server Express gebruikt voor beide databases. Wanneer u installeert, selecteert u de standaardinstallatie.
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS wordt gebruikt voor het beheren van de databases en een T-SQL-script is uitgevoerd. Download en installeer deze op de Enterprise Developer-VM.
 
-- [Visual Studio 2017](https://azure.microsoft.com/downloads/) met het nieuwste servicepack of [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), die u gratis kunt downloaden.
+- [Visual Studio 2019](https://azure.microsoft.com/downloads/) met het nieuwste servicepack of [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), die u gratis kunt downloaden.
 
 - Bureaublad of een andere Rumba 3270 emulator.
 
@@ -38,7 +38,7 @@ Nadat u Enterprise Developer 4.0 hebt geïnstalleerd op de virtuele machine, moe
 
 2. Klik op de **zoeken** pictogram naast de **Start** knop en het type **Windows functies**. De Wizard Server Manager toevoegen functies en onderdelen wordt geopend.
 
-3. Selecteer **rol webserver (IIS)**, en controleert u het volgende:
+3. Selecteer **rol webserver (IIS)** , en controleer vervolgens of de volgende opties:
 
     - Hulpprogramma's voor webbeheer
     - Compatibiliteit met IIS 6-beheer (Selecteer alle beschikbare functies)
@@ -46,7 +46,7 @@ Nadat u Enterprise Developer 4.0 hebt geïnstalleerd op de virtuele machine, moe
     - IIS Management Scripts en hulpprogramma 's
     - IIS-beheerservice
 
-4. Selecteer **World Wide Web Services**, en controleer het volgende:
+4. Selecteer **World Wide Web Services**, en controleert u de volgende opties:
 
      Onderdelen voor toepassingsontwikkeling:
     - .NET-uitbreidbaarheid
@@ -59,12 +59,12 @@ Nadat u Enterprise Developer 4.0 hebt geïnstalleerd op de virtuele machine, moe
 
 5. Selecteer **Windows Process Activation-Service** en alle onderliggende items.
 
-6. Voor **functies**, Controleer **Microsoft .NET framework 3.5.1**, en controleer het volgende:
+6. Voor **functies**, Controleer **Microsoft .NET framework 3.5.1**, en controleert u de volgende opties:
 
     - Windows Communication Foundation HTTP Activation
     - Windows Communication Foundation Non-HTTP Activation
 
-7. Voor **functies**, Controleer **Microsoft .NET framework 4.6**, en controleer het volgende:
+7. Voor **functies**, Controleer **Microsoft .NET framework 4.6**, en controleert u de volgende opties:
 
    - Named Pipe-activering
    - TCP Activation
@@ -88,7 +88,7 @@ Nadat u Enterprise Developer 4.0 hebt geïnstalleerd op de virtuele machine, moe
 
 ## <a name="configure-the-local-system-account-for-sql-server"></a>Het lokale systeemaccount gebruikt voor SQL Server configureren
 
-Bepaalde processen Enterprise-Server moeten kunnen aanmelden bij SQL Server en het maken van databases en andere objecten. Deze processen gebruiken het lokale systeemaccount gebruikt, zodat u sysadmin-instantie aan dat account geven moet.
+Bepaalde processen Enterprise-Server moeten kunnen zich in SQL Server en het maken van databases en andere objecten. Deze processen gebruiken het lokale systeemaccount gebruikt, zodat u sysadmin-instantie aan dat account geven moet.
 
 1. Start de **SSMS** en klikt u op **Connect** verbinding maken met de lokale SQLEXPRESS-Server met behulp van Windows-verificatie. Deze moet beschikbaar zijn in de **servernaam** lijst.
 
@@ -197,7 +197,7 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 
      ![Nieuwe Database XA-Resource Definition scherm](media/09-demo-xa.png)
 
-6. Klik op het beletselteken (**...** ) om de wizard Connection String. Voor **servernaam**, type **(lokaal)\\SQLEXPRESS**. Voor **aanmelding**, selecteer **Windows-verificatie**. Typ voor de databasenaam, **BANKDEMO**
+6. Klik op het beletselteken ( **...** ) om de wizard Connection String. Voor **servernaam**, type **(lokaal)\\SQLEXPRESS**. Voor **aanmelding**, selecteer **Windows-verificatie**. Typ voor de databasenaam, **BANKDEMO**
 
      ![Verbindingsreeks-scherm voor bewerken](media/10-demo-string.png)
 
@@ -208,7 +208,7 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 > [!NOTE]
 > De eerste stap is het belangrijk: De regio voor gebruik van de XA-resourcedefinitie die u zojuist hebt gemaakt, moet u instellen.
 
-1. Navigeer naar de **BANDEMO CICS regio** onder de **regio's Container**, en selecteer vervolgens **regio opstartbestand bewerken** uit de **acties** deelvenster. Schuif omlaag naar de SQL-eigenschappen en voer **bankdemo** voor de **XA-resourcenaam** , of gebruikt u het beletselteken om deze te selecteren.
+1. Navigeer naar de **BANDEMO CICS regio** onder de **regio's Container**, en selecteer vervolgens **regio opstartbestand bewerken** uit de **acties** deelvenster. Schuif omlaag naar de SQL-eigenschappen en voer **bankdemo** voor de **XA-resourcenaam**, of gebruikt u het beletselteken om deze te selecteren.
 
 2. Klik op de **opslaan** pictogram uw wijzigingen op te slaan.
 
@@ -216,13 +216,13 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 
 4. In de onderkant van de **starten/stoppen regio** vak dat wordt weergegeven in het middelste deelvenster, selecteer **Start**. Na enkele seconden, de regio wordt gestart.
 
-     ![Vak SQL starten/stoppen](/media/11-demo-sql.png)
+     ![Vak SQL starten/stoppen](media/11-demo-sql.png)
 
      ![CICS regio BANKDEMO - gestart scherm](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Maak een listener
 
-U moet een listener voor de TN3270-sessies die toegang hebben tot de toepassing BankDemo maken.
+Maak een listener voor de TN3270-sessies die toegang hebben tot de toepassing BankDemo.
 
 1. Vouw in het linkerdeelvenster **configuratie Editors** en selecteer **Listener**.
 
@@ -236,7 +236,7 @@ U moet een listener voor de TN3270-sessies die toegang hebben tot de toepassing 
 
 6. Een kanaal TN3270 toevoegen met de rechtermuisknop op **BANKDEMO regio** en selecteren **kanaal toevoegen**.
 
-7. Voor **naam**, voer **TN3270**. Voor **poort**, voer **9024**. (Houd er rekening mee dat de toepassing ESDEMO gebruikmaakt van poort 9230 dus moet u een andere poort gebruikt.)
+7. Voor **naam**, voer **TN3270**. Voor **poort**, voer **9024**. De toepassing ESDEMO gebruikt poort 9230, dus moet u een andere poort gebruikt.
 
 8. Om het bestand hebt opgeslagen, klikt u op de **opslaan** pictogram of kies **bestand** \> **opslaan**.
 
@@ -247,7 +247,7 @@ U moet een listener voor de TN3270-sessies die toegang hebben tot de toepassing 
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Rumba voor toegang tot de toepassing BankDemo configureren
 
-Het laatste wat dat u moet doen is een 3270-sessie met behulp van Rumba, een emulator 3270 configureren. Deze stap kunt u de toepassing BankDemo openen via de listener die u zojuist hebt gemaakt.
+Het laatste wat dat u moet doen is een 3270-sessie met behulp van Rumba, een emulator 3270 configureren. Deze stap kunt u de toepassing BankDemo openen via de listener die u hebt gemaakt.
 
 1. Vanuit de Windows **Start** in het menu Start Rumba Desktop.
 

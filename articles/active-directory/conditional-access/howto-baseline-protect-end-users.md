@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cd52fb82e5e4cce759be5dfdd8872f64802459
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003159"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235510"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Beleid: Eindgebruiker protection (preview)
 
@@ -75,11 +75,11 @@ Dit beleid biedt u de optie voor het uitsluiten van gebruikers. Voordat u het be
 
 Het beleid **Basisbeleid: Eindgebruiker protection (preview)** wordt al geconfigureerd geleverd en worden weergegeven aan de bovenkant wanneer u gaat u naar de blade voor voorwaardelijke toegang in Azure portal.
 
-Dit beleid inschakelt en beveiligen van uw beheerders:
+Dit beleid inschakelt en Bescherm uw gebruikers:
 
 1. Aanmelden bij de **Azure-portal** als hoofdbeheerder, beveiligingsbeheerder of beheerder van voorwaardelijke toegang.
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
-1. Selecteer in de lijst met beleidsregels **Basisbeleid: Eindgebruiker protection (preview)**.
+1. Selecteer in de lijst met beleidsregels **Basisbeleid: Eindgebruiker protection (preview)** .
 1. Stel **beleid inschakelen** naar **beleid direct gebruiken**.
 1. Gebruiker uitsluitingen toevoegen door te klikken op **gebruikers** > **uitgesloten gebruikers selecteren** en het kiezen van de gebruikers die moeten worden uitgesloten. Klik op **Selecteer** vervolgens **gedaan**.
 1. Klik op **opslaan**.

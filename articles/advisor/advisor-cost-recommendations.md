@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467933"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254723"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Service verlagen met behulp van Azure Advisor
 
@@ -44,6 +44,13 @@ Advisor wordt ook een melding van gereserveerde instanties die u hebt die in de 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Verwijderen van niet-gekoppelde openbare IP-adressen om geld te besparen
 
 Advisor identificeert openbare IP-adressen die niet momenteel gekoppeld aan Azure-resources zoals Load Balancers of virtuele machines zijn. Deze openbare IP adressen worden geleverd met een nominaal bedrag in rekening gebracht. Als u niet van plan bent om ze te gebruiken, kan deze worden verwijderd leiden tot kostenbesparingen.
+
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Azure Data Factory-pijplijnen die niet verwijderen
+
+Azure Advisor detecteert Azure Data Factory-pijplijnen die herhaaldelijk mislukken en raadzaam dat u de problemen oplossen of verwijderen van de pijplijnen mislukken als ze niet meer nodig zijn. U wordt gefactureerd voor deze pijplijnen, zelfs als hoewel ze niet u van dienst zijn terwijl ze mislukken. 
+
+## <a name="use-standard-snapshots-for-managed-disks"></a>Standard-momentopnamen voor beheerde schijven gebruiken
+Om op te slaan 60% van de kosten, wordt u aangeraden de momentopnamen opslaan in de Standard-opslag, ongeacht het opslagtype van de bovenliggende schijf. Dit is de standaardoptie voor momentopnamen van Managed Disks. Azure Advisor identificeert momentopnamen die zijn opgeslagen Premium-opslag en aanbevolen migreren van de momentopname van Premium naar Standard-opslag. [Meer informatie over de prijzen voor Managed Disk](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Toegang tot kosten aanbevelingen in Azure Advisor
 

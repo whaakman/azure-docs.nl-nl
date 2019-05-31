@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359308"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235540"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planning van een cloud-gebaseerde Azure multi-factor Authentication
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Een cloud-gebaseerde Azure multi-factor Authentication-implementatie plannen
 
 Mensen verbinding maakt met resources van de organisatie in steeds complexer scenario's. Personen verbinden van eigendom van de organisatie, persoonlijke en openbare apparaten in of uit het bedrijfsnetwerk met behulp van Smartphones, tablets, pc's en laptops, vaak op meerdere platforms. In deze wereld altijd verbonden, meerdere apparaten en meerdere platforms zijn de beveiliging van gebruikersaccounts is belangrijker dan ooit. Wachtwoorden, ongeacht hun complexiteit, die wordt gebruikt door apparaten, netwerken en platforms zijn niet meer voldoende zijn voor de beveiliging van het gebruikersaccount, vooral wanneer gebruikers vaak opnieuw gebruiken van wachtwoorden van accounts. Geavanceerde phishing en andere social hacking aanvallen kunnen resulteren in gebruikersnamen en wachtwoorden worden geplaatst en die worden verkocht via de donkere Internet.
 
@@ -46,7 +46,7 @@ Het is essentieel om gebruikers te informeren, in de geplande communicatie over 
 
 Microsoft biedt [communicatiesjablonen](https://aka.ms/mfatemplates) en [documentatie voor eindgebruikers](../user-help/security-info-setup-signin.md) om u te helpen bij het ontwerp van uw communicatie. U kunt gebruikers verzenden [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com) registreren rechtstreeks door het selecteren van de **beveiligingsgegevens** koppelingen op deze pagina.
 
-## <a name="deployment-considerations"></a>Overwegingen voor implementatie
+## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 
 Azure multi-factor Authentication wordt geïmplementeerd door het afdwingen van beleid met voorwaardelijke toegang. Een [beleid voor voorwaardelijke toegang](../conditional-access/overview.md) kunnen vereisen dat gebruikers multi-factor authentication uitvoeren wanneer aan bepaalde criteria wordt voldaan, zoals:
 
@@ -55,19 +55,17 @@ Azure multi-factor Authentication wordt geïmplementeerd door het afdwingen van 
 * Apparaatplatform
 * Status van apparaat
 * Netwerklocatie of zich geo IP-adres
-* Clienttoepassingen
+* Client-toepassingen
 * Aanmeldingsrisico (Identity Protection is vereist)
 * Compatibel apparaat
 * Hybrid Azure AD gekoppelde apparaat
 * Goedgekeurde client-toepassing
- 
 
-Gebruik aanpasbare posters en e-mailsjablonen in [rollout-materiaal, multi-factor authentication] in multi-factor authentication voor uw organisatie. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+Gebruik van de aanpasbare posters en e-mailsjablonen in [multi-factor authentication-rollout materiaal](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) voor meervoudige verificatie voor uw organisatie worden uitgerold.
 
 ## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Multi-factor Authentication met voorwaardelijke toegang inschakelen
 
 Beleid voor voorwaardelijke toegang afdwingen registratie, niet-geregistreerde gebruikers te verlangen dat registratie op de eerste aanmelding wordt een belangrijke veiligheidsoverweging voltooien.
-
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) deel uitmaakt van een registratiebeleid voor zowel geautomatiseerde risico's detecteren en herstellen van beleid voor het verhaal van de Azure multi-factor Authentication. Beleidsregels kunnen worden gemaakt om af te dwingen wachtwoord te wijzigen wanneer er een bedreiging van identiteit waarmee is geknoeid of MFA is vereist wanneer een aanmelding wordt beschouwd als riskant door de volgende [gebeurtenissen](../reports-monitoring/concept-risk-events.md):
 
@@ -98,7 +96,7 @@ Het wordt aangeraden dat organisaties gebruik van voorwaardelijke toegang voor h
    2. Als u met behulp van de landen/regio 's
       1. Vouw de vervolgkeuzelijst en selecteer de landen of regio's die u wilt definiëren voor deze locatie met de naam.
       2. Bepaal of onbekende gebieden opnemen. Onbekende gebieden zijn IP-adressen die niet kunnen worden toegewezen aan een land/regio.
-7. Klik op **Maken**.
+7. Klik op **Maken**
 
 ## <a name="plan-authentication-methods"></a>Verificatiemethoden plannen
 
@@ -119,7 +117,7 @@ Een mobiele app, zoals de Microsoft Authenticator-app genereert een nieuwe OATH-
 
 Een geautomatiseerd telefoongesprek wordt de gebruiker geplaatst. De gebruiker beantwoordt het gesprek en persen **#** op de toetsenblok van de telefoon om goed te keuren van de verificatie. De aanroep naar telefoon is een goede back-upmethode voor melding of verificatie via een mobiele app.
 
-### <a name="text-message-to-phone"></a>Sms-bericht naar telefoon
+### <a name="text-message-to-phone"></a>SMS-bericht naar telefoon
 
 Een SMS-bericht met een verificatiecode naar de gebruiker wordt verzonden, de gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding.
 
@@ -145,13 +143,13 @@ Beheerders moeten bepalen hoe gebruikers hun methoden worden geregistreerd. Orga
 
 Als uw organisatie van Azure Active Directory Identity Protection gebruikmaakt, [configureren van de MFA-registratiebeleid](../identity-protection/howto-mfa-policy.md) dat uw gebruikers zich voor het registreren van de volgende keer dat ze zich interactief aanmelden.
 
-### <a name="registration-without-identity-protection"></a>Inschrijving zonder identity Protection
+### <a name="registration-without-identity-protection"></a>Inschrijving zonder Identity Protection
 
 Als uw organisatie heeft geen licenties met Identity Protection inschakelen, wordt gebruikers gevraagd om u te registreren van de volgende keer dat MFA vereist bij het aanmelden is. Gebruikers kunnen niet worden geregistreerd voor MFA als ze de toepassingen die zijn beveiligd met MFA niet gebruikt. Het is belangrijk om alle gebruikers geregistreerd, zodat beveiligingsrisico kan het wachtwoord van een gebruiker raden en zich registreren voor MFA namens hen effectief nodig de controle van het account.
 
 #### <a name="enforcing-registration"></a>Afdwingen van inschrijving
 
-Met behulp van de volgende stappen uit een beleid voor voorwaardelijke toegang kunt afdwingen dat gebruikers zich registreren voor meervoudige verificatie
+Met behulp van de volgende stappen uit een voorwaardelijk beleid kunt afdwingen dat gebruikers zich registreren voor meervoudige verificatie
 
 1. Maak een groep, voeg alle gebruikers die momenteel niet geregistreerd.
 2. Door middel van voorwaardelijke toegang, multi-factor authentication voor deze groep voor toegang tot alle resources afdwingen.
@@ -169,6 +167,72 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Ob
 
 ```PowerShell
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
+```
+
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Gebruikers voor het converteren van MFA per gebruiker voor voorwaardelijke toegang op basis van MFA
+
+Als uw gebruikers zijn ingeschakeld met per gebruiker ingeschakeld en de volgende PowerShell afgedwongen Azure multi-factor Authentication u helpen kan bij het maken van de conversie van voorwaardelijke toegang op basis van Azure multi-factor Authentication.
+
+```PowerShell
+# Disable MFA for all users, keeping their MFA methods intact
+Get-MsolUser -All | Disable-MFA -KeepMethods
+
+# Enforce MFA for all users
+Get-MsolUser -All | Set-MfaState -State Enforced
+
+# Wrapper to disable MFA with the option to keep the MFA
+# methods (to avoid having to proof-up again later)
+function Disable-Mfa {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$True)]
+        $User,
+        [switch] $KeepMethods
+    )
+
+    Process {
+
+        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
+        $User | Set-MfaState -State Disabled
+
+        if ($KeepMethods) {
+            # Restore the MFA methods which got cleared when disabling MFA
+            Set-MsolUser -ObjectId $User.ObjectId `
+                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
+        }
+    }
+}
+
+# Sets the MFA requirement state
+function Set-MfaState {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $ObjectId,
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $UserPrincipalName,
+        [ValidateSet("Disabled","Enabled","Enforced")]
+        $State
+    )
+
+    Process {
+        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
+        $Requirements = @()
+        if ($State -ne "Disabled") {
+            $Requirement =
+                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
+            $Requirement.RelyingParty = "*"
+            $Requirement.State = $State
+            $Requirements += $Requirement
+        }
+
+        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
+                     -StrongAuthenticationRequirements $Requirements
+    }
+}
+
 ```
 
 ## <a name="plan-conditional-access-policies"></a>Beleid voor voorwaardelijke toegang plannen
@@ -210,7 +274,7 @@ Sommige oudere en on-premises toepassingen die niet rechtstreeks aan de hand Azu
 * On-premises RADIUS-toepassingen, die u moeten het gebruik van MFA-adapter met NPS-server.
 * On-premises AD FS toepassingen, die het gebruik van MFA-adapter met AD FS 2016 moet.
 
-Toepassingen die rechtstreeks met Azure AD verifiëren en moderne verificatie (WS-Federation, SAML, OAuth, OpenID Connect) kunnen u rechtstreeks van beleid voor voorwaardelijke toegang gebruiken.
+Toepassingen die rechtstreeks met Azure AD verifiëren en moderne verificatie (WS-Federation, SAML, OAuth, OpenID Connect) kunnen maken gebruik van voorwaardelijk beleid rechtstreeks.
 
 ### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Azure MFA gebruiken met Azure AD-toepassingsproxy
 
@@ -227,9 +291,9 @@ De Network Policy Server (NPS)-extensie voor Azure MFA voegt cloud-gebaseerde MF
 * Met het protocol CHAPv2 worden alleen verificator-app pushmeldingen te verzenden en telefoongesprek ondersteund.
 * Beleid voor voorwaardelijke toegang kunnen niet worden toegepast.
 
-De NPS-extensie fungeert als een adapter tussen RADIUS- en cloud-gebaseerde Azure MFA voor een tweede factor van de verificatie te beschermen [VPN](howto-mfa-nps-extension-vpn.md), [verbindingen van extern bureaublad-Gateway](howto-mfa-nps-extension-rdg.md), of andere RADIUS-staat toepassingen. Gebruikers die voor alle verificatiepogingen registreren voor Azure MFA in deze omgeving wordt gevraagd, het ontbreken van voorwaardelijk beleid gemiddelde MFA is altijd vereist.
+De NPS-extensie fungeert als een adapter tussen RADIUS- en cloud-gebaseerde Azure MFA voor een tweede factor van de verificatie te beschermen [VPN](howto-mfa-nps-extension-vpn.md), [verbindingen van extern bureaublad-Gateway](howto-mfa-nps-extension-rdg.md), of andere RADIUS-staat toepassingen. Gebruikers die registreren voor Azure MFA in deze omgeving wordt gevraagd om alle verificatiepogingen, het ontbreken van beleid voor voorwaardelijke toegang betekenen dat MFA altijd is vereist.
 
-#### <a name="implementing-your-nps-server"></a>Implementatie van de NPS-Server
+#### <a name="implementing-your-nps-server"></a>Implementatie van de NPS-server
 
 Als u een NPS-exemplaar geïmplementeerd en wordt gebruikt, verwijzen naar [uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication](howto-mfa-nps-extension.md). Als u NPS voor het eerst instelt, raadpleegt u [Network Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) voor instructies. Richtlijnen voor probleemoplossing vindt u in het artikel [foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen](howto-mfa-nps-extension-errors.md).
 
@@ -237,7 +301,7 @@ Als u een NPS-exemplaar geïmplementeerd en wordt gebruikt, verwijzen naar [uw b
 
 Kies wat er gebeurt als gebruikers die niet zijn geregistreerd met MFA probeert te verifiëren. Gebruik de registerinstelling `REQUIRE_USER_MATCH` in het registerpad `HKLM\Software\Microsoft\AzureMFA` om te bepalen het gedrag van de functie. Deze instelling heeft een configuratie voor één optie.
 
-| Sleutel | Waarde | Standaard |
+| Sleutel | Value | Standaard |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | DE WAARDE TRUE / FALSE | Niet ingesteld (gelijk aan TRUE) |
 
@@ -304,7 +368,7 @@ Rapporten voor Azure MFA
 
 Azure multi-factor Authentication biedt rapporten via de Azure-portal:
 
-| Rapport | Location | Description |
+| Rapport | Locatie | Description |
 | --- | --- | --- |
 | Gebruik en fraude waarschuwingen | Azure AD > Sign-ins | Bevat informatie over algemene gebruik, overzicht van gebruikers en de details van de gebruiker; Als een geschiedenis van Fraudewaarschuwingen die zijn ingediend in het opgegeven datumbereik. |
 

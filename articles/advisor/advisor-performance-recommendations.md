@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920449"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254656"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Prestaties van Azure-toepassingen met Azure Advisor
 
@@ -25,7 +25,7 @@ Azure Advisor-aanbevelingen voor prestaties te verbeteren en de reactiesnelheid 
 
 Azure Advisor identificeert Traffic Manager-profielen met een langer TTL geconfigureerd en aanbevolen configuratie van de TTL-waarde 20 seconden of 60 seconden, afhankelijk van of u het profiel is geconfigureerd voor [Fast Failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-with-sql-db-advisor"></a>De prestaties van de database verbeteren met SQL DB Advisor
+## <a name="improve-database-performance-with-sql-db-advisor"></a>Verbeter de prestaties van de database met SQL DB Advisor
 
 Advisor biedt u een consistente, geconsolideerde weergave van de aanbevelingen voor al uw Azure-resources. Het is geïntegreerd met SQL Database Advisor voor aanbevelingen voor het verbeteren van de prestaties van uw SQL Azure-database. SQL Database Advisor beoordeelt de prestaties van uw SQL Azure-databases door het analyseren van uw gebruiksgeschiedenis. Vervolgens biedt aanbevelingen die bij uitstek geschikt zijn voor het uitvoeren van de typische werkbelasting van de database.
 
@@ -93,6 +93,22 @@ Azure Advisor maakt gebruik van heuristiek op basis van een werkbelasting, zoals
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Schalen van uw Azure MySQL en Azure PostgreSQL en Azure MariaDB-server naar een hogere SKU om te voorkomen dat verbindingsbeperkingen
 Elke nieuwe verbinding met uw databaseserver geheugen in beslag neemt. Prestaties van de database-server minder als verbindingen met uw server vanwege mislukken een [bovengrens](https://docs.microsoft.com/azure/postgresql/concepts-limits) in het geheugen. Azure Advisor worden geïdentificeerd van servers met veel fouten bij het verbinden met en kunt het beste een upgrade van uw server verbindingen limieten voor meer geheugen aan de server door omhoog schalen van compute of geheugen geoptimaliseerd SKU's, waarvoor meer rekencapaciteit per kern.
+
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Schaal uw Cache naar een andere grootte of SKU ter verbetering van de Cache en de prestaties van toepassingen
+
+Cache-exemplaren het beste presteren wanneer niet wordt uitgevoerd onder zware belasting op het hoge geheugen-, hoge serverbelasting of hoge netwerkbandbreedte waardoor deze niet meer reageren, er gegevens verloren gaan of niet beschikbaar. Advisor wordt Cache-exemplaren in deze voorwaarden identificeert en aanbeveelt van de toepassing van aanbevolen procedures voor het verminderen van de geheugendruk, de belasting van de server of de bandbreedte van het netwerk of naar een andere grootte of SKU te schalen met meer capaciteit.
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Regio's met verkeer toevoegen aan uw Azure Cosmos DB-account
+
+Advisor detecteert Azure Cosmos DB-accounts waarvoor verkeer vanuit een regio die momenteel niet is geconfigureerd en aan toe te voegen die regio. Dit latentie voor aanvragen die afkomstig zijn van deze regio wordt verbeterd en zorgt ervoor dat de beschikbaarheid in het geval van uitval van de regio. [Meer informatie over het distribueren van globale gegevens met Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Configureren van uw Azure Cosmos DB indexeringsbeleid met klant opgenomen of uitgesloten paden
+
+Azure Advisor identificeert Cosmos DB-containers die gebruikmaakt van de standaardbeleidsregels voor indexering van beleid, maar kunnen profiteren van een aangepast indexeringsbeleid op basis van het workloadpatroon. De standaardbeleidsregels voor indexering voor alle eigenschappen geïndexeerd, maar de RU's en de voor indexering verbruikte opslag met behulp van een aangepast indexeringsbeleid met expliciete opgenomen of uitgesloten paden gebruikt in queryfilters kunt beperken. [Meer informatie over het wijzigen van beleid voor index](https://aka.ms/cosmosdb/modify-index-policy)
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configureren van uw Azure Cosmos DB-query paginagrootte (MaxItemCount) op-1 
+
+Azure Advisor identificeert Azure Cosmos DB-containers die de paginagrootte voor query van 100 en om de paginagrootte van een 1 te gebruiken voor snellere scans. [Meer informatie over het maximumaantal van Item](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor prestaties in Advisor
 

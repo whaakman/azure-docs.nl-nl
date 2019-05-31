@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: de2e57901becad68f3fad16967faf3ae4833177a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 928d741132623bd92dae1097724295691d7f3808
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797876"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398338"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van virtuele Azure-machines van de ene regio naar een andere
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van Azure-VM's van de ene naar de andere regio
 
 In dit artikel bevat een overzicht van ondersteuning en vereisten bij het instellen van herstel na noodgeval voor virtuele Azure-machines van de ene Azure-regio naar een andere, met de [Azure Site Recovery](site-recovery-overview.md) service.
 
@@ -160,7 +160,7 @@ Installatiekopieën van Azure-galerie - van derden gepubliceerd | Ondersteund | 
 Aangepaste installatiekopieën - van derden gepubliceerd | Ondersteund | Als de virtuele machine wordt uitgevoerd op een ondersteund besturingssysteem wordt ondersteund.
 Virtuele machines gemigreerd met behulp van Site Recovery | Ondersteund | Als een VM met VMware of fysieke machine is gemigreerd naar Azure met Site Recovery, moet u de oudere versie van mobiliteitsservice wordt uitgevoerd op de computer verwijderen en start de machine opnieuw voordat u naar een andere Azure-regio te repliceren.
 RBAC-beleidsregels | Niet ondersteund | Access control (RBAC)-beleidsregels op virtuele machines worden niet gerepliceerd naar de failover-VM in de doelregio op basis van rollen.
-Uitbreidingen | Niet ondersteund | Extensies worden niet gerepliceerd naar de failover-VM in de doelregio. Dit moet handmatig worden geïnstalleerd na een failover.
+Extensies | Niet ondersteund | Extensies worden niet gerepliceerd naar de failover-VM in de doelregio. Dit moet handmatig worden geïnstalleerd na een failover.
 
 ## <a name="replicated-machines---disk-actions"></a>Gerepliceerde machines - schijf-acties
 
@@ -182,6 +182,7 @@ Deze tabel samengevat ondersteuning voor de Azure VM-besturingssysteem schijf, d
 Maximale grootte van de Besturingssysteemschijf | 2048 GB | [Meer informatie](../virtual-machines/windows/managed-disks-overview.md) over VM-schijven.
 Tijdelijke schijf | Niet ondersteund | De tijdelijke schijf is altijd uitgesloten van replicatie.<br/><br/> Geen permanente gegevens niet worden opgeslagen op de tijdelijke schijf. [Meer informatie](../virtual-machines/windows/managed-disks-overview.md).
 Maximale grootte van de gegevensschijf | 4095 GB |
+Minimale grootte van de gegevensschijf | Er is geen beperking voor niet-beheerde schijven. 2 GB voor beheerde schijven | 
 Maximum aantal voor gegevens-schijf | Maximaal 64, in overeenstemming met de ondersteuning voor een specifieke Azure-VM-grootte | [Meer informatie](../virtual-machines/windows/sizes.md) over VM-grootten.
 Veranderingssnelheid van gegevens-schijf | Maximaal 10 MBps per schijf voor premium-opslag. Maximaal 2 MBps per schijf voor Standard-opslag. | Als de gemiddelde gegevenswijzigingssnelheid op de schijf is voortdurend hoger is dan de maximale, replicatie wordt niet actueel.<br/><br/>  Echter, als de maximale sporadisch wordt overschreden, replicatie kan bijwonen, maar ziet u mogelijk enigszins vertraagd herstelpunten.
 Gegevensschijf - standard storage-account | Ondersteund |
@@ -249,7 +250,7 @@ Geverifieerde Proxy | Niet ondersteund | Als de virtuele machine van een geverif
 Site-naar-site-VPN-verbinding met on-premises<br/><br/>(met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site Recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET-naar-VNET-verbinding | Ondersteund | [Meer informatie](site-recovery-azure-to-azure-networking-guidance.md)  
 Service-eindpunten voor virtueel netwerk | Ondersteund | Zorg ervoor dat de vertrouwde Microsoft-services toegang hebben tot het opslagaccount als beperking van toegang tot het virtuele netwerk naar storage-accounts.
-Versnelde netwerken | Ondersteund | Versneld netwerken moet zijn ingeschakeld op de bron-VM. [Meer informatie](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Versneld netwerken | Ondersteund | Versneld netwerken moet zijn ingeschakeld op de bron-VM. [Meer informatie](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

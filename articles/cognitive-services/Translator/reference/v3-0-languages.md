@@ -3,19 +3,19 @@ title: Translator Text-API talen methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de talen van Translator tekst-API-methode.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797302"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389714"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text-API 3.0: Languages
 
@@ -232,7 +232,7 @@ De lijst van ondersteunde talen verandert niet vaak. Sla de netwerkbandbreedte e
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>ETag</td>
+    <td>eTag</td>
     <td>Huidige waarde van de entity-tag voor de aangevraagde groepen van ondersteunde talen. Als u de volgende aanvragen efficiënter, verzendt de client kan de `ETag` waarde in een `If-None-Match` header-veld.
     </td>
   </tr>
@@ -251,7 +251,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Voltooid.</td>
+    <td>Geslaagd.</td>
   </tr>
   <tr>
     <td>304</td>

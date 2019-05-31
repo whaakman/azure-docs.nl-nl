@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415747"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235592"
 ---
 # <a name="combined-security-information-registration-preview"></a>Gecombineerde security informatie registratie (preview)
 
@@ -24,7 +24,7 @@ Vóór de gecombineerde inschrijving gebruikers verificatiemethoden voor meervou
 
 ![Mijn profiel weergeven geregistreerd beveiligingsgegevens voor een gebruiker](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Bekijk voordat u de nieuwe ervaring is ingeschakeld, deze beheerder gerichte documentatie en de gebruiker gerichte documentatie om te controleren of u informatie over de functionaliteit en het effect van deze functie. Baseer uw training over de documentatie voor de gebruiker voor het voorbereiden van uw gebruikers voor de nieuwe ervaring en ervoor zorgen dat een geslaagde implementatie.
+Bekijk voordat u de nieuwe ervaring is ingeschakeld, deze beheerder gerichte documentatie en de gebruiker gerichte documentatie om te controleren of u informatie over de functionaliteit en het effect van deze functie. Training op basis de [gebruikersdocumentatie](../user-help/user-help-security-info-overview.md) voorbereiden van uw gebruikers voor de nieuwe ervaring en ervoor zorgen dat een geslaagde implementatie.
 
 Azure AD gecombineerd beveiligingsgegevens registratie is niet op dit moment beschikbaar zijn voor nationale clouds, zoals Azure US Government, Azure Duitsland or Azure China 21Vianet.
 
@@ -48,8 +48,8 @@ Registratie ondersteunt de volgende verificatiemethoden en de acties gecombineer
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Ja (maximaal 5) | Nee | Ja |
 | Andere verificator-app | Ja (maximaal 5) | Nee | Ja |
-| Hardwaretoken | Nee | Nee | Ja |
-| Telefoon | Ja | Ja | Ja |
+| Hardware-token | Nee | Nee | Ja |
+| Phone | Ja | Ja | Ja |
 | Alternatief telefoonnummer | Ja | Ja | Ja |
 | Telefoon (werk) | Nee | Nee | Nee |
 | Email | Ja | Ja | Ja |
@@ -84,20 +84,20 @@ De registratie van de gecombineerde respecteert zowel de multi-factor Authentica
 
 Hier volgen enkele scenario's waarin gebruikers mogelijk gevraagd om u te registreren of vernieuwen hun beveiligingsgegevens:
 
-* Multi-factor Authentication-registratie is afgedwongen via Identity Protection: Gebruikers wordt gevraagd om u te registreren tijdens het aanmelden. Deze registreren verificatiemethoden op basis van meerdere factoren en SSPR methoden (als de gebruiker is ingeschakeld voor self-service voor Wachtwoordherstel).
-* Multi-factor Authentication inschrijving afgedwongen met behulp van de multi-factor Authentication per gebruiker: Gebruikers wordt gevraagd om u te registreren tijdens het aanmelden. Deze registreren verificatiemethoden op basis van meerdere factoren en SSPR methoden (als de gebruiker is ingeschakeld voor self-service voor Wachtwoordherstel).
-* Registratie van multi-factor Authentication-verificatie via voorwaardelijke toegang of andere beleidsregels afgedwongen: Gebruikers wordt gevraagd om u te registreren wanneer ze een bron waarvoor multi-factor Authentication gebruikt. Deze registreren verificatiemethoden op basis van meerdere factoren en SSPR methoden (als de gebruiker is ingeschakeld voor self-service voor Wachtwoordherstel).
-* SSPR-registratie in afgedwongen: Gebruikers wordt gevraagd om u te registreren tijdens het aanmelden. Ze registreren alleen methoden van self-service voor Wachtwoordherstel.
-* SSPR vernieuwen afgedwongen: Gebruikers moeten hun beveiligingsgegevens te controleren op basis van een interval dat is ingesteld door de beheerder. Gebruikers kunnen hun gegevens worden weergegeven en bevestigen van de gegevens van de huidige of wijzigingen aanbrengen, indien nodig.
+- Multi-factor Authentication-registratie is afgedwongen via Identity Protection: Gebruikers wordt gevraagd om u te registreren tijdens het aanmelden. Deze registreren verificatiemethoden op basis van meerdere factoren en SSPR methoden (als de gebruiker is ingeschakeld voor self-service voor Wachtwoordherstel).
+- Multi-factor Authentication inschrijving afgedwongen met behulp van de multi-factor Authentication per gebruiker: Gebruikers wordt gevraagd om u te registreren tijdens het aanmelden. Deze registreren verificatiemethoden op basis van meerdere factoren en SSPR methoden (als de gebruiker is ingeschakeld voor self-service voor Wachtwoordherstel).
+- Registratie van multi-factor Authentication-verificatie via voorwaardelijke toegang of andere beleidsregels afgedwongen: Gebruikers wordt gevraagd om u te registreren wanneer ze een bron waarvoor multi-factor Authentication gebruikt. Deze registreren verificatiemethoden op basis van meerdere factoren en SSPR methoden (als de gebruiker is ingeschakeld voor self-service voor Wachtwoordherstel).
+- SSPR-registratie in afgedwongen: Gebruikers wordt gevraagd om u te registreren tijdens het aanmelden. Ze registreren alleen methoden van self-service voor Wachtwoordherstel.
+- SSPR vernieuwen afgedwongen: Gebruikers moeten hun beveiligingsgegevens te controleren op basis van een interval dat is ingesteld door de beheerder. Gebruikers kunnen hun gegevens worden weergegeven en bevestigen van de gegevens van de huidige of wijzigingen aanbrengen, indien nodig.
 
 Wanneer een registratie van kracht is, worden gebruikers het minimum aantal methoden die nodig zijn om te voldoen aan zowel de multi-factor Authentication en de SSPR-beleid, van meest naar minst veilige optie weergegeven.
 
 Bijvoorbeeld:
 
-* Een gebruiker is ingeschakeld voor self-service voor Wachtwoordherstel. De SSPR-beleid vereist twee methoden voor het opnieuw instellen en mobiele app-code, e-mailadres en telefoonnummer is ingeschakeld.
-   * Deze gebruiker is vereist voor de registratie van twee methoden.
-      * De gebruiker wordt standaard authenticator-app en het telefoonnummer weergegeven.
-      * De gebruiker kan kiezen voor het registreren van e-mailadres in plaats van de authenticator-app of telefoon.
+- Een gebruiker is ingeschakeld voor self-service voor Wachtwoordherstel. De SSPR-beleid vereist twee methoden voor het opnieuw instellen en mobiele app-code, e-mailadres en telefoonnummer is ingeschakeld.
+   - Deze gebruiker is vereist voor de registratie van twee methoden.
+      - De gebruiker wordt standaard authenticator-app en het telefoonnummer weergegeven.
+      - De gebruiker kan kiezen voor het registreren van e-mailadres in plaats van de authenticator-app of telefoon.
 
 Deze stroomdiagram wordt beschreven welke methoden worden weergegeven aan een gebruiker wanneer onderbroken registreren tijdens het aanmelden:
 

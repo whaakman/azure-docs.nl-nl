@@ -4,19 +4,19 @@ description: In dit artikel wordt beschreven hoe u een gebeurtenisbron die is ve
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 79d2062f0e174eeb7550205f90c1650185e1623a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143354"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236988"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Een IoT hub-gebeurtenisbron toevoegen aan uw Time Series Insights-omgeving
 
@@ -76,12 +76,12 @@ Een nieuwe consumergroep toevoegen aan uw IoT-hub:
    | Eigenschap | Description |
    | --- | --- |
    | Abonnements-id | Selecteer het abonnement waarin de IoT-hub is gemaakt.
-   | Naam van IoT Hub | Selecteer de naam van de IoT-hub.
+   | De naam van de IoT-hub | Selecteer de naam van de IoT-hub.
    | Naam van IoT hub-beleid | Selecteer het beleid voor gedeelde toegang. Het beleid voor gedeelde toegang vindt u op het tabblad instellingen van IoT-hub. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor uw gebeurtenisbron *moet* hebben **service verbinding maken met** machtigingen.
    | Beleidssleutel voor IoT hub | De sleutel wordt vooraf ingevuld.
    | IoT hub-consumentengroep | De consumentengroep die gebeurtenissen uit de IoT-hub kan lezen. Het is raadzaam dat u een speciale klantengroep voor uw gebeurtenisbron gebruiken.
    | Serialisatie-indeling voor gebeurtenissen | JSON is momenteel de enige beschikbare serialisatie-indeling. De gebeurtenisberichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
-   | Naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens die worden verzonden naar de IoT hub. Deze waarde is de **naam** van de eigenschap specifieke gebeurtenis in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaatsen** in de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+   | Naam van de eigenschap timestamp | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens die worden verzonden naar de IoT hub. Deze waarde is de **naam** van de eigenschap specifieke gebeurtenis in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaatsen** in de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
 1. De volgende tabel beschrijft de vereiste eigenschappen voor de **bieden IoT Hub-instellingen handmatig**:
 
@@ -89,12 +89,12 @@ Een nieuwe consumergroep toevoegen aan uw IoT-hub:
    | --- | --- |
    | Abonnements-id | Het abonnement waarin de IoT-hub is gemaakt.
    | Resourcegroep | Naam van de resourcegroep waarin de IoT-hub is gemaakt.
-   | Naam van IoT Hub | de naam van uw IoT-hub. Wanneer u uw IoT-hub gemaakt, kunt u een naam voor de IoT hub ingevoerd.
+   | De naam van de IoT-hub | de naam van uw IoT-hub. Wanneer u uw IoT-hub gemaakt, kunt u een naam voor de IoT hub ingevoerd.
    | Naam van IoT hub-beleid | Het beleid voor gedeelde toegang. U kunt het beleid voor gedeelde toegang maken op het tabblad instellingen van IoT-hub. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor uw gebeurtenisbron *moet* hebben **service verbinding maken met** machtigingen.
    | Beleidssleutel voor IoT hub | De gedeelde toegangssleutel die wordt gebruikt voor het verifiëren van toegang tot de Azure Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
    | IoT hub-consumentengroep | De consumentengroep die gebeurtenissen uit de IoT-hub kan lezen. Het is raadzaam dat u een speciale klantengroep voor uw gebeurtenisbron gebruiken.
    | Serialisatie-indeling voor gebeurtenissen | JSON is momenteel de enige beschikbare serialisatie-indeling. De gebeurtenisberichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
-   | Naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens die worden verzonden naar de IoT hub. Deze waarde is de **naam** van de eigenschap specifieke gebeurtenis in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaatsen** in de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+   | Naam van de eigenschap timestamp | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens die worden verzonden naar de IoT hub. Deze waarde is de **naam** van de eigenschap specifieke gebeurtenis in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaatsen** in de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
 1. Voeg de toegewezen Time Series Insights consument groepsnaam die u hebt toegevoegd aan uw IoT-hub.
 

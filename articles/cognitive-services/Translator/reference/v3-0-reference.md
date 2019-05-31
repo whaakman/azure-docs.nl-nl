@@ -3,23 +3,23 @@ title: Naslaginformatie Translator Text-API-V3.0
 titlesuffix: Azure Cognitive Services
 description: Referentiedocumentatie voor de V3.0 Translator Text-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796861"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387519"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
-## <a name="whats-new"></a>Wat is er nieuw?
+## <a name="whats-new"></a>Wat is nieuw?
 
 Versie 3 van de Translator Text-API biedt een moderne JSON gebaseerde Web-API. Het verbetert de gebruiksvriendelijkheid en prestaties door te consolideren van bestaande functies in minder bewerkingen en het beschikt over nieuwe functies.
 
@@ -144,7 +144,7 @@ De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statusc
 | 400036| De doeltaal ("voor" veld) is ongeldig of ontbreekt.|
 | 400042| Een van de opties opgegeven ('Opties') is niet geldig.|
 | 400043| De client traceer-ID (ClientTraceId veld of de header X-ClientTranceId) is ongeldig of ontbreekt.|
-| 400050| De ingevoerde tekst is te lang.|
+| 400050| De ingevoerde tekst is te lang. Weergave [aanvraaglimieten](../request-limits.md).|
 | 400064| De parameter 'translation' is ongeldig of ontbreekt.|
 | 400070| Het aantal doel-scripts (ToScript parameter) komt niet overeen met het aantal doel talen (parameter).|
 | 400071| De waarde is niet geldig voor teksttype.|
@@ -152,14 +152,15 @@ De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statusc
 | 400073| De scriptparameter is niet geldig.|
 | 400074| De hoofdtekst van de aanvraag is geen geldige JSON.|
 | 400075| De combinatie van taal paar en categorie is niet geldig.|
-| 400077| Grootte van de maximale aanvraag is overschreden.|
+| 400077| Grootte van de maximale aanvraag is overschreden. Weergave [aanvraaglimieten](../request-limits.md).|
 | 400079| Het aangepaste systeem aangevraagd voor de omzetting van van en naar taal bestaat niet.|
 | 401000| De aanvraag is niet toegestaan omdat de referenties zijn ontbreekt of is ongeldig.|
 | 401015| "De opgegeven referenties zijn voor de spraak-API. Deze aanvraag moet referenties voor de Text-API. Gebruik een abonnement op Translator Text-API."|
 | 403000| De bewerking is niet toegestaan.|
 | 403001| De bewerking is niet toegestaan omdat het abonnement het gratis quotum is overschreden.|
 | 405000| De aanvraagmethode wordt niet ondersteund voor de aangevraagde resource.|
-| 408001| De aangepaste vertaalsysteem aangevraagd is nog niet beschikbaar. Probeer het opnieuw over een paar minuten.|
+| 408001| De aangevraagde vertaalsysteem wordt voorbereid. Probeer het opnieuw over een paar minuten.|
+| 408002| De aanvraag wacht op inkomende gegevensstroom is een time-out. De client heeft een aanvraag niet binnen de tijd dat de server moet worden gewacht is voorbereid produceren. De client moet mogelijk herhalen voor de aanvraag zonder wijzigingen op een later tijdstip.|
 | 415000| De header Content-Type is ongeldig of ontbreekt.|
 | 429000, 429001, 429002| De server heeft de aanvraag geweigerd omdat de client aanvraaglimieten heeft overschreden.|
 | 500000| Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, die rapporteren aan de datum/tijd van de fout, aanvraag-id van response-header X-RequestId en client-id van de aanvraagheader X-ClientTraceId.|

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Aan de slag | Microsoft Docs'
 description: Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417708"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234943"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 
@@ -44,7 +44,7 @@ Maakt de wizard automatisch de beheergroep in uw Azure AD-directory. Deze groep 
 
 ## <a name="configure-synchronization"></a>Synchronisatie configureren
 
-Azure AD Domain Services kunnen voor een volledige synchronisatie van alle gebruikers en groepen die beschikbaar zijn in Azure AD of kunt u binnen het bereik synchronisatie om te synchroniseren van alleen specifieke groepen selecteren. Als u de volledige synchronisatie kiest, wordt u **niet** kunnen kiezen binnen het bereik synchronisatie op een later tijdstip. Voor meer informatie over scoped synchronisatie, gaat u naar de [Azure AD Domain Services binnen het bereik van synchronisatie artikel](active-directory-ds-scoped-synchronization.md).
+Azure AD Domain Services kunnen voor een volledige synchronisatie van alle gebruikers en groepen die beschikbaar zijn in Azure AD of kunt u binnen het bereik synchronisatie om te synchroniseren van alleen specifieke groepen selecteren. Als u de volledige synchronisatie kiest, wordt u **niet** kunnen kiezen binnen het bereik synchronisatie op een later tijdstip. Voor meer informatie over scoped synchronisatie, gaat u naar de [Azure AD Domain Services binnen het bereik van synchronisatie artikel](scoped-synchronization.md).
 
 ### <a name="full-synchronization"></a>Volledige synchronisatie
 
@@ -98,7 +98,7 @@ Het proces van inrichting van uw beheerde domein kan een uur duren.
 
 ## <a name="need-help"></a>Hulp nodig?
 
-Het duurt een uur of twee voor beide domeincontrollers voor uw beheerde domein moet worden ingericht. Als uw implementatie is mislukt of is vastgelopen in de status 'In behandeling' voor meer dan een paar uur, gerust [voor hulp contact op met het productteam](active-directory-ds-contact-us.md).
+Het duurt een uur of twee voor beide domeincontrollers voor uw beheerde domein moet worden ingericht. Als uw implementatie is mislukt of is vastgelopen in de status 'In behandeling' voor meer dan een paar uur, gerust [voor hulp contact op met het productteam](contact-us.md).
 
 ## <a name="next-step"></a>Volgende stap
 

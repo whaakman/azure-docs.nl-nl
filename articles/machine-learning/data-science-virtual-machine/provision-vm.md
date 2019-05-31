@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596499"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235090"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Een Windows Data Science Virtual Machine op Azure inrichten
 
@@ -106,7 +106,7 @@ Een exemplaar van de DSVM maken:
 
 Nadat de virtuele machine is gemaakt en ingericht, kunt u extern bureaublad in deze met behulp van de accountreferenties van de beheerder die u hebt geconfigureerd in de voorgaande **basisbeginselen** sectie. U bent klaar om te beginnen met de hulpprogramma's die zijn geïnstalleerd en geconfigureerd op de virtuele machine. Veel van de hulpprogramma's kunnen worden geopend via de tegels van het menu start en pictogrammen op het bureaublad.
 
-U kunt ook een Data Science VM koppelen aan Azure-notitieblokken voor het uitvoeren van Jupyter notebooks op de virtuele machine en overslaan van de beperkingen van de laag gratis service. Zie voor meer informatie, [beheren en configureren van notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+U kunt ook een Data Science VM koppelen aan Azure-notitieblokken voor het uitvoeren van Jupyter notebooks op de virtuele machine en overslaan van de beperkingen van de laag gratis service. Zie voor meer informatie, [beheren en configureren van notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Hulpprogramma's zijn geïnstalleerd op de Microsoft Data Science Virtual Machine
 

@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510688"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304961"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Over het maken en beheren lezen-replica's in Azure Database for MySQL met behulp van de Azure CLI
 
 In dit artikel leert u hoe u kunt maken en beheren van meer replica's binnen dezelfde Azure-regio als het model in de Azure Database for MySQL-service met de Azure CLI.
 
-> [!NOTE]
-> Nog biedt niet maken replica's in een andere regio van de hoofd-server ondersteuning voor Azure CLI. Gebruik voor het maken van een replica van de regio-overschrijdende de [Azure-portal]( howto-read-replicas-portal.md) in plaats daarvan.
+> [!IMPORTANT]
+> U kunt een lezen replica maken in dezelfde regio als de hoofd-server of in een andere Azure-regio van uw keuze. Regio-overschrijdende replicatie is momenteel in openbare preview.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,6 +43,12 @@ De `az mysql server replica create` opdracht moet de volgende parameters:
 | resource-group |  myResourceGroup |  De resourcegroep waar de replica-server om te worden gemaakt.  |
 | naam | mydemoreplicaserver | De naam van de nieuwe replicaserver die is gemaakt. |
 | source-server | mydemoserver | De naam of ID van de bestaande hoofd-server om te repliceren van. |
+
+Maken van een kruis regio replica lezen, gebruikt u de `--location` parameter. De volgende CLI-voorbeeld maakt de replica in VS-West.
+
+```azurecli-interactive
+az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
 
 > [!NOTE]
 > Lezen-replica's worden gemaakt met de configuratie van de dezelfde server als de master. De configuratie van de replica-server kan worden gewijzigd nadat deze is gemaakt. Het wordt aanbevolen dat de configuratie van de replica-server moet worden opgeslagen op de waarden gelijk zijn aan of groter zijn dan het model om te controleren of dat de replica kan houden met de master.

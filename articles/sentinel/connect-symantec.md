@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0410b052f17a868aed70ce407b9c9fdefbe023df
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233636"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244347"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Verbinding maken met uw Symantec ICDX-apparaat 
 
@@ -37,13 +37,36 @@ Symantec ICDX connector kunt u eenvoudig alle uw beveiligingslogboeken voor Syma
 
 Symantec ICDX kunt integreren en logboeken exporteren rechtstreeks naar Azure Sentinel.
 
-1. Open de beheerconsole ICDX.
-2. Selecteer in het navigatiemenu links **configuratie** en vervolgens de **doorstuurservers** tabblad.
-3. Klik in de Microsoft Azure Log Analytics-rij, **meer**, gevolgd door **bewerken**. 
-4. In de **Microsoft Azure Log Analytics Forwarder** venster, stel het volgende:
-    - Aangepaste logboeknaam laat de standaard, SymantecICDX.
-    - De werkruimte-ID Kopieer en plak deze in de **klant-id** veld. Kopieer de **primaire sleutel** en plak deze in het veld gedeelde sleutel. U kunt deze waarden kopiëren vanuit Azure Sentinel portal door te selecteren **gegevensconnectors** en vervolgens **Symantec ICDX**.
-6. Zoek voor het gebruik van de relevante schema in Log Analytics voor de Symantec ICDX gebeurtenissen, **SymantecICDX_CL**.
+1. Open de beheerconsole van ICDX om toe te voegen doorstuurservers Microsoft Azure Sentinel (Log Analytics).
+2. Klik op de navigatiebalk ICDx **configuratie**. 
+3. Aan de bovenkant van de **configuratie** scherm, klikt u op **doorstuurservers**.
+4. Onder **doorstuurservers**, naast de Microsoft Azure Sentinel (Log Analytics), klikt u op **toevoegen**. 
+4. In de **Microsoft Azure Sentinel (Log Analytics)** venster, klikt u op **weergeven geavanceerde**. 
+5. Aan de bovenkant van het uitgevouwen naar het venster Microsoft Azure Sentinel (Log Analytics) en het volgende doen:
+    -   **Naam**: Typ een naam voor de doorstuurserver niet meer dan 30 tekens. Kies een unieke, betekenisvolle naam. Deze naam wordt weergegeven in de lijst met doorstuurservers op de **configuratie** scherm en in de dashboards in de **Dashboard** scherm. Bijvoorbeeld: Microsoft Azure Log Analytics-Oost. Dit veld is vereist.
+    -   **Beschrijving**: Typ een beschrijving voor de doorstuurserver. Deze beschrijving wordt ook weergegeven in de lijst met doorstuurservers op de **configuratie** scherm. Meer informatie, zoals het gebeurtenistype wordt doorgestuurd en de groep die nodig heeft om te controleren van de gegevens bevatten.
+    -   **Opstarttype**: Selecteer de methode van het opstarten van de configuratie van de doorstuurserver. Uw opties zijn handmatig en automatisch.<br>De standaardwaarde is automatisch. 
+6. Onder **gebeurtenissen**, doet u het volgende: 
+    - **Bron**: Selecteer een of meer archieven waaruit gebeurtenissen worden doorgestuurd. Kunt u actieve collector archieven (met inbegrip van het algemene archief), zwevende collector archieven (dat wil zeggen, archieven voor de collectors die u hebt verwijderd), ICDx ontvanger archieven of het systeem-archief. <br>De standaardwaarde is algemene archief.
+      > [!NOTE]
+      > ICDx ontvanger archieven worden afzonderlijk weergegeven met de naam. 
+ 
+    - **Filter**: Toevoegen van een filter op dat Hiermee geeft u de subset met gebeurtenissen om door te sturen. Voer een van de volgende handelingen uit:
+        - Als u wilt een filtervoorwaarde selecteren, klikt u op een Type, kenmerk, Operator en waarde. 
+        - Controleer in het filterveld in uw filtervoorwaarde. U kunt deze rechtstreeks in het veld te bewerken of verwijderen indien nodig.
+        - Klik op en of of toe te voegen aan de filtervoorwaarde voor uw.
+        - U kunt ook klikken op query's opgeslagen als een opgeslagen query wilt toepassen.
+    - **Opgenomen kenmerken**: Typ de door komma's gescheiden lijst van kenmerken om op te nemen in de doorgestuurde gegevens. De opgenomen kenmerken hebben voorrang op de uitgesloten kenmerken.
+    - **Uitgesloten kenmerken**: Typ de door komma's gescheiden lijst van kenmerken moeten worden uitgesloten van de doorgestuurde gegevens.
+    - **Batchgrootte**: Selecteer het aantal gebeurtenissen per batch verzenden. Uw opties zijn 10, 50, 100, 500 en 1000.<br>De standaardwaarde is 100. 
+    - **Tarieflimiet**: Selecteer de snelheid waarmee gebeurtenissen worden doorgestuurd, uitgedrukt als gebeurtenissen per seconde. Uw opties zijn onbeperkt, 500, 1000 en 5000, 10000. <br> De standaardwaarde is 5000. 
+7. Onder **Azure bestemming**, doet u het volgende: 
+    - **Werkruimte-ID**: Plak de werkruimte-ID hieronder. Dit veld is vereist.
+    - **Primaire sleutel**: Plak de Primary Key hieronder. Dit veld is vereist.
+    - **Aangepaste logboeknaam**: Typ de naam van het aangepaste logboek in de portal Log Analytics-werkruimte van Microsoft Azure, waarmee u vooruit gebeurtenissen wilt. De standaardwaarde is SymantecICDx. Dit veld is vereist.
+8. Klik op *opslaan* om de configuratie van de doorstuurserver te voltooien. 
+9. Starten van de doorstuurserver onder **opties**, klikt u op **meer** en vervolgens **Start**.
+10. Zoek voor het gebruik van de relevante schema in Log Analytics voor de Symantec ICDX gebeurtenissen, **SymantecICDX_CL**.
 
 
 ## <a name="validate-connectivity"></a>Verbinding valideren

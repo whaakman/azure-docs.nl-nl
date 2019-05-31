@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431154"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384842"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Bouw een console-client-app zoeken in C#
 
@@ -38,7 +38,7 @@ Als u wilt volgen, samen met de zelfstudie, hebt u het volgende nodig:
 
 Maak in Visual Studio een project met `Ctrl`+`Shift`+`N`.
 
-In de **nieuw Project** dialoogvenster, klikt u op **Visual C# > Windows Classic Desktop > consoletoepassing (.NET Framework)**.
+In de **nieuw Project** dialoogvenster, klikt u op **Visual C# > Windows Classic Desktop > consoletoepassing (.NET Framework)** .
 
 Noem de toepassing **MyConsoleSearchApp**, en klik vervolgens op **OK**.
 
@@ -221,7 +221,7 @@ Voordat u die laat zien hoe u de resultaten weergeven in gerangschikte volgorde,
 }
 ```
 
-De `rankingResponse` JSON-object ([documentatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) beschrijft de juiste volgorde voor zoekresultaten. Het bevat een of meer van de volgende, geprioriteerde groepen:
+De `rankingResponse` JSON-object ([documentatie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beschrijft de juiste volgorde voor zoekresultaten. Het bevat een of meer van de volgende, geprioriteerde groepen:
 
 - `pole`: De lijst met zoekresultaten om op te halen van de meest zichtbaar behandeling (bijvoorbeeld weergegeven boven de hoofdlijnen en zijbalk).
 - `mainline`: De lijst met zoekresultaten om weer te geven in de hoofdlijnen.

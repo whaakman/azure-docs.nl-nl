@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452669"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243453"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -119,6 +119,6 @@ Routering van uw bewakingsgegevens naar een event hub met Azure Monitor kunt u e
 ## <a name="next-steps"></a>Volgende stappen
 * [Het activiteitenlogboek naar een opslagaccount archiveren](../../azure-monitor/platform/archive-activity-log.md)
 * [Lees het overzicht van de Azure-activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md)
-* [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Instellen van een waarschuwing op basis van het activiteitenlogboek](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

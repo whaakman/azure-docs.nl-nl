@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c95eb45d75a54af75fdc8004316bc8bfeeddbd7e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783939"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236270"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Kerberos-beperkte overdracht configuraties voor Application Proxy oplossen
 
@@ -182,4 +182,4 @@ Als u nog steeds kan niet wordt uitgevoerd, moet op Microsoft ondersteuning u ka
 - Multihop-verificatie wordt doorgaans gebruikt in scenario's waarin een toepassing is gelaagd, met een back-end en een front-end, waarbij zowel verificatie, zoals SQL Server Reporting Services is vereist. Zie het ondersteuningsartikel voor het configureren van het scenario multihop [Kerberos-beperkte overdracht kan vereisen Protocolovergang in Multihop-scenario's](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Volgende stappen
-[KCD configureren op een beheerd domein](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[KCD configureren op een beheerd domein](../../active-directory-domain-services/deploy-kcd.md).

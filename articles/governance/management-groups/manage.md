@@ -2,16 +2,16 @@
 title: Wijzigen, verwijderen of beheren van uw beheergroepen - Azure-beheer
 description: Informatie over het weergeven, onderhouden, bijwerken en verwijderen van uw hiërarchie beheren.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950240"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242955"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -128,7 +128,7 @@ Hier vindt u een beheergroep die u hebt een directe of overgenomen RBAC-rol op.
 
 1. De details van de beheergroep, selecteer de **(details)** koppelen naast de titel van de beheergroep. Als deze koppeling niet beschikbaar is, hebt u machtigingen om deze beheergroep weer te geven.
 
-   ![Algemeen](./media/main.png)
+   ![Hoofdvenster](./media/main.png)
 
 ### <a name="view-in-powershell"></a>Weergeven in PowerShell
 
@@ -206,10 +206,12 @@ Eén reden om te maken van een beheergroep is abonnementen samen bundelen. Allee
 Voor het verplaatsen van het abonnement, moet de volgende RBAC-machtigingen waar zijn:
 
 - De rol van de 'Eigenaar' van het onderliggende-abonnement.
-- 'Eigenaar', "Bijdrager" of 'Management groep Inzender'-rol op het doel bovenliggende management group.*
-- 'Eigenaar', "Bijdrager" of 'Management groep Inzender'-rol op de bestaande bovenliggende management group.*
+- 'Eigenaar', "Bijdrager" of 'Management groep Inzender'-rol op de doelgroep voor het beheer van bovenliggende.
+- De rol 'Eigenaar', "Bijdrager" of "Management groep bijdrager" op de bestaande bovenliggende beheergroep.
 
-*: Als het doel of de bestaande bovenliggende beheergroep die de Root management-groep. Aangezien de Root management-groep de landingspagina voor alle nieuwe beheergroepen en abonnementen spot standaard is, hoeven gebruikers niet machtigingen voor het verplaatsen van een item.
+Als het doel of de bestaande bovenliggende beheergroep die de Root management-groep is, zijn de vereisten voor machtigingen niet van toepassing. Aangezien de Root management-groep de landingspagina voor alle nieuwe beheergroepen en abonnementen spot standaard is, hoeft u geen machtigingen voor het verplaatsen van een item.
+
+Als de rol van eigenaar van het abonnement is overgenomen uit de huidige beheergroep, zijn uw doelen verplaatst beperkt. U kunt het abonnement alleen verplaatsen naar een andere beheergroep hebt waar u de rol van eigenaar. U verplaatsen niet naar een beheergroep waar u een bijdrager bent omdat u eigendom van het abonnement verliest. Als u bent rechtstreeks toegewezen aan de rol eigenaar voor het abonnement (niet overgenomen van de beheergroep), kunt u verplaatsen naar een beheergroep waar u een bijdrager bent.
 
 Om te controleren welke machtigingen u hebt in de Azure portal, selecteer de management groep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../../role-based-access-control/overview.md).
 
@@ -325,7 +327,7 @@ Beheergroepen worden ondersteund door het [Azure-activiteitenlogboek](../../azur
 
 ![Activiteitenlogboeken met beheergroepen](media/al-mg.png)
 
-Bij het uitvoeren van query's op beheergroepen buiten de Azure-portal, ziet het doelbereik voor beheergroepen er als volgt uit: **/ providers/Microsoft.Management/managementGroups/{yourMgID}**.
+Bij het uitvoeren van query's op beheergroepen buiten de Azure-portal, ziet het doelbereik voor beheergroepen er als volgt uit: **/ providers/Microsoft.Management/managementGroups/{yourMgID}** .
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Verwijzende beheergroepen van andere leveranciers van Resource
 

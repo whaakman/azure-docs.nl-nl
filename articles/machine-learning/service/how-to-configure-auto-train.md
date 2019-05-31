@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957467"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400233"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Geautomatiseerde ML experimenten in Python configureren
 
@@ -59,6 +59,14 @@ Classificatie | Regressie | Time Series-prognoses
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [De toolkit leren met stochastische Gradiëntdaling (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+Gebruik de `task` parameter in de `AutoMLConfig` constructor om op te geven van het type van uw experiment.
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## <a name="data-source-and-format"></a>Gegevensbron en indeling
 Geautomatiseerde machine learning biedt ondersteuning voor gegevens die zich bevinden op het lokale bureaublad of in de cloud zoals Azure Blob Storage. De gegevens kunnen worden gelezen in scikit-informatie over ondersteunde gegevensindelingen. U kunt de gegevens in lezen:
@@ -121,7 +129,7 @@ Sleutel | Type | Sluiten elkaar wederzijds uit met    | Description
 ---|---|---|---
 X | Pandas Dataframe of Numpy matrix | data_train, label, kolommen |  Alle functies te trainen met
 Y | Pandas Dataframe of Numpy matrix |   label   | Voeg een label te trainen met gegevens. Voor de classificatie moet een matrix van gehele getallen zijn.
-X_valid | Pandas Dataframe of Numpy matrix   | data_train, label | _Optionele_ alle functies waarmee moet worden gevalideerd. Indien niet opgegeven, X wordt verdeeld tussen train en valideren
+X_valid | Pandas Dataframe of Numpy matrix   | data_train, label | _Optionele_ zijn uitgerust met gegevens die de set validatie vormen. Indien niet opgegeven, X wordt verdeeld tussen train en valideren
 y_valid |   Pandas Dataframe of Numpy matrix | data_train, label | _Optionele_ de labelgegevens te valideren met. Indien niet opgegeven, y wordt verdeeld tussen train en valideren
 sample_weight | Pandas Dataframe of Numpy matrix |   data_train, label, kolommen| _Optionele_ een gewicht voor elk voorbeeld. Gebruik deze sjabloon wanneer u wilt toewijzen van verschillende gewichten voor uw data-punten
 sample_weight_valid | Pandas Dataframe of Numpy matrix | data_train, label, kolommen |    _Optionele_ een gewicht voor elk Validatievoorbeeld. Indien niet opgegeven, sample_weight wordt verdeeld tussen train en valideren
@@ -129,30 +137,6 @@ data_train |    Pandas Dataframe |  X, y, X_valid, y_valid |    Alle gegevens (f
 label | string  | X, y, X_valid, y_valid |  Welke kolom in data_train Hiermee geeft u het label
 Kolommen | matrix van tekenreeksen  ||  _Optionele_ Whitelist van kolommen moet worden gebruikt voor functies
 cv_splits_indices   | Matrix van gehele getallen ||  _Optionele_ lijst van indexen in het splitsen van de gegevens voor cross-validatie
-
-### <a name="load-and-prepare-data-using-data-prep-sdk"></a>Laden en voorbereiden van gegevens met behulp van gegevensvoorbereiding SDK
-Geautomatiseerde experimenten voor machine learning biedt ondersteuning voor het laden van gegevens en transformaties met behulp van de SDK voor gegevensvoorbereiding. Met de SDK biedt de mogelijkheid om
-
->* Laden uit veel bestandstypen met het parseren van de parameter Deductie (codering, scheidingsteken, headers)
->* Type converteren met behulp van Deductie tijdens het laden van bestand
->* Ondersteuning voor MS SQL Server en Azure Data Lake Storage-verbindingen
->* Met behulp van een expressie kolom toevoegen
->* Ontbrekende waarden worden toegerekend
->* Kolom afleiden per voorbeeld
->* Filteren
->* Aangepaste Python-transformaties
-
-Voor meer informatie over de gegevens prep sdk verwijzen de [over het voorbereiden van gegevens voor het modelleren van artikel](how-to-load-data.md).
-Hieronder volgt een voorbeeld van het laden van gegevens met behulp van data prep sdk.
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
 
 ## <a name="train-and-validation-data"></a>Train en validatie
 
@@ -501,6 +485,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![functie belang graph](./media/how-to-configure-auto-train/feature-importance.png)
+
+Zie voor meer informatie over hoe model uitleg en urgentie van de functie kunnen worden ingeschakeld in andere gebieden van de SDK buiten automatische leerprocessen, de [concept](machine-learning-interpretability-explainability.md) artikel op interpretability.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232772"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237661"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 
@@ -111,7 +111,7 @@ Het is mogelijk te verminderen van de grootte van uw ingerichte share hieronder 
 
 De volgende tabel ziet u enkele voorbeelden van deze formules voor de ingerichte share-grootten:
 
-|Capaciteit (GiB) | Basislijn IOPS | Burst-IOP 's | Egress (MiB/s) | Inkomend (MiB/s) |
+|Capaciteit (GiB) | IOPS-basislijn | Burst-IOP 's | Egress (MiB/s) | Inkomend (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Maximaal 300     | 66   | 44   |
 |500         | 500     | Maximaal 1500   | 90   | 60   |
@@ -189,9 +189,9 @@ Het is mogelijk om te synchroniseren die meerdere Azure-bestandsshares op een en
 Er zijn veel eenvoudige opties voor het bulksgewijs overdracht van gegevens uit een bestaand bestand, zoals een bestandsshare on-premises naar Azure Files delen. Enkele populaire services zijn onder andere (niet-uitputtende lijst):
 
 * **Azure File Sync**: Als onderdeel van een eerste synchronisatie tussen een Azure-bestandsshare (een "Cloudeindpunt") en een Windows-directory-naamruimte (een "eindpunt voor de Server'), wordt Azure File Sync alle gegevens van de bestaande bestandsshare repliceren naar Azure Files.
-* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: De Azure Import/Export-service kunt u veilig grote hoeveelheden gegevens overdragen naar een Azure-bestandsshare met de verzending van harde schijven naar een Azure-datacenter. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy is een bekende kopie-hulpprogramma dat wordt geleverd met Windows en Windows Server. Robocopy kan worden gebruikt om gegevens over naar Azure Files te koppelen van de bestandsshare lokaal en klik vervolgens met behulp van de gekoppelde locatie als het doel in de Robocopy-opdracht.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar en van Azure Files, evenals Azure Blob-opslag met behulp van eenvoudige opdrachten met optimale prestaties. AzCopy is beschikbaar voor Windows en Linux.
+* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : De Azure Import/Export-service kunt u veilig grote hoeveelheden gegevens overdragen naar een Azure-bestandsshare met de verzending van harde schijven naar een Azure-datacenter. 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy is een bekende kopie-hulpprogramma dat wordt geleverd met Windows en Windows Server. Robocopy kan worden gebruikt om gegevens over naar Azure Files te koppelen van de bestandsshare lokaal en klik vervolgens met behulp van de gekoppelde locatie als het doel in de Robocopy-opdracht.
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar en van Azure Files, evenals Azure Blob-opslag met behulp van eenvoudige opdrachten met optimale prestaties.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Planning voor de implementatie van een Azure File Sync](storage-sync-files-planning.md)

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 05/23/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541672"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236123"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Beperkingen voor Azure App Service-toegang #
 
@@ -54,7 +54,7 @@ U kunt klikken op **[+] toevoegen** om toe te voegen een nieuwe regel voor de be
 
 Wanneer u een regel maakt, moet u toestaan/weigeren en ook op het type regel selecteren. U zijn ook vereist voor de prioriteitswaarde en wat u bent beperkt de toegang tot.  U kunt desgewenst een naam en beschrijving toevoegen aan de regel.  
 
-Om in te stellen van een IP-adres op basis van de regel, selecteer een type IPv4 of IPv6. Notatie van de IP-adres moet worden opgegeven in CIDR-notatie voor zowel IPv4 als IPv6-adressen. Als u wilt een exact adres opgeeft, kunt u er ongeveer als 1.2.3.4/32 waarin de eerste vier octetten vertegenwoordigen uw IP-adres en /32 is het masker. De IPv4-CIDR-notatie voor alle adressen is 0.0.0.0/0. Voor meer informatie over de CIDR-notatie, kunt u lezen [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Om in te stellen van een IP-adres op basis van de regel, selecteer een type IPv4 of IPv6. Notatie van de IP-adres moet worden opgegeven in CIDR-notatie voor zowel IPv4 als IPv6-adressen. Als u wilt een exact adres opgeeft, kunt u er ongeveer als 1.2.3.4/32 waarin de eerste vier octetten vertegenwoordigen uw IP-adres en /32 is het masker. De IPv4-CIDR-notatie voor alle adressen is 0.0.0.0/0. Voor meer informatie over de CIDR-notatie, kunt u lezen [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 ![een VNet-regel voor toegang tot beperkingen toevoegen](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -79,6 +79,14 @@ Als u wilt een regel hebt verwijderd, klikt u op de **...**  op de regel en klik
 Naast het beheren van toegang tot uw app, kunt u ook toegang tot de scm-site die worden gebruikt door uw app beperken. De scm-site is de web-eindpunt en ook de Kudu-console implementeren. U kunt afzonderlijk toegangsbeperkingen toewijst aan de scm-site uit de app of gebruik dezelfde set voor zowel de app en de scm-site. Wanneer u het selectievakje hebben de dezelfde beperkingen als uw app, wordt alles meetfout uit. Als u het selectievakje uitschakelt, worden de instellingen die u eerder had op de scm-site worden toegepast. 
 
 ![lijst met toegangsbeperkingen](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+
+## <a name="blocking-a-single-ip-address"></a>Blokkering van één IP-adres ##
+
+Bij het toevoegen van de eerste regel van de IP-beperking, de service wordt toegevoegd een expliciete **Alles weigeren** regel met een prioriteit van 2147483647. In de praktijk, de expliciete **Alles weigeren** regel worden de laatste regel uitgevoerd en blokkeert de toegang tot elk IP-adres dat niet expliciet is toegestaan met behulp van een **toestaan** regel.
+
+Voor het scenario waar gebruikers wilt blokkeren expliciet een enkel IP-adres of IP-Adresblok, maar dat alles wat anders toegang, is het nodig zijn om toe te voegen een expliciete **Allow All** regel.
+
+![blok één ip-adres](media/app-service-ip-restrictions/block-single-address.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Programmatische manipulatie van beperking toegangsregels ##
 

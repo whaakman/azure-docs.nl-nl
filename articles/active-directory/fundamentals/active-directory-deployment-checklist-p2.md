@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249712"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235128"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory-functie-Implementatiehandleiding
 
@@ -41,7 +41,7 @@ Meer informatie over licentieverlening vindt u op de volgende pagina's:
 
 In deze fase inschakelen beheerders basislijn beveiligingsfuncties die u het maken van een basis veiliger en gemakkelijk te gebruiken in Azure AD voordat we importeer of maak gewone gebruikersaccounts. Deze fundamentele fase zorgt ervoor dat u een beter beveiligde status vanaf het begin en dat uw eindgebruikers alleen moeten worden opgenomen in de nieuwe concepten één keer.
 
-| Taak | Detail | Vereiste licentie |
+| Taak | Details | Vereiste licentie |
 | ---- | ------ | ---------------- |
 | [Meer dan één globale beheerder aanwijzen](../users-groups-roles/directory-emergency-access.md) | Ten minste twee alleen in de cloud permanente global administrator-accounts voor gebruik toewijzen als zich een noodsituatie. Deze accounts zijn niet dagelijks worden gebruikt en lange en complexe wachtwoorden moeten hebben. | Azure AD Free |
 | [Niet-globale beheerdersrollen gebruik waar mogelijk](../users-groups-roles/directory-assign-admin-roles.md) | Geef uw beheerders alleen de benodigde toegang tot alleen de gebieden die ze nodig hebben toegang tot. Niet alle beheerders moeten globale beheerders. | Azure AD Free |
@@ -62,10 +62,10 @@ In deze fase inschakelen beheerders basislijn beveiligingsfuncties die u het mak
 
 Voeg vervolgens we toe aan de foundation in fase 1 grond van onze gebruikers importeren en het inschakelen van synchronisatie plannen voor toegang voor gasten en voorbereiden om aanvullende functionaliteit te ondersteunen.
 
-| Taak | Detail | Vereiste licentie |
+| Taak | Details | Vereiste licentie |
 | ---- | ------ | ---------------- |
 | [Azure AD Connect installeren](../connect/active-directory-aadconnect-select-installation.md) | Voorbereiden om te synchroniseren van gebruikers van uw bestaande on-premises directory naar de cloud. | Azure AD Free |
-| [Synchronisatie van Wachtwoordhashes implementeren](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Wachtwoord-hashes zodat het wachtwoord te wijzigen om te worden gerepliceerd, onjuist wachtwoord detectie en herstel en de referentie is gelekt rapportage worden gesynchroniseerd. | Azure AD Premium P1 |
+| [Synchronisatie van Wachtwoordhashes implementeren](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Wachtwoord-hashes zodat het wachtwoord te wijzigen om te worden gerepliceerd, onjuist wachtwoord detectie en herstel en de referentie is gelekt rapportage worden gesynchroniseerd. | Azure AD Free |
 | [Het terugschrijven van wachtwoorden implementeren](../authentication/howto-sspr-writeback.md) | Toestaan dat wachtwoord te wijzigen in de cloud worden teruggeschreven naar een on-premises Windows Server Active Directory-omgeving. | Azure AD Premium P1 |
 | [Implementeer Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Schakel de bewaking van de van belangrijke gezondheidsstatistieken voor uw Azure AD Connect-servers, AD FS-servers en domeincontrollers. | Azure AD Premium P1 |
 | [Licenties toewijzen aan gebruikers door groepslidmaatschappen in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Bespaar tijd en moeite door het maken van licentieverlening groepen die functies per groep in plaats van de instelling per gebruiker- of uitschakelen. | |
@@ -77,7 +77,7 @@ Voeg vervolgens we toe aan de foundation in fase 1 grond van onze gebruikers imp
 
 Als we doorgaan met het bouwen van op de vorige fasen, we bepalen welke toepassingen kandidaat voor de migratie en integratie met Azure AD en voltooit de installatie van deze toepassingen.
 
-| Taak | Detail | Vereiste licentie |
+| Taak | Details | Vereiste licentie |
 | ---- | ------ | ---------------- |
 | Uw toepassingen identificeren | Bepalen welke toepassingen wordt gebruikt in uw organisatie: on-premises, SaaS-toepassingen in de cloud en andere line-of-business-toepassingen. Als deze toepassingen kunnen en moeten worden beheerd met Azure AD bepalen. | Er is geen licentie vereist |
 | [Ondersteunde SaaS-toepassingen in de galerie integreren](../manage-apps/add-application-portal.md) | Azure AD heeft een galerie met duizenden vooraf geïntegreerde toepassingen. Enkele van de toepassingen die uw organisatie gebruikt, waarschijnlijk in de galerie die toegankelijk is rechtstreeks vanuit de Azure portal. | Azure AD Free |
@@ -87,7 +87,7 @@ Als we doorgaan met het bouwen van op de vorige fasen, we bepalen welke toepassi
 
 Fase 4 ziet beheerders afdwingen van minimale bevoegdheden beginselen voor het beheer, hun eerste toegangsbeoordelingen voltooien en het inschakelen van automatisering van algemene taken van de levenscyclus van gebruiker.
 
-| Taak | Detail | Vereiste licentie |
+| Taak | Details | Vereiste licentie |
 | ---- | ------ | ---------------- |
 | [Het gebruik van Privileged Identity Management afdwingen](../privileged-identity-management/pim-security-wizard.md) | Verwijder beheerdersrollen van normale dagelijkse gebruikersaccounts. Controleer gebruikers met beheerdersrechten in aanmerking voor het gebruik van hun rol na een controle van de multi-factor authentication slaagt, een zakelijke rechtvaardiging te geven of aanvragen van goedkeuring van fiatteurs. | Azure AD Premium P2 |
 | [Een toegangscontrole voor Azure AD directory-rollen in PIM voltooien](../privileged-identity-management/pim-how-to-start-security-review.md) | Werken met uw beveiligings- en leiderschap teams om het maken van een toegangsbeleid voor de beoordeling om te controleren met beheerdersrechten toegang op basis van beleid van uw organisatie. | Azure AD Premium P2 |

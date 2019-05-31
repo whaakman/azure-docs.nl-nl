@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792347"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234550"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>De transformatie van de bron voor het toewijzen van gegevensstroom 
 
@@ -92,7 +92,7 @@ Kies de instellingen voor het beheren van bestanden in de bron.
 
 Als de bron in SQL-Database of SQL Data Warehouse is, hebt u extra opties voor het beheer van de bron-bestand.
 
-* **Query**: Voer een SQL-query voor de bron. Deze instelling overschrijft elke tabel die u hebt gekozen in de gegevensset. Houd er rekening mee dat **Order By** componenten hier worden niet ondersteund. Maar u kunt hier een volledige instructie SELECT FROM instellen.
+* **Query**: Voer een SQL-query voor de bron. Deze instelling overschrijft elke tabel die u hebt gekozen in de gegevensset. Houd er rekening mee dat **Order By** componenten hier worden niet ondersteund, maar u kunt een volledige instructie SELECT FROM instellen. U kunt ook de gebruiker gedefinieerde functies gebruiken. **Selecteer * uit udfGetData()** is een UDF in SQL die een tabel retourneert. Deze query wordt een tabel die u in uw gegevensstroom gebruiken kunt produceren.
 * **Batchgrootte**: Voer een batchgrootte voor grote hoeveelheden gegevens naar leesbewerkingen wordt verdeeld.
 
 > [!NOTE]

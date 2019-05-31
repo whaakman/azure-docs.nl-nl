@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306560"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388690"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installeren en uitvoeren van containers voor spraak-Service
 
-Spraak-containers bieden klanten kunnen maken van een architectuur van de spraak-toepassing die is geoptimaliseerd om te profiteren van zowel mogelijkheden van de robuuste cloud en edge plaats. De twee spraak containers we bieden nu ondersteuning voor zijn **spraak-naar-tekst** en **tekst naar spraak**. 
+Spraak-containers bieden klanten kunnen maken van een architectuur van de spraak-toepassing die is geoptimaliseerd om te profiteren van zowel mogelijkheden van de robuuste cloud en edge plaats. 
 
 De twee spraak-containers zijn **spraak-naar-tekst** en **tekst naar spraak**. 
 
 |Function|Functies|De laatste|
 |-|-|--|
-|Spraak-naar-tekst| <li>Transcribeert continue realtime spraak naar tekst.<li>Kan spraak uit geluidsopnamen in batches transcriberen. <li>Ondersteunt tussenliggende resultaten, detectie van het einde van de spraak, automatische tekstopmaak en maskering van grof taalgebruik. <li>Kan [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) gebruiken om de bedoeling van gebruikers af te leiden van getranscribeerde spraak.\*|1.1.1|
-|Tekst naar spraak| <li>Converteert tekst naar natuurlijk klinkende spraak. <li>Biedt meerdere geslachten en/of dialecten voor een groot aantal ondersteunde talen. <li>Ondersteunt de invoer van tekst zonder opmaak en Speech Synthesis Markup Language (SSML). |1.1.0|
+|Spraak-naar-tekst| <li>Transcribes continue realtime spraak of batch audio-opnamen in tekst met tussenliggende resultaten genereren.|1.1.1|
+|Tekst naar spraak| <li>Converteert tekst naar natuurlijk klinkende spraak. met tekst zonder opmaak invoer of spraak synthese Markup Language (SSML). |1.1.0|
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -274,7 +274,7 @@ De container biedt REST-eindpunt API's die kunnen worden gevonden [hier](https:/
 
 Wanneer u de container uitvoert, wordt de container gebruikt **stdout** en **stderr** naar uitvoerinformatie die is het handig om het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 Het verzenden van de containers spraak factuurgegevens naar Azure, met behulp van een _spraak_ resource voor uw Azure-account. 
 

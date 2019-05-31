@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142646"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235759"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Preview - maken en beheren van meerdere knooppuntgroepen voor een cluster in Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ In Azure Kubernetes Service (AKS), knooppunten met dezelfde configuratie zijn ge
 In dit artikel wordt beschreven hoe u maken en beheren van meerdere groepen in een AKS-cluster. Deze functie is momenteel beschikbaar als preview-product.
 
 > [!IMPORTANT]
-> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
+> AKS-preview-functies zijn selfservice, aanmelden. Ze zijn bedoeld om het verzamelen van fouten en feedback van onze community. Preview-versie, worden deze functies zijn niet bedoeld voor gebruik in productieomgevingen. Functies in public preview vallen onder 'best effort'-ondersteuning. Hulp van de AKS-teams voor technische ondersteuning is beschikbaar tijdens kantooruren Pacific tijdzone (PST) alleen. Zie de volgende artikelen ondersteuning voor aanvullende informatie:
 >
-> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
+> * [Ondersteuningsbeleid voor AKS][aks-support-policies]
+> * [Veelgestelde vragen over ondersteuning van Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -72,6 +73,7 @@ De volgende beperkingen zijn van toepassing wanneer u maken en beheren van AKS-c
 * Meerdere groepen zijn alleen beschikbaar voor clusters die zijn gemaakt nadat u hebt geregistreerd de *MultiAgentpoolPreview* en *VMSSPreview* functies voor uw abonnement. U kunt toevoegen of beheren van groepen met een bestaand AKS-cluster dat is gemaakt voordat deze functies zijn geregistreerd.
 * U kunt het eerste knooppunt van toepassingen niet verwijderen.
 * De HTTP-aanvraag routering invoegtoepassing kan niet worden gebruikt.
+* U kunt geen knooppuntgroepen toevoegen, bijwerken en verwijderen met behulp van een bestaande Resource Manager-sjabloon net als bij de meeste bewerkingen. In plaats daarvan [een afzonderlijke Resource Manager-sjabloon gebruiken](#manage-node-pools-using-a-resource-manager-template) wijzigingen aanbrengen in groepen in een AKS-cluster.
 
 Hoewel deze functie nog in preview, gelden de volgende aanvullende beperkingen:
 
@@ -328,6 +330,95 @@ Events:
 
 Alleen schillen waarvoor deze beïnvloeding toegepast kunnen worden gepland op knooppunten in *gpunodepool*. Alle andere pod zou worden gepland de *nodepool1* knooppuntgroep. Als u extra knooppunt-adresgroepen maakt, kunt u extra taints en tolerations om te beperken welke schillen worden gepland voor deze resources knooppunt.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Beheren van groepen met behulp van een Resource Manager-sjabloon
+
+Wanneer u een Azure Resource Manager-sjabloon gebruikt om te maken en beheerde resources, kunt u doorgaans de instellingen in uw sjabloon en opnieuw implementeren voor het bijwerken van de resource bijwerken. Met nodepools in AKS kan niet het eerste nodepool-profiel worden bijgewerkt nadat het AKS-cluster is gemaakt. Dit gedrag betekent dat u kan niet bijwerken van een bestaande Resource Manager-sjabloon, een wijziging in het knooppuntgroepen aanbrengt en opnieuw implementeren. In plaats daarvan moet u een afzonderlijke Resource Manager-sjabloon die alleen de agentpools voor een bestaand AKS-cluster worden bijgewerkt.
+
+Maak een sjabloon, zoals `aks-agentpools.json` en plak het volgende voorbeeld-manifest. Deze voorbeeldsjabloon configureert u de volgende instellingen:
+
+* Updates de *Linux* agentpool met de naam *myagentpool* om uit te voeren drie knooppunten.
+* Hiermee stelt u de knooppunten in de knooppuntgroep om uit te voeren van Kubernetes-versie *1.12.8*.
+* Bepaalt de grootte van het knooppunt als *Standard_DS2_v2*.
+
+Deze waarden worden bewerkt omdat nodig hebt om bij te werken, toevoegen of knooppuntgroepen verwijderen indien nodig:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Implementeer deze sjabloon met de [az group deployment maken] [ az-group-deployment-create] opdracht, zoals wordt weergegeven in het volgende voorbeeld. U wordt gevraagd voor de bestaande naam van de AKS-cluster en de locatie:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+Het duurt een paar minuten om bij te werken van uw AKS-cluster, afhankelijk van de instellingen van knooppunt en de bewerkingen die u in het Resource Manager-sjabloon definieert.
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 In dit artikel hebt u een AKS-cluster met knooppunten op basis van GPU gemaakt. Om onnodige kosten reduceren, kunt u verwijdert de *gpunodepool*, of het hele AKS-cluster.
@@ -351,7 +442,6 @@ In dit artikel hebt u geleerd over het maken en beheren van meerdere groepen in 
 Als u wilt maken en gebruiken van groepen met Windows Server-container, Zie [een Windows Server-container in AKS maakt][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ Als u wilt maken en gebruiken van groepen met Windows Server-container, Zie [een
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

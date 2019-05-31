@@ -6,35 +6,35 @@ author: alkohli
 ms.service: databox
 ms.subservice: ''
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604454"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240153"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Open een ondersteuningsticket voor Azure Data Box 
 
-In dit artikel is van toepassing op Azure Data Box en Azure Data Box-schijf, die worden beheerd door de Azure Data Box-service. Als u problemen ondervindt met uw Azure Data Box-service, kunt u een serviceaanvraag voor technische ondersteuning. In dit artikel begeleidt u bij:
+In dit artikel is van toepassing op Azure Data Box, Azure Data Box zware en Azure Data Box-schijf, die allemaal worden beheerd door de Azure Data Box-service. Als u problemen ondervindt met uw Azure Data Box-service, kunt u een serviceaanvraag voor technische ondersteuning. In dit artikel begeleidt u bij:
 
 * Het maken van een ondersteuningsaanvraag.
 * Over het beheren van een aanvraag ondersteuningslevenscyclus uit in de portal.
 
-## <a name="create-a-support-request"></a>Maak een ondersteuningsaanvraag
+## <a name="create-a-support-request"></a>Een ondersteuningsaanvraag maken
 
 De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
 
 1. Ga naar uw order voor een Data Box of Data Box-schijf. Navigeer naar **ondersteuning + probleemoplossing** sectie en klik vervolgens op **nieuwe ondersteuningsaanvraag**.
      
-    ![Nieuwe ondersteuningsaanvraag](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
+    ![Nieuw ondersteuningsverzoek](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
 2. In **nieuwe ondersteuningsaanvraag**, selecteer **basisbeginselen**. In **basisbeginselen**, de volgende stappen uit:
     
     1. Uit de **type probleem** vervolgkeuzelijst **technische**.
     2. Kies uw **abonnement**.
-    3. Onder **Service**, Controleer **alle Services**. Selecteer in de vervolgkeuzelijst **Data Box - Preview**. 
+    3. Onder **Service**, Controleer **alle Services**. Selecteer in de vervolgkeuzelijst **Data Box**. 
     4. Geef uw **ondersteuningsplan**.
     5. Klik op **volgende**.
 
@@ -84,3 +84,5 @@ Nadat u een ondersteuningsticket hebt gemaakt, kunt u de voortgang van het ticke
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over het [oplossen van problemen met betrekking tot de Data Box-schijf](data-box-disk-troubleshoot.md).
+Meer informatie over het [oplossen van problemen met betrekking tot de Data Box](data-box-troubleshoot.md).
+Meer informatie over het [oplossen van problemen met betrekking tot de gegevens in Blob-opslag](data-box-troubleshoot-rest.md).

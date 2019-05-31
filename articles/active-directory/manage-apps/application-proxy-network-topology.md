@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ee8800d84d1090f97fb72980123f59d5aa0375
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783478"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236255"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Netwerk-topologie overwegingen bij het gebruik van Azure Active Directory-toepassingsproxy
 
@@ -102,7 +102,7 @@ Latentie is niet beschadigd omdat via een speciale verbinding verkeersstromen. U
 
 Hoewel de focus van dit artikel de plaatsing van de connector wordt, kunt u ook de plaatsing van de toepassing om op te halen van betere latentie kenmerken wijzigen.
 
-Steeds meer verplaatst organisaties hun netwerken in gehoste omgevingen. Hierdoor kunnen ze hun apps plaatsen in een omgeving die u maakt ook deel uit van het bedrijfsnetwerk en nog steeds binnen het domein. In dit geval kunnen de patronen in de voorgaande secties besproken worden toegepast op de nieuwe locatie van de toepassing. Als u deze optie overweegt, Zie [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+Steeds meer verplaatst organisaties hun netwerken in gehoste omgevingen. Hierdoor kunnen ze hun apps plaatsen in een omgeving die u maakt ook deel uit van het bedrijfsnetwerk en nog steeds binnen het domein. In dit geval kunnen de patronen in de voorgaande secties besproken worden toegepast op de nieuwe locatie van de toepassing. Als u deze optie overweegt, Zie [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
 
 Houd ook rekening met het organiseren van uw connectors met behulp van [connectorgroepen](application-proxy-connector-groups.md) tot doel-apps die in verschillende locaties en netwerken. 
 

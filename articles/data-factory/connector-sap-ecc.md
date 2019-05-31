@@ -3,22 +3,21 @@ title: Gegevens kopiëren van SAP ECC met Azure Data Factory | Microsoft Docs
 description: Leer hoe u gegevens kopiëren van SAP ECC naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/26/2018
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 04/26/2018
+ms.author: jingwang
+ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128114"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243924"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Gegevens kopiëren van SAP ECC met Azure Data Factory
 
@@ -33,6 +32,9 @@ Om precies ondersteunt deze SAP ECC-connector:
 - Kopiëren van gegevens vanaf SAP ECC op SAP NetWeaver versie 7.0 en hoger. 
 - Kopiëren van gegevens uit de objecten die worden weergegeven door SAP ECC OData-services (zoals SAP tabel/weergaven, BAPI, gegevens Extractors, enzovoort) of verzonden naar SAP-PI die kunnen worden ontvangen als OData via relatieve Adapters idoc's en gegevens.
 - Kopiëren van gegevens met behulp van basisverificatie.
+
+>[!TIP]
+>Om gegevens te kopiëren uit SAP ECC via SAP tabel/weergave, kunt u [SAP tabel](connector-sap-table.md) connector dit meer goed presterende is en schaalbare.
 
 ## <a name="prerequisites"></a>Vereisten
 

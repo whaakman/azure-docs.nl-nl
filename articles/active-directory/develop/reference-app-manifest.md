@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: d369891624256e98ba8d46168cc9c10c41d37b8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545658"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235224"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-app-manifest
 
@@ -50,7 +50,7 @@ Het toepassingsmanifest configureren:
 
 | Sleutel  | Waardetype | Description  | Voorbeeldwaarde |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Null-waarden Int32 | Hiermee geeft u de toegang van een token versie werd verwacht door de resource. Hiermee wijzigt u de versie en indeling van de JWT die onafhankelijk van het eindpunt of de client gebruikt voor het aanvragen van het toegangstoken worden geproduceerd.<br/><br/>Het eindpunt dat wordt gebruikt, v1.0 of versie 2.0, wordt gekozen door de client en heeft alleen gevolgen voor de versie van id_tokens. Resources moeten expliciet configureren `accesstokenAcceptedVersion` om aan te geven van de ondersteunde access token-indeling.<br/><br/>Mogelijke waarden voor `accesstokenAcceptedVersion` 1, 2 of null zijn. Als de waarde null is, is dit standaard ingesteld op 1, wat overeenkomt met het eindpunt v1.0. | `2` |
+| `accessTokenAcceptedVersion` | Null-waarden Int32 | Hiermee geeft u de toegang van een token versie werd verwacht door de resource. Hiermee wijzigt u de versie en indeling van de JWT die onafhankelijk van het eindpunt of de client gebruikt voor het aanvragen van het toegangstoken worden geproduceerd.<br/><br/>Het eindpunt dat wordt gebruikt, v1.0 of versie 2.0, wordt gekozen door de client en heeft alleen gevolgen voor de versie van id_tokens. Resources moeten expliciet configureren `accesstokenAcceptedVersion` om aan te geven van de ondersteunde access token-indeling.<br/><br/>Mogelijke waarden voor `accesstokenAcceptedVersion` 1, 2 of null zijn. Als de waarde null is, is dit standaard ingesteld op 1, wat overeenkomt met het eindpunt v1.0. <br/><br/>Als `signInAudience` is `AzureADandPersonalMicrosoftAccount`, de waarde moet liggen `2`  | `2` |
 | `addIns` | Verzameling | Hiermee definieert u aangepaste gedrag op dat een verbruikende service gebruiken kunt voor het aanroepen van een app in een specifieke context. Toepassingen die bestand streams kunnen weergeven, kunnen bijvoorbeeld de eigenschap invoegtoepassingen voor de functionaliteit 'FileHandler' ingesteld. Hiermee kunt services zoals Office 365 aanroepen van de toepassing in de context van een document van die de gebruiker is bezig. | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
 | `allowPublicClient` | Boolean | Hiermee geeft u de alternatieve toepassingstype. Azure AD bepaalt het type van de replyUrlsWithType standaard. Er zijn bepaalde scenario's waar Azure AD het client-app-type kan niet bepalen (bijvoorbeeld [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) stroom waar de HTTP-aanvraag zonder een URL-omleiding plaatsvindt). In deze gevallen wordt het toepassingstype op basis van de waarde van deze eigenschap worden geïnterpreteerd door Azure AD. Als deze waarde is ingesteld op waar het alternatieve toepassingstype is ingesteld als openbare client, zoals een geïnstalleerde app die wordt uitgevoerd op een mobiel apparaat. De standaardwaarde is false, wat inhoudt dat de terugval toepassingstype vertrouwelijke client, zoals web-app. | `false` |
 | `availableToOtherTenants` | Boolean | waar als de toepassing wordt gedeeld met andere tenants; anders wordt onwaar. <br><br> _Opmerking: Dit is alleen beschikbaar in de App-registraties (verouderd)-ervaring. Vervangen door `signInAudience` in de [App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) optreden._ | |
@@ -94,7 +94,7 @@ Het toepassingsmanifest configureren:
 Manifest van de toepassing heeft meerdere kenmerken die worden aangeduid als een verzameling; bijvoorbeeld, approles, keycredentials knownClientApplications, identifierUris, rediretUris, requiredResourceAccess en oauth2Permissions. In het manifest van de volledige toepassing voor elke toepassing, is het totale aantal vermeldingen in de verzamelingen die zijn gecombineerd 1200 is beperkt. Als u 100 redirect URI's die zijn opgegeven in het manifest van de toepassing al hebt, bent u alleen links met 1100 resterende vermeldingen dat moet worden gebruikt voor alle andere verzamelingen gecombineerd die gezamenlijk het manifest.
 
 > [!NOTE]
-> Als u probeert toe te voegen van meer dan 1200 vermeldingen in het toepassingsmanifest, wordt er een fout **'kan niet bijwerken van de toepassing xxxxxx. Foutdetails: De grootte van het manifest heeft de limiet overschreden. Verklein het aantal waarden en probeer de aanvraag opnieuw."**
+> Als u probeert toe te voegen van meer dan 1200 vermeldingen in het toepassingsmanifest, wordt er een fout **'kan niet bijwerken van de toepassing xxxxxx. Details van fout: De grootte van het manifest heeft de limiet overschreden. Verklein het aantal waarden en probeer de aanvraag opnieuw."**
 
 ### <a name="unsupported-attributes"></a>Niet-ondersteunde kenmerken
 
@@ -119,7 +119,7 @@ Wanneer u probeert te uploaden van een eerder gedownloade manifest, ziet u mogel
 - "**Xxxxxx toepassing bijwerken is mislukt. Foutdetails: Een of meer van de opgegeven eigenschapswaarden zijn ongeldig. [].** "
 - "**Xxxxxx toepassing bijwerken is mislukt. Foutdetails: Niet toegestaan om in te stellen availableToOtherTenants in deze api-versie voor update. [].** "
 - "**Xxxxxx toepassing bijwerken is mislukt. Foutdetails: Updates voor de eigenschap 'afgestemd' is niet toegestaan voor deze toepassing. Gebruik in plaats daarvan de eigenschap 'replyUrlsWithType'. [].** "
-- "**Xxxxxx toepassing bijwerken is mislukt. Foutdetails: Een waarde zonder een typenaam die is gevonden en er is geen verwachte type is beschikbaar. Wanneer het model wordt opgegeven, moet elke waarde in de nettolading van een type dat kan worden opgegeven in de nettolading expliciet door de oproepende functie of impliciet afgeleid van de bovenliggende waarde hebben. []**"
+- "**Xxxxxx toepassing bijwerken is mislukt. Foutdetails: Een waarde zonder een typenaam die is gevonden en er is geen verwachte type is beschikbaar. Wanneer het model wordt opgegeven, moet elke waarde in de nettolading van een type dat kan worden opgegeven in de nettolading expliciet door de oproepende functie of impliciet afgeleid van de bovenliggende waarde hebben. []** "
 
 Wanneer u een van deze fouten ziet, raden we het volgende:
 

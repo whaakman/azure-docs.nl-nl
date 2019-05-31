@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 1b983c534ab92218759175655bbf396788e4c39d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956490"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243586"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Preview - beveiligde toegang tot de API-server met gemachtigd IP-adresbereiken in Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ In Kubernetes ontvangt de API-server aanvragen voor het uitvoeren van acties in 
 Dit artikel ziet u hoe u aanvragen beperken tot besturingselement vlak met API server gemachtigd IP-adresbereiken. Deze functie is momenteel beschikbaar als preview-product.
 
 > [!IMPORTANT]
-> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
+> AKS-preview-functies zijn selfservice, aanmelden. Ze zijn bedoeld om het verzamelen van fouten en feedback van onze community. Preview-versie, worden deze functies zijn niet bedoeld voor gebruik in productieomgevingen. Functies in public preview vallen onder 'best effort'-ondersteuning. Hulp van de AKS-teams voor technische ondersteuning is beschikbaar tijdens kantooruren Pacific tijdzone (PST) alleen. Zie de volgende artikelen ondersteuning voor aanvullende informatie:
 >
-> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
+> * [Ondersteuningsbeleid voor AKS][aks-support-policies]
+> * [Veelgestelde vragen over ondersteuning van Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -242,7 +243,6 @@ In dit artikel hebt u API server gemachtigd IP-adresbereiken ingeschakeld. Deze 
 Zie voor meer informatie, [veiligheidsconcepten voor toepassingen en -clusters in AKS] [ concepts-security] en [aanbevolen procedures voor beveiliging van clusters en upgrades in AKS] [ operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
 
 <!-- LINKS - internal -->
@@ -265,3 +265,5 @@ Zie voor meer informatie, [veiligheidsconcepten voor toepassingen en -clusters i
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

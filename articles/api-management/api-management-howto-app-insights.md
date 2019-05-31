@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bbab82831fba389cd4bf172e7ea762d5971579b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527604"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241850"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hoe u Azure API Management te integreren met Azure Application Insights
 
@@ -51,7 +51,7 @@ Voordat u Azure Application Insights gebruiken kunt, moet u eerst een exemplaar 
     ![App Insights logger](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Achter de scène, een [Logger](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) entiteit is gemaakt in uw exemplaar van API Management, met de Instrumentatiesleutel van de Application Insights-exemplaar.
+> Achter de scène, een [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) entiteit is gemaakt in uw exemplaar van API Management, met de Instrumentatiesleutel van de Application Insights-exemplaar.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Application Insights logboekregistratie inschakelen voor uw API
 
@@ -70,12 +70,12 @@ Voordat u Azure Application Insights gebruiken kunt, moet u eerst een exemplaar 
 > De standaardwaarde overschrijven **0** in de **eerste bytes van de hoofdtekst van** veld kan de prestaties van uw API's aanzienlijk verminderen.
 
 > [!NOTE]
-> Achter de scène, een [diagnostische](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) entiteit met de naam 'Application Insights' wordt gemaakt op de API-niveau.
+> Achter de scène, een [diagnostische](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) entiteit met de naam 'Application Insights' wordt gemaakt op de API-niveau.
 
 | Naam van instelling                        | Waardetype                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Inschakelen                              | booleaans                           | Hiermee geeft u op of de registratie van deze API is ingeschakeld.                                                                                                                                                                                                                                                                                                |
-| Doel                         | Azure Application Insights-logboek | Hiermee geeft u de Azure Application Insights logger moet worden gebruikt                                                                                                                                                                                                                                                                                           |
+| Bestemming                         | Azure Application Insights-logboek | Hiermee geeft u de Azure Application Insights logger moet worden gebruikt                                                                                                                                                                                                                                                                                           |
 | Steekproeven (%)                        | decimal                           | De waarden tussen 0 en 100 (procent). <br/> Hiermee geeft u op welk percentage van de aanvragen worden geregistreerd voor Azure Application Insights. 0% steekproeven betekent nul aanvragen die zijn vastgelegd, terwijl steekproeven van 100% betekent alle aanvragen die zijn geregistreerd dat. <br/> Deze instelling wordt gebruikt voor het verminderen van de gevolgen voor de prestaties van logboekregistratie van aanvragen naar Azure Application Insights (Zie de sectie hieronder). |
 | Altijd fouten in het logboek                   | booleaans                           | Als deze instelling is ingeschakeld, alle fouten worden geregistreerd voor Azure Application Insights, ongeacht de **steekproeven** instelling.                                                                                                                                                                                                                  |
 | Eenvoudige opties: Headers              | list                              | Hiermee geeft u de headers die worden geregistreerd voor Azure Application Insights voor aanvragen en antwoorden.  Standaard: geen headers worden geregistreerd.                                                                                                                                                                                                             |

@@ -4,7 +4,7 @@ description: In dit artikel wordt beschreven hoe u referentiegegevens voor een A
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 683aa2c7112533d9e3c06ddcb238048a26c75db3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510030"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237620"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>GA referentiegegevens voor een Azure Time Series Insights-omgeving beheren met behulp vanC#
 
@@ -33,7 +33,7 @@ De volgende stappen voltooien voordat u compileren en uitvoeren van de voorbeeld
 
    Zie voor meer informatie over het instellen van niet-interactieve toepassingen [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md).
 
-1. De voorbeeldcode ter vervanging van de voorbeeld-constanten, aangewezen op bewerken **DUMMY #**, in de buurt van het begin van de code.
+1. De voorbeeldcode ter vervanging van de voorbeeld-constanten, aangewezen op bewerken **DUMMY #** , in de buurt van het begin van de code.
 
 > [!NOTE]
 > De voorbeeldcode voor algemene beschikbaarheid aan weergeven [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).

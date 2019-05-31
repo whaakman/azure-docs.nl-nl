@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162042"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304216"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Plaatsen op aangepast onderwerp voor Azure Event Grid
 
@@ -39,7 +39,7 @@ Voor het eindpunt voor een aangepast onderwerp met Azure PowerShell, gebruikt u:
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Koptekst
+## <a name="header"></a>Header
 
 Opnemen in de aanvraag een headerwaarde met de naam `aeg-sas-key` die bevat een sleutel voor verificatie.
 
@@ -76,7 +76,10 @@ Voor aangepaste onderwerpen bevat de gegevens op het hoogste niveau dezelfde vel
 ]
 ```
 
-Zie voor een beschrijving van deze eigenschappen [Azure Event Grid-gebeurtenisschema](event-schema.md). Als u gebeurtenissen naar een event grid-onderwerp boeken, kan de matrix een totale grootte van maximaal 1 MB hebben. Elke gebeurtenis in de matrix is beperkt tot 64 KB.
+Zie voor een beschrijving van deze eigenschappen [Azure Event Grid-gebeurtenisschema](event-schema.md). Als u gebeurtenissen naar een event grid-onderwerp boeken, kan de matrix een totale grootte van maximaal 1 MB hebben. Elke gebeurtenis in de matrix is beperkt tot 64 KB (algemeen beschikbaar) of 1 MB (preview).
+
+> [!NOTE]
+> Een gebeurtenis van de grootte van maximaal 64 KB wordt gedekt door algemene beschikbaarheid (GA) Service Level Agreement (SLA). De ondersteuning voor een gebeurtenis van de grootte van maximaal 1 MB is momenteel in preview. Gebeurtenissen meer dan 64 KB in intervallen van 64 KB in rekening worden gebracht. 
 
 Bijvoorbeeld, is een schema van de gegevens geldig gebeurtenis:
 
@@ -103,7 +106,7 @@ Na het boeken met het eindpunt onderwerp, moet u een antwoord ontvangt. Het antw
 |Geslaagd  | 200 OK  |
 |Gebeurtenisgegevens heeft een onjuiste indeling | 400-Ongeldige aanvraag |
 |Ongeldige toegangssleutel | 401-niet toegestaan |
-|Onjuiste eindpunt | 404 Niet gevonden |
+|Onjuiste eindpunt | 404 – Niet gevonden |
 |Matrix of een gebeurtenis overschrijdt de maximale grootte | 413 payload te groot |
 
 Voor fouten heeft de hoofdtekst van het bericht de volgende indeling:

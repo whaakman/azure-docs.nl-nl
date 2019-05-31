@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545363"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235254"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Soorten toepassingen voor Microsoft identity-platform
 
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Apps van één pagina (JavaScript)
 
-Veel moderne apps hebben een app met één pagina front-end die voornamelijk in JavaScript is geschreven. Vaak wordt geschreven met behulp van een framework zoals AngularJS, Ember.js of Durandal.js. Het eindpunt van de Microsoft identity-platform biedt ondersteuning voor deze apps met behulp van de [OAuth 2.0-impliciete stroom](v2-oauth2-implicit-grant-flow.md).
+Veel moderne apps hebben een app met één pagina front-end die voornamelijk in JavaScript is geschreven. Vaak wordt geschreven met behulp van een framework zoals Angular, reageren of Vue. Het eindpunt van de Microsoft identity-platform biedt ondersteuning voor deze apps met behulp van de [OAuth 2.0-impliciete stroom](v2-oauth2-implicit-grant-flow.md).
 
 In deze stroom ontvangt de app tokens rechtstreeks vanuit het Microsoft identity-platform autorisatie-eindpunt, zonder alle server-naar-server worden uitgewisseld. Alle verificatielogica en sessie verwerking wordt volledig in de JavaScript-client, zonder extra paginaomleidingen plaatsen.
 
@@ -59,7 +59,7 @@ In deze stroom ontvangt de app tokens rechtstreeks vanuit het Microsoft identity
 
 Als u wilt zien van dit scenario werkt, probeert u een van de app met één pagina codevoorbeelden in de [identiteitsplatform van Microsoft aan de slag](v2-overview.md#getting-started) sectie.
 
-## <a name="web-apps"></a>Web Apps
+## <a name="web-apps"></a>Web-apps
 
 Voor web-apps (.NET, PHP, Java, Ruby, Python, knooppunt) die de gebruiker toegang heeft tot via een browser, kunt u [OpenID Connect](active-directory-v2-protocols.md) voor aanmelden van gebruikers. In de OpenID Connect ontvangt de web-app een ID-token. Een ID-token is een beveiligingstoken dat de identiteit van de gebruiker controleert en bevat informatie over de gebruiker in de vorm van claims:
 

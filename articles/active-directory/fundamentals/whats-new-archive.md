@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931e44f85131e8cbdd7aecddd6398f6f59d1b166
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 90577ea9f24bc5f36113bc1bdb913949772325c9
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937298"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305505"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archief voor de wat is er nieuw? in Azure Active Directory
 
@@ -38,7 +38,7 @@ Wat is nieuw opmerkingen bij de release bieden u informatie over:
  
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Bijgewerkte machtigingen voor beheerdersrollen voor dynamische groepen
 
-**Type:** Vast  
+**Type:** Opgelost  
 **Categorie van de service:** Groepsbeheer  
 **Product-mogelijkheid:** Samenwerking
 
@@ -50,7 +50,7 @@ De rollen zijn:
 
 - Intune-beheerder
 
-- Gebruikersbeheerder
+- Gebruikerbeheerder
 
 Zie voor meer informatie, [een dynamische groep maken en de status controleren](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
 
@@ -59,8 +59,8 @@ Zie voor meer informatie, [een dynamische groep maken en de status controleren](
 ### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Configuratie-instellingen voor vereenvoudigde eenmalige aanmelding voor sommige apps van derden
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** SSO
 
 We realiseren ons dat instellen van eenmalige aanmelding (SSO) voor Software als een Service (SaaS)-apps kunnen lastig zijn vanwege de unieke aard van de configuratie van apps. We hebben een vereenvoudigde configuratie-ervaring voor het automatisch vullen van de SSO-configuratie-instellingen voor de volgende externe SaaS-apps gemaakt:
 
@@ -74,7 +74,7 @@ Als u wilt gaan met behulp van deze ervaring met één klik, gaat u naar de **Az
 
 ---
 
-### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure Active Directory - Pagina Waar zijn uw gegevens opgeslagen?
+### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure van de Active Directory - waar bevindt uw gegevens zich? pagina
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Overige  
@@ -89,8 +89,8 @@ Voor toegang tot deze functie en voor meer informatie, Zie [Azure Active Directo
 ### <a name="new-deployment-plan-available-for-the-my-apps-access-panel"></a>Nieuw implementatieplan beschikbaar voor het deelvenster Mijn apps-toegang
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Mijn apps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Mijn Apps  
+**Product-mogelijkheid:** SSO
 
 Bekijk de nieuwe implementatieplan die beschikbaar is voor het toegangsvenster voor mijn Apps (https://aka.ms/deploymentplans).
 Het deelvenster Mijn Apps toegang biedt gebruikers met één plek om te zoeken en toegang tot hun apps. De portal bevat ook gebruikers met selfservice-mogelijkheden, zoals aanvragen van toegang tot apps en -groepen of beheren van toegang tot deze resources namens anderen.
@@ -103,7 +103,7 @@ Zie voor meer informatie, [wat is de portal mijn Apps?](https://docs.microsoft.c
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
 
 De nieuwe **probleemoplossing en ondersteuning** tabblad op de **aanmeldingen** pagina van de Azure portal, is bedoeld voor beheerders en ondersteuningstechnici oplossen van problemen met betrekking tot Azure AD-aanmeldingen. Deze nieuwe tabblad bevat de foutcode, foutbericht en herstelaanbevelingen (indien aanwezig) om u te helpen bij het oplossen van het probleem. Als u niet het probleem op te lossen, ook geven we u een nieuwe manier om u te maken van een ondersteuning ticket met de **naar Klembord kopiëren** ondervindt, die vult de **aanvraag-ID** en **datum (UTC)** velden voor het logboekbestand in uw ondersteuningsticket.  
 
@@ -170,8 +170,8 @@ Zie voor deze en andere wijzigingen met betrekking tot de protocollen, [de volle
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---september-2018"></a>Er zijn nieuwe federatieve apps beschikbaar in de app-galerie voor Azure AD - september 2018
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
  
 In September 2018, hebben we deze 16 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
 
@@ -184,8 +184,8 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
 ### <a name="support-for-additional-claims-transformations-methods"></a>Ondersteuning voor aanvullende claimstransformatiemethoden
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** SSO
 
 We hebben nieuwe claim transformatie methoden, ToLower() en ToUpper(), die kan worden toegepast op SAML-tokens uit de SAML-gebaseerde geïntroduceerd **configuratie voor eenmalige aanmelding** pagina.
 
@@ -196,8 +196,8 @@ Zie voor meer informatie, [over het aanpassen van uitgegeven claims in het SAML-
 ### <a name="updated-saml-based-app-configuration-ui-preview"></a>Bijgewerkte configuratie-UI voor SAML-apps (preview-versie)
 
 **Type:** Gewijzigde functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** SSO
 
 Als onderdeel van onze bijgewerkt op basis van SAML appconfiguratie-UI krijgt u het:
 
@@ -268,7 +268,7 @@ Dit is een opt-in voor openbare preview-versie. Beheerders kunnen inschakelen op
 ### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Nieuwe instelling Alleen HTTP-cookies in apps voor de Azure AD-toepassingsproxy
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** App-proxy  
+**Categorie van de service:** App-Proxy  
 **Product-mogelijkheid:** Toegangsbeheer
 
 Er is een nieuwe instelling, **HTTP-Only Cookies** in uw apps met Application Proxy. Deze instelling biedt extra beveiliging door de vlag HTTPOnly opnemen in de HTTP-antwoordheader voor beide Application Proxy toegangs- en sessiebeleid cookies, toegang aan de cookie van een client-side-script stoppen en verder te voorkomen dat bewerkingen zoals kopiëren of het wijzigen van de cookie. Hoewel deze vlag nog niet eerder zijn gebruikt, zijn uw cookies altijd versleuteld en verzonden met behulp van een SSL-verbinding om u te helpen beschermen tegen verkeerde wijzigingen.
@@ -306,8 +306,8 @@ Toegang tot de toepassing ondersteunt momenteel alleen de Azure AD portal-ervari
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---august-2018"></a>Er zijn nieuwe federatieve apps beschikbaar in de app-galerie voor Azure AD - augustus 2018
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
  
 In augustus 2018, hebben we deze 16 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
 
@@ -320,7 +320,7 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
 ### <a name="native-tableau-support-is-now-available-in-azure-ad-application-proxy"></a>Systeemeigen Tableau-ondersteuning is nu beschikbaar in Azure AD-toepassingsproxy
 
 **Type:** Gewijzigde functie  
-**Categorie van de service:** App-proxy  
+**Categorie van de service:** App-Proxy  
 **Product-mogelijkheid:** Toegangsbeheer
 
 Met de update van de OpenID Connect voor het verlenen van OAuth 2.0-Code-protocol voor het protocol van onze vooraf-verificatie hebt u niet langer geen aanvullende instellingen voor het gebruik van Tableau met Application Proxy. Deze wijziging protocol helpt ook bij de toepassingsproxy betere ondersteuning bieden voor moderne apps met behulp van alleen HTTP-omleidingen, die vaak worden ondersteund in JavaScript en HTML-codes.
@@ -371,7 +371,7 @@ Voor een voorbeeld van enkele van de nieuwe e-ontwerpen en meer informatie, Zie 
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
 
 De Azure AD-activiteitenlogboeken zijn nu beschikbaar in openbare preview-versie van de Azure Monitor (van Azure-platform hele monitoring-service). Azure Monitor biedt u met een langetermijnbewaarperiode en naadloze integratie, naast deze verbeteringen:
 
@@ -389,7 +389,7 @@ Zie onze blog voor meer informatie over deze nieuwe mogelijkheden, [Azure AD-act
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
  
 Deze update kunt u zien welke beleidsregels worden geëvalueerd wanneer een gebruiker zich aanmeldt, samen met het resultaat van het beleid. Daarnaast bevat het rapport nu het type van de client-app die wordt gebruikt door de gebruiker, zodat u oudere protocolverkeer kunt identificeren. Rapport vermeldingen kunnen nu ook worden gezocht naar een correlatie-ID, die kan worden gevonden in het foutbericht van de gebruiker gerichte en kan worden gebruikt om te identificeren en oplossen van de overeenkomende aanmeldingsaanvraag.
 
@@ -399,7 +399,7 @@ Deze update kunt u zien welke beleidsregels worden geëvalueerd wanneer een gebr
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
  
 Dankzij de introductie van de **Client-App** veld in de activiteit aanmelden zich aanmeldt, klanten kunnen nu Zie gebruikers die gebruikmaken van verouderde verificaties. Klanten moeten toegang hebben tot deze gegevens met behulp van de aanmeldingen bij MS Graph API of via de aanmelding activiteitenlogboeken in Azure AD-portal waar u kunt de **Client-App** besturingselement te filteren op verouderde verificaties. Bekijk de documentatie voor meer informatie.
 
@@ -408,8 +408,8 @@ Dankzij de introductie van de **Client-App** veld in de activiteit aanmelden zic
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Er zijn nieuwe federatieve apps beschikbaar in de galerie met apps van Azure AD - juli 2018
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
  
 In juli 2018, hebben we deze 16 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
 
@@ -423,7 +423,7 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** App-inrichting  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Product-mogelijkheid:** 3e partij integratie
  
 Azure AD kunt u het maken, onderhoud en verwijderen van gebruikers-id's in SaaS-toepassingen, zoals Dropbox, Salesforce, ServiceNow en automatiseren. Voor juli 2018, hebben we ondersteuning voor de volgende toepassingen in de galerie van Azure AD-app inrichten van gebruikers toegevoegd:
 
@@ -441,7 +441,7 @@ Zie voor een lijst van alle toepassingen die ondersteuning bieden voor het inric
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** AD Connect  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
  
 Azure AD Connect Health introduceert herstel van self-service te markeren en synchronisatiefouten oplossen. Deze functie Hiermee lost u dubbel kenmerk synchronisatiefouten en correcties van objecten die zijn zwevende van Azure AD. Deze diagnose biedt de volgende voordelen:
 
@@ -469,7 +469,7 @@ We hebben de gebruikersinterface voor de ervaring van Microsoft online services 
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** App-inrichting  
-**Product-mogelijkheid:** Beheer van identiteitslevenscycli
+**Product-mogelijkheid:** Beheer van Identiteitslevenscycli
 
 De meest recente versie van Azure AD Connect bevat: 
 
@@ -483,7 +483,7 @@ Zie voor meer informatie over deze update [Azure AD Connect: Releasegeschiedenis
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Updates voor de gebruiksvoorwaarden voor de gebruikersinterface van de eindgebruiker
+### <a name="updates-to-the-terms-of-use-end-user-ui"></a>Updates met de voorwaarden van gebruik door eindgebruikers de gebruikersinterface
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
@@ -549,7 +549,7 @@ Mobiele app-meldingen kan alleen worden ingeschakeld als onderdeel van een belei
 
 **Type:** Plan voor wijziging  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
 
 Vanwege de naleving van onze sterkere beveiliging, moesten we hebben een wijziging aanbrengt in de machtigingen voor apps die gebruikmaken van een autorisatiestroom gedelegeerde voor toegang tot [Azure AD-activiteit logboeken-API's](https://aka.ms/aadreportsapi). Deze wijziging wordt uitgevoerd door **26 juni 2018**.
 
@@ -612,8 +612,8 @@ Verouderde browsers ondersteunen mogelijk niet de nieuwere TLS-versies, zoals TL
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - juni 2018
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
  
 In juni 2018, hebben we deze 15 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
 
@@ -641,25 +641,25 @@ Zie voor meer informatie over Azure AD-wachtwoord Protection [onjuiste wachtwoor
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nieuwe "alle gasten" voorwaardelijke toegang beleidssjabloon gemaakt tijdens het maken van gebruiksvoorwaarden (gebruiksvoorwaarden)
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nieuwe "alle gasten" voorwaardelijke toegang beleidssjabloon gemaakt tijdens de voorwaarden dat gebruik wordt gemaakt
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
 **Product-mogelijkheid:** Beheer
 
-Tijdens het maken van uw gebruiksvoorwaarden (gebruiksvoorwaarden), wordt ook een nieuwe beleidssjabloon van voorwaardelijke toegang gemaakt voor 'alle gasten' en 'alle apps'. Deze nieuwe beleidssjabloon is van toepassing de zojuist gemaakte gebruiksvoorwaarden, stroomlijnen het maken en het afdwingen van proces voor gasten.
+Tijdens het maken van de gebruiksrechtovereenkomst, wordt ook een nieuwe beleidssjabloon van voorwaardelijke toegang gemaakt voor 'alle gasten' en 'alle apps'. Deze nieuwe beleidssjabloon is van toepassing de zojuist gemaakte gebruiksvoorwaarden, stroomlijnen het maken en het afdwingen van proces voor gasten.
 
 Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nieuwe 'aangepaste' voorwaardelijk beleidssjabloon gemaakt tijdens het maken van gebruiksvoorwaarden (gebruiksvoorwaarden)
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nieuwe 'aangepaste' voorwaardelijk beleidssjabloon gemaakt tijdens de voorwaarden dat gebruik wordt gemaakt
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
 **Product-mogelijkheid:** Beheer
 
-Tijdens het maken van uw gebruiksvoorwaarden (gebruiksvoorwaarden), wordt ook een nieuwe sjabloon voor 'aangepaste' voorwaardelijk beleid gemaakt. Deze nieuwe beleidssjabloon kunt u de gebruiksvoorwaarden lezen maken en onmiddellijk gaat u naar de blade voor voorwaardelijke toegang beleid voor het maken, zonder handmatig via de portal navigeren.
+Tijdens het maken van de gebruiksrechtovereenkomst, wordt ook een nieuwe 'aangepaste' voorwaardelijk beleidssjabloon gemaakt. Deze nieuwe beleidssjabloon kunt u de gebruiksvoorwaarden lezen maken en onmiddellijk gaat u naar de blade voor voorwaardelijke toegang beleid voor het maken, zonder handmatig via de portal navigeren.
 
 Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -669,7 +669,7 @@ Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie geb
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Overige  
-**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
  
 We hebben nieuwe Stapsgewijze instructies over het implementeren van Azure multi-factor Authentication (MFA) in uw organisatie uitgebracht.
 
@@ -680,7 +680,7 @@ Als u de MFA-implementatiehandleiding, gaat u naar de [identiteit implementatieh
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD gedelegeerd beheer van apps rollen in openbare preview zijn
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
+**Categorie van de service:** Zakelijke Apps  
 **Product-mogelijkheid:** Toegangsbeheer
 
 Beheerders kunt nu beheertaken delegeren zonder de globale beheerdersrol toewijzen. De nieuwe functies en mogelijkheden zijn:
@@ -727,16 +727,16 @@ Als u moet echter ook doorgaan met toegewezen circuits, moet u om te communicere
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
-**Product-mogelijkheid:** Ontwikkelaarservaring
+**Product-mogelijkheid:** Ervaring voor ontwikkelaars
  
-We hebben Microsoft Graph-API's toegevoegd voor de beheerbewerking van Azure AD gebruiksrechtovereenkomst. U zijn kunt maken, bijwerken en verwijderen van de gebruiksvoorwaarden van object.
+We hebben Microsoft Graph-API's toegevoegd voor de beheerbewerking van Azure AD gebruiksrechtovereenkomst. U zijn kunt maken, bijwerken en verwijderen van de voorwaarden van gebruik object.
 
 ---
 
 ### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Azure AD-multitenant-eindpunt toevoegen als een id-provider in Azure AD B2C
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** B2C - Consumentenidentiteitsbeheer  
+**Categorie van de service:** B2C - identiteitsbeheer van consumenten  
 **Product-mogelijkheid:** B2B/B2C
  
 Met behulp van aangepaste beleidsregels, kunt u de algemene Azure AD-eindpunt toevoegen als een id-provider in Azure AD B2C. Hiermee kunt u dat een single point of vermelding voor alle Azure AD-gebruikers die bij uw toepassingen aanmeldt zich. Zie voor meer informatie, [Azure Active Directory B2C: Toestaan dat gebruikers zich aanmelden met een id-provider van het Azure AD met meerdere tenants met behulp van aangepaste beleidsregels](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom).
@@ -746,8 +746,8 @@ Met behulp van aangepaste beleidsregels, kunt u de algemene Azure AD-eindpunt to
 ### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>Interne URL's gebruikt voor toegang tot apps vanaf elke locatie met de extensie mijn Apps, aanmelding en de Azure AD-toepassingsproxy
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Mijn apps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Mijn Apps  
+**Product-mogelijkheid:** SSO
  
 Gebruikers kunnen nu toegang tot toepassingen via de interne URL's ook buiten uw bedrijfsnetwerk met behulp van de mijn Apps beveiligde aanmelding-extensie voor Azure AD. Dit werkt met elke toepassing die u hebt gepubliceerd met behulp van Azure AD-toepassingsproxy in elke browser waarop ook de Browseruitbreiding van het toegangsvenster geïnstalleerd. De functionaliteit van URL-omleiding is automatisch ingeschakeld wanneer een gebruiker meldt zich aan bij de extensie. De extensie is beschikbaar voor downloaden op [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367), en [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
 
@@ -767,7 +767,7 @@ Klanten in Europa vereisen hun gegevens om te blijven in Europa en niet gereplic
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** App-inrichting  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Product-mogelijkheid:** 3e partij integratie
  
 Azure AD kunt u het maken, onderhoud en verwijderen van gebruikers-id's in SaaS-toepassingen, zoals Dropbox, Salesforce, ServiceNow en automatiseren. Voor mei 2018, hebben we ondersteuning voor de volgende toepassingen in de galerie van Azure AD-app inrichten van gebruikers toegevoegd:
 
@@ -795,7 +795,7 @@ Toegangsbeoordeling voor groepen en apps is nu algemeen beschikbaar als onderdee
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
  
 Azure AD activiteitenlogboeken, waaronder, aanmeldingen en auditlogboeken, zijn nu beschikbaar zijn via MS Graph. We hebben twee eindpunten via MS Graph voor toegang tot deze logboeken weergegeven. Bekijk onze [documenten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) voor programmatische toegang tot Azure AD Reporting API's aan de slag. 
 
@@ -818,8 +818,8 @@ Azure AD activiteitenlogboeken, waaronder, aanmeldingen en auditlogboeken, zijn 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - mei 2018
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
  
 In mei 2018, hebben we deze 18 nieuwe apps met Federatie ondersteuning aan onze app-galerie toegevoegd:
 
@@ -846,8 +846,8 @@ Als u de implementatiehandleidingen, gaat u naar de [identiteit implementatiehan
 ### <a name="enterprise-applications-search---load-more-apps"></a>Zakelijke toepassingen zoeken: meer Apps laden
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** SSO
  
 Problemen met het vinden van uw toepassingen / service-principals? We hebben de mogelijkheid om te laden meer toepassingen in uw zakelijke toepassingen op de lijst met alle toepassingen toegevoegd. Standaard, laten we zien 20 toepassingen. U kunt nu op klikt, **meer laden** om aanvullende toepassingen weer te geven. 
 
@@ -857,7 +857,7 @@ Problemen met het vinden van uw toepassingen / service-principals? We hebben de 
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** AD Connect  
-**Product-mogelijkheid:** Beheer van identiteitslevenscycli
+**Product-mogelijkheid:** Beheer van Identiteitslevenscycli
  
 De versie van AADConnect een openbare preview-versie van de integratie met PingFederate bevat, mei belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe geweldige nieuwe hulpprogramma's voor probleemoplossing. U vindt de opmerkingen bij de release [hier](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
@@ -890,7 +890,7 @@ De **fragment** en **form_post** response_modes blijven werken - bij het maken v
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>Azure AD B2C Access Token zijn algemeen beschikbaar
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** B2C - Consumentenidentiteitsbeheer  
+**Categorie van de service:** B2C - identiteitsbeheer van consumenten  
 **Product-mogelijkheid:** B2B/B2C 
 
 U hebt nu toegang tot Web-API's beveiligd door Azure AD B2C met-toegangstokens. De functie wordt verplaatst van de openbare preview-versie voor algemene beschikbaarheid. De gebruikersinterface-ervaring voor het configureren van Azure AD B2C-toepassingen en web-API's, is verbeterd en zijn andere kleine verbeteringen aangebracht.
@@ -902,8 +902,8 @@ Zie voor meer informatie, [Azure AD B2C: Aanvragen van toegangstokens](https://d
 ### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>Configuratie voor eenmalige aanmelding voor toepassingen op basis van SAML testen
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** SSO
 
 Bij het configureren van SAML gebaseerde SSO-toepassingen, u kunt de integratie van op de configuratiepagina testen. Als er een fout opgetreden tijdens het aanmelden, kunt u de fout in de test-ervaring bieden en Azure AD biedt u stappen voor het oplossen van dit specifieke probleem.
 
@@ -914,7 +914,7 @@ Zie voor meer informatie:
 
 ---
  
-### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD gebruiksrechtovereenkomst heeft nu per gebruiker melden
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD gebruiksrechtovereenkomst nu heeft per gebruiker melden
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
@@ -930,7 +930,7 @@ Zie voor meer informatie de [functie van Azure AD gebruiksrechtovereenkomst](htt
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Overige  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
 
 Connect Health nu ondersteunt de mogelijkheid voor het detecteren van IP adressen die groter zijn dan een drempel voor mislukte U/P aanmeldingen op basis van per uur of dagelijks. De mogelijkheden van deze functie zijn:
 
@@ -945,8 +945,8 @@ Zie voor meer informatie, [rapport riskant IP-adres](https://aka.ms/aadchriskyip
 ### <a name="easy-app-config-with-metadata-file-or-url"></a>Eenvoudig app-configuratie met de van metagegevensbestand of URL
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** SSO
 
 Op de pagina van de Enterprise-toepassingen kunnen beheerders een SAML-metagegevensbestand als u wilt configureren op basis van SAML-aanmelding voor AAD-galerie en niet toepassing uploaden.
 
@@ -963,7 +963,7 @@ Zie voor meer informatie, [configureren van eenmalige aanmelding voor toepassing
 **Product-mogelijkheid:** Naleving
  
 
-Azure AD gebruiksrechtovereenkomst hebt verplaatst van de openbare preview-versie naar algemeen beschikbaar.
+Azure AD gebruiksrechtovereenkomst hebt verplaatst uit de openbare preview-versie naar algemeen beschikbaar.
 
 Zie voor meer informatie de [functie van Azure AD gebruiksrechtovereenkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -989,8 +989,8 @@ Zie voor meer informatie, [uitnodigingen toestaan of blokkeren voor B2B-gebruike
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nieuwe federatieve apps beschikbaar in Azure AD app-galerie
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
 
 In April 2018, hebben we deze 13 nieuwe apps met Federatie ondersteuning aan onze app-galerie toegevoegd:
 
@@ -1018,7 +1018,7 @@ Zie voor meer informatie, [Grant B2B-gebruikers in Azure AD de toegang tot uw on
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Overige  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Product-mogelijkheid:** 3e partij integratie
 
 Als een toepassing die wordt vermeld in de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) ondersteunt SAML gebaseerde eenmalige aanmelding, te klikken op **nu downloaden** biedt u de zelfstudie voor integratie van die zijn gekoppeld aan deze toepassing. 
 
@@ -1028,7 +1028,7 @@ Als een toepassing die wordt vermeld in de [Azure marketplace](https://azuremark
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** App-inrichting  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Product-mogelijkheid:** 3e partij integratie
  
 Voorheen klanten die gebruikmaken van de inrichting van connectors voor SaaS-toepassingen (bijvoorbeeld Salesforce, ServiceNow en vak) Azure Active Directory-gebruiker kunnen traag als hun Azure AD-tenants die meer dan 100.000 gecombineerde gebruikers en groepen, en ze zijn toewijzingen van gebruikers en groepen gebruiken om te bepalen welke gebruikers moeten worden ingericht.
 
@@ -1056,9 +1056,9 @@ Zie voor meer informatie, [Azure AD-wachtwoord opnieuw instellen vanuit het aanm
  
 ### <a name="certificate-expire-notification"></a>Certificaat verloopt melding
 
-**Type:** Vast  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Type:** Opgelost  
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** SSO
  
 Azure AD verzendt een melding wanneer een certificaat voor een galerie of toepassing buiten de galerie is bijna verlopen. 
 
@@ -1074,7 +1074,7 @@ Zie voor meer informatie:
 ### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Twitter- en GitHub-id-providers in Azure AD B2C
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** B2C - Consumentenidentiteitsbeheer  
+**Categorie van de service:** B2C - identiteitsbeheer van consumenten  
 **Product-mogelijkheid:** B2B/B2C
  
 U kunt nu Twitter of GitHub toevoegen als een id-provider in Azure AD B2C. Twitter wordt verplaatst van de openbare preview-versie voor algemene beschikbaarheid. GitHub is in openbare preview-versie wordt uitgebracht.
@@ -1087,7 +1087,7 @@ Zie voor meer informatie, [wat is Azure AD B2B-samenwerking?](https://docs.micro
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Voorwaardelijke toegang  
-**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
  
 **Nu in openbare preview!**
 
@@ -1108,7 +1108,7 @@ Zie voor meer informatie:
 ### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>App-Proxy-Cmdlets in algemene beschikbaarheid van Powershell-Module
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** App-proxy  
+**Categorie van de service:** App-Proxy  
 **Product-mogelijkheid:** Toegangsbeheer
  
 Ondersteuning voor toepassingsproxy-cmdlets is nu in de Powershell-Module voor algemene beschikbaarheid. Dit vereist dat u op de hoogte te blijven van Powershell-modules - als u meer dan een jaar achter, sommige cmdlets worden mogelijk niet meer werken. 
@@ -1156,8 +1156,8 @@ Zie voor meer informatie, [Azure Active Directory naadloze eenmalige aanmelding]
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nieuwe federatieve Apps beschikbaar in Azure AD app-galerie
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
 
 In maart 2018, hebben we deze 15 nieuwe apps met Federatie ondersteuning aan onze app-galerie toegevoegd:
 
@@ -1209,7 +1209,7 @@ Zie voor meer informatie, [aanvragen van een autorisatiecode](https://docs.micro
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** App-inrichting  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Product-mogelijkheid:** 3e partij integratie
  
 De openbare preview van inkomende inrichten van Workday naar Active Directory en Azure AD nu ondersteunt de mogelijkheid om op te halen en de inrichting van alle waarden van kenmerken beschikbaar in de Workday Get_Workers-API. Dit biedt ondersteuning voor honderden extra standard wordt toegevoegd en aangepaste kenmerken die verzonden met de eerste versie van de Workday inbound provisioning connector.
 
@@ -1245,8 +1245,8 @@ Zie voor meer informatie, [Azure Active Directory naadloze eenmalige aanmelding]
 ### <a name="application-proxy-connector-version-154020-released"></a>Application Proxy Connector versie 1.5.402.0 die zijn uitgebracht
 
 **Type:** Gewijzigde functie  
-**Categorie van de service:** App-proxy  
-**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+**Categorie van de service:** App-Proxy  
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
  
 De versie van deze connector wordt geleidelijk tot en met November wordt geïmplementeerd. Deze nieuwe versie van de connector bevat de volgende wijzigingen:
 
@@ -1275,7 +1275,7 @@ De navigatie-ervaring voor het beheren van gebruikers en groepen is gestroomlijn
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Azure Stack  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
 
 Azure AD-activiteit log-rapporten zijn nu beschikbaar in Microsoft Azure, bediend door 21Vianet (Azure China 21Vianet) exemplaren. De volgende logboeken zijn opgenomen:
 
@@ -1299,7 +1299,7 @@ Zie voor meer informatie over het gebruik van deze rapporten [Azure Active Direc
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Controleren en rapporteren
+**Product-mogelijkheid:** Bewaking en rapportage
 
 Als onderdeel van feedback van klanten om in te schakelen van niet-beheerdersrollen toegang hebben tot Azure AD-activiteit zich aanmeldt, is voorzien van de mogelijkheid voor gebruikers die zich in de rol "Lezer rapport" voor toegang tot aanmeldingen en Audit-activiteit in de Azure-portal, evenals met onze Graph API's. 
 
@@ -1310,8 +1310,8 @@ Voor meer informatie over het gebruik van deze rapporten, [Azure Active Director
 ### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>EmployeeID-claim die beschikbaar zijn als gebruikerskenmerk en gebruikers-id
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** SSO
  
 U kunt configureren **EmployeeID** als de gebruikers-id en het gebruikerskenmerk voor lidgebruikers en B2B-gasten in SAML gebaseerde aanmelding toepassingen vanuit de gebruikersinterface van de Enterprise-toepassing.
 
@@ -1322,7 +1322,7 @@ Zie voor meer informatie, [in het SAML-token voor bedrijfstoepassingen in Azure 
 ### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Vereenvoudigd Toepassingsbeheer met jokertekens in Azure AD-toepassingsproxy
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** App-proxy  
+**Categorie van de service:** App-Proxy  
 **Product-mogelijkheid:** Gebruikersverificatie
  
 Implementatie van toepassingen te vereenvoudigen en reduceren uw administratieve overhead, ondersteunen we nu de mogelijkheid voor het publiceren van toepassingen die gebruikmaken van jokertekens. U kunt voor het publiceren van een jokertekentoepassing, volgt u de standard-toepassing publiceren stroom maar een jokerteken gebruiken in de interne en externe URL's.
@@ -1334,7 +1334,7 @@ Zie voor meer informatie, [Wildcard-toepassingen in de Azure Active Directory-to
 ### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Er zijn nieuwe cmdlets voor de ondersteuning van de configuratie van de toepassingsproxy
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** App-proxy  
+**Categorie van de service:** App-Proxy  
 **Product-mogelijkheid:** Platform
 
 De nieuwste versie van de Preview van AzureAD PowerShell-module bevat nieuwe cmdlets waarmee klanten het configureren van Application Proxy-toepassingen met behulp van PowerShell.
@@ -1364,7 +1364,7 @@ De nieuwe-cmdlets zijn:
 ### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Er zijn nieuwe cmdlets voor de ondersteuning van de configuratie van groepen
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** App-proxy  
+**Categorie van de service:** App-Proxy  
 **Product-mogelijkheid:** Platform
 
 De nieuwste versie van de AzureAD PowerShell-module bevat cmdlets voor het beheren van groepen in Azure AD. Deze cmdlets waren eerder beschikbaar in de AzureADPreview-module en zijn nu toegevoegd aan de module AzureAD
@@ -1388,7 +1388,7 @@ De groep-cmdlets die nu release voor algemene beschikbaarheid zijn zijn:
 ### <a name="a-new-release-of-azure-ad-connect-is-available"></a>Er is een nieuwe versie van Azure AD Connect beschikbaar
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** AD Sync  
+**Categorie van de service:** AD synchroniseren  
 **Product-mogelijkheid:** Platform
  
 Azure AD Connect is de gewenste hulpprogramma voor het synchroniseren van gegevens tussen Azure AD en lokale gegevensbronnen, met inbegrip van Windows Server Active Directory en LDAP.
@@ -1444,7 +1444,7 @@ Deze release bevat de volgende updates en wijzigingen:
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Voorwaardelijke toegang  
-**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
 
 We hebt meer toepassingen die ondersteuning bieden voor voorwaardelijke toegang op basis van een toepassing toegevoegd. Nu krijgt u toegang tot Office 365 en andere Azure AD verbonden cloudapps met behulp van deze goedgekeurde client-apps.
 
@@ -1463,7 +1463,7 @@ Zie voor meer informatie:
 
 ---
 
-### <a name="terms-of-use-update-to-mobile-experience"></a>Bijgewerkte gebruiksvoorwaarden voor de mobiele ervaring 
+### <a name="terms-of-use-update-to-mobile-experience"></a>Voorwaarden van de update gebruiken voor de mobiele ervaring 
 
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Gebruiksvoorwaarden  
@@ -1478,8 +1478,8 @@ Wanneer de gebruiksvoorwaarden worden weergegeven, kunt u nu klikken **hebt u pr
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nieuwe federatieve Apps beschikbaar in Azure AD app-galerie 
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
 
 In januari 2018 zijn de volgende nieuwe apps met ondersteuning voor identiteitsfederatie in de app-galerie toegevoegd:
 
@@ -1495,7 +1495,7 @@ Zie voor meer informatie over het aanbieden van uw toepassing in de Azure AD-app
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Identiteitsbeveiliging  
-**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
 
 Het inzicht u voor een gedetecteerde risicogebeurtenis krijgt is gekoppeld aan uw Azure AD-abonnement. Met de Azure AD Premium P2-editie krijgt u de meest gedetailleerde informatie over alle onderliggende detecties.
 
@@ -1508,8 +1508,8 @@ Zie [Risicogebeurtenissen in Azure Active Directory](https://docs.microsoft.com/
 ### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Office 365-toepassingen uit de toegangsdeelvensters van de eindgebruiker verbergen
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Mijn apps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Mijn Apps  
+**Product-mogelijkheid:** SSO
 
 U kunt nu beter beheren hoe Office 365-toepassingen weergegeven op de toegangsdeelvensters van uw gebruikers via een nieuwe gebruikersinstelling. Deze optie is nuttig voor het verminderen van het aantal apps in de toegangsdeelvensters van een gebruiker als u liever alleen Office-apps weergeven in de Office-portal. De instelling bevindt zich in de **gebruikersinstellingen** en is met het label, **gebruikers zien alleen Office 365-apps in de Office 365-beheerportal**.
 
@@ -1520,8 +1520,8 @@ Zie voor meer informatie, [een toepassing gebruikerservaring in Azure Active Dir
 ### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Naadloze Meld u aan bij de apps die zijn ingeschakeld voor eenmalige aanmelding wachtwoord rechtstreeks vanuit de URL van app 
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Mijn apps  
-**Product-mogelijkheid:** Eenmalige aanmelding
+**Categorie van de service:** Mijn Apps  
+**Product-mogelijkheid:** SSO
 
 De Apps in mijn browser-extensie is nu beschikbaar via een handig hulpmiddel waarmee u beschikt over de mijn Apps van eenmalige aanmelding over mogelijkheid als snelkoppeling in uw browser. Na het installeren ziet van de gebruiker een pictogram wafel in hun browser waarmee ze snel toegang tot apps. Gebruikers kunnen nu profiteren van:
 
@@ -1560,7 +1560,7 @@ De configuratie van MFA bevindt zich in: **Azure Active Directory \> MFA Server*
 
 **Type:** Afgeschaft  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Beheer van identiteitslevenscycli  
+**Product-mogelijkheid:** Beheer van Identiteitslevenscycli  
 
 
 Met de algemene beschikbaarheid van de nieuwe Azure Active Directory Administration console en de nieuwe API's nu beschikbaar voor zowel de activiteit en de beveiliging van rapporten, het rapport API's onder '/ rapporten'-eindpunt is buiten gebruik gesteld vanaf het einde van 31 December 2017.
@@ -1657,7 +1657,7 @@ Zie voor meer informatie, [wat is Azure AD Privileged Identity Management?](http
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Enterprise-apps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
+**Product-mogelijkheid:** 3e partij integratie
 
 In December 2017, hebben we de ondersteuning van deze nieuwe apps met Federatie naar onze app-galerie toegevoegd:
 
@@ -1936,7 +1936,7 @@ De onderliggende realtime detectie werkt telkens wanneer de gebruiker zich aanme
 
 **Type:** Plan voor wijziging  
 **Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Beheer van identiteitslevenscycli  
+**Product-mogelijkheid:** Beheer van Identiteitslevenscycli  
 
 De Azure-portal beschikt u over:
 
@@ -1949,8 +1949,8 @@ Vanwege deze nieuwe mogelijkheden, het rapport API's onder het eindpunt/Reports 
 
 ### <a name="automatic-sign-in-field-detection"></a>Detectie van het veld voor automatische aanmelding
 
-**Type:** Vast   
-**Categorie van de service:** Mijn apps  
+**Type:** Opgelost   
+**Categorie van de service:** Mijn Apps  
 **Product-mogelijkheid:** Eenmalige aanmelding  
 
 Azure AD biedt ondersteuning voor detectie van het veld voor automatische aanmelding voor toepassingen die een gebruiker HTML-veld naam en het wachtwoord weergeven. Deze stappen worden beschreven in [automatisch vastleggen aanmeldingsvelden voor een toepassing](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). U vindt deze mogelijkheid door toe te voegen een *niet in de galerij* toepassing voor de **bedrijfstoepassingen** pagina in de [Azure-portal](https://aad.portal.azure.com). Bovendien kunt u de **Single Sign-on** modus op deze nieuwe toepassing **wachtwoord gebaseerde Single Sign-on**, Geef een web-URL en sla vervolgens op de pagina.
@@ -2032,7 +2032,7 @@ Zie voor meer informatie, [Azure AD-toegangsbeoordelingen](https://docs.microsof
 ### <a name="hide-third-party-applications-from-my-apps-and-the-office-365-app-launcher"></a>Toepassingen van derden van mijn Apps en het startprogramma voor Office 365 verbergen
 
 **Type:** Nieuwe functie  
-**Categorie van de service:** Mijn apps  
+**Categorie van de service:** Mijn Apps  
 **Product-mogelijkheid:** Eenmalige aanmelding  
 
 Nu kunt u beter apps beheren die worden weergegeven op uw gebruikers portals door middel van een nieuwe **app verbergen** eigenschap. U kunt apps om in gevallen waar de app-tegels voor back-end-services of dubbele tegels en overbodige items gebruikers-app voor ruimtevaartuigen weergegeven te verbergen. De wisselknop is in de **eigenschappen** sectie van de app van derden en heet **zichtbaar voor gebruiker?** U kunt ook een app via een programma via PowerShell verbergen. 

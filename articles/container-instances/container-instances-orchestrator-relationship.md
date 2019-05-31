@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581115"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072988"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances en container-orchestrators
 
@@ -56,7 +56,7 @@ In plaats van het aantal virtuele machines in uw cluster schalen, en vervolgens 
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Voorbeeldimplementatie: virtuele knooppunten voor Azure Kubernetes Service (AKS)
 
-Snel schalen werkbelastingen van toepassingen in een [Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS)-cluster, kunt u *virtuele knooppunten* dynamisch gemaakt in Azure Container Instances. Virtuele knooppunten inschakelen momenteel in preview, netwerkcommunicatie tussen pods in ACI met en het AKS-cluster. 
+Snel schalen werkbelastingen van toepassingen in een [Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS)-cluster, kunt u *virtuele knooppunten* dynamisch gemaakt in Azure Container Instances. Virtuele knooppunten Schakel netwerkcommunicatie tussen pods in ACI met en het AKS-cluster. 
 
 Virtuele knooppunten ondersteuning momenteel voor Linux-container instances. Aan de slag met virtuele knooppunten met behulp van de [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) of [Azure-portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 

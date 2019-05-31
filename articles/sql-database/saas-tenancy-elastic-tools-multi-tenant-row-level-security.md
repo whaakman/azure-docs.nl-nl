@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485366"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234130"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Multitenant-toepassingen met elastische Databasehulpprogramma's en beveiliging op rijniveau
 
@@ -228,7 +228,7 @@ Beveiliging op Rijniveau is geïmplementeerd in de Transact-SQL. Een door de geb
     - Een BLOCK-predicaat voorkomt u dat rijen die niet voldoen aan het filter wordt ingevoegd of bijgewerkt.
     - Als sessie\_CONTEXT niet is ingesteld, wordt er NULL geretourneerd in de functie en geen rijen zijn zichtbaar of kunnen worden ingevoegd.
 
-Om in te schakelen RLS op alle shards, uitvoeren van de volgende T-SQL met behulp van Visual Studio (SSDT), SSMS of het PowerShell-script dat is opgenomen in het project. Of als u gebruikmaakt van [elastische databasetaken](sql-database-elastic-jobs-overview.md), kunt u de uitvoering van deze T-SQL in alle shards automatiseren.
+Om in te schakelen RLS op alle shards, uitvoeren van de volgende T-SQL met behulp van Visual Studio (SSDT), SSMS of het PowerShell-script dat is opgenomen in het project. Of als u gebruikmaakt van [elastische databasetaken](elastic-jobs-overview.md), kunt u de uitvoering van deze T-SQL in alle shards automatiseren.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

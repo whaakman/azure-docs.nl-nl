@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876200"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067623"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Metrische waarschuwingen met dynamische drempelwaarden in Azure Monitor (Preview-versie)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Metrische waarschuwingen met dynamische drempelwaarden in Azure Monitor
 
 Waarschuwing voor metrische gegevens met dynamische drempelwaarden detectie maakt gebruik van geavanceerde machine learning (ML) meer historische gedrag van de metrische gegevens, patronen en afwijkingen die wijzen op problemen met de mogelijke service kunt identificeren. Deze biedt ondersteuning van zowel een eenvoudige gebruikersinterface en bewerkingen op schaal door toe te staan gebruikers waarschuwingsregels via de Azure Resource Manager-API op een volledig geautomatiseerde manier configureren.
 

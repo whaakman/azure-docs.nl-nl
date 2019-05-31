@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523640"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387339"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Een web application tarief limiet firewallregel configureren met behulp van Azure PowerShell
 De Azure-web application firewall (WAF) tarief limiet regel voor Azure voordeur bepaalt het aantal aanvragen dat is toegestaan in een enkele client-IP-adres tijdens een duur van één minuut.
@@ -65,10 +65,10 @@ Het volgende voorbeeld komt overeen met */promo* als de waarde van de *RequestUr
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>Een aangepaste tarief limiet-regel maken
-Stel een snelheid beperken met [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). In het volgende voorbeeld wordt is de limiet ingesteld op 1000. Aanvragen van een client naar de pagina van de aanbieding van meer dan 1000 gedurende één minuut worden geblokkeerd totdat de volgende minuut wordt gestart.
+Stel een snelheid beperken met [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). In het volgende voorbeeld wordt is de limiet ingesteld op 1000. Aanvragen van een client naar de pagina van de aanbieding van meer dan 1000 gedurende één minuut worden geblokkeerd totdat de volgende minuut wordt gestart.
 
 ```powershell-interactive
-   $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
+   $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
      -Name "rateLimitRule" `
      -RuleType RateLimitRule `
      -MatchCondition $promoMatchCondition `

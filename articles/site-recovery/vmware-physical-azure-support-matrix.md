@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 514aaaf7a274e60a17bbae62b3c62e7cf3668e7a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540594"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237305"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -33,7 +33,7 @@ Herstel na noodgeval voor fysieke servers | Replicatie van on-premises Windows/L
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
 VMware | vCenter Server 6.7, 6.5, 6.0 of 5.5 of vSphere 6.7, 6.5, 6.0 of 5.5 | U wordt aangeraden dat u een vCenter-server.<br/><br/> Het is raadzaam dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevinden als de processerver. Wordt standaard de serveronderdelen proces uitgevoerd op de configuratieserver, dus dit is het netwerk waarin u de configuratieserver hebt ingesteld, tenzij u een speciaal toegewezen proces-server instellen.
-Fysiek | N/A
+Fysieke | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery-configuratieserver
 
@@ -46,7 +46,7 @@ RAM | 16 GB
 Aantal schijven | 3-schijven<br/><br/> Schijven bevatten de OS-schijf, cacheschijf proces en bewaarstation voor failback.
 Vrije schijfruimte | 600 GB aan ruimte vereist voor de cache van de processerver.
 Vrije schijfruimte | 600 GB aan ruimte vereist voor het bewaarstation.
-Besturingssysteem  | Windows Server 2012 R2 of WindowsServer 2016 |
+Besturingssysteem  | Windows Server 2012 R2 of Windows Server 2016 met Bureaubladervaring |
 Landinstelling van het besturingssysteem | Engels (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") is niet vereist voor de configuratieserver met versies van [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server-functies | Niet inschakelen: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
@@ -148,7 +148,7 @@ Meerdere NIC's van het netwerk Gast/host-server | Ja.
 
 **Onderdeel** | **Ondersteund**
 --- | ---
-Azure ExpressRoute | Ja
+ExpressRoute van Azure | Ja
 ILB | Ja
 ELB | Ja
 Azure Traffic Manager | Ja
@@ -159,7 +159,7 @@ Bron-IP-adres behouden | Ja
 Azure Virtual Network-service-eindpunten<br/> | Ja
 Versneld netwerken | Nee
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 **Onderdeel** | **Ondersteund**
 --- | ---
 Dynamische schijf | Bewerking schijf moet een standaardschijf. <br/><br/>Gegevensschijven mogen dynamische schijven

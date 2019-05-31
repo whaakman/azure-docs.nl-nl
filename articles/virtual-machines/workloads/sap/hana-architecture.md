@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795966"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239447"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architectuur van SAP HANA (grote instanties) op Azure
 
@@ -34,7 +34,7 @@ De algehele architectuur van SAP HANA op Azure (grote instanties) biedt een SAP 
 
 De architectuur die wordt weergegeven is onderverdeeld in drie secties:
 
-- **juiste**: Geeft een on-premises infrastructuur met verschillende toepassingen in data centers zodat eindgebruikers toegang hebben tot LOB-toepassingen, zoals SAP. In het ideale geval deze on-premises infrastructuur naar Azure met is verbonden [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **juiste**: Geeft een on-premises infrastructuur met verschillende toepassingen in data centers zodat eindgebruikers toegang hebben tot LOB-toepassingen, zoals SAP. In het ideale geval deze on-premises infrastructuur is verbonden met Azure met [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 - **Center**: Toont Azure IaaS en, in dit geval, gebruik van virtuele machines voor het hosten van SAP of andere toepassingen die gebruikmaken van SAP HANA als een DBMS-systeem. Kleinere HANA-instanties die werken met het geheugen waarmee u virtuele machines worden geïmplementeerd in virtuele machines samen met het niveau van hun toepassing. Zie voor meer informatie over virtuele machines, [virtuele machines](https://azure.microsoft.com/services/virtual-machines/).
 
@@ -45,11 +45,11 @@ De architectuur die wordt weergegeven is onderverdeeld in drie secties:
   -  [SAP op virtuele machines van Windows gebruiken](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [SAP-oplossingen op Azure virtual machines gebruiken](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Links**: Bevat de SAP HANA TDI-gecertificeerde hardware in de Azure Large Instance-stempel. De eenheden HANA grote instantie zijn verbonden met de virtuele netwerken van uw abonnement met behulp van dezelfde technologie als de connectiviteit van on-premises naar Azure.
+- **Links**: Bevat de SAP HANA TDI-gecertificeerde hardware in de Azure Large Instance-stempel. De eenheden HANA grote instantie zijn verbonden met de virtuele netwerken van uw Azure-abonnement met behulp van dezelfde technologie als de connectiviteit van on-premises naar Azure. Vanaf mei 2019, hebt u een optimalisatie geïntroduceerd waarmee voor de communicatie tussen de eenheden HANA grote instantie en de Azure VM's zonder tussenkomst van de ExpressRoute-Gateway. Deze optimalisatie ExpressRoute snel pad met de naam wordt weergegeven in deze architectuur (rode lijnen). 
 
 De Azure Large Instance-stempel zelf combineert de volgende onderdelen:
 
-- **Computing**: Servers die zijn gebaseerd op Intel Xeon E7-8890v3 of Intel Xeon E7-8890v4 processors die de benodigde computing mogelijkheid bieden en SAP HANA is gecertificeerd.
+- **Computing**: Servers die zijn gebaseerd op de andere generatie Intel Xeon-processors die de benodigde computing mogelijkheid bieden en SAP HANA is gecertificeerd.
 - **Netwerk**: Een uniforme dankzij het netwerk-fabric die de computing, opslag en LAN-onderdelen met elkaar verbindt.
 - **Opslag**: Een opslaginfrastructuur die toegankelijk is via een uniform netwerk-fabric. De specifieke opslagcapaciteit die wordt geleverd, is afhankelijk van de specifieke SAP HANA op Azure (grote instanties)-configuratie die is geïmplementeerd. Meer opslagcapaciteit is beschikbaar op een extra maandelijkse kosten.
 

@@ -8,16 +8,20 @@ ms.topic: reference
 ms.date: 03/28/2019
 ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9b80f0fd36545de94e7128080dba5e516344c107
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943146"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257500"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS vervulling API's versie 1 (afgeschaft)
 
 In dit artikel wordt uitgelegd hoe u een SaaS-aanbieding maken met API's. De API's bestaan uit REST methoden en -eindpunten zijn nodig voor het toestaan van abonnementen voor uw SaaS-aanbod als u hebt verkopen via Azure geselecteerd.  
+
+> [!IMPORTANT] 
+> SaaS biedt functionaliteit is gemigreerd naar de [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alle nieuwe uitgevers moeten Partner Center gebruiken voor het maken van nieuwe SaaS-aanbiedingen en bestaande aanbiedingen beheren.  Huidige uitgevers met SaaS-aanbiedingen zijn batchwise worden gemigreerd van de Cloud Partner-Portal naar het Partnercentrum.  De Cloud Partner-Portal wordt weergegeven statusberichten om aan te geven wanneer specifieke bestaande aanbiedingen zijn gemigreerd.
+> Zie voor meer informatie, [maken van een nieuwe SaaS-aanbieding](../../partner-center-portal/create-new-saas-offer.md).
 
 > [!WARNING]
 > Deze eerste versie van de vervulling SaaS API is afgeschaft; in plaats daarvan gebruik [SaaS vervulling-API V2](./cpp-saas-fulfillment-api-v2.md).  Deze API is momenteel alleen voor de service aan bestaande uitgevers bijgehouden. 
@@ -27,7 +31,7 @@ De volgende API's zijn bedoeld om u uw SaaS-service te integreren met Azure:
 -   Oplossen
 -   Abonneer u nu
 -   Converteren
--   Afmelden
+-   afmelden
 
 
 ## <a name="api-methods-and-endpoints"></a>API-methoden en eindpunten
@@ -121,7 +125,7 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -186,7 +190,7 @@ Het eindpunt van de wijziging kan de gebruiker van een plan op dat moment geabon
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -250,7 +254,7 @@ De Delete-bewerking op het eindpunt abonneren kan een gebruiker verwijderen van 
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -300,7 +304,7 @@ Dit eindpunt kan een gebruiker voor het bijhouden van de status van een geactive
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{bewerkings-id}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/ *{bewerkings-id}* ?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -334,7 +338,7 @@ Dit eindpunt kan een gebruiker voor het bijhouden van de status van een geactive
 | id                 | String        | ID van de bewerking.                                                                      |
 | status             | Enum          | Status van de bewerking, een van de volgende: `In Progress`, `Succeeded`, of `Failed`.          |
 | resourceLocation   | String        | Koppelen aan het abonnement dat is gemaakt of gewijzigd. Hiermee wordt de client om op te halen van de geüpdate toestand post-bewerking. Deze waarde is niet ingesteld voor `Unsubscribe` bewerkingen. |
-| gemaakt            | DateTime      | Bewerking maken van de tijd in UTC.                                                           |
+| Gemaakt            | DateTime      | Bewerking maken van de tijd in UTC.                                                           |
 | lastModified       | DateTime      | Laatste update voor de bewerking die wordt in UTC.                                                      |
 |  |  |  |
 
@@ -368,7 +372,7 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -406,7 +410,7 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
 | planId                 | String        | Plan-ID die de gebruiker een abonnement op.          |
 | saasSubscriptionName   | String        | De naam van de SaaS-abonnement.                |
 | saasSubscriptionStatus | Enum          | Status van de bewerking.  Een van de volgende:  <br/> - `Subscribed`: Abonnement is actief.  <br/> - `Pending`: Gebruiker maken van de resource, maar deze niet is geactiveerd door de ISV.   <br/> - `Unsubscribed`: Gebruiker heeft zich afgemeld.   <br/> - `Suspended`: Gebruiker heeft het abonnement onderbroken.   <br/> - `Deactivated`:  Azure-abonnement is onderbroken.  |
-| gemaakt                | DateTime      | Abonnement maken van de waarde van het tijdstempel in UTC. |
+| Gemaakt                | DateTime      | Abonnement maken van de waarde van het tijdstempel in UTC. |
 | lastModified           | DateTime      | Abonnement gewijzigd tijdstempelwaarde in UTC. |
 |  |  |  |
 
@@ -478,7 +482,7 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
 | planId                 | String        | Plan-ID die de gebruiker een abonnement op.          |
 | saasSubscriptionName   | String        | De naam van de SaaS-abonnement.                |
 | saasSubscriptionStatus | Enum          | Status van de bewerking.  Een van de volgende:  <br/> - `Subscribed`: Abonnement is actief.  <br/> - `Pending`: Gebruiker maken van de resource, maar deze niet is geactiveerd door de ISV.   <br/> - `Unsubscribed`: Gebruiker heeft zich afgemeld.   <br/> - `Suspended`: Gebruiker heeft het abonnement onderbroken.   <br/> - `Deactivated`:  Azure-abonnement is onderbroken.  |
-| gemaakt                | DateTime      | Abonnement maken van de waarde van het tijdstempel in UTC. |
+| Gemaakt                | DateTime      | Abonnement maken van de waarde van het tijdstempel in UTC. |
 | lastModified           | DateTime      | Abonnement gewijzigd tijdstempelwaarde in UTC. |
 |  |  |  |
 
@@ -529,7 +533,7 @@ Een SaaS-webhook wordt gebruikt voor het melden van wijzigingen proactief in de 
 | offerId                | String        | Aanbiedings-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.        |
 | publisherId                | String        | Uitgevers-ID van de SaaS-aanbieding         |
 | planId                 | String        | Plan-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.          |
-| action                 | String        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
+| Actie                 | String        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
 | timeStamp                 | String        | De waarde van de tijdstempel in UTC waarop deze melding is geactiveerd.          |
 |  |  |  |
 

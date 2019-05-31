@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979355"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237532"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Nalevingsgegevens van Azure-resources ophalen
 
@@ -416,7 +416,8 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
-Als u hebt een [Log Analytics-werkruimte](../../../log-analytics/log-analytics-overview.md) met `AzureActivity` uit de [oplossing Activity Log Analytics](../../../azure-monitor/platform/collect-activity-logs.md) gekoppeld aan uw abonnement, kunt u ook niet-naleving resultaten bekijken via de evaluatie cyclus eenvoudige Kusto-query's en de `AzureActivity` tabel. Met de informatie in Azure Monitor-Logboeken, kunnen waarschuwingen worden geconfigureerd als u wilt bekijken voor niet-naleving.
+Als u hebt een [Log Analytics-werkruimte](../../../log-analytics/log-analytics-overview.md) met `AzureActivity` uit de [oplossing Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) gekoppeld aan uw abonnement, kunt u ook niet-naleving resultaten bekijken via de evaluatie cyclus eenvoudige Kusto-query's en de `AzureActivity` tabel. Met de informatie in Azure Monitor-Logboeken, kunnen waarschuwingen worden geconfigureerd als u wilt bekijken voor niet-naleving.
+
 
 ![Azure naleving van het beleid met behulp van Azure Monitor-Logboeken](../media/getting-compliance-data/compliance-loganalytics.png)
 

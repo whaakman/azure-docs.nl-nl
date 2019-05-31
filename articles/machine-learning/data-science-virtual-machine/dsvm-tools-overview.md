@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597093"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236466"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Maak kennis met de virtuele Machine voor Datatechnologie
 
@@ -30,7 +30,7 @@ De Data Science Virtual Machine (DSVM) bevat een uitgebreide lijst met populaire
 De DSVM bevat ook meerdere codevoorbeelden en walkthroughs in de vorm van een Jupyter-notitieblokken die lokaal kan worden uitgevoerd. Er is ook documentatie voor deze voorbeelden om te helpen begrip. 
 
 > [!NOTE]
-> U kunt [Azure notitieblokken](/azure/notebooks/azure-notebooks-overview.md) maken, uitvoeren en delen van Jupyter notebooks onder in de cloud. U kunt [een Data Science VM koppelen aan Azure-notitieblokken](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) om uit te breiden, de beschikbare compute-kracht.
+> U kunt [Azure notitieblokken](/azure/notebooks/azure-notebooks-overview) maken, uitvoeren en delen van Jupyter notebooks onder in de cloud. U kunt [een Data Science VM koppelen aan Azure-notitieblokken](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) om uit te breiden, de beschikbare compute-kracht.
 
 De hulpprogramma's, platforms, hulpprogramma's en voorbeelden die zijn opgenomen in de Data Science VM zijn ingedeeld in de volgende secties:
 

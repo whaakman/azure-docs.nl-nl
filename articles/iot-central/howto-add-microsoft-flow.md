@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468002"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235806"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Werkstromen bouwen met de IoT Central-connector in Microsoft Flow
 
@@ -41,7 +41,7 @@ Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen i
 
     ![Maak een nieuwe Microsoft Flow-actie](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Hier ziet u een lijst met werkstromen tha u toegang hebt tot en zijn gekoppeld aan deze regel IoT Central. Klik op **sjablonen verkennen** of **New > maken op basis van sjabloon** en u kunt kiezen uit een van de beschikbare sjablonen. 
+1. Hier ziet u een lijst met werkstromen die u hebt toegang tot en zijn gekoppeld aan deze regel IoT Central. Klik op **sjablonen verkennen** of **New > maken op basis van sjabloon** en u kunt kiezen uit een van de beschikbare sjablonen. 
 
     ![Beschikbare sjablonen voor Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
@@ -149,7 +149,7 @@ Hier volgt een voorbeeldwerkstroom die Hiermee verwijdert u een apparaat op de p
 
    ![Werkstroom voor de apparaten van stroom verwijderen](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u problemen bij het maken van een verbinding met de Azure IoT Central-connector ondervindt, volgen hier enkele tips om u te helpen.
 

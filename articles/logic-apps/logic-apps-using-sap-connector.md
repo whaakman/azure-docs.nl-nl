@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541494"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258155"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Verbinding maken met SAP-systemen in Azure Logic Apps
 
@@ -119,6 +119,8 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
       Als de **aanmeldingstype** eigenschap is ingesteld op **groep**, deze eigenschappen, die doorgaans optioneel verschijnen, zijn vereist:
 
       ![SAP bericht serververbinding maken](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+      Standaard wordt sterke typering die gebruikt om te controleren op ongeldige waarden door te voeren van XML-validatie op basis van het schema. Dit gedrag kunt u problemen eerder detecteren. De **veilige typen** optie is beschikbaar voor achterwaartse compatibiliteit en de lengte van de tekenreeks wordt alleen gecontroleerd. Meer informatie over de [ **veilige typen** optie](#safe-typing).
 
    1. Wanneer u klaar bent, kiest u **Maken**.
 
@@ -225,6 +227,8 @@ Dit voorbeeld wordt een logische app die wordt geactiveerd wanneer een bericht o
 
       ![SAP bericht serververbinding maken](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
+      Standaard wordt sterke typering die gebruikt om te controleren op ongeldige waarden door te voeren van XML-validatie op basis van het schema. Dit gedrag kunt u problemen eerder detecteren. De **veilige typen** optie is beschikbaar voor achterwaartse compatibiliteit en de lengte van de tekenreeks wordt alleen gecontroleerd. Meer informatie over de [ **veilige typen** optie](#safe-typing).
+
 1. Geef de vereiste parameters op basis van de configuratie van uw SAP-systeem.
 
    U kunt desgewenst een of meer SAP-acties. Deze lijst met acties Hiermee geeft u de berichten die de trigger van uw SAP-server via de gegevensgateway ontvangt. Een lege lijst geeft aan dat alle berichten worden ontvangen door de trigger. Als de lijst meer dan één bericht heeft, ontvangt de trigger alleen de berichten die zijn opgegeven in de lijst. Andere berichten van uw SAP-server worden geweigerd door de gateway.
@@ -306,7 +310,11 @@ Kies **Opslaan** op de werkbalk van de ontwerper.
 
       ![SAP bericht serververbinding maken](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. Wanneer u klaar bent, kiest u **Maken**. Logic Apps wordt ingesteld en test de verbinding, ervoor te zorgen dat de verbinding naar behoren werkt.
+      Standaard wordt sterke typering die gebruikt om te controleren op ongeldige waarden door te voeren van XML-validatie op basis van het schema. Dit gedrag kunt u problemen eerder detecteren. De **veilige typen** optie is beschikbaar voor achterwaartse compatibiliteit en de lengte van de tekenreeks wordt alleen gecontroleerd. Meer informatie over de [ **veilige typen** optie](#safe-typing).
+
+   1. Wanneer u klaar bent, kiest u **Maken**. 
+   
+      Logic Apps wordt ingesteld en test de verbinding, ervoor te zorgen dat de verbinding naar behoren werkt.
 
 1. Het pad naar het artefact waarvan u wilt voor het genereren van het schema opgeven.
 
@@ -397,11 +405,58 @@ Om in te schakelen SNC voor uw aanvragen naar of van SAP-systeem, selecteert u d
    | **SNC EENMALIGE AANMELDING** | Wanneer u verbinding maakt via SNC, wordt de identiteit van de SNC wordt doorgaans gebruikt voor het verifiëren van de oproepende functie. Een andere optie is om op te heffen, zodat de gebruiker en het wachtwoord kan worden gebruikt voor het verifiëren van de oproepende functie, maar de regel is nog steeds versleuteld. |
    | **SNC mijn naam** | In de meeste gevallen kan deze eigenschap worden weggelaten. De geïnstalleerde SNC-oplossing kent doorgaans een eigen SNC-naam. Alleen voor oplossingen voor 'meerdere identiteiten' ondersteunen, moet u mogelijk de identiteit moet worden gebruikt voor deze specifieke bestemming of de server opgeven. |
    | **Naam van SNC-Partner** | De naam van de back-end SNC |
-   | **SNC-kwaliteit van beveiliging** | Quality of Service die moet worden gebruikt voor SNC-communicatie van deze specifieke doel/server-combinatie. Standaardwaarde is gedefinieerd door het endsysteem back. De maximale waarde wordt gedefinieerd door de security-product voor SNC gebruikt. |
+   | **SNC-kwaliteit van beveiliging** | De kwaliteit van de Service moet worden gebruikt voor de SNC-communicatie van deze specifieke doelserver. Standaardwaarde is gedefinieerd door het endsysteem back. De maximale waarde wordt gedefinieerd door de security-product voor SNC gebruikt. |
    |||
 
    > [!NOTE]
    > Omgevingsvariabelen SNC_LIB en SNC_LIB_64 mag niet worden ingesteld op de computer waar u een gegevensgateway en SNC-bibliotheek hebt. Als stelt ze voorrang op de SNC-bibliotheek-waarde doorgegeven via de connector hebben zouden.
+
+<a name="safe-typing"></a>
+
+## <a name="safe-typing"></a>Veilige typen
+
+Standaard wordt sterke typering die bij het maken van uw SAP-verbinding gebruikt om te controleren op ongeldige waarden door te voeren van XML-validatie op basis van het schema. Dit gedrag kunt u problemen eerder detecteren. De **veilige typen** optie is beschikbaar voor achterwaartse compatibiliteit en de lengte van de tekenreeks wordt alleen gecontroleerd. Als u ervoor kiest **veilige typen**, het type DATS en TIM voert SAP worden behandeld als tekenreeksen in plaats van de XML-equivalenten `xs:date` en `xs:time` waar `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Veilige typen is van invloed op het gedrag voor alle schema genereren, voor zowel de nettolading van de 'is verzonden' en de reactie: is ontvangen', en het activeren van het bericht verzenden. 
+
+Wanneer de sterke typering die wordt gebruikt (**veilige typen** niet ingeschakeld), het schema wordt de typen DATS en TIM toegewezen aan twee typen XML-typen:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+Bij het verzenden van berichten met sterke typering, wordt het antwoord DATS en TIM voldoet aan de overeenkomstige XML-type-indeling:
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+Wanneer **veilige typen** is ingeschakeld, wordt het schema toegewezen de DATS en TIM typen naar XML string velden met alleen de beperkingen voor de lengte, bijvoorbeeld:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+Bij het verzenden van berichten met **veilige typen** ingeschakeld, het antwoord DATS en TIM ziet eruit zoals in dit voorbeeld:
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## <a name="known-issues-and-limitations"></a>Bekende problemen en beperkingen
 

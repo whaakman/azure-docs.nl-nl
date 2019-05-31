@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477207"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393857"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor SQL Server Azure VM 's
 
@@ -59,9 +59,9 @@ Als u een niet-lightweight productieworkload hebt, gebruikt u een van de volgend
 |-----|-----|
 | Web | Kleine web sites |
 | Standard | Kleine tot middelgrote workloads |
-| Enterprise | Grote of uw essentiële workloads|
+| Zakelijk | Grote of uw essentiële workloads|
 
-U hebt twee opties om te betalen voor SQL Server-licenties voor deze edities: *betaalt per gebruik* of *uw eigen licentie (BYOL)*.
+U hebt twee opties om te betalen voor SQL Server-licenties voor deze edities: *betaalt per gebruik* of *uw eigen licentie (BYOL)* .
 
 ## <a name="pay-per-usage"></a>Betalen per gebruik
 
@@ -99,7 +99,7 @@ Voor het maken van een SQL Server 2017 Azure VM met een van de betalen per gebru
 **Uw eigen SQL Server-licentie brengen License Mobility through**, ook wel **BYOL**houdt met behulp van een bestaande SQL Server-Volume-licentie met Software Assurance in een Azure-VM. Een SQL Server-VM met BYOL alleen kosten in rekening gebracht voor de kosten van het uitvoeren van de virtuele machine, niet voor SQL Server-licentieverlening, gezien het feit dat u al licenties en Software Assurance hebt aangeschaft via een Volume Licensing-programma.
 
 > [!IMPORTANT]
-> BYOL-installatiekopieën vereist een Enterprise Agreement met Software Assurance. Ze zijn op dit moment niet beschikbaar als onderdeel van de Azure Cloud Solution Partner (CSP).
+> BYOL-installatiekopieën vereist een Enterprise Agreement met Software Assurance. Ze zijn op dit moment niet beschikbaar als onderdeel van de Azure Cloud Solution Partner (CSP). CSP-klanten kunnen hun eigen licentie meenemen door het implementeren van een installatiekopie van betalen per gebruik en vervolgens het inschakelen van de [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md).
 
 > [!NOTE]
 > De BYOL-installatiekopieën zijn momenteel alleen beschikbaar voor Windows virtuele machines. U kunt echter handmatig SQL Server installeren op een alleen-Linux-VM. Zie de richtlijnen in de [Veelgestelde vragen over Linux SQL VM](../../linux/sql/sql-server-linux-faq.md).
@@ -141,7 +141,7 @@ De licentiekosten van SQL Server is direct gerelateerd aan het aantal vcpu's. Ki
 
 Er zijn nieuwe machinegrootten die goed met bepaalde typen SQL Server-workloads werken. Deze grootten machines onderhouden hoge mate van geheugen, opslag- en i/o-bandbreedte, maar ze hebben een lagere gevirtualiseerde kerngeheugens. Bijvoorbeeld, houd rekening met het volgende voorbeeld:
 
-| VM-grootte | vCPU's | Geheugen | Maximum aantal schijven | Max. i/o-doorvoer | SQL-licentiekosten | Totale kosten (Compute + licentieverlening) |
+| VM-grootte | vcpu 's | Geheugen | Maximum aantal schijven | Max. i/o-doorvoer | SQL-licentiekosten | Totale kosten (Compute + licentieverlening) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOP's of 768 MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOP's of 768 MB/s | 75% lagere | 57% lagere |

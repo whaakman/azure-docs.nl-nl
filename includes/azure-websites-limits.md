@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: c2db5740d6373c8f6be5dabe0260fe7f99575641
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553770"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238163"
 ---
 | Resource | Gratis | Gedeeld | Basic | Standard | Premium (v2) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -22,14 +22,14 @@ ms.locfileid: "57553770"
 | CPU-tijd (dag)<sup>6</sup> |60 minuten |240 minuten |Onbeperkte, betaal normale [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |Onbeperkte, betaal normale [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |Onbeperkte, betaal normale [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |Onbeperkte, betaal normale [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |
 | Geheugen (1 uur) |1024 MB per App Service-plan |1024 MB per app |N/A |N/A |N/A |N/A |
 | Bandbreedte |165 MB |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |
-| Toepassingsarchitectuur |32-bits |32-bits |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
+| Toepassingsarchitectuur |32-bit |32-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Web-sockets per exemplaar<sup>7</sup> |5 |35 |350 |Onbeperkt |Onbeperkt |Onbeperkt |
 | Gelijktijdige [verbindingen het foutopsporingsprogramma](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per toepassing |1 |1 |1 |5 |5 |5 |
 | App Service-certificaten per abonnement<sup>10</sup>| Niet ondersteund | Niet ondersteund |10 |10 |10 |10 |
 | Aangepaste domeinen per app</a> |0 (alleen azurewebsites.net-subdomein)|500 |500 |500 |500 |500 |
 | Aangepast domein [SSL-ondersteuning](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Niet ondersteund, jokertekencertificaat voor *. azurewebsites.net standaard beschikbaar zijn|Niet ondersteund, jokertekencertificaat voor *. azurewebsites.net standaard beschikbaar zijn|Onbeperkt aantal SNI SSL-verbindingen |Onbeperkt aantal SNI SSL en 1 IP SSL-verbindingen opgenomen |Onbeperkt aantal SNI SSL en 1 IP SSL-verbindingen opgenomen | Onbeperkt aantal SNI SSL en 1 IP SSL-verbindingen opgenomen|
 | Geïntegreerde belastingverdeler | |X |X |X |X |X<sup>9</sup> |
-| [Altijd ingeschakeld](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
+| [Altijd ingeschakeld](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Geplande back-ups](../articles/app-service/manage-backup.md) | | | | Geplande back-ups elke 2 uur maximaal 12 back-ups per dag (handmatige + gepland) | Geplande back-ups elk uur een maximum van 50 back-ups per dag (handmatige + gepland) | Geplande back-ups elk uur een maximum van 50 back-ups per dag (handmatige + gepland) |
 | [Automatisch schalen](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: e5d7ff8513a0659ca1107b9baf07cdf4bac4b807
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8e3d12db8d2500a2675e451580bee7072d22d41c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688635"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225433"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -38,50 +38,9 @@ Nadat u een server maakt, het aantal vCores, hardware genereren en prijzen laag 
 
 ## <a name="compute-generations-and-vcores"></a>Bewerkingen voor COMPUTE en vCores
 
-COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU van de onderliggende hardware. Op dit moment, kunt u kiezen uit twee bewerkingen voor compute, Gen 4 en Gen 5. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors voor 2,4 GHz. Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2,3 GHz-processors. Gen 4 en Gen 5 zijn beschikbaar in de volgende regio's ('X' geeft aan beschikbaar).
+COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU van de onderliggende hardware. China Oost 1, China-Noord 1, US DoD-centraal en VS DoD Oost gebruikmaken van Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors voor 2,4 GHz. Alle andere regio's gebruikmaken van Gen 5 logische CPU's die zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2,3 GHz-processors.
 
-| **Azure-regio** | **Gen 4** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| US - centraal |  | X |
-| US - oost |  | X |
-| US - oost 2 |  | X |
-| US - noord-centraal |  | X |
-| US - zuid-centraal |  | X |
-| US - west |  | X |
-| US - west 2 |  | X |
-| Brazilië - zuid |  | X |
-| Canada - midden |  | X |
-| Canada - oost |  | X |
-| Europa - noord |  | X |
-| Europa -west |  | X |
-| Frankrijk - centraal |  | X |
-| Verenigd Koninkrijk Zuid |  | X |
-| Verenigd Koninkrijk West |  | X |
-| Azië - oost |  | X |
-| Azië - zuidoost |  | X |
-| Australië - oost |  | X |
-| Australië - centraal |  | X |
-| Australië - centraal 2 |  | X |
-| Australië - zuidoost |  | X |
-| India - centraal |  | X |
-| India - zuid |  | X |
-| India - west |  | X |
-| Japan - oost |  | X |
-| Japan - west |  | X |
-| Korea - centraal |  | X |
-| Korea - zuid |  | X |
-| China Oost 1 | X |  |
-| China - oost 2 |  | X |
-| China North 1 | X |  |
-| China - noord 2 |  | X |
-| Duitsland - centraal |  | X |
-| US DoD - centraal  | X |  |
-| US DoD - oost  | X |  |
-| VS (overheid) - Arizona |  | X |
-| VS (overheid) - Texas |  | X |
-| VS (overheid) - Virginia |  | X |
-
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar zijn voor uw Azure Database voor MySQL-server. De opslag wordt gebruikt voor de databasebestanden, tijdelijke bestanden transactielogboeken en de MySQL-server zich aanmeldt. De totale hoeveelheid opslag die u inricht definieert ook de i/o-capaciteit beschikbaar voor uw server.
 
@@ -92,17 +51,25 @@ De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar zijn voor
 | Maximale grootte van de verhoging | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabele |3 IOPS/GB<br/>Min 100 IOPS<br/>Max. aantal 6000 IOP 's | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max. aantal 6000 IOP 's |
 
-U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server. De Basic-laag biedt geen een garantie IOPS. In het algemeen gebruik en geoptimaliseerd voor geheugen Prijscategorieën, schalen de IOPS-waarde met de grootte van de ingerichte opslag in een verhouding van 3:1.
+U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server, en dat het systeem om te groeien opslag automatisch op basis van het opslagverbruik van uw workload. De Basic-laag biedt geen een garantie IOPS. In het algemeen gebruik en geoptimaliseerd voor geheugen Prijscategorieën, schalen de IOPS-waarde met de grootte van de ingerichte opslag in een verhouding van 3:1.
 
 U kunt uw i/o-gebruik in Azure portal of met behulp van Azure CLI-opdrachten kunt bewaken. De relevante metrische gegevens voor het bewaken van zijn [-limiet voor opslag, opslagpercentage, opslag die wordt gebruikt en i/o-percentage](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
 
-De server wordt als alleen-lezen gemarkeerd wanneer de beschikbare opslagruimte kleiner is dan 5 GB of 5% van de ingerichte opslag, al naar gelang wat kleiner is. Bijvoorbeeld, als u 100 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 95 GB, de server is gemarkeerd als alleen-lezen. Als u in een ander geval 5 GB aan opslagruimte hebt ingericht, wordt de server als alleen-lezen gemarkeerd indien de beschikbare opslagruimte minder dan 250 MB wordt.  
+Servers met minder dan 100 GB ingerichte opslag zijn gemarkeerd als alleen-lezen als de vrije opslagruimte kleiner dan 512MB of 5% van de ingerichte opslaggrootte is. Servers met meer dan 100 GB ingerichte opslag zijn gemarkeerd als gelezen alleen wanneer de vrije opslagruimte minder dan 5 GB is.
+
+Bijvoorbeeld, als u 110 GB aan opslagruimte hebt ingericht, en het gebruik van de werkelijke gaat via 105 GB, de server is gemarkeerd als alleen-lezen. U kunt ook als u 5 GB aan opslag hebt ingericht, is de server gemarkeerd alleen-lezen wanneer de vrije opslagruimte kleiner zijn dan 512 MB bereikt.
 
 Terwijl de service probeert om de server alleen-lezen te maken, worden alle nieuwe transactieaanvragen voor schrijven geblokkeerd en worden bestaande actieve transacties verder uitgevoerd. Indien de server op alleen-lezen is ingesteld, zullen alle daaropvolgende schrijfbewerkingen en transactiedoorvoeringen mislukken. Leesquery’s blijven gewoon werken. Pas nadat u de ingerichte opslagruimte hebt vergroot, is de server weer klaar om nieuwe schrijftransacties te accepteren.
 
-U wordt aangeraden dat u een waarschuwing instellen om u te waarschuwen als de opslag van uw server bijna de drempelwaarde is bereikt, zodat u kunt te voorkomen dat de status alleen-lezen. Zie voor meer informatie de documentatie over [over het instellen van een waarschuwing](howto-alert-on-metric.md).
+We raden in te schakelen op opslag automatisch vergroten of het instellen van een waarschuwing om u te waarschuwen als de opslag van uw server bijna is bereikt voor de drempelwaarde zodat u kunt te voorkomen dat de status alleen-lezen. Zie voor meer informatie de documentatie over [over het instellen van een waarschuwing](howto-alert-on-metric.md).
+
+### <a name="storage-auto-grow"></a>Opslag automatisch vergroten
+
+Als opslag automatisch vergroten is ingeschakeld, de opslag automatisch meeschaalt zonder gevolgen voor de werkbelasting. Voor servers met minder dan 100 GB ingerichte opslag, wordt de ingerichte opslaggrootte verhoogd met 5 GB zodra de vrije opslagruimte lager dan de hoogste waarde van 1 GB of 10% van de ingerichte opslag is. Voor servers met meer dan 100 GB van de ingerichte opslag, wordt de ingerichte opslaggrootte verhoogd van 5% wanneer de vrije opslagruimte lager dan 5% van de ingerichte opslaggrootte is. Maximale opslaglimieten zoals hierboven van toepassing.
+
+Bijvoorbeeld, als u 1000 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 950 GB, de grootte van de server wordt verhoogd tot 1050 GB. U kunt ook als u 10 GB aan opslag hebt ingericht, is de grootte van de verhoogd naar 15 GB wanneer minder dan 1 GB aan opslagruimte gratis is.
 
 ## <a name="backup"></a>Backup
 

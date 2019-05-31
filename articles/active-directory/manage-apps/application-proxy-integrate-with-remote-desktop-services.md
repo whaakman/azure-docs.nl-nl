@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 05/23/2019
 ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecd55cbb3a8eefc150db731901458561d90f033
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783408"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233711"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD Application Proxy publiceren
 
@@ -71,8 +71,9 @@ Na het instellen van extern bureaublad-services en Azure AD-toepassingsproxy voo
    - URL-headers vertalen: Nee
 2. Gebruikers toewijzen aan de gepubliceerde toepassing in de extern bureaublad. Zorg ervoor dat ze alle toegang tot extern bureaublad-services, te hebben.
 3. Laat de methode voor eenmalige aanmelding voor de toepassing als **Azure AD eenmalige aanmelding uitgeschakeld**. Uw gebruikers wordt gevraagd om te verifiëren eenmaal naar Azure AD en eenmaal op RD Web, maar hebben eenmalige aanmelding voor extern bureaublad-Gateway.
-4. Ga naar **Azure Active Directory** > **App-registraties** > *uw toepassing* > **instellingen**.
-5. Selecteer **eigenschappen** en bij te werken de **URL van startpagina** veld om te verwijzen naar uw RD-Web-eindpunt (zoals `https://\<rdhost\>.com/RDWeb`).
+4. Selecteer **Azure Active Directory**, en vervolgens **App-registraties**. Kies uw app in de lijst.
+5. Onder **beheren**, selecteer **Branding**.
+6. Update de **URL van startpagina** veld om te verwijzen naar uw RD-Web-eindpunt (zoals `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Extern bureaublad-services verkeer naar toepassingsproxy
 

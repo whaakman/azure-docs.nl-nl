@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544781"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242309"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions-Premium-abonnement (preview)
 
@@ -91,9 +91,9 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>Beschikbare instantie SKU 's
 
-Bij het maken van onze schalen van uw abonnement, kunt u kiezen tussen drie exemplaargrootten.  U wordt gefactureerd voor het totale aantal kernen en geheugen verbruikt per seconde.  Uw app kunt automatisch uitschalen naar meerdere exemplaren, indien nodig.  
+Bij het maken of schalen van uw abonnement, kunt u kiezen tussen drie exemplaargrootten.  U wordt gefactureerd voor het totale aantal kernen en geheugen verbruikt per seconde.  Uw app kunt automatisch uitschalen naar meerdere exemplaren, indien nodig.  
 
-|SKU|Kerngeheugens|Geheugen|Storage|
+|SKU|Kerngeheugens|Geheugen|Opslag|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7GB|250 GB|
@@ -113,13 +113,13 @@ Hieronder vindt u de momenteel ondersteunde regio's voor de openbare preview.
 |US - oost 2|
 |Frankrijk - centraal|
 |Japan - west|
-|Korea Centraal|
+|Korea - centraal|
 |US - noord-centraal|
 |Europa - noord|
 |US - zuid-centraal|
 |India - zuid|
 |Azië - zuidoost|
-|VK West|
+|Verenigd Koninkrijk West|
 |Europa -west|
 |India - west|
 |US - west|

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145901"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248882"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -141,19 +141,9 @@ Voor beheerde schijven kan niet u deze wijzigen. U mag een niet-beheerde schijf 
 
 GPT partitioneren kan alleen op gegevensschijven, niet de OS-schijven worden gebruikt. Besturingssysteemschijven moeten de partitiestijl MBR gebruiken.
 
-## <a name="uploading-to-a-managed-disk"></a>Uploaden naar een beheerde schijf
+**Welke schijftypen ondersteuning voor momentopnamen?**
 
-**Kan ik gegevens uploaden naar een bestaande beheerde schijf**
-
-Nee, het uploaden kan alleen worden gebruikt tijdens het maken van een nieuwe lege schijf met de **ReadyToUpload** staat.
-
-**Kan ik een schijf koppelen aan een virtuele machine terwijl het in een Uploadstatus?**
-
-Nee.
-
-**Kan ik een momentopname van een beheerde schijf maken in een Uploadstatus?**
-
-Nee.
+Premium SSD-, standard-SSD- en standard-SSD ondersteuning voor momentopnamen, zonder een maximale grootte. U kunt dus momentopname grote schijven (maximaal 32 TiB). Ultra SSD's bieden geen ondersteuning voor momentopnamen.
 
 ## <a name="standard-ssd-disks"></a>Standard-SSD-schijven
 
@@ -201,7 +191,7 @@ Nee, Standard-SSD-schijven zijn alleen beschikbaar als beheerde schijven.
 **Standard-SSD-schijven bieden ondersteuning voor 'single instance VM SLA'?**
 Nee, Standard-SSD's geen enkel exemplaar VM SLA. Premium-SSD-schijven gebruiken voor één exemplaar VM SLA.
 
-## <a name="migrate-to-managed-disks"></a>Migreren naar beheerde schijven
+## <a name="migrate-to-managed-disks"></a>Migreren naar Managed Disks
 
 **Zijn er gevolgen van de migratie op de prestaties van Managed Disks?**
 
@@ -353,7 +343,7 @@ Ja.
 
 **Wat zijn de grootste schijfgrootten die worden ondersteund door Azure Backup en Azure Site Recovery-service?**
 
-De grootste schijfgrootte wordt ondersteund door Azure Backup en Azure Site Recovery-service is 4 TiB. Ondersteuning voor de grotere schijven maximaal 32 TiB wordt binnenkort toegevoegd.
+De grootste schijfgrootte wordt ondersteund door Azure Backup en Azure Site Recovery-service is 4 TiB. Ondersteuning voor de grotere schijven maximaal 32 TiB is nog niet beschikbaar.
 
 **Wat zijn de aanbevolen VM-grootten voor grotere schijfgrootten (> 4 TiB) voor Standard-SSD en standaard harde schijven te bereiken geoptimaliseerd schijf-IOPS en bandbreedte?**
 

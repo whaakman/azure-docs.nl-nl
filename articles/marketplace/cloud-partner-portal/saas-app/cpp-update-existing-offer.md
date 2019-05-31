@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 825170be5dc4d1b25980c7d5037d72779169b3cc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834203"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258076"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>Een bestaande aanbieding van de SaaS-toepassing bijwerken
 
@@ -20,6 +20,7 @@ Er zijn verschillende soorten updates die u doen naar uw aanbieding wilt mogelij
 
 > [!IMPORTANT] 
 > SaaS biedt functionaliteit wordt gemigreerd naar de [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alle nieuwe uitgevers moeten Partner Center gebruiken voor het maken van nieuwe SaaS-aanbiedingen en bestaande aanbiedingen beheren.  Huidige uitgevers met SaaS-aanbiedingen zijn batchwise worden gemigreerd van de Cloud Partner-Portal naar het Partnercentrum.  De Cloud Partner-Portal wordt weergegeven statusberichten om aan te geven wanneer specifieke bestaande aanbiedingen zijn gemigreerd.
+> Zie voor meer informatie, [maken van een nieuwe SaaS-aanbieding](../../partner-center-portal/create-new-saas-offer.md).
 
 Er zijn diverse redenen waarom u wilt mogelijk bijwerken van uw aanbieding, zoals:
 

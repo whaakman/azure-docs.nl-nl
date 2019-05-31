@@ -11,32 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002473"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225509"
 ---
-# <a name="dynamic-manifests"></a>Dynamische manifesten
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Manifesten met dynamische Packager vooraf filteren
 
-Media Services biedt **dynamische manifesten** op basis van vooraf gedefinieerde filters. Nadat u hebt filters gedefinieerd (Zie [filters definiëren](filters-concept.md)), uw clients kunnen gebruiken om een specifieke weergave of subquery korte clips van uw video te streamen. Ze zou filter (s) in de streaming-URL opgeven. Filters kunnen worden toegepast op adaptieve bitrate streamingprotocollen: Apple HTTP Live Streaming (HLS), MPEG-DASH en Smooth Streaming. 
+Bij het leveren van adaptive bitrate streaming-inhoud naar apparaten, moet u vaak meerdere versies van een manifest publiceren naar de specifieke apparaatmogelijkheden doel of de beschikbare netwerkbandbreedte. De [dynamische Packager](dynamic-packaging-overview.md) kunt u opgeven de filters die u om specifieke codecs filteren kunnen, oplossingen, bitsnelheden en audio bijhouden combinaties op tijdens het verwijderen van de noodzaak om meerdere kopieën te maken. U hoeft voor het publiceren van een nieuwe URL met een specifieke set filters die zijn geconfigureerd voor uw doelapparaten (iOS, Android, SmartTV of browsers) en de netwerkmogelijkheden (hoge bandbreedte, mobiel of met een lage bandbreedte scenario's). In dit geval clients het streamen van uw inhoud via de queryreeks kunnen bewerken (door op te geven beschikbaar [Asset filters of accountfilters](filters-concept.md)) en filters naar specifieke secties van de stroom van een stroom gebruiken.
 
-De volgende tabel ziet u enkele voorbeelden van URL's met filters:
+Sommige delivery-scenario's vereisen dat u controleert dat de klant is geen toegang tot specifieke sporen te wissen. U kunt bijvoorbeeld niet voor het publiceren van een manifest met HD-nummers naar een specifieke abonnee-laag. Of u wilt verwijderen van de nummers van specifieke adaptieve bitrate (ABR) om te verminderen van kosten voor levering aan een specifiek apparaat die niet voordeel van de nummers hebben veel. In dit geval kan koppelt u een lijst met vooraf gemaakte filters met uw [Streaming-Locator gemaakt](streaming-locators-concept.md) gemaakt. In dit geval clients niet bewerken, hoe de inhoud worden gestreamd, deze wordt gedefinieerd door de **Streaming-Locator gemaakt**.
 
-|Protocol|Voorbeeld|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
+U kunt combineren filteren door op te geven [filters op Streaming-Locator gemaakt](filters-concept.md#associating-filters-with-streaming-locator) + extra apparaat specifieke filters waarmee de client wordt aangegeven in de URL. Dit kan nuttig zijn om te beperken van aanvullende worden bijgehouden, zoals metagegevens of gebeurtenis-streams, audio talen of beschrijvende audionummers zijn. 
+
+Deze mogelijkheid om op te geven van verschillende filters voor uw stroom, biedt een krachtige **dynamische Manifest** manipulatie oplossing om meerdere use-casescenario's voor de doelapparaten. Dit onderwerp wordt uitgelegd concepten met betrekking tot **dynamische manifesten** en bevat voorbeelden van scenario's waarin kunt u deze functie wilt gebruiken.
+
 > [!NOTE]
-> De asset en de standaard-manifest voor de activa wijzigen dynamische manifesten niet. De client kunt kiezen om aan te vragen van een stream met of zonder filters. 
+> De asset en de standaard-manifest voor de activa wijzigen dynamische manifesten niet. 
 > 
-
-Dit onderwerp wordt uitgelegd concepten met betrekking tot **dynamische manifesten** en bevat voorbeelden van scenario's waarin kunt u deze functie wilt gebruiken.
 
 ## <a name="manifests-overview"></a>Overzicht van de manifesten
 
@@ -55,6 +51,16 @@ Zie voor het voorbeeld REST [uploaden, coderen en streamen van bestanden met RES
 U kunt de [Azure Media Player-demo pagina](https://aka.ms/amp) voor het bewaken van de bitrate van een videostream. De demo-pagina wordt weergegeven voor informatie over de diagnostische gegevens in de **Diagnostics** tabblad:
 
 ![Azure Media Player diagnostics][amp_diagnostics]
+ 
+### <a name="examples-urls-with-filters-in-query-string"></a>Voorbeelden: URL's met filters in de queryreeks
+
+Filters kunnen worden toegepast op adaptieve bitrate streamingprotocollen: HLS, MPEG-DASH en Smooth Streaming. De volgende tabel ziet u enkele voorbeelden van URL's met filters:
+
+|Protocol|Voorbeeld|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="rendition-filtering"></a>Weergavefiltering
 
@@ -121,10 +127,6 @@ Als u wilt combineren filters, moet u de filternamen instellen op het manifest/a
 U kunt maximaal drie filters combineren. 
 
 Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
-
-## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
-
-Zie [Filters: koppelen met Streaming-Locators](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Overwegingen en beperkingen
 

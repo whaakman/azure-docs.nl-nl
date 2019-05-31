@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: d0d6a3d9da2768c2d7b04bd9c4a7c24fba9eb65e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 60190e0f8441d52b3d753e1dc79c67f480434dbb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129005"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240261"
 ---
 # <a name="create-an-ios-app"></a>Een iOS-app maken
 
@@ -31,15 +31,14 @@ Deze zelfstudie laat zien hoe u [Azure App Service Mobile Apps](app-service-mobi
 
 Voor het uitvoeren van deze zelfstudie hebt u een Mac en [een Azure-account](https://azure.microsoft.com/pricing/free-trial/) nodig
 
-## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Stap i Een nieuwe back-end voor mobiele apps van Azure maken
+## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="step-ii-configure-the-backend-project"></a>Stap II: De back-endproject configureren
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>De verbinding met een database maken en configureren van het project client en server
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="step-iii-download-and-run-the-ios-app"></a>Stap III: De iOS-app downloaden en uitvoeren
+## <a name="run-the-ios-app"></a>De iOS-app uitvoeren
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

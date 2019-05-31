@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410051"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234987"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestaties afstemmen voor virtuele Azure-machines
 
@@ -79,7 +79,7 @@ Houd er rekening mee dat de MTU verhogen niet per se een efficiëntere netwerk g
 
 #### <a name="azure-and-vm-mtu"></a>Azure en de MTU van de virtuele machine
 
-De MTU voor Azure VM's van de standaardwaarde is 1500 bytes. De Azure Virtual Network-stack probeert het fragment van een pakket 1.400 bytes. Maar de virtuele-netwerkstack kunnen pakketten tot 2,006 bytes als het Fragment niet-bit is ingesteld in de IP-header.
+De MTU voor Azure VM's van de standaardwaarde is 1500 bytes. De Azure Virtual Network-stack probeert het fragment van een pakket 1.400 bytes.
 
 Houd er rekening mee dat de virtuele netwerkstack niet inherent inefficiënt omdat deze pakketten op 1.400 bytes fragmenten, zelfs als de virtuele machines hebben een MTU van 1500. Een groot percentage van netwerkpakketten veel kleiner is dan 1.400 of 1500 bytes zijn.
 
@@ -256,7 +256,7 @@ Omdat een grotere MTU een grotere MSS betekent, kunt u zich afvragen of het verh
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Versnelde netwerken en aan de ontvangstzijde
 
-#### <a name="accelerated-networking"></a>Versnelde netwerken
+#### <a name="accelerated-networking"></a>Versneld netwerken
 
 Virtuele machine-netwerkfuncties zijn in het verleden CPU intensieve op zowel de Gast-VM en de hypervisorhost. Elk pakket dat passages via de host wordt verwerkt in software door de host CPU, met inbegrip van alle virtuele netwerk inkapselen en uitpakken. Dus meer gaat het verkeer dat via de host, hoe hoger CPU-belasting. En als de host CPU Bezig met andere bewerkingen is, die ook van invloed op netwerkdoorvoer en latentie. Azure lost dit probleem met versneld netwerken.
 
@@ -264,7 +264,7 @@ Versneld netwerken biedt consistente ultralow netwerklatentie via de interne pro
 
 Versneld netwerken verbetert de prestaties doordat de Gast-VM omzeilen van de host en een gegevenspad rechtstreeks met een host SmartNIC tot stand brengen. Hier volgen enkele voordelen van versneld netwerken:
 
-- **Lagere latentie / hoger pakketten per seconde (pps)**: De virtuele switch verwijderen uit het gegevenspad elimineert de tijd die pakketten in de host voor de beleidsverwerking van besteden en het aantal pakketten dat kan worden verwerkt in de virtuele machine wordt verhoogd.
+- **Lagere latentie / hoger pakketten per seconde (pps)** : De virtuele switch verwijderen uit het gegevenspad elimineert de tijd die pakketten in de host voor de beleidsverwerking van besteden en het aantal pakketten dat kan worden verwerkt in de virtuele machine wordt verhoogd.
 
 - **Minder jitter**: Verwerking van de virtuele switch, is afhankelijk van de hoeveelheid beleid die moet worden toegepast en de werkbelasting van de CPU dat de verwerking. Offloading van het afdwingen van beleid voor de hardware verwijdert die variabiliteit door het leveren van pakketten rechtstreeks naar de virtuele machine, zodat de communicatie van de host-VM en alle software-interrupts en context switches.
 

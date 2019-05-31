@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: e1cd7d9e135f5e3196f02237076c5c8069048fb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 199ce2fe24d76595493dc2128cebb3fcb642fcab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442729"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241149"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindingen voor Azure Functions
 
@@ -330,7 +330,7 @@ De Service Bus-trigger bevat diverse [metagegevenseigenschappen](./functions-bin
 |`CorrelationId`|`string`|De correlatie-ID.|
 
 > [!NOTE]
-> Trigger werkt op dit moment alleen met wachtrijen en abonnementen die niet van sessies gebruikmaken. Neem bijhouden [dit item functie](https://github.com/Azure/azure-functions-host/issues/563) voor alle verdere updates met betrekking tot deze functie. 
+> Service bus-trigger die geschikt is voor de sessie is ingeschakeld, wachtrijen en abonnementen is momenteel in preview. Neem bijhouden [dit item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) voor alle verdere updates met betrekking tot dit. 
 
 Zie [codevoorbeelden](#trigger---example) die eerder in dit artikel gebruikmaken van deze eigenschappen.
 

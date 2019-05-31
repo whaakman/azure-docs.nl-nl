@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30bbddd044d1aea70e43825035c94b69a46f1f8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935835"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307047"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Wat is Azure AD Identity Governance?
 
@@ -84,6 +84,6 @@ U kunt ook het tabblad aan de slag van uitchecken **Identiteitsbestuur** in de A
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Wat is Azure AD recht management? (Preview)](entitlement-management-overview.md)
-- [Wat zijn Azure AD-toegang beoordeelt?](access-reviews-overview.md)
+- [Wat zijn toegangsbeoordelingen in Azure Active Directory?](access-reviews-overview.md)
 - [Wat is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 - [Wat kan ik doen met Gebruiksvoorwaarden?](active-directory-tou.md)

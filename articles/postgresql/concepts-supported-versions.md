@@ -1,20 +1,20 @@
 ---
-title: Ondersteunde versies in Azure Database for PostgreSQL
-description: Beschrijft de ondersteunde versies in Azure Database voor PostgreSQL.
+title: Ondersteunde versies in Azure Database for PostgreSQL - één Server
+description: Beschrijft de ondersteunde versies in Azure Database voor PostgreSQL - één Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 16064d662c5b101e30f8d2fbb64b39db0848f49f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: 4dcbaf159fce6b5f5495a6a25a2a3420cad9e5e8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702313"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067265"
 ---
 # <a name="supported-postgresql-database-versions"></a>Ondersteunde versies van de PostgreSQL-database
-Microsoft beoogt ter ondersteuning van n-2 versies van de PostgreSQL-engine in de Azure Database for PostgreSQL-service. De versies worden de huidige primaire versie van Azure (n) en de twee voorgaande primaire versies (-2).
+Microsoft beoogt ter ondersteuning van n-2 versies van de PostgreSQL-engine in Azure Database voor PostgreSQL - één Server. De versies worden de huidige primaire versie van Azure (n) en de twee voorgaande primaire versies (-2).
 
 Azure Database voor PostgreSQL ondersteunt momenteel de volgende versies:
 

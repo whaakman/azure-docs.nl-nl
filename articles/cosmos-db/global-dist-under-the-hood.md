@@ -4,15 +4,15 @@ description: In dit artikel vindt u technische gegevens met betrekking tot werel
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c490657eb67a34e79c8dbaea31cb59b49cc6448e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071947"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241093"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globale gegevensdistributie met Azure Cosmos DB - achter de schermen
 
@@ -68,7 +68,7 @@ We maken gebruik van gecodeerde vector klokken (regio-ID en de logische klokken 
 
 Voor de Cosmos-databases is geconfigureerd met meerdere regio's voor schrijven en biedt het systeem een aantal flexibele automatische conflict resolutie beleidsregels voor de ontwikkelaars om de verkeersbelasting, met inbegrip van: 
 
-- **Laatste schrijven Wins (LWW)**, die maakt standaard gebruik van een systeem gedefinieerde tijdstempeleigenschap (die is gebaseerd op het clock voor tijdsynchronisatie protocol). Cosmos DB kunt u een andere aangepaste numerieke eigenschap moet worden gebruikt voor conflictoplossing opgeven.  
+- **Laatste schrijven Wins (LWW)** , die maakt standaard gebruik van een systeem gedefinieerde tijdstempeleigenschap (die is gebaseerd op het clock voor tijdsynchronisatie protocol). Cosmos DB kunt u een andere aangepaste numerieke eigenschap moet worden gebruikt voor conflictoplossing opgeven.  
 - **Toepassingsspecifieke (aangepast) conflicteren resolutie beleid** (uitgedrukt via samenvoegen procedures), die is ontworpen voor de toepassing gedefinieerde semantiek afstemming van conflicten. Deze procedures ophalen aangeroepen tijdens de detectie van het schrijven / schrijven veroorzaakt een conflict in het kader van een databasetransactie op de server. Het systeem biedt exact één keer voor het uitvoeren van een procedure samenvoegen als onderdeel van het protocol toezegging garanderen. Er zijn [verschillende resolutie voorbeelden conflicteren](how-to-manage-conflicts.md) beschikbaar voor u af te spelen met.  
 
 ## <a name="consistency-models"></a>Consistentiemodellen

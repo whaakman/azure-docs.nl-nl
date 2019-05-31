@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475861"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234107"
 ---
 # <a name="building-scalable-cloud-databases"></a>Schaalbare clouddatabases bouwen
 
-Uitschalen databases kan gemakkelijk worden gedaan met behulp van schaalbare hulpmiddelen en functies voor Azure SQL Database. In het bijzonder, kunt u de **Elastic Database-clientbibliotheek** naar uitgeschaalde databases maken en beheren. Deze functie kunt u eenvoudig ontwikkelen shard-toepassingen met honderden, of zelfs duizenden — van Azure SQL-databases. [Elastische taken](sql-database-elastic-jobs-powershell.md) kan vervolgens worden gebruikt om u te helpen bij het vereenvoudigen van deze databases.
+Uitschalen databases kan gemakkelijk worden gedaan met behulp van schaalbare hulpmiddelen en functies voor Azure SQL Database. In het bijzonder, kunt u de **Elastic Database-clientbibliotheek** naar uitgeschaalde databases maken en beheren. Deze functie kunt u eenvoudig ontwikkelen shard-toepassingen met honderden, of zelfs duizenden — van Azure SQL-databases.
 
 Downloaden:
 
@@ -54,7 +54,7 @@ Toepassingen die gebruikmaken van uitschalen *sharding* geeft uitdagingen voor z
 - **Shard-Toewijzingsbeheer**: Een speciale database met de naam van de 'shard-Toewijzingsbeheer' wordt gemaakt. Shard-Toewijzingsbeheer is de mogelijkheid voor een toepassing voor het beheren van metagegevens over de shards. Ontwikkelaars kunnen deze functionaliteit gebruiken voor het registreren van databases als shards, beschrijven toewijzingen van afzonderlijke sharding sleutels of sleutelbereiken aan die databases en onderhouden van deze metagegevens als het getal en samenstelling van de databases als gevolg van wijzigingen van de capaciteit zich verder ontwikkelt. Zonder de clientbibliotheek van elastische database moet u besteden veel tijd aan de beheer-code te schrijven bij het implementeren van sharding. Zie voor meer informatie, [Shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md).
 
 - **Gegevensafhankelijke routering**: Stel dat een aanvraag die afkomstig zijn in de toepassing. Op basis van het waarde van de sharding-sleutel van de aanvraag, moet de toepassing om te bepalen van de juiste database op basis van de sleutelwaarde. Deze opent vervolgens een verbinding met de database om de aanvraag te verwerken. Gegevensafhankelijke routering biedt de mogelijkheid om te openen van verbindingen met één eenvoudig aanroep in de shard-toewijzing van de toepassing. Gegevensafhankelijke routering is een ander aspect van infrastructuurcode die nu wordt gedekt door functionaliteit in de clientbibliotheek van elastische database. Zie voor meer informatie, [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md).
-- **Multi-shard query's (MSQ)**: Meerdere shards uitvoeren van query's werkt wanneer een aanvraag verschillende (of alle) shards omvat. De dezelfde T-SQL-code een multi-shard query uitgevoerd op alle shards of een set met shards. De resultaten van de deelnemende shards worden samengevoegd in een algemene resultatenset via semantiek voor UNION ALL. De functionaliteit, die toegankelijk is via de clientbibliotheek handelt vele taken, met inbegrip van: beheer, thread management afhandeling van fouten en tussenliggende resultaten verwerken. MSQ kunnen honderden shards opvragen. Zie voor meer informatie, [meerdere shards uitvoeren van query's](sql-database-elastic-scale-multishard-querying.md).
+- **Multi-shard query's (MSQ)** : Meerdere shards uitvoeren van query's werkt wanneer een aanvraag verschillende (of alle) shards omvat. De dezelfde T-SQL-code een multi-shard query uitgevoerd op alle shards of een set met shards. De resultaten van de deelnemende shards worden samengevoegd in een algemene resultatenset via semantiek voor UNION ALL. De functionaliteit, die toegankelijk is via de clientbibliotheek handelt vele taken, met inbegrip van: beheer, thread management afhandeling van fouten en tussenliggende resultaten verwerken. MSQ kunnen honderden shards opvragen. Zie voor meer informatie, [meerdere shards uitvoeren van query's](sql-database-elastic-scale-multishard-querying.md).
 
 Klanten die gebruikmaken van hulpprogramma's voor elastische databases kunnen in het algemeen verwachten volledige T-SQL-functionaliteit ophalen bij het indienen van shard-lokale bewerkingen in plaats van over meerdere shards bewerkingen die hun eigen heeft.
 

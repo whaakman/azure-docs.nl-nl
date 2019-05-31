@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3957fefb44bd8e4732f74f69d5522bd499100d0b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e50314d80f3b773d2ea3bbc8abd4709b574aae65
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149868"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226230"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>De Application Insights-SDK configureren met ApplicationInsights.config of ApplicationInsights.xml
-De Application Insights .NET SDK bestaat uit een aantal NuGet-pakketten. De [core-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) biedt de API voor het verzenden van telemetrie naar de Application Insights. [Extra pakketten](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieden telemetrie *modules* en *initializers* voor het automatisch bijhouden van telemetrie van uw toepassing en de context. Door het configuratiebestand aanpassen, kunt u inschakelen of uitschakelen telemetrie-modules en initializers, en parameters voor sommige hiervan zijn ingesteld.
+De Application Insights .NET SDK bestaat uit een aantal NuGet-pakketten. De [core-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) biedt de API voor het verzenden van telemetrie naar de Application Insights. [Extra pakketten](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieden telemetrie *modules* en *initializers* voor het automatisch bijhouden van telemetrie van uw toepassing en de context. Door het configuratiebestand aanpassen, kunt u inschakelen of uitschakelen telemetrie-Modules en initializers, en parameters voor sommige hiervan zijn ingesteld.
 
 Het configuratiebestand met de naam `ApplicationInsights.config` of `ApplicationInsights.xml`, afhankelijk van het type van uw toepassing. Er wordt automatisch toegevoegd aan uw project als u [in de meeste versies van de SDK installeren][start]. Dit wordt ook toegevoegd aan een web-app door [Status Monitor op een IIS-server][redfield], of wanneer u de Application Insights selecteren [-extensie voor een Azure-website of virtuele machine](azure-web-apps.md).
 
@@ -30,10 +30,10 @@ Er is niet een gelijkwaardige-bestand om te bepalen de [SDK in een webpagina][cl
 Dit document beschrijft de secties u in de configuratie van ziet het bestand, hoe ze de onderdelen van de SDK, beheren en welke NuGet-pakketten deze onderdelen te laden.
 
 > [!NOTE]
-> ApplicationInsights.config en XML-instructies niet van toepassing op de .NET Core SDK. Voor wijzigingen in een .NET Core-toepassing gebruiken we meestal het bestand appsettings.json. Een voorbeeld hiervan vindt u de [Snapshot Debugger documentatie.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+> ApplicationInsights.config en XML-instructies niet van toepassing op de .NET Core SDK. Voor het configureren van .NET Core-toepassingen, gaat u als volgt [dit](../../azure-monitor/app/asp-net-core.md) handleiding.
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetrie-Modules (ASP.NET)
-Elke module telemetrie een specifiek type gegevens verzamelt en maakt gebruik van de core API om de gegevens te verzenden. De modules worden geïnstalleerd door verschillende NuGet-pakketten, die ook de vereiste regels aan het .config-bestand toevoegen.
+Elke Module telemetrie een specifiek type gegevens verzamelt en maakt gebruik van de core API om de gegevens te verzenden. De modules worden geïnstalleerd door verschillende NuGet-pakketten, die ook de vereiste regels aan het .config-bestand toevoegen.
 
 Er is een knooppunt in het configuratiebestand voor elke module. Als u wilt een module uitschakelen, verwijdert het knooppunt of opmerking het uit.
 
@@ -52,10 +52,12 @@ U kunt ook uw eigen afhankelijkheid bijhouden met behulp van code schrijven de [
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Diagnostische gegevens telemetrie van Application Insights
-De `DiagnosticsTelemetryModule` fouten in de code van de Application Insights-instrumentation zelf worden gemeld. Bijvoorbeeld, als de code heeft geen toegang prestatiemeteritems tot of als een `ITelemetryInitializer` een uitzondering genereert. Met deze module wordt bijgehouden-tracetelemetrie wordt weergegeven in de [diagnostische gegevens doorzoeken][diagnostic]. Diagnostische gegevens verzendt naar dc.services.vsallin.net.
+De `DiagnosticsTelemetryModule` fouten in de code van de Application Insights-instrumentation zelf worden gemeld. Bijvoorbeeld, als de code heeft geen toegang prestatiemeteritems tot of als een `ITelemetryInitializer` een uitzondering genereert. Met deze module wordt bijgehouden-tracetelemetrie wordt weergegeven in de [diagnostische gegevens doorzoeken][diagnostic].
 
+```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet-pakket. Als u alleen dit pakket installeert, wordt het bestand ApplicationInsights.config niet automatisch gemaakt.
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
+```
 
 ### <a name="developer-mode"></a>Modus voor ontwikkelaars
 `DeveloperModeWithDebuggerAttachedTelemetryModule` Hiermee wordt de Application Insights `TelemetryChannel` om gegevens direct, een telemetrie-item op een tijdstip, wanneer een foutopsporingsprogramma is gekoppeld aan het toepassingsproces te verzenden. Hiermee wordt de hoeveelheid tijd tussen het moment dat wanneer uw toepassing worden bijgehouden Telemetrie en wanneer deze wordt weergegeven op de Application Insights-portal. Dit zorgt ervoor dat aanzienlijke overhead in CPU en netwerkbandbreedte.
@@ -91,19 +93,19 @@ Rapporten de [tijd en resultaat antwoordcode](../../azure-monitor/app/asp-net.md
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
-Het pakket Microsoft.ApplicationInsights biedt de [core API](https://msdn.microsoft.com/library/mt420197.aspx) van de SDK. Gebruik deze optie de telemetrie-modules en u kunt ook [gebruiken voor het definiëren van uw eigen telemetrie](../../azure-monitor/app/api-custom-events-metrics.md).
+Het pakket Microsoft.ApplicationInsights biedt de [core API](https://msdn.microsoft.com/library/mt420197.aspx) van de SDK. Gebruik deze optie de telemetrie-Modules en u kunt ook [gebruiken voor het definiëren van uw eigen telemetrie](../../azure-monitor/app/api-custom-events-metrics.md).
 
 * Er is geen vermelding in ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet-pakket. Als u alleen deze NuGet installeert, wordt er geen .config-bestand gegenereerd.
 
 ## <a name="telemetry-channel"></a>Telemetrie-kanaal
-Het kanaal telemetrie beheert buffer en verzenden van telemetrie naar de Application Insights-service.
+De [telemetrie kanaal](telemetry-channels.md) beheert buffer en verzenden van telemetrie naar de Application Insights-service.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` is de standaardkanaal voor services. Deze buffert gegevens in het geheugen.
-* `Microsoft.ApplicationInsights.PersistenceChannel` vormt een alternatief voor consoletoepassingen. Dit bespaart unflushed gegevens naar permanente opslag wanneer uw app wordt afgesloten en deze wordt verzonden wanneer de app wordt opnieuw gestart.
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` is de standaardkanaal voor webtoepassingen. Deze gegevens in het geheugen buffert en wordt gehanteerd probeer mechanismen en lokale schijfopslag voor een meer betrouwbare levering van telemetrie.
+* `Microsoft.ApplicationInsights.InMemoryChannel` is een lichtgewicht telemetrie-kanaal, dat wordt gebruikt als er geen andere kanaal is geconfigureerd. 
 
 ## <a name="telemetry-initializers-aspnet"></a>Telemetrie Initializers (ASP.NET)
-Telemetrie initializers instellen contexteigenschappen die worden verzonden, samen met elk telemetrie-item.
+Telemetrie Initializers instellen contexteigenschappen die worden verzonden, samen met elk telemetrie-item.
 
 U kunt [Schrijf uw eigen initializers](../../azure-monitor/app/api-filtering-sampling.md#add-properties) contexteigenschappen in te stellen.
 
@@ -129,17 +131,17 @@ De standaard initializers worden alle ingesteld door de Web- of WindowsServer Nu
 
     De `<Filters>` id-eigenschappen van de aanvragen instellen.
 * `UserTelemetryInitializer` updates de `Id` en `AcquisitionDate` eigenschappen van `User` context voor alle telemetrie-items met waarden die zijn geëxtraheerd uit de `ai_user` cookie gegenereerd door de Application Insights JavaScript instrumentatie-code die wordt uitgevoerd in een van de gebruiker Browser.
-* `WebTestTelemetryInitializer` Hiermee stelt u de gebruikers-id, de sessie-id en de eigenschappen van synthetische gegevensbron voor HTTP-die afkomstig is van aanvragen [beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md).
+* `WebTestTelemetryInitializer` Hiermee stelt u de gebruikers-ID, de sessie-ID en de eigenschappen van synthetische gegevensbron voor HTTP-die afkomstig is van aanvragen [beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md).
   De `<Filters>` id-eigenschappen van de aanvragen instellen.
 
 Voor .NET-toepassingen die worden uitgevoerd in Service Fabric, u kunt opnemen de `Microsoft.ApplicationInsights.ServiceFabric` NuGet-pakket. Dit pakket bevat een `FabricTelemetryInitializer`, welke Service Fabric-eigenschappen toevoegt aan de telemetrie-items. Zie voor meer informatie de [GitHub-pagina](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) over de eigenschappen die zijn toegevoegd door dit NuGet-pakket.
 
 ## <a name="telemetry-processors-aspnet"></a>Telemetrie-Processors (ASP.NET)
-Telemetrie-processors kunnen filteren en elk telemetrie-item wijzigen voordat deze van de SDK wordt verzonden naar de portal.
+Telemetrie-Processors kunnen filteren en elk telemetrie-item wijzigen voordat deze van de SDK wordt verzonden naar de portal.
 
-U kunt [de processors van uw eigen telemetrie schrijven](../../azure-monitor/app/api-filtering-sampling.md#filtering).
+U kunt [de Processors van uw eigen telemetrie schrijven](../../azure-monitor/app/api-filtering-sampling.md#filtering).
 
-#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>Adaptieve steekproeven telemetrie processor (van 2.0.0-beta3)
+#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>Adaptieve steekproeven telemetrie-Processor (van 2.0.0-beta3)
 Deze optie is standaard ingeschakeld. Als uw app veel telemetrie verzendt, verwijdert deze processor sommige van deze.
 
 ```xml
@@ -156,8 +158,8 @@ De parameter bevat het doel dat het algoritme probeert te bereiken. Elk exemplaa
 
 [Meer informatie over steekproeven](../../azure-monitor/app/sampling.md).
 
-#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Vast aantal steekproeven telemetrie processor (van 2.0.0-beta1)
-Er is ook een standaard [steekproeven telemetrie processor](../../azure-monitor/app/api-filtering-sampling.md) (van 2.0.1):
+#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Vast tarief steekproeven telemetrie-Processor (van 2.0.0-beta1)
+Er is ook een standaard [steekproeven telemetrie Processor](../../azure-monitor/app/api-filtering-sampling.md) (van 2.0.1):
 
 ```XML
 
@@ -261,7 +263,7 @@ Hiermee bepaalt u de Application Insights-resource waarin uw gegevens wordt weer
 
 Als u instellen van de sleutel dynamisch: bijvoorbeeld wilt als u wilt verzenden van resultaten van uw toepassing om verschillende bronnen - kunt u de sleutel van het configuratiebestand weglaten en instellen in code in plaats daarvan.
 
-Om in te stellen de sleutel voor alle exemplaren van de TelemetryClient, stel inclusief standaardtelemetrie voor modules, de sleutel in TelemetryConfiguration.Active. Dit doen in een initialiseringsmethode, zoals global.aspx.cs in een ASP.NET-service:
+Om in te stellen de sleutel voor alle exemplaren van de TelemetryClient, stel inclusief standard telemetrie-Modules, de sleutel in TelemetryConfiguration.Active. Dit doen in een initialiseringsmethode, zoals global.aspx.cs in een ASP.NET-service:
 
 ```csharp
 

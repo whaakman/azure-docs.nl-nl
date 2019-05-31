@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962750"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235357"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Woordenlijst voor Microsoft identity-platform-ontwikkelaars
 
@@ -64,7 +64,7 @@ Als u wilt toestaan dat een toepassing integreren met en het delegeren van ident
 
 Zie [toepassingen integreren met Azure Active Directory] [ AAD-Integrating-Apps] voor meer informatie.
 
-## <a name="authentication"></a>verificatie
+## <a name="authentication"></a>Verificatie
 
 De handeling van een partij voor legitieme referenties, die de basis voor het maken van een beveiligingsprincipal moet worden gebruikt voor identiteits- en toegangsbeheer lastig. Tijdens een [autorisatie voor oauth2](#authorization-grant) bijvoorbeeld de partij die verificatie van de rol van een van beide raakt [resource-eigenaar](#resource-owner) of [clienttoepassing](#client-application), afhankelijk van de Verleen gebruikt.
 
@@ -95,7 +95,7 @@ Zoals gedefinieerd door de [OAuth2-autorisatie-Framework][OAuth2-Role-Def], de s
 
 In het geval van Microsoft identity platform toepassingsintegratie implementeert identiteitsplatform van Microsoft de autorisatie-serverfunctie voor Azure AD-toepassingen en Microsoft-service-API's, bijvoorbeeld [Microsoft Graph-API's] [Microsoft-Graph].
 
-## <a name="claim"></a>claim
+## <a name="claim"></a>Claim
 
 Een [beveiligingstoken](#security-token) claims, waardoor asserties over één entiteit bevat (zoals een [clienttoepassing](#client-application) of [resource-eigenaar](#resource-owner)) met een andere entiteit (zoals de [bronserver](#resource-server)). Claims zijn naam/waarde-paren die informatie over het onderwerp van de token relay (bijvoorbeeld de beveiligings-principal die is geverifieerd door de [autorisatieserver](#authorization-server)). De claims aanwezig zijn in een bepaalde token zijn afhankelijk van verschillende variabelen, met inbegrip van het type token, het type van de referentie die wordt gebruikt voor verificatie van het onderwerp, de configuratie van toepassing, enzovoort.
 
@@ -119,7 +119,7 @@ Een [OpenID Connect] [ OpenIDConnect-ID-Token] [beveiligingstoken](#security-tok
 
 Zie [Microsoft identity platform tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
 
-## <a name="microsoft-identity-platform"></a>Microsoft-identiteitsplatform
+## <a name="microsoft-identity-platform"></a>Microsoft identity-platform
 
 Het Microsoft Identity Platform bouwt voort op de identiteitsservice en het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Met het Microsoft Identity Platform kunnen ontwikkelaars toepassingen maken waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft Graph, andere Microsoft-API's of API's die door ontwikkelaars zijn gemaakt. Het is een volledig functionele-platform, dat uit een authentication-service, bibliotheken, registratie van toepassingen en configuratie, volledige ontwikkelaarsdocumentatie, codevoorbeelden en andere inhoud voor ontwikkelaars bestaat. Het Microsoft Identity Platform biedt ondersteuning voor standaardprotocollen als OAuth 2.0 en OpenID Connect. Zie [over Microsoft identity-platform](about-microsoft-identity-platform.md) voor meer informatie.
 
@@ -142,7 +142,7 @@ Een [clienttoepassing](#client-application) toegang krijgt tot een [bronserver](
 
 Ze ook surface tijdens de [toestemming geven](#consent) proces, zodat de beheerder of de resource-eigenaar voor het toestaan/weigeren van de clienttoegang tot bronnen in hun tenant.
 
-Machtigingsaanvragen zijn geconfigureerd op de 'Application' / 'Instellingen' tabblad de [Azure-portal][AZURE-portal], onder "vereiste machtigingen' door de gewenste 'Gedelegeerde machtigingen' en '-toepassing te selecteren Machtigingen' (de laatste vereist lidmaatschap van de rol globale beheerder). Omdat een [openbare client](#client-application) referenties, kan niet veilig worden gehandhaafd. deze kan alleen overgedragen machtigingen aanvragen terwijl een [vertrouwelijke client](#client-application) biedt de mogelijkheid om aan te vragen gedelegeerd en toepassing machtigingen. Van de client [toepassingsobject](#application-object) slaat de gedeclareerde machtigingen in de [requiredResourceAccess eigenschap][AAD-Graph-App-Entity].
+Machtigingsaanvragen zijn geconfigureerd op de **API-machtigingen** -pagina voor een toepassing in de [Azure-portal][AZURE-portal], door het selecteren van de gewenste 'gedelegeerde machtigingen' en ' Toepassingsmachtigingen"(de laatste vereist lidmaatschap van de rol globale beheerder). Omdat een [openbare client](#client-application) referenties, kan niet veilig worden gehandhaafd. deze kan alleen overgedragen machtigingen aanvragen terwijl een [vertrouwelijke client](#client-application) biedt de mogelijkheid om aan te vragen gedelegeerd en toepassing machtigingen. Van de client [toepassingsobject](#application-object) slaat de gedeclareerde machtigingen in de [requiredResourceAccess eigenschap][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>resource-eigenaar
 
@@ -156,7 +156,7 @@ Een resource-server API's en dwingt de toegang tot de beveiligde bronnen via af 
 
 Net als een clienttoepassing configuratie van de identiteit van de resourcetoepassing wordt tot stand gebracht [registratie](#application-registration) bieden zowel de toepassing en service-principal-object in een Azure AD-tenant. Sommige Microsoft geleverde API's, zoals de Azure AD Graph-API hebt beschikbaar gesteld in alle tenants tijdens het inrichten van service-principals vooraf geregistreerd.
 
-## <a name="roles"></a>rollen
+## <a name="roles"></a>rolls
 
 Zoals [scopes](#scopes), rollen bieden een manier om een [bronserver](#resource-server) om te bepalen van de toegang tot de beveiligde bronnen. Er zijn twee typen: een rol 'gebruiker' wordt geïmplementeerd op rollen gebaseerd toegangsbeheer voor gebruikers/groepen waarvoor toegang tot de resource, terwijl een rol 'application' wordt geïmplementeerd voor dezelfde [clienttoepassingen](#client-application) die toegang nodig hebben.
 
@@ -182,7 +182,7 @@ Wanneer u registreren/update een toepassing in de [Azure-portal][AZURE-portal], 
 
 Zie voor meer informatie, [toepassing en Service-Principal-objecten][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>aanmelding
+## <a name="sign-in"></a>aanmelden
 
 Het proces van een [clienttoepassing](#client-application) verificatie door eindgebruikers wordt gestart en vastleggen van gerelateerde staat voor het verkrijgen van een [beveiligingstoken](#security-token) en bereik van de toepassingssessie naar deze staat. Status kunnen bestaan uit artefacten, zoals informatie over gebruikersprofielen en gegevens die zijn afgeleid van token claims.
 

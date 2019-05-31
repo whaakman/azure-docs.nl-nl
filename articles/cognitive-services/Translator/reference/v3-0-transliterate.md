@@ -3,19 +3,19 @@ title: Translator Text-API transliteratie methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de methode transliteratie van Translator Text-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: cd7fee34f020f16d1511bc57b4ad86dbd5eb168d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 138a04cca1bbbaf7b59f628f491a5f13d73fb6f7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796932"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387397"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3.0: Transliterate
 
@@ -64,7 +64,7 @@ Aanvraagheaders zijn onder andere:
     <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
   </tr>
   <tr>
-    <td>Inhoudstype</td>
+    <td>Content-Type</td>
     <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
@@ -77,7 +77,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`, die staat voor de tekenreeks moet worden geconverteerd.
 
@@ -131,7 +131,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Voltooid.</td>
+    <td>Geslaagd.</td>
   </tr>
   <tr>
     <td>400</td>

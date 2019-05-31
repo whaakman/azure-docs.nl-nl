@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160485"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236625"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen 
 
 Met Azure Machine Learning-service, kunt u uw model op een groot aantal bronnen of omgevingen, gezamenlijk aangeduid als trainen [ __compute-doelen__](concept-azure-machine-learning-architecture.md#compute-target). Een compute-doel is een lokale computer of een cloudresource, zoals een Azure Machine Learning-Computing, Azure HDInsight of een externe virtuele machine.  U kunt ook compute-doelen voor de implementatie van model maken zoals beschreven in ["waar en hoe u uw modellen implementeren '](how-to-deploy-and-where.md).
 
-U kunt maken en beheren van een compute-doel met behulp van de SDK van Azure Machine Learning, Azure-portal of Azure CLI. Als u de compute-doelen die zijn gemaakt via een andere service (bijvoorbeeld: een HDInsight-cluster) hebt, kunt u ze kunt gebruiken door ze te koppelen aan uw werkruimte van Azure Machine Learning-service.
+U kunt maken en beheren van een compute-doel met behulp van de SDK van Azure Machine Learning, Azure-portal, Azure CLI of Azure Machine Learning VS Code-extensie. Als u de compute-doelen die zijn gemaakt via een andere service (bijvoorbeeld: een HDInsight-cluster) hebt, kunt u ze kunt gebruiken door ze te koppelen aan uw werkruimte van Azure Machine Learning-service.
  
 In dit artikel leert u hoe u met verschillende compute-doelen voor modeltraining.  De stappen voor alle compute-doelen Volg dezelfde werkstroom:
 1. __Maak__ een compute-doel als u er nog geen hebt.
@@ -377,6 +377,10 @@ U hebt toegang tot de compute-doelen die gekoppeld aan uw werkruimte met zijn de
 
 Zie voor meer informatie, [resourcebeheer](reference-azure-machine-learning-cli.md#resource-management).
 
+## <a name="set-up-compute-with-vs-code"></a>Instellen van Computing met VS Code
+
+U kunt toegang krijgen tot, maken en beheren van de compute-doelen die gekoppeld aan uw werkruimte met zijn de [VS Code-extensie](how-to-vscode-tools.md#create-and-manage-compute-targets) voor Azure Machine Learning-service.
+
 ## <a id="submit"></a>Indienen van training uitvoeren
 
 Nadat u een uitvoerconfiguratieprofiel gemaakt, kunt u deze gebruiken om uit te voeren van uw experiment.  De code-patroon om in te dienen een training-uitvoering is hetzelfde voor alle typen compute-doelen:
@@ -416,8 +420,9 @@ Overschakelen van het hetzelfde experiment om uit te voeren in een andere comput
 
 Of u kunt:
 
-* Verzenden van het experiment met een `Estimator` object, zoals wordt weergegeven in [Train ML-modellen met loopt](how-to-train-ml-models.md). 
+* Verzenden van het experiment met een `Estimator` object, zoals wordt weergegeven in [Train ML-modellen met loopt](how-to-train-ml-models.md).
 * Een experiment verzenden [met behulp van de CLI-extensie](reference-azure-machine-learning-cli.md#experiments).
+* Indienen van een experiment via de [VS Code-extensie](how-to-vscode-tools.md#train-and-tune-models).
 
 ## <a name="github-tracking-and-integration"></a>GitHub bijhouden en integratie
 

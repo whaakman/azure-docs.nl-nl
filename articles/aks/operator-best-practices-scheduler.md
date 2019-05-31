@@ -2,18 +2,17 @@
 title: Operator aanbevolen procedures - functies van Basic scheduler in Azure Kubernetes Services (AKS)
 description: Meer over de best practices uit de cluster-operator voor het gebruik van eenvoudige scheduler-functies zoals resourcequota en pod wordt onderbroken, budgetten in Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463877"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65074129"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor basic scheduler-functies in Azure Kubernetes Service (AKS)
 
@@ -95,7 +94,7 @@ spec:
       app: nginx-frontend
 ```
 
-U kunt ook een percentage, zoals definiëren *60%*, omhoog schalen van het aantal schillen waarmee u automatisch compenseren voor de replica is ingesteld.
+U kunt ook een percentage, zoals definiëren *60%* , omhoog schalen van het aantal schillen waarmee u automatisch compenseren voor de replica is ingesteld.
 
 U kunt een maximum aantal exemplaren is niet beschikbaar in een replicaset definiëren. Percentage voor de maximale pods die niet beschikbaar kan opnieuw, ook worden gedefinieerd. Het volgende pod onderbreking budget YAML-manifest dat niet meer dan twee schillen in de replica definieert set niet beschikbaar:
 
@@ -127,6 +126,8 @@ Zie voor meer informatie over het gebruik van de schil wordt onderbroken budgett
 
 De [kube-advisor] [ kube-advisor] hulpprogramma is een bijbehorende AKS open source-project, die een Kubernetes-cluster wordt gescand en rapporten weergeven over problemen die worden gevonden. Een nuttige controle is het identificeren van schillen die niet over een bron aanvragen en -limieten in plaats.
 
+Het hulpprogramma kube-advisor kunt rapporteren resourceaanvraag en limieten ontbreekt in de PodSpecs voor Windows-toepassingen, evenals de Linux-toepassingen, maar het hulpprogramma kube-advisor zelf moet worden gepland op een Linux-schil. U kunt plannen dat een schil om uit te voeren op een knooppunt van toepassingen met een specifiek besturingssysteem met een [knooppunt selector] [ k8s-node-selector] in de configuratie van de schil.
+
 In een AKS-cluster die als host fungeert voor meerdere teams voor ontwikkeling en -toepassingen, kan het lastig zijn om bij te houden van schillen zonder deze resource-aanvragen en set beperkt. Als een best practice regelmatig uitgevoerd `kube-advisor` op uw AKS-clusters, met name als u geen resourcequota aan naamruimten toewijst.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -148,3 +149,4 @@ In dit artikel is gericht op Kubernetes scheduler basisfuncties. Zie voor meer i
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

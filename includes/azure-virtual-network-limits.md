@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787587"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238277"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via de **klassieke** implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -28,9 +28,9 @@ ms.locfileid: "65787587"
 | NSG-regels per NSG |1000 |1000 |
 | Gebruiker gedefinieerde routetabellen |200 |200 |
 | Gebruiker gedefinieerde routes per routetabel |400 |400 |
-| Openbare IP-adressen (dynamisch) |5 |Contact opnemen met de ondersteuning |
-| Gereserveerde openbare IP-adressen |20 |Contact opnemen met de ondersteuning |
-| Openbare VIP per implementatie |5 |Contact opnemen met de ondersteuning |
+| Openbare IP-adressen (dynamisch) |5 |Neem contact op met ondersteuning |
+| Gereserveerde openbare IP-adressen |20 |Neem contact op met ondersteuning |
+| Openbare VIP per implementatie |5 |Neem contact op met ondersteuning |
 | VIP-privénetwerk (interne taakverdeling) per implementatie |1 |1 |
 | Eindpunt-toegangsbeheerlijsten (ACL's) |50 |50 |
 
@@ -50,7 +50,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Privé-IP-adressen per netwerkinterface |256 |
 | Privé-IP-adressen per virtuele machine |256 |
 | Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500,000 |
-| Netwerkadapters |65,536 |
+| Netwerkinterfacekaarten |65,536 |
 | Netwerkbeveiligingsgroepen |5,000 |
 | NSG-regels per NSG |1000 |
 | IP-adressen en -bereiken die zijn opgegeven voor de bron- of doelserver in een beveiligingsgroep |4,000 |
@@ -70,7 +70,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Openbare IP-adressen - dynamisch | 1000 voor Basic. |Neem contact op met ondersteuning. |
 | Openbare IP-adressen - statisch | 1000 voor Basic. |Neem contact op met ondersteuning. |
 | Openbare IP-adressen - statisch | 200 voor Standard.|Neem contact op met ondersteuning. |
-| Openbare IP-voorvoegsel grootte (preview) | /28 | Neem contact op met ondersteuning. |
+| Grootte van openbare IP-voorvoegsel | /28 | Neem contact op met ondersteuning. |
 
 #### <a name="load-balancer"></a>Load balancer-limieten
 De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).

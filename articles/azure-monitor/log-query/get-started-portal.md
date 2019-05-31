@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520676"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255268"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Aan de slag met Azure Monitor Log Analytics
 
@@ -46,7 +46,7 @@ Event | search "error"
 
 Deze query zoekt naar de _gebeurtenis_ tabel voor records die de term "error" in een eigenschap bevatten.
 
-Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of een **zoeken** opdracht. Het bovenstaande voorbeeld begint met de naam van de tabel _gebeurtenis_, waarmee het bereik van de query wordt gedefinieerd. Het sluisteken (|) opdrachten zijn gescheiden, zodat de uitvoer van het eerste item in de invoer van de volgende opdracht. U kunt een willekeurig aantal opdrachten toevoegen aan een eenvoudige query uitvoeren.
+Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of een **zoeken** opdracht. Het bovenstaande voorbeeld begint met de naam van de tabel _gebeurtenis_, waarmee het bereik van de query wordt gedefinieerd. Opdrachten, zijn gescheiden, zodat de uitvoer van de eerste die als de invoer van de volgende opdracht fungeert in het sluisteken (|). U kunt een willekeurig aantal opdrachten toevoegen aan een eenvoudige query uitvoeren.
 
 Een andere manier om te schrijven die dezelfde query zou zijn:
 
@@ -115,7 +115,7 @@ De tabel met resultaten wordt vaak een groot aantal kolommen bevat. Mogelijk vin
 ![Kolommen selecteren](media/get-started-portal/select-columns.png)
 
 
-## <a name="select-a-time-range"></a>Een tijdsbereik selecteren
+## <a name="select-a-time-range"></a>Selecteer een tijdsbereik
 Standaard Log Analytics is van toepassing de _afgelopen 24 uur_ tijdsbereik. Voor het gebruik van een ander bereik, selecteert u een andere waarde via de tijdkiezer en klikt u op **uitvoeren**. Naast de vooraf gedefinieerde waarden, kunt u de _aangepast tijdsbereik_ optie om een absolute bereik voor uw query te selecteren.
 
 ![Tijdkiezer](media/get-started-portal/time-picker.png)

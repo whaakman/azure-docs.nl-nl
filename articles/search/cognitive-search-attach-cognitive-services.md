@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158546"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244435"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Een Cognitive Services-resource met een set vaardigheden in Azure Search koppelen 
 
 AI-algoritmen station de [cognitieve indexering pijplijnen](cognitive-search-concept-intro.md) voor document-verrijking in Azure Search worden gebruikt. Deze algoritmen zijn gebaseerd op Azure Cognitive Services-bronnen, met inbegrip van [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) voor analyse van de afbeelding en optische tekenherkenning (OCR) en [Tekstanalyse](https://azure.microsoft.com/services/cognitive-services/text-analytics/) voor herkenning van entiteit Extractie van cruciale frasen, en andere enrichments. Gebruikt door Azure Search voor document verrijking doeleinden, de algoritmen zijn verpakt in een *vaardigheid*, geplaatst in een *vaardigheden*, en waarnaar wordt verwezen door een *indexeerfunctie* tijdens indexeren.
 
-U kunt een beperkt aantal documenten gratis verrijken, of kunt u een factureerbare Cognitive Services-resource voor workloads met grotere en meer frequente koppelen. In dit artikel leert u hoe u een factureerbare Cognitive Services-resource met uw cognitieve vaardigheden uit om te verrijken documenten tijdens koppelen [Azure Search indexeren](search-what-is-an-index.md).
+U kunt een beperkt aantal documenten gratis verrijken. Of u kunt een factureerbare Cognitive Services-resource te koppelen een *vaardigheden* voor workloads met grotere en meer frequente. In dit artikel leert u hoe u een factureerbare Cognitive Services-resource te verrijken van documenten in Azure Search koppelen [indexeren](search-what-is-an-index.md).
 
 > [!NOTE]
 > Aanroepen naar Cognitive Services API's en afbeeldingsbestanden extractie als onderdeel van de fase documenten kraken zijn factureerbare gebeurtenissen in Azure Search. Er zijn geen kosten voor het ophalen van de tekst van documenten of voor de vaardigheden die Cognitive Services niet aanroepen.
@@ -30,7 +30,9 @@ U kunt een beperkt aantal documenten gratis verrijken, of kunt u een factureerba
 
 ## <a name="same-region-requirement"></a>Vereiste in dezelfde regio
 
-We vereist dat Azure Search en Azure Cognitive Services binnen dezelfde regio. Anders, krijgt u dit bericht tijdens runtime: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` Er is geen manier om te verplaatsen van een service in regio's. Als u deze fout optreedt, moet u een nieuwe service in dezelfde regio maken en uw indexen dienovereenkomstig opnieuw publiceren.
+We vereist dat Azure Search en Azure Cognitive Services binnen dezelfde regio. Anders, krijgt u dit bericht tijdens runtime: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+
+Er is geen manier om te verplaatsen van een service in regio's. Als u deze fout optreedt, moet u een nieuwe Cognitive Services-resource maken in dezelfde regio als de Azure Search.
 
 ## <a name="use-free-resources"></a>Gratis resources gebruiken
 
@@ -42,9 +44,9 @@ Gratis (beperkte enrichments) resources zijn beperkt tot 20 documenten per dag, 
 
    ![Open de wizard gegevens importeren](media/search-get-started-portal/import-data-cmd2.png "opent u de wizard gegevens importeren")
 
-1. Kies een gegevensbron en doorgaan met het **toevoegen cognitief zoeken (optioneel)**. Zie voor een stapsgewijze uitleg van deze wizard [importeren, index en query's met behulp van portal-hulpprogramma's](search-get-started-portal.md).
+1. Kies een gegevensbron en doorgaan met het **toevoegen cognitief zoeken (optioneel)** . Zie voor een stapsgewijze uitleg van deze wizard [importeren, index en query's met behulp van portal-hulpprogramma's](search-get-started-portal.md).
 
-1. Vouw **Cognitive Services koppelen** en selecteer vervolgens **gratis (beperkte enrichments)**:
+1. Vouw **Cognitive Services koppelen** en selecteer vervolgens **gratis (beperkte enrichments)** :
 
    ![Cognitive Services koppelen sectie uitgevouwen](./media/cognitive-search-attach-cognitive-services/attach1.png "sectie uitgevouwen koppelen Cognitive Services")
 
@@ -56,7 +58,7 @@ Workloads die meer dan 20 enrichments per dag maakt, zorg er voor een factureerb
 
 U betaalt alleen voor de vaardigheden die de Cognitive Services-API's aanroepen. U bent niet in rekening gebracht [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md), of vaardigheden, zoals [tekst samenvoegen](cognitive-search-skill-textmerger.md), [tekst splitsen](cognitive-search-skill-textsplit.md), en [shaper](cognitive-search-skill-shaper.md), die niet zijn API's gebaseerd.
 
-1. Open de wizard gegevens importeren, kiest u een gegevensbron en blijven **toevoegen cognitief zoeken (optioneel)**.
+1. Open de wizard gegevens importeren, kiest u een gegevensbron en blijven **toevoegen cognitief zoeken (optioneel)** .
 
 1. Vouw **Cognitive Services koppelen** en selecteer vervolgens **nieuwe Cognitive Services-resource maken**. Een nieuw tabblad geopend zodat u van de resource maken kunt:
 

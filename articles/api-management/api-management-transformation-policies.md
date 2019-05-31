@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 28720098206c7afdefacbd47de283b2ef8d5a606
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833413"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243246"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -78,7 +78,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 
 |Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> conversie - altijd - altijd van toepassing.<br />-inhoud type-json - converteren alleen als antwoord Content-Type-header geeft aan dat de aanwezigheid van JSON.|Ja|N/A|
+|Van toepassing|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> conversie - altijd - altijd van toepassing.<br />-inhoud type-json - converteren alleen als antwoord Content-Type-header geeft aan dat de aanwezigheid van JSON.|Ja|N/A|
 |Houd rekening met-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -true - conversie van toepassing als JSON is aangevraagd in de aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|true|
 |parseren van datum|Als de waarde `false` datumwaarden gewoon tijdens transformatie worden gekopieerd|Nee|true|
 
@@ -123,7 +123,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |type|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -javascript-vriendelijk - de geconverteerde JSON heeft een formulier beschrijvende voor JavaScript-ontwikkelaars.<br />de geconverteerde JSON weerspiegelt - direct - structuur van het oorspronkelijke XML-document.|Ja|N/A|
-|toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -altijd - altijd converteren.<br />-inhoud-type-xml - converteren alleen als antwoord Content-Type-header geeft aan dat de aanwezigheid van XML.|Ja|N/A|
+|Van toepassing|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -altijd - altijd converteren.<br />-inhoud-type-xml - converteren alleen als antwoord Content-Type-header geeft aan dat de aanwezigheid van XML.|Ja|N/A|
 |Houd rekening met-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -true - conversie van toepassing als XML is aangevraagd in de aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|true|
 
 ### <a name="usage"></a>Gebruik
@@ -159,7 +159,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |from|De tekenreeks die moet worden gezocht.|Ja|N/A|
-|aan|De vervangende tekenreeks. Geef een nul lengte van de vervangende tekenreeks als u wilt verwijderen van de zoektekenreeks.|Ja|N/A|
+|tot|De vervangende tekenreeks. Geef een nul lengte van de vervangende tekenreeks als u wilt verwijderen van de zoektekenreeks.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -215,7 +215,7 @@ of
 ```
 
 > [!NOTE]
-> Back-end-entiteiten kunnen worden beheerd via beheer [API](https://docs.microsoft.com/rest/api/apimanagement/backend) en [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Back-end-entiteiten kunnen worden beheerd via beheer [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) en [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Voorbeeld
 
@@ -270,7 +270,7 @@ In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back
 |Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |basis-url|Nieuwe back-end-service basis-URL.|Een van de `base-url` of `backend-id` moet aanwezig zijn.|N/A|
-|backend-id|Id van de back-end om naar te routeren. (Back-end-entiteiten worden beheerd via [API](https://docs.microsoft.com/rest/api/apimanagement/backend) en [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Een van de `base-url` of `backend-id` moet aanwezig zijn.|N/A|
+|backend-id|Id van de back-end om naar te routeren. (Back-end-entiteiten worden beheerd via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) en [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Een van de `base-url` of `backend-id` moet aanwezig zijn.|N/A|
 |sf-partition-key|Alleen van toepassing wanneer de back-end een Service Fabric-service is en is opgegeven met behulp van back-end-id. Gebruikt voor het omzetten van een specifieke partitie van de name resolution-service.|Nee|N/A|
 |sf-replica-type|Alleen van toepassing wanneer de back-end een Service Fabric-service is en is opgegeven met behulp van back-end-id. Bepaalt of de aanvraag moet gaan naar de primaire of secundaire replica van een partitie. |Nee|N/A|
 |sf-resolve-condition|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Als de aanroep van Service Fabric-back-end moet worden herhaald met een resolutie van nieuwe identificeren-voorwaarde.|Nee|N/A|
@@ -514,7 +514,7 @@ OriginalUrl.
 |Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de koptekst is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande koptekst.<br />-skip: is geen vervanging voor de bestaande waarde voor header.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde voor header.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de koptekst wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
-|naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|
+|name|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -574,7 +574,7 @@ OriginalUrl.
 |Name|Description|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de queryparameter is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande parameter.<br />-skip: de waarde van de bestaande query-parameter niet vervangen.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde van de queryparameter.<br />-delete - verwijdert de queryparameter van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de queryparameter wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
-|naam|Hiermee geeft u de naam van de query-parameter moet worden ingesteld.|Ja|N/A|
+|name|Hiermee geeft u de naam van de query-parameter moet worden ingesteld.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -715,7 +715,7 @@ OriginalUrl.
 |Name|Description|Vereist|
 |----------|-----------------|--------------|
 |XSL-transformatie|Root-element.|Ja|
-|Parameter|Gebruikt voor het definiëren van variabelen die worden gebruikt bij de transformatie|Nee|
+|parameter|Gebruikt voor het definiëren van variabelen die worden gebruikt bij de transformatie|Nee|
 |xsl:stylesheet|Stylesheet hoofdelement. Ga als volgt de standaard alle elementen en kenmerken die zijn gedefinieerd binnen [XSLT-specificatie](https://www.w3.org/TR/xslt)|Ja|
 
 ### <a name="usage"></a>Gebruik

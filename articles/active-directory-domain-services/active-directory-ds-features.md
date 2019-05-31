@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Functies | Microsoft Docs'
 description: Functies van Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: ergreenl
-ms.openlocfilehash: 9e4ab7aa4f61921d8b327404a266694349d78164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 27aaaca4f28feac0f68b4e034426c64b934b1f95
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417262"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234918"
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Functies
@@ -35,7 +35,7 @@ De volgende functies zijn beschikbaar in Azure AD Domain Services beheerde domei
 * **Gebruik uw zakelijke referenties/wachtwoorden:** Wachtwoorden voor gebruikers in uw Azure AD-tenant, werken met Azure AD Domain Services. Gebruikers kunnen hun bedrijfsreferenties voor toegang tot de domein-machines gebruiken, meld u interactief of via Extern bureaublad en verificatie op basis van het beheerde domein.
 * **LDAP-binding & LDAP lezen ondersteuning:** U kunt toepassingen die afhankelijk van LDAP-bindingen zijn voor verificatie van gebruikers in domeinen die zijn verwerkt door Azure AD Domain Services gebruiken. Toepassingen die gebruikmaken van LDAP-leesbewerkingen in query gebruiker/computer kenmerken uit de map kunnen bovendien ook worden gebruikt op basis van Azure AD Domain Services.
 * **Secure LDAP (LDAPS):** U kunt toegang tot de map via veilige LDAP (LDAPS) inschakelen. Toegang van Secure LDAP is beschikbaar in het virtuele netwerk standaard. U kunt echter ook optioneel toegang van secure LDAP inschakelen via het internet.
-* **Groepsbeleid:** U kunt één ingebouwde groepsbeleidsobject elke gebruiken voor de gebruikers en computers containers om af te dwingen van naleving van beveiligingsbeleid voor accounts van gebruikers en computers domein vereist. U kunt ook uw eigen aangepaste GPO's maken en deze toewijzen aan aangepaste organisatie-eenheden te [beheren van Groepsbeleid](active-directory-ds-admin-guide-administer-group-policy.md).
+* **Groepsbeleid:** U kunt één ingebouwde groepsbeleidsobject elke gebruiken voor de gebruikers en computers containers om af te dwingen van naleving van beveiligingsbeleid voor accounts van gebruikers en computers domein vereist. U kunt ook uw eigen aangepaste GPO's maken en deze toewijzen aan aangepaste organisatie-eenheden te [beheren van Groepsbeleid](manage-group-policy.md).
 * **DNS beheren:** Leden van de groep 'AAD DC Administrators' kunnen DNS beheren voor uw beheerde domein met bekende DNS-beheer-hulpprogramma's zoals de DNS-beheer van MMC-module.
 * **Maak aangepaste organisatie-eenheden (OU's):** Leden van de groep 'AAD DC Administrators' kunnen aangepaste OE's maken in het beheerde domein. Deze gebruikers krijgen volledige beheerdersrechten over aangepaste organisatie-eenheden, zodat u ze kunnen toevoegen/verwijderen serviceaccounts, computers, groepen enzovoort binnen deze aangepaste organisatie-eenheden.
 * **Beschikbaar in veel Azure globale regio's:** Zie de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te bekijken in welke Azure-regio's Azure AD Domain Services beschikbaar is.

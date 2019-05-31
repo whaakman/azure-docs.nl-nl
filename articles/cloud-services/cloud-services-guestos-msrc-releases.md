@@ -11,17 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 5/23/2019
 ms.author: raiye
-ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465557"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241313"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
+
+## <a name="may-2019-guest-os"></a>Mei 2019 Guest OS
+
+>[!NOTE]
+>Het Gastbesturingssysteem kan is op dit moment wordt geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem kan. Deze lijst is onderhevig aan wijzigingen.
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+|  Rel 19-05   |  [4498206 ]  |  Kan de IE-updatepakket   |  2,86, 3.73, 4.66  |  14 mei 2019  |
+|  Rel 19-05   |  [4505050 ]  |  Kan de IE-updatepakket   |  2,86, 3.73, 4.66  |  18 mei 2019  |
+|  Rel 19-05   |  [4497932 ]  |  Kan Update Flash   |  3.73, 4.66, 5.31  |  14 mei 2019  |
+|  Rel 19-05   |  [4499175 ]  |  Kan beveiliging samenvouwen   |  2.86  |  14 mei 2019  |
+|  Rel 19-05   |  [4495612 ]  |  Kan beveiliging updatepakket .NET 3.5   |  2.86  |  14 mei 2019  |
+|  Rel 19-05   |  [4495593 ]  |  Kan beveiliging updatepakket .NET 4.5.2   |  2.86  |  14 mei 2019  |
+|  Rel 19-05   |  [4499158 ]  |  Kan beveiliging samenvouwen   |  3.73  |  14 mei 2019  |
+|  Rel 19-05   |  [4495607 ]  |  Kan beveiliging updatepakket .NET 3.5   |  3.73  |  14 mei 2019  |
+|  Rel 19-05   |  [4495591 ]  |  Kan beveiliging updatepakket .NET 4.5.2   |  3.73  |  14 mei 2019  |
+|  Rel 19-05   |  [4492872 ]  |  Internet Explorer-updatepakket   |  3.73  |  16 april 2019  |
+|  Rel 19-05   |  [4499165 ]  |  Maart Security samenvouwen   |  4.66  |  14 mei 2019  |
+|  Rel 19-05   |  [4495615 ]  |  Kan beveiliging updatepakket .NET 3.5   |  4.66  |  14 mei 2019  |
+|  Rel 19-05   |  [4495589 ]  |  Kan beveiliging updatepakket .NET 4.5.2   |  4.66  |  14 mei 2019  |
+|  Rel 19-05   |  [4498947 ]  |  Mogelijk is   |  5.31  |  14 mei 2019  |
+|  Rel 19-05   |  [4494175 ]  |  Kan Microcode Update   |  5.31  |  14 mei 2019  |
+|  Rel 19-05   |  [4505052 ]  |  Kan beveiliging samenvouwen   |  5.31  |  19 mei 2019  |
+|  Rel 19-05   |  [4499728 ]  |  Mogelijk is   |  6.7  |  19 mei 2019  |
+|  Rel 19-05   |  [4505056 ]  |  Kan beveiliging samenvouwen   |  6.7  |  19 mei 2019  |
+|  Rel 19-05   |  [4494174 ]  |  Kan Microcode Update   |  6.7  |  14 mei 2019  |
+|  Rel 19-05   |  [4495590 ]  |  Kan beveiliging updatepakket .NET   |  6.7  |  14 mei 2019  |
+
+[KB4493510]: https://support.microsoft.com/kb/KB4493510
+[KB4493472]: https://support.microsoft.com/kb/KB4493472
+[KB4493451]: https://support.microsoft.com/kb/KB4493451
+[KB4493446]: https://support.microsoft.com/kb/KB4493446
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="april-2019-guest-os"></a>April 2019 Guest OS
 
@@ -556,7 +605,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 17-06 | [4019472] |WS 2016 OS kwaliteitsverbeteringen op het gebied |5.8 |9 mei 2017 |
 | Rel 17-06 | [4022722] |Alleen Windows-beveiliging |2.63 |13 juni 2017 |
 | Rel 17-06 | [4022717] |Alleen Windows-beveiliging |4.43 |13 juni 2017 |
-| Rel 17-06 | [4022718] |Alleen Windows-beveiliging |3,50 |13 juni 2017 |
+| Rel 17-06 | [4022718] |Alleen Windows-beveiliging |3.50 |13 juni 2017 |
 | Rel 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |13 juni 2017 |
 | Rel 17-06 | [4022719], [4022724], [4022726] |Maandelijkse update van Windows |2.63, 3.50, 4.43 |13 juni 2017 |
 | Rel 17-06 | [4022730] |Beveiligingsupdate voor Adobe Flash Player |3.50, 4.43, 5.8 |13 juni 2017 |
@@ -567,11 +616,11 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4014508] |Kan .NET niet-beveiligde samenvouwen |2.63 |9 mei 2017 |
 | N/A | [4014511] |Kan .NET niet-beveiligde samenvouwen |2.63 |9 mei 2017 |
 | N/A | [4014514] |Kan .NET niet-beveiligde samenvouwen |2.63 |9 mei 2017 |
-| N/A | [4019216] |Kan niet voor beveiliging updatepakket |3,50 |9 mei 2017 |
-| N/A | [4014503] |Kan .NET niet-beveiligde samenvouwen |3,50 |9 mei 2017 |
-| N/A | [4014506] |Kan .NET niet-beveiligde samenvouwen |3,50 |9 mei 2017 |
-| N/A | [4014509] |Kan .NET niet-beveiligde samenvouwen |3,50 |9 mei 2017 |
-| N/A | [4014513] |Kan .NET niet-beveiligde samenvouwen |3,50 |9 mei 2017 |
+| N/A | [4019216] |Kan niet voor beveiliging updatepakket |3.50 |9 mei 2017 |
+| N/A | [4014503] |Kan .NET niet-beveiligde samenvouwen |3.50 |9 mei 2017 |
+| N/A | [4014506] |Kan .NET niet-beveiligde samenvouwen |3.50 |9 mei 2017 |
+| N/A | [4014509] |Kan .NET niet-beveiligde samenvouwen |3.50 |9 mei 2017 |
+| N/A | [4014513] |Kan .NET niet-beveiligde samenvouwen |3.50 |9 mei 2017 |
 | N/A | [4019215] |Kan niet voor beveiliging updatepakket |4.43 |9 mei 2017 |
 | N/A | [4014505] |Kan .NET niet-beveiligde samenvouwen |4.43 |9 mei 2017 |
 | N/A | [4014507] |Kan .NET niet-beveiligde samenvouwen |4.43 |9 mei 2017 |

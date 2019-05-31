@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: b07a932ef048aa894af990baa57b87529d9da3aa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717388"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241469"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Een niet-interactieve verificatie HDInsight .NET-toepassing maken
 U kunt uw Microsoft .NET-Azure HDInsight-toepassing onder de identiteit van de toepassing (niet-interactieve) of onder de identiteit van de aangemelde gebruiker van de toepassing (interactief) uitvoeren. Dit artikel laat u het maken van een niet-interactieve verificatie .NET-toepassing verbinding maakt met Azure en beheren van HDInsight. Zie voor een voorbeeld van een interactieve toepassing [verbinding maken met Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 Via uw niet-interactieve .NET-toepassing, hebt u het volgende nodig:
 
-* De tenant-ID van uw Azure-abonnement (ook wel een *map-ID*). Zie [tenant-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-* De Azure Active Directory (Azure AD)-toepassing-client-ID. Zie [maken van een Azure Active Directory-toepassing](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) en [een toepassings-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* Azure AD geheime sleutel van de toepassing. Zie [Get toepassing verificatiesleutel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* De tenant-ID van uw Azure-abonnement (ook wel een *map-ID*). Zie [tenant-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* De Azure Active Directory (Azure AD)-toepassing-client-ID. Zie [maken van een Azure Active Directory-toepassing](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) en [een toepassings-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Azure AD geheime sleutel van de toepassing. Zie [Get toepassing verificatiesleutel](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="prerequisites"></a>Vereisten
 * Een HDInsight-cluster. Zie de [zelfstudie aan de slag](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -35,7 +35,7 @@ Toewijzen van uw Azure AD-toepassing een [rol](../role-based-access-control/buil
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **Resourcegroepen** in het linkermenu.
 3. Selecteer de resourcegroep waaraan de HDInsight-cluster op waarop u uw Hive-query verderop in deze zelfstudie wordt uitgevoerd. Als u een groot aantal resourcegroepen hebt, kunt u het filter om te zoeken die u wilt.
-4. Selecteer op het menu resourcegroep **toegangsbeheer (IAM)**.
+4. Selecteer op het menu resourcegroep **toegangsbeheer (IAM)** .
 5. Selecteer de **roltoewijzingen** tabblad om te bekijken van de huidige roltoewijzingen.
 6. Aan de bovenkant van de pagina, selecteer **roltoewijzing toevoegen**.
 7. Volg de instructies voor de rol van eigenaar toevoegen aan uw Azure AD-toepassing. Nadat u de functie is toegevoegd, wordt de toepassing wordt vermeld onder de rol van eigenaar. 

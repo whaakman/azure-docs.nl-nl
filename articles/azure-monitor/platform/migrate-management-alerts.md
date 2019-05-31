@@ -1,26 +1,26 @@
 ---
 title: Azure-waarschuwingen op gebeurtenissen voor migreren naar waarschuwingen voor activiteitenlogboek
 description: Waarschuwingen over gebeurtenissen worden verwijderd op 1 oktober. Voorbereiden op migreren bestaande waarschuwingen.
-author: lingliw
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 08/14/2017
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255912"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388720"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure-waarschuwingen op gebeurtenissen voor migreren naar waarschuwingen voor activiteitenlogboek
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> Waarschuwingen over gebeurtenissen worden uitgeschakeld op of na 1 oktober. Gebruik de onderstaande instructies om te begrijpen als u deze waarschuwingen hebben en migreren van de accounts als dit het geval is.
+> Waarschuwingen over gebeurtenissen worden uitgeschakeld op of na oktober 1,2017. Gebruik de onderstaande instructies om te begrijpen als u deze waarschuwingen hebben en migreren van de accounts als dit het geval is.
 
 ## <a name="what-is-changing"></a>Wat wordt gewijzigd
 
@@ -32,7 +32,7 @@ Azure Monitor (voorheen Azure Insights) aangeboden een mogelijkheid om te maken 
 De volgende PowerShell-script retourneert een lijst van alle waarschuwingen voor gebeurtenissen die u in uw abonnement, evenals de voorwaarden op elke waarschuwing hebt.
 
 ```powershell
-Connect-AzAccount -Environment AzureChinaCloud
+Connect-AzAccount
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,3 +115,4 @@ Waarschuwingen over gebeurtenissen voor dat u eerder hebt gemaakt wordt niet aut
 * Controleer de [activiteit log waarschuwing webhook-schema](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Meer informatie over [servicemeldingen](../../azure-monitor/platform/service-notifications.md)
 * Meer informatie over [actiegroepen](../../azure-monitor/platform/action-groups.md)
+

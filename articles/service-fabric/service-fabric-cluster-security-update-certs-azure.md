@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161863"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306917"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
 Het verdient aanbeveling dat u raken met het Service Fabric maakt gebruik van x.509-certificaten en vertrouwd met zijn de [clusterbeveiligingsscenario's](service-fabric-cluster-security.md). U moet begrijpen wat een clustercertificaat is en wat wordt gebruikt voor, voordat u verder gaat.
@@ -48,7 +48,7 @@ Als uw bedoeling is om te verwijderen van het certificaat dat is gemarkeerd als 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Een secundair certificaat met behulp van Resource Manager Powershell toevoegen
 > [!TIP]
-> Het is nu beter en eenvoudiger manier om toe te voegen een secundair certificaat met de [toevoegen AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. U hoeft niet te volgen van de rest van de stappen in deze sectie.  Bovendien hoeft u niet de sjabloon die oorspronkelijk hebt gebruikt om te maken en implementeren van het cluster bij het gebruik van de [toevoegen AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> Er is nu een manier beter en eenvoudiger om toe te voegen een secundair certificaat met de [toevoegen AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. U hoeft niet te volgen van de rest van de stappen in deze sectie.  Bovendien hoeft u niet de sjabloon die oorspronkelijk hebt gebruikt om te maken en implementeren van het cluster bij het gebruik van de [toevoegen AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 Deze stappen wordt ervan uitgegaan dat u bekend bent met de werking van Resource Manager en ten minste één Service Fabric-cluster met behulp van Resource Manager-sjabloon hebt geïmplementeerd en de sjabloon die u hebt gebruikt voor het instellen van het cluster bij de hand hebt. Ook wordt ervan uitgegaan dat u ervaring hebt met JSON zijn.
 
@@ -195,7 +195,7 @@ De parameter Resource Manager-sjabloon in het bestand bewerken, de twee nieuwe p
 ### <a name="deploy-the-template-to-azure"></a>De sjabloon implementeren in Azure
 
 - U bent nu klaar voor het implementeren van uw sjabloon naar Azure. Open de opdrachtprompt van een Azure-PS-versie 1 +.
-- Meld u aan bij uw Azure-Account en selecteer de specifieke azure-abonnement. Dit is een belangrijke stap voor mensen die toegang tot meer dan één azure-abonnement hebben.
+- Aanmelden bij uw Azure-Account en selecteer de specifieke azure-abonnement. Dit is een belangrijke stap voor mensen die toegang tot meer dan één azure-abonnement hebben.
 
 ```powershell
 Connect-AzAccount

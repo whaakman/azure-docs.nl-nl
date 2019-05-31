@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 8a7f334984d92707e4afa7cd595197e4dea83f33
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 79cf4c713d60fa600bbb80b9c16728502ffc88ff
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546498"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236835"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking van functies: Azure SQL Database versus SQL Server
 
@@ -50,11 +50,11 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Back-opdracht](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Nee, alleen systeem gestarte automatische back-ups - Zie [geautomatiseerde back-ups](sql-database-automated-backups.md) | Ja, door de gebruiker geïnitieerde kopie-alleen back-ups naar Azure Blob-opslag (automatische back-ups kunnen niet worden gestart door gebruiker) - Zie [back-up van verschillen](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Ingebouwde functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) | 
 | [BULK INSERT-instructie](https://docs.microsoft.com/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Ja, maar alleen vanuit Azure Blob-opslag als een bron. | Ja, maar alleen in Azure Blob-opslag als een bron - zien [verschillen](sql-database-managed-instance-transact-sql-information.md#bulk-insert--openrowset). |
-| [Certificaten en sleutels asymetric](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Ja, zonder toegang tot het bestandssysteem voor `BACKUP` en `CREATE` bewerkingen. | Ja, zonder toegang tot het bestandssysteem voor `BACKUP` en `CREATE` bewerkingen - Zie [verschillen van het certificaat](sql-database-managed-instance-transact-sql-information.md#certificates). | 
+| [Certificaten en asymmetrische sleutels](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Ja, zonder toegang tot het bestandssysteem voor `BACKUP` en `CREATE` bewerkingen. | Ja, zonder toegang tot het bestandssysteem voor `BACKUP` en `CREATE` bewerkingen - Zie [verschillen van het certificaat](sql-database-managed-instance-transact-sql-information.md#certificates). | 
 | [Gegevensregistratie wijzigen](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nee | Ja |
 | [Wijzigingen bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Sortering - database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Ja | Ja |
-| [Sortering - server /-exemplaar](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nee, standaard logicla server-sortering `SQL_Latin1_General_CP1_CI_AS` wordt altijd gebruikt. | Ja, kunnen worden ingesteld wanneer de [exemplaar gemaakt](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) en later kan niet worden bijgewerkt. |
+| [Sortering - server /-exemplaar](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nee, logische server standaardsortering `SQL_Latin1_General_CP1_CI_AS` wordt altijd gebruikt. | Ja, kunnen worden ingesteld wanneer de [exemplaar gemaakt](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) en later kan niet worden bijgewerkt. |
 | [Columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja, [Premium-laag, Standard-laag - S3 en hoger wordt de categorie Algemeen gebruik en bedrijfskritiek lagen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [Common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nee | Ja, maar geen toegang tot bestandssysteem in `CREATE ASSEMBLY` statement - Zie [CLR-verschillen](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Op dit moment geen [vanwege een fout in de HERSTELOPDRACHT met inbegrip van punt-in-time RESTORE](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database). Dit is een fout die snel worden opgelost. |
@@ -86,7 +86,7 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Expressies](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
 | [Uitgebreide gebeurtenissen](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Sommige - Zie [Extended events in SQL-Database](sql-database-xevent-db-diff-from-svr.md) | Ja, Zie [uitgebreide gebeurtenissen-verschillen](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nee | Nee |
-| [Bestanden en bestandsgroepen](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Alleen primaire bestandsgroep | Ja. Bestandspaden zijn toegewezen automatisch en locatie van het bestand kan niet worden opgegeven `ALTER DATABASE ADD FILE` [instructie](sql-database-managed-instance-transact-sql-information.md#alter-database-statement).  |
+| [Bestanden en bestandsgroepen](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Alleen primaire bestandsgroep | Ja. Bestandspaden worden automatisch toegewezen en de bestandslocatie kan niet worden opgegeven `ALTER DATABASE ADD FILE` [instructie](sql-database-managed-instance-transact-sql-information.md#alter-database-statement).  |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nee | [Nee](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
 | [Zoeken in volledige tekst](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Ja, maar woordafbrekingen van derden worden niet ondersteund. | Ja, maar [woordafbrekingen van derden worden niet ondersteund.](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
 | [Functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja, Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
@@ -97,7 +97,7 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Taalelementen](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De meeste - Zie afzonderlijke elementen |  Ja, Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nee, Zie [elastische query's](sql-database-elastic-query-horizontal-partitioning.md) | Alleen [SQL Server en SQL-Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
 | [Back-upfunctie](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) |[Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van bedrijfscontinuïteit met Azure SQL Database](sql-database-business-continuity.md) |
-| [Aanmeldingen en gebruikers](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, maar `CREATE` en `ALTER` aanmelding instructies bieden alle opties (geen Windows en Azure Active Directory-aanmelding op serverniveau). `EXECUTE AS LOGIN` is niet supprted - gebruik `EXECUTE AS USER` in plaats daarvan.  | Ja, met enkele [verschillen](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-aanmeldingen worden niet ondersteund en ze moeten worden vervangen door Azure Active Directory-aanmeldingen. |
+| [Aanmeldingen en gebruikers](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, maar `CREATE` en `ALTER` aanmelding instructies bieden alle opties (geen Windows en Azure Active Directory-aanmelding op serverniveau). `EXECUTE AS LOGIN` wordt niet ondersteund - gebruiken `EXECUTE AS USER` in plaats daarvan.  | Ja, met enkele [verschillen](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-aanmeldingen worden niet ondersteund en ze moeten worden vervangen door Azure Active Directory-aanmeldingen. |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nee | Nee |
 | [Minimale bulkimport aanmelden](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nee | Nee |
 | [Systeemgegevens wijzigen](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Nee | Ja |
@@ -131,7 +131,7 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Ruimtelijk](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Ja | Ja |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Ja | Ja |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Nee |
-| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Nee, Zie [elastische taken](sql-database-elastic-jobs-getting-started.md) | Ja, Zie [verschillen van de SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
+| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Nee, Zie [elastische taken](elastic-jobs-overview.md) | Ja, Zie [verschillen van de SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nee, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is een afzonderlijke Azure-cloud-service. | Nee, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is een afzonderlijke Azure-cloud-service. |
 | [Controleren voor SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Nee, Zie [SQL Database auditing](sql-database-auditing.md) | Ja, Zie [verschillen controleren](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
@@ -149,7 +149,7 @@ De volgende tabel staan de belangrijkste functies van SQL Server en bevat inform
 | [Tijdelijke tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Lokale en database-scoped globale tijdelijke tabellen | Lokale en exemplaar scoped globale tijdelijke tabellen |
 | [Tijdelijke tabellen](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Ja](sql-database-temporal-tables.md) | [Ja](sql-database-temporal-tables.md) |
 | Tijdzone keuze | Nee | [Yes(preview)](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone) |
-| Detectie van dreigingen|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
+| Detectie van bedreigingen|  [Ja](sql-database-threat-detection.md)|[Ja](sql-database-managed-instance-threat-detection.md)|
 | [Traceervlaggen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nee | Nee |
 | [Variabelen](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Ja | Ja |
 | [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Ja, algemeen gebruik en bedrijfskritiek-service alleen lagen| [Ja](transparent-data-encryption-azure-sql.md) |

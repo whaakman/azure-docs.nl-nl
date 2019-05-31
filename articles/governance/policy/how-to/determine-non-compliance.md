@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979348"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298925"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Oorzaken van niet-naleving bepalen
 
@@ -22,7 +22,7 @@ Wanneer een Azure-resource blijkt dat het niet-compatibel is op een beleidsregel
 > - [Details van compatibiliteit](#compliance-details)
 > - [Wijzigingsoverzicht (Preview)](#change-history-preview)
 
-## <a name="compliance-details"></a>Nalevingsdetails
+## <a name="compliance-details"></a>Details van compatibiliteit
 
 Wanneer een resource niet-compatibel is, de compatibiliteitsdetails voor die bron zijn beschikbaar via de **beleidsnaleving** pagina. Het deelvenster met details naleving bevat de volgende informatie:
 
@@ -87,23 +87,27 @@ De volgende matrix wijst elke mogelijke _reden_ naar de verantwoordelijk [voorwa
 
 |Reason | Voorwaarde |
 |-|-|
-|Huidige waarde moet de doelwaarde bevatten als sleutel. |containsKey of **niet** notContainsKey |
+|Huidige waarde moet de doelwaarde bevatten als een sleutel. |containsKey of **niet** notContainsKey |
 |Huidige waarde moet de doelwaarde bevatten. |bevat of **niet** notContains |
-|Huidige waarde moet gelijk zijn aan de doelwaarde. |is gelijk aan of **niet** notEquals |
+|Huidige waarde moet gelijk zijn aan de doel-waarde. |is gelijk aan of **niet** notEquals |
+|Huidige waarde moet kleiner zijn dan de doelwaarde. |minder of **niet** greaterOrEquals |
+|Huidige waarde moet groter zijn dan of gelijk zijn aan de doel-waarde. |greaterOrEquals of **niet** minder |
+|Huidige waarde moet groter zijn dan de doelwaarde. |groter of **niet** lessOrEquals |
+|Huidige waarde moet kleiner dan of gelijk zijn aan de doel-waarde. |lessOrEquals of **niet** groter |
 |Huidige waarde moet bestaan. |Er bestaat |
-|De huidige waarde moet binnen de doelwaarde vallen. |in of **niet** notIn |
-|Huidige waarde moet gelijk zijn aan de doelwaarde. |Net als of **niet** notlike zijn |
-|Huidige waarde moet overeenkomen met de doelwaarde (hoofdlettergevoelig). |overeenkomen met of **niet** notMatch |
-|Huidige waarde moet overeenkomen met de doelwaarde (niet hoofdlettergevoelig). |matchInsensitively of **niet** notMatchInsensitively |
-|Huidige waarde mag de doelwaarde niet als sleutel bevatten. |notContainsKey of **niet** containsKey|
-|Huidige waarde mag de doelwaarde niet bevatten. |notContains of **niet** bevat |
-|Huidige waarde mag niet gelijk zijn aan de doelwaarde. |notEquals of **niet** is gelijk aan |
+|Huidige waarde moet in de doel-waarde. |in of **niet** notIn |
+|Huidige waarde moet liggen, zoals de doelwaarde. |Net als of **niet** notlike zijn |
+|Huidige waarde moet hoofdlettergevoelige overeenkomst de doelwaarde. |overeenkomen met of **niet** notMatch |
+|Huidige waarde moet niet-hoofdlettergevoelige overeenkomst de doelwaarde. |matchInsensitively of **niet** notMatchInsensitively |
+|Huidige waarde mag niet de doel-waarde als een sleutel. |notContainsKey of **niet** containsKey|
+|Huidige waarde mag niet de doelwaarde. |notContains of **niet** bevat |
+|Huidige waarde mag niet gelijk zijn aan de doel-waarde zijn. |notEquals of **niet** is gelijk aan |
 |Huidige waarde mag niet bestaan. |**niet** bestaat  |
-|Huidige waarde mag niet binnen de doelwaarde vallen. |notIn of **niet** in |
-|Huidige waarde mag niet gelijk zijn aan de doelwaarde. |notlike zijn of **niet** zoals |
-|Huidige waarde mag niet overeenkomen met de doelwaarde (hoofdlettergevoelig). |notMatch of **niet** overeen met |
-|Huidige waarde mag niet overeenkomen met de doelwaarde (niet hoofdlettergevoelig). |notMatchInsensitively of **niet** matchInsensitively |
-|Er zijn geen verwante resources die overeenkomen met de effectdetails in de beleidsdefinitie. |Een resource van het type dat is gedefinieerd in **then.details.type** en gerelateerd zijn aan de resource die is gedefinieerd in de **als** gedeelte van de beleidsregel bestaat niet. |
+|Huidige waarde mag geen van de doelwaarde. |notIn of **niet** in |
+|Huidige waarde mag niet zijn, zoals de doelwaarde. |notlike zijn of **niet** zoals |
+|Huidige waarde moet niet-hoofdlettergevoelige overeenkomst de doelwaarde. |notMatch of **niet** overeen met |
+|Huidige waarde moet geen niet-hoofdlettergevoelige overeenkomst de doelwaarde. |notMatchInsensitively of **niet** matchInsensitively |
+|Er zijn geen verwante resources komt overeen met de details van het beleidseffect in de beleidsdefinitie. |Een resource van het type dat is gedefinieerd in **then.details.type** en gerelateerd zijn aan de resource die is gedefinieerd in de **als** gedeelte van de beleidsregel bestaat niet. |
 
 ## <a name="compliance-details-for-guest-configuration"></a>Compatibiliteitsdetails voor de configuratie van de Gast
 
@@ -128,7 +132,7 @@ Ook kan er geen toegang tot het rechtstreeks aanmelden bij de virtuele machine, 
    - **Resourcetype** : de _guestConfigurationAssignments_ volledige naam.
    - **Laatst geëvalueerd** : de laatste keer dat de Gast Configuration-service op de hoogte gesteld Azure Policy over de status van de virtuele doelmachine.
 
-   ![Nalevingsdetails weergeven.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+   ![Details van de naleving weergeven](../media/determine-non-compliance/guestconfig-assignment-view.png)
 
 1. Selecteer de naam van de toewijzing van Gast-configuratie in de **naam** kolom openen de **Resourcenaleving** pagina.
 
@@ -136,7 +140,7 @@ Ook kan er geen toegang tot het rechtstreeks aanmelden bij de virtuele machine, 
 
 De **Gast toewijzing** compatibiliteitsdetails voor alle beschikbare pagina worden weergegeven. Elke rij in de weergave vertegenwoordigt een evaluatieversie die binnen de virtuele machine is uitgevoerd. In de **reden** kolom, een wachtwoordzin met een beschrijving van waarom de Gast-toewijzing is _niet-compatibele_ wordt weergegeven. Bijvoorbeeld, als u wilt controleren, dat virtuele machines moeten worden toegevoegd aan een domein, de **reden** kolom weergegeven tekst met inbegrip van het lidmaatschap van het huidige domein.
 
-![Nalevingsdetails weergeven.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Details van de naleving weergeven](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

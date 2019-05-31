@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781712"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242376"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Herstellen van SQL Server-databases op Azure Virtual machines
 
@@ -41,6 +41,7 @@ Voordat u een database herstelt, Let op het volgende:
     - Alleen de naam van de opgegeven client kunt openen van de verbinding.
 - Voor alle systeemdatabases (model, master, msdb), door de SQL Server Agent-service te stoppen voordat u de terugzetbewerking kan worden geactiveerd.
 - Sluit alle toepassingen die mogelijk probeert uit te voeren van een verbinding met een van deze databases.
+- Als er meerdere exemplaren die worden uitgevoerd op een server, moet alle van de exemplaren van en server wordt uitgevoerd anders niet zouden worden weergegeven in de lijst met doelservers voor de database te herstellen.
 
 ## <a name="restore-a-database"></a>Een database herstellen
 
@@ -152,6 +153,13 @@ Als u hebt geselecteerd **volledig en differentieel** als het type herstel het v
 1. De terugzetbewerking voortgang volgen in de **meldingen** gebied, of door te selecteren die volgen **hersteltaken** in het menu van de database.
 
     ![Voortgang hersteltaak](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>Databases herstellen met een groot aantal bestanden
+
+Als de totale grootte van bestanden in een database groter dan is een [bepaalde limiet](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), back-up van Azure slaat de lijst databasebestanden in een andere pit-onderdeel dat u niet mogelijk om in te stellen het doelpad herstellen tijdens het herstellen de bewerking. In plaats daarvan wordt de bestanden hersteld naar het standaardpad SQL.
+
+  ![Database terugzetten met grote bestanden](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

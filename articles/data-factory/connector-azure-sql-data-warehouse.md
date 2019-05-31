@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6d2ed8ba13fac03a60d9a0730776bc8348876b62
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 5ce838897370430c388d74c3d356497f16efdc8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153577"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245052"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -146,7 +146,7 @@ Volg deze stappen voor het gebruik van service-principal op basis van Azure AD-t
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Als u wilt dat het gebruik van PolyBase voor laden van de gegevens, informatie over de [toestemming van de database](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -196,7 +196,7 @@ Volg deze stappen voor het gebruik van beheerde verificatie:
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **De Data Factory beheerde identiteit vereist machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **De Data Factory beheerde identiteit vereist machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer de volgende code uit of ze raadplegen om meer opties [hier](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Als u wilt dat het gebruik van PolyBase voor laden van de gegevens, informatie over de [toestemming van de database](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -227,7 +227,7 @@ Volg deze stappen voor het gebruik van beheerde verificatie:
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Azure SQL Data Warehouse-gegevensset.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Azure SQL Data Warehouse-gegevensset.
 
 Om gegevens te kopiëren van of naar Azure SQL Data Warehouse, zijn de volgende eigenschappen worden ondersteund:
 
@@ -400,9 +400,9 @@ Meer informatie over het gebruik van PolyBase te laden efficiënt SQL Data Wareh
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Gebruik van PolyBase om gegevens te laden in Azure SQL Data Warehouse
 
-Met behulp van [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is een efficiënte manier om een grote hoeveelheid gegevens in Azure SQL Data Warehouse laden met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een grote toename in de doorvoer. Zie [prestaties verwijzing](copy-activity-performance.md#performance-reference) voor een gedetailleerde vergelijking. Zie voor een overzicht met een use case [1 TB laden in Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
+Met behulp van [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is een efficiënte manier om een grote hoeveelheid gegevens in Azure SQL Data Warehouse laden met hoge doorvoer. Met behulp van PolyBase in plaats van het standaardmechanisme voor BULKINSERT ziet u een grote toename in de doorvoer. Zie [prestaties verwijzing](copy-activity-performance.md#performance-reference) voor een gedetailleerde vergelijking. Zie voor een overzicht met een use case [1 TB laden in Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
 
-* Als de brongegevens bevinden zich in **Azure Blob, Azure Data Lake Storage Gen1 of Azure Data Lake Storage Gen2**, en de **indeling is compatibel PolyBase**, kunt u activiteit kopiëren om aan te roepen rechtstreeks PolyBase zodat Azure SQL Data Warehouse ophalen van de gegevens uit de bron. Zie voor meer informatie,  **[directe kopiëren met behulp van PolyBase](#direct-copy-by-using-polybase)**.
+* Als de brongegevens bevinden zich in **Azure Blob, Azure Data Lake Storage Gen1 of Azure Data Lake Storage Gen2**, en de **indeling is compatibel PolyBase**, kunt u activiteit kopiëren om aan te roepen rechtstreeks PolyBase zodat Azure SQL Data Warehouse ophalen van de gegevens uit de bron. Zie voor meer informatie,  **[directe kopiëren met behulp van PolyBase](#direct-copy-by-using-polybase)** .
 * Als de bron-gegevensopslag en -indeling wordt niet oorspronkelijk ondersteund door PolyBase, gebruikt u de **[gefaseerd kopiëren met behulp van PolyBase](#staged-copy-by-using-polybase)** functie in plaats daarvan. De functie gefaseerd kopiëren biedt u ook betere doorvoer. De gegevens wordt automatisch geconverteerd in PolyBase-compatibele indeling. En de gegevens worden opgeslagen in Azure Blob-opslag. Vervolgens worden de gegevens in SQL Data Warehouse geladen.
 
 >[!TIP]
@@ -426,7 +426,7 @@ Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of 
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account sleutelverificatie, verificatie van de beheerde identiteit |
 
     >[!IMPORTANT]
-    >Als uw Azure-opslag met VNet-service-eindpunt is geconfigureerd, moet u verificatie van de beheerde identiteit. Raadpleeg [gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Als uw Azure-opslag met VNet-service-eindpunt is geconfigureerd, moet u verificatie van de beheerde identiteit. Raadpleeg [gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
 
 2. De **Brongegevensindeling** is van het **Parquet**, **ORC**, of **tekst met scheidingstekens**, met de volgende configuraties:
 
@@ -556,7 +556,7 @@ De volgende tabel bevat voorbeelden van hoe u de **tableName** eigenschap in de 
 | --- | --- | --- |
 | dbo | MyTable | MyTable of dbo.MyTable of [dbo].[MyTable] |
 | dbo1 | MyTable | dbo1.MyTable of [dbo1].[MyTable] |
-| dbo | My.Table | [My.Table] of [dbo].[My.Table]  |
+| dbo | My.Table | [My.Table] of [dbo].[My.Table] |
 | dbo1 | My.Table | [dbo1].[My.Table] |
 
 Als u de volgende fout ziet, is het probleem mogelijk de waarde die u hebt opgegeven voor de **tableName** eigenschap. Zie de voorgaande tabel voor de juiste manier om op te geven van de waarden voor de **tableName** JSON-eigenschap.

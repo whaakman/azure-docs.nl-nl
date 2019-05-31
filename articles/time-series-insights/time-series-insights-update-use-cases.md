@@ -2,7 +2,7 @@
 title: Azure Time Series Insights Preview use-cases | Microsoft Docs
 description: Krijg inzicht in Azure Time Series Insights Preview van use cases.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27c79155a4630f49faf49f30b2d46bf1e0dffd90
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 787445d5186a173b2cba674b36cd95879cc863e5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508318"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390001"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights Preview use-cases
 
@@ -28,11 +28,11 @@ In dit artikel worden met name de volgende vragen:
 * Wat zijn de voordelen van het gebruik van Time Series Insights voor [operationele analyses en efficiëntie van processen](#operational-analysis-and-driving-process-efficiency)?
 * Wat zijn de voordelen van het gebruik van Time Series Insights voor [advanced analytics](#advanced-analytics)?
 
-Een overzicht van deze scenario's gebruiken wordt hieronder beschreven.
+Een overzicht van deze scenario's gebruiken in de volgende secties wordt beschreven.
 
 ## <a name="introduction"></a>Inleiding
 
-Azure Time Series Insights is een end-to-end platform-as-a-service-aanbieding. Het wordt gebruikt voor het verzamelen, verwerken, opslaan, analyseren en maximaal contextualized, time series geoptimaliseerd IoT-schaal gegevens op te vragen. Time Series Insights is ideaal voor ad-hoc gegevens verkennen en operationele analyse. Time Series Insights is een unieke uitbreidbare, aangepaste, voorziet dat voldoet aan de algemene van industriële IoT-implementaties behoeften.
+Azure Time Series Insights is een end-to-end platform-as-a-service-aanbieding. Het wordt gebruikt voor het verzamelen, verwerken, opslaan, analyseren en maximaal contextualized, time series geoptimaliseerd IoT-schaal gegevens op te vragen. Time Series Insights is ideaal voor ad-hoc gegevens verkennen en operationele analyse. Time Series Insights is een unieke uitbreidbare, aangepaste serviceoplossing voldoet aan de algemene behoeften van industriële IoT-implementaties.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Gegevensverkenning en visuele afwijkingsdetectie
 
@@ -54,7 +54,7 @@ Er zijn drie primaire manieren om te communiceren met gegevens die zijn opgeslag
 
     * Lees de [Time Series Insights JS-clientbibliotheek](tutorial-explore-js-client-lib.md) en de [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentatie voor meer informatie over de JavaScript-SDK.
 
-    * Meer informatie over het delen van URL's en de nieuwe gebruikersinterface aan de hand [visualiseren van gegevens in de Preview-versie van de Verkenner](time-series-insights-update-explorer.md).
+    * Meer informatie over het delen van URL's en de nieuwe gebruikersinterface aan de hand [visualiseren van gegevens in de Verkenner van Azure Time Series Insights Preview](time-series-insights-update-explorer.md).
 
 - De derde manier om te beginnen is met de krachtige API's om gegevens te doorzoeken in Time Series Insights opgeslagen. Time Series Insights is een tijdelijke operators zoals `from`, `to`, `first`, en `last`. Deze aggregaties en transformaties bijvoorbeeld heeft `average`, `min`, `max`, `split by`, `order by`, en `DateHistogram`. Het bevat ook filteren operators zoals `has`, `in`, `and`, `or`, `greater than`, en `REGEX`. Alle deze operators kunnen downstream toepassingen snel interessante trends en patronen in uw gegevens kunt vinden. Ze gebruiken voor het vullen van zelfgemaakte visualisaties aan afwijkingen te vinden.
 
@@ -97,7 +97,5 @@ Time Series Insights een brug tussen IoT-gegevens en geavanceerde analyses in tw
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over de [Verkenner van Time Series Insights Preview](./time-series-insights-update-explorer.md).
-
-- Als u van plan bent om uw omgeving, wilt lezen [Time Series Insights Preview planning](./time-series-insights-update-plan.md).
-
+- Lezen [Time Series Insights Preview planning](./time-series-insights-update-plan.md) voor het plannen van uw omgeving.
 - Lees de [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentatie.

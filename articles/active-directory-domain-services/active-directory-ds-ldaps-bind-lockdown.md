@@ -3,7 +3,7 @@ title: Binden aan een Azure AD Domain Services beheerde domein met behulp van Se
 description: Verbinding maken met een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
-ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417029"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234860"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Verbinding maken met een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
 
@@ -64,13 +64,13 @@ Het voorbeeld NSG in de volgende tabel wordt vergrendeld toegang van secure LDAP
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)
-* [Een beheerd domein van Azure AD Domain Services beheren](active-directory-ds-admin-guide-administer-domain.md)
+* [Azure AD Domain Services - handleiding aan de slag](create-instance.md)
+* [Een Azure AD Domain Services-domein beheren](manage-domain.md)
 * [Grondbeginselen van de LDAP-query](https://technet.microsoft.com/library/aa996205.aspx)
-* [Groepsbeleid in een Azure AD Domain Services beheerde domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Beheren van Groepsbeleid voor Azure AD Domain Services](manage-group-policy.md)
 * [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md)
 * [Een Netwerkbeveiligingsgroep maken](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>Volgende stap
-[Oplossen van secure LDAP in een beheerd domein](active-directory-ds-ldaps-troubleshoot.md)
+[Oplossen van secure LDAP in een beheerd domein](tshoot-ldaps.md)

@@ -3,18 +3,18 @@ title: Azure-services en toepassingen met behulp van Grafana bewaken
 description: Route Azure Monitor en Application Insights gegevens, zodat u ze in Grafana bekijken kunt.
 services: azure-monitor
 keywords: ''
-author: lingliw
-ms.author: v-lingwu
-ms.date: 04/12/19
+author: rboucher
+ms.author: robb
+ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395941"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387192"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Bewaken van uw Azure-services in Grafana
 U kunt nu Azure-services en toepassingen van bewaken [Grafana](https://grafana.com/) met behulp van de [Azure Monitor-gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing verzamelt prestatiegegevens van toepassingen die door Azure Monitor, met inbegrip van verschillende logboeken en metrische gegevens worden verzameld. U kunt deze gegevens vervolgens weergeven in het Grafana-dashboard.
@@ -103,7 +103,7 @@ Wanneer is aangemeld, ziet u de Azure Monitor data source-invoegtoepassing is al
      > [!NOTE]
      >
      > De standaard-query die is opgegeven met de invoegtoepassing maakt gebruik van twee macro's: "$__timeFilter() en $__interval. 
-     > Deze macro's toestaan Grafana het tijdsbereik en het tijdsinterval, dynamisch berekenen wanneer u op een deel van een diagram inzoomen. U kunt deze macro's verwijderen en gebruik een filter (standaardtijd), zoals *TimeGenerated > ago(1h)*, maar dat betekent dat de grafiek wordt geen ondersteuning voor het zoomniveau in functie.
+     > Deze macro's toestaan Grafana het tijdsbereik en het tijdsinterval, dynamisch berekenen wanneer u op een deel van een diagram inzoomen. U kunt deze macro's verwijderen en gebruik een filter (standaardtijd), zoals *TimeGenerated > ago(1h)* , maar dat betekent dat de grafiek wordt geen ondersteuning voor het zoomniveau in functie.
     
      ![Grafana graph-configuratie voor Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
@@ -119,8 +119,6 @@ U kunt deze instellingen om op te nemen van metrische gegevens van uw server Pro
 
 Hier vindt u referentiemateriaal artikelen over het gebruik van Telegraf, InfluxDB Prometheus en Docker
  - [Metrische Systeemmeetgegevens met de MAATSTREEPJES-Stack op Ubuntu 16.04 controleren](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
-
- - [Metrische gegevens voor Docker resources met Grafana, InfluxDB en Telegraf controleren](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
  - [Een oplossing voor bewaking voor Docker-hosts, containers en services in containers](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
@@ -168,3 +166,4 @@ Als u een omgeving met Grafana setup op Azure hebt, worden er kosten berekend wa
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Azure Monitor Metrics](data-platform.md)
+

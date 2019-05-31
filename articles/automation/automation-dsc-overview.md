@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441069"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235947"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation-status
 
@@ -69,7 +69,7 @@ Ubuntu  | 18.04
 
 ### <a name="dsc-requirements"></a>DSC-vereisten
 
-Voor alle Windows-knooppunten die worden uitgevoerd in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) wordt geïnstalleerd tijdens onboarding.  Knooppunten met Windows Server 2012 en Windows 7, [WinRM wordt ingeschakeld](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Voor alle Windows-knooppunten die worden uitgevoerd in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) wordt geïnstalleerd tijdens onboarding.  Knooppunten met Windows Server 2012 en Windows 7, [WinRM wordt ingeschakeld](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Voor alle Linux-knooppunten die worden uitgevoerd in Azure, [PowerShell DSC voor Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) wordt geïnstalleerd tijdens onboarding.
 
@@ -108,8 +108,8 @@ Als u een Automation-account dat gedefinieerd voor een specifieke regio hebt, ku
 | India - centraal |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Japan - oost |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Australië - zuidoost |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| VK Zuid | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| Verenigd Koninkrijk Zuid | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
+| VS (overheid) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Voor een lijst met IP-adressen in plaats van regionamen regio, downloadt u de [Azure Datacenter IP-adres](https://www.microsoft.com/download/details.aspx?id=41653) XML-bestand van het Microsoft Download Center.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387541"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258639"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Meer informatie over de verschillen tussen Cloud Services en Service Fabric voor het migreren van toepassingen.
 Microsoft Azure Service Fabric is de volgende generatie toepassingen cloudplatform voor uiterst schaalbare webhostingservice met uiterst betrouwbare gedistribueerde toepassingen. Het geeft veel nieuwe functies voor het verpakken, implementeren, bijwerken en beheren van gedistribueerde cloud-Apps. 
@@ -88,6 +88,24 @@ Een algemene mechanisme voor communicatie tussen lagen in stateless omgevingen z
 Het communicatiemodel met dezelfde kan worden gebruikt in Service Fabric. Dit kan nuttig zijn bij het migreren van een bestaande Cloud Services-toepassing in Service Fabric. 
 
 ![Service Fabric rechtstreekse communicatie][8]
+
+## <a name="parity"></a>Pariteit
+[Cloudservices is vergelijkbaar met Service Fabric in de mate van controle tegenover gebruiksgemak gebruikt, maar het is nu een verouderde service en Service Fabric wordt aanbevolen voor de ontwikkeling van nieuwe](https://docs.microsoft.com/azure/app-service/overview-compare); een vergelijking van de API, is het volgende:
+
+
+| **Cloud Service-API** | **Service Fabric-API** | **Opmerkingen** |
+| --- | --- | --- |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId of. Knooppuntnaam | -ID is een eigenschap van de knooppuntnaam |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filteren op knooppuntnaam en gebruik FD-eigenschap |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filteren op knooppuntnaam en Upgrade eigenschap gebruiken |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext of Naming (ResolveService) | CodePackageActivationContext die wordt geleverd door FabricRuntime.GetActivationContext zowel in de replica's via ServiceInitializationParameters.CodePackageActivationContext tijdens de opgegeven. Initialisatie is mislukt |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Als u wilt de dezelfde soort filteren op type krijgt u de lijst met wordt knooppunttypen uit het cluster via FabricClient.ClusterManager.GetClusterManifest manifest en downloaden van de rol/knooppunttypen van daaruit. |
+| RoleEnvironment.GetIsAvailable | Verbinding maken met WindowsFabricCluster of maak een FabricRuntime waarnaar wordt verwezen naar een bepaald knooppunt | * |
+| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
+| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
+| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList of ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext of Naming (ResolveService) | * |
 
 ## <a name="next-steps"></a>Volgende stappen
 Het eenvoudigste migratiepad van Cloud Services naar Service Fabric wordt vervangen door de implementatie van de Cloudservices met een Service Fabric-toepassing, blijven de algehele architectuur van uw toepassing ongeveer hetzelfde. Het volgende artikel bevat richtlijnen om u te helpen bij het converteren van een Web- of Werkrol naar een stateless Service Fabric-service.

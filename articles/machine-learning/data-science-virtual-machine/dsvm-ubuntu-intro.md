@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d693af5ddd0b94734dfa065bef8a1f3a5de09ccc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597135"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236495"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De virtuele Machine voor Datatechnologie voor Linux (Ubuntu) inrichten
 
@@ -121,7 +121,7 @@ U kunt toegang tot de Ubuntu-DSVM drie methoden gebruiken:
 1. X2Go voor grafische sessies
 1. JupyterHub en Jjupyterlab voor Jupyter-notebooks
 
-U kunt ook een Data Science VM koppelen aan Azure-notitieblokken voor het uitvoeren van Jupyter notebooks op de virtuele machine en overslaan van de beperkingen van de laag gratis service. Zie voor meer informatie, [beheren en configureren van notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+U kunt ook een Data Science VM koppelen aan Azure-notitieblokken voor het uitvoeren van Jupyter notebooks op de virtuele machine en overslaan van de beperkingen van de laag gratis service. Zie voor meer informatie, [beheren en configureren van notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="ssh"></a>SSH
 

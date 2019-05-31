@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562352"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305260"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event Grid
 
@@ -22,7 +22,8 @@ In dit artikel beschrijft de belangrijkste concepten in Azure Event Grid.
 
 Een gebeurtenis is de kleinste hoeveelheid informatie die wordt iets volledig beschreven die hebben plaatsgevonden in het systeem. Elke gebeurtenis bevat algemene informatie, zoals: bron van de gebeurtenis wanneer de gebeurtenis plaatsgevonden en de unieke id heeft. Elke gebeurtenis heeft ook specifieke informatie die is alleen relevant zijn voor het specifieke type gebeurtenis. Bijvoorbeeld, een gebeurtenis over een nieuw bestand wordt gemaakt in Azure Storage vindt u informatie over het bestand, zoals de `lastTimeModified` waarde. Of een gebeurtenis van Event Hubs is de URL van de Capture-bestand. 
 
-Elke gebeurtenis is beperkt tot 64 KB aan gegevens.
+Een gebeurtenis van de grootte van maximaal 64 KB wordt gedekt door algemene beschikbaarheid (GA) Service Level Agreement (SLA). De ondersteuning voor een gebeurtenis van de grootte van maximaal 1 MB is momenteel in preview. Gebeurtenissen meer dan 64 KB in intervallen van 64 KB in rekening worden gebracht. 
+
 
 Zie voor de eigenschappen die worden verzonden in een gebeurtenis, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
@@ -59,9 +60,6 @@ Zie voor voorbeelden van het maken van abonnementen:
 Zie voor meer informatie over het ophalen van uw huidige event grid-abonnementen [Query Event Grid-abonnementen](query-event-subscriptions.md).
 
 ## <a name="event-subscription-expiration"></a>Het abonnement is verlopen gebeurtenis
-
-De [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor Azure CLI kunt u instellen dat een verlopen bij het maken van een gebeurtenisabonnement datum. Als u de REST-API gebruiken `api-version=2018-09-15-preview`
-
 Het gebeurtenisabonnement is na die datum automatisch verlopen. Instellen dat een verlopen voor gebeurtenisabonnementen die alleen nodig zijn voor een beperkte periode en u niet wilt zorgen maken over het opruimen van deze abonnementen. Bij het maken van een gebeurtenisabonnement voor het testen van een scenario, wilt u mogelijk een verloopdatum instellen. 
 
 Zie voor een voorbeeld van het instellen van een verlopen [abonneren met geavanceerde filters](how-to-filter-events.md#subscribe-with-advanced-filters).
@@ -82,7 +80,10 @@ Als Event Grid niet kan bevestigen dat een gebeurtenis is ontvangen door de abon
 
 ## <a name="batching"></a>Batchverwerking
 
-Wanneer u een aangepast onderwerp gebruikt, moeten altijd gebeurtenissen worden gepubliceerd in een matrix. Dit kan een batch van een voor scenario's met lage doorvoer, maar voor groot zijn, het wordt aanbevolen dat u batch-aantal gebeurtenissen gegroepeerd per publiceren voor het bereiken van hogere efficiëntie. Batches kunnen maximaal 1 MB zijn. Elke gebeurtenis nog steeds moet niet groter zijn dan 64 KB.
+Wanneer u een aangepast onderwerp gebruikt, moeten altijd gebeurtenissen worden gepubliceerd in een matrix. Dit kan een batch van een voor scenario's met lage doorvoer, maar voor groot zijn, het wordt aanbevolen dat u batch-aantal gebeurtenissen gegroepeerd per publiceren voor het bereiken van hogere efficiëntie. Batches kunnen maximaal 1 MB zijn. Elke gebeurtenis nog steeds moet niet groter zijn dan 64 KB (algemeen beschikbaar) of 1 MB (preview).
+
+> [!NOTE]
+> Een gebeurtenis van de grootte van maximaal 64 KB wordt gedekt door algemene beschikbaarheid (GA) Service Level Agreement (SLA). De ondersteuning voor een gebeurtenis van de grootte van maximaal 1 MB is momenteel in preview. Gebeurtenissen meer dan 64 KB wordt gefactureerd in stappen van 64 KB. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

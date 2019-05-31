@@ -4,15 +4,15 @@ description: In dit artikel beschrijft de categorieën van conflicten en het con
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e9f5fff1b74d417ee07ed0056c8046b49baa17
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892588"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236534"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Conflicttypen en oplossingsbeleid
 
@@ -30,7 +30,7 @@ Voor Azure Cosmos-accounts die zijn geconfigureerd met meerdere regio's voor sch
 
 Azure Cosmos DB biedt een flexibel op beleid gebaseerde mechanisme om op te lossen kunt oplossen. U kunt kiezen uit twee conflict resolutie beleidsregels op een Azure Cosmos-container:
 
-- **Laatste schrijfbewerking Wins (LWW)**: Dit beleid resolutie gebruikt standaard een eigenschap van het systeem gedefinieerde timestamp. Deze gebaseerd op het clock voor tijdsynchronisatie protocol. Als u de SQL-API gebruikt, kunt u een andere aangepaste numerieke eigenschap (bijvoorbeeld uw eigen begrip van een tijdstempel) om te worden gebruikt voor conflictoplossing opgeven. Een aangepaste numerieke eigenschap wordt ook wel de *conflict resolutie pad*. 
+- **Laatste schrijfbewerking Wins (LWW)** : Dit beleid resolutie gebruikt standaard een eigenschap van het systeem gedefinieerde timestamp. Deze gebaseerd op het clock voor tijdsynchronisatie protocol. Als u de SQL-API gebruikt, kunt u een andere aangepaste numerieke eigenschap (bijvoorbeeld uw eigen begrip van een tijdstempel) om te worden gebruikt voor conflictoplossing opgeven. Een aangepaste numerieke eigenschap wordt ook wel de *conflict resolutie pad*. 
 
   Als twee of meer items conflict op invoegen of vervangen, wordt het item met de hoogste waarde voor het pad van de oplossing conflict de winnaar. Als meerdere items dezelfde numerieke waarde voor het pad van de oplossing conflict hebben, bepaalt het systeem de winnaar. Alle regio's worden te convergeren met een één winnaar en eindigen met dezelfde versie van de toegezegde item gegarandeerd. Wanneer er conflicten zijn betrokken, verwijder de verwijderde versie altijd wins boven invoegen of vervangen van conflicten. Dit resultaat optreedt, ongeacht wat de waarde van het pad van de oplossing conflict is.
 

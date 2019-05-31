@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159936"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237421"
 ---
 # <a name="infrastructure-as-code"></a>Infrastructure als code
 
@@ -95,6 +95,47 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
         microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
+```
+
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Virtuele Azure-Machine automatische Upgrade configuratie van besturingssysteem 
+Upgraden van uw virtuele machines is een bewerking door de gebruiker gestart en wordt aanbevolen dat u [Virtual Machine Scale Stel automatische upgrade van besturingssysteem](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) voor Azure Service Fabric-clusters die host patchbeheer; Patch Orchestration-toepassing is een alternatieve oplossing die is bedoeld voor wanneer deze wordt gehost buiten Azure, hoewel POA kan worden gebruikt in Azure, met extra overhead van die als host fungeert POA in Azure wordt een algemene redenen voor de keuze van de virtuele Machine voor het automatische Upgrade van besturingssysteem via POA. Hier volgen de sjablooneigenschappen Virtual Machine Scale ingesteld Resource-Manager Compute bijwerken van het besturingssysteem automatisch inschakelen:
+
+```json
+"upgradePolicy": {
+   "mode": "Automatic",
+   "automaticOSUpgradePolicy": {
+        "enableAutomaticOSUpgrade": true,
+        "disableAutomaticRollback": false
+    }
+},
+```
+Als u automatische Besturingssysteemupgrades voor Service Fabric, wordt de nieuwe installatiekopie van het besturingssysteem geïmplementeerd één Updatedomein tegelijk voor hoge beschikbaarheid van de services die worden uitgevoerd in Service Fabric. Uw cluster moet voor het gebruik van automatische Besturingssysteemupgrades in Service Fabric worden geconfigureerd om te gebruiken de Duurzaamheidslaag Silver- of hoger.
+
+Zorg ervoor dat de volgende registersleutel is ingesteld op false om te voorkomen dat uw windows-hostmachines ongecoördineerde updates wordt gestart: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+
+Hier volgen de Virtual Machine Scale ingesteld Resource-Manager Compute Sjablooneigenschappen de Windows Update-registersleutel instellen op false:
+```json
+"osProfile": {
+        "computerNamePrefix": "{vmss-name}",
+        "adminUsername": "{your-username}",
+        "secrets": [],
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "enableAutomaticUpdates": false
+        }
+      },
+```
+
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuratie van Azure Service Fabric-Cluster upgraden
+Hier volgt de Service Fabric-cluster Resource Manager-sjablooneigenschap Automatische upgrade inschakelen:
+```json
+"upgradeMode": "Automatic",
+```
+Uw cluster handmatig bijwerken, de distributie van het CAB-bestand/deb downloaden naar een cluster virtuele machine en vervolgens aanroepen van de volgende PowerShell:
+```powershell
+Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
+Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
+Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

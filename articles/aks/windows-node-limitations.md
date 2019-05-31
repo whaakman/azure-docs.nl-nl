@@ -2,17 +2,17 @@
 title: Beperkingen voor Windows Server-knooppuntgroepen in Azure Kubernetes Service (AKS)
 description: Meer informatie over bekende beperkingen tijdens het uitvoeren van Windows Server-knooppuntgroepen en werkbelastingen van toepassingen in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 3d249271995d96307722dadf6b3e012e63565e6a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.author: twhitney
+ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956275"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304398"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Huidige beperkingen voor Windows Server-knooppuntgroepen en werkbelastingen van toepassingen in Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ In Azure Kubernetes Service (AKS), kunt u een knooppuntgroep die Windows Server 
 In dit artikel bevat een overzicht van enkele van de beperkingen en OS-concepten voor Windows Server-knooppunten in AKS. Knooppuntgroepen voor Windows Server zijn momenteel in preview.
 
 > [!IMPORTANT]
-> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
+> AKS-preview-functies zijn selfservice, aanmelden. Ze zijn bedoeld om het verzamelen van fouten en feedback van onze community. Preview-versie, worden deze functies zijn niet bedoeld voor gebruik in productieomgevingen. Functies in public preview vallen onder 'best effort'-ondersteuning. Hulp van de AKS-teams voor technische ondersteuning is beschikbaar tijdens kantooruren Pacific tijdzone (PST) alleen. Zie de volgende artikelen ondersteuning voor aanvullende informatie:
 >
-> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
+> * [Ondersteuningsbeleid voor AKS][aks-support-policies]
+> * [Veelgestelde vragen over ondersteuning van Azure][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Beperkingen voor WindowsServer in Kubernetes
 
@@ -57,6 +58,8 @@ De volgende beperkingen zijn van toepassing op Windows Server-knooppunt groep on
 - Preview-functies in AKS zoals Network Policy and cluster automatisch schalen, niet zijn goedgekeurd voor Windows Server-knooppunten.
 - Inkomend verkeer controllers moeten alleen worden gepland op Linux-knooppunten met behulp van een NodeSelector.
 - Azure Dev opslagruimten is momenteel alleen beschikbaar voor knooppunt op basis van Linux-pools.
+- Groep beheerde serviceaccounts (gMSA) ondersteuning bij de Windows Server-knooppunten niet zijn gekoppeld aan een Active Directory-domein is momenteel niet beschikbaar in AKS.
+    - De open-source, upstream [aks-engine] [ aks-engine] project biedt momenteel ondersteuning voor gMSA als u nodig hebt om deze functie te gebruiken.
 
 ## <a name="os-concepts-that-are-different"></a>OS-concepten die verschillen
 
@@ -74,11 +77,13 @@ Aan de slag met Windows Server-containers in AKS, [maken van een knooppunt van t
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

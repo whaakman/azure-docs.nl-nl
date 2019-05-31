@@ -7,13 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: cherylmc
-Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: c007684f351e0980ff9840ac8950121f212eeb36
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: f286c02e0eb6e801f62d4f2e16f1197a1e9d44ce
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016077"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304555"
 ---
 # <a name="virtual-wan-partners"></a>Virtuele WAN-partners
 
@@ -28,7 +27,7 @@ Een dashboard controller/apparaat een vertakking-apparaat (een klant on-premises
 * Testen van de ervaring van de portal van Azure virtuele WAN.
 * Vervolgens kunt u beslissen welk gedeelte van de stappen verbinding u wilt automatiseren. Ten minste, wordt u aangeraden automatiseren:
 
-  * Access Control
+  * Toegangsbeheer
   * Het uploaden van gegevens van een apparaat in Azure virtuele WAN vertakking
   * Downloaden van Azure-configuratie en het instellen van de connectiviteit van het apparaat van de vertakking in Azure virtuele WAN
 
@@ -199,65 +198,7 @@ Het apparaatconfiguratiebestand bevat de instellingen die u dient te gebruiken o
 
 ## <a name="default"></a>Standaard-beleid voor IPSec-verbinding
 
-### <a name="initiator"></a>Initiator
-
-De volgende secties worden de combinaties van ondersteunde beleid wanneer Azure de initiator voor de tunnel is.
-
-**Fase 1**
-
-* AES_256, SHA1, DH_GROUP_2
-* AES_256, SHA_256, DH_GROUP_2
-* AES_128, SHA1, DH_GROUP_2
-* AES_128, SHA_256, DH_GROUP_2
-
-**Fase 2**
-
-* GCM_AES_256, GCM_AES_256, PFS_NONE
-* AES_256, SHA_1, PFS_NONE
-* AES_256, SHA_256, PFS_NONE
-* AES_128, SHA_1, PFS_NONE
-
-### <a name="responder"></a>Responder
-
-De volgende secties worden de combinaties van ondersteunde beleid wanneer Azure het eindpunt voor de tunnel is.
-
-**Fase 1**
-
-* AES_256, SHA1, DH_GROUP_2
-* AES_256, SHA_256, DH_GROUP_2
-* AES_128, SHA1, DH_GROUP_2
-* AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
-
-**Fase 2**
-
-* GCM_AES_256, GCM_AES_256, PFS_NONE
-* AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
-* AES_256, SHA_256, PFS_NONE
-* AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
-* CBC_DES, SHA_1, PFS_NONE 
-* AES_256, SHA_1, PFS_1
-* AES_256, SHA_1, PFS_2
-* AES_256, SHA_1, PFS_14
-* AES_128, SHA_1, PFS_1
-* AES_128, SHA_1, PFS_2
-* AES_128, SHA_1, PFS_14
-* CBC_3DES, SHA_1, PFS_1
-* CBC_3DES, SHA_1, PFS_2
-* CBC_3DES, SHA_256, PFS_2
-* AES_256, SHA_256, PFS_1
-* AES_256, SHA_256, PFS_2
-* AES_256, SHA_256, PFS_14
-* AES_256, SHA_1, PFS_24
-* AES_256, SHA_256, PFS_24
-* AES_128, SHA_256, PFS_NONE
-* AES_128, SHA_256, PFS_1
-* AES_128, SHA_256, PFS_2
-* AES_128, SHA_256, PFS_14
-* CBC_3DES, SHA_1, PFS_14
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
 ### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>Alles wat moeten overeenkomen met tussen de virtuele hub-beleid voor VPN-gateway en mijn on-premises SDWAN/VPN-apparaat of de SD-WAN configuratie?
 

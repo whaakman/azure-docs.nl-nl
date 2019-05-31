@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709020"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245099"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Opnieuw trainen en implementeren van een machine learning-model
 
@@ -59,7 +59,7 @@ In dit voorbeeld gebruiken we C# om de retraining toepassing te maken. U kunt oo
 
 Gebruik de volgende stappen uit om aan te roepen de retraining API's:
 
-1. Maak een C# in Visual Studio-consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)**.
+1. Maak een C# in Visual Studio-consoletoepassing: **Nieuwe** > **Project** > **Visual C#**   >  **Windows Classic Desktop**  >   **Console-App (.NET Framework)** .
 1. Aanmelden bij de portal voor Machine Learning-webservices.
 1. Klik op de web-service waarmee u werkt.
 1. Klik op **gebruiken**.
@@ -89,7 +89,7 @@ De BES-voorbeeldcode wordt een bestand vanaf een lokaal station (bijvoorbeeld ' 
 1. Selecteer in de lijst met opslagaccounts, een voor het opslaan van het retrained model.
 1. Klik in de linkernavigatiekolom op **toegangssleutels**.
 1. Kopieer en bewaar de **primaire toegangssleutel**.
-1. Klik in de linkernavigatiekolom op **Containers**.
+1. Klik in de linkernavigatiekolom op **Blobs**.
 1. Selecteer een bestaande container of een nieuwe maken en opslaan van de naam.
 
 Zoek de *StorageAccountName*, *StorageAccountKey*, en *StorageContainerName* declaraties, en werk de waarden die u hebt opgeslagen in de portal.

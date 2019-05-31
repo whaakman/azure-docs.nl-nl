@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038496"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237324"
 ---
 # <a name="networking"></a>Netwerken
 
@@ -71,6 +71,8 @@ Uitschalen infrastructuur is vereist om in te schakelen versnelde netwerken in e
 * Gebruiken om uit te voeren op Windows-containerwerkbelastingen, [open netwerken modus](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) service-naar-servicecommunicatie om gemakkelijker te maken.
 
 * Een omgekeerde proxy gebruiken zoals [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) of de [Service Fabric reverse proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) om algemene toepassingspoorten, zoals 80 of 443 zichtbaar te maken.
+
+* Voor Windows-Containers die worden gehost op lucht onderbroken virtuele machines die de basis-lagen van Azure-cloud-opslag, kunnen geen pull overschrijven het gedrag refererende laag met behulp van de [--toestaan nondistributable artefacten](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) vlag in de Docker-daemon.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872645"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225890"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -68,7 +68,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * CDN
 * Cloud Services - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Cognitive Services
-* Containerregister
+* Container Registry
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -133,14 +133,14 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Azure NetApp Files
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Klassieke toepassingen
-* Containerinstanties
+* Container Instances
 * Container Service
 * Data Box
 * Dev-opslagruimten
 * Dynamics LCS
 * ExpressRoute
 * Lab-Services - Leslokaallabs kunnen niet worden verplaatst naar een nieuwe resourcegroep of abonnement. DevTest Labs kunnen worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
-* Beheerde toepassingen
+* Managed Applications
 * Microsoft Genomics
 * Beveiliging
 * Site Recovery
@@ -323,7 +323,7 @@ De bewerking kan enkele minuten uitgevoerd.
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-beperkingen
 
- Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven een [beperkte openbare preview](../backup/backup-azure-move-recovery-services-vault.md).
+ Volg deze stappen voor het verplaatsen van een Recovery Services-kluis: [Resources verplaatsen naar een nieuwe resourcegroep of abonnement](../backup/backup-azure-move-recovery-services-vault.md).
 
 Op dit moment kunt u een Recovery Services-kluis verplaatsen per regio, op een tijdstip. U kunt kluizen dat voor back-up Azure Files of Azure File Sync SQL IaaS virtuele machines niet verplaatsen.
 

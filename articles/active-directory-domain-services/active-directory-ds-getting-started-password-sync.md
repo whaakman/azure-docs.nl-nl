@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Synchronisatie van wachtwoordhas
 description: Aan de slag met Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: ergreenl
-ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 734e4bad970229ea8eb770d586062b098e586353
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417435"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234893"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Synchronisatie van wachtwoordhashes inschakelen voor Azure Active Directory Domain Services
 Tijdens de vorige taken hebt u Azure Active Directory Domain Services ingeschakeld voor uw Azure Active Directory-tenant (Azure AD). De volgende taak bestaat uit het inschakelen van synchronisatie voor wachtwoordhashes die zijn vereist voor NTLM- (NT LAN Manager) en Kerberos-verificatie met Azure AD Domain Services. Wanneer u de synchronisatie voor wachtwoordhashes hebt ingesteld, kunnen gebruikers zich bij het beheerde domein aanmelden met hun zakelijke referenties.
@@ -32,7 +32,7 @@ De vereiste stappen voor gebruikersaccounts in de cloud en gebruikersaccounts di
 | **Type gebruikersaccount** | **Stappen die moeten worden uitgevoerd** |
 | --- |---|
 | **Cloud-gebruikersaccounts die zijn gemaakt in Azure AD** |**&#x2713;** [Volg de instructies in dit artikel](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
-| **Gebruikersaccounts die zijn gesynchroniseerd vanuit een on-premises map** |**&#x2713;**: [wachtwoordhashes synchroniseren voor gebruikersaccounts die zijn gesynchroniseerd vanuit de on-premises AD met het beheerde domein](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
+| **Gebruikersaccounts die zijn gesynchroniseerd vanuit een on-premises map** |**&#x2713;** : [wachtwoordhashes synchroniseren voor gebruikersaccounts die zijn gesynchroniseerd vanuit de on-premises AD met het beheerde domein](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
@@ -82,6 +82,6 @@ Een paar minuten nadat u uw wachtwoord hebt gewijzigd, kunt u het nieuwe wachtwo
 * [Uw eigen wachtwoord bijwerken](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Aan de slag met wachtwoordbeheer in Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Synchronisatie van wachtwoordhashes met Azure Active Directory Domain Services inschakelen voor een gesynchroniseerde Azure AD-tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Een beheerd domein van Azure Active Directory Domain Services beheren](active-directory-ds-admin-guide-administer-domain.md)
+* [Een Azure AD Domain Services-domein beheren](manage-domain.md)
 * [Een virtuele Windows-computer toevoegen aan een beheerd domein van Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Een virtuele Red Hat Enterprise Linux-computer toevoegen aan een beheerd domein van Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

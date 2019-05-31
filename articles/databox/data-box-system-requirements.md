@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bce5dd1dd34c53276c5486cc255c4cd93bb6080
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746927"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242202"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box-systeemvereisten
 
@@ -31,68 +31,28 @@ De vereisten voor bevatten de gegevens op de ondersteunde besturingssystemen, de
 
 ### <a name="supported-operating-systems-for-clients"></a>Ondersteunde besturingssystemen voor clients
 
-Hier volgt een lijst van de ondersteunde besturingssystemen voor de bewerking voor het kopiëren van gegevens via de clients die zijn verbonden met de Data Box-apparaat.
-
-| **Besturingssysteem** | **Versies** | 
-| --- | --- | 
-| Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
-| Windows |7, 8, 10 | 
-|Linux    |         |
+[!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
 ### <a name="supported-file-systems-for-linux-clients"></a>Ondersteunde bestandssystemen voor Linux-clients
 
-| **Protocols** | **Versies** | 
-| --- | --- | 
-| SMB |2.X en hoger |
-| NFS | Alle versies tot en met 4.1|
+[!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 ### <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
 
-Hier volgt een lijst van de ondersteunde opslagaccounts en de opslagtypen voor de Data Box-apparaat. Zie voor een volledige lijst van alle verschillende soorten opslagaccounts en de bijbehorende volledige mogelijkheden [typen opslagaccounts](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
-
-| **Storage-account / opslagtypen ondersteund** | **Blok-blob** |**Pagina-blobs*** |**Azure Files** |**Opmerkingen**|
-| --- | --- | -- | -- | -- |
-| Klassieke Standard | J | J | J |
-| Standaard voor algemeen gebruik v1  | J | J | J | Zowel warme als koude worden ondersteund.|
-| Premium voor algemeen gebruik v1  |  | J| | |
-| Algemeen gebruik v2 Standard  | J | J | J | Zowel warme als koude worden ondersteund.|
-| Algemeen gebruik v2 Premium  |  |J | | |
-| BLOB-opslag Standard |J | | |Zowel warme als koude worden ondersteund. |
-
-\* *-Gegevens geüpload naar de pagina-blobs moet 512 bytes uitgelijnd, zoals VHD's.*
-
->[!NOTE]
-> Azure Data Lake Storage Gen 2-accounts worden niet ondersteund.
-
+[!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
 ### <a name="supported-storage-types"></a>Ondersteunde opslagtypen
 
-Hier volgt een lijst van de typen ondersteunde opslag voor de Data Box-apparaat.
-
-| **Bestandsindeling** | **Opmerkingen** |
-| --- | --- |
-| Azure blok-blob | |
-| Azure-pagina-blobs  | De gegevens moet 512 bytes uitgelijnd.|
-| Azure Files | |
-
+[!INCLUDE [data-box-supported-storage-types](../../includes/data-box-supported-storage-types.md)]
 
 ### <a name="supported-web-browsers"></a>Ondersteunde webbrowsers
 
-Hier volgt een lijst van webbrowsers die worden ondersteund voor de lokale webgebruikersinterface.
-
-| **Browser** | **Versies** | **Aanvullende vereisten/opmerkingen** |
-| --- | --- | --- |
-| Google Chrome |Meest recente versie |Getest met Chrome|
-| Microsoft Edge |Meest recente versie | |
-| FireFox | Meest recente versie | Getest met FireFox|
-| Internet Explorer |Meest recente versie |Als u niet aanmelden, controleert u of cookies en Javascript zijn ingeschakeld. Zodat de toegang tot de gebruikersinterface toevoegen het IP-adres van het apparaat naar **privacyacties** zodat het apparaat toegang heeft tot cookies. |
-
+[!INCLUDE [data-box-supported-web-browsers](../../includes/data-box-supported-web-browsers.md)]
 
 ## <a name="networking-requirements"></a>Netwerkvereisten
 
 Uw datacenter moet een netwerk met hoge snelheid hebben. Het wordt aangeraden dat u beschikt over minstens één 10-GbE-verbinding. Als een 10 GbE-verbinding niet beschikbaar is, kan de gegevenskoppeling van een 1 GbE-worden gebruikt om te kopiëren van gegevens, maar de kopie snelheden worden beïnvloed.
 
-## <a name="next-step"></a>Volgende stap
+## <a name="next-steps"></a>Volgende stappen
 
 * [Implementeren van uw Azure Data Box](data-box-deploy-ordered.md)
-

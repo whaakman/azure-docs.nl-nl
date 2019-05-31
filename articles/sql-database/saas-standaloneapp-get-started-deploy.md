@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485124"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304141"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Een zelfstandige één tenant-toepassing die gebruikmaakt van Azure SQL Database implementeren en verkennen
 
@@ -27,7 +27,7 @@ De zelfstandige toepassing of het patroon van de app-per-tenant wordt geïmpleme
 
 In deze zelfstudie implementeert u drie zelfstandige toepassingen voor drie tenants in uw Azure-abonnement.  U hebt volledige toegang om te verkennen en werken met de afzonderlijke toepassingsonderdelen.
 
-De toepassing source code en scripts zijn beschikbaar in de [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-opslagplaats. De toepassing is gemaakt met behulp van Visual Studio 2015, en niet is geopend en compileren in Visual Studio 2017 zonder bij te werken.
+De toepassing source code en scripts zijn beschikbaar in de [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-opslagplaats. De toepassing is gemaakt met behulp van Visual Studio 2015, en niet is geopend en compileren in Visual Studio 2019 zonder bij te werken.
 
 
 In deze zelfstudie komen deze onderwerpen aan bod:
@@ -37,7 +37,7 @@ In deze zelfstudie komen deze onderwerpen aan bod:
 > * Waar de broncode van de toepassing en scripts voor downloaden.
 > * Over de servers en databases waaruit de app.
 
-Aanvullende zelfstudies wordt uitgebracht. Hiermee kunt u een scala aan scenario's voor beheer op basis van dit toepassingspatroon verkennen.   
+Aanvullende zelfstudies wordt uitgebracht. Hiermee wordt kunt u een scala aan scenario's voor beheer op basis van dit toepassingspatroon verkennen.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>De Wingtip Tickets zelfstandige SaaS-toepassing implementeren
 
@@ -56,7 +56,7 @@ Implementeer de app voor de drie opgegeven tenants:
     > Sommige firewalls verificatie en de server zijn opzettelijk onbeveiligde voor demonstratiedoeleinden te gebruiken. **Maak een nieuwe resourcegroep** voor elke implementatie van de toepassing.  Gebruik niet een bestaande resourcegroep. Gebruik deze toepassing, of eventuele resources die zijn gemaakt, niet voor productie. Alle resourcegroepen verwijderen wanneer u klaar bent met de toepassingen gerelateerde facturering te stoppen.
 
     Het is raadzaam gebruik alleen kleine letters, cijfers en afbreekstreepjes bevatten in de resourcenamen van uw.
-    * Voor **resourcegroep**, selecteer de nieuwe optie maken en geef vervolgens een kleine naam voor de resourcegroep. **Wingtip-sa -\<venueName\>-\<gebruiker\>**  is het aanbevolen patroon.  Voor \<venueName\>, vervangen door de naam van de venue zonder spaties. Voor \<gebruiker\>, vervang de gebruikerswaarde hieronder.  Met dit patroon resourcegroepnamen mogelijk *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Voor **resourcegroep**, selecteer de nieuwe optie maken en geef vervolgens een kleine naam voor de resourcegroep. **Wingtip-sa -\<venueName\>-\<gebruiker\>**  is het aanbevolen patroon.  Voor \<venueName\>, vervangt u de naam van de venue zonder spaties. Voor \<gebruiker\>, vervang de gebruikerswaarde hieronder.  Met dit patroon resourcegroepnamen mogelijk *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Selecteer een **locatie** uit de vervolgkeuzelijst.
 
     * Voor **gebruiker** -wordt aangeraden een korte gebruikerswaarde, zoals uw initialen plus een cijfer: bijvoorbeeld *af1*.
@@ -107,7 +107,7 @@ Elke tenant-database is een 50 DTU *zelfstandige* database.
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - Zie voor meer informatie over SaaS-toepassingen met meerdere tenants, [ontwerppatronen voor SaaS-toepassingen met meerdere tenants](saas-tenancy-app-design-patterns.md).

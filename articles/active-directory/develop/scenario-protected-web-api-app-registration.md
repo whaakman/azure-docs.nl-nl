@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d8c8fcf84cd008957fcdb7cd14c4a07d9f3643
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 59af4e20c7fe838f7c725b47e45968941fa85cb7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074903"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254057"
 ---
 # <a name="protected-web-api---app-registration"></a>Beveiligde web-API - app-registratie
 
@@ -33,13 +33,13 @@ Zie [Quickstart: Een toepassing registreren met het Microsoft identity-platform]
 
 Het eindpunt van de Microsoft identity platform kan twee soorten tokens uitgeven: v1.0 tokens en v2.0-tokens. U kunt meer informatie over deze tokens in [toegangstokens](access-tokens.md). De geaccepteerde token versie is afhankelijk van de **ondersteund accounttypen** u hebt gekozen tijdens het maken van uw toepassing:
 
-- Als de waarde van **ondersteund accounttypen** is **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com)**, de geaccepteerde token versie v2.0 zal zijn.
-- Anders worden de geaccepteerde token versie v2.0.
+- Als de waarde van **ondersteund accounttypen** is **Accounts in een organisatie-map en de persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com)** , de geaccepteerde token versie v2.0 zal zijn.
+- Anders worden de geaccepteerde token versie v1.0.
 
 Als u de toepassing hebt gemaakt, kunt u de versie van de geaccepteerde token wijzigen door de volgende stappen:
 
 1. Selecteer uw app in de Azure-portal en selecteer vervolgens de **Manifest** voor uw app.
-2. Zoek in het manifest **"accessTokenAcceptedVersion"**, en om te zien die de waarde ervan **2**. Deze eigenschap kunt Azure AD weten dat de web-API v2.0 tokens accepteert. Als het **null**, de geaccepteerde token versie v1.0 zal zijn.
+2. Zoek in het manifest **"accessTokenAcceptedVersion"** , en om te zien die de waarde ervan **2**. Deze eigenschap kunt Azure AD weten dat de web-API v2.0 tokens accepteert. Als het **null**, de geaccepteerde token versie v1.0 zal zijn.
 3. Selecteer **Opslaan**.
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Als u de toepassing hebt gemaakt, kunt u de versie van de geaccepteerde token wi
 
 Web-API's hoeft te registreren van een omleidings-URI als er geen gebruiker aangemeld interactief is.
 
-## <a name="expose-an-api"></a>Een API beschikbaar maken
+## <a name="expose-an-api"></a>Een API beschikbaar maakt
 
 Een andere instelling die specifiek zijn voor web-API's is de daarvoor beschikbare API en de beschikbaar gemaakte bereiken.
 

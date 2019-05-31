@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6afe54d269d273c6a93e6431e9f1c1af7b18cc0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 416040d91da2f6346027f738de507777f804fd1f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720917"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237738"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files implementeren
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol. Dit artikel wordt beschreven hoe u vrijwel Azure Files implementeren binnen uw organisatie.
@@ -108,7 +108,7 @@ Robocopy is een bekende kopie-hulpprogramma dat wordt geleverd met Windows en Wi
 ### <a name="azcopy"></a>AzCopy
 AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar en van Azure Files, evenals Azure Blob-opslag met behulp van eenvoudige opdrachten met optimale prestaties. AzCopy is eenvoudig te gebruiken:
 
-1. Download de [meest recente versie van AzCopy in Windows](https://aka.ms/downloadazcopy) of [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+1. Download de [meest recente versie van AzCopy in Windows](https://aka.ms/downloadazcopy) of [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
 2. Gebruik `azcopy` op de opdrachtregel om gegevens te verplaatsen naar de Azure-bestandsshare. De syntaxis van de op Windows is als volgt: 
 
     ```

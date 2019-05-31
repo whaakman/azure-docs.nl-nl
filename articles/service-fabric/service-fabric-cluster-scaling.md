@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: b55516b48f805da9288799e11a4066cbd4483006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb9cb3998ed8208ff7b19aee8a984e4c057408ae
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515845"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302247"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Schalen van Azure Service Fabric-clusters
 Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster, heet een knooppunt. Clusters kunnen mogelijk duizenden knooppunten bevatten. Na het maken van een Service Fabric-cluster, kunt u het cluster horizontaal schalen (het aantal knooppunten wijzigen) of verticaal (de resources van de knooppunten wijzigen).  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.  Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
@@ -47,7 +47,7 @@ Omdat de Service Fabric-knooppunttypen in uw cluster zijn opgebouwd uit virtuele
 ### <a name="programmatic-scaling"></a>Programmatisch schalen
 In veel scenario's, [schalen van een cluster handmatig of met regels voor automatisch schalen](service-fabric-cluster-scale-up-down.md) zijn goede oplossingen. Voor meer geavanceerde scenario's, maar ze mogelijk niet geschikt. Nadelen aan deze methoden zijn onder andere:
 
-- Handmatig schalen, moet u zich aanmeldt bij en aanvragen vergroten / verkleinen. Als vergroten / verkleinen vaak vereist of onvoorspelbare tijde is, is deze benadering mogelijk niet een goede oplossing.
+- Handmatig schalen, moet u zich aanmelden en aanvragen vergroten / verkleinen. Als vergroten / verkleinen vaak vereist of onvoorspelbare tijde is, is deze benadering mogelijk niet een goede oplossing.
 - Wanneer automatisch schalen regels een exemplaar van een virtuele-machineschaalset verwijdert, verwijder ze automatisch niet kennis van dat knooppunt uit de gekoppelde Service Fabric-cluster, tenzij het knooppunttype een duurzaamheidsniveau van Silver- of Gold heeft. Omdat de regels voor automatisch schalen werkt in de schaalset niveau (in plaats van op het niveau van de Service Fabric), kunnen regels voor automatisch schalen Service Fabric-knooppunten verwijderen zonder dat ze probleemloos afgesloten. Deze verwijdering ruwe knooppunt laat 'ghost' status van Service Fabric-knooppunt achter na schaal-in-bewerkingen. Een persoon (of een service), moet voor het periodiek opschonen van de status van het verwijderde knooppunt in het Service Fabric-cluster.
 - Verwijderde knooppunten ruimt een knooppunttype met een duurzaamheidsniveau van Gold of Silver automatisch zodat er geen extra opschonen nodig is.
 - Er is wel [veel metrische gegevens](../azure-monitor/platform/autoscale-common-metrics.md) wordt ondersteund door regels voor automatisch schalen, het is nog steeds een beperkte set. Als uw scenario aanroept voor het schalen op basis van bepaalde meetwaarde niet wordt gedekt in deze is ingesteld, klikt u vervolgens regels voor automatisch schalen niet mogelijk een goede optie.

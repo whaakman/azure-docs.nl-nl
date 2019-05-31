@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978221"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356183"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Veilig kunt uitvoeren van experimenten en Deductie in een Azure-netwerk
 
@@ -141,7 +141,7 @@ Wanneer u de gebruiker gedefinieerde routes toevoegen, de route voor elk gerelat
 
 ![Voorbeeld van de gebruiker gedefinieerde route voor een adresvoorvoegsel](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-Zie voor meer informatie de [maken van een Azure Batch-pool in een virtueel netwerk](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) artikel.
+Zie voor meer informatie de [maken van een Azure Batch-pool in een virtueel netwerk](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) artikel.
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>Machine Learning-Computing in een virtueel netwerk maken
 
@@ -221,7 +221,7 @@ Als u een virtuele machine of een Azure HDInsight-cluster in een virtueel netwer
 
     * __Bronservicetag__: Select __AzureMachineLearning__.
 
-    * __Poortbereiken van bron__: Selecteer __*__.
+    * __Poortbereiken van bron__: Selecteer __*__ .
 
     * __Bestemming__: Selecteer __eventuele__.
 

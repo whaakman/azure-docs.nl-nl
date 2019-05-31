@@ -2,7 +2,7 @@
 title: Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview | Microsoft Docs
 description: Inzicht krijgen in de opslag van gegevens en inkomend verkeer in Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 8587fb0138309040232b6e0abc0f3eb17cc3093a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951105"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244078"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview
 
@@ -175,7 +175,7 @@ De Preview van Time Series Insights gegevens met behulp van een strategie voor o
 > * Tijdens de Preview-versie, verwacht een langere periode voordat de gegevens beschikbaar worden gesteld.
 > * Als u een aanzienlijke latentie ondervinden, moet u contact met ons opnemen.
 
-### <a name="scale"></a>Schaal aanpassen
+### <a name="scale"></a>Schalen
 
 De Preview van Time Series Insights biedt ondersteuning voor de schaal van een initiële inkomend verkeer van maximaal 1 Mega bytes per seconde (Mbps) per omgeving. Uitgebreide ondersteuning voor vergroten/verkleinen wordt momenteel is. We willen onze documentatie bij zodat deze verbeteringen bijwerken.
 

@@ -7,14 +7,14 @@ keywords: apache storm use cases,storm cluster,wat is apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5688056bc0d371c780bce02254769792e9a95696
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696113"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257785"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Wat is Apache Storm in Azure HDInsight?
 
@@ -47,7 +47,7 @@ Storm op HDInsight biedt de volgende functies:
 
 Zie [deze Engelstalige site](https://storm.apache.org/documentation/Powered-By.html) voor een lijst met bedrijven die Apache Storm gebruiken voor hun oplossingen voor realtime analyse.
 
-Als u wilt aan de slag met Storm, Zie [aan de slag met Apache Storm op HDInsight][gettingstarted].
+Als u wilt aan de slag met Storm, Zie [aan de slag met Apache Storm op HDInsight](apache-storm-tutorial-get-started-linux.md).
 
 ## <a name="how-does-apache-storm-work"></a>Hoe werkt de Apache Storm
 
@@ -177,10 +177,5 @@ Zie het voorbeeld van een [op Java gebaseerde woordentelling](apache-storm-devel
 
 Meer informatie over realtime analyseoplossingen met Apache Storm op HDInsight:
 
-* [Aan de slag met Apache Storm in HDInsight][gettingstarted]
+* [Aan de slag met Apache Storm op HDInsight](apache-storm-tutorial-get-started-linux.md)
 * [Example Storm toplogies and components for Apache Storm on HDInsight](apache-storm-example-topology.md) (Voorbeelden van Storm-topologieën en -onderdelen in HDInsight)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

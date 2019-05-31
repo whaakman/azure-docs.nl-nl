@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249783"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235188"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Wat is de Azure Active Directory-architectuur?
 Met Azure AD (Azure Active Directory) kunt u veilig de toegang tot Azure-services en -resources beheren voor uw gebruikers. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer informatie over de functies van Azure AD.
@@ -30,14 +30,14 @@ Geografisch verspreide architectuur van Azure AD combineert uitgebreide controle
 
 In dit artikel worden de volgende elementen van de architectuur besproken:
  *  Servicearchitectuurontwerp
- *  Gebruiksgemak 
+ *  Schaalbaarheid
  *  Continue beschikbaarheid
  *  Datacenters
 
 ### <a name="service-architecture-design"></a>Servicearchitectuurontwerp
 De meest voorkomende manier om te bouwen, een toegankelijk en kan worden gebruikt en gegevensrijk systeem is tot en met onafhankelijke bouwstenen of schaaleenheden. Voor de Azure AD-gegevenslaag, eenheden heten *partities*. 
 
-De gegevenslaag heeft meerdere front-end-services die mogelijkheden bieden voor lezen/schrijven. Het volgende diagram laat zien hoe de onderdelen van een partitie met één map worden geleverd in de gehele geografisch gedistribueerde datacenters. 
+De gegevenslaag heeft meerdere front-end-services die mogelijkheden bieden voor lezen/schrijven. Het volgende diagram laat zien hoe de onderdelen van een partitie met één map worden geleverd in geografisch verspreide datacenters. 
 
   ![Diagram van de partitie met één map](./media/active-directory-architecture/active-directory-architecture.png)
 
@@ -49,7 +49,7 @@ De *primaire replica* ontvangt alle *schrijfbewerkingen* voor de partitie waarbi
 
 **Secundaire replica's**
 
-Alle *leesbewerkingen* in een map worden afgehandeld vanuit *secundaire replica's*, die zich in datacenters op verschillende fysieke locaties bevinden. Er zijn veel secundaire replica's, omdat gegevens asynchroon worden gerepliceerd. Leesbewerkingen in een map, zoals verificatieaanvragen, worden afgehandeld vanuit datacenters die zich dicht bij klanten. De secundaire replica's zijn verantwoordelijk voor de schaalbaarheid van leesbewerkingen.
+Alle directory *leest* worden afgehandeld vanuit *secundaire replica's*, die zich in datacenters die zich fysiek op verschillende fysieke locaties. Er zijn veel secundaire replica's, omdat gegevens asynchroon worden gerepliceerd. Leesbewerkingen in een map, zoals verificatieaanvragen, worden afgehandeld vanuit datacenters die zich dicht bij klanten. De secundaire replica's zijn verantwoordelijk voor de schaalbaarheid van leesbewerkingen.
 
 ### <a name="scalability"></a>Schaalbaarheid
 
@@ -61,7 +61,7 @@ Directory-toepassingen maken verbinding met de dichtstbijzijnde datacenters. Dez
 
 ### <a name="continuous-availability"></a>Continue beschikbaarheid
 
-Beschikbaarheid (of bedrijfstijd) definieert de mogelijkheid van een systeem om ononderbroken actief te zijn. De sleutel voor hoge beschikbaarheid van Azure AD is dat de services snel verkeer tussen meerdere geografisch verspreide datacenters verplaatsen kunnen. Elk datacenter is onafhankelijk. Dit maakt het gebruik van gedecorreleerde foutmodi mogelijk.
+Beschikbaarheid (of bedrijfstijd) definieert de mogelijkheid van een systeem om ononderbroken actief te zijn. De sleutel voor hoge beschikbaarheid van Azure AD is dat de services snel verkeer tussen meerdere geografisch verspreide datacenters verplaatsen kunnen. Elk datacenter is onafhankelijk, die het gebruik van gedecorreleerde foutmodi mogelijk maakt. Via dit ontwerp voor hoge beschikbaarheid vereist Azure AD zonder uitvaltijd voor onderhoudswerkzaamheden.
 
 Ontwerp van Azure AD-partities is vereenvoudigd in vergelijking met de enterprise AD ontwerp met behulp van een single-master-ontwerp dat een primaire replica voor zorgvuldig Geregisseerd en deterministisch failoverproces omvat.
 
@@ -73,21 +73,21 @@ Leesbewerkingen (die vele malen vaker voorkomen dan schrijfbewerkingen) worden a
 
 **Duurzaamheid van gegevens**
 
-Een schrijfbewerking wordt definitief doorgevoerd in ten minste twee datacenters vóórdat deze wordt bevestigd. Dit gebeurt door de schrijfbewerking eerst door te voeren op de primaire replica en vervolgens onmiddellijk naar ten minste één ander datacenter te repliceren. Met deze schrijfactie zorgt ervoor dat een eventueel onherstelbaar verlies van het datacenter die als host fungeert voor de primaire niet tot verlies van gegevens leidt.
+Een schrijfbewerking wordt definitief doorgevoerd naar ten minste twee datacenters vóórdat deze wordt bevestigd. Dit gebeurt door eerst het doorvoeren van de schrijven op de primaire en het schrijven onmiddellijk naar ten minste één ander datacenter te repliceren. Met deze schrijfactie zorgt ervoor dat een eventueel onherstelbaar verlies van het datacenter dat de primaire host niet tot verlies van gegevens leidt.
 
 Azure AD onderhoudt een nul [Recovery Time Objective (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) niet gegevensverlies tijdens failovers. Dit omvat:
 -  Token-uitgifte en leesbewerkingen in een map
 -  Zodat u slechts circa 5 minuten RTO voor directory-schrijfbewerkingen
 
-### <a name="data-centers"></a>Datacenters
+### <a name="datacenters"></a>Datacenters
 
-Azure AD-replica's worden opgeslagen in datacenters over de hele wereld. Zie [Azure-datacenters](https://azure.microsoft.com/overview/datacenters) voor meer informatie.
+Azure AD-replica's worden opgeslagen in datacenters over de hele wereld. Zie voor meer informatie, [globale Azure-infrastructuur](https://azure.microsoft.com/global-infrastructure/).
 
 Azure AD werkt met verschillende datacenters met de volgende kenmerken:
 
- * Verificatie, Graph en andere AD-services bevinden zich achter de Gateway-service. De taakverdeling van deze services wordt via de gateway beheerd. Dit wordt automatische failover als een beschadigde servers worden gedetecteerd via transactionele tests. Op basis van deze tests wordt het verkeer dynamisch via de gateway naar de goede datacenters geleid.
- * Voor *leesbewerkingen* beschikt de map over secundaire replica's en bijbehorende front-end-services in een actief-actief-configuratie die in meerdere datacenters actief is. Mocht er een storing optreden die een heel datacenter treft, dan wordt het verkeer automatisch naar een ander datacenter geleid.
- *  Voor *schrijft*, de map primaire (hoofd) replica over verschillende datacenters worden overgebracht via geplande (nieuwe primaire wordt gesynchroniseerd naar de oude) of failoverprocedures. Duurzaamheid van gegevens wordt bereikt door een willekeurige doorvoering te repliceren naar minstens twee datacenters.
+ * Verificatie, Graph en andere AD-services bevinden zich achter de Gateway-service. De taakverdeling van deze services wordt via de gateway beheerd. Dit wordt automatische failover als een beschadigde servers worden gedetecteerd via transactionele tests. Op basis van deze tests, routeert de Gateway dynamisch verkeer naar goede datacenters.
+ * Voor *leest*, de map heeft secundaire replica's en bijbehorende front-end-services in een actief / actief-configuratie die in meerdere datacenters. Bij een storing van een heel datacenter, wordt verkeer automatisch worden doorgestuurd naar een ander datacenter.
+ *  Voor *schrijft*, de map primaire (hoofd) replica in datacenters worden overgebracht via geplande (nieuwe primaire wordt gesynchroniseerd naar de oude) of failoverprocedures. Duurzaamheid van gegevens wordt bereikt door een willekeurige doorvoering te repliceren naar ten minste twee datacenters.
 
 **Gegevensconsistentie**
 

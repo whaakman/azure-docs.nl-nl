@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821826"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305017"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Eventhubs - Geo-noodherstel 
 
 Wanneer volledige Azure-regio's of datacenters (als er geen [beschikbaarheidszones](../availability-zones/az-overview.md) worden gebruikt) treedt downtime, is het essentieel is voor de verwerking van gegevens om te kunnen blijven werken in een andere regio of het datacenter. Als zodanig *Geo-noodherstel* en *Geo-replicatie* zijn belangrijke functies voor dat elke onderneming. Azure Event Hubs biedt ondersteuning voor geo-noodherstel en geo-replicatie, op het niveau van de naamruimte. 
 
-De functie van het herstel bij Geo-gerelateerde noodgevallen is wereldwijd beschikbaar is voor de Event Hubs standaard-SKU.
+De functie van het herstel bij Geo-gerelateerde noodgevallen is wereldwijd beschikbaar is voor Event Hubs standaard en SKU toegewezen. Houd er rekening mee dat u alleen geo-paar naamruimten in dezelfde laag van de SKU kunt. Bijvoorbeeld, hebt u een naamruimte in een cluster dat alleen in onze SKU toegewezen aangeboden wordt, kan deze alleen worden gekoppeld met een naamruimte in een ander cluster. 
 
 ## <a name="outages-and-disasters"></a>Uitval en noodgevallen afhandelen
 

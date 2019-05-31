@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153504"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235862"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Stroomactiviteit gegevens uitvoeren in Azure Data Factory
 De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing (sandbox) pijplijnuitvoeringen en geactiveerde pijplijnuitvoeringen gebruiken.
@@ -49,25 +49,26 @@ De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing 
 
 ![Uitvoeren van de gegevensstroom](media/data-flow/activity-data-flow.png "gegevensstroom uitvoeren")
 
-### <a name="run-on"></a>Uitvoeren op
-
-Kies de compute-omgeving voor deze uitvoering van de gegevensstroom. De standaardwaarde is de standaard Integratieruntime voor Azure automatisch oplossen. Met deze optie wordt de gegevensstroom op de Spark-omgeving in dezelfde regio als uw data factory uitgevoerd. Het rekentype wordt een cluster taak, wat betekent dat de compute-omgeving duurt enkele minuten om lid te worden.
-
 ### <a name="debugging-pipelines-with-data-flows"></a>Opsporen van fouten in pijplijnen met gegevensstromen
 
 ![Fouten opsporen in knop](media/data-flow/debugbutton.png "knop foutopsporing")
 
 Gebruik de gegevens stromen foutopsporing gebruikmaken van een verwarmde cluster voor het testen van uw gegevensstromen interactief in een pijplijn foutopsporing uitvoeren. Gebruik de optie pijplijn fouten opsporen in uw gegevensstromen binnen een pijplijn testen.
 
-### <a name="run-on"></a>Uitvoeren op
+### <a name="run-on"></a>Uitgevoerd op
 
 Dit is een verplicht veld waarmee wordt gedefinieerd welke Integration Runtime moet worden gebruikt voor de uitvoering van de activiteit gegevens stromen. Data Factory gebruikt standaard de standaard automatisch oplossen Azure Integration runtime. U kunt echter uw eigen Azure-Integratieruntimes die specifieke regio's definiëren, compute-type, kerngeheugens en TTL-waarde voor de uitvoering van de activiteit van de gegevensstroom maken.
 
 De standaardinstelling voor uitvoeringen gegevensstroom is 8 kernen reken-en algemene met een TTL-waarde van 60 minuten.
 
+Kies de compute-omgeving voor deze uitvoering van de gegevensstroom. De standaardwaarde is de standaard Integratieruntime voor Azure automatisch oplossen. Met deze optie wordt de gegevensstroom op de Spark-omgeving in dezelfde regio als uw data factory uitgevoerd. Het rekentype wordt een cluster taak, wat betekent dat de compute-omgeving duurt enkele minuten om lid te worden.
+
 U hebt controle over de Spark-uitvoeringsomgeving voor uw activiteiten gegevensstroom. In de [Azure integratieruntime](concepts-integration-runtime.md) zijn instellingen voor het instellen van het type compute (algemeen gebruik, geoptimaliseerd voor geheugen en geoptimaliseerde rekenkracht), aantal worker-kernen en time-to-live zodat deze overeenkomen met de engine voor het uitvoeren met uw compute gegevensstroom vereisten. Bovendien kunt TTL instelling u een warm-cluster dat is onmiddellijk beschikbaar voor taakuitvoeringen onderhouden.
 
 ![Azure Integratieruntime](media/data-flow/ir-new.png "Azure Integratieruntime")
+
+> [!NOTE]
+> De Integration Runtime-selectie in de activiteit gegevensstroom is alleen van toepassing op *geactiveerde uitvoeringen* van uw pijplijn. Foutopsporing van uw pijplijn met de gegevens stromen met foutopsporing wordt uitgevoerd op de standaardwaarde van 8-core Spark-cluster.
 
 ### <a name="staging-area"></a>Faseringsgebied
 

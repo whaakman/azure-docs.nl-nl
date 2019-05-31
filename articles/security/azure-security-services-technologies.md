@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610914"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234239"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Beveiligingsservices en -technologieën die beschikbaar zijn op Azure
 
@@ -69,7 +69,7 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 | [Azure&nbsp;rol&nbsp;op basis van&nbsp;Access Control](../active-directory/role-based-access-control-configure.md)|Een functie voor toegang is ontworpen om gebruikers toegang krijgen tot alleen de resources die ze vereist voor toegang op basis van hun rol binnen de organisatie zijn.  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Een cloud-gebaseerde authenticatie-opslagplaats die ondersteuning biedt voor een map met meerdere tenants, cloud-gebaseerde en meerdere identity management-services binnen Azure.  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Een identity management-service waarmee de controle over hoe klanten gebruikersregistratie, aanmelding, en hun profielen beheren bij het gebruik van Azure-toepassingen.   |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| Een cloud-gebaseerde en beheerde versie van Active Directory Domain Services. |
+| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)| Een cloud-gebaseerde en beheerde versie van Active Directory Domain Services. |
 | [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Een security inrichten met de diverse verschillende vormen van verificatie en verificatie voordat de toegang tot beveiligde gegevens. |
 
 ## <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgeval

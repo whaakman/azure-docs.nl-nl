@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545475"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235195"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-naar-service aanroepen die gebruik gedelegeerde gebruikersidentiteit in de On-Behalf-Of-stroom
 
@@ -58,31 +58,32 @@ Registreer de middelste laag en de clienttoepassing in Azure AD.
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Op de bovenste balk, selecteert u uw account en kijk onder de **Directory** om te selecteren van een Active Directory-tenant voor uw toepassing.
 1. Selecteer **meer Services** in het linkerdeelvenster en kies **Azure Active Directory**.
-1. Selecteer **App-registraties** en vervolgens **nieuwe toepassing registreren**.
+1. Selecteer **App-registraties** en vervolgens **registratie van nieuwe**.
 1. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype.
-    1. De aanmeldings-URL of de omleidings-URL, afhankelijk van het type ingesteld op de basis-URL.
-    1. Selecteer **maken** om de toepassing te maken.
+1. Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
+1. Stel de omleidings-URI in op de basis-URL.
+1. Selecteer **Registreren** om de toepassing te maken.
 1. Het genereren van een clientgeheim vóór het afsluiten van de Azure-portal.
-   1. In de Azure-portal, kiest u uw toepassing en selecteer **instellingen**.
-   1. Selecteer **sleutels** in het menu instellingen en voeg een sleutel met een duur van de sleutel van één jaar of twee jaar.
-   1. Als u deze pagina opslaat, wordt de sleutelwaarde in de Azure-portal weergegeven. Kopieer en bewaar de sleutelwaarde op een veilige locatie.
+1. In de Azure-portal, kiest u uw toepassing en selecteer **certificaten en geheimen**.
+1. Selecteer **nieuwe clientgeheim** en een geheim met een duur van één jaar of twee jaar toevoegen.
+1. Als u deze pagina opslaat, wordt de geheime waarde weergegeven in de Azure-portal. Kopieer en bewaar de geheime waarde op een veilige locatie.
 
-      > [!IMPORTANT]
-      > U moet de sleutel voor het configureren van de toepassingsinstellingen in uw implementatie. De waarde van deze sleutel niet opnieuw wordt weergegeven en is het niet worden opgehaald door een andere manier. Noteer deze zodra deze zichtbaar in de Azure portal is.
+> [!IMPORTANT]
+> U moet het geheim aan de toepassingsinstellingen configureren in uw implementatie. Deze geheime waarde niet opnieuw wordt weergegeven en is het niet worden opgehaald door een andere manier. Noteer deze zodra deze zichtbaar in de Azure portal is.
 
 ### <a name="register-the-client-application"></a>De clienttoepassing registreren
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Op de bovenste balk, selecteert u uw account en kijk onder de **Directory** om te selecteren van een Active Directory-tenant voor uw toepassing.
 1. Selecteer **meer Services** in het linkerdeelvenster en kies **Azure Active Directory**.
-1. Selecteer **App-registraties** en vervolgens **nieuwe toepassing registreren**.
+1. Selecteer **App-registraties** en vervolgens **registratie van nieuwe**.
 1. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype.
-   1. De aanmeldings-URL of de omleidings-URL, afhankelijk van het type ingesteld op de basis-URL.
-   1. Selecteer **maken** om de toepassing te maken.
-1. Machtigingen configureren voor uw toepassing.
-   1. Kies in het menu instellingen de **vereiste machtigingen** uit en selecteer vervolgens **toevoegen** en **Select an API**.
-   1. Typ de naam van de middelste laag service in het tekstveld.
-   1. Kies **Selecteer machtigingen** en selecteer vervolgens **de naam van de Access-service**.
+1. Selecteer onder **Ondersteunde accounttypen** de optie **Accounts in een organisatieadreslijst en persoonlijke Microsoft-account**.
+1. Stel de omleidings-URI in op de basis-URL.
+1. Selecteer **Registreren** om de toepassing te maken.
+1. Machtigingen configureren voor uw toepassing. In **API-machtigingen**, selecteer **toevoegen van een machtiging** en vervolgens **mijn API's**.
+1. Typ de naam van de middelste laag service in het tekstveld.
+1. Kies **Selecteer machtigingen** en selecteer vervolgens **toegang <service name>** .
 
 ### <a name="configure-known-client-applications"></a>Bekende clienttoepassingen configureren
 
@@ -110,13 +111,13 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-servi
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JSON Web Token (JWT), zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag. |
-| client_id |vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
-| client_secret |vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Bron |vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
-| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
-| scope |vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
+| grant_type |Vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JSON Web Token (JWT), zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| bevestiging |Vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag. |
+| client_id |Vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
+| client_secret |Vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
+| Bron |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| scope |Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
 #### <a name="example"></a>Voorbeeld
 
@@ -144,14 +145,14 @@ Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volg
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JWT-toegangstoken, zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |vereist | De waarde van het token wordt gebruikt in de aanvraag. |
-| client_id |vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
-| client_assertion_type |vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |vereist | Een JSON Web Token die u maakt en meld u aan met het certificaat dat u geregistreerd als referenties voor uw toepassing. Zie [referenties van het certificaat](active-directory-certificate-credentials.md) voor meer informatie over assertion indeling en over het registreren van uw certificaat.|
-| Bron |vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
-| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
-| scope |vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
+| grant_type |Vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JWT-toegangstoken, zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| bevestiging |Vereist | De waarde van het token wordt gebruikt in de aanvraag. |
+| client_id |Vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
+| client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Vereist | Een JSON Web Token die u maakt en meld u aan met het certificaat dat u geregistreerd als referenties voor uw toepassing. Zie [referenties van het certificaat](active-directory-certificate-credentials.md) voor meer informatie over assertion indeling en over het registreren van uw certificaat.|
+| Bron |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| scope |Vereist | Een spatie gescheiden lijst met bereiken voor het token aan te vragen. Voor de OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
 Deze parameters zijn bijna hetzelfde net als bij de aanvraag van het gedeelde geheim, behalve dat de `client_secret parameter` wordt vervangen door twee parameters: `client_assertion_type` en `client_assertion`.
 
@@ -254,13 +255,13 @@ Een service-naar-service-aanvraag voor een SAML-verklaring bevat de volgende par
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag die gebruikmaakt van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| bevestiging |vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag.|
-| client_id |vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
-| client_secret |vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Bron |vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Dit is de resource die de doelgroep van het SAML-token. Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
-| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
-| requested_token_type | vereist | Hiermee geeft u het type token dat is aangevraagd. De waarde kan zijn **urn: ietf:params:oauth:token-type: saml2** of **urn: ietf:params:oauth:token-type: saml1** afhankelijk van de vereisten van de gebruikte resource. |
+| grant_type |Vereist | Het type van het token aan te vragen. Voor een aanvraag die gebruikmaakt van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| bevestiging |Vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag.|
+| client_id |Vereist | De app-ID die wordt toegewezen aan de aanroepende service tijdens de registratie met Azure AD. Ga voor de app-ID in Azure portal, selecteert u **Active Directory**, kiest u de map en selecteer vervolgens de naam van de toepassing. |
+| client_secret |Vereist | De sleutel geregistreerd voor de aanroepende service in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
+| Bron |Vereist | De app-ID-URI van de ontvangende service (beveiligde resource). Dit is de resource die de doelgroep van het SAML-token. Als u wilt de app-ID-URI vinden in de Azure-portal, selecteert u **Active Directory** en kiest u de map. Naam van de toepassing selecteert, kiest u **alle instellingen**, en selecteer vervolgens **eigenschappen**. |
+| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de stroom op-andere gebruikers-Of de waarde moet **on_behalf_of**. |
+| requested_token_type | Vereist | Hiermee geeft u het type token dat is aangevraagd. De waarde kan zijn **urn: ietf:params:oauth:token-type: saml2** of **urn: ietf:params:oauth:token-type: saml1** afhankelijk van de vereisten van de gebruikte resource. |
 
 Het antwoord bevat een SAML-token dat is gecodeerd in UTF8 en Base64url.
 

@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 5b3475f35ac958432d319eafe6e3392e155d9ff4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002109"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242453"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Uitgebreide metrische gegevens voor Azure virtual machines toevoegen
 
@@ -28,7 +28,7 @@ Nadat u het verzamelen van metrische gegevens inschakelt, kunt u het volgende do
 - Uw kosten te beheren door de grootte op basis van gebruik.
 - Get kosten-effectieve formaat aanbevelingen van de optimalisatie van Cloudyn.
 
-Bijvoorbeeld, als u wilt het % CPU en geheugen-% van uw virtuele Azure-machines bewaken. De metrische gegevens van virtuele Azure-machine komen overeen met _[Host] Percentage CPU_ en _[Gast] geheugenpercentage_.
+Bijvoorbeeld, als u wilt het % CPU en geheugen-% van uw virtuele Azure-machines bewaken. De metrische gegevens van virtuele Azure-machine komen overeen met _Percentage CPU_ en _\Memory\% toegewezen Bytes In gebruik_.
 
 > [!NOTE]
 > Uitgebreide metrische gegevensverzameling wordt alleen ondersteund met Azure-bewaking op gastniveau. Cloudyn is niet compatibel met de VM-extensie van Azure Monitor-Logboeken.
@@ -44,7 +44,7 @@ In het voorgaande voorbeeld wordt een beperkte set van standaard metrische gegev
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Uitgebreide metrische gegevens in Azure portal inschakelen
 
-Standaard metrische gegevens zijn computer metrische gegevens voor hosts. De _[Host] Percentage CPU_ meetwaarde is een voorbeeld. Er zijn ook eenvoudige metrische gegevens voor de Gast-VM's en uitgebreide metrische gegevens ook genoemd. Voorbeelden van uitgebreide metrische gegevens zijn _[Gast] geheugenpercentage_ en _[] Gastgeheugen beschikbaar_.
+Standaard metrische gegevens zijn computer metrische gegevens voor hosts. De _Percentage CPU_ meetwaarde is een voorbeeld. Er zijn ook eenvoudige metrische gegevens voor de Gast-VM's en uitgebreide metrische gegevens ook genoemd. Voorbeelden van uitgebreide metrische gegevens zijn _\Memory\% toegewezen Bytes In gebruik_ en _\Memory\Available Bytes_.
 
 Het inschakelen van uitgebreide metrische gegevens is eenvoudig. Voor elke virtuele machine, schakel de bewaking op gastniveau. Wanneer u de bewaking op gastniveau inschakelt, wordt de Azure diagnostics-agent is geïnstalleerd op de virtuele machine. Standaard een set met uitgebreide metrische gegevens worden toegevoegd. Het volgende proces is hetzelfde voor klassieke en reguliere virtuele machines en hetzelfde voor Windows en Linux-VM's.
 
@@ -58,7 +58,7 @@ Houd er rekening mee dat Azure- en Linux bewaking op gastniveau zijn vereist voo
     ![Niveau bewaking van Gast op de pagina overzicht inschakelen](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Na een paar minuten is de Azure diagnostics-agent geïnstalleerd op de virtuele machine. Een set van metrische gegevens worden toegevoegd. Vernieuw de pagina. De toegevoegde prestatiemeteritems worden weergegeven op het tabblad Overzicht.
 5. Selecteer onder controle, **metrische gegevens**.
-6. In de grafiek met metrische gegevens onder **metriek Namespace**, selecteer **gast (klassiek)**.
+6. In de grafiek met metrische gegevens onder **metriek Namespace**, selecteer **gast (klassiek)** .
 7. In de lijst met metrische gegevens, kunt u alle van de beschikbare prestatiemeteritems weergeven voor de Gast-VM.  
     ![overzicht van voorbeeld van de uitgebreide metrische gegevens](./media/azure-vm-extended-metrics/extended-metrics.png)
 

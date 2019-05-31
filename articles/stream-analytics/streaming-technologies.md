@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7ef8715f23d21a23dc3f37b192314b922847d3e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805904"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242695"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Kies een realtime analyses en streaming van verwerkingstechnologie in Azure
 
@@ -25,7 +25,7 @@ Azure Stream Analytics is een aanbevolen service voor stream analytics op Azure.
 * Dashboards voor gegevensvisualisatie
 * Realtime [waarschuwingen](stream-analytics-set-up-alerts.md) van tijdelijke en ruimtelijke patronen en afwijkingen
 * Extraction, Transformation, Loading (ETL)
-* [Gebeurtenisbronnenpatroon](/azure/architecture/patterns/event-sourcing.md)
+* [Gebeurtenisbronnenpatroon](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
 Toevoegen van een Azure Stream Analytics-taak aan uw toepassing is de snelste manier om streaminganalyse ophalen van en die worden uitgevoerd in Azure met behulp van de SQL-taal die u al kent. Azure Stream Analytics is een service van de taak, zodat u niet hoeven te besteden aan het beheren van clusters tijd, en u geen zorgen te hoeven maken over downtime met een SLA van 99,9% op het taakniveau van de. Facturering wordt ook uitgevoerd op het taakniveau opstartkosten laag te maken (één Streaming-eenheid), maar schaalbare (maximaal 192 Streaming-eenheden). Het is veel kostenefficiënter om uit te voeren van een paar Stream Analytics-taken dan het uitvoeren en onderhouden van een cluster.

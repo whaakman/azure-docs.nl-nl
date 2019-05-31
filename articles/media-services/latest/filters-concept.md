@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002383"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225415"
 ---
 # <a name="filters"></a>Filters
 
-Wanneer uw inhoud levert aan klanten (Live Streaming-gebeurtenissen of Video on Demand) is de client mogelijk meer flexibiliteit dan wat wordt beschreven in het manifestbestand van de standaard-asset. Azure Media Services kunt u accountfilters en filters actief voor uw inhoud definiëren. 
+Wanneer uw inhoud levert aan klanten (Live Streaming-gebeurtenissen of Video on Demand) is de client mogelijk meer flexibiliteit dan wat wordt beschreven in het manifestbestand van de standaard-asset. Azure Media Services biedt [dynamische manifesten](filters-dynamic-manifest-overview.md) op basis van vooraf gedefinieerde filters. 
 
 Filters zijn serverzijde regels waarmee uw klanten voor handelingen zoals: 
 
@@ -32,24 +32,16 @@ Filters zijn serverzijde regels waarmee uw klanten voor handelingen zoals:
 - Lever alleen de opgegeven voorinstelling en/of opgegeven taal nummers die worden ondersteund door het apparaat dat wordt gebruikt voor het afspelen van de inhoud ("weergavefiltering"). 
 - Presentatie venster (DVR) aanpassen om te voorzien van een beperkt de lengte van de DVR-venster in de speler ("aanpassen presentatievenster").
 
-Media Services biedt [dynamische manifesten](filters-dynamic-manifest-overview.md) op basis van vooraf gedefinieerde filters. Als u filters definiëren, kunnen uw clients deze gebruiken in de streaming-URL. Filters kunnen worden toegepast op adaptieve bitrate streamingprotocollen: Apple HTTP Live Streaming (HLS), MPEG-DASH en Smooth Streaming.
+Media Services kunt u maken **Account filters** en **Asset filters** voor uw inhoud. Bovendien kunt u de vooraf gemaakte filters met koppelen een **Streaming-Locator gemaakt**.
 
-De volgende tabel ziet u enkele voorbeelden van URL's met filters:
+## <a name="defining-filters"></a>Filters definiëren
 
-|Protocol|Voorbeeld|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Gebruik voor HLS-v3: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## <a name="define-filters"></a>Filters definiëren
-
-Er zijn twee typen asset filters: 
+Er zijn twee typen filters: 
 
 * [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) (wereldwijde) - kunnen worden toegepast op alle activa in het Azure Media Services-account, hebben een levensduur van het account.
 * [Asset-Filters](https://docs.microsoft.com/rest/api/media/assetfilters) (lokaal) - kan alleen worden toegepast op een asset waarmee het filter gekoppeld nadat deze is gemaakt is, hebben een levensduur van de asset. 
 
-[Filter account](https://docs.microsoft.com/rest/api/media/accountfilters) en [Asset Filter](https://docs.microsoft.com/rest/api/media/assetfilters) typen hebben dezelfde eigenschappen voor het definiëren van/beschrijven van het filter. Met uitzondering van bij het maken van de **Asset Filter**, moet u de naam van de activa die u wilt koppelen van het filter opgeven.
+**Account Filters** en **Asset Filters** typen hebben dezelfde eigenschappen voor het definiëren van/beschrijven van het filter. Met uitzondering van bij het maken van de **Asset Filter**, moet u de naam van de activa die u wilt koppelen van het filter opgeven.
 
 Afhankelijk van uw scenario, kunt u bepalen welk type een filter is beter geschikt (Asset filteren of Account filteren). Accountfilters zijn geschikt voor apparaatprofielen (weergavefiltering) waar Asset Filters kan worden gebruikt om een specifieke asset trim.
 
@@ -145,14 +137,22 @@ Het volgende voorbeeld definieert een Live Streaming-filter:
 }
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
+## <a name="associating-filters-with-streaming-locator"></a>Filters met Streaming-Locator gemaakt koppelen
 
-U kunt een lijst opgeven met [asset of account filters](filters-concept.md), die gelden voor uw [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). De [dynamische Packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dynamische Manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op Streaming-Locator gemaakt opgeeft. U wordt aangeraden dat u deze functie gebruiken als u filters wilt toepassen, maar niet wilt weergeven van de filterfunctie namen in de URL.
+U kunt een lijst opgeven met [asset of account filters](filters-concept.md) op uw [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). De [dynamische Packager](dynamic-packaging-overview.md) deze lijst met filters samen met die de client Hiermee geeft u in de URL van toepassing is. Deze combinatie genereert een [dynamische Manifest](filters-dynamic-manifest-overview.md), die is gebaseerd op filters in de URL en filters die u op het Streaming-Locator gemaakt opgeeft. 
 
 Zie de volgende voorbeelden:
 
 * [Filters koppelen met Streaming-Locator - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [Filters koppelen met Streaming-Locator - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## <a name="updating-filters"></a>Filters bijwerken
+ 
+**Streaming-Locators** kunnen niet worden bijgewerkt terwijl filters kunnen worden bijgewerkt. 
+
+Het wordt niet aanbevolen om bij te werken van de definitie van de filters die zijn gekoppeld aan een actief gepubliceerde **Streaming-Locator gemaakt**, met name wanneer CDN is geactiveerd. Streaming-servers en CDN kunt interne caches hebben die tot verouderde gegevens in de cache leiden kunnen moeten worden geretourneerd. 
+
+Als de definitie van het filter moet worden gewijzigd kunt u een nieuw filter maken en toe te voegen aan de **Streaming-Locator gemaakt** URL of het publiceren van een nieuwe **Streaming-Locator gemaakt** die verwijst naar het filter rechtstreeks.
 
 ## <a name="next-steps"></a>Volgende stappen
 

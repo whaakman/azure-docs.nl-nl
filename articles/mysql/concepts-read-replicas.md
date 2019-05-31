@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510930"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225364"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Lezen-replica's in Azure Database for MySQL
 
@@ -36,14 +36,13 @@ De functie lezen replica maakt gebruik van asynchrone replicatie van de MySQL. D
 
 Lezen-replica's kunnen u uw plan voor herstel na noodgevallen verbeteren. Als er een regionaal noodgeval en de hoofd-server niet beschikbaar is, kunt u uw werkbelasting naar een replica in een andere regio sturen. Om dit te doen, kunt u eerst de replica schrijfbewerkingen accepteren met behulp van de functie van de replicatie stoppen. U kunt uw toepassing vervolgens omleiden door de verbindingsreeks bij te werken. Meer informatie in de [replicatie stoppen](#stop-replication) sectie.
 
-## <a name="create-a-replica"></a>Een replica maken
+## <a name="create-a-replica"></a>Replica's maken
 
 Als een hoofd-server geen bestaande replicaservers heeft, wordt eerst het model opnieuw zelf voorbereiden voor replicatie.
 
 Wanneer u de werkstroom van de replica maken start, wordt een lege Azure Database voor MySQL-server gemaakt. De nieuwe server is gevuld met de gegevens op de hoofd-server. De tijd voor het maken, is afhankelijk van de hoeveelheid gegevens op de hoofd- en de tijd sinds de laatste wekelijkse volledige back-up. De tijd kan variëren van enkele minuten tot enkele uren.
 
-> [!NOTE]
-> Als u geen een waarschuwing instellen voor opslag van op uw servers, wordt u aangeraden dit te doen. De waarschuwing wordt geïnformeerd wanneer een server nadert de limiet voor opslag, die van invloed is op de replicatie.
+Elke replica is ingeschakeld voor de opslag [automatisch vergroten](concepts-pricing-tiers.md#storage-auto-grow). De functie auto-grow kunt de replica om te blijven van de gegevens gerepliceerd naar deze, en te voorkomen dat een onderbreking in replicatie veroorzaakt door buiten Opslagfouten.
 
 Meer informatie over het [een lezen replica maken in Azure portal](howto-read-replicas-portal.md).
 

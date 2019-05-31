@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348304"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235140"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Wachtwoord-hashsynchronisatie met Azure AD Connect sync implementeren
 Dit artikel bevat gegevens die u nodig hebt om te synchroniseren van uw wachtwoorden van gebruikers uit een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure Active Directory (Azure AD)-exemplaar.
@@ -64,7 +64,7 @@ De volgende sectie wordt beschreven, uitgebreide, de werking van wachtwoord-hash
 >De oorspronkelijke MD4-hash is niet verzonden naar Azure AD. In plaats daarvan wordt de SHA256-hash van de oorspronkelijke MD4-hash verzonden. Als gevolg hiervan als de hash die zijn opgeslagen in Azure AD wordt verkregen, worden deze niet gebruikt in een on-premises pass-the-hash-aanval.
 
 ### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>De werking van wachtwoord-hashsynchronisatie met Azure Active Directory Domain Services
-U kunt ook de wachtwoordfunctie-hash-synchronisatie gebruiken om te synchroniseren van uw on-premises wachtwoorden te [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). Uw gebruikers in de cloud worden in de Azure Active Directory Domain Services-exemplaar in dit scenario wordt geverifieerd met alle methoden die beschikbaar zijn in uw on-premises Active Directory-exemplaar. De ervaring van dit scenario is vergelijkbaar met het gebruik van de Active Directory Migration Tool (ADMT) in een on-premises omgeving.
+U kunt ook de wachtwoordfunctie-hash-synchronisatie gebruiken om te synchroniseren van uw on-premises wachtwoorden te [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Uw gebruikers in de cloud worden in de Azure Active Directory Domain Services-exemplaar in dit scenario wordt geverifieerd met alle methoden die beschikbaar zijn in uw on-premises Active Directory-exemplaar. De ervaring van dit scenario is vergelijkbaar met het gebruik van de Active Directory Migration Tool (ADMT) in een on-premises omgeving.
 
 ### <a name="security-considerations"></a>Beveiligingsoverwegingen
 Bij het synchroniseren van wachtwoorden, wordt de versie van de tekst zonder opmaak van uw wachtwoord niet blootgesteld aan de wachtwoordfunctie-hash-synchronisatie, naar Azure AD, of een van de gekoppelde services.

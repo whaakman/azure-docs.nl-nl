@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Aan de slag | Microsoft Docs'
 description: Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
-ms.author: ergreenl
-ms.openlocfilehash: 3020d7b29f19ec2ab578acbebac8db8ea320a844
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/22/2019
+ms.author: mstephen
+ms.openlocfilehash: 65cc63b32afcc565f1901c4df2893ad103ec0da3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103546"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234916"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Raadpleeg [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md) (Overwegingen voor netwerken voor Azure AD Domain Services).
+Raadpleeg [Networking considerations for Azure AD Domain Services](network-considerations.md) (Overwegingen voor netwerken voor Azure AD Domain Services).
 
 
 ## <a name="task-2-configure-network-settings"></a>Taak 2: de netwerkinstellingen configureren
@@ -41,7 +41,7 @@ De volgende configuratietaak is het maken van een Azure-netwerk en een toegeweze
 3. Kies het virtuele netwerk waarin Azure AD Domain Services moeten worden ingeschakeld. U kunt een bestaand virtueel netwerk kiezen of een nieuwe maken.
 
    > [!TIP]
-   > **U kunt uw beheerde domein niet verplaatsen naar een ander virtueel netwerk nadat u Azure AD Domain Services hebt ingeschakeld.** Kies het juiste virtuele netwerk waarmee uw beheerde domein. Nadat u een beheerd domein hebt gemaakt, verplaatsen niet u deze naar een ander virtueel netwerk, zonder te verwijderen van het beheerde domein. Raadzaam de [aandachtspunten voor Azure Active Directory Domain Services voor netwerken](active-directory-ds-networking.md) voordat u doorgaat.  
+   > **U kunt uw beheerde domein niet verplaatsen naar een ander virtueel netwerk nadat u Azure AD Domain Services hebt ingeschakeld.** Kies het juiste virtuele netwerk waarmee uw beheerde domein. Nadat u een beheerd domein hebt gemaakt, verplaatsen niet u deze naar een ander virtueel netwerk, zonder te verwijderen van het beheerde domein. Raadzaam de [aandachtspunten voor Azure Active Directory Domain Services voor netwerken](network-considerations.md) voordat u doorgaat.  
    >
 
 4. **Virtueel netwerk maken:** Klik op **nieuw** te maken van een nieuw virtueel netwerk. Gebruik een toegewezen subnet voor Azure AD Domain Services. Maak bijvoorbeeld een subnet met de naam DomainServices, zodat u eenvoudig voor andere beheerders om te begrijpen wat binnen het subnet is geïmplementeerd. Klik op **OK** wanneer u klaar bent.
@@ -57,7 +57,7 @@ De volgende configuratietaak is het maken van een Azure-netwerk en een toegeweze
 
    > [!NOTE]
    > **Richtlijnen voor het selecteren van een subnet**
-   > 1. Gebruik een toegewezen subnet voor Azure AD Domain Services. Implementeer eventuele andere virtuele machines niet aan dit subnet. Deze configuratie kunt u netwerkbeveiligingsgroepen (nsg's) configureren voor uw workloads/virtuele machines zonder uw beheerde domein verstoren. Zie voor meer informatie, [aandachtspunten voor Azure Active Directory Domain Services voor netwerken](active-directory-ds-networking.md).
+   > 1. Gebruik een toegewezen subnet voor Azure AD Domain Services. Implementeer eventuele andere virtuele machines niet aan dit subnet. Deze configuratie kunt u netwerkbeveiligingsgroepen (nsg's) configureren voor uw workloads/virtuele machines zonder uw beheerde domein verstoren. Zie voor meer informatie, [aandachtspunten voor Azure Active Directory Domain Services voor netwerken](network-considerations.md).
    > 2. Selecteer het gatewaysubnet voor het implementeren van Azure AD Domain Services, niet omdat het geen ondersteunde configuratie.
    > 3. Het subnet dat u hebt geselecteerd, moet ten minste 3 tot 5 beschikbare IP-adressen in de adresruimte hebben.
 

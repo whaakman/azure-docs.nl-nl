@@ -2,7 +2,7 @@
 title: Voorbeeld van Time Series-Model in Azure Time Series Insights | Microsoft Docs
 description: Understanding Azure Time Series Insights Time Series-Model.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9de28c96c2833033a3811835f57cffcccdf4619
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3e6e8ae76c0ae6f688dd4a039b34c52af16b6e0f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190339"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244014"
 ---
 # <a name="time-series-model"></a>Time Series-model
 
@@ -126,7 +126,7 @@ Houd rekening met het volgende voorbeeld waarbij hiërarchie H1 heeft *bouwen*, 
 
 Afhankelijk van de *exemplaar velden*, de hiërarchie-kenmerken en waarden worden weergegeven zoals in de volgende tabel:
 
-| Tijdreeks-id | Exemplaarvelden |
+| Time Series-ID | Exemplaarvelden |
 | --- | --- |
 | ID1 | "bouwen" = "1000", "floor" = "10", 'ruimte' = "55"  |
 | ID2 | "bouwen" = "1000", 'ruimte' = "55" |

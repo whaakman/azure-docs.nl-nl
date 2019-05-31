@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510979"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242282"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Lezen-replica's in Azure Database for PostgreSQL - één Server
 
@@ -35,15 +35,14 @@ De functie lezen replica maakt gebruik van PostgreSQL asynchrone replicatie. De 
 
 Lezen-replica's kunnen u uw plan voor herstel na noodgevallen verbeteren. U moet eerst een replica in een andere Azure-regio van het model hebben. Als zich een noodgeval regio, kunt u replicatie naar die replica beëindigen en uw werkbelasting omleiden naar deze. Replicatie stoppen kunt de replica om te beginnen met het accepteren van schrijfbewerkingen, evenals leest. Meer informatie in de [replicatie stoppen](#stop-replication) sectie. 
 
-## <a name="create-a-replica"></a>Een replica maken
+## <a name="create-a-replica"></a>Replica's maken
 De hoofd-server moet de `azure.replication_support` parameter ingesteld op **REPLICA**. Als deze parameter wordt gewijzigd, is een server opnieuw opstarten vereist voor de wijziging door te voeren. (De `azure.replication_support` parameter wordt toegepast op alleen de lagen algemeen gebruik en geoptimaliseerd voor geheugen).
 
 Wanneer u de werkstroom van de replica maken start, wordt een lege Azure Database for PostgreSQL-server gemaakt. De nieuwe server is gevuld met de gegevens op de hoofd-server. De tijd voor het maken, is afhankelijk van de hoeveelheid gegevens op de hoofd- en de tijd sinds de laatste wekelijkse volledige back-up. De tijd kan variëren van enkele minuten tot enkele uren.
 
-De functie lezen replica maakt gebruik van PostgreSQL fysieke replicatie niet logische replicatie. Streaming-replicatie met behulp van replicatie sleuven is de standaardmodus voor de bewerking. Wanneer dat nodig is, wordt back-upfunctie gebruikt om te achterhalen.
+Elke replica is ingeschakeld voor de opslag [automatisch vergroten](concepts-pricing-tiers.md#storage-auto-grow). De functie auto-grow kunt de replica om te blijven van de gegevens gerepliceerd naar deze, en te voorkomen dat een onderbreking in replicatie veroorzaakt door buiten Opslagfouten.
 
-> [!NOTE]
-> Als u geen een waarschuwing instellen voor opslag van op uw servers, wordt u aangeraden dit te doen. De waarschuwing wordt geïnformeerd wanneer een server nadert de limiet voor opslag, die van invloed is op de replicatie.
+De functie lezen replica maakt gebruik van PostgreSQL fysieke replicatie niet logische replicatie. Streaming-replicatie met behulp van replicatie sleuven is de standaardmodus voor de bewerking. Wanneer dat nodig is, wordt back-upfunctie gebruikt om te achterhalen.
 
 Meer informatie over het [een lezen replica maken in Azure portal](howto-read-replicas-portal.md).
 

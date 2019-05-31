@@ -1,28 +1,28 @@
 ---
 title: Overschakelen van de verouderde Log Analytics waarschuwingen API in de nieuwe API voor Azure-waarschuwingen
-description: Overzicht van buiten gebruik stellen van verouderde savedSearch op basis van Log Analytics-waarschuwing API en proces als u wilt overschakelen van regels voor waarschuwingen naar nieuwe ScheduledQueryRules API met details van algemene problemen van klanten-adressering.
+description: Overzicht van verouderde savedSearch op basis van Log Analytics-waarschuwing API en proces als u wilt overschakelen van regels voor waarschuwingen naar nieuwe ScheduledQueryRules API met details van algemene problemen van klanten-adressering.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1706fc050fecd2e4be3a40725ec3e63a9036b3a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e8cb18b3ea4b01db6b373ebbcb55c1e17614319
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995951"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399153"
 ---
-# <a name="switch-api-preference-for-log-alerts"></a>Voorkeur voor switch API voor Logboekwaarschuwingen
+# <a name="switch-api-preference-for-log-alerts"></a>API-voorkeur voor logboekwaarschuwingen wijzigen
 
 > [!NOTE]
 > Inhoud vermeld van toepassing op gebruikers alleen Azure openbare cloud en **niet** voor Azure Government or Azure China-cloud.  
 
-Tot voor kort beheerd u regels voor waarschuwingen in de Microsoft Operations Management Suite-portal. De nieuwe ervaring voor waarschuwingen is geïntegreerd met verschillende services in Microsoft Azure, inclusief Log Analytics en we gevraagd [uw regels voor waarschuwingen van OMS-portal uitbreiden naar Azure](alerts-extend.md). Maar om ervoor te zorgen minimale verstoring voor klanten, het proces heeft geen invloed op de programma-interface voor het verbruik - [Log Analytics-waarschuwing API](api-alerts.md) op basis van SavedSearch.
+Tot voor kort beheerde u waarschuwingsregels in de Microsoft Operations Management Suite-portal. De nieuwe ervaring voor waarschuwingen is geïntegreerd met verschillende services in Microsoft Azure, inclusief Log Analytics en we gevraagd [uw regels voor waarschuwingen van OMS-portal uitbreiden naar Azure](alerts-extend.md). Maar om ervoor te zorgen minimale verstoring voor klanten, het proces heeft geen invloed op de programma-interface voor het verbruik - [Log Analytics-waarschuwing API](api-alerts.md) op basis van SavedSearch.
 
-Maar nu u een echte Azure programmatische alternatief aankondigen voor Log Analytics waarschuwingen gebruikers [Azure Monitor - ScheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), dit is ook bij reflectieve in uw [Azure billing - voor logboekwaarschuwingen](alerts-unified-log.md#pricing-and-billing-of-log-alerts). Zie voor meer informatie over het beheren van uw waarschuwingen met behulp van de API, [waarschuwingen beheren met behulp van Azure-Resourcesjabloon](alerts-log.md#managing-log-alerts-using-azure-resource-template) en [waarschuwingen beheren met behulp van PowerShell, CLI of API](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api).
+Maar nu u een echte Azure programmatische alternatief aankondigen voor Log Analytics waarschuwingen gebruikers [Azure Monitor - ScheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), dit is ook bij reflectieve in uw [Azure billing - voor logboekwaarschuwingen](alerts-unified-log.md#pricing-and-billing-of-log-alerts). Zie voor meer informatie over het beheren van uw waarschuwingen met behulp van de API, [waarschuwingen beheren met behulp van Azure-Resourcesjabloon](alerts-log.md#managing-log-alerts-using-azure-resource-template) en [waarschuwingen beheren met behulp van PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 
 ## <a name="benefits-of-switching-to-new-azure-api"></a>Voordelen van het overschakelen naar de nieuwe Azure-API
 
@@ -33,22 +33,23 @@ Er zijn enkele voordelen van het maken en beheren van waarschuwingen via [schedu
 - Meld u waarschuwingen die zijn gemaakt met behulp van [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) kunt hebben periode gedefinieerd tot 48 uur en ophalen van gegevens voor een langere periode dan voorheen
 - Waarschuwingsregels maken in één keer als één resource zonder de noodzaak om te maken van drie niveaus van resources als [verouderde Log Analytics-waarschuwing API](api-alerts.md)
 - Enkele programma-interface voor alle varianten van query's gebaseerde logboekwaarschuwingen in Azure - nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) kan worden gebruikt voor het beheren van regels voor Log Analytics, evenals de Application Insights
+- Beheren van uw waarschuwingen met behulp van [Powershell-cmdlets](alerts-log.md#managing-log-alerts-using-powershell)
 - Alle waarschuwingen functionaliteit voor het nieuwe logboekbestanden en toekomstige ontwikkeling is beschikbaar via de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
 ## <a name="process-of-switching-from-legacy-log-alerts-api"></a>Proces van het overschakelen van verouderde Log-API voor waarschuwingen
 
-Het proces van servermodi waarschuwingsregels van [verouderde Log Analytics-waarschuwing API](api-alerts.md) heeft geen betrekking op de meldingsdefinitie, query of configuratie in geen enkele manier wijzigen. De waarschuwingsregels en worden niet beïnvloed en de waarschuwingen bewaken, worden niet gestopt of vastgelopen, tijdens of na de switch.
-
-Gebruikers zijn gratis voor [verouderde Log Analytics-waarschuwing API](api-alerts.md) of de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Waarschuwingsregels die zijn gemaakt door een van beide API, zal *worden beheerd door de dezelfde API alleen* - en als u vanuit de Azure-portal. Standaard Azure Monitor worden echter ook doorgaan met [verouderde Log Analytics-waarschuwing API](api-alerts.md) voor het maken van een nieuwe waarschuwingsregel vanuit Azure portal.
+Gebruikers zijn gratis voor [verouderde Log Analytics-waarschuwing API](api-alerts.md) of de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Waarschuwingsregels die zijn gemaakt door een van beide API, zal *worden beheerd door de dezelfde API alleen* - en als u vanuit de Azure-portal. Standaard Azure Monitor worden echter ook doorgaan met [verouderde Log Analytics-waarschuwing API](api-alerts.md) voor het maken van een nieuwe waarschuwingsregel vanuit Azure portal voor bestaande werkruimten van Log Analytics. Als [nieuwe Log-werkruimte gemaakt op of na 1 juni 2019 aangekondigd](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/) -automatisch gebruikmaken van nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) door standaard te nemen in Azure portal.
 
 De gevolgen van de switch van voorkeur aan scheduledQueryRules API worden gecompileerd hieronder:
 
-- Alle interacties gedaan voor het beheren van waarschuwingen via programmatische interfaces moet nu worden uitgevoerd met [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) in plaats daarvan. Voor meer informatie ziet, [voorbeeld gebruiken via Azure Resource-sjabloon](alerts-log.md#managing-log-alerts-using-azure-resource-template) en [voorbeeld gebruiken via Azure CLI en PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
+- Alle interacties gedaan voor het beheren van waarschuwingen via programmatische interfaces moet nu worden uitgevoerd met [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) in plaats daarvan. Voor meer informatie ziet, [voorbeeld gebruiken via Azure Resource-sjabloon](alerts-log.md#managing-log-alerts-using-azure-resource-template) en [voorbeeld gebruik via PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
 - Een nieuwe waarschuwingsregel hebt gemaakt in Azure portal worden gemaakt met [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) alleen en gebruikers gebruiken de [aanvullende functionaliteit van de nieuwe API](#benefits-of-switching-to-new-azure-api) via Azure portal ook
 - Ernst voor waarschuwingsregels verplaatst uit: *Kritiek, waarschuwing en ter informatie*naar *ernstwaarden 0, 1 en 2 van*. Samen met de optie voor regels voor waarschuwingen met urgentie 4 ook maken/bijwerken.
 
-> [!CAUTION]
-> Wanneer een gebruiker kan worden gebruikt als u wilt overschakelen van de voorkeur aan de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), de regels niet terug opt of terugkeren naar het gebruik van de oudere [verouderde Log Analytics-waarschuwing API](api-alerts.md).
+Het proces van servermodi waarschuwingsregels van [verouderde Log Analytics-waarschuwing API](api-alerts.md) heeft geen betrekking op de meldingsdefinitie, query of configuratie in geen enkele manier wijzigen. De waarschuwingsregels en worden niet beïnvloed en de waarschuwingen bewaken, worden niet gestopt of vastgelopen, tijdens of na de switch. De enige wijziging is een wijziging in de API voorkeur en toegang tot uw regels via een nieuwe API.
+
+> [!NOTE]
+> Wanneer een gebruiker kan worden gebruikt als u wilt overschakelen van de voorkeur aan de nieuwe [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), wordt het niet mogelijk terug opt of teruggaan naar het gebruik van de oudere [verouderde Log Analytics-waarschuwing API](api-alerts.md).
 
 Elke klant die wil vrijwillig overschakelen naar de nieuwe [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en blokkeren van gebruik van de [verouderde Log Analytics-waarschuwing API](api-alerts.md); kunt dit doen door het uitvoeren van een PUT-aanroep op de onderstaande API om over te schakelen van alle waarschuwing regels die zijn gekoppeld aan de specifieke Log Analytics-werkruimte.
 

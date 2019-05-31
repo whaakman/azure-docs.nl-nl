@@ -1,20 +1,20 @@
 ---
-title: Maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van Azure CLI
-description: In dit artikel wordt beschreven hoe u maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van Azure CLI-opdrachtregel.
+title: Maken en beheren van firewall-regels in Azure Database voor PostgreSQL - één Server met behulp van Azure CLI
+description: In dit artikel wordt beschreven hoe u maken en beheren van firewall-regels in Azure Database voor PostgreSQL - één Server met behulp van Azure CLI-opdrachtregel.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: 9a96361d3fb155ea5b400990690e3c2b1f65f819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 03b1c215994e4089ad0aed4eac3868b05c564c4c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422369"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067535"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van Azure CLI
+# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Maken en beheren van firewall-regels in Azure Database voor PostgreSQL - één Server met behulp van Azure CLI
 Firewallregels op serverniveau kunnen worden gebruikt om toegang te beheren met een Azure Database for PostgreSQL-Server uit een specifiek IP-adres of IP-adresbereik. Met behulp van handige Azure CLI-opdrachten, kunt u maken, bijwerken, verwijderen, lijst, en firewallregels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor PostgreSQL-firewallregels, [Azure Database for PostgreSQL-Server firewall-regels](concepts-firewall-rules.md).
 
 Regels voor virtueel netwerk (VNet) kunnen ook worden gebruikt voor het beveiligen van toegang tot uw server. Meer informatie over [maken en beheren van Virtual Network-service-eindpunten en regels met de Azure CLI](howto-manage-vnet-using-cli.md).

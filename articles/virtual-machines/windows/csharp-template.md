@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80c2a1f4b9b724058b8b573f265a3cb2a99302a0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402180"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305966"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Een Azure-Machine met behulp van C# en Resource Manager-sjabloon implementeren
 
@@ -36,7 +36,7 @@ In deze stap maakt ervoor u zorgen dat Visual Studio is geïnstalleerd en maakt 
 
 1. Als u niet hebt gedaan, installeert u [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecteer **.NET-desktopontwikkeling** op de pagina van de werkbelasting, en klik vervolgens op **installeren**. In de samenvatting, kunt u zien dat **.NET Framework 4-4.6 ontwikkelprogramma's** automatisch voor u is geselecteerd. Als u Visual Studio al hebt geïnstalleerd, kunt u de .NET-werkbelasting via Visual Studio starten toevoegen.
 2. Klik in Visual Studio op **File** > **New** > **Project**.
-3. In **sjablonen** > **Visual C#**, selecteer **Console-App (.NET Framework)**, voer *myDotnetProject* voor de naam van de Project, selecteer de locatie van het project en klik vervolgens op **OK**.
+3. In **sjablonen** > **Visual C#** , selecteer **Console-App (.NET Framework)** , voer *myDotnetProject* voor de naam van de Project, selecteer de locatie van het project en klik vervolgens op **OK**.
 
 ## <a name="install-the-packages"></a>De pakketten installeren
 
@@ -166,7 +166,7 @@ In deze stap maakt u een sjabloon voor bestanden die worden geïmplementeerd en 
 
 ### <a name="create-the-parameters-file"></a>Het parameterbestand maken
 
-Waarden voor de resourceparameters die zijn gedefinieerd in de sjabloon wilt opgeven, maakt u een parameterbestand die de waarden bevat.
+Waarden wilt opgeven voor de resourceparameters in de sjabloon, maakt u een parameterbestand die de waarden bevat.
 
 1. Klik in Solution Explorer met de rechtermuisknop op *myDotnetProject* > **toevoegen** > **Nieuw Item**, en selecteer vervolgens **tekstbestand** in *Visual C#-Items*. Noem het bestand *Parameters.json*, en klik vervolgens op **toevoegen**.
 2. Deze JSON-code toevoegen aan het bestand dat u hebt gemaakt:
@@ -205,17 +205,17 @@ Voordat u een sjabloon implementeren kunt, moet u ervoor dat u toegang tot hebt 
     Vervang **&lt;abonnement-id&gt;** met uw abonnements-id, **&lt;toepassing-id&gt;** met de Active Directory-toepassing id **&lt;verificatiesleutel&gt;** met de sleutel van de toepassing en **&lt;tenant-id&gt;** met de tenant-id.
 
 3. Sla het bestand azureauth.properties.
-4. Stel een omgevingsvariabele in Windows met de naam AZURE_AUTH_LOCATION met het volledige pad naar bestand met autorisatieregels die u hebt gemaakt, bijvoorbeeld de volgende PowerShell-opdracht kan worden gebruikt:
+4. Stel die een omgevingsvariabele in Windows met de naam AZURE_AUTH_LOCATION met het volledige pad naar bestand met autorisatieregels die u hebt gemaakt, bijvoorbeeld kunt u de volgende PowerShell-opdracht:
 
     ```powershell
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
     
 
 ## <a name="create-the-management-client"></a>De management-client maken
 
-1. Open het bestand Program.cs van het project dat u hebt gemaakt en voeg deze using-instructies toe aan de bestaande instructies aan de bovenkant van het bestand:
+1. Open het bestand Program.cs van het project dat u hebt gemaakt. Vervolgens voegt u deze met behulp van instructies toe aan de bestaande instructies aan de bovenkant van het bestand:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;

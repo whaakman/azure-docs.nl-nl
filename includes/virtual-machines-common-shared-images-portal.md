@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170388"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245011"
 ---
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
@@ -56,7 +56,6 @@ De definitie van de galerie installatiekopie binnen uw galerie maken. In dit voo
 1. Wanneer de implementatie is voltooid, selecteert u **naar de resource gaan**.
 
 
-
 ## <a name="create-an-image-version"></a>De versie van een installatiekopie maken
 
 De versie van een installatiekopie van een beheerde installatiekopie maken. In dit voorbeeld de versie van de installatiekopie is *1.0.0* en deze worden gerepliceerd naar beide *West-Centraal VS* en *Zuid-centraal VS* datacenters. Bij het kiezen van doelregio's voor replicatie, houd er rekening mee dat u ook hebt om op te nemen de *bron* regio bevinden als een doel voor replicatie.
@@ -75,3 +74,20 @@ Toegestane tekens in voor de versie van installatiekopie zijn cijfers en punten.
 1. Wanneer de implementatie is voltooid, selecteert u **naar de resource gaan**.
 
 Duurt het even voor het repliceren van de installatiekopie naar alle van de doelregio's.
+
+## <a name="share-the-gallery"></a>Delen van de galerie
+
+Het is raadzaam dat u toegang tot op het niveau van de galerie installatiekopie delen. De volgende begeleidt u bij het delen van de galerie die u zojuist hebt gemaakt.
+
+1. Open de [Azure Portal](https://portal.azure.com).
+1. Selecteer in het menu aan de linkerkant, **resourcegroepen**. 
+1. Selecteer in de lijst met resourcegroepen, **myGalleryRG**. De blade voor de resourcegroep wordt geopend.
+1. In het menu aan de linkerkant van de **myGalleryRG** weergeeft, schakelt **toegangsbeheer (IAM)** . 
+1. Onder **een roltoewijzing toevoegen**, selecteer **toevoegen**. De **een roltoewijzing toevoegen** deelvenster wordt geopend. 
+1. Onder **rol**, selecteer **lezer**.
+1. Onder **toegang toewijzen aan**, laat de standaardwaarde **Azure AD-gebruiker, groep of service-principal**.
+1. Onder **Selecteer**, typt u het e-mailadres van de persoon die u wilt uitnodigen.
+1. Als de gebruiker zich buiten uw organisatie, ziet u het bericht **deze gebruiker ontvangt een e-mailbericht kan samenwerken met Microsoft.** Selecteer de gebruiker met het e-mailadres en klik vervolgens op **opslaan**.
+
+Als de gebruiker zich buiten uw organisatie, krijgen ze een e-mailbericht naar het lid van de organisatie. De gebruiker moet de uitnodiging te accepteren en vervolgens deze is mogelijk om te zien van de galerie en alle van de installatiekopie van definities en versies in de lijst met resources.
+

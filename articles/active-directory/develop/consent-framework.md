@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93adedc5c1343df1eee05b653b60cfd7e810044c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540413"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235445"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory-toestemmingsframework
 
@@ -40,7 +40,7 @@ De volgende stappen laten zien hoe de toestemming werkt ervaren voor zowel de on
 
 1. Stel dat u hebt een web-clienttoepassing die nodig zijn om aan te vragen van specifieke machtigingen voor toegang tot een resource/API. Leert u hoe u deze configuratie in de volgende sectie, maar in feite de Azure-portal wordt gebruikt om te declareren machtigingsaanvragen tijdens de configuratie. Net als andere configuratie-instellingen worden ze onderdeel van de Azure AD-registratie van de toepassing:
 
-    ![Machtigingen voor andere toepassingen](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Machtigingen voor andere toepassingen](./media/consent-framework/permissions.png)
 
 1. Houd rekening met dat van uw toepassing machtigingen zijn bijgewerkt, de toepassing wordt uitgevoerd en een gebruiker is gebruikt voor de eerste keer. Eerst de toepassing moet een autorisatiecode ophalen uit Azure AD `/authorize` eindpunt. De autorisatiecode kan vervolgens worden gebruikt bij het verkrijgen van een nieuw token voor toegang en vernieuwen.
 
@@ -58,11 +58,10 @@ De volgende stappen laten zien hoe de toestemming werkt ervaren voor zowel de on
 
     **Als u wilt toestemming geven voor een app, de overgedragen machtigingen**
 
-   1. Ga naar de **instellingen** pagina voor uw toepassing
-   1. Selecteer **vereiste machtigingen**.
-   1. Klik op de **machtigingen verlenen** knop.
+   1. Ga naar de **API-machtigingen** pagina voor uw toepassing
+   1. Klik op de **verlenen van toestemming van een beheerder** knop.
 
-      ![Machtigingen verlenen voor expliciete beheerderstoestemming](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Machtigingen verlenen voor expliciete beheerderstoestemming](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
    > Expliciete verleent toestemming met behulp van de **machtigingen verlenen** knop is momenteel vereist voor toepassingen met één pagina (SPA) die gebruikmaken van ADAL.js. Als dit niet gebeurt, treedt er een fout op in de toepassing wanneer het toegangstoken wordt aangevraagd.

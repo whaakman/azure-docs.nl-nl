@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726669"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298732"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Toepassingen implementeren op rekenknooppunten met Batch-toepassingspakketten
 
@@ -43,7 +43,7 @@ In Azure Batch, een *toepassing* verwijst naar een set versioned binaire bestand
 
 ![Diagram op hoog niveau van toepassingen en toepassingspakketten][1]
 
-### <a name="applications"></a>Applicaties
+### <a name="applications"></a>Toepassingen
 Een toepassing in Batch bevat een of meer toepassingen, pakketten en Hiermee geeft u configuratie-opties voor de toepassing. Een toepassing kunt bijvoorbeeld opgeven dat de standaardversie voor het pakket van toepassing te installeren op de rekenknooppunten en of de pakketten kunnen worden bijgewerkt of verwijderd.
 
 ### <a name="application-packages"></a>Toepassingspakketten
@@ -142,7 +142,7 @@ Klik op **Toepassingen** > **Toevoegen**.
 
 De **nieuwe toepassing** venster biedt de volgende velden om op te geven van de instellingen van uw nieuwe toepassing en het toepassingspakket.
 
-**Toepassings-id**
+**Toepassings-ID**
 
 Dit veld geeft de ID van uw nieuwe toepassing, onderworpen aan de standaardregels voor validatie van Azure Batch-ID is. De regels voor het ontwikkelen van een toepassings-ID zijn als volgt:
 
@@ -176,7 +176,7 @@ Als u wilt een pakketversie van toepassing voor een bestaande toepassing toevoeg
 
 ![Pakket toepassingsblade toevoegen in Azure portal][8]
 
-Zoals u ziet de velden overeenkomen met die van de **nieuwe toepassing** venster, maar de **toepassings-id** selectievakje is uitgeschakeld. Als u dit hebt gedaan voor de nieuwe toepassing, geef de **versie** voor het nieuwe pakket, gaat u naar uw **toepassingspakket** ZIP-bestand en klik vervolgens op **OK** voor het uploaden van het pakket.
+Zoals u ziet de velden overeenkomen met die van de **nieuwe toepassing** venster, maar de **toepassings-ID** selectievakje is uitgeschakeld. Als u dit hebt gedaan voor de nieuwe toepassing, geef de **versie** voor het nieuwe pakket, gaat u naar uw **toepassingspakket** ZIP-bestand en klik vervolgens op **OK** voor het uploaden van het pakket.
 
 ### <a name="update-or-delete-an-application-package"></a>Bijwerken of verwijderen van een toepassingspakket
 Als u wilt bijwerken of verwijderen van een bestaand toepassingspakket, de details voor de toepassing openen, klikt u op **pakketten**, klikt u op de **weglatingsteken** in de rij van het toepassingspakket dat u wilt wijzigen, en selecteer de actie die u wilt uitvoeren.

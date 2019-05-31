@@ -1,6 +1,6 @@
 ---
 title: Beheerders beheren van gebruikers en apparaten - Azure MFA - Azure Active Directory
-description: Dit wordt beschreven hoe u gebruikersinstellingen, zoals het afdwingen van de gebruikers het proces proof-up opnieuw te doen.
+description: Hoe kunnen beheerders gebruikersinstellingen, zoals het afdwingen van de gebruikers het proces proof-up opnieuw wijzigen.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415069"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298846"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gebruikersinstellingen met Azure multi-factor Authentication in de cloud beheren
 
@@ -35,12 +35,20 @@ Deze instelling zorgt ervoor dat de gebruiker opnieuw het registratieproces te v
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers** > **alle gebruikers**.
 3. Selecteer aan de rechterkant **multi-Factor Authentication** op de werkbalk. De multi-factor authentication-pagina wordt geopend.
-4. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met snelle stap opties worden weergegeven aan de rechterkant.
+4. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met opties voor snelle stap wordt weergegeven aan de rechterkant.
 5. Selecteer **gebruikersinstellingen beheren**.
 6. Schakel het selectievakje voor **vereisen dat geselecteerde gebruikers opnieuw contactmethoden opgeven**.
    ![Vereisen dat gebruikers opnieuw contactmethoden opgeven](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. Klik op **Opslaan**.
 8. Klik op **sluiten**.
+
+Organisaties kunnen deze stappen voltooien met PowerShell het volgende als richtlijn om te wissen met de `StrongAuthenticationMethods` kenmerk:
+
+```PowerShell
+$Upn = "theuser@domain.com"
+$noMfaConfig = @()
+Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
+```
 
 ## <a name="delete-users-existing-app-passwords"></a>App-wachtwoorden bestaande gebruikers verwijderen
 
@@ -51,7 +59,7 @@ Deze instelling verwijdert alle app-wachtwoorden die een gebruiker heeft gemaakt
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers** > **alle gebruikers**.
 3. Selecteer aan de rechterkant **multi-Factor Authentication** op de werkbalk. De multi-factor authentication-pagina wordt geopend.
-4. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met snelle stap opties worden weergegeven aan de rechterkant.
+4. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met opties voor snelle stap wordt weergegeven aan de rechterkant.
 5. Selecteer **gebruikersinstellingen beheren**.
 6. Schakel het selectievakje voor **verwijderen van alle bestaande app-wachtwoorden die worden gegenereerd door de geselecteerde gebruikers**.
    ![Alle bestaande appwachtwoorden verwijderen](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
@@ -64,14 +72,14 @@ Een van de configureerbare functies van Azure multi-factor Authentication biedt 
 
 Gebruikers kunnen kiezen uit de verificatie in twee stappen voor een configureerbaar aantal dagen op hun reguliere apparaten. Als een account is aangetast of een vertrouwd apparaat verloren gegaan is, moet u mogelijk de status van de vertrouwde verwijderen en opnieuw verificatie in twee stappen vereist.
 
-De **terugzetten multi-factor authentication op alle onthouden apparaten** betekent dat de gebruiker instellen uitgedaagd om het uitvoeren van de volgende keer dat ze zich aanmelden, ongeacht of ze te markeren van hun apparaat hebben gekozen voor verificatie vertrouwd.
+Wanneer dit selectievakje inschakelt, **terugzetten multi-factor authentication op alle onthouden apparaten** gebruikers zijn vereist voor het uitvoeren van verificatie in twee stappen de volgende keer dat ze zich aanmelden, zelfs als ze hun apparaat als vertrouwd gemarkeerd.
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>MFA op alle onderbroken apparaten voor een gebruiker herstellen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers** > **alle gebruikers**.
 3. Selecteer aan de rechterkant **multi-Factor Authentication** op de werkbalk. De multi-factor authentication-pagina wordt geopend.
-4. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met snelle stap opties worden weergegeven aan de rechterkant.
+4. Schakel het selectievakje naast de gebruiker of gebruikers die u wilt beheren. Een lijst met opties voor snelle stap wordt weergegeven aan de rechterkant.
 5. Selecteer **gebruikersinstellingen beheren**.
 6. Schakel het selectievakje voor **terugzetten multi-factor authentication op alle onthouden apparaten**
    ![multi-factor Authentication-verificatie op alle onthouden apparaten herstellen](./media/howto-mfa-userdevicesettings/rememberdevices.png)

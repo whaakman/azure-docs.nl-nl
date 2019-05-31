@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60584876"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241760"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Referenties voor toegang tot de clientbibliotheek voor Elastic Database
 
@@ -46,7 +46,7 @@ De variabele **smmAdminConnectionString** een verbindingsreeks met de beheerrefe
 
 Gebruik niet de waarden in de vorm van 'username@server', in plaats daarvan de waarde 'gebruikersnaam' gebruiken.  Dit is omdat de referenties moeten worden toegepast op de database voor shard-Toewijzingsbeheer en de afzonderlijke shards, die mogelijk op verschillende servers.
 
-## <a name="access-credentials"></a>Toegangsreferenties
+## <a name="access-credentials"></a>Referenties voor toegang
 
 Bij het maken van een shard-Toewijzingsbeheer in een toepassing waarin de shard-toewijzingen niet wordt beheerd, gebruikt u de referenties die alleen-lezen-machtigingen op de globale shard-toewijzing hebben. De gegevens opgehaald uit de globale shard-toewijzing onder deze referenties worden gebruikt voor [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) en voor het vullen van de cache van de shard-kaart op de client. De referenties worden geleverd via hetzelfde patroon aanroep naar **GetSqlShardMapManager**:
 
@@ -79,6 +79,6 @@ Als met de referenties van de beheerder, gebruik geen waarden in de vorm van 'us
 
 [Uw SQL-database beveiligen](sql-database-security-overview.md)
 
-[Aan de slag met taken voor Elastic Database](sql-database-elastic-jobs-getting-started.md)
+[Taken voor elastic Database](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

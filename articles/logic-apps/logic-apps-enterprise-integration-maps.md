@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0d40ca0ae6ccd4f709d7d94d52764d4affcc215
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61467922"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244702"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML transformeren met kaarten in Azure Logic Apps met Enterprise Integration Pack
 
@@ -28,11 +28,11 @@ Zie voor beperkingen met betrekking tot integratieaccounts en artefacten, zoals 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement. Als u nog geen abonnement hebt, <a href="https://azure.microsoft.com/free/" target="_blank">meld u dan aan voor een gratis Azure-account</a>.
+* Een Azure-abonnement. Als u nog geen abonnement hebt, [meld u dan aan voor een gratis Azure-account](https://azure.microsoft.com/free/).
 
 * Een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) waar u uw maps en andere artefacten voor bedrijfsintegratie en oplossingen, business-to-business (B2B) opslaan.
 
-* Als uw kaart verwijst naar een externe assembly, u moet uploaden *zowel de assembly en de kaart* aan uw integratie-account. Zorg ervoor dat u *eerst uw assembly uploaden*, en upload de toewijzing die verwijst naar de assembly.
+* Als uw kaart verwijst naar een externe assembly, u moet uploaden *zowel de assembly en de kaart* aan uw integratie-account. Zorg ervoor dat u [ *eerst uw assembly uploaden*](#add-assembly), en upload de toewijzing die verwijst naar de assembly.
 
   Als uw assembly 2 MB is of kleiner, u uw assembly aan uw integratieaccount toevoegen kunt *rechtstreeks* vanuit Azure portal. Echter, als uw assembly of de kaart groter dan 2 MB, maar niet groter zijn dan is de [maximale grootte voor assembly's of kaarten](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), beschikt u over deze opties:
 
@@ -50,9 +50,11 @@ Zie voor beperkingen met betrekking tot integratieaccounts en artefacten, zoals 
 
 U hoeft geen een logische app bij het maken en toevoegen van maps. Voor het gebruik van een kaart, uw logische app moet echter koppelen aan een integratieaccount waar u die zijn toegewezen opslaat. Informatie over [logische apps koppelen aan integratieaccounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Als u een logische app nog niet hebt, krijgt u informatie [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## <a name="add-referenced-assemblies"></a>Waarnaar wordt verwezen, assembly's toevoegen
 
-1. Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+1. Gebruik de referenties van uw Azure-account om u aan melden bij het [Azure Portal](https://portal.azure.com).
 
 1. Als u wilt zoeken en openen van uw integratie-account, op de Azure-hoofdmenu in, selecteer **alle services**. 
    Voer in het zoekvak ' integratieaccount'. 
@@ -74,6 +76,9 @@ U hoeft geen een logische app bij het maken en toevoegen van maps. Voor het gebr
 
 Op basis van de grootte van de assemblybestand, volgt u de stappen voor het uploaden van een assembly die ofwel [maximaal 2 MB](#smaller-assembly) of [meer dan 2 MB, maar alleen tot 8 MB](#larger-assembly).
 Zie voor de limieten voor assembly hoeveelheden in de integratieaccounts, [limieten en configuratie voor Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> Als u uw assembly wijzigt, moet u ook uw kaart bijwerken, al dan niet de kaart gewijzigd is.
 
 <a name="smaller-assembly"></a>
 
@@ -99,7 +104,7 @@ Zie voor de limieten voor assembly hoeveelheden in de integratieaccounts, [limie
 
 ### <a name="add-assemblies-more-than-2-mb"></a>Assembly's meer dan 2 MB toevoegen
 
-Om toe te voegen grotere assembly's, kunt u uw assembly uploaden naar een Azure blob-container in uw Azure storage-account. De stappen voor het toevoegen van assembly's verschilt op basis van of uw blob-container, openbare leestoegang heeft. Dus eerst controleren of uw blob-container openbare leestoegang heeft door de volgende stappen: [Openbaar toegangsniveau voor blob-container instellen](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Om toe te voegen grotere assembly's, kunt u uw assembly uploaden naar een Azure blob-container in uw Azure storage-account. De stappen voor het toevoegen van assembly's verschillen op basis van of uw blob-container, openbare leestoegang heeft. Dus eerst controleren of uw blob-container openbare leestoegang heeft door de volgende stappen: [Openbaar toegangsniveau voor blob-container instellen](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Niveau van de container toegang controleren
 
@@ -128,7 +133,7 @@ Om toe te voegen grotere assembly's, kunt u uw assembly uploaden naar een Azure 
 
 1. Ga terug naar de Azure-portal waar de **Assembly toevoegen** deelvenster is geopend. 
    Voer een naam voor de assembly. 
-   Kies **groot bestand (groter dan 2 MB)**.
+   Kies **groot bestand (groter dan 2 MB)** .
 
    De **inhouds-URI** in het nu wordt weergegeven, in plaats van de **Assembly** vak.
 
@@ -153,7 +158,7 @@ Op uw integratie-account **overzicht** pagina onder **onderdelen**, wordt de **a
 
 1. Ga terug naar de Azure-portal waar de **Assembly toevoegen** deelvenster is geopend. 
    Voer een naam voor de assembly. 
-   Kies **groot bestand (groter dan 2 MB)**.
+   Kies **groot bestand (groter dan 2 MB)** .
 
    De **inhouds-URI** in het nu wordt weergegeven, in plaats van de **Assembly** vak.
 
@@ -170,7 +175,7 @@ Zie voor limieten op de kaart hoeveelheden in integratieaccounts [limieten en co
 
 Na het uploaden van een assembly's waarnaar wordt verwezen naar de kaart, kunt u nu uw kaart uploaden.
 
-1. Als u al dit nog niet hebt aangemeld, aanmelden bij de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> met de referenties van uw Azure-account. 
+1. Als u al dit nog niet hebt aangemeld, aanmelden bij de [Azure-portal](https://portal.azure.com) met de referenties van uw Azure-account. 
 
 1. Als uw integratie-account nog niet geopend, in het hoofdmenu van Azure is, selecteert u **alle services**. 
    Voer in het zoekvak ' integratieaccount'. 
@@ -310,7 +315,7 @@ the map appears in the **Maps** list.
 
 Voor het bijwerken van een bestaande toewijzing, moet u een nieuwe kaart-bestand met de wijzigingen die u wilt uploaden. U kunt echter eerst de bestaande toewijzing voor het bewerken van downloaden.
 
-1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, zoeken en openen van uw integratie-account, als dit al geopend.
+1. In de [Azure-portal](https://portal.azure.com), zoeken en openen van uw integratie-account, als dit al geopend.
 
 1. Selecteer in het hoofdmenu van Azure **alle services**. Voer in het zoekvak ' integratieaccount'. Selecteer **integratieaccounts**.
 
@@ -328,7 +333,7 @@ Voor het bijwerken van een bestaande toewijzing, moet u een nieuwe kaart-bestand
 
 ## <a name="delete-maps"></a>Maps verwijderen
 
-1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, zoeken en openen van uw integratie-account, als dit al geopend.
+1. In de [Azure-portal](https://portal.azure.com), zoeken en openen van uw integratie-account, als dit al geopend.
 
 1. Selecteer in het hoofdmenu van Azure **alle services**. 
    Voer in het zoekvak ' integratieaccount'. 

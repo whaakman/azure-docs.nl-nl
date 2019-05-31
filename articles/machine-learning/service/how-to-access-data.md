@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 02/25/2019
+ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 93fc9a4e9e44bd7e8db3d49fe390ebe273c45ce9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908996"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239034"
 ---
 # <a name="access-data-from-your-datastores"></a>Toegang tot gegevens uit uw gegevensopslag
 
@@ -149,7 +149,7 @@ ds.download(target_path='your target path',
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Toegang tot gegevensopslag tijdens de training
 
-Nadat u uw gegevensopslag beschikbaar op de compute-doel maken, kunt u deze openen tijdens trainingsuitvoeringen (bijvoorbeeld training of validatie van gegevens) door gewoon het pad naar deze wordt doorgegeven als een parameter in uw trainingsscript.
+Als u uw gegevensopslag beschikbaar is op de training compute-doel, kunt u deze openen tijdens trainingsuitvoeringen (bijvoorbeeld training of validatie van gegevens) door gewoon het pad toe als een parameter in uw trainingsscript te geven.
 
 De volgende tabel bevat de [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) methoden die de compute-doel vertellen over het gebruik van het gegevensarchief tijdens wordt uitgevoerd.
 
@@ -178,19 +178,20 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > Alle `ds` of `ds.path` object wordt omgezet naar de naam van een omgevingsvariabele van de indeling `"$AZUREML_DATAREFERENCE_XXXX"` waarvan de waarde vertegenwoordigt het pad voor het koppelpunt/downloaden in de berekening die doel. Het pad van het gegevensarchief in de berekening die doel mogelijk niet hetzelfde als uitvoeringspad voor de van het trainingsscript.
 
-### <a name="compute-context-and-datastore-type-matrix"></a>COMPUTE-context en gegevensopslag type matrix
+### <a name="training-compute-and-datastore-matrix"></a>Training compute en gegevensopslag matrix
 
-De volgende matrix geeft de beschikbare gegevens toegang tot functies voor de andere compute-context en gegevensopslag scenario's. De term "Pipeline" in deze matrix verwijst naar de mogelijkheid voor het gebruik van gegevensopslag als invoer of uitvoer in [Azure Machine Learning-pijplijnen](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
+De volgende matrix geeft de beschikbare gegevens toegang tot functies voor de gegevensopslag scenario's en andere training compute-doelen. Meer informatie over de [training van compute-doelen voor Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
 
-||Lokale Compute|Azure Machine Learning-Computing|Gegevensoverdracht|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtuele machines|
--|--|-----------|----------|---------|-----|--------------|---------|---------|
-|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Pijplijn|Pijplijn|Pijplijn|[`as_download()`] <br> [`as_upload()`]|Pijplijn||[`as_download()`] <br> [`as_upload()`]|
-|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
-|AzureDataLakeDatastore|||Pijplijn|Pijplijn|||Pijplijn||
-|AzureDataLakeGen2Datastore|||Pijplijn||||||
-|AzureDataPostgresSqlDatastore|||Pijplijn||||||
-|AzureSqlDatabaseDataDatastore|||Pijplijn||||||
-
+|Compute|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
+|--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
+| Lokaal|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|N/A         |N/A                                                                         |
+| Azure Machine Learning-Computing |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|N/A         |N/A                                                                         |
+| Virtuele machines               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
+| HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
+| Gegevensoverdracht                  |[ML&nbsp;pijplijnen](concept-ml-pipelines.md)                                               |N/A                                           |[ML&nbsp;pijplijnen](concept-ml-pipelines.md)            |[ML&nbsp;pijplijnen](concept-ml-pipelines.md)                                                                            |
+| Databricks                     |[ML&nbsp;pijplijnen](concept-ml-pipelines.md)                                              |N/A                                           |[ML&nbsp;pijplijnen](concept-ml-pipelines.md)             |N/A                                                                         |
+| Azure Batch                    |[ML&nbsp;pijplijnen](concept-ml-pipelines.md)                                               |N/A                                           |N/A         |N/A                                                                         |
+| Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;pijplijnen](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
 > Mogelijk zijn er scenario's waarin zeer iteratieve, grote hoeveelheden gegevensprocessen worden uitgevoerd met behulp van snellere [`as_download()`] in plaats van [`as_mount()`]; dit experimenteel kan worden gevalideerd.
@@ -199,7 +200,7 @@ De volgende matrix geeft de beschikbare gegevens toegang tot functies voor de an
 
 De volgende codevoorbeelden zijn specifiek voor de [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klasse voor toegang tot uw gegevensopslag tijdens de training.
 
-Deze code maakt een Estimator ontwikkeld met behulp van het trainingsscript `train.py`, uit de opgegeven bronmap met behulp van de gedefinieerde parameters in `script_params`, alles op de opgegeven compute-doel.
+Deze code maakt een Estimator ontwikkeld met behulp van het trainingsscript `train.py`, uit de opgegeven bronmap met behulp van de gedefinieerde parameters in `script_params`, alles op basis van de opgegeven training compute-doel.
 
 ```Python
 from azureml.train.estimator import Estimator

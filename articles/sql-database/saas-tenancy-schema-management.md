@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484371"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241919"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Het schema in een SaaS-toepassing met behulp van het patroon van de database-per-tenant met Azure SQL Database beheren
  
 Als een databasetoepassing zich verder ontwikkelt, wijzigingen onvermijdelijk moeten worden aangebracht in de database-schema of een verwijzing gegevens.  Database-onderhoudstaken zijn ook periodiek nodig. Beheren van een toepassing die gebruikmaakt van de database per tenant patroon is vereist dat u deze wijzigingen of onderhoudstaken voor een reeks tenantdatabases toepassen.
 
-In deze zelfstudie worden twee scenario's - implementeren voor alle tenants en opnieuw opbouwen van een index van de tabel met de referentiegegevens. De [elastische taken](sql-database-elastic-jobs-overview.md) functie wordt gebruikt voor het uitvoeren van deze acties op alle tenantdatabases en op de sjabloondatabase die wordt gebruikt om nieuwe tenant-databases maken.
+In deze zelfstudie worden twee scenario's - implementeren voor alle tenants en opnieuw opbouwen van een index van de tabel met de referentiegegevens. De [elastische taken](elastic-jobs-overview.md) functie wordt gebruikt voor het uitvoeren van deze acties op alle tenantdatabases en op de sjabloondatabase die wordt gebruikt om nieuwe tenant-databases maken.
 
 In deze zelfstudie leert u het volgende:
 
@@ -46,7 +46,7 @@ Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Kennismaking met patronen voor SaaS-schema
 
-De database per tenant patroon effectief Hiermee isoleert u gegevens van de tenant, maar verhoogt het aantal databases beheren en onderhouden. [Elastische taken](sql-database-elastic-jobs-overview.md) vergemakkelijkt en het beheer van SQL-databases. Met elastische taken kunt u veilig en betrouwbaar taken (T-SQL-scripts) uitvoeren op basis van een groep databases. Taken kunnen schema en de wijzigingen in algemene verwijzingsgegevens in alle tenantdatabases in een toepassing te implementeren. Elastische taken kunnen ook worden gebruikt voor het onderhouden van een *sjabloon* database gebruikt voor het maken van nieuwe tenants, ervoor te zorgen dat deze altijd de meest recente gegevens van de schema- en naslaginformatie over heeft.
+De database per tenant patroon effectief Hiermee isoleert u gegevens van de tenant, maar verhoogt het aantal databases beheren en onderhouden. [Elastische taken](elastic-jobs-overview.md) vergemakkelijkt en het beheer van SQL-databases. Met elastische taken kunt u veilig en betrouwbaar taken (T-SQL-scripts) uitvoeren op basis van een groep databases. Taken kunnen schema en de wijzigingen in algemene verwijzingsgegevens in alle tenantdatabases in een toepassing te implementeren. Elastische taken kunnen ook worden gebruikt voor het onderhouden van een *sjabloon* database gebruikt voor het maken van nieuwe tenants, ervoor te zorgen dat deze altijd de meest recente gegevens van de schema- en naslaginformatie over heeft.
 
 ![scherm](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -133,5 +133,4 @@ Probeer vervolgens de [Ad-hocrapportage zelfstudie](saas-tenancy-cross-tenant-re
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Aanvullende zelfstudies voort op de implementatie van de toepassing Wingtip Tickets SaaS Database Per Tenant bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Uitgeschaalde clouddatabases beheren](sql-database-elastic-jobs-overview.md)
-* [Uitgeschaalde clouddatabases maken en beheren](sql-database-elastic-jobs-create-and-manage.md)
+* [Uitgeschaalde clouddatabases beheren](elastic-jobs-overview.md)

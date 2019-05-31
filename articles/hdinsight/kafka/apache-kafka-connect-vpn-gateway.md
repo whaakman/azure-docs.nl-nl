@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 93b5aeafafdc6ab7ee233f6360bb5e09f45b387f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708830"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297050"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Apache Kafka in HDInsight via een Azure-netwerk
 
@@ -85,7 +85,7 @@ Gebruik de stappen in deze sectie om te maken van de volgende configuratie:
 
 1. Volg de stappen in de [werken met zelfondertekende certificaten voor punt-naar-site-verbindingen](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document. Dit document wordt gemaakt van de certificaten die nodig zijn voor de gateway.
 
-2. Open een PowerShell-prompt en meld u aan bij uw Azure-abonnement met de volgende code:
+2. Open een PowerShell-prompt en gebruik de volgende code om aan te melden bij uw Azure-abonnement:
 
     ```powershell
     Connect-AzAccount
@@ -197,8 +197,10 @@ Gebruik de stappen in deze sectie om te maken van de volgende configuratie:
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+        -SkuName Standard_GRS `
+        -Location $location `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
 
     # Get the storage account keys and create a context
     $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
@@ -240,7 +242,7 @@ Gebruik de stappen in deze sectie om te maken van de volgende configuratie:
 
 Standaard retourneert Apache Zookeeper de domeinnaam van het Kafka-brokers aan clients. Deze configuratie werkt niet met de VPN-softwareclient, zoals het naamomzetting niet voor entiteiten in het virtuele netwerk gebruiken. Gebruik de volgende stappen uit Kafka voor het adverteren van IP-adressen in plaats van domeinnaam configureren voor deze configuratie:
 
-1. Met behulp van een webbrowser, gaat u naar https://CLUSTERNAME.azurehdinsight.net. Vervang __CLUSTERNAME__ met de naam van het Kafka in HDInsight-cluster.
+1. Met behulp van een webbrowser, gaat u naar `https://CLUSTERNAME.azurehdinsight.net`. Vervang `CLUSTERNAME` met de naam van het Kafka in HDInsight-cluster.
 
     Wanneer u hierom wordt gevraagd, gebruikt u de HTTPS-gebruikersnaam en het wachtwoord voor het cluster. De Ambari-Webinterface voor het cluster wordt weergegeven.
 
@@ -320,7 +322,9 @@ Gebruik de volgende stappen om te maken en uitvoeren van een Python-producent en
 
 2. Gebruik de volgende voor het installeren van de [kafka-python](https://kafka-python.readthedocs.io/) client:
 
-        pip install kafka-python
+    ```bash
+    pip install kafka-python
+    ```
 
 3. Voor het verzenden van gegevens met Kafka, gebruik de volgende Python-code:
 

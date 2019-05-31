@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 1edaf89c056918f640a905b99d01775273b2c133
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e31efb9a52ff004e6e35ddfc251732c014eedae9
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941933"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257441"
 ---
 # <a name="register-a-saas-application"></a>Een SaaS-toepassing registreren
 
 In dit artikel wordt uitgelegd hoe u voor het registreren van een SaaS-toepassing met behulp van de Microsoft [Azure-portal](https://portal.azure.com/).  Na een succesvolle registratie ontvangt u een beveiligingstoken van Azure Active Directory (Azure AD) die u gebruiken kunt voor toegang tot de SaaS-API's voor uitvoering.  Zie voor meer informatie over Azure AD, [wat is verificatie?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+
+> [!IMPORTANT] 
+> SaaS biedt functionaliteit is gemigreerd naar de [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alle nieuwe uitgevers moeten Partner Center gebruiken voor het maken van nieuwe SaaS-aanbiedingen en bestaande aanbiedingen beheren.  Huidige uitgevers met SaaS-aanbiedingen zijn batchwise worden gemigreerd van de Cloud Partner-Portal naar het Partnercentrum.  De Cloud Partner-Portal wordt weergegeven statusberichten om aan te geven wanneer specifieke bestaande aanbiedingen zijn gemigreerd.
+> Zie voor meer informatie, [maken van een nieuwe SaaS-aanbieding](../../partner-center-portal/create-new-saas-offer.md).
 
 
 ## <a name="service-to-service-authentication-flow"></a>Service-naar-serviceverificatie stroom
@@ -45,7 +49,7 @@ Elke toepassing die de mogelijkheden van Azure Active Directory wil gebruiken, m
         - Selecteer **Web-app / API** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) en [resource/API-Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) en openbare [gebruiker agent-gebaseerde clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Dezelfde toepassing kan zowel een client als resource/API beschikbaar maken.
     -   **Aanmeldings-URL**: Voor Web-app/API-Apps, geeft u de basis-URL van uw app. Bijvoorbeeld, **http://localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
-    -   **Omleidings-URI**: Systeemeigen toepassing maakt, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http://MyFirstAADApp**.
+    -   **Omleidings-URI**: Systeemeigen toepassing maakt, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http://MyFirstAADApp** .
 
         ![SaaS AD App-registraties](./media/saas-offer-app-registration-v1-2.png)
 
@@ -72,7 +76,7 @@ HTTP-methode
 
 *Aanvraag-URL*
 
-**https://login.microsoftonline.com/*{tenant-id}*/oauth2/token**
+**https://login.microsoftonline.com/ *{tenant-id}* /oauth2/token**
 
 *URI-parameter*
 

@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 12/28/2018
-ms.openlocfilehash: 02f7bbca127ba33fcfdd15d6f00d1660bf72970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/24/2019
+ms.openlocfilehash: 0bdcc253a57fb55d610d67acd9b6a50182a699e3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704944"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257854"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Zelfstudie: Op tweets met behulp van Azure Event Hubs en Apache Spark in HDInsight
 
@@ -28,7 +28,11 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Voltooi het artikel [Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight](./apache-spark-load-data-run-query.md)**.
+* Een Apache Spark-cluster in HDInsight. Zie [maken van een Apache Spark-cluster](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+* Weten hoe u Jupyter Notebook gebruikt met Spark on HDInsight. Zie voor meer informatie, [gegevens laden en query's uitvoeren met Apache Spark op HDInsight](./apache-spark-load-data-run-query.md).
+
+* Een [Twitter-account](https://twitter.com/i/flow/signup).
 
 ## <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
@@ -40,10 +44,12 @@ Als u een stream van tweets wilt ontvangen, maakt u een toepassing in Twitter. V
 
 1. Geef de volgende waarden op:
 
-    - Naam: Geef de toepassingsnaam. De waarde die wordt gebruikt voor deze zelfstudie is **HDISparkStreamApp0423**. Deze naam moet een unieke naam.
-    - Beschrijving: Geef een korte beschrijving van de toepassing. De waarde die wordt gebruikt voor deze zelfstudie is **een eenvoudige HDInsight Spark-streaming toepassing**.
-    - Website: Geef op de website van de toepassing. Dit hoeft niet te worden van een geldige website.  De waarde die wordt gebruikt voor deze zelfstudie is **http://www.contoso.com**.
-    - URL voor terugbellen voor: u kunt deze leeg laten.
+    |Eigenschap |Value |
+    |---|---|
+    |Name|Geef de toepassingsnaam. De waarde die wordt gebruikt voor deze zelfstudie is **HDISparkStreamApp0423**. Deze naam moet een unieke naam.|
+    |Description|Geef een korte beschrijving van de toepassing. De waarde die wordt gebruikt voor deze zelfstudie is **een eenvoudige HDInsight Spark-streaming toepassing**.|
+    |Website|Geef op de website van de toepassing. Dit hoeft niet te worden van een geldige website.  De waarde die wordt gebruikt voor deze zelfstudie is **http://www.contoso.com** .|
+    |URL voor terugbellen|U kunt deze leeg laten.|
 
 1. Selecteer **Ja, ik heb de licentiebepalingen gelezen en ga akkoord met de Twitter-Developer-overeenkomst**, en selecteer vervolgens **uw Twitter-toepassing maken**.
 
@@ -64,30 +70,28 @@ U kunt deze event hub gebruiken voor het opslaan van tweets.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
-1. Selecteer in het menu links **alle services**.  
+2. Selecteer in het menu links **alle services**.  
 
-1. Onder **INTERNET of THINGS**, selecteer **Event Hubs**. 
+3. Onder **INTERNET of THINGS**, selecteer **Event Hubs**. 
 
     ![De gebeurtenishub maken voor Spark streaming voorbeeld](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "gebeurtenishub maken voor Spark streaming-voorbeeld")
 
 4. Selecteer **+ Toevoegen**.
+
 5. Voer de volgende waarden in voor de nieuwe Event Hubs-naamruimte:
 
-    - **Naam**: Voer een naam voor de event hub.  De waarde die wordt gebruikt voor deze zelfstudie is **myeventhubns20180403**.
+    |Eigenschap |Value |
+    |---|---|
+    |Name|Voer een naam voor de event hub.  De waarde die wordt gebruikt voor deze zelfstudie is **myeventhubns20180403**.|
+    |Prijscategorie|selecteer **Standaard**.|
+    |Abonnement|Selecteer het juiste abonnement.|
+    |Resourcegroep|Selecteer een bestaande resourcegroep in de vervolgkeuzelijst of selecteer **nieuw** om een nieuwe resourcegroep te maken.|
+    |Locatie|Selecteer dezelfde **locatie** als uw Apache Spark-cluster in HDInsight latentie en kosten te verminderen.|
+    |Schakel automatisch vergroten (optioneel) |Automatisch vergroten, schaalt automatisch het aantal Throughput Units toegewezen aan uw Event Hubs-Namespace wanneer uw verkeer groter is dan de capaciteit van de Throughput Units zijn toegewezen.  |
+    |Maximum aantal Throughput Units (optioneel) automatisch vergroten|Deze schuifregelaar wordt alleen weergegeven als u het selectievakje **inschakelen automatisch vergroten**.  |
 
-    - **Prijscategorie**: selecteer **Standaard**.
+    ![Geef de naam van een event hub voor Spark streaming voorbeeld](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "bieden u de naam van een event hub voor Spark streaming-voorbeeld")
 
-    - **Abonnement**: Selecteer het juiste abonnement.
-
-    - **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst of selecteer **nieuw** om een nieuwe resourcegroep te maken.
-
-    - **Locatie**: Selecteer dezelfde **locatie** als uw Apache Spark-cluster in HDInsight latentie en kosten te verminderen.
-
-    - **Automatisch vergroten inschakelen**: (Optioneel)  Automatisch vergroten, schaalt automatisch het aantal Throughput Units toegewezen aan uw Event Hubs-Namespace wanneer uw verkeer groter is dan de capaciteit van de Throughput Units zijn toegewezen.  
-
-    - **Maximum aantal eenheden gegevensdoorvoer automatisch vergroten**: (Optioneel)  Deze schuifregelaar wordt alleen weergegeven als u het selectievakje **inschakelen automatisch vergroten**.  
-
-      ![Geef de naam van een event hub voor Spark streaming voorbeeld](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "bieden u de naam van een event hub voor Spark streaming-voorbeeld")
 6. Selecteer **maken** om de naamruimte te maken.  De implementatie duurt een paar minuten.
 
 ## <a name="create-an-azure-event-hub"></a>Een Azure event hub maken
@@ -134,9 +138,9 @@ Een Jupyter-notebook maken en geef deze de naam **SendTweetsToEventHub**.
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-2. Voer de volgende code voor het verzenden van tweets naar uw event hub:
+2. De onderstaande code bewerken door te vervangen `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>`, en `<TOKEN SECRET>` met de juiste waarden. Voer de bewerkte code voor het verzenden van tweets naar uw event hub:
 
-    ```
+    ```scala
     import java.util._
     import scala.collection.JavaConverters._
     import java.util.concurrent._
@@ -215,15 +219,16 @@ Een andere Jupyter-notebook maken en geef deze de naam **ReadTweetsFromEventHub*
     %%configure -f
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
     ```
-2. Voer de volgende code voor het lezen van tweets van uw event hub:
 
-    ```
+2. De onderstaande code bewerken door te vervangen `<Event hub name>`, en `<Event hub namespace connection string>` met de juiste waarden. Voer de bewerkte code voor het lezen van tweets van uw event hub:
+
+    ```scala
     import org.apache.spark.eventhubs._
     // Event hub configurations
     // Replace values below with yours        
     val eventHubName = "<Event hub name>"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
-    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
+    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build
     
     val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
@@ -253,12 +258,7 @@ U kunt ook de naam van de resourcegroep selecteren om de pagina van de resourceg
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-* Bericht lezen van een event hub.
-Ga naar het volgende artikel voor ziet dat u een machine learning-toepassing kunt maken. 
+In deze zelfstudie hebt geleerd hoe u een Apache Spark-streaming-toepassing om tweets te verzenden naar een Azure event hub maken en een andere toepassing de tweets lezen van de event hub hebt gemaakt.  Ga naar het volgende artikel voor ziet dat u een machine learning-toepassing kunt maken.
 
 > [!div class="nextstepaction"]
 > [Een machine learning-toepassing maken](./apache-spark-ipython-notebook-machine-learning.md)
-
-

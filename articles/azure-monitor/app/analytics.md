@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574258"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255645"
 ---
 # <a name="analytics-in-application-insights"></a>Analyses in Application Insights
 Analytics is het krachtig hulpprogramma voor zoekopdrachten en query's van [Application Insights](app-insights-overview.md). Analytics is een web-hulpprogramma, zodat er geen installatie vereist is.
-Als u Application Insights al hebt geconfigureerd voor een van uw apps vervolgens u de gegevens van uw app analyseren kunt door te Analytics openen vanuit uw app [overzichtsblade](app-insights-dashboards.md).
+Als u Application Insights al hebt geconfigureerd voor een van uw apps kunt u de gegevens van uw app analyseren door te Analytics openen vanuit de blade overzicht van uw app.
 
 ![Portal.azure.com Open, open uw Application Insights-resource en klik op Analytics.](./media/analytics/001.png)
 
 U kunt ook de [Analytics Speelplaats](https://go.microsoft.com/fwlink/?linkid=859557) dit is een gratis demo-omgeving met een groot aantal voorbeeldgegevens.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>De relatie met Azure Monitor-Logboeken
 Application Insights analytics is gebaseerd op [Azure Data Explorer](/azure/data-explorer) zoals Azure Monitor-logboeken en maakt ook gebruik van de [Kusto-querytaal](/azure/kusto/query). Het maakt gebruik van dezelfde [log analytics-portal](../log-query/get-started-portal.md) zoals Azure Monitor zich aanmeldt, hoewel de gegevens worden opgeslagen in een afzonderlijke partitie.

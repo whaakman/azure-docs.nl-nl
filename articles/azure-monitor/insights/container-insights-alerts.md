@@ -11,26 +11,27 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494623"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072391"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Over het instellen van waarschuwingen voor problemen met de prestaties in Azure Monitor voor containers
 Azure Monitor voor containers bewaakt de prestaties van containerworkloads die zijn geïmplementeerd in Azure Container Instances of in het beheerde Kubernetes-clusters die worden gehost in Azure Kubernetes Service (AKS).
 
 In dit artikel wordt beschreven hoe u waarschuwingen voor de volgende situaties inschakelen:
 
-* Bij gebruik van de CPU of geheugen op de knooppunten van een opgegeven drempelwaarde overschrijdt
-* Bij gebruik van de CPU of geheugen op een willekeurige container binnen een domeincontroller is groter dan een ingestelde drempel is gekomen in vergelijking met een limiet die ingesteld op de bijbehorende resource
-* *NotReady* status knooppunt wordt geteld
-*  *Kan niet*, *in behandeling*, *onbekende*, *met*, of *geslaagd* pod-fase wordt geteld
+- Bij gebruik van de CPU of geheugen op de knooppunten van een drempelwaarde overschrijdt
+- Wanneer gebruik van de CPU of geheugen op een willekeurige container binnen een domeincontroller is hoger dan een drempelwaarde in vergelijking met een limiet die ingesteld op de bijbehorende resource
+- *NotReady* status knooppunt wordt geteld
+- *Kan niet*, *in behandeling*, *onbekende*, *met*, of *geslaagd* pod-fase wordt geteld
+- Wanneer de vrije schijfruimte op de knooppunten van een drempelwaarde overschrijdt 
 
-Om u te waarschuwen voor hoge CPU- of geheugengebruik op clusterknooppunten, gebruikt u de query's die beschikbaar zijn om een waarschuwing voor metrische gegevens of een waarschuwing voor een meting van metrische gegevens te maken. Metrische waarschuwingen hebben lagere latentie dan waarschuwingen. Maar waarschuwingen bieden geavanceerde query's en meer verfijning. Query's een datum/tijd bij de huidige vergelijken met behulp van waarschuwingen voor activiteitenlogboeken de *nu* operator en back-één uur te gaan. (Met azure Monitor voor containers worden alle datums in de indeling in Coordinated Universal Time (UTC).)
+Om u te waarschuwen voor hoge CPU, geheugengebruik of weinig vrije schijfruimte op de clusterknooppunten, gebruikt u de query's die beschikbaar zijn om een waarschuwing voor metrische gegevens of een waarschuwing voor een meting van metrische gegevens te maken. Metrische waarschuwingen hebben lagere latentie dan waarschuwingen. Maar waarschuwingen bieden geavanceerde query's en meer verfijning. Query's een datum/tijd bij de huidige vergelijken met behulp van waarschuwingen voor activiteitenlogboeken de *nu* operator en back-één uur te gaan. (Met azure Monitor voor containers worden alle datums in de indeling in Coordinated Universal Time (UTC).)
 
 Als u niet bekend met Azure Monitor-waarschuwingen bent, Zie [overzicht van waarschuwingen in Microsoft Azure](../platform/alerts-overview.md) voordat u begint. Zie voor meer informatie over waarschuwingen die gebruikmaken van Logboeken-query's, [waarschuwingen voor activiteitenlogboeken in Azure Monitor](../platform/alerts-unified-log.md). Zie voor meer informatie over metrische waarschuwingen, [metrische waarschuwingen in Azure Monitor](../platform/alerts-metric-overview.md).
 
@@ -255,6 +256,33 @@ let endDateTime = now();
 >[!NOTE]
 >Om te waarschuwen wanneer bepaalde fasen pod zoals *in behandeling*, *mislukt*, of *onbekende*, wijzigt u de laatste regel van de query. Bijvoorbeeld, om een waarschuwing te *FailedCount* gebruiken: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
+De volgende query retourneert clusterschijven knooppunten die groter zijn dan 90% van de vrije ruimte die wordt gebruikt. Als de cluster-ID, eerst de volgende query uitvoeren en kopieer de waarde van de `ClusterId` eigenschap:
+
+```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
+| project ClusterId = Tags['container.azm.ms/clusterId']   
+| distinct tostring(ClusterId)   
+``` 
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue >= 90
+```
+
 ## <a name="create-an-alert-rule"></a>Een waarschuwingsregel maken
 Volg deze stappen voor het maken van een waarschuwing in Azure Monitor met behulp van een van de regels in een logboekbestand zoeken die eerder is opgegeven.  
 
@@ -272,9 +300,9 @@ Volg deze stappen voor het maken van een waarschuwing in Azure Monitor met behul
 8. De waarschuwing als volgt configureren:
 
     1. Selecteer in de vervolgkeuzelijst **Gebaseerd op** de optie **Meting van metrische gegevens**. Een meting van metrische gegevens maakt een waarschuwing voor elk object in de query's met een waarde hoger dan de opgegeven drempelwaarde.
-    1. Voor **voorwaarde**, selecteer **groter is dan**, en voer **75** als een initiële basislijnkopie **drempelwaarde**. Of voer een andere waarde die voldoet aan uw criteria voldoen.
+    1. Voor **voorwaarde**, selecteer **groter is dan**, en voer **75** als een initiële basislijnkopie **drempelwaarde** voor het gebruik van CPU en geheugen waarschuwingen . Voer voor de melding voor weinig schijfruimte, **90**. Of voer een andere waarde die voldoet aan uw criteria voldoen.
     1. In de **Trigger waarschuwingen op basis van** sectie, selecteer **achtereenvolgende schendingen**. Selecteer in de vervolgkeuzelijst **groter is dan**, en voer **2**.
-    1. Het configureren van een waarschuwing voor container CPU of geheugengebruik, onder **cumulatieve op**, selecteer **ContainerName**. 
+    1. Het configureren van een waarschuwing voor container CPU of geheugengebruik, onder **cumulatieve op**, selecteer **ContainerName**. Als u wilt configureren voor cluster-knooppunt weinig schijfruimte waarschuwing, selecteert u **ClusterId**.
     1. In de **Evaluated op basis van** sectie, stelt u de **periode** waarde die moet worden **60 minuten**. De regel worden uitgevoerd om de 5 minuten en records die zijn gemaakt in het afgelopen uur van de huidige tijd retourneren. De periode instellen op een breed venster accounts voor mogelijke gegevenslatentie van. Ook zorgt u ervoor dat de query gegevens retourneert om te voorkomen dat een false negatief waarin de waarschuwing wordt nooit geactiveerd.
 
 9. Selecteer **gedaan** om uit te voeren van de waarschuwingsregel.

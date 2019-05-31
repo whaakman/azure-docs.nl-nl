@@ -1,7 +1,7 @@
 ---
 title: 'Pijplijnen: machine learning-werkstromen optimaliseren'
 titleSuffix: Azure Machine Learning service
-description: In dit artikel meer informatie over de machine learning-pijplijnen die u kunt maken met de Azure Machine Learning-SDK voor Python en de voordelen van pijplijnen. ML-pijplijnen (machine learning) worden door datawetenschappers gebruikt om hun machine learning-werkstromen te ontwikkelen, optimaliseren en beheren.
+description: In dit artikel meer informatie over de machine learning-pijplijnen die u kunt maken met de Azure Machine Learning-SDK voor Python en de voordelen van pijplijnen. Machine learning (ML) pijplijnen worden gebruikt door de datawetenschappers te bouwen, te optimaliseren en beheren van de machine learning-werkstromen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff693ac34382ea5673989ecb6cbb38e19e176ad3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3e3fe64baca6e61c7eee214b84fd1ccdc88d3629
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801068"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237823"
 ---
-# <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Machine learning-pijplijnen met de Azure Machine Learning-service bouwen
+# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Herbruikbare ML-pijplijnen in Azure Machine Learning-service bouwen
 
 In dit artikel meer informatie over de machine learning-pijplijnen die u kunt maken met de Azure Machine Learning-SDK voor Python en de voordelen van pijplijnen.
 
@@ -64,7 +64,7 @@ De belangrijkste voordelen voor het bouwen van pijplijnen voor uw machine learni
 
 |Groot voordeel|Description|
 |:-------:|-----------|
-|**Zonder toezicht&nbsp;wordt uitgevoerd**|Plan een aantal stappen die betrouwbaar en zonder toezicht gelijktijdig of na elkaar moeten worden uitgevoerd. Omdat gegevensvoorbereiding en modellen kunnen afgelopen dagen of weken, u kunt nu richten op andere taken terwijl uw pijplijn wordt uitgevoerd. |
+|**Zonder toezicht&nbsp;wordt uitgevoerd**|Plannen van een paar stappen voor het parallel of op volgorde worden uitgevoerd in een betrouwbare manier zonder toezicht. Omdat gegevensvoorbereiding en modellen kunnen afgelopen dagen of weken, u kunt nu richten op andere taken terwijl uw pijplijn wordt uitgevoerd. |
 |**Gemengde en diverse compute**|Gebruik meerdere pijplijnen die op een betrouwbare manier worden gecoördineerd in heterogene en schaalbare berekeningen en opslagruimten. U kunt afzonderlijke pijplijn stappen uitvoeren op verschillende compute-doelen, zoals HDInsight, GPU Data Science-VM's en Databricks. Dit maakt efficiënter gebruik van beschikbare compute-opties.|
 |**Herbruikbaarheid**|U kunt sjablonen gebruiken voor pijplijnen voor specifieke scenario's, zoals het opnieuw trainen en batch scoren. Deze activeren van externe systemen via eenvoudige REST-aanroepen.|
 |**Wijzigingen bijhouden en versiebeheer**|In plaats van handmatig bijhouden van gegevens en het resultaat paden als u herhalen, met de SDK van de pijplijnen expliciet een naam en versie van uw gegevens gegevensbronnen, invoer en uitvoer. U kunt ook scripts en gegevens voor meer productiviteit afzonderlijk beheren.|

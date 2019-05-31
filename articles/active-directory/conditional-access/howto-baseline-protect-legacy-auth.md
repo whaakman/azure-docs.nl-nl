@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562214d4bf8fd83f740e114a6d77200b4611649
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003219"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235560"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Beleid: Verouderde blok-verificatie (preview)
 
 Als u wilt uw gebruikers eenvoudig toegang geven tot uw cloud-apps, Azure Active Directory (Azure AD) biedt ondersteuning voor tal van verificatieprotocollen, waaronder oudere authentication. Verouderde verificatie is een term die naar een verificatieaanvraag gemaakt verwijst door:
 
 * Oudere Office-clients die geen gebruik maken van moderne verificatie (bijvoorbeeld Office 2010-client)
-* Een willekeurige client die gebruikmaakt van verouderde e-mailprotocollen zoals SMPT-IMAP/POP3
+* Een willekeurige client die gebruikmaakt van verouderde e-mailprotocollen zoals IMAP/SMTP/POP3
 
 Meerderheid van alle leveren op het gebied aanmeldingspogingen is vandaag, afkomstig van verouderde verificatie. Verouderde verificatie biedt geen ondersteuning voor multi-factor authentication (MFA). Zelfs als u een MFA-beleid dat is ingeschakeld op uw directory hebt, kunt een actor slecht verifiëren met behulp van een verouderde protocol en MFA overslaan.
 
@@ -74,13 +74,13 @@ Als u Mac OS, wordt u aangeraden een upgrade naar Office voor Mac 2016 of hoger.
 
 Voor Outlook op basis van een Windows-clients gebruiken moderne verificatie, moet Exchange Online moderne verificatie ook ingeschakeld. Als de moderne verificatie is uitgeschakeld voor Exchange Online, Outlook op basis van een Windows-clients die ondersteuning bieden voor moderne verificatie (Outlook 2013 of later) basisverificatie verbinding maken met de postvakken van Exchange Online gebruikt.
 
-SharePoint Online is ingeschakeld voor moderne verificatie standaard. Voor de mappen die zijn gemaakt na 1 augustus 2017, is moderne verificatie standaard ingeschakeld in Exchange Online. Echter, als u moderne verificatie eerder was uitgeschakeld of u een map die zijn gemaakt vóór deze datum gebruikt, volgt u de stappen in het volgende artikel voor [moderne verificatie inschakelen in Exchange Online](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online is ingeschakeld voor moderne verificatie standaard. Voor de mappen die zijn gemaakt na 1 augustus 2017, is moderne verificatie standaard ingeschakeld in Exchange Online. Echter, als u moderne verificatie eerder was uitgeschakeld of u een map die zijn gemaakt vóór deze datum gebruikt, volgt u de stappen in het volgende artikel voor [moderne verificatie inschakelen in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Stap 4: Skype voor Bedrijven
 
 Om te voorkomen dat een verouderde verificatieaanvragen door Skype voor bedrijven, is het nodig om moderne verificatie inschakelen voor Skype voor bedrijven Online. Moderne verificatie voor Skype voor bedrijven is standaard ingeschakeld voor de mappen die zijn gemaakt na 1 augustus 2017.
 
-We raden u overgang naar Microsoft Teams, die ondersteuning biedt voor moderne verificatie standaard zodat moderne verificatie in Skype voor bedrijven. Echter, als u zich niet tr op dit moment, u moet moderne verificatie voor Skype voor bedrijven Online inschakelen zodat Skype voor bedrijven-clients wordt gestart die moderne authenticatie gebruiken. Volg deze stappen in het artikel [Skype voor bedrijven-topologieën met moderne verificatie ondersteund](https://docs.microsoft.com/en-us/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), voor de stappen voor het moderne verificatie inschakelen voor Skype voor bedrijven.
+We raden u overgang naar Microsoft Teams, die ondersteuning biedt voor moderne verificatie standaard zodat moderne verificatie in Skype voor bedrijven. Echter, als u zich niet tr op dit moment, u moet moderne verificatie voor Skype voor bedrijven Online inschakelen zodat Skype voor bedrijven-clients wordt gestart die moderne authenticatie gebruiken. Volg deze stappen in het artikel [Skype voor bedrijven-topologieën met moderne verificatie ondersteund](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), voor de stappen voor het moderne verificatie inschakelen voor Skype voor bedrijven.
 
 Naast het inschakelen van moderne verificatie voor Skype voor bedrijven Online, wordt aangeraden moderne verificatie worden ingeschakeld voor Exchange Online bij het inschakelen van moderne verificatie voor Skype voor bedrijven. Dit proces wordt te synchroniseren van de status van moderne verificatie in Exchange Online en Skype voor bedrijven online en wordt voorkomen dat meerdere aanmeldingsprompts voor Skype voor bedrijven-clients.
 
@@ -105,11 +105,11 @@ Stappen voor het inschakelen van moderne verificatie vindt u in de volgende arti
 
 Het beleid **Basisbeleid: Verouderde blok-verificatie (preview)** wordt al geconfigureerd geleverd en worden weergegeven aan de bovenkant wanneer u gaat u naar de blade voor voorwaardelijke toegang in Azure portal.
 
-Dit beleid inschakelt en beveiligen van uw beheerders:
+Dit beleid inschakelt en bescherming van uw organisatie:
 
 1. Aanmelden bij de **Azure-portal** als hoofdbeheerder, beveiligingsbeheerder of beheerder van voorwaardelijke toegang.
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
-1. Selecteer in de lijst met beleidsregels **Basisbeleid: Verouderde blok-verificatie (preview)**.
+1. Selecteer in de lijst met beleidsregels **Basisbeleid: Verouderde blok-verificatie (preview)** .
 1. Stel **beleid inschakelen** naar **beleid direct gebruiken**.
 1. Gebruiker uitsluitingen toevoegen door te klikken op **gebruikers** > **uitgesloten gebruikers selecteren** en het kiezen van de gebruikers die moeten worden uitgesloten. Klik op **Selecteer** vervolgens **gedaan**.
 1. Klik op **opslaan**.

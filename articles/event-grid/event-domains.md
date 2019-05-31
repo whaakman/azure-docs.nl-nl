@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562017"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304299"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Inzicht in de domeinen van de gebeurtenis voor het beheren van Event Grid-onderwerpen
 
@@ -22,8 +22,6 @@ In dit artikel wordt beschreven hoe u event domeinen gebruiken voor het beheren 
 * Beheer uw autorisatie en verificatie.
 * Partitioneren uw onderwerpen zonder dat elk afzonderlijk worden beheerd.
 * Vermijd afzonderlijk publiceren naar elk van de eindpunten van uw onderwerp.
-
-Deze functie is beschikbaar als preview-versie. Als u wilt gebruiken, moet u een extensie van de Preview-versie of de module te installeren. Zie voor instructies [onderwerpen beheren en publiceren van gebeurtenissen via Event domeinen](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Overzicht van de Event-domein
 
@@ -49,7 +47,7 @@ RBAC in gebeurtenis domeinen werkt op dezelfde manier [beheerd toegangsbeheer](s
 
 ### <a name="built-in-roles"></a>Ingebouwde rollen
 
-Event Grid heeft twee ingebouwde roldefinities RBAC om gemakkelijker te maken voor het werken met domeinen van de gebeurtenis. Deze rollen zijn **EventGrid EventSubscription Inzender (Preview)** en **EventGrid EventSubscription Reader (Preview)**. U kunt deze rollen toewijzen aan gebruikers die moeten zich abonneren op onderwerpen in het domein van de gebeurtenis. U het bereik van de roltoewijzing alleen het onderwerp die gebruikers nodig heeft om zich te abonneren op.
+Event Grid heeft twee ingebouwde roldefinities RBAC om gemakkelijker te maken voor het werken met domeinen van de gebeurtenis. Deze rollen zijn **EventGrid EventSubscription Inzender (Preview)** en **EventGrid EventSubscription Reader (Preview)** . U kunt deze rollen toewijzen aan gebruikers die moeten zich abonneren op onderwerpen in het domein van de gebeurtenis. U het bereik van de roltoewijzing alleen het onderwerp die gebruikers nodig hebben om u te abonneren op.
 
 Zie voor meer informatie over deze rollen [ingebouwde rollen voor Event Grid](security-authentication.md#built-in-roles).
 
@@ -99,18 +97,18 @@ Publiceren van de volgende reeks gebeurtenissen zouden worden verzonden, gebeurt
 Gebeurtenis domeinen verwerken publiceren naar onderwerpen die voor u. In plaats van publiceren gebeurtenissen aan elk onderwerp dat u afzonderlijk beheren, kunt u alle gebeurtenissen publiceren naar het eindpunt van het domein. Event Grid zorgt ervoor dat elke gebeurtenis wordt verzonden naar het juiste onderwerp.
 
 ## <a name="limits-and-quotas"></a>Limieten en quota
+Hier worden de limieten en quota's met betrekking tot domeinen van de gebeurtenis:
 
-### <a name="control-plane"></a>Besturingselement vlak
+- 100.000 onderwerpen per domein van de gebeurtenis 
+- 100 gebeurtenis domeinen per Azure-abonnement 
+- 500 gebeurtenisabonnementen per onderwerp in het domein van een gebeurtenis
+- 50 abonnementen voor domein-bereik 
+- 5000 gebeurtenissen per seconde opnemen snelheid (in een domein)
 
-Tijdens de preview zijn gebeurtenis domeinen beperkt tot 1000 onderwerpen binnen een domein en 50 abonnementen per onderwerp binnen een domein. Bereik van de gebeurtenisabonnementen domein zijn ook beperkt tot 50.
-
-### <a name="data-plane"></a>Gegevenslaag
-
-Gebeurtenis doorvoer voor het domein van een gebeurtenis zijn beperkt tot dezelfde 5000 gebeurtenissen per seconde opnemen snelheid die aangepaste onderwerpen zijn beperkt tot de Preview-versie.
+Als deze limieten niet voor u geschikt, contact met het productteam door een ondersteuningsticket openen of door te sturen een e-mail naar [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
 
 ## <a name="pricing"></a>Prijzen
-
-Tijdens de Preview-versie, gebeurtenis domeinen gebruiken hetzelfde [operations prijzen](https://azure.microsoft.com/pricing/details/event-grid/) die gebruikmaken van alle andere functies in Event Grid.
+Gebeurtenis domeinen gebruiken hetzelfde [operations prijzen](https://azure.microsoft.com/pricing/details/event-grid/) die gebruikmaken van alle andere functies in Event Grid.
 
 Operations werken op dezelfde manier in domeinen van de gebeurtenis als in aangepaste onderwerpen. Elke invoer van een gebeurtenis aan een domein van de gebeurtenis is een bewerking, en elke bezorgingspoging voor een gebeurtenis is een bewerking.
 

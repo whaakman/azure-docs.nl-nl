@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204329"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305921"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Een ASP.NET-Web-App publiceren naar een Azure-VM vanuit Visual Studio
 
-Dit document wordt beschreven hoe u voor het publiceren van een ASP.NET-webtoepassing op een virtuele Azure-machine (VM) met behulp van de **Microsoft Azure Virtual Machines** publiceerfunctie in Visual Studio 2017.  
+Dit document wordt beschreven hoe u voor het publiceren van een ASP.NET-webtoepassing op een virtuele Azure-machine (VM) met behulp van de **Microsoft Azure Virtual Machines** publiceerfunctie in Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Vereisten
 Gebruik Visual Studio voor het publiceren van een ASP.NET-project met een Azure VM is de virtuele machine moet correct zijn ingesteld.
@@ -34,7 +34,7 @@ Gebruik Visual Studio voor het publiceren van een ASP.NET-project met een Azure 
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Uw ASP.NET-web-app publiceren naar de Azure-VM met behulp van Visual Studio
 De volgende sectie wordt beschreven hoe u een bestaande ASP.NET-webtoepassing met een Azure-machine publiceren.
 
-1. Open de oplossing van uw web-app in Visual Studio 2017.
+1. Open de oplossing van uw web-app in Visual Studio 2019.
 2. Met de rechtermuisknop op het project in Solution Explorer en kies **publiceren...**
 3. Gebruik de pijl aan de rechterkant van de pagina schuift de publicatieopties totdat u **Microsoft Azure Virtual Machines**.  
 
@@ -58,7 +58,7 @@ De volgende sectie wordt beschreven hoe u een bestaande ASP.NET-webtoepassing me
 
 7. Klik op OK om het te publiceren.
 
-8. Wanneer u hierom wordt gevraagd om referenties, geef de gebruikersnaam en het wachtwoord van een gebruikersaccount op de doel-VM die is geconfigureerd met het publiceren van rechten (doorgaans de admin-gebruikersnaam en wachtwoord dat wordt gebruikt bij het maken van de virtuele machine).  
+8. Wanneer u hierom wordt gevraagd om referenties, geef de gebruikersnaam en het wachtwoord van een gebruikersaccount op de doel-VM die is geconfigureerd met het publiceren van rechten. Deze referenties zijn meestal de gebruikersnaam van beheerder en het wachtwoord dat wordt gebruikt bij het maken van de virtuele machine.  
 
    ![Web Deploy-aanmelding]
 
@@ -99,12 +99,12 @@ Uw instellingen moeten er ongeveer als volgt uit:
 ![Publicatie-instellingen - pagina verbinding]
 
 #### <a name="save-user-name-and-password"></a>Gebruikersnaam en wachtwoord opslaan
-- Als u wilt voorkomen dat de verificatie-informatie geven, telkens wanneer u publiceren, u kunt vullen de **gebruikersnaam** en **wachtwoord** velden in en selecteer de **wachtwoord opslaan** vak.
+- Vermijd het verificatie-informatie geven, telkens wanneer u publiceert. Om dit te doen, vullen het **gebruikersnaam** en **wachtwoord** velden in, en selecteer de **wachtwoord opslaan** vak.
 - Gebruik de **verbinding valideren** knop om te bevestigen dat u de juiste informatie hebt ingevoerd.
 
 #### <a name="deploy-to-clean-web-server"></a>Als u wilt opschonen webserver implementeren
 
-- Als u ervoor zorgen wilt dat de webserver een nieuwe kopie van de web-App na elke uploaden heeft (en dat er geen andere bestanden worden gehandhaafd blijft hangen rond vanuit een eerdere implementatie), kunt u controleren de **aanvullende bestanden op de bestemming verwijderen** selectievakje in de **instellingen** tabblad.
+- Als u ervoor zorgen wilt dat de webserver een nieuwe kopie van de web-App na elke uploaden heeft en dat er geen andere bestanden zijn left van een eerdere implementatie, kunt u controleren de **aanvullende bestanden op de bestemming verwijderen** selectievakje in de  **Instellingen** tabblad.
 
 - Waarschuwing: Publiceren met deze instelling worden alle bestanden die aanwezig zijn op de webserver (map wwwroot) verwijderd. Zorg ervoor dat u weten wat de toestand van de machine voordat u publiceert met deze optie is ingeschakeld. 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395564"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399781"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM-producten en services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM-product/service en de IT Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](../../azure-monitor/platform/itsmc-overview.md).
@@ -72,8 +72,8 @@ Gebruik de volgende procedure verbinding maken met uw exemplaar van System Cente
 | **Server-URL**   | Typ de URL van de Service Manager-Web-app. Meer informatie over Service Manager-Web-app is [hier](#create-and-deploy-service-manager-web-app-service).
 | **Client ID**   | Typ de client-ID die u hebt gegenereerd (met behulp van het script voor automatische) voor het verifiëren van de Web-app. Meer informatie over de geautomatiseerd script [hier.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
 | **Client Secret**   | Typ het clientgeheim gegenereerd voor deze ID.   |
-| **Bereik voor gegevenssynchronisatie**   | Selecteer de Service Manager-werkitems die u wilt synchroniseren via ITSMC.  Deze items worden geïmporteerd in Log Analytics werk. **Opties:**  Incidenten, wijzigingsaanvragen.|
-| **Gegevens synchroniseren** | Typ het aantal afgelopen dagen die u wilt dat de gegevens uit. **Maximumlimiet**: 120 dagen. |
+| **Gegevens synchroniseren**   | Selecteer de Service Manager-werkitems die u wilt synchroniseren via ITSMC.  Deze items worden geïmporteerd in Log Analytics werk. **Opties:**  Incidenten, wijzigingsaanvragen.|
+| **Bereik voor gegevenssynchronisatie** | Typ het aantal afgelopen dagen die u wilt dat de gegevens uit. **Maximumlimiet**: 120 dagen. |
 | **Nieuwe configuratie-item maken in de ITSM-oplossing** | Selecteer deze optie als u wilt maken van de configuratie-items in de ITSM-product. Als u selecteert, maakt Log Analytics de betrokken configuratie-items als configuratie-items (in het geval van niet-bestaande configuratie-items) in de ondersteunde ITSM-systeem. **Standaard**: uitgeschakeld. |
 
 ![Service manager-verbinding](media/itsmc-connections/service-manager-connection.png)
@@ -103,7 +103,7 @@ Voer het script door te geven van de volgende vereiste gegevens:
 
 - Details van de Azure-abonnement
 - Naam van de resourcegroep
-- Location
+- Locatie
 - Service Manager-server-gegevens (naam, domein, gebruikersnaam en wachtwoord)
 - Voorvoegsel van de site de naam voor uw Web-app
 - Service Bus-Namespace.
@@ -185,11 +185,12 @@ De volgende secties bevatten informatie over hoe u verbinding maken met uw Servi
 ### <a name="prerequisites"></a>Vereisten
 Zorg ervoor dat de volgende vereisten wordt voldaan:
 - ITSMC geïnstalleerd. Meer informatie: [Toevoegen van IT Service Management Connector-oplossing](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow ondersteunde versies: London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- ServiceNow ondersteunde versies: Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins moet het volgende in de ServiceNow-exemplaar doen**:
 - Client-ID en clientgeheim voor de ServiceNow-product te genereren. Zie de volgende informatie zoals vereist voor meer informatie over het maken van de client-ID en -geheim:
 
+    - [Instellen van OAuth voor Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Instellen van OAuth voor Londen](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Instellen van OAuth voor Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Instellen van OAuth voor Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

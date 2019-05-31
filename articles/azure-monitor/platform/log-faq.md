@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394826"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356210"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 
@@ -35,7 +35,7 @@ A: Ze zijn hetzelfde. [Log Analytics wordt als een functie in Azure Monitor geï
 
 ### <a name="q-can-i-still-use-log-search"></a>V: Kan ik nog steeds zoeken in Logboeken gebruiken? 
 
-A: Zoeken in Logboeken is momenteel nog steeds beschikbaar in de OMS-portal en in de Azure-portal onder de naam van de **Logboeken (klassiek)**. De OMS-portal wordt op 15 januari 2019 officieel stopgezet. De klassieke logboeken-ervaring in Azure portal worden geleidelijk stopgezet en vervangen door de nieuwe ervaring voor Logboeken. 
+A: Zoeken in Logboeken is momenteel nog steeds beschikbaar in de OMS-portal en in de Azure-portal onder de naam van de **Logboeken (klassiek)** . De OMS-portal wordt op 15 januari 2019 officieel stopgezet. De klassieke logboeken-ervaring in Azure portal worden geleidelijk stopgezet en vervangen door de nieuwe ervaring voor Logboeken. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>V. Kan ik nog steeds Advanced Analytics-Portal gebruiken? 
 De nieuwe ervaring van de logboeken in Azure portal is gebaseerd op de Portal Advanced Analytics, maar deze nog steeds toegankelijk buiten de Azure-portal. Het overzicht voor het buiten gebruik stellen van deze externe portal wordt binnenkort aangekondigd.
@@ -84,7 +84,7 @@ A: De lijst met geïnstalleerde oplossingen en weergaven zijn beschikbaar in Azu
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>V. Waarom kan ik werkruimten maken in de regio West-Centraal VS? 
 
-A: Deze regio heeft tijdelijk de capaciteitslimiet bereikt. Deze limiet zal in de eerste helft van 2019 worden aangepakt.
+A: Deze regio heeft tijdelijk de capaciteitslimiet bereikt. Deze limiet is gepland om te worden verholpen door de einde van September 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>V. Log Analytics maakt gebruik dezelfde agent als Azure Security Center?
@@ -195,7 +195,7 @@ Een geel waarschuwingspictogram betekent dat de agent heeft problemen communicat
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>V: Hoe stop ik een agent niet communiceren met Log Analytics?
 
 A: In System Center Operations Manager, de computer te verwijderen uit de lijst met OMS beheerde computers. Operations Manager werkt u de configuratie van de agent niet langer een rapport naar Log Analytics. Voor agents die rechtstreeks verbonden met Log Analytics, kunt u ze stopt vanaf communiceren via: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
-Onder **Azure Log Analytics (OMS)**, verwijder alle werkruimten die worden vermeld.
+Onder **Azure Log Analytics (OMS)** , verwijder alle werkruimten die worden vermeld.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>V: Waarom krijg ik een foutbericht wanneer ik wil mijn werkruimte van één Azure-abonnement verplaatsen naar een andere?
 

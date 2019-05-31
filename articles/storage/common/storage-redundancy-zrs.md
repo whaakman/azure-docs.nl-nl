@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65961438"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238008"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -49,7 +49,7 @@ ZRS mag niet uw gegevens beveiligen tegen een regionaal noodgeval waar meerdere 
 ## <a name="converting-to-zrs-replication"></a>Converteren naar ZRS-replicatie
 Migreren naar of van LRS, GRS en RA-GRS is vrij eenvoudig. De Azure-portal of de Storage Resource Provider API gebruiken om uw accounttype redundantie te wijzigen. Azure repliceert uw gegevens vervolgens dienovereenkomstig. 
 
-Migreren van gegevens naar of van ZRS vereist een andere strategie. ZRS-migratie moet de fysieke verplaatsing van gegevens van een enkele opslagstempel naar meerdere stempels binnen een regio.
+Gegevens migreren naar ZRS vereist een andere strategie. ZRS-migratie moet de fysieke verplaatsing van gegevens van een enkele opslagstempel naar meerdere stempels binnen een regio.
 
 Er zijn twee primaire opties voor migratie naar ZRS: 
 

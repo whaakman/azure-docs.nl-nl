@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: de0ba13a527569e446a44c275b7323d4487f53b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780301"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418127"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Preview - limiet voor uitgaande verkeer voor de clusterknooppunten en toegang tot de vereiste poorten en services in Azure Kubernetes Service (AKS) beheren
 
@@ -21,9 +21,10 @@ Standaard onbeperkte AKS clusters toegang tot het internet van de uitgaande (egr
 Dit artikel wordt uitgelegd welke netwerkpoorten en de volledig gekwalificeerde domeinnamen (FQDN's) zijn vereiste en optionele als u uitgaande verkeer in een AKS-cluster beperken.  Deze functie is momenteel beschikbaar als preview-product.
 
 > [!IMPORTANT]
-> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
+> AKS-preview-functies zijn selfservice, aanmelden. Ze zijn bedoeld om het verzamelen van fouten en feedback van onze community. Preview-versie, worden deze functies zijn niet bedoeld voor gebruik in productieomgevingen. Functies in public preview vallen onder 'best effort'-ondersteuning. Hulp van de AKS-teams voor technische ondersteuning is beschikbaar tijdens kantooruren Pacific tijdzone (PST) alleen. Zie de volgende artikelen ondersteuning voor aanvullende informatie:
 >
-> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
+> * [Ondersteuningsbeleid voor AKS][aks-support-policies]
+> * [Veelgestelde vragen over ondersteuning van Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -68,11 +69,11 @@ In AKS zijn er twee sets met poorten en -adressen:
 De volgende uitgaande poorten / netwerkregels zijn vereist voor een AKS-cluster:
 
 * TCP-poort *443*
-* TCP-poort *9000*
+* TCP-poort *9000* en TCP-poort *22* voor de tunnel-front-schil om te communiceren met het einde van de tunnel op de API-server.
 
 De volgende FQDN-naam / regels van toepassing zijn vereist:
 
-| FQDN                      | Poort      | Gebruik      |
+| FQDN-NAAM                      | Poort      | Gebruiken      |
 |---------------------------|-----------|----------|
 | *.azmk8s.io               | HTTPS:443 | Dit adres is het eindpunt van de API-server. |
 | aksrepos.azurecr.io       | HTTPS:443 | Dit adres is vereist voor toegang tot afbeeldingen in Azure Container Registry (ACR). |
@@ -90,7 +91,7 @@ De volgende uitgaande poorten / netwerkregels niet nodig zijn voor de AKS-cluste
 
 De volgende FQDN-naam / toepassing regels worden aanbevolen voor AKS-clusters te laten functioneren:
 
-| FQDN                                    | Poort      | Gebruik      |
+| FQDN-NAAM                                    | Poort      | Gebruiken      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | Dit adres kunt de Linux-clusterknooppunten de vereiste patches en updates te downloaden. |
 | packages.microsoft.com                  | HTTPS:443 | Dit adres is de Microsoft-pakketten-opslagplaats die wordt gebruikt voor in de cache opgeslagen *apt-get* bewerkingen. |
@@ -105,9 +106,6 @@ De volgende FQDN-naam / toepassing regels worden aanbevolen voor AKS-clusters te
 
 In dit artikel hebt u geleerd welke poorten en -adressen om toe te staan als u uitgaande verkeer voor het cluster beperken. U kunt ook definiëren hoe het gehele product zelf kunnen communiceren en welke beperkingen er binnen het cluster. Zie voor meer informatie, [beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in AKS][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -118,3 +116,5 @@ In dit artikel hebt u geleerd welke poorten en -adressen om toe te staan als u u
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

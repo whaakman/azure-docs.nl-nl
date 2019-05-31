@@ -1,19 +1,19 @@
 ---
-title: Advanced Threat Protection - Azure Database for PostgreSQL
+title: Advanced Threat Protection - Azure Database for PostgreSQL - één-Server
 description: Beveiliging tegen bedreigingen detecteert afwijkende activiteiten die wijzen op mogelijke beveiligingsrisico's met de database.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421272"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067469"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Advanced Threat Protection voor Azure Database for PostgreSQL
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection voor Azure Database voor PostgreSQL - één Server
 
 Advanced Threat Protection for Azure Database for PostgreSQL detecteert vreemde activiteiten die duiden op ongebruikelijke en mogelijk schadelijke pogingen om toegang te verkrijgen tot databases of om deze aan te vallen.
 
@@ -28,7 +28,7 @@ Advanced Threat Protection maakt deel uit van de aanbieding met geavanceerde bev
 
 ## <a name="set-up-threat-detection"></a>Detectie van bedreigingen instellen
 1. Starten van de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
-2. Navigeer naar de configuratiepagina van de Azure Database for PostgreSQL-server die u wilt beveiligen. Selecteer in de beveiligingsinstellingen **Advanced Threat Protection (Preview)**.
+2. Navigeer naar de configuratiepagina van de Azure Database for PostgreSQL-server die u wilt beveiligen. Selecteer in de beveiligingsinstellingen **Advanced Threat Protection (Preview)** .
 3. Op de **Advanced Threat Protection (Preview)** configuratiepagina:
 
    - Advanced Threat Protection inschakelen op de server.
@@ -46,7 +46,7 @@ U ontvangt een e-mailmelding bij detectie van afwijkende activiteiten. Het e-mai
 
     Weergave actieve bedreigingen:
 
-    ![Actieve bedreigingen](./media/howto-database-threat-protection-portal/active-threats.png)
+    ![actieve bedreigingen](./media/howto-database-threat-protection-portal/active-threats.png)
 
 2. Klik op een specifieke waarschuwing om aanvullende gegevens en acties voor deze bedreiging te onderzoeken en oplossen van problemen met toekomstige bedreigingen.
     

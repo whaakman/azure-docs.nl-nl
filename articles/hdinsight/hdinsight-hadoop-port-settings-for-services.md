@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692130"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252786"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Poorten die worden gebruikt door de services van Apache Hadoop op HDInsight
 
@@ -27,7 +27,6 @@ Intern, HDInsight door meerdere virtuele Machines van Azure (de knooppunten binn
 
 > [!IMPORTANT]  
 > Als u geen een Azure-netwerk als een configuratieoptie voor HDInsight opgeeft, wordt een automatisch gemaakt. U kunt andere virtuele machines (zoals andere Azure-Machines of uw ontwikkelcomputer client) echter kan niet toevoegen aan dit virtuele netwerk.
-
 
 Als u wilt toevoegen als u meer machines aan het virtuele netwerk, moet u eerst het virtuele netwerk maken en vervolgens opgeven bij het maken van uw HDInsight-cluster. Zie voor meer informatie, [mogelijkheden voor HDInsight uitbreiden met behulp van een Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 
@@ -104,7 +103,7 @@ Voorbeelden:
 | Resource Manager-scheduler |Hoofdknooppunten |8030 |HTTP |Beheerinterface |
 | Toepassingsinterface van de Resource Manager |Hoofdknooppunten |8050 |HTTP |Adres van de interface voor het beheer van toepassingen |
 | NodeManager |Alle worker-knooppunten |30050 |&nbsp; |Het adres van de container-manager |
-| NodeManager web-UI |Alle worker-knooppunten |30060 |HTTP |Resource manager-interface |
+| NodeManager web-UI |Alle worker-knooppunten |30060 |HTTP |Resource Manager-interface |
 | Adres van de tijdlijn |Hoofdknooppunten |10200 |RPC |De tijdlijn service RPC-service. |
 | Tijdlijn van web-UI |Hoofdknooppunten |8181 |HTTP |De web-UI van de service in tijdlijn |
 
@@ -156,7 +155,7 @@ Voorbeelden:
 
 | Service | Knooppunten | Poort | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| Broker |Werkknooppunten |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Gebruikt voor communicatie van clients |
+| Broker |Worker-knooppunten |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Gebruikt voor communicatie van clients |
 | &nbsp; |ZooKeeper-knooppunten |2181 |&nbsp; |De poort die clients gebruiken voor verbinding met Zookeeper |
 
 ### <a name="spark-ports"></a>Spark-poorten

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 81be4d5809fe8a3f36f7364b15e19d0046a8b5cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237158"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -104,9 +104,9 @@ Voor het identificeren van het probleem op een lokale cluster met één knooppun
 
 Controleer na het vaststellen van uw doel cluster VM-grootte, de schaal en het type, de huidige quotumlimiet voor een capaciteit van uw abonnement. Wanneer u een limiet bereikt, kunt u mogelijk niet implementeren van nieuwe clusters of bestaande clusters uitschalen door meer worker-knooppunten toe te voegen. De enige quotumlimiet is het quotum voor CPU-kernen dat op het regioniveau van de voor elk abonnement bestaat. Uw abonnement mogelijk bijvoorbeeld 30 kernlimiet in de regio VS-Oost. Als u nodig hebt om aan te vragen een quotaverhoging, voert u de volgende stappen uit:
 
-1. Ga naar de Azure-portal
-1. Klik op **Help en ondersteuning** in de linkerbenedenhoek van de pagina.
-1. Klik op **nieuwe ondersteuningsaanvraag**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+1. Selecteer **Help en ondersteuning** in de linkerbenedenhoek van de pagina.
+1. Selecteer op **nieuwe ondersteuningsaanvraag**.
 1. Op de **nieuwe ondersteuningsaanvraag** pagina onder **basisbeginselen** tabblad, selecteert u de volgende opties:
    - **Type probleem**: **Limieten voor service en -abonnement (quota)**
    - **Abonnement**: het abonnement dat u wilt wijzigen
@@ -114,9 +114,9 @@ Controleer na het vaststellen van uw doel cluster VM-grootte, de schaal en het t
     
      ![Maak een ondersteuningsaanvraag om HDInsight core quotum te verhogen](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Klik op **volgende**.
-1. Op de **Details** pagina, voer een beschrijving van het probleem, selecteert u de ernst van het probleem en selecteer uw voorkeursmethode voor contact.
-1. Klik op **Next: Beoordelen en maken**.
+1. Selecteer **Volgende: Oplossingen >>** .
+1. Op de **Details** pagina, voer een beschrijving van het probleem, selecteert u de ernst van het probleem en de voorkeursmethode voor contact op met andere vereiste velden.
+1. Selecteer **Volgende: Beoordelen en maken >>** .
 1. Op de **revisie + maken** tabblad **maken**.
 
 > [!NOTE]  

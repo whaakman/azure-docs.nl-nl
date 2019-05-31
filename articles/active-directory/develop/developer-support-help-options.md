@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0741dda0aa087f21625cabe79e51d0b9e344f7ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962657"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235338"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opties voor ondersteuning en hulp voor ontwikkelaars
 
@@ -81,10 +81,10 @@ De volgende posts in Stack Overflow bevatten tips over hoe u kunt vragen stellen
 
 Als u een bug of een probleem met betrekking tot onze bibliotheken kunt vinden, verhoogt u een probleem in onze GitHub-opslagplaatsen. Omdat onze bibliotheken open-source zijn, kunt u ook een pull-aanvraag verzenden.
 
-Voor een overzicht van bibliotheken en hun GitHub-opslagplaatsen, Zie de volgende artikelen:
+Voor een lijst van bibliotheken en hun GitHub-opslagplaatsen, Zie de volgende:
 
 * [ADAL](active-directory-authentication-libraries.md) bibliotheken en GitHub-opslagplaatsen
-* [MSAL](reference-v2-libraries.md) bibliotheken en GitHub-opslagplaatsen
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), and [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) libraries and GitHub repositories
 
 ## <a name="open-a-support-request"></a>Open een ondersteuningsaanvraag
 

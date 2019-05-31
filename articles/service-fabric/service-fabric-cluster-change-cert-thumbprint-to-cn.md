@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
-ms.openlocfilehash: c199bd7314cb076def497bc18030f783eb23f4be
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: a94fda5a1f3aedd5842bad92b5348a77177b4137
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620226"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302466"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cluster niet wijzigen van de vingerafdruk van certificaat in de algemene naam
 Er zijn geen twee certificaten kunnen hebben dezelfde vingerafdruk, waardoor certificaatrollover cluster of de beheer-moeilijk. Meerdere certificaten kunnen echter hebben de dezelfde algemene naam of het onderwerp.  Schakelen tussen een geïmplementeerd cluster vanuit vingerafdrukken voor certificaten naar het gebruik van gewone namen voor certificaten maakt het beheer van certificaten veel eenvoudiger. In dit artikel wordt beschreven hoe u een actief Service Fabric-cluster voor het gebruik van de algemene naam van het certificaat in plaats van de vingerafdruk van het certificaat bijwerken.
@@ -102,7 +102,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > Scale set geheimen bieden geen ondersteuning van de dezelfde resource-ID voor twee afzonderlijke geheimen, zoals elke geheim een resource is samengesteld, unieke is. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Downloaden en de sjabloon van de portal bijwerken
-Het certificaat is geïnstalleerd op de onderliggende schaalset, maar u moet ook de Service Fabric-cluster voor het gebruik van dat certificaat en de algemene naam bijwerken.  Download nu de sjabloon voor de implementatie van uw cluster.  Meld u aan bij de [Azure-portal](https://portal.azure.com) en navigeer naar de resourcegroep die als host fungeert voor het cluster.  In **instellingen**, selecteer **implementaties**.  Selecteer de meest recente implementatie en klikt u op **sjabloon weergeven**.
+Het certificaat is geïnstalleerd op de onderliggende schaalset, maar u moet ook de Service Fabric-cluster voor het gebruik van dat certificaat en de algemene naam bijwerken.  Download nu de sjabloon voor de implementatie van uw cluster.  Aanmelden bij de [Azure-portal](https://portal.azure.com) en navigeer naar de resourcegroep die als host fungeert voor het cluster.  In **instellingen**, selecteer **implementaties**.  Selecteer de meest recente implementatie en klikt u op **sjabloon weergeven**.
 
 ![Sjablonen weergeven][image1]
 

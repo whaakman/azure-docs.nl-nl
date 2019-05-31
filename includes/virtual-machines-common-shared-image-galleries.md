@@ -8,19 +8,20 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145879"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271568"
 ---
-Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw aangepaste beheerde VM-installatiekopieën maken. Gedeelde Afbeeldingsgalerieën bieden:
+Gedeelde afbeeldingengalerie is een service waarmee u structuur en de organisatie om uw beheerde installatiekopieën maken. Gedeelde Afbeeldingsgalerieën bieden:
 
 - Beheerde globale replicatie van afbeeldingen.
 - Versiebeheer en groepering van beelden voor eenvoudiger beheer.
-- Uw installatiekopieën maximaal beschikbaar met Zone-redundante opslag (ZRS)-accounts maken in regio's die ondersteuning voor Beschikbaarheidszones. ZRS biedt betere tolerantie tegen fouten in de zonegebonden.
-- Delen tussen abonnementen en zelfs tussen tenants, met RBAC.
+- Maximaal beschikbare installatiekopieën met Zone-redundante opslag (ZRS) accounts in regio's die ondersteuning voor Beschikbaarheidszones. ZRS biedt betere tolerantie tegen fouten in de zonegebonden.
+- Delen tussen abonnementen en zelfs tussen Active Directory (AD)-tenants, met RBAC.
+- Schaal uw implementaties met de installatiekopie van replica's in elke regio.
 
 U kunt met behulp van de galerie met installatiekopieën van een gedeelde afbeeldingen aan andere gebruikers, service-principals of AD-groepen delen binnen uw organisatie. Gedeelde afbeeldingen kunnen worden gerepliceerd naar meerdere regio's voor het sneller schalen van uw implementaties.
 
@@ -42,7 +43,7 @@ De galerie met installatiekopieën van gedeelde functie heeft meerdere resourcet
 
 ![Afbeelding die laat zien hoe u meerdere versies van een installatiekopie kunt hebben in de galerie](./media/shared-image-galleries/shared-image-gallery.png)
 
-## <a name="image-definitions"></a>installatiekopiedefinities
+## <a name="image-definitions"></a>Definities van installatiekopie
 
 Definities van de installatiekopie van zijn een logische groepering van versies van een afbeelding. Definitie van de installatiekopie bevat informatie over waarom de installatiekopie is gemaakt, welke OS voor en informatie over het gebruik van de installatiekopie. De definitie van een installatiekopie is vergelijkbaar met een plan voor alle gegevens over het maken van een specifieke installatiekopie. U kunt een virtuele machine van de definitie van een installatiekopie, maar vanaf de versie van de installatiekopie gemaakt op basis van de definitie niet implementeren.
 
@@ -51,9 +52,9 @@ Er zijn drie parameters voor de definitie van de installatiekopie die worden geb
 
 |Definitie van installatiekopie|Uitgever|Aanbieding|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Financiën|Back-end|
-|myImage2|Contoso|Financiën|Front-end|
-|myImage3|Testen|Financiën|Front-end|
+|myImage1|Contoso|Finance|Back-end|
+|myImage2|Contoso|Finance|Frontend|
+|myImage3|Testen|Finance|Frontend|
 
 Alle drie deze hebben unieke sets waarden. De indeling is vergelijkbaar met hoe u op dit moment opgeven uitgever, aanbieding en SKU voor de kunt [Azure Marketplace-installatiekopieën](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell om op te halen van de meest recente versie van een Marketplace-installatiekopie. De definitie van elke afbeelding moet een unieke set van deze waarden hebben.
 
@@ -77,14 +78,14 @@ Bron-regio's worden weergegeven in de onderstaande tabel. Alle openbare regio's 
 
 | Bron-regio 's |
 |---------------------|-----------------|------------------|-----------------|
-| Australië - centraal   | US - centraal EUAP | Korea Centraal    | VK Zuid 2      |
-| Australië - centraal 2 | Azië - oost       | Korea - zuid      | VK West         |
+| Australië - centraal   | VS-midden EUAP | Korea - centraal    | VK, zuid 2      |
+| Australië - centraal 2 | Azië - oost       | Korea - zuid      | Verenigd Koninkrijk West         |
 | Australië - oost      | US - oost         | US - noord-centraal | US - west-centraal |
 | Australië - zuidoost | US - oost 2       | Europa - noord     | Europa -west     |
-| Brazilië - zuid        | US - oost 2 EUAP  | US - zuid-centraal | India - west      |
+| Brazilië - zuid        | VS-Oost 2 EUAP  | US - zuid-centraal | India - west      |
 | Canada - midden      | Frankrijk - centraal  | India - zuid      | US - west         |
-| Canada Oost         | Frankrijk - zuid    | Azië - zuidoost   | US - west         |
-| India - centraal       | Japan - oost      | VK Noord         | US - west 2       |
+| Canada - oost         | Frankrijk - zuid    | Azië - zuidoost   | US - west         |
+| India - centraal       | Japan - oost      | VK, noord         | US - west 2       |
 | US - centraal          | Japan - west      | Verenigd Koninkrijk Zuid         |                 |
 
 
@@ -102,7 +103,26 @@ Zie voor meer informatie, [brongebruik op basis van limieten controleren](https:
 ## <a name="scaling"></a>Schalen
 Gedeelde galerie met installatiekopieën kunt u het aantal replica's die u wilt dat Azure te houden van de installatiekopieën opgeven. Dit helpt bij implementatiescenario's voor meerdere VM's als de VM-implementaties kunnen worden verspreid naar verschillende replica's verminderen de kans dat het maken van de instantie wordt beperkt vanwege een overbelasting van een enkele replica verwerken.
 
+
+Met de galerie met installatiekopieën die zijn gedeeld, kunt u nu implementeren maximaal 1000 VM-exemplaren in een virtuele-machineschaalset (omhoog van 600 met beheerde installatiekopieën). De installatiekopie van replica's bieden voor betere prestaties van de implementatie, betrouwbaarheid en consistentie.  U kunt een aantal verschillende replica's in elke doelregio instellen op basis van de behoeften van de schaal voor de regio. Omdat elke replica een uitgebreide kopie van uw installatiekopie is, helpt dit uw implementaties met elke extra replica lineair worden geschaald. Terwijl we begrijpen dat geen twee installatiekopieën of regio's hetzelfde zijn, volgt ons algemene richtlijn voor het gebruik van replica's in een regio:
+
+- Voor elke 20 virtuele machines die u gelijktijdig maakt, raden wij u een van de replica. Bijvoorbeeld, als u het maken van 120 virtuele machines die gelijktijdig met behulp van dezelfde installatiekopie in een regio, raden we u ten minste 6 replica's van uw installatiekopie. 
+- Voor elke implementatie van de set schaal met maximaal 600 exemplaren raden we u ten minste één replica. Bijvoorbeeld als u het maken van 5 schaalsets gelijktijdig, elk met 600 VM-exemplaren dezelfde installatiekopie gebruiken in een enkele regio en raden we u ten minste 5 replica's van uw installatiekopie. 
+
+We altijd beter om u aan het aantal replica's vanwege factoren, zoals de grootte van installatiekopie, inhoud en type besturingssysteem overprovision.
+
+
 ![Afbeelding die laat zien hoe u installatiekopieën kunt schalen](./media/shared-image-galleries/scaling.png)
+
+
+
+## <a name="make-your-images-highly-available"></a>Uw installatiekopieën maximaal beschikbaar maken
+
+[Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) biedt veerkracht tegen een Beschikbaarheidszone fouten in de regio. Met de algemene beschikbaarheid van de galerie met installatiekopieën gedeeld, kunt u uw installatiekopieën opslaan in ZRS-accounts in regio's met Beschikbaarheidszones. 
+
+U kunt ook het accounttype voor elk van de doelregio's. Het type storage-account is Standard_LRS, maar u kunt Standard_ZRS voor regio's met Beschikbaarheidszones. Controleer de regionale beschikbaarheid van ZRS [hier](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+
+![Afbeelding van ZRS](./media/shared-image-galleries/zrs.png)
 
 
 ## <a name="replication"></a>Replicatie
@@ -113,21 +133,20 @@ De regio's voor die de versie van een gedeelde installatiekopie wordt gereplicee
 ![Afbeelding die laat zien hoe u installatiekopieën kunt repliceren](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Toegang
+## <a name="access"></a>Access
 
-Als de galerie met installatiekopieën van gedeelde, gedeelde installatiekopie en de versie van gedeelde installatiekopie moet u alle resources zijn, kunnen ze worden gedeeld met de ingebouwde die systeemeigen Azure RBAC bepaalt. Met RBAC kunt u deze resources aan andere gebruikers, service-principals en -groepen delen. U kunt ook toegang tot personen buiten de tenant die zijn gemaakt in delen. Wanneer een gebruiker toegang tot de versie van de installatiekopie gedeeld heeft, kunnen ze een virtuele machine of een virtuele-Machineschaalset implementeren.  Hier volgt de delen matrix die helpt te begrijpen wat de gebruiker krijgt toegang tot:
+Als de galerie met installatiekopieën van gedeelde, de definitie van installatiekopie en de versie van installatiekopie moet u alle resources zijn, kunnen ze worden gedeeld met de ingebouwde die systeemeigen Azure RBAC bepaalt. Met RBAC kunt u deze resources aan andere gebruikers, service-principals en -groepen delen. U kunt ook toegang tot personen buiten de tenant die zijn gemaakt in delen. Wanneer een gebruiker toegang tot de versie van de installatiekopie gedeeld heeft, kunnen ze een virtuele machine of een virtuele-Machineschaalset implementeren.  Hier volgt de delen matrix die helpt te begrijpen wat de gebruiker krijgt toegang tot:
 
-| Gedeeld met gebruiker     | Gedeelde installatiekopiegalerie | Gedeelde installatiekopie | De versie van gedeelde installatiekopie |
+| Gedeeld met gebruiker     | Galerie met gedeelde installatiekopieën | Definitie van installatiekopie | De versie van installatiekopie |
 |----------------------|----------------------|--------------|----------------------|
-| Gedeelde installatiekopiegalerie | Ja                  | Ja          | Ja                  |
-| Gedeelde installatiekopie         | Nee                   | Ja          | Ja                  |
-| De versie van gedeelde installatiekopie | Nee                   | Nee           | Ja                  |
+| Galerie met gedeelde installatiekopieën | Ja                  | Ja          | Ja                  |
+| Definitie van installatiekopie     | Nee                   | Ja          | Ja                  |
 
-Het is raadzaam om eerst te delen op het niveau van de galerie voor de beste ervaring. Zie voor meer informatie over RBAC [beheren van toegang tot Azure-resources met RBAC](../articles/role-based-access-control/role-assignments-portal.md).
+Het is raadzaam om eerst te delen op het niveau van de galerie voor de beste ervaring. We raden niet-versies van een afzonderlijke installatiekopie voor delen. Zie voor meer informatie over RBAC [beheren van toegang tot Azure-resources met RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
-Afbeeldingen kunnen ook worden gedeeld, op schaal, met tenants met behulp van de registratie van een app met meerdere tenants. Zie voor meer informatie over het delen van installatiekopieën voor tenants [galerie VM-installatiekopieën in Azure-tenants delen](../articles/virtual-machines/linux/share-images-across-tenants.md).
+Afbeeldingen kunnen ook worden gedeeld, op schaal, zelfs voor tenants met behulp van de registratie van een app met meerdere tenants. Zie voor meer informatie over het delen van installatiekopieën voor tenants [galerie VM-installatiekopieën in Azure-tenants delen](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 Er zijn geen extra kosten verbonden aan het gebruik van de Shared Image Gallery-service. U wordt gefactureerd voor de volgende resources:
 - Kosten voor opslag om de versies van een gedeelde installatiekopie op te slaan. Kosten zijn afhankelijk van het aantal replica's van de versie van de installatiekopie en het aantal regio's die worden gerepliceerd naar de versie. Bijvoorbeeld, als u installatiekopieën van 2 en beide zijn gerepliceerd naar 3 regio's, zal vervolgens u worden gewijzigd voor 6 beheerde schijven op basis van de grootte. Zie voor meer informatie, [Managed Disks-prijzen](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Kosten voor uitgaand verkeer voor de replicatie van de eerste installatiekopieversie van de regio van de gegevensbron naar de gerepliceerde regio's op het netwerk. Volgende replica's worden verwerkt binnen de regio, zodat er geen extra kosten zijn. 
@@ -147,8 +166,8 @@ de definitie van de installatiekopie:
 
 Installatiekopieversie:
 - Aantal regionale replica 's
-- Doelregio's
-- Uitsluiting van de meest recente
+- Doelregio 's
+- Uitsluiten van de meest recente
 - Einde van de levensduur van datum
 
 

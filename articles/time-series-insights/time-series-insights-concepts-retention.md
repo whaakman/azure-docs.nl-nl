@@ -4,19 +4,19 @@ description: Dit artikel beschrijft de twee instellingen voor bewaren van gegeve
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e3336df30873b40d2b8a464d1f866b524f76776d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790432"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236999"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Inzicht in Gegevensretentie in Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Raadpleeg voor informatie over het overschakelen van retentie gedrag [configurat
 
 Vergelijk het gedrag voor het bewaren van gegevens:
 
-## <a name="purge-old-data"></a>Oude gegevens opschonen
+## <a name="purge-old-data"></a>Oude gegevens verwijderen
 
 - Dit gedrag is het standaardgedrag voor Time Series Insights-omgevingen.  
 - Dit gedrag wordt aanbevolen wanneer gebruikers willen altijd hun *meest recente gegevens* in hun Time Series Insights-omgeving.
@@ -63,7 +63,7 @@ Houd rekening met een omgeving wordt ook geconfigureerd retentie gedrag **doorga
 
 Wanneer er dagelijks tarief dat inkomend verkeer van deze omgeving groter is dan van 0.166 GB per dag, kan niet gedurende 180 dagen gegevens worden opgeslagen omdat sommige gegevens wordt opgeschoond. Houd rekening met deze dezelfde omgeving gedurende een periode bezet. Wordt ervan uitgegaan dat van de omgeving inkomend snelheid verhogen tot een gemiddelde 0.189 GB per dag. In dat tijdsbestek bezet over 158 dagen aan gegevens worden bewaard (30GB/0.189 = 158,73 dagen retentie). Deze tijd is kleiner dan het tijdsbestek van de gewenste gegevens bewaren.
 
-## <a name="pause-ingress"></a>Ingress onderbreken
+## <a name="pause-ingress"></a>Inkomende gegevens onderbreken
 
 - De **onderbreken inkomend** instelling is ontworpen om te controleren of de gegevens is niet verwijderd als het aantal en grootte limieten zijn bereikt voordat de bewaarperiode.  
 - **Onderbreken van inkomend verkeer** vindt u meer tijd voor de gebruikers de capaciteit van hun omgeving vergroten voordat gegevens wordt leeggemaakt vanwege de bewaarperiode van inbreuk

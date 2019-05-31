@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235781"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258742"
 ---
 # <a name="capacity-planning-and-scaling"></a>Capaciteitsplanning en schalen
 
@@ -70,6 +70,9 @@ Met de eigenschappen van het knooppunt en plaatsingsbeperkingen gedeclareerd, do
 2. Voer `Get-ServiceFabricNode` om ervoor te zorgen dat het knooppunt is overgegaan op uitgeschakeld. Als dat niet het geval is, wacht totdat het knooppunt is uitgeschakeld. Dit duurt een paar uur voor elk knooppunt. Niet worden voortgezet totdat het knooppunt is overgegaan op uitgeschakeld.
 3. Verminder het aantal virtuele machines met één in het desbetreffende type knooppunt. Het hoogste VM-exemplaar wordt nu verwijderd.
 4. Herhaal stappen 1 t/m 3 indien nodig, maar niet verkleinen het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Zie [Planning van de capaciteit van de Service Fabric-cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) voor een lijst met aanbevolen exemplaren.
+
+> [!NOTE]
+> Een ondersteund scenario voor het uitvoeren van een verticale vergroten / verkleinen is: Ik kan migreren mijn Service Fabric-Cluster en de toepassing van niet-beheerde schijf naar Managed Disks zonder downtime van toepassingen. Door het inrichten van een nieuwe virtuele machine-schaalsets met beheerde schijven en uitvoeren van een toepassing upgraden met plaatsingsbeperkingen die zijn gericht ingerichte capaciteit; uw Service Fabric-cluster kunt plannen dat uw werkbelasting op de capaciteit van de ingerichte cluster-knooppunt dat domein upgraden zonder downtime van toepassingen wordt uitgerold. [Azure Load Balancers basis-SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) eindpunten voor back-end-pool kunnen een virtuele machines in een enkele beschikbaarheidsset of virtuele-machineschaalset zijn. Dit betekent dat u niet een basis-SKU load balancer gebruiken als u uw Service Fabric-toepassing systemen tussen schaalsets verplaatsen, zonder dat de tijdelijke ontoegankelijkheid van uw Service Fabric cluster beheereindpunt, zelfs als het cluster en de toepassing nog steeds worden uitgevoerd. vaak gebruiker inrichten van een standaard-SKU load balancer, bij het uitvoeren van een virtueel IP-adres (VIP) voor wisselen tussen een Basic SKU-LB en standaard SKU-LB-resources, om te beperken van alle toekomstige ongeveer 30 seconden worden dus van ontoegankelijkheid voor wisselen van VIP is vereist.
 
 ## <a name="horizontal-scaling"></a>Horizontaal schalen
 

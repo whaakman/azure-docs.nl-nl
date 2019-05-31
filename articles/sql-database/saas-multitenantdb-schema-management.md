@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485191"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242772"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Het schema in een SaaS-toepassing die gebruikmaakt van shard SQL-databases van meerdere tenants beheren
 
@@ -31,7 +31,7 @@ Deze zelfstudie worden de volgende twee scenario's:
 - Bijwerken van verwijzingsgegevens implementeren voor alle tenants.
 - Een index voor de tabel met de referentiegegevens opnieuw maken.
 
-De [elastische taken](sql-database-elastic-jobs-overview.md) functie van Azure SQL Database wordt gebruikt voor het uitvoeren van deze bewerkingen in de tenant-databases. De taken worden ook uitgevoerd voor de database van de tenant 'template'. In de voorbeeld-app Wingtip Tickets, wordt de sjabloondatabase van deze voor het inrichten van een nieuwe tenantdatabase gekopieerd.
+De [elastische taken](elastic-jobs-overview.md) functie van Azure SQL Database wordt gebruikt voor het uitvoeren van deze bewerkingen in de tenant-databases. De taken worden ook uitgevoerd voor de database van de tenant 'template'. In de voorbeeld-app Wingtip Tickets, wordt de sjabloondatabase van deze voor het inrichten van een nieuwe tenantdatabase gekopieerd.
 
 In deze zelfstudie leert u het volgende:
 
@@ -57,7 +57,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Kennismaking met patronen voor SaaS-schema
 
-De shard multitenant-database-gegevensmodel wordt gebruikt in dit voorbeeld maakt een tenants-database bevat een of meer tenants. In dit voorbeeld worden de mogelijkheden gebruiken van een combinatie van een veel-tenant- en one databases, waardoor een *hybride* model voor het beheren van tenant. Beheren van wijzigingen aan deze databases kan ingewikkeld zijn. [Elastische taken](sql-database-elastic-jobs-overview.md) vergemakkelijkt en het beheer van grote aantallen database. Met elastische taken kunt u veilig en betrouwbaar Transact-SQL-scripts uitvoeren als taken voor een groep van de tenant-databases. De taken zijn onafhankelijk van de gebruikersinteractie of invoer. Deze methode kan worden gebruikt voor het implementeren van wijzigingen aan schema of algemene verwijzen naar gegevens, voor alle tenants in een toepassing. Elastische taken kunnen ook worden gebruikt om een golden sjabloon kopie van de database. De sjabloon wordt gebruikt om te maken van nieuwe tenants, altijd ervoor te zorgen dat de meest recente schema en referentiegegevens worden gebruikt.
+De shard multitenant-database-gegevensmodel wordt gebruikt in dit voorbeeld maakt een tenants-database bevat een of meer tenants. In dit voorbeeld worden de mogelijkheden gebruiken van een combinatie van een veel-tenant- en one databases, waardoor een *hybride* model voor het beheren van tenant. Beheren van wijzigingen aan deze databases kan ingewikkeld zijn. [Elastische taken](elastic-jobs-overview.md) vergemakkelijkt en het beheer van grote aantallen database. Met elastische taken kunt u veilig en betrouwbaar Transact-SQL-scripts uitvoeren als taken voor een groep van de tenant-databases. De taken zijn onafhankelijk van de gebruikersinteractie of invoer. Deze methode kan worden gebruikt voor het implementeren van wijzigingen aan schema of algemene verwijzen naar gegevens, voor alle tenants in een toepassing. Elastische taken kunnen ook worden gebruikt om een golden sjabloon kopie van de database. De sjabloon wordt gebruikt om te maken van nieuwe tenants, altijd ervoor te zorgen dat de meest recente schema en referentiegegevens worden gebruikt.
 
 ![scherm](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -115,7 +115,7 @@ Als u wilt een nieuw project maakt, gebruikt u de reeks taken in het systeem opg
 
 8. Druk op **F5** om het script uit te voeren.
 
-#### <a name="observe"></a>Observeren
+#### <a name="observe"></a>Observe
 
 Bekijk de volgende items in de *DeployReferenceData.sql* script:
 
@@ -146,7 +146,7 @@ In deze oefening maakt een taak om de index op de primaire sleutel uit de refere
 
 3. Druk op **F5** om het script uit te voeren.
 
-#### <a name="observe"></a>Observeren
+#### <a name="observe"></a>Observe
 
 Bekijk de volgende items in de *OnlineReindex.sql* script:
 
@@ -161,8 +161,7 @@ Bekijk de volgende items in de *OnlineReindex.sql* script:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Uitgeschaalde clouddatabases beheren](sql-database-elastic-jobs-overview.md)
-* [Uitgeschaalde clouddatabases maken en beheren](sql-database-elastic-jobs-create-and-manage.md)
+* [Uitgeschaalde clouddatabases beheren](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

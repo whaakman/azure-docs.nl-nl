@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6115d7f70c2c75898b18a27af298a44ca87ca1bd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486324"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240870"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Cross-tenant-analytics met behulp van data - app met één tenant opgehaald
  
@@ -241,5 +241,5 @@ Gefeliciteerd!
 ## <a name="additional-resources"></a>Aanvullende resources
 
 - Aanvullende [zelfstudies voort op de Wingtip SaaS-toepassing bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Elastische taken](sql-database-elastic-jobs-overview.md).
+- [Elastische taken](elastic-jobs-overview.md).
 - [Cross-tenant-analytics met behulp van de opgehaalde gegevens - app met meerdere tenants](saas-multitenantdb-tenant-analytics.md)

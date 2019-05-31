@@ -1,19 +1,19 @@
 ---
-title: Migratie met minimale downtime met Azure Database for PostgreSQL
-description: In dit artikel wordt beschreven hoe u een migratie met minimale downtime van een PostgreSQL-database met Azure Database for PostgreSQL uitvoeren met behulp van de Azure Database Migration Service.
+title: Migratie met minimale downtime met Azure Database voor PostgreSQL - één Server
+description: Dit artikel wordt beschreven hoe u een migratie met minimale downtime van een PostgreSQL-database met Azure Database voor PostgreSQL - één Server met behulp van de Azure Database Migration Service uitvoert.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: ceb64781dc7e5243f785ad239c24e5f21b0481ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 93cd390889c023adf1c30a8470e1c2298598439e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421205"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067514"
 ---
-# <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migratie met minimale downtime met Azure Database for PostgreSQL
+# <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migratie met minimale downtime met Azure Database voor PostgreSQL - één Server
 U kunt migratie naar Azure Database for PostgreSQL voor PostgreSQL met minimale downtime uitvoeren met behulp van de onlangs geïntroduceerde **doorlopende synchronisatie mogelijkheid** voor de [Azure Database Migration Service](https://aka.ms/get-dms) (DMS) . Deze functionaliteit beperkt de hoeveelheid uitvaltijd beperkt die worden gemaakt door de toepassing.
 
 ## <a name="overview"></a>Overzicht

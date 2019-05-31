@@ -1,5 +1,5 @@
 ---
-title: Definitie van de gegevensset en versiebeheer met azureml-gegevenssets
+title: Versie en definities van de gegevensset met azureml-gegevenssets beheren
 titleSuffix: Azure Machine Learning service
 description: Meer informatie over het bijwerken van definities van de gegevensset en beheren van de levenscyclus van definities
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4476bdd902f054683fa544dc44b548689f3a1881
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146210"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241887"
 ---
-# <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Bijwerken en beheren van de levenscyclus van definities van de gegevensset
+# <a name="version-and-manage-your-dataset-definitions"></a>Versie en beheren van uw definities van de gegevensset
 
 Informatie over het bijwerken en beheren van definities van de gegevensset met Azure Machine Learning-gegevenssets (preview).
 
@@ -37,7 +37,7 @@ U moet beschikken over een Azure-abonnement en een werkruimte om u te registrere
 
 Het voorbeeldbestand dat wordt gebruikt in de voorbeelden in dit document is beschikbaar op [ https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv ](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
 
-## <a name="update-dataset-definitions"></a>Bijwerken van definities van de gegevensset
+## <a name="create-and-update-definitions"></a>Maken en bijwerken van definities
 
 Er wordt eerst maken en registreren van een gegevensset met uw werkruimte.
 
@@ -362,7 +362,7 @@ ds_def = dataset.get_definition(version_id = 1)
 ds_def.deprecate(deprecate_by_dataset_id=dataset.id, deprecated_by_definition_version=2)
 ```
 
-### <a name="archive"></a>Archief
+### <a name="archive"></a>Archiveren
 
 Definities van de gegevensset kunnen worden gearchiveerd wanneer definities mag niet worden gebruikt voor een bepaalde reden (zoals de onderliggende gegevens niet meer beschikbaar). Wanneer een gearchiveerde definitie van de gegevensset wordt gebruikt in machine learning-pijplijnen, worden uitvoering geblokkeerd vanwege een fout.
 

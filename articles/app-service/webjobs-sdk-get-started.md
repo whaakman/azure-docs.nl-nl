@@ -13,18 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864829"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418241"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
-In dit artikel ziet u hoe u Visual Studio 2019 aan een Azure WebJobs SDK-project maken, lokaal uitvoeren, en vervolgens implementeert [Azure App Service](overview.md). Het project dat u maakt, is een .NET Core-console-app die gebruikmaakt van versie 3.x van de WebJobs SDK. Als u geïnteresseerd in versie bent 2.x, die gebruikmaakt van .NET Framework, Zie [ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs](webjobs-dotnet-deploy-vs.md).
+In dit artikel ziet u hoe u Visual Studio 2019 aan een Azure WebJobs SDK-project maken, lokaal uitvoeren, en vervolgens implementeert [Azure App Service](overview.md). Versie 3.x van de WebJobs SDK biedt ondersteuning voor zowel .NET Core en .NET Framework-console-apps. Zie voor meer informatie over het werken met de WebJobs SDK [over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde](webjobs-sdk-how-to.md).
 
-Zie voor meer informatie over het werken met de WebJobs SDK [over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde](webjobs-sdk-how-to.md).
+In dit artikel wordt beschreven hoe u WebJobs als een .NET Core-console-app implementeren. Zie voor het implementeren van WebJobs als een .NET Framework-consoletoepassing, [WebJobs als .NET Framework console apps](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Als u geïnteresseerd in het WebJobs-SDK-versie bent 2.x, die biedt alleen ondersteuning voor .NET Framework, Zie [ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -36,7 +36,7 @@ Zie voor meer informatie over het werken met de WebJobs SDK [over het gebruik va
 
 1. Selecteer in Visual Studio, **een nieuw Project maken**.
 
-2. Selecteer **consoletoepassing (.NET Core)**.
+2. Selecteer **consoletoepassing (.NET Core)** .
 
 3. Noem het project *WebJobsSDKSample*, en selecteer vervolgens **maken**.
 
@@ -217,7 +217,7 @@ De Azure-opslagemulator die lokaal wordt uitgevoerd, beschikt niet over alle fun
 
    ![Storage-account maken](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. Onder de **opslag** knooppunt in **Server Explorer**, selecteert u het nieuwe opslagaccount. In de **eigenschappen** venster, selecteer het weglatingsteken (**...** ) aan de rechterkant van de **Connection String** waardeveld.
+1. Onder de **opslag** knooppunt in **Server Explorer**, selecteert u het nieuwe opslagaccount. In de **eigenschappen** venster, selecteer het weglatingsteken ( **...** ) aan de rechterkant van de **Connection String** waardeveld.
 
    ![Connection String beletselteken](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 

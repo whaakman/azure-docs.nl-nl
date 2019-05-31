@@ -3,19 +3,19 @@ title: 'Over het gebruiken van kaarten met een model Conversatiecursist, deel 1:
 titleSuffix: Azure
 description: Informatie over het gebruiken van kaarten met een Conversatiecursist-model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: a2db74e4c5688c0a2a3975ff828caf20c3cf7904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: d0b87597c506aca5c3b4f6f3815f58656203ac3c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406364"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389522"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Het gebruik van kaarten (deel 1 van 2)
 

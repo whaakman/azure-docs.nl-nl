@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 03/22/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: bff6fe697912bca0bc55501a74a01a92b1330521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551369"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244186"
 ---
 # <a name="azure-portal-overview"></a>Overzicht van de Azure Portal
 
@@ -23,6 +23,8 @@ In dit artikel introduceert Azure portal, portal-pagina-elementen identificeert 
 ## <a name="what-is-the-azure-portal"></a>Wat is de Azure portal?
 
 De Azure-portal is een webgebaseerde, geïntegreerde console die een alternatief voor opdrachtregelprogramma's biedt. U kunt uw Azure-abonnement met behulp van een grafische gebruikersinterface kunt beheren met de Azure-portal. U kunt bouwen, beheren, en alles van eenvoudige web-apps tot complexe implementaties bewaken, aangepaste dashboards voor geordend resources maken en configureren van de toegankelijkheidsopties voor de beste ervaring.
+
+De Azure-portal is ontworpen voor tolerantie en continue beschikbaarheid. Het aanwezig is in elke Azure-datacenter waardoor waardoor het bestand is tegen storingen in afzonderlijke datacenters en ook voorkomt netwerk vertragingen door dicht bij gebruikers. De Azure-portal voortdurend bijgewerkt en kost geen uitvaltijd voor onderhoudswerkzaamheden.
 
 ## <a name="azure-home"></a>Azure Home
 
@@ -66,7 +68,6 @@ We uw Favorieten in de zijbalk met koppelingen naar de meest gebruikte services 
 
 > [!TIP]
 > De snelste manier om een resource, service of documentatie te vinden, is met *zoeken* in de algemene header. Gebruik de koppelingen breadcrumb teruggaan naar vorige pagina's.
->
 >
 
 ## <a name="next-steps"></a>Volgende stappen

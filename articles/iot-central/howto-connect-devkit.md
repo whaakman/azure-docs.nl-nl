@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887203"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235883"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -66,7 +66,7 @@ Als u het apparaat en de gewenste eerder gebruikt hebt deze voor het gebruik van
 #### <a name="to-prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden
 
 1. Download de meest recente vooraf gebouwde Azure IoT Central firmware voor de MXChip uit de [releases](https://aka.ms/iotcentral-docs-MXChip-releases) pagina op GitHub.
-1. Verbind het apparaat DevKit naar uw ontwikkelmachine met behulp van een USB-kabel. In Windows, wordt een bestand explorer-venster geopend op een station dat is toegewezen aan de opslag op het apparaat DevKit. Bijvoorbeeld: het station kan worden aangeroepen **AZ3166 (D:)**.
+1. Verbind het apparaat DevKit naar uw ontwikkelmachine met behulp van een USB-kabel. In Windows, wordt een bestand explorer-venster geopend op een station dat is toegewezen aan de opslag op het apparaat DevKit. Bijvoorbeeld: het station kan worden aangeroepen **AZ3166 (D:)** .
 1. Sleep de **iotCentral.bin** -bestand op het station-venster. Wanneer het kopiëren voltooid is, wordt het apparaat opnieuw wordt opgestart met de nieuwe firmware.
 
 1. Wanneer het apparaat DevKit opnieuw wordt opgestart, wordt het volgende scherm wordt weergegeven:
@@ -208,12 +208,12 @@ Een toepassing gemaakt op basis van de sjabloon van de toepassing Devkits voorbe
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>States 
-| Name          | Weergavenaam   | NORMAAL | LET OP | GEVAAR | 
+| Name          | `Display name`   | NORMAAL | LET OP | GEVAAR | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Apparaatstatus   | Groen  | Orange  | Rood    | 
 
 #### <a name="events"></a>Gebeurtenissen 
-| Name             | Weergavenaam      | 
+| Name             | `Display name`      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Knop B ingedrukt  | 
 
@@ -221,7 +221,7 @@ Een toepassing gemaakt op basis van de sjabloon van de toepassing Devkits voorbe
 
 Numerieke instellingen
 
-| Weergavenaam | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
+| `Display name` | Veldnaam | Eenheden | Aantal decimalen | Minimum | Maximum | Oorspronkelijk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage      | setVoltage | Voltage | 0              | 0       | 240     | 0       |
 | Huidige      | setCurrent | Stroom  | 0              | 0       | 100     | 0       |
@@ -229,13 +229,13 @@ Numerieke instellingen
 
 Instellingen voor in-/ uitschakelen
 
-| Weergavenaam | Veldnaam | Van tekst | Uit tekst | Oorspronkelijk |
+| `Display name` | Veldnaam | Van tekst | Uit tekst | Oorspronkelijk |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AAN      | UIT      | Uit     |
 
 ### <a name="properties"></a>Properties
 
-| Type            | Weergavenaam | Veldnaam | Gegevenstype |
+| Type            | `Display name` | Veldnaam | Gegevenstype |
 | --------------- | ------------ | ---------- | --------- |
 | Apparaateigenschappen | Aantal die   | dieNumber  | getal    |
 | Apparaateigenschappen | Locatie van het apparaat   | location  | location    |
@@ -243,11 +243,11 @@ Instellingen voor in-/ uitschakelen
 
 ### <a name="commands"></a>Opdrachten
 
-| Weergavenaam | Veldnaam | Retourtype | Weergavenaam invoerveld | Invoer veldnaam | Invoer veldtype |
+| `Display name` | Veldnaam | Retourtype | Weergavenaam invoerveld | Invoer veldnaam | Invoer veldtype |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| Echo         | echo       | tekst        | waarde weergeven         | displayedValue   | tekst             |
+| Echo         | echo       | text        | waarde weergeven         | displayedValue   | text             |
 | Aftelling    | Aftelling  | getal      | Geteld vanaf               | countFrom        | getal           |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe u een Raspberry Pi verbinden met uw Azure IoT Central-toepassing, de voorgestelde volgende stap is te leren hoe u [instellen van een sjabloon aangepast apparaat](howto-set-up-template.md) voor uw eigen IoT-apparaat.
+Nu dat u hebt geleerd hoe u een MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing, de voorgestelde volgende stap is te leren hoe u [instellen van een sjabloon aangepast apparaat](howto-set-up-template.md) voor uw eigen IoT-apparaat.

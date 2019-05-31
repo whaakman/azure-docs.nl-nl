@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196862"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241361"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 > [!div class="op_single_selector"]
@@ -48,9 +48,9 @@ Zorg ervoor dat u selecteert bij de instructies in de vorige koppeling te volgen
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Stap 2: Toepassings-ID, de verificatiesleutel en de tenant-ID ophalen
 Wanneer u zich programmatisch aanmeldt, moet u de ID voor uw toepassing. Als de toepassing wordt uitgevoerd onder een eigen referenties, moet u ook een verificatiesleutel nodig.
 
-* Zie voor instructies over het ophalen van de toepassing-ID en verificatiesleutel-sleutel (ook wel het clientgeheim) voor uw toepassing [Get-ID en -verificatie Toepassingssleutel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Zie voor instructies over het ophalen van de toepassing-ID en verificatiesleutel-sleutel (ook wel het clientgeheim) voor uw toepassing [Get-ID en -verificatie Toepassingssleutel](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-* Zie voor instructies over het ophalen van de tenant-ID [tenant-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Zie voor instructies over het ophalen van de tenant-ID [tenant-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Stap 3: De Azure AD-toepassing naar het Azure Data Lake Storage Gen1 accountbestand of map toewijzen
 

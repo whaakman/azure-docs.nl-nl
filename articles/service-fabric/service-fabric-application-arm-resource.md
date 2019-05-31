@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621459"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258668"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Toepassingen en services als Azure Resource Manager-resources beheren
 
@@ -258,6 +258,17 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
    > De *apiVersion* moet worden ingesteld op `"2017-07-01-preview"`. Deze sjabloon kan ook onafhankelijk van het cluster worden geïmplementeerd, zolang het cluster al is geïmplementeerd.
 
 5. Implementeer. 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Service Fabric-toepassing voor Provider van Resource-resource verwijderen
+Het volgende wordt het app-pakket niet ingerichte uit het cluster worden geactiveerd en dit wordt opschonen van de schijfruimte die wordt gebruikt:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+De toepassing wordt niet inrichting gewoon Microsoft.ServiceFabric/clusters/application verwijderen uit de ARM-sjabloon
+
+>[!NOTE]
+> Nadat de verwijdering voltooid is moet u de versie van het toepassingspakket in SFX of ARM niet meer ziet. U kunt de toepassing type versie resource die de toepassing wordt uitgevoerd met; niet verwijderen ARM/SFRP wordt voorkomen dat dit. Als u probeert de inrichting van het pakket wordt uitgevoerd, wordt deze service voorkomen dat SF-runtime.
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Een bestaande toepassing via Resource Manager beheren
 

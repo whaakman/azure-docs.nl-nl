@@ -1,5 +1,5 @@
 ---
-title: Resourceklassen voor het beheer van de werkbelasting - Azure SQL Data Warehouse | Microsoft Docs
+title: Resourceklassen voor het beheer van de werkbelasting in Azure SQL Data Warehouse | Microsoft Docs
 description: Richtlijnen voor het gebruik van resource-klassen voor het beheren van gelijktijdigheid van taken en rekenresources voor query's in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/22/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165982"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244507"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Beheer van de werkbelasting met resourceklassen in Azure SQL Data Warehouse
 
@@ -86,7 +86,7 @@ Wanneer op de details van dynamische resourceklassen op Gen1 bestuderen, zijn er
 
 **In Gen2**, dynamische resourceklassen worden echt dynamische adressen van de hierboven genoemde punten.  De nieuwe regel is 3-10-22-70 voor percentage geheugentoewijzingen voor kleine-medium-groot-xlarge resourceklassen, **ongeacht serviceniveau**.  De onderstaande tabel bevat de geconsolideerde details van het geheugen toegewezen percentages en het minimum aantal gelijktijdige query's die worden uitgevoerd, ongeacht het serviceniveau van de.
 
-| Bronklasse | Percentage geheugen | Min gelijktijdige query 's |
+| Resourceklasse | Percentage geheugen | Min gelijktijdige query 's |
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | 3%                | 32                     |
 | mediumrc       | 10%               | 10                     |

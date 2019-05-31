@@ -2,31 +2,35 @@
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 08/23/2018
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 3217383b105c022aef42d8000f3a41cefea542fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 8d7731480b6239c572d39f52b6a0217d2ac48d25
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140912"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240231"
 ---
-1. Ga naar [Azure Portal].
-2. Klik op **App Services** > de back-end die u hebt gemaakt.
-3. Klik in de instellingen van de mobiele app op **Snelstartgids** > **Cordova**.
-![Azure Portal met Quick Start voor Mobile Apps gemarkeerd][quickstart]
-4. Selecteer onder **Uw clienttoepassing configureren** de optie **Een nieuwe app maken** en klik vervolgens op **Downloaden**.
-2. Pak het gedownloade zip-bestand uit in een map op uw harde schijf, navigeer naar het oplossingsbestand (.sln) en open dit met Visual Studio.
-3. Kies in Visual Studio het oplossingsplatform (Android, iOS of Windows) in de vervolgkeuzelijst naast de begin-pijl. Selecteer een specifiek implementatieapparaat of een emulator door op de vervolgkeuzelijst op de groene pijl te klikken. U kunt het standaard-Android-platform en de standaard-Ripple-emulator gebruiken. Voor geavanceerdere zelfstudies (bijv. over pushmeldingen) moet u een ondersteund apparaat of ondersteunde emulator selecteren.
-4. Druk op F5 of klik op de groene pijl om uw Cordova-app te bouwen en uit te voeren. Accepteer het beveiligingsdialoogvenster in de emulator waarin om toegang tot het netwerk wordt gevraagd, als dit wordt weergegeven.
-5. Nadat de app is gestart op het apparaat of in de emulator typt u zinvolle tekst in via **Voer nieuwe tekst in**, zoals *Voltooi de zelfstudie* en u klikt dan op de knop **Toevoegen**.
+1. Navigeer naar het oplossingsbestand in het clientproject (.sln) en open dit met Visual Studio.
+
+2. Kies in Visual Studio het oplossingsplatform (Android, iOS of Windows) in de vervolgkeuzelijst naast de begin-pijl. Selecteer een specifiek implementatieapparaat of een emulator door op de vervolgkeuzelijst op de groene pijl te klikken. U kunt het standaard-Android-platform en de standaard-Ripple-emulator gebruiken. Voor geavanceerdere zelfstudies (bijv. over pushmeldingen) moet u een ondersteund apparaat of ondersteunde emulator selecteren.
+
+3. Open het bestand `ToDoActivity.java` in deze map - ZUMOAPPNAME/app/src/main/java/com/voorbeeld/zumoappname. De toepassingsnaam is `ZUMOAPPNAME`.
+
+4. Ga naar de [Azure-portal](https://portal.azure.com/) en navigeer naar de mobiele app die u hebt gemaakt. Op de `Overview` blade, zoekt u de URL op die het openbare eindpunt voor uw mobiele app. Voorbeeld: de sitenaam voor mijn app-naam 'test123' worden https://test123.azurewebsites.net.
+
+5. Ga naar de `index.js` bestand op in ZUMOAPPNAME/www/js/index.js en `onDeviceReady()` methode, Vervang `ZUMOAPPURL` parameter met de openbare eindpunt hierboven.
+
+    `client = new WindowsAzure.MobileServiceClient('ZUMOAPPURL');`
+    
+    wordt
+    
+    `client = new WindowsAzure.MobileServiceClient('https://test123.azurewebsites.net');`
+    
+6. Druk op F5 of klik op de groene pijl om uw Cordova-app te bouwen en uit te voeren. Accepteer het beveiligingsdialoogvenster in de emulator waarin om toegang tot het netwerk wordt gevraagd, als dit wordt weergegeven.
+
+7. Nadat de app is gestart op het apparaat of emulator, typt u zinvolle tekst in **Voer nieuwe tekst**, zoals *Voltooi de zelfstudie* en klik vervolgens op de **toevoegen** knop.
 
 De back-end voegt gegevens van de aanvraag toe aan de TodoItem-tabel in de SQL Database en stuurt informatie over de nieuw opgeslagen items terug naar de mobiele app. Deze gegevens worden in de lijst in de mobiele app weergegeven.
 
 U kunt stap 3 t/m 5 herhalen voor andere platforms.
-
-<!-- Images. -->
-[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
-
-<!-- URLs -->
-[Azure Portal]: https://portal.azure.com/

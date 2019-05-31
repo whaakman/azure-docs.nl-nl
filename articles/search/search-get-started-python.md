@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Python en REST-API's - Azure Search"
 description: Maken, laden en query uitvoeren in een index met behulp van Python, Jupyter-Notebooks en de Azure Search REST-API.
-ms.date: 05/15/2019
+ms.date: 05/23/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117346"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244779"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Quickstart: Maken van een Azure Search-index met behulp van Python voor Jupyter notebooks
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ De volgende services en hulpprogramma's worden gebruikt in deze Quick Start.
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), bieden Python 3.x en Jupyter-Notebooks.
 
-+ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. 
++ [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. Voor deze Quick Start kunt u de gratis laag. 
 
 ## <a name="get-a-key-and-url"></a>Een sleutel en -URL ophalen
 
@@ -52,7 +52,7 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 
 ## <a name="connect-to-azure-search"></a>Verbinding maken met Azure Search
 
-Een Jupyter-notebook openen en controleer of de verbinding vanaf uw lokale werkstation door aan te vragen van een lijst van indexen voor uw service. Op Windows met Anaconda3, kunt u Anaconda Navigator een notebook te starten.
+In deze taak een Jupyter-notebook start en controleer of dat u verbinding met Azure Search maken kunt. U kunt dit doen door het aanvragen van een lijst van de indexen van uw service. Op Windows met Anaconda3, kunt u Anaconda Navigator een notebook te starten.
 
 1. Maak een nieuwe Python3-notebook.
 
@@ -73,7 +73,7 @@ Een Jupyter-notebook openen en controleer of de verbinding vanaf uw lokale werks
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-1. In de derde cel formuleren van de aanvraag. Deze GET-aanvraag is gericht op de verzameling indexen van uw search-service en selecteert u de eigenschap name.
+1. In de derde cel formuleren van de aanvraag. Deze GET-aanvraag is gericht op de verzameling indexen van uw search-service en selecteert u de eigenschap name van de bestaande indexen.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -82,20 +82,20 @@ Een Jupyter-notebook openen en controleer of de verbinding vanaf uw lokale werks
    pprint(index_list)
    ```
 
-1. Elke stap uitvoeren. Als indexen aanwezig is, betekent dit dat het antwoord een lijst van indexen bevat. In de onderstaande schermafbeelding wordt de service omvat een azureblob-index en een realestate-us-sample-index.
+1. Elke stap uitvoeren. Als indexen aanwezig is, betekent dit dat het antwoord een lijst met indexnamen bevat. In de onderstaande schermafbeelding heeft de service al een azureblob-index en een realestate-us-sample-index.
 
    ![Python-script in Jupyter-notebook met HTTP-aanvragen voor Azure Search](media/search-get-started-python/connect-azure-search.png "Python-script in Jupyter-notebook met HTTP-aanvragen voor Azure Search")
 
-   Een verzameling leeg index retourneert deze reactie: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   Een verzameling leeg index wordt daarentegen dit antwoord geretourneerd: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 > [!Tip]
 > Op een gratis service bent u beperkt tot drie indexen, Indexeerfuncties en gegevensbronnen. In deze quickstart maakt u één van elk. Zorg ervoor dat er voldoende ruimte is het maken van nieuwe objecten voordat u doorgaat een.
 
 ## <a name="1---create-an-index"></a>1 - Een index maken
 
-Tenzij u de portal, wordt een index moet bestaan op de service voordat u gegevens kunt laden. Deze stap maakt gebruik van de [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index) een indexschema naar de service te pushen
+Tenzij u de portal, wordt een index moet bestaan op de service voordat u gegevens kunt laden. Deze stap maakt gebruik van de [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index) een indexschema naar de service te pushen.
 
-De Veldenverzameling definieert u de structuur van een *document*. Vereiste elementen van een index bevatten een naam en een verzameling van velden. Elk veld heeft een naam, type en kenmerken die bepalen hoe deze wordt gebruikt (bijvoorbeeld, of het volledige-tekstindex is kan worden doorzocht, gefilterd of worden opgehaald in de zoekresultaten). In een index, een van de velden van het type `Edm.String` moet worden aangemerkt als de *sleutel* voor de id van het document.
+Vereiste elementen van een index bevatten een naam, een verzameling van velden en een sleutel. De Veldenverzameling definieert u de structuur van een *document*. Elk veld heeft een naam, type en kenmerken die bepalen hoe het veld wordt gebruikt (bijvoorbeeld, of het volledige-tekstindex is kan worden doorzocht, gefilterd of worden opgehaald in de zoekresultaten). In een index, een van de velden van het type `Edm.String` moet worden aangemerkt als de *sleutel* voor de id van het document.
 
 Deze index met de naam "hotels-py" en heeft de velddefinities u hieronder ziet. Dit is een subset van een grotere [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) gebruikt in andere scenario's. We stelling in deze Quick Start voor kort te houden.
 
@@ -127,7 +127,7 @@ Deze index met de naam "hotels-py" en heeft de velddefinities u hieronder ziet. 
     }
     ```
 
-2. In een andere cel formuleren van de aanvraag. Deze opslag aanvraag is gericht op de verzameling indexen van uw search-service en maakt u een index op basis van het indexschema dat u hebt opgegeven in de vorige stap.
+2. In een andere cel formuleren van de aanvraag. Deze opslag aanvraag is gericht op de verzameling indexen van uw search-service en maakt u een index op basis van het indexschema dat u hebt opgegeven in de vorige cel.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -138,12 +138,12 @@ Deze index met de naam "hotels-py" en heeft de velddefinities u hieronder ziet. 
 
 3. Elke stap uitvoeren.
 
-   Het antwoord bevat de JSON-weergave van het schema. De volgende schermafbeelding verwijdert onderdelen van het indexschema zodat u meer van het antwoord kunt zien.
+   Het antwoord bevat de JSON-weergave van het schema. De volgende schermafbeelding is slechts een deel van het antwoord weergegeven.
 
     ![Aanvraag voor het maken van een index](media/search-get-started-python/create-index.png "aanvraag voor het maken van een index")
 
 > [!Tip]
-> Voor verificatie, u ook de lijst met indexen in de portal controleren of opnieuw uitvoeren van de service-verbindingsaanvraag om te zien de *hotels py* index die worden vermeld in de verzameling van indexen.
+> Er is een andere manier om te controleren of index maken om te controleren of lijst van de indexen in de portal.
 
 <a name="load-documents"></a>
 
@@ -211,6 +211,7 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
+            }
         },
         {
         "@search.action": "upload",
@@ -229,11 +230,11 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
             "StateProvince": "TX",
             "PostalCode": "78216",
             "Country": "USA"
-       }
-      }
-     ]
+            }
+        }
+    ]
     }
-    ```
+    ```   
 
 2. In een andere cel formuleren van de aanvraag. Deze POST-aanvraag is gericht op de docs-verzameling van de index hotels py en duwt de documenten die zijn opgegeven in de vorige stap.
 
@@ -246,26 +247,7 @@ Als u wilt pushen documenten, gebruik een HTTP POST-aanvraag naar de URL-eindpun
 
 3. Elke stap als u wilt de documenten pushen naar een index in uw search-service worden uitgevoerd. Resultaten moeten eruitzien zoals in het volgende voorbeeld. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
-    'value': [{'errorMessage': None,
-            'key': '1',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '2',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '3',
-            'status': True,
-            'statusCode': 201}]},
-           {'errorMessage': None,
-            'key': '4',
-            'status': True,
-            'statusCode': 201}]}
-     ```
-
+    ![Documenten verzenden naar een index](media/search-get-started-python/load-index.png "documenten verzenden naar een index")
 
 ## <a name="3---search-an-index"></a>3 - Een index doorzoeken
 
@@ -278,7 +260,7 @@ In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Sea
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Formuleer een aanvraag. Deze GET-aanvraag is gericht op de docs-verzameling van de index hotels py, en koppelt u de query die u hebt opgegeven in de vorige stap.
+2. Formuleer een aanvraag in een andere cel. Deze GET-aanvraag is gericht op de docs-verzameling van de index hotels py, en koppelt u de query die u hebt opgegeven in de vorige stap.
 
    ```python
    url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
@@ -287,32 +269,29 @@ In deze stap ziet u hoe u query's een index met behulp van de [REST-API voor Sea
    pprint(query)
    ```
 
-   Resultaten zijn vergelijkbaar zijn met de volgende uitvoer. De resultaten zijn geen positie (search.score = 1,0) omdat we geen criteria bieden moet overeenkomen.
+3. Elke stap uitvoeren. Resultaten zijn vergelijkbaar zijn met de volgende uitvoer. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
-    '@odata.count': 3,
-    'value': [{'@search.score': 1.0,
-               'HotelId': '1',
-               'HotelName': 'Secret Point Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '2',
-               'HotelName': 'Twin Dome Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'},
-              {'@search.score': 1.0,
-               'HotelId': '4',
-               'HotelName': 'Sublime Cliff Hotel'}]}
+    ![Een index doorzoeken](media/search-get-started-python/search-index.png "een index doorzoeken")
+
+4. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt de zoekreeks vervangen door de volgende voorbeelden en voer de zoekaanvraag. 
+
+   Een filter toepassen: 
+
+   ```python
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
    ```
 
-3. Probeer enkele andere voorbeelden van query om een idee voor de syntaxis. U kunt een filter toepassen, worden de twee bovenste resultaten of sorteren op een bepaald veld.
+   De twee bovenste resultaten nemen:
 
-   + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
+   ```python
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   ```
 
-   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
+    Sorteren op een bepaald veld:
 
-   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
+   ```python
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   ```
 
 ## <a name="clean-up"></a>Opruimen 
 

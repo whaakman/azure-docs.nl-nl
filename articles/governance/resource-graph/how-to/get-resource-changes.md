@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551547"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236511"
 ---
 # <a name="get-resource-changes"></a>Resourcewijzigingen ophalen
 
@@ -29,7 +29,7 @@ Wijziging detectie en gegevens zijn waardevol zijn bij de volgende voorbeeldscen
 - Houdt een Configuratiebeheer-Database, bekend als een CMDB is up-to-date. In plaats van de vernieuwing van alle resources en hun volledige eigenschap ingesteld op een geplande frequentie, moet u alleen krijgen wat is gewijzigd.
 - Inzicht in welke andere eigenschappen mogelijk zijn gewijzigd wanneer een resource nalevingsstatus gewijzigd. Evaluatie van de aanvullende eigenschappen kan inzicht geven in andere eigenschappen die mogelijk moeten worden beheerd via de definitie van een Azure Policy.
 
-In dit artikel laat zien hoe deze informatie via de SDK van de grafiek van de resources te verzamelen. Deze gegevens in Azure portal wilt bekijken, zien van Azure Policy [wijzigingsoverzicht](../../policy/how-to/determine-non-compliance.md#change-history-preview) of Azure-activiteitenlogboek [wijzigingsoverzicht](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
+In dit artikel laat zien hoe deze informatie via de SDK van de grafiek van de resources te verzamelen. Deze gegevens in Azure portal wilt bekijken, zien van Azure Policy [wijzigingsoverzicht](../../policy/how-to/determine-non-compliance.md#change-history-preview) of Azure-activiteitenlogboek [wijzigingsoverzicht](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
 
 > [!NOTE]
 > Details van de wijziging in de grafiek Resource zijn voor Resource Manager-eigenschappen. Zie voor het bijhouden van wijzigingen in een virtuele machine van Azure Automation [wijzigingen bijhouden](../../../automation/automation-change-tracking.md) of Azure-beleid [Gast-configuratie voor virtuele machines](../../policy/concepts/guest-configuration.md).
@@ -44,7 +44,7 @@ De eerste stap bij het zien wat er gewijzigd voor een bron is te vinden van de g
 De **resourceChanges** eindpunt vereist twee parameters in de aanvraagtekst:
 
 - **resourceId**: De Azure-resource om te zoeken om wijzigingen op.
-- **interval**: Een eigenschap met de _start_ en _end_ datums voor het controleren op een wijziging gebeurtenis met de **Zulu tijdzone (Z)**.
+- **interval**: Een eigenschap met de _start_ en _end_ datums voor het controleren op een wijziging gebeurtenis met de **Zulu tijdzone (Z)** .
 
 Voorbeeld van de aanvraag hoofdtekst:
 

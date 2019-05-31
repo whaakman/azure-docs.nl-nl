@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: e82a78953c4385f7688705d4ab3f697be9c3ddbd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875645"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235167"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identiteit gegevensopslag voor Europese klanten in Azure Active Directory
 Id-gegevens wordt opgeslagen door Azure AD in een geografische locatie gebaseerd op het adres dat is geleverd door uw organisatie bij het abonneren op een Microsoft Online service, zoals Office 365 en Azure. Voor informatie over waar de identiteitsgegevens van uw worden opgeslagen, kunt u de [waar zijn uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) gedeelte van het Microsoft Trust Center.
@@ -28,7 +28,9 @@ Voor klanten die voorzien van een adres in Europa, houdt de Azure AD de meeste v
     
 - Alle tweeledige verificatie met behulp van telefoongesprekken of SMS-afkomstig zijn uit de Amerikaanse datacentra en ook door leveranciers worden gerouteerd.
 - Pushmeldingen verzenden met behulp van de Microsoft Authenticator app afkomstig zijn van ons datacenters. Apparaat de leverancier van specifieke services kunnen bovendien ook afkomstig zijn in de play en deze services mogelijk buiten Europa.
-- OATH-codes worden altijd gevalideerd in de Verenigde Staten. 
+- OATH-codes worden altijd gevalideerd in de Verenigde Staten.
+
+Zie voor meer informatie over welke gebruikersgegevens worden verzameld door de Azure multi-factor Authentication-Server (MFA-Server) en cloud-gebaseerde Azure MFA, [gegevensverzameling voor Azure multi-factor Authentication-gebruiker](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

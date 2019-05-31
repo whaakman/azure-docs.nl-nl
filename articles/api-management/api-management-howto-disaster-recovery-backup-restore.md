@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141713"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241705"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na noodgeval met behulp van back-up van de service implementeren en te herstellen in Azure API Management
 
@@ -74,7 +74,7 @@ Alle taken die u doen op resources met behulp van Azure Resource Manager moeten 
 
     ![Machtigingen toevoegen](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Klik op **gedelegeerde machtigingen** naast de zojuist toegevoegde toepassing, schakel het selectievakje voor **toegang tot Azure Service Management (preview)**.
+7. Klik op **gedelegeerde machtigingen** naast de zojuist toegevoegde toepassing, schakel het selectievakje voor **toegang tot Azure Service Management (preview)** .
 8. Druk op **Selecteer**.
 9. Klik op **machtigingen verlenen**.
 
@@ -124,7 +124,7 @@ Vervang `{tenant id}`, `{application id}`, en `{redirect uri}` met behulp van de
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Aanroepen van de bewerkingen voor back-up en herstel
 
-De REST-API's zijn [Api Management-Service - back-up](/rest/api/apimanagement/apimanagementservice/backup) en [Api Management-Service - terugzetten](/rest/api/apimanagement/apimanagementservice/restore).
+De REST-API's zijn [Api Management-Service - back-up](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) en [Api Management-Service - terugzetten](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
 
 Voordat het aanroepen van de 'back-up en herstellen' bewerkingen die worden beschreven in de volgende secties stelt u de autorisatie-header voor aanvraag voor de REST-aanroep.
 

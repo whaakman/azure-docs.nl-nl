@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 398b7a78c9bc13631e15c8725efb8cc0fba3f127
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62261e46dc4744597acd10c32f0a835f4a597d4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806474"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243978"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ondersteuning voor SQL Server 2008 en SQL Server 2008 R2 met Azure uitbreiden
 
@@ -40,7 +40,7 @@ Installatiekopieën die zijn geïmplementeerd via de Marketplace worden geleverd
   > [!NOTE]
   > Terwijl de SQL-Server `Create` en `Manage` blades werkt met de SQL Server 2008R2-installatiekopie in Azure portal, de volgende functies zijn _niet ondersteund_: Automatische back-ups, Azure Key Vault-integratie, R Services en configuratie van de opslag.
 
-## <a name="licensing"></a>Licenties
+## <a name="licensing"></a>Licentieverlening
 Betalen per gebruik SQL Server 2008R2 implementaties kunnen converteren naar [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Als u wilt converteren een licentie met Software Assurance (SA) op basis van naar betalen per gebruik, moeten klanten zich inschrijven met de SQL-VM [resourceprovider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Eenmaal hebt geregistreerd bij de resourceprovider van de SQL-VM, is het licentietype SQL wordt niet uitwisselbaar tussen AHB en betalen per gebruik. 
@@ -58,7 +58,7 @@ SQL Server is vereist voor app-consistente momentopnamen van Azure Site Recovery
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-De [Database Migration Service](/dms/dms-overview) is een optie voor klanten als migreren van on-premises met Azure-VM met SQL Server upgraden naar SQL Server 2012 en hoger.
+De [Database Migration Service](/azure/dms/dms-overview) is een optie voor klanten als migreren van on-premises met Azure-VM met SQL Server upgraden naar SQL Server 2012 en hoger.
 
 ## <a name="disaster-recovery"></a>Herstel na noodgeval
 

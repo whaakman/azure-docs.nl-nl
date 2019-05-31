@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977438"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387079"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Monitor-scenario in duurzame functies - weer watcher-voorbeeld
 
@@ -42,7 +42,7 @@ In dit voorbeeld controleert de huidige weersomstandigheden van een locatie en e
 
 In dit voorbeeld gaat over het gebruik van de Underground weer-API om te controleren op huidige weersomstandigheden voor een locatie.
 
-Het eerste wat dat u nodig hebt is een weer Underground account. U kunt een gratis maken op [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). Zodra u een account hebt, moet u een API-sleutel te verkrijgen. U kunt dit doen door naar de pagina [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api), en de instellingen van de sleutel te selecteren. Het abonnement Stratus Developer is gratis en voldoende zijn om uit te voeren in dit voorbeeld.
+Het eerste wat dat u nodig hebt is een weer Underground account. U kunt een gratis maken op [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). Zodra u een account hebt, moet u een API-sleutel te verkrijgen. U kunt dit doen door naar de pagina [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api/?MR=1), en de instellingen van de sleutel te selecteren. Het abonnement Stratus Developer is gratis en voldoende zijn om uit te voeren in dit voorbeeld.
 
 Zodra u een API-sleutel hebt, voeg de volgende **app-instelling** aan uw functie-app.
 

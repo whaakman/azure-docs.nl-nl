@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151165"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242426"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -37,6 +37,7 @@ De machine learning-werkstroom volgt in het algemeen in deze reeks:
 U uitvoeren deze stappen met het volgende:
 + [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Azure Machine Learning VS Code-extensie](how-to-vscode-tools.md)
 +  De [visuele interface (preview) voor Azure Machine Learning-service](ui-concept-visual-interface.md)
 
 > [!NOTE]
@@ -141,7 +142,7 @@ Als u wilt een model te trainen, moet u de map waarin het trainingsscript en de 
 
 Zie [Zelfstudie: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
-## <a name="run"></a>Uitvoeren
+## <a name="run"></a>Voer
 
 Een uitvoering is een record met de volgende informatie:
 

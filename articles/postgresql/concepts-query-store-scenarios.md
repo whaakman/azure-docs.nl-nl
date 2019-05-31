@@ -1,21 +1,21 @@
 ---
-title: Query Store-gebruiksscenario's in Azure Database for PostgreSQL
-description: Dit artikel beschrijft enkele scenario's voor de Query Store in Azure Database voor PostgreSQL.
+title: Query Store-gebruiksscenario's in Azure Database for PostgreSQL - één Server
+description: In dit artikel worden enkele scenario's voor de Query Store in Azure Database voor PostgreSQL - één Server beschreven.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 029c595ba983d3b758568fbacaf6577014d893db
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563184"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067295"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Gebruiksscenario's voor Query Store
 
-**Van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
+**Van toepassing op:** Azure Database for PostgreSQL - servergegevens 9.6 en 10
 
 U kunt Query Store in een groot aantal scenario's waarin bij te houden en beheren van voorspelbare werkbelasting prestaties is van essentieel belang. Houd rekening met de volgende voorbeelden: 
 - Identificeren van en het afstemmen van de bovenste dure query 's 

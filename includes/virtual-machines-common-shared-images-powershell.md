@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: bae66078a1bcb1d80f0798b1d501598fa785fb80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145810"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241205"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
@@ -105,3 +105,20 @@ $job.State
 >
 > U kunt ook de versie van uw installatiekopie in opslaan [Zone-redundante opslag](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) door toe te voegen `-StorageAccountType Standard_ZRS` bij het maken van de versie van de installatiekopie.
 >
+
+
+## <a name="share-the-gallery"></a>Delen van de galerie
+
+Het is raadzaam dat u toegang tot op het niveau van de galerie installatiekopie delen. Gebruik een e-mailadres en de [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet voor het ophalen van de object-ID voor de gebruiker op en gebruik [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) zodat ze toegang tot de galerie. Vervang het voorbeeld e-mailbericht, alinne_montes@contoso.com in dit voorbeeld wordt door uw eigen waarden.
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```

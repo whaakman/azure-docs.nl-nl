@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 29b74aeaaae0bcfd5f6ae4a3c38cc00176292899
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512913"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386918"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Documenteer indelingen en naming convention-richtlijnen
 
@@ -30,7 +30,7 @@ Deze tabel bevat alle ondersteunde bestandsindelingen die u gebruiken kunt voor 
 | Locstudio         | .LCL         | Een Microsoft-indeling voor parallelle documenten                                                                                                                                                                                                                                      |
 | Microsoft Word    | .DOCX        | Microsoft Word-document                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Adobe Acrobat portable document                                                                                                                                                                                                                                                |
-| HTML              | . HTML-CODE. HTM  | HTML-document                                                                                                                                                                                                                                                                  |
+| HTML-CODE              | . HTML-CODE. HTM  | HTML-document                                                                                                                                                                                                                                                                  |
 | Tekstbestand         | .TXT         | UTF-16- of UTF-8 gecodeerde tekstbestanden. De bestandsnaam mag geen Japanse tekens bevatten.                                                                                                                                                                                        |
 | Uitgelijnde tekstbestand | . UITLIJNEN       | De extensie `.ALIGN` is een speciale uitbreiding die u gebruiken kunt als u weet dat de zinnen in het document paar perfect zijn uitgelijnd. Als u een `.ALIGN` zinnen wordt niet in overeenstemming gebracht aangepaste Translator-bestand voor u. |
 | Excel-bestand        | .XLSX        | Excel-bestand (2013 of later). Eerste regel / rij van het werkblad de taalcode die moet worden.                                                                                                                                                                                                                                                      |

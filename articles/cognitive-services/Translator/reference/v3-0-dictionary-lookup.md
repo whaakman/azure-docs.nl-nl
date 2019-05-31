@@ -3,19 +3,19 @@ title: Translator Text-API-woordenlijst Lookup methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de Translator Text-API Dictionary Lookup-methode.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b844ac4018ef768527ca17bd68ca53baaf5d9552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: 10ccdcf0fda424e67b993c7c9300f0b84c56121f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605509"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389794"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text-API 3.0: Opzoeken in woordenlijst
 
@@ -41,7 +41,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
   </tr>
   <tr>
-    <td>uit</td>
+    <td>from</td>
     <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de invoertekst. De source-taal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
   </tr>
   <tr>
@@ -54,7 +54,7 @@ Aanvraagheaders zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>Verificatie of meerdere berichtkoppen</td>
     <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>

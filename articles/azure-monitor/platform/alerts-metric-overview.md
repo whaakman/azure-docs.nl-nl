@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712862"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244911"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Begrijpen hoe metriek werk waarschuwingen in Azure Monitor
 
@@ -27,13 +27,13 @@ U kunt een waarschuwingsregel voor metrische gegevens definiëren door op te gev
 Stel dat u hebt een enkelvoudige statische drempelwaarde waarschuwingsregel voor de metrische gegevens als volgt gemaakt:
 
 - Doelresource (de Azure resource die u wilt bewaken): myVM
-- Meetwaarde: Percentage CPU
+- Metriek: Percentage CPU
 - Voorwaardetype: Statisch
-- Tijdverzameling (statistiek die wordt uitgevoerd via onbewerkte metrische waarden. Ondersteunde tijd aggregaties zijn Min, Max, Gem, totaal): Gemiddeld
+- Tijdverzameling (statistiek die wordt uitgevoerd via onbewerkte metrische waarden. Ondersteunde tijd aggregaties zijn Min, Max, Gem, totaal aantal, aantal): Gemiddeld
 - Periode (het uiterlijk back venster via welk metrische gegeven waarden worden gecontroleerd): Gedurende de laatste 5 minuten
 - Frequentie (de frequentie waarmee de waarschuwing voor metrische gegevens controleert als de voorwaarden wordt voldaan): 1 min
 - Operator: Greater Than
-- Drempelwaarde: 70
+- Drempelwaarde voor: 70
 
 Vanaf het moment dat de waarschuwingsregel wordt gemaakt, de monitor wordt uitgevoerd elke 1 minuut en gecontroleerd metrische waarden voor de laatste 5 minuten en als het gemiddelde van deze waarden is groter dan 70 wordt gecontroleerd. Als aan de voorwaarde is voldaan dat wil zeggen, de gemiddelde CPU-Percentage voor de laatste vijf minuten hoger is dan 70, een melding geactiveerd door de waarschuwingsregel wordt geactiveerd. Als u een e-mailbericht of een web-hook-actie in de actiegroep die zijn gekoppeld aan de waarschuwingsregel hebt geconfigureerd, ontvangt u een melding geactiveerd op beide.
 
@@ -42,13 +42,13 @@ Vanaf het moment dat de waarschuwingsregel wordt gemaakt, de monitor wordt uitge
 Stel dat u hebt een eenvoudige dynamische drempelwaarden waarschuwingsregel voor metrische gegevens als volgt gemaakt:
 
 - Doelresource (de Azure resource die u wilt bewaken): myVM
-- Meetwaarde: Percentage CPU
+- Metriek: Percentage CPU
 - Voorwaardetype: Dynamisch
-- Tijdverzameling (statistiek die wordt uitgevoerd via onbewerkte metrische waarden. Ondersteunde tijd aggregaties zijn Min, Max, Gem, totaal): Gemiddeld
+- Tijdverzameling (statistiek die wordt uitgevoerd via onbewerkte metrische waarden. Ondersteunde tijd aggregaties zijn Min, Max, Gem, totaal aantal, aantal): Gemiddeld
 - Periode (het uiterlijk back venster via welk metrische gegeven waarden worden gecontroleerd): Gedurende de laatste 5 minuten
 - Frequentie (de frequentie waarmee de waarschuwing voor metrische gegevens controleert als de voorwaarden wordt voldaan): 1 min
 - Operator: Greater Than
-- Gevoeligheid: Middelgroot
+- Gevoeligheid: Gemiddeld
 - Weergave Back perioden: 4
 - Het aantal schendingen: 4
 
@@ -73,7 +73,7 @@ Metrische waarschuwingen in Azure Monitor bieden ook ondersteuning voor het bewa
 Stel dat u een App Service-plan hebt voor uw website. U wilt bewaken van CPU-gebruik op meerdere exemplaren uitvoeren van uw website/app. U kunt dit doen met behulp van een waarschuwingsregel voor metrische gegevens als volgt:
 
 - Doelresource: myAppServicePlan
-- Meetwaarde: Percentage CPU
+- Metriek: Percentage CPU
 - Voorwaardetype: Statisch
 - Dimensies
   - Exemplaar InstanceName1, InstanceName2 =
@@ -81,14 +81,14 @@ Stel dat u een App Service-plan hebt voor uw website. U wilt bewaken van CPU-geb
 - Periode: Gedurende de laatste 5 minuten
 - Frequentie van: 1 min
 - Operator: GreaterThan
-- Drempelwaarde: 70
+- Drempelwaarde voor: 70
 
 Net als voordat deze regel controleert als de gemiddelde CPU-gebruik gedurende de laatste vijf minuten hoger is dan 70%. U kunt echter met dezelfde regel twee exemplaren met uw website controleren. Elk exemplaar wordt afzonderlijk ophalen bewaakt en ontvangt u meldingen afzonderlijk.
 
 Stel dat u een web-app die zeer grote vraag te zien en moet u meer instanties toevoegen. De bovenstaande regel controleert nog steeds slechts twee exemplaren. U kunt echter een regel als volgt maken:
 
 - Doelresource: myAppServicePlan
-- Meetwaarde: Percentage CPU
+- Metriek: Percentage CPU
 - Voorwaardetype: Statisch
 - Dimensies
   - Instantie = *
@@ -96,7 +96,7 @@ Stel dat u een web-app die zeer grote vraag te zien en moet u meer instanties to
 - Periode: Gedurende de laatste 5 minuten
 - Frequentie van: 1 min
 - Operator: GreaterThan
-- Drempelwaarde: 70
+- Drempelwaarde voor: 70
 
 Deze regel worden alle waarden voor het exemplaar van Internet Explorer automatisch gecontroleerd u kunt uw exemplaren bewaken deze direct hoeft te wijzigen van de waarschuwingsregel voor metrische gegevens opnieuw.
 
@@ -105,7 +105,7 @@ Bij het bewaken van meerdere dimensies, die dynamische drempelwaarden voor waars
 Stel dat u een web-app met veel exemplaren hebt en u niet weet wat de meest geschikte drempel is. De bovenstaande regels gebruikt altijd de drempelwaarde van 70%. U kunt echter een regel als volgt maken:
 
 - Doelresource: myAppServicePlan
-- Meetwaarde: Percentage CPU
+- Metriek: Percentage CPU
 - Voorwaardetype: Dynamisch
 - Dimensies
   - Instantie = *
@@ -113,7 +113,7 @@ Stel dat u een web-app met veel exemplaren hebt en u niet weet wat de meest gesc
 - Periode: Gedurende de laatste 5 minuten
 - Frequentie van: 1 min
 - Operator: GreaterThan
-- Gevoeligheid: Middelgroot
+- Gevoeligheid: Gemiddeld
 - Weergave Back perioden: 1
 - Het aantal schendingen: 1
 

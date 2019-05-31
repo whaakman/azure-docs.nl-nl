@@ -5,18 +5,18 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787249"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389451"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Met behulp van Azure Container Registry-webhooks
 
-Een Azure container registry worden opgeslagen en beheerd persoonlijke Docker-containerinstallatiekopieën, net als bij het die docker Hub openbare Docker-installatiekopieën worden opgeslagen. Het kan ook opslagplaatsen voor hosten [Helm-grafieken](container-registry-helm-repos.md) (preview), een verpakking opmaken voor het implementeren van toepassingen op Kubernetes. U kunt webhooks om triggergebeurtenissen wanneer bepaalde acties uitgevoerd in een van uw register-opslagplaatsen te gebruiken. Webhooks kan reageren op gebeurtenissen op het niveau van het register, of ze kunnen worden gericht op een specifieke opslagplaats-tag.
+Een Azure container registry worden opgeslagen en beheerd persoonlijke Docker-containerinstallatiekopieën, net als bij het die docker Hub openbare Docker-installatiekopieën worden opgeslagen. Het kan ook opslagplaatsen voor hosten [Helm-grafieken](container-registry-helm-repos.md) (preview), een verpakking opmaken voor het implementeren van toepassingen op Kubernetes. U kunt webhooks om triggergebeurtenissen wanneer bepaalde acties uitgevoerd in een van uw register-opslagplaatsen te gebruiken. Webhooks kan reageren op gebeurtenissen op het niveau van het register, of ze kunnen worden gericht op een specifieke opslagplaats-tag. Met een [geo-replicatie](container-registry-geo-replication.md) register, configureert u elke webhook om te reageren op gebeurtenissen in een specifieke regionale replica.
 
 Zie voor meer informatie over webhook-aanvragen, [Naslaggids voor Azure Container Registry webhook-schema](container-registry-webhook-reference.md).
 
@@ -33,14 +33,15 @@ Zie voor meer informatie over webhook-aanvragen, [Naslaggids voor Azure Containe
 1. Selecteer **toevoegen** in de werkbalk van de webhook.
 1. Voltooi de *webhook maken* formulier met de volgende informatie:
 
-| Value | Beschrijving |
+| Value | Description |
 |---|---|
-| Name | De naam die u wilt geven tot de webhook. Deze mag alleen letters en cijfers bevatten en moet 5 tot 50 tekens lang zijn. |
+| Naam van de Webhook | De naam die u wilt geven tot de webhook. Deze mag alleen letters en cijfers bevatten en moet 5 tot 50 tekens lang zijn. |
+| Locatie | Voor een [geo-replicatie](container-registry-geo-replication.md) register, geef de Azure-regio van de Register-replica. 
 | Service-URI | De URI waar de webhook POST meldingen moet verzenden. |
 | Aangepaste kopteksten | Headers die u wilt doorgeven, samen met de POST-aanvraag. Deze moeten worden "sleutel: waarde" indeling. |
 | Triggeracties | Acties waarvoor de webhook is geactiveerd. Acties omvatten installatiekopie pushen, verwijderen van afbeelding, Helm-grafiek push, Helm-grafiek verwijderen en in quarantaine plaatsen van de installatiekopie van. U kunt een of meer acties voor het activeren van de webhook. |
 | Status | De status van de webhook nadat deze gemaakt. Dit standaard ingeschakeld. |
-| Bereik | Het bereik op dat de webhook van toepassing. Indien niet opgegeven, is het bereik voor alle gebeurtenissen in het register. Het kan worden opgegeven voor een opslagplaats of op een label met de notatie '-opslagplaats: code' of ' opslagplaats: * "voor alle tags in een opslagplaats. |
+| Scope | Het bereik op dat de webhook van toepassing. Indien niet opgegeven, is het bereik voor alle gebeurtenissen in het register. Het kan worden opgegeven voor een opslagplaats of op een label met de notatie '-opslagplaats: code' of ' opslagplaats: * "voor alle tags in een opslagplaats. |
 
 Voorbeeld van de webhook-formulier:
 

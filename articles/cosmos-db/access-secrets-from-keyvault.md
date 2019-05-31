@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 05/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 36b0a2f18cf2917251a87405456980811af1bc3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 157ccd284c25cb5c7275aa942823ade2a40795cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894767"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239854"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Cosmos-sleutels met behulp van Azure Key Vault beveiligen 
 
@@ -67,7 +67,7 @@ De volgende stappen zijn vereist voor het opslaan en lezen van Azure Cosmos DB-t
 
 5. Wanneer de toepassing is geïmplementeerd. Vanuit de Azure-portal, gaat u naar de web-app die u hebt geïmplementeerd, en schakel de **beheerde service-identiteit** van deze toepassing.  
 
-   ![Managed Service Identity](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
+   ![Beheerde service-identiteit](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
 
 Als u de toepassing nu uitvoert, ziet u de volgende fout, zoals u machtiging voor deze toepassing niet in Key Vault gegeven hebt.
 

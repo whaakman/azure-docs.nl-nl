@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 8142caf867ffe811726677fb1dcbadc7d1458251
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793551"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243958"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Wat is de Enterprise-beveiligingspakket in Azure HDInsight
 
@@ -36,7 +36,7 @@ Perimeterbeveiliging in HDInsight wordt bereikt door middel van virtuele netwerk
 Een andere perimeterbeveiligingslaag wordt bereikt via de VPN-Gateway-service. De gateway fungeert als eerste verdedigingslinie voor elke inkomende aanvraag voor het HDInsight-cluster. Deze worden aanvragen geaccepteerd, wordt deze gevalideerd en alleen vervolgens kan de aanvraag worden doorgegeven aan de andere knooppunten in het cluster. De gateway biedt op deze manier perimeterbeveiliging naar een andere naam- en gegevensknooppunten in het cluster.
 
 ## <a name="authentication"></a>Verificatie
-Een bedrijfsbeheerder een HDInsight-cluster kunt maken met ESP in een [virtueel netwerk](https://azure.microsoft.com/services/virtual-network/). Alle knooppunten van het HDInsight-cluster zijn gekoppeld aan het domein dat wordt beheerd via het bedrijf. Dit wordt bereikt met behulp van [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
+Een bedrijfsbeheerder een HDInsight-cluster kunt maken met ESP in een [virtueel netwerk](https://azure.microsoft.com/services/virtual-network/). Alle knooppunten van het HDInsight-cluster zijn gekoppeld aan het domein dat wordt beheerd via het bedrijf. Dit wordt bereikt met behulp van [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). 
 
 Met deze instelling kunnen enterprise werknemers zich aanmelden op de clusterknooppunten met behulp van hun domeinreferenties. Ze kunnen hun domeinreferenties ook gebruiken om te verifiëren bij andere goedgekeurde eindpunten, zoals Apache Ambari-weergaven, ODBC, JDBC, PowerShell en REST-API's om te communiceren met het cluster. De beheerder heeft volledige controle over het beperken van het aantal gebruikers die met het cluster via deze eindpunten werken.
 

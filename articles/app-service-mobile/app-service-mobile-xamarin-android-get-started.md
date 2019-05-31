@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f3e8ca4f9736dffe4928fc8920b0890dff87367b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127893"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236030"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Een Xamarin.Android-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -46,15 +46,27 @@ Volg deze stappen voor het maken van een back-end voor mobiele apps.
 
 U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Download vervolgens een serverproject voor een eenvoudige back-end voor takenlijsten en publiceer deze naar Azure.
 
-## <a name="configure-the-server-project"></a>Het serverproject configureren
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>De verbinding met een database maken en configureren van het project client en server
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinandroid-app"></a>De Xamarin.Android-app downloaden en uitvoeren
-1. Klik onder **Het Xamarin.Android-project downloaden en uitvoeren** op de knop **Downloaden**.
+## <a name="run-the-xamarinandroid-app"></a>De Xamarin.Android-app uitvoeren
+1. Open het Xamarin.Android-project.
 
-      Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
-2. Druk op de toets **F5** om het project te bouwen en de app te starten.
-3. Typ zinvolle tekst in de app, zoals *Voltooi de zelfstudie*, en klik vervolgens op de knop **Toevoegen**.
+2. Ga naar de [Azure-portal](https://portal.azure.com/) en navigeer naar de mobiele app die u hebt gemaakt. Op de `Overview` blade, zoekt u de URL op die het openbare eindpunt voor uw mobiele app. Voorbeeld: de sitenaam voor mijn app-naam 'test123' worden https://test123.azurewebsites.net.
+
+3. Open het bestand `ToDoActivity.cs` in deze map - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. De toepassingsnaam is `ZUMOAPPNAME`.
+
+4. In `ToDoActivity` klasse, Vervang `ZUMOAPPURL` met openbare eindpunt van het bovenstaande variabele.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    wordt
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. Druk op F5 om te implementeren en uitvoeren van de app.
+
+6. Typ zinvolle tekst in de app, zoals *Voltooi de zelfstudie*, en klik vervolgens op de knop **Toevoegen**.
 
     ![][10]
 
@@ -62,27 +74,14 @@ U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden geb
 
    > [!NOTE]
    > U kunt de code die toegang heeft tot de back-end van uw mobiele app bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
-   >
-   >
-
+   
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als u er problemen zijn met het bouwen van de oplossing, voert u NuGet Package Manager uit en werkt u de `Xamarin.Android`-ondersteuningspakketten bij. Quick Start-projecten bevatten mogelijk niet altijd de nieuwste versies.
 
 Alle ondersteuningspakketten waarnaar wordt verwezen in uw project, moeten dezelfde versie hebben. Het [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs`-afhankelijkheid voor het Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuningspakketten, moet u dit pakket met de vereiste versie rechtstreeks installeren om conflicten te voorkomen.
 
-## <a name="next-steps"></a>Volgende stappen
-* [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-users.md)
-* [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-android-get-started-push.md)
-* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
-
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/app-service-mobile-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
-[8]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
-[9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
-
 <!-- URLs. -->
-[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203

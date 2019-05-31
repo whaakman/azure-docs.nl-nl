@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141081"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241678"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Een API beveiligen met behulp van OAuth 2.0 met Azure Active Directory en API Management
 
@@ -44,17 +44,19 @@ Hier volgt een kort overzicht van de stappen uit:
 
 Ter bescherming van een API met Azure AD, wordt de eerste stap is het registreren van een toepassing in Azure AD die staat voor de API. 
 
-1. Blader naar uw Azure AD-tenant en blader vervolgens naar **App-registraties (verouderd)**.
+1. Navigeer naar de [Azure portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina. 
 
-2. Selecteer **Nieuwe toepassing registreren**. 
+2. Selecteer **registratie van nieuwe**. 
 
-3. Geef een naam op van de toepassing. (Voor dit voorbeeld is de naam `backend-app`.)  
+1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in: 
+    - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `backend-app`. 
+    - In de **ondersteund accounttypen** sectie, selecteer **Accounts in een organisatie-map**. 
 
-4. Kies **Web-app / API** als de **toepassingstype**. 
+1. Laat de **omleidings-URI** sectie voorlopig leeg.
 
-5. Voor **aanmeldings-URL**, kunt u `https://localhost` als tijdelijke aanduiding.
+1. Selecteer **Registreren** om de toepassing te maken. 
 
-6. Selecteer **Maken**.
+1. Op de app **overzicht** pagina, zoek de **(client) toepassings-ID** waarde en leg deze vast voor later.
 
 Wanneer de toepassing wordt gemaakt, neem notitie van de **toepassings-ID**, voor gebruik in een latere stap. 
 
@@ -62,23 +64,25 @@ Wanneer de toepassing wordt gemaakt, neem notitie van de **toepassings-ID**, voo
 
 Elke clienttoepassing die de API-aanroepen moet worden geregistreerd als een toepassing in Azure AD ook. In dit voorbeeld is de voorbeeldtoepassing van de client de Developer-Console in de API Management-portal voor ontwikkelaars. Hier volgt een andere toepassing registreren in Azure AD om weer te geven van de Developer-Console.
 
-1. Terwijl de **App-registraties (verouderd)**, selecteer **nieuwe toepassing registreren**. 
+1. Navigeer naar de [Azure portal - App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina. 
 
-2. Geef een naam op van de toepassing. (Voor dit voorbeeld is de naam `client-app`.)
+1. Selecteer **registratie van nieuwe**.
 
-3. Kies **Web-app / API** als de **toepassingstype**.  
+1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in: 
+    - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `client-app`. 
+    - In de **ondersteund accounttypen** sectie, selecteer **Accounts in een organisatie-map**. 
 
-4. Voor **aanmeldings-URL**, kunt u `https://localhost` als een tijdelijke aanduiding, of gebruik de aanmelding-URL van uw exemplaar van API Management. (In dit voorbeeld is de URL `https://contoso5.portal.azure-api.net/signin`.)
+1. In de **omleidings-URI** sectie, selecteer `Web` en voer de URL `https://contoso5.portal.azure-api.net/signin`
 
-5. Selecteer **Maken**.
+1. Selecteer **Registreren** om de toepassing te maken. 
 
-Wanneer de toepassing wordt gemaakt, neem notitie van de **toepassings-ID**, voor gebruik in een latere stap. 
+1. Op de app **overzicht** pagina, zoek de **(client) toepassings-ID** waarde en leg deze vast voor later.
 
 Maak nu een clientgeheim voor deze toepassing, voor gebruik in een latere stap.
 
-1. Selecteer **instellingen** opnieuw, en Ga naar **sleutels**.
+1. Selecteer in de lijst van pagina's voor uw client-app **certificaten en geheimen**, en selecteer **nieuwe clientgeheim**.
 
-2. Onder **wachtwoorden**, bieden een **Sleutelbeschrijving**. Kies wanneer de sleutel moet vervalt, en selecteer **opslaan**.
+2. Onder **toevoegen van een clientgeheim**, bieden een **beschrijving**. Kies wanneer de sleutel moet vervalt, en selecteer **toevoegen**.
 
 Noteer de sleutelwaarde. 
 
@@ -86,17 +90,17 @@ Noteer de sleutelwaarde.
 
 Nu u twee toepassingen voor de Developer-Console en de API hebt geregistreerd, moet u machtigingen om de client-app voor het aanroepen van de back-end-app.  
 
-1. Blader naar **toepassingsregistraties (verouderd)**. 
+1. Navigeer naar **App-registraties**. 
 
-2. Selecteer `client-app`, en Ga naar **instellingen**.
+2. Selecteer `client-app`, en in de lijst van pagina's voor de app gaat u naar **API-machtigingen**.
 
-3. Selecteer **vereiste machtigingen** > **toevoegen**.
+3. Selecteer **toevoegen van een machtiging**.
 
-4. Selecteer **Select an API**, en zoek naar de `backend-app`.
+4. Onder **Select an API**, zoek en selecteer `backend-app`.
 
-5. Onder **gedelegeerde machtigingen**, selecteer `Access backend-app`. 
+5. Onder **gedelegeerde machtigingen**, selecteert u de juiste machtigingen voor `backend-app`.
 
-6. Selecteer **Selecteer**, en selecteer vervolgens **gedaan**. 
+6. Selecteer **machtigingen toevoegen** 
 
 > [!NOTE]
 > Als **Azure Active Directory** niet wordt vermeld onder de machtigingen voor andere toepassingen, selecteer **toevoegen** toe te voegen in de lijst.
@@ -107,7 +111,7 @@ Op dit moment u uw toepassingen in Azure AD hebt gemaakt en juiste machtigingen 
 
 In dit voorbeeld is de Developer-Console de client-app. De volgende stappen wordt beschreven hoe u de gebruikersautorisatie OAuth 2.0 in de Developer-Console inschakelen. 
 
-1. In Azure Portal, blader naar de API Management-instantie.
+1. Blader in Azure portal naar uw exemplaar van API Management.
 
 2. Selecteer **OAuth 2.0** > **toevoegen**.
 
@@ -148,7 +152,7 @@ De volgende stap is om in te schakelen gebruikersautorisatie OAuth 2.0 voor uw A
 
 2. Selecteer de API die u wilt beveiligen. In dit voorbeeld gebruikt u de `Echo API`.
 
-3. Ga naar **Settings**.
+3. Ga naar **instellingen**.
 
 4. Onder **Security**, kiest u **OAuth 2.0**, en selecteer de OAuth 2.0-server die u eerder hebt geconfigureerd. 
 

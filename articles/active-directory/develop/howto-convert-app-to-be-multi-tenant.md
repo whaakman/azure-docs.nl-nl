@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540460"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235285"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedure: Meld u aan een Azure Active Directory-gebruiker met behulp van het patroon voor multitenant-toepassingen
 
@@ -45,7 +45,7 @@ Laten we elke stap in detail kijken. U kunt ook rechtstreeks naar gaan [deze lij
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Registratie van de update worden meerdere tenants
 
-Web-app/API registreren in Azure AD zijn standaard één tenant. U kunt uw registratie voor meerdere tenants maken door op te sporen de **met meerdere Tenants** overschakelen op de **eigenschappen** deelvenster van de registratie van uw toepassing in de [Azure-portal] [ AZURE-portal] en instellen op **Ja**.
+Web-app/API registreren in Azure AD zijn standaard één tenant. U kunt uw registratie voor meerdere tenants maken door op te sporen de **ondersteund accounttypen** overschakelen op de **verificatie** deelvenster van de registratie van uw toepassing in de [vanAzureportal] [ AZURE-portal] en instellen op **Accounts in een organisatie-map**.
 
 Voordat een toepassing kan worden gemaakt met meerdere tenants, vereist Azure AD de URI van de App-ID van de toepassing moet globaal uniek. De URI van de app-id is een van de manieren waarop een toepassing wordt geïdentificeerd in protocolberichten. Voor een toepassing met één tenant is het voldoende dat de URI van de app-id uniek is binnen die tenant. Voor een multitenant toepassing moet deze wereldwijd uniek zijn, zodat Azure Active Directory de toepassing in alle tenants kan vinden. Wereldwijde uniekheid wordt afgedwongen door te vereisen dat de URI van de app-id een hostnaam heeft die overeenkomt met een geverifieerd domein van de Azure Active Directory-tenant.
 
@@ -115,7 +115,7 @@ Deze ervaring toestemming wordt beïnvloed door de machtigingen die zijn aangevr
 
 Sommige machtigingen kunnen worden gegeven door een gewone gebruiker, terwijl andere van een tenantbeheerder toestemming vereisen. 
 
-### <a name="admin-consent"></a>Toestemming van de beheerder
+### <a name="admin-consent"></a>toestemming van de beheerder
 
 Bij app-specifieke machtigingen is er altijd toestemming van een tenantbeheerder nodig. Als uw toepassing een alleen-app-machtigingen worden aangevraagd en een gebruiker wil zich aanmelden bij de toepassing, wordt een foutbericht weergegeven dat de gebruiker kan geen tot toestemming geven.
 
@@ -150,7 +150,7 @@ Dit wordt geïllustreerd in systeemeigen client aanroepen van web-API-voorbeeld 
 
 Een dergelijke aanvraag gebeurt er als de verschillende lagen van een toepassing in verschillende tenants worden geregistreerd. Neem bijvoorbeeld het geval van het bouwen van een systeemeigen clienttoepassing die de Office 365 Exchange Online-API-aanroepen. Voor het ontwikkelen van de systeemeigen toepassing, en hoger voor de systeemeigen toepassing om uit te voeren in de tenant van een klant, moet de Exchange Online service-principal aanwezig zijn. In dit geval moeten de ontwikkelaar en de klant aanschaffen Exchange Online voor de service-principal moet worden gemaakt in hun tenants.
 
-Als dit een API die zijn gemaakt door een organisatie dan Microsoft is, moet de ontwikkelaar van de API bieden de mogelijkheid om hun klanten en toestemming van de toepassing in hun klanten tenants. Er is het aanbevolen ontwerp voor ontwikkelaars van derden om te maken van de API zodat deze kan ook worden gebruikt als een webclient voor het implementeren van aanmelding. Dit kunt u op de volgende manier doen:
+Als dit een API die zijn gemaakt door een organisatie dan Microsoft is, moet de ontwikkelaar van de API bieden de mogelijkheid om hun klanten en toestemming van de toepassing in hun klanten tenants. Er is het aanbevolen ontwerp voor ontwikkelaars van derden om te maken van de API zodat deze kan ook worden gebruikt als een webclient voor het implementeren van aanmelding. Om dit te doen:
 
 1. Volg de vorige secties om te controleren of dat de API implementeert de vereisten van de registratiecode/toepassing met meerdere tenants.
 2. Naast het weergeven van de API-bereiken/rollen, zorg ervoor dat de registratie bevat de ' aanmelden en gebruikersprofiel lezen ' machtiging (standaard beschikbaar).

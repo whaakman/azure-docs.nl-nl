@@ -1,9 +1,9 @@
 ---
-title: Maken van een certificaat voor secure LDAP voor een Azure AD Domain Services-domein beheren | Microsoft Docs
+title: Maak een. PFX-bestand met het certificaat voor secure LDAP (LDAPS) voor een Azure AD Domain Services-domein
 description: Maken van een certificaat voor secure LDAP voor een Azure AD Domain Services-domein beheren
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,22 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.author: mstephen
+ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418420"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235030"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Maak een. PFX-bestand met het certificaat voor secure LDAP (LDAPS) voor een beheerd domein
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Volledige [taak 1: een certificaat voor secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
+Volledige [taak 1: een certificaat voor secure LDAP verkrijgen](configure-ldaps.md).
 
 ## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Taak 2: Exporteren van het certificaat voor secure LDAP naar een. PFX-bestand
+
 Voordat u deze taak start, wordt het certificaat voor secure LDAP ophalen uit een openbare certificeringsinstantie (CA) of een zelfondertekend certificaat maken.
 
 Voor het exporteren van het LDAPS-certificaat naar een. PFX-bestand:
@@ -96,6 +97,6 @@ Voor het exporteren van het LDAPS-certificaat naar een. PFX-bestand:
 
     ![Exporteren van certificaat gereed](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## <a name="next-step"></a>Volgende stap
+
 [Taak 3: secure LDAP inschakelen voor het beheerde domein](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

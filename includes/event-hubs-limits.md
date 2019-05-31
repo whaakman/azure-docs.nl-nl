@@ -5,15 +5,15 @@ services: event-hubs
 author: sethmanheim
 ms.service: event-hubs
 ms.topic: include
-ms.date: 02/26/2018
-ms.author: sethm
+ms.date: 05/22/2019
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 38f7dd6eb1c4965eca003e5ba337ec5912a53420
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 3f3b60c3744ce9dea61054b3fa0aaccfea27d784
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148239"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238150"
 ---
 De volgende tabel geeft een lijst van quota en limieten specifiek zijn voor [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Zie voor meer informatie over prijzen van Event Hubs [prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -31,3 +31,19 @@ De volgende tabel geeft een lijst van quota en limieten specifiek zijn voor [Azu
 | Maximum aantal Throughput Units |Naamruimte |De doorvoer unit-limiet zorgt ervoor dat uw gegevens om te worden beperkt en genereert een [server bezet uitzondering](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Om aan te vragen een groter aantal doorvoereenheden voor Standard-laag, het bestand een [ondersteuningsaanvraag](/azure/azure-supportability/how-to-create-azure-support-request). [Aanvullende throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) zijn beschikbaar in blokken van 20 op basis van toegezegde aankoop. |20 |
 | Aantal regels per naamruimte |Naamruimte|De volgende aanvragen voor het maken van de regel autorisatie worden geweigerd.|12 |
 | Aantal aanroepen naar de methode GetRuntimeInformation | Entiteit | - | 50 per seconde | 
+
+### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated - quota en limieten
+De aanbieding Event Hubs Dedicated wordt in rekening gebracht tegen een vaste maandelijkse prijs met een minimum van 4 uur van het gebruik van. De speciale laag biedt alle functies van de Standard-abonnement, maar met enterprise schaal capaciteiten en limieten voor klanten met veeleisende workloads. 
+
+| Functie | Limits |
+| --- | ---|
+| Bandbreedte |  20 Cu 's |
+| Naamruimten | 50 per Capaciteitseenheid |
+| Event Hubs |  Geen limiet voor event hubs/onderwerpen |
+| Ingangsgebeurtenissen | Inbegrepen |
+| Berichtgrootte | 1 Million Bytes |
+| Partities | 2000 per Capaciteitseenheid |
+| Consumergroepen | Geen limiet per Capaciteitseenheid, 1000 per event hub |
+| Brokered Connections | 100 K inbegrepen |
+| Bewaartermijn voor berichten | 90 dagen, 10 TB, inbegrepen per Capaciteitseenheid |
+| Capture | Inbegrepen |

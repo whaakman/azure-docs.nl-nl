@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878191"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234056"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 > [!div class="op_single_selector"]
@@ -45,12 +45,12 @@ In dit artikel wordt besproken hoe u maakt een **systeemeigen Azure AD-toepassin
   
     ![AAD-domein ophalen](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Uw Azure-tenant-ID. Zie voor instructies over het ophalen van de tenant-ID [ophalen van de tenant-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Uw Azure-tenant-ID. Zie voor instructies over het ophalen van de tenant-ID [ophalen van de tenant-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="end-user-authentication"></a>Verificatie van de eindgebruiker
-Dit verificatiemechanisme is de aanbevolen methode als u wilt dat een eindgebruiker zich aanmelden bij uw toepassing via Azure AD. Uw toepassing is vervolgens toegang krijgen tot Azure-resources met hetzelfde niveau van toegang als de gebruiker die in het logboek geregistreerd. De eindgebruiker moet naar hun referenties periodiek in volgorde voor uw toepassing om toegang te behouden.
+Dit verificatiemechanisme is de aanbevolen methode als u wilt dat een eindgebruiker zich aanmeldt bij uw toepassing via Azure AD. Uw toepassing is vervolgens toegang krijgen tot Azure-resources met hetzelfde niveau van toegang als de gebruiker die in het logboek geregistreerd. De eindgebruiker moet naar hun referenties periodiek in volgorde voor uw toepassing om toegang te behouden.
 
-Het resultaat dat de aanmelding door eindgebruikers is dat uw toepassing een toegangstoken en een vernieuwingstoken is opgegeven. Het toegangstoken opgehaald die zijn gekoppeld aan elke aanvraag aan de Data Lake Storage Gen1 of Data Lake Analytics en deze is geldig gedurende één uur standaard. Het vernieuwingstoken dat kan worden gebruikt om een nieuw toegangstoken ophalen en deze is geldig voor maximaal twee weken standaard. U kunt twee verschillende methoden gebruiken voor aanmelding door eindgebruikers.
+Het resultaat van de eindgebruiker zich aanmeldt met is dat uw toepassing een toegangstoken en een vernieuwingstoken is opgegeven. Het toegangstoken opgehaald die zijn gekoppeld aan elke aanvraag aan de Data Lake Storage Gen1 of Data Lake Analytics en deze is geldig gedurende één uur standaard. Het vernieuwingstoken dat kan worden gebruikt om een nieuw toegangstoken ophalen en deze is geldig voor maximaal twee weken standaard. U kunt twee verschillende methoden gebruiken voor aanmelding door eindgebruikers in.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Met behulp van het pop-upvenster OAuth 2.0
 Uw toepassing kan resulteren in een OAuth 2.0 machtiging pop, waarin de gebruiker zijn referenties kunt invoeren. Dit pop-upvenster werkt ook met het proces van Azure AD tweeledige verificatie (2FA), indien nodig. 
@@ -82,7 +82,7 @@ Zorg ervoor dat u selecteert bij de instructies in de koppeling te volgen, **sys
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Stap 2: Toepassings-ID ophalen en omleidings-URI
 
-Zie [de toepassings-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) om op te halen van de toepassings-ID.
+Zie [de toepassings-ID ophalen](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) om op te halen van de toepassings-ID.
 
 Als u wilt de omleidings-URI ophalen, moet u de volgende stappen uitvoeren.
 

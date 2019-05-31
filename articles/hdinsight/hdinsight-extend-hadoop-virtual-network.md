@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: e586ab1bdcca9d6109cf42b6341c333fabb02993
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/28/2019
+ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601681"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388344"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -211,41 +211,39 @@ Als u wilt verbinding maken met Apache Ambari en andere webpagina's met het virt
 
 ## <a id="networktraffic"></a> Beheren van netwerkverkeer
 
+### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>Binnenkomend verkeer naar HDInsight-clusters beheren
+
 Het netwerkverkeer in een virtuele Azure-netwerken kan worden beheerd met behulp van de volgende methoden:
 
 * **Netwerkbeveiligingsgroepen** (NSG) kunt u binnenkomend en uitgaand verkeer met het netwerk te filteren. Zie voor meer informatie de [netwerkverkeer filteren met netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) document.
 
-    > [!WARNING]  
-    > HDInsight biedt geen ondersteuning voor het beperken van uitgaand verkeer. Al het uitgaande verkeer moet worden toegestaan.
-
-* **Gebruiker gedefinieerde routes** (UDR) definiëren hoe verkeer stroomt tussen resources in het netwerk. Zie voor meer informatie de [gebruiker gedefinieerde routes en doorsturen via IP](../virtual-network/virtual-networks-udr-overview.md) document.
-
 * **Virtuele netwerkapparaten** repliceren van de functionaliteit van apparaten, zoals firewalls en routers. Zie voor meer informatie de [netwerkapparaten](https://azure.microsoft.com/solutions/network-appliances) document.
 
-Als een beheerde service HDInsight vereist onbeperkte toegang tot de HDInsight-status en beheer van services voor binnenkomende en uitgaande verkeer van het VNET. Wanneer u nsg's en udr's, moet u ervoor zorgen dat deze services nog steeds met HDInsight-cluster communiceren kunnen.
+Als een beheerde service HDInsight vereist onbeperkte toegang tot de HDInsight-status en beheer van services voor binnenkomende en uitgaande verkeer van het VNET. Wanneer u nsg's gebruikt, moet u ervoor zorgen dat deze services nog steeds met HDInsight-cluster communiceren kunnen.
 
-### <a id="hdinsight-ip"></a> HDInsight met netwerkbeveiligingsgroepen en de gebruiker gedefinieerde routes
+![Diagram van HDInsight-entiteiten die zijn gemaakt in Azure aangepaste VNET](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-Als u van plan over het gebruik van bent **netwerkbeveiligingsgroepen** of **gebruiker gedefinieerde routes** netwerkverkeer beheren, voert u de volgende acties voor de installatie van HDInsight:
+### <a id="hdinsight-ip"></a> HDInsight met netwerkbeveiligingsgroepen
+
+Als u van plan over het gebruik van bent **netwerkbeveiligingsgroepen** netwerkverkeer beheren, voert u de volgende acties voor de installatie van HDInsight:
 
 1. Identificeer de Azure-regio die u wilt gebruiken voor HDInsight.
 
 2. Identificeer de IP-adressen vereist voor HDInsight. Zie voor meer informatie de [IP-adressen die zijn vereist voor HDInsight](#hdinsight-ip) sectie.
 
-3. Maak of wijzig de netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes voor het subnet dat u van plan bent voor het installeren van HDInsight in.
+3. Maken of wijzigen van de netwerk-beveiligingsgroepen voor het subnet dat u van plan bent voor het installeren van HDInsight in.
 
-    * __Netwerkbeveiligingsgroepen__: toestaan __inkomende__ verkeer op poort __443__ uit het IP-adressen. Dit zorgt ervoor dat HDI-beheerservices van VNET buiten het cluster kunnen bereiken.
-    * __Gebruiker gedefinieerde routes__: Als u van plan bent te gebruiken van udr's, een route voor elk IP-adres en stel de __volgende hoptype__ naar __Internet__. U moet ook andere uitgaand verkeer toestaan van het VNET zonder beperking. Bijvoorbeeld, kunt u al het andere verkeer doorsturen naar uw Azure firewall of netwerk virtueel apparaat (die wordt gehost in Azure) voor bewakingsdoeleinden, maar het uitgaande verkeer mag niet worden geblokkeerd.
+    * __Netwerkbeveiligingsgroepen__: toestaan __inkomende__ verkeer op poort __443__ uit het IP-adressen. Dit zorgt ervoor dat het cluster op basis van buiten het virtuele netwerk door HDInsight management-services bereiken kunnen.
 
-Zie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes, de volgende documentatie:
+Zie voor meer informatie over netwerkbeveiligingsgroepen het [overzicht van netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 
-* [Netwerkbeveiligingsgroep](../virtual-network/security-overview.md)
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Uitgaand verkeer van HDInsight-clusters beheren
 
-* [Gebruiker gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md)
+Zie voor meer informatie over het beheren van uitgaande verkeer van HDInsight-clusters [uitgaand verkeer voor netwerkbeperking configureren voor Azure HDInsight-clusters](hdinsight-restrict-outbound-traffic.md).
 
 #### <a name="forced-tunneling-to-on-premise"></a>Geforceerde tunneling on-premises
 
-Geforceerde tunneling vindt een door de gebruiker gedefinieerde routering configuratie waarin al het verkeer van een subnet naar een specifieke netwerk- of -locatie, zoals uw on-premises netwerk wordt geforceerd. HDInsight biedt __niet__ ondersteuning geforceerde tunneling naar de on-premises netwerken. Als u gebruikmaakt van Azure-Firewall of een virtueel netwerkapparaat die wordt gehost in Azure, kunt u udr's gebruiken voor het verkeer te routeren voor controledoeleinden en al het uitgaande verkeer toestaan.
+Geforceerde tunneling vindt een door de gebruiker gedefinieerde routering configuratie waarin al het verkeer van een subnet naar een specifieke netwerk- of -locatie, zoals uw on-premises netwerk wordt geforceerd. HDInsight biedt __niet__ ondersteuning geforceerde tunneling van verkeer naar on-premises netwerken. 
 
 ## <a id="hdinsight-ip"></a> Vereiste IP-adressen
 
@@ -258,7 +256,7 @@ Als u netwerkbeveiligingsgroepen gebruikt, moet u verkeer van de Azure status en
 
 1. U moet altijd verkeer van de volgende IP-adressen toestaan:
 
-    | IP-adres van de bron | Bestemming  | Direction |
+    | IP-adres van bron | Bestemming  | Direction |
     | ---- | ----- | ----- |
     | 168.61.49.99 | \*:443 | Inkomend |
     | 23.99.5.239 | \*:443 | Inkomend |
@@ -277,10 +275,10 @@ Als u netwerkbeveiligingsgroepen gebruikt, moet u verkeer van de Azure status en
     | Australië | Australië - oost | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkomend |
     | &nbsp; | Australië - zuidoost | 13.77.2.56</br>13.77.2.94 | \*:443 | Inkomend |
     | Brazilië | Brazilië - zuid | 191.235.84.104</br>191.235.87.113 | \*:443 | Inkomend |
-    | Canada | Canada Oost | 52.229.127.96</br>52.229.123.172 | \*:443 | Inkomend |
+    | Canada | Canada - oost | 52.229.127.96</br>52.229.123.172 | \*:443 | Inkomend |
     | &nbsp; | Canada - midden | 52.228.37.66</br>52.228.45.222 |\*: 443 | Inkomend |
     | China | China - noord | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Inkomend |
-    | &nbsp; | China - oost | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Inkomend |
+    | &nbsp; | China East | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Inkomend |
     | &nbsp; | China - noord 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Inkomend |
     | &nbsp; | China - oost 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Inkomend |
     | Europa | Europa - noord | 52.164.210.96</br>13.74.153.132 | \*:443 | Inkomend |
@@ -292,9 +290,9 @@ Als u netwerkbeveiligingsgroepen gebruikt, moet u verkeer van de Azure status en
     | &nbsp; | India - zuid | 104.211.223.67<br/>104.211.216.210 | \*:443 | Inkomend |
     | Japan | Japan - oost | 13.78.125.90</br>13.78.89.60 | \*:443 | Inkomend |
     | &nbsp; | Japan - west | 40.74.125.69</br>138.91.29.150 | \*:443 | Inkomend |
-    | Zuid-Korea | Korea Centraal | 52.231.39.142</br>52.231.36.209 | \*:433 | Inkomend |
+    | Korea | Korea - centraal | 52.231.39.142</br>52.231.36.209 | \*:433 | Inkomend |
     | &nbsp; | Korea - zuid | 52.231.203.16</br>52.231.205.214 | \*:443 | Inkomend
-    | Verenigd Koninkrijk | VK West | 51.141.13.110</br>51.141.7.20 | \*:443 | Inkomend |
+    | Verenigd Koninkrijk | Verenigd Koninkrijk West | 51.141.13.110</br>51.141.7.20 | \*:443 | Inkomend |
     | &nbsp; | Verenigd Koninkrijk Zuid | 51.140.47.39</br>51.140.52.16 | \*:443 | Inkomend |
     | Verenigde Staten | US - centraal | 13.67.223.215</br>40.86.83.253 | \*:443 | Inkomend |
     | &nbsp; | US - oost | 13.82.225.233</br>40.71.175.99 | \*:443 | Inkomend |

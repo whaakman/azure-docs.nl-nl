@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475793"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236865"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migreren naar de nieuwe taken voor Elastic Database
 
 Een bijgewerkte versie van [elastische databasetaken](elastic-jobs-overview.md) beschikbaar is.
 
-Hebt u een bestaande versie van de klant die wordt gehost van [elastische databasetaken](sql-database-elastic-jobs-overview.md), migratie-cmdlets en scripts voor het eenvoudig migreren naar de nieuwste versie worden geleverd.
+Als u een bestaande klant die wordt gehost versie van de taken voor Elastic Database, migratie-cmdlets en scripts vindt u voor het eenvoudig migreren naar de nieuwste versie.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -32,7 +32,7 @@ De bijgewerkte versie van de taken voor Elastic Database heeft een nieuwe set Po
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installeer de meest recente cmdlets voor elastische taken
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+Als u nog een Azure-abonnement hebt [Maak een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 Installeer de **Az.Sql** 1.1.1-preview-module om op te halen van de meest recente elastische taak-cmdlets. Voer de volgende opdrachten met beheerderstoegang uit in PowerShell.
 

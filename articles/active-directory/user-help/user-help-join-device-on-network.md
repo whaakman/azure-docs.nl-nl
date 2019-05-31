@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474424"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243279"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Uw werk-apparaat toevoegen aan het netwerk van uw organisatie
 Toevoegen aan het netwerk van uw organisatie eigendom van het werk Windows 10-apparaat, zodat u toegang hebben tot mogelijk beperkte resources.
@@ -86,7 +86,7 @@ Als u hebt uw apparaat voor een tijdje hebt en er al ingesteld, u kunt deze stap
 
 5. Op de **wachtwoord opgeven** scherm, typt u het wachtwoord en selecteer vervolgens **aanmelden**.
 
-    ![Wachtwoord opgeven](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Wachtwoord invoeren](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
 6. Goedkeuren op uw mobiele apparaat, uw apparaat, zodat deze toegang heeft tot uw account. 
 
@@ -116,3 +116,4 @@ Nadat u uw apparaat aan het netwerk van uw organisatie toevoegen, moet u mogelij
 
 - Als uw organisatie wil u dat voor het registreren van uw persoonlijke apparaat, zoals uw telefoon, Zie [registreren van uw persoonlijke apparaat op het netwerk van uw organisatie](user-help-register-device-on-network.md).
 
+- Als uw organisatie wordt beheerd met Microsoft Intune en u vragen hebt over de registratie, aanmelding, of enig ander Intune-gerelateerde probleem, Zie de [help-inhoud voor Intune-gebruiker](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

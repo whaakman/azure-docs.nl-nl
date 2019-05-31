@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 069b3fe89183d7897cea39e2a8a1fe1bbed80bb0
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.date: 05/29/2019
+ms.openlocfilehash: 168a73ced039b9bced9a6aae6a138468b345b19d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556337"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391685"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Enterprise-beveiligingspakket gebruiken in HDInsight
 
@@ -21,7 +21,7 @@ De standard-Azure HDInsight-cluster is een cluster met één gebruiker. Het is g
 
 Veel bedrijven hebben verplaatst naar een model waarin IT teams-clusters beheren en meerdere toepassingsteams clusters delen. Deze grote ondernemingen met meerdere gebruikers toegang nodig tot elk cluster in Azure HDInsight.
 
-HDInsight is afhankelijk van een populaire id-provider: Active Directory, op een beheerde manier. Door de integratie van HDInsight met [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), kunt u toegang krijgen tot de clusters met behulp van de domeinreferenties van uw. 
+HDInsight is afhankelijk van een populaire id-provider: Active Directory, op een beheerde manier. Door de integratie van HDInsight met [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), kunt u toegang krijgen tot de clusters met behulp van de domeinreferenties van uw. 
 
 De virtuele machines (VM's) in HDInsight zijn van een domein is toegevoegd aan het opgegeven domein. Dus werken alle services die worden uitgevoerd op HDInsight (Apache Ambari, server Apache Hive, Apache Ranger, Apache Spark thrift-server en anderen) naadloos voor de geverifieerde gebruiker. Beheerders kunnen vervolgens met het maken van sterke autorisatiebeleid met behulp van Apache Ranger voor op rollen gebaseerd toegangsbeheer voor bronnen in het cluster.
 
@@ -45,7 +45,7 @@ Om samen te vatten, moet u voor het instellen van een omgeving met:
 HDInsight ondersteunt momenteel alleen Azure AD DS als de primaire domeincontroller die het cluster voor communicatie van Kerberos gebruikt. Maar andere complexe Active Directory-instellingen zijn mogelijk, zolang dergelijke installatie leidt tot het inschakelen van Azure AD DS voor HDInsight-toegang.
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
-[Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md) biedt een beheerd domein die volledig compatibel is met Windows Server Active Directory. Microsoft zorgt beheren, toepassen van patches en bewaking van het domein in een configuratie voor hoge beschikbaarheid (HA). U kunt uw cluster implementeren zonder u zorgen te maken over het onderhouden van domeincontrollers. 
+[Azure AD DS](../../active-directory-domain-services/overview.md) biedt een beheerd domein die volledig compatibel is met Windows Server Active Directory. Microsoft zorgt beheren, toepassen van patches en bewaking van het domein in een configuratie voor hoge beschikbaarheid (HA). U kunt uw cluster implementeren zonder u zorgen te maken over het onderhouden van domeincontrollers. 
 
 Gebruikers, groepen en wachtwoorden worden gesynchroniseerd vanuit Azure AD. De synchronisatie in één richting van uw Azure AD-instantie met Azure AD DS kan gebruikers zich aanmelden bij het cluster met behulp van de zakelijke referenties. 
 

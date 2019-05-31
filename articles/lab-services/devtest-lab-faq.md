@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713012"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244388"
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
 
-## <a name="blog-post"></a>Blogpost
+## <a name="blog-post"></a>Blogbericht
 Het teamblog van DevTest Labs is buiten gebruik gesteld vanaf 20 maart 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Waar kan ik functie-updates van nu af bijhouden?
@@ -280,7 +280,7 @@ Zie voor een uitgebreidere uitleg [vergelijking van aangepaste installatiekopie�
 
 Als u wilt uploaden VHD-bestanden voor het maken van aangepaste installatiekopieën automatiseren, hebt u twee opties:
 
-- Gebruik [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) te kopiëren of VHD-bestanden uploaden naar het opslagaccount dat is gekoppeld aan het lab.
+- Gebruik [AzCopy](../storage/common/storage-use-azcopy-v10.md) te kopiëren of VHD-bestanden uploaden naar het opslagaccount dat is gekoppeld aan het lab.
 - Gebruik [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Storage Explorer is een zelfstandige app die wordt uitgevoerd op Windows, OS X en Linux.
 
 Zoek de doel-opslagaccount dat is gekoppeld aan uw testomgeving:

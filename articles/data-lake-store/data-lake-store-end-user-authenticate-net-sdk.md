@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908012"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243714"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Verificatie van de eindgebruiker met Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
@@ -34,11 +34,11 @@ In dit artikel leert u over het gebruik van de .NET SDK doet eindgebruikersverif
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Maken van een Azure Active Directory-toepassing voor 'Native'**. U moet zijn voltooid de stappen in [eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Maken van een Azure Active Directory-toepassing voor 'Native'** . U moet zijn voltooid de stappen in [eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Een .NET-toepassing maken
 1. Selecteer in Visual Studio, de **bestand** in het menu **nieuw**, en vervolgens **Project**.
-2. Kies **Console-App (.NET Framework)**, en selecteer vervolgens **volgende**.
+2. Kies **Console-App (.NET Framework)** , en selecteer vervolgens **volgende**.
 3. In **projectnaam**, voer `CreateADLApplication`, en selecteer vervolgens **maken**.
 
 4. Voeg de NuGet-pakketten toe aan het project.
@@ -74,7 +74,7 @@ In dit artikel leert u over het gebruik van de .NET SDK doet eindgebruikersverif
 ## <a name="end-user-authentication"></a>Verificatie van de eindgebruiker
 Dit codefragment in uw .NET-client-toepassing toevoegen. Vervang de tijdelijke aanduiding door de waarden die zijn opgehaald uit een systeemeigen Azure AD-toepassing (weergegeven als vereiste). Dit codefragment kunt u verifiëren van uw toepassing **interactief** met Data Lake Storage Gen1, wat betekent dat u wordt gevraagd uw Azure-referenties in te voeren.
 
-Voor het gebruiksgemak gebruikt gebruikt het volgende codefragment standaardwaarden voor de client-ID en omleidings-URI die geldig zijn voor alle Azure-abonnement. In het volgende codefragment hoeft u alleen voor de waarde voor uw tenant-ID. U kunt met behulp van de instructies op de Tenant-ID ophalen [ophalen van de tenant-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+Voor het gebruiksgemak gebruikt gebruikt het volgende codefragment standaardwaarden voor de client-ID en omleidings-URI die geldig zijn voor alle Azure-abonnement. In het volgende codefragment hoeft u alleen voor de waarde voor uw tenant-ID. U kunt met behulp van de instructies op de Tenant-ID ophalen [ophalen van de tenant-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
     
 - De functie Main() vervangen door de volgende code:
 

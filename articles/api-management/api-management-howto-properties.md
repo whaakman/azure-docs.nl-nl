@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657999"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241695"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Over het gebruik van waarden met de naam in Azure API Management-beleidsregels
 API Management-beleidsregels zijn een krachtige mogelijkheid van het systeem waarmee de Azure-portal om het gedrag van de API via configuratie te wijzigen. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of het antwoord van een API. Beleidsinstructies kunnen worden samengesteld met behulp van letterlijke waarden, beleidsexpressies, en met de naam waarden. 
@@ -28,9 +28,9 @@ Elk exemplaar van API Management-service heeft een verzameling eigenschappen van
 | Kenmerk | Type | Description |
 | --- | --- | --- |
 | `Display name` |string |Een alfanumerieke tekenreeks die wordt gebruikt om naar de eigenschap te verwijzen in de beleidsregels. |
-| `Value` |string |De waarde van de eigenschap. Het kan niet leeg zijn of alleen uit witruimte bestaan. |
-|`Secret`|booleaans|Bepaalt of de waarde is van een geheim en moet worden versleuteld of niet.|
-| Tags |tekenreeksmatrix |Optioneel tags die de opgegeven kan worden gebruikt voor het filteren van de lijst met eigenschappen. |
+| `Value`        |string |De waarde van de eigenschap. Het kan niet leeg zijn of alleen uit witruimte bestaan. |
+| `Secret`       |booleaans|Bepaalt of de waarde is van een geheim en moet worden versleuteld of niet.|
+| `Tags`         |tekenreeksmatrix |Optioneel tags die de opgegeven kan worden gebruikt voor het filteren van de lijst met eigenschappen. |
 
 ![Benoemde waarden](./media/api-management-howto-properties/named-values.png)
 
@@ -55,7 +55,7 @@ Eigenschapswaarden letterlijke tekenreeksen kunnen bevatten en [beleidsexpressie
 
 Als de eigenschap is gemaakt, kunt u deze bewerken door te klikken op de eigenschap. Als u de naam van de eigenschap wijzigt, worden alle beleidsregels die verwijzen naar die eigenschap automatisch bijgewerkt voor het gebruik van de nieuwe naam.
 
-Zie voor meer informatie over het bewerken van een eigenschap met de REST API [bewerken van een eigenschap met de REST API](/rest/api/apimanagement/property?Patch).
+Zie voor meer informatie over het bewerken van een eigenschap met de REST API [bewerken van een eigenschap met de REST API](/rest/api/apimanagement/2019-01-01/property?patch).
 
 ## <a name="to-delete-a-property"></a>Een eigenschap wilt verwijderen
 
@@ -66,7 +66,7 @@ Als u wilt verwijderen van een eigenschap, klikt u op **verwijderen** naast de e
 > 
 > 
 
-Zie voor meer informatie over het verwijderen van een eigenschap met de REST API [verwijderen van een eigenschap met de REST API](/rest/api/apimanagement/property?Delete).
+Zie voor meer informatie over het verwijderen van een eigenschap met de REST API [verwijderen van een eigenschap met de REST API](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Om te zoeken en filteren met de naam waarden
 

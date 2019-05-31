@@ -7,56 +7,48 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2a7a6ed5bd28bcc83500da6e82b6c4ff48b2989c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719081"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393213"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
-Azure SQL Database is een automatisch beheerde en flexibele service waar u kunt eenvoudig gebruik te bewaken, toevoegen of verwijderen van resources (CPU, geheugen, i/o), zoeken naar aanbevelingen die kunnen verbeteren de prestaties van uw database, of laat de database aan uw workloads aanpassen en automatisch optimaliseren.
+Azure SQL Database kunt u eenvoudig gebruik te bewaken, toevoegen of verwijderen van resources (CPU, geheugen, i/o), de mogelijke problemen en zoek de aanbevelingen die de prestaties van uw database kunnen verbeteren. Azure SQL-Database bevat veel functies die u kunnen automatisch los de problemen in uw databases als u wilt dat de database aan uw workloads aanpassen en automatisch prestaties te optimaliseren. Er zijn echter enkele aangepaste problemen die u mogelijk nodig hebt om op te lossen. In dit artikel wordt uitgelegd enkele aanbevolen procedures en hulpprogramma's die u kunt de prestatieproblemen oplossen.
+
+Er zijn twee belangrijkste activiteiten die u moet doen om ervoor te zorgen dat u de database wordt uitgevoerd zonder problemen:
+- [Databaseprestaties bewaken](#monitoring-database-performance) om ervoor te zorgen dat uw workload kunnen worden verwerkt door de resources die zijn toegewezen aan uw database. Als u ziet dat u de resource-limiet hebt bereikt, moet u om te bepalen van de belangrijkste resources verbruiken van query's en ze optimaliseren of meer resources toevoegen door te upgraden van de servicelaag.
+- [Problemen met prestaties](#troubleshoot-performance-issues) identificeren om te achterhalen waarom sommige potentiële probleem is opgetreden, de hoofdoorzaak van het probleem en de actie die het probleem wordt opgelost.
 
 ## <a name="monitoring-database-performance"></a>Databaseprestaties bewaken
 
-Het bewaken van de prestaties van een SQL-database in Azure begint met het bewaken van het resourcegebruik ten opzichte van het gekozen niveau van databaseprestaties. Azure SQL Database kunt u voor het identificeren van kansen te verbeteren en optimaliseren van prestaties van query's zonder te hoeven wijzigen van resources aan de hand [aanbevelingen voor afstemming](sql-database-advisor.md). Ontbrekende indexen en onvoldoende geoptimaliseerde query's zijn veelvoorkomende redenen voor slechte databaseprestaties. U kunt deze aanbevelingen voor afstemming voor het verbeteren van de prestaties van uw workload kunt toepassen. U kunt ook laat Azure SQL database tot [automatisch de prestaties van uw query's optimaliseren](sql-database-automatic-tuning.md) door het toepassen van alle aanbevelingen en te controleren dat ze betere databaseprestaties geïdentificeerd.
+Het bewaken van de prestaties van een SQL-database in Azure begint met het bewaken van het resourcegebruik ten opzichte van het gekozen niveau van databaseprestaties. U moet voor het bewaken van de volgende bronnen:
+ - **CPU-gebruik** -moet u controleren zijn u 100% van de CPU-gebruik in een langere periode bereikt. Dit kan betekenen dat u mogelijk een upgrade uitgevoerd of instantie of identificeren en afstemmen van de query's die van de meeste van de compute-kracht gebruikmaken.
+ - **Wachtstatistieken** -moet u controleren wat waarom uw query's op bepaalde resources wachten. Queriesmig wacht tot de gegevens worden opgehaald of zijn opgeslagen in de databasebestanden, wachten omdat een resourcelimiet is bereikt, enzovoort.
+ - **I/o-gebruik** -moet u controleren zijn bereikt de i/o-limieten van de onderliggende opslag.
+ - **Geheugengebruik** -de hoeveelheid geheugen die beschikbaar is voor uw database of instantie in verhouding met het aantal vCores staat, en moet u controleren het genoeg is voor uw workload. Levensverwachting voor pagina is een van de parameters die kunnen duiden op de pagina's snel verwijderd uit het geheugen.
+
+Azure SQL Database **biedt de adviezen per cheque die u kunnen helpen en mogelijke prestatieproblemen oplossen**. U kunt eenvoudig vaststellen kansen te verbeteren en optimaliseren van prestaties van query's zonder te hoeven wijzigen van resources aan de hand [aanbevelingen voor afstemming](sql-database-advisor.md). Ontbrekende indexen en onvoldoende geoptimaliseerde query's zijn veelvoorkomende redenen voor slechte databaseprestaties. U kunt deze aanbevelingen voor afstemming voor het verbeteren van de prestaties van uw workload kunt toepassen. U kunt ook laat Azure SQL database tot [automatisch de prestaties van uw query's optimaliseren](sql-database-automatic-tuning.md) door het toepassen van alle aanbevelingen en te controleren dat ze betere databaseprestaties geïdentificeerd.
 
 U hebt de volgende opties voor controle en probleemoplossing van de prestaties van de database:
 
 - In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-databases**, selecteert u de database en gebruik vervolgens de controle grafiek om te zoeken naar resources hun maximale nadert. DTU-verbruik wordt standaard weergegeven. Klik op **bewerken** te wijzigen van het tijdsbereik en de waarden die worden weergegeven.
-- Gebruik [Query Performance Insight](sql-database-query-performance.md) voor het identificeren van de query's die besteden aan het meest van resources.
-- Gebruik [SQL Database Advisor](sql-database-advisor-portal.md) om aanbevelingen voor het maken en verwijderen van indexen, parametriseren query's en schema-problemen oplossen weer te geven.
+- Hulpprogramma's zoals SQL Server Management Studio kunt u vele nuttige rapporten, zoals een [Prestatiedashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) waar u kunt het Resourcegebruik en bovenste die veel resources verbruiken van query's identificeren of [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)waar u de query's met verminderde prestaties kunt identificeren.
+- Gebruik [Query Performance Insight](sql-database-query-performance.md) de [Azure-portal](https://portal.azure.com) in voor het identificeren van de query's die besteden aan het meest van resources. Deze functie is alleen beschikbaar in de individuele databases en elastische Pools.
+- Gebruik [SQL Database Advisor](sql-database-advisor-portal.md) om aanbevelingen voor het maken en verwijderen van indexen, parametriseren query's en schema-problemen oplossen weer te geven. Deze functie is alleen beschikbaar in de individuele databases en elastische Pools.
 - Gebruik [Intelligent Insights van Azure SQL](sql-database-intelligent-insights.md) voor de automatische bewaking van de databaseprestaties van uw. Zodra een prestatieprobleem wordt gedetecteerd, wordt een diagnostisch logboek gegenereerd met de details en Root oorzaak Analysis (RCA) van het probleem. Prestaties verbetering aanbeveling wordt geleverd, indien mogelijk.
 - [Automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md) en laat Azure SQL database automatisch correctie geïdentificeerd prestatieproblemen kunnen voordoen.
 - Gebruik [dynamische beheerweergave (DMV's)](sql-database-monitoring-with-dmvs.md), [uitgebreid gebeurtenissen](sql-database-xevent-db-diff-from-svr.md), en de [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voor meer het oplossen van prestatieproblemen.
 
 > [!TIP]
 > Zie [prestatierichtlijnen](sql-database-performance-guidance.md) technieken die u gebruiken kunt voor het verbeteren van de prestaties van Azure SQL Database na het identificeren van het prestatieprobleem met behulp van een of meer van de bovenstaande manieren vinden.
-
-## <a name="monitor-databases-using-the-azure-portal"></a>Databases bewaken via de Azure-portal
-
-In de [Azure-portal](https://portal.azure.com/), kunt u een afzonderlijke Databasegebruik s controleren door te klikken en selecteer uw database de **bewaking** grafiek. Nu wordt een venster **Metrische gegevens** geopend, dat u kunt wijzigen door op de knop **Grafiek bewerken** te klikken. Voeg de volgende metrische gegevens toe:
-
-- CPU-percentage
-- DTU-percentage
-- Gegevens-I/O-percentage
-- Databaseomvangpercentage
-
-Als u deze metrische gegevens hebt toegevoegd, kunt u doorgaan met deze bekijken in de **bewaking** grafiek met meer informatie over de **Metric** venster. De vier metrische gegevens tonen het gemiddelde gebruikspercentage ten opzichte van de **DTU** van uw database. Zie de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) artikelen voor meer informatie over Servicelagen.  
-
-![Servicelaagbewaking van databaseprestaties.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
-
-U kunt ook meldingen configureren voor prestatiewaarden. Klik op de knop **Melding toevoegen** in het venster **Metrische gegevens**. Volg de wizard om de melding te configureren. U hebt de keuze om een melding weer te geven als de metrische gegevens een bepaalde drempelwaarde overschrijden of als het meetpunt onder een bepaalde drempelwaarde komt.
-
-Als u bijvoorbeeld verwacht dat de workload van de database zal toenemen, kunt u configureren dat er een e-mailmelding wordt verstuurd wanneer de database 80% van een van de prestatiewaarden heeft bereikt. U kunt dit gebruiken als een vroegtijdige waarschuwing te achterhalen wanneer u misschien moet overschakelen naar de volgende hoogste compute-grootte.
-
-De maatstaven voor prestaties kunt u bepalen of u moet downgraden naar een lagere compute-grootte. Stel dat u een Standard S2-database gebruikt en alle prestatiewaarden aangeven dat de database gemiddeld nooit meer dan 10% gebruikt. Het is dan waarschijnlijk dat de database in Standard S1 goed werkt. Echter rekening houden met workloads die pieken of fluctueren, voordat u de beslissing om te verplaatsen naar een lagere compute-grootte.
 
 ## <a name="troubleshoot-performance-issues"></a>Prestatieproblemen oplossen
 
@@ -65,6 +57,18 @@ Voor het opsporen en oplossen van prestatieproblemen, begint u inzicht hebt in d
 ![Statussen van de werkbelasting](./media/sql-database-monitor-tune-overview/workload-states.png)
 
 Voor een werkbelasting met problemen met prestaties, het prestatieprobleem kan worden veroorzaakt door CPU conflicten (een **uitvoeren met betrekking tot** voorwaarde) of afzonderlijke query's zijn er wordt gewacht op iets (een **wachten met betrekking tot** voorwaarde ).
+
+De oorzaken of **uitvoeren met betrekking tot** problemen kunnen zijn:
+- **Compilatieproblemen** -SQL-queryoptimalisatieprogramma suboptimale plan vanwege verouderde statistieken, onjuist schatting van het aantal rijen dat wordt verwerkt, of de schatting van de vereiste geheugen kunnen produceren. Als u weet dat deze query is sneller uitgevoerd in het verleden of op andere exemplaar (Managed Instance of SQL Server-exemplaar), zijn nemen de daadwerkelijke uitvoering plannen en te vergelijken om te zien in het andere. Probeer queryhints of opnieuw worden opgebouwd statistieken of indexen om op te halen van de betere plan toe te passen. Schakel automatische abonnementcorrectie in Azure SQL Database om deze problemen automatisch te beperken.
+- **Uitvoeringsproblemen** : als het queryplan optimaal is en dit waarschijnlijk te met enkele resourcebeperkingen in de database zoals logboek schrijven-doorvoer maken is of deze mogelijk gebruik van gedefragmenteerde indexen die moeten opnieuw worden opgebouwd. Een groot aantal gelijktijdige query's die de resources zijn uitgaven mogelijk ook de oorzaak van problemen kan worden uitgevoerd. **Wachten met betrekking tot** problemen zijn in de meeste gevallen met betrekking tot de problemen worden uitgevoerd, omdat de query's die niet efficiënt worden uitgevoerd waarschijnlijk tot enkele resources wacht zijn.
+
+De oorzaken of **wachten met betrekking tot** problemen kunnen zijn:
+- **Blokkeren** -één query kan de vergrendeling houdt op sommige objecten in de database terwijl anderen toegang probeert te krijgen van de dezelfde objecten. U kunt eenvoudig de blokkerende query's met behulp van DMV of controlehulpprogramma's identificeren.
+- **I/o-problemen** -query's mogelijk moet wachten tot de pagina's naar de gegevens of logboek-bestanden moeten worden geschreven. In dit geval ziet u `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, of `PAGEIOLATCH_*` statistieken in de DMV wachten.
+- **Problemen met TempDB** : als u van een groot aantal tijdelijke tabellen gebruikmaakt of er een groot aantal TempDB morsen in uw plannen voor uw query's die u mogelijk een probleem met het TempDB-doorvoer. 
+- **Geheugenproblemen** -kunt u wellicht niet voldoende geheugen voor uw workload zodat de levensverwachting voor pagina kan verwijderen, of uw query's minder geheugentoekenning krijgen dan nodig is. In sommige gevallen wordt de ingebouwde intelligentie in queryoptimalisatieprogramma deze problemen opgelost.
+ 
+In de volgende secties wordt dit uitgelegd hoe u om te identificeren en oplossen van deze problemen.
 
 ## <a name="running-related-performance-issues"></a>Problemen met prestaties met betrekking tot die wordt uitgevoerd
 
@@ -76,7 +80,7 @@ Als een algemene richtlijn als het CPU-gebruik is consistent op of boven 80%, he
 
 Als u vaststelt dat er een prestatieprobleem is uitgevoerd met betrekking tot, wordt het doel is het identificeren van het exacte probleem met behulp van een of meer methoden. De meest voorkomende methoden voor het identificeren van problemen met betrekking tot actief zijn:
 
-- Gebruik de [Azure-portal](#monitor-databases-using-the-azure-portal) voor het bewaken van CPU-percentage gebruik.
+- Gebruik de [Azure-portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) voor het bewaken van CPU-percentage gebruik.
 - Gebruik de volgende [dynamische beheerweergaven](sql-database-monitoring-with-dmvs.md):
 
   - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) verbruik van CPU, i/o en geheugen voor een Azure SQL Database-database geretourneerd. Er bestaat één rij voor elke 15 seconden, zelfs als er geen activiteit in de database. Historische gegevens worden bijgehouden voor één uur.

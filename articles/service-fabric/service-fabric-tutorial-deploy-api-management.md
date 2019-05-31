@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158197"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306817"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>API Management te integreren met Service Fabric in Azure
 
@@ -75,8 +75,8 @@ Maak een eenvoudige stateless ASP.NET Core betrouwbare Service met behulp van de
 Start Visual Studio als beheerder en maak een ASP.NET Core-service:
 
  1. Selecteer in Visual Studio File -> New Project.
- 2. Selecteer de sjabloon Service Fabric Application onder Cloud en geef deze de naam **'ApiApplication'**.
- 3. Selecteer de sjabloon voor een stateless ASP.NET Core-service en geef het project de naam **'WebApiService'**.
+ 2. Selecteer de sjabloon Service Fabric Application onder Cloud en geef deze de naam **'ApiApplication'** .
+ 3. Selecteer de sjabloon voor een stateless ASP.NET Core-service en geef het project de naam **'WebApiService'** .
  4. Selecteer de sjabloon voor een project van Web API ASP.NET Core 2.0.
  5. Als het project is gemaakt, opent u `PackageRoot\ServiceManifest.xml` en verwijdert u het `Port` kenmerk uit de configuratie van het eindpunt voor de resource:
 
@@ -288,7 +288,7 @@ U kunt nu proberen om rechtstreeks vanuit [Azure Portal](https://portal.azure.co
 
 Een cluster bevat de clusterresource zelf én andere Azure-resources. De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen.
 
-Meld u aan bij Azure en selecteer de abonnements-id waarmee u het cluster wilt verwijderen.  U kunt uw abonnements-id vinden door u aan te melden bij [Azure Portal](https://portal.azure.com). Verwijder de resourcegroep en alle clusterbronnen met behulp van de [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Aanmelden bij Azure en selecteer de abonnements-ID die u wilt verwijderen van het cluster.  U kunt uw abonnements-id vinden door u aan te melden bij [Azure Portal](https://portal.azure.com). Verwijder de resourcegroep en alle clusterbronnen met behulp van de [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

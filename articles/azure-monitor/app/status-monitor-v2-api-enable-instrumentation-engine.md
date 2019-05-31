@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d886aa364ca928d32100c570689f13beb0c682c9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e993378634262de25449975431c0a9e3145ca9fb
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143419"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255251"
 ---
 # <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>Status Monitor v2 API: Enable-InstrumentationEngine (v0.2.1-alfa)
 
@@ -79,7 +79,7 @@ Configuring registry for instrumentation engine...
  - [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken
 - [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren
 - [Gebruik analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's
-- [Maak dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+- [Maak dashboards](../../azure-monitor/app/overview-dashboard.md)
  
  Meer telemetrie toevoegen:
  - [Maak webtests](monitor-web-app-availability.md) om ervoor te zorgen dat uw site actief blijft.

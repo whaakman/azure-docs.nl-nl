@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402038"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304576"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Windows-machines in Azure met behulp van C# maken en beheren #
 
@@ -41,7 +41,7 @@ Het duurt ongeveer 20 minuten deze stappen uitvoeren.
 
 1. Als u niet hebt gedaan, installeert u [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecteer **.NET-desktopontwikkeling** op de pagina van de werkbelasting, en klik vervolgens op **installeren**. In de samenvatting, kunt u zien dat **.NET Framework 4-4.6 ontwikkelprogramma's** automatisch voor u is geselecteerd. Als u Visual Studio al hebt geïnstalleerd, kunt u de .NET-werkbelasting via Visual Studio starten toevoegen.
 2. Klik in Visual Studio op **File** > **New** > **Project**.
-3. In **sjablonen** > **Visual C#**, selecteer **Console-App (.NET Framework)**, voer *myDotnetProject* voor de naam van de Project, selecteer de locatie van het project en klik vervolgens op **OK**.
+3. In **sjablonen** > **Visual C#** , selecteer **Console-App (.NET Framework)** , voer *myDotnetProject* voor de naam van de Project, selecteer de locatie van het project en klik vervolgens op **OK**.
 
 ## <a name="install-the-package"></a>Installeer het pakket
 
@@ -80,12 +80,12 @@ Voordat u deze stap begint, zorg ervoor dat u toegang tot hebt een [Active Direc
 4. Een omgevingsvariabele instellen in Windows met de naam AZURE_AUTH_LOCATION met het volledige pad naar bestand met autorisatieregels die u hebt gemaakt. Bijvoorbeeld, kan de volgende PowerShell-opdracht worden gebruikt:
 
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
 ### <a name="create-the-management-client"></a>De management-client maken
 
-1. Open het bestand Program.cs van het project dat u hebt gemaakt en voeg deze using-instructies toe aan de bestaande instructies aan de bovenkant van het bestand:
+1. Open het bestand Program.cs van het project dat u hebt gemaakt. Vervolgens voegt u deze met behulp van instructies toe aan de bestaande instructies aan de bovenkant van het bestand:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -365,7 +365,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Een gegevensschijf toevoegen aan de virtuele machine
 
-Een gegevensschijf toevoegen aan de virtuele machine, voeg deze code toe aan de methode Main om toe te voegen een gegevensschijf die is 2 GB groot, han een LUN van 0 en een type opslaan in cache van ReadWrite om:
+Een gegevensschijf toevoegen aan de virtuele machine, voeg deze code toe aan de methode Main om. In dit voorbeeld wordt een gegevensschijf die is 2 GB groot, han een LUN van 0 en een type opslaan in cache van ReadWrite toegevoegd:
 
 ```
 Console.WriteLine("Adding data disk to vm...");

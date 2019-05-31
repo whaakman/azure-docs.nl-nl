@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 14f76a716447e09299cfa18d6758245706c7b481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbb67845922dd9a3b2a78f76bf25d73bace98a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556465"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240121"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementeren en een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database verkennen
 
@@ -129,8 +129,8 @@ Maakt gebruik van de toepassing Wingtip [*Azure Traffic Manager* ](../traffic-m
 
     | URL-onderdeel        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | De onderdelen van de gebeurtenissen van de Wingtip-app.<br /><br /> *-dpt* onderscheidt de *database-per-tenant* uitvoering van de Wingtip Tickets van andere implementaties. Voorbeelden zijn de *één* app-per-tenant (*-sa*) of *multitenant-database* (*- mt*) implementaties. |
-    | .*&lt;user&gt;* | *af1* in het voorbeeld. |
+    | http://events.wingtip-dpt | De onderdelen van de gebeurtenissen van de Wingtip-app.<br /><br /> *-dpt* onderscheidt de *database-per-tenant* uitvoering van de Wingtip Tickets van andere implementaties. Voorbeelden zijn de *één* app-per-tenant ( *-sa*) of *multitenant-database* ( *- mt*) implementaties. |
+    | . *&lt;user&gt;* | *af1* in het voorbeeld. |
     | .trafficmanager.net/ | Traffic Manager, basis-URL. |
     | fabrikamjazzclub | Hiermee geeft u de tenant met de naam Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -182,7 +182,7 @@ Als u wilt beheren en controleren van de achtergrondtaken, gebruikt u de volgend
     - De achtergrondtaken worden standaard uitgevoerd gedurende 120 minuten.
     - Elke taak een op basis van CPU-belasting zorgt ervoor dat op één tenant-database door te voeren *sp_CpuLoadGenerator*. De intensiteit en de duur van de belasting varieert, afhankelijk van `$DemoScenario`.
     - *sp_CpuLoadGenerator* lussen om een SQL SELECT-instructie die ervoor zorgt een hoog CPU-belasting dat. Het tijdsinterval tussen problemen van de SELECT varieert op basis van de parameterwaarden te maken van een instelbare CPU-belasting. De belastingsniveaus en intervallen zijn ingedeeld als u wilt simuleren realistischer geladen.
-    - Deze .sql-bestanden worden opgeslagen onder *WingtipTenantDB\\dbo\\StoredProcedures\\*.
+    - Deze .sql-bestanden worden opgeslagen onder *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
 4. Als `$OneTime = $false`, de load-generator begint de achtergrondtaken en vervolgens om uit te voeren. Elke 10 seconden, bewaakt het voor alle nieuwe tenants die zijn ingericht. Als u `$OneTime = $true`, de LoadGenerator begint de achtergrondtaken en vervolgens niet meer werkt op de voorgrond is geplaatst. Voor deze zelfstudie laat u `$OneTime = $false`.
 
@@ -221,14 +221,14 @@ Vernieuw de Events Hub zodat de nieuwe tenant weergegeven in de lijst.
 
 Nu u bent begonnen met het uitvoeren van een werklast in de verzameling van tenants, laten we bekijken enkele van de resources die zijn geïmplementeerd.
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar de lijst met SQL-servers. Open vervolgens de **catalogus-dpt -&lt;gebruiker&gt;** server.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de lijst met SQL-servers. Open vervolgens de **catalogus-dpt -&lt;gebruiker&gt;**  server.
     - De catalogusserver bevat twee databases: **tenantcatalog** en **basetenantdb** (een sjabloondatabase die voor het maken van nieuwe tenants worden gekopieerd).
 
    ![Databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Ga terug naar de lijst met SQL-servers.
 
-3. Open de **tenants1-dpt -&lt;gebruiker&gt;** server die de tenantdatabases bevat.
+3. Open de **tenants1-dpt -&lt;gebruiker&gt;**  server die de tenantdatabases bevat.
 
 4. Zie de volgende items:
 
@@ -241,7 +241,7 @@ Nu u bent begonnen met het uitvoeren van een werklast in de verzameling van tena
 
 Na *LoadGenerator.ps1* uitvoeringen voor enkele minuten, voldoende gegevens beschikbaar moeten zijn om te kijken naar enkele mogelijkheden voor bewaking starten. Deze mogelijkheden zijn ingebouwd in pools en databases.
 
-Blader naar de server **tenants1-dpt -&lt;gebruiker&gt;**, en selecteer **Pool1** om Resourcegebruik voor de groep weer te geven. In de volgende grafieken, wordt de load-generator uitgevoerd gedurende één uur.
+Blader naar de server **tenants1-dpt -&lt;gebruiker&gt;** , en selecteer **Pool1** om Resourcegebruik voor de groep weer te geven. In de volgende grafieken, wordt de load-generator uitgevoerd gedurende één uur.
 
    ![Pool bewaken](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -254,7 +254,7 @@ De twee grafieken ziet u dat elastische pools en SQL-Database goed geschikt voor
 
 - Zie voor meer informatie, extra [zelfstudies die op de database-per-tenant-toepassing Wingtip Tickets SaaS voortbouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Zie voor meer informatie over elastische pools, [wat is een elastische pool van Azure SQL?](sql-database-elastic-pool.md).
-- Zie voor meer informatie over elastische taken, [beheren uitgeschaalde clouddatabases](sql-database-elastic-jobs-overview.md).
+- Zie voor meer informatie over elastische taken, [beheren uitgeschaalde clouddatabases](elastic-jobs-overview.md).
 - Zie voor meer informatie over multitenant SaaS-toepassingen, [ontwerppatronen voor multitenant SaaS-toepassingen](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Volgende stappen

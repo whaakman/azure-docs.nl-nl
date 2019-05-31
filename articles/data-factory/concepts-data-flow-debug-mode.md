@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 1a332dd46cac196c8185ddb12c0d900f5c36e1b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a50778db5fd57202c17f05407045259371912586
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270975"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239197"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Foutopsporingsmodus voor de stroom van de gegevens van de toewijzing
 
@@ -27,6 +27,9 @@ Als foutopsporingsmodus ingeschakeld is, maakt u interactief de gegevensstroom m
 
 In de meeste gevallen is het raadzaam om te maken van uw gegevens stromen in de foutopsporingsmodus zodat u kunt uw bedrijfslogica valideren en uw gegevenstransformaties bekijken voordat u uw werk in Azure Data Factory publiceert. U moet ook de knop "Debug" in het deelvenster van de pijplijn gebruiken om uw gegevensstroom binnen een pijplijn te testen.
 
+> [!NOTE]
+> Tijdens de foutopsporing modus licht groen op de werkbalk van de Data Factory is, u wordt tarief in rekening gebracht de gegevensstroom foutopsporing van 8 kernen/uur van de algemene rekencapaciteit met een 60 minuten time-to-live 
+
 ## <a name="debug-mode-on"></a>Fouten opsporen in de modus op
 Als u op de foutopsporingsmodus gebruikt overschakelt, wordt u gevraagd een zijpaneel formulier die u moet verwijzen naar het interactieve Azure Databricks-cluster en selecteer opties voor de bron-steekproeven. U moet een interactieve cluster op basis van Azure Databricks gebruiken en selecteer een van beide een grootte van de steekproeven van elk uw bron-transformaties of kies een tekstbestand dat u wilt gebruiken voor de testgegevens van uw.
 
@@ -36,12 +39,12 @@ Als u op de foutopsporingsmodus gebruikt overschakelt, wordt u gevraagd een zijp
 >Bij uitvoering in de foutopsporingsmodus in gegevensstroom, uw gegevens niet worden geschreven naar de Sink transformeren. Een foutopsporingssessie is bedoeld om te fungeren als een test > basis voor uw transformaties. Sinks zijn niet vereist tijdens de foutopsporing en worden genegeerd in de gegevensstroom. Als u wilt testen met het schrijven van gegevens > in uw Sink de gegevensstroom worden uitgevoerd vanuit een Azure Data Factory-pijplijn en gebruikt u de uitvoering fouten opsporen in een pijplijn.
 
 ## <a name="debug-settings"></a>Instellingen voor foutopsporing
-Instellingen voor foutopsporing kan worden voor elke bron van de gegevensstroom wordt weergegeven in het paneel aan clientzijde en kan ook worden bewerkt door te selecteren in uw "source instellingen' op de werkbalk gegevensstroom ontwerper. U kunt de limieten en/of het bestandsbron moet worden gebruikt voor elke hier uw bron-transformatie selecteren. Er zijn de rijlimieten in deze instelling alleen voor de huidige foutopsporingssessie. U kunt ook de instelling van de steekproef nemen in de bron gebruiken voor het beperken van rijen in de bron-transforamtion.
+Instellingen voor foutopsporing kan worden voor elke bron van de gegevensstroom wordt weergegeven in het paneel aan clientzijde en kan ook worden bewerkt door te selecteren in uw "source instellingen' op de werkbalk gegevensstroom ontwerper. U kunt de limieten en/of het bestandsbron moet worden gebruikt voor elke hier uw bron-transformatie selecteren. Er zijn de rijlimieten in deze instelling alleen voor de huidige foutopsporingssessie. U kunt ook de instelling van de steekproef nemen in de bron gebruiken voor het beperken van rijen in de bron-transformatie.
 
 ## <a name="cluster-status"></a>De clusterstatus
 Er is een statusindicator cluster aan de bovenkant van het ontwerpoppervlak dat groen inschakelen wanneer het cluster gereed voor foutopsporing is. Als uw cluster al warm is, wordt vrijwel onmiddellijk de groene indicator weergegeven. Als uw cluster is niet al wordt uitgevoerd wanneer u de foutopsporingsmodus hebt ingevoerd, hebt u wacht 5-7 minuten voor het cluster om te activeren. Het licht indicator zijn gele totdat deze klaar is. Zodra het cluster gereed voor foutopsporing gegevensstroom is, wordt de indicator lichte groen inschakelen.
 
-Wanneer u klaar bent met uw foutopsporing, schakel de foutopsporing uitschakelen zodat uw Azure Databricks-cluster kunt beëindigen.
+Wanneer u klaar met uw foutopsporing bent uit te schakelen de switch foutopsporing zodat uw Azure Databricks-cluster kunt beëindigd en wordt u niet meer gefactureerd voor foutopsporing activiteit.
 
 <img src="media/data-flow/datapreview.png" width="400">
 

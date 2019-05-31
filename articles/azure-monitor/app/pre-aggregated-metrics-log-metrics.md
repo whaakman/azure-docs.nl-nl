@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572513"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256137"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Op basis van een logboek en vooraf samengevoegde metrische gegevens in Application Insights
 
@@ -34,7 +34,7 @@ Op hetzelfde moment, het verzamelen van gebeurtenissen een compleet pakket mogel
 
 ## <a name="pre-aggregated-metrics"></a>Vooraf samengevoegde metrische gegevens
 
-Naast het logboek op basis van metrische gegevens verzonden de Application Insights-team in daling van 2018, een openbare preview van metrische gegevens die zijn opgeslagen in een specifieke opslagplaats die is geoptimaliseerd voor tijdreeks. De nieuwe metrische gegevens zijn niet meer opgeslagen als afzonderlijke gebeurtenissen met een groot aantal eigenschappen. In plaats daarvan worden opgeslagen als vooraf samengevoegde tijdreeksen en alleen met belangrijke dimensies. Hierdoor wordt de nieuwe metrische gegevens superieure bij uitvoeren van query's: het ophalen van gegevens veel sneller gebeurt en vereist minder rekenkracht. Dit als gevolg daarvan maakt nieuwe scenario's zoals [bijna realtime waarschuwingen voor de afmetingen van metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), responsievere [dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards), en nog veel meer.
+Naast het logboek op basis van metrische gegevens verzonden de Application Insights-team in daling van 2018, een openbare preview van metrische gegevens die zijn opgeslagen in een specifieke opslagplaats die is geoptimaliseerd voor tijdreeks. De nieuwe metrische gegevens zijn niet meer opgeslagen als afzonderlijke gebeurtenissen met een groot aantal eigenschappen. In plaats daarvan worden opgeslagen als vooraf samengevoegde tijdreeksen en alleen met belangrijke dimensies. Hierdoor wordt de nieuwe metrische gegevens superieure bij uitvoeren van query's: het ophalen van gegevens veel sneller gebeurt en vereist minder rekenkracht. Dit als gevolg daarvan maakt nieuwe scenario's zoals [bijna realtime waarschuwingen voor de afmetingen van metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), responsievere [dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard), en nog veel meer.
 
 > [!IMPORTANT]
 > Zowel, op basis van een logboek en vooraf samengevoegde metrische gegevens worden gecombineerd in Application Insights. Om te onderscheiden van de twee, in de Application Insights UX de vooraf samengevoegde metrische gegevens heten voortaan 'Standaard metrische gegevens (preview)', terwijl de traditionele metrische gegevens van de gebeurtenissen zijn gewijzigd in 'metrische gegevens op basis van logboek'.

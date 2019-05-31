@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/21/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 140b1263047849e13a44441c368e6357078574d8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002491"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240815"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -54,7 +54,7 @@ Als u wilt maken of bijwerken van een uitvoeren als-account, moet u de specifiek
 |Maken of verwijderen van een Automation-certificaat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Inzender voor resourcegroep         |Resourcegroep van Automation-Account|
 |Maken of verwijderen van een Automation-verbinding|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Inzender voor resourcegroep |Resourcegroep van Automation-Account|
 
-<sup>1</sup> kunnen gebruikers zonder beheerdersrechten in uw Azure AD-tenant [AD-toepassingen registreren](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) als de Azure AD-tenant **gebruikers kunnen toepassingen registreren** optie **gebruikersinstellingen**pagina is ingesteld op **Ja**. Als de instelling app-registraties is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een **hoofdbeheerder** in Azure AD.
+<sup>1</sup> kunnen gebruikers zonder beheerdersrechten in uw Azure AD-tenant [AD-toepassingen registreren](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) als de Azure AD-tenant **gebruikers kunnen toepassingen registreren** optie **gebruikersinstellingen**pagina is ingesteld op **Ja**. Als de instelling app-registraties is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert is gedefinieerd in de voorgaande tabel.
 
 Als u niet lid zijn van Active Directory-exemplaar van het abonnement voordat u bent toegevoegd aan de **hoofdbeheerder** rol van het abonnement, u bent toegevoegd als gast. In dit geval ontvangt u een `You do not have permissions to create…` waarschuwing op de **Automation-Account toevoegen** pagina. Gebruikers die zijn toegevoegd aan de **hoofdbeheerder** rol eerst kan worden verwijderd uit Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 
@@ -376,7 +376,7 @@ Selecteer in de Azure portal, **abonnementen** en kies het abonnement van uw Aut
 
 ![Abonnement inzenders](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)**. Selecteer **roltoewijzing toevoegen**, Hiermee opent u de **roltoewijzing toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Deze stappen voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
+Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)** . Selecteer **roltoewijzing toevoegen**, Hiermee opent u de **roltoewijzing toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Deze stappen voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
 
 ## <a name="misconfiguration"></a>Onjuiste configuratie
 

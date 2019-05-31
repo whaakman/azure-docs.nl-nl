@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705075"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253762"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -74,7 +74,7 @@ Het volgende voorbeeld wordt een **RelyingParty** -element in de *B2C_1A_signup_
 
 De optionele **RelyingParty** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | De gebruikersbeleving standaard voor de RP-toepassing. |
 | UserJourneyBehaviors | 0:1 | Het bereik van de reis gebruikersgedrag. |
@@ -110,7 +110,7 @@ De **DefaultUserJourney** element bevat het volgende kenmerk:
 
 De **UserJourneyBehaviors** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Het bereik van de eenmalige aanmelding (SSO) sessiegedrag van een gebruikersbeleving. |
 | SessionExpiryType |0:1 | Het verificatiegedrag van de sessie. Mogelijke waarden: `Rolling` of `Absolute`. De `Rolling` waarde (standaard) geeft aan dat de gebruiker aangemeld blijft zolang de gebruiker voortdurend actief zijn in de toepassing is. De `Absolute` waarde geeft aan dat de gebruiker wordt gedwongen om te verifiëren na de periode die is opgegeven door de toepassingssessie levensduur. |
@@ -124,7 +124,7 @@ De **SingleSignOn** element in het volgende kenmerk bevat:
 
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| Bereik | Ja | Het bereik van het gedrag van eenmalige aanmelding. Mogelijke waarden: `Suppressed`, `Tenant`, `Application`, of `Policy`. De `Suppressed` waarde geeft aan dat het probleem wordt onderdrukt. Bijvoorbeeld geen sessie wordt bijgehouden voor de gebruiker in het geval van een sessie voor eenmalige aanmelding en de gebruiker altijd een prompt wordt voor de selectie van een id-provider. De `TrustFramework` waarde geeft aan dat het gedrag voor alle beleidsregels in het kader van de vertrouwensrelatie wordt toegepast. Bijvoorbeeld, navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Tenant` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels in de tenant. Bijvoorbeeld, navigeren door twee trajecten van beleid voor een tenant van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Application` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels voor de toepassing die de aanvraag. Bijvoorbeeld, navigeren door twee beleid trajecten voor een toepassing van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Policy` waarde geeft aan dat het gedrag is alleen van toepassing op een beleid. Bijvoorbeeld, wordt navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker gevraagd een id-provider selecteren bij het schakelen tussen beleid. |
+| Scope | Ja | Het bereik van het gedrag van eenmalige aanmelding. Mogelijke waarden: `Suppressed`, `Tenant`, `Application`, of `Policy`. De `Suppressed` waarde geeft aan dat het probleem wordt onderdrukt. Bijvoorbeeld geen sessie wordt bijgehouden voor de gebruiker in het geval van een sessie voor eenmalige aanmelding en de gebruiker altijd een prompt wordt voor de selectie van een id-provider. De `TrustFramework` waarde geeft aan dat het gedrag voor alle beleidsregels in het kader van de vertrouwensrelatie wordt toegepast. Bijvoorbeeld, navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Tenant` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels in de tenant. Bijvoorbeeld, navigeren door twee trajecten van beleid voor een tenant van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Application` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels voor de toepassing die de aanvraag. Bijvoorbeeld, navigeren door twee beleid trajecten voor een toepassing van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Policy` waarde geeft aan dat het gedrag is alleen van toepassing op een beleid. Bijvoorbeeld, wordt navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker gevraagd een id-provider selecteren bij het schakelen tussen beleid. |
 | KeepAliveInDays | Ja | Hiermee bepaalt u hoe lang de gebruiker blijft aangemeld. Als u de waarde op 0 schakelt KMSI functionaliteit. Zie voor meer informatie, [aangemeld blijven](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -152,7 +152,7 @@ Het volgende voorbeeld wordt een parameter met de naam doorgegeven `campaignId` 
 
 De **ContentDefinitionParameters** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0: n | Een tekenreeks zijn met de sleutel-waardepaar dat wordt toegevoegd aan de querytekenreeks van een inhoudsdefinitie laden URI. |
 
@@ -174,7 +174,7 @@ De **TechnicalProfile** element bevat het volgende kenmerk:
 
 De **TechnicalProfile** bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | De tekenreeks zijn met de naam van het technische profiel dat wordt weergegeven aan gebruikers. |
 | Description | 0:1 | De tekenreeks zijn met de beschrijving van het technische profiel dat wordt weergegeven aan gebruikers. |
@@ -193,7 +193,7 @@ De **Protocol** element bevat het volgende kenmerk:
 
 De **OutputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0: n | De naam van een verwachte claimtype in de lijst met ondersteunde voor het beleid waarnaar de relying party is geabonneerd. Deze claim fungeert als een uitvoer op voor het technische profiel. |
 
@@ -208,7 +208,7 @@ De **OutputClaim** element bevat de volgende kenmerken:
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Met de **SubjectNameingInfo** -element, u de waarde van het onderwerp van de token beheren:
-- **JTW token** : de `sub` claim. Dit is een principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het kan worden gebruikt om uit te voeren van veilige autorisatie controles, zoals wanneer het token wordt gebruikt voor toegang tot een resource. Standaard wordt de claim onderwerp gevuld met de object-ID van de gebruiker in de map. Zie voor meer informatie, [Token-, sessie en configuratie voor eenmalige aanmelding](active-directory-b2c-token-session-sso.md).
+- **JWT-token** : de `sub` claim. Dit is een principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het kan worden gebruikt om uit te voeren van veilige autorisatie controles, zoals wanneer het token wordt gebruikt voor toegang tot een resource. Standaard wordt de claim onderwerp gevuld met de object-ID van de gebruiker in de map. Zie voor meer informatie, [Token-, sessie en configuratie voor eenmalige aanmelding](active-directory-b2c-token-session-sso.md).
 - **SAML-token** : de `<Subject><NameID>` element waarmee het onderwerp element uniek wordt geïdentificeerd.
 
 De **SubjectNamingInfo** element bevat het volgende kenmerk:

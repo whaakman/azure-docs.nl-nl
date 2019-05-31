@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805919"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237264"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Herstel na noodgeval op schaal voor VMware-machines/fysieke servers instellen
 
@@ -188,7 +188,7 @@ Nadat u een vliegende start replicatie voor de eerste batch VM's, start u de bew
 1. Een beheerder van het herstel na noodgevallen voor het bewaken van de status van gerepliceerde machines toewijzen.
 2. [Gebeurtenissen controleren](site-recovery-monitor-and-troubleshoot.md) voor gerepliceerde items en de infrastructuur.
 3. [Controleer de status](vmware-physical-azure-monitor-process-server.md) van uw scale-out processervers.
-4. Zich registreren om op te halen [e-mailmeldingen](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) voor gebeurtenissen, bewaking vergemakkelijken.
+4. Zich registreren om op te halen [e-mailmeldingen](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) voor gebeurtenissen, bewaking vergemakkelijken.
 5. Normaal voeren [noodhersteloefeningen](site-recovery-test-failover-to-azure.md), om ervoor te zorgen dat alles werkt zoals verwacht.
 
 
