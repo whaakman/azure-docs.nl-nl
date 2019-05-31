@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393489"
+ms.locfileid: "66417995"
 ---
 # <a name="content-key-policies"></a>Beleid voor inhoudssleutels
 
@@ -25,7 +25,7 @@ Met Media Services, kunt u uw live en on-demand inhoud dynamisch wordt versleute
 
 Als u de versleutelingsopties voor uw stroom, moet u maken een [beleid Streaming](streaming-policy-concept.md) en koppel deze aan uw [Streaming-Locator gemaakt](streaming-locators-concept.md). U maakt de [inhoud sleutel beleid](https://docs.microsoft.com/rest/api/media/contentkeypolicies) configureren hoe de inhoudssleutel (waarmee de beveiligde toegang tot uw [activa](assets-concept.md)) als u wilt beëindigen van clients wordt geleverd. U moet de vereisten (beperkingen) instellen in het beleid dat inhoud sleutel die moet worden voldaan opdat sleutels met de opgegeven configuratie moet worden geleverd aan clients. Deze inhoud sleutel-beleid is niet nodig om duidelijk streamen of te downloaden. 
 
-Meestal, koppelt u uw **inhoud sleutel beleid** met uw **Streaming-Locator gemaakt**. U kunt ook de inhoud sleutel-beleid in een beleid voor Streaming opgeven (bij het maken van een aangepast beleid Streaming voor geavanceerde scenario's). 
+Meestal, koppelt u uw **inhoud sleutel beleid** met uw [Streaming-Locator gemaakt](streaming-locators-concept.md). U kunt ook kunt u de inhoud sleutel beleid binnen een [beleid Streaming](streaming-policy-concept.md) (bij het maken van een aangepast beleid Streaming voor geavanceerde scenario's). 
 
 Het verdient aanbeveling om te laten Media Services-inhoud sleutels automatisch worden gegenereerd. Normaal gesproken zou u een lange levensduur sleutel wordt gebruikt en controleren of er sprake beleidsregels met **ophalen**. Als u de sleutel, moet u een aparte actie-methode voor het ontvangen van geheimen of referenties, Zie het volgende voorbeeld aan te roepen.
 

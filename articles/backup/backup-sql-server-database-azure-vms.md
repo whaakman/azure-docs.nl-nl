@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952934"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236882"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines
 
@@ -49,7 +49,7 @@ Voor alle bewerkingen vereist een SQL Server-VM verbinding met Azure openbare IP
 
 Verbinding maken met behulp van een van de volgende opties:
 
-- **Toestaan dat de IP-adresbereiken Azure datacenter**. Met deze optie kunt [IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653) in de download. Voor toegang tot een netwerkbeveiligingsgroep (NSG), gebruikt u de cmdlet Set-AzureNetworkSecurityRule. Als u in de whitelist aan enige regio-specifieke IP-adressen, u zult ook moet aan lijst met geaccepteerde Azure Active Directory (Azure AD) servicetag als verificatie wilt inschakelen.
+- **Toestaan dat de IP-adresbereiken Azure datacenter**. Met deze optie kunt [IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653) in de download. Voor toegang tot een netwerkbeveiligingsgroep (NSG), gebruikt u de cmdlet Set-AzureNetworkSecurityRule. Als u geen veilige ontvangers lijst alleen regiospecifieke IP-adressen, moet u ook om bij te werken de lijst met veilige geadresseerden de servicetag Azure Active Directory (Azure AD) als verificatie wilt inschakelen.
 
 - **Toegang met behulp van labels NSG**. Als u nsg's gebruiken om te beperken van connectiviteit, wordt deze optie een regel toegevoegd aan uw NSG waarmee uitgaande toegang tot Azure back-up met behulp van de AzureBackup-tag. Naast deze tag kunt u moet ook overeenkomen [regels](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) voor Azure AD en Azure Storage om toe te staan connectiviteit voor verificatie en gegevensoverdracht. De AzureBackup-tag is alleen op dit moment beschikbaar zijn in PowerShell. Een regel maken met behulp van de AzureBackup-tag:
 
@@ -96,7 +96,8 @@ Vermijd het gebruik van de volgende elementen in de databasenamen van de:
   * Afsluitende en voorloopspaties
   * Afsluitende aanhalingstekens uitroepteken (!)
   * De afsluiting vierkante haken (])
-  * Beginnen met F:\
+  * Door puntkomma's (;)
+  * Doorsturen schuine streep (/)
 
 Aliasing is beschikbaar voor niet-ondersteunde tekens, maar u kunt het beste geen ze. Zie [Het gegevensmodel van de tabelservice](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN) voor meer informatie.
 
@@ -162,7 +163,7 @@ Het detecteren van databases op een virtuele machine worden uitgevoerd:
 
      * Om meer dan 50 back-ups te beschermen moet u meerdere databases configureren.
      * Om in te schakelen [ ](#enable-auto-protection) het gehele exemplaar of de Always On-beschikbaarheidsgroep. In de **AUTOPROTECT** vervolgkeuzelijst, selecteer **ON**, en selecteer vervolgens **OK**.
-     
+
     > [!NOTE]
     > De [automatische beveiliging](#enable-auto-protection) onderdeel kunt u niet alleen beveiliging op alle bestaande databases in één keer, maar geen nieuwe databases die zijn toegevoegd aan dit exemplaar of de beschikbaarheidsgroep worden ook automatisch beveiligd.  
 

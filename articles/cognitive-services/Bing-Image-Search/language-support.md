@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 57a96648e480c89d1112f069676edb1abcc7cfc3
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869856"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384146"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Ondersteuning voor taal en regio voor de Bing afbeeldingen zoeken-API
 
@@ -32,7 +32,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 > - en-AU (Engels, Australië)
 > - zh-CN (Chinees, China)
 
-## <a name="countriesregions"></a>Landen/regio's
+## <a name="countriesregions"></a>Landen/regio 's
 
 |Land/regio|Code|
 |-------|----|
@@ -79,12 +79,12 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|es-AR|
-|Australië|Engels|en-AU|
+|Australië|Nederlands|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|nl-BE|
 |België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
-|Canada|Engels|NL-CA|
+|Canada|Nederlands|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
@@ -92,31 +92,31 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong SAR|Traditioneel Chinees|zh-HK|
-|India|Engels|NL-IN|
-|Indonesië|Engels|NL-ID|
+|India|Nederlands|NL-IN|
+|Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
 |Korea|Koreaans|ko-KR|
-|Maleisië|Engels|en Mijn|
+|Maleisië|Nederlands|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Engels|NL-NZ|
+|Nieuw-Zeeland|Nederlands|NL-NZ|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filipijnen|Engels|NL-PH|
+|Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Engels|en-ZA|
+|Zuid-Afrika|Nederlands|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Engels|en-GB|
-|Verenigde Staten|Engels|en-US|
+|Verenigd Koninkrijk|Nederlands|en-GB|
+|Verenigde Staten|Nederlands|en-US|
 |Verenigde Staten|Spaans|es-US|
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het zoeken in Bing nieuws-eindpunten [nieuws afbeeldingen zoeken-API voor Bing versie 7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Zie voor meer informatie over het zoeken in Bing nieuws-eindpunten [nieuws afbeeldingen zoeken-API voor Bing versie 7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
