@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683395"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399187"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Oplossen van waarschuwingen in Azure Monitor  
 
@@ -38,7 +38,7 @@ Als u wilt verhelpen vertragingen, het systeem moet wachten en probeert de Waars
 
 Zoals beschreven in het artikel op [terminologie voor logboekwaarschuwingen](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), de periode die is vermeld in de configuratie van de Hiermee geeft u het tijdsbereik voor de query. De query retourneert alleen de records die zijn gemaakt binnen dit bereik. 
 
-De periode beperkt de gegevens opgehaald voor een query voor om misbruik te voorkomen, en deze willekeurige opdracht van de tijd heeft (zoals **geleden**) gebruikt in een logboekquery. Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd op 13:15 uur, worden alleen de records die zijn gemaakt tussen 12:15 uur en 13:15 uur gebruikt voor de logboekquery. Als de logboekquery gebruikmaakt van een opdracht tijd als **geleden (1d)**, de query nog steeds alleen gegevens tussen 12:15 uur en 13:15 uur worden gebruikt omdat de periode is ingesteld op dat het interval.
+De periode beperkt de gegevens opgehaald voor een query voor om misbruik te voorkomen, en deze willekeurige opdracht van de tijd heeft (zoals **geleden**) gebruikt in een logboekquery. Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd op 13:15 uur, worden alleen de records die zijn gemaakt tussen 12:15 uur en 13:15 uur gebruikt voor de logboekquery. Als de logboekquery gebruikmaakt van een opdracht tijd als **geleden (1d)** , de query nog steeds alleen gegevens tussen 12:15 uur en 13:15 uur worden gebruikt omdat de periode is ingesteld op dat het interval.
 
 Controleer of de periode in de configuratie overeenkomt met uw query. Voor het voorbeeld hierboven, als de logboekquery gebruikt **geleden (1d)** met de groene markering, de periode moet worden ingesteld op 24 uur of 1440 minuten (zoals aangegeven in rood). Deze instelling zorgt ervoor dat de query wordt uitgevoerd zoals bedoeld.
 
@@ -181,6 +181,7 @@ Het volgende voorbeeld van de gebeurtenis in Azure-activiteitenlogboek is voor e
 Elke logboekwaarschuwingen in Azure Monitor is gemaakt als onderdeel van de configuratie moet een analytics-query die de waarschuwing service wordt periodiek uitgevoerd opgeven. De analytics-query mogelijk de juiste syntaxis op het moment van de regel voor het maken of bijwerken. Maar soms gedurende een bepaalde periode, de query die is opgegeven in de waarschuwingsregel kunt ontwikkelen syntaxisproblemen en ervoor zorgen dat de uitvoering van de regel wilt uitvoeren. Er zijn enkele veelvoorkomende redenen waarom een analytics-query die is opgegeven in een waarschuwingsregel met fouten ontwikkelen kunt:
 
 - De query is geschreven naar [uitvoeren voor meerdere resources](../log-query/cross-workspace-query.md). En een of meer van de opgegeven resources niet meer bestaat.
+- [Waarschuwing voor een meting van metrische gegevens type](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) geconfigureerd heeft een waarschuwing query voldoet niet aan de normen syntaxis
 - Er is geen gegevensstroom aan het analytics-platform. De [uitvoeren van query's biedt een fout](https://dev.loganalytics.io/documentation/Using-the-API/Errors) omdat er geen gegevens voor de opgegeven query.
 - Wijzigingen in [querytaal](https://docs.microsoft.com/azure/kusto/query/) een herziene indeling voor opdrachten en functies bevatten. De opgegeven eerder in een waarschuwingsregel query is dus niet meer geldig.
 

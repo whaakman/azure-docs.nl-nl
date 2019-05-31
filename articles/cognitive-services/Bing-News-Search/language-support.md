@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799337"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384974"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Ondersteuning voor taal en regio voor de Bing nieuws zoeken-API
 
@@ -67,7 +67,7 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 |Hongkong SAR|Traditioneel Chinees|zh-HK|  
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Japan|Japans|ja-JP|  
-|Zuid-Korea|Koreaans|ko-KR|  
+|Korea|Koreaans|ko-KR|  
 |Nederland|Nederlands|NL-NL|  
 |Volksrepubliek China|Chinees|zh-CN|  
 |Brazilië|Portugees|pt-BR|
@@ -122,7 +122,7 @@ Voor een lijst van land/regio codes die u kunt opgeven de `cc` queryparameter, Z
 
 Hieronder vindt u het land/regio-codes die u kunt opgeven in de `cc` queryparameter. De lijst is onderhevig aan wijzigingen.  
 
-|Land/regio|Landcode|  
+|Land/regio|Landnummer|  
 |---------------------|------------------|  
 |Argentinië|AR|  
 |Australië|AU|  
@@ -138,20 +138,20 @@ Hieronder vindt u het land/regio-codes die u kunt opgeven in de `cc` queryparame
 |Hongkong SAR|HK|  
 |India|IN|  
 |Indonesië|Id|  
-|Italië|it|  
+|Italië|IT|  
 |Japan|JP|  
-|Zuid-Korea|KR|  
+|Korea|KR|  
 |Maleisië|MY|  
 |Mexico|MX|  
 |Nederland|NL|  
 |Nieuw-Zeeland|NZ|  
-|Noorwegen|NEE|  
+|Noorwegen|NO|  
 |Volksrepubliek China|CN|  
 |Polen|PL|  
 |Portugal|PT|  
 |Republiek der Filippijnen|PH|  
 |Rusland|RU|  
-|Saudi-Arabië|SA|  
+|Saoedi-Arabië|SA|  
 |Zuid-Afrika|ZA|  
 |Spanje|ES|  
 |Zweden|SE|  
@@ -162,4 +162,4 @@ Hieronder vindt u het land/regio-codes die u kunt opgeven in de `cc` queryparame
 |Verenigde Staten|VS|
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het zoeken in Bing nieuws-eindpunten [nieuws zoeken-API voor Bing versie 7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+Zie voor meer informatie over het zoeken in Bing nieuws-eindpunten [nieuws zoeken-API voor Bing versie 7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

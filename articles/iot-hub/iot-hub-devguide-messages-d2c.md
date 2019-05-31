@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 094641baaa1472b481140072cd5d3d35d27d5ed7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917425"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390527"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Gebruik IoT Hub-berichtroutering apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten
 
@@ -39,7 +39,7 @@ U kunt standard [Event Hubs-integratie en SDK's](iot-hub-devguide-messages-read-
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub worden ondersteund voor het schrijven van gegevens naar Azure Blob-opslag in de [Apache Avro](https://avro.apache.org/) en JSON-indeling. De mogelijkheid voor het coderen van JSON-indeling is in preview in alle regio's die IOT Hub verkrijgbaar in, met uitzondering van VS-Oost, VS-West en West-Europa is. De standaardwaarde is AVRO. De coderingsindeling kan alleen worden ingesteld als het eindpunt van blob storage is geconfigureerd. De indeling kan niet worden bewerkt voor een bestaand eindpunt. Wanneer u de JSON-codering, moet u de contentType instellen in JSON en beperking contentEncoding naar UTF-8 in het bericht [Systeemeigenschappen](iot-hub-devguide-routing-query-syntax.md#system-properties). U kunt de coderingsindeling met behulp van de IoT Hub maken of bijwerken REST API, specifiek selecteren de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), de Azure-Portal [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) of de [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Het volgende diagram toont hoe u de coderingsindeling selecteert in de Azure Portal.
+IoT Hub worden ondersteund voor het schrijven van gegevens naar Azure Blob-opslag in de [Apache Avro](https://avro.apache.org/) indeling ook zoals in de JSON-indeling. De mogelijkheid voor het coderen van JSON-indeling is algemeen beschikbaar in alle regio's waarin de IoT Hub verkrijgbaar is. De standaardwaarde is AVRO. De coderingsindeling kan alleen worden ingesteld als het eindpunt van blob storage is geconfigureerd. De indeling kan niet worden bewerkt voor een bestaand eindpunt. Wanneer u de JSON-codering, moet u de contentType instellen in JSON en beperking contentEncoding naar UTF-8 in het bericht [Systeemeigenschappen](iot-hub-devguide-routing-query-syntax.md#system-properties). Als dit niet is ingesteld, kunnen de IoT Hub wordt de berichten in de base 64 gecodeerde indeling schrijven. U kunt de coderingsindeling met behulp van de IoT Hub maken of bijwerken REST API, specifiek selecteren de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), de Azure-portal [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest), of de [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Het volgende diagram toont hoe u de coderingsindeling selecteert in de Azure-portal.
 
 ![BLOB storage endpoint codering](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -95,19 +95,19 @@ Gebruik de volgende zelfstudies voor informatie over het lezen van bericht van e
 
 ## <a name="fallback-route"></a>Alternatieve route
 
-De alternatieve route verzendt alle berichten die niet voldoen aan de queryvoorwaarden op een van de bestaande routes naar de ingebouwde-Event Hubs (**berichten/gebeurtenissen**), dat wil zeggen compatibel is met [Event Hubs](/azure/event-hubs/). Als de routering van berichten is ingeschakeld, kunt u de mogelijkheid alternatieve route inschakelen. Zodra een route is gemaakt, gegevens stopt naar het ingebouwde-in-eindpunt geleid, tenzij er een route naar dit eindpunt wordt gemaakt. Als er geen routes met het ingebouwde-in-eindpunt zijn en een alternatieve route is ingeschakeld, wordt alleen de berichten die niet overeenkomen met de queryvoorwaarden van een op routes met het ingebouwde-in-eindpunt worden verzonden. Als alle bestaande routes worden verwijderd, moet er ook alternatieve route worden ingeschakeld voor het ontvangen van alle gegevens op het ingebouwde-in-eindpunt. 
+De alternatieve route verzendt alle berichten die niet voldoen aan de queryvoorwaarden op een van de bestaande routes naar de ingebouwde-Event Hubs (**berichten/gebeurtenissen**), dat wil zeggen compatibel is met [Event Hubs](/azure/event-hubs/). Als de routering van berichten is ingeschakeld, kunt u de mogelijkheid alternatieve route inschakelen. Zodra een route is gemaakt, gegevens stopt naar het ingebouwde-in-eindpunt geleid, tenzij er een route naar dit eindpunt wordt gemaakt. Als er geen routes met het ingebouwde-in-eindpunt zijn en een alternatieve route is ingeschakeld, wordt alleen de berichten die niet overeenkomen met de queryvoorwaarden van een op routes met het ingebouwde-in-eindpunt worden verzonden. Als alle bestaande routes worden verwijderd, moet er ook alternatieve route worden ingeschakeld voor het ontvangen van alle gegevens op het ingebouwde-in-eindpunt.
 
-U kunt in-of uitschakelen de alternatieve route in Azure Portal-blade berichtroutering >. U kunt ook gebruiken met Azure Resource Manager voor [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) met een aangepast eindpunt voor alternatieve route.
+U kunt in-of uitschakelen de alternatieve route in Azure portal-blade berichtroutering >. U kunt ook gebruiken met Azure Resource Manager voor [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) met een aangepast eindpunt voor alternatieve route.
 
 ## <a name="non-telemetry-events"></a>Niet-telemetriegebeurtenissen
 
 Naast de telemetrie van apparaten kan berichtroutering ook verzenden device twin gebeurtenissen en levenscyclusgebeurtenissen voor het apparaat. Bijvoorbeeld, als een route is gemaakt met de gegevensbron is ingesteld op **device twin gebeurtenissen**, IoT Hub-berichten verzendt naar het eindpunt dat de wijziging in de apparaatdubbel bevatten. Op dezelfde manier als een route is gemaakt met de gegevensbron is ingesteld op **levenscyclusgebeurtenissen voor het apparaat**, IoT-Hub ontvangt een bericht dat aangeeft of het apparaat is verwijderd of is gemaakt. 
 
-[IoT Hub kan ook worden geïntegreerd met Azure Event Grid](iot-hub-event-grid.md) apparaatgebeurtenissen ter ondersteuning van realtime-integraties en automatisering van werkstromen op basis van deze gebeurtenissen publiceren. Sleutel [verschillen tussen de routering van berichten en Event Grid](iot-hub-event-grid-routing-comparison.md) voor meer informatie over die geschikt is voor uw scenario.
+[IoT Hub kan ook worden geïntegreerd met Azure Event Grid](iot-hub-event-grid.md) apparaatgebeurtenissen ter ondersteuning van realtime integraties en automatisering van werkstromen op basis van deze gebeurtenissen publiceren. Sleutel [verschillen tussen de routering van berichten en Event Grid](iot-hub-event-grid-routing-comparison.md) voor meer informatie over die geschikt is voor uw scenario.
 
 ## <a name="testing-routes"></a>Routes testen
 
-Wanneer u een nieuwe route maken of bewerken van een bestaande route, moet u de route-query met een voorbeeldbericht testen. U kunt afzonderlijke routes testen of alle routes in één keer te testen en geen berichten worden doorgestuurd naar de eindpunten tijdens de test. Azure Portal, Azure Resource Manager, Azure PowerShell en Azure CLI kunnen worden gebruikt voor het testen. Resultaten vast te stellen of de voorbeeldbericht overeenkomen met de query, bericht komt niet overeen met de query of test kan niet worden uitgevoerd omdat de voorbeeld-bericht of query-syntaxis onjuist zijn. Zie voor meer informatie, [Route testen](/rest/api/iothub/iothubresource/testroute) en [Test alle routes](/rest/api/iothub/iothubresource/testallroutes).
+Wanneer u een nieuwe route maken of bewerken van een bestaande route, moet u de route-query met een voorbeeldbericht testen. U kunt afzonderlijke routes testen of alle routes in één keer te testen en geen berichten worden doorgestuurd naar de eindpunten tijdens de test. Azure portal, Azure Resource Manager, Azure PowerShell en Azure CLI kunnen worden gebruikt voor het testen. Resultaten vast te stellen of de voorbeeldbericht overeenkomen met de query, bericht komt niet overeen met de query of test kan niet worden uitgevoerd omdat de voorbeeld-bericht of query-syntaxis onjuist zijn. Zie voor meer informatie, [Route testen](/rest/api/iothub/iothubresource/testroute) en [Test alle routes](/rest/api/iothub/iothubresource/testallroutes).
 
 ## <a name="latency"></a>Latentie
 
@@ -117,11 +117,11 @@ In de meeste gevallen is de gemiddelde toename in latentie van minder dan 500 ms
 
 ## <a name="monitoring-and-troubleshooting"></a>Bewaking en probleemoplossing
 
-IoT Hub biedt verschillende Routering en eindpunt verwante metrische gegevens waarin u een overzicht van de status van uw hub en de berichten die worden verzonden. U kunt gegevens uit meerdere metrische gegevens om de hoofdoorzaak van problemen vast te combineren. Gebruik bijvoorbeeld de statistiek voor **routering: telemetrieberichten verwijderd** of **d2c.telemetry.egress.dropped** voor het identificeren van het aantal berichten dat is verwijderd als ze niet overeenkomen met de query's op een van de routes en alternatieve route is uitgeschakeld. [Metrische gegevens van IoT-Hub](iot-hub-metrics.md) geeft een lijst van alle metrische gegevens die zijn standaard ingeschakeld voor uw IoT-Hub.
+IoT Hub biedt verschillende metrische gegevens met betrekking tot routering en eindpunten aan de biedt u een overzicht van de status van uw hub en de berichten die worden verzonden. U kunt gegevens uit meerdere metrische gegevens om de hoofdoorzaak van problemen vast te combineren. Gebruik bijvoorbeeld de statistiek voor **routering: telemetrieberichten verwijderd** of **d2c.telemetry.egress.dropped** voor het identificeren van het aantal berichten dat is verwijderd als ze niet overeenkomen met de query's op een van de routes en alternatieve route is uitgeschakeld. [Metrische gegevens van IoT-Hub](iot-hub-metrics.md) geeft een lijst van alle metrische gegevens die zijn standaard ingeschakeld voor uw IoT-Hub.
 
 U kunt de REST-API gebruiken [Endpoint-status ophalen](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) om op te halen [de integriteitsstatus van de](iot-hub-devguide-endpoints.md#custom-endpoints) van de eindpunten. Wordt u aangeraden de [metrische gegevens van IoT-Hub](iot-hub-metrics.md) met betrekking tot routering bericht latentie om te bepalen en fouten opsporen, wanneer de status van het eindpunt dode of niet in orde is. Bijvoorbeeld, voor het eindpunt van het type Event Hubs, kunt u controleren **d2c.endpoints.latency.eventHubs**. De status van een eindpunt niet in orde wordt bijgewerkt op in orde wanneer IoT Hub heeft een uiteindelijke consistente status van de gezondheid van tot stand worden gebracht.
 
-Met behulp van de **routes** diagnostische logboeken in Azure Monitor [diagnostische instellingen](../iot-hub/iot-hub-monitor-resource-health.md), kunt u de nummers fouten die tijdens de evaluatie van een routering query- en eindpunt status optreden zoals waargenomen door de IoT-Hub, bijvoorbeeld een eindpunt is als inactief. Deze logboeken met diagnostische gegevens kunnen worden verzonden naar Azure Monitor-Logboeken, Event Hubs of Azure Storage voor aangepaste verwerking.
+Met behulp van de **routes** diagnostische logboeken in Azure Monitor [diagnostische instellingen](../iot-hub/iot-hub-monitor-resource-health.md), kunt u fouten die tijdens de evaluatie van een routering query- en eindpunt status optreden zoals waargenomen door de IoT Hub, bijvoorbeeld wanneer bijhouden een eindpunt is niet actief. Deze logboeken met diagnostische gegevens kunnen worden verzonden naar Azure Monitor-Logboeken, Event Hubs of Azure Storage voor aangepaste verwerking.
 
 ## <a name="next-steps"></a>Volgende stappen
 

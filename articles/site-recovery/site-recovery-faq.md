@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f2d64e0a081ff483be84053c442f48e7d145ca50
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413926"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396505"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 In dit artikel bevat een overzicht van de veelgestelde vragen over Azure Site Recovery.</br>
@@ -60,7 +60,7 @@ We bieden ondersteuning voor Azure Pack, Cloud Platform System en System Center 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Worden implementaties van één Azure Pack en één VMM-server ondersteund?
 Ja, kunt u Hyper-V-machines repliceren naar Azure, of tussen sites van serviceproviders.  Houd er rekening mee dat als u tussen sites van serviceproviders repliceert, Azure-runbookintegratie niet beschikbaar is.
 
-## <a name="pricing"></a>Prijs
+## <a name="pricing"></a>Prijzen
 
 ### <a name="where-can-i-find-pricing-information"></a>Waar vind ik informatie over prijzen?
 Beoordeling [prijzen voor Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) details.

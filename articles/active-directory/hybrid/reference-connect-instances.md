@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/18/2018
+ms.date: 05/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca481d50efb99d6e36c66388192e9f27cd66bf45
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096093"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298820"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Speciale overwegingen voor exemplaren
 Azure AD Connect wordt meestal gebruikt met de world wide-exemplaar van Azure AD en Office 365. Maar er zijn ook andere exemplaren en deze hebben verschillende vereisten voor URL's en andere speciale overwegingen.
@@ -42,7 +42,7 @@ Functies die momenteel niet aanwezig zijn in de Microsoft Cloud Duitsland:
 * **Wachtwoord terugschrijven** is beschikbaar voor Preview-versie met Azure AD Connect versie 1.1.570.0 en na.
 * Andere Azure AD Premium-services zijn niet beschikbaar.
 
-## <a name="microsoft-azure-government-cloud"></a>Microsoft Azure Government-cloud
+## <a name="microsoft-azure-government"></a>Microsoft Azure en de overheid
 De [Microsoft Azure Government-cloud](https://azure.microsoft.com/features/gov/) is een cloudservice voor de Amerikaanse overheid.
 
 Deze cloud werd ondersteund door eerdere releases van DirSync. Van build 1.1.180 van Azure AD Connect, wordt de volgende generatie van de cloud ondersteund. Deze generatie wordt met behulp van alleen-Verenigde Staten op basis van eindpunten en hebben een andere lijst met URL's te openen in uw proxy-server.
@@ -51,17 +51,21 @@ Deze cloud werd ondersteund door eerdere releases van DirSync. Van build 1.1.180
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
-| \*. windows.net (vereist voor automatische detectie van Azure AD government-tenant) |
+| \*. windows.net (vereist voor automatische detectie van Azure Government-tenant) |
 | \*.gov.us.microsoftonline.com |
 | + Intrekkingslijsten voor certificaten |
 
 > [!NOTE]
-> Vanaf AAD Connect versie 1.1.647.0 AzureInstance waarde in het register is niet langer vereist, mits *. windows.net is geopend op uw proxy-server (s).
+> Vanaf Azure AD Connect versie 1.1.647.0, als de waarde AzureInstance in het register is niet langer vereist, mits *. windows.net is geopend op uw proxy-server (s). Voor klanten die geen internetverbinding vanaf hun Azure AD Connect-server (s) toestaan, kan de volgende handmatige configuratie worden gebruikt.
 
-Functies die momenteel niet aanwezig zijn in de Microsoft Azure Government-cloud:
+### <a name="manual-configuration"></a>Handmatige configuratie
 
-* **Wachtwoord terugschrijven** is beschikbaar voor Preview-versie met Azure AD Connect versie 1.1.570.0 en na.
-* Andere Azure AD Premium-services zijn niet beschikbaar.
+De volgende handmatige configuratiestappen worden gebruikt om te controleren of dat Azure AD Connect maakt gebruik van Azure Government-eindpunten voor synchronisatie.
+
+1. Start de Azure AD Connect-installatie.
+2. Wanneer u de eerste pagina waar u de gebruiksrechtovereenkomst accepteren mag zien, ga niet verder maar laat u de installatiewizard uitgevoerd.
+3. Start regedit en wijzigt u de registersleutel `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` op de waarde `4`.
+4. Ga terug naar de Azure AD Connect-installatiewizard, accepteer de gebruiksrechtovereenkomst en doorgaan. Zorg ervoor dat u tijdens de installatie van de **aangepaste configuratie** installatie pad (en niet de Express-installatie), ga vervolgens door de installatie van de normale wijze te gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](whatis-hybrid-identity.md).

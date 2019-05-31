@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 05/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f14110cec0650927f74dfe3a38f06187c6df39de
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b8eebd7a7a8933d082741a3086ffcf03a58066f
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792664"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357712"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Gebruik Azure om te hosten en uitvoeren van SAP-workloadscenario 's
 
@@ -36,15 +36,12 @@ SAP-workloadscenario's in Azure die als host fungeert kunt ook maken vereisten v
 
 ## <a name="latest-changes"></a>Meest recente wijzigingen
 
+- Introductie van ExpressRoute snel pad en een globaal bereik voor HANA grote instanties in [netwerkarchitectuur van SAP HANA (grote instanties)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) en gerelateerde documenten
 - Release van [grote Azure HANA-instanties beheren via de Azure-portal](hana-li-portal.md)
-
 - Release van [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen](high-availability-guide-suse-netapp-files.md)
-
 - Uitleg over **Linux-besturingssysteem parameter net.ipv4.tcp_timestamps** instellingen in combinatie met een Azure load balancer
 
-- Release van [configuraties van SAP-werkbelasting met Azure availability zones](sap-ha-availability-zones.md)
 
-- Release van [SAP werkbelasting controlelijst voor planning en implementatie](sap-deployment-checklist.md)
 
 
 

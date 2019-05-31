@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689326"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258289"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -621,11 +621,11 @@ Hebt u enige flexibiliteit in hoe u waarschuwingen voor de opgegeven drempelwaar
 
 ## <a name="patching-and-operations"></a>Patching en bewerkingen
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Hoe maak ik een schaalset in een bestaande resourcegroep?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Kan ik een schaalset in een bestaande resourcegroep maken?
 
-Het maken van schaalsets in een bestaande resource group is nog niet mogelijk in de Azure-portal, maar u kunt een bestaande resourcegroep opgeven als een schaalset implementeren vanuit een Azure Resource Manager-sjabloon. U kunt ook een bestaande resourcegroep opgeven bij het maken van een schaalset met behulp van Azure PowerShell of CLI.
+Ja, u kunt een schaalset maken in een bestaande resourcegroep.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>Kunnen we een schaalset naar een andere resourcegroep verplaatsen?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Kan ik een schaalset naar een andere resourcegroep verplaatsen?
 
 Ja, u kunt resources van de schaalset naar een nieuw abonnement of resourcegroep verplaatsen.
 

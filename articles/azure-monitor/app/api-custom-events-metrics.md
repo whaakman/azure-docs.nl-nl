@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785884"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299254"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -53,7 +53,7 @@ Als u nog een verwijzing op Application Insights-SDK hebt:
   * [Java-project](../../azure-monitor/app/java-get-started.md)
   * [Node.js-project](../../azure-monitor/app/nodejs.md)
   * [JavaScript in elke webpagina](../../azure-monitor/app/javascript.md) 
-* Neem in uw apparaat- of webservercode het volgende op:
+* In de apparaat- of servercode, zijn onder andere:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -432,7 +432,7 @@ Telemetrie-items dat is gerapporteerd binnen een bereik van opnieuw worden 'kind
 
 In het zoekvak, de bewerkingscontext wordt gebruikt om de **verwante Items** lijst:
 
-![Gerelateerde items](./media/api-custom-events-metrics/21.png)
+![Verwante items](./media/api-custom-events-metrics/21.png)
 
 Zie [aangepaste bewerkingen met Application Insights .NET-SDK bijhouden](../../azure-monitor/app/custom-operations-tracking.md) voor meer informatie over aangepaste bewerkingen bijhouden.
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Gegevens leegmaken
 
-Normaal gesproken verzendt de SDK soms ervoor gekozen om te beperken de gevolgen voor de gebruiker. Echter, in sommige gevallen kunt u leegmaken van de buffer--bijvoorbeeld, als u de SDK in een toepassing die wordt afgesloten.
+Normaal gesproken wordt de SDK verzonden gegevens met vaste intervallen (doorgaans 30 seconden), of wanneer de buffer is volledig (meestal 500 items). Echter, in sommige gevallen kunt u leegmaken van de buffer--bijvoorbeeld, als u de SDK in een toepassing die wordt afgesloten.
 
 *C#*
 

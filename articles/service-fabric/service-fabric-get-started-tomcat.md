@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947392"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306830"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Service Fabric-container die Apache Tomcat-server op Linux maken
 Apache Tomcat is een populaire, open-source implementatie van de Java Servlet- en Java-Server-technologieën. Dit artikel ziet u hoe u een container met Apache Tomcat en een eenvoudige webtoepassing bouwen, de container geïmplementeerd naar een Service Fabric-cluster waarop Linux wordt uitgevoerd en verbinding maken met de Web-App.  
@@ -111,9 +111,9 @@ Volg de stappen in deze sectie om een Docker-installatiekopie op basis van een i
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>De Tomcat-installatiekopie naar het containerregister pushen
 Nu dat u hebt gecontroleerd dat de Tomcat-installatiekopie wordt uitgevoerd in een container op uw ontwikkelcomputer, kunt u deze naar een opslagplaats in een containerregister pushen. In dit artikel wordt Azure Container Registry voor het opslaan van de installatiekopie, maar met enkele aanpassingen van de stappen, kunt u een containerregister die u kiest. In dit artikel de naam van het containerregister wordt ervan uitgegaan dat *myregistry* en is de naam van het volledige containerregister myregistry.azurecr.io. Deze op de juiste wijze voor uw scenario wijzigen. 
 
-1. Voer `docker login` uit om u bij uw containerregister aan te melden met uw [registerreferenties](../container-registry/container-registry-authentication.md).
+1. Voer `docker login` zich aanmeldt bij uw containerregister met uw [registerreferenties](../container-registry/container-registry-authentication.md).
 
-   In het volgende voorbeeld worden de id en het wachtwoord van een [service-principal](../active-directory/develop/app-objects-and-service-principals.md) van Azure Active Directory doorgegeven. U hebt bijvoorbeeld een service-principal aan uw register toegewezen voor een automatiseringsscenario. Of u kunt zich aanmelden met uw gebruikersnaam en wachtwoord van het register.
+   In het volgende voorbeeld worden de id en het wachtwoord van een [service-principal](../active-directory/develop/app-objects-and-service-principals.md) van Azure Active Directory doorgegeven. U hebt bijvoorbeeld een service-principal aan uw register toegewezen voor een automatiseringsscenario. Of u zich kan aanmelden met uw register gebruikersnaam en wachtwoord.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -162,7 +162,7 @@ Nu dat u hebt de Tomcat-installatiekopie naar een containerregister hebt gepusht
    </Resources>
    ```
 
-11. In het toepassingsmanifest (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), onder de **ServiceManifestImport** taggen, het volgende XML-bestand toevoegen. Vervang de **AccountName** en **wachtwoord** in de **RepositoryCredentials** tag met de naam van het containerregister en het wachtwoord is vereist voor aanmelding bij deze.
+11. In het toepassingsmanifest (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), onder de **ServiceManifestImport** taggen, het volgende XML-bestand toevoegen. Vervang de **AccountName** en **wachtwoord** in de **RepositoryCredentials** tag met de naam van het containerregister en het wachtwoord voor me niet aanmelden.
 
    ```xml
    <Policies>

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: d35e221790c2f94caf582859f78389ecca987709
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942208"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257494"
 ---
 # <a name="cloud-partner-portal-management"></a>Cloud Partner-Portal beheren
 
@@ -24,7 +24,7 @@ In deze sectie beschrijft de soorten bewerkingen beschikbaar te maken en beheren
 Voordat u de Cloud Partner-Portal gebruikt, zorg ervoor dat u met de volgende artikelen:
 
 - [Azure Marketplace-beleid en de voorwaarden](../../policies-terms.md) geeft een lijst van de diverse juridische en technische vereisten en regels die betrekking hebben op gebruikers van en uitgevers de [Azure Marketplace](https://azuremarketplace.microsoft.com) en [AppSource](https://appsource.microsoft.com).
-- [Een Cloud-Marketplace-uitgever worden](../../become-publisher.md) biedt een overzicht van alle stappen die nodig zijn om te worden van de uitgever van een officiële Microsoft-cloud.
+- [Een Cloud-Marketplace-uitgever worden](https://docs.microsoft.com/azure/marketplace/become-publisher) biedt een overzicht van alle stappen die nodig zijn om te worden van de uitgever van een officiële Microsoft-cloud.
 
 
 ## <a name="account-creation-and-management"></a>Account maken en beheren

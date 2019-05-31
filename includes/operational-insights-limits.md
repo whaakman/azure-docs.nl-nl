@@ -9,11 +9,11 @@ ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553690"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238585"
 ---
 De volgende limieten gelden voor Azure Log Analytics-resources per abonnement.
 
@@ -37,7 +37,7 @@ De volgende limieten gelden voor elke Log Analytics-werkruimte.
 
 <sup>2</sup>de bewaarperiode van gegevens voor de zelfstandige, OMS en Per GB-prijsplannen kan worden verhoogd tot 730 dagen.
 
-| Categorie | Limieten | Opmerkingen
+| Category | Limits | Opmerkingen
 | --- | --- | --- |
 | Gegevensverzamelaar-API | Maximale grootte voor een enkel bericht is 30 MB.<br>Maximumgrootte voor veldwaarden is 32 KB. | Grotere volumes splitsen in meerdere berichten.<br>Velden die langer zijn dan 32 KB worden afgebroken. |
 | API voor zoeken | 5000 records geretourneerd voor niet-samengevoegde gegevens.<br>500.000 records voor samengevoegde gegevens. | Samengevoegde gegevens is een zoekopdracht met de `summarize` opdracht.

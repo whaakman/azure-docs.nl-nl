@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969398"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357699"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Hoge beschikbaarheid van SAP NetWeaver op een Windows failover cluster en bestandsshare voor SAP ASCS/SCS-exemplaren op Azure installeren
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>De naam van een virtuele host voor de geclusterde SAP ASCS/SCS-exemplaar maken
 
-De netwerknaam van een SAP ASCS/SCS-cluster maken (bijvoorbeeld **pr1-ascs [10.0.6.7]**), zoals beschreven in [maken van een virtuele host-naam voor de geclusterde SAP ASCS/SCS-exemplaar] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
+De netwerknaam van een SAP ASCS/SCS-cluster maken (bijvoorbeeld **pr1-ascs [10.0.6.7]** ), zoals beschreven in [maken van een virtuele host-naam voor de geclusterde SAP ASCS/SCS-exemplaar] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>De exemplaren van een ASCS/SCS en gebruikers in het cluster installeren
@@ -300,7 +300,7 @@ De netwerknaam van een SAP ASCS/SCS-cluster maken (bijvoorbeeld **pr1-ascs [10.0
 
 Installeer een SAP ASCS/SCS-exemplaar op het eerste clusterknooppunt. Voor het installeren van het exemplaar in het hulpprogramma SWPM SAP-installatie, gaat u naar:
 
-**\<Product >** > **\<DBMS >** > **installatie** > **ABAP-toepassingsserver** () of **Java**) > **hoge beschikbaarheid System** > **ASCS/SCS-exemplaar** > **eerste clusterknooppunt**.
+**\<Product >**  >  **\<DBMS >**  > **installatie** > **ABAP-toepassingsserver** () of **Java**) > **hoge beschikbaarheid System** > **ASCS/SCS-exemplaar** > **eerste clusterknooppunt**.
 
 ### <a name="add-a-probe-port"></a>Een testpoort toevoegen
 
@@ -310,12 +310,12 @@ Configureer een SAP-cluster-bron, de testpoort SAP-SID-IP-met behulp van PowerSh
 
 Een SAP ASCS/SCS-exemplaar op de tweede clusterknooppunt installeren. Voor het installeren van het exemplaar in het hulpprogramma SWPM SAP-installatie, gaat u naar:
 
-**\<Product >** > **\<DBMS >** > **installatie** > **ABAP-toepassingsserver** () of **Java**) > **hoge beschikbaarheid System** > **ASCS/SCS-exemplaar** > **extra clusterknooppunt** .
+**\<Product >**  >  **\<DBMS >**  > **installatie** > **ABAP-toepassingsserver** () of **Java**) > **hoge beschikbaarheid System** > **ASCS/SCS-exemplaar** > **extra clusterknooppunt** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Het profiel SAP ASCS/SCS-exemplaar bijwerken
 
-Werk de parameters in het profiel SAP ASCS/SCS-exemplaar \<SID >_ASCS/SCS\<Nr >_\<Host >.
+Werk de parameters in het profiel SAP ASCS/SCS-exemplaar \<SID >_ASCS/SCS\<Nr >_ \<Host >.
 
 
 | Parameternaam | Parameterwaarde |
@@ -324,7 +324,7 @@ Werk de parameters in het profiel SAP ASCS/SCS-exemplaar \<SID >_ASCS/SCS\<Nr >_
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-De SAP ASCS/SCS-exemplaar opnieuw opstarten. Stel `KeepAlive` parameters op beide clusterknooppunten SAP ASCS/SCS Volg de instructies voor [registervermeldingen ingesteld op de clusterknooppunten van de SAP ASCS/SCS-exemplaar]([high-availability-guide]:high-availability-guide.md). 
+De SAP ASCS/SCS-exemplaar opnieuw opstarten. Stel `KeepAlive` parameters op beide clusterknooppunten SAP ASCS/SCS Volg de instructies voor [registervermeldingen ingesteld op de clusterknooppunten van de SAP ASCS/SCS-exemplaar][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installeren van een DBMS-exemplaar en SAP-toepassingsservers
 

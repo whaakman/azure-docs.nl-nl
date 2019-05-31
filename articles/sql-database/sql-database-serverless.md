@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951481"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393530"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL-Database zonder server (preview)
 
-## <a name="what-is-the-serverless-compute-tier"></a>Wat is de serverloze compute-laag
+## <a name="serverless-compute-tier"></a>Serverloze compute-laag
 
 SQL-Database zonder server (preview) is een compute-laag die facturen voor het bedrag van compute die worden gebruikt door een individuele database op basis van per seconde. Zonder server is geoptimaliseerd voor individuele databases met onregelmatige, onvoorspelbare gebruikspatronen waarvoor het niet erg enige vertraging in compute warmen na gebruik van niet-actieve perioden van prijs-prestatieverhouding.
 
@@ -34,7 +34,7 @@ Een database in de laag serverless Computing met parameters door het compute-ber
 - `MinVcore` en `MaxVcore` configureerbare parameters die het bereik van de rekencapaciteit die beschikbaar zijn voor de database te definiëren. Geheugen en i/o-limieten zijn in verhouding met het vCore-bereik dat is opgegeven.  
 - De vertraging autopause is een configureerbare parameter waarmee wordt gedefinieerd welke periode die de database inactief zijn moet voordat deze automatisch is onderbroken. De database wordt automatisch hervat wanneer de volgende aanmelding plaatsvindt.
 
-### <a name="pricing"></a>Prijs
+### <a name="pricing"></a>Prijzen
 
 - De totale factuur voor een database zonder servers is de som van de compute-factuur en de factuur voor opslag.
 Facturering voor compute is gebaseerd op de hoeveelheid vCores gebruikt en het geheugen dat per seconde wordt gebruikt.
@@ -64,16 +64,16 @@ De volgende tabel geeft een overzicht van de verschillen tussen de serverloze co
 | | **Serverless Computing** | **Ingerichte Computing** |
 |:---|:---|:---|
 |**Typische gebruiksscenario**| Databases met onregelmatige, onvoorspelbare gebruik afgewisseld met inactieve perioden. | Databases of elastische pools met meer normale gebruik.|
-| **Prestaties management inspanning** |Lagere|Hoger|
+| **Prestaties management inspanning** |Lagere|Hogere|
 |**COMPUTE schalen**|Automatisch|Handmatig|
-|**COMPUTE-reactietijd**|Lagere na inactieve perioden|Onmiddellijk|
+|**COMPUTE-reactietijd**|Lagere na inactieve perioden|Direct|
 |**Facturering granulariteit**|Per seconde|Per uur|
 
 ## <a name="purchasing-model-and-service-tier"></a>Model en de servicelaag aanschaffen
 
 SQL-Database zonder server is momenteel alleen ondersteund in de categorie Algemeen gebruik op 5 generatie hardware in de vCore model kopen.
 
-## <a name="autoscaling"></a>Automatisch schaal aanpassen
+## <a name="autoscale"></a>Automatisch schalen
 
 ### <a name="scaling-responsiveness"></a>Reactiesnelheid schalen
 
@@ -83,7 +83,7 @@ In het algemeen databases worden uitgevoerd op een computer met onvoldoende capa
 
 Geheugen voor serverloze databases wordt vrijgemaakt meer vaak dan voor de ingerichte Computing-databases. Dit gedrag is belangrijk om te beheersen in zonder server en de prestaties kan beïnvloeden.
 
-#### <a name="cache-reclaiming"></a>In de cache vrijmaken
+#### <a name="cache-reclamation"></a>Cache vrijmaken
 
 In tegenstelling tot databases, ingerichte Computing en geheugen van de SQL-cache van een database zonder servers vrijgemaakt, wanneer het CPU- of cache gebruik laag is.
 
@@ -116,7 +116,7 @@ Autoresume wordt geactiveerd als een van de volgende voorwaarden voldaan op elk 
 |Functie|Autoresume trigger|
 |---|---|
 |Verificatie en autorisatie|Aanmelden|
-|Detectie van dreigingen|Threat detection-instellingen in-/ uitschakelen op het niveau van de database of server<br>Threat detection-instellingen op het niveau van de database of server wijzigen|
+|Detectie van bedreigingen|Threat detection-instellingen in-/ uitschakelen op het niveau van de database of server<br>Threat detection-instellingen op het niveau van de database of server wijzigen|
 |Gegevensdetectie en -classificatie|Toevoegen, wijzigen, verwijderen of de gevoeligheidslabels weergeven|
 |Controleren|Controle records weergeven.<br>Bij te werken of weergeven van controlebeleid|
 |Gegevensmaskering|Toevoegen, wijzigen, verwijderen of gegevensmaskering regels weergeven|
@@ -145,7 +145,7 @@ De volgende functies ondersteunen geen autopausing en autoresuming. Dat wil zegg
 - De synchronisatiedatabase die wordt gebruikt in SQL data sync.
 
 
-## <a name="on-boarding-into-the-serverless-compute-tier"></a>Bepalen in de serverloze compute-laag
+## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding naar serverloze compute-laag
 
 Het maken van een nieuwe database of het verplaatsen van dat een bestaande database in een serverloze compute-laag volgt hetzelfde patroon als het maken van een nieuwe database in compute-laag ingericht en omvat de volgende twee stappen:
 
@@ -153,9 +153,9 @@ Het maken van een nieuwe database of het verplaatsen van dat een bestaande datab
 
    |Naam van serviceniveaudoelstelling service|Servicelaag|Hardware-generatie|Maximum aantal vCores|
    |---|---|---|---|
-   |GP_S_Gen5_1|Algemeen gebruik|Gen5|1|
-   |GP_S_Gen5_2|Algemeen gebruik|Gen5|2|
-   |GP_S_Gen5_4|Algemeen gebruik|Gen5|4|
+   |GP_S_Gen5_1|Algemeen doel|Gen5|1|
+   |GP_S_Gen5_2|Algemeen doel|Gen5|2|
+   |GP_S_Gen5_4|Algemeen doel|Gen5|4|
 
 2. (Optioneel) Geef de minimale vCores en autopause vertraging als u wilt wijzigen, hun standaardwaarden. De volgende tabel toont de beschikbare waarden voor deze parameters.
 
@@ -167,11 +167,11 @@ Het maken van een nieuwe database of het verplaatsen van dat een bestaande datab
 > [!NOTE]
 > Met behulp van T-SQL te verplaatsen van een bestaande database naar serverloze of te wijzigen van de compute-grootte wordt momenteel niet ondersteund, maar kan worden gedaan via de Azure portal of PowerShell.
 
-### <a name="create-new-database-using-the-azure-portal"></a>Nieuwe database met behulp van de Azure portal maken
+### <a name="create-new-serverless-database-using-azure-portal"></a>Nieuwe zonder Server-database met behulp van Azure portal maken
 
 Zie [Quickstart: Een individuele database maken in Azure SQL Database met behulp van de Azure-portal](sql-database-single-database-get-started.md).
 
-### <a name="create-new-database-using-powershell"></a>Nieuwe database maken met PowerShell
+### <a name="create-new-serverless-database-using-powershell"></a>Maken van nieuwe zonder Server-database met behulp van PowerShell
 
 Het volgende voorbeeld wordt een nieuwe database in de serverloze compute-laag gedefinieerd door de servicedoelstelling GP_S_Gen5_4 met standaardwaarden met de naam voor de min-vCores en autopause vertraging.
 
@@ -190,7 +190,7 @@ New-AzSqlDatabase `
   -AutoPauseDelay 720
 ```
 
-### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Bestaande database verplaatsen naar de serverloze compute-laag
+### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Ingerichte Computing-database verplaatsen naar serverloze compute-laag
 
 Het volgende voorbeeld wordt een bestaande database voor één van de ingerichte Computing-laag naar de serverloze compute-laag. In dit voorbeeld geeft expliciet de vCores min, max vCores en autopause vertraging.
 
@@ -207,11 +207,11 @@ Set-AzSqlDatabase
   -AutoPauseDelay 1440
 ```
 
-### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>Verplaatsen van een database buiten de serverloze compute-laag
+### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Serverloze database verplaatsen naar de ingerichte Computing-laag
 
 Een database zonder servers kan worden verplaatst naar een laag ingerichte Computing op dezelfde manier als het verplaatsen van een database van de ingerichte Computing in een serverloze compute-laag.
 
-## <a name="modify-serverless-configuration-parameters"></a>Parameters voor de serverloze configuratie wijzigen
+## <a name="modifying-serverless-configuration"></a>Serverloze-configuratie wijzigen
 
 ### <a name="maximum-vcores"></a>Maximum vCores
 
@@ -225,7 +225,7 @@ Wijzigen van de minimale vCores wordt uitgevoerd met behulp van de [Set AzSqlDat
 
 Wijzigen van de vertraging autopause wordt uitgevoerd met behulp van de [Set AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) opdracht in PowerShell met behulp van de `AutoPauseDelay` argument.
 
-## <a name="monitor-serverless-database"></a>Monitor zonder Server-database
+## <a name="monitoring"></a>Bewaking
 
 ### <a name="resources-used-and-billed"></a>Resources die worden gebruikt en in rekening gebracht
 
@@ -237,11 +237,11 @@ Het app-pakket is met de buitenste meeste resource management grens voor een dat
 
 #### <a name="user-resource-pool"></a>Resourcegroep van de gebruiker
 
-De resourcegroep van de gebruiker de binnenste meeste resource management-grens voor een database, ongeacht of de database zich in een serverloze of ingerichte compute-laag is. De resourcegroep van de gebruiker het bereik van CPU- en i/o-voor de werkbelasting voor gebruikers die zijn gegenereerd door een DDL-query's (bijvoorbeeld CREATE, ALTER, enzovoort) en DML-query's (bijvoorbeeld selecteren, invoegen, bijwerken, verwijderen, enzovoort). Deze query's vertegenwoordigen meestal de meest aanzienlijk deel van het gebruik binnen het app-pakket.
+De resourcegroep van de gebruiker de binnenste meeste resource management-grens voor een database, ongeacht of de database zich in een serverloze of ingerichte compute-laag is. De gebruiker resource pool-bereiken CPU- en i/o-voor de werkbelasting van de gebruiker, zoals die worden gegenereerd door een DDL-query's, zoals het maken en wijzigen en DML-query's selecteren, invoegen, bijwerken en verwijderen. Deze query's vertegenwoordigen meestal de meest aanzienlijk deel van het gebruik binnen het app-pakket.
 
 ### <a name="metrics"></a>Metrische gegevens
 
-|Entiteit|Metric|Description|Eenheden|
+|Entiteit|Gegevens|Description|Eenheden|
 |---|---|---|---|
 |App-pakket|app_cpu_percent|Percentage van de vCores die worden gebruikt door de app ten opzichte van maximale vCores toegestaan voor de app.|Percentage|
 |App-pakket|app_cpu_billed|De hoeveelheid rekenkracht in rekening gebracht voor de app tijdens de rapportageperiode. Het aankoopbedrag tijdens deze periode is het product van deze metrische gegevens en de vCore-prijs per eenheid. <br><br>Waarden van deze metrische gegevens worden bepaald door het samenvoegen van na verloop van tijd gebruikt voor het maximum van CPU en geheugen gebruikt per seconde. Als het aantal gebruikte kleiner dan het minimum aan nodige ingericht zoals ingesteld door de min-vCores en min-geheugen, is en vervolgens het minimum aan nodige ingericht wordt in rekening gebracht. Als u wilt vergelijken CPU met geheugen voor factureringsdoeleinden, geheugen genormaliseerd in eenheden van vCores door schaling aanpassen van de hoeveelheid geheugen in GB met 3 GB per vCore.|vCore seconden|
@@ -274,12 +274,12 @@ Get-AzSqlDatabase `
 
 Zie voor de resourcelimieten, [Serverloze compute-laag](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 
 De hoeveelheid rekenkracht in rekening gebracht, is het maximum van CPU-gebruik en het geheugen gebruikt per seconde. Als de hoeveelheid CPU gebruikt en gebruikt geheugen kleiner dan het minimum aan nodige ingericht voor elk is, klikt u vervolgens het ingerichte bedrag wordt in rekening gebracht. Als u wilt vergelijken CPU met geheugen voor factureringsdoeleinden, geheugen genormaliseerd in eenheden van vCores door schaling aanpassen van de hoeveelheid geheugen in GB met 3 GB per vCore.
 
 - **Resource in rekening gebracht**: CPU en geheugen
-- **Bedrag in rekening gebracht ($)**: de prijs per eenheid vCore * max (min vCores, vCores gebruikt, min memory GB * geheugen van 1/3 GB gebruikt * 1/3) 
+- **Bedrag in rekening gebracht ($)** : de prijs per eenheid vCore * max (min vCores, vCores gebruikt, min memory GB * geheugen van 1/3 GB gebruikt * 1/3) 
 - **Factureringsfrequentie**: Per seconde
 
 De prijs van de eenheid vCore in de kosten per vCore per seconde. Raadpleeg de [pagina met prijzen van Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) voor specifieke eenheidsprijzen in een bepaalde regio.
@@ -310,7 +310,7 @@ Stel de compute-eenheidsprijs $0.000073/vCore/second is.  Klik aan de rekenreso
 
 ## <a name="available-regions"></a>Beschikbare regio's
 
-De serverloze compute-laag is beschikbaar in alle regio's behalve de volgende regio's: Australië-centraal, China-Oost, China-Noord, Frankrijk-Zuid, Duitsland-centraal, Duitsland-Noordoost, West-India, Zuid-Korea, Zuid-Afrika West, UK-Noord, UK-Zuid, UK-West en West-Centraal VS
+De serverloze compute-laag is beschikbaar in alle regio's behalve de volgende regio's: Australië-centraal, China-Oost, China-Noord, Frankrijk-Zuid, Duitsland-centraal, Duitsland-Noordoost, West-India, Zuid-Korea, Zuid-Afrika West, UK-Noord, UK-Zuid, UK-West en West-Centraal VS.
 
 ## <a name="next-steps"></a>Volgende stappen
 

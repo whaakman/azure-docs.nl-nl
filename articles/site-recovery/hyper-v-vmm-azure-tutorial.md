@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8c3c9347a027cccfaef6def84bfdc4c83555e98a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 653db1497fcce5981bba7416f073b0330ca2861f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966489"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398157"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Instellen van herstel na noodgevallen van on-premises Hyper-V-machines in VMM-clouds naar Azure
 
@@ -31,7 +31,7 @@ In deze zelfstudie leert u het volgende:
 > * Replicatie voor een VM inschakelen.
 
 > [!NOTE]
-> Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Voor gedetailleerde instructies, Raadpleeg de artikelen in de **handleidingen** sectie van de [documentatie over Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery).
+> Zelfstudies ziet u het meest eenvoudige implementatie-pad voor een scenario. Waar mogelijk wordt gebruikgemaakt van standaardopties en niet alle mogelijke instellingen en paden worden weergegeven. Voor gedetailleerde instructies, Raadpleeg de artikelen in de **handleidingen** sectie van de [documentatie over Site Recovery](https://docs.microsoft.com/azure/site-recovery).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -44,10 +44,10 @@ Dit is de derde zelfstudie in een reeks. Hierbij wordt ervan uitgegaan dat u de 
 
 1. In de Azure-portal, gaat u naar **Recovery Services-kluizen** en selecteer de kluis. We de kluis voorbereid **ContosoVMVault** in de vorige zelfstudie.
 2. In **aan de slag**, selecteer **siteherstel**, en selecteer vervolgens **infrastructuur voorbereiden**.
-3. In **beveiligingsdoel** > **waar bevinden de machines zich?**, selecteer **On-premises**.
-4. In **waar wilt u de machines repliceren?**, selecteer **naar Azure**.
-5. In **zijn de machines gevirtualiseerd?**, selecteer **Ja, met Hyper-V**.
-6. In **gebruikt u System Center VMM voor het beheren van uw Hyper-V-hosts?**, selecteer **Ja**.
+3. In **beveiligingsdoel** > **waar bevinden de machines zich?** , selecteer **On-premises**.
+4. In **waar wilt u de machines repliceren?** , selecteer **naar Azure**.
+5. In **zijn de machines gevirtualiseerd?** , selecteer **Ja, met Hyper-V**.
+6. In **gebruikt u System Center VMM voor het beheren van uw Hyper-V-hosts?** , selecteer **Ja**.
 7.  Selecteer **OK**.
 
     ![Replicatiedoel](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
@@ -55,7 +55,7 @@ Dit is de derde zelfstudie in een reeks. Hierbij wordt ervan uitgegaan dat u de 
 ## <a name="confirm-deployment-planning"></a>Implementatieplanning bevestigen
 
 1. In **implementatieplanning**, als u van plan bent een grote implementatie, de Deployment Planner voor Hyper-V downloaden via de koppeling op de pagina. [Meer informatie](hyper-v-deployment-planner-overview.md) over het plannen van Hyper-V-implementatie.
-2. We hebben nodig niet de Deployment Planner voor deze zelfstudie. In **hebt u de implementatieplanning uitgevoerd?**, selecteer **doe ik later**, en selecteer vervolgens **OK**.
+2. We hebben nodig niet de Deployment Planner voor deze zelfstudie. In **hebt u de implementatieplanning uitgevoerd?** , selecteer **doe ik later**, en selecteer vervolgens **OK**.
 
 ## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
@@ -112,7 +112,7 @@ Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -
 
 ## <a name="set-up-a-replication-policy"></a>Een replicatiebeleid instellen
 
-1. Selecteer **infrastructuur voorbereiden** > **replicatie-instellingen** > **+ maken en koppelen**.
+1. Selecteer **infrastructuur voorbereiden** > **replicatie-instellingen** >  **+ maken en koppelen**.
 2. Geef in **Beleid maken en koppelen** een beleidsnaam op. We maken gebruik van **ContosoReplicationPolicy**.
 3. Behoud de standaardinstellingen en selecteer **OK**.
     - **Kopieerfrequentie** geeft aan dat er, na de initiële replicatie delta-gegevens worden gerepliceerd om de vijf minuten.

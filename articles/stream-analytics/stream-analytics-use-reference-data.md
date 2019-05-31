@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2400f80c67527027aee3a98baaa869c5c66d46ee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573634"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393124"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
 Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die is statische of langzaam veranderende aard is, gebruikt om uit te voeren een zoekopdracht of om te correleren met de stroom van uw gegevens. U kunt in een IoT-scenario, bijvoorbeeld slaan metagegevens over sensoren (die niet vaak wijzigen) in de referentiegegevens en ontmoet realtime IoT-gegevensstromen. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. 
@@ -38,7 +38,7 @@ Voor het configureren van de referentiegegevens, moet u eerst het maken van de i
 |Padpatroon   | Het pad dat wordt gebruikt om uw blobs in de opgegeven container te vinden. U kunt kiezen binnen het pad naar een of meer exemplaren van de volgende 2 variabelen opgeven:<BR>{date}, {time}<BR>Voorbeeld 1: products/{date}/{time}/product-list.csv<BR>Voorbeeld 2: products/{date}/product-list.csv<BR>Voorbeeld 3: product-list.csv<BR><br> Als de blob in het opgegeven pad niet bestaat, wordt de Stream Analytics-taak voor onbepaalde tijd wachten op de blob weer beschikbaar.   |
 |[Optioneel] datumnotatie   | Als u {date} binnen het pad-patroon dat u hebt opgegeven gebruikt hebt, kunt u de datumnotatie waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst van de ondersteunde indelingen selecteren.<BR>Voorbeeld: JJJJ/MM/DD, MM/DD/JJJJ, enzovoort.   |
 |[Optioneel] tijdnotatie   | Als u {time} hebt gebruikt in het pad-patroon dat u hebt opgegeven, kunt u de indeling waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst van de ondersteunde indelingen selecteren.<BR>Voorbeeld: HH, uu mm/of uu: mm.  |
-|Serialisatie-indeling voor gebeurtenissen   | Er moet in Stream Analytics zijn aangegeven welke serialisatie-indeling wordt gebruikt voor inkomende gegevensstromen om te controleren of uw query's werken zoals verwacht. Voor referentiegegevens zijn de ondersteunde indelingen CSV en JSON.  |
+|Serialisatie-indeling voor gebeurtenissen   | Om ervoor te zorgen dat uw query's werken zoals verwacht, Stream Analytics moet weten welke serialisatie-indeling gebruikt u voor inkomende gegevensstromen. Voor referentiegegevens zijn de ondersteunde indelingen CSV en JSON.  |
 |Encoding   | Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.  |
 
 ### <a name="static-reference-data"></a>Statische referentiegegevens
@@ -72,7 +72,7 @@ Azure Stream Analytics scant automatisch voor vernieuwd referentiegegevens-blobs
 3. Referentiegegevens-blobs zijn **niet** besteld door van de blob-tijdstip 'Laatst gewijzigd', maar alleen door de tijd en datum die is opgegeven in de blob naam met behulp van de {date} en {time} vervangingen.
 3. Om te voorkomen dat u hoeft te groot aantal blobs lijst, overweeg dan het verwijderen van oude blobs waarvoor de verwerking niet meer worden uitgevoerd. Houd er rekening mee dat ASA mogelijk gaan moet een klein bedrag in sommige scenario's zoals opnieuw opstarten opnieuw verwerken.
 
-## <a name="azure-sql-database-preview"></a>Azure SQL Database (Preview)
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 Referentiegegevens voor Azure SQL-Database wordt opgehaald door de Stream Analytics-taak en wordt opgeslagen als een momentopname in het geheugen voor verwerking. De momentopname van uw referentiegegevens worden ook opgeslagen in een container in een storage-account dat u in de configuratie-instellingen opgeeft. De container wordt automatisch-gemaakt wanneer de taak wordt gestart. Als de taak is gestopt of een mislukte status heeft ingevoerd, worden de containers automatisch gemaakte verwijderd wanneer de taak opnieuw wordt opgestart.  
 
@@ -94,8 +94,8 @@ Voor het configureren van de referentiegegevens voor uw SQL-Database, moet u eer
 |Gebruikersnaam|De gebruikersnaam die is gekoppeld aan uw Azure SQL Database.|
 |Wachtwoord|Het wachtwoord dat is gekoppeld aan uw Azure SQL Database.|
 |Periodiek vernieuwen|Deze optie kunt u een vernieuwingsfrequentie kiezen. "On" te kiezen kunt u de vernieuwingsfrequentie in hh opgeven.|
-|Momentopnamequery|Dit is de standaardoptie query waarmee de referentiegegevens worden opgehaald uit uw SQL-Database.|
-|Verschilquery|Voor geavanceerde scenario's met grote gegevenssets en een korte vernieuwingsfrequentie, kies om toe te voegen een delta-query.|
+|Snapshot-query|Dit is de standaardoptie query waarmee de referentiegegevens worden opgehaald uit uw SQL-Database.|
+|Delta-query|Voor geavanceerde scenario's met grote gegevenssets en een korte vernieuwingsfrequentie, kies om toe te voegen een delta-query.|
 
 ## <a name="size-limitation"></a>De maximale grootte
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751238"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239079"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Stel een vraag die u met gegevens kunt beantwoorden
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Gegevenswetenschap voor Beginners-serie
@@ -48,7 +48,7 @@ We hebben het gehad over hoe gegevenswetenschap het proces is van het gebruik va
 
 Een vaag vraag hoeft te worden beantwoord met een naam of een cijfer. Er moet een sharp vraag.
 
-Stel dat u een magische lamp met een genie die waarheidsgetrouw antwoord geven op een vraag die u vragen hebt gevonden. Maar het is een mischievous genie en hij proberen aan te brengen van diens antwoord als vaag zijn en verwarrend zijn als hij met tussenuit kan. U wilt vastmaken hem af met een vraag dus waterdichte dat hij niet kan helpen maar laat u weten wat u wilt weten.
+Stel dat u een magische lamp met een genie die waarheidsgetrouw antwoord geven op een vraag die u vragen hebt gevonden. Maar het is een mischievous genie die probeert te maken, zodat u hun antwoord vaag zijn en verwarrend zijn omdat ze direct met kunnen krijgen. Wilt u deze vastmaken af met een vraag dus waterdichte dat ze niet kunnen helpen, maar laat u weten wat u wilt weten.
 
 Als u een vraag wilt stellen vaag zijn, zoals 'Wat er gebeurt met mijn voorraad?', de genie mogelijk antwoord, 'is de prijs verandert'. Dat is een ware antwoord, maar het is niet erg nuttig.
 

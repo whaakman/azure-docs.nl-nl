@@ -1,18 +1,18 @@
 ---
-title: Weergave, maken en beheren van waarschuwingen voor activiteitenlogboeken in Azure Monitor
-description: Het maken van waarschuwingen voor activiteitenlogboeken van Azure Portal, Resource-sjabloon en PowerShell.
+title: Maken, weergeven en beheren van activiteit waarschuwingen voor activiteitenlogboeken in Azure Monitor
+description: Hoe u waarschuwingen voor activiteitenlogboek maken met behulp van de Azure-portal, een Azure Resource Manager-sjabloon en Azure PowerShell.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130063"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244963"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor  
 
@@ -97,7 +97,7 @@ Gebruik de volgende procedure:
     U kunt inschakelen, uitschakelen, bewerken of verwijderen van een regel. Meer informatie over het beheren van activiteit log regels.
 
 
-U kunt ook een eenvoudige vergelijking voor informatie over voorwaarden waarop de waarschuwingsregels voor activiteitenlogboeken, kunnen worden gemaakt is om te verkennen of filteren van gebeurtenissen via [activiteitenlogboek in Azure portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Azure controleren: activiteitenlogboek, een kunt filteren of nodig gebeurtenis zoeken en vervolgens een waarschuwing te maken met behulp van de **waarschuwing voor activiteitenlogboek toevoegen** knop; vervolgens stappen 4 en hoger zoals vermeld in de zelfstudie hierboven.
+U kunt ook een eenvoudige vergelijking voor informatie over voorwaarden waarop de waarschuwingsregels voor activiteitenlogboeken, kunnen worden gemaakt is om te verkennen of filteren van gebeurtenissen via [activiteitenlogboek in Azure portal](activity-log-view.md#azure-portal). In Azure controleren: activiteitenlogboek, een kunt filteren of nodig gebeurtenis zoeken en vervolgens een waarschuwing te maken met behulp van de **waarschuwing voor activiteitenlogboek toevoegen** knop; vervolgens stappen 4 en hoger zoals vermeld in de zelfstudie hierboven.
     
  ![ waarschuwing toevoegen met het activiteitenlogboek](media/alerts-activity-log/add-activity-log.png)
     
@@ -201,7 +201,7 @@ Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleActivityLogAlert.json t
 > Het kan tot vijf minuten duren voor de een nieuwe waarschuwingsregel voor activiteitenlogboeken actief
 
 ## <a name="rest-api"></a>REST-API 
-[Azure Monitor - activiteit Log waarschuwingen API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is een REST-API en volledig compatibel met Azure Resource Manager REST API. Daarom kan deze worden gebruikt via Powershell met Resource Manager-cmdlet, evenals Azure CLI.
+[Controleprogramma voor Azure - activiteitenlogboek waarschuwingen API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is een REST-API en volledig compatibel met Azure Resource Manager REST API. Daarom kan deze worden gebruikt via Powershell met Resource Manager-cmdlet, evenals Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -216,7 +216,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 de sampleActivityLogAlert.parameters.json bevat waarin de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
 
-### <a name="use-activity-log-powershell-cmdlets"></a>Activiteit Log PowerShell-cmdlets gebruiken
+### <a name="use-activity-log-powershell-cmdlets"></a>Activiteitenlogboek PowerShell-cmdlets gebruiken
 
 Waarschuwingen voor activiteitenlogboeken zijn speciaal bestemd voor PowerShell-cmdlets beschikbaar:
 

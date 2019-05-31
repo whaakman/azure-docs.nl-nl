@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 0b14180c894977d822aa30ea5f46a2e21e247dc1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942317"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257527"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 voor Customer Engagement-vereisten
 
@@ -40,7 +40,7 @@ Uw Dynamics 365 voor Customer Engagement-toepassing moet voldoen aan de [beoorde
 
 De zakelijke vereisten zijn onder andere de volgende procedure, contractuele en wettelijke verplichtingen:
 
-* U moet worden geregistreerd op de [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) of een geregistreerde Cloud-Marketplace-uitgever. Als u niet bent geregistreerd, volg de stappen in [geworden van een Cloud-Marketplace-uitgever](../../become-publisher.md).  (Voor de derde stap, gebruikt u in plaats daarvan de [AppSource partner nominatieformulier](https://appsource.microsoft.com/partners/signup)). 
+* U moet worden geregistreerd op de [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) of een geregistreerde Cloud-Marketplace-uitgever. Als u niet bent geregistreerd, volg de stappen in [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Voor de derde stap, gebruikt u in plaats daarvan de [AppSource partner nominatieformulier](https://appsource.microsoft.com/partners/signup)). 
 
     >[!NOTE]
     >Het account voor registratie van dezelfde Microsoft Developer Center moet u zich aanmeldt bij de Cloud Partner-Portal. U hebt slechts één Microsoft-account voor uw aanbiedingen op Azure Marketplace. Dit account mag niet zijn specifiek voor afzonderlijke services of aanbiedingen.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
 ms.author: aljo
-ms.openlocfilehash: 42c8fa15c6b1e7c98ae47180bec5cc61236a7c44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 703830778edb73781a263ae4d92529f7f79a0eb2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881382"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306847"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster
 
@@ -355,7 +355,7 @@ Als u wilt verbinding maken met een cluster die is beveiligd met AAD, wijst u uw
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-U wordt automatisch gevraagd zich kunnen aanmelden met AAD.
+U wordt automatisch gevraagd zich aanmelden met AAD.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Verbinding maken met een beveiligd cluster met behulp van een clientcertificaat
 

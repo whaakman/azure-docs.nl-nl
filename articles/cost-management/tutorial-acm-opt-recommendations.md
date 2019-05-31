@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 67cf15b00e597131afe421bf8306a5df4511af9a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965531"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416086"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Zelfstudie: De kosten van aanbevelingen optimaliseren
 
@@ -49,7 +49,17 @@ Voor aanbevelingen voor een beheergroep, opent u het gewenste bereik in de Azure
 
 De lijst met aanbevelingen inefficiënt gebruik Hiermee wordt aangegeven of aanschafaanbevelingen die u kunnen helpen extra geld besparen. De berekend totaal **mogelijke jaarlijkse besparingen** toont de totale hoeveelheid die u besparen kunt als u afsluiten of de toewijzing van al uw VM's die voldoen aan de regels van de aanbeveling. Als u niet dat ze uitschakelen wilt, kunt u overwegen ze naar een minder dure VM-SKU vergroten of verkleinen.
 
-De **Impact** categorie, samen met de **mogelijke jaarlijkse besparingen**, zijn ontworpen om u te helpen bij het identificeren van de aanbevelingen die u hebt de mogelijkheid om op te slaan zo veel mogelijk. De aanbevelingen voor hoge impact zijn [kopen gereserveerde VM-instanties om geld te besparen ten opzichte van betalen per gebruik](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) en [optimaliseren virtuele machine door het formaat of afsluiten van weinig gebruikte instantiesbesteden](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances). Normale impact aanbevelingen zijn [verlagen door het elimineren van niet-ingerichte ExpressRoute-circuits](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits) en [verlagen door te verwijderen of opnieuw configureren van niet-actieve virtuele netwerkgateways](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways).
+De **Impact** categorie, samen met de **mogelijke jaarlijkse besparingen**, zijn ontworpen om u te helpen bij het identificeren van de aanbevelingen die u hebt de mogelijkheid om op te slaan zo veel mogelijk.
+
+Hoge impact aanbevelingen zijn onder andere:
+- [Gereserveerde virtuele machine-instanties om geld te besparen ten opzichte van betalen per gebruik kopen](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [Optimaliseer virtuele machine uitgaven per vergroten of verkleinen of weinig gebruikte exemplaren afsluiten](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Standard-opslag gebruikt voor het opslaan van momentopnamen van Managed Disks ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+
+Normale impact aanbevelingen zijn onder andere:
+- [Azure Data Factory-pijplijnen die niet verwijderen](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Kosten verlagen door het elimineren van niet-ingerichte ExpressRoute-circuits](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Kosten verlagen door te verwijderen of opnieuw configureren van niet-actieve virtuele netwerkgateways](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>Reageren op een aanbeveling
 

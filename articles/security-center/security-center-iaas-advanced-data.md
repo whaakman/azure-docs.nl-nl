@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/29/2019
+ms.author: monhaber
+ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968585"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400138"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Geavanceerde beveiliging voor SQL-servers op IaaS
-Geavanceerde beveiliging voor SQL-Servers op IaaS is een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Op dit moment bevat functionaliteit voor zichtbaar te maken en potentiële databaseproblemen beperkende en opsporen van afwijkende activiteiten die op een bedreiging voor uw database wijzen kunnen.
+Geavanceerde beveiliging voor SQL-Servers op Azure Virtual Machines is een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Op dit moment bevat functionaliteit voor zichtbaar te maken en potentiële databaseproblemen beperkende en opsporen van afwijkende activiteiten die op een bedreiging voor uw database wijzen kunnen. 
 
-Deze beveiliging bieden voor IaaS SQL-servers is gebaseerd op de fundamentele technologie die wordt gebruikt de [geavanceerde gegevensbeveiliging van Azure SQL Database-pakket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Deze beveiliging bieden voor Azure VM's SQL-servers is gebaseerd op de fundamentele technologie die wordt gebruikt de [geavanceerde gegevensbeveiliging van Azure SQL Database-pakket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## <a name="overview"></a>Overzicht
 
-Geavanceerde beveiliging (AD) biedt een geavanceerde SQL-beveiligingsmogelijkheden, die bestaat uit een evaluatie van beveiligingsproblemen en Advanced Threat Protection.
+Geavanceerde gegevensbeveiliging biedt een geavanceerde SQL-beveiligingsmogelijkheden, die bestaat uit een evaluatie van beveiligingsproblemen en Advanced Threat Protection.
 
 * [Evaluatie van beveiligingsproblemen](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is een eenvoudig te configureren van de service die u kunt detecteren, volgen en u helpen potentiële databaseproblemen oplossen. Het biedt meer inzicht in uw beveiligingsstatus en bevat de stappen voor het oplossen van beveiligingsproblemen met zich mee en uw database fortifications te verbeteren.
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van uw SQL-server aangeeft. Continu bewaakt uw database voor verdachte activiteiten en vindt u op actie gerichte beveiligingswaarschuwingen over afwijkende patronen voor databasetoegang. Deze waarschuwingen bieden de details van verdachte activiteiten en aanbevolen acties om te onderzoeken en tegenhouden.
 
-## <a name="get-started-with-ads-for-iaas"></a>Aan de slag met ADVERTENTIES voor IaaS
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Aan de slag met geavanceerde beveiliging van gegevens voor SQL op Azure Virtual machines
 
-De volgende stappen uit om u aan de slag met ADVERTENTIES voor IaaS.
+De volgende stappen uit om u aan de slag met geavanceerde beveiliging van gegevens voor SQL op Azure Virtual machines.
 
-### <a name="set-up-ads-for-iaas"></a>Instellen van ADVERTENTIES voor IaaS
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Instellen van geavanceerde gegevensbeveiliging voor SQL op Azure Virtual machines
 
 **Voordat u begint met**: U moet een werkruimte voor logboekanalyse voor het opslaan van de beveiligingslogboeken die wordt geanalyseerd. Als u geen hebt, wordt u een eenvoudig maken kunt, zoals uitgelegd in [een Log Analytics-werkruimte maken in Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -95,7 +95,7 @@ U kunt weergeven en beheren van uw huidige beveiligingswaarschuwingen.
 
 U kunt instellen dat een lijst met ontvangers een e-mailmelding ontvangen wanneer ASC waarschuwingen worden gegenereerd. Het e-mailbericht bevat een directe koppeling naar de waarschuwing in Azure Security Center met alle relevante informatie. 
 
-1. Ga naar **Security Center** > **beveiligingsbeleid** en in de rij van het betreffende abonnement klikt u op **instellingen bewerken >**.
+1. Ga naar **Security Center** > **beveiligingsbeleid** en in de rij van het betreffende abonnement klikt u op **instellingen bewerken >** .
 
     ![Instellingen voor abonnement](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
@@ -120,7 +120,7 @@ Het dashboard van de evaluatie van beveiligingsproblemen biedt een overzicht van
 
 U kunt uw resultaten van de beoordeling beveiligingsproblemen en -rapporten rechtstreeks vanuit de Log Analytics weergeven.
 
-1. Navigeer naar uw Log Analytics-werkruimte met de ADS-oplossing.
+1. Navigeer naar uw Log Analytics-werkruimte met de oplossing voor geavanceerde beveiliging van gegevens.
 1. Navigeer naar **oplossingen** en selecteer de **evaluatie van beveiligingsproblemen SQL** oplossing.
 1. In de **samenvatting** deelvenster, klikt u op **samenvatting weergeven** en selecteer uw **evaluatierapport SQL-beveiligingsproblemen**.
 
@@ -142,7 +142,7 @@ U kunt uw resultaten van de beoordeling beveiligingsproblemen en -rapporten rech
 
 1. U kunt geen Log Analytics-query's uitvoeren op uw gegevens van de evaluatie van beveiligingsproblemen resultaten om de gegevens volgens uw behoeften.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-iaas-alerts"></a>Advanced Threat Protection voor SQL-Servers op IaaS-waarschuwingen
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Advanced Threat Protection voor SQL-Servers op virtuele machines in Azure-waarschuwingen
 Waarschuwingen worden gegenereerd door ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van SQL-Servers. Deze gebeurtenissen kunnen de volgende waarschuwing is geactiveerd:
 
 ### <a name="anomalous-access-pattern-alerts"></a>Waarschuwingen voor afwijkende toegang-patroon

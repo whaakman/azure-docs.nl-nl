@@ -1,5 +1,5 @@
 ---
-title: Urgentie van de werkbelasting | Microsoft Docs
+title: Azure SQL Data Warehouse workload belang | Microsoft Docs
 description: Richtlijnen voor het instellen van belang is voor query's in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 0147977307ec22134777d6c3e8242a4191362ada
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002891"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233845"
 ---
-# <a name="sql-data-warehouse-workload-importance"></a>SQL Data Warehouse workload urgentie
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL Data Warehouse workload urgentie
 
 In dit artikel wordt uitgelegd hoe belang van de werkbelasting van invloed zijn op de volgorde van de uitvoering voor SQL Data Warehouse aanvragen.
 

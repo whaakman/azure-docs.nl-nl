@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4fa4a9a8d01d499dc431c8b182401226aa72bf1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479997"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303039"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK: Instellen en uitvoeren van analysetaken met behulp van de Azure Stream Analytics-API voor .NET
 Informatie over het instellen en uitvoeren van analysetaken met behulp van de Stream Analytics-API voor .NET met behulp van de Management .NET-SDK. Instellen van een project, invoer en uitvoer bronnen, transformaties en start maken en taken stoppen. Voor de analytics-taken, kunt u gegevens uit Blob storage of van een event hub streamen.
@@ -27,11 +27,11 @@ Azure Stream Analytics is een volledig beheerde service met lage latentie, maxim
 > We hebben de voorbeeldcode in dit artikel bijgewerkt met Azure Stream Analytics Management .NET SDK v2.x versie. Zie voor voorbeelden van code met behulp van de gebruikt lagecy (1.x) SDK-versie kunt [de v1.x Management .NET SDK gebruiken voor Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
+Voordat u dit artikel, hebt u de volgende vereisten:
 
-* Installeer Visual Studio 2017 of 2015.
+* Installeer Visual Studio 2019 of 2015.
 * Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Maak een Azure-resourcegroep in uw abonnement. Hier volgt een voorbeeld van Azure PowerShell-script. Zie voor meer informatie voor Azure PowerShell, [installeren en configureren van Azure PowerShell](/powershell/azure/overview);  
+* Maak een Azure-resourcegroep in uw abonnement. Het volgende voorbeeld wordt een voorbeeld van Azure PowerShell-script. Zie voor meer informatie voor Azure PowerShell, [installeren en configureren van Azure PowerShell](/powershell/azure/overview);  
 
    ```powershell
    # Log in to your Azure account
@@ -50,7 +50,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 * Instellen van een invoer bron en bestemming voor uitvoer voor de taak verbinding maken met.
 
 ## <a name="set-up-a-project"></a>Een project instellen
-Voor het maken van een analytics-taak gebruik van de Stream Analytics-API voor .NET, eerst instellen van uw project.
+Voor het maken van een analytics-taak gebruikt u de Stream Analytics-API voor .NET, eerst instellen van uw project.
 
 1. Maak een Visual Studio C# .NET-consoletoepassing.
 2. Voer de volgende opdrachten om de NuGet-pakketten te installeren in de Package Manager-Console. De eerste is de Azure Stream Analytics Management .NET SDK. De tweede waarde is voor verificatie van Azure.
@@ -289,7 +289,7 @@ De **verwijderen** methode de taak, evenals de onderliggende onderliggende resou
 Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
-De basisbeginselen van het gebruik van een .NET-SDK maken en uitvoeren van analysetaken, hebt u geleerd. Raadpleeg de volgende onderwerpen voor meer informatie:
+De basisbeginselen van het gebruik van een .NET-SDK maken en uitvoeren van analysetaken, hebt u geleerd. Zie de volgende artikelen voor meer informatie:
 
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478892"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302905"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Een Stream Analytics-taak monitor via een programma maken
 
@@ -24,7 +24,7 @@ In dit artikel ziet u hoe u bewaking voor een Stream Analytics-taak inschakelen.
 
 Voordat u dit proces, hebt u de volgende vereisten:
 
-* Visual Studio 2017 of 2015
+* Visual Studio 2019 of 2015
 * [Azure SDK voor .NET](https://azure.microsoft.com/downloads/) gedownload en geïnstalleerd
 * Een bestaande Stream Analytics-taak die moet worden ingeschakeld controleren
 

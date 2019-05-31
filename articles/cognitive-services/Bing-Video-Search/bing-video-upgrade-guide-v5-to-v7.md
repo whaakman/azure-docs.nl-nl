@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 633981682bd8820d72a98b3fc6fbd802e0cd2afb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32dc928147af8fbb3c84bdb76e50cee4fdabe17d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759891"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386653"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Upgrade guide voor video zoeken-API
 
@@ -40,7 +40,7 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 |Code|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. Het antwoord bevat deze fouten als de HTTP-statuscode 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. Het antwoord bevat deze fouten als de HTTP-statuscode 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.
 |RateLimitExceeded||Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of query's per maand (QPM) quotum overschrijdt.<br/><br/>Bing retourneert HTTP-statuscode 429 als u overschreden QPS en 403 als u QPM overschreden.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` koptekst ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.
@@ -61,7 +61,7 @@ DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
 HttpNotAllowed|InvalidRequest.HttpNotAllowed
 UserAgentMissing|InvalidRequest.ParameterMissing
-Niet geïmplementeerd|ServerError.NotImplemented
+NotImplemented|ServerError.NotImplemented
 InvalidAuthorization|InvalidAuthorization
 InvalidAuthorizationMethod|InvalidAuthorization
 MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
@@ -71,11 +71,11 @@ Geblokkeerd|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Queryparameters
 
-- De naam van gewijzigd de `modulesRequested` parameter query [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested).  
+- De naam van gewijzigd de `modulesRequested` parameter query [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Wijzigingen van object
 
-- De naam van gewijzigd de `nextOffsetAddCount` veld [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) naar `nextOffset`. De manier waarop u de offset is ook gewijzigd. Eerder, stelt u de [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) queryparameter naar de `nextOffset` waarde plus de vorige waarde intervalverschuiving en het aantal video's in het resultaat. Nu u stelt de `offset` queryparameter naar de `nextOffset` waarde.  
+- De naam van gewijzigd de `nextOffsetAddCount` veld [video's](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) naar `nextOffset`. De manier waarop u de offset is ook gewijzigd. Eerder, stelt u de [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) queryparameter naar de `nextOffset` waarde plus de vorige waarde intervalverschuiving en het aantal video's in het resultaat. Nu u stelt de `offset` queryparameter naar de `nextOffset` waarde.  
   
-- Gewijzigd van het gegevenstype van de `relatedVideos` veld `Video[]` naar [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule) (Zie [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails)).
+- Gewijzigd van het gegevenstype van de `relatedVideos` veld `Video[]` naar [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (Zie [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
 

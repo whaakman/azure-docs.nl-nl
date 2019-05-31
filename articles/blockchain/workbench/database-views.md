@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 06b7fb678bc79203589cfa75e8afb457d6ed344f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9071cf524a0f3d319d108cb5c961fa886cf8747f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60866512"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399903"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Databaseweergaven in Azure Blockchain Workbench
 
@@ -79,7 +79,7 @@ In een *Asset Transfer* toepassing, bijvoorbeeld *John Smith* kan worden gekoppe
 | ApplicationRoleId          | int           | Nee          | Een unieke id voor een rol in de toepassing                                                                                                                                                                                     |
 | ApplicationRoleName        | nvarchar50)   | Nee          | De naam van de rol                                                                                                                                                                                                                  |
 | ApplicationRoleDescription | nvarchar(255) | Ja         | Een beschrijving van de rol                                                                                                                                                                                                             |
-| UserId                     | int           | Nee          | De ID van de gebruiker die is gekoppeld aan de rol |
+| Gebruikers-id                     | int           | Nee          | De ID van de gebruiker die is gekoppeld aan de rol |
 | UserExternalId             | nvarchar(255) | Nee          | De externe id voor de gebruiker die gekoppeld aan de rol is. Deze ID is standaard de gebruiker van de Azure Active Directory voor het consortium.                                                                     |
 | UserProvisioningStatus     | int           | Nee          | Hiermee geeft u de huidige status van het inrichtingsproces voor de gebruiker. Mogelijke waarden zijn: <br />0: gebruiker is gemaakt door de API<br />1: een sleutel is gekoppeld aan de gebruiker in de database<br />2: de gebruiker is volledig is ingericht |
 | UserFirstName              | nvarchar(50)  | Ja         | De voornaam van de gebruiker die gekoppeld aan de rol is |
@@ -101,7 +101,7 @@ Deze weergave bevat details over de verbindingen die zijn gedefinieerd in Azure 
 | LedgerId                 | int           | Nee          | De unieke id voor een grootboek |
 | LedgerName               | nvarchar(50)  | Nee          | De naam van het grootboek |
 | LedgerDisplayName        | nvarchar(255) | Nee          | De naam van het grootboek om weer te geven in de gebruikersinterface |
-| UserId                   | int           | Nee          | De ID van de gebruiker die is gekoppeld aan de verbinding |
+| Gebruikers-id                   | int           | Nee          | De ID van de gebruiker die is gekoppeld aan de verbinding |
 | UserExternalId           | nvarchar(255) | Nee          | De externe id voor de gebruiker die gekoppeld aan de verbinding is. Deze ID is standaard de gebruiker van de Azure Active Directory voor het consortium. |
 | UserProvisioningStatus   | int           | Nee          |Hiermee geeft u de huidige status van het inrichtingsproces voor de gebruiker. Mogelijke waarden zijn: <br />0: gebruiker is gemaakt door de API<br />1: een sleutel is gekoppeld aan de gebruiker in de database<br />2: de gebruiker is volledig is ingericht |
 | UserFirstName            | nvarchar(50)  | Ja         | De voornaam van de gebruiker die gekoppeld aan de verbinding is |

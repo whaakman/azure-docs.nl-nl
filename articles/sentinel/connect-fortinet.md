@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 72306132f88f211180c99cd30845781667605204
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 4418b11de4da7c69dd13ae74d94be90daadcb1f6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921880"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390532"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Verbinding maken met uw apparaat Fortinet 
 
@@ -133,7 +133,7 @@ Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven
 
 3. Zorg ervoor dat de logboeken die u verzendt aan de voldoet [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Op de computer waarop de Syslog-agent wordt uitgevoerd, zorg ervoor dat deze poorten 514, 25226 zijn open en luistert, met de opdracht `netstat -a -n:`. Zie voor meer informatie over het gebruik van deze opdracht [netstat(8) - pagina voor Linux-man](https://linux.die.netman/8/netstat). Als het goed luistert, ziet u dit:
+4. Op de computer waarop de Syslog-agent wordt uitgevoerd, zorg ervoor dat deze poorten 514, 25226 zijn open en luistert, met de opdracht `netstat -a -n:`. Zie voor meer informatie over het gebruik van deze opdracht [netstat(8) - pagina voor Linux-man](https://linux.die.net/man/8/netstat). Als het goed luistert, ziet u dit:
 
    ![Azure Sentinel poorten](./media/connect-cef/ports.png) 
 

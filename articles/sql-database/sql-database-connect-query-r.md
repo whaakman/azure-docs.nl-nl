@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 796e9c17a457bfb1a79b600b178d2c733e10f91e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382414"
+ms.locfileid: "66416364"
 ---
 # <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Quickstart: R gebruiken om te vragen van een Azure SQL-database (preview)
 
@@ -85,6 +85,9 @@ Haal de verbindingsgegevens op die u nodig hebt om verbinding te maken met de Az
 1. Het volledige R-script uit te geven de [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) opgeslagen procedure.
 
    Het script wordt doorgegeven via de `@script` argument. Alles in de `@script` argument moet een geldige R-code.
+   
+   >[!IMPORTANT]
+   >Voor de code in dit voorbeeld worden de voorbeeldgegevens gebruikt van AdventureWorksLT, die u als bron kunt kiezen bij het maken van uw database. Als in uw database andere gegevens staan, kunt u tabellen uit uw eigen database gebruiken in de SELECT-query. 
 
     ```sql
     EXECUTE sp_execute_external_script

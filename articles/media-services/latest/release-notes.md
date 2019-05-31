@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/29/2019
 ms.author: juliako
-ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153063"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385149"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -36,7 +36,21 @@ Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Se
 
 ## <a name="may-2019"></a>Mei 2019
 
+### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 en hoger-ondersteuning in dynamische verpakking 
+
+HLS toegevoegd (versie 4 of hoger) in dynamische verpakking van activa met meerdere met meerdere codecs en talen audiosporen ondersteund.
+
+Zie voor meer informatie, [dynamische verpakking](dynamic-packaging-overview.md).
+
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Korea regionaal paar is geopend voor Media Services 
+
+Media Services is nu beschikbaar in regio's Korea-centraal en Korea-Zuid. 
+
+Zie voor meer informatie, [Clouds en regio's in die Media Services v3 bestaat](azure-clouds-regions.md).
+
 ### <a name="performance-improvements"></a>Verbeterde prestaties
+
+Toegevoegde updates die prestatieverbeteringen voor Media Services zijn.
 
 * De maximale bestandsgrootte die wordt ondersteund voor de verwerking is bijgewerkt. Zie, [quota en beperkingen](limits-quotas-constraints.md).
 * [Codering snelheden verbeteringen](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
@@ -52,7 +66,7 @@ Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Se
 
 Dynamische verpakking nu ondersteunt Dolby Atmos. Zie voor meer informatie, [Audio-codecs ondersteund door dynamische pakketten](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
-Nu kunt u een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. Zie voor meer informatie, [filters met Streaming-Locator gemaakt koppelen](filters-concept.md#associate-filters-with-streaming-locator).
+Nu kunt u een lijst met activa of account filters, die voor uw Streaming-Locator gemaakt gelden. Zie voor meer informatie, [filters met Streaming-Locator gemaakt koppelen](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Februari 2019
 
@@ -133,7 +147,7 @@ Deze sectie beschrijft de updates van oktober van Azure Media Services (AMS).
 
 De [REST v3 GA-versie](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) bevat meer API's voor Live, filters op niveau manifest van Account/Asset en DRM-ondersteuning.
 
-#### <a name="azure-resource-management"></a>Azure Resources Management 
+#### <a name="azure-resource-management"></a>Azure Resource Management 
 
 Ondersteuning voor Azure Resource Management maakt geïntegreerd beheer en bewerkingen API (nu alles op één plek).
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393213"
+ms.locfileid: "66416271"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
@@ -143,6 +143,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
+### <a name="factors-influencing-query-plan-changes"></a>Factoren die invloed de wijzigingen in query
+
+Een query uitvoeren plan hercompilatie kan resulteren in een gegenereerde query-plan dat wijkt af van wat is oorspronkelijk in de cache opgeslagen. Er zijn diverse redenen waarom een bestaand plan in de oorspronkelijke automatisch kan worden gecompileerd:
+- Wijzigingen in het schema wordt verwezen door de query
+- Gegevens worden gewijzigd voor de tabellen waarnaar wordt verwezen door de query 
+- Wijzigingen in de context van queryopties 
+
+Kan cache voor een aantal redenen, met inbegrip van exemplaar wordt opnieuw opgestart in een gecompileerde plan uitgeworpen, database-scoped configuratiewijzigingen geheugendruk en expliciete aanvragen om te wissen van de cache. Bovendien houdt met behulp van een hint RECOMPILE die dat een abonnement wordt niet in cache worden opgeslagen.
+
+Een hercompilatie (of nieuwe compilatie na verwijdering van de cache), kan nog steeds resulteren in het genereren van een plan voor dezelfde query kan worden uitgevoerd vanaf een oorspronkelijk waargenomen.  Als er echter wijzigingen aan het plan in vergelijking met het voorgaande of oorspronkelijke plan zijn, wordt hier volgen de meest voorkomende oorzaken van waarom een uitvoering queryplan gewijzigd:
+
+- **Fysieke ontwerp gewijzigd**. Bijvoorbeeld nieuwe indexen gemaakt dat effectiever cover die de vereisten van een query op een nieuwe verzameling kunnen worden gebruikt als het queryoptimalisatieprogramma dit besluit meer optimaal gebruikmaken van deze nieuwe index is dan met de gegevensstructuur oorspronkelijk hebt geselecteerd voor de eerste versie van de uitvoering van de query.  Fysieke wijzigingen in de objecten waarnaar wordt verwezen, kunnen resulteren in een nieuw plan keuze op het moment van compileren.
+
+- **Server resource verschillen**. In een scenario waarbij één plan op 'systeem A' en 'systeem B': de beschikbaarheid van resources, zoals het aantal beschikbare processors verschilt kunt bepalen welk abonnement wordt gegenereerd.  Als een systeem een hoger aantal processors heeft, kunnen een parallel plan bijvoorbeeld kan worden gekozen. 
+
+- **Andere statistieken**. De statistieken die zijn gekoppeld aan de objecten waarnaar wordt verwezen, is gewijzigd of anders zijn opgebouwd uit de statistieken van het oorspronkelijke systeem.  Als de statistieken wijzigen en een recompile optreedt, wordt het queryoptimalisatieprogramma statistieken vanaf dat specifieke tijdstip gebruiken in de tijd. De herziene statistieken kan hebben aanzienlijk verschillende distributies en de frequentie die niet het geval is in de oorspronkelijke compilatie.  Deze wijzigingen worden gebruikt om te schatten kardinaliteit maakt een schatting van (aantal rijen naar verwachting in de querystructuur van de logische langs).  Wijzigingen in de kardinaliteit schattingen kunnen leiden dat ons verschillende fysieke operators en bijbehorende volgorde van bewerkingen te kiezen.  Zelfs kleine wijzigingen aan statistieken kunnen resulteren in een gewijzigde queryplan kan worden uitgevoerd.
+
+- **Gewijzigde database compatibility niveau of de kardinaliteit estimator versie**.  Wijzigingen in het databasecompatibiliteitsniveau kunnen inschakelen voor nieuwe strategieën en functies die in een andere queryplan kan worden uitgevoerd resulteren kunnen.  Naast het databasecompatibiliteitsniveau query uit te schakelen of traceringsvlag 4199 inschakelen of wijzigen van de status van de databaseconfiguratie scoped QUERY_OPTIMIZER_HOTFIXES kunnen ook van invloed zijn op uitvoering plan opties op het moment van compileren.  Traceervlaggen 9481 (verouderde CE force) en 2312 (forceren standaard CE) zijn ook van plan bent die betrekking hebben op. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Opgelost probleem query's of geef andere bronnen
 

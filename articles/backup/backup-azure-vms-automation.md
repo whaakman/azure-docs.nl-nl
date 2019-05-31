@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 10af40a1f671d5871204ff465395c8c3619671f7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232490"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255017"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Back-up en herstellen van virtuele Azure-machines met PowerShell
 
@@ -159,7 +159,7 @@ Set-AzRecoveryServicesBackupProperty -Vault $vault -BackupStorageRedundancy GeoR
 
 Als u een Recovery Services-kluis maakt, gaat deze gepaard met standaardbeleid voor beveiliging en retentie. Volgens het standaardbeveiligingsbeleid wordt elke dag op een bepaald tijdstip een back-uptaak getriggerd. Volgens het standaardbewaarbeleid wordt het dagelijkse herstelpunt gedurende dertig dagen bewaard. Het standaardbeleid kunt u snel uw VM te beveiligen en het beleid later met verschillende gegevens te bewerken.
 
-Gebruik **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) om het beveiligingsbeleid voor apps beschikbaar in de kluis weer te geven. U kunt deze cmdlet gebruiken om op te halen van een specifiek beleid, of om de beleidsregels die zijn gekoppeld aan een type werkbelasting weer te geven. Het volgende voorbeeld wordt een beleid voor het type werkbelasting, installatiekopieën van virtuele machines.
+Gebruik **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy)** om het beveiligingsbeleid voor apps beschikbaar in de kluis weer te geven. U kunt deze cmdlet gebruiken om op te halen van een specifiek beleid, of om de beleidsregels die zijn gekoppeld aan een type werkbelasting weer te geven. Het volgende voorbeeld wordt een beleid voor het type werkbelasting, installatiekopieën van virtuele machines.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
@@ -230,7 +230,7 @@ $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-De beveiliging inschakelen op **versleutelde virtuele machines (versleuteld met behulp van de BEK alleen)**, moet u de Azure Backup-service-machtiging voor het lezen van geheimen van de key vault geven.
+De beveiliging inschakelen op **versleutelde virtuele machines (versleuteld met behulp van de BEK alleen)** , moet u de Azure Backup-service-machtiging voor het lezen van geheimen van de key vault geven.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
@@ -352,7 +352,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 ### <a name="stop-protection"></a>Beveiliging stoppen
 
-#### <a name="retain-data"></a>Gegevens behouden
+#### <a name="retain-data"></a>Gegevens bewaren
 
 Als de gebruiker wil stop de beveiliging, kunnen ze gebruiken de [uitschakelen AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS-cmdlet. Hiermee stopt u de geplande back-ups maar de back omhoog totdat nu altijd wordt bewaard.
 
@@ -361,7 +361,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -Workl
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
 ````
 
-#### <a name="delete-backup-data"></a>back-upgegevens verwijderen
+#### <a name="delete-backup-data"></a>Back-upgegevens verwijderen
 
 Om volledig verwijdert de opgeslagen back-upgegevens in de kluis, gewoon toevoegen '-'RemoveRecoveryPoints vlag/overschakelen naar de [opdracht Beveiliging uitschakelen](#retain-data).
 
@@ -400,7 +400,7 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
-### <a name="choose-a-recovery-point"></a>Een herstelpunt kiezen
+### <a name="choose-a-recovery-point"></a>Kies een herstelpunt
 
 Gebruik de [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) cmdlet om alle herstelpunten voor de back-upitem weer te geven. Kies vervolgens het herstelpunt te herstellen. Als u niet zeker welk herstelpunt weet te gebruiken, is het raadzaam om te kiezen van de meest recente RecoveryPointType = AppConsistent punt in de lijst.
 
@@ -726,7 +726,7 @@ Naast het herstellen van schijven, kunt u ook afzonderlijke bestanden herstellen
 De eenvoudige stappen een bestand herstelt vanuit een Azure-VM back-up zijn:
 
 * Selecteer de virtuele machine
-* Een herstelpunt kiezen
+* Kies een herstelpunt
 * De schijven van het herstelpunt gekoppeld
 * Kopieer de benodigde bestanden
 * Ontkoppel de schijf
@@ -740,7 +740,7 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
-### <a name="choose-a-recovery-point"></a>Een herstelpunt kiezen
+### <a name="choose-a-recovery-point"></a>Kies een herstelpunt
 
 Gebruik de [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) cmdlet om alle herstelpunten voor de back-upitem weer te geven. Kies vervolgens het herstelpunt te herstellen. Als u niet zeker welk herstelpunt weet te gebruiken, is het raadzaam om te kiezen van de meest recente RecoveryPointType = AppConsistent punt in de lijst.
 

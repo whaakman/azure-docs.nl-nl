@@ -1,11 +1,8 @@
 ---
 title: Uw Azure-abonnement annuleren | Microsoft Docs
 description: Hierin wordt beschreven hoe u uw Azure-abonnement, zoals de gratis proefversie van abonnement annuleren
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
 ms.service: billing
@@ -13,24 +10,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 1/23/2019
+ms.date: 5/30/2019
 ms.author: banders
-ms.openlocfilehash: 374224663323e75a1d1413c47490bd3aacd00267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 235d93de56289bb2daaa661ee9806732da3b6d6a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918483"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417604"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Uw abonnement voor Azure annuleren
 
-U kunt uw Azure-abonnement als annuleren de [accountbeheerder](billing-subscription-transfer.md#whoisaa). Nadat u het abonnement annuleert, wordt de toegang tot Azure-services en resources eindigt.
+Alleen een Azure-abonnement [accountbeheerder](billing-subscription-transfer.md#whoisaa) een Azure-abonnement kunt annuleren. Ook kan een beheerder van de Azure-abonnement [toewijzen van een andere gebruiker als de beheerder van een abonnement](billing-add-change-azure-subscription-administrator.md#assign-a-user-as-an-administrator-of-a-subscription) zodat ze kunnen een abonnement annuleren. Nadat u het abonnement annuleert, wordt de toegang tot Azure-services en resources eindigt.
 
 Voordat u uw abonnement annuleert:
 
 * Back-up van uw gegevens. Bijvoorbeeld, als u gegevens in Azure storage of SQL opslaat, een kopie downloaden. Als u een virtuele machine hebt, kunt u een afbeelding van het lokaal opslaan.
 * Uw services afsluiten. Ga naar de [resources pagina in de beheerportal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), en **stoppen** alle virtuele machines, toepassingen of andere services.
 * Houd rekening met uw gegevens migreren. Zie [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md).
+* U moet alle resources en alle resourcegroepen verwijderen. Deze worden verwijderd is vereist voordat u een abonnement kunt annuleren. Elke resourcegroep moet afzonderlijk worden verwijderd. Tijdens het verwijderen van de resource, moet u de verwijdering bevestigt door de naam van de resourcegroep.
 
 Als u een betaald ondersteuningsabonnement voor Azure annuleert, wordt u nog steeds gefactureerd voor de rest van het abonnement. Zie voor meer informatie, [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/support/plans/).
 
@@ -49,7 +47,7 @@ Wanneer u annuleert, wordt de facturering wordt onmiddellijk gestopt. Echter kun
 
 Daarna worden uw services zijn uitgeschakeld. Dit betekent dat uw virtuele machines zijn toewijzing ongedaan, tijdelijke IP-adressen worden vrijgegeven en opslag is alleen-lezen.
 
-Als u in het midden van een factureringsperiode annuleert, sturen we de uiteindelijk factuur op uw normale factuurdatum na afloop van de periode. 
+Als u in het midden van een factureringsperiode annuleert, sturen we de uiteindelijk factuur op uw normale factuurdatum na afloop van de periode.
 
 We wacht 90 dagen definitief verwijderd van uw gegevens in het geval u nodig hebt om deze te openen of u van gedachten verandert. We niet in rekening gebracht die de gegevens bewaren. Zie voor meer informatie, [Microsoft Trust Center - hoe we uw gegevens beheren](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 

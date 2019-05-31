@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869536"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356957"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (Common Data Service) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -205,7 +205,7 @@ Om gegevens te kopiëren van Dynamics, stelt u het brontype in de kopieeractivit
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **DynamicsSource**. | Ja |
-| query | FetchXML is een eigen querytaal die wordt gebruikt in Dynamics (online en on-premises). Zie het volgende voorbeeld Zie voor meer informatie, [query's met FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nee (als 'entityName' in de gegevensset is opgegeven) |
+| query | FetchXML is een eigen querytaal die wordt gebruikt in Dynamics (online en on-premises). Zie het volgende voorbeeld Zie voor meer informatie, [query's met FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nee (als 'entityName' in de gegevensset is opgegeven) |
 
 >[!NOTE]
 >De kolom PK wordt altijd uit worden gekopieerd, zelfs als de kolom projectie die u in de FetchXML-query configureert niet het bevat.
@@ -269,12 +269,12 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieeractiv
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **DynamicsSink**. | Ja |
-| writeBehavior | Het gedrag van het schrijven van de bewerking.<br/>Toegestane waarde is **"Upsert"**. | Ja |
+| writeBehavior | Het gedrag van het schrijven van de bewerking.<br/>Toegestane waarde is **"Upsert"** . | Ja |
 | writeBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
 | ignoreNullValues | Hiermee wordt aangegeven of null-waarden van invoergegevens (met uitzondering van velden voor sleutels) tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **True**: Laat de gegevens in het doelobject ongewijzigd wanneer u een bewerking upsert/bijwerken. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **False**: Als u een upsert-/ Bijwerkbewerking doet, moet u de gegevens in het doelobject bijwerken op NULL. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
 
 >[!NOTE]
->De standaardwaarde van de sink "**writeBatchSize**'en de kopieeractiviteit'**[parallelCopies](copy-activity-performance.md#parallel-copy)**' zijn beide 10 voor de Dynamics-sink. 100 records worden daarom verzonden naar Dynamics het gelijktijdig.
+>De standaardwaarde van de sink "**writeBatchSize**'en de kopieeractiviteit' **[parallelCopies](copy-activity-performance.md#parallel-copy)** ' zijn beide 10 voor de Dynamics-sink. 100 records worden daarom verzonden naar Dynamics het gelijktijdig.
 
 Voor Dynamics 365 online, er geldt een limiet van [2 gelijktijdige batch-aanroepen per organisatie](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Als deze limiet wordt overschreden, wordt een 'Server bezet'-fout is opgetreden voordat de eerste aanvraag ooit wordt uitgevoerd. Houden 'writeBatchSize' kleiner dan of gelijk aan 10 wilt voorkomen dat dergelijke beperking van gelijktijdige aanroepen.
 

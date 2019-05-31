@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 6557f3a4129076c1e8708208e5d4e0d4f53dcec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741743"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393274"
 ---
 # <a name="import-or-export-configuration-data"></a>Configuratiegegevens importeren of exporteren
 
@@ -29,7 +29,7 @@ Dit artikel bevat een handleiding voor het importeren en exporteren van gegevens
 
 Import worden configuratie opslaan van gegevens in een App-configuratie van een bestaande gegevensbron, in plaats van handmatig in te voeren. De importfunctie gebruiken om gegevens te migreren naar een app opslaan van de configuratie- of statistische gegevens uit meerdere bronnen. App-configuratie biedt ondersteuning voor importeren uit een bestand met JSON, YAML of eigenschappen.
 
-Gegevens importeren met behulp van de [Azure-portal](https://aka.ms/azconfig/portal) of de [Azure CLI](./scripts/cli-import.md). Voer de volgende stappen uit vanuit de Azure-portal:
+Gegevens importeren met behulp van de [Azure-portal](https://portal.azure.com) of de [Azure CLI](./scripts/cli-import.md). Voer de volgende stappen uit vanuit de Azure-portal:
 
 1. Blader naar uw app-configuratiearchief, en selecteer **Import/Export**.
 
@@ -53,7 +53,7 @@ Gegevens importeren met behulp van de [Azure-portal](https://aka.ms/azconfig/por
 
 Uitvoer schrijft configuratiegegevens zijn opgeslagen in de App-configuratie naar een andere bestemming. Gebruik de functie exporteren, bijvoorbeeld bij het opslaan van gegevens in een configuratie van apps naar een bestand dat ingesloten met de code van uw toepassing tijdens de implementatie.
 
-Gegevens exporteren met behulp van de [Azure-portal](https://aka.ms/azconfig/portal) of de [Azure CLI](./scripts/cli-export.md). Voer de volgende stappen uit vanuit de Azure-portal:
+Gegevens exporteren met behulp van de [Azure-portal](https://portal.azure.com) of de [Azure CLI](./scripts/cli-export.md). Voer de volgende stappen uit vanuit de Azure-portal:
 
 1. Blader naar uw app-configuratiearchief, en selecteer **Import/Export**.
 

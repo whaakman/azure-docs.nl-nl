@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 04c457fba5cb32cc1312ffac2c2f7c1470b5a46b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 235cc1c74c099a71d289d38369ebc10132564825
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519018"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383302"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Upgradehandleiding nieuws zoeken-API
 
@@ -37,9 +37,9 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
-|Code|SubCode|Beschrijving
+|Code|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. Het antwoord bevat deze fouten als de HTTP-statuscode 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. Het antwoord bevat deze fouten als de HTTP-statuscode 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.
 |RateLimitExceeded||Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of query's per maand (QPM) quotum overschrijdt.<br/><br/>Bing retourneert HTTP-statuscode 429 als u overschreden QPS en 403 als u QPM overschreden.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` koptekst ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.
@@ -60,7 +60,7 @@ DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
 HttpNotAllowed|InvalidRequest.HttpNotAllowed
 UserAgentMissing|InvalidRequest.ParameterMissing
-Niet geïmplementeerd|ServerError.NotImplemented
+NotImplemented|ServerError.NotImplemented
 InvalidAuthorization|InvalidAuthorization
 InvalidAuthorizationMethod|InvalidAuthorization
 MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
@@ -70,24 +70,24 @@ Geblokkeerd|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Wijzigingen van object
 
-- Toegevoegd de `contractualRules` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. De `contractualRules` veld bevat een lijst met regels die u (bijvoorbeeld artikel attribution volgen moet). U moet het kenmerk dat is opgegeven in toepassen `contractualRules` in plaats van `provider`. Dit artikel bevat een `contractualRules` alleen wanneer de [webzoekopdrachten-API](../bing-web-search/search-the-web.md) antwoord bevat een nieuwsantwoord.
+- Toegevoegd de `contractualRules` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) object. De `contractualRules` veld bevat een lijst met regels die u (bijvoorbeeld artikel attribution volgen moet). U moet het kenmerk dat is opgegeven in toepassen `contractualRules` in plaats van `provider`. Dit artikel bevat een `contractualRules` alleen wanneer de [webzoekopdrachten-API](../bing-web-search/search-the-web.md) antwoord bevat een nieuwsantwoord.
 
 ## <a name="non-breaking-changes"></a>Vaste wijzigingen
 
 ### <a name="query-parameters"></a>Queryparameters
 
-- Producten toegevoegd als een mogelijke waarde die u mogelijk de [categorie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) parameter om op te vragen. Zie [categorieën op markten](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+- Producten toegevoegd als een mogelijke waarde die u mogelijk de [categorie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) parameter om op te vragen. Zie [categorieën op markten](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-- Toegevoegd de [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) queryparameter die actuele onderwerpen op met de meest recente eerst gesorteerd op basis van datum als resultaat.
+- Toegevoegd de [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) queryparameter die actuele onderwerpen op met de meest recente eerst gesorteerd op basis van datum als resultaat.
 
-- Toegevoegd de [omdat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) queryparameter, dat wordt geretourneerd van actuele onderwerpen die zijn gedetecteerd door Bing op of na de opgegeven Unix-epoche timestamp.
+- Toegevoegd de [omdat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) queryparameter, dat wordt geretourneerd van actuele onderwerpen die zijn gedetecteerd door Bing op of na de opgegeven Unix-epoche timestamp.
 
 ### <a name="object-changes"></a>Wijzigingen van object
 
-- Toegevoegd de `mentions` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. De `mentions` veld bevat een lijst met entiteiten (personen of locaties) die zijn gevonden in het artikel.
+- Toegevoegd de `mentions` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) object. De `mentions` veld bevat een lijst met entiteiten (personen of locaties) die zijn gevonden in het artikel.
 
-- Toegevoegd de `video` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. De `video` veld bevat een video met betrekking tot het nieuwsartikel. De video is een \<iframe\> die u kunt insluiten of een beweging miniatuur.
+- Toegevoegd de `video` veld de [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) object. De `video` veld bevat een video met betrekking tot het nieuwsartikel. De video is een \<iframe\> die u kunt insluiten of een beweging miniatuur.
 
-- Toegevoegd de `sort` veld de [nieuws](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) object. De `sort` veld ziet u de sorteervolgorde van de artikelen. Bijvoorbeeld, worden de artikelen gesorteerd op relevantie (standaard) of de datum.
+- Toegevoegd de `sort` veld de [nieuws](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) object. De `sort` veld ziet u de sorteervolgorde van de artikelen. Bijvoorbeeld, worden de artikelen gesorteerd op relevantie (standaard) of de datum.
 
-- Toegevoegd de [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) object, dat een sorteervolgorde bepaalt. De `isSelected` veld geeft aan of het antwoord de sorteervolgorde gebruikt. Als **waar**, het antwoord gebruikt de sorteervolgorde. Als `isSelected` is **false**, kunt u de URL in de `url` veld om aan te vragen van een andere sorteervolgorde.
+- Toegevoegd de [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) object, dat een sorteervolgorde bepaalt. De `isSelected` veld geeft aan of het antwoord de sorteervolgorde gebruikt. Als **waar**, het antwoord gebruikt de sorteervolgorde. Als `isSelected` is **false**, kunt u de URL in de `url` veld om aan te vragen van een andere sorteervolgorde.

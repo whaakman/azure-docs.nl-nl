@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777386"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244936"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
-De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./diagnostic-logs-schema.md) wordt geleverd aan het einde van het artikel.
+De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](activity-log-export.md). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](diagnostic-logs-schema.md) wordt geleverd aan het einde van het artikel.
 
 ## <a name="administrative"></a>Administratief
 Deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of een toepassing met behulp van Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van deze bewerking worden opgenomen in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen in de op rollen gebaseerd toegangsbeheer in een abonnement.
@@ -113,7 +113,7 @@ Deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie b
 | De naam van element | Description |
 | --- | --- |
 | Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk de "action", 'rol' en 'bereik'-Eigenschappen. |
-| oproepende functie |E-mailadres van de gebruiker die de bewerking, UPN-claim of op basis van beschikbaarheid SPN-claim heeft uitgevoerd. |
+| Beller |E-mailadres van de gebruiker die de bewerking, UPN-claim of op basis van beschikbaarheid SPN-claim heeft uitgevoerd. |
 | kanalen |Een van de volgende waarden: 'Admin', "Bewerking" |
 | claims |De JWT-token die wordt gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing voor deze bewerking in Resource Manager. |
 | correlationId |Meestal een GUID in de indeling van de verbindingsreeks. Gebeurtenissen die delen van een correlationId behoren tot dezelfde uber actie. |
@@ -216,7 +216,7 @@ Deze categorie bevat de record van een resource health-gebeurtenissen die hebben
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ Deze categorie bevat de record van een resource health-gebeurtenissen die hebben
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ Deze categorie bevat de record van een resource health-gebeurtenissen die hebben
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -275,7 +275,7 @@ Deze categorie bevat de record van een resource health-gebeurtenissen die hebben
 | status |De tekenreeks met een beschrijving van de status van de health-gebeurtenis. Waarden zijn: Actieve, is opgelost, wordt uitgevoerd, bijgewerkt. |
 | subStatus | Meestal null voor waarschuwingen. |
 | submissionTimestamp |Tijdstip waarop de gebeurtenis is beschikbaar voor het uitvoeren van query's geworden. |
-| subscriptionId |Azure-abonnement-id. |
+| subscriptionId |Azure-abonnement-ID. |
 | properties |Instellen van `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis.|
 | properties.title | Een gebruiksvriendelijke tekenreeks die de status van de resource wordt beschreven. |
 | properties.details | Een gebruiksvriendelijke tekenreeks die meer details over de gebeurtenis beschrijft. |
@@ -352,7 +352,7 @@ Deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | De naam van element | Description |
 | --- | --- |
-| oproepende functie | Always Microsoft.Insights/alertRules |
+| Beller | Always Microsoft.Insights/alertRules |
 | kanalen | Altijd 'Admin, bewerking' |
 | claims | JSON-blob met het type SPN (service principal name) of de resource van de waarschuwings-engine. |
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
@@ -462,7 +462,7 @@ Deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op 
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | De naam van element | Description |
 | --- | --- |
-| oproepende functie | Always Microsoft.Insights/autoscaleSettings |
+| Beller | Always Microsoft.Insights/autoscaleSettings |
 | kanalen | Altijd 'Admin, bewerking' |
 | claims | JSON-blob met het type SPN (service principal name) of de resource van de engine voor automatisch schalen. |
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
@@ -744,7 +744,7 @@ Deze categorie bevat records voor alle bewerkingen met effect actie uitgevoerd d
 | De naam van element | Description |
 | --- | --- |
 | Autorisatie | Matrix van RBAC-eigenschappen van de gebeurtenis. Dit is de actie en het bereik van de aanvraag waarmee evaluatie is geactiveerd voor nieuwe resources. Voor bestaande resources is de actie 'Microsoft.Resources/checkPolicyCompliance/read'. |
-| oproepende functie | Voor nieuwe resources, de identiteit die een implementatie wordt gestart. Voor bestaande bronnen, de GUID van de Microsoft Azure Policy Insights RP. |
+| Beller | Voor nieuwe resources, de identiteit die een implementatie wordt gestart. Voor bestaande bronnen, de GUID van de Microsoft Azure Policy Insights RP. |
 | kanalen | Voor Beleidsgebeurtenissen gebruiken alleen het kanaal 'Bewerking'. |
 | claims | De JWT-token die wordt gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing voor deze bewerking in Resource Manager. |
 | correlationId | Meestal een GUID in de indeling van de verbindingsreeks. Gebeurtenissen die delen van een correlationId behoren tot dezelfde uber actie. |
@@ -798,6 +798,6 @@ Bij het streamen van de Azure-activiteitenlogboek naar een opslagaccount of Even
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over het activiteitenlogboek (voorheen controlelogboeken)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream het Azure-activiteitenlogboek naar Eventhubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Meer informatie over het activiteitenlogboek](activity-logs-overview.md)
+* [Het activiteitenlogboek exporteren naar Azure Storage of Eventhubs](activity-log-export.md)
 

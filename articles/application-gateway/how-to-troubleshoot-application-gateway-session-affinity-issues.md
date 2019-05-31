@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65538346"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397836"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Oplossen van problemen met Azure Application Gateway-sessie-affiniteit
 
@@ -86,7 +86,7 @@ Volg de instructies voor het identificeren van dit probleem:
 
     ![problemen oplossen-sessie-affiniteit-problemen-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 U blijft de toepassing probeert in te stellen van de cookie bij elke aanvraag, totdat het antwoord.
 
@@ -96,7 +96,7 @@ Dit probleem treedt op omdat Internet Explorer en andere browsers mogelijk niet 
 
 #### <a name="resolution"></a>Oplossing
 
-U kunt dit probleem oplossen, moet u toegang tot de toepassingsgateway met behulp van een FQDN-naam. Gebruik bijvoorbeeld [ http://website.com ](https://website.com/) of [ http://appgw.website.com ](http://appgw.website.com/) .
+U kunt dit probleem oplossen door via een FQDN toegang te zoeken tot Application Gateway. Gebruik bijvoorbeeld [ http://website.com ](https://website.com/) of [ http://appgw.website.com ](http://appgw.website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Extra Logboeken om op te lossen
 
@@ -167,23 +167,23 @@ Gebruik het foutopsporingsprogramma web van uw keuze. In dit voorbeeld gebruiken
 
 2. Klik met de rechtermuisknop op het uitvoerbare bestand van de installatie en uitvoeren als beheerder om te installeren.
 
-            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![problemen oplossen-sessie-affiniteit-problemen-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. Wanneer u Fiddler opent, moet het automatisch starten vastleggen van verkeer (Let op het vastleggen op kleine links-corner). Druk op F12 te starten of stoppen van verkeer vastleggen.
 
-        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. Waarschijnlijk, kunt u geïnteresseerd in het versleutelde HTTPS-verkeer, en kunt u decodering van HTTPS inschakelen door het selecteren van **extra** > **Fiddler opties**, en schakel het selectievakje ' **ontsleutelen HTTPS-verkeer**'.
 
-        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![problemen oplossen-sessie-affiniteit-problemen-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. U kunt vorige niet-gerelateerde sessies voordat u het probleem te reproduceren door te klikken op verwijderen **X** (pictogram) > **Alles verwijderen** als volgt schermafbeelding: 
 
-        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. Nadat u het probleem hebt gereproduceerd, sla van het bestand voor revisie door het selecteren van **bestand** > **opslaan** > **alle sessies...** . 
 
-        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![problemen oplossen-sessie-affiniteit-problemen-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. Controleren en analyseren van de sessielogboeken om te bepalen wat het probleem is.
 
@@ -194,11 +194,11 @@ Gebruik het foutopsporingsprogramma web van uw keuze. In dit voorbeeld gebruiken
    > [!NOTE]
    > Deze waarde ARRAffinity is de cookie-id, die de Application Gateway wordt ingesteld voor de client worden verzonden naar een specifieke back-end-server.
 
-    ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Voorbeeld B:** De volgende sessielogboek gevolgd door de vorige is de client reageert terug naar de Application Gateway, die de ARRAAFFINITY heeft ingesteld. Als de ARRAffinity cookie-id overeenkomt met, moet het pakket worden verzonden naar dezelfde back-end-server die eerder is gebruikt. Controleer de volgende verschillende regels http-communicatie mogelijk is om te zien of van de client ARRAffinity cookie wordt gewijzigd.
 
-    ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+   ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > Voor de dezelfde sessie van de communicatie moet de cookie niet als u wilt wijzigen. Schakel het selectievakje boven aan de rechterkant, selecteert u "Cookies" tabblad om te zien of de client met behulp van de cookie is en dat deze wordt teruggestuurd naar de Application Gateway. Zo niet, in de browser van de client is niet te houden en het gebruik van de cookie voor conversaties. Soms kan de client zich bevinden.

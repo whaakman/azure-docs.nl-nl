@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450020"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387106"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>De oplossingsversneller voor verbonden Factory configureren
 
@@ -216,7 +216,7 @@ De `<factory_configuration>` en `<production_line_configuration>` items hebben e
   Geeft aan hoe de waarde van de OPC UA-knooppunt in Time Series Insight-query's en OEE-/ KPI-berekeningen worden verwerkt. Elke query Time Series Insight is bedoeld voor een specifieke periode, die is een parameter van de query en biedt een resultaat. De OpCode bepaalt hoe het resultaat wordt berekend en kan een van de volgende waarden:
 
   * **Diff**: verschil tussen het laatste en de eerste waarde in de periode.
-  * **Gem.**: het gemiddelde van alle waarden in de periode.
+  * **Gem.** : het gemiddelde van alle waarden in de periode.
   * **Som**: de som van alle waarden in de periode.
   * **Laatste**: op dit moment niet gebruikt.
   * **Aantal**: het aantal waarden in de periode.
@@ -282,7 +282,7 @@ De OEE-/ KPI-afbeeldingen voor de verbonden Factory-simulatie bestaan parameters
 * De OPC UA-knooppunt-waarden moeten worden opgenomen in de berekening.
 * Hoe de afbeelding wordt berekend van de telemetriewaarden.
 
-Verbonden Factory's worden de OEE-formules gebruikt zoals gepubliceerd door de https://www.oeefoundation.org.
+Verbonden Factory's worden de OEE-formules gebruikt zoals gepubliceerd door de [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
 
 Objecten van de OPC UA-knooppunt in stations inschakelen voor gebruik in de berekening van de OEE-/ KPI-tagging. De **relevantie** eigenschap wordt aangegeven voor welke OEE-/ KPI-afbeelding de waarde van de OPC UA-knooppunt moet worden gebruikt. De **OpCode** eigenschap definieert hoe de waarde in de berekening is opgenomen.
 

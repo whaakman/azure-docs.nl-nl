@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
-ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158945"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234010"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -242,7 +242,7 @@ Worden dat de build-context op het niveau van het project/service standaard is d
 ### <a name="try"></a>Probeer:
 Wat er moet gebeuren:
 1. Wijzig de _azds.yaml_ bestand in te stellen van de build-context op het niveau van de oplossing.
-2. Wijzig de _Dockerfile_ en _Dockerfile.develop_ bestanden om te verwijzen naar het project (_.csproj_) bestanden correct ten opzichte van de nieuwe bouwen context.
+2. Wijzig de _Dockerfile_ en _Dockerfile.develop_ bestanden om te verwijzen naar het project ( _.csproj_) bestanden correct ten opzichte van de nieuwe bouwen context.
 3. Plaats een _.dockerignore_ bestand naast het SLN-bestand en wijzig zo nodig.
 
 U vindt een voorbeeld op https://github.com/sgreenmsft/buildcontextsample
@@ -404,3 +404,8 @@ Maak een domeincontroller met een andere naam op:
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Inschakelen van Dev spaties mislukken wanneer Windows-knooppuntgroepen worden toegevoegd aan een AKS-cluster
+
+### <a name="reason"></a>Reason
+Op dit moment is Azure Dev opslagruimten bedoeld om uit te voeren op Linux-schillen en alleen de knooppunten. Op dit moment kunt u Azure Dev spaties niet inschakelen op een AKS-cluster met een groep Windows-knooppunt.

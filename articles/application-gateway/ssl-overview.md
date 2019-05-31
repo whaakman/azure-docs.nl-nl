@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849812"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254307"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Overzicht van SSL-beëindiging en end-to-end SSL met Application Gateway
 
@@ -20,7 +20,7 @@ Secure Sockets Layer (SSL) is de standaard-beveiliging-technologie voor het tot 
 
 ## <a name="ssl-termination"></a>SSL-beëindiging
 
-Application Gateway ondersteunt SSL-beëindiging op de gateway, na welk verkeer normaal gesproken onversleuteld naar de back-endservers. Er zijn een aantal voordelen van het SSL-beëindiging aan de application gateway doet:
+Application Gateway ondersteunt SSL-beëindiging op de gateway, waarna het verkeer normaal gesproken onversleuteld naar de back-endservers wordt doorgeleid. Er zijn een aantal voordelen van het SSL-beëindiging aan de application gateway doet:
 
 - **Verbeterde prestaties** – de grootste prestaties tegenkomen wanneer u SSL-ontsleuteling doen is de eerste handshake. Voor betere prestaties, de server doen ontsleutelen SSL-sessie-id's in de cache opslaat en TLS sessietickets voor negering beheert. Als dit wordt gedaan bij de application gateway, kunnen alle aanvragen van dezelfde client waarden in het cachegeheugen te gebruiken. Als dit voltooid op de back-endservers, heeft de telkens wanneer die van de client-aanvragen gaat u naar een andere server de client naar re‑authenticate. Het gebruik van TLS-tickets kan helpen bij het oplossen van dit probleem, maar ze worden niet ondersteund door alle clients en kunnen lastig zijn om te configureren en beheren.
 - **Beter gebruik van de back-endservers** – SSL/TLS-verwerking is zeer intensieve CPU en wordt steeds meer intensieve sleutelgrootten vergroten. Dit werk verwijderen uit de back-endservers kan ze zich richten op wat ze efficiënt zijn leveren van inhoud op.
@@ -50,13 +50,13 @@ Application gateway ondersteunt de volgende typen certificaten:
 Zie voor meer informatie, [configureren van SSL-beëindiging met application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Grootte van het certificaat
-De Personal Information Exchange (PFX)-bestand met de gegevens van het SSL-certificaat mag niet meer dan 10 KB groot zijn.
+Controleer de [Application Gateway beperkt](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) sectie om te weten de maximale SSL ondersteunde grootte van het certificaat.
 
 ## <a name="end-to-end-ssl-encryption"></a>End-to-end SSL-versleuteling
 
 Sommige klanten kunnen geen niet-versleutelde communicatie met de back-endservers vereisen. Dit kan komen door de beveiligings- of nalevingsvereisten, of misschien kan de toepassing alleen worden gebruikt via een beveiligde verbinding. Voor zulke toepassingen ondersteunt Application Gateway end-to-end SSL-versleuteling.
 
-End-to-end SSL kunt u veilig gevoelige gegevens verzenden naar de back-end versleuteld terwijl nog steeds profiteren van de voordelen van de Layer 7 load balancing-functies die application gateway biedt. Voorbeelden van deze functies zijn: sessieaffiniteit op basis van cookies, routering op basis van een URL, ondersteuning voor routering op basis van sites en de mogelijkheid om X-Forwarded-\*-headers in te voegen.
+Met end-to-end SSL kunt u veilig gevoelige gegevens versleuteld verzenden naar de back-endserver, terwijl u gebruik blijft maken van de voordelen van de Layer 7-taakverdelingsfuncties die Application Gateway te bieden heeft. Voorbeelden van deze functies zijn: sessieaffiniteit op basis van cookies, routering op basis van een URL, ondersteuning voor routering op basis van sites en de mogelijkheid om X-Forwarded-\*-headers in te voegen.
 
 Wanneer Application Gateway is geconfigureerd met de communicatiemodus voor end-to-end SSL, worden door Application Gateway de SSL-sessies op de gateway beëindigd en wordt het gebruikersverkeer ontsleuteld. Vervolgens worden de geconfigureerde regels toegepast voor het selecteren van het juiste exemplaar van de back-endgroep waarnaar het verkeer moet worden doorgeleid. Application Gateway initieert vervolgens een nieuwe SSL-verbinding met de back-endserver en versleutelt de gegevens opnieuw met het openbare-sleutelcertificaat van de back-endserver, voordat de aanvraag naar de back-endserver wordt verstuurd. Reacties van de webserver ondergaan hetzelfde proces terug naar de eindgebruiker. End-to-end SSL wordt ingeschakeld door de protocolinstelling [back-end-HTTP-instelling](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) naar HTTPS, die wordt vervolgens toegepast op een back-endpool.
 

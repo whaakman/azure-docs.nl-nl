@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800982"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296813"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Gebruikskenmerken van klanten van Azure-partners
 
@@ -208,7 +208,7 @@ Nadat u de GUID's aan uw sjabloon of in de gebruikersagent toevoegen en de GUID 
 
 Nadat u de sjabloon aanpassen en een test-implementatie uitvoert, gebruikt u de volgende PowerShell-script om op te halen van de resources die u hebt geïmplementeerd en gelabeld.
 
-U kunt het script gebruiken om te controleren dat de GUID wordt toegevoegd aan uw Resource Manager-sjabloon. Het script niet van toepassing op Resource Manager-API-implementatie.
+U kunt het script gebruiken om te controleren dat de GUID wordt toegevoegd aan uw Resource Manager-sjabloon. Het script niet van toepassing op implementaties van Resource Manager-API of Terraform.
 
 Meld u aan bij Azure. Selecteer het abonnement met de implementatie die u wilt controleren voordat u het script uitvoert. Voer het script in de context van het abonnement van de implementatie.
 

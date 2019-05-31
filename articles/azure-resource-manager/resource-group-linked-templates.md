@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205942"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357408"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met behulp van gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -91,7 +91,7 @@ Als u wilt de sjabloon in de belangrijkste sjabloon nesten, gebruikt u de **sjab
 > [!NOTE]
 > Voor geneste sjablonen, kunt u parameters en variabelen die zijn gedefinieerd in de geneste sjabloon niet gebruiken. U kunt parameters en variabelen van de belangrijkste sjabloon gebruiken. In het voorgaande voorbeeld `[variables('storageName')]` haalt een waarde op basis van de belangrijkste sjabloon, niet de geneste sjabloon. Deze beperking geldt niet voor externe sjablonen.
 >
-> Voor twee resources, zoals gedefinieerd in een geneste-sjabloon en één resource is afhankelijk van de andere, de waarde van de afhankelijkheid is gewoon de naam van de afhankelijke resource:
+> Voor twee resources, zoals gedefinieerd in een geneste sjabloon en één resource is afhankelijk van de andere, de waarde van de afhankelijkheid is gewoon de naam van de afhankelijke bron:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

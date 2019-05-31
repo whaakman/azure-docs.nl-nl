@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561792"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393191"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-gebeurtenisschema voor IoT-Hub
 
@@ -33,6 +33,9 @@ Azure IoT Hub verzendt de volgende typen gebeurtenissen:
 | Microsoft.Devices.DeviceDeleted | Wanneer een apparaat wordt verwijderd uit een IoT-hub gepubliceerd. | 
 | Microsoft.Devices.DeviceConnected | Wanneer een apparaat is verbonden met een IoT-hub gepubliceerd. |
 | Microsoft.Devices.DeviceDisconnected | Gepubliceerd wanneer een apparaat niet is verbonden met een IoT-hub. | 
+| Microsoft.Devices.DeviceTelemetry | Wanneer een telemetrie-bericht is verzonden naar een IoT hub gepubliceerd. |
+
+Alle apparaatgebeurtenissen, met uitzondering van apparaat telemetriegebeurtenissen zijn algemeen beschikbaar in alle regio's die worden ondersteund door Event Grid. Apparaat telemetrie gebeurtenis is in openbare preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
@@ -56,6 +59,40 @@ Het schema voor gebeurtenissen DeviceConnected en DeviceDisconnected hebben deze
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+De DeviceTelemetry-gebeurtenis wordt geactiveerd wanneer een gebeurtenis telemetrie wordt verzonden naar een IoT-Hub. Hieronder ziet u een voorbeeldschema voor deze gebeurtenis.
+
+```json
+[{
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+          },
+          "Location": "USA"        
+      },
+        "properties": {            
+          "Status": "Active"        
+        },
+        "systemProperties": {            
+            "iothub-content-type": "application/json",
+            "iothub-content-encoding": "utf-8",
+            "iothub-connection-device-id": "d1",
+            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+            "iothub-connection-auth-generation-id": "123455432199234570",
+            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+            "iothub-message-source": "Telemetry"        
+        }    
+    },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -115,10 +152,10 @@ Alle gebeurtenissen bevatten de dezelfde gegevens op het hoogste niveau:
 | -------- | ---- | ----------- |
 | id | string | De unieke id voor de gebeurtenis. |
 | onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| Onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
 | eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
 | eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| gegevens | object | Gebeurtenisgegevens van de IoT Hub.  |
+| Gegevens | object | Gebeurtenisgegevens van de IoT Hub.  |
 | dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
@@ -129,7 +166,9 @@ Het gegevensobject bevat voor alle gebeurtenissen van IoT Hub, de volgende eigen
 | hubName | string | De naam van de IoT-Hub waar het apparaat is gemaakt of verwijderd. |
 | deviceId | string | De unieke id van het apparaat. Deze hoofdlettergevoelige tekenreeks mag maximaal 128 tekens lang en ondersteunt de ASCII-7-bits alfanumerieke tekens, plus de volgende speciale tekens bevatten: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
-De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeurtenissen. Voor **apparaat aangesloten** en **apparaat losgekoppeld** IoT Hub-gebeurtenissen, het gegevensobject bevat de volgende eigenschappen:
+De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeurtenissen. 
+
+Voor **apparaat aangesloten** en **apparaat losgekoppeld** IoT Hub-gebeurtenissen, het gegevensobject bevat de volgende eigenschappen:
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
@@ -137,13 +176,21 @@ De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeur
 | deviceConnectionStateEventInfo | object | Verbinding gebeurtenis informatie over de apparaatstatus
 | sequenceNumber | string | Een getal waarmee de volgorde van het apparaat is verbonden of het apparaat geven gebeurtenissen verbroken. Laatste gebeurtenis heeft een volgnummer dat hoger is dan de vorige gebeurtenis. Dit nummer kan worden gewijzigd door meer dan 1, maar alleen toeneemt. Zie [over het gebruik van volgnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeurtenissen. Voor **apparaat gemaakt** en **apparaat verwijderd** IoT Hub-gebeurtenissen, het gegevensobject bevat de volgende eigenschappen:
+Voor **Apparaattelemetrie** IoT Hub-gebeurtenis, de gegevensobject bevat het bericht apparaat-naar-cloud in [IoT hub-berichtindeling](../iot-hub/iot-hub-devguide-messages-construct.md) en heeft de volgende eigenschappen:
+
+| Eigenschap | Type | Description |
+| -------- | ---- | ----------- |
+| De hoofdtekst | string | De inhoud van het bericht van het apparaat. |
+| properties | string | Eigenschappen voor de toepassing zijn zelfgedefinieerde tekenreeksen die kunnen worden toegevoegd aan het bericht. Deze velden zijn optioneel. |
+| Systeemeigenschappen | string | [Systeemeigenschappen](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) helpen bij het identificeren van de inhoud en de bron van de berichten. Apparaat telemetrie bericht moet een geldige JSON-indeling hebben met de contentType instellen in JSON en beperking contentEncoding ingesteld op UTF-8 in de eigenschappen van het bericht. Als dit niet is ingesteld, kunnen de IoT Hub wordt de berichten in de base 64 gecodeerde indeling schrijven.  |
+
+Voor **apparaat gemaakt** en **apparaat verwijderd** IoT Hub-gebeurtenissen, het gegevensobject bevat de volgende eigenschappen:
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | twin | object | Informatie over het dubbele apparaat, de cloud-weergave van de metagegevens van apparaten van toepassing is. | 
 | deviceID | string | De unieke id van het dubbele apparaat. | 
-| etag | string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatdubbel. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. |  
+| ETag | string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatdubbel. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. |  
 | deviceEtag| string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatregister. Elke deviceEtag is gegarandeerd uniek per apparaatregister. |
 | status | string | Of het dubbele apparaat is ingeschakeld of uitgeschakeld. | 
 | statusUpdateTime | string | De ISO8601-timestamp van de laatste status van het dubbele apparaat bijwerken. |
@@ -154,7 +201,7 @@ De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeur
 | x509Thumbprint | string | De vingerafdruk is een unieke waarde voor de x509 certificaat, meestal gebruikt voor een bepaald certificaat niet vinden in een certificaatarchief. De vingerafdruk wordt dynamisch gegenereerd met behulp van het SHA1-algoritme en bestaat niet fysiek in het certificaat. | 
 | primaryThumbprint | string | Primaire vingerafdruk voor de x509 certificaat. |
 | secondaryThumbprint | string | Secundaire vingerafdruk voor de x509 certificaat. | 
-| versie | geheel getal | Een geheel getal dat wordt verhoogd door één voor elke keer dat het apparaat dubbele wordt bijgewerkt. |
+| version | geheel getal | Een geheel getal dat wordt verhoogd door één voor elke keer dat het apparaat dubbele wordt bijgewerkt. |
 | gewenste | object | Een gedeelte van de eigenschappen die kunnen worden alleen door de back-endtoepassing geschreven en gelezen door het apparaat. | 
 | gerapporteerd | object | Een gedeelte van de eigenschappen die kunnen worden alleen door het apparaat geschreven en gelezen door back-end van de toepassing. |
 | lastUpdated | string | De ISO8601-timestamp van de laatste dubbele eigenschap bijwerken. | 

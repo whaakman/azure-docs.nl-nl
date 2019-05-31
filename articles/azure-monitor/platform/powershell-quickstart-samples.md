@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452718"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400207"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Voorbeelden om snel aan de slag met Azure Monitor PowerShell
 In dit artikel ziet u PowerShell-opdrachten kunt u toegang tot de functies van Azure Monitor een steekproef.
@@ -42,6 +42,11 @@ Hier ziet u een aanmeldingsscherm. Nadat u uw Account, TenantID, zich aanmelden 
 Get-AzSubscription
 ```
 
+Om te zien van de context van uw werkende (welk abonnement uw opdrachten worden uitgevoerd op), gebruikt u de volgende opdracht:
+
+```powershell
+Get-AzContext
+```
 Als u wilt uw context werken naar een ander abonnement wijzigen, gebruik de volgende opdracht:
 
 ```powershell
@@ -50,18 +55,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>Activiteitenlogboek voor een abonnement ophalen
-Gebruik de `Get-AzLog` cmdlet.  Hier volgen enkele algemene voorbeelden.
+Gebruik de [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  Hier volgen enkele algemene voorbeelden. Het activiteitenlogboek bevat de afgelopen 90 dagen van bewerkingen. Datums voordat deze resultaten gebruiken in een foutbericht weergegeven.  
+
+Zie wat de huidige datum en tijd zijn om te controleren wat tijden gebruiken in de onderstaande opdrachten:
+```powershell
+Get-Date
+```
 
 Logboekvermeldingen ophalen uit deze tijd/datum om weer te geven:
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 Logboekvermeldingen tussen een datum-/ bereik ophalen:
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Logboekvermeldingen ophalen uit een specifieke resourcegroep:
@@ -85,13 +95,13 @@ Get-AzLog -Caller 'myname@company.com'
 De volgende opdracht haalt de laatste 1000 gebeurtenissen uit het activiteitenlogboek:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` biedt ondersteuning voor veel andere parameters. Zie de `Get-AzLog` verwijzing voor meer informatie.
 
 > [!NOTE]
-> `Get-AzLog` biedt alleen 15 dagen. Met behulp van de **- MaxEvents** parameter kunt u een query uitvoeren op de laatste N-gebeurtenissen langer dan 15 dagen. Voor toegang tot gebeurtenissen die ouder zijn dan 15 dagen, moet u de REST-API of SDK (voorbeeld van C# met behulp van de SDK) gebruiken. Als u geen **StartTime**, dan is de standaardwaarde **EndTime** min één uur. Als u geen **EndTime**, en vervolgens de standaardwaarde is de huidige tijd. Alle tijden zijn in UTC.
+> `Get-AzLog` biedt alleen 15 dagen. Met behulp van de **- MaxRecords** parameter kunt u een query uitvoeren op de laatste N-gebeurtenissen langer dan 15 dagen. Voor toegang tot gebeurtenissen die ouder zijn dan 15 dagen, moet u de REST-API of SDK (voorbeeld van C# met behulp van de SDK) gebruiken. Als u geen **StartTime**, dan is de standaardwaarde **EndTime** min één uur. Als u geen **EndTime**, en vervolgens de standaardwaarde is de huidige tijd. Alle tijden zijn in UTC.
 > 
 > 
 
@@ -140,7 +150,7 @@ U kunt maken e-mail en webhook-eigenschappen met behulp van `New-AzAlertRuleEmai
 
 De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor het maken van een waarschuwing met behulp van een metrische waarde.
 
-| Parameter | value |
+| parameter | value |
 | --- | --- |
 | Name |simpletestdiskwrite |
 | Locatie van deze waarschuwingsregel |US - oost |

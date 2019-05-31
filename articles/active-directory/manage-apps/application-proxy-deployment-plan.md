@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04-04-2019
-ms.author: barbaraselden
+ms.date: 04/04/2019
+ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113013"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388311"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Een Azure AD Application Proxy-implementatie plannen
 
@@ -280,7 +280,7 @@ Microsoft, wordt het principe van het verlenen van de geringst mogelijke bevoegd
 
 | Zakelijke rol| Zakelijke taken| Azure AD-rollen |
 |---|---|---|
-| Helpdesk-beheerder helpen | Doorgaans is beperkt tot het in aanmerking komende gebruiker gemelde problemen en het uitvoeren van beperkte taken, zoals het wijzigen van wachtwoorden van gebruikers, ongeldig vernieuwingstokens en de bewaking van status van de service. | Helpdeskbeheerder |
+| Helpdesk-beheerder helpen | Doorgaans is beperkt tot het in aanmerking komende gebruiker gemelde problemen en het uitvoeren van beperkte taken, zoals het wijzigen van wachtwoorden van gebruikers, ongeldig vernieuwingstokens en de bewaking van status van de service. | Helpdesk-beheerder |
 | Beheer van identiteit| Problemen met betrekking tot Azure lezen AD-aanmelding in rapporten en auditlogboeken voor foutopsporing van App-Proxy.| Beveiligingslezer |
 | De eigenaar van toepassing| Maken en beheren van alle aspecten van zakelijke toepassingen, registratie en instellingen van de toepassingsproxy.| Beheerder van de toepassing |
 | Infrastructuur beheerder | Rollover van de eigenaar van certificaat | Beheerder van de toepassing |

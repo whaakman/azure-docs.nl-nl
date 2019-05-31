@@ -5,14 +5,14 @@ services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2fcdb72fa2717659e78e6f767bdc73b0d7be0886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465033"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392145"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,10 @@ In dit artikel leest u hoe het configureren en gebruiken van Helm in een Kuberne
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-U moet ook de Helm-CLI is geïnstalleerd, de client die wordt uitgevoerd op uw systeem voor de ontwikkeling en kunt u starten, stoppen en beheren van toepassingen met Helm. Als u de Azure Cloud Shell gebruikt, wordt de Helm-CLI al geïnstalleerd. Voor installatie-instructies op uw lokale platform Zie, [Helm installeren][helm-install].
+U moet ook de Helm CLI hebt geïnstalleerd, is de client die wordt uitgevoerd op uw ontwikkelsysteem. Hiermee kunt u starten, stoppen en beheren van toepassingen met Helm. Als u de Azure Cloud Shell gebruikt, wordt de Helm-CLI al geïnstalleerd. Voor installatie-instructies op uw lokale platform Zie, [Helm installeren][helm-install].
+
+> [!IMPORTANT]
+> Helm is bedoeld om uit te voeren op Linux-knooppunten. Als u Windows Server-knooppunten in uw cluster hebt, moet u ervoor zorgen dat Helm schillen alleen worden gepland voor uitvoering op Linux-knooppunten. Ook moet u ervoor zorgen dat elke Helm-grafieken die u installeert ook worden gepland voor uitvoering op de juiste knooppunten. De opdrachten in dit artikel gebruik [knooppunt selectoren] [ k8s-node-selector] om ervoor te zorgen schillen zijn gepland voor de juiste knooppunten, maar niet alle Helm-grafieken, een selector knooppunt kunnen een beveiligingsrisico. U kunt ook rekening houden met behulp van de andere opties op het cluster, zoals [taints][taints].
 
 ## <a name="create-a-service-account"></a>Een service-account maken
 
@@ -70,7 +73,7 @@ U kunt het niveau van toegang die tiller met het cluster heeft beheren met een c
 Voor het implementeren van een eenvoudige Tiller in een AKS-cluster, gebruikt u de [helm init] [ helm-init] opdracht. Als uw cluster niet RBAC ingeschakeld is, verwijdert u de `--service-account` argument en de waarde. Als u TLS/SSL geconfigureerd voor Tiller en Helm, slaat u deze stap basic initialisatie en in plaats daarvan bieden de vereiste `--tiller-tls-` zoals wordt weergegeven in het volgende voorbeeld.
 
 ```console
-helm init --service-account tiller
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 Als u TLS/SSL tussen Helm en Tiller geconfigureerd bieden de `--tiller-tls-*` parameters en de namen van uw eigen certificaten, zoals wordt weergegeven in het volgende voorbeeld:
@@ -82,7 +85,8 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
-    --service-account tiller
+    --service-account tiller \
+    --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 ## <a name="find-helm-charts"></a>Helm-grafieken zoeken
@@ -141,78 +145,62 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Helm-grafieken uitvoeren
 
-Als u wilt installeren grafieken met Helm, gebruikt u de [helm install] [ helm-install] opdracht en geeft u de naam van de grafiek om te installeren. Als u wilt dit in actie zien, moet u gaan we een eenvoudige Wordpress-implementatie met behulp van een Helm-diagram installeren. Als u TLS/SSL is geconfigureerd, voegt u toe de `--tls` parameter om de Helm-clientcertificaat te gebruiken.
+Als u wilt installeren grafieken met Helm, gebruikt u de [helm install] [ helm-install] opdracht en geeft u de naam van de grafiek om te installeren. Als u wilt zien voor het installeren van een Helm-diagram in actie, laten we u een eenvoudige nginx-implementatie met behulp van een Helm-diagram installeren. Als u TLS/SSL is geconfigureerd, voegt u toe de `--tls` parameter om de Helm-clientcertificaat te gebruiken.
 
 ```console
-helm install stable/wordpress
+helm install stable/nginx-ingress \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 De volgende verkorte voorbeeld-uitvoer toont de status van de implementatie van de Kubernetes-resources die zijn gemaakt door het Helm-diagram:
 
 ```
-$ helm install stable/wordpress
+$ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 
-NAME:   wishful-mastiff
-LAST DEPLOYED: Wed Mar  6 19:11:38 2019
+NAME:   flailing-alpaca
+LAST DEPLOYED: Thu May 23 12:55:21 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
-==> v1beta1/Deployment
-NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-wishful-mastiff-wordpress  1        1        1           0          1s
-
-==> v1beta1/StatefulSet
-NAME                     DESIRED  CURRENT  AGE
-wishful-mastiff-mariadb  1        1        1s
+==> v1/ConfigMap
+NAME                                      DATA  AGE
+flailing-alpaca-nginx-ingress-controller  1     0s
 
 ==> v1/Pod(related)
-NAME                                        READY  STATUS   RESTARTS  AGE
-wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
-wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
-
-==> v1/Secret
-NAME                       TYPE    DATA  AGE
-wishful-mastiff-mariadb    Opaque  2     2s
-wishful-mastiff-wordpress  Opaque  2     2s
-
-==> v1/ConfigMap
-NAME                           DATA  AGE
-wishful-mastiff-mariadb        1     2s
-wishful-mastiff-mariadb-tests  1     2s
-
-==> v1/PersistentVolumeClaim
-NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-wishful-mastiff-wordpress  Pending  default  2s
+NAME                                                            READY  STATUS             RESTARTS  AGE
+flailing-alpaca-nginx-ingress-controller-56666dfd9f-bq4cl       0/1    ContainerCreating  0         0s
+flailing-alpaca-nginx-ingress-default-backend-66bc89dc44-m87bp  0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
-wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
+NAME                                           TYPE          CLUSTER-IP  EXTERNAL-IP  PORT(S)                     AGE
+flailing-alpaca-nginx-ingress-controller       LoadBalancer  10.0.109.7  <pending>    80:31219/TCP,443:32421/TCP  0s
+flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none>       80/TCP                      0s
 ...
 ```
 
-Het duurt een minuut of twee voor de *externe IP-adres* -adres van de Wordpress-service worden ingevuld en kunt u toegang hebt tot het met een webbrowser.
+Het duurt een minuut of twee voor de *externe IP-adres* adres van de service nginx ingangscontroller om te worden ingevuld en kunt u toegang hebt tot het met een webbrowser.
 
 ## <a name="list-helm-releases"></a>Lijst met Helm releases
 
-Een lijst van versies die zijn geïnstalleerd op uw cluster wilt bekijken, gebruikt u de [' helm list '] [ helm-list] opdracht. Het volgende voorbeeld ziet de Wordpress-versie die is geïmplementeerd in de vorige stap. Als u TLS/SSL is geconfigureerd, voegt u toe de `--tls` parameter om de Helm-clientcertificaat te gebruiken.
+Een lijst van versies die zijn geïnstalleerd op uw cluster wilt bekijken, gebruikt u de [' helm list '] [ helm-list] opdracht. Het volgende voorbeeld ziet de nginx-inkomend release geïmplementeerd in de vorige stap. Als u TLS/SSL is geconfigureerd, voegt u toe de `--tls` parameter om de Helm-clientcertificaat te gebruiken.
 
 ```console
 $ helm list
 
-NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
-wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
+NAME                REVISION    UPDATED                     STATUS      CHART                 APP VERSION   NAMESPACE
+flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingress-1.6.13    0.24.1      default
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u een Helm-diagram implementeert, wordt een aantal Kubernetes-resources worden gemaakt. Deze resources bevat schillen, implementaties en services. Voor het opschonen van deze resources, gebruikt u de `helm delete` opdracht en geeft u de naam van de release, zoals gevonden in de vorige `helm list` opdracht. Het volgende voorbeeld wordt de versie met de naam *wishful mastiff*:
+Wanneer u een Helm-diagram implementeert, wordt een aantal Kubernetes-resources worden gemaakt. Deze bronnen omvatten schillen, implementaties en services. Voor het opschonen van deze resources, gebruikt u de `helm delete` opdracht en geeft u de naam van de release, zoals gevonden in de vorige `helm list` opdracht. Het volgende voorbeeld wordt de versie met de naam *flailing alpaca's*:
 
 ```console
-$ helm delete wishful-mastiff
+$ helm delete flailing-alpaca
 
-release "wishful-mastiff" deleted
+release "flailing-alpaca" deleted
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -239,3 +227,5 @@ Zie de Helm-documentatie voor meer informatie over het beheren van implementatie
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors
+[taints]: operator-best-practices-advanced-scheduler.md

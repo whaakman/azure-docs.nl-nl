@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van fouten met de updatebeheer, w
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145153"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399759"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Problemen oplossen bij het onboarding-oplossingen
 
@@ -42,6 +42,24 @@ Deze fout wordt veroorzaakt door onjuiste of ontbrekende machtigingen op de virt
 #### <a name="resolution"></a>Oplossing
 
 Zorg ervoor dat u hebt juiste machtigingen voor de Onboarding van de virtuele machine. Controleer de [machtigingen die nodig zijn voor Onboarding van machines](../automation-role-based-access-control.md#onboarding) en probeer zorgen voor onboarding de oplossing voor het opnieuw. Als u de foutmelding `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, zorg ervoor dat u hebt de `Microsoft.OperationalInsights/workspaces/read` toestemming om te kunnen vinden als de virtuele machine toegevoegd aan een werkruimte is.
+
+### <a name="diagnostic-logging"></a>Scenario: Onboarding is mislukt met het bericht - Automation-Account configureren voor registratie in diagnoselogboek is mislukt
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt het volgende bericht wanneer u te onboarden een virtuele machine naar een oplossing probeert:
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout kan worden veroorzaakt als de prijscategorie komt niet overeen met het factureringsmodel van het abonnement. Zie voor meer informatie, [gebruik en geschatte kosten in Azure Monitor bewaken](http://aka.ms/PricingTierWarning).
+
+#### <a name="resolution"></a>Oplossing
+
+Handmatig maken van uw Log Analytics-werkruimte en herhaal het onboarding-proces om te selecteren van de werkruimte hebt gemaakt.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 

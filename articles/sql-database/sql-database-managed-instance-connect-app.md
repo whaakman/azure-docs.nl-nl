@@ -12,14 +12,14 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142726"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297096"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken met uw toepassing naar Azure SQL Database Managed Instance
 
 Nu hebt u meerdere opties bij het bepalen hoe en waar u uw toepassing wordt gehost.
 
@@ -56,7 +56,7 @@ Er zijn twee opties verbinding maken tussen on-premises en Azure-VNet:
 - Site-naar-Site VPN-verbinding ([Azure-portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) verbinding  
 
-Als hebt u on-premises naar Azure-verbinding is gemaakt en u kunt geen verbinding met Managed Instance maken, controleert u of uw firewall open uitgaande verbinding op SQL-poort 1433, evenals 11000 12000 bereik van poorten voor de omleiding van heeft.
+Als hebt u on-premises naar Azure-verbinding is gemaakt en u kunt geen verbinding met Managed Instance maken, controleert u of uw firewall open uitgaande verbinding op SQL-poort 1433, evenals 11000 11999 bereik van poorten voor de omleiding van heeft.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Verbinding maken met een toepassing in het vak voor ontwikkelaars
 
@@ -96,7 +96,7 @@ In dit scenario is geïllustreerd in het volgende diagram:
 
 Voor het oplossen van problemen met de netwerkverbinding, controleert u het volgende:
 
-- Als u geen verbinding maken met beheerd exemplaar van een virtuele machine van Azure binnen het hetzelfde VNet maar een ander subnet, moet u controleren of er een Netwerkbeveiligingsgroep die is ingesteld op VM-subnet dat toegang blokkeert. Daarnaast merk op dat u uitgaande verbindingen op de SQL-poort 1433, evenals poorten openen in bereik van 11000 12000 moet omdat die nodig zijn om verbinding te maken via een omleiding binnen de grenzen van Azure.
+- Als u geen verbinding maken met beheerd exemplaar van een virtuele machine van Azure binnen het hetzelfde VNet maar een ander subnet, moet u controleren of er een Netwerkbeveiligingsgroep die is ingesteld op VM-subnet dat toegang blokkeert. Daarnaast merk op dat u uitgaande verbindingen op de SQL-poort 1433, evenals poorten openen in bereik van 11000 11999 moet omdat die nodig zijn om verbinding te maken via een omleiding binnen de grenzen van Azure.
 - Zorg ervoor dat de doorgifte van BGP is ingesteld op **ingeschakeld** voor de routetabel die zijn gekoppeld aan het VNet.
 - Als u P2S VPN, controleert u de configuratie in de Azure portal om te controleren of **Inkomend/uitgaand verkeer** getallen. Niet-nulwaarde getallen geven aan dat Azure routeren van verkeer naar/vanuit on-premises.
 

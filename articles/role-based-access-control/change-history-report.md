@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308868"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242104"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Activiteitenlogboeken bekijken voor RBAC-wijzigingen in de Azure-resources
 
@@ -32,8 +32,8 @@ Hier volgen de RBAC-gerelateerde bewerkingen die zijn vastgelegd in het activite
 
 - Roltoewijzing maken
 - Roltoewijzing verwijderen
-- Een aangepaste roldefinitie maken of bijwerken
-- De aangepaste roldefinitie verwijderen
+- Maken of bijwerken van de aangepaste roldefinitie
+- Aangepaste roldefinitie verwijderen
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -46,7 +46,7 @@ Het activiteitenlogboek in de portal heeft verschillende filters. Hier volgen de
 |Filteren  |Value  |
 |---------|---------|
 |Gebeurteniscategorie     | <ul><li>Administratief</li></ul>         |
-|Bewerking     | <ul><li>Roltoewijzing maken</li> <li>Roltoewijzing verwijderen</li> <li>Een aangepaste roldefinitie maken of bijwerken</li> <li>De aangepaste roldefinitie verwijderen</li></ul>      |
+|Bewerking     | <ul><li>Roltoewijzing maken</li> <li>Roltoewijzing verwijderen</li> <li>Maken of bijwerken van de aangepaste roldefinitie</li> <li>Aangepaste roldefinitie verwijderen</li></ul>      |
 
 
 Zie voor meer informatie over activiteitenlogboeken [gebeurtenissen weergeven in het activiteitenlogboek](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
@@ -121,9 +121,9 @@ Hier volgen de basisstappen om te beginnen:
 
 1. [Een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [De oplossing Activity Log Analytics configureren](../azure-monitor/platform/collect-activity-logs.md#configuration) voor uw werkruimte.
+1. [De oplossing Activity Log Analytics configureren](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) voor uw werkruimte.
 
-1. [Bekijk de activiteitenlogboeken](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Een snelle manier om te navigeren naar de pagina overzicht van Activity Log Analytics-oplossing is om op de **Log Analytics** optie.
+1. [Bekijk de activiteitenlogboeken](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Een snelle manier om te navigeren naar de pagina overzicht van Activity Log Analytics-oplossing is om op de **Log Analytics** optie.
 
    ![Azure Monitor beschikbaar optie zijn in portal](./media/change-history-report/azure-log-analytics-option.png)
 
@@ -151,4 +151,4 @@ AzureActivity
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Gebeurtenissen in het activiteitenlogboek bekijken](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Abonnement-activiteit controleren met de Azure-activiteitenlogboek](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [Abonnementactiviteit controleren met Azure-activiteitenlogboek](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

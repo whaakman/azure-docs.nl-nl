@@ -3,19 +3,19 @@ title: Demo Conversatiecursist model, wachtwoord opnieuw instellen - Microsoft C
 titleSuffix: Azure
 description: Informatie over het maken van een demo Conversatiecursist-model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 15aa3a8346087908cf77f1f68db916cc2c184448
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313131"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389880"
 ---
 # <a name="demo-password-reset"></a>Demo: Wachtwoord opnieuw instellen
 In deze zelfstudie worden een bot eenvoudig technische ondersteuning die u bij het opnieuw instellen van wachtwoorden mogelijk gemaakt door Conversatiecursist helpen kan gepresenteerd. Model van de bot kunt leren essentieel dialoogvenster stromen en schakelt u meerdere reeksen met inbegrip van de klassen van een out-van-domein. De taak kan worden bereikt zonder code of entiteiten.

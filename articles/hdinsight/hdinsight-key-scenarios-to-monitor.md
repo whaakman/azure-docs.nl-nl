@@ -1,19 +1,19 @@
 ---
 title: Cluster-prestaties bewaken - Azure HDInsight
 description: Klik hier voor meer informatie over het bewaken van een HDInsight-cluster voor capaciteit en prestaties.
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
-ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.author: hrasheed
+ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799796"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393418"
 ---
 # <a name="monitor-cluster-performance"></a>Cluster-prestaties bewaken
 
@@ -30,7 +30,7 @@ Als u een Kijk op de knooppunten van het cluster en hun laden, moet u zich aanme
 | Kleur | Description |
 | --- | --- |
 | Rood | Ten minste één master onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
-| Oranje | Ten minste één secundaire onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
+| Orange | Ten minste één secundaire onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
 | Geel | Ambari-Server is geen heartbeat ontvangen van de host voor meer dan 3 minuten. |
 | Groen | Normaal uitgevoerd staat. |
 

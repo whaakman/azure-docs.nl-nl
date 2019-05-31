@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576477"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255290"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Node.js-services en -apps bewaken met Application Insights
 
-Met [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) bewaakt u back-endservices en onderdelen na de implementatie. Dit helpt u om [prestatieproblemen en andere problemen snel te detecteren en te onderzoeken](../../azure-monitor/app/detect-triage-diagnose.md). U kunt Application Insights voor Node.js-services die worden gehost in uw datacenter, gebruiken in virtuele Azure-machines en web-apps en zelfs in andere openbare clouds.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) bewaakt uw back-endservices en onderdelen na de implementatie, kunt u snel prestatieproblemen en andere problemen te detecteren en. U kunt Application Insights voor Node.js-services die worden gehost in uw datacenter, gebruiken in virtuele Azure-machines en web-apps en zelfs in andere openbare clouds.
 
 Neem de SDK op in de code en stel vervolgens een bijbehorende Application Insights-resource in Azure in om uw bewakingsgegevens te ontvangen, op te slaan en te onderzoeken. Met de SDK worden gegevens naar deze resource verzonden voor verdere analyse en onderzoek.
 
@@ -202,7 +202,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw telemetrie in de portal bewaken](../../azure-monitor/app/app-insights-dashboards.md)
+* [Uw telemetrie in de portal bewaken](../../azure-monitor/app/overview-dashboard.md)
 * [Analysequery’s schrijven over uw telemetrie](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

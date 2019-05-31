@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477321"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393779"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestatierichtlijnen voor SQL Server in Azure Virtual Machines
 
@@ -179,11 +179,22 @@ Er is een uitzondering op deze aanbeveling: _als uw verbruik TempDB schrijven-in
 
 Sommige implementaties mogelijk extra prestatievoordelen biedt met meer geavanceerde technieken voor configuratie bereiken. De volgende lijst worden enkele SQL Server-functies waarmee u betere prestaties bereiken kunnen gemarkeerd:
 
-* **Back-up naar Azure storage**: Bij het uitvoeren van back-ups voor SQL Server in virtuele machines van Azure wordt uitgevoerd, kunt u [SQL Server back-up naar URL](https://msdn.microsoft.com/library/dn435916.aspx). Deze functie is beschikbaar vanaf SQL Server 2012 SP1 CU2 en aanbevolen voor back-ups op de gekoppelde gegevensschijven. Wanneer u back-up/herstel naar/van Azure-opslag, volgt u de aanbevelingen die op [SQL Server back-up naar URL Best Practices en probleemoplossing en terugzetten van back-ups die zijn opgeslagen in Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). U kunt ook deze back-ups automatiseren [automatische back-up voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+### <a name="backup-to-azure-storage"></a>Back-up naar Azure Storage
+Bij het uitvoeren van back-ups voor SQL Server in virtuele machines van Azure wordt uitgevoerd, kunt u [SQL Server back-up naar URL](https://msdn.microsoft.com/library/dn435916.aspx). Deze functie is beschikbaar vanaf SQL Server 2012 SP1 CU2 en aanbevolen voor back-ups op de gekoppelde gegevensschijven. Wanneer u back-up/herstel naar/van Azure-opslag, volgt u de aanbevelingen die op [SQL Server back-up naar URL Best Practices en probleemoplossing en terugzetten van back-ups die zijn opgeslagen in Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). U kunt ook deze back-ups automatiseren [automatische back-up voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
-    Voordat u SQL Server 2012, kunt u [SQL Server back-up naar Azure-hulpprogramma](https://www.microsoft.com/download/details.aspx?id=40740). Dit hulpprogramma kan helpen om back-doorvoer met behulp van meerdere back-up stripe-doelen te vergroten.
+Voordat u SQL Server 2012, kunt u [SQL Server back-up naar Azure-hulpprogramma](https://www.microsoft.com/download/details.aspx?id=40740). Dit hulpprogramma kan helpen om back-doorvoer met behulp van meerdere back-up stripe-doelen te vergroten.
 
-* **SQL Server-gegevensbestanden in Azure**: Deze nieuwe functie [SQL Server-gegevensbestanden in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is beschikbaar vanaf SQL Server 2014. Gegevensbestanden in Azure SQL-Server uitgevoerd, ziet u vergelijkbare prestatiekenmerken als het gebruik van Azure-gegevensschijven.
+### <a name="sql-server-data-files-in-azure"></a>SQL Server-gegevensbestanden in Azure
+
+Deze nieuwe functie [SQL Server-gegevensbestanden in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is beschikbaar vanaf SQL Server 2014. Gegevensbestanden in Azure SQL-Server uitgevoerd, ziet u vergelijkbare prestatiekenmerken als het gebruik van Azure-gegevensschijven.
+
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Failover-clusterexemplaar en opslagruimten
+
+Als u opslagruimten, als u knooppunten toevoegt aan het cluster op de **bevestiging** pagina, schakel het selectievakje met het label **alle in aanmerking komende opslag toevoegen aan het cluster**. 
+
+![Schakel het selectievakje in aanmerking komende opslag](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+Als u van opslagruimten gebruikmaakt en niet doen Schakel **alle in aanmerking komende opslag toevoegen aan het cluster**, Windows losgekoppeld van de virtuele schijven tijdens het clusterproces. Als gevolg hiervan worden niet weergegeven in Schijfbeheer of Explorer totdat de opslagruimten zijn verwijderd uit het cluster en opnieuw gekoppeld met behulp van PowerShell. Storage Spaces gegroepeerd meerdere schijven in opslaggroepen. Zie voor meer informatie, [opslagruimten](/windows-server/storage/storage-spaces/overview).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704931"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389477"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
+
+> [!NOTE]
+> De ' weergave *klassieke* Identity & Access ' koppeling wordt beëindigd op 31 juli 2019. Klik op [hier](security-center-features-retirement-july2019.md#menu_classicidentity) voor meer informatie over andere services.
 
 > [!NOTE]
 > Identiteit en toegang bewaken is in preview en alleen beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
@@ -47,7 +50,7 @@ Zie [aanbevelingen](security-center-identity-access.md#recommendations) voor een
 ## <a name="monitoring-security-health"></a>Beveiligingsstatus bewaken
 U kunt de beveiligingsstatus van uw resources bewaken op de **Security Center-overzicht** dashboard. De **Resources** sectie is geen integriteitsindicator waarin de ernstcategorieën voor elk resourcetype.
 
-U kunt een lijst van alle problemen weergeven door te selecteren **aanbevelingen**. Onder **Resources**, vindt u een lijst met problemen die specifiek zijn voor reken- en apps, gegevensbeveiliging, netwerken, of identiteit en toegang. Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen.
+U kunt een lijst van alle problemen weergeven door te selecteren **aanbevelingen**. Onder **Resources**, vindt u een lijst met problemen die specifiek zijn voor reken- en apps, gegevensbeveiliging, netwerken, of identiteit en toegang. Zie voor meer informatie over het toepassen van aanbevelingen [beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md).
 
 Zie voor een volledige lijst met aanbevelingen voor identiteits- en toegangsbeheer, [aanbevelingen](security-center-identity-access.md#recommendations).
 
@@ -115,10 +118,10 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 |Abonnement|30|Externe accounts met eigenaarsmachtigingen van uw abonnement verwijderen|Externe accounts met eigenaarsmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
 |Abonnement|30|MFA inschakelen voor de App voor Azure-accounts met leesmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
 |Abonnement|25|Externe accounts met schrijfmachtigingen verwijderen van uw abonnement|Externe accounts met schrijfmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
-|Abonnement|20|Afgeschafte accounts met eigenaarsmachtigingen van uw abonnement verwijderen|Afgeschafte accounts met eigenaarsmachtigingen verwijderen van uw abonnementen.|
-|Abonnement|5|Afgeschafte accounts verwijderen van uw abonnement|Afgeschafte accounts verwijderen van uw abonnementen voor toegang tot alleen actieve gebruikers. |
+|Abonnement|20|Afgeschafte accounts met eigenaarsmachtigingen van uw abonnement verwijderen|Afgeschafte accounts met eigenaarsmachtigingen verwijderen van uw abonnementen. Afgeschafte accounts zijn de accounts voor die aanmelding is geblokkeerd in Azure AD.|
+|Abonnement|5|Afgeschafte accounts verwijderen van uw abonnement|Afgeschafte accounts verwijderen van uw abonnementen voor toegang tot alleen actieve gebruikers. Afgeschafte accounts zijn de accounts voor die aanmelding is geblokkeerd in Azure AD.|
 |Abonnement|5|Meer dan één eigenaar van uw abonnement opgeven|Meer dan één abonnementseigenaar aanwijzen om de beheerder toegang redundantie.|
-|Abonnement|5|Maximaal drie eigenaren toewijzen aan uw abonnement|Minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar.|
+|Abonnement|5|Maximaal 3 eigenaren voor uw abonnement opgeven|Minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar.|
 |Key Vault|5|Schakel diagnostische logboeken in Key Vault|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
 |Abonnement|15|Externe accounts met leesmachtigingen verwijderen van uw abonnement|Externe accounts met leesmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.|
 |Abonnement|1|Contactgegevens voor beveiliging verstrekken|Neem contact op met de beveiligingsgegevens voor al uw abonnementen bevatten. Contactgegevens is een e-mailadres en telefoonnummer getal. De informatie wordt gebruikt om contact met u als beveiligingsteam vindt dat uw resources zijn aangetast|

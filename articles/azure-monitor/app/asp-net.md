@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595551"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256630"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -99,12 +99,10 @@ De portal wordt geopend met een weergave van de telemetrie van uw app.
 
 Klik in de portal op een tegel of grafiek om meer details te bekijken.
 
-[Meer informatie over het gebruik van Application Insights in Azure Portal](../../azure-monitor/app/app-insights-dashboards.md).
-
 ## <a name="step-4-publish-your-app"></a>Stap 4: Uw app publiceren
 Publiceer uw app op de IIS-server of op Azure. Bekijk de livestream met metrische gegevens in [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) om te controleren of alles goed werkt.
 
-Uw telemetrie wordt opgebouwd in de Application Insights-portal, waar u metrische gegevens kunt controleren, uw telemetrie kunt doorzoeken en [dashboards](../../azure-monitor/app/app-insights-dashboards.md) kunt instellen. U kunt ook de krachtige [Kusto-querytaal](/azure/kusto/query/) om gebruik en prestaties te analyseren of om specifieke gebeurtenissen te zoeken.
+Uw telemetrie-builds omhoog in de Application Insights-portal, waar u metrische gegevens controleren kunt, zoeken uw telemetrie. U kunt ook de krachtige [Kusto-querytaal](/azure/kusto/query/) om gebruik en prestaties te analyseren of om specifieke gebeurtenissen te zoeken.
 
 U kunt uw telemetrie ook blijven analyseren in [Visual Studio](../../azure-monitor/app/visual-studio.md) met hulpprogramma's voor diagnostisch zoeken en [Trends](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -138,16 +136,15 @@ Er zijn ook andere onderwerpen die u kunt bekijken als u geïnteresseerd bent in
 
 ### <a name="more-telemetry"></a>Meer telemetrie
 
-* **[Laadgegevens voor browser en pagina](../../azure-monitor/app/javascript.md)**: voeg een codefragment in uw webpagina's in.
-* **[Gedetailleerde bewaking van afhankelijkheid en uitzonderingen](../../azure-monitor/app/monitor-performance-live-website-now.md)**: installeer Status Monitor op uw server.
+* **[Laadgegevens voor browser en pagina](../../azure-monitor/app/javascript.md)** : voeg een codefragment in uw webpagina's in.
+* **[Gedetailleerde bewaking van afhankelijkheid en uitzonderingen](../../azure-monitor/app/monitor-performance-live-website-now.md)** : installeer Status Monitor op uw server.
 * **[Codeer aangepaste gebeurtenissen](../../azure-monitor/app/api-custom-events-metrics.md)** om gebruikersacties te tellen, te meten of de tijdsduur hiervan te bepalen.
-* **[Haal logboekgegevens op](../../azure-monitor/app/asp-net-trace-logs.md)**: koppel logboekgegevens aan uw telemetrie.
+* **[Haal logboekgegevens op](../../azure-monitor/app/asp-net-trace-logs.md)** : koppel logboekgegevens aan uw telemetrie.
 
 ### <a name="analysis"></a>Analyse
 
 * **[Met Application Insights werken in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Bevat informatie over foutopsporing met telemetrie, het doorzoeken van diagnostische gegevens en het in detail analyseren van code.
-* **[Werken met de Application Insights-portal](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Bevat informatie over dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en exportmogelijkheden voor telemetrie.
-* **[Analyse](../../azure-monitor/log-query/get-started-portal.md)**: de krachtige querytaal.
+* **[Analyse](../../azure-monitor/log-query/get-started-portal.md)** : de krachtige querytaal.
 
 ### <a name="alerts"></a>Waarschuwingen
 

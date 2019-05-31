@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bd6a9df9518cb1b2312b525e8876629a2189bd2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196885"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399604"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot in Node.js met Bot Framework 3.x en de Azure-Web-app-bot
 
 Bouw met behulp van Node.js een chatbot met ingebouwd taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren. De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
+
+Een [Bot Framework 4.x met LUIS zelfstudie](luis-nodejs-tutorial-bf-v4.md) is ook beschikbaar.
 
 ## <a name="prerequisite"></a>Vereiste
 
@@ -98,7 +100,7 @@ Open **toepassingsinstellingen** in de eerste browservenster en bewerk de **Luis
 
   ![Werk de LUIS-app-ID in Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-Als u niet de LUIS-app-ID hebt, meld u aan bij de [LUIS](luis-reference-regions.md) website met hetzelfde account als u zich aanmeldt bij Azure. Selecteer op **mijn apps**. 
+Als u niet de LUIS-app-ID hebt, aanmelden bij de [LUIS](luis-reference-regions.md) website met de dezelfde account waarmee u zich aanmeldt bij Azure. Selecteer op **mijn apps**. 
 
 1. De LUIS-app die u eerder hebt gemaakt, waarin de intenties en entiteiten uit het domein HomeAutomation vinden.
 
@@ -236,7 +238,7 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>De bot testen
 
-Selecteer in de Azure-Portal op **testen in Web Chat** voor het testen van de bot. Probeer het type berichten like "inschakelen het licht aan" en 'Mijn brandstof uitschakelen' om aan te roepen van de intenties die u hebt toegevoegd aan.
+Selecteer in de Azure-portal op **testen in Web Chat** voor het testen van de bot. Probeer het type berichten like "inschakelen het licht aan" en 'Mijn brandstof uitschakelen' om aan te roepen van de intenties die u hebt toegevoegd aan.
    ![HomeAutomation bot in Web Chat testen](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]

@@ -9,43 +9,45 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/29/2019
-ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.date: 05/30/2019
+ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852000"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398537"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Model interpretability met Azure Machine Learning-service
 
-In dit artikel leert u hoe waarin wordt uitgelegd waarom het model de voorspellingen gedaan zodanig aan het pakket interpretability van de Azure Machine Learning Python SDK.
+In dit artikel leert u hoe u waarin wordt uitgelegd waarom het model de voorspellingen gedaan zodanig met de verschillende interpretability pakketten van de Azure Machine Learning Python SDK.
 
-De klassen en methoden gebruiken in dit pakket, kunt u krijgen:
-+ Interpretability op echte gegevenssets op schaal, tijdens de training en Deductie. 
+Met behulp van de klassen en methoden in de SDK, kunt u krijgen:
++ Functie van waarden van belang voor onbewerkte en Social engineering-functies
++ Interpretability op echte gegevenssets op schaal, tijdens de training en Deductie.
 + Interactieve visualisaties om u te helpen de detectie van patronen in gegevens en uitleg over training tegelijk
-+ Functie van waarden van belang: onbewerkte en Social engineering-functies
 
-Modelontwerpers en evaluaties tijdens de fase van de training van het ontwikkelingsproces doet, kunnen gebruiken om uit te leggen van de uitvoer van een model belanghebbenden vertrouwen te bouwen.  Ze het inzicht in het model ook gebruiken voor het opsporen van fouten, valideren model gedrag komt overeen met hun doelstellingen, en om te controleren op de afwijking.
+Tijdens de fase van de training van het ontwikkelingsproces doet, modelontwerpers en evaluaties interpretability uitvoer van een model gebruiken om te controleren hypothesen en bouw een vertrouwensrelatie met belanghebbenden.  Ze het inzicht in het model ook gebruiken voor het opsporen van fouten, valideren model gedrag komt overeen met hun doelstellingen, en om te controleren op de afwijking.
 
-Deductie of het model scoren, is de fase waarin het gedistribueerde model wordt gebruikt voor voorspellingen, meestal op productiegegevens. Tijdens deze fase kunnen gegevenswetenschappers de resulterende voorspellingen aan de mensen die gebruikmaken van uw model uitleggen. Bijvoorbeeld, waarom het model een lening een weigeren of voorspellen dat een beleggingsportefeuille een hoger risico uitvoert?
+In machine learning, **functies** de gegevensvelden gebruikt om te voorspellen van een gegevenspunt doel. Bijvoorbeeld, om te voorspellen kredietrisico, kunnen gegevensvelden voor leeftijd, de accountgrootte en leeftijd van de account worden gebruikt. In dit geval, leeftijd, de accountgrootte en account leeftijd zijn **functies**. Urgentie van de functie kunt u zien hoe elk gegevensveld van het model voorspellingen beïnvloed. Bijvoorbeeld, kan leeftijd worden veel gebruikt in de voorspelling terwijl de accountgrootte van het en de leeftijd hebben geen invloed op de nauwkeurigheid aanzienlijk. Dit proces kan gegevenswetenschappers om uit te leggen van de resulterende voorspellingen zodat belanghebbenden inzicht hebben in welke gegevenspunten in het model het belangrijkst zijn.
 
-Gebruik van deze aanbieding, kunt u machine learning-modellen uitleggen **wereldwijd op alle gegevens**, of **lokaal op een bepaald gegevenspunt** met behulp van de geavanceerde technologieën in een eenvoudig te gebruiken en schaalbare manier.
+Met deze hulpprogramma's, kunt u machine learning-modellen uitleggen **wereldwijd op alle gegevens**, of **lokaal op een specifieke gegevenspunten** met behulp van de geavanceerde technologieën in een eenvoudig te gebruiken en schaalbare manier.
 
-De klassen interpretability zijn beschikbaar via twee Python-pakketten. Meer informatie over het [SDK-pakketten installeren voor Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+De klassen interpretability zijn beschikbaar gemaakt via meerdere SDK-pakketten. Meer informatie over het [SDK-pakketten installeren voor Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), de belangrijkste pakket, met functies die worden ondersteund door Microsoft. 
+* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), de belangrijkste pakket, met functies die worden ondersteund door Microsoft.
 
 * `azureml.contrib.explain.model`, preview en experimentele functies die u kunt proberen.
 
+* `azureml.train.automl.automlexplainer` pakket voor de interpretatie van geautomatiseerde machine learning-modellen.
+
 > [!IMPORTANT]
-> Dingen in contrib niet volledig worden ondersteund. Zodra de experimentele functies volwassen, zullen ze geleidelijk worden verplaatst naar het belangrijkste pakket.
+> De inhoud van de `contrib` naamruimte is niet volledig worden ondersteund. Zodra de experimentele functies volwassen, worden ze geleidelijk worden verplaatst naar de primaire naamruimte.
 
 ## <a name="how-to-interpret-your-model"></a>Hoe u uw model interpreteren
 
 U kunt de interpretability klassen en methoden om te begrijpen van de globale gedrag van het model of voorspellingen op specifieke toepassen. De oude heet algemene uitleg en de laatste heet lokale uitleg.
 
-De methoden kunnen ook worden ingedeeld op basis van of de methode model neutraal of specifieke model is. Sommige methoden gericht op bepaalde type modellen. Bijvoorbeeld, de Shapegegevens structuur uitleg alleen van toepassing op modellen op basis van een structuur. Bepaalde methoden voor behandelen het model als een zwart vak, zoals nabootsen uitleg of de Shapegegevens kernel uitleg. De `explain` pakket maakt gebruik van deze verschillende methoden die zijn gebaseerd op gegevenssets, modeltypen en use-cases. 
+De methoden kunnen ook worden ingedeeld op basis van of de methode model neutraal of specifieke model is. Sommige methoden gericht op bepaalde type modellen. Bijvoorbeeld, de Shapegegevens structuur uitleg alleen van toepassing op modellen op basis van een structuur. Bepaalde methoden voor behandelen het model als een zwart vak, zoals nabootsen uitleg of de Shapegegevens kernel uitleg. De `explain` pakket maakt gebruik van deze verschillende methoden die zijn gebaseerd op gegevenssets, modeltypen en use-cases.
 
 De uitvoer is een verzameling van informatie over hoe een bepaald model in staat de voorspelling, zoals stelt:
 * Globale/lokale relatieve functie urgentie
@@ -103,9 +105,9 @@ De `explain` pakket is ontworpen voor gebruik met zowel lokale als externe compu
 
 ### <a name="train-and-explain-locally"></a>Trainen en wordt uitgelegd lokaal
 
-1. Uw model in een lokaal Jupyter-notitieblok te trainen. 
+1. Uw model in een lokaal Jupyter-notitieblok te trainen.
 
-    ``` python
+    ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
     from sklearn.datasets import load_breast_cancer
     from sklearn import svm
@@ -126,8 +128,9 @@ De `explain` pakket is ontworpen voor gebruik met zowel lokale als externe compu
     # "features" and "classes" fields are optional
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
+
     of
-    
+
     ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
@@ -152,16 +155,18 @@ De `explain` pakket is ontworpen voor gebruik met zowel lokale als externe compu
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0])
-    
+
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
+
     of
+
     ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4])
-    
+
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -173,14 +178,14 @@ Terwijl u op de diverse compute-doelen die door Azure Machine Learning-service w
 
 1. Maak een trainingsscript in een lokaal Jupyter-notitieblok (bijvoorbeeld run_explainer.py).
 
-    ``` python  
+    ```python
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
-    
+
     # Train your model here
 
-    # explain predictions on your local machine   
-    # "features" and "classes" fields are optional 
+    # explain predictions on your local machine
+    # "features" and "classes" fields are optional
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
     global_explanation = explainer.explain_global(x_test)
@@ -198,10 +203,9 @@ Terwijl u op de diverse compute-doelen die door Azure Machine Learning-service w
 
 2. Volg de instructies op [instellen van compute-doelen voor modeltraining](how-to-set-up-training-targets.md#amlcompute) voor meer informatie over het instellen van een Azure Machine Learning-Computing als uw compute-doel en het verzenden van uw training uitvoeren.
 
-3. Download de uitleg in uw lokaal Jupyter-notitieblok. 
+3. Download de uitleg in uw lokaal Jupyter-notitieblok.
 
-
-    ``` python
+    ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
     # Get model explanation data
     client = ExplanationClient.from_run(run)
@@ -229,7 +233,7 @@ Gebruik het dashboard van de visualisatie om te begrijpen en interpreteren van u
 
 De volgende grafieken geven een algemeen overzicht van het getrainde model samen met de voorspellingen en uitleg.
 
-|Tekenen|Description|
+|Tekengebied|Description|
 |----|-----------|
 |Data Exploration| Een overzicht van de gegevensset, samen met de voorspelling waarden.|
 |Globale urgentie|Geeft de top K (configureerbare K) belangrijke functies wereldwijd. In deze grafiek is handig om te begrijpen van de globale gedrag van het onderliggende model.|
@@ -239,9 +243,10 @@ De volgende grafieken geven een algemeen overzicht van het getrainde model samen
 [![Globale visualisatie-Dashboard](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### <a name="local-visualizations"></a>Lokale visualisaties
+
 U kunt op elk gewenst moment afzonderlijke klikken op elk gewenst moment van de voorgaande grafieken laden van de lokale functie belang plot voor het opgegeven gegevenspunt.
 
-|Tekenen|Description|
+|Tekengebied|Description|
 |----|-----------|
 |Lokale urgentie|Geeft de top K (configureerbare K) belangrijke functies wereldwijd. In deze grafiek is handig om te begrijpen van de lokale gedrag van het onderliggende model op een bepaald gegevenspunt.|
 
@@ -253,11 +258,11 @@ Gebruik de volgende code voor het laden van de visualisatie-dashboard:
 from azureml.contrib.explain.model.visualize import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
-``` 
+```
 
 ## <a name="raw-feature-transformations"></a>Onbewerkte functie transformaties
 
-U kunt eventueel uw functie transformation pipeline doorgeven aan de uitleg voor het ontvangen van uitleg wat betreft de onbewerkte functies voordat u de transformatie (in plaats dat functies). Als u deze stap overslaan, biedt de uitleg uitleg in termen van Social engineering functies. 
+U kunt eventueel uw functie transformation pipeline doorgeven aan de uitleg voor het ontvangen van uitleg wat betreft de onbewerkte functies voordat u de transformatie (in plaats dat functies). Als u deze stap overslaan, biedt de uitleg uitleg in termen van Social engineering functies.
 
 De indeling van de ondersteunde transformaties is dezelfde als die wordt beschreven in [sklearn pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Alle transformaties worden in het algemeen worden ondersteund, zolang ze met één kolom werken en daarom duidelijk op-veel zijn.
 
@@ -292,33 +297,37 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
 De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan worden gebruikt op het scoring-tijd uitleg van lokale gegevens op te geven. Het proces voor het implementeren van een scoring uitleg is vergelijkbaar met het implementeren van een model en bevat de volgende stappen uit:
 
 1. Een uitleg-object maken:
+
    ```python
    from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
 
    explainer = TabularExplainer(model, x_test)
-   ``` 
+   ```
 
 1. Maak een scoring uitleg met behulp van het object uitleg:
+
    ```python
    scoring_explainer = explainer.create_scoring_explainer(x_test)
 
    # Pickle scoring explainer
    scoring_explainer_path = scoring_explainer.save('scoring_explainer_deploy')
-   ``` 
+   ```
 
 1. Configureren en registreren van een installatiekopie die gebruikmaakt van het scoring uitleg-model.
+
    ```python
    # Register explainer model using the path from ScoringExplainer.save - could be done on remote compute
    run.upload_file('breast_cancer_scoring_explainer.pkl', scoring_explainer_path)
    model = run.register_model(model_name='breast_cancer_scoring_explainer', model_path='breast_cancer_scoring_explainer.pkl')
    print(model.name, model.id, model.version, sep = '\t')
-   ``` 
+   ```
 
 1. [Optioneel] De score uitleg ophalen uit de cloud en de uitleg testen
+
    ```python
    from azureml.contrib.explain.model.scoring.scoring_explainer import ScoringExplainer
 
-   # Retreive the scoring explainer model from cloud"
+   # Retrieve the scoring explainer model from cloud"
    scoring_explainer_model = Model(ws, 'breast_cancer_scoring_explainer')
    scoring_explainer_model_path = scoring_explainer_model.download(target_dir=os.getcwd(), exist_ok=True)
 
@@ -333,6 +342,7 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
 1. De installatiekopie implementeert op een compute-doel:
 
    1. Maak een scoring-bestand (voordat u deze stap maakt u de stappen in [Implementeer modellen met de service Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) voor het registreren van uw oorspronkelijke voorspellingsmodel)
+
         ```python
         %%writefile score.py
         import json
@@ -365,50 +375,55 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
             local_importance_values = scoring_explainer.explain(data)
             # You can return any data type as long as it is JSON-serializable
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
-        ``` 
-    1. Definieer de configuratie van de implementatie (deze configuratie is afhankelijk van de vereisten van uw model. Het volgende voorbeeld definieert een configuratie die gebruikmaakt van één CPU-kern en 1 GB geheugen)
+        ```
+
+   1. Definieer de configuratie van de implementatie (deze configuratie is afhankelijk van de vereisten van uw model. Het volgende voorbeeld definieert een configuratie die gebruikmaakt van één CPU-kern en 1 GB geheugen)
+
         ```python
         from azureml.core.webservice import AciWebservice
 
-        aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                                       memory_gb=1, 
-                                                       tags={"data": "breastcancer",  
-                                                             "method" : "local_explanation"}, 
+        aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                                       memory_gb=1,
+                                                       tags={"data": "breastcancer",
+                                                             "method" : "local_explanation"},
                                                        description='Get local explanations for breast cancer data')
-        ``` 
+        ```
 
-    1. Maak een bestand met de omgeving afhankelijkheden
+   1. Maak een bestand met de omgeving afhankelijkheden
 
         ```python
-        from azureml.core.conda_dependencies import CondaDependencies 
+        from azureml.core.conda_dependencies import CondaDependencies
 
         # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
 
-        myenv = CondaDependencies.create(pip_packages=["azureml-defaults", "azureml-explain-model", "azureml-contrib-explain-model"], 
+        myenv = CondaDependencies.create(pip_packages=["azureml-defaults", "azureml-explain-model", "azureml-contrib-explain-model"],
                                         conda_packages=["scikit-learn"])
 
         with open("myenv.yml","w") as f:
             f.write(myenv.serialize_to_string())
-            
+
         with open("myenv.yml","r") as f:
             print(f.read())
-        ``` 
-    1. Een aangepaste docker-bestand maken met g ++ geïnstalleerd
+        ```
+
+   1. Een aangepaste docker-bestand maken met g ++ geïnstalleerd
 
         ```python
         %%writefile dockerfile
-        RUN apt-get update && apt-get install -y g++  
-        ``` 
-    1. De gemaakte installatiekopie implementeert (geschatte tijd: 5 minuten)
+        RUN apt-get update && apt-get install -y g++
+        ```
+
+   1. De gemaakte installatiekopie implementeert (geschatte tijd: 5 minuten)
+
         ```python
         from azureml.core.webservice import Webservice
         from azureml.core.image import ContainerImage
 
         # Use the custom scoring, docker, and conda files we created above
         image_config = ContainerImage.image_configuration(execution_script="score.py",
-                                                        docker_file="dockerfile", 
-                                                        runtime="python", 
+                                                        docker_file="dockerfile",
+                                                        runtime="python",
                                                         conda_file="myenv.yml")
 
         # Use configs and models generated above
@@ -419,9 +434,10 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
                                             image_config=image_config)
 
         service.wait_for_deployment(show_output=True)
-        ``` 
+        ```
 
 1. De implementatie testen
+
     ```python
     import requests
 
@@ -438,9 +454,33 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
     print("POST to url", service.scoring_uri)
     # can covert back to Python objects from json string if desired
     print("prediction:", resp.text)
-    ``` 
+    ```
 
 1. Opschonen van: Als u wilt verwijderen van een geïmplementeerde webservice, gebruikt u `service.delete()`.
+
+## <a name="interpretability-in-automated-ml"></a>Interpretability in geautomatiseerde ML
+
+Geautomatiseerde machine learning bevat-pakketten voor de functie belangrijk voor het automatisch getrainde modellen interpreteren. Bovendien kunnen classificatie scenario's u om op te halen op klasseniveau functie belang. Er zijn twee methoden voor het inschakelen van dit gedrag in geautomatiseerde machine learning:
+
+* Om in te schakelen belang van de functie voor een model getrainde ensembles, gebruikt u de [ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) functie.
+
+    ```python
+    from azureml.train.automl.automlexplainer import explain_model
+
+    shap_values, expected_values, overall_summary, overall_imp, \
+        per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
+    ```
+
+* Om in te schakelen functie belang voor elke afzonderlijke uitvoering voordat een training, stel de `model_explainability` parameter `True` in de `AutoMLConfig` -object, samen met validatiegegevens levert. Gebruik vervolgens de [ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) functie.
+
+    ```python
+    from azureml.train.automl.automlexplainer import retrieve_model_explanation
+
+    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, \
+        per_class_imp = retrieve_model_explanation(best_run)
+    ```
+
+Zie voor meer informatie de [procedures](how-to-configure-auto-train.md#explain-the-model-interpretability) over het inschakelen van interpretability functies in automatische leerprocessen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

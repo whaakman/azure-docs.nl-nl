@@ -4,14 +4,14 @@ description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954132"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388483"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-queryvoorbeelden voor Azure Cosmos DB
 
@@ -550,13 +550,13 @@ In de volgende tabel ziet het resultaat van gelijkheidsvergelijkingen in de SQL-
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Niet gedefinieerd | Undefined | Undefined | Undefined | Undefined | Undefined | Niet gedefinieerd |
-| **Null** | Niet gedefinieerd | **Ok** | Niet gedefinieerd | Undefined | Undefined | Undefined | Niet gedefinieerd |
-| **Boolean** | Niet gedefinieerd | Niet gedefinieerd | **Ok** | Niet gedefinieerd | Undefined | Undefined | Niet gedefinieerd |
-| **Number** | Niet gedefinieerd | Undefined | Niet gedefinieerd | **Ok** | Niet gedefinieerd | Undefined | Niet gedefinieerd |
-| **String** | Niet gedefinieerd | Undefined | Undefined | Niet gedefinieerd | **Ok** | Niet gedefinieerd | Niet gedefinieerd |
-| **Object** | Niet gedefinieerd | Undefined | Undefined | Undefined | Niet gedefinieerd | **Ok** | Niet gedefinieerd |
-| **Array** | Niet gedefinieerd | Undefined | Undefined | Undefined | Undefined | Niet gedefinieerd | **Ok** |
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 Voor vergelijkingsoperators zoals `>`, `>=`, `!=`, `<`, en `<=`, vergelijking van de verschillende typen of tussen twee objecten of matrices produceert `Undefined`.  
 
@@ -568,27 +568,27 @@ Logische operatoren worden uitgevoerd op Booleaanse waarden. De volgende tabelle
 
 **Operator OF**
 
-| OR | True | Onwaar | Niet gedefinieerd |
+| OF | True | False | Undefined |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| Onwaar |True |Onwaar |Niet gedefinieerd |
-| Niet gedefinieerd |True |Niet gedefinieerd |Undefined |
+| False |True |False |Undefined |
+| Undefined |True |Undefined |Undefined |
 
 **Operator EN**
 
-| EN | True | Onwaar | Niet gedefinieerd |
+| EN | True | False | Undefined |
 | --- | --- | --- | --- |
-| True |True |Onwaar |Niet gedefinieerd |
-| Onwaar |Onwaar |Onwaar |Onwaar |
-| Niet gedefinieerd |Niet gedefinieerd |Onwaar |Niet gedefinieerd |
+| True |True |False |Undefined |
+| False |False |False |False |
+| Undefined |Undefined |False |Undefined |
 
 **Operator NIET**
 
 | NIET |  |
 | --- | --- |
-| True |Onwaar |
-| Onwaar |True |
-| Niet gedefinieerd |Niet gedefinieerd |
+| True |False |
+| False |True |
+| Undefined |Undefined |
 
 ## <a name="between-keyword"></a>Sleutelwoord BETWEEN
 
@@ -756,7 +756,7 @@ Deze query haalt de familie `id` in oplopende volgorde van de naam van de stad. 
 
 ## <a id="OffsetLimitClause"></a>De component OFFSET LIMIET
 
-LIMIET voor de OFFSET is een optionele component overslaan en vervolgens een aantal waarden van de query uitvoeren. Het aantal OFFSET en het maximum aantal zijn vereist in de component OFFSET LIMIET.
+LIMIET voor de OFFSET is een optionele component overslaan en vervolgens een aantal waarden van de query uitvoeren. Het aantal OFFSET en het maximum aantal zijn vereist in de component OFFSET LIMIET. Momenteel deze component wordt ondersteund voor query's in één partitie, partitie-overkoepelende query's niet nog ondersteund. 
 
 Wanneer de LIMIET van OFFSET wordt gebruikt in combinatie met een component ORDER BY, wordt de resultatenset wordt geproduceerd door te doen overslaan en de geordende waarden ondernemen. Als er geen component ORDER BY wordt gebruikt, wordt deze resulteren in een deterministische volgorde van waarden.
 
@@ -1294,11 +1294,11 @@ De SQL-API biedt ondersteuning voor de volgende statistische functies. SOM en ge
 
 | Function | Description |
 |-------|-------------|
-| AANTAL | Retourneert het aantal items in de expressie. |
+| COUNT | Retourneert het aantal items in de expressie. |
 | SUM   | Retourneert de som van alle waarden in de expressie. |
 | MIN   | Retourneert de minimumwaarde in de expressie. |
 | MAX   | Retourneert de maximumwaarde in de expressie. |
-| GEM   | Retourneert het gemiddelde van de waarden in de expressie. |
+| AVG   | Retourneert het gemiddelde van de waarden in de expressie. |
 
 U kunt ook via de resultaten van een matrix iteratie samenvoegen. Zie voor meer informatie de [iteratie](#Iteration) sectie.
 

@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/10/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544478"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417000"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -35,9 +35,9 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen c
 1. In de [portal](https://portal.azure.com), selecteer **Monitor**. De **Monitor** deelvenster consolideert alle controle-instellingen en gegevens in één weergave.
 
     ![De service 'Controleren'](./media/action-groups/home-monitor.png)
-1. Selecteer **waarschuwingen** Selecteer **actiegroepen beheren**.
+1. Selecteer **waarschuwingen** Selecteer **acties beheren**.
 
-    ![Actiegroepen knop beheren](./media/action-groups/manage-action-groups.png)
+    ![Knop acties beheren](./media/action-groups/manage-action-groups.png)
 1. Selecteer **actiegroep toevoegen**, en vul de velden in.
 
     ![De opdracht 'Actiegroep toevoegen'](./media/action-groups/add-action-group.png)
@@ -102,6 +102,8 @@ Bron-IP-adresbereiken
  - 13.106.57.196
  - 52.244.68.117
  - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

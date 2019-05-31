@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401779"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397130"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -305,6 +305,8 @@ Deze fout treedt op vanwege een van de volgende problemen:
 
 4. Uw runbook poging tot het aanroepen van een uitvoerbaar bestand of subprocess in een runbook dat wordt uitgevoerd in een sandbox met Azure. In dit scenario wordt niet ondersteund in Azure-sandboxes geladen.
 
+5. Uw runbook heeft geprobeerd te veel uitzonderingsgegevens naar de uitvoerstroom schrijven.
+
 #### <a name="resolution"></a>Oplossing
 
 Een van de volgende oplossingen het probleem wordt opgelost:
@@ -316,6 +318,8 @@ Een van de volgende oplossingen het probleem wordt opgelost:
 * Een andere oplossing is om uit te voeren van het runbook op een [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers zijn niet beperkt door de limieten voor geheugen en het netwerk die Azure-sandboxes geladen zijn.
 
 * Als u een proces (zoals .exe of subprocess.call) in een runbook aanroepen wilt, moet u het runbook uitvoeren op een [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+* Er is een limiet van 1MB op de uitvoerstroom van de taak. Zorg ervoor dat u aanroepen naar een uitvoerbaar bestand of subproces in een try/catch-blok insluiten. Als ze een uitzondering genereert, schrijft u het bericht uit de uitzondering in een Automation-variabele. Hiermee wordt voorkomen dat een deze naar de uitvoerstroom van de taak wordt geschreven.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook is mislukt vanwege gedeserialiseerde object
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482986"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305417"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Uw profiel en account-info van de portal mijn Apps bijwerken
 U kunt uw werk of school-account gebruiken met de webconsole **mijn Apps** portal weergeven en starten van veel van uw organisatie cloud-gebaseerde apps, om bij te werken sommige van uw profiel en account-informatie om te zien uw **groepen** informatie en om uit te voeren **toegangsbeoordelingen** voor uw apps en -groepen. Als u geen toegang tot de **mijn Apps** portal, u moet contact opnemen met uw Helpdesk om toestemming.
@@ -57,11 +57,11 @@ Bijwerken en beheren van uw werk of school-accountgegevens van de **profiel** pa
 
 - Informatie over de verificatie van de extra beveiliging bieden.
 
-- Lees de gebruiksvoorwaarden van uw organisatie.
+- De gebruiksvoorwaarden van uw organisatie controleren.
 
 - Overal afmelden.
 
-## <a name="change-your-password"></a>Wachtwoord wijzigen
+## <a name="change-your-password"></a>Uw wachtwoord wijzigen
 Als u wijzigen van het wachtwoord voor uw werk of school-account wilt, kunt u selecteren **wachtwoord wijzigen** uit de **-account beheren** gebied van de **profiel** pagina.
 
 ### <a name="to-change-your-password"></a>Uw wachtwoord te wijzigen

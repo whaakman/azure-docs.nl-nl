@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 51bd4b935b32bea20d3f5de0b8cda62dfdbf07b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236627"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400181"
 ---
 # <a name="azure-backup-support-matrix"></a>Ondersteuningsmatrix voor Azure Backup
 
@@ -27,7 +27,7 @@ Andere matrices ondersteuning zijn beschikbaar:
 
 ## <a name="vault-support"></a>Ondersteuning voor kluizen
 
-Azure Backup maakt gebruik van Recovery Services-kluizen te coördineren en beheren van back-ups. Kluizen worden ook gebruikt voor het opslaan van back-upgegevens. 
+Azure Backup maakt gebruik van Recovery Services-kluizen te coördineren en beheren van back-ups. Kluizen worden ook gebruikt voor het opslaan van back-upgegevens.
 
 De volgende tabel beschrijft de functies van Recovery Services-kluizen:
 
@@ -36,8 +36,8 @@ De volgende tabel beschrijft de functies van Recovery Services-kluizen:
 **Kluizen in het abonnement** | Maximaal 500 Recovery Services-kluizen in één abonnement.
 **Machines in een kluis** | Maximaal 1000 virtuele Azure-machines in een enkele kluis.<br/><br/> Maximaal 50 MABS kunnen de servers in een enkele kluis worden geregistreerd.
 **Gegevensbronnen in de kluis opslag** | Maximale 54,400 GB. Er is geen limiet voor back-ups van virtuele Azure-machines.
-**Back-ups naar de kluis** | **Azure VM's:** Eenmaal per dag.<br/><br/>**Machines die zijn beveiligd door DPM/MABS:** Twee keer per dag.<br/><br/> **Machines een back-up direct met behulp van de MARS-agent:** Drie keer per dag. 
-**Back-ups tussen kluizen** | Back-up is binnen een regio.<br/><br/> U moet een kluis in elke Azure-regio die u back wilt-up van virtuele machines bevat. U kunt geen back-up naar een andere regio. 
+**Back-ups naar de kluis** | **Azure VM's:** Eenmaal per dag.<br/><br/>**Machines die zijn beveiligd door DPM/MABS:** Twee keer per dag.<br/><br/> **Machines een back-up direct met behulp van de MARS-agent:** Drie keer per dag.
+**Back-ups tussen kluizen** | Back-up is binnen een regio.<br/><br/> U moet een kluis in elke Azure-regio die u back wilt-up van virtuele machines bevat. U kunt geen back-up naar een andere regio.
 **Verplaatsen van kluizen** | U kunt [verplaatsen van kluizen](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) meerdere abonnementen of tussen resourcegroepen in hetzelfde abonnement.
 **Gegevens verplaatsen tussen kluizen** | Een back-up gegevens verplaatsen tussen kluizen wordt niet ondersteund.
 **Opslagtype vault wijzigen** | U kunt het replicatietype storage (geografisch redundante opslag of lokaal redundante opslag) voor een kluis wijzigen voordat de back-ups worden opgeslagen. Nadat een back-ups in de kluis is begonnen, kan het replicatietype niet meer worden gewijzigd.
@@ -69,7 +69,7 @@ Dit is wat wordt ondersteund als u wilt back-up van virtuele Azure-machines:
 **Machine** | **Wat de back-up** | **Locatie** | **Functies**
 --- | --- | --- | ---
 **Azure VM backup met behulp van de VM-extensie** | Hele virtuele machine | Back-up naar de kluis. | De extensie wordt geïnstalleerd wanneer u een back-up voor een virtuele machine inschakelen.<br/><br/> Back-up eenmaal per dag.<br/><br/> App-bewuste back-up voor virtuele Windows-machines; bestandsconsistente back-up voor virtuele Linux-machines. U kunt app-consistentie voor Linux-machines configureren met behulp van aangepaste scripts.<br/><br/> VM of schijf herstellen.<br/><br/> Kan geen back-up van een Azure-VM naar een on-premises locatie.
-**Azure VM backup met behulp van de MARS-agent** | Bestanden en mappen | Back-up naar de kluis. | Back-up drie keer per dag.<br/><br/> Als u back-up van specifieke bestanden of mappen in plaats van de hele virtuele machine wilt, worden de MARS-agent kunt uitvoeren samen met de VM-extensie.
+**Azure VM backup met behulp van de MARS-agent** | Bestanden, mappen, systeemstatus | Back-up naar de kluis. | Back-up drie keer per dag.<br/><br/> Als u back-up van specifieke bestanden of mappen in plaats van de hele virtuele machine wilt, worden de MARS-agent kunt uitvoeren samen met de VM-extensie.
 **Azure VM met DPM** | Bestanden, mappen, volumes, systeemstatus, app-gegevens | Back-up naar de lokale opslag van Azure-VM die door DPM wordt uitgevoerd. DPM voert vervolgens een back-up uit naar de kluis. | App-gerichte momentopnamen.<br/><br/> Volledige granulariteit voor back-up en herstel.<br/><br/> Linux wordt ondersteund voor virtuele machines (Hyper-V-/VMware).<br/><br/> Oracle wordt niet ondersteund.
 **Azure VM met MABS** | Bestanden, mappen, volumes, systeemstatus, app-gegevens | Back-up naar de lokale opslag van Azure-VM met MABS. MABS voert vervolgens een back-up uit naar de kluis. | App-gerichte momentopnamen.<br/><br/> Volledige granulariteit voor back-up en herstel.<br/><br/> Linux wordt ondersteund voor virtuele machines (Hyper-V-/VMware).<br/><br/> Oracle wordt niet ondersteund.
 
@@ -122,7 +122,7 @@ Azure Backup ondersteunt versleuteling voor in-transit en inactieve gegevens.
 **On-premises Windows-machines of virtuele Azure-machines met DPM** | ![Ja][green] | ![Ja][green]
 **On-premises Windows-machines of virtuele Azure-machines met MABS** | ![Ja][green] | ![Ja][green]
 
-## <a name="compression-support"></a>Ondersteuning voor compressie
+## <a name="compression-support"></a>Compressieondersteuning voor
 
 Backup biedt ondersteuning voor de compressie van het back-verkeer, zoals samengevat in de volgende tabel.
 
@@ -131,8 +131,8 @@ Backup biedt ondersteuning voor de compressie van het back-verkeer, zoals sameng
 
 **Machine** | **Comprimeren naar MABS/DPM (TCP)** | **Comprimeren naar de kluis (HTTPS)**
 --- | --- | ---
-**Directe back-ups van on-premises Windows-machines** | N.v.t. | ![Ja][green]
-**Back-up van virtuele Azure-machines met behulp van de VM-extensie** | N.v.t. | N.v.t.
+**Directe back-ups van on-premises Windows-machines** | N.V.T. | ![Ja][green]
+**Back-up van virtuele Azure-machines met behulp van de VM-extensie** | N.V.T. | N.V.T.
 **Back-up op de on-premises/Azure-machines met behulp van MABS/DPM** | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Bewaarlimieten

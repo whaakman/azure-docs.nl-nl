@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb521ed0951999fadbfae5e0eac1f0ea275e0d48
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60779415"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391691"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reageren op gebeurtenissen van IoT-Hub met behulp van Event Grid om acties starten
 
@@ -25,7 +25,7 @@ Azure IoT Hub kan worden geïntegreerd met Azure Event Grid, zodat u kunt meldin
 
 ## <a name="regional-availability"></a>Regionale beschikbaarheid
 
-De Event Grid-integratie is beschikbaar voor IoT-hubs in de regio's waar Event Grid wordt ondersteund. Zie voor de meest recente lijst met regio's, [een inleiding tot Azure Event Grid](../event-grid/overview.md). 
+De Event Grid-integratie is beschikbaar voor IoT-hubs in de regio's waar Event Grid wordt ondersteund. Alle apparaatgebeurtenissen, met uitzondering van apparaat telemetriegebeurtenissen zijn algemeen beschikbaar. Apparaat telemetrie gebeurtenis is in openbare preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/). Zie voor de meest recente lijst met regio's, [een inleiding tot Azure Event Grid](../event-grid/overview.md). 
 
 ## <a name="event-types"></a>Gebeurtenistypen
 
@@ -37,6 +37,7 @@ IoT Hub publiceert de volgende typen gebeurtenissen:
 | Microsoft.Devices.DeviceDeleted | Wanneer een apparaat wordt verwijderd uit een IoT-hub gepubliceerd. |
 | Microsoft.Devices.DeviceConnected | Wanneer een apparaat is verbonden met een IoT-hub gepubliceerd. |
 | Microsoft.Devices.DeviceDisconnected | Gepubliceerd wanneer een apparaat niet is verbonden met een IoT-hub. |
+| Microsoft.Devices.DeviceTelemetry | Wanneer een apparaat telemetrie-bericht wordt verzonden naar een IoT-hub gepubliceerd |
 
 Gebruik de Azure portal of Azure CLI om te configureren welke gebeurtenissen om te publiceren vanaf elke IoT-hub. Raadpleeg de zelfstudie voor een voorbeeld [e-mailmeldingen verzenden over Azure IoT Hub-gebeurtenissen met Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
@@ -66,6 +67,42 @@ Het volgende voorbeeld ziet u het schema van een verbonden apparaat-gebeurtenis:
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+### <a name="device-telemetry-schema"></a>Apparaat telemetrie schema
+
+Apparaat telemetrie bericht moet een geldige JSON-indeling hebben met de contentType ingesteld op JSON en contentEncoding ingesteld op UTF-8 in het bericht [Systeemeigenschappen](iot-hub-devguide-routing-query-syntax.md#system-properties). Als dit niet is ingesteld, kunnen de IoT Hub wordt de berichten in de base 64 gecodeerde indeling schrijven. Het volgende voorbeeld ziet u het schema van een apparaat telemetrie-gebeurtenis: 
+
+```json
+[{  
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+            },
+            "Location": "USA"        
+        },
+        "properties": {            
+            "Status": "Active"        
+        },
+        "systemProperties": {            
+          "iothub-content-type": "application/json",
+          "iothub-content-encoding": "utf-8",
+          "iothub-connection-device-id": "d1",
+          "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+          "iothub-connection-auth-generation-id": "123455432199234570",
+          "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+          "iothub-message-source": "Telemetry"        
+        }    
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -123,13 +160,21 @@ Zie voor een gedetailleerde beschrijving van elke eigenschap [Azure Event Grid-g
 
 ## <a name="filter-events"></a>Gebeurtenissen filteren
 
-IoT Hub-gebeurtenisabonnementen kunnen filteren, gebeurtenissen op basis van de naam van de type en het apparaat van de gebeurtenis. Onderwerp filters in Event Grid werken op basis van **begint met** (voorvoegsel) en **eindigt met** (achtervoegsel) overeenkomt met. Het filter wordt gebruikt een `AND` -operator, zodat gebeurtenissen met een onderwerp die overeenkomen met het voorvoegsel en het achtervoegsel wordt geleverd aan de abonnee. 
+IoT Hub-gebeurtenisabonnementen kunnen filteren, gebeurtenissen op basis van het gebeurtenistype, gegevensinhoud en onderwerp, dit is de naam van het apparaat.
+
+Met Event Grid kunt [filteren](../event-grid/event-filtering.md) op gebeurtenis, onderwerpen en -inhoud. Tijdens het maken van de Event Grid-abonnement, kunt u kiezen om u te abonneren op geselecteerde IoT-gebeurtenissen. Onderwerp filters in Event Grid werken op basis van **begint met** (voorvoegsel) en **eindigt met** (achtervoegsel) overeenkomt met. Het filter wordt gebruikt een `AND` -operator, zodat gebeurtenissen met een onderwerp die overeenkomen met het voorvoegsel en het achtervoegsel wordt geleverd aan de abonnee. 
 
 De indeling maakt gebruik van het onderwerp van IoT-gebeurtenissen:
 
 ```json
 devices/{deviceId}
 ```
+
+Event Grid kan ook filteren op kenmerken van elke gebeurtenis, inclusief de gegevensinhoud. Hiermee kunt u kiezen welke gebeurtenissen worden geleverd op basis van de inhoud van het bericht telemetrie. Raadpleeg [Geavanceerd filteren](../event-grid/event-filtering.md#advanced-filtering) om voorbeelden weer te geven. 
+
+Voor niet-telemetrische gebeurtenissen, zoals DeviceConnected, DeviceDisconnected, DeviceCreated en DeviceDeleted, kan de Event Grid filteren worden gebruikt bij het maken van het abonnement. Voor telemetriegebeurtenissen, naast het filter in Event Grid, kunnen gebruikers ook filteren op dubbele apparaten, eigenschappen van berichten en hoofdtekst met de routering bericht-query. We maken een standaard [route](iot-hub-devguide-messages-d2c.md) in IoT-Hub, op basis van uw Event Grid-abonnement op telemetrie van apparaten. Deze één route kan al uw Event Grid-abonnementen worden verwerkt. Als u wilt filteren berichten voordat telemetrische gegevens wordt verzonden, kunt u bijwerken uw [routering query](iot-hub-devguide-routing-query-syntax.md). Houd er rekening mee dat die routering query kan worden toegepast op de hoofdtekst van het bericht alleen als de hoofdtekst JSON is.
+
+
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Beperkingen voor het apparaat is aangesloten en apparaat verbroken gebeurtenissen
 
 Voor het ontvangen van verbonden apparaten en gebeurtenissen van apparaat is verbroken, moet u de koppeling D2C of C2D-koppeling openen voor uw apparaat. Als uw apparaat MQTT-protocol gebruikt, blijft de IoT Hub de C2D koppeling openen. Voor AMQP, kunt u de koppeling C2D openen door het aanroepen van de [Async-API ontvangen](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
@@ -144,7 +189,7 @@ Toepassingen die werken met IoT Hub-gebeurtenissen moeten deze aanbevolen proced
 
 * Geen, wordt ervan uitgegaan dat alle gebeurtenissen die u ontvangt, zijn de typen die u verwacht. Controleer het type gebeurtenis altijd voordat het bericht wordt verwerkt.
 
-* Berichten kunnen niet de juiste volgorde of na een vertraging. De etag-veld gebruiken om te begrijpen als uw gegevens over objecten bijgewerkt is.
+* Berichten kunnen niet de juiste volgorde of na een vertraging. De etag-veld gebruiken om te begrijpen als uw gegevens over objecten bijgewerkt voor het apparaat is gemaakt of verwijderd apparaatgebeurtenissen is.
 
 ## <a name="next-steps"></a>Volgende stappen
 

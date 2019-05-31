@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 4589a9de4c2a8fa43e4e653d4447c7a7715a6e42
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: be5a8151f0de0a33db09194a7159aded6848c78a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399949"
+ms.locfileid: "66416182"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Quickstart: Maak een Azure Blockchain Service blockchain-lid met behulp van Azure CLI
 
@@ -71,7 +71,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een blockchain-lid hebt gemaakt, kunt u proberen een van de verbinding met transactie knooppunt snelstartgidsen voor [Geth](connect-geth.md), [MetaMask](connect-metamask.md), of [Truffle](connect-truffle.md).
+Nu u een blockchain-lid hebt gemaakt, kunt u proberen een van de verbinding Quick starts voor [Geth](connect-geth.md), [MetaMask](connect-metamask.md), of [Truffle](connect-truffle.md).
 
 > [!div class="nextstepaction"]
 > [Truffle gebruiken voor verbinding met een een Blockchain-Service van Azure-netwerk](connect-truffle.md)

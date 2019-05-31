@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b635ab96f1438377cb0d282c17304c2531185be
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769121"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357791"
 ---
 # <a name="get-information-from-a-coordinate"></a>Informatie ophalen uit een coördinaat
 
@@ -29,7 +29,7 @@ Er zijn twee manieren om een zoekopdracht omgekeerde-adres te maken. Één manie
 
 In de bovenstaande code wordt het eerste vereiste blok van code vormt een kaartobject en het verificatiemechanisme voor de sleutel voor het abonnement wordt ingesteld. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-Het tweede blok van code maakt een `SubscriptionKeyCredentialPolicy` om HTTP-aanvragen naar Azure kaarten met de abonnementssleutel te verifiëren. Vervolgens wordt de `atlas.service.MapsURL.newPipeline()` wordt in de `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) exemplaar. De `searchURL` vertegenwoordigt een URL naar Azure Maps [zoeken](https://docs.microsoft.com/rest/api/maps/search) bewerkingen.
+Het tweede blok van code maakt een `SubscriptionKeyCredentialPolicy` om HTTP-aanvragen naar Azure kaarten met de abonnementssleutel te verifiëren. Vervolgens wordt de `atlas.service.MapsURL.newPipeline()` wordt in de `SubscriptionKeyCredential` beleid en maakt een [pijplijn](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) exemplaar. De `searchURL` vertegenwoordigt een URL naar Azure Maps [zoeken](https://docs.microsoft.com/rest/api/maps/search) bewerkingen.
 
 Het derde codeblok updates van de stijl van de muisaanwijzer op een wijzer en maakt een [pop-upvenster](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) object. U kunt zien [een pop-up toevoegen op de kaart](./map-add-popup.md) voor instructies.
 

@@ -4,14 +4,14 @@ description: Informatie over het instellen van ingerichte doorvoer voor uw Azure
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953556"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389254"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Doorvoer voor containers en databases inrichten
 
@@ -71,8 +71,7 @@ De volgende afbeelding ziet u hoe een of meer logische partities die deel uitmak
 U kunt de twee modellen kunt combineren. Inrichting doorvoer voor de database en de container is toegestaan. Het volgende voorbeeld laat zien hoe om te worden ingericht met doorvoer op een Azure Cosmos-database en een container:
 
 * U kunt een Azure Cosmos-database met de naam maken *Z* met ingerichte doorvoer van *'K'* ru's. 
-* Maak vervolgens vijf containers met de naam *A*, *B*, *C*, *D*, en *E* binnen de database.
-* U kunt expliciet *"P"* ru's van de ingerichte doorvoer voor de container met de naam *B*.
+* Maak vervolgens vijf containers met de naam *A*, *B*, *C*, *D*, en *E* binnen de database. Bij het maken van container B, zorg ervoor dat u inschakelen **inrichten speciaal toegewezen doorvoer voor deze container** optie en configureer expliciet *"P"* ru's van de ingerichte doorvoer voor deze container. Houd er rekening mee dat u gedeelde en toegewijde doorvoer alleen bij het maken van de database en een container kunt configureren. 
 * De *'K'* ru's doorvoer wordt gedeeld door de vier containers *A*, *C*, *D*, en *E*. De exacte hoeveelheid doorvoer die beschikbaar zijn voor *A*, *C*, *D*, of *E* varieert. Er zijn geen Sla's voor elke afzonderlijke containerdoorvoer.
 * De container met de naam *B* om op te halen is gegarandeerd de *"P"* ru's doorvoer voortdurend. Wordt ondersteund door Sla's.
 

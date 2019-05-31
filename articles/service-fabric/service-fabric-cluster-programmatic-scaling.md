@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111293"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306937"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Een Service Fabric-cluster programmatisch schalen 
 
@@ -29,11 +29,11 @@ Service Fabric-clusters die worden uitgevoerd in Azure zijn gebouwd boven op de 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Referenties beheren
-Eén uitdaging van het schrijven van een service voor het afhandelen van schalen is dat de service moet toegang hebben tot de virtuele machine schaalsetresources zonder een interactieve aanmelding. Het is eenvoudig om toegang tot de Service Fabric-cluster als de service vergroten/verkleinen is een eigen Service Fabric-toepassing wijzigen, maar de referenties zijn nodig voor toegang tot de schaalset. Om aan te melden, kunt u een [service-principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) die zijn gemaakt met de [Azure CLI](https://github.com/azure/azure-cli).
+Eén uitdaging van het schrijven van een service voor het afhandelen van schalen is dat de service moet toegang hebben tot de virtuele machine schaalsetresources zonder een interactieve aanmelding. Het is eenvoudig om toegang tot de Service Fabric-cluster als de service vergroten/verkleinen is een eigen Service Fabric-toepassing wijzigen, maar de referenties zijn nodig voor toegang tot de schaalset. Als u wilt aanmelden, kunt u een [service-principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) die zijn gemaakt met de [Azure CLI](https://github.com/azure/azure-cli).
 
 Een service-principal kan worden gemaakt met de volgende stappen uit:
 
-1. Meld u aan bij de Azure CLI (`az login`) ingesteld als een gebruiker met toegang tot de virtuele-machineschaalset
+1. Aanmelden bij de Azure CLI (`az login`) ingesteld als een gebruiker met toegang tot de virtuele-machineschaalset
 2. De service-principal met maken `az ad sp create-for-rbac`
     1. Noteer de toepassings-id (elders 'client-ID' genoemd), naam, wachtwoord en tenant voor later gebruik.
     2. U moet ook uw abonnements-ID, dat kan worden weergegeven met `az account list`

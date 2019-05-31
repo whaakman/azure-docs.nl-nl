@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2019
+ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764893"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235424"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: De portal gebruiken om een Azure AD-toepassing en service-principal die toegang hebben tot resources te maken
 
@@ -40,11 +40,11 @@ We gaan direct naar het maken van de identiteit. Als u een probleem ondervindt, 
 
    ![app-registraties selecteren](./media/howto-create-service-principal-portal/select-app-registrations.png)
 
-1. Selecteer **Nieuwe toepassing registreren**.
+1. Selecteer **registratie van nieuwe**.
 
-   ![App toevoegen](./media/howto-create-service-principal-portal/select-add-app.png)
+   ![app toevoegen](./media/howto-create-service-principal-portal/select-add-app.png)
 
-1. Geef een naam en URL op voor de toepassing. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. U kunt geen referenties voor de maken een [systeemeigen toepassing](../manage-apps/application-proxy-configure-native-client-application.md). U kunt dit type niet gebruiken voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
+1. Geef een naam voor de toepassing. Selecteer een ondersteunde-account hebt getypt, waarmee wordt bepaald wie de toepassing kan gebruiken. Onder **omleidings-URI**, selecteer **Web** voor het type van de toepassing die u wilt maken. Voer de URI waar wordt naar het toegangstoken verzonden.  U kunt geen referenties voor de maken een [systeemeigen toepassing](../manage-apps/application-proxy-configure-native-client-application.md). U kunt dit type niet gebruiken voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **registreren**.
 
    ![toepassing een naam geven](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -66,7 +66,7 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
    Als u het abonnement dat u zoekt niet ziet, selecteert u **filter globale abonnementen**. Zorg ervoor dat het gewenste abonnement is geselecteerd voor de portal. 
 
-1. Selecteer **toegangsbeheer (IAM)**.
+1. Selecteer **toegangsbeheer (IAM)** .
 1. Selecteer **roltoewijzing toevoegen**.
 
    ![Selecteer de roltoewijzing toevoegen](./media/howto-create-service-principal-portal/select-add.png)
@@ -81,31 +81,41 @@ Uw service-principal is ingesteld. U kunt beginnen met het uw scripts of apps ui
 
 ## <a name="get-values-for-signing-in"></a>Waarden ophalen voor het aanmelden
 
-### <a name="get-tenant-id"></a>Tenant-id ophalen
-
-Wanneer u zich programmatisch aanmeldt, moet u de tenant-ID met uw verificatieaanvraag doorgeven.
+Wanneer u zich programmatisch aanmeldt, moet u de tenant-ID met uw verificatieaanvraag doorgeven. U moet ook de ID voor uw toepassing en een verificatiesleutel nodig. U kunt deze waarden als volgt ophalen:
 
 1. Selecteer **Azure Active Directory**.
-1. Selecteer **eigenschappen**.
-
-   ![Azure AD-eigenschappen selecteren](./media/howto-create-service-principal-portal/select-ad-properties.png)
-
-1. Kopieer de **map-ID** om op te halen van uw tenant-ID.
-
-   ![Tenant-id](./media/howto-create-service-principal-portal/copy-directory-id.png)
-
-### <a name="get-application-id-and-authentication-key"></a>Toepassing-ID en verificatiesleutel sleutel ophalen
-
-U moet ook de ID voor uw toepassing en een verificatiesleutel nodig. U kunt deze waarden als volgt ophalen:
 
 1. Van **App-registraties** in Azure AD, selecteer uw toepassing.
 
-   ![Toepassing selecteren](./media/howto-create-service-principal-portal/select-app.png)
+   ![toepassing selecteren](./media/howto-create-service-principal-portal/select-app.png)
+
+1. Kopieer de map (tenant)-ID en op te slaan in de code van uw toepassing.
+
+    ![Tenant-id](./media/howto-create-service-principal-portal/copy-tenant-id.png)
 
 1. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode.
 
    ![Client-id](./media/howto-create-service-principal-portal/copy-app-id.png)
 
+## <a name="certificates-and-secrets"></a>Certificaten en geheimen
+Deamon toepassingen kunnen twee soorten referenties gebruiken om te verifiëren met Azure AD: certificaten en toepassingsgeheimen.  Wordt geadviseerd om een certificaat, maar u kunt ook een nieuwe toepassingsgeheim maken.
+
+### <a name="upload-a-certificate"></a>Een certificaat uploaden
+
+U kunt een bestaand certificaat gebruiken als u die hebt.  Desgewenst kunt u een zelfondertekend certificaat voor testdoeleinden. Open PowerShell en voer [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) met de volgende parameters voor het maken van een zelfondertekend certificaat in het certificaatarchief van de gebruiker op uw computer: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Exporteren van dit certificaat met de [gebruikerscertificaat beheren](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC-module toegankelijk is vanaf de Windows-Configuratiescherm.
+
+Het certificaat uploaden:
+1. Selecteer **certificaten en geheimen**.
+
+   ![instellingen selecteren](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. Klik op **certificaat uploaden** en selecteer het certificaat (een bestaand certificaat of de zelf-ondertekend certificaat u geëxporteerd).
+    ![Certificaat uploaden](./media/howto-create-service-principal-portal/upload-cert.png)
+1. Klik op **Toevoegen**.
+
+Na de registratie van het certificaat met uw toepassing in de portal voor appregistratie, moet u om in te schakelen van de client-toepassingscode om het certificaat te gebruiken.
+
+### <a name="create-a-new-application-secret"></a>Een nieuwe toepassingsgeheim maken
+Als u ervoor kiest om niet te gebruiken een certificaat, kunt u een nieuwe toepassingsgeheim maken.
 1. Selecteer **certificaten en geheimen**.
 
    ![instellingen selecteren](./media/howto-create-service-principal-portal/select-certs-secrets.png)

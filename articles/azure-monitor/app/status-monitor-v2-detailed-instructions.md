@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3aca64c7b0f1ad04967782cb3349da302db557a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6eca2b47c2362f34415db8b4f335f3089babc58b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145090"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255883"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Status Monitor v2 gedetailleerde instructies
 
@@ -239,7 +239,7 @@ Bekijk onze [API-verwijzing](status-monitor-v2-api-enable-monitoring.md) voor ee
 - [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken
 - [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren
 - [Gebruik analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's
-- [Maak dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+- [Maak dashboards](../../azure-monitor/app/overview-dashboard.md)
 
  Meer telemetrie toevoegen:
 

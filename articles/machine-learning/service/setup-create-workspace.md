@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: c6c32265e6fc2fc2bb0d6b00d89862e200731a2a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 36f3d421ee0b41a0ff71b549a4d4b5646188c3fa
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66016445"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417348"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Een Azure Machine Learning-service-werkruimte maken
 
@@ -168,7 +168,7 @@ Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkru
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-Door deze `write_config()`-API aan te roepen, wordt het configuratiebestand in de huidige map gemaakt. Het bestand *config.json* bevat het volgende:
+Door deze `write_config()`-API aan te roepen, wordt het configuratiebestand in de huidige map gemaakt. De *.azureml/config.json* -bestand bevat het volgende:
 
 ```json
 {

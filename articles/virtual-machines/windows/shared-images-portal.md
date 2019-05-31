@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236596"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244996"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Maken van een galerie met installatiekopieën van de gedeelde met behulp van de Azure portal
 
@@ -67,6 +67,7 @@ Dit voorbeeld maakt u een virtuele machine met de naam *myVMfromImage*, in de *m
 1. Als u wilt toestaan van externe toegang tot de virtuele machine, onder **openbare binnenkomende poorten**, kiest u **geselecteerde poorten toestaat** en selecteer vervolgens **RDP (3389)** in de vervolgkeuzelijst. Als u niet dat externe toegang tot de virtuele machine toestaan wilt, laat u **geen** voor geselecteerde **openbare binnenkomende poorten**.
 1. Wanneer u klaar bent, selecteert u de **revisie + maken** knop aan de onderkant van de pagina.
 1. Nadat de virtuele machine de validatietests doorstaat, selecteert u **maken** aan de onderkant van de pagina om de implementatie te starten.
+
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen

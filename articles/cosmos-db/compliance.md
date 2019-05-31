@@ -4,15 +4,15 @@ description: Dit artikel wordt beschreven certificaatdekking voor Azure Cosmos D
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: af1b3dba0ac73ef30a4be20cab795ce6de595970
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606284"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239707"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Naleving in Azure Cosmos DB 
 
@@ -20,7 +20,7 @@ Azure Cosmos DB is beschikbaar in alle Azure-regio's. Microsoft maakt vijf versc
 
 * **Openbare Azure** cloud, die wereldwijd beschikbaar is.
 
-* **Azure China** is beschikbaar via een uniek partnerschap tussen Microsoft en 21Vianet, een van de grootste internetproviders van het land.
+* **Azure China 21Vianet** is beschikbaar via een uniek partnerschap tussen Microsoft en 21Vianet, een van de grootste internetproviders van het land.
 
 * **Azure Duitsland** verzorgt services onder een gegevensbeheerdersmodel, die zorgt ervoor dat de klant gegevens blijven in Duitsland onder het beheer van T-Systems International GmbH, een dochteronderneming van Deutsche Telecom, die fungeert als de Duitse Gegevensbeheerder.
 
@@ -36,15 +36,32 @@ Azure Cosmos DB is de certificaatdekking voortdurend uitgebreid. Azure Cosmos DB
 
 | **Globaal van toepassing** | **Amerikaanse overheid** | **Specifieke branche** | **Regio of land/regio specifieke** |
 | --- | --- | --- | --- |
-| CSA STAR-certificering<br/><br/>CSA STAR-Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| Amerikaanse ministerie van defensie SRG Level 2<br/><br/>FedRAMP Gemiddeld<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australië IRAP voor niet-geclassificeerde<br/><br/>Duitsland-C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spanje ENS hoog|
+| CSA STAR-certificering | Amerikaanse ministerie van defensie SRG Level 2 | HIPAA BAA | Australië IRAP voor niet-geclassificeerde |
+| CSA STAR-Attestation | FedRAMP Gemiddeld | HITRUST | Duitsland-C5|
+| ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI DSS | Singapore MTCS Level 3 |
+| ISO 22301:2012 | | | Spanje ENS hoog|
+| ISO 27001:2013| | | |
+| ISO 27017:2015 | | | |
+| ISO 27018:2014 | | | |
+| ISO 9001:2015 | | | |
+| SOC 1, 2, 3 | | | |
 
 Zie voor meer informatie over elk van deze compliance-aanbiedingen en hoe ze u profiteren van [overzicht van Microsoft Azure-naleving](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) pagina.
 
 De volgende tabel bevat de certificeringen die wordt ondersteund door Azure Cosmos DB in Azure Government:
 
-| **Globaal van toepassing** | **Amerikaanse overheid** | **Specifieke branche** | **Regio of land/regio specifieke** |
+| **Globaal van toepassing** | **Amerikaanse overheid** | **Specifieke branche** | 
 | --- | --- | --- | --- |
-| CSA STAR-certificering<br/><br/>CSA STAR-Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | Amerikaanse ministerie van defensie SRG Level 2<br/><br/>DoD SRG Level 5<br/><br/>CJIS<br/><br/>FedRAMP Hoog<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australië IRAP voor niet-geclassificeerde<br/><br/>Duitsland-C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spanje ENS hoog|
+| CSA STAR-certificering | CJIS| HIPAA BAA | 
+| CSA STAR-Attestation| Amerikaanse ministerie van defensie SRG Level 2| HITRUST  | 
+| ISO 20000-1:2011 | DoD SRG Level 4 | PCI DSS | 
+| ISO 9001:2012 | DoD SRG Level 5 | | 
+| ISO 27001:2013 | FedRAMP Hoog | |
+| ISO 9001:2015 | IRS 1075|  |
+| ISO 27017:2014 | NIST CSF | |
+| ISO 27018:2015 | NIST SP 800-171 | |
+| SOC 1, 2, 3 | | |
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

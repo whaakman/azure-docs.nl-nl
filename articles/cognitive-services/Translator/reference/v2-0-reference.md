@@ -3,19 +3,19 @@ title: Translator Text-API V2.0
 titleSuffix: Azure Cognitive Services
 description: Referentiedocumentatie voor de V2.0 Translator Text-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-jansko
-ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61467153"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389834"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text-API v2.0
 
@@ -28,11 +28,18 @@ Translator Text-API V2 kunnen naadloos worden geïntegreerd in uw toepassingen, 
 Voor toegang tot de Translator Text-API u moet [zich registreren voor Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## <a name="authorization"></a>Autorisatie
-Aanroepen naar de Translator Text-API is een abonnementssleutel voor verificatie vereist. De API ondersteunt twee modi van verificatie:
+Aanroepen naar de Translator Text-API is een abonnementssleutel voor verificatie vereist. De API ondersteunt drie modi van verificatie:
 
-* Met behulp van een toegangstoken. Gebruik de abonnementssleutel waarnaar wordt verwezen in **stap** 9 voor het genereren van een toegangstoken door een POST-aanvraag naar de autorisatieservice. Zie de documentatie van de service voor beveiligingstokens voor meer informatie. Het toegangstoken doorgeven aan de Translator-service met behulp van de autorisatie-header of de access_token-queryparameter. Het toegangstoken is geldig voor 10 minuten. Een nieuw toegangstoken verkrijgen om de 10 minuten, en houd met behulp van dezelfde toegang token voor herhaalde aanvragen binnen deze 10 minuten.
+- Een toegangstoken. Gebruik de abonnementssleutel waarnaar wordt verwezen in **stap** 9 voor het genereren van een toegangstoken door een POST-aanvraag naar de autorisatieservice. Zie de documentatie van de service voor beveiligingstokens voor meer informatie. Het toegangstoken doorgeven aan de Translator-service met behulp van de autorisatie-header of de `access_token` queryparameter. Het toegangstoken is geldig voor 10 minuten. Een nieuw toegangstoken verkrijgen om de 10 minuten, en met behulp van dezelfde toegang token voor herhaalde verzoeken tijdens deze 10 minuten.
+- Een abonnementssleutel rechtstreeks. Uw abonnementssleutel doorgegeven als een waarde in de `Ocp-Apim-Subscription-Key` header inbegrepen bij uw aanvraag voor de API van Translator. In deze modus kunt hebt u geen om aan te roepen van het token authentication-service voor het genereren van een toegangstoken.
+- Een [meerdere services Cognitive Services-abonnement](https://azure.microsoft.com/pricing/details/cognitive-services/). In deze modus kunt u één geheime sleutel gebruiken om aanvragen voor meerdere services te verifiëren. <br/>
+Wanneer u een geheime sleutel van meerdere services gebruikt, moet u twee verificatieheaders opnemen met uw aanvraag. De eerste header geeft de geheime sleutel. De tweede-header geeft de regio die is gekoppeld aan uw abonnement:
+   - `Ocp-Apim-Subscription-Key`
+   - `Ocp-Apim-Subscription-Region`
 
-* Met behulp van een abonnementssleutel rechtstreeks. Uw abonnementssleutel doorgegeven als een waarde in `Ocp-Apim-Subscription-Key` header inbegrepen bij uw aanvraag voor de API van Translator. In deze modus hoeft u niet om aan te roepen van het token authentication-service voor het genereren van een toegangstoken.
+De regio is vereist voor het abonnement met meerdere services Text-API. De regio die u selecteert, is de enige regio die u voor tekstvertaling gebruiken kunt bij het gebruik van de abonnementssleutel met meerdere service-, en moet de dezelfde regio die u hebt geselecteerd toen u zich hebt geregistreerd voor uw abonnement op meerdere services via de Azure-portal.
+
+De beschikbare regio's zijn `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, en `westus2`.
 
 Houd rekening met uw abonnementssleutel en het toegangstoken als geheimen die moeten worden verborgen.
 
@@ -46,7 +53,7 @@ Als u wilt vermijden grof taalgebruik in de vertaling, ongeacht de aanwezigheid 
 |:--|:--|:--|:--|
 |NoAction   |Standaard. Hetzelfde als de instelling van de optie. Grof taalgebruik geeft van bron naar doel.        |彼はジャッカスです。     |Hij is een jackass.   |
 |Gemarkeerd     |Grof woorden omringd door de XML-tags \<grof taalgebruik > en \</profanity >.       |彼はジャッカスです。 |Hij is een \<grof taalgebruik > jackass\</profanity >.  |
-|Deleted    |Grof woorden worden verwijderd uit de uitvoer zonder vervanging.     |彼はジャッカスです。 |Hij is een.   |
+|Verwijderen    |Grof woorden worden verwijderd uit de uitvoer zonder vervanging.     |彼はジャッカスです。 |Hij is een.   |
 
     
 ## <a name="excluding-content-from-translation"></a>Met uitzondering van de inhoud van de vertaling
@@ -76,11 +83,11 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving    |Parametertype|Gegevenstype|
+|Parameter|Value|Description    |Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id  |(leeg)    |Vereist. Als de autorisatie of Ocp-Apim-Subscription-Key-header wordt gebruikt, laat de toepassings-id-veld leeg anders voegt u een tekenreeks met 'Bearer' + ' ' + 'access_token'.|query|string|
-|tekst|(leeg)   |Vereist. Een tekenreeks die de tekst te vertalen vertegenwoordigt. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
-|uit|(leeg)   |Optioneel. Een tekenreeks die de taalcode van de vertaalde tekst. Bijvoorbeeld, en voor Engels.|query|string|
+|text|(leeg)   |Vereist. Een tekenreeks die de tekst te vertalen vertegenwoordigt. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
+|from|(leeg)   |Optioneel. Een tekenreeks die de taalcode van de vertaalde tekst. Bijvoorbeeld, en voor Engels.|query|string|
 |tot|(leeg) |Vereist. Een tekenreeks die de taalcode voor de omzetting van de tekst in.|query|string|
 |contentType|(leeg)    |Optioneel. De indeling van de tekst wordt vertaald. De ondersteunde indelingen zijn text/plain (standaard) en text/html. HTML-code moet een juist opgemaakte en volledige-element.|query|string|
 |category|(leeg)   |Optioneel. Een tekenreeks met de categorie (domein) van de vertaling. Standaard ingesteld op 'Algemeen'.|query|string|
@@ -90,7 +97,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -181,14 +188,14 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |Autorisatie|(empty)) |Vereist als de toepassings-id-veld of de Ocp-Apim-Subscription-Key-header niet is opgegeven. Autorisatietoken:  "Bearer" + " " + "access_token".|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als het App-id-veld of de autorisatie-header niet is opgegeven.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode   |Reden|
+|HTTP-statuscode   |Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht. Veelvoorkomende fouten zijn onder andere: <ul><li>Matrixelement mag niet leeg zijn</li><li>Ongeldige categorie</li><li>Van een taal is ongeldig</li><li>Taal is ongeldig</li><li>De aanvraag bevat te veel elementen</li><li>De taal van wordt niet ondersteund</li><li>De taal aan wordt niet ondersteund</li><li>Vertalen aanvraag heeft te veel gegevens</li><li>HTML-code is niet de juiste indeling</li><li>Te veel tekenreeksen zijn doorgegeven in de vertalen aanvragen</li></ul>|
 |401    |Ongeldige referenties|
@@ -225,13 +232,13 @@ Type van de inhoud van de reactie: application/xml
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
-|landinstelling|(leeg) |Vereist. Een tekenreeks die een combinatie van een ISO 639 kleine cultuur van twee letters-code die is gekoppeld aan een taal en een code van de twee letters, hoofdletters subcultuur ISO 3166 voor lokalisatie van de taalnamen van de of een ISO 639-code in kleine letters cultuur op zichzelf.|query|string|
+|Landinstelling|(leeg) |Vereist. Een tekenreeks die een combinatie van een ISO 639 kleine cultuur van twee letters-code die is gekoppeld aan een taal en een code van de twee letters, hoofdletters subcultuur ISO 3166 voor lokalisatie van de taalnamen van de of een ISO 639-code in kleine letters cultuur op zichzelf.|query|string|
 |Autorisatie|(leeg)  |Vereist als het veld appid of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als het veld appid of `Authorization` -header is niet opgegeven.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -264,7 +271,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -274,7 +281,7 @@ Type van de inhoud van de reactie: application/xml
 ## <a name="get-getlanguagesforspeak"></a>/GetLanguagesForSpeak ophalen
 
 ### <a name="implementation-notes"></a>Opmerkingen bij de implementatie
-Hiermee worden de talen opgehaald die beschikbaar zijn voor spraaksynthese.
+Hiermee haalt u de beschikbare talen voor spraaksynthese.
 
 De aanvraag-URI is `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForSpeak`.
 
@@ -289,7 +296,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
@@ -297,7 +304,7 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400|Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401|Ongeldige referenties|
@@ -324,16 +331,16 @@ Type van de inhoud van de reactie: application/xml
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
-|tekst|(leeg)   |Vereist. Een tekenreeks met een zin of zinnen van de opgegeven taal worden uitgesproken voor de wave-stream. De grootte van de tekst te spreken mag niet groter zijn dan 2000 tekens.|query|string|
+|text|(leeg)   |Vereist. Een tekenreeks met een zin of zinnen van de opgegeven taal worden uitgesproken voor de wave-stream. De grootte van de tekst te spreken mag niet groter zijn dan 2000 tekens.|query|string|
 |language|(leeg)   |Vereist. Een tekenreeks voor de ondersteunde taalcode die moet worden de tekst in te spreken. De code moet aanwezig zijn in de lijst van codes die zijn geretourneerd door de methode `GetLanguagesForSpeak`.|query|string|
-|Indeling|(leeg)|Optioneel. Een tekenreeks die de inhoud van het type id op te geven Op dit moment `audio/wav` en `audio/mp3` beschikbaar zijn. De standaardwaarde is `audio/wav`.|query|string|
-|opties|(leeg)    |<ul><li>Optioneel. Een tekenreeks op te geven eigenschappen van de kunstmatige spraak:<li>`MaxQuality` en `MinSize` zijn beschikbaar om op te geven van de kwaliteit van de audio signalen. Met `MaxQuality`, krijgt u stemmen met de hoogste kwaliteit en met `MinSize`, krijgt u de stemmen met de kleinste grootte. De standaardwaarde is `MinSize`.</li><li>`female` en `male` zijn beschikbaar om op te geven van de gewenste geslacht van de stem. De standaardwaarde is `female`. Gebruik de verticale balk <code>\|</code> naar meerdere opties bevatten. Bijvoorbeeld `MaxQuality|Male`.</li></li></ul> |query|string|
+|format|(leeg)|Optioneel. Een tekenreeks die de inhoud van het type id op te geven Op dit moment `audio/wav` en `audio/mp3` beschikbaar zijn. De standaardwaarde is `audio/wav`.|query|string|
+|Opties|(leeg)    |<ul><li>Optioneel. Een tekenreeks op te geven eigenschappen van de kunstmatige spraak:<li>`MaxQuality` en `MinSize` zijn beschikbaar om op te geven van de kwaliteit van de audio signalen. Met `MaxQuality`, krijgt u stemmen met de hoogste kwaliteit en met `MinSize`, krijgt u de stemmen met de kleinste grootte. De standaardwaarde is `MinSize`.</li><li>`female` en `male` zijn beschikbaar om op te geven van de gewenste geslacht van de stem. De standaardwaarde is `female`. Gebruik de verticale balk <code>\|</code> naar meerdere opties bevatten. Bijvoorbeeld `MaxQuality|Male`.</li></li></ul> |query|string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)  |Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -360,13 +367,13 @@ Type van de inhoud van de reactie: application/xml
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)  |Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
-|tekst|(leeg)|Vereist. Een tekenreeks met tekst waarvan de taal is kan worden geïdentificeerd. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query| string|
+|text|(leeg)|Vereist. Een tekenreeks met tekst waarvan de taal is kan worden geïdentificeerd. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query| string|
 |Autorisatie|(leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|koptekst|string|
 |OCP-Apim-Subscription-Key  |(leeg)    |Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400|Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -420,7 +427,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -451,19 +458,19 @@ Type van de inhoud van de reactie: aanvraag: xml
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
 |originalText|(leeg)|Vereist. Een tekenreeks met de tekst voor de omzetting van. De tekenreeks heeft een maximale lengte van 1000 tekens.|query|string|
 |translatedText|(leeg) |Vereist. Een tekenreeks met vertaald tekst in de doel-taal. De tekenreeks heeft een maximale lengte van 2000 tekens.|query|string|
-|uit|(leeg)   |Vereist. Een tekenreeks die de taalcode van de vertaalde tekst. NL = Engels, de Duitse enzovoort =...|query|string|
+|from|(leeg)   |Vereist. Een tekenreeks die de taalcode van de vertaalde tekst. NL = Engels, de Duitse enzovoort =...|query|string|
 |tot|(leeg)|Vereist. Een tekenreeks die de taalcode voor de omzetting van de tekst in.|query|string|
 |rating|(leeg) |Optioneel. Een geheel getal dat aangeeft van de beoordeling van kwaliteit voor deze tekenreeks. De waarde tussen 10 en 10. Standaard ingesteld op 1.|query|geheel getal|
 |contentType|(leeg)    |Optioneel. De indeling van de tekst wordt vertaald. De ondersteunde indelingen zijn ' text/plain' en ' text/html'. HTML-code moet een juist opgemaakte en volledige-element.   |query|string|
 |category|(leeg)|Optioneel. Een tekenreeks met de categorie (domein) van de vertaling. Standaard ingesteld op 'Algemeen'.|query|string|
 |user|(leeg)|Vereist. Een tekenreeks die wordt gebruikt voor het bijhouden van de afzender van de inzending.|query|string|
-|uri|(leeg)|Optioneel. Een tekenreeks met de locatie van de inhoud van deze omzetting.|query|string|
+|URI|(leeg)|Optioneel. Een tekenreeks met de locatie van de inhoud van deze omzetting.|query|string|
 |Autorisatie|(leeg)|Vereist als het veld appid of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.    |koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als de `appid` veld of `Authorization` -header is niet opgegeven.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -523,14 +530,14 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |Autorisatie|(leeg)|Vereist als de toepassings-id-veld of de Ocp-Apim-Subscription-Key-header niet is opgegeven. Autorisatietoken:  "Bearer" + " " + "access_token".|koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als het App-id-veld of de autorisatie-header niet is opgegeven.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -559,14 +566,14 @@ Type van de inhoud van de reactie: application/xml
 |Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)  |Vereist. Als de autorisatie of Ocp-Apim-Subscription-Key-header wordt gebruikt, laat de toepassings-id-veld leeg anders voegt u een tekenreeks met 'Bearer' + ' ' + 'access_token'.|query| string|
-|tekst|(leeg)   |Vereist. Een tekenreeks die de tekst om te splitsen in zinnen aangeeft. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
+|text|(leeg)   |Vereist. Een tekenreeks die de tekst om te splitsen in zinnen aangeeft. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
 |language   |(leeg)    |Vereist. Een tekenreeks die de taalcode van invoertekst vertegenwoordigt.|query|string|
 |Autorisatie|(leeg)|Vereist als de toepassings-id-veld of de Ocp-Apim-Subscription-Key-header niet is opgegeven. Autorisatietoken:  "Bearer" + " " + "access_token".    |koptekst|string|
 |OCP-Apim-Subscription-Key|(leeg)|Vereist als het App-id-veld of de autorisatie-header niet is opgegeven.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400|Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401|Ongeldige referenties|
@@ -650,11 +657,11 @@ Type van de inhoud van de reactie: application/xml
  
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Value|Beschrijving|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:--|:--|:--|:--|:--|
 |toepassings-id|(leeg)|Vereist. Als de `Authorization` of `Ocp-Apim-Subscription-Key` header wordt gebruikt, laat het veld appid leeg anders bevatten een tekenreeks met `"Bearer" + " " + "access_token"`.|query|string|
-|tekst|(leeg)|Vereist. Een tekenreeks die de tekst te vertalen vertegenwoordigt. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
-|uit|(leeg)|Vereist. Een tekenreeks die de taalcode van de vertaalde tekst.|query|string|
+|text|(leeg)|Vereist. Een tekenreeks die de tekst te vertalen vertegenwoordigt. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|query|string|
+|from|(leeg)|Vereist. Een tekenreeks die de taalcode van de vertaalde tekst.|query|string|
 |tot |(leeg)    |Vereist. Een tekenreeks die de taalcode voor de omzetting van de tekst in.|query|string|
 |maxTranslations|(leeg)|Vereist. Een integer voor het maximum aantal vertalingen om terug te keren.|query|geheel getal|
 |Autorisatie| (leeg)|Vereist als de `appid` veld of `Ocp-Apim-Subscription-Key` -header is niet opgegeven. Autorisatietoken: `"Bearer" + " " + "access_token"`.|string| koptekst|
@@ -662,7 +669,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|
@@ -777,7 +784,7 @@ Type van de inhoud van de reactie: application/xml
 
 ### <a name="response-messages"></a>Berichten met reacties
 
-|HTTP-statuscode|Reden|
+|HTTP-statuscode|Reason|
 |:--|:--|
 |400    |Ongeldige aanvraag. Controleer de invoerparameters en het gedetailleerde foutbericht.|
 |401    |Ongeldige referenties|

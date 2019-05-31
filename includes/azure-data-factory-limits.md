@@ -9,11 +9,11 @@ ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733739"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238174"
 ---
 Azure Data Factory is een multitenant service met de volgende standaardlimieten in plaats om te controleren of abonnementen van de gebruiker zijn beveiligd tegen elkaars werkbelastingen. Als u wilt de limieten tot het maximum voor uw abonnement verhogen, contact op met ondersteuning.
 
@@ -22,7 +22,7 @@ Azure Data Factory is een multitenant service met de volgende standaardlimieten 
 | Resource | Standaardlimiet | Maximumaantal |
 | -------- | ------------- | ------------- |
 | Data Factory's in een Azure-abonnement | 50 | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Totaal aantal entiteiten, zoals pijplijnen, gegevenssets, triggers, gekoppelde services en integratieruntimes in een data factory | 5.000 | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Totaal aantal entiteiten, zoals pijplijnen, gegevenssets, triggers, gekoppelde services en integratieruntimes in een data factory | 5,000 | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Totale CPU-kernen voor Azure-SSIS-Integratieruntimes in één abonnement | 256 | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Gelijktijdige pijplijnuitvoeringen per gegevensfactory die wordt gedeeld door alle pijplijnen in de fabriek | 10.000  | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximum aantal activiteiten per pijplijn, waaronder interne activiteiten voor containers | 40 | 40 |
@@ -34,7 +34,7 @@ Azure Data Factory is een multitenant service met de volgende standaardlimieten 
 | Minimale tumblingvenstertrigger venster trigger interval | 15 min | 15 min |
 | Maximale time-out voor pipeline-activiteit wordt uitgevoerd | 7 dagen | 7 dagen |
 | Bytes per object voor pijplijnobjecten<sup>1</sup> | 200 KB | 200 KB |
-| Bytes per object voor gegevensset en de gekoppelde serviceobjecten<sup>1</sup> | 100 kB | 2000 KB |
+| Bytes per object voor gegevensset en de gekoppelde serviceobjecten<sup>1</sup> | 100 KB | 2000 KB |
 | Integratie gegevenseenheden per uitvoering van activiteit kopiëren<sup>3</sup> | 256 | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Schrijven van API-aanroepen | 2.500/h<br/><br/> Deze limiet is opgelegd door Azure Resource Manager, niet-Azure Data Factory. | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Lezen API-aanroepen | 12.500/h<br/><br/> Deze limiet is opgelegd door Azure Resource Manager, niet-Azure Data Factory. | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -48,10 +48,10 @@ Azure Data Factory is een multitenant service met de volgende standaardlimieten 
 | --- | --- | --- |
 | Data Factory's in een Azure-abonnement |50 |[Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Pijplijnen in een data factory |2,500 |[Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Gegevenssets binnen een data factory |5.000 |[Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Gegevenssets binnen een data factory |5,000 |[Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Gelijktijdige segmenten per gegevensset |10 |10 |
 | Bytes per object voor pijplijnobjecten<sup>1</sup> |200 KB |200 KB |
-| Bytes per object voor gegevens instellen en de gekoppelde serviceobjecten<sup>1</sup> |100 kB |2000 KB |
+| Bytes per object voor gegevens instellen en de gekoppelde serviceobjecten<sup>1</sup> |100 KB |2000 KB |
 | Azure HDInsight-cluster op aanvraag kernen binnen een abonnement<sup>2</sup> |60 |[Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Eenheden voor gegevensverplaatsing per exemplaar activiteit die wordt uitgevoerd in de cloud<sup>3</sup> |32 |[Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Aantal van de pijplijnactiviteit nieuwe pogingen |1000 |MaxInt (32 bits) |

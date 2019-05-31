@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765615"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390639"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Continue implementatie in Azure App Service
 Dit artikel leest u hoe u continue implementatie voor [Azure App Service](overview.md). App Service kunt u continue implementatie vanuit BitBucket, GitHub, en [Azure DevOps Services](https://www.visualstudio.com/team-services/) door te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.
@@ -130,7 +130,7 @@ In de **configureren** pagina, in de **bouwen** sectie, geeft u het taalframewor
 
 In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolgens op **doorgaan**.
 
-Afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/plans/) van uw App Service-plan, ziet u mogelijk ook een **implementeren voor fasering** pagina. Kies of u wilt [inschakelen implementatiesites](deploy-staging-slots.md), klikt u vervolgens op **doorgaan**. 
+Afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/plans/) van uw App Service-plan, ziet u mogelijk ook een **implementeren voor fasering** pagina. Kies of u wilt [inschakelen implementatiesites](deploy-staging-slots.md), klikt u vervolgens op **doorgaan**. DevOps is niet toegestaan voor continue levering naar de productiesite. Dit is standaard om te voorkomen dat per ongeluk implementaties naar productie. U moet instellen van continue levering en een staging-site, Controleer de wijzigingen er en de sleuven wanneer u klaar bent.
 
 ### <a name="finish-configuration"></a>Configuratie voltooien
 

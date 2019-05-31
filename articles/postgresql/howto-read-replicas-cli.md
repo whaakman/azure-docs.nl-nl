@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: 9a6a1a744a8441d2f082d4d14a3aba8aa1cfc09e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510239"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306023"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Maken en beheren van meer replica's van de Azure CLI
 
 In dit artikel leert u hoe u maken en beheren van lezen-replica's in Azure Database for PostgreSQL via Azure CLI. Zie voor meer informatie over meer replica's, de [overzicht](concepts-read-replicas.md).
 
-> [!NOTE]
-> Nog biedt niet maken replica's in een andere regio van de hoofd-server ondersteuning voor Azure CLI. Gebruik voor het maken van een replica van de regio-overschrijdende de [Azure-portal](howto-read-replicas-portal.md).
+> [!IMPORTANT]
+> U kunt een lezen replica maken in dezelfde regio als de hoofd-server of in een andere Azure-regio van uw keuze. Regio-overschrijdende replicatie is momenteel in openbare preview.
 
 ## <a name="prerequisites"></a>Vereisten
 - Een [Azure Database for PostgreSQL-server](quickstart-create-server-up-azure-cli.md) moet de hoofd-server.
@@ -52,11 +52,19 @@ De [az postgres server-replica maken](/cli/azure/postgres/server/replica?view=az
 | Instelling | Voorbeeldwaarde | Description  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  De resourcegroep waar de replica-server wordt gemaakt.  |
-| naam | mydemoserver-replica | De naam van de nieuwe replicaserver die is gemaakt. |
+| name | mydemoserver-replica | De naam van de nieuwe replicaserver die is gemaakt. |
 | source-server | mydemoserver | De naam of resource-ID van de bestaande hoofd-server om te repliceren van. |
+
+De replica is gemaakt in het onderstaande voorbeeld CLI in dezelfde regio als het model.
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
+```
+
+Maken van een kruis regio replica lezen, gebruikt u de `--location` parameter. De volgende CLI-voorbeeld maakt de replica in VS-West.
+
+```azurecli-interactive
+az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 Als u dit nog niet hebt ingesteld de `azure.replication_support` parameter **REPLICA** op een algemeen gebruik of geoptimaliseerd voor geheugen-master server en de server opnieuw opgestart, wordt er een fout. Deze twee stappen voltooien voordat u een replica maakt.

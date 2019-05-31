@@ -3,19 +3,19 @@ title: Translator Text-API methode vertalen
 titleSuffix: Azure Cognitive Services
 description: Gebruik de methode Translator-API-vertalen.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: v-pawal
+ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235821"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389754"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: Translate
 
@@ -45,7 +45,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td><em>Optionele parameter</em>.<br/>Hiermee geeft u de taal van de invoertekst. Welke talen zijn beschikbaar voor de omzetting van door het opzoeken <a href="./v3-0-languages.md">ondersteunde talen</a> met behulp van de <code>translation</code> bereik. Als de <code>from</code> parameter niet wordt opgegeven, wordt automatische taaldetectie toegepast om te bepalen van de source-taal.</td>
   </tr>
   <tr>
-    <td>aan</td>
+    <td>tot</td>
     <td><em>Vereiste parameter</em>.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de <a href="./v3-0-languages.md">ondersteunde talen</a> opgenomen in de <code>translation</code> bereik. Gebruik bijvoorbeeld <code>to=de</code> te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld <code>to=de&to=it</code> te vertalen in het Duits en Italiaans.</td>
   </tr>
   <tr>
@@ -101,7 +101,7 @@ Aanvraagheaders zijn onder andere:
     <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
   </tr>
   <tr>
-    <td>Inhoudstype</td>
+    <td>Content-Type</td>
     <td><em>Vereiste aanvraagheader</em>.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: <code>application/json</code>.</td>
   </tr>
   <tr>
@@ -114,7 +114,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`, die staat voor de tekenreeks die moet worden vertaald.
 
@@ -193,7 +193,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Voltooid.</td>
+    <td>Geslaagd.</td>
   </tr>
   <tr>
     <td>400</td>

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 86efb6b655405500f994a5a5ec7acbd18c645004
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957848"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417922"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Veelgestelde vragen over Azure Container Registry
 
@@ -245,7 +245,7 @@ Met het gebruik van alleen de `AcrPull` of `AcrPush` rol, de toegewezen gebruike
 
 Afbeelding in quarantaine is momenteel een preview-functie van de ACR. U kunt de modus in quarantaine plaatsen van een register inschakelen zodat alleen de installatiekopieën die zijn security scan is geslaagd zichtbaar voor normale gebruikers zijn. Zie voor meer informatie, de [ACR GitHub-opslagplaats](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-## <a name="diagnostics"></a>Diagnostische gegevens
+## <a name="diagnostics"></a>Diagnostiek
 
 - [docker pull is mislukt met fout: net/http: aanvraag geannuleerd tijdens het wachten op voor verbinding (Client.Timeout overschreden tijdens het wachten op headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push is geslaagd, maar docker pull is mislukt met fout: niet-geautoriseerde: verificatie is vereist](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
@@ -253,10 +253,11 @@ Afbeelding in quarantaine is momenteel een preview-functie van de ACR. U kunt de
 - [Nieuwe gebruikersmachtigingen kunnen niet effectief worden onmiddellijk na het bijwerken van](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Verificatie-informatie is niet opgenomen in de juiste indeling op direct REST API-aanroepen](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Waarom Azure portal niet wordt vermeld in alle opslagplaatsen of tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Hoe ik http traceringen verzamelen op Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker pull is mislukt met fout: net/http: aanvraag geannuleerd tijdens het wachten op voor verbinding (Client.Timeout overschreden tijdens het wachten op headers)
 
- - Als deze fout een tijdelijk probleem probeer het opnieuw worden uitgevoerd is. 
+ - Als deze fout een tijdelijk probleem probeer het opnieuw worden uitgevoerd is.
  - Als `docker pull` mislukt, kan er een probleem met de docker-daemon. Het probleem kan in het algemeen worden verholpen door de docker-daemon opnieuw te starten. 
  - Als u doorgaat wilt bekijken van dit probleem na de docker-daemon opnieuw op te starten, klikt u vervolgens de probleem kan worden enkele problemen met de netwerkverbinding met de machine. Als u wilt controleren of de algemene netwerk op de computer in orde is, probeert u een opdracht zoals `ping www.bing.com`.
  - U hebt altijd een mechanisme voor opnieuw proberen van alle docker-clientbewerkingen.
@@ -386,7 +387,29 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Waarom Azure portal niet wordt vermeld in alle opslagplaatsen of tags? 
 
-Als u van de Edge-browser gebruikmaakt, kunt u maximaal 100 opslaglocaties of labels die worden vermeld zien. Als het register meer dan 100 opslaglocaties of labels heeft, wordt u aangeraden dat u de browser Firefox of Chrome gebruiken om ze allemaal weer te geven.
+Als u de Microsoft Edge-browser gebruikt, kunt u maximaal 100 opslaglocaties of labels die worden vermeld zien. Als het register meer dan 100 opslaglocaties of labels heeft, wordt u aangeraden dat u de browser Firefox of Chrome gebruiken om ze allemaal weer te geven.
+
+### <a name="how-do-i-collect-http-traces-on-windows"></a>Hoe ik http traceringen verzamelen op Windows?
+
+#### <a name="prerequisites"></a>Vereisten
+
+- Ontsleutelen https in fiddler inschakelen:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Docker op het gebruik van een proxy via de Docker-gebruikersinterface inschakelen: <https://docs.docker.com/docker-for-windows/#proxies>
+- Zorg ervoor dat herstellen als u klaar bent.  Docker werkt niet met dit is ingeschakeld en fiddler niet wordt uitgevoerd.
+
+#### <a name="windows-containers"></a>Windows-containers
+
+Docker-proxy voor 127.0.0.1:8888 configureren
+
+#### <a name="linux-containers"></a>Linux-containers
+
+De IP-adres van de Docker vm virtuele switch vinden:
+
+```powershell
+(Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
+```
+
+Configureer de Docker-proxy voor de uitvoer van de vorige opdracht en de poort 8888 (bijvoorbeeld 10.0.75.1:8888)
 
 ## <a name="tasks"></a>Taken
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: fd9695698f90a1efebb71a2b24a196dd8c911081
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 52b929d8caa7b855e45ce9ca57d39d1dfcbcb8a1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073889"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392707"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Maken van een controller voor binnenkomend verkeer in Azure Kubernetes Service (AKS)
 
@@ -31,11 +31,13 @@ U kunt ook het volgende doen:
 
 In dit artikel maakt gebruik van Helm om de NGINX-controller voor binnenkomend verkeer, certificaat-manager en een voorbeeld-web-app te installeren. U moet hebben Helm geïnitialiseerd in uw AKS-cluster en het gebruik van een service-account voor Tiller. Zie voor meer informatie over het configureren en het gebruik van Helm [installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)][use-helm].
 
-In dit artikel is ook vereist dat u de Azure CLI versie 2.0.61 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+In dit artikel is ook vereist dat u de Azure CLI versie 2.0.64 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Maken van een controller voor binnenkomend verkeer
 
 Gebruik voor het maken van de controller voor binnenkomend verkeer `Helm` voor het installeren van *nginx-inkomend*. Voor extra redundantie, twee replica's van de controllers van NGINX inkomend verkeer zijn geïmplementeerd met de `--set controller.replicaCount` parameter. Om volledig te profiteren van het uitvoeren van replica's van de controller voor binnenkomend verkeer, zorg ervoor dat er meer dan één knooppunt in uw AKS-cluster.
+
+De controller voor binnenkomend verkeer moet ook worden gepland op een Linux-knooppunt. Windows Server-knooppunten (momenteel in preview in AKS) mag niet de controller voor binnenkomend verkeer uitvoeren. Een knooppunt selector is opgegeven met behulp van de `--set nodeSelector` parameter om te zien van de Kubernetes-scheduler om uit te voeren van de NGINX-controller voor binnenkomend verkeer op een knooppunt op basis van Linux.
 
 > [!TIP]
 > Het volgende voorbeeld wordt een Kubernetes-naamruimten voor de resources die inkomend verkeer met de naam *ingress-basic*. Geef een naamruimte voor uw omgeving zo nodig. Als uw AKS-cluster niet RBAC ingeschakeld is, voegt u toe `--set rbac.create=false` aan de Helm-opdrachten.
@@ -45,7 +47,11 @@ Gebruik voor het maken van de controller voor binnenkomend verkeer `Helm` voor h
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Wanneer de load balancer-service van Kubernetes voor de controller voor binnenkomend verkeer van NGINX wordt gemaakt, wordt een dynamisch openbaar IP-adres toegewezen, zoals wordt weergegeven in de volgende voorbeelduitvoer:
@@ -102,19 +108,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 Maakt de ingress resource via de `kubectl apply -f hello-world-ingress.yaml` opdracht.
@@ -127,11 +133,11 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="test-the-ingress-controller"></a>Testen van de controller voor binnenkomend verkeer
 
-Als u wilt testen van de routes voor de controller voor binnenkomend verkeer, blader naar de twee toepassingen. Open een webbrowser naar de IP-adres van uw ingangscontroller NGINX zoals *http://40.117.74.8*. De eerste demo-toepassing wordt weergegeven in de webbrowser, zoals wordt weergegeven in het volgende voorbeeld:
+Als u wilt testen van de routes voor de controller voor binnenkomend verkeer, blader naar de twee toepassingen. Open een webbrowser naar de IP-adres van uw ingangscontroller NGINX zoals *http://40.117.74.8* . De eerste demo-toepassing wordt weergegeven in de webbrowser, zoals wordt weergegeven in het volgende voorbeeld:
 
 ![Eerste-app die achter de controller voor binnenkomend verkeer](media/ingress-basic/app-one.png)
 
-Voeg nu de */hello-world-two* pad naar het IP-adres, zoals *http://40.117.74.8/hello-world-two*. De tweede demo-toepassing met de aangepaste titel wordt weergegeven:
+Voeg nu de */hello-world-two* pad naar het IP-adres, zoals *http://40.117.74.8/hello-world-two* . De tweede demo-toepassing met de aangepaste titel wordt weergegeven:
 
 ![Tweede app die achter de controller voor binnenkomend verkeer](media/ingress-basic/app-two.png)
 

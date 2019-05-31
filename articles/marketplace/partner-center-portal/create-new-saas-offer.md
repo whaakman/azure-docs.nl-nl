@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851241"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243324"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
@@ -89,7 +89,7 @@ Software licentiekosten als een maandelijkse, terugkerende site-gebaseerde vast 
 - Partners die zijn voor de **servicevergoeding voor Marketplace verminderd** ziet u een lagere transactiekosten in rekening op de SaaS-aanbiedingen van mei 2019 tot en met juni 2020. In dit scenario Microsoft $100,00 voor uw softwarelicentie kosten in rekening gebracht en betaalt van $90,00 met de publisher.
 
 > [!NOTE]
-> **Servicevergoeding voor Marketplace verminderd**: SaaS biedt voor bepaalde dat u hebt gepubliceerd op onze commerciële Marketplace, Microsoft beperkt de servicevergoeding voor Marketplace van 20% (zoals beschreven in de Microsoft-overeenkomst voor uitgevers) tot 10%. In de volgorde van uw aanbieding in aanmerking komt, moet ten minste één van uw aanbiedingen zijn aangewezen door Microsoft als het IP-CO-sell ready of IP-gezamenlijke verkoop prioriteit.  In aanmerking te komen moet ten minste vijf (5) werkdagen vóór het einde van elke kalendermaand worden voldaan om te kunnen ontvangen van deze minder servicevergoeding voor Marketplace gedurende de maand.  De kosten verlaagd Marketplace Service geldt niet voor virtuele machines, beheerde Apps of andere producten beschikbaar gesteld via onze commerciële Marketplace.  De kosten verlaagd Marketplace-Service kan alleen worden gekwalificeerde aanbiedingen voor die worden verzameld door Microsoft tussen 31 mei 2019 en 30 juni 2020-licentiekosten.  Na deze tijd wordt de servicevergoeding voor Marketplace terug naar de normale hoeveelheid. 
+> **Servicevergoeding voor Marketplace verminderd**: SaaS biedt voor bepaalde dat u hebt gepubliceerd op onze commerciële Marketplace, Microsoft beperkt de servicevergoeding voor Marketplace van 20% (zoals beschreven in de Microsoft-overeenkomst voor uitgevers) tot 10%. In de volgorde van uw aanbieding in aanmerking komt, moet ten minste één van uw aanbiedingen zijn aangewezen door Microsoft als het IP-CO-sell ready of IP-gezamenlijke verkoop prioriteit.  In aanmerking te komen moet ten minste vijf (5) werkdagen vóór het einde van elke kalendermaand worden voldaan om te kunnen ontvangen van deze minder servicevergoeding voor Marketplace gedurende de maand.  De kosten verlaagd Marketplace Service geldt niet voor virtuele machines, beheerde Apps of andere producten beschikbaar gesteld via onze commerciële Marketplace.  De kosten verlaagd Marketplace-Service kan alleen worden gekwalificeerde aanbiedingen voor die worden verzameld door Microsoft tussen 1 mei 2019 en 30 juni 2020-licentiekosten.  Na deze tijd wordt de servicevergoeding voor Marketplace terug naar de normale hoeveelheid. 
 
 |**Microsoft facturen**|**$100 per maand**|
 |:---|:---|
@@ -118,6 +118,10 @@ Geef uw aanbieding aan klanten op basis van een gratis proefversie door te geven
 ##### <a name="contact-me"></a>Contact opnemen
 Neem contact op met klantgegevens verzamelen door verbinding te maken van uw systeem Customer Relationship Management (CRM). De klant wordt gevraagd om toestemming om hun gegevens te delen. Deze details van de klant, samen met de aanbiedingsnaam van de, -ID en marketplace bron waar ze gevonden dat uw aanbieding, verzonden naar de CRM-systeem die u hebt geconfigureerd. Zie voor meer informatie over het configureren van uw CRM [Connect lead management](#connect-lead-management). 
 
+## <a name="example-marketplace-offer-listing"></a>Voorbeeld van de marketplace bieden aanbieding
+
+![Voorbeeld van de lijst met opmerkingen bij de marketplace-aanbieding](./media/marketplace-offer.svg)
+
 ## <a name="enable-a-test-drive"></a>Een test uit te schakelen
 
 Een test drive is een uitstekende manier om uw aanbieding aan potentiële klanten door zodat ze de optie ' proberen voordat u aanschaft ', wat resulteert in betere conversie en de generatie van maximaal verkoopleads presenteren. [Meer informatie over proeven.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
@@ -128,12 +132,12 @@ Test drive inschakelt, wordt u gevraagd een demo-omgeving voor klanten om te pro
 
 ### <a name="type-of-test-drive"></a>Type test drive
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: Een implementatiesjabloon met alle Azure-resources die deel uitmaken van uw oplossing. Producten die geschikt zijn voor dit scenario gebruikt u alleen Azure-resources.
-- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft host en onderhoudt de test drive-service (met inbegrip van de inrichting en implementatie) voor een centrale zakelijke enterprise resource planning systeem (financiën, bewerkingen, Toelevering, CRM-, enz.).  
-- **[Dynamics 365 voor Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**: Microsoft host en onderhoudt de test drive-service (met inbegrip van de inrichting en implementatie) voor een Customer Engagement-systeem (verkoop, service, project-service, buitendienst, enz.).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**: Microsoft host en onderhoudt de test drive-service (met inbegrip van de inrichting en implementatie) voor een Finance and Operations enterprise resource planning systeem (financiën, bewerkingen, productie, Toelevering, enz.). 
-- **[Logische app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**: Een sjabloon voor de implementatie dat alle complexe architecturen. Alle aangepaste producten moeten dit type Test Drive gebruiken.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**: Een ingesloten koppeling naar een op maat gemaakte dashboard. Producten die u wilt tonen dat een interactieve Power BI-visualisatie dit type Test Drive moet gebruiken. U moet hier uploaden, is de URL van uw ingesloten Power BI.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : Een implementatiesjabloon met alle Azure-resources die deel uitmaken van uw oplossing. Producten die geschikt zijn voor dit scenario gebruikt u alleen Azure-resources.
+- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft host en onderhoudt de test drive-service (met inbegrip van de inrichting en implementatie) voor een centrale zakelijke enterprise resource planning systeem (financiën, bewerkingen, Toelevering, CRM-, enz.).  
+- **[Dynamics 365 voor Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft host en onderhoudt de test drive-service (met inbegrip van de inrichting en implementatie) voor een Customer Engagement-systeem (verkoop, service, project-service, buitendienst, enz.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft host en onderhoudt de test drive-service (met inbegrip van de inrichting en implementatie) voor een Finance and Operations enterprise resource planning systeem (financiën, bewerkingen, productie, Toelevering, enz.). 
+- **[Logische app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : Een sjabloon voor de implementatie dat alle complexe architecturen. Alle aangepaste producten moeten dit type Test Drive gebruiken.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : Een ingesloten koppeling naar een op maat gemaakte dashboard. Producten die u wilt tonen dat een interactieve Power BI-visualisatie dit type Test Drive moet gebruiken. U moet hier uploaden, is de URL van uw ingesloten Power BI.
 
 #### <a name="additional-test-drive-resources"></a>Aanvullende test drive-resources
 - [Test Drive technische Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
@@ -170,14 +174,15 @@ Selecteer **opslaan** na het voltooien van deze velden.
 ### <a name="category"></a>Category
 Selecteer een minimum van één (1) en maximaal drie (3) de categorieën die is gebruikt voor het groeperen van uw aanbieding in de juiste marketplace zoekgebieden. Aanroepen van hoe uw aanbieding biedt ondersteuning voor deze categorieën in de beschrijving van de aanbieding. 
 
-### <a name="industry"></a>Werkzaam in
+### <a name="industry"></a>Industrie
 Selecteer maximaal twee (2) de branches die is gebruikt voor het groeperen van uw aanbieding in de juiste marketplace zoekgebieden. Als uw aanbieding niet specifiek zijn voor een industrie is, selecteert u niet een. Aanroepen van hoe uw aanbieding biedt ondersteuning voor de geselecteerde branches in de beschrijving van de aanbieding. 
 
 ### <a name="app-version"></a>App-versie
 Dit is een optioneel veld in de AppSource-marketplace gebruikt om u te identificeren van het versienummer van uw aanbieding. 
 
 ### <a name="standard-contract"></a>Standaardcontract
-- **Standard Contract gebruiken?** 
+
+- **Standard Contract gebruiken?**
 
 Voor het vereenvoudigen van het aankoopproces voor klanten en juridische vanwege de complexiteit van softwareleveranciers, biedt Microsoft een Standard Contract-sjabloon om een transactie in de marketplace te vergemakkelijken. 
 
@@ -185,7 +190,8 @@ In plaats van het samenstellen van aangepaste voorwaarden en bepalingen, kunt Az
 
 Het standaardcontract vindt u hier: https://go.microsoft.com/fwlink/?linkid=2041178.
 
-##### <a name="terms-of-use"></a>Gebruiksvoorwaarden
+#### <a name="terms-of-use"></a>Gebruiksvoorwaarden
+
 Als uw licentievoorwaarden verschillen van het standaardcontract, kunt u aangeven of u uw eigen juridische voorwaarden van het gebruik hier invoeren. U kunt ook maximaal 10.000 tekens van de tekst in dit veld invoeren. Als uw gebruiksvoorwaarden een langere beschrijving vereist, voert u een enkele URL-koppeling in dit veld waar de aanvullende licentievoorwaarden kunnen worden gevonden. Aan klanten wordt deze weergegeven als een actieve koppeling.
 
 Klanten moeten deze voorwaarden accepteren voordat ze uw app kunnen uitproberen. 
@@ -193,9 +199,11 @@ Klanten moeten deze voorwaarden accepteren voordat ze uw app kunnen uitproberen.
 Houd er rekening mee te **opslaan** voordat u doorgaat met de volgende sectie.
 
 ## <a name="offer-listing"></a>Bieden van aanbieding
+
 De vermelding voor de aanbieding tabblad geeft de talen (en markten) waar uw aanbieding beschikbaar is, is Engels (Verenigde Staten) momenteel de enige locatie beschikbaar is. Deze pagina bevat ook de status van de aanbieding taalspecifieke en de datum/tijd waarop deze is toegevoegd. U moet de gegevens van marketplace (bieden naam, beschrijving, zoektermen, enz.) definiëren voor elke taal / markt.
 
 ### <a name="offer-listings"></a>Vermeldingen voor aanbiedingen
+
 Vindt u informatie moet worden weergegeven in de marketplace, met inbegrip van de beschrijvingen van uw aanbieding en marketing activa.
 
 - **Naam** (vereist): De naam die hier zijn gedefinieerd wordt weergegeven als de titel van uw aanbieding op de marketplace(s) die u hebt gekozen. De naam is vooraf ingevuld op basis van uw vorige **nieuwe aanbieding** vermelding.  Dit kan worden handelsmerk.  Dit mag geen spatie, emoji's bevatten (tenzij ze het merk en copyrightgegevens symbolen zijn) en moet worden beperkt tot 50 tekens.
@@ -235,8 +243,7 @@ Houd er rekening mee te **opslaan** voordat u doorgaat met de volgende sectie.
 - [Aanbevolen procedures voor marketplace bieden aanbiedingen](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-
-## <a name="preview"></a>Voorbeeld
+## <a name="preview"></a>Preview
 
 De **Preview** tabblad kunt u voor het definiëren van een beperkte **Preview doelgroep** voor het vrijgeven van uw aanbod publiceren van uw aanbieding live naar de breder publiek van marketplace.
 
@@ -256,7 +263,7 @@ De **technische configuratie** tabblad definieert de technische details (URL-pad
 
 - **URL van openingspagina** (vereist): De site-URL die klanten worden omgeleid naar het land op na het aanschaffen van uw aanbieding uit marketplace definiëren. Deze URL worden ook het eindpunt dat de API's voor het vereenvoudigen van handel met Microsoft-verbinding wordt ontvangen.
 
-- **Verbinding webhook** (vereist): Voor alle asynchrone gebeurtenissen die door Microsoft nodig heeft om u te sturen namens de klant (voorbeeld: Azure-abonnement is geworden ongeldige), moet u een webhook verbinding opgeven. Als u nog een webhook-systeem voldaan hebt, wordt de eenvoudigste configuratie is dat de logische App van een HTTP-eindpunt die luisteren naar gebeurtenissen worden gepubliceerd naar deze en klik vervolgens op de juiste wijze verwerkt (bijvoorbeeld https://prod-1westus.logic.azure.com:443/work). Zie voor meer informatie, [aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Verbinding webhook** (vereist): Voor alle asynchrone gebeurtenissen die door Microsoft nodig heeft om u te sturen namens de klant (voorbeeld: Azure-abonnement is geworden ongeldige), moet u een webhook verbinding opgeven. Als u nog een webhook-systeem voldaan hebt, wordt de eenvoudigste configuratie is dat de logische App van een HTTP-eindpunt die luisteren naar gebeurtenissen worden gepubliceerd naar deze en klik vervolgens op de juiste wijze verwerkt (bijvoorbeeld https:\//prod-1westus.logic.azure.com:443/work). Zie voor meer informatie, [aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD-tenant-ID** (vereist): In Azure portal, vereisen we dat u [maken van een Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) zodat de verbinding tussen de twee services kan worden gevalideerd, zich achter een geverifieerde communicatie. Om te zoeken de [tenant-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), gaat u naar uw Azure Active Directory en selecteer **eigenschappen**, zoekt de **map-ID** dat staat vermeld (bijvoorbeeld) 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -270,9 +277,10 @@ De **Plan overzicht** tabblad kunt u diverse opties voor plan in de dezelfde aan
 
 Nadat u hebt gemaakt, ziet u de namen van uw abonnement,-id's, prijsmodellen, beschikbaarheid (openbaar of privé), huidige status, en alle beschikbare acties publiceren.
 
--   **Acties** beschikbaar in de **Plan overzicht** variëren, afhankelijk van de huidige status van uw abonnement en kunnen omvatten:
-  - Als de status van het plan is **Draft** – concept verwijderen
-  - Als de status van het plan is **Live** : Stop verkopen plan of particuliere doelgroep synchroniseren
+**Acties** beschikbaar in de **Plan overzicht** variëren, afhankelijk van de huidige status van uw abonnement en kunnen omvatten:
+
+- Als de status van het plan is **Draft** – concept verwijderen
+- Als de status van het plan is **Live** : Stop verkopen plan of particuliere doelgroep synchroniseren
 
 **Nieuw plan maken** (het minimum van een plan voor diegenen die selecteren om te verkopen via Microsoft)
 
@@ -305,7 +313,7 @@ Elke plan moet beschikbaar zijn in ten minste één markt. Selecteer het selecti
 
 Als u al prijzen hebt ingesteld voor uw abonnement in Amerikaanse dollar (USD) en het toevoegen van een andere locatie van de markt, wordt de prijs voor de nieuwe markt worden berekend op basis van de huidige exchange-tarieven. De prijs voor elke markt voordat u publiceert, moet u altijd controleren. Prijzen kan worden gecontroleerd met behulp van de koppeling 'Exporteren prijzen (xlsx)' na het opslaan van uw wijzigingen.
 
-#### <a name="pricing"></a>Prijs
+#### <a name="pricing"></a>Prijzen
 
 - **Prijsmodel**: Vast bedrag of op basis van Seat
 
@@ -351,6 +359,9 @@ SaaS-aanbiedingen gebruiken tenant-id's voor het definiëren van een particulier
 > [!NOTE]
 > De particuliere doelgroep (of een beperkt publiek) verschilt van de doelgroep van een Preview-versie. In de **[Preview](#preview)** tabblad kunt u een doelgroep Preview-versie. Een preview-publiek toegang heeft tot uw aanbieding *voorafgaande* op de aanbieding die live wordt gepubliceerd in de marketplace. Terwijl de aanduiding particuliere doelgroep is alleen van toepassing op een specifiek plan, de doelgroep preview vindt u alle abonnementen (particulier of niet), maar alleen in de beperkte preview-periode terwijl het plan is getest en gevalideerd.
 
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Voorbeeld van de lijst met abonnementen binnen een marketplace-aanbieding
+
+![Voorbeeld van de marketplace-abonnement met opmerkingen bij de aanbieding](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>Test drive
 
@@ -390,7 +401,7 @@ Microsoft kan de complexiteit van het instellen van een test uit door de host en
 
 - **Instantie-URL** (vereist): De URL waar de klant de test drive wordt gestart. Normaal gesproken de URL van uw Dynamics 365-instantie voor het uitvoeren van uw app met voorbeeldgegevens die zijn geïnstalleerd (bijvoorbeeld https://testdrive.crm.dynamics.com).
 
-- **URL van de Web-API-exemplaar** (vereist): Ophalen van de URL van de Web-API voor uw exemplaar van Dynamics 365 door te melden bij uw Microsoft 365-account en te navigeren naar **instellingen** \&gt; **Aanpassing** \&gt; **Bronnen voor ontwikkelaars** \&gt; **Exemplaar Web-API (basis-URL)**, Kopieer de URL is hier beschikbaar (bijvoorbeeld https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **URL van de Web-API-exemplaar** (vereist): Ophalen van de URL van de Web-API voor uw exemplaar van Dynamics 365 door te melden bij uw Microsoft 365-account en te navigeren naar **instellingen** \&gt; **Aanpassing** \&gt; **Bronnen voor ontwikkelaars** \&gt; **Exemplaar Web-API (basis-URL)** , Kopieer de URL is hier beschikbaar (bijvoorbeeld https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **De naam van rol** (vereist): U hebt gedefinieerd in uw aangepaste test drive voor Dynamics 365-naam van de beveiligingsrol bieden. Dit zal worden toegewezen aan de gebruiker tijdens de test-station (bijvoorbeeld test-drive-rol).
 
@@ -443,7 +454,7 @@ De **Test Drive aanbiedingen** optie te vinden onder de **uitproberen** tabblad 
 - **Video's: Video's toevoegen** (optioneel): Video's kunnen worden geüpload naar YouTube of Vimeo en hier wordt verwezen met een koppeling en miniatuur-installatiekopie (533 x 324 pixels) dat een klant een Walkthrough van informatie zodat ze beter begrip van de test-station, waaronder het gebruik van de functies van is uw inzicht in scenario hun voordelen markeren en bieden.
   - **Naam** (vereist)
   - **URL (YouTube of Vimeo alleen)** (vereist)
-  - **Miniatuur (533 x 324px)**: Bestand van de installatiekopie moet zich in de PNG-indeling.
+  - **Miniatuur (533 x 324px)** : Bestand van de installatiekopie moet zich in de PNG-indeling.
 
 Selecteer **opslaan** na het voltooien van deze velden.
 

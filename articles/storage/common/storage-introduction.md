@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b03197fb0d4d97756e5a3fe88de78c11a816b5ec
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4a6a6249f3edca30ab3d3f9a213b4282b4323d15
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951269"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258333"
 ---
 # <a name="introduction-to-azure-storage"></a>Kennismaking met Azure Storage
 
@@ -77,7 +77,7 @@ Stel dat u uw klanten in de gelegenheid wilt stellen om afbeeldingen te uploaden
 
 Raadpleeg de [Inleiding tot Azure Queues](../queues/storage-queues-introduction.md) voor meer informatie over Azure Queues.
 
-## <a name="table-storage"></a>Tabelopslag
+## <a name="table-storage"></a>Table Storage
 
 Azure Table Storage maakt nu deel uit van Cosmos DB. Voor documentatie over Azure Table Storage raadpleegt u [Overzicht van Azure Table Storage](../tables/table-storage-overview.md). Naast de bestaande Azure Table Storage-service is er een nieuwe Azure Cosmos DB tabel-API die voor doorvoer geoptimaliseerde tabellen, wereldwijde distributie en automatische secundaire indexen biedt. Bekijk [Azure Cosmos DB: tabel-API](https://aka.ms/premiumtables) voor meer informatie en om de nieuwe premium versie uit te proberen.
 
@@ -85,7 +85,9 @@ Zie [Overzicht van Azure Table Storage](../tables/table-storage-overview.md) voo
 
 ## <a name="disk-storage"></a>File Storage
 
-Azure Storage omvat ook mogelijkheden voor beheerde en onbeheerde schijven die worden gebruikt door virtuele machines. Zie voor meer informatie over deze functies de [documentatie over de Compute-service](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
+Een door Azure beheerde schijf is een virtuele harde schijf (VHD). U kunt deze beschouwen als een fysieke schijf in een on-premises server maar gevirtualiseerde. Azure-beheerde schijven worden opgeslagen als pagina-blobs een willekeurige i/o-opslagobject in Azure zijn. Een beheerde schijf 'beheerde' omdat deze een abstractie via de pagina-blobs, blob-containers en Azure storage-accounts genoemd. Met beheerde schijven, u moet doen, is de schijf inrichten en Azure zorgt voor de rest.
+
+Zie voor meer informatie over beheerde schijven [Inleiding tot Azure beheerde schijven](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Typen opslagaccounts
 
@@ -134,7 +136,7 @@ Zie voor meer informatie over herstel na noodgevallen [Herstel na noodgevallen e
 
 Er zijn verschillende mogelijkheden om gegevens te verplaatsen van of naar Azure Storage. Welke optie u kiest, is afhankelijk van de grootte van de gegevensset en de bandbreedte van het netwerk. Zie [Een Azure-oplossing kiezen voor gegevensoverdracht](storage-choose-data-transfer-solution.md) voor meer informatie.
 
-## <a name="pricing"></a>Prijs
+## <a name="pricing"></a>Prijzen
 
 Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/) voor gedetailleerde informatie over prijzen voor Azure Storage.
 

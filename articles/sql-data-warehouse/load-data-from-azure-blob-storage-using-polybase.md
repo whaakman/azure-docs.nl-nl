@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852069"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242963"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Gegevens over taxi's in New York met Azure SQL Data Warehouse laden
 
@@ -583,14 +583,14 @@ Laden met PolyBase en verifiëren via beheerde identiteiten is de veiligste mani
    > [!NOTE]
    > - Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u **eerst upgraden naar v2** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     
-1. Onder uw storage-account, gaat u naar **Access Control (IAM)**, en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob** RBAC-rol met uw SQL Database-server.
+1. Onder uw storage-account, gaat u naar **Access Control (IAM)** , en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob** RBAC-rol met uw SQL Database-server.
 
    > [!NOTE] 
    > Alleen leden met de eigenaar van bevoegdheden kunnen deze stap uitvoeren. Voor de verschillende ingebouwde rollen voor Azure-resources, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Polybase-verbinding met de Azure Storage-account:**
     
-   1. Maken van uw database-scoped referentie met **id = 'Beheerde Service-identiteit'**:
+   1. Maken van uw database-scoped referentie met **id = 'Beheerde Service-identiteit'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -640,7 +640,7 @@ U hebt het volgende gedaan:
 > * De voortgang van de gegevens weergegeven terwijl deze werden geladen
 > * Statistieken gemaakt voor de nieuw geladen gegevens
 
-Ga naar het migratieoverzicht voor informatie over het migreren van een bestaande database naar SQL Data Warehouse.
+Ga naar het overzicht voor ontwikkelaars voor meer informatie over het migreren van een bestaande database naar SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Meer informatie over het migreren van een bestaande database naar SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Ontwerpbeslissingen te nemen aan een bestaande database migreren naar SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

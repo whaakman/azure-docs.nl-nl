@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148594"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254850"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Veelgestelde vragen over back-ups van bestanden en mappen 
 
@@ -101,7 +101,7 @@ Deze waarschuwing kan verschijnen, ondanks dat u hebt een back-upbeleid geconfig
 De grootte van de cachemap bepaalt de hoeveelheid gegevens waarvan u een back-up maakt.
 - De cache map volumes hebt vrije ruimte die gelijk is aan ten minste 5-10% van de totale grootte van back-upgegevens.
 - Als het volume minder dan 5% vrije ruimte heeft, grootte van het volume vergroten of de cachemap verplaatsen naar een volume met voldoende ruimte.
-- 
+- Als u back-up van systeemstatus van Windows, moet u een extra 30 en 35 GB aan vrije ruimte op het volume met de cachemap
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Hoe kan ik de cachelocatie voor de MARS-agent wijzigen?
 
 

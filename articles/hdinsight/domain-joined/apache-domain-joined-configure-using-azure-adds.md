@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415465"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240179"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster met Enterprise Security Package configureren met behulp van Azure Active Directory Domain Services
 
@@ -31,13 +31,13 @@ In dit artikel leert u hoe u een HDInsight-cluster met ESP configureren met behu
 >
 > Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
 
-Inschakelen van DS-AzureAD is een vereiste voordat u een HDInsight-cluster met ESP maken kunt. Zie voor meer informatie, [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Inschakelen van DS-AzureAD is een vereiste voordat u een HDInsight-cluster met ESP maken kunt. Zie voor meer informatie, [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/create-instance.md). 
 
 Wanneer Azure AD DS-is ingeschakeld, start alle gebruikers en objecten synchroniseren van Azure Active Directory (AAD) naar Azure AD DS-standaard. De lengte van de synchronisatiebewerking is afhankelijk van het aantal objecten in Azure AD. De synchronisatie kan enkele dagen voor honderden of duizenden objecten krijgen. 
 
-U kunt alleen de groepen die toegang nodig tot de HDInsight-clusters worden gesynchroniseerd. Deze optie alleen bepaalde groepen synchroniseren van de heet *binnen het bereik van synchronisatie*. Zie [configureren binnen het bereik van synchronisatie van Azure AD met uw beheerde domein](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md) voor instructies.
+U kunt alleen de groepen die toegang nodig tot de HDInsight-clusters worden gesynchroniseerd. Deze optie alleen bepaalde groepen synchroniseren van de heet *binnen het bereik van synchronisatie*. Zie [configureren binnen het bereik van synchronisatie van Azure AD met uw beheerde domein](../../active-directory-domain-services/scoped-synchronization.md) voor instructies.
 
-Bij het inschakelen van secure LDAP, plaatst u de domeinnaam in de naam van het onderwerp en de alternatieve naam voor onderwerp in het certificaat. Bijvoorbeeld, als uw domeinnaam *contoso100.onmicrosoft.com*, zorg ervoor dat de exacte naam bestaat in de naam van de certificaathouder en de alternatieve naam voor onderwerp. Zie voor meer informatie, [configureren secure LDAP voor een Azure AD DS-domein beheerd](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Hieronder volgt een voorbeeld van het maken van een zelfondertekend certificaat en de domeinnaam hebt (*contoso100.onmicrosoft.com*) in zowel de objectnaam en de DNS-naam (alternatieve naam voor onderwerp):
+Bij het inschakelen van secure LDAP, plaatst u de domeinnaam in de naam van het onderwerp en de alternatieve naam voor onderwerp in het certificaat. Bijvoorbeeld, als uw domeinnaam *contoso100.onmicrosoft.com*, zorg ervoor dat de exacte naam bestaat in de naam van de certificaathouder en de alternatieve naam voor onderwerp. Zie voor meer informatie, [configureren secure LDAP voor een Azure AD DS-domein beheerd](../../active-directory-domain-services/configure-ldaps.md). Hieronder volgt een voorbeeld van het maken van een zelfondertekend certificaat en de domeinnaam hebt (*contoso100.onmicrosoft.com*) in zowel de objectnaam en de DNS-naam (alternatieve naam voor onderwerp):
 
 ```powershell
 $lifetime=Get-Date

@@ -8,15 +8,17 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2a4d636ccb03e36f7c495f3c10c90033d7c3c93c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792994"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417908"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET-change Feed Processor SDK: Download en opmerkingen bij de release
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -156,8 +158,8 @@ ms.locfileid: "65792994"
 * GA-SDK
 * Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.14.1 en lager.
 
-
 ## <a name="release--retirement-dates"></a>Datums release & buiten gebruik stellen
+
 Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.
 
 Nieuwe functies en functionaliteit en -optimalisatie worden alleen toegevoegd aan de huidige SDK, daarom is het raadzaam dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo vroeg mogelijk. 
@@ -183,10 +185,10 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 | [1.1.0](#1.1.0) |13 augustus 2017 |--- |
 | [1.0.0](#1.0.0) |07 juli 2017 |--- |
 
-
 ## <a name="faq"></a>Veelgestelde vragen
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zie ook
-Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) servicepagina. 
 
+Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) servicepagina.

@@ -7,21 +7,22 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 7ce311ab9c554481f64c6c9be40e2018893a0966
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 881a16501574dc7309eede6b58e270a97bed977a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027372"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235749"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Voorbeeld: Beveilig uw cluster met behulp van pod-beveiligingsbeleid in Azure Kubernetes Service (AKS)
 
 Ter verbetering van de beveiliging van uw AKS-cluster, kunt u beperken welke schillen kunnen worden gepland. Schillen die de aanvraag voor resources die u niet toestaan kunnen niet worden uitgevoerd in de AKS-cluster. U definiëren deze toegang met behulp van pod beveiligingsbeleid. Dit artikel ziet u hoe u beveiligingsbeleidsregels van pod gebruiken voor het beperken van de implementatie van schillen in AKS.
 
 > [!IMPORTANT]
-> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
+> AKS-preview-functies zijn selfservice, aanmelden. Ze zijn bedoeld om het verzamelen van fouten en feedback van onze community. Preview-versie, worden deze functies zijn niet bedoeld voor gebruik in productieomgevingen. Functies in public preview vallen onder 'best effort'-ondersteuning. Hulp van de AKS-teams voor technische ondersteuning is beschikbaar tijdens kantooruren Pacific tijdzone (PST) alleen. Zie de volgende artikelen ondersteuning voor aanvullende informatie:
 >
-> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
+> * [Ondersteuningsbeleid voor AKS][aks-support-policies]
+> * [Veelgestelde vragen over ondersteuning van Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -510,7 +511,6 @@ Zie voor meer informatie over het beperken van netwerkverkeer pod [beveiliging v
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
-[aks-github]: https://github.com/azure/aks/issues
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
@@ -523,3 +523,5 @@ Zie voor meer informatie over het beperken van netwerkverkeer pod [beveiliging v
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-extension-add]: /cli/azure/extension#az-extension-add
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

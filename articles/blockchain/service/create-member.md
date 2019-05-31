@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 357dc47027582d5c638bb3c7344c839f37f93dc5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399137"
+ms.locfileid: "66417509"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Quickstart: Maak een Azure Blockchain-Service met behulp van de Azure portal
 
@@ -44,7 +44,7 @@ Azure Blockchain-Service wordt gemaakt met een gedefinieerde set met reken- en o
     De naam van de Consortium | Voer een unieke naam voor een nieuwe consortium. Als u lid wordt van een consortium via een uitnodiging, is de waarde het consortium dat u samenvoegt.
     Description | Beschrijving van het consortium.
     Protocol |  Preview-versie biedt ondersteuning voor het Quorum-protocol.
-    Prijzen | De configuratie van de knooppunten voor uw nieuwe service. selecteer **Standaard**. 2 validator knooppunten en 1 transactie knooppunt is de standaardinstelling.
+    Prijzen | De configuratie van de knooppunten voor uw nieuwe service. selecteer **Standaard**. 2 validator knooppunten en 1 transactie-knooppunt zijn de standaardinstellingen.
     Wachtwoord voor transactie-knooppunt | Het wachtwoord voor het lid van de standaard transactie knooppunt. Gebruik het wachtwoord voor basisverificatie wordt gebruikt bij het verbinden met blockchain adreslid standaard transactie openbare eindpunt van het knooppunt.
 
 1. Selecteer **maken** voor het inrichten van de service. De inrichting duurt ongeveer 10 minuten.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bb18c858a17e290a8ce2cc88dc1e7d88d21afe0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f10ac45266eefac41f3ba9ac442c3be3f5106ef3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021895"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388415"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Afbeelding Analysis cognitieve vaardigheden
 
@@ -39,12 +39,12 @@ Parameters zijn hoofdlettergevoelig.
 |--------------------|-------------|
 | defaultLanguageCode   |  Een tekenreeks die aangeeft welke taal moet worden geretourneerd. De service retourneert resultaten in een opgegeven taal. Als deze parameter niet is opgegeven, is de standaardwaarde 'en'. <br/><br/>Ondersteunde talen zijn: <br/>*nl* -Engels (standaard) <br/> *zh* -vereenvoudigd Chinees|
 |visualFeatures |   Een matrix met tekenreeksen die aangeeft welke visuele functie om terug te keren. Geldige visualfunctie typen zijn onder andere:  <ul><li> *categorieën* -categoriseert afbeeldingsinhoud op basis van een gedefinieerd in de Cognitive Services taxonomie [documentatie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *tags* -tags van de installatiekopie met een gedetailleerde lijst met betrekking tot de inhoud van de woorden.</li><li>*Beschrijving* -beschrijving van de afbeelding die inhoud met een volledige Engelse zin.</li><li>*Gezichten* -detecteert of gezichten aanwezig zijn. Als deze aanwezig is, genereert coördinaten, geslacht en leeftijd.</li><li> *ImageType* -of image illustraties of een lijntekening is gedetecteerd.</li><li>  *Kleur* -bepaalt de accentkleur, de overheersende kleur, en of een afbeelding is zwart- wit.</li><li>*Volwassenen* -detecteert of de installatiekopie is in de natuur (ziet u bloot of een geregistreerde seksuele act) is. Seksueel suggestieve inhoud wordt ook gedetecteerd.</li></ul> Namen van visuele kenmerken zijn hoofdlettergevoelig.|
-| details   | Een matrix met tekenreeksen die aangeeft welke domeinspecifieke gegevens moeten worden geretourneerd. Geldige visualfunctie typen zijn onder andere: <ul><li>*Beroemdheden* -beroemdheden wordt geïdentificeerd als gedetecteerd in de afbeelding.</li><li>*Oriëntatiepunten* -oriëntatiepunten wordt geïdentificeerd als gedetecteerd in de afbeelding.</li></ul>
+| Meer informatie   | Een matrix met tekenreeksen die aangeeft welke domeinspecifieke gegevens moeten worden geretourneerd. Geldige visualfunctie typen zijn onder andere: <ul><li>*Beroemdheden* -beroemdheden wordt geïdentificeerd als gedetecteerd in de afbeelding.</li><li>*Oriëntatiepunten* -oriëntatiepunten wordt geïdentificeerd als gedetecteerd in de afbeelding.</li></ul>
  |
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Naam invoeren      | Description                                          |
+| Voer een naam in      | Description                                          |
 |---------------|------------------------------------------------------|
 | image         | Complexe Type. Momenteel wordt alleen werkt met "/ document/normalized_images"-veld, die worden geproduceerd door de indexeerfunctie Azure Blob als ```imageAction``` is ingesteld op een andere waarde dan ```none```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
 
@@ -52,56 +52,270 @@ Parameters zijn hoofdlettergevoelig.
 
 ##  <a name="sample-definition"></a>Van voorbeelddefinitie
 ```json
-{
-    "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
-    "context": "/document/normalized_images/*",
-    "visualFeatures": [
-        "Tags",
-        "Faces",
-        "Categories",
-        "Adult",
-        "Description",
-        "ImageType",
-        "Color"
-    ],
-    "defaultLanguageCode": "en",
-    "inputs": [
         {
-            "name": "image",
-            "source": "/document/normalized_images/*"
+            "description": "Extract image analysis.",
+            "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+            "context": "/document/normalized_images/*",
+            "defaultLanguageCode": "en",
+            "visualFeatures": [
+                "Tags",
+                "Categories",
+                "Description",
+                "Faces"
+            ],
+            "inputs": [
+                {
+                    "name": "image",
+                    "source": "/document/normalized_images/*"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "categories"
+                },
+                {
+                    "name": "tags"
+                },
+                {
+                    "name": "description"
+                },
+                {
+                    "name": "faces"
+                }
+            ]
         }
-    ],
-    "outputs": [
+```
+### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Voorbeeldindex (voor alleen de categorieën, beschrijving, gezichten en tags velden)
+```json
+{
+    "fields": [
         {
-            "name": "categories",
-            "targetName": "myCategories"
+            "name": "id",
+            "type": "Edm.String",
+            "key": true,
+            "searchable": true,
+            "filterable": false,
+            "facetable": false,
+            "sortable": true
         },
         {
-            "name": "tags",
-            "targetName": "myTags"
+            "name": "blob_uri",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "facetable": false,
+            "sortable": true
+        },
+        {
+            "name": "content",
+            "type": "Edm.String",
+            "sortable": false,
+            "searchable": true,
+            "filterable": false,
+            "facetable": false
+        },
+        {
+            "name": "categories",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "score",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "detail",
+                    "type": "Edm.ComplexType",
+                    "fields": [
+                        {
+                            "name": "celebrities",
+                            "type": "Collection(Edm.ComplexType)",
+                            "fields": [
+                                {
+                                    "name": "name",
+                                    "type": "Edm.String",
+                                    "searchable": true,
+                                    "filterable": false,
+                                    "facetable": false
+                                },
+                                {
+                                    "name": "faceBoundingBox",
+                                    "type": "Collection(Edm.ComplexType)",
+                                    "fields": [
+                                        {
+                                            "name": "x",
+                                            "type": "Edm.Int32",
+                                            "searchable": false,
+                                            "filterable": false,
+                                            "facetable": false
+                                        },
+                                        {
+                                            "name": "y",
+                                            "type": "Edm.Int32",
+                                            "searchable": false,
+                                            "filterable": false,
+                                            "facetable": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "confidence",
+                                    "type": "Edm.Double",
+                                    "searchable": false,
+                                    "filterable": false,
+                                    "facetable": false
+                                }
+                            ]
+                        },
+                        {
+                            "name": "landmarks",
+                            "type": "Collection(Edm.ComplexType)",
+                            "fields": [
+                                {
+                                    "name": "name",
+                                    "type": "Edm.String",
+                                    "searchable": true,
+                                    "filterable": false,
+                                    "facetable": false
+                                },
+                                {
+                                    "name": "confidence",
+                                    "type": "Edm.Double",
+                                    "searchable": false,
+                                    "filterable": false,
+                                    "facetable": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "name": "description",
-            "targetName": "myDescription"
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "tags",
+                    "type": "Collection(Edm.String)",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "captions",
+                    "type": "Collection(Edm.ComplexType)",
+                    "fields": [
+                        {
+                            "name": "text",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "confidence",
+                            "type": "Edm.Double",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        }
+                    ]
+                }
+            ]
         },
         {
             "name": "faces",
-            "targetName": "myFaces"
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "age",
+                    "type": "Edm.Int32",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "gender",
+                    "type": "Edm.String",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "faceBoundingBox",
+                    "type": "Collection(Edm.ComplexType)",
+                    "fields": [
+                        {
+                            "name": "x",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "y",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "name": "imageType",
-            "targetName": "myImageType"
-        },
-        {
-            "name": "color",
-            "targetName": "myColor"
-        },
-        {
-            "name": "adult",
-            "targetName": "myAdultCategory"
+            "name": "tags",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "confidence",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                }
+            ]
         }
     ]
 }
+
+```
+### <a name="sample-output-field-mapping-for-the-above-index"></a>Voorbeeld van uitvoer veldtoewijzing (voor de bovenstaande index)
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": "/document/normalized_images/*/categories/*",
+            "targetFieldName": "categories"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/tags/*",
+            "targetFieldName": "tags"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/description",
+            "targetFieldName": "description"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/faces/*",
+            "targetFieldName": "faces"
+        }
 ```
 
 ##  <a name="sample-input"></a>Van Voorbeeldinvoer
@@ -127,7 +341,6 @@ Parameters zijn hoofdlettergevoelig.
 }
 ```
 
-
 ##  <a name="sample-output"></a>Voorbeelduitvoer
 
 ```json
@@ -148,12 +361,24 @@ Parameters zijn hoofdlettergevoelig.
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
-                                    "faceBoundingBox": {
-                                        "left": 597,
-                                        "top": 162,
-                                        "width": 248,
-                                        "height": 248
-                                    },
+                                    "faceBoundingBox": [
+                                        {
+                                            "x": 273,
+                                            "y": 309
+                                        },
+                                        {
+                                            "x": 395,
+                                            "y": 309
+                                        },
+                                        {
+                                            "x": 395,
+                                            "y": 431
+                                        },
+                                        {
+                                            "x": 273,
+                                            "y": 431
+                                        }
+                                    ],
                                     "confidence": 0.999028444
                                 }
                             ],
@@ -215,12 +440,24 @@ Parameters zijn hoofdlettergevoelig.
                     {
                         "age": 44,
                         "gender": "Male",
-                        "faceBoundingBox": {
-                            "left": 593,
-                            "top": 160,
-                            "width": 250,
-                            "height": 250
-                        }
+                        "faceBoundingBox": [
+                            {
+                                "x": 1601,
+                                "y": 395
+                            },
+                            {
+                                "x": 1653,
+                                "y": 395
+                            },
+                            {
+                                "x": 1653,
+                                "y": 447
+                            },
+                            {
+                                "x": 1601,
+                                "y": 447
+                            }
+                        ]
                     }
                 ],
                 "color": {

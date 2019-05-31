@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130592"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357579"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
 ![Logo van Office 365](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> De aanbevolen methode om te installeren en configureren van de Office 365-oplossing is het inschakelen van de [Office 365-connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) in plaats van de stappen in dit artikel. Dit is een bijgewerkte versie van de Office 365-oplossing met een verbeterde configuratie-ervaring. Als u wilt verbinding maken met Azure AD-Logboeken, gebruikt u de [Azure Sentinel Azure AD-connector](../../sentinel/connect-azure-active-directory.md), waarmee u uitgebreidere logboekgegevens dan de Office 365-management-Logboeken. 
+>
+> Wanneer u [onboarding Azure Sentinel](../../sentinel/quickstart-onboard.md), geef de Log Analytics-werkruimte die u wilt dat de Office 365-oplossing die is geïnstalleerd. Wanneer u de connector hebt ingeschakeld, wordt de oplossing is beschikbaar in de werkruimte en gebruikt precies hetzelfde als andere bewakingsoplossingen die u hebt geïnstalleerd.
+>
+> Gebruikers van de Azure government-cloud, moeten de Office 365 met behulp van de stappen in dit artikel omdat Azure Sentinel nog niet beschikbaar in de government-cloud is installeren.
 
 De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Office 365-omgeving in Azure Monitor.
 
@@ -30,6 +38,7 @@ De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Offic
 - Detecteren en onderzoeken van ongewenste gebruikersgedrag, die kan worden aangepast aan de behoeften van uw organisatie.
 - Illustratie van controle en naleving. U kunt bijvoorbeeld toegang bestandsbewerkingen op vertrouwelijke bestanden, die u met het proces voor controle en naleving helpen kunnen controleren.
 - Uitvoeren van operationele problemen oplossen met behulp van [query's bijgehouden](../log-query/log-query-overview.md) boven op Office 365-activiteitsgegevens van uw organisatie.
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -57,14 +66,14 @@ Voordat u deze procedure begint, moet u de volgende informatie verzamelen.
 
 Van uw Log Analytics-werkruimte:
 
-- Werkruimtenaam: De werkruimte waar de Office 365-gegevens worden verzameld.
+- De naam van de werkruimte: De werkruimte waar de Office 365-gegevens worden verzameld.
 - Resourcegroepnaam: De resourcegroep met de werkruimte.
 - Azure-abonnement-ID: Het abonnement met de werkruimte.
 
 Vanuit uw Office 365-abonnement:
 
 - Gebruikersnaam: E-mailadres van een Administrator-account.
-- Tenant-id: De unieke ID voor Office 365-abonnement.
+- Tenant-ID: De unieke ID voor Office 365-abonnement.
 - Client-ID: de tekenreeks 16 tekens met Office 365-client.
 - Clientgeheim: Gecodeerde tekenreeks die nodig zijn voor verificatie.
 
@@ -79,7 +88,7 @@ De eerste stap is het maken van een toepassing in Azure Active Directory dat doo
     ![App-registratie toevoegen](media/solution-office-365/add-app-registration.png)
 1. Voer een toepassing **naam** en **aanmeldings-URL**.  De naam moet beschrijvend zijn.  Gebruik `http://localhost` voor de URL en blijf _Web-app / API_ voor de **toepassingstype**
     
-    ![App maken](media/solution-office-365/create-application.png)
+    ![Toepassing maken](media/solution-office-365/create-application.png)
 1. Klik op **maken** en informatie over de toepassing te valideren.
 
     ![Geregistreerde app](media/solution-office-365/registered-app.png)
@@ -97,8 +106,8 @@ De eerste stap is het maken van een toepassing in Azure Active Directory dat doo
     ![API selecteren](media/solution-office-365/select-api.png)
 
 1. Onder **machtigingen selecteren** selecteert u de volgende opties voor beide **Toepassingsmachtigingen** en **overgedragen machtigingen**:
-   - Gegevens over de servicestatus van uw organisatie lezen
-   - Activiteitengegevens van uw organisatie lezen
+   - Gegevens over de servicestatus voor uw organisatie lezen
+   - Activiteitsgegevens voor uw organisatie lezen
    - Activiteitenrapporten van uw organisatie lezen
 
      ![API selecteren](media/solution-office-365/select-permissions.png)
@@ -181,7 +190,7 @@ Als u wilt de Administrator-account voor de eerste keer inschakelt, moet u toest
 
 1. U krijgt een die vergelijkbaar is met het onderstaande venster. Klik op **accepteren**.
     
-    ![Toestemming van de beheerder](media/solution-office-365/admin-consent.png)
+    ![toestemming van de beheerder](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Abonneren op Log Analytics-werkruimte
 
@@ -489,7 +498,7 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
-## <a name="data-collection"></a>Gegevens verzamelen
+## <a name="data-collection"></a>Gegevensverzameling
 
 ### <a name="supported-agents"></a>Ondersteunde agents
 
@@ -539,9 +548,9 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 | OrganizationId | De GUID voor Office 365-tenant van uw organisatie. Deze waarde is altijd hetzelfde zijn voor uw organisatie, ongeacht de Office 365-service waarin dit zich voordoet. |
 | RecordType | Het type van de bewerking die wordt uitgevoerd. |
 | ResultStatus | Geeft aan of de actie (opgegeven in de eigenschap Operation) geslaagd of mislukt is. Mogelijke waarden zijn Succeeded, gedeeltelijk geslaagd heeft of mislukt. Voor een beheeractiviteit voor Exchange, is de waarde True of False. |
-| UserId | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
+| Gebruikers-id | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
 | UserKey | Een alternatieve ID voor de gebruiker die u in de eigenschap gebruikers-id.  Bijvoorbeeld: deze eigenschap wordt gevuld met de unieke ID voor passport (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook dezelfde waarde opgeven als de gebruikers-id-eigenschap voor gebeurtenissen in andere services en gebeurtenissen die worden uitgevoerd door systeemaccounts|
-| UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>Gemeente<br>Toepassing<br>DcAdmin<br>Normaal<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
+| UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>beheerder<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-basis
@@ -731,7 +740,7 @@ Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 
 De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords die worden verzameld door deze oplossing.
 
-| Query | Description |
+| Query’s uitvoeren | Description |
 | --- | --- |
 |Telling van alle bewerkingen op uw Office 365-abonnement |OfficeActivity &#124; count() by bewerking samenvatten |
 |Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; samenvatten count() by SiteUrl \| sorteren op aantal asc|

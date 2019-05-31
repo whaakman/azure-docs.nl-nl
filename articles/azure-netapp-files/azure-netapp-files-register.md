@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794697"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299214"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registreren voor Azure NetApp Files
 
@@ -60,12 +60,12 @@ Voor het gebruik van de service moet u de Azure-resourceprovider registreren voo
 
    De uitvoer van de opdracht ziet er als volgt uit:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-       "name": "Microsoft.NetApp/publicPreviewADC" 
+       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+       "name": "Microsoft.NetApp/ANFGA" 
        
    `<SubID>` is uw abonnements-id.
 
-    Als u niet de functienaam van de ziet `Microsoft.NetApp/publicPreviewADC`, u hebt geen toegang tot de service. Stoppen bij deze stap. Volg de instructies in [een wachtlijst indienen voor toegang tot de service](#waitlist) service om toegang te vragen voordat u doorgaat. 
+    Als u niet de functienaam van de ziet `Microsoft.NetApp/ANFGA`, u hebt geen toegang tot de service. Stoppen bij deze stap. Volg de instructies in [een wachtlijst indienen voor toegang tot de service](#waitlist) service om toegang te vragen voordat u doorgaat. 
 
 4. Voer de volgende opdracht uit om de Azure-resourceprovider te registreren in de Azure Cloud Shell-console: 
     

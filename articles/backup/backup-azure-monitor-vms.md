@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464348"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399752"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Waarschuwingen voor back-ups van een virtuele Azure-machine controleren
 
@@ -40,7 +40,7 @@ De back-up waarschuwingen-blade geopend in de sectie waarschuwingen en gebeurten
     ![Back-up van de tegel waarschuwingen](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 4. Klik op de waarschuwing te openen om gedetailleerde informatie over een bepaalde waarschuwing, uit de lijst met gebeurtenissen weer te geven de **Details** sectie.
 
-    ![Gebeurtenisdetail](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Gebeurtenisdetails](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
     Zie voor het aanpassen van de kenmerken die wordt weergegeven in de lijst, [nog een gebeurtenis kenmerken weergeven](backup-azure-monitor-vms.md)
 
@@ -70,7 +70,7 @@ Voor het instellen van e-mailmeldingen voor waarschuwingen
    | Waarschuwingsniveau | Waarschuwingen die zijn verzonden |
    | --- | --- |
    | Kritiek | voor back-up mislukt, herstel is mislukt |
-   | Waarschuwing | voor back-uptaken is geslaagd met waarschuwingen (bijvoorbeeld: Sommige schrijvers is mislukt tijdens het maken van een momentopname) |
+   | Waarschuwing | op dit moment geen waarschuwingen zijn beschikbaar voor virtuele Azure-machines (bijvoorbeeld: Sommige schrijvers is mislukt tijdens het maken van een momentopname) |
    | Informatief | op dit moment zijn geen informatieve waarschuwingen beschikbaar voor Azure VM backup |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Situaties waarin de e-mailbericht is niet verzonden, zelfs als er meldingen zijn geconfigureerd

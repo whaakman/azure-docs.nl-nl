@@ -3,19 +3,19 @@ title: Voorkomen dat inhoud vertaling - Translator Text-API
 titlesuffix: Azure Cognitive Services
 description: Voorkomen dat de vertaling van inhoud met de Translator Text-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: a9590a9a38859818e0b609d64fc12e30afd2e09e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: ec47c22ed38b7de261653eeeeafa4540b5d2164c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507008"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387623"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Om te voorkomen dat de vertaling van inhoud met de Translator Text-API
 

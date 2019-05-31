@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 2e7eb455a53abbe2df6ff72f091a599665732429
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bc42bcbf7149f88eb895317a411c7acd5913d63d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724893"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417690"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converteren van Azure managed disks-opslag van Standard naar Premium- of Premium naar standaard
 
-Er zijn vier [schijftypen](disks-types.md) voor Azure beheerde schijven: Azure Ultra Disk-opslag, Premium SSD, Standard-SSD en standaard harde schijven. U kunt eenvoudig schakelen tussen Premium SSD-, Standard-SSD- en standaard harde schijven op basis van de prestatiebehoeften van uw met weinig downtime. Deze functionaliteit wordt niet ondersteund voor niet-beheerde schijven of Ultra Disk-opslag. Maar u kunt eenvoudig [converteren naar beheerde schijven niet-beheerde](convert-unmanaged-to-managed-disks.md) te kunnen schakelen tussen schijftypen.
+Er zijn vier schijftypen van Azure beheerde schijven: Azure ultra SSD's (preview), premium SSD-, standard-SSD- en standard HDD. U kunt schakelen tussen de drie typen van de GA-schijf (premium SSD-, standard-SSD- en standard HDD) op basis van uw prestatiebehoeften. U bent niet nog kunt overschakelen van of naar een ultra SSD, moet u een nieuwe implementeren.
+
+Deze functionaliteit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [niet-beheerde schijven converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md) te kunnen schakelen tussen schijftypen.
 
 Dit artikel leest hoe u kunt beheerde schijven converteren van Standard naar Premium- of Premium naar standaard met behulp van de Azure CLI. Als u wilt installeren of upgraden van het hulpprogramma, Zie [Azure CLI installeren](/cli/azure/install-azure-cli).
 

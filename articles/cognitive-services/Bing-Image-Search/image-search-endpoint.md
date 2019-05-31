@@ -10,16 +10,16 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 9b3edd10d2928a512b94e9273000439f80cb8f33
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 076dbb26c267cf65a0d6f3a9835375b09951f2aa
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777083"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388521"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Eindpunten voor de Bing afbeeldingen zoeken-API
 
-De **afbeeldingen zoeken-API** bevat drie eindpunten.  Eindpunt 1 geeft als resultaat van installatiekopieën van het Web op basis van een query. Eindpunt 2 retourneert [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  3-eindpunt retourneert trending afbeeldingen.
+De **afbeeldingen zoeken-API** bevat drie eindpunten.  Eindpunt 1 geeft als resultaat van installatiekopieën van het Web op basis van een query. Eindpunt 2 retourneert [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  3-eindpunt retourneert trending afbeeldingen.
 
 ## <a name="endpoints"></a>Eindpunten
 
@@ -34,9 +34,9 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-Een GET-aanvraag retourneert inzichten over een afbeelding, zoals webpagina's die de installatiekopie van het opnemen. Bevatten de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parameter met een `GET` aanvraag.
+Een GET-aanvraag retourneert inzichten over een afbeelding, zoals webpagina's die de installatiekopie van het opnemen. Bevatten de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) parameter met een `GET` aanvraag.
 
-Of u kunt een binaire opnemen in de hoofdtekst van een `POST` aanvragen en stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter `RecognizedEntities`. Dit resulteert in een [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) te gebruiken als een parameter in een latere `GET` aanvraag informatie over mensen in de afbeelding retourneert.  Instellen `modules` naar `All` alle om inzichten te verkrijgen, behalve `RecognizedEntities` in de resultaten van de `POST` zonder te maken met behulp van een andere aanroep van de `insightsToken`.
+Of u kunt een binaire opnemen in de hoofdtekst van een `POST` aanvragen en stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) parameter `RecognizedEntities`. Dit resulteert in een [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) te gebruiken als een parameter in een latere `GET` aanvraag informatie over mensen in de afbeelding retourneert.  Instellen `modules` naar `All` alle om inzichten te verkrijgen, behalve `RecognizedEntities` in de resultaten van de `POST` zonder te maken met behulp van een andere aanroep van de `insightsToken`.
 
 
 **3-eindpunt:** Retourneert de installatiekopieën die populair zijn gebaseerd op zoekaanvragen anderen. De afbeeldingen worden gescheiden in verschillende categorieën, bijvoorbeeld op basis van opmerkelijk personen of gebeurtenissen.
@@ -46,7 +46,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 
 Zie voor een lijst van markten die ondersteuning bieden voor trending afbeeldingen, [Trending afbeeldingen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
 
-Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [Bing afbeeldingen zoeken-API voor Bing versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) verwijzing.
+Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [Bing afbeeldingen zoeken-API voor Bing versie 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) verwijzing.
 ## <a name="response-json"></a>JSON-antwoord
 Het antwoord op een zoekaanvraag afbeelding bevat resultaten als JSON-objecten. Voor Zie voor voorbeelden van het parseren van de resultaten de [zelfstudie](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) en [broncode](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 

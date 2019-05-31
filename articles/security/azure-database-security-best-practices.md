@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409809"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258681"
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
 Dit artikel wordt beschreven aanbevolen procedures voor beveiliging van de database.
@@ -40,7 +40,7 @@ Totdat u opgeeft welke computers zijn gemachtigd, verhinderen firewalls alle toe
 
 De volgende afbeelding ziet u waar u de firewall van een server in SQL-Database instellen:
 
-![Firewallregels](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
+![Firewall-regels](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
 
 De Azure SQL Database-service is alleen beschikbaar via TCP-poort 1433. Voor toegang tot een SQL-database van uw computer, moet u ervoor zorgen dat de firewall van uw clientcomputer uitgaande TCP-communicatie op TCP-poort 1433 toestaat. Blokkeer binnenkomende verbindingen op TCP-poort 1433 met behulp van firewallregels, als u geen deze verbindingen nodig voor andere toepassingen hebt.
 
@@ -165,6 +165,10 @@ Deze mogelijkheden inschakelen, kunt u:
 - Detecteren en reageren op mogelijke bedreigingen.
 
 Threat Detection integreert ook waarschuwingen met Azure Security Center voor een centraal overzicht van de beveiligingsstatus van al uw Azure-resources.
+
+## <a name="enable-feature-restrictions"></a>Inschakelen van beperkingen van de functie
+
+De gegevens in uw databases kunnen worden blootgesteld aan aanvallers die gebruikmaken van aanvalsvectoren die gebruikmaken van fouten in de database en query-uitvoertijd. Azure SQL Database biedt een aantal van de functie beperking mechanismen om uw database te beveiligen. Zie voor meer informatie, [SQL Database-functiebeperkingen](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Azure-beveiliging aanbevolen procedures en patronen](security-best-practices-and-patterns.md) voor meer best practices voor beveiliging moeten worden gebruikt wanneer bent u het ontwerpen, implementeren en beheren van uw cloudoplossingen met behulp van Azure.

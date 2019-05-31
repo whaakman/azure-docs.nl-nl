@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471649"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399680"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -40,10 +40,10 @@ Meer informatie over back-up [met behulp van een back-upserver](backup-architect
 
 **Actie** | **Ondersteuning**
 --- | ---
-Back-up inschakelen wanneer u een virtuele Windows Azure-machine maken | Ondersteund voor:  WindowsServer 2019 (Datacenter/Datacenter-Core), WindowsServer 2016 (Datacenter/Datacenter-Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM en SP1)
+Back-up inschakelen wanneer u een virtuele Windows Azure-machine maken | Ondersteund voor: <br/><br/> -Windows Server 2019 (Core Datacenter/Datacenter/Standard) <br/><br/> -Windows Server 2016 (Core Datacenter/Datacenter/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM en SP1 Standard)
 Back-up inschakelen wanneer u een Linux-VM maken | Ondersteund voor:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (TNS), 14.04 (TNS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Maak een back-up van een virtuele machine wordt die afgesloten of offline virtuele machine | Ondersteund.<br/><br/> Is een crash-consistente momentopname alleen, niet toepassingsconsistent is.
-Back-up van schijven na de migratie naar schijven beheerde | Ondersteund.<br/><br/> Back-ups blijven werken. U hoeft geen actie te ondernemen.
+Back-up van schijven na de migratie naar schijven beheerde | Ondersteund.<br/><br/> Back-ups blijven werken. Geen actie vereist.
 Back-up van beheerde schijven na het inschakelen van de groep resourcevergrendeling | Wordt niet ondersteund.<br/><br/> Azure Backup kan de oudere herstelpunten voor de resource niet verwijderen en back-ups mislukken na het verstrijken van de maximumlimiet van herstelpunten wordt gestart.
 Back-upbeleid voor een virtuele machine wijzigen | Ondersteund.<br/><br/> De virtuele machine wordt een back-worden gemaakt met behulp van het schema en de retentie-instellingen in het nieuwe beleid. Als de retentie-instellingen worden uitgebreid, worden de bestaande herstelpunten gemarkeerd en bewaard. Als ze worden beperkt, wordt de bestaande herstelpunten worden verwijderd in de eerstvolgende opschoontaak en uiteindelijk verwijderd.
 Een back-uptaak annuleren | Ondersteund tijdens het verwerken van de momentopname.<br/><br/> Niet ondersteund wanneer de momentopname worden overgebracht naar de kluis.
@@ -61,7 +61,7 @@ De volgende tabel geeft een overzicht van de ondersteunde besturingssystemen wan
 
 **Scenario** | **Ondersteuning voor het besturingssysteem**
 --- | ---
-Back-up maken met Azure VM agent-extensie | Windows-Client: Niet ondersteund<br/><br/> WindowsServer 2019 (Datacenter/Datacenter-Core), WindowsServer 2016 (Datacenter/Datacenter-Core); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM en SP1)
+Back-up maken met Azure VM agent-extensie | Windows-Client: Niet ondersteund<br/><br/>-Windows Server 2019 (Core Datacenter/Datacenter/Standard) <br/><br/> -Windows Server 2016 (Core Datacenter/Datacenter/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM en SP1 Standard)
 Back-up maken met de MARS-agent | [Ondersteund](backup-support-matrix-mars-agent.md#support-for-direct-backups) besturingssystemen.
 Back-up met DPM/MABS | Ondersteunde besturingssystemen voor back-up met [MABS](backup-mabs-protection-matrix.md) en [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -94,7 +94,7 @@ De maximale vervaltijd voor een herstelpunt | Geen limiet.
 Maximale frequentie van back-up naar de kluis (Azure VM-extensie) | Eenmaal per dag.
 Maximale frequentie van back-up naar de kluis (MARS-agent) | Drie back-ups per dag.
 Maximale back-upfrequentie naar DPM/MABS | Om de 15 minuten voor SQL Server.<br/><br/> Eenmaal per uur voor andere werkbelastingen.
-Bewaarperiode van het herstelpunt | Dagelijks, wekelijks, maandelijks en jaarlijks.
+Bewaarperiode van herstelpunt | Dagelijks, wekelijks, maandelijks en jaarlijks.
 Maximale bewaarperiode | Afhankelijk van back-upfrequentie.
 Herstelpunten op DPM-/MABS-schijf | 64 voor bestandsservers en 448 voor appservers.<br/><br/> Tapeherstelpunten zijn onbeperkt voor on-premises DPM.
 

@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f7d482b088003e3800debb2db9f6f26bda1672a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444586"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298172"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Logboekintegratie Veelgestelde vragen
 
 In dit artikel vindt u antwoorden op veelgestelde vragen (FAQ) over Azure-Logboekintegratie.
 
 >[!IMPORTANT]
-> De functie van de integratie met Azure Log worden afgeschaft door 06/01/2019. AzLog downloads zijn uitgeschakeld op 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> De functie van de integratie met Azure Log worden afgeschaft door 06/15/2019. AzLog downloads zijn uitgeschakeld op 27 juni 2018. Voor informatie over wat te doen verplaatsen forward revisie van het bericht [gebruikt Azure monitor om te integreren met SIEM-hulpprogramma's](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure-Logboekintegratie is een service voor het besturingssysteem van Windows die u gebruiken kunt om te integreren met uw on-premises security information en event management (SIEM) systemen onbewerkte logboeken van uw Azure-resources. Deze integratie biedt via het uniforme dashboard voor al uw activa, on-premises of in de cloud. U kunt vervolgens aggregeren, correleren, analyseren en ontvang een waarschuwing voor beveiligingsgebeurtenissen die zijn gekoppeld aan uw toepassingen.
 

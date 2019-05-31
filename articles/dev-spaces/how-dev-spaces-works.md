@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beschrijving van de processen die power Azure Dev spaties en hoe ze zijn geconfigureerd in het configuratiebestand azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605425"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399837"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hoe Azure Dev spaties werkt en is geconfigureerd
 
@@ -80,7 +80,7 @@ Meer te weten over meer details van de werking van Azure Dev spaties in elk van 
 ## <a name="prepare-your-aks-cluster"></a>Voorbereiden van uw AKS-cluster
 
 Voorbereiden van uw AKS-cluster bestaat uit:
-* Controleren van uw AKS-cluster zich in een regio [ondersteund door Azure Dev spaties](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Controleren van uw AKS-cluster zich in een regio [ondersteund door Azure Dev spaties][supported-regions].
 * Controleren van Kubernetes 1.10.3 wordt uitgevoerd of hoger.
 * Inschakelen van Azure Dev spaties over het gebruik van uw cluster `az aks use-dev-spaces`
 
@@ -278,7 +278,7 @@ Wanneer een HTTP-aanvraag wordt gedaan bij een service van buiten het cluster, w
 
 Wanneer een HTTP-aanvraag wordt gedaan bij een service van een andere service binnen het cluster, verloopt de aanvraag eerst via de aanroepende service devspaces proxy-container. De container devspaces-proxy kijkt naar de HTTP-aanvraag en controles de `azds-route-as` header. Op basis van de koptekst, ziet de container devspaces-proxy van de IP-adres van de service die is gekoppeld aan de waarde voor header. Als een IP-adres wordt gevonden, wordt de container devspaces-proxy omgeleid met de aanvraag voor het IP-adres. Als een IP-adres niet wordt gevonden, stuurt de container devspaces-proxy de aanvraag door naar de container van de bovenliggende toepassing.
 
-Bijvoorbeeld, de toepassingen *serviceA* en *serviceB* zijn geïmplementeerd op een bovenliggende dev ruimte, het zogenaamde *standaard*. *serviceA* is afhankelijk van *serviceB* en zorgt ervoor dat HTTP-aanroepen naar deze. Azure-gebruiker wordt gemaakt van een onderliggende dev-ruimte op basis van de *standaard* ruimte, het zogenaamde *azureuser*. Azure-gebruiker implementeert ook een eigen versie van *serviceA* naar hun onderliggende-ruimte. Wanneer een aanvraag wordt gedaan bij *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+Bijvoorbeeld, de toepassingen *serviceA* en *serviceB* zijn geïmplementeerd op een bovenliggende dev ruimte, het zogenaamde *standaard*. *serviceA* is afhankelijk van *serviceB* en zorgt ervoor dat HTTP-aanroepen naar deze. Azure-gebruiker wordt gemaakt van een onderliggende dev-ruimte op basis van de *standaard* ruimte, het zogenaamde *azureuser*. Azure-gebruiker implementeert ook een eigen versie van *serviceA* naar hun onderliggende-ruimte. Wanneer een aanvraag wordt gedaan bij *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Azure Dev spaties routering](media/how-dev-spaces-works/routing.svg)
 
@@ -337,13 +337,13 @@ De *install.set* eigenschap kunt u een of meer waarden die u vervangen in het He
 
 In het bovenstaande voorbeeld de *install.set.replicaCount* eigenschap vertelt ons de controller hoeveel exemplaren van uw toepassing om uit te voeren in uw dev-ruimte. Afhankelijk van uw scenario kunt u deze waarde verhogen, maar het is een invloed op een foutopsporingsprogramma koppelen aan de schil van uw toepassing. Zie voor meer informatie de [probleemoplossingsartikel](troubleshooting.md).
 
-In het gegenereerde Helm-diagram wordt de containerinstallatiekopie is ingesteld op *{{. Values.Image.Repository}} :{{. Values.Image.tag}}*. De `azds.yaml` -bestand definieert *install.set.image.tag* eigenschap *$(tag)* standaard, die wordt gebruikt als de waarde voor *{{. Values.Image.tag}}*. Door in te stellen de *install.set.image.tag* eigenschap in op deze manier wordt de installatiekopie van de container voor uw toepassing in een afzonderlijke manier worden getagd bij het uitvoeren van Azure Dev spaties. In dit specifieke geval, de installatiekopie is gemarkeerd als  *\<waarde van image.repository >: $(tag)*. Moet u de *$(tag)* als de waarde van variabele *install.set.image.tag* opdat Dev spaties herkennen en zoek naar de container in het AKS-cluster.
+In het gegenereerde Helm-diagram wordt de containerinstallatiekopie is ingesteld op *{{. Values.Image.Repository}} :{{. Values.Image.tag}}* . De `azds.yaml` -bestand definieert *install.set.image.tag* eigenschap *$(tag)* standaard, die wordt gebruikt als de waarde voor *{{. Values.Image.tag}}* . Door in te stellen de *install.set.image.tag* eigenschap in op deze manier wordt de installatiekopie van de container voor uw toepassing in een afzonderlijke manier worden getagd bij het uitvoeren van Azure Dev spaties. In dit specifieke geval, de installatiekopie is gemarkeerd als  *\<waarde van image.repository >: $(tag)* . Moet u de *$(tag)* als de waarde van variabele *install.set.image.tag* opdat Dev spaties herkennen en zoek naar de container in het AKS-cluster.
 
-In het bovenstaande voorbeeld `azds.yaml` definieert *install.set.ingress.hosts*. De *install.set.ingress.hosts* eigenschap definieert een indeling voor de host voor de openbare eindpunten. Deze eigenschap gebruikt ook *$(spacePrefix)*, *$(rootSpacePrefix)*, en *$(hostSuffix)*, die de waarden geleverd door de controller zijn. 
+In het bovenstaande voorbeeld `azds.yaml` definieert *install.set.ingress.hosts*. De *install.set.ingress.hosts* eigenschap definieert een indeling voor de host voor de openbare eindpunten. Deze eigenschap gebruikt ook *$(spacePrefix)* , *$(rootSpacePrefix)* , en *$(hostSuffix)* , die de waarden geleverd door de controller zijn. 
 
 De *$(spacePrefix)* is de naam van de onderliggende dev-ruimte, waarbij de vorm van *SPACENAME.s*. De *$(rootSpacePrefix)* is de naam van de bovenliggende ruimte. Bijvoorbeeld, als *azureuser* is een ruimte onderliggende van *standaard*, de waarde voor *$(rootSpacePrefix)* is *standaard* en de waarde van *$(spacePrefix)* is *azureuser.s*. Als de ruimte niet een spatie onderliggende *$(spacePrefix)* is leeg. Bijvoorbeeld, als de *standaard* ruimte heeft geen bovenliggende ruimte, de waarde voor *$(rootSpacePrefix)* is *standaard* en de waarde van *$(spacePrefix)* is leeg. De *$(hostSuffix)* is een DNS-achtervoegsel dat verwijst naar de Azure Dev spaties Controller voor binnenkomend verkeer die in uw AKS-cluster wordt uitgevoerd. Dit DNS-achtervoegsel komt overeen met een DNS-vermelding van het jokerteken, bijvoorbeeld  *\*. RANDOM_VALUE.eus.azds.IO*, die is gemaakt wanneer de controller Azure Dev spaties naar uw AKS-cluster is toegevoegd.
 
-In het bovenstaande `azds.yaml` -bestand, kunt u ook bijwerken *install.set.ingress.hosts* te wijzigen van de hostnaam van uw toepassing. Bijvoorbeeld, als u wilt vereenvoudigen, de hostnaam van uw toepassing vanuit *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* naar *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+In het bovenstaande `azds.yaml` -bestand, kunt u ook bijwerken *install.set.ingress.hosts* te wijzigen van de hostnaam van uw toepassing. Bijvoorbeeld, als u wilt vereenvoudigen, de hostnaam van uw toepassing vanuit *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* naar *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 Voor het bouwen van de container voor uw toepassing gebruikmaakt van de controller de onderstaande secties van de `azds.yaml` configuratiebestand:
 
@@ -408,7 +408,7 @@ U kunt uw toepassing die wordt uitgevoerd in de adresruimte van uw ontwikkelen m
 
 ![Foutopsporing van uw code](media/get-started-node/debug-configuration-nodejs2.png)
 
-Wanneer u uw toepassing met behulp van Visual Studio Code of Visual Studio voor foutopsporing starten, deze verwerken starten en verbinding maken met uw dev-ruimte op dezelfde manier als actief `azds up`. De client-side-hulpmiddelen in Visual Studio Code en Visual Studio bieden ook een extra parameter met de specifieke informatie voor foutopsporing. De parameter bevat de naam van het foutopsporingsprogramma afbeelding, de locatie van het foutopsporingsprogramma binnen in de afbeelding van de foutopsporing en de bestemmingslocatie van de in de container van de toepassing naar de map foutopsporingsprogramma koppelen. 
+Wanneer u uw toepassing met behulp van Visual Studio Code of Visual Studio voor foutopsporing starten, deze verwerken starten en verbinding maken met uw dev-ruimte op dezelfde manier als actief `azds up`. De client-side-hulpmiddelen in Visual Studio Code en Visual Studio bieden ook een extra parameter met de specifieke informatie voor foutopsporing. De parameter bevat de naam van het foutopsporingsprogramma afbeelding, de locatie van het foutopsporingsprogramma binnen in de afbeelding van de foutopsporing en de bestemmingslocatie van de in de container van de toepassing naar de map foutopsporingsprogramma koppelen.
 
 De installatiekopie van het foutopsporingsprogramma wordt automatisch bepaald door de client-side-hulpprogramma's. Een methode die vergelijkbaar is met de gebruikt tijdens de docker-bestand wordt gebruikt en Helm-diagram te genereren bij het uitvoeren van `azds prep`. Nadat het foutopsporingsprogramma in de afbeelding van de toepassing is gekoppeld, deze wordt uitgevoerd met behulp van `azds exec`.
 
@@ -442,3 +442,7 @@ Als u wilt beginnen met ontwikkelen in teamverband, Zie de volgende praktische a
 * [Teamontwikkeling - .NET Core met CLI en Visual Studio Code](team-development-netcore.md)
 * [Teamontwikkeling - .NET Core met Visual Studio](team-development-netcore-visualstudio.md)
 * [Teamontwikkeling - Node.js met CLI en Visual Studio Code](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

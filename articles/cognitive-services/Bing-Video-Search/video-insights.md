@@ -10,16 +10,16 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: b024d61c3542293202f0b409b8b3e520a75168c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5f3a43a6c48714566b5c53b33fe541b50d61589
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431800"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383894"
 ---
 # <a name="get-insights-about-a-video"></a>Inzicht verkijgen in een video
 
-Elke video die wordt geretourneerd door de Bing Video zoeken-API bevat een video-ID die u gebruiken kunt voor meer informatie over het, zoals gerelateerde video's. Om inzichten te verkrijgen over een video, krijgen de [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token in de API-reactie. 
+Elke video die wordt geretourneerd door de Bing Video zoeken-API bevat een video-ID die u gebruiken kunt voor meer informatie over het, zoals gerelateerde video's. Om inzichten te verkrijgen over een video, krijgen de [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) token in de API-reactie. 
 
 ```json
     "value" : [
@@ -34,7 +34,7 @@ Elke video die wordt geretourneerd door de Bing Video zoeken-API bevat een video
     ],
 ```
 
-Daarna wordt een GET-aanvraag verzenden naar het eindpunt van de Video details met de ID. Stel de [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) queryparameter naar de `videoId` token. Als de inzichten die u wilt opgeven, stelt de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) queryparameter. Alle om inzichten te verkrijgen, stellen `modules` op alle. Het antwoord bevat de inzichten die u hebt aangevraagd, indien beschikbaar.
+Daarna wordt een GET-aanvraag verzenden naar het eindpunt van de Video details met de ID. Stel de [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id) queryparameter naar de `videoId` token. Als de inzichten die u wilt opgeven, stelt de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) queryparameter. Alle om inzichten te verkrijgen, stellen `modules` op alle. Het antwoord bevat de inzichten die u hebt aangevraagd, indien beschikbaar.
 
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
@@ -48,7 +48,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>Gerelateerde video's inzichten krijgen  
 
-Als u video's die zijn gerelateerd aan de opgegeven video, stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) parameter query `RelatedVideos`.
+Als u video's die zijn gerelateerd aan de opgegeven video, stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) parameter query `RelatedVideos`.
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
@@ -60,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Het antwoord op deze aanvraag heeft een het hoogste niveau [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) object in plaats van een [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) object.  
+Het antwoord op deze aanvraag heeft een het hoogste niveau [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) object in plaats van een [video's](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) object.  
   
 ```json
 {

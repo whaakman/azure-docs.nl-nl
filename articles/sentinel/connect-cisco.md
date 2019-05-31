@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2019
 ms.author: rkarlin
-ms.openlocfilehash: a0ece3007e1eadf6cb2901941b771f0ff3243f02
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: fd04e380b0b5732db1e39ffc9b5aa6047c7ef777
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921951"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382991"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Verbinding maken met uw Cisco ASA-apparaat 
 
@@ -118,7 +118,7 @@ Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven
 
 3. Zorg ervoor dat de logboeken die u verzendt aan de voldoet [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Op de computer waarop de Syslog-agent wordt uitgevoerd, zorg ervoor dat deze poorten 514, 25226 zijn open en luistert, met de opdracht `netstat -a -n:`. Zie voor meer informatie over het gebruik van deze opdracht [netstat(8) - pagina voor Linux-man](https://linux.die.netman/8/netstat). Als het goed luistert, ziet u dit:
+4. Op de computer waarop de Syslog-agent wordt uitgevoerd, zorg ervoor dat deze poorten 514, 25226 zijn open en luistert, met de opdracht `netstat -a -n:`. Zie voor meer informatie over het gebruik van deze opdracht [netstat(8) - pagina voor Linux-man](https://linux.die.net/man/8/netstat). Als het goed luistert, ziet u dit:
 
    ![Azure Sentinel poorten](./media/connect-cef/ports.png) 
 

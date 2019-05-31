@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852151"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258597"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -27,6 +27,7 @@ In dit artikel bevat een overzicht van en worden de verschillen in syntaxis en h
 - [Beveiliging](#security) bevat de verschillen in [controle](#auditing), [certificaten](#certificates), [referenties](#credential), [cryptografische providers](#cryptographic-providers), [aanmeldingen en gebruikers](#logins-and-users), en de [servicesleutel en servicehoofdsleutel](#service-key-and-service-master-key).
 - [Configuratie](#configuration) bevat de verschillen in [extensie van de buffer](#buffer-pool-extension), [sortering](#collation), [compatibiliteitsniveaus](#compatibility-levels), [databasespiegeling ](#database-mirroring), [databaseopties](#database-options), [SQL Server Agent](#sql-server-agent), en [Tabelopties](#tables).
 - [Functies](#functionalities) bevat [BULKSGEWIJS invoegen/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [gedistribueerde transacties](#distributed-transactions), [uitgebreid gebeurtenissen](#extended-events), [externe bibliotheken](#external-libraries), [filestream en FileTable](#filestream-and-filetable), [semantische zoekopdrachten in volledige tekst](#full-text-semantic-search), [gekoppelde servers](#linked-servers), [PolyBase](#polybase), [replicatie](#replication), [herstellen](#restore-statement), [Service Broker](#service-broker), [opgeslagen procedures, functies en triggers](#stored-procedures-functions-and-triggers).
+- [Omgevingsinstellingen](#Environment) , zoals configuraties van vnet's en subnet.
 - [Functies waarvoor verschillend gedrag in beheerde instanties](#Changes).
 - [Tijdelijke beperkingen en bekende problemen](#Issues).
 
@@ -46,7 +47,7 @@ De Implementatieoptie Managed Instance biedt extra compatibiliteit met on-premis
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - De [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) -component van de [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instructie
 
-### <a name="backup"></a>Back-up
+### <a name="backup"></a>Backup
 
 Beheerde exemplaren beschikken over automatische back-ups, zodat gebruikers van volledige database maken kunnen `COPY_ONLY` back-ups. Differentiële, het logboek en bestand momentopnameback-ups worden niet ondersteund.
 
@@ -192,7 +193,7 @@ Een beheerd exemplaar heeft geen toegang tot bestanden, zodat de cryptografische
 - [De extensie van de buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) wordt niet ondersteund.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` wordt niet ondersteund. Zie [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Sortering
+### <a name="collation"></a>Serverconfiguratie
 
 De standaardsortering voor de instantie is `SQL_Latin1_General_CP1_CI_AS` en kunnen worden opgegeven als een parameter maken. Zie [sorteringen](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
@@ -299,7 +300,7 @@ Zie voor meer informatie, [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
 
 De volgende functies worden niet ondersteund op dit moment maar in de toekomst worden ingeschakeld:
 
-- Proxy's
+- Proxies
 - Plannen van taken op een niet-actieve CPU
 - In- of uitschakelen van een Agent
 - Waarschuwingen
@@ -454,6 +455,19 @@ Cross-exemplaar van service broker wordt niet ondersteund:
 - `xp_cmdshell` wordt niet ondersteund. See [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` worden niet ondersteund, waaronder `sp_addextendedproc`  en `sp_dropextendedproc`. Zie [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, en `sp_detach_db` worden niet ondersteund. Zie [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), en [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+
+## <a name="Environment"></a>Environmet beperkingen
+
+### <a name="subnet"></a>Subnet
+- U plaatsen geen andere bronnen (bijvoorbeeld virtuele machines) in het subnet is gereserveerd voor uw beheerde exemplaar. Het plaatsen van deze resources in andere subnetten.
+- Subnet moet voldoende beschikbare [IP-adressen](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimaal is 16, terwijl het wordt aangeraden ten minste 32 IP-adressen in het subnet.
+- [Service-eindpunten kunnen niet worden gekoppeld aan het beheerde exemplaar subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Zorg ervoor dat de service-eindpunten-optie is uitgeschakeld bij het maken van het virtuele netwerk.
+- Het aantal en typen van exemplaren die u in het subnet plaatsen kunt zijn sommige [beperkingen en limieten](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Er zijn een aantal [beveiligingsregels die moeten worden toegepast op het subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+
+### <a name="vnet"></a>VNET
+- VNet kan worden geïmplementeerd met behulp van Resource-Model - klassieke Model voor het VNet wordt niet ondersteund.
+- Sommige services zoals App Service-omgevingen, Logic apps en beheerde instanties (gebruikt voor Geo-replicatie, transactionele replicatie of via gekoppelde servers) geen toegang tot beheerde instanties in verschillende regio's als de vnet's zijn verbonden met behulp van [wereldwijde peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). U kunt verbinding maken met deze resource via ExpressRoute of VNet-naar-VNet via VNet-Gateways.
 
 ## <a name="Changes"></a> Gedragswijzigingen
 

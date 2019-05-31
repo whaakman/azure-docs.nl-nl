@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 6c271c2c9feb1520951b2a8e301da4878970d60a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: HT
+ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259420"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416546"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Beveiliging-exemplaar voor Azure VM-schaalset instanties (Preview) instellen
 Schaalsets voor virtuele Azure-machine inschakelen betere flexibiliteit voor uw workloads via [voor automatisch schalen](virtual-machine-scale-sets-autoscale-overview.md), zodat u configureren kunt wanneer de schaal van uw infrastructuur en wanneer deze worden geschaald in. Schaalsets ook kunnen u centraal beheren, configureren en bijwerken van een groot aantal virtuele machines via verschillende [Upgradebeleid](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) instellingen. U kunt een update voor het model met een schaalset configureren en de nieuwe configuratie wordt automatisch toegepast op elke schaal set-exemplaar als u het Upgradebeleid hebt ingesteld op automatische of Rolling.
@@ -30,7 +30,7 @@ Als uw toepassing verwerkt verkeer, kunnen er situaties waar u specifieke exempl
 Dit artikel wordt beschreven hoe u kunt toepassen en de mogelijkheden voor preventie van ander exemplaar met schaalsetinstanties gebruiken.
 
 > [!NOTE]
->Beveiliging-exemplaar is momenteel in openbare Preview. Geen procedure aanmelden is nodig voor het gebruik van de openbare preview-functionaliteit die hieronder worden beschreven. Preview-versie van exemplaar protection wordt alleen ondersteund met API-versie 2019-03-01 en hoger.
+>Beveiliging-exemplaar is momenteel in openbare Preview. Geen procedure aanmelden is nodig voor het gebruik van de openbare preview-functionaliteit die hieronder worden beschreven. Preview-versie van exemplaar protection wordt alleen ondersteund met API-versie 2019-03-01 en klik op schaalsets met beheerde schijven.
 
 ## <a name="types-of-instance-protection"></a>Typen van de beveiliging van exemplaar
 Schaalsets bieden twee typen mogelijkheden voor preventie van exemplaar:

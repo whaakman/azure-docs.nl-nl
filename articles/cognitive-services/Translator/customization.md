@@ -3,19 +3,19 @@ title: Aanpassing van vertaling - Translator Text-API
 titlesuffix: Azure Cognitive Services
 description: Gebruik de Microsoft Translator-Hub om uw eigen automatische vertaling-systeem met behulp van uw voorkeur terminologie en stijl.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: a04f6fab26a47b87bf55f1714522cad648dc5fad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.author: v-pawal
+ms.openlocfilehash: 2c17ef292d6afcf66d9a5aaf2c502751276bb470
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205926"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389590"
 ---
 # <a name="customize-your-text-translations"></a>Pas uw tekstomzettingen
 
@@ -27,7 +27,7 @@ De functie kan ook worden gebruikt om aan te passen spraakomzetting gebruikt in 
 
 U kunt met aangepaste Translator, neurale vertalingssystemen die inzicht in de terminologie die wordt gebruikt in uw eigen zakelijke en branche bouwen. De aangepaste vertaalsysteem wordt vervolgens integreren in bestaande toepassingen, werkstromen en websites.
 
-### <a name="how-does-it-work"></a>Hoe werkt dit?
+### <a name="how-does-it-work"></a>Hoe werkt het?
 
 Gebruik uw eerder vertaalde documenten (folders, webpagina's, documentatie, enzovoort) om te maken van een NAT-systeem die overeenkomt met uw domeinspecifieke terminologie en stijl, beter dan een algemene vertaalsysteem. Gebruikers kunnen TMX, XLIFF, TXT, DOCX en XLSX documenten uploaden.  
 

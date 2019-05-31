@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ba4d25c749a1c1b99559ce4033fe90d671701d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8f7198b59a0fe7ed6775736f8b97f5b5a262640
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170986"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306867"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Azure Monitor-logboeken voor een cluster instellen
 
@@ -62,7 +62,7 @@ Als u Windows gebruikt, gaat u verder met de volgende stappen voor het verbindin
 
 3. Op de **logboeken voor Opslagaccounts** weergeeft, schakelt **toevoegen** aan de bovenkant van uw cluster logboeken toevoegen aan de werkruimte.
 
-4. Selecteer **opslagaccount** het juiste account hebt gemaakt in uw cluster toe te voegen. Als u de standaardnaam gebruikt, wordt het opslagaccount is **sfdg\<resourceGroupName\>**. U kunt dit ook bevestigen met de Azure Resource Manager-sjabloon gebruikt voor het implementeren van uw cluster, door het controleren van de waarde die wordt gebruikt voor **applicationDiagnosticsStorageAccountName**. Als de naam niet wordt weergegeven, schuif naar beneden en selecteer **meer laden**. Selecteer de naam van het opslagaccount.
+4. Selecteer **opslagaccount** het juiste account hebt gemaakt in uw cluster toe te voegen. Als u de standaardnaam gebruikt, wordt het opslagaccount is **sfdg\<resourceGroupName\>** . U kunt dit ook bevestigen met de Azure Resource Manager-sjabloon gebruikt voor het implementeren van uw cluster, door het controleren van de waarde die wordt gebruikt voor **applicationDiagnosticsStorageAccountName**. Als de naam niet wordt weergegeven, schuif naar beneden en selecteer **meer laden**. Selecteer de naam van het opslagaccount.
 
 5. Het gegevenstype opgeven. Stel deze in op **Service Fabric-gebeurtenissen**.
 
@@ -110,7 +110,7 @@ $Location = "<Resource group location>"
 $WorkspaceName = "<Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
-# Log in to Azure and access the correct subscription
+# Sign in to Azure and access the correct subscription
 Connect-AzAccount
 Select-AzSubscription -SubscriptionId $SubID 
 

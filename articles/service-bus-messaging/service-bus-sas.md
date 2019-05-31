@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472218"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258819"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
 
@@ -86,7 +86,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Het token bevat de waarden niet gehasht, zodat de ontvanger kan opnieuw van de hash met dezelfde parameters, gecontroleerd of de uitgever in het bezit is van een geldige ondertekeningssleutel is.
 
-De resource-URI is de volledige URI van de Service Bus-resource waaraan toegang is aangevraagd. Bijvoorbeeld, `http://<namespace>.servicebus.windows.net/<entityPath>` of `sb://<namespace>.servicebus.windows.net/<entityPath>`; dat wil zeggen, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. De URI moet [procent gecodeerde](https://msdn.microsoft.com/library/4fkewx0t.aspx).
+De resource-URI is de volledige URI van de Service Bus-resource waaraan toegang is aangevraagd. Bijvoorbeeld, `http://<namespace>.servicebus.windows.net/<entityPath>` of `sb://<namespace>.servicebus.windows.net/<entityPath>`; dat wil zeggen, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+
+**De URI moet [procent gecodeerde](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 De verificatieregel voor gedeelde toegang die wordt gebruikt voor het ondertekenen van moet worden geconfigureerd op de entiteit die door deze URI of door een van de hiërarchische bovenliggende items hebt opgegeven. Bijvoorbeeld, `http://contoso.servicebus.windows.net/contosoTopics/T1` of `http://contoso.servicebus.windows.net` in het vorige voorbeeld.
 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826746"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236464"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement naar een ander account overdragen
 
@@ -59,7 +59,7 @@ Overdracht van uw abonnement aan een andere gebruiker in het Accountcentrum te w
    ![Eerste webpagina voor overdracht van abonnement](./media/billing-subscription-transfer/image4.png)
 
    ![Tweede webpagina voor overdracht van abonnement](./media/billing-subscription-transfer/image5.png)
-1. Voltooid Nu wordt het abonnement overgedragen.
+1. Gelukt! Nu wordt het abonnement overgedragen.
 
 <a id="EA"></a>
 
@@ -82,7 +82,7 @@ De Enterprise-beheerder kan het eigendom van abonnementen binnen een inschrijvin
 
 Self-service voor stroomactiviteitvoortgang abonnementsoverdracht is beschikbaar voor de aanbiedingen of abonnementstypen die worden vermeld in de volgende tabel. U kunt een gratis proefversie op dit moment niet overdragen of [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) abonnementen. Zie voor een tijdelijke oplossing [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md). Om over te dragen van andere abonnementen, zoals [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) of ondersteuningsabonnementen, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-| Naam van aanbieding                                                                             | Nummer van de aanbieding |
+| Naam van aanbieding:                                                                             | Nummer van de aanbieding |
 |----------------------------------------------------------------------------------------|--------------|
 | [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
 | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
@@ -102,7 +102,9 @@ Self-service voor stroomactiviteitvoortgang abonnementsoverdracht is beschikbaar
 
 ### <a name="whoisaa"></a> Wie de accountbeheerder voor het abonnement is?
 
-De accountbeheerder is de persoon die zich heeft aangemeld of het Azure-abonnement hebt gekocht. Ze zijn gemachtigd voor toegang tot de [Accountcentrum](https://account.azure.com/Subscriptions) en uitvoeren van verschillende beheertaken, zoals het maken van abonnementen, abonnementen annuleren, wijzigen van de facturering voor een abonnement of wijzigen van de Service-beheerder. Als u niet zeker weet wie de accountbeheerder is voor een abonnement, gebruikt u de volgende stappen om erachter te komen.
+De accountbeheerder is de persoon die zich heeft aangemeld of het Azure-abonnement hebt gekocht. Ze zijn gemachtigd voor toegang tot de [Accountcentrum](https://account.azure.com/Subscriptions) en uitvoeren van verschillende beheertaken, zoals het maken van abonnementen, abonnementen annuleren, wijzigen van de facturering voor een abonnement of wijzigen van de Service-beheerder. Zie voor meer informatie over de informatie over beheerdersrollen en machtigingen, [rol beheerdersmachtigingen in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+Als u niet zeker weet wie de accountbeheerder is voor een abonnement, gebruikt u de volgende stappen om erachter te komen.
 
 1. Ga naar de [pagina Abonnementen in de Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selecteer het abonnement dat u wilt controleren, en ga vervolgens naar **instellingen**.

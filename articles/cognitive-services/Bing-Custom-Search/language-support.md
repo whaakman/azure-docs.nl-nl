@@ -10,24 +10,24 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790248"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388566"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Ondersteuning voor de Bing webzoekopdrachten-API voor aangepaste taal en regio
 
 De Bing Custom Search-API biedt ondersteuning voor meer dan drie tientallen landen/regio's, veel met meer dan één taal.
 
-Hoewel dit optioneel is, de aanvraag moet opgeven de [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) queryparameter, waarmee de markt waar u de resultaten afkomstig zijn van uniek wordt geïdentificeerd. Zie voor een lijst van optionele queryparameters [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
+Hoewel dit optioneel is, de aanvraag moet opgeven de [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) queryparameter, waarmee de markt waar u de resultaten afkomstig zijn van uniek wordt geïdentificeerd. Zie voor een lijst van optionele queryparameters [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 
 U kunt geeft u een land/regio met de `cc` queryparameter. Als u een land/regio opgeeft, moet u ook opgeven een of meer taalcodes die met behulp van de `Accept-Language` header. De ondersteunde talen variëren per land/regio; ze worden gegeven voor elk land/regio in de **markten** tabel.
 
-De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar wederzijds uit, niet beide opgeeft. Zie voor meer informatie, [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
+De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar wederzijds uit, niet beide opgeeft. Zie voor meer informatie, [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## <a name="countriesregions"></a>Landen/regio's
+## <a name="countriesregions"></a>Landen/regio 's
 
 |Land/regio|Code|
 |-------|----|
@@ -45,20 +45,20 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Hongkong SAR|HK|
 |India|IN|
 |Indonesië|Id|
-|Italië|it|
+|Italië|IT|
 |Japan|JP|
-|Zuid-Korea|KR|
+|Korea|KR|
 |Maleisië|MY|
 |Mexico|MX|
 |Nederland|NL|
 |Nieuw-Zeeland|NZ|
-|Noorwegen|NEE|
+|Noorwegen|NO|
 |China|CN|
 |Polen|PL|
 |Portugal|PT|
 |Filipijnen|PH|
 |Rusland|RU|
-|Saudi-Arabië|SA|
+|Saoedi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
 |Zweden|SE|
@@ -91,7 +91,7 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
-|Zuid-Korea|Koreaans|ko-KR|
+|Korea|Koreaans|ko-KR|
 |Maleisië|Nederlands|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
@@ -102,7 +102,7 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Portugal|Portugees|pt-PT|
 |Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
-|Saudi-Arabië|Arabisch|ar-SA|
+|Saoedi-Arabië|Arabisch|ar-SA|
 |Zuid-Afrika|Nederlands|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235135"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389566"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hoe kunt u complexe acties met Azure Monitor-waarschuwingen activeren
 
@@ -26,7 +26,7 @@ Het algemene proces is:
 
 -   Maak de logische app voor het betreffende Waarschuwingstype.
 
--   Importeer het schema voor het desbetreffende Waarschuwingstype in de logische app.
+-   Een voorbeeld-nettolading voor de desbetreffende Waarschuwingstype in de logische app importeren.
 
 -   Definieer het gedrag van logische app.
 
@@ -58,7 +58,7 @@ Het proces is vergelijkbaar als u wilt dat de logische app een andere actie uit 
 
     ![Een voorbeeld van payload gebruiken](media/action-groups-logic-app/use-sample-payload-button.png "een voorbeeldnettolading gebruiken")
 
-8.  Kopieer en plak het volgende voorbeeldschema in het dialoogvenster:
+8.  Kopieer en plak het volgende voorbeeld van payload in het dialoogvenster:
 
     ```json
         {
@@ -140,7 +140,7 @@ De volgende keer dat een waarschuwing de actiegroep roept wordt uw logische app 
 Azure Service Health-vermeldingen maken deel uit van het activiteitenlogboek. Het proces voor het maken van de waarschuwing is vergelijkbaar met [het maken van een waarschuwing voor activiteitenlogboek](#create-an-activity-log-alert-administrative), maar met een aantal wijzigingen:
 
 - Stap 1 tot en met 7 zijn hetzelfde.
-- Gebruik het volgende voorbeeldschema voor de HTTP-aanvraag als trigger voor stap 8:
+- Gebruik het volgende voorbeeld van payload voor het HTTP-aanvraag als trigger voor stap 8:
 
     ```json
     {
@@ -228,7 +228,7 @@ Azure Service Health-vermeldingen maken deel uit van het activiteitenlogboek. He
 Het proces voor het maken van een waarschuwing voor metrische gegevens is vergelijkbaar met [het maken van een waarschuwing voor activiteitenlogboek](#create-an-activity-log-alert-administrative), maar met een aantal wijzigingen:
 
 - Stap 1 tot en met 7 zijn hetzelfde.
-- Gebruik het volgende voorbeeldschema voor de HTTP-aanvraag als trigger voor stap 8:
+- Gebruik het volgende voorbeeld van payload voor het HTTP-aanvraag als trigger voor stap 8:
 
     ```json
     {
@@ -281,11 +281,11 @@ Het proces voor het maken van een waarschuwing voor metrische gegevens is vergel
        
        !['Metrische alert payload voorwaarde'](media/action-groups-logic-app/metric-alert-payload-condition.png "metrische alert payload voorwaarde")
 
-  2. In de **als de waarde true** voorwaarde, voegt u een **voor elk** lus en de Microsoft Teams-actie. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud.
+  1. In de **als de waarde true** voorwaarde, voegt u een **voor elk** lus en de Microsoft Teams-actie. Het bericht definiëren met behulp van een combinatie van HTML- en dynamische inhoud.
 
       !['Actie metrische waarschuwing voorwaarde na'](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "actie na de metrische waarschuwing voorwaarde is voldaan")
 
-  3. In de **indien onwaar** voorwaarde, het definiëren van een Microsoft Teams-actie om te communiceren dat de waarschuwing voor metrische gegevens, komt niet overeen met de verwachtingen van de logische app. De JSON-nettolading opnemen. U ziet hoe om te verwijzen naar de `triggerBody` dynamische inhoud in de `json()` expressie.
+  1. In de **indien onwaar** voorwaarde, het definiëren van een Microsoft Teams-actie om te communiceren dat de waarschuwing voor metrische gegevens, komt niet overeen met de verwachtingen van de logische app. De JSON-nettolading opnemen. U ziet hoe om te verwijzen naar de `triggerBody` dynamische inhoud in de `json()` expressie.
 
       !['Actie metrische waarschuwing false na'](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "actie na de waarschuwing false metrische gegevens")
 
@@ -298,3 +298,4 @@ Logic Apps heeft een aantal andere connectors waarmee u kunt acties van de trigg
 * Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken van Azure](../../azure-monitor/platform/alerts-overview.md) en leer hoe u waarschuwingen ontvangt.  
 * Meer informatie over het [waarschuwingen configureren wanneer er een melding van Azure Service Health is geplaatst](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Meer informatie over [actiegroepen](../../azure-monitor/platform/action-groups.md).
+

@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791338"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357764"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Groep van toepassingen en node op fouten controleren
 
@@ -84,18 +84,27 @@ U kunt een of meer toepassingspakketten voor een pool opgeven. Batch-bestanden o
 
 Het knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) eigenschap meldt een fout opgetreden bij het downloaden en een toepassingspakket decomprimeren. Batch wordt de status ingesteld op **onbruikbaar**.
 
+### <a name="container-download-failure"></a>Fout bij het downloaden van de container
+
+Op een groep kunt u een of meer verwijzingen van de container. Batch wordt gedownload van de opgegeven containers voor elk knooppunt. Het knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) eigenschap meldt een fout opgetreden bij het downloaden van een container en wordt de status ingesteld op **onbruikbaar**.
+
 ### <a name="node-in-unusable-state"></a>Knooppunt in een onbruikbare status
 
 Azure Batch kan instellen de [status clusterknooppunt](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) naar **onbruikbaar** om verschillende redenen. Met de status ingesteld op **onbruikbaar**, taken kunnen niet worden gepland op het knooppunt, maar nog steeds leidt tot kosten.
 
-Batch altijd probeert te herstellen van onbruikbaar knooppunten, maar herstel mogelijk of wellicht niet mogelijk zijn afhankelijk van de oorzaak.
+Knooppunten in een **unsuable**, maar zonder [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) status betekent dat de Batch kan niet communiceren met de virtuele machine is. In dit geval Batch wordt altijd probeert te herstellen van de virtuele machine. Batch zal niet automatisch proberen te herstellen van virtuele machines die niet kunnen worden toepassingspakketten of containers installeren, zelfs als de status is **onbruikbaar**.
 
 Als Batch kan de oorzaak, het knooppunt [fouten](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) eigenschap gerapporteerd.
 
 Meer voorbeelden van oorzaken van **onbruikbaar** knooppunten bevatten:
 
 - Een aangepaste VM-installatiekopie is ongeldig. Bijvoorbeeld, een afbeelding die niet goed voorbereid.
+
 - Een virtuele machine is verplaatst vanwege een fout infrastructuur of een upgrade van een laag niveau. Batch Hiermee herstelt u het knooppunt.
+
+- Een VM-installatiekopie is geïmplementeerd op de hardware waarop deze wordt niet ondersteund. Bijvoorbeeld een "HPC" VM-installatiekopie die wordt uitgevoerd op niet-HPC-hardware. Bijvoorbeeld, het uitvoeren van een CentOS HPC-installatiekopie op een [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+
+- De virtuele machines zich een [virtueel Azure-netwerk](batch-virtual-network.md), en het verkeer op belangrijke poorten is geblokkeerd.
 
 ### <a name="node-agent-log-files"></a>Knooppunt-agent-logboekbestanden
 

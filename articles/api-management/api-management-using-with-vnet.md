@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 73785422a7c45a12671e6cd53da89609190a8352
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66141439"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243290"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Overzicht van Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -55,11 +55,11 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 
    * **Externe**: de API Management-gateway en developer-portal zijn toegankelijk via het openbare internet via een externe load balancer. De gateway hebben toegang tot resources binnen het virtuele netwerk.
 
-     ![Openbaar peering][api-management-vnet-public]
+     ![Openbare peering][api-management-vnet-public]
 
    * **Interne**: de API Management-gateway en developer-portal zijn alleen toegankelijk vanuit het virtuele netwerk via een interne load balancer. De gateway hebben toegang tot resources binnen het virtuele netwerk.
 
-     ![Privé-peering][api-management-vnet-private]
+     ![Persoonlijke peering][api-management-vnet-private]
 
      U ziet nu een lijst met alle regio's waar uw API Management-service is ingericht. Selecteer een VNET en subnet voor elke regio. De lijst is gevuld met zowel klassieke als Resource Manager virtuele netwerken die beschikbaar zijn in uw Azure-abonnementen die zijn ingesteld in de regio die u wilt configureren.
 
@@ -103,7 +103,7 @@ Hieronder volgt een lijst met veelvoorkomende configuratiefouten die optreden ku
 * **Aangepaste DNS-server-instellingen**: De API Management-service is afhankelijk van verschillende Azure-services. Wanneer de API Management wordt gehost in een VNET met een aangepaste DNS-server, moet deze op te lossen de hostnamen van deze Azure-services. Volg [dit](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) richtlijnen voor aangepaste DNS-instellingen. Zie de onderstaande tabel voor poorten en andere vereisten voor verwijzing.
 
 > [!IMPORTANT]
-> Als u van plan bent te gebruiken een aangepaste DNS-server (s) voor het VNET, moet u het instellen van **voordat** implementeren van een API Management-service erin. Anders moet u de API Management-service telkens bijgewerkt wanneer u de DNS-server (s) door het uitvoeren van wijzigen de [netwerkactiviteiten configuratie toepassen](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Als u van plan bent te gebruiken een aangepaste DNS-server (s) voor het VNET, moet u het instellen van **voordat** implementeren van een API Management-service erin. Anders moet u de API Management-service telkens bijgewerkt wanneer u de DNS-server (s) door het uitvoeren van wijzigen de [netwerkactiviteiten configuratie toepassen](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Poorten die nodig zijn voor API Management**: Binnenkomend en uitgaand verkeer in het Subnet waarin API Management is geïmplementeerd, kan worden beheerd met behulp van [Network Security Group][Network Security Group]. Als een van deze poorten niet beschikbaar zijn, wordt API Management werken mogelijk niet correct en kan niet meer toegankelijk. Met een of meer van deze poorten geblokkeerd, is dat een andere veelvoorkomende onjuiste configuratie probleem bij het gebruik van API Management met een VNET.
 
@@ -113,16 +113,16 @@ Hieronder volgt een lijst met veelvoorkomende configuratiefouten die optreden ku
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkomend            | TCP                | INTERNET / VIRTUAL_NETWORK            | Communicatie van clients met API Management                      | Extern             |
 | * / 3443                     | Inkomend            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Beheereindpunt voor Azure-portal en Powershell         | Externe en interne  |
-| * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / Storage             | **Afhankelijkheid van Azure Storage**                             | Externe en interne  |
-| * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (indien van toepassing)                   | Externe en interne  |
-| * / 1433                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / SQL                 | **Toegang tot Azure SQL-eindpunten**                           | Externe en interne  |
-| * / 5672                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / EventHub            | Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent | Externe en interne  |
-| * / 445                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / Storage             | Afhankelijkheid van Azure-bestandsshare voor GIT                      | Externe en interne  |
-| * / 1886                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health          | Externe en interne  |
-| * / 443                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publiceren van diagnostische logboeken en metrische gegevens                        | Externe en interne  |
-| * / 25                       | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
-| * / 587                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
-| * / 25028                    | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 80, 443                  | Uitgaande           | TCP                | VIRTUAL_NETWORK / Storage             | **Afhankelijkheid van Azure Storage**                             | Externe en interne  |
+| * / 80, 443                  | Uitgaande           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (indien van toepassing)                   | Externe en interne  |
+| * / 1433                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / SQL                 | **Toegang tot Azure SQL-eindpunten**                           | Externe en interne  |
+| * / 5672                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / EventHub            | Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent | Externe en interne  |
+| * / 445                      | Uitgaande           | TCP                | VIRTUAL_NETWORK / Storage             | Afhankelijkheid van Azure-bestandsshare voor GIT                      | Externe en interne  |
+| * / 1886                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health          | Externe en interne  |
+| * / 443                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publiceren van diagnostische logboeken en metrische gegevens                        | Externe en interne  |
+| * / 25                       | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 587                      | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 25028                    | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
 | * / 6381 - 6383              | Inkomende en uitgaande | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Toegang tot Azure Cache voor instanties van Redis tussen RoleInstances          | Externe en interne  |
 | * / *                        | Inkomend            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | Externe en interne  |
 
@@ -170,7 +170,7 @@ Hieronder volgt een lijst met veelvoorkomende configuratiefouten die optreden ku
   > [!IMPORTANT]
   > Nadat u de connectiviteit hebt gevalideerd, zorg ervoor dat alle resources die zijn geïmplementeerd in het subnet voor het implementeren van API Management in het subnet te verwijderen.
 
-* **Incrementele Updates**: Als u wijzigingen aanbrengt aan uw netwerk, verwijzen naar [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), om te verifiëren dat de API Management-service niet tot een van de kritieke resources, dit is afhankelijk van is verbroken. De verbindingsstatus van de moet worden bijgewerkt om de 15 minuten.
+* **Incrementele Updates**: Als u wijzigingen aanbrengt aan uw netwerk, verwijzen naar [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus), om te verifiëren dat de API Management-service niet tot een van de kritieke resources, dit is afhankelijk van is verbroken. De verbindingsstatus van de moet worden bijgewerkt om de 15 minuten.
 
 * **Resourcenavigatiekoppelingen**: Wanneer u deze implementeert in Resource Manager stijl vnet-subnet, API Management het subnet gereserveerd door het maken van een koppeling-resourcenavigatie. Als het subnet al een resource in een andere provider bevat, implementatie zal **mislukken**. Wanneer u een API Management-service naar een ander subnet verplaatsen of verwijderen, zullen we op dezelfde manier dat resourcenavigatiekoppeling verwijderen.
 

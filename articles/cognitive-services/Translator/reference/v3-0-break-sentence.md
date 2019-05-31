@@ -3,19 +3,19 @@ title: Translator Text-API BreakSentence methode
 titlesuffix: Azure Cognitive Services
 description: Gebruik de Translator Text-API BreakSentence-methode.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: b2c0fbbfbcd2e3cf71ef85b9d06f2f805698bfd0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 0ecb620757bc58b109747f69eb3b5afe0c56bac4
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797435"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387564"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text-API 3.0: BreakSentence
 
@@ -60,7 +60,7 @@ Aanvraagheaders zijn onder andere:
     <td><em>Vereiste aanvraagheader</em>.<br/>Zie <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">beschikbare opties voor verificatie</a>.</td>
   </tr>
   <tr>
-    <td>Inhoudstype</td>
+    <td>Content-Type</td>
     <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
@@ -73,7 +73,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`. Zin grenzen worden berekend voor de waarde van de `Text` eigenschap. De hoofdtekst van een voorbeeld-aanvraag met een stuk tekst ziet er zo uit:
 
@@ -138,7 +138,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Voltooid.</td>
+    <td>Geslaagd.</td>
   </tr>
   <tr>
     <td>400</td>

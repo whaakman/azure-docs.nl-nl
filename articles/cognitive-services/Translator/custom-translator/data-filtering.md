@@ -2,19 +2,19 @@
 title: Gegevens filteren - aangepaste Translator
 titleSuffix: Azure Cognitive Services
 description: Wanneer u documenten kunnen worden gebruikt voor het trainen van een aangepast systeem verzendt, is de documenten worden onderworpen aan een reeks verwerken en filteren van de stappen om voor te bereiden voor training.
-author: v-pawal
+author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba6d1ed5bc26f121f32fad548e7a17c1f4998851
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513393"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389340"
 ---
 # <a name="data-filtering"></a>Gegevens filteren
 

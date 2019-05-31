@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: fa02c0913329ec740e3066b05b2e44a36ad379ce
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a038dc2706c7cb128751630f8997851409886290
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797806"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384814"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Pagina met resultaten van de Bing webzoekopdrachten-API
 
-Wanneer u de webzoekopdrachten-API aanroept, retourneert Bing een lijst met resultaten. De lijst is een subset van het totale aantal resultaten die mogelijk relevant zijn voor de query. Als u de geschatte totale aantal beschikbare resultaten, toegang krijgen tot de antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) veld.  
+Wanneer u de webzoekopdrachten-API aanroept, retourneert Bing een lijst met resultaten. De lijst is een subset van het totale aantal resultaten die mogelijk relevant zijn voor de query. Als u de geschatte totale aantal beschikbare resultaten, toegang krijgen tot de antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) veld.  
 
 Het volgende voorbeeld wordt de `totalEstimatedMatches` veld met een Web-antwoord.  
 
@@ -35,7 +35,7 @@ Het volgende voorbeeld wordt de `totalEstimatedMatches` veld met een Web-antwoor
 }  
 ```
 
-Pagina via de webpagina's die beschikbaar is, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) queryparameters.  
+Pagina via de webpagina's die beschikbaar is, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#offset) queryparameters.  
 
 De `count` parameter geeft u het aantal resultaten dat moet worden geretourneerd in het antwoord. Het maximum aantal resultaten die u in het antwoord aanvragen kunt is 50. De standaardwaarde is 10. Het werkelijke getal geleverd mogelijk lager dan aangevraagd.
 
@@ -59,7 +59,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-De webzoekopdrachten-API retourneert resultaten die webpagina's bevatten en kunnen afbeeldingen, video's en nieuws. Wanneer u de lijst met zoekresultaten, u het wisselbestand worden de [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) antwoord en de andere antwoorden, zoals afbeeldingen of nieuws. Als u bijvoorbeeld `count` tot 50, je weer toegang krijgen 50 webpagina-resultaten, maar het antwoord kan resultaten voor de andere antwoorden ook bevatten. Het antwoord kan bijvoorbeeld 15 afbeeldingen en 4 nieuwsartikelen bevatten. Het is ook mogelijk dat de resultaten nieuws op de eerste pagina, maar niet de tweede pagina kunnen bevatten of vice versa.   
+De webzoekopdrachten-API retourneert resultaten die webpagina's bevatten en kunnen afbeeldingen, video's en nieuws. Wanneer u de lijst met zoekresultaten, u het wisselbestand worden de [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) antwoord en de andere antwoorden, zoals afbeeldingen of nieuws. Als u bijvoorbeeld `count` tot 50, je weer toegang krijgen 50 webpagina-resultaten, maar het antwoord kan resultaten voor de andere antwoorden ook bevatten. Het antwoord kan bijvoorbeeld 15 afbeeldingen en 4 nieuwsartikelen bevatten. Het is ook mogelijk dat de resultaten nieuws op de eerste pagina, maar niet de tweede pagina kunnen bevatten of vice versa.   
 
 Als u opgeeft de `responseFilter` queryparameter en omvatten geen webpagina's in de filterlijst, gebruikt u niet de `count` en `offset` parameters. 
 

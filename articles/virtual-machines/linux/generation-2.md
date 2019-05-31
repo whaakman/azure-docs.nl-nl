@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: e6bb947503371e379e4d4972ddfc3614e129174b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 183e2144317bf3f1c9a60443d393bdcb3fd7c04a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835214"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390547"
 ---
 # <a name="generation-2-vms-preview-on-azure"></a>2e generatie virtuele machines (preview) in Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "65835214"
 
 Ondersteuning voor generatie 2 virtuele machines (VM's) is nu beschikbaar in openbare preview-versie van Azure. U kunt een virtuele machine generatie nadat u deze hebt gemaakt niet wijzigen. Dus, wordt aangeraden dat u de overwegingen bekijken [hier](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) en de informatie op deze pagina voordat u een generatie.
 
-2e generatie virtuele machines ondersteuning voor belangrijke functies zoals: meer geheugen, de Intel® Software Guard-extensies (SGX) en de virtuele permanent geheugen (vPMEM), die niet worden ondersteund op virtuele machines van generatie 1. Virtuele machines van generatie 2 hebben enkele functies die nog worden niet ondersteund op Azure. Zie voor meer informatie de [functies en mogelijkheden](#features-and-capabilities) sectie. 
+2e generatie virtuele machines ondersteuning voor belangrijke functies die niet worden ondersteund op virtuele machines van generatie 1, zoals: geheugen, de Intel® Software Guard-extensies (SGX) en virtuele permanent geheugen (vPMEM) verhoogd. Virtuele machines van generatie 2 hebben ook enkele functies die nog worden niet ondersteund op Azure. Zie voor meer informatie de [functies en mogelijkheden](#features-and-capabilities) sectie.
 
 Virtuele machines van generatie 2 gebruiken in de plaats van de nieuwe opstarten op basis van UEFI-architectuur van de BIOS gebaseerde architectuur die wordt gebruikt door virtuele machines van generatie 1. Vergeleken met de virtuele machines van generatie 1, kunnen virtuele machines van generatie 2 hebben verbeterd opstart- en tijdnotatie. Zie voor een overzicht van virtuele machines van generatie 2 en sommige van de belangrijkste verschillen tussen de 1e en 2e generatie [zou ik een generatie 1 of 2 virtuele machine in Hyper-V maken?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
@@ -84,7 +84,7 @@ Azure ondersteunt momenteel geen enkele van de functies die on-premises Hyper-V 
 | Aangepaste installatiekopie-schijf/wisselen OS         | :heavy_check_mark:         | :heavy_check_mark: |
 | Ondersteuning voor virtuele-machineschaalset | :heavy_check_mark:         | :heavy_check_mark: |
 | ASR/Backup                        | :heavy_check_mark:         | : x:.                |
-| Gedeelde installatiekopiegalerie              | :heavy_check_mark:         | : x:.                |
+| Galerie met gedeelde installatiekopieën              | :heavy_check_mark:         | : x:.                |
 | Azure Disk Encryption             | :heavy_check_mark:         | : x:.                |
 
 ## <a name="creating-a-generation-2-vm"></a>Het maken van een van de 2e generatie virtuele machine
@@ -108,11 +108,34 @@ Zie de sectie mogelijkheden voor een lijst van ondersteunde marketplace-installa
 
 Generatie 2 virtuele machines kunnen worden gemaakt van beheerde installatiekopie of een beheerde schijf op dezelfde manier u een generatie 1 maakt VM.
 
-### <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
+### <a name="virtual-machine-scale-sets"></a>Virtuele-machineschaalsets
 
 Generatie die 2 virtuele machines kunnen ook worden gemaakt met behulp van schaalsets voor virtuele machines. U kunt generatie 2 virtuele machines met behulp van schaalsets voor virtuele Azure-machine via de Azure CLI maken.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
+
+* **Generatie 2 virtuele machines beschikbaar in alle Azure-regio's zijn?**  
+    Ja. echter niet alle [generation 2 VM-grootten](#generation-2-vm-sizes) beschikbaar zijn in elke regio. De beschikbaarheid van generatie 2 virtuele machines is afhankelijk van de beschikbaarheid van de VM-grootte.
+
+* **Is er een prijsverschil tussen generatie 1 en generatie 2 virtuele machines?**  
+    Er is geen verschil in de prijzen van de 1e en 2e generatie virtuele machines.
+
+* **Hoe ik de grootte van de Besturingssysteemschijf vergroten?**  
+  Besturingssysteemschijven groter dan 2 TB niet bekend bent met de 2e generatie virtuele machines. De meeste OS-schijven zijn minder dan 2 TB voor virtuele machines van generatie 2, maar de grootte van de schijf kan worden verhoogd tot aanbevolen maximaal 4 TB. U kunt de grootte van de OS-schijf via de Azure CLI of Azure portal kunt verhogen. Zie voor meer informatie over het uitbreiden van schijven via een programma, [vergroten of verkleinen van een schijf](expand-disks.md).
+
+  Vergroten van de grootte van de Besturingssysteemschijf via Azure portal:
+
+  * Navigeer naar de eigenschappenpagina van virtuele machine in Azure portal.
+
+  * Afsluiten en toewijzing ongedaan maken van de virtuele machine met behulp de **stoppen** knop.
+
+  * In de **schijven** sectie, selecteert u de OS-schijf die u wilt verhogen.
+
+  * Selecteer **configuratie** in de **schijven** sectie en update de **grootte** op de gewenste waarde.
+  
+  * Ga terug naar de eigenschappenpagina van de virtuele machine en **Start** de virtuele machine.
+
+  Mogelijk ziet u een waarschuwing voor besturingssysteemschijven groter dan 2 TB. De waarschuwing is niet van toepassing op virtuele machines van generatie 2; OS-schijfformaten groter is dan 4 TB zijn echter **niet aanbevolen.**
 
 * **Virtuele machines van generatie 2 ondersteunen versnelde netwerken?**  
     Ja, ondersteuning voor generatie 2 virtuele machines [versnelde netwerken](../../virtual-network/create-vm-accelerated-networking-cli.md).

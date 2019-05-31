@@ -7,13 +7,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/13/2019
-ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.date: 05/24/2019
+ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978015"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257831"
 ---
 # <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Beperking van verkeer uitgaand netwerkverkeer voor Azure HDInsight-clusters (Preview) configureren
 
@@ -32,38 +32,23 @@ De oplossing voor beveiliging van de uitgaande adressen is het gebruik van een f
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Firewall voor Azure configureren met HDInsight
 
 Een overzicht van de stappen voor het uitgaande verkeer van uw bestaande HDInsight met Azure Firewall vergrendelen zijn:
-1. Service-eindpunten inschakelen.
 1. Een firewall maken.
 1. Toepassing regels toevoegen aan de firewall
 1. Netwerkregels toevoegen aan de firewall.
 1. Maak een routeringstabel.
 
-### <a name="enable-service-endpoints"></a>Service-eindpunten inschakelen
-
-Als u wilt overslaan van de firewall (bijvoorbeeld om kosten te besparen op de overdracht van gegevens) en vervolgens u de service-eindpunten voor SQL en storage op uw HDInsight-subnet inschakelen kunt. Wanneer u ingeschakeld voor Azure SQL-service-eindpunten hebt, moeten een Azure SQL-afhankelijkheden met uw cluster met service-eindpunten worden geconfigureerd.
-
-Als u wilt inschakelen op de juiste service-eindpunten, voert u de volgende stappen uit:
-
-1. Meld u aan bij Azure portal en selecteer het virtuele netwerk dat in uw HDInsight-cluster is geïmplementeerd.
-1. Selecteer **subnetten** onder **instellingen**.
-1. Selecteer het subnet waarop het cluster is geïmplementeerd.
-1. Klik op het scherm om de subnetinstellingen te bewerken, **Microsoft.SQL** en/of **Microsoft.Storage** uit de **Service-eindpunten**  >   **Services** vervolgkeuzelijst.
-1. Als u van een cluster ESP gebruikmaakt, dan moet u de **Microsoft.AzureActiveDirectory** service-eindpunt.
-1. Klik op **Opslaan**.
-
 ### <a name="create-a-new-firewall-for-your-cluster"></a>Een nieuwe firewall voor uw cluster maken
 
 1. Maak een subnet met de naam **AzureFirewallSubnet** in het virtuele netwerk waarin het cluster bestaat. 
 1. Maak een nieuwe firewall **Test FW01** met behulp van de stappen in [zelfstudie: Implementeren en configureren van de Firewall van Azure met behulp van de Azure-portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
-1. Selecteer de nieuwe firewall vanuit Azure portal. Klik op **regels** onder **instellingen** > **toepassing regelverzameling** > **toepassing regelverzamelingtoevoegen**.
-
-    ![Titel: Verzameling met toepassingsregels toevoegen](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 ### <a name="configure-the-firewall-with-application-rules"></a>De firewall configureren aan de regels van toepassing
 
 Maak een regelverzameling toepassing waarmee het cluster te verzenden en ontvangen van belangrijke communicatie.
 
 Selecteer de nieuwe firewall **Test FW01** vanuit Azure portal. Klik op **regels** onder **instellingen** > **toepassing regelverzameling** > **toepassing regelverzamelingtoevoegen**.
+
+![Titel: Verzameling van toepassing-regel toevoegen](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 Op de **regelverzameling toepassing toevoegen** scherm, voer de volgende stappen uit:
 
@@ -75,12 +60,9 @@ Op de **regelverzameling toepassing toevoegen** scherm, voer de volgende stappen
     1. Een regel waarmee Windows-Aanmeldingsactiviteit:
         1. In de **doel FQDN's** sectie, bieden een **naam**, en stel **adressen van bron** naar `*`.
         1. Voer `https:443` onder **Protocol: poort** en `login.windows.net` onder **FQDN's als doel**.
-    1. Een regel voor het SQM-telemetrie toestaan:
-        1. In de **doel FQDN's** sectie, bieden een **naam**, en stel **adressen van bron** naar `*`.
-        1. Voer `https:443` onder **Protocol: poort** en `sqm.telemetry.microsoft.com` onder **FQDN's als doel**.
     1. Als uw cluster wordt ondersteund door WASB en u de bovenstaande service-eindpunten niet gebruikt, voegt u een regel voor WASB:
         1. In de **doel FQDN's** sectie, bieden een **naam**, en stel **adressen van bron** naar `*`.
-        1. Voer `http` of [https] afhankelijk van wanneer gebruikt u wasb: / / of wasbs: / / onder **Protocol: poort** en de url van de opslag onder **doel FQDN's**.
+        1. Voer `http` of `https` afhankelijk van of u gebruikmaakt van wasb: / / of wasbs: / / onder **Protocol: poort** en de url van de opslag onder **doel FQDN's**.
 1. Klik op **Toevoegen**.
 
 ![Titel: Details van verzameling regel invoeren](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -88,9 +70,6 @@ Op de **regelverzameling toepassing toevoegen** scherm, voer de volgende stappen
 ### <a name="configure-the-firewall-with-network-rules"></a>De firewall aan de netwerkregels van het configureren
 
 De netwerkregels voor het correct configureren van uw HDInsight-cluster maken.
-
-> [!Important]
-> U kunt kiezen tussen het gebruik van SQL service-tags in de firewall met behulp van netwerkregels, zoals beschreven in deze sectie of een SQL-service eindpunt een beschreven in [de sectie over service-eindpunten](#enable-service-endpoints). Als u ervoor kiest SQL om labels te gebruiken in netwerkregels voor, kunt u aanmelden en controleren van de SQL-verkeer. Met behulp van een service-eindpunt heeft SQL-verkeer overslaan van de firewall.
 
 1. Selecteer de nieuwe firewall **Test FW01** vanuit Azure portal.
 1. Klik op **regels** onder **instellingen** > **netwerk regelverzameling** > **regelverzameling netwerk toevoegen**.
@@ -112,12 +91,7 @@ De netwerkregels voor het correct configureren van uw HDInsight-cluster maken.
         1. Stel **adressen van bron** `*`.
         1. Voer het IP-adres voor uw opslagaccount in **doeladressen**.
         1. Stel **doelpoorten** naar `*`.
-    1. Een regel voor het inschakelen van de communicatie met de Key Management Service voor Windows-activering.
-        1. In de volgende rij in de **regels** sectie, bieden een **naam** en selecteer **eventuele** uit de **Protocol** vervolgkeuzelijst.
-        1. Stel **adressen van bron** `*`.
-        1. Stel **doeladressen** naar `*`.
-        1. Stel **doelpoorten** naar `1688`.
-    1. Als u van Log Analytics gebruikmaakt, maakt u een regel om te communiceren met uw Log Analytics-werkruimte.
+    1. (Optioneel) Als u van Log Analytics gebruikmaakt, maakt u een regel om te communiceren met uw Log Analytics-werkruimte.
         1. In de volgende rij in de **regels** sectie, bieden een **naam** en selecteer **eventuele** uit de **Protocol** vervolgkeuzelijst.
         1. Stel **adressen van bron** `*`.
         1. Stel **doeladressen** naar `*`.
@@ -150,7 +124,7 @@ Bijvoorbeeld, voor het configureren van de routetabel voor een cluster dat is ge
 1. Klik op **Routes** onder **instellingen**.
 1. Klik op **toevoegen** routes voor de IP-adressen maken in de onderstaande tabel.
 
-| Routenaam | Adresvoorvoegsel | Volgend hoptype | Volgend hopadres |
+| Routenaam | Adresvoorvoegsel | Volgend hoptype | Adres van de volgende hop |
 |---|---|---|---|
 | 168.61.49.99 | 168.61.49.99/32 | Internet | N.V.T. |
 | 23.99.5.239 | 23.99.5.239/32 | Internet | N.V.T. |

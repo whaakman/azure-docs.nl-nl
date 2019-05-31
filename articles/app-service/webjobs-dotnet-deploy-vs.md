@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873010"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417103"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs
 
@@ -27,7 +27,7 @@ In dit artikel wordt uitgelegd hoe u Visual Studio gebruiken voor het implemente
 
 U kunt meerdere WebJobs publiceren naar één web-app. Zorg ervoor dat elke WebJob in een web-app een unieke naam heeft.
 
-Versie 3.x van de [Azure WebJobs SDK](webjobs-sdk-how-to.md) kunt ontwikkelen van webtaken die worden uitgevoerd als .NET Core-apps, terwijl u versie 2.x ondersteunt alleen het .NET Framework. De manier waarop u een project WebJobs implementeren is ten opzichte van .NET Framework die verschillende .NET Core-projecten.
+Versie 3.x van de [Azure WebJobs SDK](webjobs-sdk-how-to.md) kunt u ontwikkelen van webtaken die worden uitgevoerd als .NET Core-apps of .NET Framework-apps, terwijl versie 2.x ondersteunt alleen het .NET Framework. De manier waarop u een project WebJobs implementeren is voor .NET Core-projecten ten opzichte van .NET Framework die anders.
 
 ## <a name="webjobs-as-net-core-console-apps"></a>WebJobs als .NET Core-console-apps
 
@@ -144,7 +144,7 @@ Voor het maken van een nieuw project voor WebJobs is ingeschakeld, kunt u gebrui
 > 
 
 #### <a id="createnolink"></a> Gebruik de WebJobs-nieuw project-sjabloon voor een onafhankelijke WebJob
-1. Klik op **bestand** > **nieuw Project**, en klik vervolgens in de **nieuw Project** vak klikt u op dialoogvenster **Cloud**  >   **Azure-webtaak (.NET Framework)**.
+1. Klik op **bestand** > **nieuw Project**, en klik vervolgens in de **nieuw Project** vak klikt u op dialoogvenster **Cloud**  >   **Azure-webtaak (.NET Framework)** .
    
     ![Dialoogvenster voor nieuw Project webtaak sjabloon weergeven](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Volg de aanwijzingen die eerder aan weergegeven [de consoletoepassing project een onafhankelijke WebJobs-project maken](#convertnolink).
@@ -239,8 +239,8 @@ De volgende instellingen worden ondersteund door WebJobs:
 | **Instelling** | **Type**  | **Beschrijving** |
 | ----------- | --------- | --------------- |
 | `is_in_place` | Alle | Kan de taak om uit te voeren in plaats zonder het eerst wordt gekopieerd naar een tijdelijke map. Zie voor meer informatie, [WebJobs werkmap](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Doorlopend | Alleen de webtaken worden uitgevoerd op een enkele instantie als uitgeschaald. Zie voor meer informatie, [een continue taak instellen als singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Geactiveerd | De webtaak uitvoeren volgens een schema op basis van een CRON. Zie voor meer informatie, de [naslagartikel voor timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `is_singleton` | Continu | Alleen de webtaken worden uitgevoerd op een enkele instantie als uitgeschaald. Zie voor meer informatie, [een continue taak instellen als singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `schedule` | Triggered | De webtaak uitvoeren volgens een schema op basis van een CRON. Zie voor meer informatie, de [naslagartikel voor timer trigger](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Alle | Biedt controle over het afsluitgedrag. Zie voor meer informatie, [correct afsluiten](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Volgende stappen

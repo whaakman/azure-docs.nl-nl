@@ -10,22 +10,22 @@ ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798247"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384782"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Ondersteuning voor taal en regio voor de Bing webzoekopdrachten-API
 
 De Bing webzoekopdrachten-API ondersteunt meer dan drie tientallen landen of regio's, veel met meer dan één taal. Een land of regio op te geven met een query kunt verfijnen zoekresultaten op basis van de interesses van dat land of regio's. De resultaten kunnen koppelingen naar Bing zijn en deze koppelingen kunnen lokaliseren van de gebruikerservaring van Bing op basis van het opgegeven land/regio of taal.
 
-Kunt u een land of regio met behulp van de `cc` queryparameter. Wanneer een land of regio is opgegeven, moet u een of meer taalcodes met de [ `Accept-Language` header](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Gebruik de [markten tabel](#markets) voor een lijst van ondersteunde talen in elke markt.
+Kunt u een land of regio met behulp van de `cc` queryparameter. Wanneer een land of regio is opgegeven, moet u een of meer taalcodes met de [ `Accept-Language` header](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Gebruik de [markten tabel](#markets) voor een lijst van ondersteunde talen in elke markt.
 
 U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de **markten** tabel. Tegelijkertijd een markt op te geven, geeft een land of regio en taal van voorkeur. U kunt expliciet instellen met de taal met de `setLang` queryparameter.
 
-## <a name="countriesregions"></a>Landen/regio's
+## <a name="countriesregions"></a>Landen/regio 's
 
 |Land/regio|Code|
 |-------|----|
@@ -43,20 +43,20 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Hongkong SAR|HK|
 |India|IN|
 |Indonesië|Id|
-|Italië|it|
+|Italië|IT|
 |Japan|JP|
-|Zuid-Korea|KR|
+|Korea|KR|
 |Maleisië|MY|
 |Mexico|MX|
 |Nederland|NL|
 |Nieuw-Zeeland|NZ|
-|Noorwegen|NEE|
+|Noorwegen|NO|
 |China|CN|
 |Polen|PL|
 |Portugal|PT|
 |Filipijnen|PH|
 |Rusland|RU|
-|Saudi-Arabië|SA|
+|Saoedi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
 |Zweden|SE|
@@ -88,7 +88,7 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
-|Zuid-Korea|Koreaans|ko-KR|
+|Korea|Koreaans|ko-KR|
 |Maleisië|Nederlands|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
@@ -99,7 +99,7 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Portugal|Portugees|pt-PT|
 |Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
-|Saudi-Arabië|Arabisch|ar-SA|
+|Saoedi-Arabië|Arabisch|ar-SA|
 |Zuid-Afrika|Nederlands|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|

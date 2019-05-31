@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 980dc850537b7419e4ee48391acd5ba971fb3fed
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154196"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306719"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
 
@@ -30,16 +30,16 @@ Als u problemen met het openen van de storage-resources met RBAC ondervindt, is 
 
 Neem contact op met de beheerder van uw Azure-account als u niet zeker weet dat u hebt de juiste rollen of machtigingen.
 
-#### <a name="read-listget-storage-accounts"></a>Lezen: Opslagaccounts opnemen in een lijst of ophalen
+#### <a name="read-listget-storage-accounts"></a>Lezen: Opslagaccount (s) een lijst of ophalen
 
 U moet machtiging aan de lijst met storage-accounts hebben. U kunt deze machtiging krijgen door de rol 'Lezer' wordt toegewezen.
 
-#### <a name="list-storage-account-keys"></a>Opslagsleutels voor account opnemen in een lijst
+#### <a name="list-storage-account-keys"></a>Een lijst met Storage Accountsleutels
 
 Storage Explorer kunt accountsleutels ook gebruiken om aanvragen te verifiëren. U krijgt toegang tot sleutels met krachtige functies, zoals de rol 'Inzender'.
 
 > [!NOTE]
-> Toegangssleutels worden onbeperkte machtigingen verlenen aan iedereen die deze bevat. Daarom is het in het algemeen niet aanbevolen ze worden verstrekt aan de gebruikers-accounts. Als u intrekken van toegang tot sleutels wilt, kunt u opnieuw te genereren van de [Azure Portal](https://portal.azure.com/).
+> Toegangssleutels worden onbeperkte machtigingen verlenen aan iedereen die deze bevat. Daarom wordt het in het algemeen niet aanbevolen ze worden verstrekt aan de gebruikers-accounts. Als u intrekken van toegang tot sleutels wilt, kunt u opnieuw te genereren van de [Azure Portal](https://portal.azure.com/).
 
 #### <a name="data-roles"></a>Gegevens-rollen
 
@@ -66,7 +66,7 @@ Er zijn geen nog een oplossing RBAC met betrekking tot op dit moment. Als tijdel
 Certificaatfouten worden veroorzaakt door een van de twee volgende situaties:
 
 1. De app is verbonden via een 'transparante proxy', wat betekent dat een server (zoals de bedrijfsserver van uw) is HTTPS-verkeer onderschept, ontsleutelt en vervolgens versleutelt met behulp van een zelfondertekend certificaat.
-2. U kunt een toepassing die in de HTTPS-berichten die u ontvangt een zelf-ondertekend SSL-certificaat injecteert worden uitgevoerd. Voorbeelden van toepassingen die certificaten invoeren bevat antivirusprogramma's en netwerk verkeer inspectie software.
+2. U voert een toepassing die een zelf-ondertekend SSL-certificaat injecteert in de HTTPS-berichten die u ontvangt. Voorbeelden van toepassingen die certificaten invoeren bevat antivirusprogramma's en netwerk verkeer inspectie software.
 
 Wanneer Storage Explorer ziet een zelf-ondertekend of niet-vertrouwd certificaat, kan het niet meer te weten of het ontvangen HTTPS-bericht is gewijzigd. Als u een kopie van de zelf-ondertekend certificaat hebt, kunt u Storage Explorer instrueren vertrouwen aan de hand van de volgende stappen uit:
 
@@ -75,26 +75,26 @@ Wanneer Storage Explorer ziet een zelf-ondertekend of niet-vertrouwd certificaat
 
 Dit probleem kan ook worden de resultaten van meerdere certificaten (hoofdmap en tussenliggende). Beide certificaten moeten worden toegevoegd aan de fout te verhelpen.
 
-Als u waar het certificaat vandaan komt weet, kunt u proberen deze stappen om te zoeken:
+Als u niet zeker weet waar het certificaat is afkomstig van bent, kunt u proberen deze stappen om te zoeken:
 
 1. Installeer Open SSL
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (een van de lichte versies is voldoende)
     * Mac en Linux: moet worden opgenomen met het besturingssysteem
 2. Voer Open SSL uit
-    * Windows: open de map wilt installeren, klik op **/bin/**, en dubbelklik vervolgens op **openssl.exe**.
+    * Windows: open de map wilt installeren, klik op **/bin/** , en dubbelklik vervolgens op **openssl.exe**.
     * Mac en Linux: Voer **openssl** vanuit een terminal.
 3. Voer `s_client -showcerts -connect microsoft.com:443` uit
-4. Zoek naar zelfondertekende certificaten. Als u welke certificaten zelfondertekend zijn weet, zoek naar een willekeurige plaats het onderwerp `("s:")` en -verlenersleutel `("i:")` zijn hetzelfde.
+4. Zoek naar zelfondertekende certificaten. Als u niet zeker weet welke certificaten zelfondertekend zijn, zoek naar een willekeurige plaats het onderwerp `("s:")` en -verlenersleutel `("i:")` zijn hetzelfde.
 5. Als u geen zelfondertekende certificaten hebt gevonden, voor elk adres, kopieert en plakt u alles vanaf **---BEGIN CERTIFICATE---** naar **---END CERTIFICATE---** naar een nieuw .cer-bestand.
 6. Storage Explorer openen, klikt u op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en vervolgens de bestandskiezer om te zoeken, selecteren, en Open de CER-bestanden die u hebt gemaakt.
 
-Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie. U kunt ook kunt u Storage Explorer starten vanuit de opdrachtregel met de `--ignore-certificate-errors` vlag. Wanneer met deze markering wordt gestart, zal de Storage Explorer certificaatfouten negeren.
+Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie. U kunt ook Storage Explorer starten vanaf de opdrachtregel met de `--ignore-certificate-errors` vlag. Wanneer met deze markering wordt gestart, zal de Storage Explorer certificaatfouten negeren.
 
 ## <a name="sign-in-issues"></a>Aanmeldingsproblemen
 
 ### <a name="blank-sign-in-dialog"></a>Lege aanmeldingsdialoogvenster
 
-Lege aanmelden dialoogvensters worden meestal veroorzaakt door AD FS Storage Explorer waarin wordt gevraagd om uit te voeren een omleiding, wordt niet ondersteund door Electron. U kunt proberen om dit probleem te omzeilen apparaat Code Flow gebruiken voor aanmelding bij. Volg de volgende stappen om dit te doen:
+Lege aanmelden dialoogvensters worden meestal veroorzaakt door AD FS Storage Explorer waarin wordt gevraagd om uit te voeren een omleiding, wordt niet ondersteund door Electron. U kunt dit probleem omzeilen, kunt u proberen apparaat Code Flow gebruiken voor aanmelding bij. Voer de volgende stappen uit om dit te doen:
 
 1. Menu: Preview -> 'Apparaat Code-aanmelding gebruiken'.
 2. Open het dialoogvenster voor verbinding maken (ofwel via de plug-pictogram in de linkerbenedenhoek verticale balk of 'Account toevoegen' in het venster account).
@@ -109,11 +109,11 @@ Als u zelf hebt u problemen bij het aanmelden bij het account dat u gebruiken wi
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Herauthenticatie lus of UPN wijzigen
 
-Als u zich in een lus opnieuw verifiëren of de UPN van een van uw accounts hebt gewijzigd, probeert u het volgende:
+Als u zich in een lus opnieuw verifiëren of de UPN van een van uw accounts hebt gewijzigd, probeert u de volgende stappen uit:
 
 1. Alle accounts verwijderen en sluit vervolgens Storage Explorer
 2. Verwijder de. IdentityService map vanaf uw computer. Op Windows, de map bevindt zich in `C:\users\<username>\AppData\Local`. U kunt de map in de hoofdmap van uw directory gebruiker vinden voor Mac en Linux.
-3. Als u van Mac- of Linux gebruikmaakt, moet u ook de vermelding Microsoft.Developer.IdentityService verwijderen uit uw besturingssystemen keystore. Op de Mac is de sleutelopslag de toepassing 'Gnome Keychain'. Voor Linux, de toepassing wordt meestal 'Sleutelhanger' genoemd, maar de naam kan afwijken afhankelijk van uw distributie.
+3. Als u Mac- of Linux, moet u ook de vermelding Microsoft.Developer.IdentityService verwijderen uit uw besturingssystemen keystore. Op de Mac is de sleutelopslag de toepassing 'Gnome Keychain'. Voor Linux, de toepassing wordt meestal 'Sleutelhanger' genoemd, maar de naam kan afwijken afhankelijk van uw distributie.
 
 ### <a name="conditional-access"></a>Voorwaardelijke toegang
 
@@ -136,27 +136,27 @@ De Mac OS Keychain krijgt soms in een status die ervoor zorgt problemen met de S
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Algemene aanmelden stappen voor probleemoplossing
 
-* Als u zich op Mac OS en het venster aanmelden is nooit wordt weergegeven boven de 'wachten op verificatie...' dialoogvenster, klikt u vervolgens probeert [stappen](#mac-keychain-errors)
+* Als u op Mac OS bent en het venster aanmelden is nooit wordt weergegeven boven de 'wachten op verificatie...' dialoogvenster, klikt u vervolgens probeert [stappen](#mac-keychain-errors)
 * Start u Opslagverkenner opnieuw
 * Als het verificatievenster leeg is, wacht u minstens één minuut voordat de verificatie-dialoogvenster wordt gesloten.
 * Zorg ervoor dat uw proxy en de instellingen juist zijn geconfigureerd voor uw computer en de Storage Explorer-certificaat.
-* Als u zich op Windows en toegang tot Visual Studio 2017 op dezelfde computer hebt en zich aanmelden, probeert u aanmelden bij Visual Studio 2017. Na een geslaagde aanmelding naar Visual Studio 2017 moet u het volgende kan Storage Explorer openen en uw account in het deelvenster account ziet.
+* Als u op Windows en toegang tot Visual Studio 2019 op dezelfde computer en meld u aan, probeert u aanmelden bij Visual Studio 2019. Na een geslaagde aanmelding bij Visual Studio 2019, kunt u Storage Explorer openen en uw account in het deelvenster account ziet.
 
 Als geen van deze methoden werken [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### <a name="missing-subscriptions-and-broken-tenants"></a>Ontbrekende abonnementen en verbroken tenants
 
-Als u nog geen abonnementen ophalen nadat u aanmelden, probeert u de volgende methoden voor het oplossen van problemen:
+Als u niet uw abonnementen ophalen nadat u zich met succes hebt aangemeld, probeert u de volgende methoden:
 
 * Controleer of dat uw account toegang heeft tot de abonnementen die u verwacht. U kunt uw toegang controleren door aan te melden bij de portal voor de Azure-omgeving die u probeert te gebruiken.
-* Zorg ervoor dat u bent aangemeld bij het gebruik van de juiste Azure-omgeving (Azure, Azure China 21Vianet, Azure Duitsland, Azure US Government, of aangepaste omgeving).
+* Zorg ervoor dat u zich hebt aangemeld met behulp van de juiste Azure-omgeving (Azure, Azure China 21Vianet, Azure Duitsland, Azure US Government, of aangepaste omgeving).
 * Als u zich achter een proxy bevindt, zorg ervoor dat u de Storage Explorer-proxy correct hebt geconfigureerd.
 * Probeer te verwijderen en opnieuw toe te voegen in het account.
-* Als er een koppeling 'Informatie', en weten welke foutberichten worden gerapporteerd voor de tenants die mislukken. Als u niet zeker weet wat te doen met de fout u berichten en u kunt vervolgens Zie [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Als er een koppeling 'Informatie', en weten welke foutberichten worden gerapporteerd voor de tenants die mislukken. Als you'ren't zeker wat te doen met de fout voor berichten van u en u kunt vervolgens Zie [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cannot-remove-attached-account-or-storage-resource"></a>Kan de gekoppelde account of storage resource niet verwijderen
+## <a name="cant-remove-attached-account-or-storage-resource"></a>Kan de gekoppelde account of storage resource niet verwijderen
 
-Als u zich niet kunt verwijderen van een gekoppelde account of een resource voor opslag via de gebruikersinterface, kunt u alle gekoppelde resources handmatig verwijderen door het verwijderen van de volgende mappen:
+Als u niet te verwijderen van een gekoppelde account of een resource voor opslag via de gebruikersinterface, kunt u alle gekoppelde resources handmatig verwijderen door het verwijderen van de volgende mappen:
 
 * Windows: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
@@ -190,11 +190,11 @@ Als u nog steeds problemen ondervindt, probeert u de volgende methoden:
 
 ### <a name="tools-for-diagnosing-issues"></a>Hulpprogramma's voor het oplossen van problemen
 
-Als u hulpprogramma's voor netwerken, zoals Fiddler voor Windows hebt, kunt u mogelijk problemen als volgt:
+Als u hulpprogramma's voor netwerken, zoals Fiddler voor Windows hebt, kunt u als volgt de problemen onderzoeken:
 
 * Als u om te werken via de proxy hebt, is het wellicht uw netwerken hulpprogramma verbinding maken via de proxy configureren.
 * Controleer het poortnummer dat door uw netwerken tool gebruikt.
-* Voer de URL van de lokale host en het poortnummer van de netwerken van het programma als proxy-instellingen in Storage Explorer. Indien correct uitgevoerd, begint uw netwerken hulpprogramma logboekregistratie netwerkaanvragen die zijn gesteld door Storage Explorer management en service-eindpunten. Voer bijvoorbeeld https://cawablobgrs.blob.core.windows.net/ op het eindpunt van de blob in een browser, en u ontvangt een antwoord lijkt op het volgende, die duidt op de resource bestaat, hoewel u geen toegang krijgt.
+* Voer de URL van de lokale host en het poortnummer van de netwerken van het programma als proxy-instellingen in Storage Explorer. Indien correct uitgevoerd, begint uw netwerken hulpprogramma logboekregistratie netwerkaanvragen die zijn gesteld door Storage Explorer management en service-eindpunten. Voer bijvoorbeeld https://cawablobgrs.blob.core.windows.net/ voor het eindpunt van de blob in een browser, en u ontvangt een antwoord lijkt op het volgende voorbeeld, waarin stelt de resource bestaat, hoewel u geen toegang krijgt.
 
 ![Voorbeeld van code](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -202,16 +202,16 @@ Als u hulpprogramma's voor netwerken, zoals Fiddler voor Windows hebt, kunt u mo
 
 Als de proxy-instellingen juist zijn, hebt u mogelijk contact op met uw proxy-server-beheerder, en
 
-* Zorg ervoor dat uw proxy het verkeer naar de Azure management of resource-eindpunten worden niet geblokkeerd.
-* Controleer of de verificatieprotocol wordt gebruikt door de proxyserver. Storage Explorer biedt momenteel geen ondersteuning voor NTLM-proxy's.
+* Zorg ervoor dat uw proxy het verkeer naar de Azure management of resource-eindpunten niet blokkeert.
+* Controleer of de verificatieprotocol wordt gebruikt door de proxyserver. Storage Explorer ondersteunt momenteel geen NTLM-proxy's.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Foutbericht "Kan niet naar items ophalen"
 
-Als u met Azure via een proxy verbonden bent, of u de proxy-instellingen juist zijn. Als u bij de eigenaar van het abonnement of account toegang tot een resource krijgen, controleert u of u hebt gelezen of lijst met machtigingen voor die bron.
+Als u met Azure via een proxy verbonden bent, of u de proxy-instellingen juist zijn. Als u nu toegang verleend aan een resource van de eigenaar van het abonnement of account, controleert u of u hebt gelezen of lijst met machtigingen voor die bron.
 
-## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Verbindingsreeks heeft geen volledige configuratie-instellingen
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Verbindingsreeks niet hebben voltooid configuratie-instellingen
 
-Als u dit foutbericht ontvangt, is het mogelijk dat u bent niet gemachtigd de benodigde om op te halen van de sleutels voor uw opslagaccount. Om te bevestigen of dit het geval is, gaat u naar de portal en zoek uw opslagaccount. U kunt dit snel doen door met de rechtermuisknop op het knooppunt voor uw opslagaccount en te klikken op 'Openen in Portal'. Als u dit doet, gaat u naar de blade 'Toegangssleutel'. Als u bent niet gemachtigd om sleutels weer te geven, ziet u een pagina met het bericht 'U hebt geen toegang'. U kunt dit probleem omzeilen, kunt u de accountsleutel ophalen van iemand anders en koppelen met de naam en sleutel, of u kunt vragen voor een SAS met de Storage-account en deze gebruiken om te koppelen van het Storage-account.
+Als u dit foutbericht ontvangt, is het mogelijk dat u hebt de benodigde machtigingen om op te halen van de sleutels voor uw Storage-account. Om te bevestigen of dit het geval is, gaat u naar de portal en zoek uw opslagaccount. U kunt dit snel doen door met de rechtermuisknop op het knooppunt voor uw opslagaccount en te klikken op 'Openen in Portal'. Als u dit doet, gaat u naar de blade 'Toegangssleutel'. Als u geen machtigingen voor het weergeven van sleutels, ziet u een pagina met het bericht 'U hebt geen toegang'. U kunt dit probleem omzeilen, kunt u de accountsleutel ophalen van iemand anders en koppelen met de naam en sleutel, of u kunt vragen voor een SAS met de Storage-account en deze gebruiken om te koppelen van het Storage-account.
 
 Als u de accountsleutels ziet, moet u een probleem op GitHub bestand, zodat we kunt u het probleem is opgelost.
 
@@ -235,7 +235,7 @@ Als u per ongeluk die is gekoppeld met behulp van een ongeldige SAS-URL en kan n
 
 In het algemeen zijn de volgende pakketten vereist om uit te voeren van Storage Explorer op Linux:
 
-* [.NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Opmerking: Storage Explorer versie 1.7.0 en eerder vereist .NET Core 2.0. Als u een nieuwere versie van .NET Core geïnstalleerd hebt vervolgens moet u voor het vullen van Storage Explorer (Zie hieronder). Als u Storage Explorer 1.8.0 of groter zijn dan zou het mogelijk om te gebruiken om .NET Core 2.2. Oudere versies dan 2.2 zijn niet werken op dit moment geverifieerd.
+* [.NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Opmerking: Storage Explorer versie 1.7.0 en eerder vereist .NET Core 2.0. Als u een nieuwere versie van .NET Core geïnstalleerd hebt vervolgens moet u voor het vullen van Storage Explorer (Zie hieronder). Als u werkt met Storage Explorer 1.8.0 of groter zijn dan zou het mogelijk om te gebruiken om .NET Core 2.2. Oudere versies dan 2.2 zijn niet werken op dit moment geverifieerd.
 * `libgnome-keyring-common` en `libgnome-keyring-dev`
 * `libgconf-2-4`
 
@@ -276,7 +276,7 @@ Als u een versie van .NET Core groter is hebt dan 2.0 geïnstalleerd en worden u
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Openen In Explorer van Azure portal werkt niet
 
-Als de knop 'Openen In Explorer' in de Azure-portal niet voor u werkt, zorg ervoor dat u een compatibele browser. De volgende browsers zijn getest op compatibiliteit.
+Als de knop 'Openen In Explorer' in de Azure-portal niet voor u werkt, zorg er dan voor dat u een compatibele browser. De volgende browsers zijn getest op compatibiliteit.
 * Microsoft Edge
 * Mozilla Firefox
 * Google Chrome

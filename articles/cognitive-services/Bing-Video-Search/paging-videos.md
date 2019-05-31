@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613651"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386387"
 ---
 # <a name="paging-through-video-search-results"></a>Door video zoekresultaten bladeren
 
@@ -26,7 +26,7 @@ De Bing video's zoeken-API retourneert een subset van alle zoekresultaten die de
 
 ## <a name="total-estimated-matches"></a>Totale geschatte komt overeen met
 
-Als u het geschatte aantal gevonden resultaten, gebruikt de [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) veld in het JSON-antwoord.   
+Als u het geschatte aantal gevonden resultaten, gebruikt de [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-totalestimatedmatches) veld in het JSON-antwoord.   
   
 ```json  
 {
@@ -39,7 +39,7 @@ Als u het geschatte aantal gevonden resultaten, gebruikt de [totalEstimatedMatch
   
 ## <a name="paging-through-videos"></a>Door video's bladeren
 
-Pagina met beschikbare video's, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) queryparameters bij het verzenden van uw aanvraag.  
+Pagina met beschikbare video's, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) queryparameters bij het verzenden van uw aanvraag.  
   
 
 |Parameter  |Description  |
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
 
-Als u de standaardwaarde voor de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count), u hoeft alleen te geven de `offset` queryparameter, zoals in het volgende voorbeeld.  
+Als u de standaardwaarde voor de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count), u hoeft alleen te geven de `offset` queryparameter, zoals in het volgende voorbeeld.  
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -67,7 +67,7 @@ Host: api.cognitive.microsoft.com
 
 Als u via 35 video's op een tijdstip, stelt u de `offset` queryparameter op 0 op de eerste aanvraag, en vervolgens verhogen `offset` van 35 op elke volgende aanvraag. Bepaalde resultaten in het volgende antwoord bevatten echter dubbele videoresultaten uit het vorige antwoord. Bijvoorbeeld, de eerste twee video's in een reactie mogelijk hetzelfde als de laatste twee video's van het vorige antwoord.
 
-Om te voorkomen dubbele resultaten, gebruikt u de [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-nextoffset) veld van de `Videos` object.
+Om te voorkomen dubbele resultaten, gebruikt u de [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-nextoffset) veld van de `Videos` object.
 
 Bijvoorbeeld, als u op pagina 30 video's tegelijk wilt, kunt u instellen `count` tot en met 30 en `offset` in 0 op de eerste aanvraag. In de volgende aanvraag, stelt u de `offset` queryparameter naar de `nextOffset` waarde.
 

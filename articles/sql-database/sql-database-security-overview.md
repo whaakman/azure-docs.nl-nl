@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790165"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258630"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -150,6 +150,10 @@ Zie voor meer informatie, [aan de slag met gegevensdetectie en classificatie](sq
 ### <a name="compliance"></a>Naleving
 
 Naast de bovenstaande functies en functionaliteit waarmee u kunt uw toepassing ook te voldoen aan verschillende beveiligingsvereisten, Azure SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie voor meer informatie de [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) waar u de meest recente lijst met SQL Database-nalevingscertificeringen kunt vinden.
+
+### <a name="feature-restrictions"></a>Functiebeperkingen
+
+Functie beperkingen te voorkomen dat sommige formulieren van de SQL-injectie uit het lekken van informatie over de database, zelfs als de SQL-injectie geslaagd is. Zie voor meer informatie, [functiebeperkingen van Azure SQL Database](sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

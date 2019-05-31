@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531840"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357061"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Beheer de toegang tot Azure-resources met behulp van RBAC en de REST-API
 
@@ -38,12 +38,16 @@ In RBAC, de toegang van de lijst, u lijst maken met de roltoewijzingen. Lijst va
 
 1. Vervang in de URI, *{bereik}* met het bereik waarvoor u wilt weergeven van de roltoewijzingen.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-
+    
+       
+     > [!NOTE]
+     > In het bovenstaande voorbeeld dat Microsoft.web is dat de resourceprovider wordt gebruikt die verwijst naar App service-exemplaar. Op dezelfde manier kunt u gebruikmaken van elke andere resourceprovider en bouwen van de Scope-URI. Om te begrijpen Raadpleeg voor meer [Azure resourceproviders en typen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) en ondersteunde [Azure RM-resourceproviderbewerkingen](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+     
 1. Vervang *{filter}* met de voorwaarde die u wilt toepassen op filter de lijst met toewijzingen van de rol.
 
     | Filteren | Description |
@@ -77,7 +81,7 @@ In RBAC verleent u toegang door een roltoewijzing te maken. Gebruik voor het mak
     
 1. Vervang in de URI, *{bereik}* met het bereik voor de roltoewijzing.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |
@@ -105,7 +109,7 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 
 1. Vervang in de URI, *{bereik}* met het bereik voor het verwijderen van de roltoewijzing.
 
-    | Bereik | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resourcegroep |

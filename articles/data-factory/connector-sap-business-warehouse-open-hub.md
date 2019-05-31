@@ -3,22 +3,21 @@ title: Gegevens kopiëren van SAP Business Warehouse via Open-Hub met behulp van
 description: Meer informatie over het kopiëren van gegevens van SAP Business Warehouse (BW) via Open-Hub aan ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 03/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/08/2019
+ms.author: jingwang
+ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848867"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256913"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse via Open-Hub met behulp van Azure Data Factory
 
@@ -30,7 +29,7 @@ U kunt gegevens van SAP Business Warehouse via Open Hub kopiëren naar een onder
 
 Deze connector SAP Business Warehouse Open Hub ondersteunt name:
 
-- SAP Business Warehouse **versie 7.01 of hoger (in een recente SAP ondersteuning voor pakket-Stack die na het jaar 2015 zijn uitgebracht)**.
+- SAP Business Warehouse **versie 7.01 of hoger (in een recente SAP ondersteuning voor pakket-Stack die na het jaar 2015 zijn uitgebracht)** .
 - Kopiëren van gegevens via Open Hub lokale doeltabel die onder DSO, InfoCube, MultiProvider, DataSource, enzovoort.
 - Kopiëren van gegevens met behulp van basisverificatie.
 - Verbinding maken met toepassingsserver.
@@ -135,7 +134,7 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse Open Hu
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Salesforce-gegevensset.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de SAP BW Open Hub-gegevensset.
 
 Als u wilt kopiëren van gegevens van en naar SAP BW Open Hub, stel de eigenschap type van de gegevensset in **SapOpenHubTable**. De volgende eigenschappen worden ondersteund.
 

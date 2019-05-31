@@ -3,22 +3,22 @@ author: robinsh
 manager: philmea
 ms.author: robinsh
 ms.topic: include
-ms.date: 10/26/2018
-ms.openlocfilehash: 57a5de4c590ff98429aa1d4a0b96cebed6084a0f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.date: 05/20/2019
+ms.openlocfilehash: c164433efc6a34a3a06676a3145feb18d3de80b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146436"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249010"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Een consumentengroep toevoegen aan uw IoT-hub
 
-Consumer-groepen worden gebruikt door toepassingen voor het ophalen van gegevens van Azure IoT Hub. In deze zelfstudie maakt u een consumentengroep moet worden gebruikt door een komende Azure-service gegevens lezen uit uw IoT-hub.
+[Consumentengroepen](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) bieden onafhankelijke weergaven in de gebeurtenisstroom waarmee apps en gegevens uit hetzelfde Event Hub-eindpunt onafhankelijk van elkaar te gebruiken Azure-services. In deze sectie voegt u een consumergroep naar uw IoT-hub ingebouwde eindpunt dat verderop in deze zelfstudie wordt gebruikt om gegevens ophalen uit het eindpunt.
 
 Een consumergroep toevoegen aan uw IoT-hub, de volgende stappen uit:
 
 1. Open uw IoT-hub in [Azure Portal](https://portal.azure.com/).
 
-2. Klik in het linkerdeelvenster op **ingebouwde eindpunten**, selecteer **gebeurtenissen** in het deelvenster bovenaan en voer een naam onder **consumentengroepen** in het rechterdeelvenster. Klik op **opslaan** na het wijzigen van de **standaard-TTL** waarde en retourneer het terug naar de oorspronkelijke waarde.
+2. Selecteer in het linkerdeelvenster **ingebouwde eindpunten**, selecteer **gebeurtenissen** in het rechterdeelvenster en voer een naam onder **consumentengroepen**. Selecteer **Opslaan**.
 
    ![Een consumentengroep in uw IoT-hub maken](./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png)

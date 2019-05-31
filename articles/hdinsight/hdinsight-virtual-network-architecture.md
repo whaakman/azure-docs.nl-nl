@@ -5,15 +5,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
-ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484872"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252850"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight-architectuur voor virtueel netwerk
 
@@ -23,11 +22,11 @@ In dit artikel wordt uitgelegd dat de resources die aanwezig zijn wanneer u een 
 
 Azure HDInsight-clusters hebben verschillende typen virtuele machines of knooppunten. Elk knooppunttype speelt een rol in de werking van het systeem. De volgende tabel geeft een overzicht van deze typen en hun rollen in het cluster.
 
-| Type | Beschrijving |
+| Type | Description |
 | --- | --- |
 | Hoofdknooppunt |  De hoofdknooppunten hosten voor alle clustertypen met uitzondering van Apache Storm, de processen die uitvoer van de gedistribueerde toepassing te beheren. Het hoofdknooppunt is ook het knooppunt dat u SSH naar kunt en uitvoeren van toepassingen die vervolgens worden gecoördineerd om uit te voeren voor de clusterresources. Het aantal hoofdknooppunten, twee voor alle clustertypen is opgelost. |
-| ZooKeeper-knooppunt | Zookeeper-coördinaten taken tussen de knooppunten die gegevensverwerking aan het doen zijn. Ook wordt de selectie van leider van het hoofdknooppunt en houdt van welke hoofdknooppunt van een specifieke hoofd-service wordt uitgevoerd. Het aantal ZooKeeper-knooppunten wordt vastgesteld op twee. |
-| Werkknooppunt | Hiermee geeft u de knooppunten die ondersteuning bieden voor gegevensverwerking functionaliteit. Worker-knooppunten kunnen worden toegevoegd of verwijderd uit het cluster schalen computing capaciteit en kosten beheren. |
+| ZooKeeper-knooppunt | Zookeeper-coördinaten taken tussen de knooppunten die gegevensverwerking aan het doen zijn. Ook wordt de selectie van leider van het hoofdknooppunt en houdt van welke hoofdknooppunt van een specifieke hoofd-service wordt uitgevoerd. Het aantal ZooKeeper-knooppunten wordt vastgesteld op drie. |
+| Worker-knooppunt | Hiermee geeft u de knooppunten die ondersteuning bieden voor gegevensverwerking functionaliteit. Worker-knooppunten kunnen worden toegevoegd of verwijderd uit het cluster schalen computing capaciteit en kosten beheren. |
 | R Server edge-knooppunt | Het R Server edge-knooppunt staat voor het knooppunt kunt u SSH op en voer toepassingen die vervolgens worden gecoördineerd om uit te voeren voor de clusterresources. Een edge-knooppunt deelnemen niet aan gegevensanalyse binnen het cluster. Dit knooppunt ook als host fungeert voor R Studio Server, zodat u kunt R-toepassing met behulp van een browser uit te voeren. |
 | Knooppunt regio | Voor het type van HBase-cluster, wordt in het knooppunt regio is (ook wel een knooppunt gegevens genoemd) de regio-Server wordt uitgevoerd. Regioservers fungeren en een gedeelte van de gegevens die worden beheerd door HBase te beheren. Regio-knooppunten kunnen worden toegevoegd of verwijderd uit het cluster schalen computing capaciteit en kosten beheren.|
 | Nimbus-knooppunt | Voor het type van Storm-cluster biedt het Nimbus-knooppunt functionaliteit die vergelijkbaar is met het hoofdknooppunt. Het Nimbus-knooppunt wijst taken toe aan andere knooppunten in een cluster via Zookeeper, die de uitvoering van Storm-topologieën coördineert. |
@@ -46,8 +45,8 @@ De volgende tabel geeft een overzicht van de negen clusterknooppunten die worden
 | Resourcetype | Het aantal | Details |
 | --- | --- | --- |
 |Hoofdknooppunt | twee |    |
-|ZooKeeper-knooppunt | drie | |
-|Werkknooppunt | twee | Dit nummer kan variëren op basis van de configuratie van het cluster en schalen. Een minimum van drie worker-knooppunten is nodig voor Apache Kafka.  |
+|Zookeeper-knooppunt | drie | |
+|Worker-knooppunt | twee | Dit nummer kan variëren op basis van de configuratie van het cluster en schalen. Een minimum van drie worker-knooppunten is nodig voor Apache Kafka.  |
 |Gateway-knooppunt | twee | Gateway-knooppunten zijn Azure virtuele machines die zijn gemaakt op Azure, maar niet zichtbaar zijn in uw abonnement. Neem contact op met ondersteuning als u wilt deze knooppunten opnieuw opstarten. |
 
 De volgende netwerkresources aanwezig zijn, worden automatisch gemaakt in het virtuele netwerk gebruikt met HDInsight:

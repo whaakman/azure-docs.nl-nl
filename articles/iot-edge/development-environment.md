@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61247542"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302683"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Voorbereiden van uw ontwikkel- en testomgeving voor IoT Edge
 
@@ -62,11 +62,11 @@ De module-sjablonen voor sommige talen en services zijn vereisten die nodig zijn
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Generator voor Azure IoT Edge Node.js-module](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [PIP](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-2017-extension"></a>Visual Studio 2017-extensie
+### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019-extensie
 
-De Azure IoT Edge-tools voor Visual Studio bieden een IoT Edge module-sjabloon die is gebouwd op C#. 
+De Azure IoT Edge-tools voor Visual Studio bieden een IoT Edge module-sjabloon die is gebouwd op C# en C. 
 
-Zie voor meer informatie en om te downloaden, [Azure IoT Edge-Tools voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+Zie voor meer informatie en om te downloaden, [Azure IoT Edge-Tools voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) of [Azure IoT Edge-Tools voor Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 
 ### <a name="iot-edge-dev-tool"></a>Hulpprogramma voor het ontwikkelen van IoT Edge
 
@@ -109,7 +109,7 @@ Zie voor meer informatie, [Azure IoT Edge wordt uitgevoerd in een container](htt
 
 ### <a name="iot-edge-device-container"></a>IoT Edge-apparaatcontainer
 
-De container IoT Edge-apparaat is een complete IoT Edge-apparaat, worden klaar om te worden gestart op een machine met een container-engine. De apparaatcontainer bevat de IoT Edge-runtime en een container-engine zelf. Elk exemplaar van de container is een volledig functionele zelf provisioning IoT Edge-apparaat. De apparaatcontainer ondersteunt foutopsporing op afstand van modules, mits er een netwerkroute naar de module is. De apparaatcontainer is handig voor het snel maken van grote aantallen IoT Edge-apparaten voor het testen van scenario's op schaal of DevOps-pijplijnen. Het ondersteunt ook implementatie naar continue kubernetes via helm. 
+De container IoT Edge-apparaat is een complete IoT Edge-apparaat, worden klaar om te worden gestart op een machine met een container-engine. De apparaatcontainer bevat de IoT Edge-runtime en een container-engine zelf. Elk exemplaar van de container is een volledig functionele zelf provisioning IoT Edge-apparaat. De apparaatcontainer ondersteunt foutopsporing op afstand van modules, mits er een netwerkroute naar de module is. De apparaatcontainer is handig voor het snel apparaten te testen op schaal scenario's of Azure-pijplijnen maken grote aantallen IoT Edge. Het ondersteunt ook implementatie naar continue kubernetes via helm. 
 
 Zie voor meer informatie, [Azure IoT Edge-apparaatcontainer](https://github.com/toolboc/azure-iot-edge-device-container).
 

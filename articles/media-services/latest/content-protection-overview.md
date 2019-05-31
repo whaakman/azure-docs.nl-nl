@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 99aea38ec877074075eaec8cf9ab8da077901acf
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150422"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393116"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Beveiliging van inhoud met dynamische versleuteling
 
@@ -39,14 +39,13 @@ Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moe
 
 1. Azure Media Services-code
   
-   De [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) voorbeeld ziet u het implementeren van multi-DRM-systeem met Media Services v3 en Media Services-service voor het leveren van licentiesleutel/ook gebruiken. U kunt elke asset met meerdere versleutelingstypen versleutelen (AES-128, PlayReady, Widevine, FairPlay). Zie [Streamingprotocollen en versleutelingstypen](#streaming-protocols-and-encryption-types) voor nuttige combinaties.
+   De [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) voorbeeld ziet u hoe u multi-DRM-systeem met Media Services v3 met behulp van .NET implementeren. U ziet ook het gebruik van Media Services-service voor het leveren van licentiesleutel /. U kunt elke asset met meerdere versleutelingstypen versleutelen (AES-128, PlayReady, Widevine, FairPlay). Zie [Streamingprotocollen en versleutelingstypen](#streaming-protocols-and-encryption-types) voor nuttige combinaties.
   
    Het voorbeeld wordt getoond hoe u:
 
-   1. Maak en configureer [Inhoudbeleidsregels sleutel](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Maken en configureren van een [Inhoudbeleidsregels sleutel](content-key-policy-concept.md). U maakt een **inhoud sleutel beleid** te configureren hoe de inhoudssleutel (die biedt veilige toegang tot uw activa) als u wilt beëindigen van clients wordt geleverd.    
 
       * Definieer license delivery autorisatie, de logica van autorisatie-controle op basis van claims in JWT op te geven.
-      * DRM-codering configureren door de inhoudssleutel op te geven.
       * Configureer [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), en/of [FairPlay](fairplay-license-overview.md) licenties. De sjablonen kunnen u rechten en machtigingen voor elk van de gebruikte DRM's configureren.
 
         ```
@@ -54,11 +53,11 @@ Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moe
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. Maak een [Streaming-Locator gemaakt](https://docs.microsoft.com/rest/api/media/streaminglocators) die is geconfigureerd om te streamen, de gecodeerde asset. 
+   2. Maak een [Streaming-Locator gemaakt](streaming-locators-concept.md) die is geconfigureerd om te streamen, de gecodeerde asset. 
   
-      De **Streaming-Locator gemaakt** heeft moeten worden gekoppeld aan een [Streaming beleid](https://docs.microsoft.com/rest/api/media/streamingpolicies). In het voorbeeld stellen we StreamingLocator.StreamingPolicyName op het beleid 'Predefined_MultiDrmCencStreaming'. Dit beleid geeft aan dat we voor twee inhoudssleutels (envelop en CENC willen) om te halen die zijn gegenereerd en ingesteld op de locator. Er worden dan de envelop-, PlayReady- en Widevine-coderingen toegepast (de sleutel wordt aan de afspeelclient geleverd op basis van de geconfigureerde DRM-licenties). Als u wilt dat uw stream ook met CBCS (FairPlay) wordt versleuteld, gebruikt u Predefined_MultiDrmStreaming.
-    
-      Omdat we willen dat voor het versleutelen van de video de **inhoud sleutel beleid** dat we eerder hebt geconfigureerd heeft ook moeten worden gekoppeld aan de **Streaming-Locator gemaakt**. 
+      De **Streaming-Locator gemaakt** heeft moeten worden gekoppeld aan een [Streaming beleid](streaming-policy-concept.md). In het voorbeeld stellen we StreamingLocator.StreamingPolicyName op het beleid 'Predefined_MultiDrmCencStreaming'. De coderingen PlayReady en Widevine wordt toegepast, de sleutel wordt geleverd aan de afspelen-client op basis van de geconfigureerde DRM-licenties. Als u wilt dat uw stream ook met CBCS (FairPlay) wordt versleuteld, gebruikt u Predefined_MultiDrmStreaming.
+      
+      De Streaming-Locator is ook gekoppeld aan de **inhoud sleutel beleid** die is gedefinieerd.
     
    3. Maken van een test-token.
 
@@ -102,11 +101,11 @@ Het HLS-protocol ondersteunt de volgende indelingen van de container en de coder
 
 |Containerindeling|Versleutelingsmethode|Voorbeeld van de URL|
 |---|---|---|
-|Alle|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
-|MPG2-TS |CBCS (FairPlay) ||
-|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
-|MPG2-TS |CENC (PlayReady) ||
-|CMAF(fmp4) |CENC (PlayReady) ||
+|Alle|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
+|CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
 HLS/CMAF + FairPlay (met inbegrip van HEVC / H.265) wordt ondersteund op de volgende apparaten:
 
@@ -120,9 +119,9 @@ Het MPEG-DASH-protocol ondersteunt de volgende indelingen van de container en de
 
 |Containerindeling|Versleutelingsmethode|URL-voorbeelden
 |---|---|---|
-|Alle|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
-|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
-|CMAF(fmp4)|CENC (Widevine + PlayReady)||
+|Alle|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
 ### <a name="smooth-streaming"></a>Smooth Streaming
 
@@ -130,8 +129,8 @@ De Smooth Streaming-protocol ondersteunt de volgende indelingen van de container
 
 |Protocol|Containerindeling|Versleutelingsmethode|
 |---|---|---|
-|fMP4|AES||
-|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+|fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
 
 ### <a name="browsers"></a>Browsers
 

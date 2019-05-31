@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942885"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258190"
 ---
 # <a name="azure-application-prerequisites"></a>Vereisten voor Azure-toepassing
 
@@ -38,7 +38,8 @@ Zie voor meer informatie, [maken-Azure portal gebruikersinterface voor uw beheer
 
 De zakelijke vereisten zijn onder andere de volgende procedure, contractuele en wettelijke verplichtingen:
 
-* U moet een geregistreerde Cloud-Marketplace-uitgever. Als u niet bent geregistreerd, volg de stappen in het artikel [geworden van een Cloud-Marketplace-uitgever](../../become-publisher.md).
+* U moet een geregistreerde Cloud-Marketplace-uitgever. Als u niet bent geregistreerd, volg de stappen in het artikel [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >Het account voor registratie van dezelfde Microsoft Developer Center moet u zich aanmeldt bij de Cloud Partner-Portal. U hebt slechts één Microsoft-account voor uw aanbiedingen op Azure Marketplace. Dit account mag niet zijn specifiek voor afzonderlijke services of aanbiedingen.

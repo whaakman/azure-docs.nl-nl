@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 827c42763eee39c717cedc90469ae765cc331272
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602421"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253843"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina met waarschuwingen. 
@@ -35,9 +35,9 @@ Selecteer een waarschuwing om te zien van een rapport met de gebruikers of rolle
 ## <a name="alerts"></a>Waarschuwingen
 | Waarschuwing | Severity | Trigger | Aanbeveling |
 | --- | --- | --- | --- |
-| **Te veel eigenaren toegewezen aan een resource** |Middelgroot |Te veel gebruikers hebben de rol van eigenaar. |Bekijk de gebruikers in de lijst en opnieuw toewijzen van enkele tot minder bevoorrechte rollen. |
-| **Te veel permanente eigenaren toegewezen aan een resource** |Middelgroot |Te veel gebruikers zijn definitief toegewezen aan een rol. |Bekijk de gebruikers in de lijst en sommige activering vereist voor gebruik van de rol opnieuw toewijzen. |
-| **Dubbele rol gemaakt** |Middelgroot |Meerdere rollen hebben dezelfde criteria. |Gebruik slechts één van deze rollen. |
+| **Te veel eigenaren toegewezen aan een resource** |Gemiddeld |Te veel gebruikers hebben de rol van eigenaar. |Bekijk de gebruikers in de lijst en opnieuw toewijzen van enkele tot minder bevoorrechte rollen. |
+| **Te veel permanente eigenaren toegewezen aan een resource** |Gemiddeld |Te veel gebruikers zijn definitief toegewezen aan een rol. |Bekijk de gebruikers in de lijst en sommige activering vereist voor gebruik van de rol opnieuw toewijzen. |
+| **Dubbele rol gemaakt** |Gemiddeld |Meerdere rollen hebben dezelfde criteria. |Gebruik slechts één van deze rollen. |
 
 
 ### <a name="severity"></a>Severity
@@ -54,4 +54,4 @@ Pas de instellingen op de verschillende waarschuwingen om te werken met uw omgev
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren](pim-resource-roles-configure-alerts.md)
+- [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)

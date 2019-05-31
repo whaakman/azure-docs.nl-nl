@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5687e6d0094083a9ee58455cc72b0b2e4da32d65
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707525"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417146"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Het opslagtype van een beheerde schijf bijwerken
 
-Er zijn vier opties voor Azure beheerde schijven: Azure Ultra Disk-opslag, Premium SSD, Standard-SSD en standaard harde schijven. U kunt schakelen tussen deze soorten opslag op basis van de prestatiebehoeften van uw met weinig downtime. Deze functionaliteit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [niet-beheerde schijven converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md) te kunnen schakelen tussen schijftypen.
+Er zijn vier schijftypen van Azure beheerde schijven: Azure ultra SSD's (preview), premium SSD-, standard-SSD- en standard HDD. U kunt schakelen tussen de drie typen van de GA-schijf (premium SSD-, standard-SSD- en standard HDD) op basis van uw prestatiebehoeften. U bent niet nog kunt overschakelen van of naar een ultra SSD, moet u een nieuwe implementeren.
+
+Deze functionaliteit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [niet-beheerde schijven converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md) te kunnen schakelen tussen schijftypen.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

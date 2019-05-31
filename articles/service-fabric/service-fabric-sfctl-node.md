@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556777"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258733"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Beheren van de knooppunten die een cluster wordt gevormd.
@@ -28,10 +28,10 @@ Beheren van de knooppunten die een cluster wordt gevormd.
 
 |Opdracht|Description|
 | --- | --- |
-| uitschakelen | Deactiveer het knooppunt van een Service Fabric-cluster met de bedoeling opgegeven deactiveren. |
-| inschakelen | Activeren van een Service Fabric-cluster-knooppunt dat is gedeactiveerd. |
+| Uitschakelen | Deactiveer het knooppunt van een Service Fabric-cluster met de bedoeling opgegeven deactiveren. |
+| Inschakelen | Activeren van een Service Fabric-cluster-knooppunt dat is gedeactiveerd. |
 | gezondheidszorg | Hiermee haalt u de status van een Service Fabric-knooppunt. |
-| informatie | Hiermee haalt de informatie over een bepaald knooppunt in het Service Fabric-cluster. |
+| Info | Hiermee haalt de informatie over een bepaald knooppunt in het Service Fabric-cluster. |
 | list | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster. |
 | laden | Hiermee haalt u de gegevens laden van een Service Fabric-knooppunt. |
 | Remove-status | Service Fabric de hoogte gebracht dat de permanente status op een knooppunt is definitief verwijderd of verloren gaan. |
@@ -180,6 +180,8 @@ Haalt informatie op het laden van een Service Fabric-knooppunt voor de metrische
 Service Fabric de hoogte gebracht dat de permanente status op een knooppunt is definitief verwijderd of verloren gaan.
 
 Dit betekent dat het is niet mogelijk om te herstellen van de permanente status van dat knooppunt. Dit gebeurt meestal als een harde schijf is gewist schone, of als een harde schijf vastloopt. Het knooppunt is niet beschikbaar voor deze bewerking om succesvol te zijn. Met deze bewerking kunt Service Fabric weten dat de replica's op dat knooppunt niet meer bestaan en die Service Fabric wacht op de replica's keert u terug van moet worden stopgezet. Voer deze cmdlet niet als de status op het knooppunt is niet verwijderd en het knooppunt van met de status behouden overstappen kunt.
+
+Starten van Service Fabric 6.5, kunt u deze cmdlet gebruiken voor seed-knooppunten, wijzig de seed-knooppunten naar knooppunten met normale (niet-seeding) en vervolgens aanroepen met deze cmdlet als u wilt verwijderen van de status. Als het cluster wordt uitgevoerd op Azure, nadat de seed-knooppunt uitvalt, probeert Service Fabric automatisch naar een niet-seed-knooppunt te wijzigen. Dit gebeurt, moet u is het aantal niet-seed-knooppunten in het primaire knooppunttype zeker niet lager zijn dan het aantal omlaag seed-knooppunten. Indien nodig, kunt u meer knooppunten toevoegen aan het primaire knooppunttype om dit te bereiken. Voor zelfstandige cluster als de omlaag seed-knooppunt niet naar verwachting terugkomen om met de status behouden, neem het knooppunt verwijderen uit het cluster, raadpleegt u [verwijderen uit de Service Fabric zelfstandige-cluster](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>Argumenten
 

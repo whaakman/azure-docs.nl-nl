@@ -8,18 +8,21 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561559"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304236"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid-gebeurtenisschema
 
 Dit artikel beschrijft de eigenschappen en het schema die aanwezig zijn voor alle gebeurtenissen. Gebeurtenissen bestaan uit een set eigenschappen van vijf vereiste tekenreeks en een vereiste gegevens-object. De eigenschappen zijn algemene aan alle gebeurtenissen van een uitgever. Het gegevensobject heeft eigenschappen die specifiek voor elke uitgever zijn. Deze eigenschappen zijn specifiek voor de resourceprovider, zoals Azure Storage of Azure Event Hubs voor systeemonderwerpen.
 
-Bronnen van gebeurtenissen voor het verzenden van gebeurtenissen naar Azure Event Grid in een matrix, maar dit kan verschillende event-objecten hebben. Als u gebeurtenissen naar een event grid-onderwerp boeken, kan de matrix een totale grootte van maximaal 1 MB hebben. Elke gebeurtenis in de matrix is beperkt tot 64 KB. Als een gebeurtenis of de matrix groter dan de maximale grootte is, ontvangt u het antwoord **413 Payload te groot**.
+Bronnen van gebeurtenissen voor het verzenden van gebeurtenissen naar Azure Event Grid in een matrix, maar dit kan verschillende event-objecten hebben. Als u gebeurtenissen naar een event grid-onderwerp boeken, kan de matrix een totale grootte van maximaal 1 MB hebben. Elke gebeurtenis in de matrix is beperkt tot 64 KB (algemeen beschikbaar) of 1 MB (preview). Als een gebeurtenis of de matrix groter dan de maximale grootte is, ontvangt u het antwoord **413 Payload te groot**.
+
+> [!NOTE]
+> Een gebeurtenis van de grootte van maximaal 64 KB wordt gedekt door algemene beschikbaarheid (GA) Service Level Agreement (SLA). De ondersteuning voor een gebeurtenis van de grootte van maximaal 1 MB is momenteel in preview. Gebeurtenissen meer dan 64 KB in intervallen van 64 KB in rekening worden gebracht. 
 
 Event Grid verzonden de gebeurtenissen naar abonnees in een matrix die één gebeurtenis heeft. Dit gedrag veranderen in de toekomst.
 
@@ -83,11 +86,11 @@ Alle gebeurtenissen hebben de dezelfde gegevens van de volgende op het hoogste n
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
-| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| Onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
 | eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
 | eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | id | string | De unieke id voor de gebeurtenis. |
-| gegevens | object | De gegevens van de gebeurtenis is specifiek voor de resourceprovider. |
+| Gegevens | object | De gegevens van de gebeurtenis is specifiek voor de resourceprovider. |
 | dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 

@@ -10,16 +10,16 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1d344f388b03acb3a81fcfde0e214eb7d82dc9b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578722"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390484"
 ---
 # <a name="how-to-page-through-news-search-results"></a>Pagina met zoekresultaten voor nieuws
 
-Wanneer u de nieuws zoeken-API aanroept, retourneert Bing een lijst met resultaten die relevant voor uw query zijn. Als u de geschatte totale aantal beschikbare resultaten, toegang krijgen tot de antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) veld.  
+Wanneer u de nieuws zoeken-API aanroept, retourneert Bing een lijst met resultaten die relevant voor uw query zijn. Als u de geschatte totale aantal beschikbare resultaten, toegang krijgen tot de antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) veld.  
   
 Het volgende voorbeeld wordt de `totalEstimatedMatches` veld dat een nieuwsantwoord bevat.  
 
@@ -32,10 +32,10 @@ Het volgende voorbeeld wordt de `totalEstimatedMatches` veld dat een nieuwsantwo
 }  
 ```  
   
-Als u wilt de beschikbare artikelen doorlopen, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) queryparameters.  
+Als u wilt de beschikbare artikelen doorlopen, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) queryparameters.  
  
 
-|Parameter  |Beschrijving  |
+|Parameter  |Description  |
 |---------|---------|
 |`count`     | Hiermee geeft u het aantal resultaten dat moet worden geretourneerd in het antwoord. Het maximum aantal resultaten die u in het antwoord aanvragen kunt is 100. De standaardwaarde is 10. Het werkelijke getal geleverd mogelijk lager dan aangevraagd.        |
 |`offset`     | Hiermee geeft u het aantal resultaten dat moet worden overgeslagen. De `offset` is gebaseerd op nul en moet kleiner dan (`totalEstimatedMatches` - `count`).          |

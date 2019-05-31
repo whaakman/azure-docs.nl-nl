@@ -3,21 +3,21 @@ title: Niet-ondersteunde taal implementaties - aangepaste Translator
 titleSuffix: Azure Cognitive Services
 description: Klik hier voor meer informatie over het implementeren van paren van niet-ondersteunde taal in aangepaste Translator.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: v-pawal
-ms.openlocfilehash: 09fbd771d945646fe385508779d38e4abb2ee293
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64476504"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390606"
 ---
-# <a name="unsupported-language-deployments"></a>Niet-ondersteunde taal implementaties
+# <a name="unsupported-language-deployments"></a>Implementaties in niet-ondersteunde talen
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 
@@ -32,7 +32,7 @@ In de volgorde voor uw modellen en kandidaten zijn voor implementatie, moeten ze
 * Het model moet zich in de status van de geïmplementeerde als de migratie plaatsvindt.  
 * De combinatie van taal van het model moet een sleutelpaar met niet-ondersteunde taal in aangepaste Translator.  Taal paren waarin een taal wordt ondersteund of naar het Engels, maar het paar zelf bevat geen Engels, zijn kandidaten voor implementaties van niet-ondersteunde taal.  Bijvoorbeeld, zelfs al Franse Engelse en Engels naar Duitse zijn ondersteunde taal voor het sleutelpaar met een niet-ondersteunde taal paar wordt beschouwd als een Hub-model van een Frans, Duits gekoppeld.
 
-## <a name="process"></a>Verwerken
+## <a name="process"></a>Process
 Als u modellen hebt gemigreerd van de Hub die geschikt zijn voor implementatie, kunt u deze vinden door te gaan naar de **instellingen** pagina voor uw werkruimte en schuiven naar het einde van de pagina u ziet een **niet ondersteund Translator Hub trainingen** sectie.  In deze sectie wordt alleen weergegeven als u projecten die voldoen aan de vereisten die hierboven worden vermeld.
 
 ![Over het migreren van de Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)

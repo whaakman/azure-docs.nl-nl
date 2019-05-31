@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0061fb7946e4c35f855d1a409cb9bc210c73641a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 891f9fbd26b53b392ac84ed9d420b58558cd20c2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228300"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258418"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Voorbeeld van de trein Azure Sentinel
 
@@ -41,7 +41,7 @@ Nadat u verbinding maakt met uw gegevensbronnen, kunt u kiezen uit een galerie m
 - Log Analytics-werkruimte. Meer informatie over het [een Log Analytics-werkruimte maken](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  Om in te schakelen Sentinel van Azure, moet u bijdrager machtigingen voor het abonnement waarin de Azure-Sentinel werkruimte zich bevindt. 
-- Voor het gebruik van Azure Sentinel, moet u bijdrager of viewer machtigingen voor de resourcegroep die deel uitmaakt van de werkruimte op
+- Voor het gebruik van Azure Sentinel, moet u bijdrager of lezer machtigingen voor de resourcegroep die deel uitmaakt van de werkruimte op
 - Aanvullende machtigingen nodig om verbinding maken met specifieke gegevensbronnen
  
 ## Azure Sentinel inschakelen <a name="enable"></a>
@@ -54,7 +54,7 @@ Nadat u verbinding maakt met uw gegevensbronnen, kunt u kiezen uit een galerie m
 1. Klik op **+ toevoegen**.
 1. Selecteer de werkruimte die u wilt gebruiken of een nieuwe maken. U kunt Azure Sentinel uitvoeren op meer dan één werkruimte, maar de gegevens is geïsoleerd voor één werkruimte.
 
-   ![zoeken](./media/quickstart-onboard/choose-workspace.png)
+   ![Zoeken](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - **De locatie van** is het belangrijk om te begrijpen dat alle gegevens die u naar Azure Sentinel streamen is opgeslagen in de geografische locatie van de werkruimte die u hebt geselecteerd.  

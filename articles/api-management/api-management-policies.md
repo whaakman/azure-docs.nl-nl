@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: ad57f86e221a98461fcd1dc11b92f5665d6128d0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786449"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254405"
 ---
 # <a name="api-management-policies"></a>API Management-beleidsregels
 Deze sectie bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](api-management-howto-policies.md).  
@@ -39,12 +39,15 @@ Deze sectie bevat een verwijzing voor de volgende API Management-beleidsregels. 
     -   [Valideren van JWT](api-management-access-restriction-policies.md#ValidateJWT) -afdwingt bestaan en de geldigheid van een JWT geëxtraheerd uit een opgegeven HTTP-Header of een opgegeven query-parameter.  
 -   [Geavanceerde beleidsregels](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Controlestroom](api-management-advanced-policies.md#choose) - voorwaardelijk beleid overzichten op basis van de evaluatie van Booleaanse expressies is van toepassing.  
-    -   [Doorsturen van aanvraag](api-management-advanced-policies.md#ForwardRequest) -stuurt de aanvraag naar de back-endservice.  
-    -   [Bij Log to Eventhub](api-management-advanced-policies.md#log-to-eventhub) -berichten in de opgegeven indeling verzendt naar een berichtdoel is gedefinieerd door een Logger-entiteit.  
+    -   [Doorsturen van aanvraag](api-management-advanced-policies.md#ForwardRequest) -stuurt de aanvraag naar de back-endservice.
+    -   [Beperken van gelijktijdigheid](api-management-advanced-policies.md#LimitConcurrency) -voorkomt dat tussen beleid van door meer dan het opgegeven aantal aanvragen dat wordt uitgevoerd op een tijdstip.
+    -   [Bij Log to Eventhub](api-management-advanced-policies.md#log-to-eventhub) -berichten in de opgegeven indeling verzendt naar een berichtdoel is gedefinieerd door een Logger-entiteit.
+    -   [Gesimuleerde een antwoord](api-management-advanced-policies.md#mock-response) -pipeline-uitvoering wordt afgebroken en retourneert een gesimuleerd antwoord rechtstreeks naar de oproepende functie.
     -   [Probeer](api-management-advanced-policies.md#Retry) -uitvoering van de ingesloten beleidsverklaringen pogingen als en totdat de voorwaarde wordt voldaan. Uitvoering wordt herhaald op de opgegeven tijdsintervallen en tot het opgegeven aantal nieuwe pogingen.  
     -   [Antwoord retourneren](api-management-advanced-policies.md#ReturnResponse) -pipeline-uitvoering wordt afgebroken en retourneert het opgegeven antwoord rechtstreeks naar de oproepende functie.  
     -   [Verzenden van One-Way-request](api-management-advanced-policies.md#SendOneWayRequest) -zendt een verzoek naar de opgegeven URL zonder te wachten op een reactie.  
-    -   [Aanvraag verzenden](api-management-advanced-policies.md#SendRequest) -zendt een verzoek naar de opgegeven URL.  
+    -   [Aanvraag verzenden](api-management-advanced-policies.md#SendRequest) -zendt een verzoek naar de opgegeven URL.
+    -   [HTTP-proxy instellen](api-management-advanced-policies.md#SetHttpProxy) -kunt u de route doorgestuurd aanvragen via een HTTP-proxy.
     -   [Variabele instellen](api-management-advanced-policies.md#set-variable) -een waarde in een contextvariabele met de naam voor later toegang behouden.  
     -   [Aanvraagmethode ingesteld](api-management-advanced-policies.md#SetRequestMethod) -kunt u de HTTP-methode voor een aanvraag wijzigen.  
     -   [Instellen van de statuscode](api-management-advanced-policies.md#SetStatus) -verandert de HTTP-statuscode in de opgegeven waarde.  

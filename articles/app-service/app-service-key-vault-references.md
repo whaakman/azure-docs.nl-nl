@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956222"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397816"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Verwijzingen van de Key Vault gebruiken voor App Service en Azure Functions (preview)
 
@@ -37,7 +37,7 @@ Om te kunnen lezen geheimen uit Key Vault, moet u een kluis hebt gemaakt en uw a
    > [!NOTE] 
    > Key Vault verwijst momenteel naar beheerde identiteiten alleen ondersteuning door het systeem toegewezen. Gebruiker toegewezen identiteiten kunnen niet worden gebruikt.
 
-1. Maak een [toegangsbeleid in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) voor de toepassingsidentiteit die u eerder hebt gemaakt. De geheime 'Get'-machtiging voor dit beleid inschakelen. De 'geautoriseerd toepassing' niet configureert of `appliationId` instellingen, als dit is niet compatibel met een beheerde identiteit.
+1. Maak een [toegangsbeleid in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) voor de toepassingsidentiteit die u eerder hebt gemaakt. De geheime 'Get'-machtiging voor dit beleid inschakelen. De 'geautoriseerd toepassing' niet configureert of `applicationId` instellingen, als dit is niet compatibel met een beheerde identiteit.
 
 ## <a name="reference-syntax"></a>De syntaxis
 

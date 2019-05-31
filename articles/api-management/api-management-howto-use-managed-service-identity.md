@@ -11,18 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656676"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393374"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Gebruik van beheerde identiteiten in Azure API Management
 
 In dit artikel leest u over het maken van een beheerde identiteit voor een exemplaar van API Management-service en voor toegang tot andere resources. Een beheerde identiteit die is gegenereerd door Azure Active Directory (Azure AD) kunt uw exemplaar van API Management eenvoudig en veilig toegang krijgen tot andere Azure AD-beveiligde bronnen, zoals Azure Key Vault. Deze identiteit wordt beheerd door Azure en vereist niet dat u in te richten of er geheimen draaien. Zie voor meer informatie over beheerde identiteiten [wat is beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Een beheerde identiteit voor een exemplaar van API Management maken
 
@@ -242,3 +240,4 @@ Meer informatie over beheerde identiteiten voor Azure-resources:
 
 * [Wat is beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-quickstart-templates)
+* [Verifiëren met een beheerde identiteit in een beleid](./api-management-authentication-policies.md#ManagedIdentity)

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920521"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418203"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Thuisdomein detectie voor Active Directory van Azure sign-in 's
 
@@ -32,19 +32,19 @@ Voor het ondersteunen van een breder scala van referenties en de bruikbaarheid t
 
 Een bijkomend voordeel van deze taak is verbeterd foutbericht messaging. Hier volgen enkele voorbeelden van de verbeterde foutberichten tijdens het aanmelden bij een toepassing die ondersteuning biedt voor Active Directory-gebruikers.
 
-1. De gebruikersnaam is onjuist of de gebruikersnaam is nog niet zijn gesynchroniseerd met Azure AD:
+- De gebruikersnaam is onjuist of de gebruikersnaam is nog niet zijn gesynchroniseerd met Azure AD:
   
     ![de gebruikersnaam is een typefout gemaakt of is niet gevonden](./media/signin-realm-discovery/typo-username.png)
   
-2. De domeinnaam is een typefout gemaakt:
+- De domeinnaam is een typefout gemaakt:
   
     ![de domeinnaam is een typefout gemaakt of is niet gevonden](./media/signin-realm-discovery/typo-domain.png)
   
-3. Gebruiker wil zich aanmelden met een bekende consumentendomein:
+- Gebruiker wil zich aanmelden met een bekende consumentendomein:
   
     ![aanmelden met een bekende consumentendomein](./media/signin-realm-discovery/consumer-domain.png)
   
-4. Het wachtwoord is een typefout gemaakt, maar de gebruikersnaam juist is:  
+- Het wachtwoord is een typefout gemaakt, maar de gebruikersnaam juist is:  
   
     ![wachtwoord is een typefout gemaakt met een goede gebruikersnaam](./media/signin-realm-discovery/incorrect-password.png)
   

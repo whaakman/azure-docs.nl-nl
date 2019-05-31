@@ -2,31 +2,24 @@
 title: Valideren van de VPN-doorvoer naar een Microsoft Azure Virtual Network | Microsoft Docs
 description: Het doel van dit document is om u te helpen bij het valideren van de netwerkdoorvoer van hun on-premises bronnen met een Azure-machine van een gebruiker.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457524"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388619"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>VPN-doorvoer naar een virtueel netwerk valideren
 
 Een VPN-gatewayverbinding kunt u veilige, cross-premises connectiviteit tussen uw virtuele netwerk in Azure en uw on-premises IT-infrastructuur.
 
-In dit artikel laat zien hoe om te valideren van de netwerkdoorvoer van de on-premises bronnen met een Azure-machine (VM). Het bevat ook richtlijnen voor probleemoplossing.
+In dit artikel laat zien hoe om te valideren van de netwerkdoorvoer van de on-premises bronnen met een Azure-machine (VM). Het bevat ook richtlijnen voor probleemoplossing. 
 
 >[!NOTE]
 >In dit artikel is bedoeld om u te helpen vaststellen en oplossen van veelvoorkomende problemen. Als u niet het probleem kunt oplossen met behulp van de volgende informatie, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -127,7 +120,7 @@ Kan optreden langzaam bestand kopiëren wanneer met behulp van Windows Explorer 
 - Er is onvoldoende VM schijf lezen/schrijven-snelheid. Zie voor meer informatie, [probleemoplossing van Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>On-premises apparaat extern gerichte interface
-Als de on-premises VPN-apparaat internetgerichte IP-adres is opgenomen in de [lokale netwerk](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definitie in Azure, treden onvermogen om aan te brengen tot de VPN-verbinding, sporadisch verbinding verbreekt, of prestatieproblemen.
+Als de on-premises VPN-apparaat internetgerichte IP-adres is opgenomen in de [lokale netwerk](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) adresruimte definition in Azure, treden onvermogen om aan te brengen tot de VPN-verbinding, sporadisch verbinding verbreekt, of prestatieproblemen.
 
 ## <a name="checking-latency"></a>Latentie controleren
 Tracert te traceren op Microsoft Azure Edge-apparaat gebruiken om te bepalen of er een vertraging van meer dan 100 ms tussen hops.

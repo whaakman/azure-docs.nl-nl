@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408871"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393650"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integreren met Azure beheerde identiteiten
 
@@ -49,7 +49,7 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 Als u een beheerde identiteit in de portal instelt, moet u eerst maken van een toepassing als normale en schakel vervolgens de functie.
 
-1. Maak een app in de [Azure-portal](https://aka.ms/azconfig/portal) zoals u gewend bent. Ga naar het in de portal.
+1. Maak een app in de [Azure-portal](https://portal.azure.com) zoals u gewend bent. Ga naar het in de portal.
 
 2. Schuif omlaag naar de **instellingen** groep in het linkerdeelvenster en selecteer **identiteit**.
 
@@ -59,9 +59,9 @@ Als u een beheerde identiteit in de portal instelt, moet u eerst maken van een t
 
 ## <a name="grant-access-to-app-configuration"></a>Verleen toegang tot de App-configuratie
 
-1. In de [Azure-portal](https://aka.ms/azconfig/portal), selecteer **alle resources** en selecteert u de app-configuratiearchief, dat u in de Quick Start hebt gemaakt.
+1. In de [Azure-portal](https://portal.azure.com), selecteer **alle resources** en selecteert u de app-configuratiearchief, dat u in de Quick Start hebt gemaakt.
 
-2. Selecteer **toegangsbeheer (IAM)**.
+2. Selecteer **toegangsbeheer (IAM)** .
 
 3. Op de **toegang controleren** tabblad **toevoegen** in de **roltoewijzing toevoegen** UI-kaart.
 
@@ -75,7 +75,7 @@ Als u een beheerde identiteit in de portal instelt, moet u eerst maken van een t
 
 ## <a name="use-a-managed-identity"></a>Een beheerde identiteit gebruiken
 
-1. Open *appsettings.json*, en voeg het volgende script toe. Vervang  *\<service_endpoint >*, met inbegrip van de vierkante haken, de URL naar het opslaan van de app-configuratie:
+1. Open *appsettings.json*, en voeg het volgende script toe. Vervang  *\<service_endpoint >* , met inbegrip van de vierkante haken, de URL naar het opslaan van de app-configuratie:
 
     ```json
     "AppConfig": {

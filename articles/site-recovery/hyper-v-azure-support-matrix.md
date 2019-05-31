@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235872"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399430"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure
 
@@ -76,7 +76,7 @@ Gast-VM-netwerk: Multi-NIC | Ja | Ja
 
 **Onderdeel** | **Hyper-V met Virtual Machine Manager** | **Hyper-V zonder Virtual Machine Manager**
 --- | --- | ---
-Azure ExpressRoute | Ja | Ja
+ExpressRoute van Azure | Ja | Ja
 ILB | Ja | Ja
 ELB | Ja | Ja
 Azure Traffic Manager | Ja | Ja
@@ -151,7 +151,7 @@ On-premises machines die u naar Azure repliceren, moeten voldoen aan de virtuele
 **Onderdeel** | **Vereisten** | **Details**
 --- | --- | ---
 Gast-besturingssysteem | Site Recovery ondersteunt alle besturingssystemen die zijn [ondersteund door Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Controle van vereisten mislukt als niet-ondersteund.
-Architectuur van de Gast-besturingssysteem | 64-bits | Controle van vereisten mislukt als niet-ondersteund.
+Architectuur van de Gast-besturingssysteem | 64-bit | Controle van vereisten mislukt als niet-ondersteund.
 Grootte van de besturingssysteemschijf | Maximaal 2048 GB voor virtuele machines van generatie 1.<br/><br/> Maximaal 300 GB voor virtuele machines van generatie 2.  | Controle van vereisten mislukt als niet-ondersteund.
 Aantal besturingssysteemschijven | 1 | Controle van vereisten mislukt als niet-ondersteund.
 Aantal gegevensschijven | 16 of lager  | Controle van vereisten mislukt als niet-ondersteund.

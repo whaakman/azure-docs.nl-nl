@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/01/2016
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 559050cbc575fce5bdb5b32ec266e1cc3d09b2d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097473"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242710"
 ---
 # <a name="create-a-xamarinios-app"></a>Een Xamarin.iOS-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -33,59 +33,40 @@ Het volgen van deze zelfstudie is een vereiste voor alle andere Xamarin.iOS- zel
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 * Een actief Azure-account. Als u geen account hebt, meldt u zich aan voor een proefversie van Azure en krijgt u maximaal tien gratis mobiele apps die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-* Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](/visualstudio/cross-platform/setup-and-install) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
-* Een Mac met Xcode v7.0 of hoger en waarop Xamarin Studio Community is geïnstalleerd. Zie [Setup and install for Visual Studio and Xamarin](/visualstudio/cross-platform/setup-and-install) (Installeren en instellen voor Visual Studio en Xamarin) en [Setup, install, and verifications for Mac users](/visualstudio/cross-platform/setup-install-and-verifications-for-mac-users) (Instructies voor installatie, configuratie en verificatie voor Mac-gebruikers) (MSDN).
-
+* Visual Studio voor Mac. Zie [instellen en installeren voor Visual Studio voor Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Een Mac met Xcode 9.0 of hoger.
+  
 ## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
-Volg deze stappen voor het maken van een back-end voor mobiele apps.
-
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-the-server-project"></a>Het serverproject configureren
-U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Download vervolgens een serverproject voor een eenvoudige back-end voor takenlijsten en publiceer deze naar Azure.
-
-Volg de onderstaande stappen voor het configureren van het serverproject voor het gebruik van de Node.js- of .NET-back-end.
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>De verbinding met een database maken en configureren van het project client en server
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinios-app"></a>De Xamarin iOS-app downloaden en uitvoeren
-1. Open de [Azure Portal] in een browservenster.
-2. Klik op de blade Instellingen voor uw Mobile App op **Aan de slag** > **Xamarin.iOS**. Klik in stap 3 op **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
+## <a name="run-the-xamarinios-app"></a>De app voor Xamarin.iOS uitvoeren
+1. Open het Xamarin.iOS-project.
 
-      Een clienttoepassing die verbinding maakt met uw mobiele back-end wordt gedownload. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
-3. Pak het project uit dat u hebt gedownload en open het in Xamarin Studio (of Visual Studio).
+2. Ga naar de [Azure-portal](https://portal.azure.com/) en navigeer naar de mobiele app die u hebt gemaakt. Op de `Overview` blade, zoekt u de URL op die het openbare eindpunt voor uw mobiele app. Voorbeeld: de sitenaam voor mijn app-naam 'test123' worden https://test123.azurewebsites.net.
 
-    ![][9]
+3. Open het bestand `QSTodoService.cs` in deze map - xamarin.iOS/ZUMOAPPNAME. De toepassingsnaam is `ZUMOAPPNAME`.
 
-    ![][8]
-4. Druk op F5 om het project te bouwen en de app te starten in de iPhone-emulator.
-5. Typ in de app zinvolle tekst, zoals *Xamarin leren kennen*, en klik vervolgens op de knop **+**.
+4. In `QSTodoService` klasse, Vervang `ZUMOAPPURL` met openbare eindpunt van het bovenstaande variabele.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    wordt
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. Druk op F5 om te implementeren en uitvoeren van de app in een iPhone-emulator.
+
+6. Typ in de app zinvolle tekst, zoals *Voltooi de zelfstudie* en klik vervolgens op de knop +.
 
     ![][10]
 
-    Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
+    Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens verschijnen in de lijst.
 
-> [!NOTE]
-> U kunt de code die toegang geeft tot uw back-end voor mobiele apps, controleren om gegevens in het QSTodoService.cs C#-bestand op te vragen en in te voegen.
->
->
-
-## <a name="next-steps"></a>Volgende stappen
-* [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-users.md)
-* [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-ios-get-started-push.md)
-* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
-
-<!-- Anchors. -->
-[Getting started with mobile app backends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
-
+   > [!NOTE]
+   > U kunt de code die toegang heeft tot de back-end van uw mobiele app bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
+   
 <!-- Images. -->
-[6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
-[8]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png
-[9]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
-
-<!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/

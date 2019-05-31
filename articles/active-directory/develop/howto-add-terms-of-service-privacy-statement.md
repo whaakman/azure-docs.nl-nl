@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540181"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235293"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedure: Gebruiksvoorwaarden en privacyverklaring voor een app configureren
 
@@ -46,7 +46,7 @@ Voordat u koppelingen naar van uw app en de gebruiksvoorwaarden en privacyverkla
 
 | Richtlijn     | Description                           |
 |---------------|---------------------------------------|
-| Notatie        | Geldige URL                             |
+| Indeling        | Geldige URL                             |
 | Geldige schema 's | HTTP en HTTPS<br/>We raden aan HTTPS |
 | Maximumlengte    | 2048 tekens                       |
 
@@ -56,33 +56,20 @@ Voorbeelden: `https://myapp.com/terms-of-service` en `https://myapp.com/privacy-
 
 Als de gebruiksrechtovereenkomst en privacyverklaring klaar bent, kunt u koppelingen toevoegen aan deze documenten in uw app met behulp van een van de volgende methoden:
 
-* [Via de Azure-portal](#registered-in-azure-portal)
-* [In de Portal voor Toepassingsregistratie of Dev Center](#registered-in-app-reg-portal)
+* [Via de Azure-portal](#azure-portal)
 * [Met behulp van de app van JSON-object](#app-object-json)
 * [Met behulp van de bètaversie van MSGraph REST-API](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Als u uw app geregistreerd in Azure portal
-
-Volg deze stappen als u uw app geregistreerd in Azure portal.
+### <a name="azure-portal"></a>Met behulp van de Azure portal
+Volg deze stappen in de Azure-portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Navigeer naar de **App-registraties** sectie en selecteer uw app.
-3. Open de **eigenschappen** sectie van de app.
+3. Open de **Branding** deelvenster.
 4. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
 5. Sla uw wijzigingen op.
 
     ![App sectie met eigenschappen met de voorwaarden van de service en privacy statement-URL 's](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Als u uw app geregistreerd in de Portal voor Appregistratie
-
-Volg deze stappen als u uw app in de Portal voor Toepassingsregistratie of Dev Center hebt geregistreerd.
-
-1. Aanmelden bij de [Portal voor Appregistratie](https://apps.dev.microsoft.com/).
-2. Selecteer uw app en schuif naar de **profiel** sectie.
-3. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
-4. Sla uw wijzigingen op.
-
-    ![App profielsectie met de voorwaarden van de service en privacy statement-URL 's](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Met behulp van de app van JSON-object
 

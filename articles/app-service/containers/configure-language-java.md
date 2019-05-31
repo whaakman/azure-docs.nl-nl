@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179811"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254467"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Een Linux Java-app configureren voor Azure App Service
 
@@ -164,7 +164,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Gebruikers afmelden en andere acties worden uitgevoerd, Raadpleeg de documentatie over [gebruik van App Service-verificatie en autorisatie](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Er is ook officiële documentatie over de Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) en de bijbehorende methoden. De volgende servlet methoden ook zijn gemigreerd, is afhankelijk van uw App Service-configuratie:
+Gebruikers afmelden en andere acties worden uitgevoerd, Raadpleeg de documentatie over [gebruik van App Service-verificatie en autorisatie](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Er is ook officiële documentatie over de Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) en de bijbehorende methoden. De volgende servlet methoden ook zijn gemigreerd, is afhankelijk van uw App Service-configuratie:
 
 ```java
 public boolean isSecure()

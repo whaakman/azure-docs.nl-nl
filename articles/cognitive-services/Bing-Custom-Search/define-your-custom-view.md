@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236253"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390425"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>De ervaring van uw Bing Custom Search configureren
 
@@ -29,7 +29,7 @@ Bij het definiëren van de segmenten van de web-, gebruikt u de volgende:
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Domein     | Een segment van het domein bevat alle inhoud binnen een internetdomein gevonden. Bijvoorbeeld `www.microsoft.com`. Als u weglaat `www.` zorgt ervoor dat de Bing zoeken ook subdomeinen van het domein. Als u bijvoorbeeld `microsoft.com`, Bing retourneert ook resultaten van `support.microsoft.com` of `technet.microsoft.com`. |
 | (Sub)    | Een segment subpagina bevat alle inhoud gevonden in de (sub) en paden eronder. U kunt maximaal twee subpagina's in het pad opgeven. Bijvoorbeeld: `www.microsoft.com/en-us/windows/`                                                                                                                       |
-| Webpagina    | Een segment webpagina kunt u alleen die webpagina opnemen in een aangepast zoeken. U kunt eventueel opgeven of u wilt opnemen subpagina's.                                                                                                                                                                                  |
+| Webpage    | Een segment webpagina kunt u alleen die webpagina opnemen in een aangepast zoeken. U kunt eventueel opgeven of u wilt opnemen subpagina's.                                                                                                                                                                                  |
 
 > [!IMPORTANT]
 > Alle domeinen, subpagina's en webpagina's die u opgeeft moet zijn openbare en geïndexeerd door Bing. Als u eigenaar bent van een openbare site die u wilt opnemen in het zoekvak en deze nog niet worden geïndexeerd door Bing, raadpleegt u de Bing [webbeheerder documentatie](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) voor meer informatie over het ophalen van Bing het indexeren. Zie ook de documentatie van de beheerder voor meer informatie over het ophalen van Bing de verkende site bijwerkt als de index verouderd is.
@@ -40,7 +40,7 @@ Wanneer u uw aangepaste zoekinstantie maakt, kunt u het delen van het web: domei
 
 Als u weet dat de segmenten die u wilt opnemen in uw exemplaar voor aangepast zoeken, deze toevoegen aan uw exemplaar van **Active** lijst. 
 
-Als u niet zeker weet welke segmenten om op te nemen, kunt u zoekquery's verzenden naar Bing in de **Preview** deelvenster en selecteer de segmenten die u wilt. Dit kunt u op de volgende manier doen: 
+Als u niet zeker weet welke segmenten om op te nemen, kunt u zoekquery's verzenden naar Bing in de **Preview** deelvenster en selecteer de segmenten die u wilt. Om dit te doen: 
 
 1. Selecteer 'Bing' in de vervolgkeuzelijst in het voorbeeldvenster en voer een zoekopdracht
 
@@ -74,7 +74,7 @@ Na het toevoegen van websegmenten de **Active** weergeven, de Bing Custom Search
 
 ## <a name="search-for-images-and-videos"></a>Zoeken naar afbeeldingen en video 's
 
-U kunt zoeken naar afbeeldingen en video's op soortgelijke wijze aan webinhoud met behulp van de [afbeeldingen zoeken-API van Bing aangepaste](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) of de [Video zoeken-API van Bing aangepaste](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). U kunt deze resultaten met weergeven de [gebruikersinterface die wordt gehost](hosted-ui.md), of de API's. 
+U kunt zoeken naar afbeeldingen en video's op soortgelijke wijze aan webinhoud met behulp van de [afbeeldingen zoeken-API van Bing aangepaste](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) of de [Video zoeken-API van Bing aangepaste](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). U kunt deze resultaten met weergeven de [gebruikersinterface die wordt gehost](hosted-ui.md), of de API's. 
 
 Deze API's zijn vergelijkbaar met de niet-aangepaste [Bing afbeeldingen zoeken](../Bing-Image-Search/overview.md) en [Bing video's zoeken](../Bing-Video-Search/search-the-web.md) API's, maar het gehele web doorzoeken en hoeven niet de `customConfig` queryparameter. Zie deze documentatiesets voor meer informatie over het werken met afbeeldingen en video's. 
 
@@ -83,7 +83,7 @@ Deze API's zijn vergelijkbaar met de niet-aangepaste [Bing afbeeldingen zoeken](
 U kunt uw exemplaar van de search testen met behulp van het voorbeeldvenster aan de rechterkant van de portal voor zoekopdrachten en de resultaten te bekijken. 
 
 1. Selecteer onder het zoekvak **mijn exemplaar**. U kunt de resultaten van uw zoekervaring vergelijken met Bing, door te selecteren **Bing**. 
-2. Selecteer een filter veilig zoeken en die de markt om te zoeken naar (Zie [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)).
+2. Selecteer een filter veilig zoeken en die de markt om te zoeken naar (Zie [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Voer een query en druk op enter of klik op het zoekpictogram om de resultaten van de huidige configuratie weer te geven. U kunt uw search-type u uitvoeren door te klikken op wijzigen **Web**, **installatiekopie**, of **Video** overeenkomende resultaten ophalen. 
 
 <a name="adjustrank"></a>
@@ -94,8 +94,8 @@ De portal kunt u de positie zoeken van inhoud van specifieke domeinen, subpagina
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Blok      | Hiermee wordt het domein, subpagina of webpagina aan de lijst met geblokkeerde verplaatst. Bing sluit inhoud uit de geselecteerde site wordt weergegeven in de lijst met zoekresultaten.                    |
-| Versterking      | Verhoogt de inhoud van het domein of de (sub) moet hoger zijn in de lijst met zoekresultaten.                                                                                        |
+| Blokkeren      | Hiermee wordt het domein, subpagina of webpagina aan de lijst met geblokkeerde verplaatst. Bing sluit inhoud uit de geselecteerde site wordt weergegeven in de lijst met zoekresultaten.                    |
+| Boost      | Verhoogt de inhoud van het domein of de (sub) moet hoger zijn in de lijst met zoekresultaten.                                                                                        |
 | Niveau verlagen     | Inhoud van het domein of lager in de lijst met zoekresultaten subpagina verlagen. U selecteren of te verlagen van de inhoud van het domein of subpagina dat de webpagina die deel uitmaakt. |
 | Vastmaken aan de bovenkant | Verplaatst het domein, subpagina of een webpagina aan de **vastgehouden** lijst. Dit zorgt ervoor dat de webpagina wordt weergegeven als de belangrijkste zoekresultaten voor een bepaalde zoekquery.                   |
 
@@ -131,9 +131,9 @@ Standaard webpagina's zijn alleen vastgemaakt aan het begin van zoekresultaten w
 
 | Value | Description                                                                          |
 |---------------|----------------------------------------------------------------------------------|
-| Begint met | De pincode is een overeenkomst als de queryreeks van de gebruiker met de querytekenreeks van de pincode begint |
-| Eindigt op   | De pincode is een overeenkomst als queryreeks van de gebruiker met de pincode van de query-tekenreeks eindigt.  |
-| Bevat    | De pincode is een overeenkomst als de query-tekenreeks van de gebruiker de pincode queryreeks bevat.   |
+| begint met | De pincode is een overeenkomst als de queryreeks van de gebruiker met de querytekenreeks van de pincode begint |
+| eindigt met   | De pincode is een overeenkomst als queryreeks van de gebruiker met de pincode van de query-tekenreeks eindigt.  |
+| bevat    | De pincode is een overeenkomst als de query-tekenreeks van de gebruiker de pincode queryreeks bevat.   |
 
 
 Als u wilt wijzigen van de pincode-voorwaarde voor overeenkomst, klikt u op het speldpictogram bewerken. In de **Query-voorwaarde voor overeenkomst** kolom, klikt u op de vervolgkeuzelijst en selecteert u de nieuwe voorwaarde te gebruiken. Klik vervolgens op de opslagbewerking pictogram van de wijziging op te slaan.
@@ -144,7 +144,7 @@ U wijzigt de volgorde van uw pincodes, u kunt slepen en neerzetten het ze of hun
 
 Als meerdere pincodes voldoen aan een voorwaarde voor overeenkomst, Bing Custom Search gebruikt met het hoogste niveau in de lijst met één.
 
-## <a name="view-statistics"></a>Statistische gegevens weergeven
+## <a name="view-statistics"></a>Statistieken weergeven
 
 Als u geabonneerd op aangepaste zoekopdrachten op het juiste niveau (Zie de [prijspagina's](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), een **statistieken** tabblad wordt toegevoegd aan uw productie-exemplaren. Het tabblad statistieken bevat meer informatie over hoe uw Custom Search-eindpunten worden gebruikt, zoals aanroepvolume, top-query's, geografische verdeling, responscodes en veilig zoeken. U kunt informatie over het gebruik van de opgegeven besturingselementen voor filteren.
 

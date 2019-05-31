@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e0b9faeb796653abb4c061884ab2fbb78e867e71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918988"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417860"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Het gebruik en kosten met Azure Monitor logboeken beheren
 
@@ -85,7 +85,7 @@ Als u aan de slag te gaan, moet u hier de aanbevolen instellingen voor de waarsc
    - Zoekopdracht: Bewerking | waar Details 'overschrijding ' van het quotum heeft
    - Op basis van: Aantal resultaten
    - Voorwaarde: Groter dan
-   - Drempelwaarde: 0
+   - Drempelwaarde voor: 0
    - Periode: 5 (minuten)
    - Frequentie van: 5 (minuten)
 - Naam waarschuwingsregel: Dagelijkse gegevenslimiet bereikt
@@ -151,13 +151,13 @@ Hoger gebruik wordt veroorzaakt door een of beide volgende oorzaken:
 
 ## <a name="understanding-nodes-sending-data"></a>Knooppunten die gegevens verzenden
 
-Voor meer informatie over het aantal computers (knooppunten) waarvoor gegevens elke dag in de afgelopen maand zijn gerapporteerd, gebruiken
+Voor meer informatie over het aantal computers die rapporteren heartbeats elke dag in de afgelopen maand, gebruik
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Voor een lijst van computers die verzenden **kosten in rekening gebracht gegevenstypen** (bepaalde gegevenstypen zijn gratis), gebruikmaken van de `_IsBillable` [eigenschap](log-standard-properties.md#_isbillable):
+Als u een lijst met computers wordt gefactureerd als knooppunten als de werkruimte in het knooppunt voor verouderde is Per prijscategorie, zoek naar knooppunten die worden verzonden **kosten in rekening gebracht gegevenstypen** (bepaalde gegevenstypen zijn gratis). U doet dit door gebruik van de `_IsBillable` [eigenschap](log-standard-properties.md#_isbillable) en gebruikt het meest linkse veld van de volledig gekwalificeerde domeinnaam. Hiermee wordt de lijst met computers met de gegevens worden gefactureerd:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -165,15 +165,24 @@ Voor een lijst van computers die verzenden **kosten in rekening gebracht gegeven
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Gebruik deze `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn duur in het uitvoeren van query's. Deze query vervangt de oude manier van het uitvoeren van query's informatie per-computer met het gegevenstype van het gebruik.  
-
-Dit kan worden uitgebreid om terug te keren de telling van computers per uur die verzenden gefactureerd gegevenstypen (dit is hoe factureerbare knooppunten in Log Analytics wordt berekend voor het knooppunt voor verouderde Per prijscategorie):
+Het aantal factureerbare knooppunten die kan worden geschat als: 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| billableNodes=dcount(computerName)`
+
+> [!NOTE]
+> Gebruik deze `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn duur in het uitvoeren van query's. Deze query vervangt de oude manier van het uitvoeren van query's informatie per-computer met het gegevenstype van het gebruik.  
+
+Er is een meer nauwkeurige berekening van wat wordt daadwerkelijk in rekening gebracht om op te halen van het aantal computers per uur worden gefactureerd gegevenstypen worden verzonden. (Voor toegang tot werkruimten in de verouderde prijscategorie Per knooppunt, Log Analytics berekend het aantal knooppunten die moeten worden gefactureerd op uurbasis.) 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
 ## <a name="understanding-ingested-data-volume"></a>Inzicht in het opgenomen gegevensvolume
 
@@ -197,24 +206,19 @@ Om te zien de **grootte** van factureerbare gebeurtenissen die per computer, geb
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 De `_IsBillable` [eigenschap](log-standard-properties.md#_isbillable) geeft aan of de opgenomen gegevens kosten in rekening gebracht.
 
-Om te zien de **aantal** van gebeurtenissen die per computer, gebruikt u het volgende:
-
-```kusto
-union withsource = tt *
-| summarize count() by Computer | sort by count_ nulls last
-```
-
-Als het aantal factureerbare gebeurtenissen die per computer weergeven, gebruikt u 
+Om te zien van het aantal **factureerbare** gebeurtenissen die per computer 
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize count() by Computer  | sort by count_ nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize eventCount=count() by computerName  | sort by count_ nulls last
 ```
 
 Als u zien van de aantallen voor factureerbare gegevenstypen zijn gegevens te verzenden naar een specifieke computer wilt, gebruikt:

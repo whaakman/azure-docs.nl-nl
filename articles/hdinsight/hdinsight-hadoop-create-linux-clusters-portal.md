@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715185"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393993"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Op basis van Linux-clusters maken in HDInsight met behulp van Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -42,7 +42,7 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
    
     ![Een nieuw cluster maken in Azure portal](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "het maken van een nieuw cluster in Azure portal")
 
-1. Op de **HDInsight** weergeeft, schakelt **aangepast (grootte, instellingen en apps)**.
+1. Op de **HDInsight** weergeeft, schakelt **aangepast (grootte, instellingen en apps)** .
 
 1. Selecteer **1 basisbeginselen**. Voer de volgende informatie op.
 
@@ -80,7 +80,7 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
 
      ![Opslaginstellingen instellen](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "het maken van een nieuw cluster in Azure portal")
 
-     | Storage                                      | Description |
+     | Opslag                                      | Description |
      |----------------------------------------------|-------------|
      | **Azure Storage-blobs als standaardopslag**   | <ul><li>Voor **primaire opslagtype**, selecteer **Azure Storage**. Voor **selectiemethode**, kiest u **Mijn abonnementen** als u wilt opgeven van een storage-account die deel uitmaakt van uw Azure-abonnement. Selecteer vervolgens het opslagaccount. Selecteer anders **toegangssleutel**. Geef de informatie voor het opslagaccount dat u kiezen wilt uit buiten uw Azure-abonnement.</li><li>Voor **standaardcontainer**, kiest u de standaardnaam van de container voorgesteld door de portal of geef uw eigen.</li><li>Als Azure Blob-opslag de standaardopslag is, kunt u ook selecteren **extra Opslagaccounts** om op te geven van extra opslagaccounts om te koppelen aan het cluster. Voor **Azure Storage-sleutels**, selecteer **een opslagsleutel toevoegen**. Geef vervolgens een storage-account van uw Azure-abonnementen of van andere abonnementen. Geef de toegangssleutel voor opslagaccount.</li><li>Als de Blob-opslag is de standaardopslag, kunt u ook selecteren **Data Lake Storage access** om op te geven van Azure Data Lake Storage als extra opslag. Zie voor meer informatie [Snelstart: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage als standaardopslag** | Voor **primaire opslagtype**, selecteer **Azure Data Lake Storage Gen1** of **Azure Data Lake Storage Gen2**. Raadpleeg het artikel [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor instructies. |
@@ -92,7 +92,7 @@ De Azure-portal wordt aangegeven dat de meeste van de eigenschappen van het clus
      Selecteer **volgende** om naar de volgende pagina te gaan.
 
 
-6. Van **4 toepassingen (optioneel)**, selecteert u alle toepassingen die u wilt. Microsoft, onafhankelijke softwareleveranciers (ISV's), of u kunt deze toepassingen ontwikkelen. Zie voor meer informatie, [toepassingen installeren tijdens het maken van clusters](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Van **4 toepassingen (optioneel)** , selecteert u alle toepassingen die u wilt. Microsoft, onafhankelijke softwareleveranciers (ISV's), of u kunt deze toepassingen ontwikkelen. Zie voor meer informatie, [toepassingen installeren tijdens het maken van clusters](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
     Selecteer **volgende** om naar de volgende pagina te gaan.
 

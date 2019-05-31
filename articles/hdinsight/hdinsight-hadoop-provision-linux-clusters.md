@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: 2f8c3aa0a5d37327ba49aebb1def94e90751b7cc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 05/28/2019
+ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597573"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299391"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Clusters in HDInsight met Apache Hadoop, Apache Spark en Apache Kafka instellen
 
@@ -22,7 +22,7 @@ ms.locfileid: "65597573"
 
 Informatie over het instellen en configureren van clusters in HDInsight met Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML-Services of Apache Storm. Leer ook hoe u clusters aanpassen en beveiliging toevoegen door deze toevoegen aan een domein.
 
-Een Hadoop-cluster bestaat uit meerdere virtuele machines (knooppunten) die worden gebruikt voor gedistribueerde verwerking van taken. Azure HDInsight verwerkt implementatiegegevens van de installatie en configuratie van afzonderlijke knooppunten, zodat u alleen algemene configuratie-informatie te verstrekken. 
+Een Hadoop-cluster bestaat uit meerdere virtuele machines (knooppunten) die worden gebruikt voor gedistribueerde verwerking van taken. Azure HDInsight verwerkt implementatiegegevens van de installatie en configuratie van afzonderlijke knooppunten, zodat u alleen algemene configuratie-informatie te verstrekken.
 
 > [!IMPORTANT]  
 > De facturering voor het gebruik van HDInsight-clusters begint zodra er een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. Meer informatie over het [een cluster verwijderen.](hdinsight-delete-cluster.md)
@@ -52,11 +52,7 @@ Volg de instructies op het scherm om een eenvoudige installatie doen. Meer infor
 * Aanmelding bij cluster en SSH-gebruikersnaam
 * [Locatie](#location)
 
-> [!IMPORTANT]  
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [HDInsight 3.3 buiten gebruik stellen](hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
-
-## <a name="resource-group-name"></a>Resourcegroepnaam 
+## <a name="resource-group-name"></a>Naam van de resourcegroep
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helpt u het gebruik van de resources in uw toepassing als een groep, aangeduid als een Azure-resourcegroep. U kunt implementeren, bijwerken, bewaken of verwijderen van alle resources voor uw toepassing in één gecoördineerde bewerking.
 
@@ -160,10 +156,10 @@ Elk clustertype heeft een eigen aantal knooppunten, terminologie voor knooppunte
 
 | Type | Knooppunten | Diagram |
 | --- | --- | --- |
-| Hadoop |Hoofdknooppunt (2), gegevensknooppunt (1 +) |![De knooppunten van HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| Hbase |Hoofd-server (2), de regioserver (1 +), hoofdknooppunten/ZooKeeper-knooppunten (3) |![De knooppunten van HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Hadoop |Hoofdknooppunt (2), Worker-knooppunt (1 +) |![De knooppunten van HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| HBase |Hoofd-server (2), de regioserver (1 +), hoofdknooppunten/ZooKeeper-knooppunten (3) |![De knooppunten van HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus-knooppunt (2), supervisor server (1 +), ZooKeeper-knooppunt (3) |![Storm voor HDInsight-clusterknooppunten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Hoofdknooppunt (2), worker-knooppunt (1 +), ZooKeeper-knooppunten (3) (gratis voor A1 ZooKeeper VM-grootte) |![Knooppunten voor HDInsight Spark-cluster](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Spark |Hoofdknooppunt (2), Worker-knooppunt (1 +), ZooKeeper-knooppunten (3) (gratis voor A1 ZooKeeper VM-grootte) |![Knooppunten voor HDInsight Spark-cluster](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 Zie voor meer informatie, [standaard configuratie en de virtuele machine knooppuntgrootten voor clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "Wat zijn de Hadoop-onderdelen en versies in HDInsight?"
 
@@ -172,17 +168,16 @@ De kosten van HDInsight-clusters wordt bepaald door het aantal knooppunten en de
 Verschillende clustertypen hebben verschillende knooppunttypen, aantal knooppunten en knooppuntgrootten:
 * Hadoop-cluster het standaardtype: 
     * Twee *hoofdknooppunten*  
-    * Vier *gegevensknooppunten*
+    * Vier *Worker-knooppunten*
 * Storm-cluster het standaardtype: 
     * Twee *Nimbus-knooppunten*
     * Drie *ZooKeeper-knooppunten*
     * Vier *supervisorknooppunten* 
 
-Als u HDInsight slechts uitprobeert, raden wij dat u één gegevensknooppunt gebruiken. Zie voor meer informatie over de prijzen voor HDInsight [HDInsight prijzen](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Als u HDInsight slechts uitprobeert, raden wij u een Worker-knooppunt. Zie voor meer informatie over de prijzen voor HDInsight [HDInsight prijzen](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > De limiet voor de clustergrootte verschilt per Azure-abonnementen. Neem contact op met [Azure ondersteuning voor facturering](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) om de limiet te verhogen.
->
 
 Wanneer u de Azure-portal gebruikt om het cluster te configureren, de grootte van het knooppunt is beschikbaar via de **knooppunt Prijscategorieën** blade. In de portal, kunt u ook de kosten die gepaard gaan met de grootte van verschillende bekijken. 
 
@@ -196,9 +191,7 @@ Wanneer u clusters implementeert, kiest u de compute-resources op basis van de o
 Om erachter te komen welke u waarde moeten gebruiken een VM-grootte opgeven tijdens het maken van een cluster met behulp van de verschillende SDK's of tijdens het gebruik van Azure PowerShell, Zie [VM-grootten voor HDInsight-clusters](../cloud-services/cloud-services-sizes-specs.md#size-tables). In dit artikel gekoppeld, gebruikt u de waarde in de **grootte** kolom van de tabellen.
 
 > [!IMPORTANT]  
-> Als u meer dan 32 worker-knooppunten in een cluster, moet u de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB aan RAM-geheugen.
->
->
+> Als u meer dan 32 Worker-knooppunten in een cluster, moet u de grootte van een hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB aan RAM-geheugen.
 
 Zie voor meer informatie, [grootten voor virtuele machines](../virtual-machines/windows/sizes.md). Zie voor meer informatie over de prijzen van de verschillende grootten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -212,8 +205,6 @@ Sommige systeemeigen Java-onderdelen, zoals Apache Mahout en trapsgewijze, kunne
 > Als u problemen met het JAR-bestanden implementeren met HDInsight-clusters hebt, of aanroepen van de JAR-bestanden op HDInsight-clusters, contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
 >
 > Trapsgewijze wordt niet ondersteund door HDInsight en is niet in aanmerking komen voor Microsoft Support. Zie voor lijsten met ondersteunde onderdelen, [wat is er nieuw in de clusterversies geleverd door HDInsight](hdinsight-component-versioning.md).
->
->
 
 Soms wilt u de volgende configuratiebestanden tijdens het maakproces configureren:
 

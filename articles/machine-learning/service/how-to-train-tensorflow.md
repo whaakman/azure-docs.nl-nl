@@ -10,18 +10,20 @@ ms.author: minxia
 author: mx-iao
 ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: HT
+ms.openlocfilehash: 314917ce91407206d786b191df118893696ac82c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400218"
+ms.locfileid: "66417123"
 ---
-# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>Azure Machine Learning-service gebruiken om te trainen en TensorFlow modellen registreren
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Trainen en TensorFlow-modellen op schaal registreren met Azure Machine Learning-service
 
 Dit artikel leest u hoe te trainen en een TensorFlow-model met behulp van Azure Machine Learning-service te registreren. Gebruikt u de populaire [MNIST gegevensset](http://yann.lecun.com/exdb/mnist/) handgeschreven cijfers met behulp van een deep neural network is gebouwd op TensorFlow classificeren.
 
-Met Azure Machine Learning-service zult u kunnen worden uitgebreid snel uw open-source-trainingstaken met behulp van flexibele cloud compute-resources. U zult ook mogelijk uw trainingsuitvoeringen, versie modellen bijhouden, het implementeren van modellen en nog veel meer. Of u een TensorFlow-model van de grond-up ontwikkelt of u bent u een bestaand model in de cloud laadt, is Azure Machine Learning-service er om u informatie over het bouwen van modellen gereed is voor productie.
+Met Azure Machine Learning-service zult u kunnen worden uitgebreid snel uw open-source-trainingstaken met behulp van flexibele cloud compute-resources. U zult ook mogelijk uw trainingsuitvoeringen, versie modellen bijhouden, het implementeren van modellen en nog veel meer. 
+
+Of u een TensorFlow-model van de grond-up ontwikkelt of u een bestaand model naar de cloud brengen, kunt u modellen met Azure Machine Learning-service gereed is voor productie kunt bouwen.
 
 ## <a name="prerequisites"></a>Vereisten
 

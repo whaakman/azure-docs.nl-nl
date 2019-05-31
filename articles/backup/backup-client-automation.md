@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eac7f6ec7ec41d257317d9d2a62f0bacc046dbab
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127795"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400184"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor een Windows-server/Windows-client
 
@@ -86,7 +86,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Voordat u de Azure backup-agent installeert, moet u het installatieprogramma gedownload en aanwezig zijn op de Windows-Server. Krijgt u de nieuwste versie van het installatieprogramma van de [Microsoft Download Center](https://aka.ms/azurebackup_agent) of van de dashboardpagina van de Recovery Services-kluis. Het installatieprogramma opslaan op een toegankelijke locatie, zoals * C:\Downloads\*.
 
 U kunt ook PowerShell gebruiken om op te halen van het downloadprogramma voor het installatieprogramma:
- 
+
  ```powershell
  $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
@@ -104,7 +104,7 @@ Hiermee wordt de agent geïnstalleerd met de standaardopties. De installatie duu
 
 De lijst met geïnstalleerde programma's wilt bekijken, gaat u naar **Configuratiescherm** > **programma's** > **programma's en onderdelen**.
 
-![De agent is geïnstalleerd](./media/backup-client-automation/installed-agent-listing.png)
+![Agent is geïnstalleerd](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opties voor de installatie
 
@@ -139,7 +139,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 ```
 
 Voer op de Windows Server of Windows client-computer, de [Start OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet voor het registreren van de machine bij de kluis.
-Deze en andere cmdlets gebruikt voor back-up, zijn van de MSONLINE-module die de Mars-AgentInstaller toegevoegd als onderdeel van het installatieproces. 
+Deze en andere cmdlets gebruikt voor back-up, zijn van de MSONLINE-module die de Mars-AgentInstaller toegevoegd als onderdeel van het installatieproces.
 
 Het installatieprogramma van Agent wordt niet bijgewerkt voor de $Env: PSModulePath variabele. Dit betekent dat module automatisch laden is mislukt. U kunt dit oplossen kunt u het volgende doen:
 
@@ -391,6 +391,32 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Back-up van Windows Server System State in MAB-agent
+
+In deze sectie bevat informatie over de PowerShell-opdracht voor het instellen van de systeemstatus in MAB-agent
+
+### <a name="schedule"></a>Planning
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### <a name="retention"></a>Bewaartermijn
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### <a name="configuring-schedule-and-retention"></a>Planning en retentie configureren
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### <a name="verifying-the-policy"></a>Controleren of het beleid
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
 
 ### <a name="applying-the-policy"></a>Het beleid wordt toegepast
 

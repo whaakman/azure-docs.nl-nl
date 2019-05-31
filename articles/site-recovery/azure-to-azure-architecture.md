@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791151"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399581"
 ---
-# <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure naar Azure disaster recovery-architectuur
+# <a name="azure-to-azure-disaster-recovery-architecture"></a>Architectuur voor herstel na noodgevallen van Azure naar Azure
 
 
 In dit artikel beschrijft de architectuur, onderdelen en processen die worden gebruikt bij het implementeren van herstel na noodgevallen voor Azure virtual machines (VM's) met behulp van de [Azure Site Recovery](site-recovery-overview.md) service. Met herstel na noodgevallen instellen van repliceren Azure-VM's voortdurend vanaf naar een ander doel-regio. Als er een storing optreedt, kunt u virtuele machines een failover naar de secundaire regio, en ze van daaruit te openen. Wanneer alles wordt normaal gesproken nogmaals uit te voeren, kunt u een failback uitvoeren en blijven werken op de primaire locatie.
@@ -95,13 +95,13 @@ Site Recovery maakt momentopnamen als volgt:
 
 De volgende tabel beschrijft de verschillende typen consistentie.
 
-### <a name="crash-consistent"></a>Crashconsistent
+### <a name="crash-consistent"></a>Crash-consistente
 
 **Beschrijving** | **Details** | **Aanbeveling**
 --- | --- | ---
 Een crash-consistente momentopname bevat gegevens die op de schijf was toen de momentopname werd gemaakt. Deze bevat geen iets in het geheugen.<br/><br/> Het bevat het equivalent van de gegevens op de schijf die aanwezig zijn als de virtuele machine is vastgelopen of het netsnoer is opgehaald uit de server op het moment dat de momentopname werd gemaakt.<br/><br/> Een crash-consistente biedt geen garantie voor de consistentie van gegevens voor het besturingssysteem, of voor apps op de virtuele machine. | Site Recovery maakt crash-consistente herstelpunten om de vijf minuten standaard. Deze instelling kan niet worden gewijzigd.<br/><br/>  | De meeste apps kunnen vandaag, herstellen en van crash-consistente punten.<br/><br/> Crash-consistente herstelpunten zijn meestal voldoende zijn voor de replicatie van besturingssystemen en apps, zoals DHCP-servers en afdrukservers.
 
-### <a name="app-consistent"></a>Toepassingsconsistent
+### <a name="app-consistent"></a>App-consistente
 
 **Beschrijving** | **Details** | **Aanbeveling**
 --- | --- | ---

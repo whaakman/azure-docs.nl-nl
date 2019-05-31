@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124710"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399596"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack-VM's repliceren naar Azure
 
@@ -173,7 +173,7 @@ De configuratie van server-machine instelt, in de kluis te registreren en detect
 
 3. In **-Server toevoegen**, controleert u of **configuratieserver** wordt weergegeven in **servertype**.
 5. Download het installatiebestand van de geïntegreerde Setup van Site Recovery.
-6. Download de registratiesleutel voor de kluis. Wanneer u geïntegreerde Setup uitvoert moet u de registratiesleutel. De sleutel blijft vijf dagen na het genereren ervan geldig.
+6. Download de kluisregistratiesleutel. Wanneer u geïntegreerde Setup uitvoert moet u de registratiesleutel. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
     ![Bron instellen](./media/azure-stack-site-recovery/set-source2.png)
 
@@ -327,7 +327,7 @@ Als uw primaire site opnieuw actief is, kunt u failback van Azure naar Azure Sta
 4. In **schijven**, klikt u op de naam van de schijf en instellingen verzamelen.
 
     - Een voorbeeld: de VHD-URI in onze test gebruikt: https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd kan worden opgesplitst om op te halen van de volgende invoerparameters die worden gebruikt voor het downloaden van de VHD.
-        - Opslagaccount: 502055westcentralus
+        - Storage-Account: 502055westcentralus
         - Container: wahv9b8d2ceb284fb59287
         - Naam van de VHD: gekopieerd-3676553984.vhd
 

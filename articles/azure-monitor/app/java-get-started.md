@@ -12,17 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: bbf9c162cd52dc94ee820c8597f36f7cbfeace5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cc1456aa9928cbd4a24c203eab62e3e75b4d7c1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691255"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256186"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik dit [automatisch instrument aanvragen, afhankelijkheden bijhouden en verzamelen van prestatiemeteritems](auto-collect-dependencies.md#java), [onderzoeken van prestatieproblemen en uitzonderingen](../../azure-monitor/app/detect-triage-diagnose.md), en [code schrijven] [ api] om bij te houden wat gebruikers doen met uw app. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik dit [automatisch instrument aanvragen, afhankelijkheden bijhouden en verzamelen van prestatiemeteritems](auto-collect-dependencies.md#java), onderzoeken van prestatieproblemen en uitzonderingen en [code schrijven] [ api] om bij te houden wat gebruikers doen met uw app. 
 
 ![Schermafbeelding van de voorbeeldgegevens overzicht](./media/java-get-started/overview-graphs.png)
 
@@ -487,7 +486,6 @@ Application Insights kan uw website regelmatig testen om te controleren of deze 
 * [Unix-prestatiemeteritems bewaken](java-collectd.md)
 * Voeg [bewaking toe aan uw webpagina's](javascript.md) om de laadtijden, AJAX-aanroepen en browseruitzonderingen te bewaken.
 * Typ [aangepaste telemetrie](../../azure-monitor/app/api-custom-events-metrics.md) om het gebruik in de browser of op de server bij te houden.
-* Maak [dashboards](../../azure-monitor/app/app-insights-dashboards.md) om de belangrijkste grafieken voor het bewaken van uw systeem samen te brengen.
 * Gebruik [Analytics](../../azure-monitor/app/analytics.md) om vanuit uw app krachtige query's voor telemetrie uit te voeren
 * Voor meer informatie gaat u naar [Azure voor Java-ontwikkelaars](/java/azure).
 

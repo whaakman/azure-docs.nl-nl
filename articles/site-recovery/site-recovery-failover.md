@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/18/2019
-ms.author: mayg
-ms.openlocfilehash: 8f76d4e54133e4e899e707e666703a67310e8702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/30/2019
+ms.author: raynew
+ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280463"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399976"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Failover van virtuele machines en fysieke servers 
 
@@ -80,7 +80,7 @@ Wanneer een failover wordt geactiveerd, moet deze stappen te volgen:
 
 1. Controle van vereisten: Deze stap zorgt ervoor dat alle vereiste voorwaarden voor failover wordt voldaan
 1. Failover: Deze stap verwerkt de gegevens en maakt het gereed is zodat een virtuele machine van Azure buiten deze kan worden gemaakt. Als u hebt gekozen **nieuwste** herstelpunt, deze stap maakt een herstelpunt van de gegevens die zijn verzonden naar de service.
-1. Start: Deze stap maakt u een virtuele machine van Azure met behulp van de gegevens verwerkt in de vorige stap.
+1. Starten: Deze stap maakt u een virtuele machine van Azure met behulp van de gegevens verwerkt in de vorige stap.
 
 > [!WARNING]
 > **Een wordt uitgevoerd niet annuleren failover**: Voordat de failover wordt gestart, is replicatie voor de virtuele machine gestopt. Als u **annuleren** een in de taak wordt uitgevoerd, de failover gestopt, maar de virtuele machine niet wordt gestart om te repliceren. Replicatie kan niet opnieuw worden gestart.

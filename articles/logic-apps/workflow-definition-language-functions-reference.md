@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: b42d376be0d26c8ced60344793dbc8f7dd4a3d53
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: HT
+ms.openlocfilehash: 24e0a0ae2a6af964d3ed87d1817de6e5f403c9b1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303764"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416347"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps en Microsoft Flow
 
@@ -246,7 +246,8 @@ Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Maken van een matrix met de waarden die overeenkomen met de naam van een sleutel in *formuliergegevens* of *formuliercodes* actie-uitvoer. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Retourneert één waarde die overeenkomt met een naam in van een actie *formuliergegevens* of *formuliercodes uitvoer*. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Wanneer u zich binnen een herhalingsactie via een matrix, het huidige item in de matrix te retourneren tijdens de huidige herhaling van de actie. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Wanneer in een voor elke of doen totdat lus retourneren het huidige item uit de opgegeven lus.|
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Wanneer in een Foreach of totdat-lus retourneert het huidige item uit de opgegeven lus.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Retourneert de indexwaarde voor de huidige iteratie wanneer binnen een lus Until. U kunt deze functie in geneste tot lussen gebruiken. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Retourneert de "callback-URL' die een actie of trigger aanroept. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Retourneert de instantie voor een bepaald deel in de uitvoer van een actie die bestaat uit meerdere delen. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retourneert de waarde voor een parameter die wordt beschreven in de werkstroomdefinitie van de. |
@@ -2278,6 +2279,96 @@ In dit voorbeeld wordt het huidige item opgehaald uit de opgegeven voor elke lus
 
 ```
 items('myForEachLoopName')
+```
+
+<a name="iterationIndexes"></a>
+
+### <a name="iterationindexes"></a>iterationIndexes
+
+Retourneert de indexwaarde voor de huidige iteratie binnen een Until-lus. U kunt deze functie in geneste tot lussen gebruiken. 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| Parameter | Vereist | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | Ja | String | De naam voor de Until-lus | 
+||||| 
+
+| Retourwaarde | Type | Description | 
+| ------------ | ---- | ----------- | 
+| <*index*> | Integer | De indexwaarde voor de huidige iteratie binnen de opgegeven totdat-lus | 
+|||| 
+
+*Voorbeeld* 
+
+In dit voorbeeld maakt een tellervariabele en de stappen die variabele door een tijdens elke herhaling in een Until-lus totdat de waarde van het prestatiemeteritem vijf is bereikt. Het voorbeeld maakt ook een variabele die de huidige index voor elke herhaling wordt bijgehouden. In de Until-lus, tijdens elke herhaling in het voorbeeld wordt de teller verhoogd en de waarde van het prestatiemeteritem vervolgens toe te wijzen aan de huidige indexwaarde en vervolgens de teller verhoogd. U kunt op elk gewenst moment het huidige aantal herhalingen bepalen door bij het ophalen van de huidige indexwaarde.
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
 ```
 
 <a name="json"></a>
