@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 3c45c8587e3ca19b32ccd8dc66575333622b3cf1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9cbee4f9f4f694510e852fe3790c8242ef346576
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796585"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416082"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Een Windows virtuele machine van niet-beheerde schijven converteren naar managed disks
 
@@ -37,7 +37,7 @@ Als u bestaande Windows virtuele machines (VM's) die gebruikmaken van niet-behee
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-
+* De oorspronkelijke VHD's en het opslagaccount die vóór de conversie werden gebruikt door de VM worden niet verwijderd. Hiervoor worden nog altijd kosten in rekening gebracht. Als u wilt voorkomen dat er kosten worden doorberekend voor de artefacten, verwijdert u de oorspronkelijke VHD-blobs nadat u hebt gecontroleerd of de conversie is voltooid. Als u deze niet-gekoppelde schijven vinden als u wilt verwijderen wilt, raadpleegt u onze artikel [zoeken en verwijderen van niet-gekoppelde Azure beheerde en onbeheerde schijven](find-unattached-disks.md).
 
 
 ## <a name="convert-single-instance-vms"></a>Virtuele machines van één exemplaar converteren

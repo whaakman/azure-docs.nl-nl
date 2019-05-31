@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 7fca586083f70e0b0f7e593d5203392260cd2136
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66172338"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297707"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Toewijzing van gegevensstromen prestaties en afstemmen van de handleiding
 
@@ -29,7 +29,7 @@ Azure Data Factory toewijzing gegevens stromen bieden een browserinterface zonde
 
 ![Fouten opsporen in knop](media/data-flow/debugb1.png "foutopsporing")
 
-## <a name="optimizing-for-azure-sql-database"></a>Optimaliseren voor Azure SQL Database
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimaliseren voor Azure SQL Database en Azure SQL datawarehouse
 
 ![Deel de gegevensbron](media/data-flow/sourcepart2.png "deel uit van bron")
 
@@ -65,6 +65,13 @@ Azure Data Factory toewijzing gegevens stromen bieden een browserinterface zonde
 * Het aantal kernen, waardoor de verhogen van het aantal knooppunten, en u voorzien van meer verwerkingskracht om te zoeken en schrijven naar uw Azure SQL DB verhogen.
 * Probeer 'Compute geoptimaliseerd' en 'Geoptimaliseerd voor geheugen' opties om toe te passen van andere bronnen in uw rekenknooppunten.
 
+### <a name="unit-test-and-performance-test-with-debug"></a>Test jednotky en prestaties testen met foutopsporing
+
+* Eenheid het testen van de gegevensstromen, wordt wanneer de knop "Gegevens Flow Debug" ingesteld op aan.
+* In de ontwerpfunctie gegevensstroom gebruik u het tabblad Voorbeeld van gegevens van transformaties om de resultaten van uw gegevenstransformatielogica weer te geven.
+* Uw gegevens stromen van de pijplijnontwerper door een activiteit gegevensstroom op het ontwerp van de pijplijn eenheidstest canvas en de knop "Debug" gebruiken om te testen.
+* Testen in de foutopsporingsmodus werkt op basis van een live verwarmde clusteromgeving zonder te wachten op een just-in-time-cluster kringveld-up.
+
 ### <a name="disable-indexes-on-write"></a>Indexen op schrijven uitschakelen
 * Gebruik een ADF pijplijn opgeslagen procedureactiviteit voorafgaand aan de gegevensstroom activiteit waarmee indexen voor de doeltabellen die uit uw Sink worden geschreven om te worden uitgeschakeld.
 * Nadat uw activiteit gegevensstroom toevoegen een andere opgeslagen procedure-activiteit die deze indexen ingeschakeld.
@@ -72,6 +79,34 @@ Azure Data Factory toewijzing gegevens stromen bieden een browserinterface zonde
 ### <a name="increase-the-size-of-your-azure-sql-db"></a>Verhoog de grootte van uw Azure SQL DB
 * Plan een vergroten of verkleinen van de bron en sink-Azure SQL-database voordat u uw uitvoering de pijplijn voor het verhogen van de doorvoer en Azure beperking zodra u DTU bereiken minimaliseren beperkt.
 * Nadat de pijplijnuitvoering voltooid is, kunt u het formaat van uw databases terug naar het normale tarief voor uitvoeren.
+
+## <a name="optimizing-for-azure-sql-data-warehouse"></a>Optimaliseren voor Azure SQL datawarehouse
+
+### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Fasering gebruiken om gegevens in één bulkbewerking met Polybase te laden
+
+* Om te voorkomen dat per rij verwerking van uw gegevens floes, de optie "Staging" in de Sink-instellingen zo instellen dat ADF kan gebruikmaken van Polybase om te voorkomen dat per rij invoegen in DW. Dit vertelt u ADF het gebruik van Polybase, zodat gegevens kunnen worden geladen in één bulkbewerking.
+* Wanneer u uw gegevens stroomactiviteit controleren van een pijplijn, met fasering ingeschakeld, moet u om de locatie van de Blob-archief van uw tijdelijke gegevens voor bulksgewijs laden te selecteren.
+
+### <a name="increase-the-size-of-your-azure-sql-dw"></a>Verhoog de grootte van uw Azure SQL DW
+
+* Plan een vergroten of verkleinen van de bron en sink-Azure SQL DW voordat u de pijplijn voor het verhogen van de doorvoer en minimaliseren Azure beperking zodra u DWU limieten bereiken uitvoeren.
+
+* Nadat de pijplijnuitvoering voltooid is, kunt u het formaat van uw databases terug naar het normale tarief voor uitvoeren.
+
+## <a name="optimize-for-files"></a>Optimaliseren voor bestanden
+
+* Het aantal partities dat door ADF wordt gebruikt, kunt u bepalen. Op elke bron en Sink-transformatie, evenals de transformatie van elke afzonderlijke, kunt u een partitieschema instellen. Voor kleinere bestanden merkt u misschien soms selecteren "Één partitie" kunt werken beter en sneller dan de Spark voor het partitioneren van uw kleine bestanden waarin wordt gevraagd.
+* Als u niet voldoende informatie gegeven over de brongegevens hebt, kunt u "Round Robin" partitionering en stel het aantal partities.
+* Als u uw gegevens verkennen en u merkt dat u kolommen die goed hash-sleutels kunnen zijn, gebruikt u de optie partitioneren Hash.
+
+### <a name="file-naming-options"></a>Opties voor de naamgeving van bestanden
+
+* De standaard-aard van de getransformeerde gegevens worden geschreven in ADF toewijzing gegevens stromen is het schrijven naar een gegevensset die een Blob of een ADLS-gekoppelde Service. Deze gegevensset om te verwijzen naar een map of container, geen bestand met de naam in te stellen.
+* Gegevensstromen gebruikt Azure Databricks Spark wordt uitgevoerd, wat betekent dat de uitvoer zal worden verdeeld over meerdere bestanden op basis van een standaard Spark partitioneren of het schema dat u partitioneren expliciet hebt gekozen.
+* Een veelvoorkomende bewerking in ADF gegevens stromen is om te kiezen 'Uitvoer naar één bestand' zodat alle van de uitvoerbestanden deel samen worden samengevoegd in een enkel uitvoerbestand.
+* Met deze bewerking is echter vereist dat de uitvoer tot één partitie op één clusterknooppunt beperkt.
+* Houd hier rekening mee bij het kiezen van deze populaire optie. U kunt uitvoeren uit cluster knooppunt middelen te halen als u bij het combineren van veel grote bronbestanden in een enkele uitvoer bestandspartitie.
+* Om te voorkomen dat knooppunt rekenresources voor drempelwaardemeldingen, kunt u de standaard- of expliciete partitieschema houden in ADF, die is geoptimaliseerd voor prestaties, en voegt u een volgende activiteit kopiëren in de pijplijn die wordt samengevoegd alles van het onderdeel één nieuwe bestanden van de map voor uitvoer het bestand. Deze techniek wordt in wezen worden gescheiden van de actie van de transformatie van het bestand samenvoegen en geven hetzelfde resultaat als de instelling 'uitvoer naar één bestand'.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de andere gegevensstroom artikelen:

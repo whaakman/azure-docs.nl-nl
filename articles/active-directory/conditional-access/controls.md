@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571102"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305760"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?
 
@@ -111,7 +111,7 @@ Zie voor een lijst van ondersteunde beleid beveiligde client-apps, [de vereiste 
 
 U kunt vereisen dat een gebruiker in uw tenant akkoord gaan met de gebruiksvoorwaarden voordat toegang tot een resource wordt verleend. U kunt als beheerder, configureren en aanpassen van gebruiksvoorwaarden door te uploaden, een PDF-document. Als een gebruiker valt wordt bereik van dit besturingselement voor toegang tot een toepassing alleen verleend als de gebruiksvoorwaarden zijn vastgesteld.
 
-### <a name="custom-controls-preview"></a>Aangepaste besturingselementen (preview-versie)
+### <a name="custom-controls-preview"></a>Aangepaste besturingselementen (preview)
 
 U kunt aangepaste besturingselementen toevoegen voor de voorwaardelijke toegang die uw gebruikers omleiden naar een compatibele service voor verdere buiten Azure Active Directory-vereisten. Hiermee kunt u bepaalde externe verificatie met meerdere factoren en verificatie providers gebruiken om af te dwingen van vereisten voor voorwaardelijke toegang. Vereist verificatie of validatie-activiteiten wordt uitgevoerd en wordt vervolgens keert u terug naar Azure Active Directory om te voldoen aan dit besturingselement, de browser van een gebruiker wordt omgeleid naar de externe service. Als de gebruiker is geverifieerd of gevalideerd, wordt de gebruiker blijft in de stroom voor voorwaardelijke toegang. 
 
@@ -166,11 +166,11 @@ Als u wilt een aangepast besturingselement bewerken, moet u het huidige besturin
 
 ## <a name="session-controls"></a>Sessiebesturingselementen
 
-Met de sessiebesturingselementen wordt de beperkte ervaring in een cloud-app ingeschakeld. De sessiebesturingselementen worden afgedwongen door cloud-apps en zijn gebaseerd op aanvullende informatie geleverd door Azure AD aan de app over de sessie.
+De sessiebesturingselementen beperkte ervaring in een cloud-app. De sessiebesturingselementen worden afgedwongen door cloud-apps en zijn gebaseerd op aanvullende informatie geleverd door Azure AD aan de app over de sessie.
 
 ![Beheer](./media/controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Door apps gehandhaafde beperkingen gebruiken
+### <a name="use-app-enforced-restrictions"></a>Door Apps gehandhaafde beperkingen gebruiken
 
 U kunt dit besturingselement gebruiken om te vereisen van Azure AD apparaatgegevens doorgeven aan de geselecteerde cloud-apps. De gegevens van een apparaat kunt de cloud-apps om te weten of een verbinding is geïnitieerd vanaf een apparaat compatibel of domein. Dit besturingselement ondersteunt alleen SharePoint Online en Exchange Online als de geselecteerde cloud-apps. Als u selecteert, de cloud-app maakt gebruik van de apparaatgegevens om gebruikers, afhankelijk van de apparaatstatus, met een beperkt of volledig ervaring te bieden.
 

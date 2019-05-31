@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 9e8f209f1448119ed2e3dfd5d38d42699a4be01c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947847"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302264"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Uw eerste Service Fabric-containertoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -141,9 +141,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>De installatiekopie naar het containerregister pushen
 Nadat u hebt gecontroleerd of de toepassing wordt uitgevoerd in Docker, pusht u de installatiekopie naar het register in Azure Container Registry.
 
-Voer `docker login` uit om u bij uw containerregister aan te melden met uw [registerreferenties](../container-registry/container-registry-authentication.md).
+Voer `docker login` zich aanmeldt bij uw containerregister met uw [registerreferenties](../container-registry/container-registry-authentication.md).
 
-In het volgende voorbeeld worden de id en het wachtwoord van een [service-principal](../active-directory/develop/app-objects-and-service-principals.md) van Azure Active Directory doorgegeven. U hebt bijvoorbeeld een service-principal aan uw register toegewezen voor een automatiseringsscenario. Of u kunt zich aanmelden met uw gebruikersnaam en wachtwoord van het register.
+In het volgende voorbeeld worden de id en het wachtwoord van een [service-principal](../active-directory/develop/app-objects-and-service-principals.md) van Azure Active Directory doorgegeven. U hebt bijvoorbeeld een service-principal aan uw register toegewezen voor een automatiseringsscenario. Of u zich kan aanmelden met uw register gebruikersnaam en wachtwoord.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -231,7 +231,12 @@ Met de release 6.3 runtime isolatie van de virtuele machine wordt ondersteund vo
 
 
 ## <a name="configure-docker-healthcheck"></a>Docker-STATUSCONTROLE configureren 
-Vanaf versie 6.1 integreert Service Fabric automatisch [Docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen in het systeemstatusrapport. Dit betekent dat als voor uw container **STATUSCONTROLE** is ingeschakeld, Service Fabric de status van de container rapporteert wanneer Docker aangeeft dat deze is gewijzigd. In [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wordt de status **OK** weergegeven wanneer *health_status* *healthy* is en **WAARSCHUWING** wanneer *health_status* *unhealthy* is. De instructie **STATUSCONTROLE**, die verwijst naar de feitelijke controle die wordt uitgevoerd voor het bewaken van de containerstatus, moet aanwezig zijn in de Dockerfile die wordt gebruikt tijdens het genereren van de containerinstallatiekopie. 
+
+Vanaf versie 6.1 integreert Service Fabric automatisch [Docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen in het systeemstatusrapport. Dit betekent dat als voor uw container **STATUSCONTROLE** is ingeschakeld, Service Fabric de status van de container rapporteert wanneer Docker aangeeft dat deze is gewijzigd. In [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wordt de status **OK** weergegeven wanneer *health_status* *healthy* is en **WAARSCHUWING** wanneer *health_status* *unhealthy* is. 
+
+Beginnen met de nieuwste versie van het vernieuwen van v6.4, hebt u de optie om op te geven dat evaluaties van docker-statuscontrole moeten worden gerapporteerd als een fout. Als deze optie is ingeschakeld, een **OK** statusrapport wordt weergegeven wanneer *health_status* is *in orde* en **fout** wordt weergegeven wanneer *health_status* is *niet in orde*.
+
+De instructie **STATUSCONTROLE**, die verwijst naar de feitelijke controle die wordt uitgevoerd voor het bewaken van de containerstatus, moet aanwezig zijn in de Dockerfile die wordt gebruikt tijdens het genereren van de containerinstallatiekopie.
 
 ![HealthCheckHealthy][1]
 
@@ -246,12 +251,18 @@ U kunt het gedrag van de **STATUSCONTROLE** voor elke container configureren doo
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+              RestartContainerOnUnhealthyDockerHealthStatus="false" 
+              TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-Standaard is *IncludeDockerHealthStatusInSystemHealthReport* ingesteld op **true** en *RestartContainerOnUnhealthyDockerHealthStatus* op **false**. Als *RestartContainerOnUnhealthyDockerHealthStatus* is ingesteld op **true**, wordt een herhaaldelijk niet goed werkende container opnieuw opgestart (mogelijk op andere knooppunten).
+Standaard *IncludeDockerHealthStatusInSystemHealthReport* is ingesteld op **waar**, *RestartContainerOnUnhealthyDockerHealthStatus* is ingesteld op  **de waarde False**, en *TreatContainerUnhealthyStatusAsError* is ingesteld op **false**. 
+
+Als *RestartContainerOnUnhealthyDockerHealthStatus* is ingesteld op **true**, wordt een herhaaldelijk niet goed werkende container opnieuw opgestart (mogelijk op andere knooppunten).
+
+Als *TreatContainerUnhealthyStatusAsError* is ingesteld op **waar**, **fout** statusrapporten wordt weergegeven wanneer de container *health_status*is *niet in orde*.
 
 Als u de **STATUSCONTROLE**-integratie voor het hele Service Fabric-cluster wilt uitschakelen, stelt u [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) in op **false**.
 

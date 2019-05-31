@@ -3,19 +3,19 @@ title: Taalondersteuning - Translator Text-API
 titleSuffix: Azure Cognitive Services
 description: Een lijst van natuurlijke talen die worden ondersteund door de Translator Text-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 153fd5a8202ca0d919a2254449d846f8798bd10d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690137"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382492"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -42,69 +42,69 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 
 |Taal|  Taalcode|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
-|Afrikaans| `af`    |Alleen statistisch|  Neurale|
-|Arabisch|    `ar`    |Neurale beschikbaar|  Neurale|
-|Bengalees|    `bn`    |Neurale beschikbaar|  Neurale|
-|Bosnisch (Latijns)|   `bs`    |Neurale beschikbaar|  Neurale|
-|Bulgaars| `bg`    |Neurale beschikbaar|  Neurale|
+|Afrikaans| `af`    |Alleen statistisch|  Neuraal|
+|Arabisch|    `ar`    |Neurale beschikbaar|  Neuraal|
+|Bengalees|    `bn`    |Neurale beschikbaar|  Neuraal|
+|Bosnisch (Latijns)|   `bs`    |Neurale beschikbaar|  Neuraal|
+|Bulgaars| `bg`    |Neurale beschikbaar|  Neuraal|
 |Kantonees (Traditioneel)|   `yue`   |Alleen statistisch|  Statistische|
 |Catalaans|   `ca`    |Alleen statistisch|  Statistische|
-|Vereenvoudigd Chinees|    `zh-Hans`   |Neurale standaard |Neurale|
-|Traditioneel Chinees|   `zh-Hant`   |Neurale standaard |Neurale|
-|Kroatisch|  `hr`    |Neurale beschikbaar|  Neurale|
-|Tsjechisch| `cs`    |Neurale beschikbaar|  Neurale|
-|Deens|    `da`    |Neurale beschikbaar   |Neurale|
-|Nederlands| `nl`    |Neurale beschikbaar|  Neurale|
-|Engels|   `en`    |Neurale beschikbaar|  Neurale|
-|Estisch|  `et`    |Neurale beschikbaar|  Neurale|
-|Fijisch|    `fj`    |Alleen statistisch|  Statistische|
+|Vereenvoudigd Chinees|    `zh-Hans`   |Neurale standaard |Neuraal|
+|Traditioneel Chinees|   `zh-Hant`   |Neurale standaard |Neuraal|
+|Kroatisch|  `hr`    |Neurale beschikbaar|  Neuraal|
+|Tsjechisch| `cs`    |Neurale beschikbaar|  Neuraal|
+|Deens|    `da`    |Neurale beschikbaar   |Neuraal|
+|Nederlands| `nl`    |Neurale beschikbaar|  Neuraal|
+|Nederlands|   `en`    |Neurale beschikbaar|  Neuraal|
+|Estisch|  `et`    |Neurale beschikbaar|  Neuraal|
+|Fiji|    `fj`    |Alleen statistisch|  Statistische|
 |Filipijns|  `fil`   |Alleen statistisch|  Statistische|
-|Fins|   `fi`    |Neurale beschikbaar|  Neurale|
-|Frans|    `fr`    |Neurale beschikbaar|  Neurale|
-|Duits|    `de`    |Neurale beschikbaar|  Neurale|
-|Grieks| `el`    |Neurale beschikbaar|  Neurale|
+|Fins|   `fi`    |Neurale beschikbaar|  Neuraal|
+|Frans|    `fr`    |Neurale beschikbaar|  Neuraal|
+|Duits|    `de`    |Neurale beschikbaar|  Neuraal|
+|Grieks| `el`    |Neurale beschikbaar|  Neuraal|
 |Haïtiaans|    `ht`    |Alleen statistisch   |Statistische|
-|Hebreeuws |`he`   |Neurale beschikbaar   |Neurale|
-|Hindi| `hi`    |Neurale standaard|    Neurale|
+|Hebreeuws |`he`   |Neurale beschikbaar   |Neuraal|
+|Hindi| `hi`    |Neurale standaard|    Neuraal|
 |Hmong Daw| `mww`   |Alleen statistisch|  Statistische|
-|Hongaars| `hu`    |Neurale beschikbaar|  Neurale|
-|IJslands| `is`    |Alleen Neurale|   Neurale|
+|Hongaars| `hu`    |Neurale beschikbaar|  Neuraal|
+|IJslands| `is`    |Alleen Neurale|   Neuraal|
 |Indonesisch|    `id`    |Alleen statistisch|  Statistische|
-|Italiaans|   `it`    |Neurale beschikbaar|  Neurale|
-|Japans|  `ja`    |Neurale beschikbaar|  Neurale|
+|Italiaans|   `it`    |Neurale beschikbaar|  Neuraal|
+|Japans|  `ja`    |Neurale beschikbaar|  Neuraal|
 |Swahili| `sw`    |Alleen statistisch|  Statistische|
 |Klingon|   `tlh`   |Alleen statistisch|  Statistische|
 |Klingon (plqaD)|   `tlh-Qaak`  |Alleen statistisch|  Statistische|
-|Koreaans |`ko`   |Neurale beschikbaar|  Neurale|
-|Lets|   `lv`    |Neurale beschikbaar|  Neurale|
-|Litouws|    `lt`    |Neurale beschikbaar|  Neurale|
-|Malagassisch|  `mg`    |Alleen statistisch|  Statistische|
+|Koreaans |`ko`   |Neurale beschikbaar|  Neuraal|
+|Lets|   `lv`    |Neurale beschikbaar|  Neuraal|
+|Litouws|    `lt`    |Neurale beschikbaar|  Neuraal|
+|Malagassische|  `mg`    |Alleen statistisch|  Statistische|
 |Maleis| `ms`    |Alleen statistisch   |Statistische|
 |Maltees|   `mt`    |Alleen statistisch|  Statistische|
-|Noors| `nb`    |Neurale beschikbaar|  Neurale|
+|Noors| `nb`    |Neurale beschikbaar|  Neuraal|
 |Perzisch|   `fa`    |Alleen statistisch|  Statistische|
-|Pools|    `pl`    |Neurale beschikbaar|  Neurale|
-|Portugees|    `pt`    |Neurale beschikbaar|  Neurale|
+|Pools|    `pl`    |Neurale beschikbaar|  Neuraal|
+|Portugees|    `pt`    |Neurale beschikbaar|  Neuraal|
 |Queretaro Otomi|   `otq`   |Alleen statistisch|  Statistische|
-|Roemeens|  `ro`    |Neurale beschikbaar|  Neurale|
-|Russisch|   `ru`    |Neurale beschikbaar|  Neurale|
-|Samoaans|    `sm`    |Alleen statistisch|  Statistische|
+|Roemeens|  `ro`    |Neurale beschikbaar|  Neuraal|
+|Russisch|   `ru`    |Neurale beschikbaar|  Neuraal|
+|Samoaanse|    `sm`    |Alleen statistisch|  Statistische|
 |Servisch (Cyrillisch)|    `sr-Cyrl`   |Alleen statistisch|  Statistische|
 |Servisch (Latijns)|   `sr-Latn`   |Alleen statistisch   |Statistische|
-|Slowaaks|    `sk`    |Neurale beschikbaar|  Neurale|
-|Sloveens| `sl`    |Neurale beschikbaar|  Neurale|
-|Spaans|   `es`    |Neurale beschikbaar|  Neurale|
-|Zweeds|   `sv`    |Neurale beschikbaar   |Neurale|
+|Slowaaks|    `sk`    |Neurale beschikbaar|  Neuraal|
+|Sloveens| `sl`    |Neurale beschikbaar|  Neuraal|
+|Spaans|   `es`    |Neurale beschikbaar|  Neuraal|
+|Zweeds|   `sv`    |Neurale beschikbaar   |Neuraal|
 |Tahitian|  `ty`    |Alleen statistisch|  Statistische|
 |Tamil| `ta`    |Alleen statistisch|  Statistische|
-|Telugu|    `te`    |Alleen Neurale|   Neurale|
-|Thais|  `th`    |Neurale beschikbaar|  Neurale|
-|Tongaans|    `to`    |Alleen statistisch|  Statistische|
-|Turks|   `tr`    |Neurale beschikbaar   |Neurale|
-|Oekraïens| `uk`    |Neurale beschikbaar|  Neurale|
+|Telugu|    `te`    |Alleen Neurale|   Neuraal|
+|Thais|  `th`    |Neurale beschikbaar|  Neuraal|
+|Tongan|    `to`    |Alleen statistisch|  Statistische|
+|Turks|   `tr`    |Neurale beschikbaar   |Neuraal|
+|Oekraïens| `uk`    |Neurale beschikbaar|  Neuraal|
 |Urdu|  `ur`    |Alleen statistisch|  Statistische|
-|Vietnamees|    `vi`    |Neurale beschikbaar|  Neurale|
-|Welsh| `cy`    |Neurale beschikbaar|  Neurale|
+|Vietnamees|    `vi`    |Neurale beschikbaar|  Neuraal|
+|Welsh| `cy`    |Neurale beschikbaar|  Neuraal|
 |Yucatec Maya|  `yua`   |Alleen statistisch|  Statistische|
 
 ## <a name="transliteration"></a>Transliteratie
@@ -125,8 +125,8 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 | Japans | `ja` | Japans `Jpan` | <--> | Latijns `Latn` |
 | Kanarees | `kn` | Kannada `Knda` | --> | Latijns `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latijns `Latn` |
-| Mahratti | `mr` | Devanagari `Deva` | --> | Latijns `Latn` |
-| Odia | `or` | Oriya `Orya` | <--> | Latijns `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | --> | Latijns `Latn` |
+| Oriya | `or` | Oriya `Orya` | <--> | Latijns `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latijns `Latn`  |
 | Servisch (Cyrillisch) | `sr-Cyrl` | Cyrillisch `Cyrl`  | --> | Latijns `Latn` |
 | Servisch (Latijns) | `sr-Latn` | Latijns `Latn` | --> | Cyrillisch `Cyrl`|
@@ -234,13 +234,13 @@ De volgende talen zijn beschikbaar voor aanpassing naar of van het gebruik van d
 | Koreaans      | `ko`          |
 | Lets      | `lv`          |
 | Litouws      | `lt`          |
-|Malagassisch|  `mg`    |
+|Malagassische|  `mg`    |
 | Noors      | `nb`          |
 | Pools      | `pl`          |
 | Portugees      | `pt`          |
 | Roemeens      | `ro`          |
 | Russisch      | `ru`          |
-|Samoaans|    `sm`    |
+|Samoaanse|    `sm`    |
 | Servisch (Latijns)      | `sr-Latn`          |
 | Slowaaks     | `sk`          |
 | Sloveens      | `sl`          |

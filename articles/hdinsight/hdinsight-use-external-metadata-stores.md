@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 0a6bcb3fb94df56caf4d095097572dd8a704f856
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/27/2019
+ms.openlocfilehash: 705ced82ad4edad0bb4adc057414f6b20b80d8d3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701198"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298877"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Externe metagegevensopslag in Azure HDInsight gebruiken
 
@@ -50,7 +50,7 @@ HDInsight biedt ook ondersteuning voor aangepaste metastores, die worden aanbevo
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Een aangepaste metastore selecteren tijdens het maken van clusters
 
-U kunt uw cluster verwijzen naar een eerder gemaakte Azure SQL Database tijdens het maken of kunt u de SQL-Database configureren nadat het cluster is gemaakt. Deze optie is opgegeven met de Storage-> Metastore-instellingen tijdens het maken van een nieuwe Hadoop, Spark of interactieve Hive-cluster van Azure portal.
+U kunt uw cluster verwijzen naar een eerder gemaakte Azure SQL Database tijdens het maken of kunt u de SQL-Database configureren nadat het cluster is gemaakt. Deze optie wordt opgegeven met de **opslag > Metastore-instellingen** tijdens het maken van een nieuwe Hadoop, Spark of interactieve Hive-cluster in Azure portal.
 
 ![HDInsight Hive-metagegevens Store Azure portal](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
@@ -79,4 +79,4 @@ Zie voor instructies over het maken van een Oozie-metastore met Azure SQL Databa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Clusters in HDInsight met Apache Hadoop, Apache Spark en Apache Kafka instellen](./hdinsight-hadoop-provision-linux-clusters.md)
+- [Clusters in HDInsight instellen met Apache Hadoop, Apache Spark, Apache Kafka en meer](./hdinsight-hadoop-provision-linux-clusters.md)

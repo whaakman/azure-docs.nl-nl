@@ -1,54 +1,36 @@
 ---
-title: Oplossen van problemen in uw Azure Data Box | Microsoft Docs
-description: Beschrijft hoe u problemen in Azure Data Box worden gezien tijdens het uploaden van gegevens naar Azure.
+title: Oplossen van problemen in uw Azure Data Box, Azure Data Box zware | Microsoft Docs
+description: Beschrijft hoe u problemen in Azure Data Box en Azure Data Box zware gezien bij het kopiëren van gegevens op deze apparaten.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594001"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257293"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box"></a>Oplossen van problemen met betrekking tot Azure Data Box
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Oplossen van problemen met betrekking tot Azure Data Box en Azure Data Box-zwaar
 
-In dit artikel bevat gedetailleerde informatie over het oplossen van problemen die u kunt tegenkomen bij het gebruik van de Azure Data Box.
+In dit artikel bevat gedetailleerde informatie over het oplossen van problemen die mogelijk ziet u wanneer u de Azure Data Boxn of Azure Data Box zware.
 
 ## <a name="errors-during-data-copy"></a>Fouten tijdens het kopiëren van gegevens
 
 De fouten die worden weergegeven tijdens het kopiëren van gegevens worden samengevat in de volgende secties.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**Foutbeschrijving:** De naam van de container of share moet bestaan uit 3 tot 63 tekens.
-
-**Voorgestelde oplossing:** De map in de Data Box (SMB/NFS)-bestandsshare waarop u gegevens hebt gekopieerd, wordt een Azure-container in uw opslagaccount. 
-
-- Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface Data Box, downloaden en controleer de namen van de foutbestanden voor het identificeren van de map met problemen.
-- Wijzig de naam van de map in de Data Box-bestandsshare om ervoor te zorgen dat:
-
-    - De naam is tussen de 3 en 63 tekens.
-    - De namen kunnen alleen letters, cijfers en afbreekstreepjes bevatten hebben.
-    - De naam mag niet beginnen of eindigen met een afbreekstreepje.
-    - De namen geen opeenvolgende afbreekstreepjes bevatten.
-    - Voorbeelden van geldige namen: `my-folder-1`, `my-really-extra-long-folder-111`.
-    - Voorbeelden van namen die niet geldig: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
-
-    Zie voor meer informatie, de Azure naamgevingsregels voor [containernamen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) en [sharenamen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
-
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **Foutbeschrijving:** De naam van de container of share moet bestaan uit 3 tot 63 tekens. 
 
-**Voorgestelde oplossing:** De map in de Data Box (SMB/NFS)-bestandsshare waarop u gegevens hebt gekopieerd, wordt een Azure-container in uw opslagaccount. 
+**Voorgestelde oplossing:** De map onder de Data Box of gegevens in het zware share(SMB/NFS) waarnaar u gegevens hebt gekopieerd, wordt een Azure-container in uw opslagaccount. 
 
-- Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface Data Box, downloaden en controleer de namen van de foutbestanden voor het identificeren van de map met problemen.
-- Wijzig de naam van de map in de Data Box-bestandsshare om ervoor te zorgen dat:
+- Op de **verbinding maken en kopiëren** pagina van de lokale webinterface van apparaat, downloaden en controleer de namen van de foutbestanden voor het identificeren van de map met problemen.
+- Wijzig de naam van de map in de Data Box of gegevens in het zware bestandsshare om ervoor te zorgen dat:
 
     - De naam is tussen de 3 en 63 tekens.
     - De namen kunnen alleen letters, cijfers en afbreekstreepjes bevatten hebben.
@@ -64,10 +46,10 @@ De fouten die worden weergegeven tijdens het kopiëren van gegevens worden samen
 
 **Foutbeschrijving:** De naam van de container of share mag alleen letters, cijfers of afbreekstreepjes bevatten.
 
-**Voorgestelde oplossing:** De map in de Data Box (SMB/NFS)-bestandsshare waarop u gegevens hebt gekopieerd, wordt een Azure-container in uw opslagaccount. 
+**Voorgestelde oplossing:** De map onder de Data Box of gegevens in het zware share(SMB/NFS) waarnaar u gegevens hebt gekopieerd, wordt een Azure-container in uw opslagaccount. 
 
-- Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface Data Box, downloaden en controleer de namen van de foutbestanden voor het identificeren van de map met problemen.
-- Wijzig de naam van de map in de Data Box-bestandsshare om ervoor te zorgen dat:
+- Op de **verbinding maken en kopiëren** pagina van de lokale webinterface van apparaat, downloaden en controleer de namen van de foutbestanden voor het identificeren van de map met problemen.
+- Wijzig de naam van de map in de Data Box of gegevens in het zware bestandsshare om ervoor te zorgen dat:
 
     - De naam is tussen de 3 en 63 tekens.
     - De namen kunnen alleen letters, cijfers en afbreekstreepjes bevatten hebben.
@@ -82,10 +64,10 @@ De fouten die worden weergegeven tijdens het kopiëren van gegevens worden samen
 
 **Foutbeschrijving:** De namen van containers en de namen van shares mag niet beginnen of eindigen met een afbreekstreepje en geen opeenvolgende afbreekstreepjes bevatten.
 
-**Voorgestelde oplossing:** De map in de Data Box (SMB/NFS)-bestandsshare waarop u gegevens hebt gekopieerd, wordt een Azure-container in uw opslagaccount. 
+**Voorgestelde oplossing:** De map onder de Data Box of gegevens in het zware share(SMB/NFS) waarnaar u gegevens hebt gekopieerd, wordt een Azure-container in uw opslagaccount. 
 
-- Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface Data Box, downloaden en controleer de namen van de foutbestanden voor het identificeren van de map met problemen.
-- Wijzig de naam van de map in de Data Box-bestandsshare om ervoor te zorgen dat:
+- Op de **verbinding maken en kopiëren** pagina van de lokale webinterface van apparaat, downloaden en controleer de namen van de foutbestanden voor het identificeren van de map met problemen.
+- Wijzig de naam van de map in de Data Box of gegevens in het zware bestandsshare om ervoor te zorgen dat:
 
     - De naam is tussen de 3 en 63 tekens.
     - De namen kunnen alleen letters, cijfers en afbreekstreepjes bevatten hebben.
@@ -112,7 +94,7 @@ Zie voor meer informatie, [naar beheerde schijven kopiëren](data-box-deploy-cop
 
 **Foutbeschrijving:** Azure-bestandsshare een share naar 5 TB aan gegevens wordt beperkt. Deze limiet is overschreden voor sommige bestandsshares.
 
-**Voorgestelde oplossing:** Op de **verbinding maken en kopiëren** pagina van de gegevens in het lokale web-UI, downloaden en controleert u de fout.
+**Voorgestelde oplossing:** Op de **verbinding maken en kopiëren** pagina van de lokale webgebruikersinterface downloaden, en controleert u de fout.
 
 Identificeer de mappen die dit probleem van de foutenlogboeken en zorg ervoor dat de bestanden in die map onder 5 TB zijn.
 
@@ -194,7 +176,7 @@ Zie voor meer informatie, de Azure naamgevingsregels voor blob-namen en bestands
 
 **Foutbeschrijving:** De blob of het bestand is niet juist uitgelijnd.
 
-**Voorgestelde oplossing:** De pagina-blob-share op Data Box alleen ondersteunt de bestanden die 512 bytes zijn uitgelijnd (bijvoorbeeld VHD/VHDX). Geen gegevens gekopieerd naar de pagina-blob-share is geüpload naar Azure als pagina-blobs.
+**Voorgestelde oplossing:** De pagina-blob-share op Data Box of gegevens in het zware alleen ondersteunt de bestanden die 512 bytes zijn uitgelijnd (bijvoorbeeld VHD/VHDX). Geen gegevens gekopieerd naar de pagina-blob-share is geüpload naar Azure als pagina-blobs.
 
 Verwijder alle niet-VHD/VHDX-gegevens van de pagina-blob-share. U kunt bestandsshares voor blok-blob of Azure-bestanden voor algemene gegevens.
 

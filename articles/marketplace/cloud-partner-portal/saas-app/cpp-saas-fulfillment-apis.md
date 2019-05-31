@@ -7,14 +7,18 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: pabutler
-ms.openlocfilehash: ec206c2d637f9fb2727d72cf17087050a765672c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e7a01af1eba865b0a088b0fa7226273527abd70e
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941964"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257410"
 ---
 # <a name="saas-fulfillment-apis"></a>SaaS-uitvoerings-API's
+
+> [!IMPORTANT] 
+> SaaS biedt functionaliteit is gemigreerd naar de [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Alle nieuwe uitgevers moeten Partner Center gebruiken voor het maken van nieuwe SaaS-aanbiedingen en bestaande aanbiedingen beheren.  Huidige uitgevers met SaaS-aanbiedingen zijn batchwise worden gemigreerd van de Cloud Partner-Portal naar het Partnercentrum.  De Cloud Partner-Portal wordt weergegeven statusberichten om aan te geven wanneer specifieke bestaande aanbiedingen zijn gemigreerd.
+> Zie voor meer informatie, [maken van een nieuwe SaaS-aanbieding](../../partner-center-portal/create-new-saas-offer.md).
 
 De uitvoering van SaaS API's inschakelen independent software vendors (ISV) hun SaaS-toepassingen integreren met de Azure Marketplace. Deze API's kunnen ISV-toepassingen om deel te nemen in alle commerce ingeschakeld kanalen: direct, door partner geleide (reseller) en onder leiding van een veld.  Ze zijn vereist voor het aanbieden van transactable SaaS-aanbiedingen op Azure Marketplace.
 

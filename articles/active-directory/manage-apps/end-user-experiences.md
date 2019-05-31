@@ -12,12 +12,12 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41dde1579fc98db37ab7d92ce362d0a4ce9a82cf
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824560"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388201"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Ervaringen van eindgebruikers voor toepassingen in Azure Active Directory
 Azure Active Directory (Azure AD) biedt aanpasbare manieren voor het implementeren van toepassingen voor eindgebruikers in uw organisatie:
@@ -48,7 +48,7 @@ Zie voor meer informatie over het startprogramma voor Office 365-toepassingen, [
 ## <a name="direct-sign-on-to-federated-apps"></a>Directe aanmelding bij federatieve apps
 Meest federatieve toepassingen die ondersteuning bieden voor SAML 2.0, WS-Federation en OpenID connect ook ondersteuning voor de mogelijkheid voor gebruikers om te beginnen bij de toepassing en vervolgens u aangemeld via Azure AD door automatische omleiding of door te klikken op een koppeling aan te melden bij. Dit staat bekend als serviceprovider-aanmelding wordt gestart en meest federatieve toepassingen in de Azure AD-toepassingsgalerie ondersteuning bieden voor deze (Zie de documentatie gekoppeld aan de app configuratie voor eenmalige aanmelding wizard in de Azure-portal voor meer informatie).
 
-![](./media/end-user-experiences/workdaymobile.png)
+![Voorbeeld van de aanmeldingspagina voor een mobiele app](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Directe aanmelding koppelingen
 Azure AD biedt ook ondersteuning voor directe eenmalige aanmelding in koppelingen naar afzonderlijke toepassingen die ondersteuning op basis van wachtwoorden eenmalige aanmelding, gekoppelde eenmalige aanmelding en een vorm van federatieve eenmalige aanmelding bieden.

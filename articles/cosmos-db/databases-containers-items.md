@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954220"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389473"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Werken met databases, containers en objecten in Azure Cosmos DB
 
@@ -55,6 +55,9 @@ Wanneer u een Azure Cosmos-container maakt, kunt u de doorvoer configureren in e
 
 * **De modus gedeelde ingerichte doorvoer**: Deze containers delen de ingerichte doorvoer met de andere containers in dezelfde database (met uitzondering van containers die zijn geconfigureerd met een toegewezen ingerichte doorvoer). Met andere woorden, wordt de ingerichte doorvoer voor de database gedeeld tussen alle 'gedeelde doorvoer'-containers. Zie voor meer informatie, [hoe u de doorvoer voor een Azure Cosmos-database inrichten](how-to-provision-database-throughput.md).
 
+> [!NOTE]
+> U kunt gedeelde en toegewijde doorvoer alleen bij het maken van de database en de container. Als u wilt overschakelen van toegewezen doorvoermodus naar de doorvoermodus gedeelde (en omgekeerd) nadat de container is gemaakt, hebt u een nieuwe container maken en de gegevens migreren naar de nieuwe container. U kunt de gegevens migreren met behulp van de Azure Cosmos DB-functie voor wijzigingenfeed.
+
 Een Azure Cosmos-container kunt flexibel, schalen of u containers maken met behulp van toegewezen of gedeelde ingerichte doorvoer modi.
 
 Een Azure Cosmos-container is een container schema-agnostische van items. Items in een container kunnen willekeurige schema's hebben. Bijvoorbeeld, een item dat staat voor een persoon en een item dat staat voor een auto kunnen worden geplaatst de *dezelfde container*. Standaard worden alle items die u aan een container toevoegt automatisch geïndexeerd zonder expliciete index of Schemabeheer. U kunt de indexering gedrag aanpassen door het configureren van de [indexeringsbeleid](index-overview.md) voor een container. 
@@ -85,7 +88,7 @@ Een Azure Cosmos-container is een set van het systeem gedefinieerde eigenschappe
 |\_Selfservice | Het systeem gegenereerde | Adresseerbare URI van de container | Ja | Nee | Nee | Nee | Nee |
 |id | Gebruiker configureerbare | Gebruiker gedefinieerde unieke naam van de container | Ja | Ja | Ja | Ja | Ja |
 |indexingPolicy | Gebruiker configureerbare | Biedt de mogelijkheid om te wijzigen van het pad van de index, het indextype en de index-modus | Ja | Nee | Nee | Nee | Ja |
-|TimeToLive | Gebruiker configureerbare | Biedt de mogelijkheid items om automatisch te verwijderen uit een container na een bepaalde tijd instellen. Zie voor meer informatie, [Time to Live](time-to-live.md). | Ja | Nee | Nee | Nee | Ja |
+|timeToLive | Gebruiker configureerbare | Biedt de mogelijkheid items om automatisch te verwijderen uit een container na een bepaalde tijd instellen. Zie voor meer informatie, [Time to Live](time-to-live.md). | Ja | Nee | Nee | Nee | Ja |
 |changeFeedPolicy | Gebruiker configureerbare | Gebruikt om te lezen van wijzigingen in de items in een container. Zie voor meer informatie, [Wijzigingenfeed](change-feed.md). | Ja | Nee | Nee | Nee | Ja |
 |uniqueKeyPolicy | Gebruiker configureerbare | Gebruikt om ervoor te zorgen dat een of meer waarden in een logische partitie. Zie voor meer informatie, [Unique key-beperkingen](unique-keys.md). | Ja | Nee | Nee | Nee | Ja |
 
@@ -120,7 +123,7 @@ Elke Azure Cosmos-item heeft de volgende eigenschappen voor het systeem gedefini
 |\_TS | Het systeem gegenereerde | Tijdstempel van de laatste update van het item | Ja | Nee | Nee | Nee | Nee |
 |\_Selfservice | Het systeem gegenereerde | Adresseerbare URI van het item | Ja | Nee | Nee | Nee | Nee |
 |id | Een van beide | Gebruiker gedefinieerde unieke naam in een logische partitie. Als de gebruiker niet de ID opgeeft, genereert het systeem automatisch een. | Ja | Ja | Ja | Ja | Ja |
-|Willekeurige, door de gebruiker gedefinieerde eigenschappen | Door de gebruiker gedefinieerd | Gebruiker gedefinieerde eigenschappen die worden weergegeven in de API-eigen weergave (met inbegrip van JSON en BSON CQL) | Ja | Ja | Ja | Ja | Ja |
+|Willekeurige, door de gebruiker gedefinieerde eigenschappen | Door de gebruiker gedefinieerde routes | Gebruiker gedefinieerde eigenschappen die worden weergegeven in de API-eigen weergave (met inbegrip van JSON en BSON CQL) | Ja | Ja | Ja | Ja | Ja |
 
 ### <a name="operations-on-items"></a>Bewerkingen op items
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 05/31/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288720"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417869"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Azure AD-rolinstellingen in PIM configureren
 
@@ -61,7 +61,7 @@ Als de waarde **inschakelen**, meldingen worden verzonden naar:
 
 Zie voor meer informatie, [e-mailmeldingen in PIM](pim-email-notifications.md).
 
-## <a name="incidentrequest-ticket"></a>Incident-/aanvraagticket
+## <a name="incidentrequest-ticket"></a>Incident-/ aanvraagticket
 
 Gebruik de **Incident-/ aanvraagticket** switch om op te geven of om te vereisen in aanmerking komende beheerders op te nemen van een Ticketnummer wanneer ze hun rol activeren. Dit kan nuttig zijn wanneer u de rol toegang controles uitvoeren.
 
@@ -72,22 +72,22 @@ Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers h
 * Gebruikers met Microsoft-account voor hun e-mailadressen (meestal @outlook.com, maar niet altijd) kan niet registreren voor Azure MFA. Als u rollen toewijzen aan gebruikers met een Microsoft-account wilt, moet u permanente beheerders toepast of MFA uitschakelen voor die rol.
 * U kunt MFA niet uitschakelen voor maximaal bevoorrechte rollen voor Azure AD en Office 365. Dit is een functie veiligheid omdat deze rollen moeten zorgvuldig worden beveiligd:  
   
+  * Azure Information Protection-beheerder
   * Factureringsbeheerder
-  * Cloudtoepassingsbeheerder
+  * Beheerder van de cloudtoepassing
   * Beheerder voor naleving
   * Voorwaardelijke toegang beheerder
   * CRM-servicebeheerder
-  * Toegangsfiatteur voor Klanten-lockbox
+  * Toegangsfiatteur voor klanten
   * Schrijvers van mappen
   * Exchange-beheerder
   * Globale beheerder
-  * Information Protection-beheerder
   * Intune-servicebeheerder
   * Power BI-servicebeheerder
   * Beheerder met bevoorrechte rol
   * Beveiligingsbeheerder
   * SharePoint-servicebeheerder
-  * Skype voor Bedrijven-beheerder
+  * Skype voor bedrijven-beheerder
   * Gebruikerbeheerder
 
 Zie voor meer informatie, [multi-factor authentication (MFA) en PIM](pim-how-to-require-mfa.md).

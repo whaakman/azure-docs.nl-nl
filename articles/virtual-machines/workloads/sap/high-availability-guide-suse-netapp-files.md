@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142987"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357731"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen
 
@@ -58,7 +58,7 @@ ms.locfileid: "65142987"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-In dit artikel wordt beschreven hoe u de virtuele machines implementeren, configureren van de virtuele machines, installeer het framework van het cluster en installeren van een maximaal beschikbare 7,50 van SAP NetWeaver-systeem, met behulp van [Azure NetApp-bestanden (in openbare preview-versie)](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
+In dit artikel wordt beschreven hoe u de virtuele machines implementeren, configureren van de virtuele machines, installeer het framework van het cluster en installeren van een maximaal beschikbare 7,50 van SAP NetWeaver-systeem, met behulp van [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 In de voorbeeldconfiguraties, enzovoort-opdrachten voor installatie, de ASCS-instantie is getal 00, het exemplaarnummer INGEN 01, het exemplaar van de primaire toepassing (Pa's) is 02 en het exemplaar van de toepassing (AAS) is 03. SAP-systeem-ID QAS wordt gebruikt. 
 
 In dit artikel wordt uitgelegd hoe voor hoge beschikbaarheid voor SAP NetWeaver-toepassing met Azure NetApp-bestanden. De databaselaag wordt niet gedekt in dit artikel.
@@ -139,13 +139,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS INGEN voor SAP NetWeaver en SAP HANA-datab
 
 SAP NetWeaver vereist gedeelde opslag voor de map transport en profiel.  Voordat u doorgaat met de instellingen voor de infrastructuur van Azure NetApp-bestanden, Maak uzelf vertrouwd met de [Azure NetApp Files documentatie][anf-azure-doc]. Controleer of de geselecteerde Azure-regio Azure NetApp bestanden biedt. De volgende koppeling toont de beschikbaarheid van Azure-regio van Azure NetApp bestanden: [Azure NetApp bestanden beschikbaarheid door Azure-regio][anf-avail-matrix].
 
-De functie Azure NetApp bestanden is in openbare preview in verschillende Azure-regio's. Voordat u Azure NetApp bestanden implementeert, moet u zich aanmelden voor Azure NetApp Files preview, volgt de [registreren voor Azure NetApp bestanden instructies][anf-register]. 
+Azure NetApp bestanden is beschikbaar in verschillende [Azure-regio's](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Vragen voordat u implementeert Azure NetApp bestanden, onboarding naar Azure NetApp Files, na de [registreren voor Azure NetApp bestanden instructies][anf-register]. 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>NetApp-bestanden van Azure-resources implementeren  
 
-De stappen wordt ervan uitgegaan dat u al hebt geïmplementeerd [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Houd er rekening mee dat de NetApp-bestanden van Azure-resources en de virtuele machines, waar de resources Azure NetApp bestanden wordt gekoppeld in dezelfde Azure-netwerk moeten worden geïmplementeerd.  
+De stappen wordt ervan uitgegaan dat u al hebt geïmplementeerd [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). De NetApp-bestanden van Azure-resources en de virtuele machines, waar de resources Azure NetApp bestanden wordt gekoppeld moeten worden geïmplementeerd in dezelfde Azure-netwerk of in gekoppelde virtuele netwerken van Azure.  
 
-1. Als u dit nog niet hebt die al klaar, aanvragen om te [registreren in het voorbeeld van Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Als u dit nog niet hebt die al klaar, aanvragen [onboarding naar Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
 
 2. De NetApp-account maken in de geselecteerde Azure-regio na de [instructies voor het maken van de NetApp Account](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
 3. Instellen van Azure NetApp Files capaciteit van toepassingen, na de [instructies over het instellen van Azure NetApp Files capaciteit pool](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
@@ -153,7 +153,7 @@ De architectuur van SAP Netweaver die zijn gepresenteerd in dit artikel maakt ge
 
 4. Een subnet aan Azure NetApp bestanden overdragen zoals beschreven in de [instructies een subnet aan Azure NetApp bestanden overdragen](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Volumes kunnen implementeren Azure NetApp bestanden, na de [instructies voor het maken van een volume voor Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Implementeren van de volumes in de aangewezen Azure NetApp bestanden [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Houd er rekening mee dat de NetApp-bestanden van Azure-resources en de Azure VM's moeten zich in hetzelfde Azure-netwerk. Bijvoorbeeld sapmnt<b>QAS</b>, usrsap<b>QAS</b>, enzovoort worden de namen van de doelvolumes en sapmnt<b>qas</b>, usrsap<b>qas</b>, enzovoort zijn de filepaths voor Azure NetApp-bestanden volumes.  
+5. Volumes kunnen implementeren Azure NetApp bestanden, na de [instructies voor het maken van een volume voor Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Implementeren van de volumes in de aangewezen Azure NetApp bestanden [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Houd er rekening mee dat de NetApp-bestanden van Azure-resources en de Azure VM's moeten zich in hetzelfde Azure-netwerk of in gekoppelde virtuele netwerken van Azure. Bijvoorbeeld sapmnt<b>QAS</b>, usrsap<b>QAS</b>, enzovoort worden de namen van de doelvolumes en sapmnt<b>qas</b>, usrsap<b>qas</b>, enzovoort zijn de filepaths voor Azure NetApp-bestanden volumes.  
 
    1. volume sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. volume usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -364,7 +364,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op alle 
    > [!NOTE]
    > Azure NetApp Files ondersteunt momenteel alleen NFSv3. De nfsvers niet weglaten = 3-switch.
    
-   Opnieuw opstarten autofs voor het koppelen van de nieuwe shares
+   Opnieuw opstarten `autofs` te koppelen van de nieuwe shares
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -734,7 +734,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op zowel
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/ursap<b>qas</b>pas
    </code></pre>
 
-   Opnieuw opstarten autofs voor het koppelen van de nieuwe shares
+   Opnieuw opstarten `autofs` te koppelen van de nieuwe shares
 
    <pre><code>
    sudo systemctl enable autofs
@@ -759,7 +759,7 @@ De volgende items worden voorafgegaan door een **[A]** : van toepassing op zowel
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   Opnieuw opstarten autofs voor het koppelen van de nieuwe shares
+   Opnieuw opstarten `autofs` te koppelen van de nieuwe shares
 
    <pre><code>
    sudo systemctl enable autofs
@@ -1230,7 +1230,7 @@ De volgende tests zijn een kopie van de Testscenario's in de [best practices han
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   Als u alleen de opdracht één keer uitvoeren, wordt het proces opnieuw opgestart sapstart. Als u deze uitvoeren vaak genoeg sapstart wordt niet opnieuw starten tijdens het proces en de resource is gestopt. Voer de volgende opdrachten als root voor het opschonen van de status van de resource van het exemplaar uit nadat de test.
+   Als u de opdracht slechts één keer uitvoeren `sapstart` wordt het proces opnieuw starten. Als u deze uitvoeren vaak genoeg `sapstart` worden niet opnieuw opgestart tijdens het proces en de resource is gestopt. Voer de volgende opdrachten als root voor het opschonen van de status van de resource van het exemplaar uit nadat de test.
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>

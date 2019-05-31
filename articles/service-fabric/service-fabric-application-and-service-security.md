@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621547"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302246"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-toepassing en service-beveiliging
 Een architectuur met microservices kunt brengen [veel voordelen](service-fabric-overview-microservices.md). Beheren van de beveiliging van microservices, is echter een uitdaging en anders dan de traditionele monolithische toepassingen beveiliging beheren. 
@@ -36,7 +36,7 @@ De eerste stap bij het nemen van beslissingen voor API-niveau vertrouwensrelatie
 
 Als services kunnen rechtstreeks worden geopend, wordt een authentication-service zoals Azure Active Directory of een toegewezen verificatie microservice die fungeert als een security token service (STS) kan worden gebruikt om gebruikers te verifiëren. Beslissingen voor de vertrouwensrelatie worden gedeeld tussen services met beveiligingstokens of cookies. 
 
-Voor ASP.NET Core, het primaire mechanisme voor [verifiëren van gebruikers](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) is het lidmaatschapssysteem van ASP.NET Core-identiteit. ASP.NET Core-identiteit slaat gebruikersgegevens (zoals aanmeldingsgegevens, rollen en claims) in een gegevensarchief dat is geconfigureerd door de ontwikkelaar. ASP.NET Core-identiteit biedt ondersteuning voor verificatie met twee factoren.  Externe verificatieproviders worden ook ondersteund, zodat gebruikers kunnen zich aanmelden met bestaande verificatieprocessen van leveranciers zoals Microsoft, Google, Facebook of Twitter. 
+Voor ASP.NET Core, het primaire mechanisme voor [verifiëren van gebruikers](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) is het lidmaatschapssysteem van ASP.NET Core-identiteit. ASP.NET Core-identiteit slaat gebruikersgegevens (zoals aanmeldingsgegevens, rollen en claims) in een gegevensarchief dat is geconfigureerd door de ontwikkelaar. ASP.NET Core-identiteit biedt ondersteuning voor verificatie met twee factoren.  Externe verificatieproviders worden ook ondersteund, zodat gebruikers kunnen zich aanmelden met behulp van bestaande verificatieprocessen die van leveranciers zoals Microsoft, Google, Facebook of Twitter.
 
 ### <a name="authorization"></a>Autorisatie
 Na verificatie services moeten gebruikerstoegang verlenen of kunt vaststellen wat een gebruiker kan doen. Dit proces staat een service voor het maken van API's beschikbaar voor geverifieerde gebruikers, maar niet voor alle. Autorisatie is een rechthoekige en onafhankelijk van verificatie, het proces is van de vaststelling van wie een gebruiker is. Verificatie kan een of meer id's voor de huidige gebruiker maken.

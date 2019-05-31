@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311127"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399202"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Maken van aangepaste artefacten voor uw virtuele machine van DevTest Labs
 
@@ -63,7 +63,7 @@ Het volgende voorbeeld ziet u de secties die gezamenlijk de basisstructuur van e
 | parameters |Nee |De waarden die zijn opgegeven wanneer de installatieopdracht artefact op een virtuele machine wordt uitgevoerd. Zo kunt u uw artefact aanpassen. |
 | runCommand |Ja |Artefacten installeren de opdracht die wordt uitgevoerd op een virtuele machine. |
 
-### <a name="artifact-parameters"></a>Artefactparameters
+### <a name="artifact-parameters"></a>Artefact parameters
 In de parametersectie van de definitie van het bestand opgeven welke waarden van een gebruiker kan invoeren wanneer ze een artefact installeert. U kunt verwijzen naar deze waarden in de installatieopdracht artefact.
 
 Gebruik de volgende structuur voor het definiëren van parameters:
@@ -89,14 +89,39 @@ Toegestane typen zijn:
 * BOOL (geldige JSON Boolean)
 * matrix (geldige JSON-matrix)
 
+## <a name="secrets-as-secure-strings"></a>Geheimen als beveiligde tekenreeksen
+Declareer geheimen als beveiligde tekenreeksen. Hier volgt de syntaxis voor het declareren van een beveiligde tekenreeks-parameter in de `parameters` sectie van de **artifactfile.json** bestand:
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+Voor het artefact installatieopdracht, voert u de PowerShell-script waarmee de beveiligde tekenreeks die is gemaakt met behulp van de opdracht ConvertTo-SecureString. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+Zie voor het volledige voorbeeld artifactfile.json en de artifact.ps1 (PowerShell-script) [in dit voorbeeld op GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+Een ander belangrijk punt om te onthouden is niet om aan te melden geheimen in de console als uitvoer wordt vastgelegd voor foutopsporing van de gebruiker. 
+
 ## <a name="artifact-expressions-and-functions"></a>Artefact expressies en functies
 Kunt u expressies en functies te maken van het artefact installatieopdracht.
 Expressies zijn tussen vierkante haken ([en]), en worden geëvalueerd wanneer het artefact is geïnstalleerd. Expressies kunnen overal worden weergegeven in een JSON-tekenreeks-waarde. Expressies retourneert altijd een ander JSON-waarde. Als u een letterlijke tekenreeks begint met een haakje sluiten ([]) gebruiken moet, moet u twee vierkante haken ([[) gebruiken.
-Meestal gebruikt u expressies met functions te maken van een waarde. Net als in JavaScript-functieaanroepen die zijn opgemaakt als **functionName (arg1, arg2, arg3)**.
+Meestal gebruikt u expressies met functions te maken van een waarde. Net als in JavaScript-functieaanroepen die zijn opgemaakt als **functionName (arg1, arg2, arg3)** .
 
 De volgende lijst bevat algemene functies:
 
-* **parameters(parameterName)**: Retourneert een parameterwaarde die is opgegeven tijdens het artefact-opdracht wordt uitgevoerd.
+* **parameters(parameterName)** : Retourneert een parameterwaarde die is opgegeven tijdens het artefact-opdracht wordt uitgevoerd.
 * **concat (arg1, arg2, arg3,...)** : Combineert meerdere tekenreekswaarden. Deze functie kan duren voordat een aantal argumenten.
 
 Het volgende voorbeeld laat zien hoe u expressies en functies te maken van een waarde:

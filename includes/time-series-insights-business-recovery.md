@@ -8,62 +8,62 @@ ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
 ms.date: 04/29/2019
-ms.openlocfilehash: e87a82e985ed1d1794f9da00546f167ef01e1779
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e3e7044148e262e6977ae3be96f7cb61218114a3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147457"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388753"
 ---
 ## <a name="business-disaster-recovery"></a>Noodherstel voor bedrijven
 
-In deze sectie beschrijft de functies van Azure Time Series Insights dat apps en services die worden uitgevoerd, zelfs als er zich een noodgeval voordoet (**business noodherstel**).
+In deze sectie beschrijft de functies van Azure Time Series Insights dat apps en services die worden uitgevoerd, zelfs als er zich een noodgeval voordoet. Dit concept staat bekend als zakelijke noodherstel.
 
 ### <a name="high-availability"></a>Hoge beschikbaarheid
 
-Als een Azure-service, Time Series Insights biedt bepaalde **hoge beschikbaarheid** functies met behulp van redundantie op het niveau van de Azure-regio. Bijvoorbeeld Microsoft Azure biedt ondersteuning voor de herstelfunctionaliteit bij noodgevallen via de Azure **regio-overschrijdende beschikbaarheid** functie.
+Als een Azure-service biedt Time Series Insights van bepaalde functies voor hoge beschikbaarheid via redundantie op het niveau van de Azure-regio. Microsoft Azure ondersteunt bijvoorbeeld de herstelfunctionaliteit bij noodgevallen via Azure regio-overschrijdende beschikbaarheid functie.
 
-Biedt aanvullende hoge beschikbaarheidsfuncties geleverd via Azure (en ook beschikbaar is voor een Time Series Insights-exemplaar):
+Extra functies voor hoge beschikbaarheid geleverd via Azure, en dat zijn ook beschikbaar is voor een Time Series Insights-exemplaar, opnemen:
 
-1. **Failover**: Azure biedt [geo-replicatie en het laden van netwerktaakverdeling](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
-1. **Gegevens worden hersteld op** en **opslag recovery**: Azure biedt [verschillende mogelijkheden om te behouden en gegevens herstellen](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-1. **Site Recovery** functies via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+* **Failover**: Azure biedt [geo-replicatie en taakverdeling](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
+* **Gegevens worden hersteld op** en **opslag recovery**: Azure biedt [verschillende mogelijkheden om te behouden en gegevens herstellen](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
+* **Siteherstel**: Functies die beschikbaar via zijn [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
 
-Zorg ervoor dat u het inschakelen van deze Azure-functies voor globale, interregionale, hoge beschikbaarheid van uw apparaten en gebruikers.
+Zorg ervoor dat u het inschakelen van deze Azure-functies voor globale, interregionale hoge beschikbaarheid van uw apparaten en gebruikers.
 
 > [!NOTE]
-> Als Azure is geconfigureerd om in te schakelen **regio-overschrijdende beschikbaarheid**, is geen extra regio-overschrijdende beschikbaarheid-configuratie vereist zijn binnen Azure Time Series Insights.
+> Als Azure is geconfigureerd als regio-overschrijdende beschikbaarheid wilt inschakelen, is geen configuratie extra regio-overschrijdende beschikbaarheid in Azure Time Series Insights.
 
-### <a name="iot-and-event-hubs"></a>IoT en Event hubs
+### <a name="iot-and-event-hubs"></a>IoT en event hubs
 
 Sommige Azure IoT-services zijn ook ingebouwde herstelfuncties:
 
-1. [IoT Hub hoge beschikbaarheid noodherstel](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr) met inbegrip van redundantie intra-regio.
-1. [Event Hub-beleid](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
-1. [Azure Storage-redundantie](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+* [Hoge beschikbaarheid noodherstel van Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), waaronder intra-regio redundantie.
+* [Beleid voor Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
+* [Azure Storage-redundantie](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
-Time Series Insights integreren met deze andere services biedt aanvullende disaster recovery verkoopkansen. Telemetrie verzonden naar uw Event Hub kan bijvoorbeeld een back-up van de database van Azure Blob Storage worden vastgehouden.
+Time Series Insights integreren met deze andere services biedt aanvullende disaster recovery verkoopkansen. Telemetrie verzonden naar uw event hub mogelijk bijvoorbeeld persistent worden gemaakt met een back-up van de database van Azure Blob-opslag.
 
 ### <a name="time-series-insights"></a>Time Series Insights
 
-Er zijn verschillende manieren om uw Time Series Insights-gegevens, apps en services die worden uitgevoerd, zelfs als ze zijn onderbroken. U kunt ook bepalen dat een kopie van het volledige, dubbele, back-up van uw Azure Time Series-omgeving vereist is:
+Er zijn verschillende manieren om uw Time Series Insights-gegevens, apps en services die worden uitgevoerd, zelfs als ze zijn onderbroken. U kunt ook bepalen dat een volledige back-up van uw Azure Time Series-omgeving vereist is:
 
-1. Als een Time Series Insights-specifieke **failover-exemplaar** omleiden naar gegevens en verkeer naar.
-1. Voor controle- en gegevens bewaren.
+* Als een exemplaar van de failover-Time Series Insights-specifieke gegevens omleiden en verkeer naar.
+* Voor controle- en gegevens bewaren.
 
-In het algemeen is de beste manier om het dupliceren van een Time Series Insights-omgeving te maken van een tweede Time Series Insights-omgeving in een back-up van de Azure-regio. Gebeurtenissen worden ook verzonden naar deze secundaire omgeving van uw primaire gebeurtenisbron. Zorg ervoor dat een tweede, toegewezen, consumergroep gebruiken en richtlijnen van die bron business disaster recovery (hierboven).
+In het algemeen is de beste manier om het dupliceren van een Time Series Insights-omgeving te maken van een tweede Time Series Insights-omgeving in een back-up van de Azure-regio. Gebeurtenissen worden ook verzonden naar deze secundaire omgeving van uw primaire gebeurtenisbron. Controleer of de gebruiken een tweede speciale klantengroep en richtlijnen van die bron business disaster recovery, zoals eerder is opgegeven.
 
 Specifiek, het maken van een dubbele omgeving:
 
-1. Een omgeving maken in een tweede regio ([een nieuwe Time Series Insights-omgeving maken in Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)).
+1. Maak een omgeving in een tweede regio. Zie voor instructies [een nieuwe Time Series Insights-omgeving maken in Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 1. Maak een tweede speciale klantengroep voor uw gebeurtenisbron.
-1. De bron van die gebeurtenis verbinden met de nieuwe omgeving te zorgen dat de tweede, toegewezen consumergroep aanwijzen.
-1. Bekijk de Time Series Insights [IoT-Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) en [Event hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) documentatie.
+1. De bron van die gebeurtenis verbinden met de nieuwe omgeving. Zorg ervoor dat de tweede speciale klantengroep aanwijst.
+1. Bekijk de Time Series Insights [IoT-hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) en [gebeurtenishub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) documentatie.
 
 Ten slotte:
 
-* Als uw primaire regio is last hebben van een incident na noodgevallen, omleiden bewerkingen aan de back-up Time Series Insights-omgeving.
-* Gebruik de tweede regio back-up en herstellen van alle gegevens van Time Series Insights Telemetrie en query's uitvoeren.
+1. Als uw primaire regio is last hebben van een incident na noodgevallen, omleiden bewerkingen aan de back-up Time Series Insights-omgeving.
+1. Gebruik de tweede regio back-up en herstellen van alle gegevens van Time Series Insights Telemetrie en query's uitvoeren.
 
 > [!IMPORTANT]
 > * Houd er rekening mee dat een vertraging in het geval van een failover kan worden ervaren.

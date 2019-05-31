@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 5/30/2019
 ms.author: victorh
-ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016025"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384677"
 ---
 # <a name="azure-firewall-faq"></a>Veelgestelde vragen over de Firewall van Azure
 
@@ -34,7 +34,7 @@ Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die u
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Wat is het typische implementatiemodel voor de Firewall van Azure?
 
-U kunt de Firewall van Azure implementeren op een virtueel netwerk, maar klanten doorgaans implementeren op een centrale virtueel netwerk en andere virtuele netwerken toe in een hub en spoke-model. Vervolgens stelt u de standaardroute uit de gekoppelde virtuele netwerken om te verwijzen naar dit centrale firewall virtuele netwerk. Wereldwijde VNet-peering wordt ondersteund, maar wordt niet aanbevolen vanwege mogelijke prestaties en latentieproblemen met tussen regio's. Voor de beste prestaties, implementeert u een firewall per regio.
+U kunt de Firewall van Azure implementeren op een virtueel netwerk, maar klanten doorgaans implementeren op een centrale virtueel netwerk en andere virtuele netwerken toe in een hub en spoke-model. Vervolgens stelt u de standaardroute uit de gekoppelde virtuele netwerken om te verwijzen naar dit centrale firewall virtuele netwerk. Wereldwijde VNet-peering wordt ondersteund, maar dit wordt niet aanbevolen vanwege mogelijke prestaties en latentieproblemen met tussen regio's. Voor de beste prestaties, implementeert u een firewall per regio.
 
 Het voordeel van dit model is de mogelijkheid om een centraal beheer van meerdere knooppunt VNETs in verschillende abonnementen. Er zijn ook kosten te besparen als u niet nodig een firewall in elk VNet afzonderlijk implementeren. De kosten te besparen moeten worden gemeten en de koppelen peering kosten op basis van de verkeerspatronen van de klant.
 
@@ -71,6 +71,11 @@ De Web Application Firewall (WAF) is een functie van Application Gateway die gec
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Wat is het verschil tussen Netwerkbeveiligingsgroepen (nsg's) en de Firewall van Azure?
 
 De Firewall van de Azure-service is een aanvulling op network security group functionaliteit. Samen bieden ze beter 'verdediging in de diepte' netwerkbeveiliging. Netwerkbeveiligingsgroepen bevatten gedistribueerde laag filteren van netwerkverkeer om te beperken van verkeer naar resources in virtuele netwerken in elk abonnement. Firewall van Azure is een volledig stateful, gecentraliseerde netwerk firewall as-a-service, waarmee de netwerk - en -beveiliging op toepassingsniveau in verschillende abonnementen en virtuele netwerken.
+
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Netwerkbeveiligingsgroepen (nsg's) is worden ondersteund op het subnet van de Firewall van Azure?
+
+Firewall van Azure is een beheerde service met meerdere lagen van de beveiliging, met inbegrip van de platform-beveiliging met NIC niveau Nsg (niet zichtbaar).  Nsg's op subnetniveau zijn niet vereist op de Firewall van Azure-subnet en zijn uitgeschakeld om te controleren of er geen service wordt onderbroken.
+
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hoe stel ik Azure-Firewall in met de service-eindpunten?
 
@@ -125,7 +130,7 @@ Geforceerde tunneling wordt niet ondersteund door standaard, maar deze kan worde
 
 Firewall van Azure moet directe verbinding met Internet hebben. Als uw AzureFirewallSubnet een standaardroute naar uw on-premises netwerk via BGP achterhaalt, moet u deze overschrijven met een UDR 0.0.0.0/0 met de **NextHopType** waarde ingesteld als **Internet** direct onderhouden Verbinding met Internet. Standaard, dienen de Firewall van Azure biedt geen ondersteuning voor een geforceerde tunneling naar een on-premises netwerk.
 
-Echter, als uw configuratie geforceerde tunneling naar een on-premises netwerk vereist, Microsoft wordt hiervoor ondersteuning bieden op basis van per geval. Neem contact op met ondersteuning voor zodat we uw aanvraag kunt controleren. Als geaccepteerd, we whitelist uw abonnement en zorg ervoor dat de internetverbinding vereist firewall wordt onderhouden.
+Echter, als uw configuratie geforceerde tunneling naar een on-premises netwerk vereist, Microsoft wordt hiervoor ondersteuning bieden op basis van per geval. Neem contact op met ondersteuning voor zodat we uw aanvraag kunt controleren. Als geaccepteerd, we uw abonnement en zorg ervoor dat de internetverbinding vereist firewall wordt onderhouden.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Zijn er firewall beperkingen van de resource?
 
@@ -137,7 +142,7 @@ Nee. NAT-regels toevoegen impliciet een overeenkomende regel om de vertaalde ver
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Hoe werken jokertekens in het doel in een toepassing-regel FQDN?
 
-Als u configureert ***. contoso.com**, hierdoor *anyvalue*. contoso.com, maar niet contoso.com (het toppunt van de domein). Als u toestaan dat het toppunt van het domein wilt, moet u deze expliciet configureren als een doel-FQDN.
+Als u configureert * **. contoso.com**, hierdoor *anyvalue*. contoso.com, maar niet contoso.com (het toppunt van de domein). Als u toestaan dat het toppunt van het domein wilt, moet u deze expliciet configureren als een doel-FQDN.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Wat doet *Inrichtingsstatus: Kan geen* betekent?
 

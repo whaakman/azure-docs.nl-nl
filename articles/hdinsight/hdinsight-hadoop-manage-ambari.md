@@ -6,20 +6,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1659ab72620b6bf91eb932f8414a0f6600350e37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714465"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258007"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari vereenvoudigt het beheer en bewaking van een Apache Hadoop-cluster met een eenvoudige web-UI en de REST-API gebruiken. Ambari is opgenomen op Linux gebaseerde HDInsight-clusters, en wordt gebruikt om te controleren van het cluster en configuratiewijzigingen aanbrengen.
+Apache Ambari vereenvoudigt het beheer en bewaking van een Apache Hadoop-cluster met een eenvoudige web-UI en de REST-API gebruiken. Ambari is opgenomen in HDInsight-clusters, en wordt gebruikt voor het bewaken van het cluster en configuratiewijzigingen aanbrengen.
 
 In dit document leert u hoe u de Ambari-Webinterface gebruiken met een HDInsight-cluster.
 
@@ -27,14 +27,9 @@ In dit document leert u hoe u de Ambari-Webinterface gebruiken met een HDInsight
 
 [Apache Ambari](https://ambari.apache.org) vereenvoudigt het beheer van Hadoop door te geven van de web-UI van een eenvoudig te gebruiken. U kunt Ambari gebruiken om te beheren en bewaken van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van de [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-De Ambari-Webgebruikersinterface wordt geboden door standaard met HDInsight-clusters die gebruikmaken van de Linux-besturingssysteem.
-
-> [!IMPORTANT]  
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. 
-
 ## <a name="connectivity"></a>Connectiviteit
 
-De Ambari-Webinterface is beschikbaar op uw HDInsight-cluster op HTTPS://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van uw cluster.
+De Ambari-Webinterface is beschikbaar op uw HDInsight-cluster op `https://CLUSTERNAME.azurehdinsight.net`, waarbij `CLUSTERNAME` is de naam van uw cluster.
 
 > [!IMPORTANT]  
 > Verbinding maken met Ambari op HDInsight vereist HTTPS. Wanneer u hierom wordt gevraagd voor verificatie, gebruikt u de accountnaam van beheerder en het wachtwoord die u hebt opgegeven bij het cluster is gemaakt.
@@ -54,23 +49,17 @@ Wanneer de pagina wordt geopend, houd er rekening mee de balk aan de bovenkant. 
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Ambari-logo** -Hiermee opent u het dashboard, die kan worden gebruikt voor het bewaken van het cluster.
-
-* **De naam # ops cluster** -geeft het aantal actieve Ambari-bewerkingen. De clusternaam van de selecteren of **# ops** geeft een lijst van bewerkingen op de achtergrond.
-
-* **# waarschuwingen** -waarschuwingen of kritieke waarschuwingen weergeven, indien aanwezig, voor het cluster.
-
-* **Dashboard** -het dashboard wordt weergegeven.
-
-* **Services** -gegevens en configuratie-instellingen voor de services in het cluster.
-
-* **Hosts** -gegevens en configuratie-instellingen voor de knooppunten in het cluster.
-
-* **Waarschuwingen** -een logboek van informatie, waarschuwingen en kritieke waarschuwingen.
-
-* **Beheerder** -Software stack/services die zijn geïnstalleerd op het cluster, service-accountgegevens en Kerberos-beveiliging.
-
-* **Beheerder knop** -Ambari management, gebruikersinstellingen en meld u af.
+|Item |Description |
+|---|---|
+|Ambari-logo|Hiermee opent het dashboard, die kan worden gebruikt voor het bewaken van het cluster.|
+|De naam # ops-cluster|Geeft het aantal actieve Ambari-bewerkingen. De clusternaam van de selecteren of **# ops** geeft een lijst van bewerkingen op de achtergrond.|
+|# waarschuwingen|Geeft waarschuwingen of kritieke waarschuwingen, indien van toepassing, voor het cluster.|
+|Dashboard|Het dashboard weergegeven.|
+|Services|Informatie en configuratie-instellingen voor de services in het cluster.|
+|Hosts|Informatie en configuratie-instellingen voor de knooppunten in het cluster.|
+|Waarschuwingen|Een logboek van informatie, waarschuwingen en kritieke waarschuwingen.|
+|beheerder|Software stack/services die zijn geïnstalleerd op het cluster, service-accountgegevens en Kerberos-beveiliging.|
+|Beheerder-knop|Ambari-beheer, gebruikersinstellingen en meld u af.|
 
 ## <a name="monitoring"></a>Bewaking
 
@@ -162,31 +151,18 @@ De **Hosts** pagina geeft een lijst van alle hosts in het cluster. Volg deze sta
 
 2. Gebruik de **acties** menu selecteert u de actie die u wilt uitvoeren:
 
-   * **Start alle onderdelen** -alle onderdelen starten op de host.
-
-   * **Alle onderdelen stoppen** -alle onderdelen stoppen op de host.
-
-   * **Alle onderdelen opnieuw starten** - stoppen en starten van alle onderdelen op de host.
-
-   * **Onderhoudsmodus inschakelen** -onderdrukt waarschuwingen voor de host. In deze modus moet worden ingeschakeld als u bij het uitvoeren van acties die waarschuwingen genereren. Bijvoorbeeld een service starten en stoppen.
-
-   * **De onderhoudsmodus uitschakelen** -retourneert de host de normale waarschuwingen.
-
-   * **Stop** -stopt DataNode of NodeManagers op de host.
-
-   * **Start** -DataNode wordt gestart of NodeManagers op de host.
-
-   * **Opnieuw opstarten** -stopt en start DataNode of NodeManagers op de host.
-
-   * **Uit bedrijf nemen** -Hiermee verwijdert u een host uit het cluster.
-
-     > [!NOTE]  
-     > Deze actie niet gebruiken op HDInsight-clusters.
-
-   * **Recommission** -voegt een eerder buiten gebruik gestelde host aan het cluster.
-
-     > [!NOTE]  
-     > Deze actie niet gebruiken op HDInsight-clusters.
+    |Item |Description |
+    |---|---|
+    |Alle onderdelen starten|Start alle onderdelen op de host.|
+    |Alle onderdelen stoppen|Alle onderdelen stoppen op de host.|
+    |Alle onderdelen opnieuw starten|Stoppen en starten van alle onderdelen op de host.|
+    |Onderhoudsmodus inschakelen|Onderdrukt waarschuwingen voor de host. In deze modus moet worden ingeschakeld als u bij het uitvoeren van acties die waarschuwingen genereren. Bijvoorbeeld een service starten en stoppen.|
+    |De onderhoudsmodus uitschakelen|Retourneert de host de normale waarschuwingen.|
+    |Stoppen|DataNode of NodeManagers stopt op de host.|
+    |start|Start DataNode of NodeManagers op de host.|
+    |Opnieuw starten|Stopt en DataNode of NodeManagers op de host wordt gestart.|
+    |Uit bedrijf nemen|Hiermee verwijdert u een host uit het cluster. **Deze actie niet gebruiken op HDInsight-clusters.**|
+    |Recommission|Hiermee wordt een eerder buiten gebruik gestelde host aan het cluster toegevoegd. **Deze actie niet gebruiken op HDInsight-clusters.**|
 
 ### <a id="service"></a>Services
 
@@ -226,7 +202,6 @@ Voor het configureren van een service, gebruikt u de volgende stappen uit:
 ## <a name="ambari-views"></a>Ambari-weergaven
 
 Ambari-weergaven kunnen ontwikkelaars plug-UI-elementen in de Ambari-Webinterface met behulp van de [Apache Ambari-weergaven Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight biedt de volgende weergaven met Hadoop-clustertypen:
-
 
 * Hive-weergave: De weergave Hive kunt u het uitvoeren van Hive-query's rechtstreeks vanuit uw webbrowser. U kunt query's opslaan, resultaten weergeven, de resultaten in de clusteropslag opslaan of resultaten downloaden naar uw lokale systeem. Zie voor meer informatie over het gebruik van Hive-weergaven [gebruik Apache Hive-weergaven met HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

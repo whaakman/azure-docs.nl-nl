@@ -3,19 +3,19 @@ title: Collaborative Translation Framework (CTF) rapportage - Translator Text-AP
 titlesuffix: Azure Cognitive Services
 description: Het gebruik Collaborative Translation Framework (CTF) rapportage.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712829"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389376"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF-rapportage (Collaborative Translation Framework) gebruiken
 
@@ -76,7 +76,7 @@ Deze methode haalt de telling van vertalingen die zijn gemaakt door de gebruiker
 |:---|:---|
 | appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | uriPrefix | **Optionele** een tekenreeks met het voorvoegsel van de URI van de vertaling.|
-| uit | **Optionele** een tekenreeks voor de taalcode van de vertaalde tekst. |
+| from | **Optionele** een tekenreeks voor de taalcode van de vertaalde tekst. |
 | tot | **Optionele** een tekenreeks voor de taalcode voor de omzetting van de tekst in.|
 | minRating| **Optionele** een integerwaarde voor de beoordeling van de minimale kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
 | maxRating| **Optionele** een integerwaarde voor de beoordeling van de hoogste kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
@@ -84,7 +84,7 @@ Deze methode haalt de telling van vertalingen die zijn gemaakt door de gebruiker
 | category| **Optionele** een tekenreeks met de categorie of het domein van de vertaling. Deze parameter ondersteunt alleen de standaardoptie algemeen.|
 | minDateUtc| **Optionele** de datum uit als u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie. |
 | maxDateUtc| **Optionele** de datum tot wanneer u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie. |
-| overslaan| **Optionele** het aantal resultaten die u wilt overslaan op een pagina. Als u de overslaan op de eerste 20 rijen van de resultaten en de weergave in de 21e resultaatrecord wilt, bijvoorbeeld 20 voor deze parameter opgeven. De standaardwaarde voor deze parameter is 0.|
+| Overslaan| **Optionele** het aantal resultaten die u wilt overslaan op een pagina. Als u de overslaan op de eerste 20 rijen van de resultaten en de weergave in de 21e resultaatrecord wilt, bijvoorbeeld 20 voor deze parameter opgeven. De standaardwaarde voor deze parameter is 0.|
 | toets maken | **Optionele** het aantal resultaten dat u wilt ophalen. Het maximumaantal van elke aanvraag is 100. De standaardwaarde is 100.|
 
 > [!NOTE]
@@ -97,15 +97,15 @@ De resultatenset bevat een matrix van de **UserTranslationCount**. Elke UserTran
 | Veld | Description |
 |:---|:---|
 | Count| Het aantal resultaten dat wordt opgehaald|
-| Vanaf | De source-taal|
+| Van | De source-taal|
 | Classificatie| De classificatie die wordt toegepast door de indiener in de methodeaanroep AddTranslation()|
-| Handeling| De doeltaal|
-| URI| De URI in de methodeaanroep AddTranslation() toegepast|
+| Naar| De doeltaal|
+| Uri| De URI in de methodeaanroep AddTranslation() toegepast|
 | Gebruiker| Naam van de gebruiker|
 
 **Uitzonderingen**
 
-| Uitzondering | Bericht | Voorwaarden |
+| Uitzondering | Message | Voorwaarden |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | De parameter '**maxDateUtc**'moet groter zijn dan of gelijk zijn aan'**minDateUtc**'.| De waarde van de parameter **maxDateUtc** lager is dan de waarde van de parameter **minDateUtc**.|
 | TranslateApiException | IP is hoger dan het quotum.| <ul><li>De limiet voor het aantal aanvragen per minuut is bereikt.</li><li>De aangevraagde grootte blijft beperkt 10000 tekens.</li><li>Elk uur en een dagelijkse quotum beperkt het aantal tekens dat de Microsoft Translator-API accepteert.</li></ul>|
@@ -147,7 +147,7 @@ Deze methode haalt de vertaling op die zijn gemaakt door de gebruiker. Het biedt
 |:---|:---|
 | appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | uriPrefix| **Optionele** een tekenreeks met het voorvoegsel van de URI van de vertaling.|
-| uit| **Optionele** een tekenreeks voor de taalcode van de vertaalde tekst.|
+| from| **Optionele** een tekenreeks voor de taalcode van de vertaalde tekst.|
 | tot| **Optionele** een tekenreeks voor de taalcode voor de omzetting van de tekst in.|
 | minRating| **Optionele** een integerwaarde voor de beoordeling van de minimale kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
 | maxRating| **Optionele** een integerwaarde voor de beoordeling van de hoogste kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
@@ -155,7 +155,7 @@ Deze methode haalt de vertaling op die zijn gemaakt door de gebruiker. Het biedt
 | category| **Optionele** een tekenreeks met de categorie of het domein van de vertaling. Deze parameter ondersteunt alleen de standaardoptie algemeen.|
 | minDateUtc| **Optionele** de datum uit als u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie.|
 | maxDateUtc| **Optionele** de datum tot wanneer u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie.|
-| overslaan| **Optionele** het aantal resultaten die u wilt overslaan op een pagina. Als u de overslaan op de eerste 20 rijen van de resultaten en de weergave in de 21e resultaatrecord wilt, bijvoorbeeld 20 voor deze parameter opgeven. De standaardwaarde voor deze parameter is 0.|
+| Overslaan| **Optionele** het aantal resultaten die u wilt overslaan op een pagina. Als u de overslaan op de eerste 20 rijen van de resultaten en de weergave in de 21e resultaatrecord wilt, bijvoorbeeld 20 voor deze parameter opgeven. De standaardwaarde voor deze parameter is 0.|
 | toets maken| **Optionele** het aantal resultaten dat u wilt ophalen. Het maximumaantal van elke aanvraag is 100. De standaardwaarde is 50.|
 
 > [!NOTE]
@@ -168,17 +168,17 @@ De resultatenset bevat een matrix van de **UserTranslation**. Elke UserTranslati
 | Veld | Description |
 |:---|:---|
 | CreatedDateUtc| De aanmaakdatum van de vermelding die met behulp van AddTranslation()|
-| Vanaf| De source-taal|
+| Van| De source-taal|
 | OriginalText| De tekst source-taal die wordt gebruikt bij het indienen van de aanvraag|
 |Classificatie |De classificatie die wordt toegepast door de indiener in de methodeaanroep AddTranslation()|
-|Handeling|    De doeltaal|
+|Naar|    De doeltaal|
 |TranslatedText|    De vertaling verzonden in de methodeaanroep AddTranslation()|
-|URI|   De URI in de methodeaanroep AddTranslation() toegepast|
+|Uri|   De URI in de methodeaanroep AddTranslation() toegepast|
 |Gebruiker   |Naam van de gebruiker|
 
 **Uitzonderingen**
 
-| Uitzondering | Bericht | Voorwaarden |
+| Uitzondering | Message | Voorwaarden |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | De parameter '**maxDateUtc**'moet groter zijn dan of gelijk zijn aan'**minDateUtc**'.| De waarde van de parameter **maxDateUtc** lager is dan de waarde van de parameter **minDateUtc**.|
 | TranslateApiException | IP is hoger dan het quotum.| <ul><li>De limiet voor het aantal aanvragen per minuut is bereikt.</li><li>De aangevraagde grootte blijft beperkt 10000 tekens.</li><li>Elk uur en een dagelijkse quotum beperkt het aantal tekens dat de Microsoft Translator-API accepteert.</li></ul>|

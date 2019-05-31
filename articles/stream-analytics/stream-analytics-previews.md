@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.openlocfilehash: f3838bf6b9f7daa24c0cdb5b0c5a08d41d164530
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/29/2019
+ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561142"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393695"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -30,10 +30,6 @@ De functies van Azure Stream Analytics-taken kunnen worden geschreven in Visual 
 ### <a name="anomaly-detection"></a>Anomaliedetectie
 
 Azure Stream Analytics introduceert nieuwe machine learning-modellen met ondersteuning voor *piek* en *dalen* detectie naast bidirectionele, trage positief en traag negatieve trends detecteren. Ga voor meer informatie naar [anomaliedetectie in Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
-
-### <a name="sql-database-reference-data"></a>Referentiegegevens voor SQL-Database
-
-Azure Stream Analytics biedt ondersteuning voor Azure SQL Database als een bron van de invoer voor referentiegegevens. U kunt SQL-Database gebruiken als referentiegegevens voor uw Stream Analytics-taak in de Azure-portal en Visual Studio met Stream Analytics-hulpprogramma's. Voor meer informatie gaat u naar, [gebruik referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak](sql-reference-data.md).
 
 ### <a name="integration-with-azure-machine-learning"></a>Integratie met Azure Machine Learning
 

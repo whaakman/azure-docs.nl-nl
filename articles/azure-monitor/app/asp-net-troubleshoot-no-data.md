@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471854"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299307"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -25,6 +25,16 @@ ms.locfileid: "65471854"
 
 * Als u het gedeelte van het dezelfde consistent ziet, is het waarschijnlijk vanwege adaptieve [steekproeven](../../azure-monitor/app/sampling.md). U kunt dit controleren zoeken (op de overzichtsblade) openen en zoek naar een exemplaar van een aanvraag of een andere gebeurtenis. Aan de onderkant van de sectie met eigenschappen klikt u op '...' voor volledige informatie. Als aantal > 1 aanvragen en vervolgens steekproeven worden uitgevoerd.
 * Anders is het mogelijk dat u ondervindt een [limiet](../../azure-monitor/app/pricing.md#limits-summary) voor uw prijsplan. Deze limieten gelden per minuut.
+
+*Ik ben gegevensverlies willekeurig ondervindt.*
+
+* Controleren als er gegevens verloren gaan op [telemetrie-kanaal](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+
+* Controleer of er bekende problemen in telemetrie kanaal [Github-opslagplaats](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+
+*Ik ben verlies van gegevens in de Console-App of Web-App ondervindt wanneer de app wordt gestopt.*
+
+* SDK-kanaal telemetrie in buffer houdt en stuurt ze in batches. Als de toepassing wordt afgesloten, moet u mogelijk expliciet aanroepen [Flush()](api-custom-events-metrics.md#flushing-data). Gedrag van `Flush()` is afhankelijk van de werkelijke [kanaal](telemetry-channels.md#built-in-telemetrychannels) gebruikt.
 
 ## <a name="no-data-from-my-server"></a>Er zijn geen gegevens van mijn server
 *Ik mijn app hebt geïnstalleerd op de webserver en nu kan ik geen telemetriegegevens van deze niet ziet. Het is gegaan OK op mijn dev-machine.*
@@ -58,7 +68,6 @@ FIX:
 * Controleer dat u hebt opgegeven aanmeldingsreferenties voor de juiste Azure-account.
 * In uw browser, Controleer of u toegang tot hebt de [Azure-portal](https://portal.azure.com). Instellingen openen en kijk of er verder geen beperkingen.
 * [Application Insights toevoegen aan een bestaand project](../../azure-monitor/app/asp-net.md): Klik met de rechtermuisknop op uw project in Solution Explorer en kies 'Add Application Insights'.
-* Als deze nog steeds niet werkt, volgt u de [handmatige procedure](../../azure-monitor/app/windows-services.md) toevoegen van een resource in de portal en vervolgens de SDK toevoegen aan uw project.
 
 ## <a name="emptykey"></a>Ik krijg de foutmelding 'instrumentatiesleutel mag niet leeg zijn'
 Er is iets fout gegaan tijdens installatie Application Insights of misschien een adapter voor logboekregistratie.

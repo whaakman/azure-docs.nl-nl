@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c3b9aa6fcf5cf96e3ef1f3bdd76e9f1d19be5c5c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098155"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400102"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Herstel na noodgevallen naar Azure voor on-premises fysieke servers instellen
 
@@ -110,7 +110,7 @@ Instellen van de configuratieserver en VM's detecteren in de kluis te registrere
 2. Als u geen een configuratieserver, klikt u op **+ configuratieserver**.
 3. In **-Server toevoegen**, controleert u of **configuratieserver** wordt weergegeven in **servertype**.
 4. Download het installatiebestand van de geïntegreerde Setup van Site Recovery.
-5. Download de registratiesleutel voor de kluis. U hebt deze nodig wanneer u geïntegreerde Setup uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
+5. Download de kluisregistratiesleutel. U hebt deze nodig wanneer u geïntegreerde Setup uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
    ![Bron instellen](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -152,7 +152,7 @@ Selecteer en controleer doelbronnen.
 
 ## <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 
-1. Klik op **Infrastructuur voor Site Recovery** > **Herstelbeleid** > **+Herstelbeleid** om een nieuw replicatiebeleid te maken.
+1. Klik op **Infrastructuur voor Site Recovery** > **Herstelbeleid** >  **+Herstelbeleid** om een nieuw replicatiebeleid te maken.
 2. Geef in **Replicatiebeleid maken** een beleidsnaam op.
 3. Geef in **RPO-drempelwaarde** de limiet van de Recovery Point Objective (RPO) op. Deze waarde geeft aan hoe vaak gegevens herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
 4. Geef in **Bewaarperiode van het herstelpunt** op hoelang (in uren) de bewaarperiode voor elk herstelpunt is. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster. Voor computers die worden gerepliceerd naar Premium Storage, wordt een bewaarperiode van maximaal 24 uur ondersteund, en 72 uur voor computers die naar Standard Storage worden gerepliceerd.

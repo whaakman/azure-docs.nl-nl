@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949921"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357314"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nieuwe DBA in de cloud, uw één en gepoolde databases in Azure SQL Database beheren
 
@@ -29,6 +29,7 @@ Verplaatsen van de traditionele zelf wordt beheerd, zelf-gecontroleerde omgeving
 
 In dit artikel komen enkele van de belangrijkste kenmerken van Azure SQL Database als een platform waarmee u gemakkelijk gebruiken kunt bij het werken met individuele databases en gepoolde databases in elastische pools. Ze zijn als volgt:
 
+- Controleren van de database met behulp van de Azure-portal
 - Zakelijke continuïteit en herstel na noodgevallen (BCDR)
 - Beveiliging en compliance
 - Intelligente database controleren en onderhoud
@@ -36,6 +37,25 @@ In dit artikel komen enkele van de belangrijkste kenmerken van Azure SQL Databas
 
 > [!NOTE]
 > In dit artikel is van toepassing op de volgende implementatie-opties in Azure SQL Database: enkele databases en elastische pools. Dit geldt niet voor het beheerde exemplaar Implementatieoptie in SQL-Database.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Databases bewaken via de Azure-portal
+
+In de [Azure-portal](https://portal.azure.com/), kunt u een afzonderlijke Databasegebruik s controleren door te klikken en selecteer uw database de **bewaking** grafiek. Nu wordt een venster **Metrische gegevens** geopend, dat u kunt wijzigen door op de knop **Grafiek bewerken** te klikken. Voeg de volgende metrische gegevens toe:
+
+- CPU-percentage
+- DTU-percentage
+- Gegevens-I/O-percentage
+- Databaseomvangpercentage
+
+Als u deze metrische gegevens hebt toegevoegd, kunt u doorgaan met deze bekijken in de **bewaking** grafiek met meer informatie over de **Metric** venster. De vier metrische gegevens tonen het gemiddelde gebruikspercentage ten opzichte van de **DTU** van uw database. Zie de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) artikelen voor meer informatie over Servicelagen.  
+
+![Servicelaagbewaking van databaseprestaties.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+U kunt ook meldingen configureren voor prestatiewaarden. Klik op de knop **Melding toevoegen** in het venster **Metrische gegevens**. Volg de wizard om de melding te configureren. U hebt de keuze om een melding weer te geven als de metrische gegevens een bepaalde drempelwaarde overschrijden of als het meetpunt onder een bepaalde drempelwaarde komt.
+
+Als u bijvoorbeeld verwacht dat de workload van de database zal toenemen, kunt u configureren dat er een e-mailmelding wordt verstuurd wanneer de database 80% van een van de prestatiewaarden heeft bereikt. U kunt dit gebruiken als een vroegtijdige waarschuwing te achterhalen wanneer u misschien moet overschakelen naar de volgende hoogste compute-grootte.
+
+De maatstaven voor prestaties kunt u bepalen of u moet downgraden naar een lagere compute-grootte. Stel dat u een Standard S2-database gebruikt en alle prestatiewaarden aangeven dat de database gemiddeld nooit meer dan 10% gebruikt. Het is dan waarschijnlijk dat de database in Standard S1 goed werkt. Echter rekening houden met workloads die pieken of fluctueren, voordat u de beslissing om te verplaatsen naar een lagere compute-grootte.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR)
 
@@ -47,7 +67,7 @@ Maak u geen back-ups op Azure SQL DB en dat komt omdat u niet hoeft te. SQL-Data
 
 |Servicelaag|Bewaarperiode in dagen|
 |---|:---:|
-|Basis|7|
+|Basic|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -135,7 +155,7 @@ Poort 1433. SQL Database communiceert via deze poort. Voor verbinding uit vanuit
 
 Met SQL Database, kunt u controleren voor het bijhouden van databasegebeurtenissen. [SQL Database Auditing](sql-database-auditing.md) registreert databasegebeurtenissen en schrijft deze naar een controlelogboekbestand in uw Azure Storage-Account. Controleren is heel handig als u van plan bent krijgt u inzicht in mogelijke beveiliging en beleid schendingen, naleving van regelgeving enzovoort. Hiermee kunt u definiëren en configureren van bepaalde categorieën van gebeurtenissen die u denkt moet controleren en op basis van dat u vooraf geconfigureerde rapporten en een dashboard voor een overzicht van gebeurtenissen in uw database kunt ophalen. U kunt deze controlebeleid op het databaseniveau van de of op het serverniveau van de kunt toepassen. Een handleiding voor het inschakelen van controle voor uw server /-database, Zie: [Inschakelen van SQL Database Auditing](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Detectie van dreigingen
+#### <a name="threat-detection"></a>Detectie van bedreigingen
 
 Met [detectie van bedreigingen](sql-database-threat-detection.md), krijgt u de mogelijkheid om te reageren op beveiligings- of beleid schendingen die zijn gedetecteerd door te controleren heel eenvoudig. U hoeft niet te worden van een beveiligingsexpert om potentiële bedreigingen of schendingen in uw systeem. Detectie van bedreigingen heeft ook enkele ingebouwde mogelijkheden, zoals SQL-injectie detectie. SQL-injectie is een poging te wijzigen of de gegevens en een gebruikelijk manier om in het algemeen is een aanval op een databasetoepassing in gevaar brengen. Detectie van bedreigingen wordt uitgevoerd voor meerdere sets met algoritmen om mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals afwijkende patronen voor databasetoegang (zoals toegang vanaf een ongewone locatie of door een ongebruikelijke) te detecteren. Security officers of andere aangewezen beheerders ontvangen een e-mailbericht als een bedreiging wordt gedetecteerd op de database. Elke melding bevat informatie over de verdachte activiteiten en aanbevelingen voor het verder te onderzoeken en tegenhouden. Voor informatie over het inschakelen van detectie van bedreigingen, Zie: [Detectie van bedreigingen inschakelen](sql-database-security-tutorial.md#enable-security-features).
 
@@ -255,11 +275,11 @@ U kunt ook waarschuwingen door middel van deze grafiek configureren. Deze waarsc
 
 U kunt een query de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamische Beheerweergave om terug te keren resource verbruik statistieken geschiedenis van het afgelopen uur en de [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalogusweergave om terug te keren geschiedenis voor de afgelopen 14 dagen.
 
-#### <a name="query-performance-insight"></a>Query Performance Insight
+#### <a name="query-performance-insight"></a>Inzicht in queryprestaties
 
 [Query Performance Insight](sql-database-query-performance.md) kunt u een historisch overzicht bekijken van de top-resource-intensieve query's en langlopende query's voor een specifieke database. TOP-query's door gebruik van resources, de duur en de frequentie van de uitvoering, kunt u snel identificeren. U kunt query's bijhouden en regressie detecteren. Deze functie moet [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) zijn ingeschakeld en actief voor de database.
 
-![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
+![Inzicht in queryprestaties](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (Preview) in Azure Monitor-Logboeken
 

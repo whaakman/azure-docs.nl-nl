@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bde1983f89cb2fcd0a6fddadc2c3379dee4310be
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495346"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399633"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS resultaten toevoegen aan Application Insights en Azure functions
-In deze zelfstudie voegt LUIS-aanvraag en respons informatie aan [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
+In deze zelfstudie voegt LUIS-aanvraag en respons informatie aan [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
 
-De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
+De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot. Een [Bot Framework 4.x met LUIS zelfstudie](luis-nodejs-tutorial-bf-v4.md) is ook beschikbaar.
 
 In deze zelfstudie leert u het volgende:
 
@@ -112,7 +112,7 @@ Open Application Insights om te zien van de LUIS-vermeldingen.
 
 1. Selecteer in de portal **alle resources** vervolgens filteren op de naam van de web-app-bot. Klik op de resource met het type **Application Insights**. Het pictogram voor Application Insights is een gloeilampje. 
 
-    ! [[Zoeken naar app insights in Azure Portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ! [[Zoeken naar app insights in Azure portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. Wanneer de resource wordt geopend, klikt u op de **zoeken** pictogram van het Vergrootglas in het deelvenster uiterst rechts. Een nieuw deelvenster met de juiste weergegeven. Afhankelijk van hoeveel telemetriegegevens wordt gevonden, het deelvenster kan duren voordat een tweede om weer te geven. Zoeken naar `LUIS-results` en hits invoeren op het toetsenbord. De lijst wordt met alleen LUIS queryresultaten toegevoegd met deze zelfstudie teruggebracht.
 

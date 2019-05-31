@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 05/29/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4aae8eb29b9e90bd1cb84949e97e21ed68c04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1466614dfeb8fa4d3d095bae070d01c6503c5bb
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812770"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357245"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Beperkingen van Azure AD B2B-samenwerking
 Azure Active Directory (Azure AD) B2B-samenwerking is momenteel onderhevig aan de beperkingen die in dit artikel wordt beschreven.
@@ -29,6 +29,9 @@ In de B2B-samenwerking stromen, we gebruikers toevoegen aan de directory en deze
 
 ## <a name="azure-ad-directories"></a>Azure AD-directory 's
 Azure AD B2B is onderworpen aan Azure AD-directory limieten service. Voor meer informatie over het aantal mappen een gebruiker kunt maken en het aantal mappen aan die een gebruiker of een gastgebruiker deel uitmaken kan, Zie [limieten en beperkingen voor Azure AD-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+
+## <a name="national-clouds"></a>Nationale clouds
+[Nationale clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) zijn fysiek geïsoleerd exemplaren van Azure. B2B-samenwerking wordt niet ondersteund grenzen voor nationale cloud. Als uw Azure-tenant in de cloud openbare, wereldwijde, niet kan u bijvoorbeeld een gebruiker waarvan het account zich in een nationale cloud uitnodigen. Als u wilt samenwerken met de gebruiker, vraag om een ander e-mailadres of een lid-gebruikersaccount maken voor deze in uw directory.
 
 ## <a name="next-steps"></a>Volgende stappen
 

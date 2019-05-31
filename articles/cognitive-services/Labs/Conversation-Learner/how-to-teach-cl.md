@@ -3,19 +3,19 @@ title: Hoe om te leren met Conversatiecursist - Microsoft Cognitive Services | M
 titleSuffix: Azure
 description: Leer hoe u om te leren met Conversatiecursist.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 9e5e6594a74219a22d67af18827bfe2b7cbd0fb8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322886"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385260"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Lesgeven met Conversatiecursist 
 

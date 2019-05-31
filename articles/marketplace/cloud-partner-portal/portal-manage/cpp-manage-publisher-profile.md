@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942244"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257544"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Uw Azure Marketplace en AppSource uitgeverprofiel beheren
 
@@ -49,7 +49,7 @@ U kunt ook uw bestaande Dev Center-account koppelen aan uw uitgeverprofiel in de
 > [!NOTE]
 > Developer Center Accountregistratie is verplicht voor publicatie betaalde marktplaats SKU's.
 
-Als u geen een Developer Center-Account hebt, kunt u een account maken zoals beschreven in [registreren in Dev Center](../../register-dev-center.md).  Voeg het geregistreerde e-mailadres als een eigenaar zijn in de Cloud Partner-Portal voor uw aanbieding. Een eigenaar kunt alleen het geregistreerde e-mailadres toevoegen aan uw publicatieprofiel van de **gebruiker** sectie. Vervolgens aanmelden bij de portal met hetzelfde e-mailadres en uw Dev Center-account koppelen.
+Als u geen een Developer Center-Account hebt, kunt u een account maken zoals beschreven in [registreren in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center).  Voeg het geregistreerde e-mailadres als een eigenaar zijn in de Cloud Partner-Portal voor uw aanbieding. Een eigenaar kunt alleen het geregistreerde e-mailadres toevoegen aan uw publicatieprofiel van de **gebruiker** sectie. Vervolgens aanmelden bij de portal met hetzelfde e-mailadres en uw Dev Center-account koppelen.
 
 ![Details van het Publisher - uitgever profielbeschrijving](./media/publisherprofiledescription.png)
 

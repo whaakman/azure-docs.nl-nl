@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64947272"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418107"
 ---
 # <a name="what-is-azure-application-gateway"></a>Wat is Azure Application Gateway?
 
@@ -29,9 +29,9 @@ Dit type routering staat bekend al taakverdeling op de toepassingslaag (OSI-laag
 
 Azure Application Gateway bevat de volgende functies:
 
-## <a name="secure-sockets-layer-ssl-termination"></a>SSL-beëindiging (Secure Sockets Layer)
+## <a name="secure-sockets-layer-ssltls-termination"></a>Secure Sockets Layer (SSL/TLS) beëindiging
 
-Application Gateway ondersteunt SSL-beëindiging op de gateway, waarna het verkeer normaal gesproken onversleuteld naar de back-endservers wordt doorgeleid. Met deze functie voorkomt u prijzige overhead voor het versleutelen en ontsleutelen voor uw webservers. Maar soms is onversleutelde communicatie met de server echter geen aanvaardbare optie. Dit kan zijn vanwege beveiligingsvereisten, nalevingsvereisten, of de toepassing kan alleen via een beveiligde verbinding. Voor deze toepassingen ondersteunt Application Gateway end-to-end SSL-versleuteling.
+Application gateway ondersteunt SSL/TLS-beëindiging op de gateway, na welk verkeer normaal gesproken onversleuteld naar de back-endservers. Met deze functie voorkomt u prijzige overhead voor het versleutelen en ontsleutelen voor uw webservers. Maar soms is onversleutelde communicatie met de server echter geen aanvaardbare optie. Dit kan zijn vanwege beveiligingsvereisten, nalevingsvereisten, of de toepassing kan alleen via een beveiligde verbinding. Voor deze toepassingen ondersteunt application gateway end to end SSL/TLS-versleuteling.
 
 ## <a name="autoscaling"></a>Automatisch schalen
 

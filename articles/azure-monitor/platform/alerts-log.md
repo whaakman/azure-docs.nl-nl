@@ -5,15 +5,15 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: d893fb1023188498260813642678397a39bb2442
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: b7240b38e595fdcf9f9d4f995f71643154ee0f9b
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872371"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399173"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor
 
@@ -58,7 +58,7 @@ Gedetailleerde volgende is een stapsgewijze handleiding voor het gebruik van waa
 
    > [!NOTE]
    > 
-   > Waarschuwingen lijsten kunnen importeren analytics-query als signaaltype - **logboek (opgeslagen Query)**, zoals weergegeven in bovenstaande afbeelding. Gebruikers kunnen verbeteren van de query in Analytics en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen: meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met behulp van logboekquery in Azure Monitor](../log-query/log-query-overview.md) of [gedeelde query in application insights analytics ](../log-query/log-query-overview.md).
+   > Waarschuwingen lijsten kunnen importeren analytics-query als signaaltype - **logboek (opgeslagen Query)** , zoals weergegeven in bovenstaande afbeelding. Gebruikers kunnen verbeteren van de query in Analytics en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen: meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met behulp van logboekquery in Azure Monitor](../log-query/log-query-overview.md) of [gedeelde query in application insights analytics ](../log-query/log-query-overview.md).
 
 1. *Waarschuwingen voor activiteitenlogboeken*: Nadat u hebt geselecteerd, query voor waarschuwingen kan worden vermeld in de **zoekquery** veld; als de query-syntaxis is onjuist fout wordt in het veld in het rood weergegeven. Als de querysyntaxis juist - ter referentie wordt historische gegevens van de opgegeven query weergegeven als een grafiek met de optie voor het aanpassen van het tijdvenster van afgelopen zes uur voor de afgelopen week.
 
@@ -308,23 +308,36 @@ Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.micro
 
 Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleScheduledQueryRule.json ten behoeve van deze walkthrough kunnen worden opgeslagen en kunnen worden geïmplementeerd met [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Waarschuwingen met behulp van PowerShell, CLI of API beheren
+## <a name="managing-log-alerts-using-powershell"></a>Beheren van waarschuwingen met behulp van PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor - [geplande Query regels API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is een REST-API en volledig compatibel met Azure Resource Manager REST API. Daarom kan deze worden gebruikt via Powershell met Resource Manager-cmdlet, evenals Azure CLI.
+Azure Monitor - [geplande Query regels API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is een REST-API en volledig compatibel met Azure Resource Manager REST API. En onderstaande PowerShell-cmdlets die gebruikmaken van de [API-Query regels gepland](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+
+1. [Nieuwe AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell-cmdlet om een nieuwe logboekwaarschuwingsregel te maken.
+1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell-cmdlet voor het bijwerken van een bestaande logboekwaarschuwingsregel.
+1. [Nieuwe AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : PowerShell-cmdlet voor het maken of bijwerken van object parameters voor waarschuwing voor een bron op te geven. Gebruikt als invoer door [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) en [Set AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): PowerShell-cmdlet maken of bijwerken van het object opgeven SchemaParameters voor een waarschuwing. Gebruikt als invoer door [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) en [Set AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : PowerShell-cmdlet voor het maken of bijwerken van object actieparameters voor een waarschuwing op te geven. Gebruikt als invoer door [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) en [Set AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell-cmdlet maken of bijwerken van object op te geven actie groepen parameters voor een waarschuwing. Gebruikt als invoer door [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
+1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell-cmdlet maken of bijwerken van het object opgeven voorwaardeparameters van trigger voor de waarschuwing. Gebruikt als invoer door [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
+1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell-cmdlet maken of bijwerken van object op te geven de metrische trigger voorwaardeparameters voor [meting van metrische gegevens type waarschuwing](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Gebruikt als invoer door [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
+1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : Meld u PowerShell-cmdlet aan lijst met bestaande waarschuwingsregels of een specifieke logboekwaarschuwingen
+1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell-cmdlet in- of uitschakelen van waarschuwingsregel
+1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell-cmdlet voor het verwijderen van een waarschuwingsregel voor een bestaande log
+
+> [!NOTE]
+> ScheduledQueryRules PowerShell-cmdlets kunnen alleen regels die zijn gemaakt cmdlet zelf beheren of met behulp van Azure Monitor - [API-Query regels gepland](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Meld u waarschuwingsregels die zijn gemaakt met behulp van legacy [Log Analytics-waarschuwing API](api-alerts.md) en verouderde sjablonen van [met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../insights/solutions-resources-searches-alerts.md) kunnen worden beheerd met ScheduledQueryRules PowerShell-cmdlets alleen na gebruiker [verandert de voorkeur van de API voor Log Analytics-waarschuwingen](alerts-log-api-switch.md).
+
+## <a name="managing-log-alerts-using-cli-or-api"></a>Waarschuwingen met de CLI of API beheren
+
+Azure Monitor - [geplande Query regels API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is een REST-API en volledig compatibel met Azure Resource Manager REST API. Daarom kan deze worden gebruikt via Powershell met Resource Manager-opdrachten voor Azure CLI.
 
 
 > [!NOTE]
 > Waarschuwingen voor logboeken voor Log Analytics kunnen ook worden beheerd met behulp van legacy [Log Analytics-waarschuwing API](api-alerts.md) en verouderde sjablonen van [met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../insights/solutions-resources-searches-alerts.md) ook. Zie voor meer informatie over het gebruik van de nieuwe ScheduledQueryRules API hier gedetailleerde standaard [overschakelen naar de nieuwe API voor Log Analytics-waarschuwingen](alerts-log-api-switch.md).
 
-Waarschuwingen nog op dit moment geen toegewezen PowerShell of CLI-opdrachten op dit moment; maar zoals hieronder weergegeven kan worden gebruikt via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) in de sectie Resource-sjabloon:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
-```
-
-Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) weergegeven in de sectie Resource-sjabloon:
+Waarschuwingen nog op dit moment geen toegewezen CLI-opdrachten op dit moment; maar zoals hieronder weergegeven kan worden gebruikt via Azure Resource Manager-CLI-opdracht voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) in de sectie Resource-sjabloon:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

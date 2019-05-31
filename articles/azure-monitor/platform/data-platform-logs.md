@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809159"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244854"
 ---
 # <a name="logs-in-azure-monitor"></a>Logboeken in Azure Monitor
 
@@ -79,7 +79,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 | Gegevens | Description |
 |:---|:---|
 | Auditlogboeken van Azure Active Directory | Geconfigureerd via diagnostische instellingen voor elke map. Zie [logboeken van Azure AD integreren met Azure Monitor logboeken](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Activiteitenlogboeken | Standaard afzonderlijk opgeslagen en kan worden gebruikt voor bijna realtime waarschuwingen. Installeer de oplossing Activity Log Analytics om te schrijven naar Log Analytics-werkruimte. Zie [verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics](collect-activity-logs.md). |
+| Activiteitenlogboeken | Standaard afzonderlijk opgeslagen en kan worden gebruikt voor bijna realtime waarschuwingen. Installeer Activity log Analytics-oplossing te schrijven naar Log Analytics-werkruimte. Zie [verzamelen en analyseren van Azure-activiteitenlogboeken in Log Analytics](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Azure-resources
 
@@ -99,7 +99,7 @@ Azure Monitor kunt logboekgegevens verzamelen uit een verscheidenheid aan bronne
 | System Center Operations Manager | Operations Manager-beheergroep verbinden met Azure Monitor voor het verzamelen van gebeurtenissen en prestatiegegevens van on-premises agents in Logboeken. Zie [Operations Manager verbinden met Log Analytics](om-agents.md) voor meer informatie over deze configuratie. |
 
 
-### <a name="applications"></a>Applicaties
+### <a name="applications"></a>Toepassingen
 
 | Gegevens | Description |
 |:---|:---|

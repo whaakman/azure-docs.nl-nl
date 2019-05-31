@@ -11,18 +11,18 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9a49c4af474d7f0618bf0cff1a093e5cbb62fe2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648819"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390127"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Het gebruik van trefwoordenrangschikking om weer te geven resultaten van de Bing webzoekopdrachten-API  
 
-Elke zoekopdracht-antwoord bevat een [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) antwoord, waarmee wordt aangegeven hoe u de lijst met zoekresultaten moet weergeven. Het antwoord rangorde groepen resultaten door mainline inhoud en zijbalk inhoud voor een traditionele pagina met zoekresultaten. Als de resultaten in een traditionele hoofdlijnen en de indeling van de zijbalk niet wordt weergegeven, moet u de hoofdlijnen inhoud hoger zichtbaarheid dan de zijbalk-inhoud opgeven.  
+Elke zoekopdracht-antwoord bevat een [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) antwoord, waarmee wordt aangegeven hoe u de lijst met zoekresultaten moet weergeven. Het antwoord rangorde groepen resultaten door mainline inhoud en zijbalk inhoud voor een traditionele pagina met zoekresultaten. Als de resultaten in een traditionele hoofdlijnen en de indeling van de zijbalk niet wordt weergegeven, moet u de hoofdlijnen inhoud hoger zichtbaarheid dan de zijbalk-inhoud opgeven.  
 
-Binnen elke groep (mainline of zijbalk), wordt de [Items](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matrix identificeert de volgorde waarin de inhoud moet worden weergegeven in. Elk item biedt de volgende twee manieren om te identificeren van het resultaat binnen een antwoord.  
+Binnen elke groep (mainline of zijbalk), wordt de [Items](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) matrix identificeert de volgorde waarin de inhoud moet worden weergegeven in. Elk item biedt de volgende twee manieren om te identificeren van het resultaat binnen een antwoord.  
 
 -   `answerType` en `resultIndex` : de `answerType` veld identificeert het antwoord (bijvoorbeeld een webpagina of nieuws) en `resultIndex` geeft een resultaat in het antwoord (bijvoorbeeld een nieuwsbericht). De index is op basis van nul.  
 
@@ -30,11 +30,11 @@ Binnen elke groep (mainline of zijbalk), wordt de [Items](https://docs.microsoft
 
 Met behulp van de ID is eenvoudiger om te gebruiken omdat u alleen moet overeenkomen met de volgorde-ID met de ID van een antwoord of een van de resultaten. Als een object van het antwoord bevat een `id` veld, van het antwoord resultaten tegelijk weergeven. Bijvoorbeeld, als de `News` object bevat de `id` veld, alle nieuwsartikelen tegelijk weergeven. Als de `News` object omvat niet de `id` veld, wordt elk nieuwsartikel bevat een `id` veld en de reactie rangschikking van de nieuwsartikelen combineert met de resultaten van andere antwoorden.  
 
-Met behulp van de `answerType` en `resultIndex` is iets gecompliceerder. U gebruikt `answerType` voor het identificeren van het antwoord met de resultaten om weer te geven. Vervolgens gebruikt u `resultIndex` index via de resultaten van het antwoord voor het resultaat om weer te geven. (De `answerType` waarde is de naam van het veld in de [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object.) Als u verwacht om samen de resultaten van het antwoord weer te geven, het antwoord rangorde item niet bevatten de `resultIndex` veld.  
+Met behulp van de `answerType` en `resultIndex` is iets gecompliceerder. U gebruikt `answerType` voor het identificeren van het antwoord met de resultaten om weer te geven. Vervolgens gebruikt u `resultIndex` index via de resultaten van het antwoord voor het resultaat om weer te geven. (De `answerType` waarde is de naam van het veld in de [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) object.) Als u verwacht om samen de resultaten van het antwoord weer te geven, het antwoord rangorde item niet bevatten de `resultIndex` veld.  
 
 ## <a name="ranking-response-example"></a>Voorbeeld van de reactie rangorde
 
-Hieronder ziet u een voorbeeld [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse). Omdat de Web-antwoord bevat geen een `id` veld, zou u alle webpagina's afzonderlijk op basis van de volgorde weergeven (elke webpagina bevat een `id` veld). En omdat de afbeeldingen, video's en verwante zoekopdrachten antwoorden omvatten de `id` veld, zou u de resultaten van elk van de antwoorden samen op basis van de volgorde weergeven.
+Hieronder ziet u een voorbeeld [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Omdat de Web-antwoord bevat geen een `id` veld, zou u alle webpagina's afzonderlijk op basis van de volgorde weergeven (elke webpagina bevat een `id` veld). En omdat de afbeeldingen, video's en verwante zoekopdrachten antwoorden omvatten de `id` veld, zou u de resultaten van elk van de antwoorden samen op basis van de volgorde weergeven.
 
 ```json
 {  

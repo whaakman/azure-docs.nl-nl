@@ -5,30 +5,30 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c025c431d826d3a2951a9eb5c09308695e172887
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170683"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299704"
 ---
 | Resource | Standaard-/ maximumlimiet |
 | --- | --- |
 | ExpressRoute-circuits per abonnement |10 |
 | ExpressRoute-circuits per regio per abonnement, met Azure Resource Manager |10 |
-| Maximum aantal routes voor persoonlijke Azure-peering met ExpressRoute Standard |4,000 |
-| Maximum aantal routes voor persoonlijke Azure-peering met ExpressRoute Premium-invoegonderdeel |10.000 |
-| Maximum aantal routes voor persoonlijke Azure-peering van de VNet-adresruimte voor een ExpressRoute-verbinding |200 | 
-| Maximum aantal routes voor Microsoft Azure-peering met ExpressRoute Standard |200 |
-| Maximum aantal routes voor Microsoft Azure-peering met ExpressRoute Premium-invoegonderdeel |200 |
+| Maximum aantal routes geadverteerd naar persoonlijke Azure-peering met ExpressRoute Standard |4,000 |
+| Maximum aantal routes geadverteerd naar persoonlijke Azure-peering met ExpressRoute Premium-invoegonderdeel |10.000 |
+| Maximum aantal routes geadverteerd van persoonlijke Azure-peering van de VNet-adresruimte voor een ExpressRoute-verbinding |200 |
+| Maximum aantal routes die zijn geadverteerd aan Microsoft-peering met ExpressRoute Standard |200 |
+| Maximum aantal routes geadverteerd aan Microsoft-peering met ExpressRoute Premium-invoegonderdeel |200 |
 | Maximum aantal ExpressRoute-circuits die zijn gekoppeld aan hetzelfde virtuele netwerk op dezelfde locatie bevinden peering |4 |
 | Maximum aantal ExpressRoute-circuits die zijn gekoppeld aan hetzelfde virtuele netwerk op verschillende locaties voor peering |4 |
-| Aantal virtuele netwerk-koppelingen per ExpressRoute-circuit toegestaan |Zie de volgende tabel. |
+| Aantal virtuele netwerk-koppelingen per ExpressRoute-circuit toegestaan |Zie de [aantal virtuele netwerken per ExpressRoute-circuit](#vnetpercircuit) tabel.  |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Aantal virtuele netwerken per ExpressRoute-circuit
+#### <a name="vnetpercircuit"></a> Aantal virtuele netwerken per ExpressRoute-circuit
 | **De grootte van het circuit** | **Aantal koppelingen tussen virtuele netwerken voor Standard** | **Aantal virtuele netwerkkoppelingen met Premium-invoegonderdeel** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |

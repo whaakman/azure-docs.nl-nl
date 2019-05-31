@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761947"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299185"
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
 
@@ -31,6 +31,9 @@ Om te profiteren van **dynamische pakketten**, moet u beschikken over een **Asse
 Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client. 
 
 In Media Services dynamische pakketten gebruikt of u live of on-demand streaming. 
+
+> [!NOTE]
+> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](media-services-apis-overview.md#sdks).
 
 ## <a name="common-on-demand-workflow"></a>Algemene werkstroom voor op aanvraag
 
@@ -92,10 +95,32 @@ MP4-bestanden, waarin video gecodeerd met biedt ondersteuning voor dynamische pa
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs audio wordt ondersteund door dynamische verpakking
 
-MP4-bestanden, waarin de audio die is gecodeerd met biedt ondersteuning voor dynamische pakketten [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, hij AAC v1, v2 HE-AAC), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 of E-AC3), Dolby Atmos, of [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, HD DTS, DTS HD zonder verlies). Streaming van inhoud Dolby Atmos wordt ondersteund voor standaarden, zoals MPEG-DASH-protocol met algemene Streaming-indeling (KVP) of algemene Media toepassing-indeling (CMAF)-gefragmenteerde MP4 en via HTTP Live Streaming (HLS) met CMAF.
+### <a name="mp4-files-support"></a>Ondersteuning voor MP4-bestanden
 
-> [!NOTE]
-> Bestanden met biedt geen ondersteuning voor dynamische pakketten [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (dit is een verouderde codec).
+MP4-bestanden, waarin de audio die is gecodeerd met biedt ondersteuning voor dynamische verpakking 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, hij AAC v1, v2 HE-AAC)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 or E-AC3)
+* Dolby Atmos
+   
+   Streaming van inhoud Dolby Atmos wordt ondersteund voor standaarden, zoals MPEG-DASH-protocol met algemene Streaming-indeling (KVP) of algemene Media toepassing-indeling (CMAF)-gefragmenteerde MP4 en via HTTP Live Streaming (HLS) met CMAF.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DTS-codecs ondersteund door DASH-CSF, DASH-CMAF HLS-M2TS en HLS-CMAF verpakking indelingen zijn:  
+
+    * DTS Digital Surround (dtsc)
+    * DTS-HD hoge resolutie en Audio van DTS-HD-Master (dtsh)
+    * DTS Express (dtse)
+    * DTS-HD zonder verlies (geen core) (dtsl)
+
+### <a name="hls-support"></a>Ondersteuning voor HLS
+
+Ondersteuning voor dynamische pakketten HLS (versie 4 of hoger) voor activa met meerdere met meerdere codecs en talen audiosporen.
+
+### <a name="not-supported"></a>Niet ondersteund
+
+Bestanden met biedt geen ondersteuning voor dynamische pakketten [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (dit is een verouderde codec).
 
 ## <a name="dynamic-encryption"></a>Dynamische versleuteling
 
@@ -193,10 +218,7 @@ Hier volgt een voorbeeld van een manifest Smooth Streaming:
 
 ## <a name="dynamic-manifest"></a>Dynamische Manifest
 
-Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
-
-> [!NOTE]
-> U kunt momenteel geen gebruik maken van de Azure-portal om v3-resources te beheren. Gebruik de [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) of een van de ondersteunde [SDK's](media-services-apis-overview.md#sdks).
+Dynamische filtering is gebruikt om te bepalen het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [vooraf filteren manifesten met dynamische Packager](filters-dynamic-manifest-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Stel vragen, feedback geven, updates ophalen
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8c2c69a81597c2702d608ccac8dceed1e832aff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bc33d65972e12591130389e0c3cb8697898d1da9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790227"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390346"
 ---
 # <a name="custom-search"></a>Aangepast zoeken
 Met Bing Aangepaste zoekopdrachten kunt u op maat gemaakte zoekervaringen maken voor onderwerpen die u interesseren. Uw gebruikers zien dan zoekresultaten die zijn afgestemd op de inhoud die ze interessant vinden in plaats van dat ze door pagina's met zoekresultaten moeten bladeren die niet-relevante inhoud bevatten.
@@ -28,10 +28,10 @@ Eindpunt: Retourneert zoeksuggesties als JSON-resultaten die relevant voor de in
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Zie voor meer voorbeelden waarin wordt beschreven hoe u aangepaste zoekopdrachten bronnen instelt, de [zelfstudie](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [Bing Custom Search-API voor Bing versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) verwijzing.
+Zie voor meer voorbeelden waarin wordt beschreven hoe u aangepaste zoekopdrachten bronnen instelt, de [zelfstudie](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [Bing Custom Search-API voor Bing versie 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) verwijzing.
 
 ## <a name="custom-search-response-json"></a>JSON-antwoord van de aangepaste zoekopdrachten
-Een aangepaste zoekopdracht retourneert resultaten als JSON-objecten, Zie [antwoordobjecten](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects). 
+Een aangepaste zoekopdracht retourneert resultaten als JSON-objecten, Zie [antwoordobjecten](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
 
 ## <a name="custom-autosuggest"></a>Aangepaste automatische suggesties
 De aangepaste automatische suggestie-API kunt u een gedeeltelijke zoekterm query verzenden naar Bing en terughalen van een lijst met voorgestelde query's die u kunt configureren. Met aangepaste automatische suggesties, suggesties die zijn geretourneerd door de API toevoegen en optioneel opgeven of u wilt opnemen die worden gegenereerd door Bing suggesties.

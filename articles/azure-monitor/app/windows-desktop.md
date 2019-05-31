@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371475"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255725"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Gebruik en prestaties bewaken in Klassieke Windows-bureaublad-apps
 
@@ -37,7 +37,7 @@ Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunne
    
     Als u ApplicationInsights.config gebruikt, moet u ervoor zorgen dat de bijbehorende eigenschappen in Solution Explorer zijn ingesteld op **Buildactie = Inhoud, Naar uitvoermap kopiëren = Kopiëren**.
 5. [Gebruik de API](../../azure-monitor/app/api-custom-events-metrics.md) om telemetrie te verzenden.
-6. Voer de app uit en bekijk de telemetrie in de resource die u hebt gemaakt in de Azure Portal.
+6. Uw app uitvoeren en de telemetrie bekijken in de resource die u hebt gemaakt in Azure portal.
 
 ## <a name="telemetry"></a>Voorbeeldcode
 ```csharp
@@ -77,7 +77,7 @@ Toepassingen die on-premises worden gehost, in Azure, en in andere clouds, kunne
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een dashboard maken](../../azure-monitor/app/app-insights-dashboards.md)
+* [Een dashboard maken](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md)
 * [Metrische gegevens verkennen](../../azure-monitor/app/metrics-explorer.md)
 * [Analytics-query's schrijven](../../azure-monitor/app/analytics.md)

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791360"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399719"
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
 
 Voor elke Azure-abonnement en de tenant staat Resource Manager maximaal 12.000 lezen aanvragen per uur en 1200 schrijven aanvragen per uur. Deze limieten zijn gericht op de principal-ID de aanvragen en de abonnements-ID of tenant-ID. Als uw aanvragen afkomstig is van meer dan één principal-ID, is de limiet voor het abonnement of de tenant is groter dan 12.000 en 1200 per uur.
 
-Aanvragen worden toegepast op uw abonnement of uw tenant. Verzoeken om abonnementen zijn services die de betrokken bij het doorgeven van uw abonnement-ID, zoals het ophalen van de resourcegroepen in uw abonnement. Tenant-aanvragen zijn niet opgenomen uw abonnements-ID, zoals het ophalen van geldige Azure-locaties.
+Aanvragen worden toegepast op uw abonnement of uw tenant. Verzoeken om abonnementen zijn die betrekking hebben op te geven uw abonnements-ID, zoals het ophalen van de resourcegroepen in uw abonnement. Tenant-aanvragen zijn niet opgenomen uw abonnements-ID, zoals het ophalen van geldige Azure-locaties.
 
 Deze limieten gelden voor elk exemplaar van Azure Resource Manager. Er zijn meerdere exemplaren in elke Azure-regio en Azure Resource Manager wordt geïmplementeerd voor alle Azure-regio's.  Dus in de praktijk limieten effectief veel hoger zijn dan deze limieten zijn, als gebruiker worden aanvragen doorgaans afgehandeld door veel verschillende exemplaren.
 
@@ -45,7 +45,7 @@ U kunt het aantal resterende aanvragen bepalen door onderzoeken antwoordheaders.
 ## <a name="retrieving-the-header-values"></a>Bij het ophalen van de waarden van de koptekst
 Bij het ophalen van deze headerwaarden in uw code of het script is niet anders dan bij het ophalen van een headerwaarde. 
 
-Bijvoorbeeld, in **C#**, haalt u de headerwaarde van een **HttpWebResponse** object met de naam **antwoord** door de volgende code:
+Bijvoorbeeld, in **C#** , haalt u de headerwaarde van een **HttpWebResponse** object met de naam **antwoord** door de volgende code:
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)

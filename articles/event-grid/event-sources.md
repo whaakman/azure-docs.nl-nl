@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561542"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257954"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Bronnen van gebeurtenissen in Azure Event Grid
 
@@ -74,7 +74,7 @@ Zie voor meer voorbeelden van Event Hubs als een handler [Event Hubs-handler](ev
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Abonneren op gebeurtenissen van IoT Hub om te reageren op het apparaat is gemaakt, verwijderd, verbonden en niet-verbonden gebeurtenissen.
+Abonneren op gebeurtenissen om te reageren op het apparaat is gemaakt, verwijderd, verbonden, niet-verbonden IoT-Hub en telemetrie.
 
 |Titel  |Description  |
 |---------|---------|
@@ -117,7 +117,7 @@ Abonneren op Service Bus-gebeurtenissen om te reageren op berichten zonder een a
 | [Overzicht: Azure Service Bus met Event Grid-integratie](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Overzicht van de integratie van Service Bus met Event Grid. |
 | [Gebeurtenisschema](event-schema-service-bus.md) | Velden weergeven in Service Bus-gebeurtenissen |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 Abonneren op gebeurtenissen van Blob-opslag om te reageren op blob-gebeurtenissen gemaakt en verwijderd.
 

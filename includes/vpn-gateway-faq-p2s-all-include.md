@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f72ce02a8655ea97497098dc1412f69e07686861
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 42c94188c0c38448660998bcfc122ae626285566
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147070"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248932"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hoeveel VPN-clienteindpunten kan mijn punt-naar-site-configuratie hebben?
 
@@ -38,9 +38,11 @@ De volgende clientbesturingssystemen worden ondersteund:
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Kan ik met punt-naar-site-functionaliteit proxy's en firewalls passeren?
 
-Azure ondersteunt twee soorten point-to-site-VPN-opties:
+Azure ondersteunt drie typen van punt-naar-site VPN-opties:
 
 * Secure Socket Tunneling Protocol (SSTP). SSTP is een bedrijfseigen, op SSL gebaseerde oplossing van Microsoft die firewalls kan passeren, omdat de meeste firewalls de TCP-poort 443 openen die door SSL wordt gebruikt.
+
+* OpenVPN. OpenVPN is een op SSL gebaseerde oplossing die firewalls passeren kan, omdat de meeste firewalls de TCP-poort 443 SSL wordt gebruikt is geopend.
 
 * IKEv2 VPN. IKEv2 VPN is een op standaarden gebaseerde IPsec VPN-oplossing die gebruikmaakt van UDP-poort 500 en 4500 en IP-protocol nr. 50. Firewalls openen deze poorten niet altijd, zodat de kans bestaat dat een IKEv2 VPN proxy's en firewalls niet kan passeren.
 
@@ -66,7 +68,7 @@ Het is moeilijk om de exacte doorvoer van de VPN-tunnels te onderhouden. IPSec e
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Kan ik voor point-to-site elke VPN-softwareclient gebruiken die SSTP en/of IKEv2 ondersteunt?
 
-Nee. U kunt alleen de systeemeigen VPN-client van Windows voor SSTP en de systeemeigen VPN-client van Mac voor IKEv2 gebruiken. Raadpleeg de lijst met ondersteunde clientbesturingssystemen.
+Nee. U kunt alleen de systeemeigen VPN-client van Windows voor SSTP en de systeemeigen VPN-client van Mac voor IKEv2 gebruiken. U kunt echter de OpenVPN-client op alle platforms verbinding maken via OpenVPN-protocol gebruiken. Raadpleeg de lijst met ondersteunde clientbesturingssystemen.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Biedt Azure ondersteuning voor IKEv2-VPN met Windows?
 

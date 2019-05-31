@@ -1,30 +1,30 @@
 ---
-title: 'Quickstart: Visualiseer gegevens uit Azure Data Explorer met behulp van een SQL-query in Power BI'
-description: 'In deze quickstart leert u hoe u een van de drie opties kunt gebruiken voor het visualiseren van gegevens in Power BI: een SQL-query voor een Azure Data Explorer-cluster.'
+title: Visualiseer gegevens uit Azure Data Explorer met behulp van een SQL-query in Power BI
+description: 'In dit artikel leert u hoe u een van de drie opties voor het visualiseren van gegevens in Power BI: een SQL-query op een Azure Data Explorer-cluster.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/14/2018
-ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 05/30/2019
+ms.openlocfilehash: 13cec67a690239204bfc52d04b7cf03fd571148a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828828"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399278"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Quickstart: Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI
+# <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Power BI is een business analytics-oplossing waarmee u uw gegevens kunt visualiseren en de gegevens kunt delen in uw organisatie.
 
-Azure Data Explorer biedt drie opties om gegevens te verbinden in Power BI: de ingebouwde connector gebruiken, een query importeren uit Azure Data Explorer, of een SQL-query gebruiken. In deze quickstart ziet u hoe u een SQL-query gebruikt om gegevens op te halen en te visualiseren in een Power BI-rapport.
+Azure Data Explorer biedt drie opties om gegevens te verbinden in Power BI: de ingebouwde connector gebruiken, een query importeren uit Azure Data Explorer, of een SQL-query gebruiken. In dit artikel leest u hoe u een SQL-query voor het ophalen van gegevens en visualiseren in een Power BI-rapport.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om deze quickstart te voltooien:
+U hebt het volgende om te voltooien in dit artikel nodig:
 
 * Een organisatie-e-mailaccount dat lid is van Azure Active Directory, zodat u verbinding kunt maken met het [Azure Data Explorer-helpcluster](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -50,7 +50,7 @@ Doorgaans gebruikt u de systeemeigen querytaal met Azure Data Explorer, maar dez
 
     **Instelling** | **Waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Server | *help.kusto.windows.net* | De URL voor het helpcluster (zonder *https://*). Voor andere clusters heeft de URL de notatie *\<ClusterName\>.\<Regio\>. kusto.windows.net*. |
+    | Server | *help.kusto.windows.net* | De URL voor het helpcluster (zonder *https://* ). Voor andere clusters heeft de URL de notatie *\<ClusterName\>.\<Regio\>. kusto.windows.net*. |
     | Database | *Voorbeelden* | De voorbeelddatabase die wordt gehost op het cluster waarmee u verbinding maakt. |
     | Gegevensverbindingsmodus | *Importeren* | Bepaalt of Power BI de gegevens importeert of rechtstreeks verbinding maakt met de gegevensbron. Met deze connector kunt u een van beide opties gebruiken. |
     | Time-out van opdracht | Leeg laten | Hoe lang de query wordt uitgevoerd voordat deze een time-outfout genereert. |
@@ -80,9 +80,8 @@ Doorgaans gebruikt u de systeemeigen querytaal met Azure Data Explorer, maar dez
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u het rapport dat u voor deze quickstart hebt gemaakt niet meer nodig hebt, verwijdert u het Power BI Desktop-bestand (.pbix).
+Als u het rapport dat u hebt gemaakt niet meer nodig voor dit artikel, verwijdert u de Power BI Desktop (.pbix)-bestand.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Snelstart: Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-connector.md)
+[Gegevens visualiseren met behulp van een geïmporteerde query in Power BI](power-bi-connector.md)

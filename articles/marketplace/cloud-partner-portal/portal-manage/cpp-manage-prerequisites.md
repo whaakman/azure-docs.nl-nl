@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: da594ca5793bbf61f393fb1380309403fd808cef
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8c32043d9bf3ca68563ae01d415bdc0e1f6993f7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942223"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258130"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Vereisten voor het beheren van accounts in de Cloud Partner-Portal 
 
@@ -23,12 +23,13 @@ Voordat u kunt de [Cloud Partner-Portal](https://cloudpartner.azure.com/) voor e
 
 Zorgvuldig door uw rechten en -verantwoordelijkheden onder de [Microsoft-Servicesovereenkomst](https://www.microsoft.com/servicesagreement) en de [Microsoft Terms](https://www.microsoft.com/legal/intellectualproperty/copyright) voordat u een account maken.  
 
-Kies de accountnaam van uw zorgvuldig.  Deze aansluit bij uw organisatie, zodat deze mag niet de woorden of controversieel auteursrechtelijk beschermd.  Bijvoorbeeld Microsoft zijn niet toegestaan op het gebruik van het auteursrechtelijk beschermde termen, zoals 'Azure' en 'Microsoft', in accountnamen.  Zie voor meer informatie, [richtlijnen voor Azure Marketplace](../../guidelines.md)
+Kies de accountnaam van uw zorgvuldig.  Deze aansluit bij uw organisatie, zodat deze mag niet de woorden of controversieel auteursrechtelijk beschermd.  Bijvoorbeeld Microsoft zijn niet toegestaan op het gebruik van het auteursrechtelijk beschermde termen, zoals 'Azure' en 'Microsoft', in accountnamen.  Zie voor meer informatie, [richtlijnen voor Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines)
 
 
 ## <a name="registration-steps"></a>Stappen voor inschrijving
 
-De volgende tabel bevat de stappen die nodig zijn voor het volledig registreren als de uitgever van een Microsoft-cloud.  Zie voor volledige instructies [geworden van een Cloud-Marketplace-uitgever](../../become-publisher.md). 
+De volgende tabel bevat de stappen die nodig zijn voor het volledig registreren als de uitgever van een Microsoft-cloud.  Zie voor volledige instructies [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher
+). 
 
 
 |                   Stap                   |  Resulterende registratie of resource                     |

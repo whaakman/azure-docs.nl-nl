@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161068"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388994"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Azure DevOps-taak voor Azure Data Explorer
 
@@ -67,7 +67,7 @@ Het volgende voorbeeld-mappen maken (*functies*, *beleid*, *tabellen*) in de Git
 
     ![Variabele maken](media/devops/create-variable.png)
 
-    Om te zoeken, uw Endpoint_URL, de overzichtspagina van uw **Azure Data Explorer Cluster** in Azure portal de URI van de Azure Data Explorer-cluster bevat. Maken van de URI in de volgende indeling `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Bijvoorbeeld: https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Om te zoeken, uw Endpoint_URL, de overzichtspagina van uw **Azure Data Explorer Cluster** in Azure portal de URI van de Azure Data Explorer-cluster bevat. Maken van de URI in de volgende indeling `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Bijvoorbeeld: https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Azure-Data Explorer cluster-URI](media/devops/adx-cluster-uri.png)
 
@@ -85,7 +85,7 @@ Het volgende voorbeeld-mappen maken (*functies*, *beleid*, *tabellen*) in de Git
 
 1. Klik op **Kusto-opdracht** aan de linkerkant en update de taak met de volgende informatie:
     * **Weergavenaam**: Naam van de taak
-    * **Bestandspad**: In de **tabellen** taak, geef */Tables/*.csl omdat de tabel maken van bestanden de *tabel* map.
+    * **Bestandspad**: In de **tabellen** taak, geef */Tables/* .csl omdat de tabel maken van bestanden de *tabel* map.
     * **Eindpunt-URL**: Voer de `EndPoint URL`variabele in de vorige stap hebt gemaakt.
     * Selecteer **Service-eindpunt gebruik** en selecteer **+ nieuw**.
 

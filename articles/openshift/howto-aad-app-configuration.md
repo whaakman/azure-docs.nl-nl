@@ -1,20 +1,20 @@
 ---
 title: Azure Active Directory-integratie voor Azure Red Hat OpenShift | Microsoft Docs
 description: Informatie over het maken van een Azure AD-beveiligingsgroep en de gebruiker voor het testen van apps op uw Microsoft Azure Red Hat OpenShift-cluster.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: openshift
 manager: jeconnoc
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: f6b87748c33c1afd047ae25dfb7df3670a73e7c8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779685"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306478"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integratie voor Azure Red Hat OpenShift
 
@@ -90,7 +90,7 @@ Zie voor meer informatie over Azure toepassingsobjecten [toepassing en service-p
 
 Voor meer informatie over het maken van een nieuwe Azure AD-toepassing, Zie [een app registreren met het eindpunt van de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
-## <a name="resources"></a>Bronnen
+## <a name="resources"></a>Resources
 
 * [Toepassingen en service-principalobjecten in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
 * [Snelstart: Een app registreren met het eindpunt van de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  

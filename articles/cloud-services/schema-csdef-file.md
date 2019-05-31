@@ -13,12 +13,12 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea373c7b35ef82496690f213b92cc97f3536c57a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613255"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356153"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>De definitie van Schema (.csdef-bestand) voor Azure Cloud Services
 Het servicedefinitiebestand definieert het servicemodel voor een toepassing. Het bestand bevat de definities voor de functies die beschikbaar voor een cloudservice zijn, Hiermee geeft u de service-eindpunten en configuratie-instellingen voor de service maakt. Configuratie-instellingswaarden zijn ingesteld in het configuratiebestand van de service, zoals is beschreven in de [configuratieschema voor Cloud-Service (klassiek)](/previous-versions/azure/reference/ee758710(v=azure.100)).
@@ -69,7 +69,7 @@ De volgende tabel beschrijft de kenmerken van de `ServiceDefinition` element.
 
 | Kenmerk               | Description |
 | ----------------------- | ----------- |
-| naam                    |Vereist. De naam van de service. De naam moet uniek zijn binnen het serviceaccount.|
+| name                    |Vereist. De naam van de service. De naam moet uniek zijn binnen het serviceaccount.|
 | topologyChangeDiscovery | Optioneel. Hiermee geeft u het type topologie wijzigingsmelding. Mogelijke waarden zijn:<br /><br /> -   `Blast` -De update zo snel mogelijk verzendt naar alle rolinstanties. Als u kiest, moet de rol van de update topologie zonder wordt opnieuw opgestart overweg kan met zijn.<br />-   `UpgradeDomainWalk` – Verzendt de update naar elke rolinstantie in een sequentiële wijze nadat het vorige exemplaar heeft de update is geaccepteerd.|
 | schemaVersion           | Optioneel. Hiermee geeft u de versie van de definitie van schema van de service. De schemaversie kunt Visual Studio om het juiste SDK-hulpprogramma's gebruiken voor schemavalidatie als meer dan één versie van de SDK is geïnstalleerd selecteert side-by-side.|
-| upgradeDomainCount      | Optioneel. Hiermee geeft u het aantal upgradedomeinen over welke functies in deze service worden toegewezen. Rolinstanties worden toegewezen aan een upgradedomein als de service is geïmplementeerd. Zie voor meer informatie, [bijwerken van een cloud service-rol of de implementatie](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment).<br /><br /> U kunt maximaal 20 upgradedomeinen opgeven. Indien niet opgegeven, is het aantal upgradedomeinen 5.|
+| upgradeDomainCount      | Optioneel. Hiermee geeft u het aantal upgradedomeinen over welke functies in deze service worden toegewezen. Rolinstanties worden toegewezen aan een upgradedomein als de service is geïmplementeerd. Zie voor meer informatie, [bijwerken van een cloud service-rol of de implementatie](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [beheren van de beschikbaarheid van virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) en [wat is een Cloudservicemodel](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> U kunt maximaal 20 upgradedomeinen opgeven. Indien niet opgegeven, is het aantal upgradedomeinen 5.|

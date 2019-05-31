@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 943bf0f4bba014c31a11bb30bf8d3b6a7c11a343
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682543"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299352"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Apache Ambari-Webgebruikersinterface, JobHistory, NameNode, Apache Oozie en andere webgebruikersinterfaces
 
@@ -42,7 +42,7 @@ Als u uw cluster aanpassen met scriptacties, moeten de services en hulpprogramma
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een SSH-client. De meeste besturingssystemen bieden SSH-client via de `ssh` opdracht. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* Een SSH-client. Zie voor meer informatie [Verbinding maken met HDInsight (Apache Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Een webbrowser die kan worden geconfigureerd voor het gebruik van een proxy SOCKS5.
 
@@ -56,9 +56,9 @@ Als u uw cluster aanpassen met scriptacties, moeten de services en hulpprogramma
 
 ## <a name="usessh"></a>Maken van een tunnel met behulp van de SSH-opdracht
 
-Gebruik de volgende opdracht uit om te maken van een SSH-tunnel met behulp van de `ssh` opdracht. Vervang **sshuser** met een SSH-gebruiker voor uw HDInsight-cluster en vervang **clustername** met de naam van uw HDInsight-cluster:
+Gebruik de volgende opdracht uit om te maken van een SSH-tunnel met behulp van de `ssh` opdracht. Vervang `sshuser` met een SSH-gebruiker voor uw HDInsight-cluster en vervang `clustername` met de naam van uw HDInsight-cluster:
 
-```bash
+```cmd
 ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
@@ -81,19 +81,20 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
 
 ### <a name="create-or-load-a-session"></a>Maken of een sessie laden
 
-1. Open PuTTY en controleer of **sessie** is geselecteerd in het menu links. Als u al een sessie hebt opgeslagen, selecteert u de sessienaam van de **opgeslagen sessies** lijst en klikt u op **Load**.
+1. Open PuTTY en controleer of **sessie** is geselecteerd in het menu links. Als u al een sessie hebt opgeslagen, selecteert u de sessienaam van de **opgeslagen sessies** lijst en selecteer **Load**.
 
 1. Als u nog een opgeslagen sessie hebt, voert u de verbindingsgegevens van uw:
     * **Hostnaam (of IP-adres)** -de SSH-adres voor het HDInsight-cluster. Bijvoorbeeld, **mijncluster-ssh.azurehdinsight.net**
     * **Poort** - 22
     * **Verbindingstype** : SSH
-1. Klik op **Opslaan**.
+
+1. Selecteer **opslaan**
 
     ![SSH-sessie maken](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
-2. In de **categorie** sectie aan de linkerkant van het dialoogvenster uit, vouw **verbinding**, vouw **SSH**, en selecteer vervolgens **Tunnels**.
+1. In de **categorie** sectie aan de linkerkant van het dialoogvenster uit, vouw **verbinding**, vouw **SSH**, en selecteer vervolgens **Tunnels**.
 
-3. Geef de volgende informatie op de **opties voor SSH-poort doorsturen** formulier:
+1. Geef de volgende informatie op de **opties voor SSH-poort doorsturen** formulier:
    
    * **Bronpoort**: de poort op de client die u wilt doorsturen. Bijvoorbeeld, **9876**.
 
@@ -103,9 +104,9 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
      
      ![afbeelding van de opties voor tunneling](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-4. Klik op **toevoegen** toevoegen van de instellingen en klik vervolgens op **openen** openen van een SSH-verbinding.
+1. Selecteer **toevoegen** toevoegen van de instellingen en klik vervolgens op **openen** openen van een SSH-verbinding.
 
-5. Wanneer u hierom wordt gevraagd, moet u zich aanmelden bij de server.
+1. Wanneer u hierom wordt gevraagd, moet u zich aanmelden bij de server.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Gebruik de tunnel vanuit uw browser
 
@@ -125,10 +126,10 @@ Als de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 o
 
 Zodra het cluster eenmaal is ingesteld, gebruikt u de volgende stappen uit om te controleren of u toegang hebt tot service webgebruikersinterfaces van de Ambari:
 
-1. Ga in uw browser naar http\:/ / headnodehost:8080. De `headnodehost` adres via de tunnel wordt verzonden naar het cluster en oplossen met het hoofdknooppunt dat Ambari op wordt uitgevoerd. Wanneer u hierom wordt gevraagd, voert u de naam van de gebruiker beheerder (beheerder) en het wachtwoord voor uw cluster. U kunt worden gevraagd een tweede keer door de Ambari-Webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
+1. Ga in uw browser naar `http://headnodehost:8080`. De `headnodehost` adres via de tunnel wordt verzonden naar het cluster en oplossen met het hoofdknooppunt dat Ambari op wordt uitgevoerd. Wanneer u hierom wordt gevraagd, voert u de naam van de gebruiker beheerder (beheerder) en het wachtwoord voor uw cluster. U kunt worden gevraagd een tweede keer door de Ambari-Webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
 
    > [!NOTE]  
-   > Wanneer met de HTTP-\://headnodehost:8080 adres voor de verbinding met het cluster, u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinding maken via internet met behulp van HTTPS, gebruik van https\:/ / clustername.azurehdinsight.net, waar **clustername** is de naam van het cluster.
+   > Wanneer u de `http://headnodehost:8080` adres om verbinding met het cluster te maken, u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinding maken via internet met behulp van HTTPS, gebruikt u `https://clustername.azurehdinsight.net`, waarbij `clustername` is de naam van het cluster.
 
 2. Selecteer in de Ambari-Webgebruikersinterface, HDFS in de lijst aan de linkerkant van de pagina.
 
@@ -138,23 +139,20 @@ Zodra het cluster eenmaal is ingesteld, gebruikt u de volgende stappen uit om te
 
     ![Afbeelding met het menu QuickLinks uitgevouwen](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]  
-   > Wanneer u selecteert __snelkoppelingen__, krijgt u mogelijk een indicator wachten. Dit probleem kan zich voordoen als er een langzame internetverbinding. Wacht een minuut of twee voor de gegevens worden ontvangen van de server en probeer het opnieuw de lijst.
-   >
-   > Sommige gegevens in de **snelkoppelingen** menu kan worden afgekapt door aan de rechterkant van het scherm. Als dit het geval is, vouw het menu met de muis en gebruik de toets pijl-rechts aan het scherm naar rechts om te zien van de rest van het menu bladeren.
+    > [!NOTE]  
+    > Wanneer u selecteert __snelkoppelingen__, krijgt u mogelijk een indicator wachten. Dit probleem kan zich voordoen als er een langzame internetverbinding. Wacht een minuut of twee voor de gegevens worden ontvangen van de server en probeer het opnieuw de lijst.
+    >
+    > Sommige gegevens in de **snelkoppelingen** menu kan worden afgekapt door aan de rechterkant van het scherm. Als dit het geval is, vouw het menu met de muis en gebruik de toets pijl-rechts aan het scherm naar rechts om te zien van de rest van het menu bladeren.
 
 4. Een pagina zoals in de volgende afbeelding wordt weergegeven:
 
     ![Afbeelding van de gebruikersinterface NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
-   > [!NOTE]  
-   > U ziet de URL voor deze pagina. moet er ongeveer als **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Deze URI wordt met behulp van de interne volledig gekwalificeerde domeinnaam (FQDN) van het knooppunt en is alleen toegankelijk wanneer u een SSH-tunnel.
+    > [!NOTE]  
+    > U ziet de URL voor deze pagina. moet er ongeveer als `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Deze URI wordt met behulp van de interne volledig gekwalificeerde domeinnaam (FQDN) van het knooppunt en is alleen toegankelijk wanneer u een SSH-tunnel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Nu hebt u geleerd hoe u het maken en gebruiken van een SSH-tunnel, Zie het volgende document voor andere manieren om te gebruiken van Ambari:
 
 * [HDInsight-clusters beheren met behulp van Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-
-Zie voor meer informatie over het gebruik van SSH met HDInsight [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 449dbb04d58fe7980c845b8c5bc8d837b643c1be
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136488"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386736"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-beveiliging 
 
@@ -201,6 +201,14 @@ Het volgende voorbeeld ziet u hoe u dit doet voor Cosmos DB-resource:
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Beveiligingsbasislijnen voor Windows
+[Het is raadzaam dat u een industriestandaard-configuratie die is grotendeels bekende en goed geteste, zoals Microsoft basisbeveiliging, in plaats van het maken van een basislijn zelf implementeren](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); een optie voor het inrichten van deze op uw virtuele Machine Scale Sets is het gebruik van handler voor de extensie Azure Desired State Configuration (DSC), het configureren van de virtuele machines als ze weer online komt, zodat ze de productie-software worden uitgevoerd.
+
+## <a name="azure-firewall"></a>Azure Firewall
+[Firewall van Azure is een beheerde, cloud-gebaseerde beveiliging netwerkservice die worden beveiligd met uw Azure Virtual Network-resources. Er is een volledig stateful firewall als een service met ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. ](https://docs.microsoft.com/azure/firewall/overview); dit is het mogelijk om te beperken van uitgaand HTTP/S-verkeer naar een opgegeven lijst met volledig gekwalificeerde domeinnamen (FQDN), met inbegrip van jokertekens. Deze functie vereist geen SSL-beëindiging. Het aanbevolen dat u gebruikmaken van [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) voor Windows-Updates en waarmee netwerkverkeer naar Microsoft Windows Update eindpunten door uw firewall kunnen stromen. [Firewall van Azure met behulp van een sjabloon implementeren](https://docs.microsoft.com/azure/firewall/deploy-template) bevat een voorbeeld dat voor de resourcedefinitie sjabloon Microsoft.Network/azureFirewalls.
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 

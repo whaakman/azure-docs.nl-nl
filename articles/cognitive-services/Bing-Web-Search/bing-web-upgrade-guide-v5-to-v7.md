@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431137"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384896"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Een upgrade uitvoeren voor Bing Web Search API versie 5 naar versie 7
 
@@ -39,9 +39,9 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
-|Code|SubCode|Beschrijving
+|Code|SubCode|Description
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. De reactie omvat deze fouten als de HTTP-statuscode 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. De reactie omvat deze fouten als de HTTP-statuscode 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.
 |RateLimitExceeded||Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of query's per maand (QPM) quotum overschrijdt.<br/><br/>Bing retourneert HTTP-statuscode 429 als u overschreden QPS en 403 als u QPM overschreden.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` koptekst ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.
@@ -62,7 +62,7 @@ DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
 HttpNotAllowed|InvalidRequest.HttpNotAllowed
 UserAgentMissing|InvalidRequest.ParameterMissing
-Niet geïmplementeerd|ServerError.NotImplemented
+NotImplemented|ServerError.NotImplemented
 InvalidAuthorization|InvalidAuthorization
 InvalidAuthorizationMethod|InvalidAuthorization
 MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
@@ -75,14 +75,14 @@ Geblokkeerd|InvalidRequest.Blocked
 
 ### <a name="headers"></a>Headers
 
-- De optionele toegevoegd [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) aanvraagheader. Bing retourneert standaard cache-inhoud, indien beschikbaar. Om te voorkomen dat Bing inhoud uit de cache retourneert, stelt u de Pragma-header in op no-cache (bijvoorbeeld: Pragma: no-cache).
+- De optionele toegevoegd [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) aanvraagheader. Bing retourneert standaard cache-inhoud, indien beschikbaar. Om te voorkomen dat Bing inhoud uit de cache retourneert, stelt u de Pragma-header in op no-cache (bijvoorbeeld: Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Queryparameters
 
-- Toegevoegd de [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) queryparameter. Gebruik deze parameter om op te geven van het aantal antwoorden die u wilt dat het antwoord om op te nemen. De antwoorden worden gekozen op basis van de positie. Bijvoorbeeld, als u deze parameter instellen op drie (3), het antwoord bevat de top drie gerangschikte antwoorden.  
+- Toegevoegd de [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) queryparameter. Gebruik deze parameter om op te geven van het aantal antwoorden die u wilt dat het antwoord om op te nemen. De antwoorden worden gekozen op basis van de positie. Bijvoorbeeld, als u deze parameter instellen op drie (3), het antwoord bevat de top drie gerangschikte antwoorden.  
 
-- Toegevoegd de [bevorderen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) queryparameter. Gebruik deze parameter samen met `answerCount` om op te nemen expliciet een of meer antwoord typen, ongeacht hun positie. Bijvoorbeeld, als u wilt promoveren video's en afbeeldingen in het antwoord, stelt u verhogen naar *video's, afbeeldingen*. De lijst met antwoorden die u wilt promoveren komt niet in mindering gebracht de `answerCount` limiet. Bijvoorbeeld, als `answerCount` 2 en `promote` is ingesteld op *video's, afbeeldingen*, het antwoord advies inwinnen webpagina's, nieuws, video's en afbeeldingen.
+- Toegevoegd de [bevorderen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) queryparameter. Gebruik deze parameter samen met `answerCount` om op te nemen expliciet een of meer antwoord typen, ongeacht hun positie. Bijvoorbeeld, als u wilt promoveren video's en afbeeldingen in het antwoord, stelt u verhogen naar *video's, afbeeldingen*. De lijst met antwoorden die u wilt promoveren komt niet in mindering gebracht de `answerCount` limiet. Bijvoorbeeld, als `answerCount` 2 en `promote` is ingesteld op *video's, afbeeldingen*, het antwoord advies inwinnen webpagina's, nieuws, video's en afbeeldingen.
 
 ### <a name="object-changes"></a>Wijzigingen van object
 
-- Toegevoegd de `someResultsRemoved` veld de [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) object. Het veld bevat een Booleaanse waarde die aangeeft of het antwoord bepaalde resultaten van de web-antwoord uitgesloten.  
+- Toegevoegd de `someResultsRemoved` veld de [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) object. Het veld bevat een Booleaanse waarde die aangeeft of het antwoord bepaalde resultaten van de web-antwoord uitgesloten.  

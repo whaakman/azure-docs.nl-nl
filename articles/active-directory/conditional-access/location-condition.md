@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227921"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305684"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -56,7 +56,7 @@ Een benoemde locatie heeft de volgende onderdelen:
 - **Landen/regio's** -deze optie kunt u een of meer land of regio voor het definiëren van een benoemde locatie selecteren.
 - **Onbekende gebieden opnemen** -enkele IP-adressen zijn niet toegewezen aan een bepaald land of regio. Deze optie kunt u kiezen of deze IP-adressen op de locatie met de naam moeten worden opgenomen. Gebruik deze instelling wanneer het beleid met behulp van de locatie met de naam van toepassing op onbekende locaties.
 
-Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. Organisaties kunnen maximaal 90 benoemde locaties configureren, elk geconfigureerd met maximaal 12000 IP-adresbereiken.
+Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. Organisaties kunnen maximaal 90 benoemde locaties configureren, elk geconfigureerd met maximaal 1200 IP-adresbereiken.
 
 Beleid voor voorwaardelijke toegang is van toepassing op IPv4 en IPv6-verkeer. Op dit moment benoemde locaties Sta geen IPv6-adresbereiken op die moeten worden geconfigureerd. Deze beperking zorgt ervoor dat de volgende situaties:
 

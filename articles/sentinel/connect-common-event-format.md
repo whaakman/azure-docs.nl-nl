@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 51fd1195942a7bae86bb4cc0af9df3146d6e45c2
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 8e711c0586ce63d4293e2fb0914bbe884b55971f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921905"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389954"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Verbinding maken met de externe oplossing met behulp van Common Event Format
 
@@ -32,7 +32,7 @@ U kunt Azure Sentinel verbinden met een externe oplossing waarmee u logboekbesta
 > [!NOTE] 
 > Gegevens worden opgeslagen in de geografische locatie van de werkruimte waarop u werkt met Azure Sentinel.
 
-## <a name="how-it-works"></a>Hoe het werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 
 De verbinding tussen Azure Sentinel en uw apparaat CEF vindt plaats in drie stappen:
 
@@ -44,6 +44,8 @@ De verbinding tussen Azure Sentinel en uw apparaat CEF vindt plaats in drie stap
 2. De Syslog-agent de gegevens verzamelt en verzendt ze veilig naar Log Analytics, waar deze wordt geparseerd en verrijkt.
 3. De agent slaat de gegevens in een Log Analytics-werkruimte, zodat deze kan worden opgevraagd indien nodig, met behulp van analytics, correlatie-regels en dashboards.
 
+> [!NOTE]
+> De agent Logboeken kunt verzamelen uit meerdere bronnen, maar moet worden geïnstalleerd op machine toegewezen proxy.
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Stap 1: Verbinding maken met uw apparaat CEF via speciale Azure-VM
 
@@ -61,7 +63,7 @@ U kunt ook kunt u de agent handmatig op een bestaande VM in Azure, op een virtue
 1. Klik in de portal voor Azure Sentinel **gegevensconnectors** en selecteer het apparaattype. 
 
 1. Onder **Linux Syslog-agentconfiguratie**:
-   - Kies **automatische implementatie** als u maken van een nieuwe machine die vooraf is geïnstalleerd met de Azure-Sentinel-agent en bevat alle configuratie nodig wilt, zoals hierboven is beschreven. Selecteer **automatische implementatie** en klikt u op **automatische agentimplementatie**. Hiermee gaat u naar de pagina kopen voor een specifieke Linux-VM die automatisch is verbonden met uw werkruimte, is. De virtuele machine is een **standard D2s v3 (2 vcpu's, 8 GB geheugen)** en heeft een openbaar IP-adres.
+   - Kies **automatische implementatie** als u maken van een nieuwe machine die vooraf is geïnstalleerd met de Azure-Sentinel-agent en bevat alle configuratie nodig wilt, zoals hierboven is beschreven. Selecteer **automatische implementatie** en klikt u op **automatische agentimplementatie**. Hiermee gaat u naar de pagina kopen voor een specifieke Linux-VM die automatisch is verbonden met uw werkruimte. De virtuele machine is een **standard D2s v3 (2 vcpu's, 8 GB geheugen)** en heeft een openbaar IP-adres.
       1. In de **aangepaste implementatie** pagina, geef de details en kiest u een gebruikersnaam en wachtwoord en als u akkoord met de voorwaarden en bepalingen gaat, koopt u de virtuele machine.
       1. Configureer uw apparaat voor het verzenden van logboeken met behulp van de instellingen die worden vermeld in de pagina. Gebruik deze instellingen voor de algemene Common Event Format-connector:
          - Protocol = UDP
@@ -118,6 +120,13 @@ Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te vo
   
  Zoek voor het gebruik van de relevante schema in Log Analytics voor de CEF-gebeurtenissen, `CommonSecurityLog`.
 
+## <a name="step-2-forward-common-event-format-cef-logs-to-syslog-agent"></a>Stap 2: Common Event Format (CEF) Logboeken door te sturen naar de Syslog-agent
+
+Stel uw beveiligingsoplossing voor het verzenden van Syslog-berichten in CEF-indeling naar uw Syslog-agent. Zorg ervoor dat u dezelfde parameters die worden weergegeven in de configuratie van de agent. Meestal zijn:
+
+- Poort 514
+- Faciliteit local4
+
 ## <a name="step-3-validate-connectivity"></a>Stap 3: Verbinding valideren
 
 Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven. 
@@ -128,7 +137,7 @@ Het duurt al twintig minuten tot de logboeken in Log Analytics wordt weergegeven
 
 3. Zorg ervoor dat de logboeken die u verzendt aan de voldoet [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Op de computer waarop de Syslog-agent wordt uitgevoerd, zorg ervoor dat deze poorten 514, 25226 zijn open en luistert, met de opdracht `netstat -a -n:`. Zie voor meer informatie over het gebruik van deze opdracht [netstat(8) - pagina voor Linux-man](https://linux.die.netman/8/netstat). Als het goed luistert, ziet u dit:
+4. Op de computer waarop de Syslog-agent wordt uitgevoerd, zorg ervoor dat deze poorten 514, 25226 zijn open en luistert, met de opdracht `netstat -a -n:`. Zie voor meer informatie over het gebruik van deze opdracht [netstat(8) - pagina voor Linux-man](https://linux.die.net/man/8/netstat). Als het goed luistert, ziet u dit:
 
    ![Azure Sentinel poorten](./media/connect-cef/ports.png) 
 

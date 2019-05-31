@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 358ebfa601ff8e4d2fb6ae91e51516cb0a933af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbeb0a8944b35af2a68080a2b2f1bb4436c6e58d
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716517"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306700"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisern van uw cluster met Service Fabric Explorer
 
@@ -61,7 +61,7 @@ Voor verbinding met een Service Fabric-cluster, moet u het eindpunt voor cluster
 ### <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster
 U kunt clienttoegang tot uw Service Fabric-cluster aan certificaten of met behulp van Azure Active Directory (AAD) beheren.
 
-Als u probeert om verbinding met een beveiligd cluster te maken, klikt u vervolgens afhankelijk van de configuratie van het cluster moet u een clientcertificaat of zich aanmelden met AAD.
+Als u probeert om verbinding met een beveiligd cluster te maken, klikt u vervolgens afhankelijk van de configuratie van het cluster moet u een clientcertificaat of meld u aan met behulp van AAD.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Inzicht in de indeling van de Service Fabric Explorer
 U kunt navigeren via de Service Fabric Explorer met behulp van de boomstructuur aan de linkerkant. In de hoofdmap van de structuur bevat het clusterdashboard een overzicht van het cluster, inclusief een overzicht van de toepassings- en knooppuntstatus.

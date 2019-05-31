@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 712004a1ae8a2a72854b7b2332449a019c0820c3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901800"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256244"
 ---
 # <a name="create-an-application-insights-resource"></a>Een Application Insights-resource maken
 Azure Application Insights geeft gegevens over uw toepassing in een Microsoft Azure *resource*. Het maken van een nieuwe resource maakt daarom deel uit van [Application Insights instellen voor het bewaken van een nieuwe toepassing][start]. In veel gevallen, kan het maken van een resource automatisch worden uitgevoerd door de IDE. Maar in sommige gevallen, maakt u een resource handmatig - bijvoorbeeld als afzonderlijke resources voor de ontwikkeling en productie builds van uw toepassing.
@@ -69,7 +69,6 @@ Als u meer gegevens verwacht, klikt u op **vernieuwen** na een paar seconden.
 U kunt schrijven een [PowerShell-script](../../azure-monitor/app/powershell.md) voor het automatisch maken van een resource.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een dashboard maken](../../azure-monitor/app/app-insights-dashboards.md)
 * [Diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md)
 * [Metrische gegevens verkennen](../../azure-monitor/app/metrics-explorer.md)
 * [Analytics-query's schrijven](../../azure-monitor/app/analytics.md)

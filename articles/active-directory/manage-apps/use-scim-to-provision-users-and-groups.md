@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/06/2019
+ms.date: 05/06/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015458"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388159"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -202,7 +202,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="create-user"></a>Gebruiker maken
 
-###### <a name="request"></a>Aanvragen
+###### <a name="request"></a>Aanvraag
 *POST/gebruikers*
 ```json
 {
@@ -259,7 +259,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="get-user"></a>Gebruiker ophalen
 
-###### <a name="request"></a>Aanvragen
+###### <a name="request"></a>Aanvraag
 *GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response"></a>Antwoord
@@ -290,7 +290,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 ```
 #### <a name="get-user-by-query"></a>Gebruiker ophalen door query
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
 ##### <a name="response"></a>Antwoord
@@ -329,7 +329,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="get-user-by-query---zero-results"></a>Gebruiker ophalen door query - nul resultaten
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *GET/gebruikers? filter = gebruikersnaam eq 'niet-bestaande gebruiker'*
 
 ##### <a name="response"></a>Antwoord
@@ -347,7 +347,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="update-user-multi-valued-properties"></a>Gebruiker [Eigenschappen van meerdere waarden] bijwerken
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *PATCH /Users/6764549bef60420686bc HTTP/1.1*
 ```json
 {
@@ -396,7 +396,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="update-user-single-valued-properties"></a>Gebruiker [Eigenschappen van één waarde] bijwerken
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *PATCH/gebruikers/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
@@ -439,7 +439,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="delete-user"></a>Gebruiker verwijderen
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 */Users/5171a35d82074e068ce2 HTTP/1.1 verwijderen*
 
 ##### <a name="response"></a>Antwoord
@@ -454,7 +454,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="create-group"></a>Groep maken
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *POST/Groups HTTP/1.1*
 ```json
 {
@@ -488,7 +488,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="get-group"></a>Groep ophalen
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
 ##### <a name="response"></a>Antwoord
@@ -509,7 +509,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="get-group-by-displayname"></a>Get-groeperen op displayName
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 */ Groups GET? excludedAttributes = leden & filter = displayName-eq "displayName" HTTP/1.1*
 
 ##### <a name="response"></a>Antwoord
@@ -536,7 +536,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 ```
 #### <a name="update-group-non-member-attributes"></a>Groep bijwerken [lid zijn van niet-kenmerken]
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *PATCH/groepen/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
@@ -554,7 +554,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 ### <a name="update-group-add-members"></a>Groep bijwerken [leden toevoegen]
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *PATCH/groepen/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -575,7 +575,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="update-group-remove-members"></a>Groep bijwerken [leden verwijderen]
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 *PATCH/groepen/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -596,7 +596,7 @@ Deze sectie vindt voorbeeld SCIM aanvragen verzonden door de Azure AD SCIM-clien
 
 #### <a name="delete-group"></a>Groep verwijderen
 
-##### <a name="request"></a>Aanvragen
+##### <a name="request"></a>Aanvraag
 */Groups/cdb1ce18f65944079d37 HTTP/1.1 verwijderen*
 
 ##### <a name="response"></a>Antwoord

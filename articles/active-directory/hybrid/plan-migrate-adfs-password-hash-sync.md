@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 180464e22b34c7b378643e738ea0c30ee5a4b11e
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455394"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298891"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migreren van Federatie naar wachtwoord-hashsynchronisatie voor Azure Active Directory
 
@@ -86,7 +86,7 @@ Om te controleren of de huidige gebruiker aanmelden instellingen:
 
    * Als **wachtwoord-hashsynchronisatie** is ingesteld op **uitgeschakelde**, de stappen in dit artikel om te schakelen.
    * Als **wachtwoord-hashsynchronisatie** is ingesteld op **ingeschakeld**, kunt u de sectie overslaan **stap 1: Synchronisatie van wachtwoordhashes inschakelen** in dit artikel.
-4. Op de **uw oplossing controleren** pagina, bladert u naar **Active Directory Federation Services (AD FS)**.<br />
+4. Op de **uw oplossing controleren** pagina, bladert u naar **Active Directory Federation Services (AD FS)** .<br />
 
    * Als de AD FS-configuratie wordt weergegeven in deze sectie, kunt u veilig ervan uitgaan dat AD FS oorspronkelijk is geconfigureerd met behulp van Azure AD Connect. U kunt uw domeinen van federatieve identiteiten converteren naar beheerde identiteit met behulp van de Azure AD Connect **aanmelden van gebruikers wijzigen** optie. Het proces wordt beschreven in de sectie **optie A: Overschakelen van Federatie naar wachtwoord-hashsynchronisatie met behulp van Azure AD Connect**.
    * Als AD FS niet wordt weergegeven in de huidige instellingen, moet u handmatig converteren uw domeinen van federatieve identiteiten naar beheerde identiteit met behulp van PowerShell. Zie de sectie voor meer informatie over dit proces **optie B: Overschakelen van Federatie naar wachtwoord-hashsynchronisatie met behulp van Azure AD Connect en PowerShell**.
@@ -113,7 +113,7 @@ Raadpleeg voor meer informatie de volgende artikelen:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Als **SupportsMfa** is ingesteld op **waar**, u een on-premises multi-factor authentication-oplossing gebruikt voor het invoeren van een tweede factor-uitdaging in de gebruikersstroom voor verificatie. Deze instelling werkt niet meer voor scenario's Azure AD-verificatie. 
+> Als **SupportsMfa** is ingesteld op **waar**, u een on-premises multi-factor authentication-oplossing gebruikt voor het invoeren van een tweede factor-uitdaging in de gebruikersstroom voor verificatie. Deze instelling niet meer geschikt is voor scenario's Azure AD-verificatie na de conversie van dit domein uit die zijn gefedereerd met beheerde verificatie. Nadat u federation uitschakelt, u de relatie aan uw on-premises Federatie datacentrumserver- en dit on-premises MFA adapters omvat. 
 >
 > Gebruik in plaats daarvan de cloud gebaseerde service van Azure multi-factor Authentication om uit te voeren dezelfde functie. Evalueer zorgvuldig de vereisten voor meervoudige verificatie voordat u doorgaat. Voordat u uw domeinen converteert, zorg ervoor dat u weet hoe u Azure multi-factor Authentication, de gevolgen voor de licenties en het registratieproces voor de gebruiker.
 

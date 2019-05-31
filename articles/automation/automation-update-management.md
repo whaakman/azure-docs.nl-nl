@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991640"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397636"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -179,7 +179,7 @@ Toegevoegde Linux-agents weer de status van **bijgewerkt** nadat een evaluatie i
 
 Om te bevestigen dat een Operations Manager-beheergroep met Azure Monitor-logboeken communiceert, Zie [valideren Operations Manager-integratie met Azure Monitor logboeken](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
-## <a name="data-collection"></a>Gegevens verzamelen
+## <a name="data-collection"></a>Gegevensverzameling
 
 ### <a name="supported-agents"></a>Ondersteunde agents
 
@@ -234,7 +234,7 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 | Bij te werken computers |selecteer een opgeslagen zoekopdracht of geïmporteerde groep, of kies Computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Azure Monitorlogboeken](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Azure Monitor-logboeken |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
 |Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt |
-|Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
+|Schema-instellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
 | Scripts die voorafgaan aan en scripts die volgen|Selecteer de scripts worden uitgevoerd vóór en na de implementatie|
 | Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde mag niet kleiner zijn dan 30 minuten en niet meer dan 6 uur |
 | Opnieuw opstarten van besturingselement| Bepaalt hoe vaak opnieuw opstarten moeten worden verwerkt. De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
@@ -262,7 +262,7 @@ Selecteer **ontbrekende updates** om de lijst met updates die niet aanwezig in u
 
 ## <a name="view-update-deployments"></a>Weergave update-implementaties
 
-Selecteer de **Update Deployments** tabblad om de lijst met bestaande update-implementaties weer te geven. Selecteer een van de update-implementaties in de tabel om te openen de **Update-implementatie uitvoeren** deelvenster voor deze update-implementatie.
+Selecteer de **Update Deployments** tabblad om de lijst met bestaande update-implementaties weer te geven. Selecteer een van de update-implementaties in de tabel om te openen de **Update-implementatie uitvoeren** deelvenster voor deze update-implementatie. Taaklogboeken worden opgeslagen voor een maximum van 30 dagen.
 
 ![Overzicht van de resultaten van de update-implementatie](./media/automation-update-management/update-deployment-run.png)
 
@@ -279,10 +279,10 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |
 |Updatepakketten     | Een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie.        |
-|Feature Ppacks     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
+|Functiepakketten     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
 |Servicepacks     | Een volledige reeks van hotfixes die op een toepassing worden toegepast.        |
 |Definitie-updates     | Een update voor antivirus- of andere definitiebestanden.        |
-|Hulpmiddelen     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
+|Hulpprogramma's     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
 |Updates     | Een update voor een toepassing of bestand dat momenteel wordt geïnstalleerd.        |
 
 ### <a name="linux"></a>Linux
@@ -290,7 +290,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 |Classificatie  |Description  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een probleem met de productspecifieke, productspecifieke beveiliging.         |
-|Andere updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
+|Andere Updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
 
 Voor Linux, updatebeheer, kunnen onderscheid maken tussen essentiële updates en beveiligingsupdates in de cloud bij het weergeven van gegevens voor de evaluatie vanwege gegevensverrijking in de cloud. Het toepassen van patches, gebruikmaakt van updatebeheer classificatie gegevens beschikbaar is op de computer. In tegenstelling tot andere distributies CentOS heeft geen deze informatie beschikbaar buiten het vak. Hebt u CentOS-machines die zijn geconfigureerd op een manier om terug te keren van beveiligingsgegevens voor de volgende opdracht, zich updatebeheer voor het patchen van op basis van classificaties.
 
@@ -356,7 +356,7 @@ Zie voor meer informatie over de poorten die vereist dat de Hybrid Runbook Worke
 
 Het is raadzaam om de adressen die worden vermeld bij het definiëren van uitzonderingen te gebruiken. Voor IP-adressen die u kunt downloaden de [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt, en weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken.
 
-## <a name="search-logs"></a>Logboeken zoeken
+## <a name="search-logs"></a>Zoeken in Logboeken
 
 Naast de details die beschikbaar zijn in Azure portal, kunt u zoeken op basis van de logboeken doen. Selecteer op de pagina's van de oplossing, **Log Analytics**. De **zoeken in logboeken** deelvenster wordt geopend.
 

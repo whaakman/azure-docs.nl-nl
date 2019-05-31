@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: 33dfbe70d75335eca79d32807407b97e32c2dbbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8521566087690523359b753b800268e75437a257
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918138"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384270"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Verkrijg inzichten van de installatiekopie met de Bing afbeeldingen zoeken-API
 
@@ -26,7 +26,7 @@ ms.locfileid: "60918138"
 
 Elke installatiekopie bevat een token inzichten die u gebruiken kunt voor informatie over de installatiekopie. Bijvoorbeeld, krijgt u een verzameling van gerelateerde afbeeldingen, webpagina's die de installatiekopie van het opnemen of een lijst kunnen maatschappijen waar u het product weergegeven in de afbeelding kunt kopen.  
 
-Vastleggen van de afbeelding om inzichten te verkrijgen over een afbeelding, [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken) token in het antwoord.
+Vastleggen van de afbeelding om inzichten te verkrijgen over een afbeelding, [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken) token in het antwoord.
 
 ```json
 "value" : [{
@@ -41,9 +41,9 @@ Vastleggen van de afbeelding om inzichten te verkrijgen over een afbeelding, [im
 }],
 ```
 
-Vervolgens de Details van de installatiekopie-eindpunt aanroepen en stel de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) queryparameter naar het token in `imageInsightsToken`.  
+Vervolgens de Details van de installatiekopie-eindpunt aanroepen en stel de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) queryparameter naar het token in `imageInsightsToken`.  
 
-Als de inzichten die u wilt opgeven, stelt de `modules` queryparameter. Alle om inzichten te verkrijgen, stellen `modules` naar `All`. Alleen het bijschrift en verzameling om inzichten te verkrijgen, stellen `modules` naar `Caption%2CCollection`. Zie voor een volledige lijst van mogelijke insights [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested). Niet alle inzichten zijn beschikbaar voor alle installatiekopieën. Het antwoord bevat alle inzichten die u hebt aangevraagd, indien beschikbaar.
+Als de inzichten die u wilt opgeven, stelt de `modules` queryparameter. Alle om inzichten te verkrijgen, stellen `modules` naar `All`. Alleen het bijschrift en verzameling om inzichten te verkrijgen, stellen `modules` naar `Caption%2CCollection`. Zie voor een volledige lijst van mogelijke insights [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Niet alle inzichten zijn beschikbaar voor alle installatiekopieën. Het antwoord bevat alle inzichten die u hebt aangevraagd, indien beschikbaar.
 
 Het volgende voorbeeld vraagt alle beschikbare inzichten voor de voorgaande afbeelding.
 
@@ -59,7 +59,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-insights-of-a-known-image"></a>Inzicht van de installatiekopie van een bekende ophalen
 
-Als u de URL naar een afbeelding die u wilt krijg inzichten van hebt, gebruikt u de [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl) queryparameter in plaats van de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parameter opgeven voor de installatiekopie. Of, als u het bestand hebt, kunt u het binaire bestand van de installatiekopie kunt verzenden in de hoofdtekst van een POST-aanvraag. Als u een POST-aanvraag, de `Content-Type` header moet worden ingesteld op `multipart/data-form`. In beide gevallen kan de grootte van de installatiekopie van het niet meer dan 1 MB.  
+Als u de URL naar een afbeelding die u wilt krijg inzichten van hebt, gebruikt u de [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) queryparameter in plaats van de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) parameter opgeven voor de installatiekopie. Of, als u het bestand hebt, kunt u het binaire bestand van de installatiekopie kunt verzenden in de hoofdtekst van een POST-aanvraag. Als u een POST-aanvraag, de `Content-Type` header moet worden ingesteld op `multipart/data-form`. In beide gevallen kan de grootte van de installatiekopie van het niet meer dan 1 MB.  
 
 Hebt u een URL naar de installatiekopie, ziet het volgende voorbeeld u hoe om aan te vragen van inzichten van een afbeelding.
 
@@ -75,7 +75,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-all-image-insights"></a>Ophalen van alle inzichten in afbeeldingen  
 
-Instellen om aan te vragen alle inzichten van een afbeelding, de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter query `All`. Als u verwante zoekopdrachten, moet de aanvraag van de gebruiker queryreeks bevatten. In dit voorbeeld laat zien met de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) om op te geven van de installatiekopie.  
+Instellen om aan te vragen alle inzichten van een afbeelding, de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) parameter query `All`. Als u verwante zoekopdrachten, moet de aanvraag van de gebruiker queryreeks bevatten. In dit voorbeeld laat zien met de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) om op te geven van de installatiekopie.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&insightsToken=mid_68364D764J...&modules=All&mkt=en-us HTTP/1.1  
@@ -87,7 +87,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Het object op het hoogste niveau is een [ImageInsightsResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse) object in plaats van een [installatiekopieën](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object.  
+Het object op het hoogste niveau is een [ImageInsightsResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) object in plaats van een [installatiekopieën](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) object.  
 
 ```json
 {
@@ -174,12 +174,12 @@ Het object op het hoogste niveau is een [ImageInsightsResponse](https://docs.mic
 
 ## <a name="recognizing-entities-in-an-image"></a>Entiteiten in een afbeelding herkennen  
 
-De functie voor de entiteit identificeert entiteiten in een afbeelding, momenteel alleen de personen. Voor het identificeren van entiteiten in een afbeelding, stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter query `RecognizedEntities`.  
+De functie voor de entiteit identificeert entiteiten in een afbeelding, momenteel alleen de personen. Voor het identificeren van entiteiten in een afbeelding, stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) parameter query `RecognizedEntities`.  
 
 > [!NOTE]
 > U kunt deze module niet opgeven met elke andere module. Als u deze module met andere modules opgeeft, is het antwoord bevat geen herkende entiteiten.  
 
-Hieronder ziet u hoe u de installatiekopie opgeven met behulp van de [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl) parameter. Houd er rekening mee naar URL de queryparameters coderen.  
+Hieronder ziet u hoe u de installatiekopie opgeven met behulp van de [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) parameter. Houd er rekening mee naar URL de queryparameters coderen.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=faith+hill&insightsToken=mid_68364D764J...&modules=RecognizedEntities&mkt=en-us HTTP/1.1  
@@ -223,16 +223,16 @@ De waarden van de rechthoek zijn ten opzichte van de breedte en hoogte van de oo
 
 U kunt de regio die Bing in latere insights aanroepen retourneert. Als u bijvoorbeeld visueel vergelijkbare afbeeldingen van de herkende entiteit ophalen. Zie voor meer informatie te gebruiken met visueel vergelijkbare en entiteit erkenning Modules bijsnijden installatiekopieën. Hieronder ziet u de toewijzing tussen de velden van de regio en de queryparameters die u gebruiken wilt om te bijsnijden afbeeldingen.  
 
--   Links wordt toegewezen aan [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
--   Top is toegewezen aan [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  
--   Rechts wordt toegewezen aan [auto's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car)  
--   Toewijzingen naar beneden [CAB-bestand](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
+-   Links wordt toegewezen aan [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
+-   Top is toegewezen aan [cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+-   Rechts wordt toegewezen aan [auto's](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
+-   Toewijzingen naar beneden [CAB-bestand](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
 
 ## <a name="finding-visually-similar-images"></a>Het zoeken van visueel vergelijkbare afbeeldingen  
 
-Om te vinden van installatiekopieën die visueel vergelijkbaar met de oorspronkelijke afbeelding zijn, stelt de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter SimilarImages query.  
+Om te vinden van installatiekopieën die visueel vergelijkbaar met de oorspronkelijke afbeelding zijn, stelt de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) parameter SimilarImages query.  
 
-De volgende aanvraag laat zien hoe visueel vergelijkbare afbeeldingen. Maakt gebruik van de aanvraag de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) queryparameter voor het identificeren van de oorspronkelijke afbeelding. Ter verbetering van relevantie, moet u de queryreeks van de gebruiker bevatten.  
+De volgende aanvraag laat zien hoe visueel vergelijkbare afbeeldingen. Maakt gebruik van de aanvraag de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) queryparameter voor het identificeren van de oorspronkelijke afbeelding. Ter verbetering van relevantie, moet u de queryreeks van de gebruiker bevatten.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?insightsToken=mid_68364D764J...&modules=SimilarImages&mkt=en-us HTTP/1.1  
@@ -265,7 +265,7 @@ Hieronder ziet u het antwoord op de vorige aanvraag.
 
 ## <a name="cropping-images-to-use-with-visually-similar-and-entity-recognition-modules"></a>Installatiekopieën voor gebruik met bijsnijden visueel vergelijkbare en entiteit erkenning modules  
 
-Om op te geven de regio van de installatiekopie die gebruikmaakt van Bing om te bepalen of afbeeldingen visueel vergelijkbare zijn of voor het uitvoeren van de entiteit erkenning, gebruikt u de [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal), [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat), [CAB-bestand](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab), en [auto](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car) queryparameters. Bing gebruikt standaard de volledige afbeelding.  
+Om op te geven de regio van de installatiekopie die gebruikmaakt van Bing om te bepalen of afbeeldingen visueel vergelijkbare zijn of voor het uitvoeren van de entiteit erkenning, gebruikt u de [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal), [cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat), [CAB-bestand](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab), en [auto](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car) queryparameters. Bing gebruikt standaard de volledige afbeelding.  
 
 De parameters geven de boven, linkerhoek en onder, de rechterhoek van de regio die Bing voor de vergelijking gebruikt. Geef de waarden als delen van de breedte en hoogte van de oorspronkelijke afbeelding. De decimale waarde begint met (0.0, 0.0) aan de bovenkant, linkerhoek en eindigen met (1.0, 1.0) in de rechterbenedenhoek. Bijvoorbeeld, als u wilt opgeven dat de hoek van de linkerbovenhoek van de manier waarop een kwart omlaag vanaf de bovenkant en een kwart van de manier aan de linkerkant begint, ingesteld `cal` op 0,25 en `cat` 0,25.  
 
@@ -374,9 +374,9 @@ Het antwoord geeft één herkende entiteit.
 
 ## <a name="finding-visually-similar-products"></a>Visueel vergelijkbare producten zoeken  
 
-Instellen als u wilt zoeken in afbeeldingen met producten die visueel vergelijkbaar met de producten gevonden in de oorspronkelijke afbeelding zijn, de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter SimilarProducts query.  
+Instellen als u wilt zoeken in afbeeldingen met producten die visueel vergelijkbaar met de producten gevonden in de oorspronkelijke afbeelding zijn, de [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) parameter SimilarProducts query.  
 
-De volgende aanvraag laat zien hoe u afbeeldingen van visueel vergelijkbare producten. Maakt gebruik van de aanvraag de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) query parameter voor het identificeren van de oorspronkelijke afbeelding die is geretourneerd in een eerdere aanvraag. Ter verbetering van relevantie, moet u de queryreeks van de gebruiker bevatten.  
+De volgende aanvraag laat zien hoe u afbeeldingen van visueel vergelijkbare producten. Maakt gebruik van de aanvraag de [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) query parameter voor het identificeren van de oorspronkelijke afbeelding die is geretourneerd in een eerdere aanvraag. Ter verbetering van relevantie, moet u de queryreeks van de gebruiker bevatten.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=anne+klein+dresses&modules=SimilarProducts&insightsToken=ccid_WOeyfoSp*mid_4B0A357&mkt=en-us HTTP/1.1    
@@ -408,7 +408,7 @@ Hieronder ziet u het antwoord op de vorige aanvraag. Het antwoord bevat een afbe
 }
 ```
 
-Voor een lijst van de verkopers die het product online aan (Zie de [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) veld), de API opnieuw aanroepen en stel `modules` naar ShoppingSources. Vervolgens stelt u de `insightsToken` queryparameter naar het token gevonden in de installatiekopie van de samenvatting van het product.  
+Voor een lijst van de verkopers die het product online aan (Zie de [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) veld), de API opnieuw aanroepen en stel `modules` naar ShoppingSources. Vervolgens stelt u de `insightsToken` queryparameter naar het token gevonden in de installatiekopie van de samenvatting van het product.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    
