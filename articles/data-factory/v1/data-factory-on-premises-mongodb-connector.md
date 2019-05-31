@@ -68,9 +68,9 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesMongoDb** |Ja |
 | server |IP-adres of de hostnaam de naam van de MongoDB-server. |Ja |
-| poort |TCP-poort die de MongoDB-server wordt gebruikt om te luisteren naar clientverbindingen. |Optionele standaardwaarde: 27017 |
+| port |TCP-poort die de MongoDB-server wordt gebruikt om te luisteren naar clientverbindingen. |Optionele standaardwaarde: 27017 |
 | authenticationType |Basic, of anonieme. |Ja |
-| gebruikersnaam |Gebruikersaccount voor toegang tot MongoDB. |Ja (als basisverificatie wordt gebruikt). |
+| username |Gebruikersaccount voor toegang tot MongoDB. |Ja (als basisverificatie wordt gebruikt). |
 | password |Het wachtwoord voor de gebruiker. |Ja (als basisverificatie wordt gebruikt). |
 | authSource |De naam van de MongoDB-database die u wilt gebruiken om te controleren of uw referenties voor verificatie. |Optioneel (als basisverificatie wordt gebruikt). Standaard: maakt gebruik van het beheerdersaccount en de database die is opgegeven met behulp van de eigenschap databaseName. |
 | databaseName |De naam van de MongoDB-database die u wilt openen. |Ja |
