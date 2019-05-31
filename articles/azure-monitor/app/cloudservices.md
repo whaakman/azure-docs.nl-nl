@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903211"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256309"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure cloud services
 [Application Insights] [ start] kunt bewaken [Azure cloud service-apps](https://azure.microsoft.com/services/cloud-services/) voor beschikbaarheid, prestaties, fouten en gebruik door het combineren van gegevens uit Application Insights-SDK's met [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) gegevens van uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -41,7 +41,7 @@ Deze optie op uw app tijdens runtime, zodat u de telemetrie die u nodig hebt voo
 
 Als deze optie Alles die wat u nodig is, bent u klaar. 
 
-De volgende stappen zijn [weergeven van metrische gegevens van uw app](../../azure-monitor/app/metrics-explorer.md), [opvragen van uw gegevens met Analytics](../../azure-monitor/app/analytics.md), en misschien instellen van een [dashboard](../../azure-monitor/app/app-insights-dashboards.md). 
+De volgende stappen zijn [weergeven van metrische gegevens van uw app](../../azure-monitor/app/metrics-explorer.md), [opvragen van uw gegevens met Analytics](../../azure-monitor/app/analytics.md). 
 
 Voor het bewaken van prestaties in de browser, u kunt ook het instellen van [beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md) en [Voeg code toe aan uw webpagina's](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ De telemetrie van uw app is opgeslagen, geanalyseerd en weergegeven in een Azure
 Elke resource behoort tot een resourcegroep. Resourcegroepen worden gebruikt voor het beheren van kosten, om toegang te verlenen aan teamleden, en het implementeren van updates in één gecoördineerde transactie. Bijvoorbeeld, u kunt de onderstaande [voor het implementeren van een script schrijven](../../azure-resource-manager/resource-group-template-deploy.md) een Azure-cloud-service en de bijbehorende Application Insights-controleresources allemaal in één bewerking.
 
 ### <a name="resources-for-components"></a>Resources voor onderdelen
-U wordt aangeraden dat u een afzonderlijke resource voor elk onderdeel van uw app maken. Dat wil zeggen, het maken van een resource voor elke Webrol en werkrol. U kunt elk onderdeel afzonderlijk analyseren, maar u maakt een [dashboard](../../azure-monitor/app/app-insights-dashboards.md) die combineert de belangrijkste grafieken van alle onderdelen, zodat u kunt vergelijken en ze samen in één weergave controleren. 
+U wordt aangeraden dat u een afzonderlijke resource voor elk onderdeel van uw app maken. Dat wil zeggen, het maken van een resource voor elke Webrol en werkrol. U kunt elk onderdeel afzonderlijk analyseren, maar u maakt een [dashboard](../../azure-monitor/app/overview-dashboard.md) die combineert de belangrijkste grafieken van alle onderdelen, zodat u kunt vergelijken en ze samen in één weergave controleren. 
 
 Een alternatieve methode is voor het verzenden van de telemetrie van meer dan één rol naar dezelfde resource, maar [een dimensie-eigenschap toevoegen aan elk telemetrie-item](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) die de oorspronkelijke rol aangeeft. In deze benadering grafieken met metrische gegevens, zoals uitzonderingen, weer normaal gesproken een aggregatie waarin de aantallen van de verschillende rollen, maar u kunt de grafiek segmenteren door de rol-id, indien nodig. U kunt zoekopdrachten ook filteren op dezelfde dimensie. Deze alternatieve werkwijze maakt het wat gemakkelijker om alles op hetzelfde moment weer te geven, maar kan ook leiden tot enige verwarring tussen de rollen.
 
@@ -91,7 +91,7 @@ Als u hebt besloten om een afzonderlijke resource voor elke rol te maken en miss
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Azure Diagnostics instellen voor elke rol
 Stel deze optie in om uw app te controleren met Application Insights. Voor webrollen biedt deze optie prestatiebewaking, waarschuwingen, diagnostische gegevens en analyse van het Resourcegebruik. Voor andere rollen, kunt u zoeken naar en controleren van Azure Diagnostics zoals opnieuw opstarten, prestatiemeteritems en aanroepen van System.Diagnostics.Trace. 
 
-1. In Visual Studio Solution Explorer, onder  **\<Uwcloudservice >** > **rollen**, opent u de eigenschappen van elke rol.
+1. In Visual Studio Solution Explorer, onder  **\<Uwcloudservice >**  > **rollen**, opent u de eigenschappen van elke rol.
 
 1. In **configuratie**, selecteer de **diagnostische gegevens verzenden naar Application Insights** selectievakje en selecteer vervolgens de Application Insights-resource die u eerder hebt gemaakt.
 
@@ -229,7 +229,7 @@ Zie om op te halen van de browser op basis van telemetriegegevens, zoals paginaw
 Om te controleren of uw app blijft live en responsief, [webtests instellen][availability].
 
 ## <a name="display-everything-together"></a>Een totaaloverzicht weergeven
-Voor een algemeen beeld van uw systeem, kunt u de belangrijkste controlegrafieken samenbrengen op één weergeven [dashboard](../../azure-monitor/app/app-insights-dashboards.md). U kunt bijvoorbeeld het aantal aanvragen en het aantal fouten voor elke rol aan het dashboard vastmaken. 
+Voor een algemeen beeld van uw systeem, kunt u de belangrijkste controlegrafieken samenbrengen op één weergeven [dashboard](../../azure-monitor/app/overview-dashboard.md). U kunt bijvoorbeeld het aantal aanvragen en het aantal fouten voor elke rol aan het dashboard vastmaken. 
 
 Als uw systeem maakt gebruik van andere Azure-services zoals Stream Analytics, bevatten ook hun bewakingsgrafieken. 
 
