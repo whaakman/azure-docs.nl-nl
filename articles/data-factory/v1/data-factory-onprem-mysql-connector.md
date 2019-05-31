@@ -73,7 +73,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | database |De naam van de MySQL-database. |Ja |
 | schema |De naam van het schema in de database. |Nee |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de MySQL-database. Mogelijke waarden zijn: `Basic`. |Ja |
-| gebruikersnaam |Geef de naam van de gebruiker verbinding maken met de MySQL-database. |Ja |
+| userName |Geef de naam van de gebruiker verbinding maken met de MySQL-database. |Ja |
 | password |Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. |Ja |
 | gatewayName |De naam van de gateway die de Data Factory-service wordt gebruikt om verbinding met de on-premises MySQL-database te maken. |Ja |
 
