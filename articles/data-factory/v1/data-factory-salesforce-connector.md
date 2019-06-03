@@ -71,7 +71,7 @@ De volgende tabel bevat beschrijvingen van JSON-elementen die specifiek voor de 
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **SalesForce**. |Ja |
 | environmentUrl | Geef de URL van de Salesforce-exemplaar. <br><br> -De standaardwaarde is ' https:\//login.salesforce.com '. <br> -Om gegevens te kopiëren van sandbox, Geef 'https://test.salesforce.com'. <br> -Om gegevens te kopiëren uit aangepaste domein, opgeven, bijvoorbeeld 'https://[domain].my.salesforce.com'. |Nee |
-| gebruikersnaam |Geef een gebruikersnaam voor het gebruikersaccount. |Ja |
+| username |Geef een gebruikersnaam voor het gebruikersaccount. |Ja |
 | password |Geef een wachtwoord voor het gebruikersaccount. |Ja |
 | securityToken |Geef een beveiligingstoken voor het gebruikersaccount. Zie [security-token ophalen](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) voor instructies over het opnieuw instellen/ophalen van een beveiligingstoken. Zie voor meer informatie over beveiligingstokens het in het algemeen, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
 
