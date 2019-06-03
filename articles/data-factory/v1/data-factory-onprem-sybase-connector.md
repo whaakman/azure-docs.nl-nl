@@ -71,7 +71,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | database |De naam van de Sybase-database. |Ja |
 | schema |De naam van het schema in de database. |Nee |
 | authenticationType |Het type verificatie gebruikt voor verbinding met de Sybase-database. Mogelijke waarden zijn: Anoniem, basis en Windows. |Ja |
-| gebruikersnaam |Geef de gebruikersnaam op als u basisverificatie of Windows-verificatie. |Nee |
+| username |Geef de gebruikersnaam op als u basisverificatie of Windows-verificatie. |Nee |
 | password |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
 | gatewayName |De naam van de gateway die de Data Factory-service wordt gebruikt om verbinding met de on-premises Sybase-database te maken. |Ja |
 
