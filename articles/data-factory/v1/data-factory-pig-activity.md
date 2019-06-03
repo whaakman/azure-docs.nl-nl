@@ -85,15 +85,15 @@ De HDInsight Pig-activiteit in een Data Factory [pijplijn](data-factory-create-p
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| naam |Naam van de activiteit |Ja |
+| name |Naam van de activiteit |Ja |
 | description |Beschrijving van het doel waarvoor de activiteit wordt gebruikt |Nee |
 | type |HDinsightPig |Ja |
-| invoer |Een of meer invoerwaarden die worden gebruikt door de Pig-activiteit |Nee |
-| uitvoer |Een of meer uitvoer geproduceerd door de Pig-activiteit |Ja |
+| inputs |Een of meer invoerwaarden die worden gebruikt door de Pig-activiteit |Nee |
+| outputs |Een of meer uitvoer geproduceerd door de Pig-activiteit |Ja |
 | linkedServiceName |Verwijzing naar het HDInsight-cluster dat is geregistreerd als een gekoppelde service in Data Factory |Ja |
-| Script |Geef de inline Pig-script |Nee |
-| pad naar script |Store de Pig-script in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
-| Hiermee worden gedefinieerd |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen de Pig-script |Nee |
+| script |Geef de inline Pig-script |Nee |
+| scriptPath |Store de Pig-script in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
+| defines |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen de Pig-script |Nee |
 
 ## <a name="example"></a>Voorbeeld
 Laten we eens een voorbeeld van game-logboeken analytics waar u de tijd besteed aan het spelen van games die zijn gestart door uw bedrijf spelers aangegeven.
