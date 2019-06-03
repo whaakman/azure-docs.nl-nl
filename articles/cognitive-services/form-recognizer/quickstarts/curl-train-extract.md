@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 037c323b2ef9e0a2d264e3fd5f7655456c30a1be
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235610"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417461"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Een formulier herkenning-model te trainen en ophalen van gegevens met behulp van de REST-API met cURL
 
@@ -47,7 +47,7 @@ Als uw formulier herkenning-resource is voltooid implementeren, zoeken en select
 
 ## <a name="train-a-form-recognizer-model"></a>Een formulier herkenning-model te trainen
 
-Eerst moet u een set trainingsgegevens. U kunt gegevens in een Azure-blob of uw eigen lokale trainingsgegevens gebruiken. U moet minimaal vijf voorbeeldformulieren (PDF-documenten en/of afbeeldingen) van de dezelfde soort/structuur als uw belangrijkste invoergegevens hebben. Of u een leeg formulier kunt gebruiken. De bestandsnaam van het formulier nodig heeft om het woord 'lege'.
+Eerst moet u een set trainingsgegevens in een Azure Storage-blob. U moet minimaal vijf voorbeeldformulieren (PDF-documenten en/of afbeeldingen) van de dezelfde soort/structuur als uw belangrijkste invoergegevens hebben. Of u een leeg formulier kunt gebruiken. De bestandsnaam van het formulier nodig heeft om het woord 'lege'.
 
 Als u wilt een formulier herkenning-model te trainen met behulp van de documenten in uw Azure blob-container, Roep de **trainen** API door het uitvoeren van de cURL-opdracht die volgt. Voordat u de opdracht uitvoert, moet u deze wijzigingen:
 

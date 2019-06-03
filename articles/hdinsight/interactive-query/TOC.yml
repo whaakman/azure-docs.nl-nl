@@ -320,12 +320,14 @@
       maintainContext: true
     - name: Netwerktoegang
       items:
+        - name: HDInsight-architectuur voor virtueel netwerk
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Firewall gebruiken om uitgaand verkeer te beperken
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight in Azure VNet
           href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: HDInsight verbinden met een on-premises netwerk
           href: ../connect-on-premises-network.md
-          maintainContext: true
     - name: Bewaken met behulp van Azure Monitor-logboeken
       items:
         - name: Azure Monitor-logboeken gebruiken

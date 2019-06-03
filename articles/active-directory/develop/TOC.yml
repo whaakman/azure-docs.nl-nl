@@ -229,16 +229,20 @@
                   href: msal-js-initializing-client-applications.md
             - name: Fouten en uitzonderingen verwerken
               href: msal-handling-exceptions.md
+            - name: MSAL-toepassingen testen
+              href: msal-testing.md
             - name: Logboekregistratie
               href: msal-logging.md
             - name: Eenmalige aanmelding (JS)
               href: msal-js-sso.md
             - name: Promptgedrag (JS)
               href: msal-js-prompt-behavior.md
-            - name: Uw eigen HttpClient gebruiken (.NET)
-              href: msal-net-provide-httpclient.md
             - name: Integreren met Azure AD B2C
-              href: msal-b2c-overview.md
+              items:
+                - name: Javascript
+                  href: msal-b2c-overview.md
+                - name: .NET
+                  href: msal-net-aad-b2c-considerations.md
             - name: Overwegingen en bekende problemen
               items:
                 - name: MSAL.NET
@@ -253,8 +257,6 @@
                       href: msal-net-xamarin-ios-considerations.md
                     - name: Universeel Windows-platform
                       href: msal-net-uwp-considerations.md
-                    - name: Een AAD B2C-beleid toepassen
-                      href: msal-net-aad-b2c-considerations.md
                 - name: MSAL.js
                   items:
                     - name: Overwegingen bij het gebruik van IE
@@ -295,6 +297,8 @@
           items:
             - name: Toepassingen en service-principals
               href: app-objects-and-service-principals.md
+            - name: Hoe en waarom apps worden toegevoegd aan Azure AD
+              href: active-directory-how-applications-are-added.md
             - name: Apps met één tenant en apps met meerdere tenants
               href: single-and-multi-tenant-apps.md
         - name: Machtigingen en toestemming
@@ -360,6 +364,8 @@
                   href: msal-net-instantiate-confidential-client-config-options.md
                 - name: Toestemming verkrijgen voor verschillende resources
                   href: msal-net-user-gets-consent-for-multiple-resources.md
+                - name: Uw eigen HttpClient gebruiken
+                  href: msal-net-provide-httpclient.md
         - name: Werken met Visual Studio
           items:
             - name: De verbonden Active Directory-service gebruiken

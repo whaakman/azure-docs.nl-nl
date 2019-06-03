@@ -9,18 +9,22 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829681"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417940"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Voorbeeld: Taal detecteren met Text Analytics
 
-De [Taaldetectie-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) evalueert tekstinvoer voor elk document en retourneert de taal-id's met een score die wijst op de sterkte van de analyse. Text Analytics herkent maximaal 120 talen.
+De [taaldetectie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) functie van de API tekst invoer- en voor elk document geëvalueerd en retourneert de taal-id's met een score die wijzen op de sterkte van de analyse.
 
 Deze mogelijkheid is handig voor inhoudsarchieven die willekeurige tekst verzamelen, waarin de taal onbekend is. U kunt de resultaten van deze analyse parseren om te bepalen welke taal wordt gebruikt in het ingevoerde document. Het antwoord retourneert ook een score die overeenkomt met het vertrouwen van het model (een waarde tussen 0 en 1).
+
+We de exacte lijst met talen voor deze functie niet publiceren, maar het kan een groot aantal talen, varianten dialecten en sommige regionale/culturele talen detecteren. 
+
+Als u inhoud, uitgedrukt in een minder vaak gebruikte taal hebt, kunt u proberen taaldetectie om te zien als het resultaat een code. Het antwoord voor talen die niet kunnen worden gedetecteerd, is `unknown`.
 
 > [!TIP]
 > Text Analytics biedt ook een Docker-containerinstallatiekopie op basis van Linux voor taaldetectie. U kunt de [Text Analytics-container dus dicht bij uw gegevens installeren en uitvoeren](text-analytics-how-to-install-containers.md).
@@ -206,7 +210,7 @@ Resulterende uitvoer bestaat uit de overheersende taal, met een score van minder
 
 In dit artikel hebt u concepten en werkstroom geleerd voor taaldetectie met behulp van de Text Analytics in Cognitive Services. Hier volgt een snelle herinnering van de belangrijkste punten eerder uitgelegd en gedemonstreerd:
 
-+ [Taaldetectie API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) is beschikbaar in 120 talen.
++ [Taaldetectie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) is beschikbaar voor een breed scala aan talen, varianten dialecten en sommige regionale/culturele talen.
 + JSON-documenten in de hoofdtekst van de aanvraag bevatten een ID en de tekst.
 + POST-aanvraag is een `/languages`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
 + Antwoorduitvoer, die uit de taal-id's voor elk document-ID bestaat, kan worden gestreamd naar alle apps die JSON accepteert, met inbegrip van Excel en Power BI om er maar een paar te noemen.

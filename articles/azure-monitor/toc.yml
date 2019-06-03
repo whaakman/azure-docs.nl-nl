@@ -837,6 +837,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Een actie voor een Logische app implementeren
                   href: platform/action-groups-logic-app.md
+                - name: Het algemene waarschuwingsschema integreren met Logic Apps
+                  href: platform/alerts-common-schema-integrations.md
             - name: Waarschuwingenbeheeroplossing
               href: platform/alert-management-solution.md
             - name: Gebruikersinterface van waarschuwingen

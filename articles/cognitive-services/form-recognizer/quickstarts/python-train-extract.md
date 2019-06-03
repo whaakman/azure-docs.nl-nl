@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2657c69ef631c32b498404908014d8788d485989
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906978"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417968"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Een formulier herkenning-model te trainen en gegevens ophalen met behulp van de REST-API met Python
 
@@ -45,9 +45,12 @@ Wanneer u toegang tot het gebruik van formulier herkenning zijn verleend, ontvan
 
 Als uw formulier herkenning-resource is voltooid implementeren, zoeken en selecteert u deze in de **alle resources** lijst in de portal. Selecteer vervolgens de **sleutels** tabblad om de abonnementssleutels van uw weer te geven. Beide sleutels, uw apptoegang krijgt tot de resource. Kopieer de waarde van **sleutel 1**. U gebruikt deze in de volgende sectie.
 
-## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
+## <a name="train-a-form-recognizer-model"></a>Een formulier herkenning-model te trainen
 
-Als u wilt maken en het voorbeeld uitvoert, moet u deze wijzigingen aanbrengen in het volgende codefragment:
+Eerst moet u een set trainingsgegevens in een Azure Storage-blob. U moet minimaal vijf voorbeeldformulieren (PDF-documenten en/of afbeeldingen) van de dezelfde soort/structuur als uw belangrijkste invoergegevens hebben. Of u een leeg formulier kunt gebruiken. De bestandsnaam van het formulier nodig heeft om het woord 'lege'.
+
+Als u wilt een formulier herkenning-model te trainen met behulp van de documenten in uw Azure blob-container, Roep de **trainen** API door het uitvoeren van de python-code die volgt. Voordat u de code uitvoert, moet u deze wijzigingen:
+
 1. Vervang `<Endpoint>` met de eindpunt-URL voor de herkenning van formulier-resource in de Azure-regio waar u de abonnementssleutels van uw hebt verkregen.
 1. Vervang `<SAS URL>` met een Azure Blob storage-container gedeelde toegang krijgen tot signature (SAS)-URL van de locatie van de trainingsgegevens.  
 1. Vervang `<Subscription key>` met de abonnementssleutel die u hebt gekopieerd uit de vorige stap.

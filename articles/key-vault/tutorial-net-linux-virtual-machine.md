@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Key Vault gebruiken met een virtuele Azure Linux-machine in .NET - Azure Key Vault | Microsoft Docs'
-description: 'Zelfstudie: Een ASP.NET Core-toepassing configureren voor het lezen van een geheim uit Key Vault'
+title: Zelfstudie - een virtuele Linux-machine en een ASP.NET-consoletoepassing voor het opslaan van geheimen in Azure Key Vault | Microsoft Docs
+description: In deze zelfstudie leert u hoe het configureren van een ASP.NET Core-App met een geheim vanuit Azure Key vault kan lezen.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -9,99 +9,98 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 88d06518c6cabe1f796dbdef6d954db83bc5ae28
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 576ce0abc15a646738fea57dfabf43c889635a4b
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65234014"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416935"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Zelfstudie: Azure Key Vault gebruiken met een virtuele Azure Linux-machine in .NET
+# <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Zelfstudie: Een Linux-VM en een .NET-app gebruiken voor het opslaan van geheimen in Azure Key Vault
 
-Azure Key Vault helpt u bij het beveiligen van geheimen zoals API-sleutels, databaseverbindingsreeksen die nodig zijn voor toegang tot uw toepassingen, services en IT-resources.
+Azure Key Vault helpt u bij het beveiligen van geheimen, zoals API-sleutels en tekenreeksen voor databaseverbindingen die nodig zijn voor toegang tot uw toepassingen, services en IT-resources.
 
-In deze zelfstudie voert u de stappen uit die nodig zijn om een consoletoepassing gegevens te laten lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. Hieronder leert u:
+In deze zelfstudie maakt instellen u een .NET-consoletoepassing om informatie te lezen uit Azure Key Vault met behulp van beheerde identiteiten voor Azure-resources. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Een sleutelkluis maken.
-> * Een geheim opslaan in de sleutelkluis.
-> * Een geheim ophalen uit de sleutelkluis.
-> * Een virtuele Azure-machine maken.
-> * Een [beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md) inschakelen voor de virtuele machine.
-> * De vereiste machtigingen verlenen aan de consoletoepassing om gegevens te lezen uit de sleutelkluis.
-> * Geheimen lezen uit Key Vault
+> * Een sleutelkluis maken
+> * Een geheim Store in Key Vault
+> * Een Azure Linux-machine maken
+> * Een [Beheerde identiteit](../active-directory/managed-identities-azure-resources/overview.md) inschakelen voor de virtuele machine
+> * De vereiste machtigingen voor de consoletoepassing gegevens lezen uit Key Vault
+> * Ophalen van een geheim uit Key Vault
 
-Lees voordat we verdergaan de [basisconcepten](key-vault-whatis.md#basic-concepts).
+Voordat we verdergaan, meer informatie over [key vault-basisconcepten](key-vault-whatis.md#basic-concepts).
 
 ## <a name="prerequisites"></a>Vereisten
-* Alle platformen:
-  * Git ([downloaden](https://git-scm.com/downloads)).
-  * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versie 2.0.4 of hoger. Deze is beschikbaar voor Windows, Mac en Linux.
 
-In deze zelfstudie wordt Managed Service Identity gebruikt
+* [Git](https://git-scm.com/downloads).
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+* [Azure CLI 2.0 of hoger](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) of Azure Cloud Shell.
 
-## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Wat is Managed Service Identity en hoe werkt het?
+[!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
-Voordat we verder gaan, moeten we het over MSI hebben. Azure Key Vault kan referenties veilig opslaan zodat ze zich niet in uw code bevinden, maar om ze op te halen moet u zich authenticeren bij Azure Key Vault. En om u te authenticeren bij Key Vault, hebt u een referentie nodig! Een klassiek bootstrap-probleem. Door de magie van Azure en Azure AD biedt MSI een 'bootstrap-identiteit' die het veel eenvoudiger maakt om dingen op gang te brengen.
+## <a name="understand-managed-service-identity"></a>Informatie over Managed Service Identity
 
-Het werkt als volgt. Wanneer u MSI inschakelt voor een Azure-service zoals Virtual Machines, App Service of Functions, maakt Azure een [service-principal](key-vault-whatis.md#basic-concepts) voor de instantie van de service in Azure Active Directory, en injecteert de referenties voor de service-principal in de instantie van de service. 
+Azure Key Vault kan referenties veilig opslaan zodat ze zich niet in uw code bevinden, maar om ze op te halen moet u zich authenticeren bij Azure Key Vault. En om u te verifiëren bij Key Vault, hebt u een referentie nodig. Dat is een klassiek bootstrap-probleem. Met Azure en Azure Active Directory (Azure AD) krijgt u Managed Service Identity (MSI) een bootstrap-identiteit waardoor het veel eenvoudiger te starten.
+
+Wanneer u de MSI-bestand voor een Azure-service, zoals virtuele Machines, App Service of functies inschakelt, maakt Azure een service principal voor het exemplaar van de service in Azure Active Directory. Azure stuurt de referenties voor de service-principal naar het exemplaar van de service.
 
 ![MSI](media/MSI.png)
 
-Vervolgens roept uw ​​code een lokale metadataservice aan die beschikbaar is op de Azure-resource om een ​​toegangstoken te verkrijgen.
-Uw code gebruikt het toegangstoken dat wordt verkregen van het lokale MSI_ENDPOINT zich te authenticeren bij een Azure Key Vault-service. 
+Vervolgens wordt met de ​​code een lokale metagegevensservice aangeroepen die beschikbaar is in de Azure-resource, om een ​​toegangstoken te verkrijgen.
+Uw code gebruikt het toegangstoken dat wordt verkregen van het lokale MSI_ENDPOINT zich te authenticeren bij een Azure Key Vault-service.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Als u zich met behulp van Azure CLI wilt aanmelden bij Azure, voert u het volgende in:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Maak een resourcegroep met behulp van de `az group create` opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Selecteer de naam van een resourcegroep en vul de tijdelijke aanduiding in.
-In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio US - west:
+Maak een resourcegroep in de locatie VS-West. Kies een naam voor de resourcegroep en vervang `YourResourceGroupName` in het volgende voorbeeld:
 
-```azurecli
+```azurecli-interactive
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-De resourcegroep die u net hebt gemaakt, wordt overal in dit artikel gebruikt.
+U gebruikt deze resourcegroep in de hele zelfstudie.
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
 
-Vervolgens maakt u een sleutelkluis in de resourcegroep die u in de vorige stap hebt gemaakt. Geef de volgende informatie op:
+Maak vervolgens een key vault in uw resourcegroep. Geef de volgende informatie op:
 
-* Naam van de sleutelkluis: de naam moet een tekenreeks zijn met 3-24 tekens en mag alleen (0-9, a-z, A-Z en -) bevatten.
-* Naam van de resourcegroep.
-* Locatie: **US - west**.
+* Key vault-naam: een reeks van 3 tot 24 tekens die mag alleen cijfers, letters en afbreekstreepjes bevatten (0-9, a-z, A-Z, en \- ).
+* Naam van de resourcegroep
+* Locatie: **US - west**
 
-```azurecli
+```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
-Vanaf dit punt is uw Azure-account nu als enige gemachtigd om bewerkingen op deze nieuwe kluis uit te voeren.
+
+Op dit moment is alleen uw Azure-account gemachtigd voor het uitvoeren van bewerkingen op deze nieuwe kluis.
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Een geheim toevoegen aan de sleutelkluis
 
-We gaan een geheim toevoegen om te laten zien hoe dit werkt. U wilt bijvoorbeeld een SQL-verbindingsreeks opslaan of andere gegevens die u veilig wilt bewaren, maar wel beschikbaar wilt stellen aan uw toepassing.
+Nu toevoegen u een geheim. In een Praktijkscenario u mogelijk worden opslaan van een SQL-verbindingsreeks of andere informatie die u moet veilig houden, maar toegankelijk maken voor uw toepassing.
 
-Typ de volgende opdrachten om een geheim te maken in de sleutelkluis met de naam **AppGeheim**. Met dit geheim wordt de waarde **MijnGeheim** opgeslagen.
+Typ de volgende opdrachten voor het maken van een geheim in de key vault voor deze zelfstudie. Het geheim heet **AppSecret** en de waarde is **MySecret**.
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
+## <a name="create-a-linux-virtual-machine"></a>Een virtuele Linux-machine maken
 
-Maak een VM met de opdracht [az vm create](/cli/azure/vm).
+Maak een virtuele machine met de `az vm create` opdracht.
 
-In het volgende voorbeeld wordt een virtuele machine met de naam *myVM* gemaakt en voegt u een gebruikersaccount met de naam *azureuser* toe. De parameter `--generate-ssh-keys` wordt gebruikt om automatisch een SSH-sleutel te genereren en deze te plaatsen in de standaardsleutellocatie (*~/.ssh*). Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
+In het volgende voorbeeld wordt een virtuele machine met de naam **myVM** gemaakt en voegt u een gebruikersaccount met de naam **azureuser** toe. De `--generate-ssh-keys` parameter op ons gebruikt voor het automatisch genereren van een SSH-sleutel en plaatst deze in de standaardsleutellocatie ( **~/.ssh**). Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -112,9 +111,9 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Het maken van de virtuele machine en de ondersteunende resources duurt enkele minuten. In het volgende voorbeeld van uitvoer ziet u dat het maken van de virtuele machine is geslaagd.
+Het maken van de virtuele machine en de ondersteunende resources duurt enkele minuten. Het volgende voorbeeld-uitvoer ziet dat de bewerking voor het maken van de virtuele machine is voltooid.
 
-```
+```azurecli
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -127,145 +126,169 @@ Het maken van de virtuele machine en de ondersteunende resources duurt enkele mi
 }
 ```
 
-Noteer uw eigen `publicIpAddress` in de uitvoer van uw virtuele machine. Dit adres wordt gebruikt voor toegang tot de virtuele machine in de volgende stappen.
+Maak een notitie van uw `publicIpAddress` in de uitvoer van uw virtuele machine. Dit adres wordt in latere stappen gebruikt voor toegang tot de VM.
 
-## <a name="assign-identity-to-virtual-machine"></a>Identiteit toewijzen aan een virtuele machine
+## <a name="assign-an-identity-to-the-vm"></a>Een identiteit toewijzen aan de virtuele machine
 
-In deze stap wijzen we een door het systeem toegewezen identiteit toe aan de virtuele machine met de volgende opdracht
+In deze stap wijzen we een door het systeem toegewezen identiteit toe aan de virtuele machine met de volgende opdracht:
 
-```
+```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Hieronder wordt de door het systeem toegewezen identiteit (systemAssignedIdentity) weergegeven. De uitvoer van de bovenstaande opdracht ziet er als volgt uit 
+De uitvoer van de opdracht moet:
 
-```
+```azurecli
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-## <a name="give-vm-identity-permission-to-key-vault"></a>VM-identiteit machtigen voor Key Vault
+Noteer de waarde van `systemAssignedIdentity`. U gebruikt deze in de volgende stap.
 
-Nu kunnen we de hierboven gemaakte identiteit machtigen voor Key Vault met de volgende opdracht
+## <a name="give-the-vm-identity-permission-to-key-vault"></a>VM-identiteit machtigen voor Key Vault
 
-```
+U krijgt nu Key Vault-machtigingen voor de identiteit die u hebt gemaakt. Voer de volgende opdracht uit:
+
+```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="sign-in-to-the-virtual-machine"></a>Aanmelden bij de virtuele machine
+## <a name="log-in-to-the-vm"></a>Aanmelden bij de nieuwe virtuele machine
 
-Meld u nu via een terminal aan bij de virtuele machine
+Meld u nu via een terminal aan bij de virtuele machine.
 
-```
+```terminal
 ssh azureuser@<PublicIpAddress>
 ```
 
-## <a name="install-dot-net-core-on-linux"></a>.Net Core installeren onder Linux
+## <a name="install-net-core-on-linux"></a>.NET Core installeren in Linux
 
-### <a name="register-the-microsoft-product-key-as-trusted-run-the-following-two-commands"></a>Registreer de Microsoft-productsleutel als vertrouwd. Voer de volgende twee opdrachten uit
+Op uw virtuele Linux-machine:
 
+De sleutel voor de Microsoft-product als vertrouwd registreren door het uitvoeren van de volgende opdrachten:
+
+   ```console
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+   ```
+
+Instellen van de gewenste versie host pakket feed op basis van besturingssysteem:
+
+```console
+   # Ubuntu 17.10
+   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
+   sudo apt-get update
+   
+   # Ubuntu 17.04
+   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
+   sudo apt-get update
+   
+   # Ubuntu 16.04 / Linux Mint 18
+   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+   sudo apt-get update
+   
+   # Ubuntu 14.04 / Linux Mint 17
+   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+   sudo apt-get update
 ```
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-```
 
-### <a name="set-up-desired-version-host-package-feed-based-on-operating-system"></a>Stel de gewenste versie van de hostpakketfeed in op basis van het besturingssysteem
+.NET installeren en de versie controleren:
 
-```
- 
-# Ubuntu 16.04 / Linux Mint 18
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
- 
-# Ubuntu 14.04 / Linux Mint 17
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-```
+   ```console
+   sudo apt-get install dotnet-sdk-2.1.4
+   dotnet --version
+   ```
 
-### <a name="install-net-core"></a>.NET Core installeren
+## <a name="create-and-run-a-sample-net-app"></a>Maken en uitvoeren van een .NET-voorbeeld-app
 
-En controleer de .NET-versie
+Voer de volgende opdrachten. U ziet 'Hello World' weergegeven in de console.
 
-```
-sudo apt-get install dotnet-sdk-2.1.4
-dotnet --version
-```
-
-## <a name="create-and-run-sample-dot-net-app"></a>.Net-voorbeeld-app maken en uitvoeren
-
-Als u de onderstaande opdrachten uitvoert, wordt 'Hallo wereld' weergegeven in de console
-
-```
+```console
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
 ```
 
-## <a name="edit-console-app"></a>Console-app bewerken
+## <a name="edit-the-console-app-to-fetch-your-secret"></a>De console-app om op te halen van het geheim bewerken
 
-Open het bestand Program.cs en voeg deze pakketten toe
+Open het bestand Program.cs en voeg deze pakketten toe:
+
+   ```csharp
+   using System;
+   using System.IO;
+   using System.Net;
+   using System.Text;
+   using Newtonsoft.Json;
+   using Newtonsoft.Json.Linq;
+   ```
+
+Het is een proces in twee stappen voor het wijzigen van de klassebestand om in te schakelen van de app voor toegang tot het geheim in de key vault.
+
+1. Een token uit het lokale MSI-eindpunt ophalen op de virtuele machine die op zijn beurt ophaalt van een token uit Azure Active Directory.
+1. Het token doorgeven aan Key Vault en op te halen van het geheim.
+
+   Bewerk het klassebestand bevat de volgende code:
+
+   ```csharp
+    class Program
+       {
+           static void Main(string[] args)
+           {
+               // Step 1: Get a token from local (URI) Managed Service Identity endpoint which in turn fetches it from Azure Active Directory
+               var token = GetToken();
+
+               // Step 2: Fetch the secret value from Key Vault
+               System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
+           }
+
+           static string GetToken()
+           {
+               WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net");
+               request.Headers.Add("Metadata", "true");
+               WebResponse response = request.GetResponse();
+               return ParseWebResponse(response, "access_token");
+           }
+
+           static string FetchSecretValueFromKeyVault(string token)
+           {
+               WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
+               kvRequest.Headers.Add("Authorization", "Bearer "+  token);
+               WebResponse kvResponse = kvRequest.GetResponse();
+               return ParseWebResponse(kvResponse, "value");
+           }
+
+           private static string ParseWebResponse(WebResponse response, string tokenName)
+           {
+               string token = String.Empty;
+               using (Stream stream = response.GetResponseStream())
+               {
+                   StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                   String responseString = reader.ReadToEnd();
+
+                   JObject joResponse = JObject.Parse(responseString);
+                   JValue ojObject = (JValue)joResponse[tokenName];
+                   token = ojObject.Value.ToString();
+               }
+               return token;
+           }
+       }
+   ```
+
+U hebt nu geleerd hoe u met Azure Key Vault bewerkingen wilt uitvoeren in een .NET-toepassing die wordt uitgevoerd op een Azure Linux-machine.
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Verwijder de resourcegroep, de virtuele machine en alle gerelateerde resources wanneer u ze niet meer nodig hebt. Om dit te doen, selecteert u de resourcegroep voor de VM en selecteert u **Verwijderen**.
+
+Verwijder de sleutelkluis met behulp van de opdracht `az keyvault delete`:
+
+```azurecli-interactive
+az keyvault delete --name
+                   [--resource group]
+                   [--subscription]
 ```
-using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-```
-
-Wijzig vervolgens het klassebestand met de volgende code. Dit proces bestaat uit twee stappen.
-
-1. Een token uit het lokale MSI-eindpunt op de virtuele machine ophalen zodat er een token uit Azure Active Directory wordt opgehaald
-2. Het token doorgeven aan Key Vault en het geheim ophalen 
-
-```
- class Program
-    {
-        static void Main(string[] args)
-        {
-            // Step 1: Get a token from local (URI) Managed Service Identity endpoint which in turn fetches it from Azure Active Directory
-            var token = GetToken();
-
-            // Step 2: Fetch the secret value from Key Vault
-            System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
-        }
-
-        static string GetToken()
-        {
-            WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net");
-            request.Headers.Add("Metadata", "true");
-            WebResponse response = request.GetResponse();
-            return ParseWebResponse(response, "access_token");
-        }
-
-        static string FetchSecretValueFromKeyVault(string token)
-        {
-            WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
-            kvRequest.Headers.Add("Authorization", "Bearer "+  token);
-            WebResponse kvResponse = kvRequest.GetResponse();
-            return ParseWebResponse(kvResponse, "value");
-        }
-
-        private static string ParseWebResponse(WebResponse response, string tokenName)
-        {
-            string token = String.Empty;
-            using (Stream stream = response.GetResponseStream())
-            {
-                StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                String responseString = reader.ReadToEnd();
-
-                JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];   
-                token = ojObject.Value.ToString();
-            }
-            return token;
-        }
-    }
-```
-
-In de bovenstaande code ziet u hoe u bewerkingen met Azure Key Vault uitvoert op een virtuele Linux-machine in Azure. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/31/2019
 ms.locfileid: "66115390"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Maken en VPN-clientconfiguratiebestanden voor P2S-RADIUS-verificatie installeren
@@ -140,12 +140,12 @@ Gebruik de volgende stappen uit om te configureren van de systeemeigen Windows V
 9. Voor toegang tot de VPN-verbinding, opent u de **netwerk** in het dialoogvenster van **Systeemvoorkeuren**.
 
    ![De pictogrammen in Systeemvoorkeuren](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
-10. De VPN-verbinding wordt weergegeven als **IkeV2-VPN-**. U kunt de naam wijzigen door het bijwerken van de **mobileconfig** bestand.
+10. De VPN-verbinding wordt weergegeven als **IkeV2-VPN-** . U kunt de naam wijzigen door het bijwerken van de **mobileconfig** bestand.
 
     ![Details voor de VPN-verbinding](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Selecteer **verificatie-instellingen**. Selecteer **gebruikersnaam** in de lijst en voer uw referenties. Als u eerder hebt ingevoerd de referenties, klikt u vervolgens **gebruikersnaam** wordt automatisch gekozen in de lijst en de gebruikersnaam en wachtwoord worden vooraf ingevuld. Selecteer **OK** de instellingen op te slaan.
 
-    ![Verificatie-instellingen](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    ![verificatie-instellingen](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. Klik in de **netwerk** in het dialoogvenster, selecteer **toepassen** de wijzigingen op te slaan. Als u wilt de verbinding tot stand brengen, selecteer **Connect**.
 
 #### <a name="adlinuxcli"></a>Linux-VPN-client instellen via strongSwan
@@ -252,7 +252,7 @@ Gebruik de volgende stappen uit om te configureren van de systeemeigen VPN-clien
    ![Servergegevens](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
 5. Selecteer **verificatie-instellingen**, en selecteer **certificaat**. 
 
-   ![Verificatie-instellingen](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
+   ![verificatie-instellingen](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
 6. Klik op **Selecteer** kiezen van het certificaat dat u wilt gebruiken voor verificatie.
 
    ![Een certificaat voor verificatie selecteren](./media/point-to-site-vpn-client-configuration-radius/certificate.png)

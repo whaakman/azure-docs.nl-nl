@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 80fabccb8a59bcd472812698f624d49dc26c24fa
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399123"
+ms.locfileid: "66417480"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Zelfstudie: Transacties met Azure Blockchain-Service verzenden
 
@@ -183,7 +183,7 @@ U kunt de openbare sleutel ophalen uit de lijst van de transactie-knooppunt. Kop
 
 ## <a name="create-smart-contract"></a>Slimme contract maken
 
-1. In de map **contracten**, maak een nieuw bestand met de naam `SimpleStorage.sol`. Voeg de volgende code toe.
+1. In de **contracten** map, maak een nieuw bestand met de naam `SimpleStorage.sol`. Voeg de volgende code toe.
 
     ```solidity
     pragma solidity >=0.4.21 <0.6.0;
@@ -205,7 +205,7 @@ U kunt de openbare sleutel ophalen uit de lijst van de transactie-knooppunt. Kop
     }
     ```
     
-1. In de map **migraties**, maak een nieuw bestand met de naam `2_deploy_simplestorage.js`. Voeg de volgende code toe.
+1. In de **migraties** map, maak een nieuw bestand met de naam `2_deploy_simplestorage.js`. Voeg de volgende code toe.
 
     ```solidity
     var SimpleStorage = artifacts.require("SimpleStorage.sol");
@@ -223,10 +223,10 @@ U kunt de openbare sleutel ophalen uit de lijst van de transactie-knooppunt. Kop
     |-------|-------------
     | \<de openbare sleutel Alpha-knooppunt\> | Openbare sleutel van het knooppunt voor alpha
     | \<Adres Ethereum-account\> | Adres Ethereum-account hebt gemaakt in het knooppunt van de transactie standaard
-    
+
     In dit voorbeeld wordt de aanvankelijke waarde van de **storeData** waarde is ingesteld op 42.
 
-    **privateFor** definieert de knooppunten waarop het contract beschikbaar is. In dit voorbeeld van het standaard transactie knooppunt account kunt cast-conversie persoonlijke transacties naar de **alpha** knooppunt. U moet openbare sleutels toevoegen voor alle persoonlijke Transactiedeelnemers. Als u geen **privateFor:** en **uit:** , de slimme contract transacties openbaar zijn en kan worden bekeken door alle leden van de consortium.
+    **privateFor** definieert de knooppunten waarop het contract beschikbaar is. In dit voorbeeld van het standaard transactie knooppunt account kunt cast-conversie persoonlijke transacties naar de **alpha** knooppunt. U kunt openbare sleutels toevoegen voor alle persoonlijke Transactiedeelnemers. Als u geen **privateFor:** en **uit:** , de slimme contract transacties openbaar zijn en kan worden bekeken door alle leden van de consortium.
 
 1. Sla alle bestanden door het selecteren van **bestand > opslaan alle**.
 

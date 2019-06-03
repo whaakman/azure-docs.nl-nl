@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 43aa0956ef1f44fa5705800ff2b424608ec75499
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795616"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427712"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Het gebruik van Azure Kubernetes met Azure Cosmos DB (preview)
 
@@ -29,7 +29,7 @@ Zie voor meer informatie over etcd API in Azure Cosmos DB, de [overzicht](etcd-a
 
 1. Installeer de nieuwste versie van [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). U kunt Azure CLI specifiek voor uw besturingssysteem downloaden en installeren.
 
-1. Installeer de [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) versie van Azure Kubernetes-Engine. De installatie-instructies voor verschillende besturingssystemen zijn beschikbaar in [Azure Kubernetes-Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) pagina. U hoeft alleen maar de stappen bij **AKS-Engine installeren** sectie van de gekoppelde doc-bestand. Nadat u hebt gedownload, pak het zip-bestand.
+1. Installeer de [meest recente versie](https://github.com/Azure/aks-engine/releases) van Azure Kubernetes-Engine. De installatie-instructies voor verschillende besturingssystemen zijn beschikbaar in [Azure Kubernetes-Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) pagina. U hoeft alleen maar de stappen bij **AKS-Engine installeren** sectie van de gekoppelde doc-bestand. Nadat u hebt gedownload, pak het zip-bestand.
 
    De Azure Kubernetes-Engine (**aks-engine**) genereert Azure Resource Manager-sjablonen voor Kubernetes-clusters op Azure. De invoer voor de aks-engine is een cluster-definitiebestand die het gewenste cluster beschrijft, met inbegrip van orchestrator, functies en -agents. De structuur van de invoerbestanden is vergelijkbaar met de openbare API voor Azure Kubernetes Service.
 
@@ -77,7 +77,7 @@ Zie voor meer informatie over etcd API in Azure Cosmos DB, de [overzicht](etcd-a
 1. Navigeer vanaf de opdrachtprompt naar de map waar het Azure Kubernetes-Engine uitvoerbare bestand zich bevindt. Bijvoorbeeld, kunt u op de opdrachtprompt ook navigeren naar de map als:
 
    ```cmd
-   cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
+   cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
 1. Open een teksteditor van uw keuze en definiëren van een Resource Manager-sjabloon die de Azure Kubernetes-cluster met Azure Cosmos DB etcd API implementeert. De volgende JSON-definitie kopiëren naar een teksteditor en sla het bestand als `apiModel.json`:

@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: Event Handlers
       href: event-handlers.md
+    - name: Herstel na geonoodgeval
+      href: geo-disaster-recovery.md
 - name: Handleidingen
   items:
     - name: Posten naar een aangepast onderwerp

@@ -48,6 +48,8 @@
       href: delegated-access-virtual-desktop.md
     - name: Taakverdelingsmethoden voor hostpool
       href: host-pool-load-balancing.md
+    - name: FSLogix-profielcontainers en Azure Files
+      href: fslogix-containers-azure-files.md
 - name: Problemen oplossen
   items:
     - name: 'Probleemoplossingsoverzicht, feedback en ondersteuning'

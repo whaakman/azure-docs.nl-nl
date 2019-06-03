@@ -41,14 +41,6 @@
           href: web-query-data.md
         - name: Python
           href: python-query-data.md
-    - name: Gegevens visualiseren
-      items:
-        - name: Power BI - connector
-          href: power-bi-connector.md
-        - name: Power BI - geïmporteerde query
-          href: power-bi-imported-query.md
-        - name: Power BI - SQL-query
-          href: power-bi-sql-query.md
 - name: Zelfstudies
   items:
     - name: Gegevens opnemen zonder code
@@ -80,6 +72,20 @@
           href: anomaly-detection.md
         - name: Machine learning
           href: machine-learning-clustering.md
+    - name: Gegevens visualiseren
+      items:
+        - name: Power BI
+          items:
+            - name: connector
+              href: power-bi-connector.md
+            - name: geïmporteerde query
+              href: power-bi-imported-query.md
+            - name: SQL-query
+              href: power-bi-sql-query.md
+        - name: Sisense
+          href: sisense.md
+        - name: Grafana
+          href: grafana.md
     - name: Beheren
       items:
         - name: Databasemachtigingen beheren
@@ -108,8 +114,6 @@
           href: kqlmagic.md
         - name: Gegevens kopiëren met Azure Data Factory
           href: data-factory-load-data.md
-        - name: Gegevens visualiseren in Grafana
-          href: grafana.md
         - name: Verbinding maken met ODBC
           href: connect-odbc.md
     - name: Problemen oplossen

@@ -65,7 +65,7 @@
           href: batch-aad-auth.md
         - name: Azure AD met Batch Management
           href: batch-aad-auth-management.md
-    - name: Toepassingspakketten maken
+    - name: Toepassingspakketten gebruiken
       href: batch-application-packages.md
     - name: Pools maken en beheren
       items:

@@ -6,15 +6,15 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ed66e3a0237eced852c806e78a8af6bdf8d8579
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60925751"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417822"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure
 
@@ -81,7 +81,7 @@ Voer de failovertest als volgt uit:
 
 In sommige scenario's vereist de failover extra verwerking die circa acht tot tien minuten duurt. U zou langere failover-tijden kunnen waarnemen voor VMware Linux-computers, VMware-VM's waarop de DHCP-service niet is ingeschakeld, en VMware-VM's die niet de volgende opstartstuurprogramma’s hebben: storvsc, vmbus, storflt, intelide, atapi.
 
-## <a name="connect-after-failover"></a>Verbinden na failover
+## <a name="connect-after-failover"></a>Verbinding maken na failover
 
 Als u wilt verbinding maken met virtuele Azure-machines na een failover met behulp van RDP/SSH [voorbereiden om verbinding te](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Als u eventuele problemen met de netwerkverbinding na een failover ondervindt, volgt u de [probleemoplossing](site-recovery-failover-to-azure-troubleshoot.md) handleiding.
 

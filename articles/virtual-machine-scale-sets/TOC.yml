@@ -223,6 +223,14 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Azure PowerShell gebruiken
               href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Een schaalset wijzigen
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Netwerken voor schaalsets
+          href: virtual-machine-scale-sets-networking.md
+        - name: Automatische upgrades voor het besturingssysteem
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Exemplaarbescherming (preview)
+          href: virtual-machine-scale-sets-instance-protection.md
         - name: Gedeelde installatiekopiegalerieën
           items:
             - name: Overzicht
@@ -237,14 +245,8 @@
               href: troubleshooting-shared-images.md
         - name: Verticaal schalen in een schaalset
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Automatische upgrades voor het besturingssysteem
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Een schaalset wijzigen
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: DSC en schaalsets gebruiken
           href: virtual-machine-scale-sets-dsc.md
-        - name: Netwerken voor schaalsets
-          href: virtual-machine-scale-sets-networking.md
         - name: Een sjabloon converteren voor beheerde schijven
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Gepland onderhoud

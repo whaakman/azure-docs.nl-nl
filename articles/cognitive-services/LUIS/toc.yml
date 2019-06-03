@@ -83,7 +83,7 @@
           displayName: roles
         - name: Vrije vorm-gegevens herkennen
           href: luis-tutorial-pattern-any.md
-    - name: Bot gebruiken
+    - name: Versie 4 van het botframework gebruiken
       items:
         - name: 'Met C#'
           href: luis-csharp-tutorial-bf-v4.md
@@ -198,7 +198,7 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: Met spraakservice
           href: luis-tutorial-speech-to-intent.md
-        - name: Met een bot
+        - name: Versie 3 van het botframework gebruiken
           items:
             - name: Web-app-bot
               items:
@@ -279,6 +279,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Grenzen
       href: luis-boundaries.md
+    - name: Toepassingsinstellingen
+      href: luis-reference-application-settings.md
     - name: Vooraf gemaakte entiteitsverwijzing
       items:
         - name: Entiteiten per cultuur
@@ -398,6 +400,8 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Resources
   items:
+    - name: Nieuwe functies
+      href: whats-new.md
     - name: Regionale beschikbaarheid
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Ondersteuning voor taal en regio

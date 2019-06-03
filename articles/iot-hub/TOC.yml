@@ -66,6 +66,8 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: Deel 2 - Resultaten van berichtroutering weergeven
           href: tutorial-routing-view-message-routing-results.md
+    - name: Berichtverrijkingen
+      href: tutorial-message-enrichments.md
     - name: Metrische gegevens en diagnostische logboeken gebruiken
       href: tutorial-use-metrics-and-diags.md
     - name: Handmatige failover uitvoeren
@@ -78,6 +80,8 @@
       href: tutorial-connectivity.md
 - name: Concepten
   items:
+    - name: Overzicht van berichtverrijkingen
+      href: iot-hub-message-enrichments-overview.md
     - name: Overzicht van apparaatbeheer
       href: iot-hub-device-management-overview.md
     - name: IoT Hub en Event Hubs vergelijken

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 90ffebf5f3375e94545f82a95f5c240ad845bd94
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4ceff7d59443fe78fb8cf7164e5f31cf1acc189a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162177"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420726"
 ---
 1. Meld u aan bij de [Firebase-console](https://firebase.google.com/console/). Maak een nieuw Firebase-project als u er nog geen hebt.
 2. Nadat u uw project hebt gemaakt, selecteert u **Firebase toevoegen aan uw Android-app**. 
@@ -36,4 +36,4 @@ ms.locfileid: "66162177"
     ![Selecteer Projectinstellingen](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Als u dit nog niet hebt gedownload de **google-services.json** -bestand, kunt u doen dit op deze pagina. 
 5. Schakel over naar de **Cloud Messaging** tabblad bovenaan. 
-6. Kopieer en bewaar de **serversleutel** voor later gebruik. In dat geval gebruikt u deze waarde in voor uw notification hub configureren.
+6. Kopieer en bewaar de **oude serversleutel** voor later gebruik. In dat geval gebruikt u deze waarde in voor uw notification hub configureren.

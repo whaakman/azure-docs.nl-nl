@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829545"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417323"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Ondersteuning voor taal en regio voor de Tekstanalyse-API
 
@@ -23,7 +23,11 @@ Dit artikel wordt uitgelegd welke talen worden ondersteund voor elke bewerking: 
 
 ## <a name="language-detection"></a>Taaldetectie
 
-De Tekstanalyse-API kan maximaal 120 verschillende talen detecteren. Taaldetectie retourneert "script" van een taal. Bijvoorbeeld, voor de zinsnede 'Ik heb een hond' wordt geretourneerd `en` in plaats van `en-US`. Het alleen speciaal geval is Chinees, waarop de mogelijkheid van de detectie van taal retourneert `zh_CHS` of `zh_CHT` als het script dat de opgegeven tekst kan worden bepaald. In situaties waar een specifiek script voor een Chinese document kan niet worden geïdentificeerd, retourneert deze gewoon `zh`.
+De Tekstanalyse-API kan een groot aantal talen, varianten dialecten en sommige regionale/culturele talen detecteren.  Taaldetectie retourneert "script" van een taal. Bijvoorbeeld, voor de zinsnede 'Ik heb een hond' wordt geretourneerd `en` in plaats van `en-US`. Het alleen speciaal geval is Chinees, waarop de mogelijkheid van de detectie van taal retourneert `zh_CHS` of `zh_CHT` als het script dat de opgegeven tekst kan worden bepaald. In situaties waar een specifiek script voor een Chinese document kan niet worden geïdentificeerd, retourneert deze gewoon `zh`.
+
+We de exacte lijst met talen voor deze functie niet publiceren, maar het kan een groot aantal talen, varianten dialecten en sommige regionale/culturele talen detecteren. 
+
+Als u inhoud, uitgedrukt in een minder vaak gebruikte taal hebt, kunt u proberen taaldetectie om te zien als het resultaat een code. Het antwoord voor talen die niet kunnen worden gedetecteerd, is `unknown`.
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Sentimentanalyse, Sleuteltermextractie en herkenning van benoemde entiteiten
 
@@ -40,7 +44,7 @@ Taalondersteuning wordt in eerste instantie in de Preview-versie opwaarderen naa
 | Chinees (Vereenvoudigd) | `zh-CN`|           |             | ✔ \*        |    |
 | Deens      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Nederlands       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| Engels     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| Nederlands     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | Fins     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Frans      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
 | Duits      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |

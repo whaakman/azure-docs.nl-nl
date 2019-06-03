@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234494"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425688"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Quickstart: De voorbeeld-app SDK voor spraak-apparaten worden uitgevoerd op Android
 
@@ -84,7 +84,7 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
 
 1. Uw abonnementssleutel spraak toevoegen aan de broncode. Als u proberen intentieherkenning wilt, voegt u ook uw [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonnementssleutel en de toepassing-id.
 
-   Uw gegevens krijgt MainActivity.java voor spraak en LUIS:
+   Voor spraak en LUIS, worden uw gegevens in MainActivity.java gaat:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Als u conversatie transcriptie zijn ook uw sleutel en de regio spraakgegevens in conversation.java nodig:
+    Als u gebruikmaakt van conversatie transcriptie, zijn ook uw sleutel en de regio spraakgegevens in conversation.java nodig:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -145,7 +145,7 @@ Als u wilt uw valideren development kit, bouwen en de voorbeeld-App installeren:
 
    ![Voorbeeld van de voorbeeldtoepassing spraak Devices SDK en opties](media/speech-devices-sdk/qsg-8.png)
 
-1. Toegevoegde is de conversatie transcriptie demo. Start te transcriberen met sessie starten. Standaard is iedereen Gast, maar als u van deelnemer stem handtekeningen hebben ze in een bestand /video/participants.properties op het apparaat kunnen worden geplaatst. Voor het genereren van het uiterlijk van de handtekening stem op [(SDK) gesprekken transcriberen](how-to-use-conversation-transcription-service.md).
+1. Probeer de nieuwe conversatie transcriptie demo. Start te transcriberen met sessie starten. Iedereen is standaard een gast. Echter, als u van deelnemer stem handtekeningen hebben ze kunnen worden geplaatst in een bestand `/video/participants.properties` op het apparaat. Voor het genereren van de handtekening gesproken kijken [(SDK) gesprekken transcriberen](how-to-use-conversation-transcription-service.md).
 
    ![Conversatie transcriptie demotoepassing](media/speech-devices-sdk/qsg-15.png)
 

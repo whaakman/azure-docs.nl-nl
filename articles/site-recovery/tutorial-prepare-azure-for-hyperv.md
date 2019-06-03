@@ -5,15 +5,15 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 29189a5919a01fcb897758fb64ca9e84b9381fb6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410907"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418353"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Azure-resources voorbereiden op herstel na noodgevallen van on-premises machines
 
@@ -55,7 +55,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 1. In de [Azure-portal](https://portal.azure.com) in het menu **een resource maken** > **opslag** > **opslagaccount - blob, bestand, tabel, wachtrij** .
 2. Voer in **Opslagaccount maken** een naam voor de account in.  De naam die u kiest moet uniek zijn binnen Azure, worden van 3 tot 24 tekens lang zijn, en alleen kleine letters en cijfers gebruiken. Voor deze zelfstudie gebruiken we **contosovmsacct1910171607**.
 3. Selecteer bij **implementatiemodel** **Resource Manager**.
-4. In **soort Account**, selecteer **Storage (algemeen gebruik v1)**. Selecteer niet blob-opslag.
+4. In **soort Account**, selecteer **Storage (algemeen gebruik v1)** . Selecteer niet blob-opslag.
 5. Selecteer bij **Replicatie** de standaardoptie **Geografisch redundante opslag met leestoegang** voor opslagredundantie. Laat de veilige overdracht vereist instellen als uitgeschakeld.
 6. Selecteer bij **Prestaties** **Standard**. Vervolgens in **toegangslaag**, selecteert u de standaardoptie **warm**.
 7. In **abonnement**, kiest u het abonnement waarin u wilt maken van het nieuwe opslagaccount.
@@ -68,7 +68,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
 1. Selecteer in de Azure portal, **+ een resource maken**, en zoek vervolgens de Azure Marketplace naar Recovery Services.
-2. Selecteer **Backup en Site Recovery (OMS)**. Volgende op de **back-up en siteherstel** weergeeft, schakelt **maken**.
+2. Selecteer **Backup en Site Recovery (OMS)** . Volgende op de **back-up en siteherstel** weergeeft, schakelt **maken**.
 1. In **Recovery services-kluis > naam**, voer een beschrijvende naam voor het identificeren van de kluis. Gebruik voor deze zelfstudie **ContosoVMVault**.
 2. Selecteer bij **Resourcegroep** een bestaande resourcegroep of maak een nieuwe. Voor deze zelfstudie gebruiken we **contosoRG**.
 3. In **locatie**, selecteer de regio waarin de kluis moet zich bevinden. Voor deze zelfstudie gebruiken we **West-Europa**.

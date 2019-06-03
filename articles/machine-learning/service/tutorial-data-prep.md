@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: dabb43cb2fe9b66d5d83d163b74d2f22354e33b8
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604489"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418026"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
-In deze zelfstudie leert u hoe u gegevens voorbereiden voor de regressie modelleren met behulp van de [pakket voor gegevensvoorbereiding van Azure Machine Learning](https://aka.ms/data-prep-sdk). U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
+In deze zelfstudie leert u hoe u gegevens voorbereiden voor de regressie modelleren met behulp van de [pakket voor gegevensvoorbereiding](https://aka.ms/data-prep-sdk) uit de [SDK van Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
 
 Deze zelfstudie is **deel één van een serie van twee**. Nadat u deze serie met zelfstudies hebt voltooid, kunt u de kosten van een taxirit voorspellen door een model te trainen op gegevenskenmerken. Deze kenmerken zijn onder andere de dag en het tijdstip van ophalen, het aantal passagiers en de vertreklocatie.
 
@@ -38,7 +38,7 @@ In deze zelfstudie hebt u:
 Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorlopen, of gebruik de onderstaande instructies om het notebook op te halen en uit te voeren op Azure Notebooks of uw eigen notebookserver. U hebt het volgende nodig om het notebook uit te voeren:
 
 * Een Python 3.6 notebook-server met het volgende geïnstalleerd:
-    *  azureml-dataprep-pakket van de Azure Machine Learning-SDK voor Python
+    * De `azureml-dataprep` pakket van de Azure Machine Learning-SDK
 * Het notebook voor de zelfstudie
 
 * Gebruik een [cloud notebook-server in uw werkruimte](#azure) 
@@ -46,7 +46,7 @@ Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorl
 
 ### <a name="azure"></a>Een cloud-notebook-server gebruiken in uw werkruimte
 
-Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De [Azure Machine Learning-SDK voor Python](https://aka.ms/aml-sdk) al is geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.
+Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De Azure Machine Learning-SDK voor Python is al geïnstalleerd en geconfigureerd voor u, zodra u deze cloudresource hebt gemaakt.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
@@ -56,8 +56,8 @@ Het is eenvoudig aan de slag met uw eigen cloud-gebaseerde notebook-server. De [
 
 Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u het notebook **tutorials/regression-part1-data-prep.ipynb** uit.
 
-1. Volledige installatie van de stappen in [Azure Machine Learning Python-quickstart](setup-create-workspace.md#sdk) om een Miniconda-omgeving te maken.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
-1. Installeren van de azureml-dataprep in uw omgeving met `pip install azureml-dataprep`.
+1. Volledige installatie van de stappen in [Azure Machine Learning Python-quickstart](setup-create-workspace.md#sdk) te maken van een omgeving Miniconda en installeer de SDK.  U kunt het gedeelte **Een werkruimte maken** nu desgewenst overslaan, maar dit gedeelte is wel vereist voor [deel 2](tutorial-auto-train-models.md) van deze reeks zelfstudies.
+1. De `azureml-dataprep` pakket wordt automatisch geïnstalleerd wanneer u de SDK installeert.
 1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
 
     ```
@@ -85,7 +85,7 @@ Gebruik het volgende nodig om pakketten te installeren als u deze nog niet hebt.
 pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
-Importeer de SDK.
+Het pakket importeert.
 
 ```python
 import azureml.dataprep as dprep
@@ -321,8 +321,8 @@ combined_df.keep_columns(columns=[
     <tr style="text-align: right;">
       <th></th>
       <th>Type</th>
-      <th>Min</th>
-      <th>Max</th>
+      <th>Min.</th>
+      <th>Max.</th>
       <th>Count</th>
       <th>Ontbrekend aantal</th>
       <th>Niet-ontbrekend aantal</th>
@@ -473,8 +473,8 @@ latlong_filtered_df.keep_columns(columns=[
     <tr style="text-align: right;">
       <th></th>
       <th>Type</th>
-      <th>Min</th>
-      <th>Max</th>
+      <th>Min.</th>
+      <th>Max.</th>
       <th>Count</th>
       <th>Ontbrekend aantal</th>
       <th>Niet-ontbrekend aantal</th>
@@ -607,8 +607,8 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
     <tr style="text-align: right;">
       <th></th>
       <th>Type</th>
-      <th>Min</th>
-      <th>Max</th>
+      <th>Min.</th>
+      <th>Max.</th>
       <th>Count</th>
       <th>Ontbrekend aantal</th>
       <th>Niet-ontbrekend aantal</th>

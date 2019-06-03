@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786857"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428316"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Reageren op Azure Service Bus-gebeurtenissen ontvangen via de Azure Event Grid met behulp van Azure Functions en Azure Logic Apps
 In deze zelfstudie leert u hoe u om te reageren op Azure Service Bus-gebeurtenissen die worden ontvangen via de Azure Event Grid met behulp van Azure Functions en Azure Logic Apps. U voert de volgende stappen uit:
@@ -127,7 +127,7 @@ Voer de volgende stappen uit:
 1. Configureren van de functie **V1** versie: 
     1. Selecteer uw functie-app in de structuurweergave wordt weergegeven en selecteer **functie app-instellingen**. 
 
-        ![Instellingen voor functie-apps](). / media/service-bus-to-event-grid-integration-example/function-app-settings.png)
+        ![Instellingen voor functie-app](). / media/service-bus-to-event-grid-integration-example/function-app-settings.png)
     2. Selecteer **~ 1** voor **runtimeversie**. 
 2. Vouw **functies** in de structuur weergeven en selecteer uw functie. Vervang de code voor de functie door de volgende code: 
 
@@ -280,13 +280,12 @@ Verbinding maken met een logische app met Azure Service Bus en Azure Event Grid 
     3. Voor **resourcenaam**, selecteert u uw Service Bus-naamruimte. 
     4. Selecteer **toevoegen van nieuwe parameter**, en selecteer **Achtervoegselfilter**. 
     5. Voor **Achtervoegselfilter**, voer de naam van de tweede Service Bus-onderwerp-abonnement. 
-
         ![Ontwerper van logische Apps - gebeurtenissen configureren](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Selecteer **+ nieuwe stap** in de ontwerpfunctie en voer de volgende stappen uit:
     1. Zoeken naar **Service Bus**.
     2. Selecteer **Service Bus** in de lijst. 
     3. Selecteer voor **berichten ophalen** in de **acties** lijst. 
-    4. Selecteer **berichten ophalen van een onderwerpabonnement (peek-lock)**. 
+    4. Selecteer **berichten ophalen van een onderwerpabonnement (peek-lock)** . 
 
         ![Logic Apps Designer - actie voor get-berichten](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
     5. Voer een **naam voor de verbinding**. Bijvoorbeeld: **Berichten van het onderwerpabonnement ontvangen**, en selecteer de Service Bus-naamruimte. 

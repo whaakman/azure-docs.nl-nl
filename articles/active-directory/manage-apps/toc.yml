@@ -13,6 +13,8 @@
       href: view-applications-portal.md
 - name: Zelfstudies
   items:
+    - name: Zelfstudies voor SaaS-toepassingen
+      href: 'https://docs.microsoft.com/azure/active-directory/saas-apps/'
     - name: Eenmalige aanmelding configureren - portal
       href: configure-single-sign-on-portal.md
     - name: Een on-premises app toevoegen - portal
@@ -77,19 +79,13 @@
       href: end-user-experiences.md
 - name: Handleidingen
   items:
-    - name: Integratie van een cloud-app
+    - name: Een cloud-app toevoegen
       items:
-        - name: Een app toevoegen
-          items:
-            - name: Type app kiezen
-              href: choose-application-type.md
-            - name: Veelvoorkomende problemen - galerie-apps
-              href: adding-gallery-app-common-problems.md
-            - name: Veelvoorkomende problemen - niet-galerie-apps
-              href: adding-non-gallery-app-common-problems.md
+        - name: Type app kiezen
+          href: choose-application-type.md
         - name: Naam of logo wijzigen
           href: change-name-or-logo-portal.md
-    - name: Integratie van een on-premises app
+    - name: Een on-premises app integreren
       items:
         - name: Connectors configureren
           href: application-proxy-configure-connectors-with-proxy-servers.md
@@ -125,7 +121,139 @@
               href: application-proxy-integrate-with-tableau.md
             - name: Integreren met Qlik
               href: application-proxy-qlik.md
-        - name: Probleemoplossing toepassingsproxy
+    - name: Eenmalige aanmelding configureren
+      items:
+        - name: Configureren niet-galerie-apps
+          href: configure-single-sign-on-non-gallery-applications.md
+        - name: Federatief configureren - galerie-apps
+          href: configure-federated-single-sign-on-gallery-applications.md
+        - name: Federatief configureren - niet-galerie-apps
+          href: configure-federated-single-sign-on-non-gallery-applications.md
+        - name: Wachtwoord configureren - galerie-apps
+          href: configure-password-single-sign-on-gallery-applications.md
+        - name: Wachtwoord configureren - niet-galerie-apps
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Eenmalige aanmelding met toepassingsproxy
+          items:
+            - name: Kerberos-beperkte overdracht (KCD)
+              href: application-proxy-configure-single-sign-on-with-kcd.md
+            - name: Wachtwoordkluis
+              href: application-proxy-configure-single-sign-on-password-vaulting.md
+            - name: Headers
+              href: application-proxy-configure-single-sign-on-with-ping-access.md
+            - name: Eenmalige aanmelding op basis van SAML
+              href: application-proxy-configure-single-sign-on-on-premises-apps.md
+    - name: Gebruikersinrichting configureren
+      items:
+        - name: Hoelang inrichten duurt
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Gebruikersinrichting configureren - galerie-app
+          href: application-provisioning-config-how-to.md
+        - name: Een kenmerk synchroniseren voor toewijzing - galerie-app
+          href: user-provisioning-sync-attributes-for-mapping.md
+    - name: Gebruikers toewijzen en toegang tot apps beheren
+      items:
+        - name: Gebruikerstoestemming configureren
+          href: configure-user-consent.md
+        - name: Methoden om gebruikers en groepen toe te wijzen aan een app
+          href: methods-for-assigning-users-and-groups.md
+        - name: Een gebruiker toewijzen aan een app
+          href: assign-user-or-group-access-portal.md
+        - name: Selfservice-app-toegang gebruiken
+          href: access-panel-manage-self-service-access.md
+        - name: Methoden om gebruikerstoegang aan een app te verwijderen
+          href: methods-for-removing-user-access.md
+        - name: Toegang van een gebruiker of groep verwijderen
+          href: remove-user-or-group-access-portal.md
+        - name: Een app voor een gebruiker verbergen
+          href: hide-application-from-user-portal.md
+        - name: Gebruikersaanmelding uitschakelen
+          href: disable-user-sign-in-portal.md
+        - name: Selfservice-app-toewijzing configureren
+          href: manage-self-service-access.md
+        - name: Home Realm Discovery
+          href: configure-authentication-for-federated-users-portal.md
+    - name: Apps migreren naar Azure AD
+      items:
+        - name: Migratieresources
+          href: migration-resources.md
+        - name: Een ADFS-app migreren naar Azure
+          href: migrate-adfs-apps-to-azure.md
+    - name: Problemen oplossen
+      items:
+        - name: Problemen met apps toevoegen oplossen
+          items:
+            - name: Veelvoorkomende problemen - galerie-apps
+              href: adding-gallery-app-common-problems.md
+            - name: Veelvoorkomende problemen - niet-galerie-apps
+              href: adding-non-gallery-app-common-problems.md
+        - name: Problemen met aanmelden van gebruikers oplossen
+          items:
+            - name: Onverwacht instemmingsprompt
+              href: application-sign-in-unexpected-user-consent-prompt.md
+            - name: Fout bij toestemming gebruiker
+              href: application-sign-in-unexpected-user-consent-error.md
+            - name: Problemen met aanmelden vanaf aangepaste portal
+              href: application-sign-in-other-problem-deeplink.md
+            - name: Problemen met aanmelden vanaf toegangsvenster
+              href: application-sign-in-other-problem-access-panel.md
+            - name: Fout bij de aanmeldingspagina van toepassing
+              href: application-sign-in-problem-application-error.md
+            - name: Probleem met wachtwoord eenmalige aanmelding - niet-galerie-app
+              href: application-sign-in-problem-password-sso-non-gallery.md
+            - name: Probleem met wachtwoord eenmalige aanmelding - galerie-app
+              href: application-sign-in-problem-password-sso-gallery.md
+            - name: Probleem met aanmelden bij een Microsoft-app
+              href: application-sign-in-problem-first-party-microsoft.md
+            - name: Probleem met federatieve eenmalige aanmelding - niet-galerie-app
+              href: application-sign-in-problem-federated-sso-non-gallery.md
+            - name: Probleem met federatieve eenmalige aanmelding - galerie-app
+              href: application-sign-in-problem-federated-sso-gallery.md
+            - name: Probleem met zelfontwikkelde app
+              href: application-sign-in-problem-custom-dev.md
+        - name: Problemen met eenmalige aanmelding oplossen
+          items:
+            - name: Veelvoorkomende problemen bij federatief configureren - galerie-apps
+              href: configure-federated-single-sign-on-gallery-applications-problems.md
+            - name: Veelvoorkomende problemen bij federatief configureren - niet-galerie-apps
+              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+            - name: Veelvoorkomende problemen bij wachtwoord configureren - galerie-apps
+              href: configure-password-single-sign-on-gallery-applications-problems.md
+            - name: Veelvoorkomende problemen bij wachtwoord configureren - niet-galerie-apps
+              href: configure-password-single-sign-on-non-gallery-applications-problems.md
+        - name: Problemen met het automatisch inrichten van gebruikers oplossen
+          items:
+            - name: Uurregistratie - galerie-app
+              href: application-provisioning-when-will-provisioning-finish.md
+            - name: Probleem bij gebruikersinrichting configureren - galerie-app
+              href: application-provisioning-config-problem.md
+            - name: Probleem bij het opslaan van administrorreferenties tijdens het configureren van gebruikersinrichting galerie-app
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Gebruikers zijn niet ingericht - galerie-app
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Verkeerde gebruikers ingericht - galerie-app
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Problemen met vermelding en toewijzing van apps oplossen
+          items:
+            - name: De toepassingslijst voor uw tenant beheren
+              href: application-types.md
+            - name: Onverwachte gebruiker toegewezen
+              href: ways-users-get-assigned-to-applications.md
+        - name: Problemen met het toegangspaneel oplossen
+          items:
+            - name: Browserextensie beheren
+              href: manage-access-panel-browser-extension.md
+            - name: App wordt niet weergegeven
+              href: access-panel-troubleshoot-application-not-appearing.md
+            - name: App wordt onverwacht weergegeven
+              href: access-panel-troubleshoot-unexpected-application.md
+            - name: Het aanmelden is mislukt
+              href: access-panel-troubleshoot-web-sign-in-problem.md
+            - name: Fout bij het installeren van browserextensie
+              href: access-panel-extension-problem-installing.md
+            - name: Fout bij selfservice-app-toegang gebruiken
+              href: access-panel-troubleshoot-self-service-access.md
+        - name: Problemen met toepassingsproxy oplossen
           items:
             - name: Stroomdiagram voor problemen oplossen met connector
               href: application-proxy-debug-connectors.md
@@ -159,124 +287,6 @@
               href: application-proxy-connector-installation-problem.md
             - name: Aanmeldingsprobleem
               href: application-sign-in-problem-on-premises-application-proxy.md
-    - name: Inrichten van gebruikers
-      items:
-        - name: Hoelang het duurt
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Uurregistratie - galerie-app
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Gebruikersinrichting configureren - galerie-app
-          href: application-provisioning-config-how-to.md
-        - name: Probleem bij gebruikersinrichting configureren - galerie-app
-          href: application-provisioning-config-problem.md
-        - name: Probleem bij het opslaan van administrorreferenties tijdens het configureren van gebruikersinrichting galerie-app
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Een kenmerk synchroniseren voor toewijzing - galerie-app
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Gebruikers zijn niet ingericht - galerie-app
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Verkeerde gebruikers ingericht - galerie-app
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: Toegang tot toepassingen
-      items:
-        - name: Toepassingstypen
-          href: application-types.md
-        - name: Gebruikerstoestemming configureren
-          href: configure-user-consent.md
-        - name: Methoden om gebruikers en groepen toe te wijzen aan een app
-          href: methods-for-assigning-users-and-groups.md
-        - name: Een gebruiker toewijzen aan een app
-          href: assign-user-or-group-access-portal.md
-        - name: Methoden om gebruikerstoegang aan een app te verwijderen
-          href: methods-for-removing-user-access.md
-        - name: Onverwachte gebruiker toegewezen
-          href: ways-users-get-assigned-to-applications.md
-        - name: Toegang van een gebruiker of groep verwijderen
-          href: remove-user-or-group-access-portal.md
-        - name: Een app voor een gebruiker verbergen
-          href: hide-application-from-user-portal.md
-        - name: Gebruikersaanmelding uitschakelen
-          href: disable-user-sign-in-portal.md
-        - name: Selfservice-app-toewijzing configureren
-          href: manage-self-service-access.md
-        - name: Home Realm Discovery
-          href: configure-authentication-for-federated-users-portal.md
-    - name: Eenmalige aanmelding
-      items:
-        - name: Configureren niet-galerie-apps
-          href: configure-single-sign-on-non-gallery-applications.md
-        - name: Federatief configureren - galerie-apps
-          href: configure-federated-single-sign-on-gallery-applications.md
-        - name: Veelvoorkomende problemen bij federatief configureren - galerie-apps
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: Federatief configureren - niet-galerie-apps
-          href: configure-federated-single-sign-on-non-gallery-applications.md
-        - name: Veelvoorkomende problemen bij federatief configureren - niet-galerie-apps
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Wachtwoord configureren - galerie-apps
-          href: configure-password-single-sign-on-gallery-applications.md
-        - name: Veelvoorkomende problemen bij wachtwoord configureren - galerie-apps
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Wachtwoord configureren - niet-galerie-apps
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Veelvoorkomende problemen bij wachtwoord configureren - niet-galerie-apps
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: Toepassingsproxy
-          items:
-            - name: Kerberos-beperkte overdracht (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Wachtwoordkluis
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: Headers
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: Eenmalige aanmelding op basis van SAML
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: Toegangsvenster
-      items:
-        - name: Browserextensie beheren
-          href: manage-access-panel-browser-extension.md
-        - name: App wordt niet weergegeven
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: App wordt onverwacht weergegeven
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Het aanmelden is mislukt
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: Fout bij het installeren van browserextensie
-          href: access-panel-extension-problem-installing.md
-        - name: Selfservice-app-toegang gebruiken
-          href: access-panel-manage-self-service-access.md
-        - name: Fout bij selfservice-app-toegang gebruiken
-          href: access-panel-troubleshoot-self-service-access.md
-    - name: Migratie
-      items:
-        - name: Migratieresources
-          href: migration-resources.md
-        - name: Een ADFS-app migreren naar Azure
-          href: migrate-adfs-apps-to-azure.md
-    - name: Problemen met aanmelden van gebruikers oplossen
-      items:
-        - name: Onverwacht instemmingsprompt
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: Fout bij toestemming gebruiker
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problemen met aanmelden vanaf aangepaste portal
-          href: application-sign-in-other-problem-deeplink.md
-        - name: Problemen met aanmelden vanaf toegangsvenster
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Fout bij de aanmeldingspagina van toepassing
-          href: application-sign-in-problem-application-error.md
-        - name: Probleem met wachtwoord eenmalige aanmelding - niet-galerie-app
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: Probleem met wachtwoord eenmalige aanmelding - galerie-app
-          href: application-sign-in-problem-password-sso-gallery.md
-        - name: Probleem met aanmelden bij een Microsoft-app
-          href: application-sign-in-problem-first-party-microsoft.md
-        - name: Probleem met federatieve eenmalige aanmelding - niet-galerie-app
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Probleem met federatieve eenmalige aanmelding - galerie-app
-          href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Probleem met zelfontwikkelde app
-          href: application-sign-in-problem-custom-dev.md
 - name: Naslaginformatie
   items:
     - name: Versiegeschiedenis van toepassingsproxy

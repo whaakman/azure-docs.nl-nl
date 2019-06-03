@@ -45,6 +45,8 @@
       href: security-center-onboarding.md
     - name: Serverbescherming met Windows Defender ATP
       href: security-center-wdatp.md
+    - name: Geavanceerde gegevensbeveiliging voor IaaS
+      href: security-center-iaas-advanced-data.md
     - name: App Service beveiligen
       href: security-center-app-services.md
     - name: Werken met beveiligingsbeleid
@@ -57,11 +59,11 @@
       href: security-center-powershell-onboarding.md
     - name: Instellingen van Security Center
       href: security-center-policies-overview.md
+    - name: Basislijnen vergelijken met Bestandsintegriteit controleren
+      href: security-center-file-integrity-monitoring-baselines.md
       items:
         - name: Gegevensverzameling
           href: security-center-enable-data-collection.md
-        - name: Geavanceerde gegevensbeveiliging voor IaaS
-          href: security-center-iaas-advanced-data.md
         - name: Ingebouwd beveiligingsbeleid
           href: security-center-policy-definitions.md
         - name: E-mailmeldingen

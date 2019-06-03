@@ -11,16 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225880"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417976"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
 
 In dit artikel bevat antwoorden op veelgestelde vragen over Language Understanding (LUIS).
+
+## <a name="whats-new"></a>Nieuwe functies
+
+[Meer informatie](whats-new.md) over wat er nieuw in Language Understanding.
 
 <a name="luis-authoring"></a>
 

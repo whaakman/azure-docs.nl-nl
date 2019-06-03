@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b967dc872529ec8b045df81542eec4c555b17a6c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559722"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418430"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure Resource Manager-sjablonen voor Azure SQL Database
 
@@ -33,7 +33,6 @@ De volgende tabel bevat koppelingen naar Azure Resource Manager-sjablonen voor A
 | [Logische server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Met deze Azure Resource Manager-sjabloon maakt u een logische server voor Azure SQL Database. |
 | [Elastische pool](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Met deze sjabloon kunt u een nieuwe elastische pool implementeren met de nieuwe gekoppelde SQL-server en de nieuwe SQL-databases om eraan toe te wijzen. |
 | [Failover-groepen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Met deze sjabloon maakt u twee logische Azure SQL-servers, een SQL-database en een failover-groep.|
-| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Met deze sjabloon kunt u een logische Azure SQL-server implementeren met Advanced Threat Protection ingeschakeld, plus een optionele Azure SQL-database. SQL Advanced Threat Protection is een uniform pakket voor geavanceerde mogelijkheden voor SQL-beveiliging.|
 | [Detectie van bedreigingen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Met deze sjabloon kunt u een logische Azure SQL-server en een set Azure SQL-databases implementeren met detectie van bedreigingen ingeschakeld, met een e-mailadres voor waarschuwingen voor elke database. Detectie van bedreigingen is een onderdeel van de oplossing SQL Advanced Threat Protection (ATP) en biedt een beveiligingslaag die reageert op mogelijke bedreigingen op SQL-servers en databases.|
 | [Controle naar Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Met deze sjabloon kunt u een logische Azure SQL-server implementeren met controle ingeschakeld voor het wegschrijven van auditlogboeken naar een blob-opslag. De controlefunctie voor Azure SQL Database houdt in dat er databasegebeurtenissen worden bijgehouden en weggeschreven naar een auditlogboek in uw Azure-opslagaccount, OMS-werkruimte of Event Hubs.|
 | [Controle naar Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Met deze sjabloon kunt u een Azure SQL-server implementeren met controle ingeschakeld voor het wegschrijven van auditlogboeken naar een bestaande Event Hub. Om controlegebeurtenissen te verzenden naar Event Hub, moet u controle-instellingen instellen met `Enabled` `State` en `IsAzureMonitorTargetEnabled` instellen op `true`. Daarnaast moet u de diagnostische instellingen configureren met de categorie `SQLSecurityAuditEvents` voor diagnostische logboeken op de `master`-database (voor controle op serverniveau). De controlefunctie voor Azure SQL Database en SQL Data Warehouse houdt in dat er databasegebeurtenissen worden bijgehouden en weggeschreven naar een auditlogboek in uw Azure-opslagaccount, OMS-werkruimte of Event Hubs.|
