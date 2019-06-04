@@ -205,6 +205,8 @@
               href: devtest-lab-announcements.md
             - name: Ondersteuningsinformatie toevoegen aan een lab
               href: devtest-lab-internal-support-message.md
+            - name: Een gedeelde galerie met installatiekopieën configureren in Azure DevTest Labs
+              href: configure-shared-image-gallery.md
         - name: Een aangepaste installatiekopie of formule selecteren
           href: devtest-lab-comparing-vm-base-image-types.md
         - name: Aangepaste installatiekopieën beheren

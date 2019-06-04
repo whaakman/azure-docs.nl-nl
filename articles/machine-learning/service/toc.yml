@@ -176,7 +176,7 @@
           href: how-to-train-ml-models.md
         - name: PyTorch gebruiken
           href: how-to-train-pytorch.md
-        - name: TensorFlow en Keras gebruiken
+        - name: Tensorflow gebruiken
           href: how-to-train-tensorflow.md
         - name: Hyperparameters afstemmen
           displayName: parameter

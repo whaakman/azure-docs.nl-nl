@@ -229,8 +229,6 @@
                   href: msal-js-initializing-client-applications.md
             - name: Fouten en uitzonderingen verwerken
               href: msal-handling-exceptions.md
-            - name: MSAL-toepassingen testen
-              href: msal-testing.md
             - name: Logboekregistratie
               href: msal-logging.md
             - name: Eenmalige aanmelding (JS)
@@ -366,6 +364,12 @@
                   href: msal-net-user-gets-consent-for-multiple-resources.md
                 - name: Uw eigen HttpClient gebruiken
                   href: msal-net-provide-httpclient.md
+            - name: MSAL.js
+              items:
+                - name: Voorkomen dat pagina's opnieuw worden geladen
+                  href: msal-js-avoid-page-reloads.md
+                - name: De aangepaste status in verificatieaanvragen doorgeven
+                  href: msal-js-pass-custom-state-authentication-request.md
         - name: Werken met Visual Studio
           items:
             - name: De verbonden Active Directory-service gebruiken

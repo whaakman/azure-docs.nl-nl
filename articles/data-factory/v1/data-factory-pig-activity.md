@@ -211,7 +211,7 @@ Als u wilt gebruiken met parameters Pig-script, het volgende doen:
       }
     }
     ```
-* In de Pig-Script, verwijzen naar de parameters met '**$parameterName**' zoals wordt weergegeven in het volgende voorbeeld:
+* In de Pig-Script, verwijzen naar de parameters met ' **$parameterName**' zoals wordt weergegeven in het volgende voorbeeld:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

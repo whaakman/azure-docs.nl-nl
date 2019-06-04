@@ -16,8 +16,11 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Een load balancer van het type Standard maken - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Een load balancer van het type Standard maken - Azure PowerShell
+    - name: Een Standard Load Balancer maken - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
+    - name: Een Standard Load Balancer maken - Azure Resource Manager-sjabloon
+      displayName: ARM
+      href: quickstart-load-balancer-standard-public-template.md
 - name: Zelfstudies
   items:
     - name: Internetverkeer gelijkmatig verdelen over VM's

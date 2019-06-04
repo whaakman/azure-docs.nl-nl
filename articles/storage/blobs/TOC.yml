@@ -275,6 +275,8 @@
           href: storage-blob-event-overview.md
         - name: Functies voor pagina-blobs
           href: storage-blob-pageblob-overview.md
+        - name: Statische websites
+          href: storage-blob-static-website.md
     - name: Procedures
       items:
         - name: Opslagaccounts maken en beheren
@@ -353,7 +355,7 @@
         - name: Eigenschappen en metagegevens instellen en ophalen
           href: storage-properties-metadata.md
         - name: Een statische website hosten
-          href: storage-blob-static-website.md
+          href: storage-blob-static-website-how-to.md
         - name: Azure CDN toewijzen aan een aangepast domein voor toegang via HTTPS
           href: storage-https-custom-domain-cdn.md
         - name: Een aangepast domein configureren

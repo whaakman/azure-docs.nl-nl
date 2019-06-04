@@ -22,6 +22,8 @@
   items:
     - name: Eenmalige aanmelding voor on-premises resources
       href: azuread-join-sso.md
+    - name: Primaire vernieuwingstokens
+      href: concept-primary-refresh-token.md
     - name: Beheerde Azure-werkstations
       href: concept-azure-managed-workstation.md
 - name: Handleidingen
@@ -35,7 +37,7 @@
       href: azureadjoin-plan.md
     - name: Uw implementatie van hybride Azure AD-deelname plannen
       href: hybrid-azuread-join-plan.md
-    - name: De hybride Azure AD-deelname van uw apparaten beheren
+    - name: Gecontroleerde validatie van hybride Azure AD-deelname
       href: hybrid-azuread-join-control.md
     - name: Lokale beheerders toewijzen aan apparaten die zijn gekoppeld aan Azure AD
       href: assign-local-admin.md
