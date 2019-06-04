@@ -70,7 +70,7 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 
 | Sleutel | Value |
 | --- | ----- |
-| gebruikersnaam | leadiocl@outlook.com |
+| username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
@@ -113,7 +113,7 @@ Bouw een POST-aanroep zoals hier wordt weergegeven met de informatie in de volge
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| Bron | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* en *resource* zijn de waarden die u eerder hebt genoteerd als de toepassings-ID. *Refresh_token* is het token dat u hebt ontvangen in de verificatie-aanroep die eerder is vermeld.
