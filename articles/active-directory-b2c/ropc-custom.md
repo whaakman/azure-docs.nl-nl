@@ -269,7 +269,7 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 
 | Sleutel | Value |
 | --- | ----- |
-| gebruikersnaam | `user-account` |
+| username | `user-account` |
 | password | `password1` |
 | grant_type | password |
 | scope | openid `application-id` offline_access |
@@ -317,7 +317,7 @@ Maken van een POST-aanroep zoals hier weergegeven. Gebruik de informatie in de v
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | `application-id` |
-| Bron | `application-id` |
+| resource | `application-id` |
 | refresh_token | `refresh-token` |
 
 - Vervang `application-id` met toepassings-ID van de *ROPC_Auth_app* registratie.
