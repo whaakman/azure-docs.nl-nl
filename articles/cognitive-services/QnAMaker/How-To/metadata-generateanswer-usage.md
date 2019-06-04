@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: tulasim
-ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3088d0f161496cfd2e1cb8897cef36365ece9962
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792240"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496957"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord kennis met de GenerateAnswer API en metagegevens
 
@@ -71,8 +71,8 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 |--|--|--|--|
 |URL-parameter voor route|Knowledge base-ID|string|De GUID voor uw knowledge base.|
 |URL-parameter voor route|Host van het eindpunt QnAMaker|string|De hostnaam van het eindpunt dat is geïmplementeerd in uw Azure-abonnement. Dit is beschikbaar op de pagina instellingen nadat u de knowledge base hebt gepubliceerd. |
-|Koptekst|Inhoudstype|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde: ''|
-|Koptekst|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Header|Content-Type|string|Het mediatype van de hoofdtekst van het verzonden naar de API. Standaardwaarde: ''|
+|Header|Autorisatie|string|De eindpuntsleutel van uw (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Hoofdtekst van bericht|JSON-object|JSON|De vraag met instellingen|
 
 
@@ -80,12 +80,13 @@ De hoofdtekst van de JSON bevat verschillende instellingen:
 
 |JSON-hoofdtekst van de eigenschap|Vereist|Type|Doel|
 |--|--|--|--|
-|`question`|vereist|string|Een vraag van de gebruiker moet worden verzonden naar uw knowledge base.|
-|`top`|optioneel|geheel getal|Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.|
-|`userId`|optioneel|string|Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.|
-|`scoreThreshold`|optioneel|geheel getal|Alleen antwoorden met een betrouwbaarheidsscore boven deze drempelwaarde worden geretourneerd. De standaardwaarde is 0.|
-|`isTest`|optioneel|booleaans|Indien ingesteld op true, retourneert resultaten van `testkb` Search-index in plaats van gepubliceerde index.|
-|`strictFilters`|optioneel|string|Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn. Gebruik `none` om aan te geven antwoord moet er geen filters voor metagegevens. |
+|`question`|Vereist|string|Een vraag van de gebruiker moet worden verzonden naar uw knowledge base.|
+|`top`|Optioneel|geheel getal|Het aantal gerangschikte resultaten om op te nemen in de uitvoer. De standaardwaarde is 1.|
+|`userId`|Optioneel|string|Een unieke ID voor het identificeren van de gebruiker. Deze ID wordt geregistreerd in de chat-Logboeken.|
+|`scoreThreshold`|Optioneel|geheel getal|Alleen antwoorden met een betrouwbaarheidsscore boven deze drempelwaarde worden geretourneerd. De standaardwaarde is 0.|
+|`isTest`|Optioneel|booleaans|Indien ingesteld op true, retourneert resultaten van `testkb` Search-index in plaats van gepubliceerde index.|
+|`strictFilters`|Optioneel|string|Indien opgegeven, wordt aan de QnA Maker om terug te keren alleen de antwoorden die de opgegeven metagegevens zijn. Gebruik `none` om aan te geven antwoord moet er geen filters voor metagegevens. |
+|`RankerType`|Optioneel|string|Als u opgeeft als `QuestionOnly`, QnA Maker om te zoeken naar vragen alleen aangeeft. Indien niet opgegeven, zoekt de QnA Maker vragen en antwoorden.
 
 Een voorbeeld-JSON-hoofdtekst ziet eruit zoals:
 
@@ -119,7 +120,7 @@ Een geslaagde respons retourneert een status van 200 en een JSON-antwoord.
 |source|De naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.|
 |metagegevens|De metagegevens die zijn gekoppeld aan het antwoord.|
 |metadata.name|Naam voor de metagegevens. (string, maximumlengte: 100, vereist)|
-|metadata.value: De waarde van de metagegevens. (string, maximumlengte: 100, vereist)|
+|metadata.value|De waarde van de metagegevens. (string, maximumlengte: 100, vereist)|
 
 
 ```json
@@ -172,7 +173,7 @@ Omdat de resultaten zijn alleen vereist voor het restaurant "Paradise", kunt u e
 }
 ```
 
-<name="keep-context"></a>
+<a name="keep-context"></a>
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Vraag en antwoord resultaten te houden van de conversatie-context gebruiken
 
@@ -201,6 +202,21 @@ Het antwoord op de GenerateAnswer bevat de bijbehorende metagegevens van de set 
             ]
         }
     ]
+}
+```
+
+## <a name="match-questions-only-by-text"></a>Alleen vragen door tekst overeenkomen
+
+Standaard zoekt QnA Maker met vragen en antwoorden. Als u doorzoeken vragen alleen wilt, voor het genereren van een antwoord, gebruikt de `RankerType=QuestionOnly` in de hoofdtekst van bericht van de aanvraag GenerateAnswer.
+
+U kunt zoeken via de gepubliceerde kb, met behulp van `isTest=false`, of in de test kb met `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
 }
 ```
 

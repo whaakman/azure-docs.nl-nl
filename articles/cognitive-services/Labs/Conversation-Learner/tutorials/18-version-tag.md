@@ -1,5 +1,5 @@
 ---
-title: Het gebruik van versie taggen met een Model van de cursist conversatie - Microsoft Cognitive Services | Microsoft Docs
+title: Het gebruik van versie taggen met een Model van de cursist conversatie - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Informatie over het gebruik van versiebeheer en taggen met een Conversatiecursist-model.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7a1d94700cf84068f918ecff4f4dd433358341e0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388402"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475707"
 ---
 # <a name="how-to-use-version-tagging"></a>Het gebruik van versie Tagging
 
@@ -109,4 +109,4 @@ U hebt nu gezien hoe versiebeheer werkt en hoe u kan communiceren met de Bot met
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Demo - wachtwoord opnieuw instellen](./demo-password-reset.md)
+> [Enum-entiteiten en acties van de entiteit instellen](./tutorial-enum-set-entity.md)

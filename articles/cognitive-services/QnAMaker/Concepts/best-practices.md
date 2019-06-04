@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792682"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496929"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best practices van een kennisdatabase QnA Maker
 De [kennisdatabase ontwikkelingscyclus](../Concepts/development-lifecycle-knowledge-base.md) helpt u over het beheren van uw KB van begin tot einde. Gebruik deze aanbevolen procedures te verbeteren van uw knowledge base en biedt betere resultaten van uw toepassing/chat bot-eindgebruikers.
@@ -72,6 +72,9 @@ Zorg ervoor dat u het beste gebruik van de classificatie-functies die biedt onde
 ### <a name="choosing-a-threshold"></a>Het kiezen van een drempelwaarde
 De standaard-betrouwbaarheidsscore die wordt gebruikt als een drempelwaarde is 50, maar u dit voor uw KB op basis van uw behoeften wijzigen kunt. Omdat elke KB anders is, moet u testen en kies de drempelwaarde die is het beste geschikt is voor uw KB. Meer informatie over de [betrouwbaarheidsscore](../Concepts/confidence-score.md). 
 
+### <a name="choosing-ranker-type"></a>Kerntechnologie type kiezen
+Standaard zoekt QnA Maker met vragen en antwoorden. Als u doorzoeken vragen alleen wilt, voor het genereren van een antwoord, gebruikt de `RankerType=QuestionOnly` in de hoofdtekst van bericht van de aanvraag GenerateAnswer.
+
 ### <a name="add-alternate-questions"></a>Alternatieve vragen toevoegen
 [Andere vragen](../How-To/edit-knowledge-base.md) verbeteren de kans op een overeenkomst met de aanvraag voor een gebruiker. Andere vragen zijn nuttig wanneer er zijn meerdere manieren waarop deze vraag kan worden gevraagd. Deze kunt wijzigingen in de zinsstructuur en word-stijl opnemen.
 
@@ -103,7 +106,7 @@ Bijvoorbeeld, mogelijk hebt u twee afzonderlijke vragen en antwoorden supereenvo
 |waar is de vervangende domeinpagina *locatie*|
 |waar is de ATM *locatie*|
 
-Omdat deze twee vragen en antwoorden supereenvoudig worden geformuleerd met zeer gelijksoortige woorden, deze gelijkenis kan leiden tot vergelijkbaar scores voor veel query's van gebruikers die zijn geformuleerd, zoals *"waar is de `<x>` locatie '*. In plaats daarvan probeert duidelijk onderscheid te maken met query's zoals *"waar is de vervangende domeinpagina partij"* en *"waar is de ATM"*, door te vermijden om woorden als 'locatie' die mogelijk veel vragen in uw KB. 
+Omdat deze twee vragen en antwoorden supereenvoudig worden geformuleerd met zeer gelijksoortige woorden, deze gelijkenis kan leiden tot vergelijkbaar scores voor veel query's van gebruikers die zijn geformuleerd, zoals *"waar is de `<x>` locatie '* . In plaats daarvan probeert duidelijk onderscheid te maken met query's zoals *"waar is de vervangende domeinpagina partij"* en *"waar is de ATM"* , door te vermijden om woorden als 'locatie' die mogelijk veel vragen in uw KB. 
 
 ## <a name="collaborate"></a>Samenwerken
 QnA Maker kunnen gebruikers [samenwerken](../How-to/collaborate-knowledge-base.md) op een knowledge base. Gebruikers moeten toegang hebben tot de resourcegroep Azure QnA Maker voor toegang tot knowledge bases. Sommige organisaties willen uitbesteden de kennisdatabase bewerken en het onderhoud, en nog steeds mogelijk om toegang tot hun Azure-resources te beveiligen. Dit model editor goedkeurder wordt gedaan door het instellen van twee identieke [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) in verschillende abonnementen en selecteer een van de cyclus bewerken te testen. Nadat het testen is voltooid, de knowledge base-inhoud worden overgedragen met een [import / export](../Tutorials/migrate-knowledge-base.md) verwerken met de QnA Maker-service van de fiatteur die ten slotte wordt de kennisdatabase publiceren en bijwerken van het eindpunt.

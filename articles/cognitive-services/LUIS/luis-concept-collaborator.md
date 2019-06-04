@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956983"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473527"
 ---
 # <a name="collaborating-with-other-authors"></a>Samenwerken met andere auteurs
 
@@ -31,7 +31,7 @@ Zie [Azure Active Directory-tenant gebruiker](luis-how-to-collaborate.md#azure-a
 
 ## <a name="luis-app-owner"></a>LUIS-app-eigenaar
 
-Het account dat wordt gemaakt van een app is eigenaar van de en elke app heeft één eigenaar. De eigenaar wordt weergegeven op de app **[instellingen](luis-how-to-collaborate.md)** pagina. De app kunt verwijderen door de eigenaar van de e-mailbericht ontvangen wanneer het quotum eindpunt 75% van de maandelijkse limiet is bereikt. 
+Het account dat wordt gemaakt van een app is eigenaar van de en elke app heeft één eigenaar. De eigenaar wordt weergegeven op de app **[instellingen](luis-how-to-collaborate.md)** pagina. De eigenaar van het ontvangt e-mailbericht wanneer het quotum eindpunt 75% van de maandelijkse limiet is bereikt. 
 
 ## <a name="authorization-roles"></a>Autorisatie-rollen
 LUIS biedt geen ondersteuning voor verschillende rollen voor eigenaren en samenwerkers met één uitzondering. De eigenaar is het enige account dat de app kunt verwijderen.
@@ -42,7 +42,7 @@ Als u geïnteresseerd bent in het beheren van toegang tot het model, kunt u over
 LUIS biedt geen overdracht van eigendom, maar samenwerker kunt exporteren van de app en maak vervolgens een app door het te importeren. Houd er rekening mee dat de nieuwe app heeft een andere App-ID. De nieuwe app moet worden getraind, gepubliceerd, en het nieuwe eindpunt wordt gebruikt.
 
 ## <a name="luis-app-collaborators"></a>LUIS-app deelnemers
-Eigenaar van een app kunt deelnemers toevoegen aan een app. De eigenaar moet van de samenwerker e-mailadres toevoegen aan app  **[instellingen](luis-how-to-collaborate.md)**. De samenwerker heeft volledige toegang tot de app. Als de samenwerker Hiermee verwijdert u de app, wordt de app wordt verwijderd uit de account van de samenwerker maar blijft in het account van de eigenaar. 
+Eigenaar van een app kunt deelnemers toevoegen aan een app. De eigenaar moet van de samenwerker e-mailadres toevoegen aan app  **[instellingen](luis-how-to-collaborate.md)** . De samenwerker heeft volledige toegang tot de app. Als de samenwerker Hiermee verwijdert u de app, wordt de app wordt verwijderd uit de account van de samenwerker maar blijft in het account van de eigenaar. 
 
 Als u meerdere apps delen met uw collega's wilt, moet elke app van de samenwerker e-mailbericht toegevoegd. 
 

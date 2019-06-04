@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60606354"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497309"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
 
@@ -28,7 +28,7 @@ Voor het gebruik van de Custom Vision Service voor classificatie van afbeeldinge
 
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Custom Vision resources maken in Azure portal
-Voor het gebruik van Custom Vision Service, moet u maken van aangepaste Vision trainen en voorspellen resources in de in de [Azure-portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Hiermee maakt u een Training- en Voorspellingsgegevens resource. 
+Voor het gebruik van Custom Vision Service, moet u maken van aangepaste Vision trainen en voorspellen resources in de [Azure-portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Hiermee maakt u een Training- en Voorspellingsgegevens resource. 
 
 ## <a name="create-a-new-project"></a>Een nieuw project maken
 
@@ -50,7 +50,7 @@ Navigeer in uw webbrowser naar de [Custom Vision webpagina](https://customvision
 
 1. Selecteer vervolgens een van de beschikbare domeinen. Elk domein optimaliseert de classificatie voor specifieke typen van installatiekopieën, zoals beschreven in de volgende tabel. U kunt zich het domein desgewenst later wijzigen.
 
-    |Domain|Doel|
+    |Domein|Doel|
     |---|---|
     |__Algemene__| Geoptimaliseerd voor een grote verscheidenheid aan taken voor bestandsclassificatie installatiekopie. Als geen van de andere domeinen geschikt zijn, of u niet zeker weet welk domein om te kiezen, selecteert u het algemene domein. |
     |__Voedsel__|Geoptimaliseerd voor foto's van maaltijden zoals u ze in een restaurant zou zien. Als u wilt voor het classificeren van foto's van individuele vruchten of fruit, gebruikt u het domein Food.|
@@ -70,7 +70,7 @@ Als u wilt effectief te werk om uw model te trainen, afbeeldingen met verschille
 * Achtergrond
 * stijl van de Visual
 * afzonderlijke/gegroepeerd subject(s)
-* grootte
+* Grootte
 * type
 
 Controleer ook of alle van de trainingsafbeeldingen voldoen aan de volgende criteria:

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813916"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473587"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Ontwerpen en query voorspelling endpoint-sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De ontwerphandleiding sleutel wordt automatisch voor u gemaakt wanneer u uw LUIS-account maakt. Wanneer u klaar om uw LUIS-app te publiceren bent, moet u [maken van de eindpuntsleutel](luis-how-to-azure-subscription.md), [toewijzen](luis-how-to-azure-subscription.md) aan uw LUIS-app en [gebruiken met de query eindpunt](#use-endpoint-key-in-query). 
@@ -49,11 +49,11 @@ Wanneer u moet **productie-eindpunt-query's**, maak een Azure-Resource en deze t
 
 Wanneer het proces voor het maken van Azure-resource is voltooid, [toewijzen van de sleutel](luis-how-to-azure-subscription.md) naar de app. 
 
-    * De eindpuntsleutel kan een quotum van eindpunt treffers op basis van het gebruik-abonnement dat u hebt opgegeven bij het maken van de sleutel. Zie [prijzen van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) voor informatie over prijzen.
+* De eindpuntsleutel kan een quotum van eindpunt treffers op basis van het gebruik-abonnement dat u hebt opgegeven bij het maken van de sleutel. Zie [prijzen van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) voor informatie over prijzen.
 
-    * De eindpuntsleutel kan worden gebruikt voor al uw LUIS-apps of voor specifieke LUIS-apps. 
+* De eindpuntsleutel kan worden gebruikt voor al uw LUIS-apps of voor specifieke LUIS-apps. 
 
-    * Gebruik niet de eindpuntsleutel voor het ontwerpen van LUIS-apps. 
+* Gebruik niet de eindpuntsleutel voor het ontwerpen van LUIS-apps. 
 
 ## <a name="use-endpoint-key-in-query"></a>Gebruik de eindpuntsleutel in query
 Het eindpunt LUIS accepteert twee stijlen van query, zowel de sleutel, maar voor een eindpunt gebruiken op verschillende plaatsen:
