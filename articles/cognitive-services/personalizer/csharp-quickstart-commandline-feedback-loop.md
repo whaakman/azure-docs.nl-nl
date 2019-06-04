@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: b0dc8fbbb80a4d03b2cb64d09ffe9a36883c5bf9
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521377"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478612"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Quickstart: Aan persoonlijke voorkeuren aanpassen met behulp van inhoudC# 
 
@@ -40,7 +40,9 @@ Aan de slag met Personalizer omvat de volgende stappen:
 
 ## <a name="change-the-model-update-frequency"></a>De model-updatefrequentie wijzigen
 
-In de Personalizer-resource in Azure portal, wijzigt u de **Model updatefrequentie** 10 seconden. Dit wordt trainen de service snel, zodat u kunt zien hoe de eerste actie verandert voor elke herhaling
+In de Personalizer-resource in Azure portal, wijzigt u de **Model updatefrequentie** 10 seconden. Hiermee wordt de service snel, trainen zodat u kunt zien hoe de eerste actie voor elke herhaling verandert.
+
+Wanneer een lus Personalizer eerst wordt gestart, is er geen model omdat er geen vergoeding API-aanroepen naar het trainen van is. Aanroepen van de positie, wordt gelijk kansen voor elk item geretourneerd. Uw toepassing moet nog altijd inhoud met behulp van de uitvoer van RewardActionId rangschikken.
 
 ![Model updatefrequentie wijzigen](./media/settings/configure-model-update-frequency-settings.png)
 

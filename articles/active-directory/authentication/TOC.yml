@@ -43,8 +43,6 @@
       items:
         - name: Hoe MFA werkt
           href: concept-mfa-howitworks.md
-        - name: Welke versie is geschikt?
-          href: concept-mfa-whichversion.md
         - name: Uw gebruikers een licentie geven
           href: concept-mfa-licensing.md
         - name: Een verificatieprovider beheren

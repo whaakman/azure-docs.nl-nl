@@ -1,5 +1,5 @@
 ---
-title: Stemmingsanalyse
+title: Sentimentanalyse
 titleSuffix: Azure Cognitive Services
 description: In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt ophalen uit uitingen. Het gevoel wordt bepaald op basis van de gehele uiting.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 3315af0898cb3b18af0334a433a94242b056a8bd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236211"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479805"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Zelfstudie:  Het gevoel achter een uiting ophalen
 
@@ -54,6 +54,7 @@ Omdat dit een publicatie-instelling is, wordt deze niet weergegeven op de intent
 
 ## <a name="add-personname-prebuilt-entity"></a>Vooraf gemaakte entiteit PersonName toevoegen 
 
+1. Selecteer **bouwen** in het navigatiemenu.
 
 1. Selecteer **Entities** in het navigatiemenu aan de linkerkant.
 
@@ -69,11 +70,11 @@ Omdat dit een publicatie-instelling is, wordt deze niet weergegeven op de intent
 
 Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf behoren, vast te leggen. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Selecteer **Intents** in het linkerpaneel.
 
-2. Selecteer **Create new intent**.
+1. Selecteer **Create new intent**.
 
-3. Geef de nieuwe intentie de naam  `EmployeeFeedback`.
+1. Geef de nieuwe intentie de naam  `EmployeeFeedback`.
 
     ![Een nieuw dialoogvenster maken met de naam EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -106,7 +107,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
 1. Selecteer **Beheren** in het navigatievenster rechtsboven en selecteer in het menu links de optie **Publicatie-instellingen**.
 
-1. Selecteer **Sentimentanalyse** om deze instelling in te schakelen. 
+1. Selecteer **sentimentanalyse gebruiken om te bepalen of een gebruiker utterance positief, negatief of neutrale.** Deze instelling wilt inschakelen. 
 
     ![Sentimentanalyse als publicatie-instelling inschakelen](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -118,7 +119,11 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Ga naar het einde van de URL in het adres en voer `Jill Jones work with the media team on the public portal was amazing` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
+1. Ga naar het einde van de URL in het adres en voer de volgende utterance:
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
     
     ```json
     {
@@ -153,6 +158,8 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
     ```
 
     SentimentAnalysis is positief met een score van 86%. 
+
+    Probeer een andere utterance door het verwijderen van de waarde voor `q` in de adresbalk van de browser: `William Jones did a terrible job presenting his ideas.` De gevoelsscore geeft een negatieve stemming aan met een lage score retourneren `0.18597582`.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

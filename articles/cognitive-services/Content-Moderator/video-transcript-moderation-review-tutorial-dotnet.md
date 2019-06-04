@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608305"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474699"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Zelfstudie: Video's en transcripties beoordelen
 
@@ -44,15 +44,15 @@ In deze zelfstudie ontdekt u hoe u:
 
 Bewerk de `App.config` -bestand en voeg de naam van de Active Directory-tenant, service-eindpunten en abonnementssleutels aangegeven door `#####`. U hebt de volgende informatie nodig:
 
-    |Sleutel|Description|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Eindpunt voor de API van Azure Media Services (AMS)|
-    |`ClientSecret`|Abonnementssleutel voor Azure Media Services|
-    |`ClientId`|Client-id voor Azure Media Services|
-    |`AzureAdTenantName`|Naam van Active Directory-tenant voor uw organisatie|
-    |`ContentModeratorReviewApiSubscriptionKey`|Abonnementssleutel voor de beoordelings-API van Content Moderator|
-    |`ContentModeratorApiEndpoint`|Eindpunt voor de Content Moderator-API|
-    |`ContentModeratorTeamId`|Team-id voor Content Moderator|
+|Sleutel|Description|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Eindpunt voor de API van Azure Media Services (AMS)|
+|`ClientSecret`|Abonnementssleutel voor Azure Media Services|
+|`ClientId`|Client-id voor Azure Media Services|
+|`AzureAdTenantName`|Naam van Active Directory-tenant voor uw organisatie|
+|`ContentModeratorReviewApiSubscriptionKey`|Abonnementssleutel voor de beoordelings-API van Content Moderator|
+|`ContentModeratorApiEndpoint`|Eindpunt voor de Content Moderator-API|
+|`ContentModeratorTeamId`|Team-id voor Content Moderator|
 
 ## <a name="examine-the-main-code"></a>De belangrijkste code te onderzoeken
 

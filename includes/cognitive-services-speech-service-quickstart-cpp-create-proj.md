@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: af61d975b540787b9b54d9fdea66773c10aeb6ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 27fcf32a9a268488da318567d3edc55d23bd8967
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145446"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482336"
 ---
-1. Start Visual Studio 2017.
+1. Start Visual Studio 2019.
 
 1. Zorg ervoor dat de workload **Desktop development with C++** beschikbaar is. Kies **Tools** > **Get Tools and Features** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als de werkbelasting al is ingeschakeld, gaat u naar de volgende stap.
 
@@ -25,7 +25,7 @@ ms.locfileid: "66145446"
 
 1. Als u de workload C++ of NuGet hebt moeten inschakelen, selecteert u **Modify** (in de rechterbenedenhoek van het dialoogvenster). De installatie van de nieuwe functies duurt even. Als beide functies al zijn ingeschakeld, kunt u het dialoogvenster sluiten.
 
-1. Maak een nieuwe Windows-consoletoepassing van het type Windows Desktop voor Visual C++. Kies eerst **File** > **New** > **Project** in het menu. Vouw in het dialoogvenster **New Project** **Installed** > **Visual C++** > **Windows Desktop** uit in het linkerdeelvenster. Selecteer vervolgens **Windows Console Application**. Voer als projectnaam *helloworld* in.
+1. Maak een nieuwe Windows-consoletoepassing van het type Windows Desktop voor Visual C++. Kies eerst **File** > **New** > **Project** in het menu. Vouw in het dialoogvenster **New Project** **Installed** > **Visual C++**  > **Windows Desktop** uit in het linkerdeelvenster. Selecteer vervolgens **Windows Console Application**. Voer als projectnaam *helloworld* in.
 
     ![Schermafbeelding van het dialoogvenster New Project](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)
 

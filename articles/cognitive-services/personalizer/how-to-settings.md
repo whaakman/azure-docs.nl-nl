@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834324"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478572"
 ---
 # <a name="personalizer-settings"></a>Instellingen voor personalizer
 
@@ -63,13 +63,15 @@ Nadat u deze instelling wijzigt, zorg ervoor dat u selecteert **opslaan**.
 
 ### <a name="model-update-frequency"></a>De updatefrequentie model
 
-**Model van de updatefrequentie** wordt ingesteld hoe vaak een nieuw model voor Personalizer is retrained. 
+De nieuwste model, bijvoorbeeld getraind met beloning API-aanroepen van elke actieve gebeurtenis wordt niet automatisch door Personalizer positie aanroep gebruikt. De **Model updatefrequentie** wordt ingesteld hoe vaak het model dat wordt gebruikt door de aanroep van de positie van bijgewerkt. 
+
+Model met hoge update frequenties zijn nuttig voor situaties waarin u wilt nauw bijhouden van wijzigingen in gedrag. Voorbeelden zijn onder meer sites die worden uitgevoerd op live nieuws, virale inhoud, of in een live product bieden. U kunt een frequentie van 15 minuten in deze scenario's. Voor de meeste gevallen is een lagere updatefrequentie van kracht. Één minuut update frequenties zijn nuttig bij het opsporen van fouten in de code van een toepassing Personalizer gebruiken, doen demo's of machine learning aspecten interactief te testen.
 
 ![Model updatefrequentie wordt ingesteld hoe vaak een nieuw model voor Personalizer is retrained.](media/settings/configure-model-update-frequency-settings.png)
 
 Nadat u deze instelling wijzigt, zorg ervoor dat u selecteert **opslaan**.
 
-### <a name="data-retention"></a>Bewaren van gegevens
+### <a name="data-retention"></a>Bewaartijd van gegevens
 
 **Bewaartermijn voor gegevens** Hiermee stelt u het aantal dagen Personalizer houdt gegevenslogboeken. Afgelopen gegevens logboeken zijn vereist om uit te voeren [offline evaluaties](concepts-offline-evaluation.md), die worden gebruikt voor meet de effectiviteit van Personalizer en optimaliseren van Learning beleid.
 
@@ -77,7 +79,7 @@ Nadat u deze instelling wijzigt, zorg ervoor dat u selecteert **opslaan**.
 
 ## <a name="export-the-personalizer-model"></a>Het model Personalizer exporteren
 
-In de sectie het resourcebeheer voor **Model en het beleid**, modelen en Laatst bijgewerkt op controleren en exporteren van het huidige model.
+In de sectie het resourcebeheer voor **Model en het beleid**, modelen en Laatst bijgewerkt op controleren en exporteren van het huidige model. U kunt de Azure-portal of de Personalizer API's gebruiken voor het exporteren van een modelbestand voor archiveringsdoeleinden. 
 
 ![Huidige Personalizer model exporteren](media/settings/export-current-personalizer-model.png)
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: f183fd9c9aca3e1c8ed5e2e31d2a451fae92e0a4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304486"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475515"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Zelfstudie: Een toepassing bijwerken in Azure Kubernetes Service (AKS)
 
@@ -85,7 +85,10 @@ Gebruik [docker tag][docker-tag] om de installatiekopie te taggen. Vervang `<acr
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Gebruik nu [docker push][docker-push] om de installatiekopie naar uw register te uploaden. Vervang `<acrLoginServer>` door de naam van de ACR-aanmeldingsserver. Als u problemen ondervindt met pushen naar het ACR-register, controleert u of u de opdracht [az acr login][az-acr-login] hebt uitgevoerd.
+Gebruik nu [docker push][docker-push] om de installatiekopie naar uw register te uploaden. Vervang `<acrLoginServer>` door de naam van de ACR-aanmeldingsserver.
+
+> [!NOTE]
+> Als u problemen hebt met het pushen naar uw ACR-register, ervoor zorgen dat u nog steeds bent aangemeld. Voer de [az acr login] [ az-acr-login] opdracht met de naam van uw Azure Container Registry die u hebt gemaakt in de [maken van een Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) stap. Bijvoorbeeld `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

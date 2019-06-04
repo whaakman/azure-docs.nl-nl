@@ -15,7 +15,7 @@
         - name: Privécloudomgeving configureren
           href: quickstart-create-private-cloud.md
         - name: VMware-VM in privécloud maken
-          href: 'https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/'
+          href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: VMware-VM's in Azure gebruiken
           href: quickstart-create-vmware-virtual-machine.md
     - name: Concepten

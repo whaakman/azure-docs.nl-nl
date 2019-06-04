@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790131"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479180"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Zelfstudie: Controle van gatewayservicestatus gebruiken in Azure Deployment Manager (preview-versie)
 
@@ -50,18 +50,18 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Als u dit artikel wilt voltooien, hebt u het volgende nodig:
 
 * Volledige [gebruik Azure Deployment Manager met Resource Manager-sjablonen](./deployment-manager-tutorial.md).
-* Download [de sjablonen en de artefacten](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) die wordt gebruikt door deze zelfstudie. 
+* Download [de sjablonen en de artefacten](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) die wordt gebruikt door deze zelfstudie.
 
 ## <a name="create-a-health-check-service-simulator"></a>Een simulator health check-service maken
 
-In de productieomgeving, moet u doorgaans een of meer controle providers gebruiken. Als u wilt de gezondheid van integratie zo eenvoudig mogelijk te maken, is Microsoft gewerkt met enkele van de belangrijkste service voor health monitoring bedrijven om te voorzien van een oplossing voor eenvoudige kopiëren/plakken statuscontroles integreren in uw implementaties. Zie voor een lijst van deze bedrijven, [voor Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers). In deze zelfstudie maakt u een [Azure-functie](/azure/azure-functions/) voor het simuleren van een health-service te controleren. Deze functie gebruikt een statuscode, en de dezelfde code retourneert. Uw Azure Deployment Manager-sjabloon maakt gebruik van de statuscode om te bepalen hoe om door te gaan met de implementatie. 
+In de productieomgeving, moet u doorgaans een of meer controle providers gebruiken. Als u wilt de gezondheid van integratie zo eenvoudig mogelijk te maken, is Microsoft gewerkt met enkele van de belangrijkste service voor health monitoring bedrijven om te voorzien van een oplossing voor eenvoudige kopiëren/plakken statuscontroles integreren in uw implementaties. Zie voor een lijst van deze bedrijven, [voor Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers). In deze zelfstudie maakt u een [Azure-functie](/azure/azure-functions/) voor het simuleren van een health-service te controleren. Deze functie gebruikt een statuscode, en de dezelfde code retourneert. Uw Azure Deployment Manager-sjabloon maakt gebruik van de statuscode om te bepalen hoe om door te gaan met de implementatie.
 
 De volgende twee bestanden worden gebruikt voor het implementeren van de Azure-functie. U hoeft niet te deze bestanden downloaden naar de zelfstudie te volgen.
 
-* Een Resource Manager-sjabloon bevindt zich op [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). U implementeert deze sjabloon voor het maken van een Azure-functie.  
-* Een zip-bestand van de broncode van de Azure-functie [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Dit zip met de naam wordt aangeroepen door de Resource Manager-sjabloon.
+* Een Resource Manager-sjabloon bevindt zich op [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). U implementeert deze sjabloon voor het maken van een Azure-functie.
+* Een zip-bestand van de broncode van de Azure-functie [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Dit zip met de naam wordt aangeroepen door de Resource Manager-sjabloon.
 
-Selecteer voor het implementeren van de Azure-functie, **uitproberen** Azure Cloud shell openen en plak het volgende script in de shell-venster.  Als u de code, met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**. 
+Selecteer voor het implementeren van de Azure-functie, **uitproberen** Azure Cloud shell openen en plak het volgende script in de shell-venster.  Als u de code, met de rechtermuisknop op de shell-venster en selecteer vervolgens **plakken**.
 
 > [!IMPORTANT]
 > **projectName** in de PowerShell-script voor het genereren van namen voor de Azure-services die zijn geïmplementeerd in deze zelfstudie wordt gebruikt. Verschillende Azure-services hebben verschillende vereisten voor de namen van. Om ervoor te zorgen voor dat de implementatie is gelukt, kies een naam in van minder dan 12 tekens met alleen kleine letters en cijfers.
@@ -81,7 +81,7 @@ Om te controleren en testen van de Azure-functie:
 1. Open de [Azure Portal](https://portal.azure.com).
 1. Open de resourcegroep.  De standaardnaam is de naam van het project met **rg** toegevoegd.
 1. Selecteer de appservice in de resourcegroep.  De standaardnaam van de app-service is de naam van het project met **webapp** toegevoegd.
-1. Vouw **functies**, en selecteer vervolgens **HttpTrigger1**. 
+1. Vouw **functies**, en selecteer vervolgens **HttpTrigger1**.
 
     ![Azure Deployment Manager statuscontrole van de Azure-functie](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
@@ -178,7 +178,7 @@ Er is het doel van deze sectie leert u hoe u een stap status controleren in de s
     },
     ```
 
-    Op basis van de definitie, verloopt de implementatie als de status *in orde* of *waarschuwing*. 
+    Op basis van de definitie, verloopt de implementatie als de status *in orde* of *waarschuwing*.
 
 1. Update de **dependsON** van de definitie van de implementatie om op te nemen van de stap van de gedefinieerde status controleren:
 
@@ -189,7 +189,7 @@ Er is het doel van deze sectie leert u hoe u een stap status controleren in de s
     ],
     ```
 
-1. Update **stepGroups** om op te nemen van de stap van de status controleren. De **healthCheckStep** heet in **postDeploymentSteps** van **stepGroup2**. **stepGroup3** en **stepGroup4** alleen worden geïmplementeerd als de status in orde *in orde* of *waarschuwing*. 
+1. Update **stepGroups** om op te nemen van de stap van de status controleren. De **healthCheckStep** heet in **postDeploymentSteps** van **stepGroup2**. **stepGroup3** en **stepGroup4** alleen worden geïmplementeerd als de status in orde *in orde* of *waarschuwing*.
 
     ```json
     "stepGroups": [
@@ -265,7 +265,7 @@ Controleer of de servicetopologie en de onderstreepte resources zijn gemaakt met
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implementeren van de implementatie met de slechte status
 
-De sjabloon herziene rollout wordt gedeeld op de volgende locatie ter vereenvoudiging van de zelfstudie, zodat u hoeft uw eigen kopie voorbereiden. Als u gebruiken uw eigen wilt, volgt u de instructies in [zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen](./deployment-manager-tutorial.md).
+De sjabloon herziene rollout wordt gedeeld op de volgende locaties ter vereenvoudiging van de zelfstudie, zodat u hoeft uw eigen kopie voorbereiden. Als u gebruiken uw eigen wilt, volgt u de instructies in [zelfstudie: Azure Deployment Manager gebruiken met Resource Manager-sjablonen](./deployment-manager-tutorial.md).
 
 * Topologie sjabloon: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
 * Artefacten store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
@@ -394,7 +394,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
     * **&lt;namePrefix > ServiceWUSrg**: bevat de resources die zijn gedefinieerd door ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**: bevat de resources die zijn gedefinieerd door ServiceEUS.
     * De resourcegroep voor de door de gebruiker gedefinieerde beheerde identiteit.
-3. Selecteer de naam van de resourcegroep.  
+3. Selecteer de naam van de resourcegroep.
 4. Selecteer **Resourcegroep verwijderen** in het bovenste menu.
 5. Herhaal de laatste twee stappen als u andere resourcegroepen wilt verwijderen die zijn gemaakt in deze zelfstudie.
 

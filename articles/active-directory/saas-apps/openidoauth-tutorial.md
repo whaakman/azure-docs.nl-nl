@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 166452b052313397f1ec17adb59cad3c20fab1f9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780980"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497432"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Een OpenID/OAuth-toepassing uit de Azure AD-app-galerie configureren
 
@@ -98,7 +98,25 @@ De Graph-API biedt ook toegang tot gebruikers en groepen uit Azure AD en andere 
 
 In de volgende stappen ontdekt u hoe de toestemmingservaring werkt voor de toepassingsontwikkelaar en -gebruiker:
 
-1. Stel dat u een webclienttoepassing hebt die specifieke machtigingen moet aanvragen voor toegang tot een resource of API. De Azure-portal wordt gebruikt om tijdens de configuratie machtigingsaanvragen te declareren. Net als andere configuratie-instellingen worden ze onderdeel van de Azure AD-registratie van de toepassing:
+1. Stel dat u een webclienttoepassing hebt die specifieke machtigingen moet aanvragen voor toegang tot een resource of API. De Azure-portal wordt gebruikt om tijdens de configuratie machtigingsaanvragen te declareren. Net als andere configuratie-instellingen worden ze onderdeel van Azure AD-registraties van de toepassing. Voor het pad van de aanvraag machtiging moet u de Volg de onderstaande stappen te volgen:
+
+    a. Klik op de **App-registraties** vanaf de linkerkant van het menu en open uw toepassing door te typen van de toepassing een naam in het zoekvak.
+
+    ![Graph API](./media/openidoauth-tutorial/application.png)
+
+    b. Klik op **API-machtigingen weergeven**.
+
+    ![Graph API](./media/openidoauth-tutorial/api-permission.png)
+
+    c. Klik op **toevoegen van een machtiging**.
+
+    ![Graph API](./media/openidoauth-tutorial/add-permission.png)
+
+    d. Klik op **Microsoft Graph**.
+
+    ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+
+    e. Selecteer de vereiste opties van **overgedragen machtigingen** en **Toepassingsmachtigingen**.
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -106,7 +124,7 @@ In de volgende stappen ontdekt u hoe de toestemmingservaring werkt voor de toepa
 
 3. Als de gebruiker nog niet is geverifieerd, vraagt het Azure AD-eindpunt /authorize om aanmelding.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Verificatie](./media/openidoauth-tutorial/authentication.png)
 
 4. Wanneer de gebruiker zich heeft aangemeld, bepaalt Azure AD of de gebruiker een toestemmingspagina te zien krijgt. Hierbij wordt gecontroleerd of de gebruiker (of de beheerder in de organisatie) de toepassing al toestemming heeft gegeven.
 
@@ -118,12 +136,12 @@ Gewone gebruikers kunnen toestemming geven voor verschillende machtigingen. Voor
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Het verschil tussen de toestemming van een beheerder en de toestemming van een gebruiker
 
-Beheerders kunnen toestemming geven voor de gedelegeerde machtigingen van een toepassing voor alle gebruikers in de tenant. Met beheerderstoestemming wordt het dialoogvenster voor toestemming niet meer weergegeven aan alle gebruikers in de tenant. Gebruikers die beschikken over de beheerdersrol kunnen in de Azure-portal toestemming geven. Op de pagina **Instellingen** van uw toepassing selecteert u **Vereiste machtigingen** > **Machtigingen verlenen**.
+Beheerders kunnen toestemming geven voor de gedelegeerde machtigingen van een toepassing voor alle gebruikers in de tenant. Met beheerderstoestemming wordt het dialoogvenster voor toestemming niet meer weergegeven aan alle gebruikers in de tenant. Gebruikers die beschikken over de beheerdersrol kunnen in de Azure-portal toestemming geven. Uit de **instellingen** -pagina voor uw toepassing, selecteert **vereiste machtigingen** > **verlenen van toestemming van een beheerder**.
 
 ![De knop Machtigingen verlenen](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Er moet nu expliciete toestemming worden gegeven met de knop **Machtigingen verlenen** voor toepassing met één pagina (SPA's) waarbij gebruik wordt gemaakt van ADAL.js. Als dit niet gebeurt, treedt er een fout op in de toepassing wanneer het toegangstoken wordt aangevraagd.
+> Expliciete toestemming verlenen met behulp van de **verlenen van toestemming van een beheerder** knop is nu vereist voor één pagina toepassingen (kuuroorden) die gebruikmaken van ADAL.js. Als dit niet gebeurt, treedt er een fout op in de toepassing wanneer het toegangstoken wordt aangevraagd.
 
 Bij app-specifieke machtigingen is er altijd toestemming van een tenantbeheerder nodig. Als uw toepassing een app-specifieke machtiging aanvraagt en een gebruiker zich bij de toepassing probeert aan te melden, wordt er een foutmelding weergegeven. In het bericht staat dat de gebruiker geen toestemming kan geven.
 

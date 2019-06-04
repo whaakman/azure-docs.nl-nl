@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 71104ecf0514b61e4f0d224d25f2ace9457f3cd3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145546"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497027"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Zelfstudie: Correct opgemaakte gegevens ophalen uit utterances
-In deze zelfstudie maakt u een app voor het extraheren van consistent opgemaakte gegevens uit een utterance met behulp van de entiteit **Regular Expression (regex)**.
+In deze zelfstudie maakt u een app voor het extraheren van consistent opgemaakte gegevens uit een utterance met behulp van de entiteit **Regular Expression (regex)** .
 
 **In deze zelfstudie leert u het volgende:**
 
@@ -125,7 +125,11 @@ Voer de volgende stappen uit om een entiteit in de vorm van een gewone expressie
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Ga naar het einde van de URL in het adres en voer `When were HRF-123456 and hrf-234567 published in the last year?` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `FindForm` als resultaat moet geven met de twee formuliernummers `HRF-123456` en `hrf-234567`.
+2. Ga naar het einde van de URL in het adres en voer de volgende utterance:
+
+    `When were HRF-123456 and hrf-234567 published in the last year?`
+
+    De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `FindForm` als resultaat moet geven met de twee formuliernummers `HRF-123456` en `hrf-234567`.
 
     ```json
     {

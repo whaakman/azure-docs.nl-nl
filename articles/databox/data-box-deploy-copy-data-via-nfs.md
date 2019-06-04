@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b4825770d8220e24c0d981af19313f265806d84
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 672bcc3d0cb15ef348d090ed6c5a38d6912465ef
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800442"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496311"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box via NFS
 
@@ -130,7 +130,7 @@ Volg deze richtlijnen als u rsync gebruikt voor een kopie met meerdere threads:
 > [!IMPORTANT]
 > De volgende typen van de Linux-bestanden worden niet ondersteund: symbolische koppelingen, tekenbestanden, bestanden blokkeren, sockets en pipes. Deze bestandstypen zal leiden tot fouten tijdens de **voorbereiding voor verzending** stap.
 
-Open de doelmap om de gekopieerde bestanden weer te geven en te controleren. Download de foutbestanden om problemen op te lossen als er fouten zijn opgetreden tijdens het kopiëren. Zie voor meer informatie, [foutenlogboeken weergeven tijdens het kopiëren van gegevens naar Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Zie voor een gedetailleerde lijst met fouten tijdens het kopiëren van gegevens, [Data Box oplossen van problemen met](data-box-troubleshoot.md).
+Open de doelmap om de gekopieerde bestanden weer te geven en te controleren. Download de foutbestanden om problemen op te lossen als er fouten zijn opgetreden tijdens het kopiëren. Zie voor meer informatie, [foutenlogboeken weergeven tijdens het kopiëren van gegevens naar Data Box](data-box-logs.md#view-error-log-during-data-copy). Zie voor een gedetailleerde lijst met fouten tijdens het kopiëren van gegevens, [Data Box oplossen van problemen met](data-box-troubleshoot.md).
 
 Om de gegevensintegriteit te garanderen wordt de controlesom inline berekend terwijl de gegevens worden gekopieerd. Verifieer de gebruikte ruimte en vrije ruimte op uw apparaat na het kopiëren.
     

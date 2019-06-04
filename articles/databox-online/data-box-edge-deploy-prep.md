@@ -6,18 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924774"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476772"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Zelfstudie: Voorbereidingen voor de implementatie van Azure Data Box Edge  
-
 
 Dit is de eerste zelfstudie in de reeks zelfstudies voor implementatie die noodzakelijk zijn voor het voltooien van de implementatie van Azure Data Box Edge. In deze zelfstudie wordt beschreven hoe u Azure Portal voorbereidt voor de implementatie van een Data Box Edge-resource.
 
@@ -31,7 +30,6 @@ In deze zelfstudie leert u het volgende:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-
 ### <a name="get-started"></a>Aan de slag
 
 Raadpleeg de volgende zelfstudies in de voorgeschreven volgorde voor het implementeren van Data Box Edge.
@@ -42,7 +40,7 @@ Raadpleeg de volgende zelfstudies in de voorgeschreven volgorde voor het impleme
 | 2. |**[Data Box Edge installeren](data-box-edge-deploy-install.md)**|Het fysieke Data Box Edge-apparaat uitpakken, plaatsen en aansluiten.  |
 | 3. |**[Data Box Edge verbinden, instellen en activeren](data-box-edge-deploy-connect-setup-activate.md)** |Maak verbinding met de lokale webinterface, voltooi het instellen van het apparaat en activeer het. Het apparaat is klaar om er SMB- of NFS-shares op in te stellen.  |
 | 4. |**[Gegevens overdragen met Data Box Edge](data-box-edge-deploy-add-shares.md)** |Voeg shares toe en maak verbinding met shares via SMB of NFS. |
-| 5. |**[Gegevens transformeren met Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configureer de Edge-modules op het apparaat om gegevens te transformeren wanneer ze naar Azure worden overgezet. |
+| 5. |**[Gegevens transformeren met Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Compute-modules op het apparaat het transformeren van de gegevens als deze in Azure configureren. |
 
 U kunt nu Azure Portal gaan instellen.
 
@@ -55,7 +53,11 @@ Hier volgen de configuratievereisten voor uw Data Box Edge-resource, uw Data Box
 Zorg voordat u begint voor het volgende:
 
 - Uw Microsoft Azure-abonnement is ingeschakeld voor een Data Box Edge-resource. Betalen per gebruik-abonnementen worden niet ondersteund.
-- Hebt u eigenaar of bijdrager toegang tot uw abonnement.
+- Hebt u eigenaar of bijdrager niveau van de resourcegroep voor de Data Box Edge/de Data Box Gateway, IoT-Hub en Azure Storage-resources te gebruiken.
+
+    - Maken van een Data Box-Edge / Data Box-Gateway-resource, u hebt machtigingen als Inzender (of hoger) binnen het bereik op het niveau van resources. U moet ook om ervoor te zorgen dat de `Microsoft.DataBoxEdge` provider is geregistreerd. Voor informatie over het registreren, gaat u naar [registerbronprovider](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Voor het maken van een IoT Hub-resource, zorg ervoor dat die Microsoft.Devices-provider is geregistreerd. Voor informatie over het registreren, gaat u naar [registerbronprovider](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Voor het maken van de resource van een Opslagaccount, opnieuw moet u bijdrager of hoger toegang binnen het bereik op het niveau van de resource. Azure Storage is standaard een geregistreerde resourceprovider.
 - U hebt de beheerder of gebruiker toegang tot Azure Active Directory Graph API. Zie voor meer informatie, [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - U hebt een Microsoft Azure Storage-account met toegangsreferenties.
 
@@ -64,7 +66,7 @@ Zorg voordat u begint voor het volgende:
 Voordat u een fysiek apparaat implementeert, controleert u of:
 
 - U kunt de veiligheidsinformatie die is opgenomen in het pakket voor verzending hebt bekeken.
-- Er een 1U-sleuf beschikbaar is in een standaard 19-inch rek in uw datacenter om het apparaat te plaatsen. 
+- U hebt een sleuf 1U beschikbaar zijn in een standard 19-inch rack in uw datacenter voor rack koppelen van het apparaat.
 - U beschikt over een vlak, stabiel en horizontaal werkoppervlak waar u het apparaat veilig kunt neerleggen.
 - De locatie waar u het apparaat wilt neerzetten, beschikt over reguliere wisselstroom van een onafhankelijke bron of over een vermogenseenheid (PDU) met noodvoeding (UPS).
 - U hebt toegang tot een fysiek apparaat.

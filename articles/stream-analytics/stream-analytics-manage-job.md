@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/07/2018
-ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.custom: mvc
+ms.date: 06/03/2019
+ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969295"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493416"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Gegevens van telefoongesprekken met Stream Analytics analyseren en de resultaten visualiseren in een Power BI-dashboard
 
-In deze zelfstudie leert u hoe u telefoongesprekken kunt analyseren met Azure Stream Analytics. De gegevens van telefoongesprekken die door de clienttoepassing worden gegenereerd, bevatten enkele frauduleuze gesprekken. Deze worden gefilterd door de Stream Analytics-taak.
+In deze zelfstudie leert u hoe u telefoongesprekken kunt analyseren met Azure Stream Analytics. De gegevens van telefoongesprekken die is gegenereerd door een clienttoepassing bevat enkele frauduleuze gesprekken die door de Stream Analytics-taak worden gefilterd.
 
 In deze zelfstudie leert u het volgende:
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u het volgende hebt voordat u begint:
+Voordat u begint, moet u de volgende acties uitvoeren:
 
 * Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) aan.
 * Meld u aan bij [Azure Portal](https://portal.azure.com/).
@@ -71,7 +71,7 @@ Gebruik de volgende stappen voor het maken van een Event Hub en verzenden van ge
 
 Voordat een toepassing gegevens naar Azure Event Hubs kan verzenden, moet de event hub een beleid hebben waarmee de juiste toegang wordt verleend. Het toegangsbeleid genereert een verbindingsreeks die autorisatiegegevens bevat.
 
-1. Ga naar de Event Hub die u in de vorige stap hebt gemaakt: *MyEventHub*. Selecteer onder **Instellingen** **Beleid voor gedeelde toegang** en selecteer vervolgens **+ Toevoegen**.
+1. Navigeer naar de event hub die u hebt gemaakt in de vorige stap, MyEventHub *. Selecteer onder **Instellingen** **Beleid voor gedeelde toegang** en selecteer vervolgens **+ Toevoegen**.
 
 2. Geef het beleid de naam **MyPolicy** en controleer of het selectievakje **Beheren** is ingeschakeld. Selecteer vervolgens **Maken**.
 
@@ -111,7 +111,7 @@ Voordat u de app TelcoGenerator start, moet u deze configureren voor het verzend
    Voor deze opdracht worden de volgende parameters gebruikt:
    * Aantal records met gespreksgegevens per uur.
    * Percentage van fraudekans: hoe vaak de app een frauduleus gesprek moet simuleren. Een waarde van 0.2 betekent dat ongeveer 20% van de gespreksrecords er frauduleus uitziet.
-   * Tijd in uren: het aantal uren dat de app moet worden uitgevoerd. U kunt de app op elk gewenst moment stoppen door het proces op de opdrachtregel te beëindigen (met **Ctrl+C**).
+   * Tijd in uren: het aantal uren dat de app moet worden uitgevoerd. U kunt ook de app op elk gewenst moment stoppen door het proces af (**Ctrl + C**) op de opdrachtregel.
 
    Na enkele seconden begint de app met het weergeven van telefoongesprekrecords op het scherm wanneer deze naar de event hub worden gestuurd. De telefoongesprekgegevens bevatten de volgende velden:
 
@@ -140,10 +140,10 @@ Nu u een stream van gesprekgebeurtenissen hebt, kunt u een Stream Analytics-taak
    |Abonnement    |  \<Uw abonnement\>   |   Selecteer een Azure-abonnement waarvoor u de taak wilt maken.       |
    |Resourcegroep   |   MyASADemoRG      |   Selecteer **Bestaande gebruiken** en voer een naam voor de nieuwe resourcegroep voor uw account in.      |
    |Locatie   |    US - west 2     |      De locatie waar de taak kan worden geïmplementeerd. Het is raadzaam de taak en de event hub in dezelfde regio te plaatsen om de best mogelijke prestaties te realiseren en u niet hoeft te betalen voor het overbrengen van gegevens tussen regio's.      |
-   |Hostingomgeving    | Cloud        |     Stream Analytics-taken kunnen worden geïmplementeerd in Cloud of in Edge. Met Cloud kunt u taken implementeren naar Azure Cloud en met Edge kunt u taken implementeren naar een IoT-randapparaat.    |
+   |Hostingomgeving    | Cloud        |     Stream Analytics-taken kunnen worden geïmplementeerd in Cloud of in Edge. Cloud kunt u taken implementeren naar Azure-Cloud en Edge kunt u implementeren in een IoT Edge-apparaat.    |
    |Streaming-eenheden     |    1       |      Streaming-eenheden vertegenwoordigen de computerresources die nodig zijn om een taak uit te voeren. Deze waarde is standaard ingesteld op 1. Zie het artikel [Streaming-eenheden begrijpen en aanpassen](stream-analytics-streaming-unit-consumption.md) voor meer informatie over het schalen van streaming-eenheden.      |
 
-4. Gebruik standaardopties voor de resterende instellingen, selecteer **Maken** en wacht tot de implementatie is voltooid.
+4. Gebruik standaardopties voor de resterende instellingen, selecteer **maken**, en wacht tot de implementatie is voltooid.
 
    ![Een Azure Stream Analytics-taak maken](media/stream-analytics-manage-job/create-stream-analytics-job.png)
 
@@ -161,9 +161,9 @@ In de volgende stap definieert u een invoerbron voor de taak om gegevens te kunn
    |---------|---------|---------|
    |Invoeralias     |  CallStream       |  Geef een beschrijvende naam op om uw invoer te identificeren. De invoeralias mag alleen alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten en moet 3 tot 63 tekens lang zijn.       |
    |Abonnement    |   \<Uw abonnement\>      |   Selecteer het Azure-abonnement waarvoor u de event hub hebt gemaakt. De event hub kan zich in dezelfde of een ander abonnement als de Stream Analytics-taak bevinden.       |
-   |Event Hub-naamruimte    |  myEventHubsNS       |  Selecteer de event hub-naamruimte die u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare event hub-naamruimten worden weergegeven in de vervolgkeuzelijst.       |
+   |Event hub-naamruimte    |  myEventHubsNS       |  Selecteer de event hub-naamruimte die u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare event hub-naamruimten worden weergegeven in de vervolgkeuzelijst.       |
    |Event Hub-naam    |   MyEventHub      |  Selecteer de event hub die u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare event hubs worden weergegeven in de vervolgkeuzelijst.       |
-   |Naam van het Event Hub-beleid   |  Mypolicy       |  Selecteer het door de event hub gedeelde toegangsbeleid dat u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare beleidsregels voor event hubs worden weergegeven in de vervolgkeuzelijst.       |
+   |Naam van het Event Hub-beleid   |  MyPolicy       |  Selecteer het door de event hub gedeelde toegangsbeleid dat u in de vorige sectie hebt gemaakt. Alle in uw huidige abonnement beschikbare beleidsregels voor event hubs worden weergegeven in de vervolgkeuzelijst.       |
 
 4. Gebruik standaardopties voor de resterende instellingen en selecteer **Opslaan**.
 
@@ -195,7 +195,7 @@ In de volgende stap maakt u een transformatie waarmee gegevens in realtime worde
 
 In dit voorbeeld worden binnen vijf seconden door dezelfde gebruiker frauduleuze gesprekken gevoerd, maar vanaf afzonderlijke locaties. Zo kan dezelfde gebruiker niet op rechtmatige wijze op hetzelfde moment een telefoongesprek vanuit de Verenigde Staten en Australië initiëren. Ga als volgt te werk als u de transformatie-query voor uw Stream Analytics-taak wilt definiëren:
 
-1. Open het deelvenster **Alle resources** vanuit de Azure-portal en open de Stream Analytics-taak **ASATutorial** die u eerder hebt gemaakt.
+1. Open in de Azure-portal, de **alle resources** deelvenster en navigeer naar de **ASATutorial** Stream Analytics-taak die u eerder hebt gemaakt.
 
 2. Selecteer in de sectie **Taaktopologie** van het deelvenster van de Stream Analytics-taak de optie **Query**. Het queryvenster vermeldt de invoer en uitvoer die voor de taak zijn geconfigureerd en u kunt een query voor het transformeren van de invoerstroom maken.
 
@@ -248,7 +248,7 @@ U kunt een query vanuit de query-editor testen met behulp van voorbeeldgegevens.
 
 4. Selecteer in de Power BI-werkruimte **+ Maken** om een nieuw dashboard te maken met de naam *Frauduleuze gesprekken*.
 
-5. Selecteer boven in het venster de optie **Tegel toevoegen**. Selecteer **Aangepaste streaminggegevens** en **Volgende**. Kies **ASAdataset** onder **Uw gegevenssets**. Selecteer **Kaart** in de vervolgkeuzelijst **Visualisatietype** en voeg **fraudulentcalls** aan **Velden** toe. Selecteer **Volgende** om een naam voor de tegel in te voeren en selecteer vervolgens **Toepassen** om het bestand te maken.
+5. Selecteer boven in het venster de optie **Tegel toevoegen**. Selecteer **Aangepaste streaminggegevens** en **Volgende**. Kies **ASAdataset** onder **Uw gegevenssets**. Selecteer **kaart** uit de **type visualisatie** vervolgkeuzelijst en toe te voegen **frauduleuze gesprekken** naar **velden**. Selecteer **Volgende** om een naam voor de tegel in te voeren en selecteer vervolgens **Toepassen** om het bestand te maken.
 
    ![Tegels in Power BI-dashboard maken](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -258,18 +258,18 @@ U kunt een query vanuit de query-editor testen met behulp van voorbeeldgegevens.
    * Voeg een waarde toe en selecteer **fraudulentcalls**.
    * Selecteer bij **Tijdvenster voor weergave** de laatste 10 minuten.
 
-7. Als beide tegels zijn toegevoegd, moet uw dashboard eruitzien zoals in het onderstaande voorbeeld. Als uw Event Hub-zendtoepassing en de Streaming Analytics-toepassing worden uitgevoerd, wordt uw Power BI-dashboard regelmatig bijgewerkt met nieuw ontvangen gegevens.
+7. Als beide tegels zijn toegevoegd, moet uw dashboard eruitzien zoals in het onderstaande voorbeeld. U ziet dat, als uw event hub-zendtoepassing en de Streaming Analytics-toepassing uitvoert, uw Power BI dashboard regelmatig wordt bijgewerkt wanneer nieuwe gegevens worden ontvangen.
 
    ![Resultaten weergeven in Power BI-dashboard](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Uw Power BI-dashboard insluiten in een webtoepassing
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Uw Power BI-Dashboard insluiten in een webtoepassing
 
-Voor dit gedeelte van de zelfstudie maakt u gebruik van een voorbeeld van een [ASP.NET](https://asp.net/)-webtoepassing die gemaakt is door het Power BI-team en waarmee u uw dashboard kunt insluiten. Zie het artikel [Insluiten met Power BI](https://docs.microsoft.com/power-bi/developer/embedding) voor meer informatie over het insluiten van dashboards.
+Voor dit deel van de zelfstudie gebruikt u een voorbeeld van een [ASP.NET](https://asp.net/) webtoepassing die gemaakt is door het team van Power BI insluiten van uw dashboard. Zie het artikel [Insluiten met Power BI](https://docs.microsoft.com/power-bi/developer/embedding) voor meer informatie over het insluiten van dashboards.
 
 Stel de toepassing in door naar de GitHub-opslagplaats [Power BI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) te gaan en volg de instructies in de sectie **Gebruiker is eigenaar van gegevens** (gebruik de omleidings- en startpagina-URL in de subsectie **integrate-dashboard-web-app**). Omdat we werken met het Dashboard-voorbeeld, gebruiken we de voorbeeldcode **integrate-dashboard-web-app** in de [GitHub-opslagplaats](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Zodra de toepassing in uw browser wordt uitgevoerd, volgt u deze stappen voor het insluiten van het dashboard dat u eerder in de webpagina hebt gemaakt:
 
-1. Selecteer **Aanmelden bij Power BI**, waarmee de toepassing toegang wordt verleend tot de dashboards in uw Power BI-account.
+1. Selecteer **zich aanmelden bij Power BI**, die de toepassing toegang verleent tot de dashboards in uw Power BI-account.
 
 2. Selecteer de knop **Dashboards ophalen**, waardoor de dashboards van uw account in een tabel worden weergegeven. Zoek de naam van het dashboard dat u eerder hebt gemaakt, **powerbi-embedded-dashboard** en kopieer de bijbehorende **EmbedUrl**.
 

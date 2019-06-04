@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d51c7b7c2e8d7f9774018f54a6639bebb882420
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653249"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471544"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Zelfstudie: Een vertaal-app maken met WPF
 
@@ -60,7 +60,7 @@ Voordat u doorgaat, zorgt u voor de volgende zaken:
 Om te beginnen moet u een project opzetten in Visual Studio.
 
 1. Open Visual Studio. Selecteer vervolgens **Bestand > Nieuw > Project**.
-2. In het linkerdeelvenster selecteert u **Visual C#**. Selecteer dan **WPF-app (.NET Framework)** in het middelste venster.
+2. In het linkerdeelvenster selecteert u **Visual C#** . Selecteer dan **WPF-app (.NET Framework)** in het middelste venster.
    ![Een WPF-app maken in Visual Studio](media/create-wpf-project-visual-studio.png)
 3. Geef uw project een naam, stel de frameworkversie in op **.NET Framework 4.5.2 of hoger** en klik vervolgens op **OK**.
 4. Uw project is gemaakt. Er worden twee tabbladen geopend: `MainWindow.xaml` en `MainWindow.xaml.cs`. In deze zelfstudie wordt er code toegevoegd aan deze twee bestanden. Het eerste bestand is voor de gebruikersinterface van de app en het tweede wordt gebruikt voor aanroepen naar Translator Text en Bing Spellingcontrole.
@@ -79,9 +79,9 @@ We gaan assembly's toevoegen aan het project om objecten te serialiseren en dese
 1. Zoek uw project in Solution Explorer van Visual Studio (rechterdeelvenster). Klik met de rechtermuisknop op uw project en selecteer vervolgens **Toevoegen > Verwijzing...** . **Reference Manager** wordt dan geopend.
    ![Assembly-verwijzingen toevoegen](media/add-assemblies-sample.png)
 2. Op het tabblad Assembly's staan alle .NET Framework-assembly's die beschikbaar zijn voor verwijzing. Gebruik de zoekbalk in de rechterbovenhoek van het scherm om te zoeken naar deze verwijzingen en ze toevoegen aan uw project:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. Wanneer u deze verwijzingen hebt toegevoegd aan uw project, klikt u op **OK** om **Reference Manager** te sluiten.
 
 > [!NOTE]
@@ -91,7 +91,7 @@ We gaan assembly's toevoegen aan het project om objecten te serialiseren en dese
 
 In onze app wordt NewtonSoft.Json gebruikt voor het deserialiseren van JSON-objecten. Volg deze instructies voor het installeren van het pakket.
 
-1. Zoek uw project in Solution Explorer van Visual Studio en klik met de rechtermuisknop op uw project. Selecteer **NuGet-pakketten beheren...**.
+1. Zoek uw project in Solution Explorer van Visual Studio en klik met de rechtermuisknop op uw project. Selecteer **NuGet-pakketten beheren...** .
 2. Zoek en selecteer het tabblad **Bladeren**.
 3. Typ [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) in de zoekbalk.
    ![NewtonSoft.Json zoeken en installeren](media/add-nuget-packages.png)

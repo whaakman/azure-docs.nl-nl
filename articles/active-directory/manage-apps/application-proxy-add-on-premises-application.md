@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82c7b698f655b82ba95f66127f27a921def02cde
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299085"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472999"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Zelfstudie: Een on-premises toepassing voor externe toegang toevoegen via Application Proxy in Azure Active Directory
 
@@ -34,10 +34,11 @@ Deze zelfstudie:
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Als u een toepassing wilt toevoegen aan uw tenant, hebt u het volgende nodig:
+Als u wilt toevoegen van een on-premises toepassing naar Azure AD, hebt u het volgende nodig:
 
 * Een [Microsoft Azure AD basic of premium-abonnement](https://azure.microsoft.com/pricing/details/active-directory)
 * Een toepassing administrator-account
+* Gebruikers-id's moeten worden gesynchroniseerd vanuit een on-premises directory of die rechtstreeks in uw Azure AD-tenants zijn gemaakt. Identiteitssynchronisatie kunt vooraf om gebruikers te verifiëren voordat ze toegang verlenen tot de App Proxy toepassingen gepubliceerde en dat de id-gegevens van de gebruiker nodig om uit te voeren eenmalige aanmelding (SSO) met Azure AD.
 
 ### <a name="windows-server"></a>Windows server
 

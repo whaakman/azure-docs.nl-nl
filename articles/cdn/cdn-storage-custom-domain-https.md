@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 7aaf4be23c806dda621430c4d1b0c142f41feb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51fcb1e504f853973d9772bcece7e893a2d94e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323875"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472148"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Zelfstudie: Toegang tot opslag-blobs met behulp van een aangepast Azure CDN-domein via HTTPS
 
@@ -44,7 +44,7 @@ Azure CDN negeert eventuele beperkingen die zijn toegevoegd aan het SAS-token. Z
 Als u meerdere SAS-URL's voor hetzelfde blob-eindpunt maakt, kunt u overwegen om het cachen van queryreeksen in te schakelen. Hiermee zorgt u ervoor dat elke URL als een unieke entiteit wordt beschouwd. Zie [Cachegedrag in Azure CDN bepalen met queryreeksen](cdn-query-string.md) voor meer informatie.
 
 ## <a name="http-to-https-redirection"></a>HTTP-naar-HTTPS-omleiding
-U kunt ervoor kiezen om HTTP-verkeer om te leiden naar HTTPS door een [regel voor URL-omleiding](cdn-rules-engine-reference-features.md#url-redirect) te maken met de [regel-engine van Azure CDN](cdn-rules-engine.md). Hiervoor hebt u wel een profiel voor **Azure CDN Premium van Verizon** nodig. 
+U kunt ervoor kiezen om HTTP-verkeer om te leiden naar HTTPS door een [regel voor URL-omleiding](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) te maken met de [regel-engine van Azure CDN](cdn-verizon-premium-rules-engine.md). Hiervoor hebt u wel een profiel voor **Azure CDN Premium van Verizon** nodig.
 
 ![Regel voor URL-omleiding](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 

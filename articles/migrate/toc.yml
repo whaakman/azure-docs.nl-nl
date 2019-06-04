@@ -20,14 +20,6 @@
       href: concepts-dependency-visualization.md
 - name: Handleidingen
   items:
-    - name: Best practices voor migratie
-      items:
-        - name: Best practices voor beveiliging en beheer na migratie
-          href: migrate-best-practices-security-management.md
-        - name: Best practices voor netwerkconfiguratie na migratie
-          href: migrate-best-practices-networking.md
-        - name: Best practices voor kostenanalyse en bepalen van grootte na migratie
-          href: migrate-best-practices-costs.md
     - name: Migratie-voorbeelden - Contoso-reeks
       href: contoso-migration-overview.md
     - name: Een grote omgeving verkennen en beoordelen

@@ -49,7 +49,7 @@ Volgende tabel beschrijft de eigenschappen in de pijplijn-JSON-definitie:
 
 | Eigenschap | Description | Vereist
 -------- | ----------- | --------
-| naam | Naam van de pijplijn. Geef een naam op die staat voor de actie die de activiteit of de pijplijn is geconfigureerd om te doen<br/><ul><li>Maximum aantal tekens: 260</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '. ', '+ ','?', '/', '< ',' >', ' * ', '%', '&', ': ','\\"</li></ul> |Ja |
+| name | Naam van de pijplijn. Geef een naam op die staat voor de actie die de activiteit of de pijplijn is geconfigureerd om te doen<br/><ul><li>Maximum aantal tekens: 260</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '. ', '+ ','?', '/', '< ',' >', ' * ', '%', '&', ': ','\\"</li></ul> |Ja |
 | description |Beschrijving van het doel waarvoor de activiteit of een pijplijn wordt gebruikt | Nee |
 | activities | Bevat een lijst van activiteiten. | Ja |
 | start |Startdatum en-tijd voor de pijplijn. Moet zich in [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41. <br/><br/>Het is mogelijk om op te geven een plaatselijke tijd, bijvoorbeeld een geschatte tijd. Hier volgt een voorbeeld: `2016-02-27T06:00:00**-05:00`, die is 6 AM EST.<br/><br/>De begin- en -eigenschappen opgeven samen actieve periode voor de pijplijn. Uitvoersegmenten worden alleen gemaakt met deze actieve periode. |Nee<br/><br/>Als u een waarde voor de end-eigenschap opgeeft, moet u de waarde voor de eigenschap QueryDefinition opgeven.<br/><br/>De begin- en eindtijden kunnen beide niet leeg zijn om een pijplijn te maken. U moet beide waarden om in te stellen van een actieve periode voor de pijplijn om uit te voeren. Als u geen begin- en eindtijden opgeeft wanneer u een pijplijn maakt, kunt u instellen met behulp van de cmdlet Set-AzDataFactoryPipelineActivePeriod later opnieuw. |
@@ -87,7 +87,7 @@ Na de tabel door de eigenschappen in de JSON-definitie van de activiteit te besc
 
 | Tag | Description | Vereist |
 | --- | --- | --- |
-| naam |De naam van de activiteit. Geef een naam op die staat voor de actie die de activiteit is geconfigureerd<br/><ul><li>Maximum aantal tekens: 260</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '. ', '+ ','?', '/', '< ',' >', ' * ', '%', '&', ': ','\\"</li></ul> |Ja |
+| name |De naam van de activiteit. Geef een naam op die staat voor de actie die de activiteit is geconfigureerd<br/><ul><li>Maximum aantal tekens: 260</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '. ', '+ ','?', '/', '< ',' >', ' * ', '%', '&', ': ','\\"</li></ul> |Ja |
 | description |Beschrijving van het doel waarvoor de activiteit wordt gebruikt. |Nee |
 | type |Hiermee geeft u het type van de activiteit. Zie de [GEGEVENSARCHIEVEN](#data-stores) en [activiteiten voor GEGEVENSTRANSFORMATIE](#data-transformation-activities) secties voor verschillende soorten activiteiten. |Ja |
 | inputs |Invoer tabellen die worden gebruikt door de activiteit<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Nee voor HDInsightStreaming en SqlServerStoredProcedure activiteiten <br/> <br/> Ja voor alle andere |
@@ -247,7 +247,7 @@ Na de tabel door de eigenschappen in de JSON-definitie van de activiteit te besc
 
 | Eigenschap | Description | Vereist |
 | -------- | ----------- | -------- |
-| naam | De naam van de gekoppelde service. | Ja |
+| name | De naam van de gekoppelde service. | Ja |
 | Eigenschappen - type | Het type van de gekoppelde service. Bijvoorbeeld: Azure Storage, Azure SQL Database. |
 | typeProperties | De sectie typeProperties heeft-elementen die zijn verschillend voor elk gegevensarchief of compute-omgeving. Zie sectie voor data-archieven voor alle gegevens store gekoppelde services en [omgevingen compute](#compute-environments) voor alle compute gekoppelde services |
 
@@ -286,7 +286,7 @@ De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 
 | Eigenschap | Description | Vereist | Standaard |
 | --- | --- | --- | --- |
-| naam | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](data-factory-naming-rules.md) voor naamgevingsregels. |Ja |N.V.T. |
+| name | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](data-factory-naming-rules.md) voor naamgevingsregels. |Ja |N.V.T. |
 | type | Het type van de gegevensset. Geef een van de typen die worden ondersteund door Azure Data Factory (bijvoorbeeld: AzureBlob, AzureSqlTable). Zie [GEGEVENSARCHIEVEN](#data-stores) sectie voor alle gegevensarchieven en de gegevensset die worden ondersteund door Data Factory. |
 | structuur | Het schema van de gegevensset. Het bevat kolommen, de typen, enzovoort. | Nee |N.V.T. |
 | typeProperties | Eigenschappen die overeenkomen met het geselecteerde type. Zie [GEGEVENSARCHIEVEN](#data-stores) sectie voor de ondersteunde typen en de bijbehorende eigenschappen. |Ja |N.V.T. |
@@ -298,7 +298,7 @@ Elke kolom in de **structuur** sectie bevat de volgende eigenschappen:
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| naam |Naam van de kolom. |Ja |
+| name |Naam van de kolom. |Ja |
 | type |Het gegevenstype van de kolom.  |Nee |
 | culture |.NET gebaseerde cultuur moet worden gebruikt wanneer het type is opgegeven en .NET-type `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. |Nee |
 | format |Tekenreeks die moet worden gebruikt bij het type is opgegeven en .NET-type-indeling `Datetime` of `Datetimeoffset`. |Nee |

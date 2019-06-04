@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 83eabca3b2ec1903e25b02083b1a2d5b49745396
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6b2a0655173405008e0bccf3e31a8db391da6127
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800457"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496291"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Zelfstudie: Gegevens naar Azure Data Box Disk kopiëren via SMB
 
@@ -202,7 +202,7 @@ Gebruik de volgende parameters in Robocopy om de prestaties te optimaliseren als
 
 Ga voor meer informatie over opdrachten voor Robocopy naar [Robocopy en een paar voorbeelden](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Open de doelmap om de gekopieerde bestanden weer te geven en te controleren. Download de foutbestanden om problemen op te lossen als er fouten zijn opgetreden tijdens het kopiëren. Zie voor meer informatie, [foutenlogboeken weergeven tijdens het kopiëren van gegevens naar Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Zie voor een gedetailleerde lijst met fouten tijdens het kopiëren van gegevens, [Data Box oplossen van problemen met](data-box-troubleshoot.md).
+Open de doelmap om de gekopieerde bestanden weer te geven en te controleren. Download de foutbestanden om problemen op te lossen als er fouten zijn opgetreden tijdens het kopiëren. Zie voor meer informatie, [foutenlogboeken weergeven tijdens het kopiëren van gegevens naar Data Box](data-box-logs.md#view-error-log-during-data-copy). Zie voor een gedetailleerde lijst met fouten tijdens het kopiëren van gegevens, [Data Box oplossen van problemen met](data-box-troubleshoot.md).
 
 Om de gegevensintegriteit te garanderen wordt de controlesom inline berekend terwijl de gegevens worden gekopieerd. Verifieer de gebruikte ruimte en vrije ruimte op uw apparaat na het kopiëren.
     

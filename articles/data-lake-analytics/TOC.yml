@@ -48,6 +48,8 @@
           href: data-lake-analytics-diagnostic-logs.md
         - name: De quotalimieten aanpassen
           href: data-lake-analytics-quota-limits.md
+        - name: Herstel na noodgevallen plannen
+          href: data-lake-analytics-disaster-recovery.md
     - name: U-SQL-programma’s ontwikkelen
       items:
         - name: U-SQL-taal
