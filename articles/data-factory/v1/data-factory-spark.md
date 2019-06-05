@@ -329,14 +329,14 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie.
 
 | Eigenschap | Description | Vereist |
 | -------- | ----------- | -------- |
-| naam | Naam van de activiteit in de pijplijn. | Ja |
+| name | Naam van de activiteit in de pijplijn. | Ja |
 | description | De tekst die wordt beschreven wat de activiteit doet. | Nee |
 | type | Deze eigenschap moet worden ingesteld op HDInsightSpark. | Ja |
 | linkedServiceName | Naam van de gekoppelde HDInsight-service waarop het Spark-programma wordt uitgevoerd. | Ja |
 | rootPath | Het blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. | Ja |
 | entryFilePath | Relatief pad naar de hoofdmap van de Spark-code of pakket. | Ja |
 | className | Java/Spark main-klasse van de toepassing. | Nee |
-| argumenten | Een lijst met opdrachtregelargumenten op het Spark-programma. | Nee |
+| arguments | Een lijst met opdrachtregelargumenten op het Spark-programma. | Nee |
 | proxyUser | Het gebruikersaccount te imiteren voor het uitvoeren van het Spark-programma. | Nee |
 | sparkConfig | Geef waarden op voor de Spark-configuratie-eigenschappen die worden vermeld in [Spark-configuratie: Toepassingseigenschappen](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee |
 | getDebugInfo | Hiermee geeft u aan bij de Spark-logboekbestanden worden gekopieerd naar de opslag die wordt gebruikt door het HDInsight-cluster (of) opgegeven door sparkJobLinkedService. Toegestane waarden zijn geen, altijd of fout. De standaardwaarde is ingesteld op geen. | Nee |
