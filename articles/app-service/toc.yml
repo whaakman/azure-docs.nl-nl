@@ -19,6 +19,16 @@
       href: app-service-web-get-started-dotnet-framework.md
     - name: Een Node.js-app maken
       href: app-service-web-get-started-nodejs.md
+    - name: Een Node.js-app maken met Visual Studio Code
+      items:
+        - name: Aan de slag
+          href: tutorial-javascript-vscode-get-started.md
+        - name: De toepassing maken
+          href: tutorial-javascript-vscode-create-app.md
+        - name: De website implementeren
+          href: tutorial-javascript-vscode-deploy-app.md
+        - name: Logboeken weergeven
+          href: tutorial-javascript-vscode-tail-logs.md
     - name: Een PHP-app maken
       href: app-service-web-get-started-php.md
     - name: Een Java-app maken
@@ -78,8 +88,12 @@
           href: overview-patch-os-runtime.md
         - name: Beveiligingskenmerken
           href: app-service-security-attributes.md
+    - name: Netwerkfuncties
+      href: networking-features.md
     - name: Inkomende en uitgaande IP-adressen
       href: overview-inbound-outbound-ips.md
+    - name: Integratie van virtueel netwerk
+      href: web-sites-integrate-with-vnet.md
     - name: Hybride verbindingen
       href: app-service-hybrid-connections.md
     - name: Traffic Manager-integratie
@@ -98,8 +112,6 @@
           href: web-sites-php-configure.md
         - name: Java configureren
           href: configure-language-java.md
-        - name: Verbinding maken met on-premises bronnen
-          href: web-sites-integrate-with-vnet.md
     - name: Implementeren in Azure
       items:
         - name: De app implementeren

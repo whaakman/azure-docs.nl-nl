@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: Streamen naar Azure Event Hubs voor Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: Een toegewezen cluster maken
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Zelfstudies
   items:
     - name: Gegevensafwijkingen visualiseren in Event Hubs-gegevensstromen

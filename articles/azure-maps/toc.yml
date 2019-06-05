@@ -164,6 +164,8 @@
       items:
         - name: Kaartbesturingselement
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: Tekenprogramma's
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: Servicemodule
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
     - name: Resource Manager-sjabloon

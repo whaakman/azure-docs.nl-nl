@@ -6,12 +6,12 @@ description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Az
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ce7e7aa471017fba7632018db116f7855a50d32e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: bc052b749724a76df3df3572913f4bcbc146df17
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357559"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497073"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1372,6 +1372,12 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                             <a href="/azure/blockchain-workbench">
                                                 <img src="media/index/blockchain-workbench.svg" alt="" />
                                                 <p>Blockchain Workbench</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-app-configuration/">
+                                                <img src="media/index/azure-appconf.svg" alt="" />
+                                                <p>App Configuration</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5297,6 +5303,25 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                                 <div class="cardText">
                                                     <h3>Blockchain Workbench</h3>
                                                     <p>Uw blockchain met de cloud verbinden zonder het zware werk</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-app-configuration/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-appconf.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Configuration</h3>
+                                                    <p>Snelle, schaalbare parameteropslag voor app-configuratie</p>
                                                 </div>
                                             </div>
                                         </div>

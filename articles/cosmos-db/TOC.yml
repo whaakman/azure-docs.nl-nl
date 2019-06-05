@@ -600,6 +600,8 @@
       items:
         - name: Tips voor prestaties
           items:
+            - name: Metrische gegevens voer query-uitvoering ophalen
+              href: profile-sql-api-query.md
             - name: Queryprestaties afstemmen
               href: sql-api-query-metrics.md
             - name: Tips voor betere prestaties voor de .NET-SDK

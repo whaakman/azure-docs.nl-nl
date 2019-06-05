@@ -27,6 +27,9 @@
         - name: Actie en context
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Actief leren
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
         - name: Voordelen
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -44,7 +47,7 @@
   items:
     - name: Personalizer maken en configureren
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
     - name: Analyseren
       items:
         - name: Offline-evaluatie

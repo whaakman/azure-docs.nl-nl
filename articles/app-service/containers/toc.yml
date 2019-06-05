@@ -17,6 +17,18 @@
       href: quickstart-php.md
     - name: Een Node.js-app maken
       href: quickstart-nodejs.md
+    - name: Een Node.js-app maken met Docker en Visual Studio Code
+      items:
+        - name: Aan de slag
+          href: tutorial-javascript-vscode-get-started.md
+        - name: Een containerregister maken
+          href: tutorial-javascript-vscode-create-registry.md
+        - name: De installatiekopie maken
+          href: tutorial-javascript-vscode-containerize-app.md
+        - name: De installatiekopie implementeren
+          href: tutorial-javascript-vscode-deploy-container.md
+        - name: Logboeken weergeven
+          href: tutorial-javascript-vscode-tail-logs.md
     - name: Een Java-app maken
       href: quickstart-java.md
     - name: Een Python-app maken

@@ -470,8 +470,12 @@
           href: ./partner-center-portal/manage-account.md
         - name: Een zakelijk werkaccount zoeken of maken
           href: ./partner-center-portal/company-work-accounts.md
+        - name: Accountmigratie van CPP naar Partnercentrum
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Een nieuwe aanbieding maken
       items:
+        - name: Controlelijst voor aanbieding maken
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: Een SaaS-aanbieding maken
           href: ./partner-center-portal/create-new-saas-offer.md
         - name: SaaS-uitvoerings-API's

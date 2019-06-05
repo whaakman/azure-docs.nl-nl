@@ -34,6 +34,8 @@
       href: tutorials/08-pre-trained-entities.md
     - name: Entiteitsomzetters
       href: tutorials/09-entity-resolvers.md
+    - name: Opsommingsentiteiten
+      href: tutorials/tutorial-enum-set-entity.md
     - name: Alternatieve invoer
       href: tutorials/10-alternative-inputs.md
     - name: Logboekdialoogvensters

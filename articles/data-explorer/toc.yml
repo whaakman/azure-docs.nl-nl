@@ -7,34 +7,10 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Cluster en database maken
-      items:
-        - name: Azure Portal
-          href: create-cluster-database-portal.md
-        - name: Azure-CLI
-          href: create-cluster-database-cli.md
-        - name: PowerShell
-          href: create-cluster-database-powershell.md
-        - name: 'C#'
-          href: create-cluster-database-csharp.md
-        - name: Python
-          href: create-cluster-database-python.md
-    - name: Gegevens opnemen
-      items:
-        - name: Gegevens streamen - Event Hub
-          href: ingest-data-event-hub.md
-        - name: Gegevens streamen - Event Grid
-          href: ingest-data-event-grid.md
-        - name: Gegevens streamen - Kafka
-          href: ingest-data-kafka.md
-        - name: Gegevens batchen - Python
-          href: python-ingest-data.md
-        - name: Gegevens batchen - Node SDK
-          href: node-ingest-data.md
-        - name: Gegevens batchen - .NET Standard-SDK
-          href: net-standard-ingest-data.md
-        - name: Gegevens batchen - Logstash
-          href: ingest-data-logstash.md
+    - name: Cluster en database maken - Azure-portal
+      href: create-cluster-database-portal.md
+    - name: Voorbeeldgegevens opnemen
+      href: ingest-sample-data.md
     - name: Querygegevens
       items:
         - name: Webgebruikersinterface
@@ -52,12 +28,38 @@
     - name: Overzicht van gegevensopname
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
+    - name: Overzicht van gegevensvisualisatie
+      href: viz-overview.md
 - name: Handleidingen
   items:
-    - name: Aan de slag
+    - name: Cluster en database maken
       items:
-        - name: Voorbeeldgegevens opnemen
-          href: ingest-sample-data.md
+        - name: Azure-CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Gegevens opnemen
+      items:
+        - name: Event Hub
+          href: ingest-data-event-hub.md
+        - name: Event Grid
+          href: ingest-data-event-grid.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Python
+          href: python-ingest-data.md
+        - name: Node SDK
+          href: node-ingest-data.md
+        - name: .NET Standard-SDK
+          href: net-standard-ingest-data.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: Gegevens kopiëren met Azure Data Factory
+          href: data-factory-load-data.md
     - name: Implementeren
       items:
         - name: DevOps-taak
@@ -82,10 +84,14 @@
               href: power-bi-imported-query.md
             - name: SQL-query
               href: power-bi-sql-query.md
+        - name: ODBC-connector
+          href: connect-odbc.md
         - name: Sisense
           href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Tableau
+          href: tableau.md
     - name: Beheren
       items:
         - name: Databasemachtigingen beheren
@@ -100,11 +106,11 @@
           href: delete-data.md
         - name: Dubbele gegevens aanpakken
           href: dealing-with-duplicates.md
-    - name: Bewaking
+    - name: Controleren
       items:
         - name: Metrische gegevens gebruiken om de clusterstatus te controleren
           href: using-metrics.md
-    - name: Werken met andere hulpprogramma's
+    - name: Integreren met andere hulpprogramma's
       items:
         - name: Apache Spark-connector
           href: spark-connector.md
@@ -112,10 +118,6 @@
           href: connect-from-databricks.md
         - name: Gegevens analyseren met Jupyter Notebooks en Kqlmagic
           href: kqlmagic.md
-        - name: Gegevens kopiëren met Azure Data Factory
-          href: data-factory-load-data.md
-        - name: Verbinding maken met ODBC
-          href: connect-odbc.md
     - name: Problemen oplossen
       items:
         - name: Een cluster maken

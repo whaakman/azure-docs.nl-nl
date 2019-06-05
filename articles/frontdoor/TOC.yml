@@ -70,6 +70,8 @@
           href: waf-front-door-create-portal.md
         - name: WAF-beleid configureren - Azure PowerShell
           href: waf-front-door-custom-rules-powershell.md
+        - name: Bot-bescherming configureren
+          href: waf-front-door-policy-configure-bot-protection.md
         - name: Aangepast antwoordcode configureren
           href: waf-front-door-configure-custom-response-code.md
         - name: IP-beperkingen configureren

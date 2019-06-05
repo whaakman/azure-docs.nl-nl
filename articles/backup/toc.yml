@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: Back-up maken van een VM - CLI
       href: quick-backup-vm-cli.md
+    - name: Back-up maken van een VM - Resource Manager-sjabloon
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: Zelfstudies
   items:
     - name: Back-ups maken van Azure-VM's op grote schaal
@@ -249,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Systeemstatus
+          href: backup-azure-system-state-troubleshoot.md
     - name: Azure Backup-workloads bewaken
       items:
         - name: Azure Portal gebruiken

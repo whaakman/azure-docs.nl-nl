@@ -74,7 +74,11 @@
         - name: Configureren van SAML-tokenversleuteling (preview)
           href: howto-saml-token-encryption.md
     - name: Eenmalige aanmelding
-      href: what-is-single-sign-on.md
+      items:
+        - name: Wat is eenmalige aanmelding?
+          href: what-is-single-sign-on.md
+        - name: Implementatie van eenmalige aanmelding plannen
+          href: plan-sso-deployment.md
     - name: Portals voor eindgebruikers
       href: end-user-experiences.md
 - name: Handleidingen
@@ -93,7 +97,9 @@
           href: application-proxy-configure-for-claims-aware-applications.md
         - name: Connector registreren - installatie op de achtergrond
           href: application-proxy-register-connector-powershell.md
-        - name: Systeemeigen client-apps configureren
+        - name: Mobiele apps en desktop-apps toegang geven tot on-premises API's
+          href: application-proxy-secure-api-access.md
+        - name: Mobiele apps en desktop-client-apps configureren
           href: application-proxy-configure-native-client-application.md
         - name: Aangepaste startpagina configureren
           href: application-proxy-configure-custom-home-page.md

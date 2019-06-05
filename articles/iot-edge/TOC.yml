@@ -43,7 +43,7 @@
       items:
         - name: Gegevens filteren met Azure Functions
           href: tutorial-deploy-function.md
-        - name: Gemiddelden vinden met ASA
+        - name: Gemiddelden vinden met Azure Stream Analytics
           href: tutorial-deploy-stream-analytics.md
         - name: Gegevens een score geven met Azure Machine Learning-service
           href: tutorial-deploy-machine-learning.md
