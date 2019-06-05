@@ -39,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: Portal-interface testen
           href: test-createuidefinition.md
+        - name: Just-in-time-toegang aanvragen
+          href: request-just-in-time-access.md
         - name: Beheerde bronnen bijwerken
           href: update-managed-resources.md
         - name: Portal gebruiken om toepassingsdefinitie te publiceren
@@ -51,6 +53,8 @@
       items:
         - name: Beheerde toepassing bewaken
           href: monitor-managed-application-portal.md
+        - name: Just-in-time-toegang goedkeuren
+          href: approve-just-in-time-access.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI
@@ -96,7 +100,7 @@
               href: microsoft-network-publicipaddresscombo.md
             - name: VirtueelNetwerkCombo
               href: microsoft-network-virtualnetworkcombo.md
-        - name: Opslag
+        - name: Storage
           items:
             - name: MultiStorageAccountCombo
               href: microsoft-storage-multistorageaccountcombo.md
