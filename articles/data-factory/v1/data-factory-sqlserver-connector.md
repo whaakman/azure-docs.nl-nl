@@ -677,7 +677,7 @@ De toewijzing is hetzelfde als de SQL Server gegevenstypetoewijzing voor ADO.NET
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
-| tekst |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
