@@ -59,8 +59,8 @@ JSON-blob-metagegevens voldoet aan de volgende model:
 | **typeId** | Integer | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
 | **subtype** | String | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
 | **subtypeId** | Integer | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
-| **Beschrijving** | String | Aangepaste beschrijving van de blob |
-| **delen** | String | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Aangepaste beschrijving van de blob |
+| **sharing** | String | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
 
 Metagegevens van de BLOB wordt altijd opgegeven als de eerste chunk met **Content-Type** `application/json` of als een `.json` bestand. Gegevens uit een bestand is opgegeven in de tweede chunk en van alle ondersteunde MIME-type kan zijn.
 
@@ -117,10 +117,10 @@ Afzonderlijk geretourneerde blobs voldoen aan de volgende JSON-schema:
 | **typeId** | Integer | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
 | **subtype** | String | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
 | **subtypeId** | Integer | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
-| **delen** | String | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
-| **Beschrijving** | String | Aangepaste beschrijving van de blob |
+| **sharing** | String | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Aangepaste beschrijving van de blob |
 | **contentInfos** | Matrix | Hiermee geeft u de metagegevens van niet-gestructureerde gegevens met inbegrip van versie |
-| **Volledige naam** | String | De volledige naam van de blob |
+| **fullName** | String | De volledige naam van de blob |
 | **spacePaths** | String | Het pad van de ruimte |
 
 Metagegevens van de BLOB wordt altijd opgegeven als de eerste chunk met **Content-Type** `application/json` of als een `.json` bestand. Gegevens uit een bestand is opgegeven in de tweede chunk en van alle ondersteunde MIME-type kan zijn.
