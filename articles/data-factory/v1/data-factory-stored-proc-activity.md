@@ -160,7 +160,7 @@ U ziet de volgende eigenschappen:
 
 - De **type** eigenschap is ingesteld op **SqlServerStoredProcedure**.
 - De **storedProcedureName** in het type eigenschappen is ingesteld op **usp_sample** (naam van de opgeslagen procedure).
-- De **storedProcedureParameters** sectie bevat een parameter met de naam **datum-/**. Naam en het hoofdlettergebruik van de parameter in JSON moeten overeenkomen met de naam en het hoofdlettergebruik van de parameter in de definitie van de opgeslagen procedure. Als u null zijn voor een parameter doorgeven moet, gebruikt u de syntaxis: `"param1": null` (zonder hoofdletters).
+- De **storedProcedureParameters** sectie bevat een parameter met de naam **datum-/** . Naam en het hoofdlettergebruik van de parameter in JSON moeten overeenkomen met de naam en het hoofdlettergebruik van de parameter in de definitie van de opgeslagen procedure. Als u null zijn voor een parameter doorgeven moet, gebruikt u de syntaxis: `"param1": null` (zonder hoofdletters).
 
 1. Klik op **... Meer** op de opdrachtbalk en klik op **nieuwe pijplijn**.
 2. De volgende JSON-codefragment kopiëren/plakken:
