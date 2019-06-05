@@ -123,6 +123,10 @@
           items:
             - name: Wat is Data Box Disk Heavy?
               href: data-box-heavy-overview.md
+        - name: Snelstartgidsen
+          items:
+            - name: Instellen - Azure Portal
+              href: data-box-heavy-quickstart-portal.md
         - name: Zelfstudies
           items:
             - name: 1 - Bestellen

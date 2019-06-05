@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89b836109818f7a4c1aafdbc9a1b3a72fe806269
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60609095"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515032"
 ---
-# <a name="what-is-translator-text-api"></a>Wat is de Translator Text API?
+# <a name="what-is-the-translator-text-api"></a>Wat is de Translator Text-API?
 
 De Translator Text-API is makkelijk in uw toepassingen, websites, hulpprogramma's en oplossingen te integreren. U kunt er meertalige gebruikerservaringen in [meer dan zestig talen](languages.md) aan toevoegen en u kunt het gebruiken op elk hardwareplatform onder elk willekeurig besturingssysteem voor vertalingen van tekst naar tekst.
 

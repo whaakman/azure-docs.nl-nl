@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a7896a31d3957f858de356a9cffdcb45a1fb649
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: ae4b57d86461526b285e77aa408373b5d7f5aedf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426644"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513370"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-deelname configureren voor federatieve domeinen
 
-Net zoals een gebruiker, wordt een apparaat ook een identiteit die u wilt beschermen en die u wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen met een van de volgende methoden:
+Een apparaat is op een soortgelijke manier aan een gebruiker een andere core-identiteit die u wilt beveiligen en gebruiken om uw resources beveiligen op elk gewenst moment en vanaf elke locatie. U kunt dit doel te bereiken door te halen en het beheren van apparaat-id's in Azure AD met behulp van een van de volgende methoden:
 
 - Azure AD-koppeling
 - Hybride Azure AD-koppeling
@@ -28,7 +28,11 @@ Net zoals een gebruiker, wordt een apparaat ook een identiteit die u wilt besche
 
 Door uw apparaten naar Azure AD te brengen, optimaliseert u de productiviteit van uw gebruikers via eenmalige aanmelding (SSO) bij al uw on-premises bronnen en cloudbronnen. Tegelijk kunt u de toegang tot uw on-premises bronnen en cloudbronnen beveiligen met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
 
-In deze zelfstudie leert u hoe u hybride Azure AD-koppeling kunt configureren voor apparaten die zijn gefedereerd met ADFS.
+In deze zelfstudie leert u hoe u hybride Azure AD join voor AD Domeincomputers apparaten in een federatieve omgeving met behulp van AD FS configureren.
+
+> [!NOTE]
+> Als uw federatieve omgeving een id-provider dan AD FS gebruikt is, moet u ervoor te zorgen dat uw id-provider WS-Trust-protocol ondersteunt. WS-Trust nodig is voor het verifiëren van uw Windows huidige hybride Azure AD gekoppelde apparaten met Azure AD. Bovendien, als u Windows downlevel-apparaten die u nodig hebt in hybride Azure AD join hebt, moet uw id-provider WIAORMULTIAUTHN deze ondersteunt. 
+
 
 > [!div class="checklist"]
 > * Hybride Azure AD-koppeling configureren
@@ -40,9 +44,9 @@ In deze zelfstudie leert u hoe u hybride Azure AD-koppeling kunt configureren vo
 
 In deze zelfstudie wordt ervan uitgegaan dat u bekend bent met:
 
-- [Inleiding tot apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
+- [Inleiding tot identiteit Apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
 - [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
-- [De hybride Azure AD-deelname van uw apparaten beheren](hybrid-azuread-join-control.md)
+- [Hoe u gecontroleerde validatie van hybride Azure AD join doet](hybrid-azuread-join-control.md)
 
 Voor het configureren van het scenario in deze zelfstudie hebt u het volgende nodig:
 
@@ -55,7 +59,7 @@ Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-kop
 - Maakt een back-up van uw bestaande vertrouwensrelatie van de Relying Party van Azure AD
 - Werkt de claimregels in uw Azure AD-vertrouwensrelatie bij
 
-De configuratiestappen in dit artikel zijn gebaseerd op deze wizard. Als u een oudere versie van Azure AD Connect hebt geïnstalleerd, werkt u deze bij naar 1.1.819 of hoger. Zie [Apparaatregistratie handmatig configureren](../device-management-hybrid-azuread-joined-devices-setup.md) als het voor u niet mogelijk is om de nieuwste versie van Azure AD Connect te installeren.
+De configuratiestappen in dit artikel zijn gebaseerd op deze wizard. Als u een oudere versie van Azure AD Connect hebt geïnstalleerd, werkt u deze bij naar 1.1.819 of hoger. Als het installeren van de meest recente versie van Azure AD Connect kan niet worden gebruikt voor u, raadpleegt u [het handmatig configureren van hybride Azure AD join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual).
 
 Voor hybride Azure AD-koppeling moeten de apparaten toegang tot de volgende Microsoft-bronnen hebben vanuit het netwerk van uw organisatie:  
 
@@ -65,9 +69,14 @@ Voor hybride Azure AD-koppeling moeten de apparaten toegang tot de volgende Micr
 - De STS van uw organisatie (federatieve domeinen)
 - `https://autologon.microsoftazuread-sso.com` (als u naadloze eenmalige aanmelding gebruikt of van plan bent te gebruiken)
 
-Vanaf Windows 10 1803 is het zo dat als de directe Hybrid Azure AD-koppeling mislukt voor federatieve domeinen zoals AD FS, we vertrouwen op Azure AD Connect om het computerobject in Azure AD te synchroniseren dat vervolgens wordt gebruikt om de apparaatregistratie voor Hybrid Azure AD-koppeling te voltooien.
+Beginnen met Windows 10-1803, als de momentopname Hybrid Azure AD-join voor federatieve omgeving met behulp van AD FS is mislukt, we zijn afhankelijk van de Azure AD Connect voor synchronisatie van het computerobject in Azure AD dat vervolgens gebruikt wordt voor het voltooien van de device Registration service voor hybride Azure AD Neem deel aan. Verifieer dat Azure AD Connect de computerobjecten heeft gesynchroniseerd van de apparaten die u hybride Azure AD-gekoppeld wilt maken. Als de computerobjecten bij specifieke organisatie-eenheden (OE) horen, moeten deze OE’s ook worden geconfigureerd voor synchronisatie in Azure AD Connect. Zie voor meer informatie over het synchroniseren van computerobjecten met Azure AD Connect het artikel op [Configure filtering met Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering).
 
-Als uw organisatie internettoegang via een uitgaande proxy vereist, kunt u vanaf Windows 10 1709 [proxyinstellingen op uw computer configureren met behulp van een groepsbeleidsobject (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Als op uw computer een versie van Windows ouder dan 10 1709 wordt uitgevoerd, moet u Web Proxy Auto-Discovery (WPAD) implementeren om Windows 10-computers in staat te stellen apparaten te registreren met Azure AD.
+Als uw organisatie toegang tot Internet via een uitgaande proxy vereist, wordt aangeraden [implementatie van Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) Windows 10-computers te doen met Azure AD-apparaatregistratie inschakelen. Als u problemen hebt met het configureren en beheren van WPAD, gaat u naar [automatische detectie oplossen] (https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+
+Als u niet met behulp van WPAD en proxy-instellingen configureren op uw computer wilt, kunt u doen dus beginnen met Windows 10 1709, door [WinHTTP-instellingen met behulp van een groepsbeleidsobject (GPO) configureren](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+
+> [!NOTE]
+> Als u proxy-instellingen op uw computer met behulp van WinHTTP-instellingen configureert, mislukken alle computers die geen verbinding maken met de geconfigureerde proxy verbinding maken met internet.
 
 Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers succesvol kunnen verifiëren bij de uitgaande proxy. Omdat Windows 10-computers apparaatregistratie uitvoeren via machinecontext, moet u verificatie van een uitgaande proxy configureren via machinecontext. Vraag uw provider van de uitgaande proxy naar de configuratievereisten.
 
@@ -129,19 +138,8 @@ Voor het configureren van een hybride Azure AD-koppeling via Azure AD Connect he
 
 Als sommige van uw domein-gekoppelde apparaten downlevel Windows-apparaten zijn, moet u:
 
-- Apparaatinstellingen bijwerken
 - De lokale intranetinstellingen voor apparaatregistratie configureren
-- Downlevel Windows-apparaten beheren
-
-### <a name="update-device-settings"></a>Apparaatinstellingen bijwerken
-
-Om downlevel Windows-apparaten te kunnen registreren, moet u ervoor zorgen dat de apparaatinstellingen zijn geconfigureerd waarmee gebruikers apparaten mogen registreren in Azure AD. In de Azure-portal vindt u deze instelling onder:
-
-`Home > [Name of your tenant] > Devices - Device settings`
-
-Het volgende beleid moet zijn ingesteld op **Alle**: **Gebruikers mogen hun apparaten met Azure AD registreren**
-
-![Apparaten registreren](./media/hybrid-azuread-join-federated-domains/23.png)
+- Microsoft Workplace Join voor Windows downlevel-computers installeren
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>De lokale intranetinstellingen voor apparaatregistratie configureren
 
@@ -153,9 +151,13 @@ Om de hybride Azure AD-koppeling van uw downlevel Windows-apparaten succesvol te
 
 Daarnaast moet u **Statusbalkupdates via scripts toestaan** inschakelen in de zone Lokaal intranet van de gebruiker.
 
-### <a name="control-windows-down-level-devices"></a>Downlevel Windows-apparaten beheren
+### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Microsoft Workplace Join voor Windows downlevel-computers installeren
 
-Als u downlevel Windows-apparaten wilt registreren, dient u een Windows Installer-pakket (.msi) in het Downloadcentrum te downloaden en installeren. Zie voor meer informatie de sectie [validatie van hybride Azure AD join op Windows downlevel-apparaten beheerd](hybrid-azuread-join-control.md#controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices).
+Voor het registreren van Windows downlevel-apparaten, organisaties moeten installeren [Microsoft Workplace Join voor Windows 10-computers](https://www.microsoft.com/download/details.aspx?id=53554) beschikbaar is op het Microsoft Download Center.
+
+U kunt het pakket implementeren met behulp van een software-distributiesysteem zoals [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Het pakket biedt ondersteuning voor de standaard installatie op de achtergrond-opties met de stille parameter. De huidige vertakking van Configuration Manager biedt voordelen ten opzichte van eerdere versies, zoals de mogelijkheid voor het bijhouden van voltooide registraties.
+
+Het installatieprogramma maakt een geplande taak op het systeem die wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker een aanmelding voor Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met Azure AD.
 
 ## <a name="verify-the-registration"></a>De registratie verifiëren
 
@@ -183,9 +185,7 @@ Als u problemen ondervindt met het voltooien van de hybride Azure AD-koppeling v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Hybride Azure Active Directory-koppeling configureren voor beheerde domeinen](hybrid-azuread-join-managed-domains.md)
-> [Hybride Azure Active Directory-koppeling handmatig configureren](hybrid-azuread-join-manual.md)
+- Zie voor meer informatie over het beheren van apparaat-id's in de Azure AD-portal [beheren van apparaat-id's met behulp van de Azure-portal](device-management-azure-portal.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png

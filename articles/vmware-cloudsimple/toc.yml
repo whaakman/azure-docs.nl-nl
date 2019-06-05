@@ -55,11 +55,11 @@
     - name: Zelfstudies
       items:
         - name: Resourceprovider inschakelen
-          href: 'https://docs.azure.cloudsimple.com/enable-cloudsimple-service/'
+          href: enable-cloudsimple-service.md
         - name: CloudSimple-service maken
-          href: 'https://docs.azure.cloudsimple.com/create-cloudsimple-service/'
+          href: create-cloudsimple-service.md
         - name: Toegang tot de CloudSimple-portal
-          href: 'https://docs.azure.cloudsimple.com/access-cloudsimple-portal/'
+          href: access-cloudsimple-portal.md
         - name: Knooppunten beheren
           items:
             - name: Knooppunten kopen

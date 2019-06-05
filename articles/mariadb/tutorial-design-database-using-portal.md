@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 1eb24d90c3aefa81f53a3e31c0bd460f45e5a250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626297"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515660"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for MariaDB-database ontwerpen met de Azure-portal
 
@@ -63,6 +63,9 @@ U maakt een Azure Database for MariaDB-server met een gedefinieerde set [reken- 
     Prijscategorie | Zie de beschrijving. | De reken-, opslag- en back-upconfiguraties voor de nieuwe server. Selecteer **Prijscategorie** > **Algemeen gebruik**. Behoud de standaardwaarden voor de volgende instellingen:<br><ul><li>**Bewerking voor compute** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Opslag** (100 GB)</li><li>**Bewaarperiode voor back-ups** (7 dagen)</li></ul><br>Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**. <br><br>Selecteer **OK** om deze geselecteerde prijscategorie op te slaan. Deze selecties worden afgebeeld in de volgende schermopname.
     
    ![Prijscategorie](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > Met **automatische groei** ingeschakeld op uw server toeneemt opslag wanneer u de toegewezen limiet nadert zonder gevolgen voor uw workload.
 
 4. Selecteer **Maken**. Na een minuut of twee wordt een nieuwe Azure-database voor de MariaDB-server uitgevoerd in de cloud. Selecteer **Meldingen** op de werkbalk om het implementatieproces te bewaken.
 

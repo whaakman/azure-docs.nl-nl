@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2984ed9a7edd36b166c0dff9aa87d86c6d2ab45
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9709d18b00d65578ca3a63fe5044e0b9f7b52d58
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800721"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515584"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Zelfstudie: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instances
 
@@ -35,7 +35,7 @@ In dit gedeelte van de zelfstudie gebruikt u Azure Machine Learning-service voor
 Container Instances is een uitstekende oplossing voor het testen en inzicht krijgen in de werkstroom. Voor schaalbare productie-implementaties is het misschien beter om Azure Kubernetes Service te gebruiken. Zie [Modellen implementeren met de Azure Machine Learning-service](how-to-deploy-and-where.md) voor meer informatie.
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.8.
+> Code in dit artikel is getest met Azure Machine Learning SDK versie 1.0.41.
 
 ## <a name="prerequisites"></a>Vereisten
 Ga naar [De ontwikkelomgeving instellen](#start) om door de notebook-stappen te lezen.  

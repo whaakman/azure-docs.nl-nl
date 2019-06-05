@@ -147,16 +147,12 @@
       items:
         - name: OPC Twin-architectuur
           href: overview-opc-twin-architecture.md
-        - name: Architectuur van verbonden fabriek
-          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Handleidingen
       items:
         - name: Verbonden factory
           items:
             - name: Het dashboard gebruiken
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Een gateway implementeren
-              href: iot-accelerators-connected-factory-gateway-deployment.md
             - name: De uitgever van OPC gebruiken
               href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: De oplossingsversneller configureren

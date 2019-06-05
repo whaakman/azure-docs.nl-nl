@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551328"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688852"
 ---
 # <a name="what-is-azure-content-moderator"></a>Wat is Azure Content Moderator?
 
@@ -25,11 +25,14 @@ De Azure Content Moderator-API is een cognitieve service waarmee tekst, afbeeldi
 
 Hieronder vindt u enkele scenario's waarin een softwareontwikkelaar of -team Content Moderator kan gebruiken:
 
-- Onlinemarktplaatsen die toezicht willen houden op productcatalogi en andere door gebruikers gegenereerde inhoud
-- Gamingbedrijven die toezicht willen houden op door gebruikers gegenereerde gameartefacten en chatruimten
-- Platforms voor sociale berichten die toezicht willen houden op afbeeldingen, tekst en video's die door gebruikers worden toegevoegd
-- Grote mediabedrijven die gecentraliseerd toezicht implementeren voor hun inhoud
-- Leveranciers van oplossingen voor lager en voortgezet onderwijs die willen filteren op inhoud die ongepast is voor leerlingen en docenten
+- Online marktplaatsen die gemiddeld productcatalogi en andere gebruikers gegenereerde inhoud.
+- Bedrijven die door gebruikers gegenereerde game artefacten en chatruimten gemiddeld spelen van games.
+- Sociale messaging-platforms die gemiddeld afbeeldingen, tekst en video's die zijn toegevoegd door hun gebruikers.
+- Media ondernemingen die centrale beheer voor hun inhoud implementeren.
+- K-12 education leveranciers van oplossingen gefilterd op inhoud die niet geschikt is voor studenten en docenten.
+
+> [!NOTE]
+> U kunt Content Moderator niet gebruiken voor het detecteren van ongeldige onderliggende misbruik installatiekopieën. Echter gekwalificeerde organisaties kunnen gebruiken de [PhotoDNA Cloudservice](https://www.microsoft.com/photodna "Cloudservice van Microsoft PhotoDNA") scherm voor dit type inhoud.
 
 ## <a name="what-it-includes"></a>Samenstelling van Content Moderator
 

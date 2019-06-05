@@ -58,8 +58,6 @@
         - name: Kies uw marketplace-voordelen
           href: ./gtm-your-marketplace-benefits.md
           items:
-            - name: Uw bedrijf promoten met Microsoft
-              href: ./gtm-promote-your-business.md
             - name: Voorkeursoplossingen
               href: ./preferred-solutions.md
             - name: Geïntegreerde oplossingen

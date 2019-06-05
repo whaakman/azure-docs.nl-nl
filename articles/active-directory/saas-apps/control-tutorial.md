@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met het besturingselement | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en het besturingselement.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en controle van de bedrijfscontinuïteit te waarborgen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 569021d79e74bc7a5a2582741109e1094ba90de8
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: aa66ae77ccc271e475d61b286e0f236429e40feb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65862694"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507512"
 ---
-# <a name="tutorial-integrate-control-with-azure-active-directory"></a>Zelfstudie: Besturingselement integreren met Azure Active Directory
+# <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Zelfstudie: Besturingselement voor bedrijfscontinuïteit met Azure Active Directory integreren
 
-In deze zelfstudie leert u over het besturingselement integreren met Azure Active Directory (Azure AD). Wanneer u een besturingselement met Azure AD integreert, kunt u het volgende doen:
+In deze zelfstudie leert u hoe bedrijfscontinuïteit besturingselement (beheer) integreren met Azure Active Directory (Azure AD). Wanneer u een besturingselement met Azure AD integreert, kunt u het volgende doen:
 
 * Beheren in Azure AD die toegang tot het besturingselement heeft.
 * Kunnen uw gebruikers worden automatisch aangemeld om te bepalen met hun Azure AD-accounts.
@@ -38,7 +38,7 @@ Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat i
 Om te beginnen, hebt u de volgende items nodig:
 
 * Een Azure AD-abonnement Als u geen abonnement hebt, krijgt u de gratis proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
-* Besturingselement voor eenmalige aanmelding (SSO) ingeschakeld abonnement.
+* Een besturingselement voor eenmalige aanmelding (SSO) ingeschakeld abonnement.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -63,8 +63,8 @@ Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met het best
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Besturingselement SSO configureren](#configure-control-sso)**  : als u wilt de Single Sign-On-instellingen configureren op de toepassing aan clientzijde.
-3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)** : als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)** : als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 5. **[Besturingselement testgebruiker maken](#create-control-test-user)**  : als u wilt een equivalent van Britta Simon hebben in het besturingselement dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-sso)**  : als u wilt controleren of de configuratie werkt.
 
@@ -83,7 +83,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
     In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<SUBDOMAIN>.continuity.net/auth/saml`
 
     > [!Note]
-    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Beheerclient ondersteuningsteam](mailto:help@continuity.net) om de waarde. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > De waarde is niet echt. Werk de waarde bij met de juiste subdomein. Kan de SSO-subdomein worden geconfigureerd op [besturingselement verificatiestrategieën](https://control.continuity.net/settings/account_profile#tab/security). U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
 1. Klik in de sectie **SAML-handtekeningcertificaat** op de knop **Bewerken** om het dialoogvenster **SAML-handtekeningcertificaat** te openen.
 
@@ -93,19 +93,13 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     ![Waarde van vingerafdruk kopiëren](common/copy-thumbprint.png)
 
-1. Op de **besturingselement instellen** sectie, kopieert u de juiste URL('s) volgens uw behoeften.
+1. Op de **besturingselement instellen** sectie, kopieert u de aanmeldings-URL en sla deze op uw computer.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    a. Aanmeldings-URL
-
-    b. Azure AD-id
-
-    c. Afmeldings-URL
-
 ### <a name="configure-control-sso"></a>Besturingselement voor eenmalige aanmelding configureren
 
-Het configureren van eenmalige aanmelding op **besturingselement** zijde, moet u voor het verzenden van de **vingerafdrukwaarde** en toepassing van de gekopieerde URL's van Azure portal om te [besturingselement ondersteuningsteam](mailto:help@continuity.net). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Het configureren van eenmalige aanmelding op de **besturingselement** zijde, moet u de instellingen voor verificatie met eenmalige aanmelding bij bijwerken [besturingselement verificatiestrategieën](https://control.continuity.net/settings/account_profile#tab/security). Update **URL voor SAML SSO-** met de **aanmeldings-URL** en **certificaat vingerafdruk** met de **vingerafdrukwaarde** vanuit Azure portal.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -139,7 +133,7 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door
 
 ### <a name="create-control-test-user"></a>Besturingselement testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in besturingselement. Werken met [besturingselement ondersteuningsteam](mailto:help@continuity.net) om toe te voegen de gebruikers in het besturingselement-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in besturingselement. Werken met [besturingselement ondersteuningsteam](mailto:help@continuity.net) om toe te voegen de gebruikers in het besturingselement-platform. Gebruik Britta Simon van Azure AD **gebruikersnaam** voor het vullen van haar **Identity Provider gebruikers-ID** in besturingselement. Gebruikers moeten worden gemaakt, en de bijbehorende **Identity Provider gebruikers-ID** instellen in een besturingselement voordat eenmalige aanmelding kan worden gebruikt.
 
 ### <a name="test-sso"></a>Test eenmalige aanmelding
 

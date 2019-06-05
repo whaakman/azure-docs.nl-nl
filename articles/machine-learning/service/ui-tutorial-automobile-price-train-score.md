@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66019832"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515638"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Zelfstudie: De prijs op met de visuele interface voorspellen
 
@@ -80,11 +80,11 @@ Als u hebt de Snelstartgids niet hebt voltooid, volgt u deze stappen voor het sn
 
 1. Maak een nieuw experiment door te selecteren **+ nieuw** onderaan het venster van de visuele interface.
 
-1. Selecteer **EXPERIMENT** >  **Blank Experiment**.
+1. Selecteer **experimenten** >  **Blank Experiment**.
 
 1. Selecteer de naam van de standaard-experiment **'geëxperimenteerd gemaakt op...** ' aan de bovenkant van het canvas en wijzig de naam in een herkenbare naam. Bijvoorbeeld, **prijzen auto's voorspellen**. De naam hoeft niet uniek te zijn.
 
-1. Aan de linkerkant van het experimentcanvas bevindt zich een palet met gegevenssets en modules. Gebruik het zoekvak boven aan het modulepalet modules vindt. Type **auto** in het zoekvak om te vinden van de gegevensset met het label **Automobile prijs data (Raw)**. Sleep deze gegevensset naar het experimentcanvas.
+1. Aan de linkerkant van het experimentcanvas bevindt zich een palet met gegevenssets en modules. Gebruik het zoekvak boven aan het modulepalet modules vindt. Type **auto** in het zoekvak om te vinden van de gegevensset met het label **Automobile prijs data (Raw)** . Sleep deze gegevensset naar het experimentcanvas.
 
     ![Schermafbeelding van de gegevensset ' Automobile ' prijs zoeken](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
 
@@ -167,7 +167,7 @@ Nu dat u het model met behulp van 70 procent van uw gegevens hebben getraind, ku
 
 1. Type **score-model** in het zoekvak om te zoeken de **Score Model** -module en sleep de module naar het experimentcanvas. Koppel de uitvoer van de **Train Model** poort van de module aan de linkerkant invoer **Score Model**. Koppel de testgegevensuitvoer (rechterpoort) van de **Split Data** poort van de module aan de rechterkant invoer **Score Model**.
 
-1. Type **evalueren** in het zoekvak om te zoeken de **Evaluate Model** en sleept u de it module naar het experimentcanvas. Koppel de uitvoer van de **Score Model** module aan de linkerinvoer van **Evaluate Model**. Het laatste experiment ziet er ongeveer als volgt uit:
+1. Type **evalueren** in het zoekvak om te zoeken de **Evaluate Model** en sleep de module naar het experimentcanvas. Koppel de uitvoer van de **Score Model** module aan de linkerinvoer van **Evaluate Model**. Het laatste experiment ziet er ongeveer als volgt uit:
 
     ![Schermafbeelding van de laatste juiste configuratie van het experiment.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 
@@ -183,8 +183,8 @@ Nu dat u het model met behulp van 70 procent van uw gegevens hebben getraind, ku
 
 De volgende statistieken worden weergegeven voor het model:
 
-* **Mean Absolute Error (MAE)**: Het gemiddelde aan absolute fouten (een fout is het verschil tussen de voorspelde waarde en de werkelijke waarde).
-* **Root Mean Squared fout (RMSE)**: De vierkantswortel uit het gemiddelde aan kwadratische fouten voor de voorspellingen op basis van de testgegevensset.
+* **Mean Absolute Error (MAE)** : Het gemiddelde aan absolute fouten (een fout is het verschil tussen de voorspelde waarde en de werkelijke waarde).
+* **Root Mean Squared fout (RMSE)** : De vierkantswortel uit het gemiddelde aan kwadratische fouten voor de voorspellingen op basis van de testgegevensset.
 * **Relatieve absolute fout**: Het gemiddelde aan absolute fouten ten opzichte van het absolute verschil tussen de werkelijke waarden en het gemiddelde van alle werkelijke waarden.
 * **Relatieve kwadratische fout**: Het gemiddelde aan kwadratische fouten ten opzichte van het kwadratische verschil tussen de werkelijke waarden en het gemiddelde van alle werkelijke waarden.
 * **Determinatiecoëfficiënt**: Ook wel bekend als de r²-waarde, is dit een statistische meetwaarde die aangeeft hoe goed het model is de gegevens.
