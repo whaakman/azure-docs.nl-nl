@@ -157,12 +157,12 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| topic | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| subject | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
 | eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
 | eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | id | string | De unieke id voor de gebeurtenis. |
-| gegevens | object | Gebeurtenisgegevens voor BLOB-opslag. |
+| data | object | Gebeurtenisgegevens voor BLOB-opslag. |
 | dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
@@ -173,31 +173,31 @@ Het gegevensobject heeft de volgende eigenschappen:
 | id | string | De gebeurtenis-ID. |
 | timestamp | string | De tijd waarop de gebeurtenis heeft plaatsgevonden. |
 | action | string | De actie die de opgegeven gebeurtenis omvat. |
-| doel | object | Het doel van de gebeurtenis. |
-| aanvraag | object | De aanvraag die de gebeurtenis is gegenereerd. |
+| target | object | Het doel van de gebeurtenis. |
+| request | object | De aanvraag die de gebeurtenis is gegenereerd. |
 
 Het doelobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | mediaType | string | Het MIME-type van het object waarnaar wordt verwezen. |
-| grootte | geheel getal | Het aantal bytes van de inhoud. Hetzelfde als het veld lengte. |
-| Verificatiesamenvatting | string | De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie. |
-| Lengte | geheel getal | Het aantal bytes van de inhoud. Hetzelfde als het veld grootte. |
-| Opslagplaats | string | De naam van de opslagplaats. |
+| size | geheel getal | Het aantal bytes van de inhoud. Hetzelfde als het veld lengte. |
+| digest | string | De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie. |
+| length | geheel getal | Het aantal bytes van de inhoud. Hetzelfde als het veld grootte. |
+| repository | string | De naam van de opslagplaats. |
 | tag | string | De naam van de tag. |
-| naam | string | De naam van de grafiek. |
-| versie | string | De versie van de grafiek. |
+| name | string | De naam van de grafiek. |
+| version | string | De versie van de grafiek. |
 
 Het request-object heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | id | string | De ID van de aanvraag die de gebeurtenis heeft gestart. |
-| adres van doel | string | Het IP of hostnaam en mogelijk poort van de clientverbinding die de gebeurtenis heeft gestart. Deze waarde is de RemoteAddr van de standaard-http-aanvraag. |
+| addr | string | Het IP of hostnaam en mogelijk poort van de clientverbinding die de gebeurtenis heeft gestart. Deze waarde is de RemoteAddr van de standaard-http-aanvraag. |
 | host | string | De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de http host-header op binnenkomende aanvragen. |
 | method | string | De aanvraagmethode waarmee de gebeurtenis is gegenereerd. |
-| userAgent | string | De gebruiker agent-kop van de aanvraag. |
+| useragent | string | De gebruiker agent-kop van de aanvraag. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
