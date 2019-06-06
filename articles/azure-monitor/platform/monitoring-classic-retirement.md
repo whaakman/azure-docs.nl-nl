@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 82e6f28e00de725042a3d764a898b3c6486e1110
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 1f29a12090ca37f25ea6f5f11e870df924b334f5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66023201"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497124"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -59,15 +59,15 @@ Oudere klassiek bewaking en waarschuwingen worden stopgezet op 31 augustus 2019;
 - Oudere (klassiek) platform en aangepaste metrische gegevens voor Application Insights, evenals waarschuwingen op deze als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](../../azure-monitor/platform/alerts-classic.overview.md) van Azure portal en toegankelijk als [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Oudere (klassiek) Foutafwijkingen waarschuwing momenteel beschikbaar als [Slimme detectie in Application Insights](../../azure-monitor/app/proactive-diagnostics.md) in de Azure-portal; met waarschuwingen geconfigureerd wordt weergegeven in [waarschuwingen (klassiek) sectie](../../azure-monitor/platform/alerts-classic.overview.md) van Azure Portal
 
-Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure portal-pagina](../../azure-monitor/platform/alerts-classic-portal.md), en [ Resource-sjabloon](../../azure-monitor/platform/alerts-enable-template.md) bruikbaar blijven tot het einde van juni 2019. 
+Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure portal-pagina](../../azure-monitor/platform/alerts-classic-portal.md), en [ Resource-sjabloon](../../azure-monitor/platform/alerts-enable-template.md) bruikbaar blijven tot het einde van augustus 2019. 
 
 Aan het einde van augustus 2019, in Azure Monitor:
 
 - Klassieke service voor bewaking en waarschuwingen worden buiten gebruik is gesteld en niet meer beschikbaar zijn voor het maken van nieuwe regels voor waarschuwingen.
-- Geen waarschuwingsregels die blijven bestaan in waarschuwingen (klassiek) buiten juni 2019 blijven uitvoeren en meldingen worden geactiveerd, maar niet meer beschikbaar voor de wijziging.
-- Vanaf September 2019, waarschuwingsregels in klassieke bewaking en waarschuwingen die kunnen worden gemigreerd, worden automatisch verplaatst door Microsoft aan het equivalent hiervan in het nieuwe Azure monitor-platform. Het proces wordt naadloze zonder uitvaltijd en klanten hebben geen invloed op de bewaking van de dekking.
+- Geen waarschuwingsregels die blijven bestaan in waarschuwingen (klassiek) dan augustus 2019 blijven uitvoeren en meldingen worden geactiveerd, maar niet meer beschikbaar voor de wijziging.
+- Vanaf September 2019, waarschuwingsregels in klassieke bewaking en waarschuwingen die kunnen worden gemigreerd, worden automatisch verplaatst door Microsoft aan het equivalent hiervan in het nieuwe platform van Azure monitor in fasen spanning paar weken. Het proces wordt naadloze zonder uitvaltijd en klanten hebben geen invloed op de bewaking van de dekking.
 - Ontvang een waarschuwing regels die zijn gemigreerd naar de nieuwe waarschuwingen platform biedt controle dekking als voorheen maar melding met de nieuwe nettoladingen wordt geactiveerd. Een e-mailadres, een webhook-eindpunt of een logic app-koppeling die is gekoppeld aan een klassieke waarschuwingsregel getransporteerd wanneer gemigreerd, maar mogelijk niet juist werken als alert payload verschillend voor het nieuwe platform zijn.
-- Sommige [klassieke waarschuwingsregels die automatisch kunnen niet worden gemigreerd](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) en vereisen handmatige actie van de gebruikers blijven actief tot juni 2020.
+- Sommige [klassieke waarschuwingsregels die automatisch kunnen niet worden gemigreerd](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) en vereisen handmatige actie van de gebruikers blijven actief tot en met juni 2020.
 
 > [!IMPORTANT]
 > Microsoft Azure Monitor is geïmplementeerd in fasen [hulpprogramma voor het migreren van vrijwillig](alerts-using-migration-tool.md) hun klassieke waarschuwingsregels u aan bij het nieuwe platform beschikbaar. En voer dit geforceerd beëindigd voor alle klassieke waarschuwingsregels die nog steeds aanwezig zijn en kunnen worden gemigreerd, vanaf September 2019. Klanten moet ervoor zorgen automation in beslag nemen klassieke waarschuwingsregel nettolading is aangepast voor het afhandelen van de nettolading van de nieuwe van [Unified metrische gegevens en waarschuwingen in Application Insights](#unified-metrics-and-alerts-in-application-insights) of [Unified metrische gegevens en waarschuwingen voor andere Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), na de migratie van de klassieke waarschuwingsregels. Zie voor meer informatie, [voorbereiden voor migratie van een klassieke waarschuwingsregel](alerts-prepare-migration.md)

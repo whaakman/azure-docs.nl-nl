@@ -2,20 +2,20 @@
 title: Meld u één pagina in met behulp van de impliciete stroom - Azure Active Directory B2C | Microsoft Docs
 description: Informatie over het toevoegen van aanmelding met één pagina in het gebruik van de impliciete OAuth 2.0-stroom met Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06156b1050bbf77fbbd5be8559b3c1683c2ced24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698949"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508962"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Meld u één pagina in met behulp van de impliciete stroom voor OAuth 2.0 in Azure Active Directory B2C
 
@@ -88,7 +88,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope | Ja | Een door spaties gescheiden lijst met bereiken. Een waarde één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging om te melden bij de gebruiker en gegevens over de gebruiker in de vorm van ID-tokens ophalen. De `offline_access` bereik is optioneel voor web-apps. Hiermee wordt aangegeven dat uw app nodig heeft voor een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen. |
 | state | Nee | Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Kan het zijn een reeks van inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt voor cross-site-aanvraag kunnen worden vervalst aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina. |
 | nonce | Ja | Een waarde die is opgenomen in de aanvraag (gegenereerd door de app) die is opgenomen in de resulterende ID-token als een claim. De app kunt vervolgens controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
-| p | Ja | Het beleid om uit te voeren. Dit is de naam van een beleid (beleid) dat is gemaakt in uw Azure AD B2C-tenant. De beleidswaarde voor de naam moet beginnen met **b2c\_1\_**. |
+| p | Ja | Het beleid om uit te voeren. Dit is de naam van een beleid (beleid) dat is gemaakt in uw Azure AD B2C-tenant. De beleidswaarde voor de naam moet beginnen met **b2c\_1\_** . |
 | prompt | Nee | Het type van de interactie van de gebruiker die is vereist. Op dit moment de enige geldige waarde is `login`. Deze parameter zorgt ervoor dat de gebruiker zijn referenties invoeren voor deze aanvraag. Eenmalige aanmelding wordt pas van kracht. |
 
 Op dit moment wordt de gebruiker gevraagd om de werkstroom van het beleid te voltooien. De gebruiker mogelijk aanmelden met een sociale identiteit, meld u zich registreren voor de map of een ander getal van de stappen om in te voeren hun gebruikersnaam en wachtwoord. Acties van de gebruiker, is afhankelijk van hoe de gebruikersstroom wordt gedefinieerd.

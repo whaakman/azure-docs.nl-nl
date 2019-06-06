@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087265"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514467"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Troubleshoot Desired State Configuration (DSC)
 
@@ -145,6 +145,25 @@ U hebt een referentie gebruikt in een configuratie maar is niet juiste **Configu
 #### <a name="resolution"></a>Oplossing
 
 * Zorg ervoor dat u in de juiste doorgeven **ConfigurationData** om in te stellen **PSDscAllowPlainTextPassword** op ' True ' voor de knooppuntconfiguratie van elk dat wordt vermeld in de configuratie. Zie voor meer informatie, [assets in Azure Automation DSC](../automation-dsc-compile.md#assets).
+
+### <a name="failure-processing-extension"></a>Scenario: Onboarding van dsc-extensie, fout "Fout bij verwerken van extensie"
+
+#### <a name="issue"></a>Probleem
+
+Wanneer er onboarding met behulp van DSC-extensie is een fout optreedt met de fout:
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout treedt meestal op wanneer het knooppunt een knooppuntconfiguratienaam die niet in de service bestaat is toegewezen.
+
+#### <a name="resolution"></a>Oplossing
+
+* Zorg ervoor dat u het knooppunt met de naam van een knooppunt-configuratie die exact overeenkomt met de naam in de service toewijst.
+* U kunt geen de naam van de configuratie van knooppunt, die in voorbereiding leidt tot het knooppunt, maar niet een knooppuntconfiguratie toewijzen
 
 ## <a name="next-steps"></a>Volgende stappen
 

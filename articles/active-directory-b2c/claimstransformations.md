@@ -2,20 +2,20 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: De definitie van het element ClaimsTransformations in de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65b64563bf00bb519a65b6d2e0418b4f755dea2d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710832"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511534"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -59,7 +59,7 @@ De **ClaimsTransformation** element bevat de volgende elementen:
 ```
 
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | Een lijst met **InputClaim** elementen die claimtypen die worden uitgevoerd opgeeft als invoer voor de claimtransformatie. Elk van deze elementen bevat een verwijzing naar een ClaimType al gedefinieerd in de sectie ClaimsSchema in het beleid. |
 | InputParameters | 0:1 | Een lijst met **InputParameter** elementen die zijn opgegeven als invoer voor de claimtransformatie.  
@@ -69,7 +69,7 @@ De **ClaimsTransformation** element bevat de volgende elementen:
 
 De **InputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | InputClaim | 1: n | Een verwachte invoer claimtype. |
 
@@ -86,7 +86,7 @@ De **InputClaim** element bevat de volgende kenmerken:
 
 De **invoerparameters** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | InputParameter | 1: n | Een verwachte invoerparameter. |
 
@@ -102,7 +102,7 @@ De **invoerparameters** element bevat het volgende element:
 
 De **OutputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0: n | Verwachte uitvoer claimtype. |
 

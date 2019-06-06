@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 06/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 376a7f3f83cc7fcf7490675d9c0aef1513862e8a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521739"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514324"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Om weer te geven van Logboeken en gebeurtenissen in realtime (preview)
 Azure Monitor voor containers bevat een functie, die zich momenteel in preview, waarmee een liveweergave van uw Azure Kubernetes Service (AKS) containerlogboeken (stdout/stderr) en -gebeurtenissen zonder kubectl-opdrachten uit te voeren. Wanneer u een van de opties selecteert, een nieuw deelvenster wordt weergegeven onder de tabel met prestaties op de **knooppunten**, **Controllers**, en **Containers** weergeven. Live logboekregistratie en gebeurtenissen die worden gegenereerd door de engine container om verder te helpen bij het oplossen van problemen in realtime worden weergegeven. 
@@ -27,7 +27,7 @@ Azure Monitor voor containers bevat een functie, die zich momenteel in preview, 
 >**Inzender** toegang tot de cluster-bron is vereist voor deze functie te gebruiken.
 >
 
-Live logboeken ondersteunt drie verschillende methoden voor het beheren van toegang tot de logboeken:
+Live-logboeken bieden ondersteuning voor drie verschillende methoden voor het beheren van toegang tot de logboeken:
 
 1. AKS zonder Kubernetes RBAC-autorisatie ingeschakeld 
 2. AKS ingeschakeld met Kubernetes RBAC-autorisatie
@@ -66,10 +66,13 @@ Als u Kubernetes RBAC-autorisatie hebt ingeschakeld, moet u om toe te passen clu
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Als u dit voor het eerst configureert, u de binding van de regel cluster maken met de volgende opdracht: `kubectl create -f LogReaderRBAC.yaml`. Als u ondersteuning eerder ingeschakeld voor live logboeken bekijken voordat we geïntroduceerd live gebeurtenislogboeken, voor het bijwerken van uw configuratie, voer de volgende opdracht: `kubectl apply -f LiveLogRBAC.yml`. 
+2. Als u deze voor het eerst configureert, u de binding van de regel cluster maken met de volgende opdracht: `kubectl create -f LogReaderRBAC.yaml`. Als u ondersteuning eerder ingeschakeld voor live logboeken bekijken voordat we geïntroduceerd live gebeurtenislogboeken, voor het bijwerken van uw configuratie, voer de volgende opdracht: `kubectl apply -f LogReaderRBAC.yml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>AKS met Azure Active Directory configureren
-AKS kan worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. Als u dit voor het eerst configureert, Zie [Integreer Azure Active Directory met Azure Kubernetes Service](../../aks/azure-ad-integration.md). Tijdens de stappen voor het maken van de [clienttoepassing](../../aks/azure-ad-integration.md#create-client-application) en geef de **omleidings-URI**, moet u een andere URI toevoegen aan de lijst met `https://ininprodeusuxbase.microsoft.com/*`.  
+AKS kan worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. Als u deze voor het eerst configureert, Zie [Integreer Azure Active Directory met Azure Kubernetes Service](../../aks/azure-ad-integration.md). Tijdens de stappen voor het maken van de [clienttoepassing](../../aks/azure-ad-integration.md#create-client-application), moet u twee opgeven **omleidings-URI** vermeldingen. De twee URI's zijn:
+
+- https://ininprodeusuxbase.microsoft.com/*
+- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
 
 >[!NOTE]
 >Configureren van verificatie met Azure Active Directory voor eenmalige aanmelding kan alleen worden uitgevoerd tijdens de eerste implementatie van een nieuw AKS-cluster. U kunt eenmalige aanmelding niet configureren op voor een AKS-cluster die al zijn geïmplementeerd. U moet de verificatie van configureren **App-registratie (verouderd)** toe te voegen aan de lijst, optie in Azure AD om ondersteuning voor het gebruik van jokertekens in de URI en tijdens het registreren als een **systeemeigen** app.
@@ -77,13 +80,13 @@ AKS kan worden geconfigureerd voor het gebruik van Azure Active Directory (AD) v
 
 ## <a name="view-live-logs-and-events"></a>Live-logboeken en gebeurtenissen
 
-U kunt realtime logboekgebeurtenissen weergeven nadat ze zijn gegenereerd door de container-engine van de **knooppunten**, **Controllers**, en **Containers** weergeven. In het deelvenster met eigenschappen die u selecteert **live-gegevens (preview) weergeven** optie en een deelvenster wordt weergegeven onder de prestaties gegevenstabel waar u logboek- en gebeurtenissen in een onafgebroken stroom kunt bekijken. 
+U kunt realtime logboekgebeurtenissen weergeven nadat ze zijn gegenereerd door de container-engine van de **knooppunten**, **Controllers**, en **Containers** weergeven. In het eigenschappendeelvenster die u selecteert **live-gegevens (preview) weergeven** optie en een deelvenster wordt weergegeven onder de prestaties gegevenstabel waar u logboek- en gebeurtenissen in een onafgebroken stroom kunt bekijken. 
 
 ![Optie voor live-logboeken van knooppunt eigenschappen deelvenster weergeven](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
 Logboek- en gebeurtenisgegevens berichten zijn beperkt op basis van het resourcetype is geselecteerd in de weergave.
 
-| Weergeven | Resourcetype | Logboek of de gebeurtenis | Gegevens die worden gepresenteerd |
+| Weergave | Resourcetype | Logboek of de gebeurtenis | Gegevens die worden gepresenteerd |
 |------|---------------|--------------|----------------|
 | Knooppunten | Knooppunt | Gebeurtenis | Wanneer een knooppunt is geselecteerd wordt gebeurtenissen niet worden gefilterd en brede, door het cluster Kubernetes-gebeurtenissen weergeven. De titel van het deelvenster ziet u de naam van het cluster. |
 | Knooppunten | Pod | Gebeurtenis | Als u een schil hebt geselecteerd worden gebeurtenissen gefilterd op de naamruimte. De titel van het deelvenster ziet u de naamruimte van de schil. | 

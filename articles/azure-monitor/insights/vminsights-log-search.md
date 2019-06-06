@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602091"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472591"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines (preview)
 Azure Monitor voor virtuele machines verzamelt prestaties en metrische verbindingsgegevens, computer- en inventarisgegevens proces en informatie over de status en stuurt deze door naar de Log Analytics-werkruimte in Azure Monitor.  Deze gegevens zijn beschikbaar voor [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -43,8 +43,8 @@ De volgende velden en conventies van toepassing op zowel VMConnection en VMBound
 
 - Computer: FQDN-naam van machine-rapportage 
 - AgentID: De unieke id voor een machine met de Log Analytics-agent  
-- Apparaat: De naam van de Azure Resource Manager-resource voor de machine door ServiceMap beschikbaar gesteld. Het is van het formulier *m-{GUID}*, waarbij *GUID* is de GUID als AgentID  
-- Proces: De naam van de Azure Resource Manager-resource voor het proces door ServiceMap beschikbaar gesteld. Het is van het formulier *p-{hex-tekenreeks}*. Proces is uniek binnen het bereik van een machine en voor het genereren van unieke proces-ID op computers, velden Machine en het proces te combineren. 
+- Machine: De naam van de Azure Resource Manager-resource voor de machine door ServiceMap beschikbaar gesteld. Het is van het formulier *m-{GUID}* , waarbij *GUID* is de GUID als AgentID  
+- Proces: De naam van de Azure Resource Manager-resource voor het proces door ServiceMap beschikbaar gesteld. Het is van het formulier *p-{hex-tekenreeks}* . Proces is uniek binnen het bereik van een machine en voor het genereren van unieke proces-ID op computers, velden Machine en het proces te combineren. 
 - ProcessName: Naam van uitvoerbaar bestand van het proces voor rapportage.
 - Alle IP-adressen zijn tekenreeksen in IPv4-notatie, bijvoorbeeld *13.107.3.160* 
 
@@ -53,7 +53,7 @@ Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding record
 | Eigenschap | Description |
 |:--|:--|
 |Direction |Richting van de verbinding met de waarde is *inkomende* of *uitgaande* |
-|Apparaat |De FQDN-naam van de computer |
+|Machine |De FQDN-naam van de computer |
 |Process |Identiteit van het proces of groepen van processen, de verbinding initiëren/accepteren |
 |SourceIp |IP-adres van de bron |
 |DestinationIp |IP-adres van de bestemming |
@@ -105,7 +105,7 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 |RemoteLatitude |De breedtegraad geolocatie. Bijvoorbeeld, *47.68* |
 |RemoteLongitude |De lengtegraad geolocatie. Bijvoorbeeld, *-122.12* |
 
-#### <a name="malicious-ip"></a>Schadelijk IP
+#### <a name="malicious-ip"></a>Schadelijk IP-adres
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
 
 | Eigenschap | Description |
@@ -124,13 +124,6 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 
 ### <a name="ports"></a>Poorten 
 Poorten op een virtuele machine die actief accepteren van binnenkomend verkeer of verkeer kunnen mogelijk worden geaccepteerd, maar niet actief zijn tijdens de periode reporting worden geschreven naar de tabel VMBoundPort.  
-
->[!NOTE]
->Azure Monitor voor virtuele machines biedt geen ondersteuning voor het verzamelen en poortgegevens vastleggen in een Log Analytics-werkruimte in de volgende regio's:  
->- US - oost  
->- Europa -west
->
-> Het verzamelen van deze gegevens is ingeschakeld in de andere [ondersteunde regio's](vminsights-enable-overview.md#log-analytics) voor Azure Monitor voor virtuele machines. 
 
 Elke record in VMBoundPort wordt geïdentificeerd door de volgende velden: 
 

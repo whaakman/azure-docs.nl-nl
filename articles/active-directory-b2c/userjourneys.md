@@ -2,20 +2,20 @@
 title: UserJourneys | Microsoft Docs
 description: Geef het UserJourneys-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f5e56d4953eecdb488d5dadd4497b1c42b932f35
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812565"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512030"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,7 +29,7 @@ Voor het definiëren van de gebruiker reizen ondersteund door het beleid, een **
 
 De **UserJourneys** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | UserJourney | 1: n | Een gebruikersbeleving waarmee alle van de concepten die nodig zijn voor een volledige gebruikersstroom wordt gedefinieerd. | 
 
@@ -41,7 +41,7 @@ De **UserJourney** element bevat het volgende kenmerk:
 
 De **UserJourney** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1: n | De volgorde van een indeling die moet worden gevolgd door voor een geslaagde transactie. Elke gebruikersbeleving bestaat uit een geordende lijst met de orchestration-stappen die worden uitgevoerd in de reeks. Als er een stap mislukt, wordt de transactie mislukt. |
 
@@ -55,7 +55,7 @@ Om op te geven van de geordende lijst indelingsstappen, een **OrchestrationSteps
 
 De **OrchestrationSteps** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1: n | Een geordende indelingsstap. | 
 
@@ -71,7 +71,7 @@ De **OrchestrationStep** element bevat de volgende kenmerken:
 
 De **OrchestrationStep** element mag de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- | 
 | Voorwaarden | 0: n | Een lijst met voorwaarden waaraan moet worden voldaan voor de orchestration-stap om uit te voeren. | 
 | ClaimsProviderSelections | 0: n | Een lijst van de claims provider selecties voor de orchestration-stap. | 
@@ -81,7 +81,7 @@ De **OrchestrationStep** element mag de volgende elementen:
 
 De **voorwaarden** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- | 
 | Voorwaarde | 0: n | Afhankelijk van het technische profiel wordt gebruikt, leidt u de client op basis van de selectie van claims-provider of maakt een server te worden aangeroepen voor het uitwisselen van claims. | 
 
@@ -97,7 +97,7 @@ De **voorwaarde** element bevat de volgende kenmerken:
 
 De **voorwaarde** elementen bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | Value | 1: n | Een ClaimTypeReferenceId moet worden gezocht voor. Een andere waarde-element bevat de waarde moet worden gecontroleerd.</li></ul>|
 | Bewerking | 1:1 | De actie die moet worden uitgevoerd als de controle van de voorwaarde in een orchestration-stap ingesteld op true is. Als de waarde van de `Action` is ingesteld op `SkipThisOrchestrationStep`, de bijbehorende `OrchestrationStep` moet niet worden uitgevoerd. | 
@@ -164,7 +164,7 @@ Een orchestration-stap van het type `ClaimsProviderSelection` of `CombinedSignIn
 
 De **ClaimsProviderSelection** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 0: n | Geeft de lijst van claims-providers die kunnen worden geselecteerd.|
 
@@ -216,7 +216,7 @@ De gebruiker kan kiezen in de volgende stap van de orchestration, zich aanmelden
 
 De **ClaimsExchanges** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | ClaimsExchange | 0: n | Afhankelijk van het technische profiel wordt gebruikt, leidt u de client op basis van de ClaimsProviderSelection dat is geselecteerd, of maakt een server te worden aangeroepen voor het uitwisselen van claims. | 
 

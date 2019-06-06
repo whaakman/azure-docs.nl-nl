@@ -1,6 +1,6 @@
 ---
-title: 'Status van Azure Monitor v2 API-verwijzing: Status ophalen | Microsoft Docs'
-description: Status Monitor v2 API-verwijzing Get-ApplicationInsightsMonitoringStatus. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET-web-apps die on-premises worden gehost, die in virtuele machines worden gehost en die via Azure worden gehost.
+title: 'Azure Status Monitor v2 API-verwijzing: Status ophalen | Microsoft Docs'
+description: Status Monitor v2 API-verwijzing. Get-ApplicationInsightsMonitoringStatus. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET-web-apps die on-premises worden gehost, die in virtuele machines worden gehost en die via Azure worden gehost.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,27 +12,27 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ff61cf2bfb49a64d2f885cb13fd6c48e32c1f8f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416002"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514310"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>Status Monitor v2 API: Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
 
-Dit document beschrijft een cmdlet die wordt geleverd als een lid van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
-> Zie voor meer informatie, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
+> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="description"></a>Description
 
-Deze cmdlet is opgegeven voor het oplossen van de PowerShell-Module wordt gebruikt.
-Versie-informatie en belangrijkste bestanden die nodig zijn voor het bewaken van rapporteert deze cmdlet.
-Aanvullende parameters bieden extra rapporten over de huidige status van de bewaking.
+Hiermee oplossen van problemen met de PowerShell-module die wordt gebruikt.
+Versie-informatie en informatie over belangrijke bestanden die nodig zijn voor het bewaken van rapporteert deze cmdlet.
+Aanvullende parameters bieden extra rapporten over de status van de bewaking.
 
 > [!IMPORTANT] 
 > Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen vereist.
@@ -40,9 +40,9 @@ Aanvullende parameters bieden extra rapporten over de huidige status van de bewa
 ## <a name="examples"></a>Voorbeelden
 
 
-### <a name="example-basic-information"></a>Voorbeeld: algemene informatie
+### <a name="example-basic-information"></a>Voorbeeld: Algemene informatie
 
-Voer de opdracht uit: `Get-ApplicationInsightsMonitoringStatus` om een uitvoer van informatie over deze module te verkrijgen:
+Voer `Get-ApplicationInsightsMonitoringStatus` informatie weergeven over de huidige module:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
@@ -77,11 +77,11 @@ Machine Identifier:
 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
 ```
 
-### <a name="example-runtime-status"></a>Voorbeeld: runtimestatus
+### <a name="example-runtime-status"></a>Voorbeeld: Runtime-status
 
-U kunt het proces op de functionele machine om te controleren of alle dll's zijn geladen kunt inspecteren. Als de controle werkt, moeten ten minste 12 dll's worden geladen.
+U kunt het proces op de functionele computer om te controleren of alle dll's zijn geladen kunt inspecteren. Als de controle werkt, moeten ten minste 12 dll's worden geladen.
 
-- Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+Voer de opdracht `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -115,19 +115,19 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>Parameters 
+## <a name="parameters"></a>Parameters
 
-### <a name="no-params"></a>(Geen parameters)
+### <a name="no-parameters"></a>(Er zijn geen parameters)
 
-Door **standaard**, versienummers en paden van DLL-bestanden vereist voor het bewaken van deze cmdlet rapporteert.
+Standaard wordt met deze cmdlet de versienummers en paden van DLL-bestanden vereist voor het bewaken van rapport.
 
 Gebruik deze optie als u nodig hebt voor het identificeren van de versie van een DLL-bestand, met inbegrip van de Application Insights-SDK.
 
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Optioneel**. Deze cmdlet wordt gerapporteerd als IIS wordt uitgevoerd.
-Deze cmdlet wordt ook downloaden voor externe hulpprogramma's om te controleren als de benodigde DLL-bestanden in de IIS-runtime worden geladen.
+**Optioneel**. Gebruik deze parameter om te rapporteren of IIS wordt uitgevoerd.
+Externe hulpprogramma's om te bepalen of de benodigde DLL-bestanden in de IIS-runtime worden geladen, worden ook gedownload.
 
 
 Als dit proces om welke reden dan ook mislukt, kunt u deze opdrachten handmatig uitvoeren:
@@ -138,7 +138,7 @@ Als dit proces om welke reden dan ook mislukt, kunt u deze opdrachten handmatig 
 
 ### <a name="-force"></a>-Force
 
-**Optioneel**. Alleen met InspectProcess gebruikt. Deze switch wordt de gebruiker krijgt voor het downloaden van de extra hulpprogramma's worden overgeslagen.
+**Optioneel**. Alleen met InspectProcess gebruikt. Gebruik deze switch om over te slaan van de gebruiker gevraagd die wordt weergegeven voordat de aanvullende hulpprogramma's zijn gedownload.
 
 
 ## <a name="next-steps"></a>Volgende stappen

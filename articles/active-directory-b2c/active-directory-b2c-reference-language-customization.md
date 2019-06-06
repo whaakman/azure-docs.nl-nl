@@ -2,20 +2,20 @@
 title: Aanpassing van taal in Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over het aanpassen van de taal-ervaring.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c319349d721a390562faac0fc6f90a7b471db0f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 48633b195df997f0e9a8f06bd4f5c553ca620e98
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703423"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509400"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Aanpassing van taal in Azure Active Directory B2C
 
@@ -186,20 +186,20 @@ Chrome en Firefox die beide voor hun eigen taal instellen aanvragen. Als dat een
 | Deens                | da            |
 | Duits                | de            |
 | Grieks                 | el            |
-| Engels               | nl            |
+| Nederlands               | nl            |
 | Spaans               | es            |
 | Fins               | fi            |
 | Frans                | fr            |
 | Gujarati              | Gu            |
 | Hindi                 | hi            |
-| Kroatisch              | uur            |
+| Kroatisch              | HR            |
 | Hongaars             | hu            |
 | Italiaans               | it            |
 | Japans              | ja            |
 | Kanarees               | kN            |
 | Koreaans                | ko            |
 | Malayalam             | ml            |
-| Mahratti               | MR            |
+| Marathi               | MR            |
 | Maleis                 | ms            |
 | Noors Bokmal      | nb            |
 | Nederlands                 | nl            |
@@ -213,7 +213,7 @@ Chrome en Firefox die beide voor hun eigen taal instellen aanvragen. Als dat een
 | Zweeds               | sv            |
 | Tamil                 | TA            |
 | Telugu                | Ken            |
-| Thais                  | e            |
+| Thais                  | do            |
 | Turks               | TR            |
 | Chinees - Vereenvoudigd  | zh-hans       |
 | Chinees - Traditioneel | zh-hant       |

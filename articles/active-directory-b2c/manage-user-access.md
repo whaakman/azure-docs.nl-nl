@@ -2,20 +2,20 @@
 title: Gebruikers beheren in Azure Active Directory B2C | Microsoft Docs
 description: Informatie over het identificeren van minderjarigen, datum van de geboortedatum en land/regio gegevens verzamelen en acceptatie van gebruiksvoorwaarden ophalen in uw toepassing met behulp van Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 6aead01ec0084eb75ea385a67f7c85ea185b017a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956949"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510572"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gebruikers beheren in Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Hier volgt een voorbeeld van een beleid voor het verzamelen van ouderlijke toest
 
 2. De toepassing verwerkt het JSON-token en ziet u een scherm naar de secundaire, de melding dat er is ouderlijke toestemming vereist is en de toestemming van een bovenliggende online aanvraagt. 
 
-3. Azure AD B2C toont een reis aanmelding dat de gebruiker bij normaal aanmelden kan en problemen met een token bij de toepassing die is ingesteld om op te nemen **legalAgeGroupClassification = "minorWithParentalConsent"**. De toepassing worden verzameld van het e-mailadres van de bovenliggende en controleert of het bovenliggende object een volwassene. Om dit te doen, maakt gebruik van een vertrouwde bron, zoals een nationale ID office-, licentie-verificatie of creditcard bewijs. Als controle geslaagd is, wordt de toepassing gevraagd om de secundaire aan te melden met behulp van de stroom van de gebruiker Azure AD B2C. Als de toestemming is geweigerd (bijvoorbeeld, als **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C retourneert een JSON-token (niet een aanmelding) voor de toepassing de toestemming van het proces opnieuw starten. Het is eventueel mogelijk voor het aanpassen van de gebruikersstroom dat een volwassene of een secundaire weer toegang te van een secundaire account krijgen kunt door een wordt registratiecode verzonden naar e-mailadres van de secundaire of e-mailadres van de volwassene op record.
+3. Azure AD B2C toont een reis aanmelding dat de gebruiker bij normaal aanmelden kan en problemen met een token bij de toepassing die is ingesteld om op te nemen **legalAgeGroupClassification = "minorWithParentalConsent"** . De toepassing worden verzameld van het e-mailadres van de bovenliggende en controleert of het bovenliggende object een volwassene. Om dit te doen, maakt gebruik van een vertrouwde bron, zoals een nationale ID office-, licentie-verificatie of creditcard bewijs. Als controle geslaagd is, wordt de toepassing gevraagd om de secundaire aan te melden met behulp van de stroom van de gebruiker Azure AD B2C. Als de toestemming is geweigerd (bijvoorbeeld, als **legalAgeGroupClassification = "minorWithoutParentalConsent"** ), Azure AD B2C retourneert een JSON-token (niet een aanmelding) voor de toepassing de toestemming van het proces opnieuw starten. Het is eventueel mogelijk voor het aanpassen van de gebruikersstroom dat een volwassene of een secundaire weer toegang te van een secundaire account krijgen kunt door een wordt registratiecode verzonden naar e-mailadres van de secundaire of e-mailadres van de volwassene op record.
 
 4. De toepassing biedt een optie voor de minderjarige toestemming intrekken.
 

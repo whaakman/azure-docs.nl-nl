@@ -1,6 +1,6 @@
 ---
-title: 'Status van Azure Monitor v2 API-verwijzing: Schakel bewaking | Microsoft Docs'
-description: Status Monitor v2 ApplicationInsightsMonitoring-API-verwijzing uitschakelen. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET-web-apps die on-premises worden gehost, die in virtuele machines worden gehost en die via Azure worden gehost.
+title: 'Azure Status Monitor v2 API-verwijzing: Schakel bewaking | Microsoft Docs'
+description: Status Monitor v2 API-verwijzing. Disable-ApplicationInsightsMonitoring. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET web-apps die on-premises, in virtuele machines, of op Azure worden gehost.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,26 +12,26 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6f2bde824c2a9815dc9fd4791ab43e03558da835
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144932"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514410"
 ---
 # <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>Status Monitor v2 API: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-Dit document beschrijft een cmdlet die wordt geleverd als een lid van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
-> Zie voor meer informatie, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
+> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="description"></a>Description
 
-Schakel bewaking op de doelcomputer.
-Deze cmdlet verwijdert u de bewerkingen van de IIS-applicationHost.config en registersleutels verwijderen.
+Hiermee schakelt u de bewaking op de doelcomputer.
+Deze cmdlet verwijdert u bewerkingen van de IIS-applicationHost.config en registersleutels verwijderen.
 
 > [!IMPORTANT] 
 > Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen vereist.
@@ -45,7 +45,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="parameters"></a>Parameters 
 
 ### <a name="-verbose"></a>-Verbose
-**Common Parameter.** Gebruik deze switch naar gedetailleerde logboeken uitvoer.
+**Algemene parameter.** Gebruik deze switch om gedetailleerde logboeken weer te geven.
 
 ## <a name="output"></a>Uitvoer
 

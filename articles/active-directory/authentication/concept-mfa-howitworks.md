@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 06/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7328fb958774b5e17511d046e914cc5612e8a96d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa25e8a965b89c4e97263e3767a9400079fcad7a
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415822"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496793"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Hoe werkt het? Azure Multi-Factor Authentication
 
@@ -36,10 +36,10 @@ Azure multi-factor Authentication (MFA) helpt beveiligen de toegang tot gegevens
 
 Multi-factor Authentication wordt geleverd als onderdeel van de volgende aanbiedingen:
 
-* **Azure Active Directory Premium-licenties** -volledig gebruik van Azure multi-factor Authentication-Service (Cloud) of Azure multi-factor Authentication-Server (On-premises).
-   * **Azure MFA-Service (Cloud)** - **deze optie is de aanbevolen procedure voor nieuwe implementaties**. Azure MFA in de cloud vereist geen on-premises infrastructuur en kan worden gebruikt met uw gebruikers federatieve of alleen in de cloud.
-   * **Azure MFA-Server** -als uw organisatie wil de elementen van de bijbehorende infrastructuur beheren en AD FS in uw on-premises-omgeving is geïmplementeerd op deze manier is mogelijk een optie.
-* **Multi-factor Authentication voor Office 365** -een subset van de Azure multi-factor Authentication-mogelijkheden zijn beschikbaar als onderdeel van uw abonnement. Zie het artikel voor meer informatie over MFA voor Office 365, [plannen voor multi-factor authentication voor Office 365-implementaties](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
+* **Azure Active Directory Premium** of **Microsoft 365 Business** -volledig gebruik van Azure multi-factor Authentication met behulp van beleid voor voorwaardelijke toegang voor meervoudige verificatie vereisen.
+
+* **Azure AD Free**, **Azure AD Basic**, of een zelfstandige **Office 365** licenties - Gebruik vooraf gemaakte [basislijn protection-beleid voor voorwaardelijke toegang](../conditional-access/concept-baseline-protection.md) om te vereisen Multi-factor authentication voor uw gebruikers en beheerders.
+
 * **Azure Active Directory globale beheerders** -een subset van de Azure multi-factor Authentication-mogelijkheden zijn beschikbaar als een manier om te beveiligen global administrator-accounts.
 
 > [!NOTE]
@@ -51,16 +51,9 @@ Omdat de meeste gebruikers gewend zijn om te verifiëren met behulp van alleen w
 
 * Trainen van uw medewerkers voor het afhandelen van scenario's waarin de gebruiker kan niet aanmelden omdat ze geen toegang tot hun verificatiemethoden of ze niet correct werken.
    * Met behulp van beleid voor voorwaardelijke toegang voor Azure MFA-Service, uw ondersteuningsmedewerkers een gebruiker kunt toevoegen aan een groep die is uitgesloten van een beleid MFA vereisen.
-   * Ondersteunend personeel kan een tijdelijke eenmalig overslaan voor gebruikers van Azure MFA-Server waarmee een gebruiker verifiëren zonder verificatie in twee stappen inschakelen. De bypass is tijdelijk en verloopt na een opgegeven aantal seconden.   
-* Overweeg het gebruik van goedgekeurde IP-adressen of benoemde locaties als een manier om te minimaliseren verificatie in twee stappen verificatie wordt gevraagd. Met deze functie kunnen beheerders van een tenant beheerd of federatieve verificatie in twee stappen voor gebruikers die vanaf een vertrouwde netwerklocatie zoals van hun organisatie intranet aanmelden zich omzeilen.
+* Overweeg het gebruik van voorwaardelijke toegang benoemde locaties als een manier om te voorkomen van verificatie in twee stappen wordt gevraagd. Met deze functionaliteit, die beheerders verificatie in twee stappen voor gebruikers die vanaf een veilige, vertrouwde netwerklocatie zoals een netwerk aanmelden zich kunnen omzeilen segment gebruikt voor het voorbereiden van nieuwe gebruiker.
 * Implementeer [Azure AD Identity Protection](../active-directory-identityprotection.md) en verificatie op basis van gebeurtenissen van de risico's te activeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Ophalen van een stapsgewijze MFA [implementatieplan](https://aka.ms/MFADeploymentPlan)
-
-- Bekijk detailinformatie over de [licentieverlening aan uw gebruikers](concept-mfa-licensing.md)
-
-- Bekijk detailinformatie over [welke versie u moet implementeren](concept-mfa-whichversion.md)
-
-- Raadpleeg de antwoorden op [veelgestelde vragen](multi-factor-authentication-faq.md)
+- [Stapsgewijze implementatie van Azure multi-factor Authentication](howto-mfa-getstarted.md)

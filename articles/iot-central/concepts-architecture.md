@@ -3,17 +3,17 @@ title: Architectuur concepten in Azure IoT Central | Microsoft Docs
 description: Dit artikel bevat belangrijke concepten die betrekking hebben de architectuur van Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/26/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887406"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693128"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-architectuur
 
@@ -44,7 +44,7 @@ Zie voor meer informatie over IoT Hub, [Azure IoT Hub](https://docs.microsoft.co
 
 Zie voor meer informatie over de connectiviteit van apparaten in Azure IoT Central, [apparaatconnectiviteit](concepts-connectivity.md).
 
-## <a name="data-stores"></a>Gegevensopslag
+## <a name="data-stores"></a>Gegevensarchieven
 
 Azure IoT Central worden toepassingsgegevens opgeslagen in de cloud. Toepassingsgegevens opgeslagen bevat:
 
@@ -79,6 +79,14 @@ In de sjabloon van een apparaat:
 
 Een toepassing kan een of meer gesimuleerde en echte apparaten op basis van de sjabloon voor elk apparaat hebben.
 
+## <a name="data-export"></a>Gegevens exporteren
+
+In een Azure IoT Central-toepassing, kunt u [uw gegevens continu exporteren](howto-export-data-event-hubs-service-bus.md) aan uw eigen Azure Event Hubs en Azure Service Bus-instanties. U kunt uw gegevens ook periodiek exporteren naar uw Azure Blob storage-account. IoT Central kunnen metingen, apparaten en apparaatsjablonen exporteren.
+
+## <a name="batch-device-updates"></a>Bijwerken van de batch-apparaten
+
+In een Azure IoT Central-toepassing, kunt u [maken en uitvoeren van taken](howto-run-a-job.md) voor het beheren van verbonden apparaten. Deze taken kunt u doen bulksgewijs updates van apparaateigenschappen of instellingen of opdrachten worden uitgevoerd. U kunt bijvoorbeeld een taak voor het verhogen van de snelheid van de ventilator voor meerdere gekoeld verkoopautomaten maken.
+
 ## <a name="role-based-access-control-rbac"></a>Toegangsbeheer op basis van rollen (RBAC)
 
 Een [de beheerder kan toegangsregels definiëren](howto-administer.md) voor een Azure IoT Central-toepassing met behulp van de vooraf gedefinieerde rollen. Een beheerder kan gebruikers toewijzen aan rollen om te bepalen welke aspecten van de toepassing voor de gebruiker toegang heeft.
@@ -95,7 +103,10 @@ Beveiligingsfuncties in Azure IoT Central zijn onder andere:
 ## <a name="ui-shell"></a>UI-shell
 
 De UI-shell is een moderne, responsieve, HTML5 browser-gebaseerde toepassing.
+Een beheerder kan de gebruikersinterface van de toepassing aanpassen door aangepaste thema's toepassen en wijzigen van de help-koppelingen om te verwijzen naar uw eigen aangepaste help-resources. Zie voor meer informatie over de UI-aanpassing, [aanpassen van de Azure IoT Central gebruikersinterface](howto-customize-ui.md) artikel.
+
+Een operator kunt toepassing persoonlijke dashboards maken. U kunt verschillende dashboards die andere gegevens weergeven en tussen deze twee schakelt hebben.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd over de architectuur van Azure IoT Central, de voorgestelde volgende stap is te leren over [apparaatconnectiviteit](concepts-connectivity.md) in Azure IoT Central.
+Nu dat u hebt geleerd over de architectuur van Azure IoT Central, de voorgestelde volgende stap is te leren over [apparaatconnectiviteit](concepts-connectivity.md) in Azure IoT Central.

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
-ms.openlocfilehash: b345f5e7f6f32d7fbb76d4f0227c8f4f925ff884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400294"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477582"
 ---
 # <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
@@ -76,7 +76,7 @@ Azure Backup verwerkt automatisch de opslag voor de kluis. U moet opgeven hoe di
    - Meer informatie over [geo](../storage/common/storage-redundancy-grs.md) en [lokale](../storage/common/storage-redundancy-lrs.md) redundantie.
 
 > [!NOTE]
-> Als u hebt gekozen de **opslagreplicatietype** van **geografisch redundante** naar **lokaal redundante**, u kunt geen terug.
+> Wijzigen van **type Opslagreplicatie** (lokaal redundant / geografisch redundante) voor een Recovery services-kluis is om te worden uitgevoerd voordat u back-ups configureren in de kluis. Als u back-up configureren, de optie om te wijzigen is uitgeschakeld en u niet wijzigen, de **type Opslagreplicatie**. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

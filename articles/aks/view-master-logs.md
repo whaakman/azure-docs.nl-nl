@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128699"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497258"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Inschakelen en controleren van Kubernetes-hoofdknooppunt in Azure Kubernetes Service (AKS registreert)
 
@@ -26,15 +26,14 @@ In dit artikel is een bestaand AKS-cluster die worden uitgevoerd in uw Azure-acc
 
 Logboeken van Azure Monitor biedt om te verzamelen en controleren van gegevens uit meerdere bronnen, een query taal en analytics-engine die biedt inzicht in uw omgeving. Een werkruimte wordt gebruikt voor het verzamelen en analyseren van de gegevens en kan worden geïntegreerd met andere Azure-services, zoals Application Insights en Security Center. U kunt voor het gebruik van een ander platform voor het analyseren van de logboeken, in plaats daarvan voor het verzenden van diagnostische logboeken naar een Azure storage-account of event hub. Zie voor meer informatie, [wat is Azure Monitor logboeken?] [log-analytics-overview].
 
-Logboeken in Azure Monitor is ingeschakeld en beheerd in Azure portal. Om in te schakelen logboekgegevens verzamelen voor de master Kubernetes-onderdelen in uw AKS-cluster, de Azure-portal openen in een webbrowser en voer de volgende stappen uit:
+Logboeken in Azure Monitor zijn ingeschakeld en beheerd in Azure portal. Om in te schakelen logboekgegevens verzamelen voor de master Kubernetes-onderdelen in uw AKS-cluster, de Azure-portal openen in een webbrowser en voer de volgende stappen uit:
 
 1. Selecteer de resourcegroep voor uw AKS-cluster, zoals *myResourceGroup*. Selecteer de resourcegroep waarin uw afzonderlijke AKS-cluster-resources, zoals niet *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Aan de linkerkant, kies **diagnostische instellingen**.
-1. Selecteer uw AKS-cluster, zoals *myAKSCluster*, kiest u voor **diagnostische gegevens inschakelen**.
-1. Voer een naam, zoals *myAKSClusterLogs*, selecteert u de optie om **verzenden naar Log Analytics-werkruimte**.
-    * Kies aan *configureren* Log Analytics-werkruimte en selecteer vervolgens een bestaande werkruimte of **nieuwe werkruimte maken**.
-    * Als u nodig hebt om een werkruimte te maken, geeft u een naam, een resourcegroep en een locatie.
-1. Selecteer in de lijst met beschikbare logboeken, de logboeken die u wilt inschakelen. Standaard de *kube-apiserver*, *kube-controller-manager*, en *kube-scheduler* logboeken zijn ingeschakeld. U kunt extra logboeken zoals inschakelen *kube-audit* en *cluster-automatisch schalen*. U kunt retourneren en de verzamelde Logboeken niet wijzigen wanneer de Log Analytics-werkruimten zijn ingeschakeld.
+1. Selecteer uw AKS-cluster, zoals *myAKSCluster*, kiest u voor **diagnostische instelling toevoegen**.
+1. Voer een naam, zoals *myAKSClusterLogs*, selecteert u de optie om **verzenden naar Log Analytics**.
+1. Selecteer een bestaande werkruimte of maak een nieuwe. Als u een werkruimte maakt, geeft u een Werkruimtenaam, een resourcegroep en een locatie.
+1. Selecteer in de lijst met beschikbare logboeken, de logboeken die u wilt inschakelen. Algemene logboeken bevatten de *kube-apiserver*, *kube-controller-manager*, en *kube-scheduler*. U kunt extra logboeken zoals inschakelen *kube-audit* en *cluster-automatisch schalen*. U kunt retourneren en de verzamelde Logboeken niet wijzigen wanneer de Log Analytics-werkruimten zijn ingeschakeld.
 1. Wanneer u klaar bent, selecteert u **opslaan** om van de geselecteerde logboeken te verzamelen.
 
 > [!NOTE]
@@ -50,7 +49,7 @@ Logboeken in Azure Monitor is ingeschakeld en beheerd in Azure portal. Om in te 
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-Het volgende voorbeeld schermafbeelding van de portal wordt de *diagnostische instellingen* venster en vervolgens de optie voor het maken van een Log Analytics-werkruimte:
+Het volgende voorbeeld schermafbeelding van de portal wordt de *diagnostische instellingen* venster:
 
 ![Inschakelen van de werkruimte voor logboekanalyse voor Azure Monitor-logboeken van AKS-cluster](media/view-master-logs/enable-oms-log-analytics.png)
 
@@ -130,7 +129,7 @@ De volgende tabel worden om te analyseren van de logboekgegevens, het schema voo
 | *properties.log*         | Volledige tekst van het logboek van het onderdeel |
 | *properties.stream*      | *stderr* of *stdout* |
 | *properties.pod*         | De naam van de schil die het logboek afkomstig zijn uit |
-| *properties.containerID* | Id van de docker-container die dit logboek afkomstig zijn uit |
+| *properties.containerID* | ID van de docker-container die dit logboek afkomstig zijn uit |
 
 ## <a name="next-steps"></a>Volgende stappen
 

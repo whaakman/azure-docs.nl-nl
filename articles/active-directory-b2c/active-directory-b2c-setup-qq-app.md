@@ -2,20 +2,20 @@
 title: Instellen van zich kunnen registreren en aanmelden met een q-account met behulp van Azure Active Directory B2C | Microsoft Docs
 description: Meld u aan en meld u aan klanten met accounts in uw toepassingen met behulp van Azure Active Directory B2C q bieden.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6eba804fc96a91d17644c903e1462c31c0fc9149
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7744d99bb97d11b7702c8ee388cf27bc0cc087cc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704166"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508332"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een q-account met behulp van Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Voor het gebruik van een q-account als id-provider in Azure Active Directory (Az
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 5. Geef een **naam**. Voer bijvoorbeeld *q*.
-6. Selecteer **type id-provider**, selecteer **q (Preview)**, en klikt u op **OK**.
+6. Selecteer **type id-provider**, selecteer **q (Preview)** , en klikt u op **OK**.
 7. Selecteer **instellen van deze id-provider** en voert u de APP-ID die u eerder hebt genoteerd als de **Client-ID** en voer de APP-sleutel die u hebt genoteerd als de **clientgeheim** van de q de toepassing die u eerder hebt gemaakt.
 8. Klik op **OK** en klik vervolgens op **maken** aan uw q-configuratie op te slaan.
 

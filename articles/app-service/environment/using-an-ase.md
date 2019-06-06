@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228314"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496505"
 ---
 # <a name="use-an-app-service-environment"></a>Een App Service-omgeving gebruiken #
-
-## <a name="overview"></a>Overzicht ##
 
 Azure App Service Environment is een implementatie van Azure App Service in een subnet in de Azure-netwerk van een klant. Deze bestaat uit:
 
@@ -62,17 +60,14 @@ Een app maken in een as-omgeving:
 
 1. Selecteer uw besturingssysteem. 
 
-    * Die als host fungeert voor een Linux-app in een as-omgeving is een nieuwe preview-functie, het is raadzaam dat u geen Linux-apps toevoegen in een as-omgeving die productieworkloads momenteel wordt uitgevoerd. 
-    * Toevoegen van een Linux-app in een as-omgeving, betekent dat de ASE ook opgenomen in de preview-modus worden. 
-
 1. Selecteer een bestaand App Service-plan in de as-omgeving of maak een nieuwe door de volgende stappen:
 
     a. Selecteer **Maak een nieuwe**.
 
     b. Voer de naam van uw App Service-plan.
 
-    c. Selecteer de as-omgeving in de **locatie** vervolgkeuzelijst. Die als host fungeert voor een Linux-app in een as-omgeving is alleen ingeschakeld in 6 regio's, op het moment dat: **VS-West, VS-Oost, West-Europa, Noord-Europa, Australië-Oost, Zuidoost-Azië.** 
-
+    c. Selecteer de as-omgeving in de **locatie** vervolgkeuzelijst. 
+    
     d. Selecteer een **geïsoleerd** prijscategorie. Kies **Selecteren**.
 
     e. Selecteer **OK**.

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575613"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492839"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions netwerkopties
 
@@ -61,7 +61,7 @@ Integratie van virtuele netwerken kunt u uw functie-app-toegang tot resources in
 
 U kunt de integratie van virtuele netwerken gebruiken om toegang te krijgen vanuit apps met databases en webservices die worden uitgevoerd in het virtuele netwerk. Met integratie van virtuele netwerken hoeft u geen beschikbaar maken van een openbaar eindpunt voor toepassingen op de virtuele machine. U kunt in plaats daarvan de persoonlijke, niet-internet routeerbare adressen gebruiken.
 
-De algemeen beschikbare versie van de integratie van virtuele netwerken, is afhankelijk van een VPN-gateway functie-apps verbinden met een virtueel netwerk. Het is beschikbaar in de functies die worden gehost in een App Service-plan. Zie voor informatie over het configureren van deze functie, [uw app integreren met een Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+De algemeen beschikbare versie van de integratie van virtuele netwerken, is afhankelijk van een VPN-gateway functie-apps verbinden met een virtueel netwerk. Het is beschikbaar in de functies die worden gehost in een App Service-plan. Zie voor informatie over het configureren van deze functie, [uw app integreren met een Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
 
 ### <a name="preview-version-of-virtual-network-integration"></a>Preview-versie van de integratie van virtuele netwerken
 

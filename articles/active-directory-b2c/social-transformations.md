@@ -2,20 +2,20 @@
 title: Sociaal account van de claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C | Microsoft Docs
 description: Sociaal account claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f6da199beb292f193d97eee309ca40dd74f81f8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c1a718539259a284e1d48fe48a3741a676bd4040
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697734"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512493"
 ---
 # <a name="social-accounts-claims-transformations"></a>Sociale accounts claimtransformaties
 
@@ -75,8 +75,8 @@ Voegt een `AlternativeSecurityId` naar een `alternativeSecurityIdCollection` cla
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Het ClaimType worden toegevoegd aan de uitvoerclaim. |
-| InputClaim | verzameling | alternativeSecurityIdCollection | De ClaimTypes die worden gebruikt door de claimtransformatie als beschikbaar in het beleid. Indien opgegeven, de claimtransformatie wordt toegevoegd de `item` aan het einde van de verzameling. |
-| OutputClaim | verzameling | alternativeSecurityIdCollection | De ClaimTypes die worden gegenereerd nadat deze ClaimsTransformation is aangeroepen. De nieuwe verzameling met beide items uit de invoer `collection` en `item`. |
+| InputClaim | Verzameling | alternativeSecurityIdCollection | De ClaimTypes die worden gebruikt door de claimtransformatie als beschikbaar in het beleid. Indien opgegeven, de claimtransformatie wordt toegevoegd de `item` aan het einde van de verzameling. |
+| OutputClaim | Verzameling | alternativeSecurityIdCollection | De ClaimTypes die worden gegenereerd nadat deze ClaimsTransformation is aangeroepen. De nieuwe verzameling met beide items uit de invoer `collection` en `item`. |
 
 Het volgende voorbeeld wordt een nieuwe sociale identiteit met een bestaand account gekoppeld. Een nieuwe sociale identiteit koppelen:
 1. In de **AAD-UserReadUsingAlternativeSecurityId** en **AAD-UserReadUsingObjectId** technische profielen uitvoer van de gebruiker **alternativeSecurityIds** claim.
@@ -139,8 +139,8 @@ Hiermee verwijdert u een **AlternativeSecurityId** uit een **alternativeSecurity
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | identityProvider | string | Het ClaimType met de naam van de id-provider moet worden verwijderd uit de verzameling. |
-| InputClaim | verzameling | alternativeSecurityIdCollection | De ClaimTypes die worden gebruikt door de claimtransformatie. De id-provider verwijdert de claimtransformatie uit de verzameling. |
-| OutputClaim | verzameling | alternativeSecurityIdCollection | De ClaimTypes die worden gegenereerd nadat deze ClaimsTransformation is aangeroepen. De nieuwe verzameling, nadat de identityProvider is verwijderd uit de verzameling. |
+| InputClaim | Verzameling | alternativeSecurityIdCollection | De ClaimTypes die worden gebruikt door de claimtransformatie. De id-provider verwijdert de claimtransformatie uit de verzameling. |
+| OutputClaim | Verzameling | alternativeSecurityIdCollection | De ClaimTypes die worden gegenereerd nadat deze ClaimsTransformation is aangeroepen. De nieuwe verzameling, nadat de identityProvider is verwijderd uit de verzameling. |
 
 Het volgende voorbeeld wordt een van de sociale identiteit met een bestaand account ontkoppeld. Een sociale id ontkoppelen:
 1. In de **AAD-UserReadUsingAlternativeSecurityId** en **AAD-UserReadUsingObjectId** technische profielen uitvoer van de gebruiker **alternativeSecurityIds** claim.

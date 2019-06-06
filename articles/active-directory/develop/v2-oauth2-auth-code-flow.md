@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 06/04/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d3ab6f53fdb11b0b8d643868d0692667c8672f9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c5c45071406c420546a90a71751045fea926804f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545186"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513527"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft identity-platform en OAuth 2.0-autorisatiecodestroom
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-De OAuth 2.0-autorisatiecode verlenen kan worden gebruikt in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met behulp van de Microsoft identity-platform-implementatie van OAuth 2.0, kunt u zich aanmelden en API-toegang tot uw mobiele en bureaublad-apps toevoegen. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van de [Azure open source-verificatiebibliotheken](active-directory-authentication-libraries.md).
+De OAuth 2.0-autorisatiecode verlenen kan worden gebruikt in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met behulp van de Microsoft identity-platform-implementatie van OAuth 2.0, kunt u zich aanmelden en API-toegang tot uw mobiele en bureaublad-apps toevoegen. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van de [Azure open source-verificatiebibliotheken](reference-v2-libraries.md).
 
 > [!NOTE]
 > Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het eindpunt van de Microsoft identity-platform. Meer informatie over om te bepalen als u het eindpunt van de Microsoft identity-platform moet gebruiken, [beperkingen van het Microsoft identity platform](active-directory-v2-limitations.md).
@@ -64,18 +64,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter    | Vereist/optioneel | Description |
 |--------------|-------------|--------------|
-| `tenant`    | vereist    | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
-| `client_id`   | vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app.  |
-| `response_type` | vereist    | Moet bevatten `code` voor de autorisatiecodestroom.       |
-| `redirect_uri`  | vereist | De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
-| `scope`  | vereist    | Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md) dat u wilt dat de gebruiker toe te staan. |
+| `tenant`    | Vereist    | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
+| `client_id`   | Vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app.  |
+| `response_type` | Vereist    | Moet bevatten `code` voor de autorisatiecodestroom.       |
+| `redirect_uri`  | Vereist | De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `scope`  | Vereist    | Een door spaties gescheiden lijst van [scopes](v2-permissions-and-consent.md) dat u wilt dat de gebruiker toe te staan. |
 | `response_mode`   | Aanbevolen | Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app. Een van de volgende kan zijn:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` biedt de code als een queryreeks-parameter op uw omleidings-URI. Als u een ID-token met behulp van de impliciete stroom aanvragen, u niet gebruiken `query` zoals opgegeven in de [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Als u alleen de code aanvragen, kunt u `query`, `fragment`, of `form_post`. `form_post` voert een bericht met de code op uw omleidings-URI. Zie voor meer informatie, [OpenID Connect-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Aanbevolen | Een waarde die is opgenomen in de aanvraag die wordt ook in het token antwoord geretourneerd. Een tekenreeks van de inhoud die u wenst dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12). De waarde kan ook informatie over de status van de gebruiker in de app coderen voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
-| `prompt`  | optioneel    | Geeft het type tussenkomst van de gebruiker die is vereist. De enige geldige waarden op dit moment zijn `login`, `none`, en `consent`.<br/><br/>- `prompt=login` wordt de gebruiker te dwingen zijn referenties invoeren voor deze aanvraag, zodat eenmalige aanmelding.<br/>- `prompt=none` is het tegenovergestelde - dit zorgt ervoor dat de gebruiker niet wordt weergegeven met een interactieve prompt dan ook. Als de aanvraag kan niet worden voltooid op de achtergrond via eenmalige aanmelding, het Microsoft identity-platform-eindpunt retourneert een `interaction_required` fout.<br/>- `prompt=consent` het dialoogvenster OAuth wordt worden geactiveerd nadat de gebruiker zich heeft aangemeld, waarin de gebruiker wordt om de app-machtigingen te verlenen. |
-| `login_hint`  | optioneel    | Kan worden gebruikt om het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten. Vaak apps Gebruik deze parameter tijdens hernieuwde verificatie de gebruikersnaam die al worden geëxtraheerd uit een vorige aanmelden met behulp van de `preferred_username` claim.   |
-| `domain_hint`  | optioneel    | Een van `consumers` of `organizations`.<br/><br/>Als opgenomen, wordt overgeslagen tijdens de detectie op basis van een e-mailadres van die gebruiker doorloopt op de pagina aanmelden leidt tot een iets meer gestroomlijnde gebruikerservaring. Vaak apps wordt deze parameter gebruikt tijdens hernieuwde verificatie door te extraheren de `tid` van een vorige aanmelding. Als de `tid` claim waarde `9188040d-6c67-4c5b-b112-36a304b66dad`, moet u `domain_hint=consumers`. Gebruik anders `domain_hint=organizations`.  |
-| `code_challenge_method` | optioneel    | De methode die wordt gebruikt om te coderen de `code_verifier` voor de `code_challenge` parameter. Een van de volgende waarden kan zijn:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Als uitgesloten, `code_challenge` wordt ervan uitgegaan dat als tekst zonder opmaak als `code_challenge` is opgenomen. Microsoft identity-platform ondersteunt zowel `plain` en `S256`. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| `code_challenge`  | optioneel | Gebruikt voor het beveiligen van code autorisatietoekenningen via Proof-sleutel voor Code Exchange (PKCE) van een systeemeigen client. Vereist als `code_challenge_method` is opgenomen. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `prompt`  | Optioneel    | Geeft het type tussenkomst van de gebruiker die is vereist. De enige geldige waarden op dit moment zijn `login`, `none`, en `consent`.<br/><br/>- `prompt=login` wordt de gebruiker te dwingen zijn referenties invoeren voor deze aanvraag, zodat eenmalige aanmelding.<br/>- `prompt=none` is het tegenovergestelde - dit zorgt ervoor dat de gebruiker niet wordt weergegeven met een interactieve prompt dan ook. Als de aanvraag kan niet worden voltooid op de achtergrond via eenmalige aanmelding, het Microsoft identity-platform-eindpunt retourneert een `interaction_required` fout.<br/>- `prompt=consent` het dialoogvenster OAuth wordt worden geactiveerd nadat de gebruiker zich heeft aangemeld, waarin de gebruiker wordt om de app-machtigingen te verlenen. |
+| `login_hint`  | Optioneel    | Kan worden gebruikt om het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten. Vaak apps Gebruik deze parameter tijdens hernieuwde verificatie de gebruikersnaam die al worden geëxtraheerd uit een vorige aanmelden met behulp van de `preferred_username` claim.   |
+| `domain_hint`  | Optioneel    | Een van `consumers` of `organizations`.<br/><br/>Als opgenomen, wordt overgeslagen tijdens de detectie op basis van een e-mailadres van die gebruiker doorloopt op de pagina aanmelden leidt tot een iets meer gestroomlijnde gebruikerservaring. Vaak apps wordt deze parameter gebruikt tijdens hernieuwde verificatie door te extraheren de `tid` van een vorige aanmelding. Als de `tid` claim waarde `9188040d-6c67-4c5b-b112-36a304b66dad`, moet u `domain_hint=consumers`. Gebruik anders `domain_hint=organizations`.  |
+| `code_challenge_method` | Optioneel    | De methode die wordt gebruikt om te coderen de `code_verifier` voor de `code_challenge` parameter. Een van de volgende waarden kan zijn:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Als uitgesloten, `code_challenge` wordt ervan uitgegaan dat als tekst zonder opmaak als `code_challenge` is opgenomen. Microsoft identity-platform ondersteunt zowel `plain` en `S256`. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `code_challenge`  | Optioneel | Gebruikt voor het beveiligen van code autorisatietoekenningen via Proof-sleutel voor Code Exchange (PKCE) van een systeemeigen client. Vereist als `code_challenge_method` is opgenomen. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Op dit moment is de gebruiker gevraagd zijn referenties invoeren en de verificatie voltooien. Het eindpunt van de Microsoft identity-platform wordt er ook voor zorgen dat de gebruiker heeft ingestemd met de machtigingen die zijn aangegeven in de `scope` queryparameter. Als de gebruiker heeft niet ingestemd met een van deze machtigingen, wordt u gevraagd de gebruiker akkoord gaan met de vereiste machtigingen. Details van [machtigingen en toestemming apps met meerdere tenants vindt u hier](v2-permissions-and-consent.md).
 
@@ -151,14 +151,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter  | Vereist/optioneel | Description     |
 |------------|-------------------|----------------|
-| `tenant`   | vereist   | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
-| `client_id` | vereist  | De toepassing (client)-ID die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina toegewezen aan uw app. |
-| `grant_type` | vereist   | Moet `authorization_code` voor de autorisatiecodestroom.   |
-| `scope`      | vereist   | Een door spaties gescheiden lijst met bereiken. De bereiken die in dit gedeelte wordt aangevraagd moet gelijk aan of een subset van de bereiken die in de eerste arm wordt aangevraagd. Als de bereiken die is opgegeven in deze aanvraag meerdere resource-server omvatten, wordt een token voor de resource die is opgegeven in de eerste scope geretourneerd door het eindpunt van de Microsoft identity-platform. Raadpleeg voor een meer gedetailleerde uitleg van bereiken, [machtigingen en toestemming scopes](v2-permissions-and-consent.md). |
-| `code`          | vereist  | De authorization_code die u hebt verkregen in de eerste zijde van de stroom. |
-| `redirect_uri`  | vereist  | Dezelfde redirect_uri-waarde die is gebruikt voor het verkrijgen van de authorization_code. |
+| `tenant`   | Vereist   | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).  |
+| `client_id` | Vereist  | De toepassing (client)-ID die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) pagina toegewezen aan uw app. |
+| `grant_type` | Vereist   | Moet `authorization_code` voor de autorisatiecodestroom.   |
+| `scope`      | Vereist   | Een door spaties gescheiden lijst met bereiken. De bereiken die in dit gedeelte wordt aangevraagd moet gelijk aan of een subset van de bereiken die in de eerste arm wordt aangevraagd. Als de bereiken die is opgegeven in deze aanvraag meerdere resource-server omvatten, wordt een token voor de resource die is opgegeven in de eerste scope geretourneerd door het eindpunt van de Microsoft identity-platform. Raadpleeg voor een meer gedetailleerde uitleg van bereiken, [machtigingen en toestemming scopes](v2-permissions-and-consent.md). |
+| `code`          | Vereist  | De authorization_code die u hebt verkregen in de eerste zijde van de stroom. |
+| `redirect_uri`  | Vereist  | Dezelfde redirect_uri-waarde die is gebruikt voor het verkrijgen van de authorization_code. |
 | `client_secret` | vereist voor web-apps | Het toepassingsgeheim die u hebt gemaakt in de portal voor app-registratie voor uw app. U kunt het toepassingsgeheim in een systeemeigen app mag niet gebruiken omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Het is vereist voor de web-apps en web-API's, waarvoor de mogelijkheid om op te slaan de waarde voor client_secret veilig op de server.  Het clientgeheim moet URL gecodeerd voordat het wordt verzonden.  |
-| `code_verifier` | optioneel  | De dezelfde code_verifier die is gebruikt voor het verkrijgen van de authorization_code. Vereist als PKCE is gebruikt in de autorisatieaanvraag voor het verlenen van code. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `code_verifier` | Optioneel  | De dezelfde code_verifier die is gebruikt voor het verkrijgen van de authorization_code. Vereist als PKCE is gebruikt in de autorisatieaanvraag voor het verlenen van code. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Geslaagde reactie
 
@@ -264,11 +264,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter     |                | Description        |
 |---------------|----------------|--------------------|
-| `tenant`        | vereist     | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).   |
-| `client_id`     | vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app. |
-| `grant_type`    | vereist    | Moet `refresh_token` voor deze kant van de autorisatiecodestroom. |
-| `scope`         | vereist    | Een door spaties gescheiden lijst met bereiken. De bereiken die in dit gedeelte wordt aangevraagd moet gelijk aan of een subset van de bereiken die in de oorspronkelijke authorization_code aanvraag arm wordt aangevraagd. Als de bereiken die is opgegeven in deze aanvraag meerdere resource-server omvatten, wordt een token voor de resource die is opgegeven in de eerste scope geretourneerd door het eindpunt van de Microsoft identity-platform. Raadpleeg voor een meer gedetailleerde uitleg van bereiken, [machtigingen en toestemming scopes](v2-permissions-and-consent.md). |
-| `refresh_token` | vereist    | De refresh_token die u hebt verkregen in het tweede gedeelte van de stroom. |
+| `tenant`        | Vereist     | De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints).   |
+| `client_id`     | Vereist    | De **(client) toepassings-ID** die de [Azure-portal – App-registraties](https://go.microsoft.com/fwlink/?linkid=2083908) ervaring die zijn toegewezen aan uw app. |
+| `grant_type`    | Vereist    | Moet `refresh_token` voor deze kant van de autorisatiecodestroom. |
+| `scope`         | Vereist    | Een door spaties gescheiden lijst met bereiken. De bereiken die in dit gedeelte wordt aangevraagd moet gelijk aan of een subset van de bereiken die in de oorspronkelijke authorization_code aanvraag arm wordt aangevraagd. Als de bereiken die is opgegeven in deze aanvraag meerdere resource-server omvatten, wordt een token voor de resource die is opgegeven in de eerste scope geretourneerd door het eindpunt van de Microsoft identity-platform. Raadpleeg voor een meer gedetailleerde uitleg van bereiken, [machtigingen en toestemming scopes](v2-permissions-and-consent.md). |
+| `refresh_token` | Vereist    | De refresh_token die u hebt verkregen in het tweede gedeelte van de stroom. |
 | `client_secret` | vereist voor web-apps | Het toepassingsgeheim die u hebt gemaakt in de portal voor app-registratie voor uw app. Deze mag niet worden gebruikt in een systeemeigen app omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Het is vereist voor de web-apps en web-API's, waarvoor de mogelijkheid om op te slaan de waarde voor client_secret veilig op de server. |
 
 #### <a name="successful-response"></a>Geslaagde reactie

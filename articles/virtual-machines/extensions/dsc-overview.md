@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518865"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515909"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler Azure Desired State Configuration-extensie
 
@@ -81,7 +81,7 @@ Deze gegevens kan worden weergegeven de [Azure-portal](../../automation/automati
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Voor de naam van de knooppuntconfiguratie, zorg ervoor dat u de naam van de *knooppuntconfiguratie* en niet de configuratie.
+Voor de naam van de knooppuntconfiguratie, zorg ervoor dat de knooppuntconfiguratie van het bestaat in de configuratie van de Azure-status.  Als dit niet het geval is, wordt de extensie-implementatie een fout geretourneerd.  Controleer ook of u met behulp van de naam van de *knooppuntconfiguratie* en niet de configuratie.
 Een configuratie is gedefinieerd in een script dat wordt gebruikt [voor het compileren van de knooppuntconfiguratie (MOF-bestand)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 De naam is altijd de configuratie gevolgd door een punt `.` en ofwel `localhost` of de naam van een specifieke computer.
 

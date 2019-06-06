@@ -9,19 +9,19 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers
-ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851438"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515298"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Geheimen beheren bij het werken met een Azure Dev-adresruimte
 
 Uw services kunnen bepaalde wachtwoorden, connectiestrings en andere geheimen vereisen, zoals voor databases of andere beveiligde Azure-services. Door de waarden van deze geheimen in configuratiebestanden in te stellen, kunt u ze als omgevingsvariabelen beschikbaar maken in uw code.  Deze moeten met zorg worden behandeld om te voorkomen dat de veiligheid van de geheimen in gevaar komt.
 
-Azure Dev Spaces biedt twee aanbevolen opties voor het opslaan van geheimen: in het bestand values.dev.yaml en direct inline in azds.yaml. Het is niet aan te raden om geheimen op te slaan in values.yaml.
- 
+Azure Dev opslagruimten biedt twee opties voor de aanbevolen, gestroomlijnd voor het opslaan van geheimen in Helm-grafieken die worden gegenereerd door de Azure Dev spaties client hulpprogramma's: in het bestand values.dev.yaml en inline rechtstreeks in azds.yaml. Het is niet aan te raden om geheimen op te slaan in values.yaml. Buiten de twee benaderingen voor Helm grafieken die worden gegenereerd door de client tooling gedefinieerd in dit artikel als u uw eigen Helm-diagram, kunt u het Helm-diagram rechtstreeks te beheren en geheimen opslaan.
+
 ## <a name="method-1-valuesdevyaml"></a>Methode 1: values.dev.yaml
 1. Open VS Code met uw project dat is ingeschakeld voor Azure Dev Spaces.
 2. Toevoegen van een bestand met de naam _values.dev.yaml_ in dezelfde map als het bestaande _azds.yaml_ en definieer de geheime sleutel en de waarden, zoals in het volgende voorbeeld:

@@ -1,33 +1,32 @@
 ---
 title: Gegevens uploaden voor Apache Hadoop-taken in HDInsight
 description: Meer informatie over het uploaden van en toegang tot gegevens voor Apache Hadoop-taken in HDInsight met behulp van de klassieke Azure CLI, Azure Storage Explorer, Azure PowerShell, de Hadoop-opdrachtregels of Sqoop.
-keywords: etl-hadoop, ophalen van gegevens in hadoop, hadoop-gegevens voor laden
 author: hrasheed-msft
-ms.reviewer: jasonh
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/08/2019
-ms.openlocfilehash: 3283c885956c5b43171c6287dc00efa9a82db28e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/03/2019
+ms.openlocfilehash: 0dbd5a886e2369d29a568eca47dda5558f43c8cd
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722799"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479137"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Gegevens uploaden voor Apache Hadoop-taken in HDInsight
 
-Azure HDInsight biedt een volledig functionele Hadoop distributed file system (HDFS) ten opzichte van Azure Storage en Azure Data Lake Storage (Gen1 en Gen2). Azure Storage en Data Lake Storage Gen1 en Gen2 zijn ontworpen als HDFS-uitbreidingen voor een naadloze ervaring bieden aan klanten. Hiermee kunt de volledige set onderdelen in het Hadoop-ecosysteem werkt rechtstreeks op de gegevens die deze beheert. Azure Storage, Data Lake Storage Gen1 en Gen2 zijn afzonderlijke bestandssystemen die zijn geoptimaliseerd voor opslag van gegevens en berekeningen kunt uitvoeren op die gegevens. Zie voor meer informatie over de voordelen van het gebruik van Azure Storage [Azure Storage gebruiken met HDInsight][hdinsight-storage], [met Data Lake Storage Gen1 met HDInsight](hdinsight-hadoop-use-data-lake-store.md), en [ Data Lake Storage Gen2 gebruiken met HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Azure HDInsight biedt een volledig functionele Hadoop distributed file system (HDFS) ten opzichte van Azure Storage en Azure Data Lake Storage (Gen1 en Gen2). Azure Storage en Data Lake Storage Gen1 en Gen2 zijn ontworpen als HDFS-uitbreidingen voor een naadloze ervaring bieden aan klanten. Hiermee kunt de volledige set onderdelen in het Hadoop-ecosysteem werkt rechtstreeks op de gegevens die deze beheert. Azure Storage, Data Lake Storage Gen1 en Gen2 zijn afzonderlijke bestandssystemen die zijn geoptimaliseerd voor opslag van gegevens en berekeningen kunt uitvoeren op die gegevens. Zie voor meer informatie over de voordelen van het gebruik van Azure Storage [Azure Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md), [met Data Lake Storage Gen1 met HDInsight](hdinsight-hadoop-use-data-lake-store.md), en [met Data Lake Storage Gen2 met HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Houd rekening met de volgende vereisten voordat u begint:
 
-* Een Azure HDInsight-cluster. Zie voor instructies [aan de slag met Azure HDInsight] [ hdinsight-get-started] of [maken van HDInsight-clusters](hdinsight-hadoop-provision-linux-clusters.md).
+* Een Azure HDInsight-cluster. Zie voor instructies [aan de slag met Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) of [maken van HDInsight-clusters](hdinsight-hadoop-provision-linux-clusters.md).
 * Kennis van de volgende artikelen:
 
-    - [Azure Storage gebruiken met HDInsight][hdinsight-storage]
+    - [Azure Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md)
     - [Data Lake Storage Gen1 gebruiken met HDInsight](hdinsight-hadoop-use-data-lake-store.md)
     - [Data Lake Storage Gen2 gebruiken met HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
@@ -64,11 +63,11 @@ Bijvoorbeeld: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Omdat het standaardbestandssysteem voor HDInsight in Azure Storage, is /example/data.txt daadwerkelijk in Azure Storage. U kunt ook verwijzen naar het bestand op als:
 
-    wasb:///example/data/data.txt
+    wasbs:///example/data/data.txt
 
 of
 
-    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
 Zie voor een lijst met andere Hadoop-opdrachten die met bestanden werken [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -104,7 +103,7 @@ De Azure Data Factory-service is een volledig beheerde service voor het opstelle
 ### <a id="sqoop"></a>Apache Sqoop
 Sqoop is een hulpprogramma waarmee gegevens worden overgebracht tussen Hadoop en relationele databases. U kunt deze gebruiken om gegevens te importeren uit een relationeel databasebeheersysteem (RDBMS), zoals SQL Server, MySQL of Oracle in het Hadoop distributed file system (HDFS), de gegevens in Hadoop MapReduce of Hive transformeren, en vervolgens de gegevens weer geëxporteerd naar een RDBMS.
 
-Zie voor meer informatie, [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
+Zie voor meer informatie, [Sqoop gebruiken met HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 ### <a name="development-sdks"></a>SDK's voor ontwikkeling
 Azure-opslag kan ook worden geopend met een Azure-SDK van de volgende programmeertalen:
@@ -144,7 +143,7 @@ Zie voor meer informatie over het installeren van de Azure SDK's [Azure download
 
 **Oorzaak**: HBase op HDInsight-clusters standaard naar een blokgrootte van 256 KB bij het schrijven naar Azure storage. Terwijl de Tool voor HBase APIs's of REST-API's werkt, leidt dit tot een fout opgetreden bij het gebruik van de `hadoop` of `hdfs dfs` opdrachtregelprogramma's.
 
-**Oplossing**: Gebruik `fs.azure.write.request.size` om op te geven van een groter blok. U kunt dit doen op basis van per gebruik met behulp van de `-D` parameter. De volgende opdracht wordt een voorbeeld met behulp van deze parameter met de `hadoop` opdracht:
+**Resolutie**: Gebruik `fs.azure.write.request.size` om op te geven van een groter blok. U kunt dit doen op basis van per gebruik met behulp van de `-D` parameter. De volgende opdracht wordt een voorbeeld met behulp van deze parameter met de `hadoop` opdracht:
 
 ```bash
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
@@ -152,28 +151,21 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 U kunt ook de waarde van vergroten `fs.azure.write.request.size` wereldwijd met behulp van Apache Ambari. De volgende stappen kunnen worden gebruikt om de waarde in de Ambari-Webgebruikersinterface te wijzigen:
 
-1. Ga in uw browser naar de Ambari-Webinterface voor uw cluster. Dit is https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van uw cluster.
+1. Ga in uw browser naar de Ambari-Webinterface voor uw cluster. Dit is `https://CLUSTERNAME.azurehdinsight.net`, waarbij `CLUSTERNAME` is de naam van uw cluster.
 
     Wanneer u hierom wordt gevraagd, typt u de naam van de beheerder en het wachtwoord voor het cluster.
 2. Aan de linkerkant van het scherm, selecteer **HDFS**, en selecteer vervolgens de **Peeringconfiguraties** tabblad.
 3. In de **filteren...**  veld `fs.azure.write.request.size`. Dit wordt weergegeven in het veld en de huidige waarde in het midden van de pagina.
 4. Wijzig de waarde van 262144 (256 KB) op de nieuwe waarde. Bijvoorbeeld: 4194304 (4 MB).
 
-![Afbeelding van het wijzigen van de waarde via Ambari-Webinterface](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
+    ![Afbeelding van het wijzigen van de waarde via Ambari-Webinterface](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
 Zie voor meer informatie over het gebruik van Ambari [beheren HDInsight-clusters met behulp van de Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u hoe u gegevens in HDInsight krijgt begrijpt, leest u de volgende artikelen voor meer informatie over analyses uitvoeren:
 
-* [Aan de slag met Azure HDInsight][hdinsight-get-started]
-* [Programmatisch verzenden van Apache Hadoop-taken][hdinsight-submit-jobs]
-* [Apache Hive gebruiken met HDInsight][hdinsight-use-hive]
-* [Apache Pig gebruiken met HDInsight][hdinsight-use-pig]
-
-[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+* [Aan de slag met Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Programmatisch verzenden van Apache Hadoop-taken](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Apache Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
+* [Apache Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)

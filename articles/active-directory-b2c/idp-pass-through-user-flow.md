@@ -2,20 +2,20 @@
 title: Een toegangstoken via een gebruikersstroom doorgeven aan uw toepassing - Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over hoe u kunt doorgeven via een toegangstoken voor OAuth 2.0-id-providers als een claim in de gebruikersstroom van een in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0270ef3ff74a219442a6800b67055deda7a0583f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: db4b799aa31a4132609b0dd158b65070fb2474b7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705333"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510955"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Een toegangstoken via een gebruikersstroom doorgeven aan uw toepassing in Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Azure AD B2C ondersteunt momenteel alleen het toegangstoken van doorgeven [OAuth
 1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant. Selecteer de **map- en abonnementsfilter** in het bovenste menu en kiest u de map waarin uw tenant.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-4. Selecteer **gebruikersstromen (beleid)**, en selecteer vervolgens uw beleid. Bijvoorbeeld, **B2C_1_signupsignin1**.
+4. Selecteer **gebruikersstromen (beleid)** , en selecteer vervolgens uw beleid. Bijvoorbeeld, **B2C_1_signupsignin1**.
 5. Selecteer **Toepassingsclaims**.
 6. Schakel de **Identity Provider toegangstoken** claim.
 

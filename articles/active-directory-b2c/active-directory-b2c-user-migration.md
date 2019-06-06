@@ -2,20 +2,20 @@
 title: Migratie van gebruikers nadert in Azure Active Directory B2C | Microsoft Docs
 description: Bespreken core en geavanceerde concepten voor gebruikersmigratie met behulp van Graph API en eventueel met aangepaste beleidsregels voor Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4195d7c292100712e6d68831443369ab793bb95
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726117"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507643"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Gebruikersmigratie
 Wanneer u uw id-provider migreert naar Azure Active Directory B2C (Azure AD B2C), moet u mogelijk ook het gebruikersaccount te migreren. In dit artikel wordt uitgelegd hoe u bestaande gebruikersaccounts migreren van een id-provider naar Azure AD B2C. Het artikel is niet bedoeld om te worden duidelijk, maar in plaats daarvan worden enkele scenario's beschreven. De ontwikkelaar is verantwoordelijk voor de geschiktheid van elke methode.
@@ -86,7 +86,7 @@ Uw migratietoepassing eerst registreren in Azure AD. Vervolgens een Toepassingss
    
 1. In de **vereiste machtigingen** venster **machtigingen verlenen**.
    
-   ![Toepassingsmachtigingen](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+   ![Machtigingen van de toepassing](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
    
 U hebt nu een toepassing met machtigingen voor het maken, lezen en bijwerken van gebruikers van uw Azure AD B2C-tenant.
 
@@ -145,10 +145,10 @@ Als u wilt het JSON-bestand bewerken, opent u de `AADB2C.UserMigration.sln` Visu
 ![Gegevensbestand van de gebruiker](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Zoals u ziet, betekent dit dat het bestand een lijst met gebruikersentiteiten bevat. Elke gebruikersentiteit heeft de volgende eigenschappen:
-- e-mail
+- email
 - displayName
 - voornaam
-- achternaam
+- lastName
 - wachtwoord (mag leeg zijn)
 
 > [!NOTE]

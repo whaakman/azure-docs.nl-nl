@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785862"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493760"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Toegang tot gegevens van kostenbeheer toewijzen
 
@@ -170,6 +170,13 @@ Toegang tot een resourcegroep is vereist ten minste de machtiging Cost Managemen
 7. Onder **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of toepassing**.
 8. Toegang toewijzen, zoeken naar en selecteer vervolgens de gebruiker.
 9. Klik op **Opslaan**.
+
+## <a name="cross-tenant-authentication-issues"></a>Cross-tenant verificatieproblemen
+
+Azure Cost Management is momenteel beperkt worden ondersteund voor cross-tenant-verificatie. In sommige gevallen als u probeert te verifiëren voor tenants, krijgt u mogelijk een **toegang is geweigerd** fout in kostenanalyse. Dit probleem kan optreden als u op rollen gebaseerd toegangsbeheer (RBAC) naar een andere tenant-abonnement configureren en vervolgens probeert om gegevens van cost weer te geven.
+
+*Om het probleem te omzeilen*: Wacht een uur na het configureren van alle tenants RBAC. Probeer kosten weergeven in kostenanalyse of Cost Management toegang verlenen aan gebruikers in beide tenants.  
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

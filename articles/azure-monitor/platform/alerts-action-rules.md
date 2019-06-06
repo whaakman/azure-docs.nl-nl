@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619995"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734929"
 ---
 # <a name="action-rules-preview"></a>Actieregels (preview)
 
@@ -33,7 +33,7 @@ Hoewel waarschuwingsregels u voor het definiëren van de actiegroep die wordt ge
 
 ## <a name="configuring-an-action-rule"></a>Configureren van een actieregel voor
 
-U kunt de functie openen door te selecteren **acties kunt beheren,** van de startpagina in Azure Monitor-waarschuwingen. Selecteer vervolgens **actieregels (Preview)**. Kunt u ze openen door te selecteren **actieregels (preview)** vanuit het dashboard van de landingspagina voor waarschuwingen.
+U kunt de functie openen door te selecteren **acties kunt beheren,** van de startpagina in Azure Monitor-waarschuwingen. Selecteer vervolgens **actieregels (Preview)** . Kunt u ze openen door te selecteren **actieregels (preview)** vanuit het dashboard van de landingspagina voor waarschuwingen.
 
 ![Actieregels van de startpagina van Azure Monitor](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -67,7 +67,7 @@ De filters die beschikbaar zijn:
 * **Regel-ID waarschuwen**: Hiermee kunt u filteren op specifieke regels voor waarschuwingen met behulp van de Resource Manager-ID van de waarschuwingsregel.
 * **Voorwaarde controleren**: Filter voor waarschuwing exemplaren met 'Fired' of 'Omgezet' als de voorwaarde van de monitor.
 * **Beschrijving**: Reguliere expressie die overeenkomen met in de beschrijving die is gedefinieerd als onderdeel van de waarschuwingsregel.
-* **Waarschuwingscontext (payload)**: Reguliere expressie die overeenkomt met binnen de [waarschuwingscontext](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) velden van een waarschuwingsexemplaar.
+* **Waarschuwingscontext (payload)** : Reguliere expressie die overeenkomt met binnen de [waarschuwingscontext](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) velden van een waarschuwingsexemplaar.
 
 Deze filters worden toegepast in combinatie met elkaar. Bijvoorbeeld, als ik 'Resourcetype' = 'Virtuele Machines' en 'Prioriteit' = 'Sev0', dan kan ik voor alle 'Sev0' waarschuwingen hebt gefilterd op mijn virtuele machines. 
 
@@ -80,7 +80,7 @@ Vervolgens configureert u de actieregel voor waarschuwingsonderdrukking of onder
 #### <a name="suppression"></a>Onderdrukking
 
 Als u selecteert **onderdrukking**, de duur voor de onderdrukking van de acties en meldingen te configureren. Kies een van de volgende opties:
-* **Vanaf nu (altijd)**: Alle meldingen onderdrukt voor onbepaalde tijd.
+* **Vanaf nu (altijd)** : Alle meldingen onderdrukt voor onbepaalde tijd.
 * **Op een gepland tijdstip**: Meldingen binnen een begrensde periode onderdrukken.
 * **Met een terugkeerpatroon**: Op een terugkerend schema, wat dagelijks, wekelijks of maandelijks zijn kan te onderdrukken.
 
@@ -128,12 +128,15 @@ Contoso wil om meldingen te onderdrukken voor alle waarschuwingen gegenereerd vo
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: Actiegroep die zijn gedefinieerd op een resourcegroep
 
-Contoso heeft gedefinieerd [een waarschuwing voor metrische gegevens op een abonnementsniveau](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), maar wil deze acties voor waarschuwingen voor de resourcegroep 'ContosoRG' afzonderlijk definiëren.
+Contoso heeft gedefinieerd [een waarschuwing voor metrische gegevens op een abonnementsniveau](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), maar het definiëren van de acties die speciaal voor waarschuwingen die zijn gegenereerd op basis van de resourcegroep 'ContosoRG' activeren.
 
 **Oplossing:** Maakt een actieregel met
 * Scope = 'ContosoRG'
 * Er zijn geen filters
 * Action Group set to 'ContosoActionGroup'
+
+> [!NOTE]
+> **Actiegroepen gedefinieerd in actieregels en regels voor waarschuwingen werken onafhankelijk van elkaar, met geen deduplicatie**. In het scenario dat hierboven wordt beschreven als er een actiegroep gedefinieerd voor de waarschuwingsregel, deze wordt geactiveerd in combinatie met de actiegroep die is gedefinieerd in de actieregel. 
 
 ## <a name="managing-your-action-rules"></a>De actieregels beheren
 

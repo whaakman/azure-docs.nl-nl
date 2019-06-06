@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463494"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513655"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Foutcodes voor aanmeldingsactiviteiten rapport 
 
@@ -181,6 +181,8 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |500121| Verificatie is mislukt tijdens de aanvraag voor sterke verificatie.|
 |500133| De verklaring valt niet binnen het bereik van geldige tijd. Zorg ervoor dat het toegangstoken niet voordat u deze gebruikt voor een verklaring van de gebruiker is verlopen of vraag een nieuw token.|
 |530021|Aanvraag voldoet niet aan de vereisten van de app voor voorwaardelijke toegang goedgekeurd.|
+|7000218|De aanvraagbody moet bevatten de volgende parameter: 'client_assertion' of 'client_secret'.|
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

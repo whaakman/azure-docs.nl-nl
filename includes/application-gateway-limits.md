@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 3/26/2019
+ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238403"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66689100"
 ---
 | Resource | Standaard-/ maximumlimiet | Opmerking |
 | --- | --- | --- |
@@ -37,5 +37,6 @@ ms.locfileid: "66238403"
 | Maximale bestandsgrootte voor uploaden, Standard |2 GB | |
 | Maximale upload grootte WAF |Gemiddeld WAF-gateways, 100 MB<br>Grote WAF-gateways, 500 MB| |
 | WAF hoofdtekst van de maximale grootte, zonder bestanden|128 KB||
+|Maximum aantal aangepaste regels voor WAF|100||
 
 <sup>1</sup> in het geval van WAF-functionaliteit SKU's, het is raadzaam dat u het aantal resources tot 40 voor optimale prestaties beperken.

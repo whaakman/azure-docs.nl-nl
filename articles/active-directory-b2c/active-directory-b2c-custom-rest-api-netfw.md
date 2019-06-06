@@ -2,20 +2,20 @@
 title: Integratie van REST-API claim uitwisselingen in uw Azure Active Directory B2C de gebruikersbeleving | Microsoft Docs
 description: Integreer claim worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie van de invoer van de gebruiker.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717294"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510721"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie van de gebruikersinvoer
 
@@ -60,7 +60,7 @@ Voer de stappen in de [aan de slag met aangepaste beleidsregels](active-director
 
 1. Maak in Visual Studio een project door te selecteren **bestand** > **nieuw** > **Project**.
 
-2. In de **nieuw Project** venster **Visual C#** > **Web** > **ASP.NET-webtoepassing (.NET Framework)**.
+2. In de **nieuw Project** venster **Visual C#**  > **Web** > **ASP.NET-webtoepassing (.NET Framework)** .
 
 3. In de **naam** typt u een naam voor de toepassing (bijvoorbeeld *Contoso.AADB2C.API*), en selecteer vervolgens **OK**.
 
@@ -248,13 +248,13 @@ Een claimprovider kan meerdere technische profielen om verschillende redenen heb
 
 De volgende XML-fragment bevat een claims provider-knooppunt met twee technische profielen:
 
-* **Technische profiel-Id = "REST-API-SignUp"**: Hiermee definieert u uw RESTful-service.
+* **Technische profiel-Id = "REST-API-SignUp"** : Hiermee definieert u uw RESTful-service.
   * `Proprietary` wordt beschreven als protocol voor een op basis van een RESTful-provider.
   * `InputClaims` Hiermee definieert u de claims die naar de REST-service van Azure AD B2C worden verzonden.
 
     In dit voorbeeld wordt de inhoud van de claim `givenName` verzendt naar de REST-service als `firstName`, de inhoud van de claim `surname` verzendt naar de REST-service als `lastName`, en `email` is verzonden. De `OutputClaims` element wordt gedefinieerd voor de claims die worden opgehaald uit RESTful-service naar Azure AD B2C.
 
-* **Technische profiel-Id = "LocalAccountSignUpWithLogonEmail"**: Voegt een validatie technisch profiel toe aan een bestaand technische profiel (gedefinieerd in het Basisbeleid). Tijdens de registratie reis roept het technische profiel van de validatie van de voorgaande technisch profiel. Als de RESTful-service retourneert een HTTP-fout 409 (een conflict-fout), wordt het foutbericht wordt weergegeven aan de gebruiker.
+* **Technische profiel-Id = "LocalAccountSignUpWithLogonEmail"** : Voegt een validatie technisch profiel toe aan een bestaand technische profiel (gedefinieerd in het Basisbeleid). Tijdens de registratie reis roept het technische profiel van de validatie van de voorgaande technisch profiel. Als de RESTful-service retourneert een HTTP-fout 409 (een conflict-fout), wordt het foutbericht wordt weergegeven aan de gebruiker.
 
 Zoek de `<ClaimsProviders>` knooppunt, en voeg de volgende XML-fragment uit onder de `<ClaimsProviders>` knooppunt:
 

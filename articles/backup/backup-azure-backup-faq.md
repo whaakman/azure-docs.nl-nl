@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551366"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688741"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -100,7 +100,7 @@ Windows 10 64-bits | Enterprise, Pro, Home | Machines moeten worden uitgevoerd, 
 Windows 8.1 64-bits | Enterprise, Pro | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Windows 8 64-bits | Enterprise, Pro | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Windows 7 64-bits | Ultimate, Enterprise, Professional, Home Premium Home Basic, Starter | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
-Server  | |
+Server | |
 Windows Server 2019 64-bits | Standard, Datacenter, Essentials | Met de nieuwste service packs/updates.
 Windows Server 2016, 64-bits | Standard, Datacenter, Essentials | Met de nieuwste service packs/updates.
 Windows Server 2012 R2 64-bits | Standard, Datacenter, Foundation | Met de nieuwste service packs/updates.
@@ -182,8 +182,8 @@ De opslagarchitectuur van Azure Backup biedt u het beste van beide werelden door
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Geldt er een limiet voor het aantal herstelpunten dat kan worden gemaakt?
 U kunt maximaal 9999 herstelpunten maken per beveiligd exemplaar. Een beveiligd exemplaar is een computer, server (fysiek of virtueel) of werkbelasting waarvan een back-ups van Azure.
 
-- Meer informatie over [back-up en retentie](./backup-introduction-to-azure-backup.md#backup-and-retention).
-- Meer informatie over [beschermde exemplaren](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
+- Meer informatie over [back-up en retentie](./backup-overview.md#backup-and-retention).
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Hoe vaak kan ik gegevens voor herstel die de back-up naar Azure?
 Er is geen limiet voor het aantal herstelbewerkingen vanuit Azure Backup.

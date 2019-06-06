@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migreren van Federatie naar pass-through-verificatie voor Azure Active Directory | Microsoft Docs'
+title: 'Azure AD Connect: Migreren van Federatie naar PTA voor Azure AD'
 description: In dit artikel bevat informatie over het verplaatsen van uw hybride identiteit omgeving van Federatie naar pass-through-verificatie.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382663"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473374"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migreren van Federatie naar pass-through-verificatie voor Azure Active Directory
 
@@ -75,7 +75,7 @@ Als u wilt weten welke methode u moet gebruiken, de stappen in de volgende secti
 2. Op de **extra taken** weergeeft, schakelt **de huidige configuratie weergeven**, en selecteer vervolgens **volgende**.<br />
  
    ![Schermafbeelding van de optie huidige configuratie weergeven op de pagina extra taken](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. Op de **uw oplossing controleren** pagina, bladert u naar **Active Directory Federation Services (AD FS)**.<br />
+3. Op de **uw oplossing controleren** pagina, bladert u naar **Active Directory Federation Services (AD FS)** .<br />
 
    * Als de AD FS-configuratie wordt weergegeven in deze sectie, kunt u veilig ervan uitgaan dat AD FS oorspronkelijk is geconfigureerd met behulp van Azure AD Connect. U kunt uw domeinen van federatieve identiteiten converteren naar beheerde identiteit met behulp van de Azure AD Connect **aanmelden van gebruikers wijzigen** optie. Zie de sectie voor meer informatie over het proces **optie 1: Pass through-verificatie configureren met behulp van Azure AD Connect**.
    * Als AD FS niet wordt weergegeven in de huidige instellingen, moet u handmatig converteren uw domeinen van federatieve identiteiten naar beheerde identiteit met behulp van PowerShell. Zie de sectie voor meer informatie over dit proces **optie 2: Overschakelen van Federatie naar pass-through-verificatie met behulp van Azure AD Connect en PowerShell**.

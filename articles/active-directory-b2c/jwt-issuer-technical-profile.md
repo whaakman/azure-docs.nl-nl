@@ -2,20 +2,20 @@
 title: Een technisch profiel definiëren voor een JWT-token certificaatverlener in een aangepast beleid in Azure Active Directory B2C | Microsoft Docs
 description: Definieer een technisch profiel voor een JWT-token certificaatverlener in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33dce27b69d080c57b925562ba83db0046b77ca9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 573463d91fc7a4119bd1bc30182588ff9dfdecb7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683786"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510708"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel voor een JWT-token certificaatverlener in een aangepast Azure Active Directory B2C-beleid definiëren
 
@@ -48,7 +48,7 @@ De **InputClaims**, **OutputClaims**, en **PersistClaims** elementen zijn leeg o
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Ja | De claim die moet worden gebruikt als de gebruikers-id claimen binnen de OAuth2-autorisatiecodes en vernieuwingstokens. Standaard moet u dit instellen op `objectId`, tenzij u een andere SubjectNamingInfo claimtype opgeven. | 
 | SendTokenResponseBodyWithJsonNumbers | Nee | Altijd ingesteld op `true`. Voor oudere indeling waar numerieke waarden zijn opgegeven als tekenreeksen in plaats van JSON-nummers, die is ingesteld op `false`. Dit kenmerk is vereist voor clients die een afhankelijkheid op een eerdere implementatie dat dergelijke eigenschappen als tekenreeksen geretourneerd hebt ondernomen. | 
-| token_lifetime_secs | Nee | Toegang tot levensduur van tokens. De levensduur van het Bearer-token van OAuth 2.0 dat wordt gebruikt om toegang te krijgen tot een beveiligde resource. De standaardwaarde is 3600 seconden (1 uur). De minimumwaarde (inclusief) is 300 seconden (5 minuten). Het maximum (inclusief) is 86.400 seconden (24 uur). | 
+| token_lifetime_secs | Nee | Toegang tot levensduur van tokens. De levensduur van het OAuth 2.0-bearer-token gebruikt voor toegang tot een beveiligde resource. De standaardwaarde is 3600 seconden (1 uur). De minimumwaarde (inclusief) is 300 seconden (5 minuten). Het maximum (inclusief) is 86.400 seconden (24 uur). | 
 | id_token_lifetime_secs | Nee | ID-levensduur van tokens. De standaardwaarde is 3600 seconden (1 uur). De minimumwaarde (inclusief) is 300 seconden (5 minuten). Het maximum (inclusief) is seconden 86,400 (24 uur). | 
 | refresh_token_lifetime_secs | Nee | Vernieuw de levensduur van tokens. De maximale periode waarbinnen een vernieuwingstoken kan worden gebruikt om een nieuw toegangstoken verkrijgen als uw toepassing het bereik offline_access is verleend. De standaardwaarde is 120,9600 seconden (14 dagen). De minimumwaarde (inclusief) is 86.400 seconden (24 uur). Het maximum (inclusief) is 7,776,000 seconden (90 dagen). | 
 | rolling_refresh_token_lifetime_secs | Nee | Levensduur van sliding window token vernieuwen. Nadat deze periode is verstreken wordt de gebruiker wordt gedwongen om te verifiëren, ongeacht de geldigheidsperiode van de meest recente vernieuwingstoken verkregen door de toepassing. Als u niet wilt om af te dwingen een levensduur van sliding window, stel de waarde van allow_infinite_rolling_refresh_token naar `true`. De standaardwaarde is 7,776,000 seconden (90 dagen). De minimumwaarde (inclusief) is 86.400 seconden (24 uur). Het maximum (inclusief) is 31,536,000 seconden (365 dagen). | 

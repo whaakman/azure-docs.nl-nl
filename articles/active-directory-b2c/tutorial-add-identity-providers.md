@@ -2,20 +2,20 @@
 title: Zelfstudie - id-providers toevoegen aan uw toepassingen - Azure Active Directory B2C | Microsoft Docs
 description: Informatie over het id-providers toevoegen aan uw toepassingen in Azure Active Directory B2C met behulp van de Azure portal.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c1bd78442f6a7218dde3710236766117816c42fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710135"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512200"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Zelfstudie: Id-providers toevoegen aan uw toepassingen in Azure Active Directory B2C
 
@@ -95,7 +95,7 @@ Nadat u de toepassing voor de id-provider die u wilt toevoegen hebt gemaakt, kun
 2. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 3. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 4. Voer een **naam**. Voer bijvoorbeeld *Contoso Azure AD*.
-5. Selecteer **type id-provider**, selecteer **Open ID Connect (Preview)**, en klik vervolgens op **OK**.
+5. Selecteer **type id-provider**, selecteer **Open ID Connect (Preview)** , en klik vervolgens op **OK**.
 6. Klik op **deze id-provider instellen**
 7. Voor **metagegevens-url**, voer de volgende URL vervangt `your-AD-tenant-domain` met de domeinnaam van uw Azure AD-tenant.
 
@@ -130,7 +130,7 @@ Nadat u de toepassing voor de id-provider die u wilt toevoegen hebt gemaakt, kun
 
 In de zelfstudie die u als onderdeel van de vereisten hebt voltooid, hebt u een gebruikersstroom gemaakt voor aanmelden en meld u met de naam *B2C_1_signupsignin1*. In deze sectie maakt u de id-providers te toevoegen de *B2C_1_signupsignin1* gebruikersstroom.
 
-1. Selecteer **gebruikersstromen (beleid)**, en selecteer vervolgens de *B2C_1_signupsignin1* gebruikersstroom.
+1. Selecteer **gebruikersstromen (beleid)** , en selecteer vervolgens de *B2C_1_signupsignin1* gebruikersstroom.
 2. Selecteer **id-providers**, selecteer de **Facebook** en **Contoso Azure AD** id-providers die u hebt toegevoegd.
 3. Selecteer **Opslaan**.
 

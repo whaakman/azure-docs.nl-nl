@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255605"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497155"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights een dashboard
 
@@ -37,7 +37,7 @@ Selectie van het tijdsbereik is vereenvoudigd naar een eenvoudige interface met 
 
 Algehele zijn prestaties aanzienlijk toegenomen. U hebt één klik toegang tot populaire functies zoals **zoeken** en **Analytics**. Elke dynamisch bijwerken van de KPI-tegel standaard biedt inzicht in de bijbehorende Application Insights-functies. Kunnen geen aanvragen selecteren voor meer informatie over **fouten** onder de **onderzoeken** header:
 
-![Fouten](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+![fouten](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Toepassingsdashboard
 
@@ -60,9 +60,12 @@ Ga terug naar het overzicht-ervaring hoeft te selecteren:
 
 ![Overzicht-knop](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>Problemen oplossen
+
+Als u selecteert **tegelinstellingen configureren** en stel een aangepast tijdsbereik dat overschrijdt 31 dagen in uw dashboard niet langer dan 31 dagen van gegevens, zelfs met de standaard-bewaarperiode van 90 dagen worden weergegeven. Er is momenteel geen oplossing voor dit gedrag.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Trechters](../../azure-monitor/app/usage-funnels.md)
 - [Retentie](../../azure-monitor/app/usage-retention.md)
 - [Gebruikersstromen](../../azure-monitor/app/usage-flows.md)
-- [Dashboards](../../azure-monitor/app/app-insights-dashboards.md)

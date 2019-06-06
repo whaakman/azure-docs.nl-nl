@@ -2,20 +2,20 @@
 title: Predikaten en PredicateValidations - Azure Active Directory B2C | Microsoft Docs
 description: Sociaal account claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714166"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512970"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikaten en PredicateValidations
 
@@ -33,9 +33,9 @@ De **predicaat** element definieert een basisvalidatie om te controleren of de w
 
 De **predikaten** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| Predicaat | 1: n | Een lijst met predicaten. | 
+| Predikaat | 1: n | Een lijst met predicaten. | 
 
 De **predicaat** element bevat de volgende kenmerken:
 
@@ -46,20 +46,20 @@ De **predicaat** element bevat de volgende kenmerken:
 
 De **predicaat** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Een foutbericht weergegeven voor gebruikers als de controle is mislukt. Deze tekenreeks kan worden gelokaliseerd met behulp van de [taalaanpassing](localization.md) |
 | Parameters | 1:1 | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameters** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | Parameter | 1: n | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameter** element bevat de volgende kenmerken:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | De id van de parameter. |
 
@@ -132,7 +132,7 @@ Terwijl de predicaten definiëren de validatie om te controleren op basis van ee
 
 De **PredicateValidations** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1: n | Een lijst van predikaat validatie. | 
 
@@ -144,13 +144,13 @@ De **PredicateValidation** element bevat het volgende kenmerk:
 
 De **PredicateValidation** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1: n | Een lijst van predikaat groepen. | 
 
 De **PredicateGroups** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1: n | Een lijst met predicaten. | 
 
@@ -162,7 +162,7 @@ De **PredicateGroup** element bevat het volgende kenmerk:
 
 De **PredicateGroup** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Een beschrijving van het predikaat die kan nuttig zijn voor gebruikers om te weten welke waarde ze moeten typen. | 
 | PredicateReferences | 1: n | Een lijst met predicaatverwijzingen. | 
@@ -175,7 +175,7 @@ De **PredicateReferences** element bevat de volgende kenmerken:
 
 De **PredicateReferences** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1: n | Een verwijzing naar een predicaat. | 
 

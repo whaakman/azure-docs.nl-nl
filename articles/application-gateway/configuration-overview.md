@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946813"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431298"
 ---
 # <a name="application-gateway-configuration-overview"></a>Overzicht van de configuratie van de Application Gateway
 
@@ -57,7 +57,7 @@ Netwerkbeveiligingsgroepen (nsg's) worden ondersteund in Application Gateway. Ma
 
 - Verkeer van de **AzureLoadBalancer** tag moet worden toegestaan.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Lijst met toegestane adressen Application Gateway toegang tot een paar bron-IP 's
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Application Gateway toegang tot een paar bron-IP-adressen toestaan
 
 Voor dit scenario gebruikt u nsg's op de Application Gateway-subnet. Plaats de volgende beperkingen op het subnet in deze volgorde van prioriteit:
 
@@ -209,13 +209,13 @@ Voor een pad gebaseerde regel toevoegen meerdere back-end HTTP-instellingen die 
 
 ### <a name="redirection-setting"></a>Omleidingsinstelling voor
 
-Als omleiding voor een eenvoudige regel is geconfigureerd, worden alle aanvragen op de bijbehorende listener omgeleid naar het doel. Dit is *globale* omleiding. Als omleiding is geconfigureerd voor een pad gebaseerde regel, worden alleen-aanvragen in een specifieke site gebied omgeleid. Een voorbeeld is een winkelwagen winkelwagen gebied dat wordt aangeduid met */cart/\**. Dit is *op pad gebaseerde* omleiding.
+Als omleiding voor een eenvoudige regel is geconfigureerd, worden alle aanvragen op de bijbehorende listener omgeleid naar het doel. Dit is *globale* omleiding. Als omleiding is geconfigureerd voor een pad gebaseerde regel, worden alleen-aanvragen in een specifieke site gebied omgeleid. Een voorbeeld is een winkelwagen winkelwagen gebied dat wordt aangeduid met */cart/\** . Dit is *op pad gebaseerde* omleiding.
 
 Zie voor meer informatie over omleidingen [overzicht van Application Gateway redirect](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 #### <a name="redirection-type"></a>Type omleiding
 
-Kies het type van omleiding vereist: *Permanent(301)*, *Temporary(307)*, *Found(302)*, of *Zie other(303)*.
+Kies het type van omleiding vereist: *Permanent(301)* , *Temporary(307)* , *Found(302)* , of *Zie other(303)* .
 
 #### <a name="redirection-target"></a>Doel van omleiding
 
@@ -269,7 +269,7 @@ Deze instelling in combinatie met HTTPS in de listener ondersteunt [end-to-end S
 
 Deze instelling geeft de poort waarop de back-endservers verkeer van de toepassingsgateway luisteren. U kunt poorten tussen 1 en 65535 zijn.
 
-### <a name="request-timeout"></a>Time-out van de aanvraag
+### <a name="request-timeout"></a>Time-out van aanvraag
 
 Deze instelling is het aantal seconden dat de toepassingsgateway wacht op een reactie ontvangen van de back-end-adrespool voordat deze wordt geretourneerd met een foutbericht "Tijdsoverschrijding bij verbinding".
 

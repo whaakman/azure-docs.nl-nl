@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417897"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514576"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -407,7 +407,7 @@ Kunnen algemene facturering gerelateerde taken uitvoeren, zoals betalingsgegeven
 | microsoft.office365.supportTickets/allEntities/allTasks | Maken en beheren van Office 365-ondersteuningstickets. |
 
 ### <a name="desktop-analytics-administrator"></a>Desktop Analytics-Administrator
-Openen en beheren van bureaubladbeheerhulpprogramma's en services, met inbegrip van Intune.
+Kunnen de Desktop Analytics en de Office Customization & beleid services beheren. Dit omvat de mogelijkheid om te bekijken van asset-inventarisatie, implementatie plannen, status van de implementatie en de status bekijken voor Desktop-analyse. Deze rol kunnen gebruikers Office-beleid beheren voor Office Customization & Policy-service.
 
   > [!NOTE]
   > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c0bc74ac0fe45f2502064340a0c3ce5b82694b06
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245697"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687923"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Gegevens kopiëren van Amazon S3 buckets met behulp van AzCopy
 
@@ -46,7 +46,7 @@ Verzamelen van uw AWS-toegangssleutel en de geheime toegangssleutel en stelt u d
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
-## <a name="copy-objects-folders-and-buckets"></a>Kopiëren van objecten, mappen en buckets
+## <a name="copy-objects-directories-and-buckets"></a>Kopiëren van objecten, mappen en buckets
 
 AzCopy gebruikt de [blok plaatsen van URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, zodat gegevens rechtstreeks tussen AWS S3 en de opslagserver is gekopieerd. Deze kopieerbewerkingen gebruik niet de bandbreedte van het netwerk van uw computer.
 
@@ -64,12 +64,12 @@ AzCopy gebruikt de [blok plaatsen van URL](https://docs.microsoft.com/rest/api/s
 >
 > Zie voor meer informatie over het hosten van virtuele van buckets [virtuele die als host fungeert van de Buckets]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
-### <a name="copy-a-folder"></a>Een map kopiëren
+### <a name="copy-a-directory"></a>Een map kopiëren
 
 |    |     |
 |--------|-----------|
-| **Syntaxis** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<folder-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-name>" --recursive=true` |
-| **Voorbeeld** | `azcopy cp "https://s3.amazonaws.com/mybucket/myfolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myfolder" --recursive=true` |
+| **Syntaxis** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<directory-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>" --recursive=true` |
+| **Voorbeeld** | `azcopy cp "https://s3.amazonaws.com/mybucket/mydirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory" --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Een bucket kopiëren
 

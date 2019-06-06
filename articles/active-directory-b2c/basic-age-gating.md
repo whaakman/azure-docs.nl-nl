@@ -2,20 +2,20 @@
 title: Schakel leeftijdsbeperking in Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over het identificeren van minderjarigen met behulp van uw toepassing.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228001"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511671"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Leeftijdsbeperking in Azure Active Directory B2C inschakelen
 
@@ -41,7 +41,7 @@ Leeftijdsbeperking bestaat uit twee waarden van de leeftijd: de leeftijd die iem
 | BH | Bahrein | Geen | 21 |
 | CM | Kameroen | Geen | 21 |
 | CY | Cyprus | 16 | 18 |
-| CZ | Tsjechische Republiek | 16 | 18 |
+| CZ | Tsjechië | 16 | 18 |
 | DE | Duitsland | 16 | 18 |
 | DK | Denemarken | 16 | 18 |
 | EE | Estland | 16 | 18 |
@@ -50,10 +50,10 @@ Leeftijdsbeperking bestaat uit twee waarden van de leeftijd: de leeftijd die iem
 | FR | Frankrijk | 16 | 18 |
 | GB | Verenigd Koninkrijk | 13 | 18 |
 | GR | Griekenland | 16 | 18 |
-| HR | Kroatië (Hrvatska) | 16 | 18 |
+| HR | Kroatië | 16 | 18 |
 | HU | Hongarije | 16 | 18 |
 | IE | Ierland | 13 | 18 |
-| it | Italië | 16 | 18 |
+| IT | Italië | 16 | 18 |
 | KR | Zuid-Korea | 14 | 18 |
 | LT | Litouwen | 16 | 18 |
 | LU | Luxemburg | 16 | 18 |

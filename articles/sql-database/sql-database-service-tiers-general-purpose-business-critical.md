@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database - voor algemeen gebruik en bedrijfskritiek | Microsoft Docs
-description: Het artikel wordt beschreven voor de algemeen gebruik en kritieke-bedrijfslaag in vCore model kopen.
+description: Het artikel behandelt de zakelijke kritieke-lagen in het op vCore gebaseerde aankoopmodel en algemeen gebruik.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,56 +12,56 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: e2230bc8adf13825692f93b1e2bc33a4b79076e2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5426bb7c8eba9d58dbf0472360c6ce0b19c9bc4
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574366"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431341"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-Servicelagen
 
-Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
+Azure SQL Database is gebaseerd op SQL Server database engine-architectuur die wordt aangepast voor de cloudomgeving om te controleren of de beschikbaarheid van 99,99 procent, zelfs als er een fout van de infrastructuur. Drie Servicelagen worden gebruikt in Azure SQL Database, elk met een andere architectuur. Deze service-lagen zijn:
 
-- [Algemeen gebruik](sql-database-service-tier-general-purpose.md) ontworpen voor het merendeel van de algemene werkbelastingen.
-- [Bedrijfskritiek](sql-database-service-tier-business-critical.md) ontworpen voor workloads met lage latentie met een leesbare replica.
-- [Zeer grootschalige](sql-database-service-tier-hyperscale.md) is ontworpen voor zeer grote databases (tot 100 TB) met meerdere leesbare replica's.
+- [Algemeen gebruik](sql-database-service-tier-general-purpose.md), die is ontworpen voor de meest algemene werkbelastingen.
+- [Bedrijfskritiek](sql-database-service-tier-business-critical.md), die is ontworpen voor workloads met een leesbare replica's met lage latentie.
+- [Zeer grootschalige](sql-database-service-tier-hyperscale.md), die is ontworpen voor zeer grote databases (tot 100 TB) met meerdere leesbare replica's.
 
-Dit artikel worden de overwegingen voor opslag en back-up voor de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel.
+Dit artikel worden de opslag en back-up overwegingen voor de zakelijke kritieke-lagen in het op vCore gebaseerde aankoopmodel en algemeen gebruik.
 
 > [!NOTE]
-> Zie voor meer informatie over de servicelaag grootschalige in het op vCore gebaseerde aankoopmodel [grootschalige servicelaag](sql-database-service-tier-hyperscale.md). Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-purchase-models.md).
+> Zie voor meer informatie over de grootschalige service tier in het op vCore gebaseerde aankoopmodel [grootschalige servicelaag](sql-database-service-tier-hyperscale.md). Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-purchase-models.md).
 
 ## <a name="data-and-log-storage"></a>Opslag van gegevens en logboekbestanden
 
-Overweeg de volgende:
+De volgende factoren van invloed zijn op de hoeveelheid opslag die wordt gebruikt voor gegevens en logboekbestanden:
 
-- De toegewezen opslag wordt gebruikt door de gegevensbestanden (MDF) en logboekbestanden bestanden (LDF).
+- De toegewezen opslag wordt gebruikt door de gegevensbestanden (MDF) en logboekbestanden (LDF).
 - Elke individuele database compute-grootte ondersteunt een maximale databasegrootte, met een maximale standaardgrootte van 32 GB.
-- Wanneer u de grootte van de vereiste één database (grootte van het MDF) configureert, wordt 30% van de extra opslag automatisch toegevoegd ter ondersteuning van LDF
-- Maximale grootte in het beheerde exemplaar moet worden opgegeven in veelvouden van 32 GB.
-- U kunt de grootte van een individuele database tussen 10 GB en de maximale ondersteunde selecteren
-  - Voor opslag in de standard-of algemene service-lagen, vergroten of verkleinen in stappen van 10 GB
-  - Voor opslag in de premium- of bedrijfskritiek Servicelagen, vergroten of verkleinen in stappen van 250 GB
+- Wanneer u de grootte van de vereiste één database (de grootte van het MDF-bestand) configureert, wordt automatisch extra opslagruimte van 30 procent meer toegevoegd ter ondersteuning van LDF-bestanden.
+- De maximale grootte voor een beheerd exemplaar van SQL-Database moet worden opgegeven in veelvouden van 32 GB.
+- U kunt de grootte van een individuele database tussen 10 GB en de maximale ondersteunde selecteren.
+  - Voor opslag in de standard-of algemene service-lagen, vergroten of verkleinen van de grootte in stappen van 10 GB.
+  - Voor opslag in de premium of business kritieke service-lagen, vergroten of verkleinen in stappen van 250 GB.
 - In de categorie Algemeen gebruik-service `tempdb` maakt gebruik van een gekoppelde SSD en deze kosten voor opslag is opgenomen in het vCore-prijs.
-- In de laag bedrijfskritiek service `tempdb` shares de gekoppelde SSD met de MDF en LDF-bestanden en opslagkosten van de tempDB is opgenomen in het vCore-prijs.
+- In de bedrijfslaag kritieke- `tempdb` de gekoppelde SSD deelt met de MDF en LDF-bestanden, en de `tempdb` opslagkosten is opgenomen in het vCore-prijs.
 
 > [!IMPORTANT]
-> De totale opslag toegewezen voor MDF en LDF in rekening worden gebracht.
+> U betaalt voor de totale opslag toegewezen voor MDF en LDF-bestanden.
 
-Voor het controleren van de huidige totale grootte van het MDF en LDF gebruikt [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Voor het controleren van de huidige grootte van de afzonderlijke MDF en LDF-bestanden gebruikt [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+Voor het controleren van de huidige totale grootte van de MDF en LDF-bestanden gebruikt [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Voor het controleren van de huidige grootte van de afzonderlijke MDF en LDF-bestanden gebruikt [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
 ## <a name="backups-and-storage"></a>Back-ups en opslag
 
-Opslag voor back-ups ter ondersteuning van het punt in tijd herstellen (PITR) is toegewezen en [lange termijn Retention (LTR)](sql-database-long-term-retention.md) mogelijkheden van SQL Database. Deze opslag is toegewezen afzonderlijk voor elke database en wordt gefactureerd als twee afzonderlijke database kosten in rekening gebracht.
+Opslag voor back-ups ter ondersteuning van de punt-in-time-restore (PITR) is toegewezen en [(LTR) met een langetermijnbewaarperiode](sql-database-long-term-retention.md) mogelijkheden van SQL Database. Deze opslag is toegewezen afzonderlijk voor elke database en wordt gefactureerd als twee afzonderlijke database kosten in rekening gebracht.
 
-- **PITR**: Afzonderlijke databaseback-ups worden gekopieerd naar [RA-GRS-opslag](../storage/common/storage-designing-ha-apps-with-ragrs.md) automatisch. De grootte van de dynamisch wordt verhoogd wanneer de nieuwe back-ups worden gemaakt.  De opslag wordt gebruikt voor wekelijkse volledige back-ups, dagelijkse differentiële back-ups en back-ups van transactielogboeken die om de vijf minuten worden gekopieerd. Het opslagverbruik, is afhankelijk van de wijzigingssnelheid van de database en de bewaarperiode. U kunt een afzonderlijke bewaarperiode voor elke database tussen 7 en 35 dagen configureren. Een opslagruimte ter gelijk zijn aan 1 x de grootte is opgegeven zonder extra kosten. Voor de meeste databases is dit bedrag voldoende voor het opslaan van zeven dagen aan back-ups.
-- **LTR**: SQL Database biedt de mogelijkheid langetermijnretentie van volledige back-ups configureren voor maximaal 10 jaar. Als LTR-beleid is ingeschakeld, wordt deze back-ups worden opgeslagen in de RA-GRS-opslag automatisch, maar u kunt bepalen hoe vaak de back-ups worden gekopieerd. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Deze configuratie wordt gedefinieerd hoeveel opslagruimte wordt gebruikt voor het LTR-back-ups. Om in te schatten van de kosten voor LTR-opslag kunt u de LTR-prijscalculator. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
+- **PITR**: Afzonderlijke databaseback-ups worden gekopieerd naar [leestoegang geografisch redundante opslag met (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md) automatisch. De grootte van de neemt dynamisch toe naarmate nieuwe back-ups worden gemaakt. De opslag wordt gebruikt voor wekelijkse volledige back-ups, dagelijkse differentiële back-ups en transactielogboekback-ups, deze om de 5 minuten worden gekopieerd. Het opslagverbruik, is afhankelijk van de wijzigingssnelheid van de database en de bewaarperiode voor back-ups. U kunt een afzonderlijke bewaarperiode voor elke database tussen 7 en 35 dagen configureren. Een opslagruimte ter waarde van 100 procent (x 1) de grootte van de database wordt geleverd zonder extra kosten. Voor de meeste databases is dit bedrag voldoende voor het opslaan van zeven dagen aan back-ups.
+- **LTR**: SQL Database biedt de mogelijkheid om langetermijnretentie voor volledige back-ups configureren voor maximaal 10 jaar. Als u een LTR-beleid hebt ingesteld, wordt deze back-ups worden opgeslagen in de RA-GRS-opslag automatisch, maar u kunt bepalen hoe vaak de back-ups worden gekopieerd. Om te voldoen aan verschillende nalevingsvereisten voldoet, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse of jaarlijkse back-ups. De configuratie die u kiest, bepaalt hoeveel opslagruimte wordt gebruikt voor LTR-back-ups. Voor een schatting van de kosten voor LTR-opslag, kunt u de LTR-prijscalculator. Zie voor meer informatie, [SQL-Database met een langetermijnbewaarperiode](sql-database-long-term-retention.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele database in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md)
-- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor elastische pools in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
+- Zie voor meer informatie over de specifieke-grootten en opslag-grootten die beschikbaar zijn voor een individuele database in de zakelijke kritieke-lagen en algemeen gebruik Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md).
+- Zie voor meer informatie over de specifieke-grootten en opslag-grootten die beschikbaar zijn voor elastische pools in de zakelijke kritieke-lagen en algemeen gebruik Reken, [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).

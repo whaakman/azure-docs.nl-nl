@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/06/2019
 ms.author: juliako
-ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550964"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732990"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
@@ -79,48 +79,53 @@ Wanneer de livegebeurtenis is gemaakt, kunt u URL's voor opnemen ophalen die u a
 
 U kunt niet-vanity-URL's en vanity-URL's gebruiken. 
 
+> [!NOTE] 
+> Voor een URL voor opnemen worden voorspeld, stelt u de modus 'aangepaste'.
+
 * Niet-vanity-URL
 
     Een niet-vanity-URL is de standaardmodus in AMS v3. U krijgt de livegebeurtenis mogelijk snel, maar de opname-URL is alleen bekend als de livegebeurtenis wordt gestart. De URL wordt gewijzigd als u de livegebeurtenis stopt of start. <br/>Niet-vanity is handig in scenario's waarbij een eindgebruiker wil streamen met een app waarbij de app een livegebeurtenis zo snel mogelijk wil downloaden en waarbij een dynamische opname-URL geen probleem is.
 * Vanity URL
 
     De vanity-modus heeft de voorkeur bij grote tv-media die gebruikmaken van hardware broadcast-encoders en die hun encoders niet opnieuw willen configureren als de livegebeurtenis wordt gestart. Ze willen een voorspellende opname-URL, die niet na verloop van tijd verandert.
+    
+    Als u wilt deze modus opgeven, stelt u `vanityUrl` te `true` tijdens het maken (de standaardwaarde is `false`). U moet ook uw eigen token doorgeven (`LiveEventInput.accessToken`) tijdens het maken. U opgeven de token waarde om te voorkomen dat een willekeurige token in de URL. Het toegangstoken heeft een geldige GUID-tekenreeks (met of zonder de streepjes). Zodra de modus is ingesteld, kan deze kan niet worden bijgewerkt.
 
-> [!NOTE] 
-> Voor een URL voor opnemen worden voorspeld, moet u de modus 'aangepaste' gebruiken en uw eigen token (om te voorkomen dat een willekeurige token in de URL) doorgeven.
+    Het toegangstoken moet uniek zijn in uw datacenter. Als uw toepassing moet een aangepaste URL moet worden gebruikt, is het aanbevolen maken altijd een nieuw exemplaar van de GUID voor uw toegangstoken (in plaats van opnieuw gebruiken van een bestaande GUID). 
 
 ### <a name="live-ingest-url-naming-rules"></a>Live naamgevingsregels URL voor opnemen
 
 De *willekeurige* tekenreeks hieronder is een 128-bits hexadecimaal getal (bestaande uit 32 tekens, van 0-9 en a-f).<br/>
-Het *toegangstoken* hieronder dient u op te geven voor een vaste URL. Dit is ook een 128-bits hexadecimaal getal.
+De *toegangstoken* is wat u nodig hebt om op te geven voor vaste-URL. U moet een access token tekenreeks is die een lengte van geldige GUID-tekenreeks is ingesteld. <br/>
+De *Stroomnaam* geeft aan dat de naam van de stream voor een specifieke verbinding. De waarde van de stream wordt meestal toegevoegd door het live coderingsprogramma dat u gebruikt.
 
 #### <a name="non-vanity-url"></a>Niet-vanity-URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>Vanity URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>Live gebeurtenis de voorbeeld-URL
 

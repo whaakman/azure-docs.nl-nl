@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245040"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475667"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Gegevens uit Office 365 kopiëren naar Azure met behulp van Azure Data Factory
 
-Azure Data Factory kunt u de uitgebreide gegevens van de organisatie in uw Office 365-tenant in Azure op een schaalbare manier en bouwen van toepassingen voor gegevensanalyse en inzichten op basis van deze waardevolle activa. Integratie met Privileged Access Management biedt beveiligd toegangsbeheer voor de waardevolle gegevens in Office 365.  Voor meer informatie over Microsoft Graph-gegevens verbinden, Raadpleeg [deze koppeling](https://docs.microsoft.com/graph/data-connect-concept-overview).
+Azure Data Factory kan worden geïntegreerd met [Microsoft Graph-gegevens verbinden](https://docs.microsoft.com/graph/data-connect-concept-overview), zodat u kunt doen om de uitgebreide gegevens van de organisatie in uw Office 365-tenant in Azure op een schaalbare manier om te bouwen van toepassingen voor gegevensanalyse en inzichten op basis van Deze waardevolle gegevensassets. Integratie met Privileged Access Management biedt beveiligd toegangsbeheer voor de waardevolle gegevens in Office 365.  Raadpleeg [deze koppeling](https://docs.microsoft.com/graph/data-connect-concept-overview) voor een overzicht van Microsoft Graph-gegevens verbinden en verwijzen naar [deze koppeling](https://docs.microsoft.com/graph/data-connect-policies#licensing) voor licentie-informatie.
 
 In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Office 365. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
+ADF Office 365-connector en Microsoft Graph-gegevens kunnen op schaal opname van verschillende typen gegevenssets verbinding uit de postvakken van Exchange waarvoor E-mail is ingeschakeld, met inbegrip van contactpersonen, agenda-gebeurtenissen, e-mailberichten, gebruikersgegevens, postvakinstellingen, van en enzovoort.  Raadpleeg [hier](https://docs.microsoft.com/graph/data-connect-datasets) om te zien van de volledige lijst met beschikbare gegevenssets.
 
 Op dit moment binnen een enkel kopieeractiviteit kunt u alleen **gegevens kopiëren van Office 365 in [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), en [Azure Data Lake Storage Gen2 ](connector-azure-data-lake-storage.md) in JSON-indeling** (type setOfObjects). Als u laden van Office 365 in andere typen van gegevensarchieven of in andere indelingen wilt, u kunt koppelen aan de eerste kopieeractiviteit met een latere copy activity in meer gegevens laden in een van de [ondersteund ADF doelarchieven](copy-activity-overview.md#supported-data-stores-and-formats) (Zie" ondersteund als een sink"kolom in de tabel 'Ondersteunde gegevensarchieven en indelingen').
 

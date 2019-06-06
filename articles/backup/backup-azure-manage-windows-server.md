@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61231828"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688913"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
 
@@ -30,7 +30,7 @@ De vereisten voor dit artikel zijn: een Azure-abonnement, een Recovery Services-
 
 Te bewaken, waarschuwingen, of gegevens over een Recovery Services-kluis weergeven, opent u de kluis.
 
-1. Aanmelden bij de [Azure Portal](https://portal.azure.com/) met behulp van uw Azure-abonnement.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van uw Azure-abonnement.
 
 2. Klik in de portal op **alle services**.
 
@@ -156,7 +156,7 @@ Kies de ernst van waarschuwing (Kritiek of waarschuwing) gebruikt voor het gener
 
 ## <a name="manage-backup-items"></a>Back-up items beheren
 
-Een Recovery Services-kluis bevat veel soorten back-upgegevens. Zie voor een volledige lijst van de back-uptypen [die toepassingen en werkbelastingen kunnen een back-up](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Voor het beheren van de verschillende servers, computers, databases en werkbelastingen, klikt u op de **back-Upitems** tegel om de inhoud van de kluis weer te geven.
+Een Recovery Services-kluis bevat veel soorten back-upgegevens. [Meer informatie](backup-overview.md#what-can-i-back-up) over wat u kunt back-up. Voor het beheren van de verschillende servers, computers, databases en werkbelastingen, klikt u op de **back-Upitems** tegel om de inhoud van de kluis weer te geven.
 
 ![Back-upitems van tegel](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -226,7 +226,7 @@ U kunt één bewerking, of alle bewerkingen bekijken. U kunt twee of drie bewerk
 * Backup
 * Herstellen
 * Back-up uitschakelen
-* back-upgegevens verwijderen
+* Back-upgegevens verwijderen
 
 #### <a name="status"></a>Status
 
@@ -234,7 +234,7 @@ U kunt de Status van alle of een weergeven. U kunt twee of drie statussen niet s
 
 * Status van alle
 * Voltooid
-* Wordt uitgevoerd
+* Bezig
 * Mislukt
 * Geannuleerd
 * Voltooid met waarschuwingen

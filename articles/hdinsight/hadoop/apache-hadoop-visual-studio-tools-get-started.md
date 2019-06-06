@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: 6fbbdb67478d0b45a2cc2ecb8a44fac140e72da5
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.date: 06/03/2019
+ms.openlocfilehash: 42ef03d604caacf5ba18773b88e892237b5f0eae
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851928"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688526"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools voor Visual Studio gebruiken om te verbinden met Azure HDInsight en Apache Hive-query's uitvoeren
 
@@ -33,10 +33,10 @@ Al u deze zelfstudie wilt voltooien en Data Lake Tools voor Visual Studio wilt g
 
 * Een Azure HDInsight-cluster. Zie voor het maken van een HDInsight-cluster, [aan de slag met behulp van Apache Hadoop in Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). Om de interactieve Apache Hive-query's uitvoeren, moet u een [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster.  
 
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/) (2013 of hoger).  De [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/) is gratis.  Zie ook [Visual Studio 2017 installeren](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) (2013 of hoger).  De [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/) is gratis.  Zie ook [Visual Studio 2017 installeren](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Er zijn variaties lichte interface met Visual Studio 2019.
 
   > [!IMPORTANT]  
-  > Data Lake Tools is niet meer ondersteund voor Visual Studio 2013. 
+  > Data Lake Tools is niet meer ondersteund voor Visual Studio 2013.
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Data Lake Tools voor Visual Studio installeren  
 <a name="install-or-update-data-lake-tools-for-visual-studio"></a>
@@ -85,7 +85,7 @@ Verbinding maken met uw Azure-abonnement:
 
    ![Schermafbeelding van de lijst met clusters in Server Explorer van Data Lake Tools voor Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Lijst met clusters in Server Explorer van Data Lake Tools voor Visual Studio")
 
-5. Een HDInsight-cluster uitbreiden. **Hive-databases**, een standaardopslagaccount, gekoppelde opslagaccounts en een **Hadoop Service-logboek** worden weergegeven. U kunt de entiteiten verder uitbreiden.
+5. Een HDInsight-cluster uitbreiden. **Hive-Databases**, een standaardopslagaccount, gekoppelde opslagaccounts en **Hadoop Service-logboek** worden weergegeven. U kunt de entiteiten verder uitbreiden.
 
 Nadat u met uw Azure-abonnement verbonden bent, kunt u de volgende taken uitvoeren.
 
@@ -93,19 +93,20 @@ Verbinding maken met Azure Portal vanuit Visual Studio:
 
 1. In Server Explorer, gaat u naar **Azure** > **HDInsight** en selecteert u uw cluster.
 
-2. Met de rechtermuisknop op een HDInsight-cluster en selecteer **Cluster beheren in Azure Portal**.
+2. Met de rechtermuisknop op een HDInsight-cluster en selecteer **Cluster beheren in Azure portal [sic]** .
 
 Stel vragen en/of feedback geven vanuit Visual Studio:
 
 1. In Server Explorer, gaat u naar **Azure** > **HDInsight**.
 
 2. Met de rechtermuisknop op **HDInsight** en selecteert u **MSDN-Forum** vragen, of **Feedback geven** om feedback te geven.
+
 ## <a name="link-a-cluster"></a>Een cluster koppelen
-U kunt een cluster kan koppelen met de rechtermuisknop te klikken op **HDInsight** Selecteer **koppelt een HDInsight-Cluster**. Voer **verbindings-Url**, **gebruikersnaam** en **wachtwoord**, klikt u op **volgende** vervolgens **voltooien**, het cluster moet worden weergegeven onder de HDInsight-knooppunt is geslaagd.
+U kunt een cluster kan koppelen met de rechtermuisknop op **HDInsight** Selecteer **koppelt een HDInsight-Cluster**. Voer **verbindings-Url**, **gebruikersnaam** en **wachtwoord**, klikt u op **volgende** vervolgens **voltooien**, het cluster moet worden weergegeven onder de HDInsight-knooppunt is geslaagd.
 
 ![Schermafbeelding van Data Lake Tools voor Visual Studio koppeling cluster dialoogvenster](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
-Klik met de rechtermuisknop op het gekoppelde cluster, selecteer **bewerken**, gebruiker de clustergegevens kan bijwerken. Houd er rekening mee dat toevoegen HDInsight-cluster biedt alleen ondersteuning voor Hive op dit moment.
+Klik met de rechtermuisknop op het gekoppelde cluster, selecteer **bewerken**, gebruiker de clustergegevens kan bijwerken. Toevoegen van een HDInsight-cluster biedt alleen ondersteuning voor Hive op dit moment.
 
 ![Schermafbeelding van Data Lake Tools voor Visual Studio koppeling cluster bijwerken](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
@@ -170,7 +171,14 @@ Maken en uitvoeren van ad-hocquery's:
 
 1. Met de rechtermuisknop op het cluster waar u de query uitvoert, en selecteer **een Hive-Query schrijven**.  
 
-2. Voer de Hive-query's in  
+2. Voer de volgende Hive-query:
+
+    ```sql
+    SELECT devicemodel, COUNT(devicemodel) AS deviceCount
+    FROM hivesampletable
+    GROUP BY devicemodel
+    ORDER BY devicemodel
+    ```
 
     De Hive-editor ondersteunt IntelliSense. Data Lake Tools voor Visual Studio biedt ondersteuning voor het laden van externe metagegevens wanneer u het Hive-script bewerkt. Als u bijvoorbeeld `SELECT * FROM`, geeft IntelliSense alle voorgestelde tabelnamen. Wanneer een tabelnaam wordt opgegeven, geeft IntelliSense de kolomnamen weer. De hulpprogramma's ondersteunen de meeste DML-instructies, subquery's en ingebouwde UDF's van Hive.
 
@@ -204,7 +212,7 @@ Een Hive-oplossing maken en uitvoeren:
 
 1. In de menubalk, gaat u naar **bestand** > **nieuw** > **Project...** .
 
-2. Navigeer in het linkerdeelvenster naar **geïnstalleerde** > **Azure Data Lake** > **HIVE (HDInsight)**.  
+2. Navigeer in het linkerdeelvenster naar **geïnstalleerde** > **Azure Data Lake** > **HIVE (HDInsight)** .  
 
 3. Selecteer **Hive-toepassing** in het middelste deelvenster. Voer de eigenschappen in en selecteer **OK**.
 
@@ -266,7 +274,7 @@ Hive-taken weergeven:
 
 1. In de menubalk, gaat u naar **bestand** > **nieuw** > **Project...** .
 
-2. Navigeer in het linkerdeelvenster naar **geïnstalleerde** > **Azure Data Lake** > **Pig (HDInsight)**.  
+2. Navigeer in het linkerdeelvenster naar **geïnstalleerde** > **Azure Data Lake** > **Pig (HDInsight)** .  
 
 3. Selecteer in het middelste deelvenster **Pig toepassing**. Voer de eigenschappen in en selecteer **OK**.
 

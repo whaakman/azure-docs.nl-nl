@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306817"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428071"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>API Management te integreren met Service Fabric in Azure
 
@@ -43,7 +43,7 @@ Voordat u begint:
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installeer [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) of [Azure CLI](/cli/azure/install-azure-cli).
 * Maak een veilig [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in een netwerkbeveiligingsgroep.
-* Als u een Windows-cluster implementeert, richt u een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2017](https://www.visualstudio.com) en de workloads voor **Azure-ontwikkeling**, **ASP.NET-ontwikkeling en webontwikkeling** en **.NET Core platformoverschrijdende ontwikkeling**.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
+* Als u een Windows-cluster implementeert, richt u een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2019](https://www.visualstudio.com) en de **Azure-ontwikkeling**, **ASP.NET en webontwikkeling**, en **.NET Core platformoverschrijdende ontwikkeling**werkbelastingen.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
 
 ## <a name="network-topology"></a>Netwerktopologie
 
@@ -88,7 +88,7 @@ Start Visual Studio als beheerder en maak een ASP.NET Core-service:
     </Resources>
     ```
 
-    Door het verwijderen van de poort kan Service Fabric dynamisch een poort opgeven uit het bereik van toepassingspoorten, dat is geopend via de netwerkbeveiligingsgroep in de sjabloon van Resource Manager voor het cluster. Hierdoor kan er vanuit API Management verkeer plaatsvinden naar de poort.
+    Verwijderen van de poort kan Service Fabric om op te geven van een poort dynamisch uit het poortbereik voor toepassingen geopend via de Netwerkbeveiligingsgroep in de Cluster Resource Manager-sjabloon die het verkeer naar deze stromen van API Management.
 
  6. Druk in Visual Studio op F5 om te controleren of de web-API lokaal beschikbaar is.
 

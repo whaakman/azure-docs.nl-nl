@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237623"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427360"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Beveiligingsmatrix voor Azure Backup Server
 
@@ -22,10 +22,10 @@ In dit artikel bevat de verschillende servers en werkbelastingen die u met Azure
 
 ## <a name="protection-support-matrix"></a>Ondersteuningsmatrix voor beveiliging
 
-|Workload|Version|Azure Backup-server</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Beveiliging en herstel|
+|Workload|Versie|Azure Backup-server</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Beveiliging en herstel|
 |------------|-----------|---------------|--------------|---------------|-----------------|
-|Client-computers (64-bits en 32-bits)|Windows 10|Fysieke server<br /><br />Virtuele Hyper-V-machine <br /><br />Virtuele VMware-machine|J|J|Volume, share, map, bestanden, ontdubbelde volumes<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
-|Client-computers (64-bits en 32-bits)|Windows 8.1|Fysieke server<br /><br />Virtuele Hyper-V-machine |J|J|Bestanden<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
+|Client-computers (64-bits en 32-bits)|Windows 10|Fysieke server<br /><br />Virtuele Hyper-V-machine<br /><br />Virtuele VMware-machine|J|J|Volume, share, map, bestanden, ontdubbelde volumes<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
+|Client-computers (64-bits en 32-bits)|Windows 8.1|Fysieke server<br /><br />Virtuele Hyper-V-machine|J|J|Bestanden<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
 |Client-computers (64-bits en 32-bits)|Windows 8.1|Windows virtuele machine in VMWare (beveiligt werkbelasting die wordt uitgevoerd op Windows-machine in VMWare)|J|J|Volume, share, map, bestanden, ontdubbelde volumes<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
 |Client-computers (64-bits en 32-bits)|Windows 8|Fysieke server<br /><br />On-premises Hyper-V virtuele machine|J|J|Volume, share, map, bestanden, ontdubbelde volumes<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
 |Client-computers (64-bits en 32-bits)|Windows 8|Windows virtuele machine in VMWare (beveiligt werkbelasting die wordt uitgevoerd op Windows-machine in VMWare)|J|J|Volume, share, map, bestanden, ontdubbelde volumes<br /><br />Beveiligde volumes moeten NTFS zijn. FAT en FAT32 worden niet ondersteund.<br /><br />Volumes moeten ten minste 1 GB. DPM maakt gebruik van Volume Shadow Copy Service (VSS) naar de momentopname van de gegevens en de momentopname werkt alleen als het volume ten minste 1 GB is.|
@@ -82,6 +82,15 @@ In dit artikel bevat de verschillende servers en werkbelastingen die u met Azure
 |Virtuele VMware-machines|VMware vCenter/vSphere ESX/ESXi in licentie gegeven versie 5.5/6.0/6.5 |Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|J|Virtuele VMware-machines op gedeelde clustervolumes (CSV's), NFS en SAN-opslag<br /> Herstel op itemniveau van bestanden en mappen is alleen beschikbaar voor Windows-VM's, VMware vApps worden niet ondersteund.|
 |Virtuele VMware-machines|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|N|Virtuele VMware-machines op gedeelde clustervolumes (CSV's), NFS en SAN-opslag<br /> Herstel op itemniveau van bestanden en mappen is alleen beschikbaar voor Windows-VM's, VMware vApps worden niet ondersteund.|
 |Linux|Linux uitvoeren als Hyper-V of VMware-Gast|Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|J|Hyper-V moet worden uitgevoerd op Windows Server 2012 R2 of Windows Server 2016. Beveiligen: Volledige virtuele machine<br /><br />Herstellen: Volledige virtuele machine <br/><br/> Zie het artikel voor een volledige lijst van ondersteunde Linux-distributies en versies [Linux op door Azure onderschreven distributies](../virtual-machines/linux/endorsed-distros.md).|
+
+## <a name="azure-expressroute-support"></a>Ondersteuning van Azure ExpressRoute
+
+Als Azure ExpressRoute met persoonlijke of Microsoft-peering is geconfigureerd, kan deze niet worden gebruikt voor back-up van de gegevens naar Azure.
+
+Als Azure ExpressRoute met openbare Peering is geconfigureerd, kan deze worden gebruikt om back-up van de gegevens naar Azure.
+
+>[!NOTE]
+>Openbare Peering is afgeschaft voor nieuwe circuits.
 
 ## <a name="cluster-support"></a>Clusterondersteuning
 Azure Backup Server kan gegevens beschermen in de volgende geclusterde toepassingen:

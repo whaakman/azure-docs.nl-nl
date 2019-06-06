@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea39bceaa6b58e84def9635436d902002e33cd14
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464800"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514516"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor het beheer van container-installatiekopie en beveiliging in Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,6 @@ In dit artikel richt zich op het beveiligen van uw containers in AKS. In deze ze
 
 > [!div class="checklist"]
 > * Zoeken en afbeelding beveiligingsproblemen herstellen
-> * Gebruik van een vertrouwde register met digitaal ondertekende containerinstallatiekopieën
 > * Automatisch activeren en opnieuw implementeren van containerinstallatiekopieën wanneer een basisinstallatiekopie wordt bijgewerkt
 
 U kunt ook de aanbevolen procedures voor lezen [cluster security] [ best-practices-cluster-security] en voor [pod security][best-practices-pod-security].
@@ -36,16 +35,6 @@ Een probleem met de acceptatie van werkbelastingen op basis van een container me
 ![Scannen en herstellen van containerinstallatiekopieën, valideren en implementeren](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
 In het voorbeeld van een echte, kunt u een continue integratie en continue implementatie (CI/CD)-pijplijn kunt gebruiken voor het automatiseren van de installatiekopie-scans, verificatie en -implementaties. Azure Container Registry bevat deze beveiligingslekken scanmogelijkheden.
-
-## <a name="use-a-trusted-registry"></a>Gebruik van een vertrouwde register
-
-**Aanbevolen procedurerichtlijn** : beperken van de installatiekopieregisters die schillen en implementaties kunnen gebruiken. Dat alleen vertrouwde registers waar u valideren en beheren van de installatiekopieën die beschikbaar zijn.
-
-Voor extra beveiliging kunt u uw containerinstallatiekopieën ook digitaal ondertekenen net zoals u kunt uw toepassingscode digitaal ondertekenen. U vervolgens toestaan alleen AKS ondertekende installatiekopieën implementeren. Deze procedure biedt een extra beveiligingslaag in dat u AKS te kunnen halen alleen afbeeldingen digitaal ondertekende en vertrouwde door u, niet alleen afbeeldingen die een controle door een beveiligingslek doorgeven beperken. U ook voor zorgen dat de container-installatiekopie niet is geknoeid en door een installatiekopie met exact dezelfde naam vervangen.
-
-Vertrouwde registers die digitaal zijn ondertekend containerinstallatiekopieën bieden complexiteit toevoegen aan uw omgeving, maar mogelijk zijn vereist voor bepaalde beleid of naleving van regelgeving. Azure Container Registry ondersteunt het gebruik van vertrouwde registers en installatiekopieën ondertekend.
-
-Zie voor meer informatie over installatiekopieën van digitaal ondertekende [inhoud vertrouwen in Azure Container Registry][acr-content-trust].
 
 ## <a name="automatically-build-new-images-on-base-image-update"></a>Automatisch maken van nieuwe installatiekopieën op updates van basisinstallatiekopieën
 
@@ -62,7 +51,6 @@ Zie voor meer informatie over updates van de basisinstallatiekopie [automatisere
 In dit artikel is gericht op over het beveiligen van uw containers. Voor het implementeren van sommige van deze gebieden, Zie de volgende artikelen:
 
 * [Compileren van installatiekopieën op updates van basisinstallatiekopieën met Azure Container Registry taken automatiseren][acr-base-image-update]
-* [Inhoud vertrouwen in Azure Container Registry][acr-content-trust]
 
 <!-- EXTERNAL LINKS -->
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts
@@ -72,5 +60,4 @@ In dit artikel is gericht op over het beveiligen van uw containers. Voor het imp
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
-[acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md

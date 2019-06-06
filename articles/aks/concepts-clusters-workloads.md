@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850532"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514532"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
@@ -70,13 +70,13 @@ Als u wilt uitvoeren op uw toepassingen en ondersteunende services, moet u een K
 
 De Azure VM-grootte voor uw knooppunten definieert het aantal CPU's, hoeveel geheugen en de grootte en hetzelfde type van de opslagruimte beschikbaar is (zoals hoogwaardige SSD of reguliere HDD). Als u verwacht nodig is voor toepassingen waarvoor grote hoeveelheden CPU en geheugen of opslag met hoge prestaties dat, plan u de grootte van het knooppunt dienovereenkomstig. U kunt ook het aantal knooppunten opschalen in uw AKS-cluster om te voldoen aan de vraag.
 
-De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux of Windows Server 2019. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren.
+De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux of Windows Server 2019. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren. Agentknooppunten worden in rekening gebracht als de standaard virtuele machines, zodat eventuele kortingen die u hebt op de VM-grootte u (met inbegrip van [Azure reserveringen][reservation-discounts]) automatisch worden toegepast.
 
 Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties bevat voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u een container runtime dan Moby gebruiken wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
 
 ### <a name="resource-reservations"></a>Resource-reserveringen
 
-U hoeft te beheren, de Kubernetes-basisonderdelen op elk knooppunt, zoals de *kubelet*, *kube-proxy*, en *kube-DNS-*, maar ze enkele van de beschikbare gebruiken COMPUTE-resources. Als u wilt behouden knooppunt prestaties en functionaliteit, zijn de volgende rekenresources gereserveerd op elk knooppunt:
+U hoeft te beheren, de Kubernetes-basisonderdelen op elk knooppunt, zoals de *kubelet*, *kube-proxy*, en *kube-DNS-* , maar ze enkele van de beschikbare gebruiken COMPUTE-resources. Als u wilt behouden knooppunt prestaties en functionaliteit, zijn de volgende rekenresources gereserveerd op elk knooppunt:
 
 - **CPU** - 60 ms
 - **Geheugen** -20% maximaal 4 GiB
@@ -270,3 +270,4 @@ Dit artikel vindt u enkele van de belangrijkste onderdelen die Kubernetes en hoe
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

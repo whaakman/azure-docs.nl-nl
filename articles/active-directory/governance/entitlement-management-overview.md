@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921070"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474061"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is Azure AD recht management? (Preview-versie)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is Azure AD recht management? (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) waar u recht op management is momenteel in openbare preview.
@@ -70,22 +70,13 @@ Dit zijn de typen resources die u toegang tot met beheer van rechten kunt behere
 
 - Azure AD-beveiligingsgroepen
 - Office 365-groepen
-- Azure AD-bedrijfstoepassingen
-- SaaS-toepassingen
-- Aangepaste geïntegreerde toepassingen
-- SharePoint Online-siteverzamelingen
-- SharePoint Online-sites
+- Azure AD bedrijfstoepassingen, inclusief SaaS-toepassing en geïntegreerd met aangepaste toepassingen die ondersteuning bieden voor Federatie of inrichten
+- SharePoint Online-siteverzamelingen en sites
 
-## <a name="prerequisites"></a>Vereisten
+U kunt ook toegang tot andere resources die afhankelijk van Azure AD-beveiligingsgroepen of Office 365-groepen zijn beheren.  Bijvoorbeeld:
 
-Voor het gebruik van beheer van de rechten van een Azure AD (Preview), moet u een van de volgende licenties hebben:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
-
-Zie voor meer informatie, [zich registreren voor Azure Active Directory Premium-edities](../fundamentals/active-directory-get-started-premium.md) of [Enterprise Mobility + Security E5-proefversie](https://aka.ms/emse5trial).
-
-Gespecialiseerde clouds, zoals Azure Government, Azure Duitsland en Azure China 21Vianet, zijn momenteel niet beschikbaar voor gebruik in deze Preview-versie.
+- U kunt gebruikerslicenties voor Microsoft Office 365 geven met behulp van een Azure AD-beveiligingsgroep in een pakket toegang en configureren van [Groepslicenties](../users-groups-roles/licensing-groups-assign.md) voor die groep
+- U kunt gebruikers toegang geven tot Azure-resources beheren met behulp van een Azure AD-beveiligingsgroep in een pakket toegang en het maken van een [Azure roltoewijzing](../../role-based-access-control/role-assignments-portal.md) voor die groep
 
 ## <a name="what-are-access-packages-and-policies"></a>Wat zijn de toegang tot pakketten en -beleid?
 
@@ -129,15 +120,15 @@ Voor meer informatie over waar u recht op beheer en de bijbehorende documentatie
 | beheer van rechten | Een service die wordt toegewezen, trekt en beheert de toegang tot pakketten. |
 | Access-pakket | Een verzameling van machtigingen en het beleid in de bronnen die gebruikers kunnen aanvragen. Een pakket toegang altijd zich in een catalogus. |
 | aanvraag voor toegang tot | Een aanvraag voor toegang tot een package toegang. Een aanvraag wordt gewoonlijk verwerkt via een werkstroom. |
-| beleid | Een reeks regels waarin de levenscyclus van toegang, zoals hoe gebruikers toegang krijgen, die kunnen goedkeuren en hoe lang gebruikers toegang hebben. Voorbeelden van beleidsregels zijn toegang van werknemers en externe toegang. |
+| policy | Een reeks regels waarin de levenscyclus van toegang, zoals hoe gebruikers toegang krijgen, die kunnen goedkeuren en hoe lang gebruikers toegang hebben. Voorbeelden van beleidsregels zijn toegang van werknemers en externe toegang. |
 | catalog | Een container met gerelateerde resources en toegang tot pakketten. |
 | Algemene catalogus | Een ingebouwde catalogus die altijd beschikbaar is. U kunt resources toevoegen aan de algemene catalogus nodig bepaalde machtigingen. |
-| Bron | Een asset of service (zoals een groep, toepassing of site) die een gebruiker kan machtigingen worden verleend. |
-| resourcetype | Het type resource, met inbegrip van groepen, toepassingen en SharePoint Online-sites. |
+| resource | Een asset of service (zoals een groep, toepassing of site) die een gebruiker kan machtigingen worden verleend. |
+| Resourcetype | Het type resource, met inbegrip van groepen, toepassingen en SharePoint Online-sites. |
 | resource-rollen | Een verzameling van de machtigingen die zijn gekoppeld aan een resource. |
 | resource-map | Een map met een of meer resources te delen. |
 | toegewezen gebruikers | Een toewijzing van een pakket toegang aan een gebruiker of groep. |
-| inschakelen | Het proces van het maken van een access-pakket beschikbaar voor gebruikers om aan te vragen. |
+| Inschakelen | Het proces van het maken van een access-pakket beschikbaar voor gebruikers om aan te vragen. |
 
 ## <a name="roles-and-permissions"></a>Rollen en machtigingen
 
@@ -173,6 +164,12 @@ De volgende tabel bevat de machtigingen voor elk van deze rollen.
 | [Resources uit een catalogus toevoegen/verwijderen](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Catalogus eigenaren toevoegen of toegang tot Pakketbeheer](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Een catalogus voor bewerken/verwijderen](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## <a name="license-requirements"></a>Licentievereisten
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Gespecialiseerde clouds, zoals Azure Government, Azure Duitsland en Azure China 21Vianet, zijn momenteel niet beschikbaar voor gebruik in deze Preview-versie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

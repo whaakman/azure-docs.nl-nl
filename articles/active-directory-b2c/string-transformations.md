@@ -2,20 +2,20 @@
 title: Tekenreeks van de claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C | Microsoft Docs
 description: Tekenreeks claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c6b90cb2b24f6a87504a3a0dbd47f998b67ebc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707462"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512590"
 ---
 # <a name="string-claims-transformations"></a>Tekenreeks claims transformaties
 
@@ -280,7 +280,7 @@ Voorbeeld van de volgende genereert een willekeurige waarde van geheel getal tus
 ### <a name="example"></a>Voorbeeld
 
 - Invoerparameters die zijn opgegeven:
-    - **randomGeneratorType**: GEHEEL GETAL ZIJN
+    - **randomGeneratorType**: INTEGER
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **met base64**: false
@@ -476,7 +476,7 @@ Hiermee haalt u het domeingedeelte van een e-mailadres.
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | string | Het ClaimType dat het e-mailadres bevat. |
-| OutputClaim | domein | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen: het domein. |
+| OutputClaim | Domein | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen: het domein. |
 
 Gebruik dit claims transformatie voor het parseren van de naam van het domein na het @-teken van de gebruiker. Dit kan nuttig zijn bij het verwijderen van persoonsgegevens (PII) uit de controlegegevens zijn. De volgende claimtransformatie ziet u hoe u parseren van de naam van het domein van een **e** claim.
 
@@ -582,9 +582,9 @@ Bijvoorbeeld, de volgende controles transformatie claims als de waarde van **age
 ### <a name="example"></a>Voorbeeld
 
 - Invoerclaims:
-    - **claimToMatch**: Minderjarige
+    - **claimToMatch**: Secundaire
 - Invoerparameters die zijn opgegeven:
-    - **matchTo**: Minderjarige
+    - **matchTo**: Secundaire
     - **stringComparison**: ordinalIgnoreCase 
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Uitvoerclaims:

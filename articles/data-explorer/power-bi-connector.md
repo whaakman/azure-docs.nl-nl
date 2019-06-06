@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 6147269ab38ac14c2a2ecadaac3448a491af7c20
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.date: 06/04/2019
+ms.openlocfilehash: 0bfacc968a04f8ef9e39a31cff5e81cf4e04c6fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399311"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494637"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Gegevens visualiseren met behulp van de Azure Data Explorer-connector voor Power BI
 
@@ -38,13 +38,11 @@ Eerst maakt u verbinding met het Azure Data Explorer-helpcluster en daarna haalt
 
     ![Gegevens ophalen](media/power-bi-connector/get-data-more.png)
 
-1. Zoek naar *Azure Data Explorer*, selecteer **Azure Data Explorer (bèta)** en vervolgens **Verbinding maken**.
+1. Zoeken naar *Azure Data Explorer*, selecteer **Azure Data Explorer** vervolgens **Connect**.
 
     ![Gegevens zoeken en ophalen](media/power-bi-connector/search-get-data.png)
 
-1. Selecteer in het scherm **Preview-connector** de opties **Doorgaan**.
-
-1. In het volgende scherm vult u het formulier in met de volgende gegevens.
+1. Op de **Azure Data Explorer (Kusto)** scherm, vul het formulier in met de volgende informatie.
 
     ![Cluster-, database-, tabelopties](media/power-bi-connector/cluster-database-table.png)
 

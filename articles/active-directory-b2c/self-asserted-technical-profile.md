@@ -2,20 +2,20 @@
 title: Een zelf-gecontroleerde technisch profiel definiëren in een aangepast beleid in Azure Active Directory B2C | Microsoft Docs
 description: Definieer een zelf-gecontroleerde technisch profiel in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41305cc5825344a61ff15ddb5deb629cd0f1c679
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c728660f1a77c02f1e4b5fdeb467a7dbba4e36a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691029"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512664"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een zelf-gecontroleerde technisch profiel definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -65,7 +65,7 @@ De volgende uitvoerclaim is altijd ingesteld op `live.com`:
 <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" AlwaysUseDefaultValue="true" />
 ```
 
-### <a name="use-case"></a>Toepassing
+### <a name="use-case"></a>Use-case
 
 Er zijn vier scenario's voor uitvoerclaims:
 

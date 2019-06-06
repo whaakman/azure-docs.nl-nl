@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258521"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743235"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection met Azure Security Center
 
@@ -44,10 +44,6 @@ Deze mogelijkheden zijn nu beschikbaar in Azure Security Center:
 - **Gedetailleerde machine onderzoek**: Azure Security Center-klanten hebben toegang tot Windows Defender ATP-console op een gedetailleerd onderzoek uitvoert om het bereik van een schending bloot.
 
 ![Azure Security Center, een lijst met waarschuwingen en algemene informatie over elke waarschuwing weergeven](media/security-center-wdatp/image1.png)
-
-U kunt [de waarschuwing onderzoeken](security-center-investigation.md) in Azure Security Center:
-
-![Het dashboard van de waarschuwing verkennen in Azure Security Center](media/security-center-wdatp/image2.png)
 
 U kunt de waarschuwing verder onderzoeken door draaien op Windows Defender ATP. U ziet er als u meer informatie, zoals de processtructuur van de waarschuwing en de incidenten grafiek. U ziet ook een gedetailleerde op machine tijdlijn waarin elke gedrag voor een historische periode van maximaal zes maanden.
 

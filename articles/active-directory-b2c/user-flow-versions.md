@@ -2,20 +2,20 @@
 title: Gebruiker stroom versies in Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over de versies van gebruikersstromen beschikbaar in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: af44658b42e9132ea89aadcbff29bdba1c13f46d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ed57a9fa3b041961ce220e8f10d9aed5e7bef60e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689658"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511929"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Gebruiker stroom versies in Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Nieuwe gebruikersstromen worden toegevoegd als nieuwe versies. Gebruikersstromen
 
 | Gebruikersstroom | Aanbevolen | Description |
 | --------- | ----------- | ----------- |
-| Wachtwoord opnieuw instellen v2 | Nee | Kan een gebruiker een nieuw wachtwoord kiezen nadat u hebt gecontroleerd van hun e-mailadres. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>[Vereisten voor wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Aanmelden v2 | Nee | Kan een gebruiker zich aanmeldt bij hun account. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Levensduur van token](active-directory-b2c-reference-tokens.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>Sessiegedrag</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>Aanpassing van de aanmeldingspagina opgeven</li></ul> |
-| Registreren v2 | Nee | Kan een gebruiker om een account te maken. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Levensduur van token](active-directory-b2c-reference-tokens.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>Sessiegedrag</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>[Vereisten voor wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| V2 voor wachtwoord opnieuw instellen | Nee | Kan een gebruiker een nieuw wachtwoord kiezen nadat u hebt gecontroleerd van hun e-mailadres. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>[Vereisten voor wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Meld u aan v2 | Nee | Kan een gebruiker zich aanmeldt bij hun account. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Levensduur van token](active-directory-b2c-reference-tokens.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>Sessiegedrag</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>Aanpassing van de aanmeldingspagina opgeven</li></ul> |
+| Meld u v2 | Nee | Kan een gebruiker om een account te maken. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Levensduur van token](active-directory-b2c-reference-tokens.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>Sessiegedrag</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>[Vereisten voor wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | Registreren en aanmelden in v2 | Nee | Kan een gebruiker voor het maken van een account of meld u aan hun account. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>[Vereisten voor wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity.md)</li></ul> |

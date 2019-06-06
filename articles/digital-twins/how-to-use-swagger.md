@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6636c87493230e3e392c29ffaf182b489ab0ba34
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967771"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730352"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Digitale dubbele Swagger referentiedocumentatie voor Azure
 
@@ -42,15 +42,15 @@ Het automatisch gegenereerde Swagger-referentiemateriaal levert een kort overzic
 
 Een beknopt overzicht beschrijft de API.
 
-![Swagger-bovenaan][1]
+[![Swagger-bovenaan](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
 
 Beheer API objectmodellen worden ook weergegeven.
 
-![Swagger-modellen][2]
+[![Swagger-modellen](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
 
 U kunt elke vermelde objectmodel voor een meer gedetailleerd overzicht van belangrijke kenmerken selecteren.
 
-![Swagger-model][3]
+[![Swagger-model](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
 
 De gegenereerde Swagger-objectmodellen zijn handig om te zien van alle beschikbare Azure digitale dubbels [objecten en API's](./concepts-objectmodel-spatialgraph.md). Ontwikkelaars kunnen deze resource gebruiken als ze oplossingen op Azure digitale dubbels bouwen.
 
@@ -64,7 +64,7 @@ Elke vermelde eindpunt omvat ook de informatie vereist aanvraag, zoals de:
 * Vereiste parametergegevenstypen.
 * HTTP-methode voor toegang tot de resource.
 
-![Swagger-eindpunten][4]
+[![Swagger-eindpunten](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
 
 Selecteer elke resource een gedetailleerder overzicht.
 
@@ -74,11 +74,11 @@ Een van de krachtige functies van die swagger biedt is de mogelijkheid voor het 
 
 Nadat u een bepaald eindpunt selecteert, ziet u **Try it out in**.
 
-![Probeer swagger][5]
+[![Probeer swagger](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
 
 Vouw deze sectie om de invoervelden voor elke vereiste en optionele parameter. Voer de juiste waarden in en selecteer **Execute**.
 
-![Er is geprobeerd swagger][6]
+[![Er is geprobeerd swagger](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
 
 Nadat u de test uitvoert, kunt u de antwoordgegevens valideren.
 
@@ -86,7 +86,7 @@ Nadat u de test uitvoert, kunt u de antwoordgegevens valideren.
 
 Elke vermelde eindpunt bevat ook de hoofdtekst van de antwoordgegevens voor het valideren van de ontwikkeling en tests. Deze voorbeelden zijn onder meer de statuscodes en JSON die u wilt zien voor geslaagde HTTP-aanvragen.
 
-![Swagger-antwoord][7]
+[![Swagger-antwoord](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
 
 De voorbeelden zijn ook foutcodes zodat fouten opspoort of mislukt tests verbeteren.
 
@@ -118,31 +118,22 @@ Zie voor meer informatie over het testen van interactief aanvragen die zijn beve
 
 5. Kopieer de ID van uw Azure AD-app.
 
-6. Klik op de knop autoriseren op de pagina van uw swagger.
+Na het voltooien van de registratie van de Azure Active Directory:
 
-    ![Swagger knop autoriseren](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+6. Klik op de **autoriseren** knop op de pagina van uw swagger.
 
-7. Plak de toepassings-ID in het veld client_id.
+    [![Klik op de Swagger knop autoriseren](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-    ![Swagger client_id veld](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+7. Plak de toepassings-ID in de **client_id** veld.
 
-    ![Swagger Toepassingsmachtigingen verlenen](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+    [![Swagger client_id field](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. U ziet nu het Bearer-verificatietoken doorgegeven in de autorisatie-header en de identiteit van de aangemelde gebruiker in het resultaat weergegeven.
+8. U wordt vervolgens omgeleid naar het volgende modale succes.
 
-    ![Resultaat van de swagger-token](../../includes/media/digital-twins-permissions/swagger-token-example.png)
+    [![Swagger-omleiding modale](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Lees meer informatie over Azure digitale dubbels objectmodellen en de grafiek ruimtelijke intelligence lezen [digitale dubbels Azure begrijpen object modellen](./concepts-objectmodel-spatialgraph.md).
 
 - Lees voor meer informatie over verificatie met uw API Management, [verifiëren met API's](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.PNG
-[2]: media/how-to-use-swagger/swagger_management_models.PNG
-[3]: media/how-to-use-swagger/swagger_management_model.PNG
-[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
-[5]: media/how-to-use-swagger/swagger_management_try.PNG
-[6]: media/how-to-use-swagger/swagger_management_tried.PNG
-[7]: media/how-to-use-swagger/swagger_management_response.PNG

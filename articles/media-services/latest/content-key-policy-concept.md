@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417995"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425427"
 ---
 # <a name="content-key-policies"></a>Beleid voor inhoudssleutels
 
@@ -35,7 +35,7 @@ Het verdient aanbeveling om te laten Media Services-inhoud sleutels automatisch 
 > * Eigenschappen van **Inhoudbeleidsregels sleutel** die van de datum/tijd zijn altijd in UTC-notatie zijn.
 > * U moet een beperkte set beleidsregels ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw Streaming-Locators wanneer dezelfde opties nodig zijn. Zie voor meer informatie, [quota en beperkingen](limits-quotas-constraints.md).
 
-## <a name="example"></a>Voorbeeld
+### <a name="example"></a>Voorbeeld
 
 Als u naar de sleutel, gebruikt **GetPolicyPropertiesWithSecretsAsync**, zoals weergegeven in de [ophalen van een ondertekeningssleutel van het bestaande beleid](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) voorbeeld.
 

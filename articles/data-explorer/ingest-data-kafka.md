@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Gegevens uit Kafka opnemen in Azure Data Explorer'
-description: In deze quickstart leert u hoe u gegevens uit Kafka opneemt (laadt) in Azure Data Explorer.
+title: Gegevens uit Kafka opnemen in Azure Data Explorer
+description: In dit artikel leert u hoe u voor het opnemen van gegevens (laden) in Azure Data Explorer van Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901025"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497270"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Quickstart: Gegevens uit Kafka opnemen in Azure Data Explorer
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Gegevens uit Kafka opnemen in Azure Data Explorer
  
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (het laden van gegevens) uit Kafka. Kafka is een gedistribueerd streamingplatform voor het bouwen van pijplijnen voor realtime streaminggegevens, waarmee gegevens op betrouwbare wijze worden verplaatst tussen systemen of toepassingen.
  
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Build
+#### <a name="build"></a>Ontwikkelen
 
 Compileer lokaal met Maven om een `.jar`, compleet met afhankelijkheden te produceren.
 
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Volgende stappen
  
-> [!div class="nextstepaction"]
-> [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+* [Query uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

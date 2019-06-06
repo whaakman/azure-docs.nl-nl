@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956384"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497190"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Gebruik van kubenet netwerken met uw eigen IP-adresbereiken in Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ In dit artikel leest u hoe u *kubenet* netwerken maken en een subnet van een vir
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U moet de Azure CLI versie 2.0.56 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U moet de Azure CLI versie 2.0.65 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Overzicht van netwerken met uw eigen subnet kubenet
 
@@ -48,7 +48,7 @@ Met *Azure CNI*, een veel voorkomend probleem is met het toegewezen IP-adresbere
 
 Als een inbreuk, kunt u een AKS-cluster dat gebruik maakt *kubenet* en maak verbinding met het subnet van een bestaande virtuele netwerk. Deze aanpak kunt de knooppunten die zijn ontvangen van de gedefinieerde IP-adressen, zonder de noodzaak om te reserveren van een groot aantal IP-adressen van voorgrond voor alle van de mogelijke schillen die kunnen worden uitgevoerd in het cluster.
 
-Met *kubenet*, u kunt een veel kleinere IP-adresbereik gebruiken en kunnen ter ondersteuning van grote clusters en toepassingsbehoeften. Bijvoorbeeld, zelfs met een */27* IP-adresbereik, kan u een cluster met 20-25 knooppunten met voldoende ruimte heeft voor schalen of een upgrade uitvoeren. Deze clustergrootte wordt ondersteuning geboden voor maximaal *2,200 2.750* schillen (met een standaard maximaal 110 schillen per knooppunt).
+Met *kubenet*, u kunt een veel kleinere IP-adresbereik gebruiken en kunnen ter ondersteuning van grote clusters en toepassingsbehoeften. Bijvoorbeeld, zelfs met een */27* IP-adresbereik, kan u een cluster met 20-25 knooppunten met voldoende ruimte heeft voor schalen of een upgrade uitvoeren. Deze clustergrootte wordt ondersteuning geboden voor maximaal *2,200 2.750* schillen (met een standaard maximaal 110 schillen per knooppunt). Het maximum aantal schillen per knooppunt dat u met configureren kunt *kubenet* in AKS is 250.
 
 De volgende eenvoudige berekeningen Vergelijk het verschil in netwerk modellen:
 
@@ -140,15 +140,15 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Een AKS-cluster maken in het virtuele netwerk
 
-U hebt nu een virtueel netwerk en subnet, gemaakt en die zijn gemaakt en toegewezen machtigingen voor een service-principal die netwerkbronnen gebruiken. Nu een AKS-cluster maken in uw virtuele netwerk en subnet met behulp van de [az aks maken] [ az-aks-create] opdracht. Definieer uw eigen service-principal  *\<appId >* en  *\<wachtwoord >*, zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken.
+U hebt nu een virtueel netwerk en subnet, gemaakt en die zijn gemaakt en toegewezen machtigingen voor een service-principal die netwerkbronnen gebruiken. Nu een AKS-cluster maken in uw virtuele netwerk en subnet met behulp van de [az aks maken] [ az-aks-create] opdracht. Definieer uw eigen service-principal  *\<appId >* en  *\<wachtwoord >* , zoals wordt weergegeven in de uitvoer van de vorige opdracht om de serviceprincipal te maken.
 
 De volgende IP-adresbereiken zijn ook worden gedefinieerd als onderdeel van het cluster proces maken:
 
-* De *--service cidr* wordt gebruikt voor het toewijzen van interne services in de AKS-cluster een IP-adres. Deze IP-adresbereik moet een adresruimte die zich niet in gebruik ergens anders in uw netwerkomgeving. Dit omvat alle on-premises netwerkbereiken als u verbinding maken of van plan bent, uw Azure-netwerken met behulp van Express Route of een Site-naar-Site VPN-verbindingen.
+* De *--service cidr* wordt gebruikt voor het toewijzen van interne services in de AKS-cluster een IP-adres. Deze IP-adresbereik moet een adresruimte die zich niet in gebruik ergens anders in uw netwerkomgeving. Dit bereik omvat alle on-premises netwerkbereiken als u verbinding maken of van plan bent om uw virtuele netwerken van Azure Express Route of Site-naar-Site VPN-verbinding verbinding te maken.
 
 * De *--dns-service-IP-* -adres moet de *.10* -adres van uw service IP-adresbereik.
 
-* De *--pod-cidr* moet een grote adresruimte die zich niet in gebruik ergens anders in uw netwerkomgeving. Dit omvat alle on-premises netwerkbereiken als u verbinding maken of van plan bent om uw virtuele netwerken van Azure Express Route of Site-naar-Site VPN-verbinding verbinding te maken.
+* De *--pod-cidr* moet een grote adresruimte die zich niet in gebruik ergens anders in uw netwerkomgeving. Dit bereik omvat alle on-premises netwerkbereiken als u verbinding maken of van plan bent om uw virtuele netwerken van Azure Express Route of Site-naar-Site VPN-verbinding verbinding te maken.
     * Dit adresbereik moet groot genoeg is voor het aantal knooppunten die u verwacht te schalen tot. U kunt dit adresbereik niet wijzigen nadat het cluster is geïmplementeerd als u meer adressen voor extra knooppunten nodig hebt.
     * De schil IP-adresbereik wordt gebruikt om toe te wijzen een */24* -adresruimte aan elk knooppunt in het cluster. In het volgende voorbeeld wordt de *--pod-cidr* van *192.168.0.0/16* het eerste knooppunt toegewezen *192.168.0.0/24*, het tweede knooppunt *192.168.1.0/24*, en het derde knooppunt *192.168.2.0/24*.
     * Als het cluster schalen of upgrades worden uitgevoerd blijft het Azure-platform een pod IP-adresbereik toewijzen aan elke nieuwe knooppunt.

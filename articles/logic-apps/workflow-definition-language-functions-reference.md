@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: 24e0a0ae2a6af964d3ed87d1817de6e5f403c9b1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 506076e2d9b171e1ec1ff604519cbbfbe4339e87
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416347"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733075"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps en Microsoft Flow
 
@@ -297,7 +297,7 @@ Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst
 <a name="alphabetical-list"></a>
 <a name="action"></a>
 
-### <a name="action"></a>Actie
+### <a name="action"></a>action
 
 Retourneert de *huidige* actie-uitvoer in runtime, of waarden uit een andere naam en waarde-paren van JSON, die u aan een expressie toewijzen kunt.
 Deze functie verwijst naar de volledige actie-object, maar u kunt optioneel een eigenschap waarvoor u waarde wilt opgeven.
@@ -519,7 +519,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*dagen*> | Ja | Integer | Het positieve of negatieve aantal dagen om toe te voegen |
+| <*dagen*> | Ja | Geheel getal | Het positieve of negatieve aantal dagen om toe te voegen |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
@@ -561,7 +561,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*Uur*> | Ja | Integer | Het positieve of negatieve aantal uren om toe te voegen |
+| <*Uur*> | Ja | Geheel getal | Het positieve of negatieve aantal uren om toe te voegen |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
@@ -603,7 +603,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*minuten*> | Ja | Integer | Het positieve of negatieve aantal minuten om toe te voegen |
+| <*minuten*> | Ja | Geheel getal | Het positieve of negatieve aantal minuten om toe te voegen |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
@@ -676,7 +676,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*seconds*> | Ja | Integer | Het positieve of negatieve aantal seconden dat wordt toegevoegd |
+| <*seconds*> | Ja | Geheel getal | Het positieve of negatieve aantal seconden dat wordt toegevoegd |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
 
@@ -719,7 +719,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*interval*> | Ja | Integer | Het aantal eenheden van de opgegeven tijd toe te voegen |
+| <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd toe te voegen |
 | <*timeUnit*> | Ja | String | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
@@ -737,7 +737,7 @@ In dit voorbeeld wordt één dag aan de opgegeven timestamp toegevoegd:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-En dit resultaat wordt weergegeven: `"2018-01-02T00:00:00:0000000Z"`
+En dit resultaat wordt weergegeven: `"2018-01-02T00:00:00.0000000Z"`
 
 *Voorbeeld 2*
 
@@ -1425,7 +1425,7 @@ dayOfMonth('<timestamp>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*day-of-month*> | Integer | De dag van de maand van de opgegeven timestamp |
+| <*day-of-month*> | Geheel getal | De dag van de maand van de opgegeven timestamp |
 ||||
 
 *Voorbeeld*
@@ -1455,7 +1455,7 @@ dayOfWeek('<timestamp>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*day-of-week*> | Integer | De dag van de week van de opgegeven timestamp waar zondag is ingesteld op 0 maandag is 1, enzovoort |
+| <*day-of-week*> | Geheel getal | De dag van de week van de opgegeven timestamp waar zondag is ingesteld op 0 maandag is 1, enzovoort |
 ||||
 
 *Voorbeeld*
@@ -1485,7 +1485,7 @@ dayOfYear('<timestamp>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*dag van jaar*> | Integer | De dag van het jaar van de opgegeven timestamp |
+| <*dag van jaar*> | Geheel getal | De dag van het jaar van de opgegeven timestamp |
 ||||
 
 *Voorbeeld*
@@ -1616,7 +1616,7 @@ div(<dividend>, <divisor>)
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer | De integer als resultaat van het delen van het eerste getal door het tweede getal |
+| <*quotient-result*> | Geheel getal | De integer als resultaat van het delen van het eerste getal door het tweede getal |
 ||||
 
 *Voorbeeld*
@@ -1948,7 +1948,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Ja | Integer | Het aantal eenheden van de opgegeven tijd om af te trekken |
+| <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken |
 | <*timeUnit*> | Ja | String | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
@@ -1992,7 +1992,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Ja | Integer | Het aantal eenheden van de opgegeven tijd om af te trekken |
+| <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken |
 | <*timeUnit*> | Ja | String | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
@@ -2185,7 +2185,7 @@ indexOf('<text>', '<searchText>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*index-value*>| Integer | De positie of index beginwaarde voor de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. |
+| <*index-value*>| Geheel getal | De positie of index beginwaarde voor de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. |
 ||||
 
 *Voorbeeld*
@@ -2215,7 +2215,7 @@ int('<value>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Integer | De versie van het geheel getal voor de opgegeven tekenreeks |
+| <*integer-result*> | Geheel getal | De versie van het geheel getal voor de opgegeven tekenreeks |
 ||||
 
 *Voorbeeld*
@@ -2298,7 +2298,7 @@ iterationIndexes('<loopName>')
 
 | Retourwaarde | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*index*> | Integer | De indexwaarde voor de huidige iteratie binnen de opgegeven totdat-lus | 
+| <*index*> | Geheel getal | De indexwaarde voor de huidige iteratie binnen de opgegeven totdat-lus | 
 |||| 
 
 *Voorbeeld* 
@@ -2558,7 +2558,7 @@ lastIndexOf('<text>', '<searchText>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Integer | De positie of index beginwaarde van het laatste exemplaar van de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. |
+| <*ending-index-value*> | Geheel getal | De positie of index beginwaarde van het laatste exemplaar van de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. |
 ||||
 
 *Voorbeeld*
@@ -2573,7 +2573,7 @@ En dit resultaat wordt weergegeven: `6`
 
 <a name="length"></a>
 
-### <a name="length"></a>Lengte
+### <a name="length"></a>length
 
 Retourneert het aantal items in een verzameling.
 
@@ -2589,7 +2589,7 @@ length([<collection>])
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*de lengte of aantal*> | Integer | Het aantal items in de verzameling |
+| <*de lengte of aantal*> | Geheel getal | Het aantal items in de verzameling |
 ||||
 
 *Voorbeeld*
@@ -2845,7 +2845,7 @@ multipartBody('<actionName>', <index>)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Ja | String | De naam voor de actie die is uitgevoerd met meerdere onderdelen |
-| <*index*> | Ja | Integer | De indexwaarde voor het onderdeel dat u wilt |
+| <*index*> | Ja | Geheel getal | De indexwaarde voor het onderdeel dat u wilt |
 |||||
 
 | Retourwaarde | Type | Description |
@@ -3001,13 +3001,13 @@ rand(<minValue>, <maxValue>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*minValue*> | Ja | Integer | Het laagste gehele getal in het bereik |
-| <*maxValue*> | Ja | Integer | Het gehele getal dat volgt op het hoogste gehele getal in het bereik dat de functie kan retourneren |
+| <*minValue*> | Ja | Geheel getal | Het laagste gehele getal in het bereik |
+| <*maxValue*> | Ja | Geheel getal | Het gehele getal dat volgt op het hoogste gehele getal in het bereik dat de functie kan retourneren |
 |||||
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*random-result*> | Integer | De willekeurig geheel getal geretourneerd uit het opgegeven bereik |
+| <*random-result*> | Geheel getal | De willekeurig geheel getal geretourneerd uit het opgegeven bereik |
 ||||
 
 *Voorbeeld*
@@ -3032,8 +3032,8 @@ range(<startIndex>, <count>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Ja | Integer | Een geheel getal dat de matrix als het eerste item begint |
-| <*count*> | Ja | Integer | Het aantal gehele getallen in de matrix |
+| <*startIndex*> | Ja | Geheel getal | Een geheel getal dat de matrix als het eerste item begint |
+| <*count*> | Ja | Geheel getal | Het aantal gehele getallen in de matrix |
 |||||
 
 | Retourwaarde | Type | Description |
@@ -3157,7 +3157,7 @@ skip([<collection>], <count>)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Verzameling*> | Ja | Matrix | De verzameling met items die u wilt verwijderen |
-| <*count*> | Ja | Integer | Een positief geheel getal voor het aantal items te verwijderen op de voorgrond |
+| <*count*> | Ja | Geheel getal | Een positief geheel getal voor het aantal items te verwijderen op de voorgrond |
 |||||
 
 | Retourwaarde | Type | Description |
@@ -3384,7 +3384,7 @@ En dit resultaat wordt weergegeven: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
-### <a name="sub"></a>Sub
+### <a name="sub"></a>sub
 
 Retourneert het resultaat van af te trekken van het tweede nummer van het eerste getal.
 
@@ -3427,8 +3427,8 @@ substring('<text>', <startIndex>, <length>)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Ja | String | De tekenreeks waarvan de gewenste tekens |
-| <*startIndex*> | Ja | Integer | Een positief getal gelijk is aan of groter dan 0 die u wilt gebruiken als de beginwaarde voor de positie of index |
-| <*Lengte*> | Ja | Integer | Een positief aantal tekens dat u wilt dat in de subtekenreeks |
+| <*startIndex*> | Ja | Geheel getal | Een positief getal gelijk is aan of groter dan 0 die u wilt gebruiken als de beginwaarde voor de positie of index |
+| <*Lengte*> | Ja | Geheel getal | Een positief aantal tekens dat u wilt dat in de subtekenreeks |
 |||||
 
 | Retourwaarde | Type | Description |
@@ -3460,7 +3460,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Tijdstempel*> | Ja | String | De tekenreeks met het tijdstempel |
-| <*interval*> | Ja | Integer | Het aantal eenheden van de opgegeven tijd om af te trekken |
+| <*interval*> | Ja | Geheel getal | Het aantal eenheden van de opgegeven tijd om af te trekken |
 | <*timeUnit*> | Ja | String | De tijdseenheid voor gebruik met *interval*: 'Tweede', 'Minute', 'Uur', 'Dag', 'Week', 'Month', 'Year' |
 | <*Indeling*> | Nee | String | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddTHH:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 |||||
@@ -3504,7 +3504,7 @@ take([<collection>], <count>)
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*Verzameling*> | Ja | Tekenreeks of matrix | De verzameling met items die u wilt |
-| <*count*> | Ja | Integer | Een positief geheel getal voor het aantal items die u wilt dat uit het voorste deel |
+| <*count*> | Ja | Geheel getal | Een positief geheel getal voor het aantal items die u wilt dat uit het voorste deel |
 |||||
 
 | Retourwaarde | Type | Description |
@@ -3544,7 +3544,7 @@ ticks('<timestamp>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ticks-number*> | Integer | Het aantal tikken sinds de opgegeven timestamp |
+| <*ticks-number*> | Geheel getal | Het aantal tikken sinds de opgegeven timestamp |
 ||||
 
 <a name="toLower"></a>
@@ -3719,7 +3719,7 @@ triggerMultipartBody(<index>)
 
 | Parameter | Vereist | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*index*> | Ja | Integer | De indexwaarde voor het onderdeel dat u wilt |
+| <*index*> | Ja | Geheel getal | De indexwaarde voor het onderdeel dat u wilt |
 |||||
 
 | Retourwaarde | Type | Description |
@@ -4010,7 +4010,7 @@ uriPort('<uri>')
 
 | Retourwaarde | Type | Description |
 | ------------ | ---- | ----------- |
-| <*port-value*> | Integer | De `port` waarde voor de opgegeven URI. Als `port` niet een waarde opgeeft, kunt u de standaardpoort voor het protocol retourneren. |
+| <*port-value*> | Geheel getal | De `port` waarde voor de opgegeven URI. Als `port` niet een waarde opgeeft, kunt u de standaardpoort voor het protocol retourneren. |
 ||||
 
 *Voorbeeld*

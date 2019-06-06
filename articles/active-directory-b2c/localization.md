@@ -2,20 +2,20 @@
 title: Lokalisatie - Azure Active Directory B2C | Microsoft Docs
 description: Geef de lokalisatie-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2291bdd270a15c4932d79b124616400d2667c891
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a02983c5019870e8b17db48184b2f238a82f8a40
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705842"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510583"
 ---
 # <a name="localization"></a>Lokalisatie
 
@@ -45,7 +45,7 @@ De **lokalisatie** element bevat de volgende kenmerken:
 
 De **lokalisatie** element bevat een XML-elementen
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | SupportedLanguages | 1: n | Lijst met ondersteunde talen. | 
 | LocalizedResources | 0: n | Lijst met gelokaliseerde resources. |
@@ -63,7 +63,7 @@ De **SupportedLanguages** element bevat de volgende kenmerken:
 
 De **SupportedLanguages** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | SupportedLanguage | 1: n | Inhoud weergeven die aan een taalcode per RFC 5646 - Tags voor het identificeren van talen voldoet. | 
 
@@ -77,7 +77,7 @@ De **LocalizedResources** element bevat de volgende kenmerken:
 
 De **LocalizedResources** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0: n | Definieert de hele verzamelingen in verschillende culturen. Een verzameling kan verschillende aantal items en andere tekenreeksen voor verschillende culturen hebben. Voorbeelden van verzamelingen zijn de inventarisaties die worden weergegeven in de claimtypen. Bijvoorbeeld, wordt een land/regio-lijst weergegeven voor de gebruiker in een vervolgkeuzelijst. |
 | LocalizedStrings | 0: n | Hiermee definieert u alle van de tekenreeksen die, met uitzondering van de tekenreeksen die worden weergegeven in verzamelingen, in verschillende culturen. |
@@ -86,7 +86,7 @@ De **LocalizedResources** element bevat de volgende elementen:
 
 De **LocalizedCollections** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1: n | Lijst met ondersteunde talen. |
 
@@ -102,7 +102,7 @@ De **LocalizedCollection** element bevat de volgende kenmerken:
 
 De **LocalizedCollection** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | Item | 0: n | Hiermee definieert u een beschikbare optie voor de gebruiker selecteert voor een claim in de gebruikersinterface, zoals een waarde in een vervolgkeuzelijst. |
 
@@ -138,7 +138,7 @@ Het volgende voorbeeld ziet u het gebruik van de **LocalizedCollections** elemen
 
 De **LocalizedStrings** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1: n | Een gelokaliseerde tekenreeks. |
 

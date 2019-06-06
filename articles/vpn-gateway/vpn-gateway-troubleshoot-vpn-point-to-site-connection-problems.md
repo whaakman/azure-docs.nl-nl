@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457473"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475974"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Probleemoplossing: Problemen met Azure point-to-site-verbinding
 
@@ -62,7 +62,7 @@ Zie voor meer informatie over het installeren van het clientcertificaat [generer
 
 ### <a name="symptom"></a>Symptoom
 
-Wanneer u probeert en verbinding maken met een virtueel Azure-netwerk gteway met IKEv2 op Windows, kunt u het volgende foutbericht krijgt:
+Wanneer u probeert en verbinding maken met de gateway van een Azure-netwerk met behulp van IKEv2 op Windows, kunt u het volgende foutbericht krijgt:
 
 **De netwerkverbinding tussen uw computer en de VPN-server kan niet worden gemaakt omdat de externe server niet reageert**
 
@@ -305,7 +305,7 @@ U verwijdert de punt-naar-site VPN-verbinding en vervolgens opnieuw de VPN-clien
 
 ### <a name="solution"></a>Oplossing
 
-Het probleem op te lossen de oude VPN client configuratiebestanden verwijderen van **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<id >**, en voer het installatieprogramma van de VPN-client opnieuw uit .
+Het probleem op te lossen de oude VPN client configuratiebestanden verwijderen van **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<id >** , en voer het installatieprogramma van de VPN-client opnieuw uit .
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punt-naar-site VPN-client de FQDN-naam van de resources in het lokale domein kan niet worden omgezet
 

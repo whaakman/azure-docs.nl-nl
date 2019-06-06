@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277215"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479954"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>IP-adressen behouden tijdens failover
 
@@ -43,7 +43,7 @@ Hier volgt de architectuur voordat de failover.
         - Oost-Azië heeft een VNet (**bron VNet**) met adresruimte 10.1.0.0/16.
         - Oost-Azië heeft de werklasten verdeeld over drie subnetten in het VNet:
             - **Subnet 1**: 10.1.1.0/24
-            - **Subnet 2**: 10.1.2.0/24,
+            - **Subnet 2**: 10.1.2.0/24
             - **Subnet 3**: 10.1.3.0/24
     - Secundaire (doel) regio is Azure Zuidoost-Azië
         - Zuidoost-Azië heeft een herstel VNet (**Recovery VNet**) identiek is aan **bron VNet**.
@@ -131,11 +131,11 @@ Hier ziet u hoe de netwerkarchitectuur eruitziet voordat de failover.
 - Oost-Azië heeft een VNet (**bron VNet**) met adresruimte 10.1.0.0/16.
   - Oost-Azië heeft werklasten verdeeld over drie subnetten in **bron VNet**:
     - **Subnet 1**: 10.1.1.0/24
-    - **Subnet 2**: 10.1.2.0/24,
-    - **Subnet 3**: een Azure-netwerk met adresruimte 10.1.0.0/16 10.1.3.0/24utilizing. Dit virtuele netwerk is met de naam **bron-VNet**
+    - **Subnet 2**: 10.1.2.0/24
+    - **Subnet 3**: 10.1.3.0/24, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16. Dit virtuele netwerk is met de naam **bron-VNet**
       - De regio secundaire (doel) is Azure Zuidoost-Azië:
   - Zuidoost-Azië heeft een herstel VNet (**Recovery VNet**) identiek is aan **bron VNet**.
-- Virtuele machines in Oost-Azië zijn verbonden met een on-premises datacenter met Azure ExpressRoute of site-naar-site-VPN.
+- Virtuele machines in Oost-Azië zijn verbonden met een on-premises datacenter met Azure ExpressRoute of site-naar-site VPN.
 - Als u wilt verkleinen RTO, bepalingen bedrijf B gateways op herstel VNet in Azure Zuidoost-Azië voordat u een failover.
 - Bedrijf B wijst/controleert of doel-IP-adressen voor gerepliceerde virtuele machines. Het doel-IP-adres is hetzelfde als de bron-IP-adres voor elke virtuele machine.
 

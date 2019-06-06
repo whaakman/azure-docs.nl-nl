@@ -2,20 +2,20 @@
 title: Veelgestelde vragen over Azure SQL datawarehouse | Microsoft Docs
 description: In dit artikel geeft een lijst van veelgestelde vragen over Azure SQL Data Warehouse van klanten en -ontwikkelaars
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c16d95ea15fc358cb81b17b42570cb35f2e8c52d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4679a3bb1935e9f3e2bc90c9bc9ef1247b7ecb30
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795552"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515875"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse Veelgestelde vragen over
 
@@ -31,7 +31,7 @@ A. Ga naar de [Microsoft Compliance] -pagina voor verschillende compliance-aanbi
 
 V. Kan ik Power BI verbinding maken?
 
-A. Ja! Hoewel Power BI biedt ondersteuning voor directquery met SQL DW, het niet bedoeld voor een groot aantal gebruikers of realtime-gegevens. Voor gebruik in productieomgevingen van Power BI, wordt u aangeraden Power BI naast Azure Analysis Services of Analysis Service IaaS. 
+A. Ja. Hoewel Power BI biedt ondersteuning voor directquery met SQL DW, het niet bedoeld voor een groot aantal gebruikers of realtime-gegevens. Voor gebruik in productieomgevingen van Power BI, wordt u aangeraden Power BI naast Azure Analysis Services of Analysis Service IaaS. 
 
 V. Wat zijn de capaciteitslimieten van SQL Data Warehouse?
 
@@ -76,7 +76,7 @@ V. SQL Data Warehouse biedt ondersteuning voor REST-API's?
 A. Ja. De meeste REST-functionaliteit die kan worden gebruikt met SQL Database is ook beschikbaar met SQL Data Warehouse. Vindt u informatie in de documentatie van de REST API of [MSDN].
 
 
-## <a name="loading"></a>Laden
+## <a name="loading"></a>Bezig met laden
 
 V. Welke-clientstuurprogramma's ondersteund?
 

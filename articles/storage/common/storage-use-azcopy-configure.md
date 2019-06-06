@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247122"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688020"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configureer, optimaliseren en oplossen van AzCopy
 
@@ -52,7 +52,7 @@ Gebruik de `azcopy env` om te controleren of de huidige waarde van deze variabel
 
 ## <a name="change-the-location-of-the-log-files"></a>Wijzig de locatie van de logboekbestanden
 
-Standaard logboekbestanden bevinden zich in de `%USERPROFILE\\.azcopy` map op Windows, of in de `$HOME\\.azcopy` map op Mac en Linux. U kunt deze locatie kunt wijzigen als u wilt met behulp van deze opdrachten.
+Standaard logboekbestanden bevinden zich in de `%USERPROFILE\\.azcopy` Active directory op Windows of in de `$HOME\\.azcopy` Active directory op Mac en Linux. U kunt deze locatie kunt wijzigen als u wilt met behulp van deze opdrachten.
 
 | Besturingssysteem | Opdracht  |
 |--------|-----------|
@@ -74,7 +74,7 @@ AzCopy logboek- en plan bestanden voor elke taak gemaakt. U kunt de logboeken ku
 
 De logboeken bevat de status van de fout (`UPLOADFAILED`, `COPYFAILED`, en `DOWNLOADFAILED`), het volledige pad en de reden van de fout.
 
-Standaard het logboek- en plan-bestanden bevinden zich in de `%USERPROFILE\\.azcopy` map op Windows of `$HOME\\.azcopy` map op Mac en Linux.
+Standaard het logboek- en plan-bestanden bevinden zich in de `%USERPROFILE\\.azcopy` map op Windows of `$HOME\\.azcopy` Active directory op Mac en Linux.
 
 > [!IMPORTANT]
 > Bij het indienen van een aanvraag voor het Microsoft Support (of het probleem met betrekking tot een derde partij op te lossen), delen de geredigeerde versie van de opdracht die u wilt uitvoeren. Dit zorgt ervoor dat de SAS niet per ongeluk worden gedeeld met iedereen. U vindt de geredigeerde versie aan het begin van het logboekbestand.

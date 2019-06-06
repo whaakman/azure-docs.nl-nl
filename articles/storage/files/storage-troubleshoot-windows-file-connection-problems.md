@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991371"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480317"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -28,7 +28,7 @@ Dit artikel worden veelvoorkomende problemen met betrekking tot Microsoft Azure-
 
 Wanneer u een bestandsshare koppelen probeert, kunt u de volgende fout ontvangen:
 
-- Systeemfout 5 is opgetreden. Toegang geweigerd
+- Systeemfout 5 heeft zich voorgedaan. Toegang wordt geweigerd.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>1 oorzaak: Niet-versleuteld communicatiekanaal
 
@@ -54,9 +54,9 @@ Controleer of het virtuele netwerk en firewall-regels correct zijn geconfigureer
 
 Wanneer u probeert te koppelen van een bestandsshare van on-premises of in een ander datacenter, ontvangt u mogelijk de volgende fouten:
 
-- Fout 53 is opgetreden. Het netwerkpad is niet gevonden.
-- Systeemfout 67 is opgetreden. Naam van het netwerk kan niet worden gevonden.
-- Systeemfout 87 is opgetreden. De parameter is onjuist.
+- Systeemfout 53 heeft zich voorgedaan. Het netwerkpad is niet gevonden.
+- Systeemfout 67 heeft zich voorgedaan. De naam van het netwerk kan niet worden gevonden.
+- Systeemfout 87 heeft zich voorgedaan. De parameter is onjuist.
 
 ### <a name="cause-1-port-445-is-blocked"></a>1 oorzaak: Poort 445 is geblokkeerd
 
@@ -136,14 +136,13 @@ Fout 1816 treedt op wanneer de bovenste limiet van gelijktijdige open ingangen d
 
 Verminder het aantal gelijktijdige open ingangen door het aantal ingangen gesloten en probeer het vervolgens opnieuw. Zie voor meer informatie, [controlelijst voor de prestaties en schaalbaarheid van Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fout 'Toegang geweigerd' bij het bladeren naar een Azure-bestandsshare in de portal
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>'Autorisatie-fout' Fout bij het bladeren naar een Azure-bestandsshare in de portal
 
 Wanneer u naar een Azure-bestandsshare in de portal bladert, wordt de volgende fout:
 
-Toegang geweigerd  
-U hebt geen toegang  
-Hebt u geen toegang tot deze inhoud. Als u toegang wilt, neem contact op met de eigenaar.  
+Autorisatiefout  
+U hebt geen toegang 
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>1 oorzaak: Uw gebruikersaccount heeft geen toegang tot het opslagaccount
 

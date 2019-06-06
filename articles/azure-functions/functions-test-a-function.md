@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9a078579fff355d7ddb996316af2a2136fb62335
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7489f42719223dbd7f9cc2908f666dca53fe7c04
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473334"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496392"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategieën voor het testen van uw code in Azure Functions
 
@@ -312,7 +312,7 @@ module.exports = {
 ```
 Deze module implementeert de `IsPastDue` eigenschap passief is als de instantie van een valse timer.
 
-Gebruik vervolgens de functies van Visual Studio Code-extensie voor [maken van een nieuwe functie van de JavaScript-HTTP-](https://code.visualstudio.com/tutorials/functions-extension/getting-started) en noem het *HttpTrigger*. Nadat de functie is gemaakt, Voeg een nieuw bestand in dezelfde map met de naam **index.test.js**, en voeg de volgende code toe:
+Gebruik vervolgens de functies van Visual Studio Code-extensie voor [maken van een nieuwe functie van de JavaScript-HTTP-](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started) en noem het *HttpTrigger*. Nadat de functie is gemaakt, Voeg een nieuw bestand in dezelfde map met de naam **index.test.js**, en voeg de volgende code toe:
 
 ```javascript
 const httpFunction = require('./index');

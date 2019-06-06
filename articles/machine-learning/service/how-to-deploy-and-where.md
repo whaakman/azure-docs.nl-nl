@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/21/2019
+ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418041"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742961"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -97,7 +97,7 @@ De volgende compute-doelen, of compute-resources, kunnen worden gebruikt voor he
 | [Lokale webservice](#local) | Testing/debug | Goed voor beperkte testen en problemen oplossen.
 | [Azure Kubernetes Service (AKS)](#aks) | Realtime Deductie | Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
 | [Azure Container Instances (ACI)](#aci) | Testen | Goed voor lage schaal, op basis van CPU-werkbelastingen. |
-| [Azure Machine Learning-Computing](how-to-run-batch-predictions.md) | (Preview) Batch Deductie | Batch scoren op serverless Computing uitvoeren. Biedt ondersteuning voor normale en met lage prioriteit VM's. |
+| [Azure Machine Learning-Computing](how-to-run-batch-predictions.md) | Batch Deductie | Batch Deductie worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en met lage prioriteit VM's. |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT-module | Implementeren en bedienen ML-modellen op IoT-apparaten. |
 
 
@@ -130,8 +130,9 @@ De volgende typen worden momenteel ondersteund:
 Voor het gebruik van schema genereren, bevatten de `inference-schema` -pakket in uw bestand conda-omgeving. Het volgende voorbeeld wordt `[numpy-support]` omdat de post-script maakt gebruik van een type van de parameter numpy: 
 
 #### <a name="example-dependencies-file"></a>Voorbeeld van afhankelijkheden-bestand
-Hier volgt een voorbeeld van een Conda-afhankelijkheidsbestand voor Deductie.
-```python
+De volgende YAML is een voorbeeld van een Conda-afhankelijkheidsbestand voor Deductie.
+
+```YAML
 name: project_environment
 dependencies:
   - python=3.6.2
@@ -186,6 +187,48 @@ def run(data):
         return error
 ```
 
+#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Voorbeeldscript met woordenlijst invoer (ondersteuning voor verbruik van Power BI)
+
+Het volgende voorbeeld ziet u hoe u voor het definiëren van invoergegevens als < sleutel: waarde > woordenboek, met behulp van Dataframe. Deze methode wordt ondersteund voor het gebruik van de geïmplementeerde web-service van Power BI ([meer informatie over het gebruik van de webservice vanuit Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+
+```python
+import json
+import pickle
+import numpy as np
+import pandas as pd
+import azureml.train.automl
+from sklearn.externals import joblib
+from azureml.core.model import Model
+
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
+
+def init():
+    global model
+    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # deserialize the model file back into a sklearn model
+    model = joblib.load(model_path)
+
+input_sample = pd.DataFrame(data=[{
+              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
+              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
+              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
+            }])
+
+output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+
+@input_schema('data', PandasParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
+    try:
+        result = model.predict(data)
+        # you can return any datatype as long as it is JSON-serializable
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
 Zie voor meer voorbeeldscripts in de volgende voorbeelden:
 
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -281,7 +324,7 @@ Quota en regio de beschikbaarheid voor ACI, Zie de [quota en beschikbaarheid in 
 
 Zie voor meer informatie de documentatie bij de [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klassen.
 
-### <a id="aks"></a>Azure Kubernetes Service (productie)
+### <a id="aks"></a>Azure Kubernetes Service (DEVTEST en productie)
 
 U kunt een bestaand AKS-cluster gebruiken of een nieuwe maken met behulp van de SDK van Azure Machine Learning, CLI of Azure portal.
 
@@ -293,6 +336,9 @@ Als u al een AKS-cluster dat is gekoppeld, kunt u ernaar implementeren. Als u di
 
   ```python
   aks_target = AksCompute(ws,"myaks")
+  # If deploying to a cluster configured for dev/test, ensure that it was created with enough
+  # cores and memory to handle this deployment configuration. Note that memory is also used by
+  # things such as dependencies and AML components.
   deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
   service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
   service.wait_for_deployment(show_output = True)
@@ -315,16 +361,23 @@ Meer informatie over AKS-implementatie en voor automatisch schalen in de [AksWeb
 #### Een nieuw AKS-cluster maken<a id="create-attach-aks"></a>
 **Geschatte tijd:** Ongeveer 5 minuten.
 
-> [!IMPORTANT]
-> Het maken of koppelen van een AKS-cluster een eenmalige is verwerking van voor uw werkruimte. U kunt dit cluster voor meerdere implementaties opnieuw gebruiken. Als u het cluster of de resourcegroep waarin het verwijdert, moet u een nieuw cluster maken de volgende keer dat u wilt implementeren.
+Het maken of koppelen van een AKS-cluster een eenmalige is verwerking van voor uw werkruimte. U kunt dit cluster voor meerdere implementaties opnieuw gebruiken. Als u het cluster of de resourcegroep waarin het verwijdert, moet u een nieuw cluster maken de volgende keer dat u wilt implementeren. U kunt meerdere AKS-clusters die zijn gekoppeld aan uw werkruimte hebben.
 
-Voor meer informatie over het instellen `autoscale_target_utilization`, `autoscale_max_replicas`, en `autoscale_min_replicas`, Zie de [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) verwijzing.
+Als u maken van een AKS-cluster voor ontwikkeling, validatie en het testen wilt, stelt u `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` bij het gebruik van [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py). Een cluster gemaakt met deze instelling heeft slechts één knooppunt.
+
+> [!IMPORTANT]
+> Instellen van `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` maakt u een AKS-cluster dat is niet geschikt voor het verwerken van productieverkeer. Deductie keer mogelijk ook langer dan op een cluster dat is gemaakt voor productie. Fouttolerantie is ook geen garantie voor dev/test-clusters.
+>
+> U wordt aangeraden dat clusters die zijn gemaakt voor ontwikkelen/testen ten minste twee virtuele CPU's gebruiken.
+
 Het volgende voorbeeld ziet u hoe u een nieuw Azure Kubernetes Service-cluster maken:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Use the default configuration (you can also provide parameters to customize this)
+# Use the default configuration (you can also provide parameters to customize this).
+# For example, to create a dev/test cluster, use:
+# prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksComputee.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'myaks'
@@ -341,6 +394,7 @@ Zie de volgende artikelen voor meer informatie over het maken van een AKS-cluste
 * [Een AKS-cluster maken](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Maken van een AKS-cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
+Voor meer informatie over de `cluster_purpose` parameter, Zie de [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) verwijzing.
 
 > [!IMPORTANT]
 > Voor [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), als u aangepaste waarden voor agent_count en vm_size, kiest, moet u om ervoor te zorgen agent_count vermenigvuldigd met vm_size is groter dan of gelijk zijn aan 12 virtuele CPU's. Bijvoorbeeld, als u een vm_size van 'Standard_D3_v2', met 4 virtuele CPU's, moet vervolgens u kiezen een agent_count van 3 of hoger.
@@ -349,7 +403,16 @@ Zie de volgende artikelen voor meer informatie over het maken van een AKS-cluste
 
 #### <a name="attach-an-existing-aks-cluster"></a>Een bestaand AKS-cluster koppelen
 
-Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.12. ## en ten minste 12 virtuele CPU's heeft, kunt u het implementeren van uw installatiekopie. De volgende code laat zien hoe u een bestaand AKS 1.12 koppelen. ## cluster aan uw werkruimte:
+Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.12. ##, kunt u het implementeren van uw installatiekopie.
+
+> [!WARNING]
+> Wanneer u een AKS-cluster koppelen aan een werkruimte, kunt u definiëren hoe u het cluster wordt gebruikt door in te stellen de `cluster_purpose` parameter.
+>
+> Als u geen instelt de `cluster_purpose` parameter of stel deze in `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, en vervolgens het cluster ten minste 12 virtuele CPU's beschikbaar moet.
+>
+> Als u `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, en vervolgens het cluster niet hoeft te hebben van 12 virtuele CPU's. Echter een cluster dat is geconfigureerd voor ontwikkelen/testen wordt niet altijd geschikt voor niveau productieverkeer en Deductie tijden verhogen.
+
+De volgende code laat zien hoe u een bestaand AKS 1.12 koppelen. ## cluster aan uw werkruimte:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -357,11 +420,18 @@ from azureml.core.compute import AksCompute, ComputeTarget
 resource_group = 'myresourcegroup'
 cluster_name = 'mycluster'
 
-# Attach the cluster to your workgroup
+# Attach the cluster to your workgroup. If the cluster has less than 12 virtual CPUs, use the following instead:
+# attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+#                                         cluster_name = cluster_name,
+#                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
+
+Voor meer informatie over `attack_configuration()`, Zie de [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) verwijzing.
+
+Voor meer informatie over de `cluster_purpose` parameter, Zie de [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) verwijzing.
 
 ## <a name="consume-web-services"></a>Webservices gebruiken
 
@@ -395,7 +465,7 @@ print(response.json())
 Zie voor meer informatie, [-client maken toepassingen gebruik van webservices kunnen](how-to-consume-web-service.md).
 
 
-### <a id="azuremlcompute"></a> Batch-verbruik
+### <a id="azuremlcompute"></a> Batch Deductie
 Azure Machine Learning-Computing doelen worden gemaakt en beheerd door de Azure Machine Learning-service. Ze kunnen worden gebruikt voor batch voorspelling van Azure Machine Learning-pijplijnen.
 
 Lees voor een overzicht van batch Deductie met Azure Machine Learning-Computing, de [hoe u Batch voorspellingen uitvoeren](how-to-run-batch-predictions.md) artikel.

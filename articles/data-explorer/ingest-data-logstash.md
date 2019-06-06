@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Gegevens uit Logstash opnemen in Azure Data Explorer'
-description: In deze quickstart leert u hoe u gegevens uit Logstash opneemt (laadt) in Azure Data Explorer
+title: Gegevens uit Logstash opnemen in Azure Data Explorer
+description: In dit artikel leert u hoe u voor het opnemen van gegevens (laden) in Azure Data Explorer vanuit Logstash
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
-ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759364"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494548"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Quickstart: Gegevens uit Logstash opnemen in Azure Data Explorer
+# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Gegevens uit Logstash opnemen in Azure Data Explorer
 
-[Logstash](https://www.elastic.co/products/logstash) is een open source pijplijn voor gegevensverwerking aan de serverzijde waarmee gegevens uit vele bronnen tegelijkertijd worden opgenomen, deze gegevens worden getransformeerd en vervolgens worden verzonden naar uw favoriete 'stash'. In deze quickstart verzendt u deze gegevens naar Azure Data Explorer, een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. In eerste instantie maakt u een tabel en gegevenstoewijzing in een testcluster. Vervolgens zorgt u ervoor dat Logstash gegevens in de tabel verzendt en de resultaten valideert.
+[Logstash](https://www.elastic.co/products/logstash) is een open source pijplijn voor gegevensverwerking aan de serverzijde waarmee gegevens uit vele bronnen tegelijkertijd worden opgenomen, deze gegevens worden getransformeerd en vervolgens worden verzonden naar uw favoriete 'stash'. In dit artikel, zult u die gegevens verzenden naar Azure Data Explorer, dit is een snelle en schaalbare data exploration service voor logboek-en telemetrie. In eerste instantie maakt u een tabel en gegevenstoewijzing in een testcluster. Vervolgens zorgt u ervoor dat Logstash gegevens in de tabel verzendt en de resultaten valideert.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -146,5 +146,4 @@ Voer de volgende opdracht uit in uw database om de tabel `logs` op te schonen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Query's schrijven](write-queries.md)
+* [Query's schrijven](write-queries.md)

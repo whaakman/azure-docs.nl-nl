@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918971"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427110"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Gekoppelde Azure-regio 's
 
@@ -35,7 +35,7 @@ Afbeelding 1: Azure regioparen
 | Canada |Canada - centraal |Canada - oost |
 | China |China - noord |China East|
 | China |China - noord 2 |China - oost 2|
-| Europa |Europa - noord |Europa -west |
+| Europa |Europa - noord (Ierland) |Europa - west (Nederland) |
 | Frankrijk |Frankrijk - centraal|Frankrijk - zuid|
 | Duitsland |Duitsland - centraal |Duitsland - noordoost |
 | India |India - centraal |India - zuid |
@@ -48,7 +48,7 @@ Afbeelding 1: Azure regioparen
 | Noord-Amerika |US - west 2 |US - west-centraal 
 | Zuid-Afrika | Zuid-Afrika (noord) | Zuid-Afrika (west)
 | VK |Verenigd Koninkrijk West |Verenigd Koninkrijk Zuid |
-| Verenigde Arabische Emiraten | VAE - noord | UAE Center
+| Verenigde Arabische Emiraten | VAE - noord | VAE - centraal
 | het Ministerie van Defensie in de VS |US DoD - oost |US DoD - centraal |
 | Amerikaanse overheid |VS (overheid) - Arizona |VS (overheid) - Texas |
 | Amerikaanse overheid |US Gov - Iowa |VS (overheid) - Virginia |

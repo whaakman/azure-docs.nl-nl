@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969385"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497549"
 ---
 # <a name="monitor-site-recovery"></a>Monitor voor Site Recovery
 
@@ -190,8 +190,8 @@ U kunt zich abonneren voor het ontvangen van e-mailmeldingen voor deze kritieke 
 
 Abonneer u als volgt:
 
-In de kluis > **bewaking en rapporten** sectie, klikt u op **Site Recovery-gebeurtenissen**.
+In de kluis > **bewaking** sectie, klikt u op **Site Recovery-gebeurtenissen**.
 1. Klik op **e-mailmeldingen**.
 1. In **e-mailmelding**, meldingen inschakelen en opgeven aan wie de om naar te verzenden. U kunt verzenden naar alle abonnementsbeheerders worden verzonden, meldingen en desgewenst specifieke e-mailadressen.
 
-    ![E-mailwaarschuwingen](./media/site-recovery-monitor-and-troubleshoot/email.png)
+    ![E-mailmeldingen](./media/site-recovery-monitor-and-troubleshoot/email.png)
