@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 1cfe4038ff422ecba68f110707e9535226ccd4a5
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 924324b11f49a50bfb5f00e117b33c0cc572e3bb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472101"
+ms.locfileid: "66514986"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -35,7 +35,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 * Neurale standaard: Neurale is de vertaling van het systeem. Gebruik de parameter `category=smt` voor toegang tot de statistische systeem voor gebruik met de Microsoft Translator-Hub.
 * Neurale alleen: Alleen neurale vertalingen is beschikbaar.
 
-**V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat. 
+**V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat.
 
 > [!NOTE]
 > Op dit moment een subset van de neurale talen zijn beschikbaar in aangepaste Translator en er nieuwe zijn in geleidelijk worden toegevoegd. [Talen die momenteel beschikbaar in aangepaste Translator weergeven](#customization).

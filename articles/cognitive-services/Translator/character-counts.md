@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 157b809c1f1707cdaa561ab09486cf4886fff4e0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: eccd0c47c1bfc071f43a6329406cd14f704d019e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389229"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514293"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Hoe de tekst-API van Translator telt tekens
 
@@ -35,7 +35,7 @@ Wat telt is:
 
 Voor scripts op basis van weer te geven ideogrammen zoals Chinees en Japans Kanji, telt de Translator Text-API nog steeds het aantal codepunten Unicode, één teken per ideogram. Uitzondering: Unicode vervangende aantal tekens als twee tekens.
 
-Het aantal aanvragen, woorden, bytes of zinnen is niet van belang in het aantal tekens. 
+Het aantal aanvragen, woorden, bytes of zinnen is niet van belang in het aantal tekens.
 
 Aanroepen van de analyse en BreakSentence methoden worden niet meegeteld in het verbruik van het teken. Echter, we verwachten dat de aanroepen van de analyse en BreakSentence methoden zijn in een redelijke verhouding tot het gebruik van andere functies die worden geteld. Als het aantal detecteren of BreakSentence aanroepen die u aanbrengt groter is dan het aantal getelde methoden door 100 keer Microsoft behoudt zich het recht om uw gebruik van de analyse en BreakSentence methoden te beperken.
 

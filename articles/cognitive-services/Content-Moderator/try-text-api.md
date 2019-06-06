@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: edf4a3e9d9e9b51ac44f839cababa9d14bc0d17a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 05/29/2019
+ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228060"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688835"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Gemiddeld tekst van de API-console
 
-Gebruik de [tekst toezicht-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator voor het scannen van de tekstinhoud van uw. De bewerking scant uw taalgebruik en vergelijkt de inhoud op basis van aangepaste en gedeelde zwarte lijsten.
+Gebruik de [tekst toezicht-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator om te scannen uw tekstinhoud taalgebruik en deze vergelijken met aangepaste en gedeelde lijsten.
 
 ## <a name="get-your-api-key"></a>Haal uw API-sleutel
 
@@ -49,11 +49,11 @@ Selecteer de queryparameters die u wilt gebruiken in uw tekst-scherm. In dit voo
 >
 > Voor **grof taalgebruik voorwaarden** detectie, gebruik de [ISO 639-3-code](http://www-01.sil.org/iso639-3/codes.asp) van de ondersteunde talen die worden vermeld in dit artikel of laat het veld leeg.
 
-Voor **AutoCorrectie**, **PII**, en **classificeren (preview)**, selecteer **waar**. Laat de **ListId** veld leeg.
+Voor **AutoCorrectie**, **PII**, en **classificeren (preview)** , selecteer **waar**. Laat de **ListId** veld leeg.
 
   ![Tekst - scherm console queryparameters](images/text-api-console-inputs.PNG)
 
-### <a name="content-type"></a>Inhoudstype
+### <a name="content-type"></a>Type inhoud
 
 Voor **Content-Type**, selecteer het type inhoud dat u wilt dat op het scherm. In dit voorbeeld gebruikt u de standaard **text/plain** type inhoud. In de **Ocp-Apim-Subscription-Key** voert u de abonnementssleutel van uw.
 
@@ -72,7 +72,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Het antwoord analyseren
 
-Het volgende antwoord bevat de verschillende inzichten van de API. Het bevat potentieel grof taalgebruik, PII-classificatie (preview) en de versie automatisch worden gecorrigeerd.
+Het volgende antwoord bevat de verschillende inzichten van de API. Het bevat potentieel grof taalgebruik, persoonlijke gegevens, classificatie (preview) en de versie automatisch worden gecorrigeerd.
 
 > [!NOTE]
 > De functie 'Classificatie' geautomatiseerd is in preview en ondersteunt alleen Engels.

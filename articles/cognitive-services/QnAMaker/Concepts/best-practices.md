@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: fde10da8d46a3aa5d0163a89d1212911701c4b60
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496929"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693214"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best practices van een kennisdatabase QnA Maker
 De [kennisdatabase ontwikkelingscyclus](../Concepts/development-lifecycle-knowledge-base.md) helpt u over het beheren van uw KB van begin tot einde. Gebruik deze aanbevolen procedures te verbeteren van uw knowledge base en biedt betere resultaten van uw toepassing/chat bot-eindgebruikers.
@@ -113,7 +113,7 @@ QnA Maker kunnen gebruikers [samenwerken](../How-to/collaborate-knowledge-base.m
 
 ## <a name="active-learning"></a>Actief leren
 
-[Actief leren](../How-to/improve-knowledge-base.md) biedt de beste taak van het alternatieve vragen stellen wanneer er een breed scala aan kwaliteit en kwantiteit van query's op basis van gebruikers. Het is belangrijk om toe te staan van client-toepassingen gebruikersquery's om deel te nemen in de actieve feedback-lus zonder censuur leren. Als u vragen worden voorgesteld in de QnA Maker portal, kunt u **[filteren op suggesties](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** vervolgens beoordeelt en accepteert of weigert die suggesties. 
+[Actief leren](../How-to/improve-knowledge-base.md) biedt de beste taak van het alternatieve vragen stellen wanneer er een breed scala aan kwaliteit en kwantiteit van query's op basis van gebruikers. Het is belangrijk om toe te staan van client-toepassingen gebruikersquery's om deel te nemen in de actieve feedback-lus zonder censuur leren. Als u vragen worden voorgesteld in de QnA Maker portal, kunt u **[filteren op suggesties](../How-To/improve-knowledge-base.md)** vervolgens beoordeelt en accepteert of weigert die suggesties. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

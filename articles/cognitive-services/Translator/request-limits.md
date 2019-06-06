@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796896"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514643"
 ---
 # <a name="request-limits-for-translator-text"></a>Aanvraaglimieten voor Translator tekst
 
@@ -38,7 +38,7 @@ De volgende tabel lijsten matrix-element en teken limieten voor elke bewerking v
 
 ## <a name="character-limits-per-hour"></a>Teken limieten per uur
 
-Het aantal tekens per uur is gebaseerd op uw abonnement op Translator Text-laag. De uurquotum moet gelijkmatig worden gebruikt tijdens het uur. Als u bereiken of groter zijn dan deze limieten, of een gedeelte van het quotum te grote in een korte periode verzenden, ontvangt u waarschijnlijk een out-of quotum antwoord. 
+Het aantal tekens per uur is gebaseerd op uw abonnement op Translator Text-laag. De uurquotum moet gelijkmatig worden gebruikt tijdens het uur. Als u bereiken of groter zijn dan deze limieten, of een gedeelte van het quotum te grote in een korte periode verzenden, ontvangt u waarschijnlijk een out-of quotum antwoord.
 
 | Laag | Maximum aantal tekens |
 |------|-----------------|
@@ -69,7 +69,7 @@ Wanneer u de [BreakSentence](https://docs.microsoft.com/azure/cognitive-services
 | Portugees | pt | 290 |
 | Spaans | es | 280 |
 | Italiaans | it | 280 |
-| Thais | e | 258 |
+| Thais | do | 258 |
 
 > [!NOTE]
 > Deze limiet niet van toepassing op vertalingen.
