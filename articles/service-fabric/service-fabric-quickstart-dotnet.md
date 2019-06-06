@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d7c0f19d6680eef7492faaaab0d45e0c70011f01
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773159"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428075"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Quickstart: Een .NET Reliable Services-toepassing implementeren voor Service Fabric
 
@@ -33,7 +33,7 @@ Deze snelstartgids laat zien hoe u uw eerste .NET-toepassing in Service Fabric i
 Met behulp van deze toepassing leert u hoe u:
 
 * een toepassing kunt maken met .Net en Service Fabric
-* ASP.NET Core gebruiken als een webfront-end
+* ASP.NET core gebruiken als een webfront-end
 * Toepassingsgegevens in een stateful service opslaan
 * Lokaal problemen met uw toepassing oplossen
 * De toepassing uitschalen over meerdere knooppunten
@@ -41,9 +41,9 @@ Met behulp van deze toepassing leert u hoe u:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze snelstartgids:
+Dit zijn de vereisten voor het voltooien van deze snelstart:
 
-1. [Visual Studio 2017 installeren](https://www.visualstudio.com/) met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingworkloads**.
+1. [Installeer Visual Studio 2019](https://www.visualstudio.com/) met de **Azure-ontwikkeling** en **ASP.NET en webontwikkeling** werkbelastingen.
 2. [Git installeren](https://git-scm.com/)
 3. [Microsoft Azure Service Fabric SDK installeren](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Voer de volgende opdracht uit zodat Visual Studio in staat is om implementaties naar het lokale Service Fabric-cluster uit te voeren:
@@ -87,11 +87,11 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
 
-Klik met de rechtermuisknop op het pictogram van Visual Studio in het menu Start en kies **Als administrator uitvoeren**. U moet Visual Studio als administrator uitvoeren als u het foutopsporingsprogramma aan uw services wilt koppelen.
+Klik met de rechtermuisknop op het pictogram van Visual Studio in het menu Start en kies **Als administrator uitvoeren**. Als u wilt het foutopsporingsprogramma koppelen aan uw services, moet u Visual Studio als administrator uitvoeren.
 
 Open de oplossing **Voting.sln** van Visual Studio vanuit de opslagplaats die u hebt gekloond.
 
-De toepassing Voting luistert standaard op poort 8080.  De poort van de toepassing is ingesteld in het bestand */VotingWeb/PackageRoot/ServiceManifest.xml*.  U kunt de poort van de toepassing wijzigen door het kenmerk**Port** van het element **Endpoint** bij te werken.  Als u de toepassing lokaal wilt implementeren en uitvoeren, moet de poort van de toepassing open zijn en beschikbaar zijn op uw computer.  Als u de poort van de toepassing wijzigt, moet u de waarde '8080' in dit artikel vervangen door de nieuwe waarde voor de poort van de toepassing.
+De toepassing Voting luistert standaard op poort 8080.  De poort van de toepassing is ingesteld in het bestand */VotingWeb/PackageRoot/ServiceManifest.xml*.  U kunt de poort van de toepassing wijzigen door het kenmerk**Port** van het element **Endpoint** bij te werken.  Als u de toepassing lokaal wilt implementeren en uitvoeren, moet de poort van de toepassing open zijn en beschikbaar zijn op uw computer.  Als u de poort van de toepassing wijzigt, vervangt u de waarde van de nieuwe toepassing-poort voor '8080' in dit artikel.
 
 Druk op **F5** om de toepassing te implementeren.
 
@@ -123,7 +123,7 @@ Wanneer u in de toepassing stemt, vinden de volgende gebeurtenissen plaats:
 
 ## <a name="debug-in-visual-studio"></a>Fouten opsporen met Visual Studio
 
-De toepassing zou zonder problemen moeten worden uitgevoerd, maar u kunt het foutopsporingsprogramma gebruiken om te zien hoe belangrijke onderdelen van de toepassing werken. Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing worden gegevens met behulp van een betrouwbare woordenlijst opgeslagen in de back-endservice. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
+De toepassing zou zonder problemen moeten worden uitgevoerd, maar u kunt het foutopsporingsprogramma gebruiken om te zien hoe belangrijke onderdelen van de toepassing werken. Bij het opsporen van fouten in de toepassing in Visual Studio, bent u een lokaal ontwikkelingscluster van Service Fabric. U kunt uw foutopsporingservaring aanpassen voor uw scenario. In deze toepassing worden gegevens met behulp van een betrouwbare woordenlijst opgeslagen in de back-endservice. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
 
 Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
 
@@ -132,17 +132,17 @@ Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
 2. Open het bestand **/VotingData/Controllers/VoteDataController.cs** en stel een onderbrekingspunt in de methode **Put** van deze web-API (regel 54) in.
 
 3. Ga terug naar de browser en klik op een stemoptie of voeg een nieuwe stemoptie toe. U komt uit bij het eerste onderbrekingspunt in de API-controller van de web-front-end.
-   * Dit is het punt waarop door JavaScript in de browser een aanvraag wordt verzonden naar de web-API-controller in de front-endservice.
+   * Deze stap is waar de JavaScript in de browser een aanvraag verzendt naar de web-API-controller in de front-endservice.
 
      ![Front-endservice van Vote toevoegen](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Stel eerst de URL van de ReverseProxy samen voor onze back-endservice **(1)**.
-   * Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
-   * Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)**.
+   * Stel eerst de URL van de ReverseProxy samen voor onze back-endservice **(1)** .
+   * Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)** .
+   * Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)** .
 
 4. Druk op **F5** om door te gaan
    - Als u hierom wordt gevraagd door de browser, verleent u ServiceFabricAllowedUsers rechten voor het lezen en uitvoeren van groepen voor de foutopsporingsmodus.
-   - U bent nu op het onderbrekingspunt in de back-endservice aanbeland.
+   - U kunt nu op het onderbrekingspunt in de back-end-service.
 
      ![Back-endservice Vote toevoegen](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
@@ -188,7 +188,7 @@ Als u de toepassing wilt upgraden, gaat u als volgt te werk:
 In deze snelstartgids hebt u de volgende zaken geleerd:
 
 * een toepassing kunt maken met .Net en Service Fabric
-* ASP.NET Core gebruiken als een webfront-end
+* ASP.NET core gebruiken als een webfront-end
 * Toepassingsgegevens in een stateful service opslaan
 * Lokaal problemen met uw toepassing oplossen
 * De toepassing uitschalen over meerdere knooppunten

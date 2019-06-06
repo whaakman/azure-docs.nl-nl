@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa653ecf306f5ac5eefaddd61d98e81f919876d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513305"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734592"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-deelname configureren voor beheerde domeinen
 
@@ -65,7 +65,7 @@ Voor hybride Azure AD-koppeling moeten de apparaten toegang tot de volgende Micr
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (als u naadloze eenmalige aanmelding gebruikt of van plan bent te gebruiken)
 
-Als uw organisatie toegang tot Internet via een uitgaande proxy vereist, wordt aangeraden [implementatie van Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) Windows 10-computers te doen met Azure AD-apparaatregistratie inschakelen. Als u problemen hebt met het configureren en beheren van WPAD, gaat u naar [automatische detectie oplossen] (https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+Als uw organisatie toegang tot Internet via een uitgaande proxy vereist, wordt aangeraden [implementatie van Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) Windows 10-computers te doen met Azure AD-apparaatregistratie inschakelen. Als u problemen hebt met het configureren en beheren van WPAD, gaat u naar [het oplossen van automatische detectie](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Als u niet met behulp van WPAD en proxy-instellingen configureren op uw computer wilt, kunt u doen dus beginnen met Windows 10 1709, door [WinHTTP-instellingen met behulp van een groepsbeleidsobject (GPO) configureren](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -158,7 +158,7 @@ Om de status van de apparaatregistratie in uw Azure-tenant te verifiëren, kunt 
 
 Wanneer u de cmdlet **Get-MSolDevice** gebruikt om de servicedetails te controleren:
 
-- Een object met de **apparaat-id** die overeenkomt met de id op de Windows client moet bestaan.
+- Een object met de **apparaat-ID** die overeenkomt met de ID op de Windows client moet bestaan.
 - Moet de waarde voor **DeviceTrustType** op **Toegevoegd aan domein** zijn ingesteld. Dit is equivalent aan de status **Toegevoegd aan hybride Azure AD** op de pagina Apparaten in de Azure AD-portal.
 - De waarde voor **Ingeschakeld** moet op **Waar** zijn ingesteld en **DeviceTrustLevel** moet **Beheerd** zijn voor apparaten die voor voorwaardelijke toegang worden gebruikt.
 

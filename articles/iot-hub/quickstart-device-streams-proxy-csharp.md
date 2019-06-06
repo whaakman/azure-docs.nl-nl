@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub-apparaatstreams met C#, quickstart voor SSH/RDP (preview) | Microsoft Docs
-description: In deze quickstart voert u twee C#-voorbeeldtoepassingen uit waarmee SSH/RDP-scenario's via een IoT Hub-apparaatstream mogelijk zijn.
+title: Azure IoT Hub apparaat-streams C# Quick Start voor SSH en RDP (preview) | Microsoft Docs
+description: In deze snelstartgids hebt u twee voorbeelden uitvoeren C# toepassingen die de mogelijkheid tot SSH en RDP-scenario's van een IoT Hub apparaat-stream.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -10,39 +10,39 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 514c2e0ea1ef33406c6633064434239d8bdd0e3f
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 1d5fbb410a61419f6f6d2e80cdb1a16c07672fe9
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832996"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733345"
 ---
-# <a name="quickstart-sshrdp-over-an-iot-hub-device-stream-using-a-c-proxy-application-preview"></a>Quickstart: SSH/RDP via een IoT Hub apparaat stream met behulp van een C# -proxytoepassing (preview)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: SSH en RDP via een IoT Hub apparaat-stroom inschakelen met behulp van een C# -proxytoepassing (preview)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
 Microsoft Azure IoT Hub apparaat-streams als op dit moment ondersteunt een [preview-functie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub-apparaatstreams](iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. Deze quickstart bevat twee C#-programma's waarmee het mogelijk is dat verkeer van een client/server-toepassing (zoals SSH en RDP) via een apparaatstream in een IoT Hub wordt verstuurd. Zie [voorbeeld van een lokale proxyserver voor SSH of RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) voor een overzicht van de installatie.
+[IoT Hub-apparaatstreams](iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. Deze Quick Start-handleiding bestaat uit twee C# toepassingen waarmee verkeer van de client / server-toepassing (zoals Secure Shell [SSH] en Remote Desktop Protocol [RDP] om te worden verzonden via een apparaat-stream die via een IoT-hub tot stand gebracht. Zie voor een overzicht van de installatie, [lokale proxy-voorbeeldtoepassing voor SSH of RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
-We beschrijven eerst de instellingen voor SSH (met poort 22). Vervolgens beschrijven we hoe u de voor de instellingen geconfigureerde poort bewerkt voor RDP. Omdat apparaatstreams toepassings- en protocolneutraal zijn, kan hetzelfde voorbeeld zodanig worden bewerkt dat er andere soorten toepassingsverkeer mogelijk zijn. Daarvoor hoeft meestal alleen de communicatiepoort te worden gewijzigd in de voor de beoogde toepassing bestemde poort.
+Dit artikel worden eerst de instellingen voor SSH (met behulp van poort 22) en vervolgens wordt beschreven hoe u de poort van de instellingen wijzigen voor RDP. Omdat apparaat streams en protocol-ongeacht de gebruikte toepassing, kan hetzelfde voorbeeld om te voldoen aan andere typen toepassingsverkeer worden gewijzigd. Deze wijziging omvat meestal alleen de communicatiepoort wijzigen in de naam die wordt gebruikt door de gewenste toepassing.
 
-## <a name="how-it-works"></a>Hoe het werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 
-In de onderstaande afbeelding ziet u hoe het apparaat en de proxyprogramma's in de service in dit voorbeeld end-to-end-connectiviteit mogelijk maken tussen de SSH-client en SSH-daemon. We gaan er hier van uit dat de daemon wordt uitgevoerd op hetzelfde apparaat als de proxy in het apparaat.
+De volgende afbeelding ziet u hoe de end-to-end-connectiviteit tussen de SSH-client en de SSH-daemon-processen voor het inschakelen van de apparaat-local en service-local-proxy-toepassingen in dit voorbeeld. Hier gaan we ervan uit dat de daemon op hetzelfde apparaat als de apparaat-local proxytoepassing wordt uitgevoerd.
 
-![Installatie van lokale proxy](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![Installatie van de toepassing lokaal proxy](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
 
-1. De proxy in de service maakt verbinding met IoT Hub en begint een apparaatstream naar het doelapparaat met behulp van de apparaat-id.
+1. De van service-local-proxytoepassing verbinding maakt met de IoT-hub en initieert de stroom van een apparaat naar het doelapparaat.
 
-2. De proxy in het apparaat voltooit de stream-handshake en zet een end-to-end-streaming-tunnel op van het streaming-eindpunt van IoT Hub naar de servicezijde.
+1. De apparaat-local-proxytoepassing de stream inleiding handshake is voltooid en maakt een end-to-end-streaming-tunnel via de IoT-hub streaming-eindpunt aan de servicezijde.
 
-3. Apparaat-local-proxy maakt verbinding met de SSH-daemon (SSHD) luistert op poort 22 op het apparaat (deze poort kan worden geconfigureerd, zoals beschreven in de [uitvoeren van de sectie apparaat lokale Proxy](#run-the-device-local-proxy).
+1. De apparaat-local-proxytoepassing verbindt met de SSH-daemon op poort 22 op het apparaat luistert. Deze instelling kan worden geconfigureerd, zoals beschreven in de sectie 'De apparaat-local-proxytoepassing uitvoeren'.
 
-4. Service-lokale proxy wacht op voor nieuwe SSH-verbindingen van de gebruiker door te luisteren op een specifieke poort die in dit geval poort 2222 is (dit kan ook worden geconfigureerd, zoals beschreven in de [uitvoeren de lokale serviceproxy sectie](#run-the-service-local-proxy). Als gebruiker verbinding via SSH-client maakt, kan de tunnel toepassingsverkeer moet worden uitgewisseld tussen de SSH-client en service-programma's.
+1. De service-local-proxytoepassing wacht voor nieuwe SSH-verbindingen van een gebruiker door te luisteren op een specifieke poort, die in dit geval poort 2222 is. Deze instelling kan worden geconfigureerd, zoals beschreven in de sectie 'De service-local-proxytoepassing uitvoeren'. Als de gebruiker verbinding via de SSH-client maakt, kan de tunnel SSH toepassingsverkeer om te worden overgedragen tussen de SSH-client en server-toepassing.
 
 > [!NOTE]
-> SSH-verkeer dat via de stream wordt verstuurd, gaat via een tunnel van het streaming-eindpunt van IoT Hub in plaats van dat het rechtstreeks tussen de service en het apparaat wordt verzonden. Zie voor meer informatie de sectie over [apparaat streamt voordelen](./iot-hub-device-streams-overview.md#benefits).
+> SSH-verkeer dat wordt verzonden via de stroom van een apparaat is tunnel via de IoT-hub streaming-eindpunt plaats van rechtstreeks tussen service- en apparaat verzonden. Zie voor meer informatie de [voordelen van het gebruik van Iot Hub apparaat-streams](iot-hub-device-streams-overview.md#benefits).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,29 +50,28 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
+* De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-hubs die zijn gemaakt in de volgende regio's:
 
-*  **US - centraal**
+  * US - centraal
+  * VS-midden EUAP
 
-*  **VS-midden EUAP**
+* De twee voorbeeldtoepassingen die u in deze Quick Start uitvoert zijn geschreven met behulp van C#. U moet de .NET Core SDK 2.1.0 of hoger op uw ontwikkelcomputer.
 
-De twee voorbeeldtoepassingen die u uitvoert in deze snelstartgids zijn geschreven in C#. .NET Core SDK 2.1.0 of hoger moet zijn geïnstalleerd op uw ontwikkelcomputer.
+  U kunt downloaden de [.NET Core-SDK voor meerdere platformen van .NET](https://www.microsoft.com/net/download/all).
 
-U kunt downloaden de [.NET Core-SDK voor meerdere platformen van .NET](https://www.microsoft.com/net/download/all).
+* Controleer of de huidige versie van C# op een ontwikkelcomputer met behulp van de volgende opdracht uit:
 
-Gebruik de volgende opdracht om de huidige versie van C# op uw ontwikkelcomputer te controleren:
+    ```
+    dotnet --version
+    ```
 
-```
-dotnet --version
-```
+* Voer de volgende opdracht om toe te voegen van de Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie wordt toegevoegd voor IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS)-specifieke opdrachten naar de Azure CLI.
 
-Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Download het C#-voorbeeldproject van https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip en pak het ZIP-archief uit.
+* [Het voorbeeld downloaden C# project](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), en pak het ZIP-archief.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -80,41 +79,41 @@ Download het C#-voorbeeldproject van https://github.com/Azure-Samples/azure-iot-
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
-Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
+Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstartgids gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
+1. Voer de volgende opdracht in Cloud Shell voor het maken van de apparaat-id:
 
-   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
-
-   **MyDevice**: dit is de naam van het geregistreerde apparaat. Gebruik MyDevice, zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
+   > [!NOTE]
+   > * Vervang de *YourIoTHubName* tijdelijke aanduiding door de naam die u voor uw IoT-hub kiest.
+   > * Gebruik *Mijnapparaat*, zoals wordt weergegeven. Het is de naam van het geregistreerde apparaat. Als u een andere naam voor uw apparaat, gebruikt u die naam in dit artikel en de naam van het apparaat in de voorbeeldtoepassingen bijwerken voordat u ze uitvoert.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. Voer de volgende opdrachten uit in Azure Cloud Shell om de _apparaatverbindingsreeks_ op te halen voor het apparaat dat u zojuist hebt geregistreerd:
+1. Aan de *apparaatverbindingsreeks* voor het apparaat dat u zojuist hebt geregistreerd, kunt u de volgende opdrachten uitvoeren in Cloud Shell:
 
-   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
+   > [!NOTE]
+   > Vervang de *YourIoTHubName* tijdelijke aanduiding door de naam die u voor uw IoT-hub kiest.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    Noteer de apparaatverbindingsreeks. Deze ziet eruit zoals in het volgende voorbeeld:
+    Houd er rekening mee de apparaatverbindingsreeks voor later gebruik in deze Quick Start. Het lijkt op het volgende voorbeeld:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    U gebruikt deze waarde verderop in de snelstartgids.
+1. Als u wilt verbinding maken met uw IoT-hub en de stream van een apparaat tot stand brengen, moet u ook de *serviceverbindingsreeks* van uw IoT-hub kunt u de toepassing aan de serverkant inschakelen. Met de volgende opdracht haalt u deze waarde voor uw IoT-hub op:
 
-3. U hebt ook de *serviceverbindingsreeks* van uw IoT Hub nodig, zodat de toepassing aan de servicezijde verbinding kan maken met uw IoT Hub en een apparaatstream kan opzetten. Met de volgende opdracht haalt u deze waarde voor uw IoT-hub op:
-
-   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
+   > [!NOTE]
+   > Vervang de *YourIoTHubName* tijdelijke aanduiding door de naam die u voor uw IoT-hub kiest.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
-    Noteer de geretourneerde waarde, die er als volgt uitziet:
+    Houd er rekening mee de geretourneerde waarde voor later gebruik in deze Quick Start. Het lijkt op het volgende voorbeeld:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -122,15 +121,15 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
 In deze sectie maakt maken u een end-to-end-stream zo tunnel SSH-verkeer.
 
-### <a name="run-the-device-local-proxy"></a>Voer de proxy in het apparaat uit
+### <a name="run-the-device-local-proxy-application"></a>Voer de proxytoepassing in het apparaat uit
 
-Navigeer naar `device-streams-proxy/device` in uw uitgepakte projectmap. Houd de volgende informatie bij de hand:
+Ga naar de *apparaat-streams-proxy/apparaat* Active directory in de map van de uitgepakte project. De volgende informatie bij de hand houden:
 
 | Argumentnaam | Argumentwaarde |
 |----------------|-----------------|
 | `deviceConnectionString` | De verbindingsreeks van het apparaat dat u eerder hebt gemaakt. |
-| `targetServiceHostName` | Het IP-adres waarop de SSH-server luistert (dit is `localhost` als dit hetzelfde IP-adres is als waar de proxy in het apparaat wordt uitgevoerd). |
-| `targetServicePort` | De poort die door uw toepassingsprotocol wordt gebruikt (standaard is dit poort 22 voor SSH).  |
+| `targetServiceHostName` | Het IP-adres waar de SSH-server luistert. Het adres zou worden `localhost` alsof het hetzelfde IP-adres waar de proxytoepassing van de apparaat-local-wordt uitgevoerd. |
+| `targetServicePort` | De poort die wordt gebruikt door uw toepassingsprotocol (voor SSH, standaard, zou dit poort 22).  |
 
 Compileer de code en voer deze als volgt uit:
 
@@ -141,14 +140,14 @@ cd ./iot-hub/Quickstarts/device-streams-proxy/device/
 dotnet build
 
 # Run the application
-# In Linux/MacOS
+# In Linux or macOS
 dotnet run $deviceConnectionString localhost 22
 
 # In Windows
 dotnet run %deviceConnectionString% localhost 22
 ```
 
-### <a name="run-the-service-local-proxy"></a>Voer de proxy in de service uit
+### <a name="run-the-service-local-proxy-application"></a>Voer de proxytoepassing in de service uit
 
 Navigeer naar `device-streams-proxy/service` in uw uitgepakte projectmap. Houd de volgende informatie bij de hand:
 
@@ -156,7 +155,7 @@ Navigeer naar `device-streams-proxy/service` in uw uitgepakte projectmap. Houd d
 |----------------|-----------------|
 | `iotHubConnectionString` | De serviceverbindingsreeks van uw IoT Hub. |
 | `deviceId` | De id van het apparaat dat u eerder hebt gemaakt. |
-| `localPortNumber` | Een lokale poort waarmee uw SSH-client verbinding maakt. In dit voorbeeld gebruiken we poort 2222, maar u kunt dat wijzigen in willekeurige andere getallen. |
+| `localPortNumber` | Een andere lokale poort waarmee de SSH-client verbinding te maken. We gebruiken poort 2222 in dit voorbeeld, maar u kunt andere willekeurige getallen. |
 
 Compileer de code en voer deze als volgt uit:
 
@@ -167,48 +166,48 @@ cd ./iot-hub/Quickstarts/device-streams-proxy/service/
 dotnet build
 
 # Run the application
-# In Linux/MacOS
+# In Linux or macOS
 dotnet run $serviceConnectionString MyDevice 2222
 
 # In Windows
 dotnet run %serviceConnectionString% MyDevice 2222
 ```
 
-### <a name="run-ssh-client"></a>SSH-client uitvoeren
+### <a name="run-the-ssh-client"></a>De SSH-client wordt uitgevoerd
 
-Gebruik nu uw SSH-clientprogramma en maak verbinding met de proxy in de service via poort 2222 (in plaats van rechtstreeks met de SSH-daemon).
+Nu uw SSH-clienttoepassing gebruiken en maak verbinding met de service-local-proxytoepassing op poort 2222 (in plaats van de SSH-daemon rechtstreeks).
 
 ```
 ssh <username>@localhost -p 2222
 ```
 
-U wordt nu gevraagd om uw referenties in te voeren in het SSH-aanmeldingsprompt.
+Op dit moment het SSH-aanmelden-venster wordt u gevraagd uw referenties in te voeren.
 
-Console-uitvoer in de servicezijde (de proxy in de service luistert naar poort 2222):
+Console-uitvoer aan de servicezijde (de service-local-proxytoepassing luistert op poort 2222):
 
-![Proxy-service-local-uitvoer](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
+![Uitvoer van de toepassing service-local-proxy](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Console-uitvoer in de proxy in het apparaat die verbinding maakt met de SSH-daemon via `IP_address:22`:
+Console-uitvoer van de apparaat-local proxytoepassing, die verbinding maakt met de SSH-daemon op *IP_address:22*:
 
-![Apparaat-local-proxy-uitvoer](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
+![Uitvoer van de toepassing apparaat-local-proxy](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 
-Console-uitvoer van het SSH-clientprogramma (SSH-client communiceert met SSH-daemon door verbinding te maken met poort 22, waar de proxy in de service naar luistert):
+Console-uitvoer van de SSH-clienttoepassing. De SSH-client communiceert met de SSH-daemon door verbinding te maken naar poort 22, waarmee de service-local-proxytoepassing luistert op:
 
-![SSH-client programma-uitvoer](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
+![Uitvoer van SSH-client-toepassing](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
 
 ## <a name="rdp-to-a-device-via-device-streams"></a>RDP naar een apparaat via apparaatstreams
 
-De instelling voor RDP is zeer vergelijkbaar met SSH (zoals hierboven is beschreven). In principe moeten we de doel-IP van de RDP en poort 3389 gebruiken en de RDP-client gebruiken (in plaats van de SSH-client).
+De instellingen voor RDP is vergelijkbaar met de instellingen voor SSH (hierboven beschreven). U gebruikt de RDP-doel-IP en poort 3389 in plaats daarvan en gebruikt u de RDP-client (in plaats van de SSH-client).
 
-### <a name="run-the-device-local-proxy-rdp"></a>Voer de lokale proxy van het apparaat uit (RDP)
+### <a name="run-the-device-local-proxy-application-rdp"></a>De apparaat-local-proxytoepassing (RDP) worden uitgevoerd
 
-Navigeer naar `device-streams-proxy/device` in uw uitgepakte projectmap. Houd de volgende informatie bij de hand:
+Ga naar de *apparaat-streams-proxy/apparaat* Active directory in de map van de uitgepakte project. De volgende informatie bij de hand houden:
 
 | Argumentnaam | Argumentwaarde |
 |----------------|-----------------|
 | `DeviceConnectionString` | De verbindingsreeks van het apparaat dat u eerder hebt gemaakt. |
-| `targetServiceHostName` | De hostnaam of het IP-adres waar de RDP-server wordt uitgevoerd (dit is `localhost` als dit hetzelfde IP-adres is als waar de proxy in het apparaat wordt uitgevoerd). |
-| `targetServicePort` | De poort die door uw toepassingsprotocol wordt gebruikt (standaard is dit poort 3389 voor RDP).  |
+| `targetServiceHostName` | De hostnaam of IP-adres waarop RDP-server wordt uitgevoerd. Het adres zou worden `localhost` alsof het hetzelfde IP-adres waar de proxytoepassing van de apparaat-local-wordt uitgevoerd. |
+| `targetServicePort` | De poort die wordt gebruikt door uw toepassingsprotocol (voor RDP, standaard, zou dit poort 3389).  |
 
 Compileer de code en voer deze als volgt uit:
 
@@ -216,14 +215,14 @@ Compileer de code en voer deze als volgt uit:
 cd ./iot-hub/Quickstarts/device-streams-proxy/device
 
 # Run the application
-# In Linux/MacOS
+# In Linux or macOS
 dotnet run $DeviceConnectionString localhost 3389
 
 # In Windows
 dotnet run %DeviceConnectionString% localhost 3389
 ```
 
-### <a name="run-the-service-local-proxy-rdp"></a>Voer de lokale proxy van de service uit (RDP)
+### <a name="run-the-service-local-proxy-application-rdp"></a>Uitvoeren van de service-local-proxytoepassing (RDP)
 
 Navigeer naar `device-streams-proxy/service` in uw uitgepakte projectmap. Houd de volgende informatie bij de hand:
 
@@ -231,7 +230,7 @@ Navigeer naar `device-streams-proxy/service` in uw uitgepakte projectmap. Houd d
 |----------------|-----------------|
 | `iotHubConnectionString` | De serviceverbindingsreeks van uw IoT Hub. |
 | `deviceId` | De id van het apparaat dat u eerder hebt gemaakt. |
-| `localPortNumber` | Een lokale poort waarmee uw SSH-client verbinding maakt. In dit voorbeeld gebruiken we poort 2222, maar u kunt dat wijzigen in willekeurige andere getallen. |
+| `localPortNumber` | Een andere lokale poort waarmee de SSH-client verbinding te maken. In dit voorbeeld gebruiken we poort 2222, maar u kunt dat wijzigen in willekeurige andere getallen. |
 
 Compileer de code en voer deze als volgt uit:
 
@@ -242,7 +241,7 @@ cd ./iot-hub/Quickstarts/device-streams-proxy/service/
 dotnet build
 
 # Run the application
-# In Linux/MacOS
+# In Linux or macOS
 dotnet run $serviceConnectionString MyDevice 2222
 
 # In Windows
@@ -251,9 +250,9 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 ### <a name="run-rdp-client"></a>RDP-client uitvoeren
 
-Gebruik uw RDP-clientprogramma nu en maak verbinding met de proxy in de lokale service via poort 2222 (dit is een willekeurige poort die u eerder hebt gekozen).
+Nu uw RDP-clienttoepassing gebruiken en maak verbinding met de service-local-proxytoepassing op poort 2222 (dit was een willekeurige poort die u eerder hebt gekozen).
 
-![RDP verbinding maakt met de service-local-proxy](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.png)
+![RDP verbinding maakt met de service-local proxytoepassing](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -261,9 +260,9 @@ Gebruik uw RDP-clientprogramma nu en maak verbinding met de proxy in de lokale s
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een IoT Hub ingesteld, een apparaat geregistreerd, een apparaat en een proxyprogramma in een service geïmplementeerd om een apparaatstream via IoT Hub vast te stellen. U hebt eveneens de proxy's gebruikt om SSH- of RDP-verkeer via een tunnel te versturen. Hetzelfde paradigma kan worden gebruikt voor andere client-/serverprotocollen (waar de server op het apparaat wordt uitgevoerd, bijvoorbeeld SSH-daemon).
+In deze snelstartgids hebt u instellen van een IoT-hub, een apparaat hebt geregistreerd, geïmplementeerde toepassingen tot stand brengen van een apparaat-stroom via de IoT hub apparaat-local en service-local-proxy en de proxy-toepassingen gebruikt voor tunneling van SSH of RDP-verkeer. De dezelfde paradigma aankan andere client / server-protocollen, waarop de server wordt uitgevoerd op het apparaat (bijvoorbeeld de SSH-daemon).
 
-Gebruik de onderstaande koppelingen voor meer informatie over apparaatstreams:
+Zie voor meer informatie over het apparaat stromen:
 
 > [!div class="nextstepaction"]
 > [Overzicht van apparaatstreams](./iot-hub-device-streams-overview.md)

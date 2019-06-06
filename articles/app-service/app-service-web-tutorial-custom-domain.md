@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 962955a405d12365f69519b004ea8f95d529a97c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475545"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742855"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure App Service
 
@@ -119,7 +119,7 @@ In het voorbeeld van de zelfstudie voegt u toe een CNAME-record toe voor het sub
 
 #### <a name="create-the-cname-record"></a>Het CNAME-record maken
 
-Voeg een CNAME-record toe om een subdomein toe te wijzen aan de standaard hostnaam van de app (`<app_name>.azurewebsites.net`, waarbij `<app_name>` de naam is van uw app).
+Voeg een CNAME-record voor een subdomein toewijzen aan de standaarddomeinnaam van de app (`<app_name>.azurewebsites.net`, waarbij `<app_name>` is de naam van uw app).
 
 Voeg voor het voorbeelddomein `www.contoso.com` een CNAME-record, dat is toegewezen aan de naam `www`, toe aan `<app_name>.azurewebsites.net`.
 
@@ -129,13 +129,13 @@ Nadat u de CNAME toevoegt, lijkt de pagina DNS-records op het volgende voorbeeld
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>De toewijzing van het CNAME-record in Azure inschakelen
 
-Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **Aangepaste domeinen**. 
+Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **Aangepaste domeinen**.
 
 ![Menu voor aangepaste domeinen](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 Voeg op de pagina **Aangepaste domeinen** van de app de volledig gekwalificeerde aangepaste DNS-naam (`www.contoso.com`) toe aan de lijst.
 
-Selecteer het pictogram **+** naast **Hostnaam toevoegen**.
+Selecteer de **+** pictogram naast **aangepast domein toevoegen**.
 
 ![Hostnaam toevoegen](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -143,15 +143,15 @@ Typ de volledig gekwalificeerde domeinnaam in waarvoor u een CNAME-record zoals 
 
 Selecteer **Valideren**.
 
-De pagina **Hostnaam toevoegen** wordt weergegeven. 
+De **aangepast domein toevoegen** pagina wordt weergegeven.
 
 Zorg ervoor dat **hostnaam recordtype** is ingesteld op **CNAME (www\.voorbeeld.com of elk subdomein)** .
 
-Selecteer **Hostnaam toevoegen**.
+Selecteer **Aangepast domein toevoegen**.
 
 ![DNS-naam toevoegen aan de app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Het kan even duren voor de nieuwe hostnaam wordt weergegeven op de pagina **Aangepaste domeinen** van de app. Vernieuw de browser voor om de gegevens bij te werken.
+Het duurt even voordat de nieuwe aangepast gebruikt domein worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor om de gegevens bij te werken.
 
 ![CNAME-record toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -191,7 +191,7 @@ Op de pagina **Aangepaste domeinen** kopieert u het IP-adres van de app.
 Als u een A-record wilt toewijzen aan een app, vereist App Service **twee** DNS-records:
 
 - Een **A**-record toewijzen aan het IP-adres van de app.
-- Een **TXT**-record toewijzen aan de standaardhostnaam `<app_name>.azurewebsites.net` van de app. App Service gebruikt dit record alleen tijdens de configuratie, om te controleren of u de eigenaar bent van het aangepaste domein. Nadat uw aangepaste domein is gevalideerd en geconfigureerd in App Service, kunt u dit TXT-record verwijderen.
+- Een **TXT** record toewijzen aan de standaarddomeinnaam van de app `<app_name>.azurewebsites.net`. App Service gebruikt dit record alleen tijdens de configuratie, om te controleren of u de eigenaar bent van het aangepaste domein. Nadat uw aangepaste domein is gevalideerd en geconfigureerd in App Service, kunt u dit TXT-record verwijderen.
 
 Maak voor het domeinvoorbeeld `contoso.com` de A- en TXT-records overeenkomstig de volgende tabel (`@` vertegenwoordigt doorgaans het hoofddomein).
 
@@ -219,23 +219,23 @@ Wanneer de records worden toegevoegd, lijkt de pagina met DNS-records op het vol
 
 Voeg op de pagina **Aangepaste domeinen** van de app in de Azure portal de volledig gekwalificeerde aangepaste DNS-naam (bijvoorbeeld `contoso.com`) toe aan de lijst.
 
-Selecteer het pictogram **+** naast **Hostnaam toevoegen**.
+Selecteer de **+** pictogram naast **aangepast domein toevoegen**.
 
-![Hostnaam toevoegen](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Hostnaam toevoegen](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Typ de volledig gekwalificeerde domeinnaam in waarvoor u een A-record zoals `contoso.com` heeft toegevoegd.
 
 Selecteer **Valideren**.
 
-De pagina **Hostnaam toevoegen** wordt weergegeven. 
+De **aangepast domein toevoegen** pagina wordt weergegeven.
 
 Zorg ervoor dat **Hostnaam recordtype** is ingesteld op **A-record (voorbeeld.com)** .
 
-Selecteer **Hostnaam toevoegen**.
+Selecteer **Aangepast domein toevoegen**.
 
 ![DNS-naam toevoegen aan de app](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Het kan even duren voor de nieuwe hostnaam wordt weergegeven op de pagina **Aangepaste domeinen** van de app. Vernieuw de browser voor om de gegevens bij te werken.
+Het duurt even voordat de nieuwe aangepast gebruikt domein worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor om de gegevens bij te werken.
 
 ![A-record toegevoegd](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
@@ -258,7 +258,7 @@ In het voorbeeld van de zelfstudie, wijst u een [wildcard-DNS-naam](https://en.w
 
 #### <a name="create-the-cname-record"></a>Het CNAME-record maken
 
-Voeg een CNAME-record toe om een wildcard-naam toe te wijzen aan de standaard hostnaam van de app (`<app_name>.azurewebsites.net`).
+Voeg een CNAME-record voor een wildcard-naam toewijzen aan de standaarddomeinnaam van de app (`<app_name>.azurewebsites.net`).
 
 Voor het `*.contoso.com` domeinvoorbeeld zal het CNAME-record de naam `*` toewijzen naar `<app_name>.azurewebsites.net`.
 
@@ -274,23 +274,23 @@ Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **A
 
 ![Menu voor aangepaste domeinen](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Selecteer het pictogram **+** naast **Hostnaam toevoegen**.
+Selecteer de **+** pictogram naast **aangepast domein toevoegen**.
 
 ![Hostnaam toevoegen](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Typ een FQDN-naam die overeenkomt met het wildcard-domein (bijvoorbeeld `sub1.contoso.com`), en selecteer vervolgens **Valideren**.
 
-De knop **Hostnaam toevoegen** wordt geactiveerd. 
+De **aangepast domein toevoegen** knop is geactiveerd.
 
 Zorg ervoor dat **hostnaam recordtype** is ingesteld op **CNAME-record (www\.voorbeeld.com of elk subdomein)** .
 
-Selecteer **Hostnaam toevoegen**.
+Selecteer **Aangepast domein toevoegen**.
 
 ![DNS-naam toevoegen aan de app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-Het kan even duren voor de nieuwe hostnaam wordt weergegeven op de pagina **Aangepaste domeinen** van de app. Vernieuw de browser voor om de gegevens bij te werken.
+Het duurt even voordat de nieuwe aangepast gebruikt domein worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor om de gegevens bij te werken.
 
-Selecteer opnieuw het pictogram **+** om een andere hostnaam toe te voegen die overeenkomt met het wildcard-domein. Bijvoorbeeld: voeg `sub2.contoso.com` toe.
+Selecteer de **+** pictogram opnieuw voor het toevoegen van een ander aangepast domein die overeenkomt met het wildcard-domein. Bijvoorbeeld: voeg `sub2.contoso.com` toe.
 
 ![CNAME-record toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 

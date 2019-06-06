@@ -2,22 +2,18 @@
 title: Overzicht van Azure Resource Manager | Microsoft Docs
 description: Hierin wordt beschreven hoe u Azure Resource Manager kunt gebruiken voor implementatie, beheer, en beheer van toegang tot resources in Azure.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225904"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514346"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 
@@ -51,13 +47,15 @@ Resource Manager biedt diverse voordelen:
 * U kunt tags toepassen op de resources om alle resources in uw abonnement op een logische manier te organiseren.
 * U kunt de facturering van uw organisatie transparanter maken door te kijken naar de kosten voor een groep resources met dezelfde tag.
 
-## <a name="understand-management-scope"></a>Beheerbereik begrijpen
+## <a name="understand-scope"></a>Bereik
 
-Azure biedt vier niveaus van beheerbereik: [beheergroepen](../governance/management-groups/index.md), abonnementen, [resourcegroepen](#resource-groups), en resources. In de volgende afbeelding ziet u een voorbeeld van deze lagen.
+Azure biedt vier niveaus van bereik: [beheergroepen](../governance/management-groups/index.md), abonnementen, [resourcegroepen](#resource-groups), en resources. In de volgende afbeelding ziet u een voorbeeld van deze lagen.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
-U past beheerinstellingen toe op een of meer bereikniveaus. Het niveau dat u kiest, bepaalt de reikwijdte van de instelling. Lagere niveaus nemen instellingen over van hogere niveaus. Bijvoorbeeld bij het toepassen van een [beleid](../governance/policy/overview.md) tot het abonnement, het beleid wordt toegepast op alle resourcegroepen en resources in uw abonnement. Wanneer u een beleid toepast op wordt de resourcegroep die het beleid is toegepast, de resourcegroep en alle bijbehorende resources. Een andere resourcegroep heeft echter geen deze beleidstoewijzing.
+U past beheerinstellingen toe op een of meer bereikniveaus. Het niveau dat u kiest, bepaalt de reikwijdte van de instelling. Lagere niveaus nemen instellingen over van hogere niveaus. Bijvoorbeeld bij het toepassen van een [beleid](../governance/policy/overview.md) tot het abonnement, het beleid wordt toegepast op alle resourcegroepen en resources in uw abonnement. Wanneer u een beleid toepast op wordt de resourcegroep die het beleid is toegepast, de resourcegroep en alle bijbehorende resources. Een andere resourcegroep hebben echter niet dat beleidstoewijzing.
+
+U kunt sjablonen implementeren beheergroepen, abonnementen of resourcegroepen.
 
 ## <a name="guidance"></a>Richtlijnen
 
@@ -85,7 +83,7 @@ Er zijn een aantal belangrijke factoren waarmee u rekening moet houden bij het d
 
 Als u een resourcegroep maakt, moet u voor die resourcegroep een locatie opgeven. U vraagt zich misschien af: 'Waarom heeft een resourcegroep een locatie nodig? En als de resources andere locaties kunnen hebben dan de resourcegroep, wat is dan het nut van een locatie voor de resourcegroep?' De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom u moet aangeven waar die metagegevens moeten worden opgeslagen als u een locatie voor de resourcegroep opgeeft. In verband met nalevingsvereisten moet u er mogelijk voor zorgen dat uw gegevens worden opgeslagen in een bepaalde regio.
 
-Als de resourcegroep regio tijdelijk niet beschikbaar is, kunt u resources in de resourcegroep niet bijwerken omdat de metagegevens niet beschikbaar is. De resources in andere regio's wordt nog steeds werken zoals verwacht, maar kan niet worden bijgewerkt. Zoeken om risico te beperken, de resourcegroep en resources in dezelfde regio.
+Als de resourcegroep regio tijdelijk niet beschikbaar is, kunt u resources in de resourcegroep niet bijwerken omdat de metagegevens niet beschikbaar is. De resources in andere regio's wordt nog steeds werken zoals verwacht, maar kan niet worden bijgewerkt. Zie voor meer informatie over het bouwen van betrouwbare toepassingen [het ontwerpen van betrouwbare Azure-toepassingen](/azure/architecture/reliability/).
 
 ## <a name="resource-providers"></a>Resourceproviders
 

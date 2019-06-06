@@ -1,5 +1,5 @@
 ---
-title: Wat is Privileged Identity Management? - Azure Active Directory | Microsoft Azure
+title: Wat is een Privileged Identity Management? -Azure Active Directory | Microsoft Docs
 description: Biedt een overzicht van Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289104"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473693"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
@@ -41,15 +41,6 @@ PIM helpt u in feite met het beheren van het wie, wat, wanneer, waar en waarom v
 - **Meldingen** ontvangen wanneer bevoorrechte rollen zijn geactiveerd
 - **Toegangsbeoordelingen** uitvoeren om te controleren of gebruikers rollen nog steeds nodig hebben
 - **Controlegeschiedenis** downloaden voor interne of externe controle
-
-## <a name="prerequisites"></a>Vereisten
-
-Voor het gebruik van PIM moet u in het bezit zijn van een van de volgende betaalde of proeflicenties. Zie [Wat is Azure Active Directory?](../fundamentals/active-directory-whatis.md) voor meer informatie.
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-Zie [Licentievereisten voor het gebruik van PIM](subscription-requirements.md) voor meer informatie over licenties voor gebruikers.
 
 ## <a name="terminology"></a>Terminologie
 
@@ -104,6 +95,12 @@ PIM ondersteunt de volgende scenario’s:
 - Activering van een rol waarvoor goedkeuring nodig is, aanvragen
 - De status van uw aanvraag voor activeren bekijken
 - Uw taak voltooien in Azure AD als de activering is goedgekeurd
+
+## <a name="license-requirements"></a>Licentievereisten
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Zie [Licentievereisten voor het gebruik van PIM](subscription-requirements.md) voor meer informatie over licenties voor gebruikers.
 
 ## <a name="next-steps"></a>Volgende stappen
 

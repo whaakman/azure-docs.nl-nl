@@ -4,16 +4,16 @@ description: In deze snelstart wordt getoond hoe u aan de slag kunt door een Str
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123606"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493386"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Quickstart: Een Stream Analytics-taak maken met behulp van Azure portal
 
@@ -82,7 +82,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 
 2. Selecteer in de linkerbovenhoek van Azure Portal **Een resource maken**.  
 
-3. Selecteer **Data+Analytics** > **Stream Analytics job** in de lijst met resultaten.  
+3. Selecteer **Analytics** > **Stream Analytics-taak** in de lijst met resultaten.  
 
 4. Vul de pagina voor de Storage-accounttaak in met de volgende gegevens:
 
@@ -93,13 +93,13 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
    |Resourcegroep   |   asaquickstart-resourcegroup  |   Selecteer dezelfde resourcegroep als de IoT-hub. |
    |Locatie  |  \<Selecteer de regio die het dichtst bij uw gebruikers is gelegen\> | Selecteer de geografische locatie waar u de Stream Analytics-taak kunt hosten. Gebruik de locatie die het dichtst bij uw gebruikers is gelegen voor betere prestaties en om de kosten van gegevensoverdracht te verminderen. |
    |Streaming-eenheden  | 1  |   Streaming-eenheden vertegenwoordigen de computerresources die nodig zijn om een taak uit te voeren. Deze waarde is standaard ingesteld op 1. Zie het artikel [Streaming-eenheden begrijpen en aanpassen](stream-analytics-streaming-unit-consumption.md) voor meer informatie over het schalen van streaming-eenheden.   |
-   |Hostingomgeving  |  Cloud  |   Stream Analytics-taken kunnen worden geïmplementeerd in Cloud of in Edge. Met Cloud kunt u taken implementeren naar Azure Cloud en met Edge kunt u taken implementeren naar een IoT-randapparaat. |
+   |Hostingomgeving  |  Cloud  |   Stream Analytics-taken kunnen worden geïmplementeerd in Cloud of in Edge. Cloud kunt u taken implementeren naar Azure-Cloud en Edge kunt u implementeren in een IoT Edge-apparaat. |
 
    ![Taak maken](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
 5. Schakel het selectievakje **Aan dashboard vastmaken** in om de taak op het dashboard te plaatsen en selecteer **Maken**.  
 
-6. In de rechterbovenhoek van het browservenster ziet u de melding *Implementatie wordt uitgevoerd...*. 
+6. In de rechterbovenhoek van het browservenster ziet u de melding *Implementatie wordt uitgevoerd...* . 
 
 ## <a name="configure-job-input"></a>Taakinvoer configureren
 
@@ -187,7 +187,7 @@ Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een eenvoudige Stream Analytics-taak met behulp van de Azure-portal geïmplementeerd. U kunt Stream Analytics-taken ook implementeren met behulp van [PowerShell](stream-analytics-quick-create-powershell.md) en [Visual Studio](stream-analytics-quick-create-vs.md).
+In deze snelstart hebt u een eenvoudige Stream Analytics-taak met behulp van de Azure-portal geïmplementeerd. U kunt ook implementeren met Stream Analytics-taken met behulp van [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), en [Visual Studio Code](quick-create-vs-code.md).
 
 Voor informatie over het configureren van andere invoerbronnen en het uitvoeren van detectie in realtime gaat u door naar het volgende artikel:
 

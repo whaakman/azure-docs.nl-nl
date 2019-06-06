@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b096a6c7bb5b1fedaa5d2963dddae03df9fe6954
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519951"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494041"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Snelstart: Een chatruimte maken met Azure Functions en SignalR Service met behulp van JavaScript
 
@@ -84,4 +84,4 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 In deze snelstartgids hebt gemaakt en is een realtime toepassing zonder server wordt uitgevoerd in VS Code. Nu volgt meer informatie over het implementeren van Azure Functions vanuit VS Code.
 
 > [!div class="nextstepaction"]
-> [Azure Functions met VS Code implementeren](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Azure Functions met VS Code implementeren](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)

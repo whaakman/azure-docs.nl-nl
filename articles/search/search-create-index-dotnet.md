@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/16/2019
-ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0392cc6334aaf383f43d55134fa65f82c44270c3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795820"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428402"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Quickstart: 1 - een Azure Search-index in makenC#
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "65795820"
 > * [Postman](search-fiddler.md)
 >*
 
-In dit artikel begeleidt u bij het proces voor het maken van [een Azure Search-index](search-what-is-an-index.md) met behulp van C# en de [.NET SDK](https://aka.ms/search-sdk). Dit is de eerste les in een oefening 3-onderdeel voor het maken, laden en query een index. Maken van een index wordt bereikt door het uitvoeren van deze taken:
+In dit artikel begeleidt u bij het proces voor het maken van [een Azure Search-index](search-what-is-an-index.md) met behulp van C# en de [.NET SDK](https://aka.ms/search-sdk). In deze Quick Start is de eerste les in een oefening driedelige voor het maken, laden en query een index. Maken van een index wordt bereikt door het uitvoeren van deze taken:
 
 > [!div class="checklist"]
 > * Maak een [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) object verbinding maken met een service voor zoeken.
@@ -39,7 +39,7 @@ De volgende services, hulpprogramma's en gegevens worden gebruikt in deze Quick 
 
 + [Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start.
 
-+ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
+[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), alle edities. Voorbeeldcode en instructies zijn getest op de gratis Community-versie.
 
 + [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) biedt de Voorbeeldoplossing is een .NET Core-consoletoepassing die is geschreven in C#, dat zich bevindt in de GitHub-opslagplaats voor Azure-voorbeelden. Downloaden en uitpakken van de oplossing. Oplossingen zijn standaard alleen-lezen. Met de rechtermuisknop op de oplossing en schakelt u het kenmerk alleen-lezen zodat u bestanden kunt wijzigen. Gegevens is opgenomen in de oplossing.
 
@@ -61,17 +61,15 @@ Alle aanvragen vereisen een api-sleutel bij elke aanvraag verzonden naar uw serv
 
 1. Vervang de Standaardinhoud met het onderstaande voorbeeld in appsettings.json, en geef vervolgens de servicenaam en beheerder api-sleutel voor uw service. 
 
-
    ```json
    {
        "SearchServiceName": "Put your search service name here (not the full URL)",
        "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
     }
    ```
+   Voor de naam van de service hoeft u alleen de naam zelf. Bijvoorbeeld, als uw URL https://mydemo.search.windows.net, toevoegen `mydemo` naar de JSON-bestand.
 
-  Voor de naam van de service hoeft u alleen de naam zelf. Bijvoorbeeld, als uw URL https://mydemo.search.windows.net, toevoegen `mydemo` naar de JSON-bestand.
-
-1. Druk op F5 op het bouwen van de oplossing en de console-app uitvoeren. De overige stappen in deze oefening en die Ga als volgt zijn een verkenning van de werking van deze code. 
+1. Druk op F5 op het bouwen van de oplossing en de console-app uitvoeren. De overige stappen in deze oefening en de volgende stappen zijn een verkenning van de werking van deze code. 
 
 U kunt ook verwijzen naar [over het gebruik van Azure Search via een .NET-toepassing](search-howto-dotnet-sdk.md) voor meer dekking van de SDK-gedrag gedetailleerde. 
 
@@ -108,7 +106,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 1. Stel de eigenschap `Name` van het `Index`-object in op de naam van de index.
 
-2. Stel de eigenschap `Fields` van het `Index`-object in op een matrix van `Field`-objecten. De eenvoudigste manier om `Field`-objecten te maken is de `FieldBuilder.BuildForType`-methode aanroepen. Hierbij wordt een modelklasse doorgegeven voor de typeparameter. Een modelklasse heeft eigenschappen die worden toegewezen aan de velden van uw index. Hiermee kunt u documenten uit de zoekindex binden aan exemplaren van uw modelklasse.
+2. Stel de eigenschap `Fields` van het `Index`-object in op een matrix van `Field`-objecten. De eenvoudigste manier om `Field`-objecten te maken is de `FieldBuilder.BuildForType`-methode aanroepen. Hierbij wordt een modelklasse doorgegeven voor de typeparameter. Een modelklasse heeft eigenschappen die worden toegewezen aan de velden van uw index. Deze toewijzing kunt u documenten uit de zoekindex binden aan exemplaren van uw modelklasse.
 
 > [!NOTE]
 > Als u niet van plan bent om een modelklasse te gebruiken, moet u alsnog de index definiëren door rechtstreeks `Field`-objecten te maken. U kunt de naam van het veld aan de constructor doorgeven, samen met het gegevenstype (of analyse voor tekenreeksvelden). U kunt ook andere eigenschappen, zoals instellen `IsSearchable`, `IsFilterable`, een paar te noemen.
@@ -175,7 +173,7 @@ public partial class Hotel
 
 De kenmerken voor elke eigenschap zijn zorgvuldig gekozen op basis van de gebruiksverwachtingen in een toepassing. Het is bijvoorbeeld waarschijnlijk dat gebruikers die een hotel zoeken, geïnteresseerd zijn in overeenkomende sleutelwoorden in het veld `description`. Daarom hebben we ingesteld dat gebruikers in dat veld in volledige tekst kunnen zoeken door het kenmerk `IsSearchable` toe te voegen aan de eigenschap `Description`.
 
-In een index van het type `string` moet precies één veld als *sleutelveld* zijn aangewezen door het kenmerk `Key` toe te voegen (zie `HotelId` in het bovenstaande voorbeeld).
+Houd er rekening mee dat precies één veld in de index van het type `string` moet zijn aangewezen als het *sleutel* veld door toe te voegen de `Key` kenmerk (Zie `HotelId` in het bovenstaande voorbeeld).
 
 Voor de bovenstaande indexdefinitie wordt gebruikgemaakt van een taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie voor meer informatie, [taalanalyse toevoegen aan een Azure Search-index](index-add-language-analyzers.md).
 
@@ -184,7 +182,7 @@ Voor de bovenstaande indexdefinitie wordt gebruikgemaakt van een taalanalyse voo
 > 
 > 
 
-Nu u een modelklasse hebt gedefinieerd, kunt u heel eenvoudig een indexdefinitie maken:
+Nu dat we een modelklasse hebt gedefinieerd, kunnen we eenvoudig een indexdefinitie maken:
 
 ```csharp
 var definition = new Index()

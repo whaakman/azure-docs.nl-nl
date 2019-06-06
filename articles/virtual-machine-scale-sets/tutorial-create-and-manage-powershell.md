@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f9302180a351e24955f779c105b994ce08a3d390
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188966"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728681"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie: Een virtuele-machineschaalset maken met Azure PowerShell
 
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 
@@ -140,7 +140,7 @@ IpAddress
 52.168.121.216
 ```
 
-Maak een externe verbinding met uw eerste VM-exemplaar. Geef uw openbare IP-adres en poortnummer van het vereiste VM-exemplaar op, zoals is gedaan in de voorgaande opdrachten. Voer desgevraagd de referenties gebruikt bij het maken van de schaalset (standaard in de voorbeeldopdrachten *azureuser* en *P\@ssw0rd!*). Als u Azure Cloud Shell gebruikt, voert u deze stap uit vanaf een lokale PowerShell-prompt of vanuit de Extern bureaublad-client. In het volgende voorbeeld wordt verbinding gemaakt met het VM-exemplaar *1*:
+Maak een externe verbinding met uw eerste VM-exemplaar. Geef uw openbare IP-adres en poortnummer van het vereiste VM-exemplaar op, zoals is gedaan in de voorgaande opdrachten. Voer desgevraagd de referenties gebruikt bij het maken van de schaalset (standaard in de voorbeeldopdrachten *azureuser* en *P\@ssw0rd!* ). Als u Azure Cloud Shell gebruikt, voert u deze stap uit vanaf een lokale PowerShell-prompt of vanuit de Extern bureaublad-client. In het volgende voorbeeld wordt verbinding gemaakt met het VM-exemplaar *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -205,7 +205,7 @@ De grootte van een VM-exemplaar, of *SKU*, bepaalt de hoeveelheid rekenresources
 ### <a name="vm-instance-sizes"></a>VM-exemplaargrootten
 In de volgende tabel worden enkele veelgebruikte VM-grootten gecategoriseerd naar gebruikssituatie.
 
-| Type                     | Veelgebruikte grootten           |    Beschrijving       |
+| Type                     | Veelgebruikte grootten           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Algemeen doel](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Evenwichtige CPU-geheugenverhouding. Ideaal voor ontwikkelen/testen en in kleine tot middelgrote toepassingen en gegevensoplossingen.  |
 | [Geoptimaliseerde rekenkracht](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | Hoge CPU-geheugenverhouding. Goed voor middelgrootte verkeerstoepassingen, netwerkapparatuur en batchprocessen.        |

@@ -8,49 +8,53 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: ede897054a6cbef254c06bd1d810b933ec09016a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93c71fa8b0c39cc16d2a8e24472e8d68717a6c32
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158620"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733262"
 ---
-In deze sectie wordt beschreven hoe u een IoT-hub maakt met behulp van de [Azure-portal](https://portal.azure.com).
+In deze sectie wordt beschreven hoe u een IoT-hub maken met behulp van de [Azure-portal](https://portal.azure.com).
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Kies +**Een resource maken** en vervolgens **Internet of Things**.
+1. Selecteer **een resource maken**, en selecteer vervolgens **Internet of Things**.
 
-3. Klik in de lijst rechts op **IoT Hub**. U krijgt het eerste scherm te zien om een IoT-hub te maken.
+1. Selecteer in de lijst aan de rechterkant, **Iot-Hub**. De eerste pagina voor het maken van een IoT-hub wordt geopend.
 
-   ![Schermopname waarin het maken van een hub in de Azure-portal wordt getoond](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
+   ![Het maken van een IoT-hub in Azure portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
 
    Vul de velden in:
 
-   **Abonnement**: Selecteer het abonnement dat u voor de IoT-hub wilt gebruiken.
+   a. In de **abonnement** vervolgkeuzelijst, selecteert u het abonnement moet worden gebruikt voor uw IoT-hub.
 
-   **Resourcegroep**: Maak een nieuwe resourcegroep of gebruik een bestaande. Als u een nieuwe wilt maken, klikt u op **Nieuwe maken** en vult u de gewenste naam in. Als u een bestaande resourcegroep wilt gebruiken, klikt u op **Bestaande gebruiken** en selecteert u de resourcegroep in de vervolgkeuzelijst. Zie [Azure Resource Manager-resourcegroepen beheren](../articles/azure-resource-manager/manage-resource-groups-portal.md) voor meer informatie.
+   b. Voor **resourcegroep**, een van de volgende handelingen uit: 
+      * Voor het maken van een nieuwe resourcegroep selecteert **nieuw** en voer de naam die u wilt gebruiken. 
+      * Voor het gebruik van een bestaande resourcegroep selecteren **gebruik bestaande** en selecteer vervolgens de resourcegroep in de vervolgkeuzelijst. 
+      
+        Zie [Azure Resource Manager-resourcegroepen beheren](../articles/azure-resource-manager/manage-resource-groups-portal.md) voor meer informatie.
 
-   **Regio**: Dit is de regio voor de locatie van uw hub. Selecteer een regio die ondersteuning biedt voor de IoT Hub apparaat-streams Preview-versie, VS-midden of centraal EUAP ons.
+   c. In de **regio** vervolgkeuzelijst, selecteert u de regio waarin u wilt dat uw hub te bevinden. Selecteer een regio die ondersteuning biedt voor de preview van IoT Hub apparaat-streams, ofwel **VS-midden** of **centrale EUAP ons**.
 
-   **Naam van de IoT Hub**: Vul de naam voor de IoT Hub in. Deze naam moet wereldwijd uniek zijn. Als de door u opgegeven naam beschikbaar is, verschijnt er een groen vinkje.
+   d. In de **naam IoT-Hub** voert u de naam voor uw IoT-hub. De naam moet wereldwijd uniek zijn. Als de door u opgegeven naam beschikbaar is, verschijnt er een groen vinkje.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-4. Klik op **Next: Grootte en schaal** om verder te gaan met het maken van uw IoT-hub.
+1. Als u wilt doorgaan met het maken van uw IoT-hub, selecteer **volgende: Grootte en schaalgrootte**.
 
-   ![Schermafbeelding waarop het instellen van de grootte en schaal voor een nieuwe IoT-hub in de Azure-portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
+   ![Instellen van de grootte en schaalgrootte voor een nieuwe IoT-hub met behulp van de Azure portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
-   Op dit scherm kunt u de standaardwaarden gebruiken en onderaan op **Controleren en maken** klikken.
+   In dit deelvenster kunt u de standaardinstellingen accepteren en selecteer **revisie + maken** aan de onderkant. Houd rekening met de volgende opties:
 
-   **Prijs- en schaalniveau**: zorg dat u een standaardlaag (S1, S2 en S3) of gratis laag (F1) selecteert. Deze keuze kan ook worden bepaald door de grootte van uw fleet en de niet-streaming workloads die u in de hub verwacht (zoals telemetrieberichten). Zo is de gratis laag bedoeld voor testen en evalueren. Hiermee kunnen 500 apparaten met de IoT-hub worden verbonden en maximaal 8000 berichten per dag verzonden. Met de gratis optie kunt u voor elk Azure-abonnement één IoT Hub maken. 
+   * In de **prijs- en schaalcategorie** vervolgkeuzelijst, selecteer een van de standaard-laag (**S1**, **S2**, of **S3**) of **F1: Gratis laag**. Deze keuze kan ook worden geleid door de grootte van uw vliegtuigen en de niet-streaming-werkbelastingen die u in de hub (bijvoorbeeld berichten over telemetrie verwacht). Zo is de gratis laag bedoeld voor testen en evalueren. Hiermee kunnen 500 apparaten met de IoT-hub worden verbonden en maximaal 8000 berichten per dag verzonden. Elk Azure-abonnement kunt maken van een IoT-hub in de gratis laag. 
 
-   **IoT Hub-eenheden**: Deze keuze is afhankelijk van niet-streaming workloads die u in uw hub verwacht. Nu kunt u 1 selecteren.
+   * Voor **nummer van de IoT Hub-eenheden**: Deze keuze is afhankelijk van niet-streaming werkbelasting die u in de hub verwacht. Nu kunt u 1.
 
-   Zie [De juiste laag kiezen voor uw IoT-hub](../articles/iot-hub/iot-hub-scaling.md) voor informatie over andere opties.
+   Zie voor meer informatie over opties voor laag [de juiste IoT hub-laag kiezen](../articles/iot-hub/iot-hub-scaling.md).
 
-5. Klik op **Controleren en maken** om uw keuzes te beoordelen. U krijgt iets te zien wat lijkt op dit scherm.
+1. Als u wilt uw keuzes controleren, selecteert u de **bekijken + maken** tabblad. Het deelvenster dat wordt geopend is vergelijkbaar met het volgende:
 
-   ![Schermafbeelding met het beoordelen van informatie voor het maken van de nieuwe IoT-hub](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
+   ![Informatie over het maken van de nieuwe IoT hub](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
 
-6. Klik op **Maken** om de nieuwe IoT-hub te maken. De hub wordt binnen enkele minuten gemaakt.
+1. Voor het maken van uw nieuwe IoT-hub, selecteer **maken**. Het proces duurt enkele minuten.

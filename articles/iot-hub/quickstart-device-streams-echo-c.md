@@ -1,6 +1,6 @@
 ---
 title: Communiceren met een apparaat-app in C via Azure IoT Hub apparaat-streams (preview) | Microsoft Docs
-description: In deze snelstartgids hebt wordt u toepassing uitgevoerd een C servicezijde die communiceert met een IoT-apparaat via een apparaat-stream.
+description: In deze snelstartgids hebt uitvoeren u een C apparaat aan clientzijde-toepassing die communiceert met een IoT-apparaat via een apparaat-stream.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -10,32 +10,30 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: f5e6128c1ecceda181f92b2d81e9ac06effbfce2
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 6a2fe71a1086559d90adf5c464323f353be431aa
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834069"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733309"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: communiceren met een apparaattoepassing in C via IoT Hub-apparaatstreams (preview)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT Hub apparaat-streams als op dit moment ondersteunt een [preview-functie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure IoT Hub apparaat-streams als op dit moment ondersteunt een [preview-functie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub-apparaatstreams](iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. Gedurende de openbare preview biedt de C SDK alleen ondersteuning voor apparaatstreams aan de apparaatzijde. Daarom bevat deze quickstart alleen instructies voor het uitvoeren van de toepassing aan de apparaatzijde. U moet een bijbehorende servicezijde-toepassing, die beschikbaar in de volgende quickstarts is uitvoeren:
+[IoT Hub-apparaatstreams](iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. Tijdens de openbare preview ondersteunt de C-SDK apparaat stromen op het apparaat plaats. Als gevolg hiervan, deze quickstart bevat informatie over instructies voor het uitvoeren van alleen de apparaat-side '-toepassing. Als u wilt een bijbehorende servicezijde-toepassing uitvoert, Zie:
  
-   * [Communicatie met apps op apparaten in C# via IoT Hub apparaat-streams](./quickstart-device-streams-echo-csharp.md)
-
-   * [Communicatie met apps op apparaten in Nodejs via IoT Hub apparaat-streams](./quickstart-device-streams-echo-nodejs.md).
+   * [Communiceren met apps op apparaten in C# via IoT Hub apparaat-streams](./quickstart-device-streams-echo-csharp.md)
+   * [Communiceren met apps op apparaten in Node.js via IoT Hub apparaat-streams](./quickstart-device-streams-echo-nodejs.md)
 
 De C-toepassing aan de apparaatzijde in deze quickstart heeft de volgende functionaliteit:
 
 * Een apparaatstream naar een IoT-apparaat tot stand brengen.
+* Ontvangt gegevens die worden verzonden vanuit de toepassing aan de clientzijde van de service en de echo weer.
 
-* Gegevens ontvangen die zijn verzonden vanaf de servicezijde en deze terug echoën.
-
-De code laat zien het proces voor het initiëren van een apparaat-stream, evenals hoe u kunt gebruiken om te verzenden en ontvangen van gegevens.
+De code ziet u het proces voor het initiëren van een apparaat-stream, evenals hoe u kunt gebruiken om te verzenden en ontvangen van gegevens.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -43,17 +41,16 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
+* De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-hubs die zijn gemaakt in de volgende regio's:
 
-  * **US - centraal**
+  * US - centraal
+  * VS-midden EUAP
 
-  * **VS-midden EUAP**
-
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) installeren met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
+* Installeer [Visual Studio 2017](https://www.visualstudio.com/vs/) met de [bureaubladontwikkeling met C++ ](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) werkbelasting ingeschakeld.
 
 * Installeer de meest recente versie van [Git](https://git-scm.com/download/).
 
-* Voer de volgende opdracht om toe te voegen van de Microsoft Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie worden IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS) specifieke opdrachten toegevoegd aan Azure CLI.
+* Voer de volgende opdracht om toe te voegen van de Azure IoT-extensie voor Azure CLI met de Cloud Shell-sessie. De IOT-extensie wordt toegevoegd voor IoT Hub, IoT Edge en IoT Device Provisioning Service (DPS)-specifieke opdrachten naar de Azure CLI.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -61,11 +58,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden
 
-Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-sdk-c-intro.md). U bereidt een ontwikkelomgeving voor die wordt gebruikt om de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) van GitHub te klonen en te bouwen. De SDK op GitHub bevat de voorbeeldcode gebruikt in deze snelstartgids.
+Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-sdk-c-intro.md). Voorbereiden van een ontwikkelomgeving die is gebruikt om te klonen en bouwen de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) vanuit GitHub. De SDK op GitHub bevat de voorbeeldcode die wordt gebruikt in deze Quick Start.
 
 1. Download de [CMake-bouwsysteem](https://cmake.org/download/).
 
-    Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
+    Voordat u begint met de CMake-installatie, is het belangrijk dat de Visual Studio-vereisten (Visual Studio en de *bureaubladontwikkeling met C++*  werkbelasting) zijn geïnstalleerd op uw computer. Nadat de vereisten voldaan is en u hebt geverifieerd dat het downloaden, kunt u de CMake-build-systeem kunt installeren.
 
 2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit voor het klonen van de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats:
 
@@ -73,9 +70,9 @@ Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-s
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    Houd rekening met deze bewerking is een paar minuten duren.
+    Deze bewerking duurt een paar minuten.
 
-3. Maak de submap `cmake` in de hoofdmap van de Git-opslagplaats en navigeer naar die map.
+3. Maak een *cmake* submap in de hoofdmap van de Git-opslagplaats, zoals wordt weergegeven in de volgende opdracht uit en ga vervolgens naar die map.
 
     ```
     cd azure-iot-sdk-c
@@ -83,7 +80,7 @@ Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-s
     cd cmake
     ```
 
-4. Voer de volgende opdrachten uit de `cmake` directory voor het bouwen van een versie van de SDK die specifiek zijn voor uw clientplatform voor ontwikkeling.
+4. Voer de volgende opdrachten uit de *cmake* directory voor het bouwen van een versie van de SDK die specifiek is voor uw clientplatform voor ontwikkeling.
 
    * In Linux:
 
@@ -92,7 +89,7 @@ Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-s
       make -j
       ```
 
-   * Voer in Windows, de volgende opdrachten in de opdrachtprompt voor ontwikkelaars voor Visual Studio 2015 of 2017. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`.
+   * Voer in Windows, de volgende opdrachten in de opdrachtprompt voor ontwikkelaars voor Visual Studio 2015 of 2017. Een Visual Studio-oplossing voor het gesimuleerde apparaat wordt gegenereerd de *cmake* directory.
 
       ```cmd
       rem For VS2015
@@ -111,41 +108,40 @@ Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-s
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
-Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze sectie gebruikt u Azure Cloud Shell met de [IoT-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) om een gesimuleerd apparaat te registreren.
+Voordat u deze verbinding kan maken, moet u een apparaat registreren bij uw IoT-hub. In deze sectie gebruikt u Azure Cloud Shell met de [IoT-extensie](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdracht in Azure Cloud Shell te maken van de apparaat-id.
+1. Voer de volgende opdracht in Cloud Shell voor het maken van de apparaat-id:
 
-   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
-
-   **MyDevice**: dit is de naam van het geregistreerde apparaat. Gebruik MyDevice, zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
+   > [!NOTE]
+   > * Vervang de *YourIoTHubName* tijdelijke aanduiding door de naam die u voor uw IoT-hub kiest.
+   > * Gebruik *Mijnapparaat*, zoals wordt weergegeven. Het is de naam van het geregistreerde apparaat. Als u een andere naam voor uw apparaat, gebruikt u die naam in dit artikel en de naam van het apparaat in de voorbeeldtoepassingen bijwerken voordat u ze uitvoert.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. Voer de volgende opdrachten uit in Azure Cloud Shell om de *apparaatverbindingsreeks* op te halen voor het apparaat dat u zojuist hebt geregistreerd:
+2. Aan de *apparaatverbindingsreeks* voor het apparaat dat u zojuist hebt geregistreerd, kunt u de volgende opdrachten uitvoeren in Cloud Shell:
 
-   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
+   > [!NOTE]
+   > Vervang de *YourIoTHubName* tijdelijke aanduiding door de naam die u voor uw IoT-hub kiest.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    Noteer de apparaatverbindingsreeks. Deze ziet eruit zoals in het volgende voorbeeld:
+    Houd er rekening mee de apparaatverbindingsreeks voor later gebruik in deze Quick Start. Het lijkt op het volgende voorbeeld:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    U gebruikt deze waarde verderop in de snelstartgids.
-
-## <a name="communicate-between-device-and-service-via-device-streams"></a>Communicatie tussen apparaat en service via apparaatstreams
+## <a name="communicate-between-the-device-and-the-service-via-device-streams"></a>Communiceren tussen het apparaat en de service via apparaat stromen
 
 In deze sectie maakt u de apparaat-side '-toepassing en de toepassing aan de serverkant uitvoeren en communicatie tussen de twee.
 
 ### <a name="run-the-device-side-application"></a>De toepassing aan de apparaatzijde uitvoeren
 
-U moet de volgende stappen volgen om de toepassing aan de apparaatzijde uit te voeren:
+Als u wilt de apparaat-side '-toepassing uitvoert, het volgende doen:
 
-1. Geef de referenties van uw apparaat door het bewerken van het bronbestand `iothub_client_c2d_streaming_sample.c` in de map `iothub_client/samples/iothub_client_c2d_streaming_sample` en het geven van de verbindingsreeks van uw apparaat.
+1. Geef de referenties van uw apparaat door het bewerken van de *iothub_client_c2d_streaming_sample.c* bronbestand in de *iothub_client/samples/iothub_client_c2d_streaming_sample* map en klikt u vervolgens bieden de verbindingsreeks van uw apparaat.
 
    ```C
    /* Paste in your iothub connection string  */
@@ -182,11 +178,10 @@ U moet de volgende stappen volgen om de toepassing aan de apparaatzijde uit te v
 
 ### <a name="run-the-service-side-application"></a>De toepassing aan de servicezijde uitvoeren
 
-Zoals eerder vermeld, ondersteunt de C-SDK voor IoT Hub apparaat stromen alleen op het apparaat plaats. Als u wilt bouwen en uitvoeren van de toepassing aan de serverkant, volg de stappen die beschikbaar zijn in een van de volgende Quick starts:
+Zoals eerder vermeld, ondersteunt de C-SDK voor IoT Hub apparaat stromen op het apparaat plaats. Als u wilt bouwen en uitvoeren van de toepassing aan de serverkant, volg de instructies in een van de volgende Quick starts:
 
 * [Communiceren met een apparaat-app in C# via IoT Hub apparaat-streams](./quickstart-device-streams-echo-csharp.md)
-
-* [Communiceren met een apparaat-app in Node.js via IoT Hub apparaat-streams](./quickstart-device-streams-echo-nodejs.md).
+* [Communiceren met een apparaat-app in Node.js via IoT Hub apparaat-streams](./quickstart-device-streams-echo-nodejs.md)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -196,7 +191,7 @@ Zoals eerder vermeld, ondersteunt de C-SDK voor IoT Hub apparaat stromen alleen 
 
 In deze snelstartgids hebt u instellen van een IoT-hub, een apparaat hebt geregistreerd, een apparaat-stroom tussen een toepassing C op het apparaat en een andere toepassing aan de service tot stand gebracht en de stroom gebruikt voor het verzenden van gegevens heen en weer tussen de toepassingen.
 
-Gebruik de onderstaande koppelingen voor meer informatie over apparaatstreams:
+Zie voor meer informatie over het apparaat stromen:
 
 > [!div class="nextstepaction"]
 > [Overzicht van apparaatstreams](./iot-hub-device-streams-overview.md)

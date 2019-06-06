@@ -8,29 +8,29 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: 979ca857a4410a8efd1b211afc09a0563d76a1ba
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 155e36bf4198eb18f5505483ea13a287f88a5022
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158628"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733288"
 ---
-Als u verder wilt gaan met het volgende aanbevolen artikel, kunt u de resources die u al hebt gemaakt behouden en opnieuw gebruiken.
+Als u van plan bent om door te gaan naar de volgende aanbevolen artikel, kunt u opslaan en opnieuw gebruiken van de resources die u al hebt gemaakt.
 
-Anders kunt u de Azure-resources die u in dit artikel hebt gemaakt verwijderen om kosten te voorkomen. 
+Anders, om kosten te voorkomen, kunt u de Azure-resources die u hebt gemaakt in dit artikel verwijderen. 
 
 > [!IMPORTANT]
-> Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle resources daarin worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de IoT Hub in een bestaande resourcegroep hebt gemaakt met resources die u wilt behouden, moet u alleen de IoT Hub-resource zelf verwijderen in plaats van de resourcegroep te verwijderen.
+> Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle resources daarin worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u hebt gemaakt met de IoT-hub in een bestaande resourcegroep met bronnen die u wilt behouden, verwijdert u alleen de IoT hub resource zelf, niet de resourcegroep.
 >
 
 Een resourcegroep verwijderen op naam:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) en selecteer vervolgens **Resourcegroepen**.
 
-2. Typ in het tekstvak **Filteren op naam...** de naam van de resourcegroep die uw IoT Hub bevat. 
+1. In de **filteren op naam** voert u de naam van de resourcegroep waarin uw IoT-hub. 
 
-3. Klik rechts van de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+1. Selecteer in de lijst met resultaten, aan de rechterkant van de resourcegroep, het weglatingsteken ( **...** ), en selecteer vervolgens **resourcegroep verwijderen**.
 
-    ![Verwijderen](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
+    ![De knop "Resourcegroep verwijderen"](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
 
-4. U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep nogmaals om te bevestigen en klik op **Verwijderen**. Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
+1. Om te bevestigen dat de verwijdering van de resourcegroep, naam van de resourcegroep opnieuw en selecteer vervolgens **verwijderen**. Na een paar seconden, de resourcegroep en alle ingesloten bronnen verwijderd.

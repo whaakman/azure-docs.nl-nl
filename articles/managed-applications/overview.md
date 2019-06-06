@@ -1,21 +1,17 @@
 ---
 title: Overzicht van Azure Managed Applications | Microsoft Docs
 description: Beschrijft de concepten van Azure Managed Applications
-services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001802"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479821"
 ---
 # <a name="azure-managed-applications-overview"></a>Overzicht van Azure Managed Applications
 
@@ -55,7 +51,9 @@ Zie [Marketplace-toepassing maken](publish-marketplace-app.md) voor meer informa
 
 ## <a name="resource-groups-for-managed-applications"></a>Resourcegroepen voor beheerde toepassingen
 
-De resources voor een beheerde toepassing bevinden zich doorgaans in twee resourcegroepen. De consument beheert één resourcegroep en de uitgever beheert de andere. Bij het definiëren van de beheerde toepassing bepaalt de uitgever de toegangsniveaus. Het beperken van de toegang voor [gegevensbewerkingen](../role-based-access-control/role-definitions.md) wordt momenteel niet voor alle gegevensproviders in Azure ondersteund.
+Meestal zijn de resources voor een beheerde toepassing in twee resourcegroepen. De consument beheert één resourcegroep en de uitgever beheert de andere. Bij het definiëren van de beheerde toepassing bepaalt de uitgever de toegangsniveaus. De uitgever kan een van beide een permanente rol wilt toewijzen, aanvragen of [just-in-time-toegang](request-just-in-time-access.md) voor een opdracht die is beperkt tot een bepaalde periode.
+
+Het beperken van de toegang voor [gegevensbewerkingen](../role-based-access-control/role-definitions.md) wordt momenteel niet voor alle gegevensproviders in Azure ondersteund.
 
 In de volgende afbeelding ziet u een scenario waarbij de uitgever de rol van eigenaar voor de beheerde resourcegroep aanvraagt. De uitgever plaatst een alleen-lezen-vergrendeling op deze resourcegroep voor de consument. De uitgeversidentiteiten die toegang tot de beheerde resourcegroep krijgen, zijn uitgesloten van de vergrendeling.
 
@@ -69,11 +67,11 @@ De consument heeft volledige toegang tot de resourcegroep en gebruikt deze om de
 
 ### <a name="managed-resource-group"></a>Beheerde resourcegroep
 
-Deze resourcegroep bevat alle resources die de beheerde toepassing nodig heeft. Deze resourcegroep bevat bijvoorbeeld de virtuele machines, opslagaccounts en virtuele netwerken voor de oplossing. De consument heeft beperkte toegang tot deze resourcegroep omdat de consument de afzonderlijke resources voor de beheerde toepassing niet beheert. De toegang van de uitgever tot deze resourcegroep komt overeen met de rol die is opgegeven in de definitie van de beheerde toepassing. De uitgever kan bijvoorbeeld de rol van eigenaar of bijdrager voor deze resourcegroep aanvragen.
+Deze resourcegroep bevat alle resources die de beheerde toepassing nodig heeft. Deze resourcegroep bevat bijvoorbeeld de virtuele machines, opslagaccounts en virtuele netwerken voor de oplossing. De consument heeft beperkte toegang tot deze resourcegroep omdat de consument de afzonderlijke resources voor de beheerde toepassing niet beheert. De toegang van de uitgever tot deze resourcegroep komt overeen met de rol die is opgegeven in de definitie van de beheerde toepassing. De uitgever kan bijvoorbeeld de rol van eigenaar of bijdrager voor deze resourcegroep aanvragen. De toegang is beperkt tot een bepaald tijdstip of permanent.
 
 Wanneer de gebruiker de beheerde toepassing verwijdert, wordt ook de beheerde resourcegroep verwijderd.
 
-## <a name="azure-policy"></a>Azure-beleid
+## <a name="azure-policy"></a>Azure Policy
 
 U kunt een [Azure Policy](../governance/policy/overview.md) toepassen op uw beheerde toepassing. U past beleidsregels toe om te verzekeren dat geïmplementeerde exemplaren van uw beheerde toepassing aan gegevens- en beveiligingsvereisten voldoen. Als uw toepassing met gevoelige gegevens werkt, zorg er dan voor dat u hebt geëvalueerd hoe die moeten worden beschermd. Als uw toepassing bijvoorbeeld met gegevens uit Office 365 werkt, past u een beleid toe om te verzekeren dat gegevensversleuteling is ingeschakeld.
 

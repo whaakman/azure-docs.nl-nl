@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: c4d0c65cfae0bb323978f4143b0058071562ddb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c553e3f2de963abb4a3c23a4114eecfa33d0aa61
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682510"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735335"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Voorbeeldsjablonen van Azure Resource Manager voor virtueel netwerk
 
@@ -29,7 +29,7 @@ De volgende tabel bevat koppelingen naar Azure Resource Manager-sjablonen. U kun
 Zie [Microsoft.Network resource types](/azure/templates/microsoft.network/allversions) (Microsoft.Network-resourcetypen) voor de JSON-syntaxis en eigenschappen die u kunt gebruiken in sjablonen.
 
 
-| | |
+| Taak | Description |
 |----|----|
 |[Een virtueel netwerk met twee subnetten maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| Hiermee maakt u een virtueel netwerk met twee subnetten.|
 |[Verkeer routeren via een virtueel netwerkapparaat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| Hiermee maakt u een virtueel netwerk met drie subnetten. Hiermee implementeert u een virtuele machine in elk van de subnetten. Hiermee maakt u een routetabel met routes om verkeer van één subnet naar een andere te sturen via de virtuele machine in het derde subnet. Hiermee koppelt u de routetabel op een van de subnetten.|

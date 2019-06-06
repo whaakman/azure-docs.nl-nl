@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Kubernetes-ontwikkeling met containers en microservices op Azure-team
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 74ed1981ba6bf62413d7d7bfd51282eb04afd403
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e9f9198f8e086bee6c6b02b67ae7dd9cf523416c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393401"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480371"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Quickstart: Teamontwikkeling op Kubernetes met Azure Dev spaties
 
@@ -92,6 +92,8 @@ cd charts/
 helm init --wait
 helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
 ```
+> [!Note]
+> **Als u een cluster RBAC-functionaliteit**, zorg ervoor dat het configureren van [een serviceaccount voor Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Anders `helm` opdrachten mislukken.
 
 De `helm install` opdracht kan enkele minuten duren. De uitvoer van de opdracht toont de status van alle services die wordt geïmplementeerd in het cluster wanneer dit is voltooid:
 

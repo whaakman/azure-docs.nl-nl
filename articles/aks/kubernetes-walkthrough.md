@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956448"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687962"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Quickstart: Een AKS-cluster (Azure Kubernetes Service) implementeren met behulp van de Azure CLI
 
@@ -238,7 +238,7 @@ Open een webbrowser naar het externe IP-adres van uw service om de Azure Vote-ap
 
 Toen het AKS-cluster werd gemaakt, werd Azure Monitor voor containers ingeschakeld om metrische gegevens over de status van de clusterknooppunten en -pods vast te leggen. Deze metrische gegevens over de status zijn in de Azure-portal beschikbaar.
 
-Voer de volgende stappen uit als u de huidige status, de uptime en het resourcegebruik voor de Azure Vote-pods wilt zien:
+Als u wilt de huidige status, actieve tijdsduur en Resourcegebruik voor de Azure Vote-schillen zien, voert u de volgende stappen uit:
 
 1. Open een webbrowser naar de Azure-portal [https://portal.azure.com][azure-portal].
 1. Selecteer de resourcegroep, zoals *myResourceGroup*, selecteer vervolgens uw AKS-cluster, zoals *myAKSCluster*.
@@ -251,11 +251,11 @@ De containers *azure-vote-back* en *azure-vote-front* worden weergegeven, zoals 
 
 ![De status van actieve containers in AKS weergeven](media/kubernetes-walkthrough/monitor-containers.png)
 
-Logboeken voor de `azure-vote-front` pod, kiest u de optie voor het **weergeven in analytics**en selecteer vervolgens **containerlogboeken bekijken** koppelen aan de rechterkant van de lijst met containers. Deze logboeken bevatten de stromen *stdout* en *stderr* van de container.
+Logboeken voor de `azure-vote-back` pod, kiest u de optie voor het **weergeven in analytics**, klikt u vervolgens op de **containerlogboeken bekijken** koppelen aan de rechterkant van de lijst met containers. Deze logboeken bevatten de stromen *stdout* en *stderr* van de container.
 
 ![De containerlogboeken in AKS weergeven](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>Cluster verwijderen
+## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
 Gebruik de opdracht [az group delete][az-group-delete] om de resourcegroep, de containerservice en alle gerelateerde resources te verwijderen wanneer u het cluster niet meer nodig hebt.
 

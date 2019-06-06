@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eaf594286e5ffc101ad2d24e808fcb806998d053
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793546"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471556"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Quickstart: Verken Azure Search REST API's met Postman
 > [!div class="op_single_selector"]
@@ -73,13 +73,13 @@ In Postman, Formuleer een aanvraag die lijkt op de volgende schermafbeelding. Ki
 
 In Azure Search maakt u meestal de index voordat deze worden geladen met gegevens. De [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index) wordt gebruikt voor deze taak. 
 
-De URL is uitgebreid met de `hotel` naam van de index.
+De URL is uitgebreid met de `hotels` naam van de index.
 
 Om dit te doen in Postman:
 
 1. Wijzig de bewerking in **plaatsen**.
 
-2. Kopieer deze URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`.
+2. Kopieer deze URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
 
 3. Geef de indexdefinitie (Zie hieronder) in de hoofdtekst van de aanvraag.
 
@@ -257,7 +257,7 @@ Kopieer voor het doel in een aangepaste versie van deze URL: `https://<YOUR-SEAR
 
 ### <a name="1---create-an-index"></a>1 - Een index maken
 
-Wijzig de bewerking in **plaatsen**. Kopiëren in een aangepaste versie van deze URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag hierboven. De pagina zijn vergelijkbaar zijn met de volgende schermafbeelding. Klik op **Execute** bovenaan rechts om de voltooide aanvraag te verzenden.
+Wijzig de bewerking in **plaatsen**. Kopiëren in een aangepaste versie van deze URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`. Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag hierboven. De pagina zijn vergelijkbaar zijn met de volgende schermafbeelding. Klik op **Execute** bovenaan rechts om de voltooide aanvraag te verzenden.
 
 ![Het hoofdgedeelte van de aanvraag in Fiddler][7]
 

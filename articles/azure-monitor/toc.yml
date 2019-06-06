@@ -95,10 +95,6 @@
           href: platform/alerts-overview.md
         - name: Klassieke waarschuwingen
           href: platform/alerts-classic.overview.md
-        - name: Slimme groepen
-          href: platform/alerts-smartgroups-overview.md
-        - name: Automatisch schalen
-          href: platform/autoscale-overview.md
         - name: Metrische waarschuwingen
           href: platform/alerts-metric-overview.md
         - name: Waarschuwingen voor logboeken
@@ -109,6 +105,10 @@
           href: platform/alerts-common-schema.md
         - name: Actieregels
           href: platform/alerts-action-rules.md
+        - name: Slimme groepen
+          href: platform/alerts-smartgroups-overview.md
+        - name: Automatisch schalen
+          href: platform/autoscale-overview.md
         - name: Wijzigingsanalyse
           href: app/change-analysis.md
     - name: Gegevens visualiseren

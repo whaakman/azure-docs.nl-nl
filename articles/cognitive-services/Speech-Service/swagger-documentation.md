@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
-ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461660"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743205"
 ---
 # <a name="swagger-documentation"></a>Documentatie voor Swagger
 
@@ -26,7 +26,7 @@ De spraakservices bieden een Swagger-specificatie om te communiceren met een han
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Genereren van code van de Swagger-specificatie
 
-De [Swager specificatie](https://cris.ai/swagger/ui/index) bevat opties waarmee u kunt snel testen van de verschillende paden. Maar is soms het wenselijk zijn voor het genereren van code voor alle paden, het maken van een één-bibliotheek van aanroepen waarop u oplossingen kunt baseren. We gaan een overzicht van het proces voor het genereren van een Python-bibliotheek.
+De [Swagger-specificatie](https://cris.ai/swagger/ui/index) bevat opties waarmee u kunt snel testen van de verschillende paden. Maar is soms het wenselijk zijn voor het genereren van code voor alle paden, het maken van een één-bibliotheek van aanroepen waarop u oplossingen kunt baseren. We gaan een overzicht van het proces voor het genereren van een Python-bibliotheek.
 
 U moet Swagger ingesteld op dezelfde regio als uw Speech Service-abonnement. U kunt uw regio in de Azure-portal onder uw resource Speech Services controleren. Zie voor een volledige lijst met ondersteunde regio's, [regio's](regions.md).
 

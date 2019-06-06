@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c43375afe7965475e84793ddcd54a38a2e9bd3cd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073726"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688102"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Een AKS-cluster (Azure Kubernetes Service) implementeren met Azure Portal
 
@@ -31,27 +31,28 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
-Selecteer in de linkerbovenhoek van Azure Portal **+ Een resource maken** > **Kubernetes-service**.
+Selecteer in de bovenste links hoek van de Azure-portal, **+ een resource maken** > **Containers** >  **Kubernetes-Service**.
 
 Voltooi de volgende stappen om een AKS-cluster te maken:
 
-1. **Basisprincipes**, configureer de volgende opties:
+1. Op de **basisbeginselen** pagina, configureer de volgende opties:
    - *PROJECTGEGEVENS*: Selecteer een Azure-abonnement, en selecteer of maak vervolgens een Azure-resourcegroep, zoals *myResourceGroup*. Voer een **Kubernetes-clusternaam** in, zoals *myAKSCluster*.
    - *CLUSTERDETAILS*: Selecteer een regio, Kubernetes-versie en DNS-naamvoorvoegsel voor het AKS-cluster.
-   - *SCHAAL*: Selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
+   - **PRIMAIRE KNOOPPUNTGROEP**: Selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd. 
        - Selecteer het aantal knooppunten dat u in het cluster wilt implementeren. Stel voor deze quickstart het **Aantal knooppunten** in op *1*. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
     
      ![AKS-cluster maken - basisgegevens opgeven](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Selecteer **Volgende: Verificatie** wanneer u klaar bent.
+     Selecteer **Volgende: Schaal** wanneer u klaar bent.
 
-1. **Verificatie**: Configureer de volgende opties:
-   - Maak een nieuwe service-principal of *configureer* om een bestaande te gebruiken. Wanneer u een bestaande service-principal gebruikt, moet u de SPN-client-ID en het geheim opgeven.
-   - Schakel de optie voor Kubernetes-toegangsbeheer op basis van rollen (RBAC) in. Deze besturingselementen bieden een verfijnder beheer van de toegang tot de Kubernetes-resources die zijn geïmplementeerd in het AKS-cluster.
+2. Op de **schaal** pagina, bewaart de standaardopties. Aan de onderkant van het scherm, klikt u op **Next: verificatie**.
+3. Op de **verificatie** pagina, configureer de volgende opties:
+   - Maak een nieuwe serviceprincipal door over te laten de **Service-Principal** veld **(nieuwe) standaardservice-principal**. Of u kunt *configureren service-principal* aan een bestaande resourcegroep gebruiken. Als u een bestaande resourcegroep gebruikt, moet u de SPN-client-ID en -geheim opgeven.
+   - Schakel de optie voor Kubernetes-toegangsbeheer op basis van rollen (RBAC) in. Dit biedt preciezere beheermogelijkheden van toegang tot het Kubernetes-resources in uw AKS-cluster geïmplementeerd.
 
-     Standaard worden *basis* netwerkfuncties gebruikt en Azure Monitor voor containers is ingeschakeld. Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.
+    Standaard worden *basis* netwerkfuncties gebruikt en Azure Monitor voor containers is ingeschakeld. Klik op **revisie + maken** en vervolgens **maken** als validatie is voltooid.
 
-Het duurt enkele minuten om het AKS-cluster te maken en voor te bereiden voor gebruik. Blader als u klaar bent naar de AKS-clusterresourcegroep, zoals *myResourceGroup*, en selecteer de AKS-resource, zoals *myAKSCluster*. Het AKS-clusterdashboard wordt weergegeven, zoals u kunt zien in de volgende voorbeeldschermopname:
+Het duurt een paar minuten om de AKS-cluster te maken. Wanneer uw implementatie voltooid is, klikt u op **naar de resource gaan**, of blader naar de resourcegroep van AKS-cluster, zoals *myResourceGroup*, en selecteer de AKS-resource, zoals *myAKSCluster*. Het AKS-cluster-dashboard wordt weergegeven, zoals in dit voorbeeld:
 
 ![Voorbeeld van AKS-dashboard in de Azure-portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -59,7 +60,7 @@ Het duurt enkele minuten om het AKS-cluster te maken en voor te bereiden voor ge
 
 Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. De client `kubectl` is vooraf geïnstalleerd in Azure Cloud Shell.
 
-Open Cloud Shell met behulp van de knop in de rechterbovenhoek van Azure Portal.
+Met behulp van Open Cloud Shell de `>_` knop boven aan de Azure portal.
 
 ![Open Azure Cloud Shell in de portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 

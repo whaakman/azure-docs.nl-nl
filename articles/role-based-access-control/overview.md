@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540907"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479552"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Wat is op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources?
 
@@ -132,6 +132,10 @@ Hier volgen de stappen op hoog niveau die RBAC gebruikt om te bepalen of u toega
 1. Als de gebruiker geen rol met de actie heeft in het aangevraagde bereik, wordt er geen toegang verleend. Anders controleert Azure Resource Manager of er een weigeringstoewijzing van toepassing is.
 
 1. Als de weigeringstoewijzing van toepassing is, wordt toegang geblokkeerd. Anders wordt toegang verleend.
+
+## <a name="license-requirements"></a>Licentievereisten
+
+[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

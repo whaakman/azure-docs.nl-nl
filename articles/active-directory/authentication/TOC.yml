@@ -142,10 +142,6 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: Verificatie op basis van certificaat op iOS-apparaten
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Ontwikkelen
-      items:
-        - name: MFA inbouwen in aangepaste apps
-          href: howto-mfa-sdk.md
     - name: Rapportage
       items:
         - name: Rapportage van selfservice voor wachtwoordherstel

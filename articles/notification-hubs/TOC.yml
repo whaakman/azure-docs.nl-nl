@@ -38,10 +38,6 @@
       items:
         - name: Pushmeldingen verzenden met behulp van Baidu Cloud Push
           href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      items:
-        - name: Pushmeldingen verzenden naar Chrome-apps
-          href: notification-hubs-chrome-push-notifications-get-started.md
     - name: iOS
       items:
         - name: Pushmeldingen verzenden naar iOS-apps

@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545038"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475955"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Quickstart: Voorbereiden en visualiseren van gegevens zonder code te schrijven in Azure Machine Learning
 
-Voorbereiden en Visualiseer uw gegevens in de visual slepen-en-neerzetten-interface (preview) voor Azure Machine Learning. De gegevens die u gebruikt bevat vermeldingen voor verschillende auto's, inclusief informatie over het merk, model, technische specificaties en prijs.  
+Voorbereiden en Visualiseer uw gegevens in de visual slepen-en-neerzetten-interface (preview) voor Azure Machine Learning. De gegevens die u gebruikt bevat vermeldingen voor verschillende auto's, inclusief informatie over het merk, model, technische specificaties en prijs. Nadat u deze snelstartgids hebt voltooid, bent u er klaar voor deze gegevens gebruiken om te voorspellen de prijs van een auto. 
 
-In deze Quick Start u verkennen en voorbereiden van gegevens:
+Voordat u een machine learning-model trainen, moet u om te begrijpen en voorbereiden van uw gegevens.  In deze Quick Start ziet u de:
 
 - Uw eerste experiment toevoegen en een voorbeeld van gegevens maken
 - De gegevens voorbereiden door het verwijderen van de ontbrekende waarden
@@ -66,11 +66,11 @@ Het hulpprogramma visuele interface biedt een interactieve, visuele kunt u eenvo
 
 ## <a name="add-data"></a>Gegevens toevoegen
 
-Het eerste wat dat u nodig hebt voor machine learning zijn gegevens. Er zijn enkele voorbeelden van gegevenssets opgenomen in deze interface die u kunt gebruiken of u kunt gegevens importeren uit verschillende bronnen. Voor dit voorbeeld gebruikt u de voorbeeldgegevensset van **Automobile prijs data (Raw)**. 
+Het eerste wat dat u nodig hebt voor machine learning zijn gegevens. Er zijn enkele voorbeelden van gegevenssets opgenomen in deze interface die u kunt gebruiken of u kunt gegevens importeren uit verschillende bronnen. Voor dit voorbeeld gebruikt u de voorbeeldgegevensset van **Automobile prijs data (Raw)** . 
 
 1. Aan de linkerkant van het experimentcanvas bevindt zich een palet met gegevenssets en modules. Selecteer **opgeslagen gegevenssets** Selecteer **voorbeelden** om de beschikbare voorbeelden van gegevenssets weer te geven.
 
-1. Selecteer de gegevensset **Automobile prijs data (raw)**, en sleep deze naar het canvas.
+1. Selecteer de gegevensset **Automobile prijs data (raw)** , en sleep deze naar het canvas.
 
    ![Gegevens naar het canvas slepen](./media/ui-quickstart-run-experiment/drag-data.png)
 
@@ -131,7 +131,7 @@ Nu dat u uw eerste experiment uitvoert hebt, kunt u de gegevens voor meer inform
 
      ![Voorbeeld van de gegevens](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Klik op elke kolom meer informatie geven over uw gegevensset.
+1. Klik op elke kolom voor meer informatie over uw gegevensset en denken over of deze kolommen is nuttig om te voorspellen de prijs van een auto.
 
 ## <a name="prepare-data"></a>Gegevens voorbereiden
 
@@ -176,7 +176,7 @@ Verwijder eerst de **normalized-losses** kolom volledig.
 
 ### <a name="clean-missing-data"></a>Schone, ontbrekende gegevens
 
-Voeg nu een andere module die de overige rijen met ontbrekende gegevens verwijderd.
+Wanneer u een model te trainen, hebt u iets over de ontbrekende gegevens doen.  In dit geval voegt u een module om te verwijderen van de overige rijen met ontbrekende gegevens toe.  
 
 1. Type **schoon** in het zoekvak om te zoeken de **Clean Missing Data** module.
 
@@ -216,7 +216,7 @@ Nadat u wijzigingen hebt aangebracht aan de modules in uw experiment, wordt de s
 
     Er zijn nu 193 rijen en kolommen 25.
 
-    Als u klikt op **num van deuren** ziet u dit nog steeds heeft 2 unieke waarden, maar nu 0 ontbrekende waarden.  
+    Als u klikt op **num van deuren** ziet u dit nog steeds heeft 2 unieke waarden, maar nu 0 ontbrekende waarden. Klik in de rest van de kolommen om te zien dat er geen ontbrekende waarden links in de gegevensset. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -228,7 +228,7 @@ In deze snelstart hebt u de volgende zaken geleerd:
 
 - Uw eerste experiment toevoegen en een voorbeeld van gegevens maken
 - De gegevens voorbereiden door het verwijderen van de ontbrekende waarden
-- De resulterende gegevens visualiseren
+- De voorbereide gegevens visualiseren
 
 Doorgaan naar de zelfstudie voor het gebruik van deze gegevens om te voorspellen de prijs van een auto.
 

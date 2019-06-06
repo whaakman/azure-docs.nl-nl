@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Maken en query uitvoeren op Azure SQL Data Warehouse - Azure Portal | Microsoft Docs'
+title: 'Quickstart: Maken en query uitvoeren op Azure SQL Data Warehouse - Azure portal | Microsoft Docs'
 description: Maken en het opvragen van een datawarehouse met Azure SQL Data Warehouse in Azure portal.
 services: sql-data-warehouse
 author: XiaoyuL-Preview
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: development
-ms.date: 08/02/2018
+ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.custom: sqlfreshmay19
+ms.openlocfilehash: 9072caf29be0ebf47207266b7313e989034c3a18
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169262"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428040"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Quickstart: Een Azure SQL-datawarehouse maken en hier een query voor uitvoeren in Azure Portal
 
@@ -81,7 +82,7 @@ Volg de stappen om een SQL-datawarehouse te maken die de voorbeelddatabase Adven
 
 8. Klik op **Toepassen**.
 
-9. Nu dat u de SQL Data Warehouse-formulier hebt ingevuld, klikt u op **maken** voor het inrichten van de database. De inrichting duurt een paar minuten. 
+9. Nu dat u het formulier SQL Data Warehouse hebt voltooid, klikt u op **maken** voor het inrichten van de database. De inrichting duurt een paar minuten.
 
     ![klik op Maken](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -91,31 +92,30 @@ Volg de stappen om een SQL-datawarehouse te maken die de voorbeelddatabase Adven
 
 ## <a name="create-a-server-level-firewall-rule"></a>Een serverfirewallregel maken
 
-Met de SQL Database Warehouse-service wordt een firewall op serverniveau gemaakt die voorkomt dat externe toepassingen en hulpprogramma’s verbinding maken met de server of databases op de server. Als u de connectiviteit wilt inschakelen, kunt u firewallregels toevoegen waarmee connectiviteit voor bepaalde IP-adressen wordt ingeschakeld. Volg deze stappen om een [firewallregel op serverniveau](../sql-database/sql-database-firewall-configure.md) te maken voor het IP-adres van uw client. 
+De SQL Data Warehouse-service maakt een firewall op serverniveau. Deze firewall voorkomt dat externe toepassingen en hulpprogramma's verbinding maken met de server of databases op de server. Als u de connectiviteit wilt inschakelen, kunt u firewallregels toevoegen waarmee connectiviteit voor bepaalde IP-adressen wordt ingeschakeld. Volg deze stappen om een [firewallregel op serverniveau](../sql-database/sql-database-firewall-configure.md) te maken voor het IP-adres van uw client.
 
 > [!NOTE]
 > SQL Database Warehouse communiceert via poort 1433. Als u verbinding wilt maken vanuit een bedrijfsnetwerk, is uitgaand verkeer via poort 1433 mogelijk niet toegestaan vanwege de firewall van het netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 1433 openstelt.
 
-1. Nadat de implementatie is voltooid, klikt u op **SQL datawarehouses** vanuit het menu links en klik vervolgens op **mySampleDatabase** op de **SQL datawarehouses** pagina. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver-20180430.database.windows.net**) en opties voor verdere configuratie. 
+1. Nadat de implementatie is voltooid, selecteert u **alle services** in het menu links. Selecteer **Databases**, selecteer de ster naast **SQL datawarehouses** SQL datawarehouses toevoegen aan uw Favorieten.
+1. Selecteer **SQL datawarehouses** vanuit het menu links en klik vervolgens op **mySampleDatabase** op de **SQL datawarehouses** pagina. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver-20180430.database.windows.net**) en opties voor verdere configuratie.
+1. Deze volledig gekwalificeerde servernaam om verbinding met de server en de bijbehorende databases in deze en andere quick starts te kopiëren. Klik op de servernaam om de serverinstellingen te openen.
 
-2. Kopieer deze volledig gekwalificeerde servernaam om in volgende Quick Starts verbinding te maken met de server en de bijbehorende databases. Klik op de servernaam om de serverinstellingen te openen.
+   ![servernaam zoeken](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
-   ![servernaam zoeken](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+1. Klik op **Firewallinstellingen weergeven**.
 
-3. Als u de serverinstellingen wilt openen, 
-4. klikt u op de servernaam.
+   ![serverinstellingen](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-   ![serverinstellingen](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+1. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend.
 
-5. Klik op **Firewallinstellingen weergeven**. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
+   ![serverfirewallregel](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-   ![serverfirewallregel](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+1. Klik op **IP-adres van client toevoegen** op de werkbalk om uw huidige IP-adres toe te voegen aan een nieuwe firewallregel. Een firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
 
-4. Klik op **IP-adres van client toevoegen** op de werkbalk om uw huidige IP-adres toe te voegen aan een nieuwe firewallregel. Een firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
+1. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de logische server wordt geopend.
 
-5. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de logische server wordt geopend.
-
-6. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
+1. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
 
 U kunt nu via dit IP-adres verbinding maken met de SQL-server en de bijbehorende datawarehouses. De verbinding werkt met SQL Server Management Studio of een ander hulpprogramma van uw keuze. Wanneer u verbinding maakt, gebruikt u het ServerAdmin-account dat u eerder hebt gemaakt.
 
@@ -127,8 +127,8 @@ U kunt nu via dit IP-adres verbinding maken met de SQL-server en de bijbehorende
 Haal de volledig gekwalificeerde servernaam van uw SQL-server op uit Azure Portal. Later gebruikt u de volledig gekwalificeerde servernaam bij het verbinding maken met de server.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **SQL Data warehouses** in het menu links en klikt u op uw datawarehouse op de **SQL-datawarehouses** pagina. 
-3. In het deelvenster **Essentials** van de Azure Portal-pagina van uw database kopieert u de **servernaam**. In dit voorbeeld is de volledig gekwalificeerde servernaam mynewserver-20180430.database.windows.net. 
+2. Selecteer **SQL Data warehouses** in het menu links en klikt u op uw datawarehouse op de **SQL datawarehouses** pagina.
+3. In het deelvenster **Essentials** van de Azure Portal-pagina van uw database kopieert u de **servernaam**. In dit voorbeeld is de volledig gekwalificeerde servernaam mynewserver-20180430.database.windows.net.
 
     ![verbindingsgegevens](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -145,8 +145,8 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
    | Servertype | Database-engine | Deze waarde is verplicht |
    | Servernaam | De volledig gekwalificeerde servernaam | Hier volgt een voorbeeld: **mynewserver-20180430.database.windows.net**. |
    | Verificatie | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat in deze zelfstudie is geconfigureerd. |
-   | Aanmelden | Het beheerdersaccount voor de server | Dit is het account dat u hebt opgegeven tijdens het maken van de server. |
-   | Wachtwoord | Het wachtwoord voor het beheerdersaccount voor de server | Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. |
+   | Aanmelden | Het beheerdersaccount voor de server | De account die u hebt opgegeven tijdens het maken van de server. |
+   | Wachtwoord | Het wachtwoord voor het beheerdersaccount voor de server | Het wachtwoord die u hebt opgegeven tijdens het maken van de server. |
    ||||
 
     ![verbinding maken met server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -183,12 +183,12 @@ SQL Data Warehouse maakt gebruik van T-SQL als querytaal. Gebruik de volgende st
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Er worden kosten in rekening gebracht voor datawarehouse-eenheden en gegevens die zijn opgeslagen in uw datawarehouse. Deze compute- en opslagresources worden apart in rekening gebracht. 
+U bent worden kosten in rekening gebracht voor datawarehouse-eenheden en gegevens opgeslagen in uw datawarehouse. Deze compute- en opslagresources worden apart in rekening gebracht.
 
-- Als u de gegevens in de opslag wilt houden, kunt u het berekenen onderbreken wanneer u het datawarehouse niet gebruikt. Als u het berekenen onderbreekt, worden alleen kosten in rekening gebracht voor de gegevensopslag. U kunt het berekenen hervatten wanneer u klaar bent om de gegevens te verwerken.
-- Als u in de toekomst geen kosten meer wilt hebben, kunt u de datawarehouse verwijderen. 
+- Als u de gegevens in de opslag wilt houden, kunt u het berekenen onderbreken wanneer u het datawarehouse niet gebruikt. Onderbreekt Reken-, u betaalt alleen voor de opslag van gegevens. U kunt berekenen hervatten wanneer u bent klaar om te werken met de gegevens.
+- Als u in de toekomst geen kosten meer wilt hebben, kunt u de datawarehouse verwijderen.
 
-Volg deze stappen om de resources op te schonen zoals gewenst.
+Volg deze stappen voor het opschonen van resources die u niet meer nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op uw datawarehouse.
 
@@ -196,7 +196,7 @@ Volg deze stappen om de resources op te schonen zoals gewenst.
 
 2. Als u het berekenen wilt onderbreken, klikt u op de knop **Onderbreken**. Wanneer het datawarehouse wordt onderbroken, ziet u een **hervatten** knop. Als u wilt hervatten compute, klikt u op **hervatten**.
 
-3. Als u de datawarehouse wilt verwijderen zodat er geen kosten in rekening worden gebracht voor berekenen of opslaan, klikt u op **Verwijderen**.
+3. Het datawarehouse, zodat u niet in rekening voor berekenen of opslaan gebracht, klikt u **verwijderen**.
 
 4. Als u wilt verwijderen van de SQL-server die u hebt gemaakt, klikt u op **mynewserver-20180430.database.windows.net** in de vorige afbeelding, en klik vervolgens op **verwijderen**. Wees voorzichtig met verwijderen. Als u de server verwijdert, worden ook alle databases verwijderd die zijn toegewezen aan de server.
 
@@ -204,7 +204,7 @@ Volg deze stappen om de resources op te schonen zoals gewenst.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt nu een datawarehouse gemaakt, een firewallregel gemaakt die is verbonden met uw datawarehouse, en enkele query's uitgevoerd. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
+U hebt nu een datawarehouse, een firewallregel, verbonden met uw datawarehouse gemaakt gemaakt en enkele query's uitvoeren. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
 
 > [!div class="nextstepaction"]
 > [Gegevens laden in een SQL-datawarehouse](load-data-from-azure-blob-storage-using-polybase.md)

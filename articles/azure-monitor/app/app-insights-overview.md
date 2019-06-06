@@ -11,19 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256634"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496378"
 ---
 # <a name="what-is-application-insights"></a>Wat is Application Insights?
 Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app.  De service is bedoeld om u te helpen de prestaties en bruikbaarheid van uw apps continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en Java EE, on-premises, of in een hybride of openbare cloud gehost. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars. Gebruik de service voor het controleren en analyseren van telemetrie van mobiele apps door Application Insights te integreren met Visual Studio App Center.
-
-[Bekijk het introductiefilmpje](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## <a name="how-does-application-insights-work"></a>Hoe werkt Application Insights?
 U installeert een klein instrumentatiepakket in uw toepassing en u stelt een Application Insights-resource in de Microsoft Azure Portal in. Met dit instrumentatiepakket wordt uw app gecontroleerd en worden telemetriegegevens naar de portal verzonden. (De toepassing kan op elke locatie worden uitgevoerd - deze hoeft niet te worden gehost in Azure.)
@@ -104,11 +102,13 @@ Application Insights is een van de vele services die worden gehost binnen Micros
 
 Er zijn verschillende manieren om van start te gaan. Begin op de manier die voor u het beste werkt. U kunt later ook andere manieren gebruiken.
 
-* **Tijdens runtime: instrumenteer uw web-app op de server.** Hiermee voorkomt u dat u updates moet uitvoeren op de code. U hebt moet beheerderstoegang tot uw server hebben.
-  * [**IIS on-premises of op een VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Azure web-app of VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **Tijdens het ontwikkelen: voeg Application Insights toe aan uw code.** Dit stelt u in staat om aangepaste telemetrie te schrijven en om back-end- en desktop-apps te instrumenteren.
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 update 2 of hoger.
+* **Tijdens runtime: instrumenteer uw web-app op de server.** Ideaal voor toepassingen die al zijn geïmplementeerd. Hiermee voorkomt u dat u updates moet uitvoeren op de code.
+  * [**ASP.NET-toepassingen die worden gehost in IIS on-premises of in een virtuele machine**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**ASP.NET of ASP.NET Core-toepassingen die worden gehost in Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
+* **Tijdens het ontwikkelen: voeg Application Insights toe aan uw code.** Kunt u aanvullende telemetrie verzenden en verzamelen van telemetriegegevens aanpassen.
+  * [ASP.NET-toepassingen](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core-toepassingen](../../azure-monitor/app/asp-net-core.md)
+  * [.NET-console-toepassingen](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Andere platforms](../../azure-monitor/app/platforms.md)
@@ -120,10 +120,12 @@ Er zijn verschillende manieren om van start te gaan. Begin op de manier die voor
 Gebruik tijdens runtime:
 
 * [IIS-server](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 Gebruik tijdens het ontwikkelen:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
@@ -139,9 +141,9 @@ Gebruik tijdens het ontwikkelen:
 
 ## <a name="videos"></a>Video's
 
-[![Introductievideo](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+- Externe video: [Application Insights configureren met een ASP.NET-toepassing](https://www.youtube.com/watch?v=blnGAVgMAfA).
+- Externe video: [configureren van Application Insights met ASP.NET Core en Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Externe video: [configureren van Application Insights met ASP.NET Core en Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

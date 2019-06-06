@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605637"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734749"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snelstartgids: Naamgevingsbeleid voor groepen in Azure Active Directory
 
@@ -31,12 +31,12 @@ In deze snelstart stelt u naambeleid in uw Azure Active Directory (Azure AD)-ten
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configureer het beleid voor naamgeving voor een tenant met behulp van Azure portal (preview)
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Het beleid voor naamgeving voor een tenant met behulp van Azure portal configureren
 
 1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een administrator-account van gebruiker.
 1. Selecteer **groepen**en selecteer vervolgens **naamgevingsbeleid** de Naming beleid-pagina te openen.
 
-    ![Open de pagina van de Naming-beleid in het beheercentrum](./media/groups-naming-policy/policy-preview.png)
+    ![Open de pagina van de Naming-beleid in het beheercentrum](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Weergeven of bewerken van het naamgevingsbeleid van voorvoegsel-achtervoegsel
 
@@ -49,7 +49,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 1. Op de **naamgevingsbeleid** weergeeft, schakelt **woorden geblokkeerd**.
 
-    ![bewerken en uploaden van de lijst met geblokkeerde woorden voor de naamgeving van beleid](./media/groups-naming-policy/blockedwords-preview.png)
+    ![bewerken en uploaden van de lijst met geblokkeerde woorden voor de naamgeving van beleid](./media/groups-naming-policy/blockedwords.png)
 
 1. Weergeven of bewerken van de huidige lijst met geblokkeerde dan speciale woorden hiervoor **downloaden**.
 1. Upload een nieuwe lijst met geblokkeerde dan speciale woorden door het bestandspictogram te selecteren.
@@ -59,7 +59,7 @@ Dat is alles. U hebt het naambeleid ingesteld en uw aangepaste, geblokkeerde woo
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Verwijder het naming beleid met behulp van Azure portal (preview)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Verwijder het naming beleid met behulp van Azure portal
 
 1. Op de **naamgevingsbeleid** weergeeft, schakelt **beleid verwijderen**.
 1. Nadat u de verwijdering bevestigt, het naamgevingsbeleid wordt verwijderd, inclusief alle voorvoegsel-achtervoegsel naamgeving van beleid en eventuele aangepaste geblokkeerde woorden.

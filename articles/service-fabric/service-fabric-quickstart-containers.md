@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4795952faa91d62b76f267795660db5ab4075e79
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110414"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734501"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Quickstart: Windows-containers implementeren in Service Fabric
 
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert.
 
-Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. In deze snelstartgids ziet u hoe u een vooraf gebouwde Docker-containerinstallatiekopie in een Service Fabric-toepassing implementeert. Wanneer u klaar bent, hebt u een actieve Windows 2016 Server Core-Server en IIS-container. In deze snelstartgids wordt beschreven hoe u een Windows-container implementeert. Lees [deze snelstartgids](service-fabric-quickstart-containers-linux.md) als u een Linux-container wilt implementeren.
+Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. In deze snelstartgids ziet u hoe u een vooraf gebouwde Docker-containerinstallatiekopie in een Service Fabric-toepassing implementeert. Wanneer u klaar bent, hebt u een actieve Windows 2016 Server Core-Server en IIS-container. Deze snelstartgids wordt beschreven hoe u een Windows-container. Lezen [in deze snelstartgids](service-fabric-quickstart-containers-linux.md) om een Linux-container te implementeren.
 
 ![IIS-standaardwebpagina][iis-default]
 
@@ -44,7 +44,7 @@ In deze snelstart leert u de volgende zaken:
 
 * Een Azure-abonnement (u kunt een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maken).
 * Een ontwikkelcomputer waarop wordt uitgevoerd:
-  * Visual Studio 2015 of Visual Studio 2017.
+  * Visual Studio 2015 of Windows 2019.
   * [Service Fabric SDK en hulpprogramma's](service-fabric-get-started.md).
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Een Docker-containerinstallatiekopie verpakken met Visual Studio
@@ -57,7 +57,7 @@ Selecteer **Service Fabric-toepassing**, geef deze de naam MyFirstContainer en k
 
 Selecteer **Container** in de lijst met sjablonen voor **gehoste containers en toepassingen**.
 
-In **Installatiekopienaam**, 'mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016', voer de [Windows Server Core-Server en IIS-basisinstallatiekopie](https://hub.docker.com/r/microsoft-windows-servercore-iis).
+In **Installatiekopienaam**, 'mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016', voer de [Windows Server Core-Server en IIS-basisinstallatiekopie](https://hub.docker.com/_/microsoft-windows-servercore-iis).
 
 Configureer de toewijzing van de containerpoort naar de hostpoort zó, dat binnenkomende aanvragen voor de service op poort 80 worden toegewezen aan poort 80 van de container.  Stel **Containerpoort** in op '80' en **Hostpoort** op '80'.  
 
@@ -67,7 +67,7 @@ Geef uw service de naam 'MyContainerService' en klik op **OK**.
 
 ## <a name="specify-the-os-build-for-your-container-image"></a>De OS-build voor de containerinstallatiekopie opgeven
 
-Containers die zijn gebouwd met een specifieke versie van Windows Server kunnen mogelijk niet worden uitgevoerd op een host waarop een andere versie van Windows Server wordt uitgevoerd. Zo werken containers die zijn gebouwd met Windows Server 1709 niet op hosts waarop Windows Server versie 2016 wordt uitgevoerd. Zie [Compatibiliteit tussen besturingssysteem van Windows Server-container en host-besturingssysteem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) voor meer informatie. 
+Containers die zijn gebouwd met een specifieke versie van Windows Server kunnen mogelijk niet worden uitgevoerd op een host waarop een andere versie van Windows Server wordt uitgevoerd. Bijvoorbeeld: containers die zijn gebouwd met behulp van Windows Server versie 1709 niet uitvoeren op hosts met Windows Server 2016. Zie [Compatibiliteit tussen besturingssysteem van Windows Server-container en host-besturingssysteem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) voor meer informatie. 
 
 Met versie 6.1 en hoger van de Service Fabric-runtime kunt u meerdere besturingssysteeminstallatiekopieën per container opgeven en elke installatiekopie labelen met de buildversie van het besturingssysteem waarop deze moet worden geïmplementeerd. Zo kunt u ervoor zorgen dat uw toepassing wordt uitgevoerd op hosts waarop verschillende versies van het Windows-besturingssysteem worden uitgevoerd. Zie [Containerinstallatiekopieën opgeven die specifiek zijn voor de build van het besturingssysteem](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
@@ -77,14 +77,14 @@ Microsoft publiceert verschillende installatiekopieën voor versies van IIS die 
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-Het servicemanifest geeft nog steeds maar één installatiekopie op voor de nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
+Het servicemanifest geeft nog steeds maar één installatiekopie op voor de nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`.
 
 Wijzig ook in het bestand *ApplicationManifest.xml* de optie **PasswordEncrypted** in **false**. Het account en wachtwoord zijn leeg voor de openbare containerinstallatiekopie die zich in Docker Hub bevindt. Daarom schakelen we versleuteling uit omdat het versleutelen van een leeg wachtwoord een buildfout genereert.
 
@@ -104,7 +104,7 @@ Kopieer het volgende script naar het Klembord en open **Windows PowerShell ISE**
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
-Nadat u de waarden voor de variabelen opgegeven hebt, drukt u op **F5** om het script uit te voeren.
+Nadat u uw waarden voor de variabelen opgegeven hebt, klikt u op **F5** het script uit te voeren.
 
 Nadat het script is uitgevoerd en het cluster is gemaakt, zoekt u `ClusterEndpoint` op in de uitvoer. Bijvoorbeeld:
 
@@ -115,9 +115,9 @@ ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/cluster
 
 ### <a name="install-the-certificate-for-the-cluster"></a>Het certificaat voor het cluster installeren
 
-We installeren de PFX nu in het certificaatarchief *CurrentUser\My*. Het PFX-bestand bevindt zich in de map die u hebt opgegeven met behulp van de omgevingsvariabele `certfolder` in het bovenstaande PowerShell-script.
+Nu installeren we de PFX-bestand in *CurrentUser\My* certificaatarchief. Het PFX-bestand bevindt zich in de map die u hebt opgegeven met behulp van de omgevingsvariabele `certfolder` in het bovenstaande PowerShell-script.
 
-Ga naar die map en voer de volgende PowerShell-opdracht uit, waarbij u de naam van het PFX-bestand dat zich in de map `certfolder` bevindt en het wachtwoord dat u hebt opgegeven in de variabele `certpwd` vervangt. In dit voorbeeld is de huidige map ingesteld op de map die is opgegeven door de variabele `certfolder` in het PowerShell-script. Van daaruit wordt de opdracht `Import-PfxCertificate` uitgevoerd:
+Ga naar die map en voer de volgende PowerShell-opdracht, vervangt de naam van het PFX-bestand dat zich in uw `certfolder` directory en het wachtwoord dat u hebt opgegeven in de `certpwd` variabele. In dit voorbeeld is de huidige map ingesteld op de map die is opgegeven door de variabele `certfolder` in het PowerShell-script. Van daaruit wordt de opdracht `Import-PfxCertificate` uitgevoerd:
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
@@ -142,7 +142,7 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 
 Klik met de rechtermuisknop op **MyFirstContainer** in Solution Explorer en kies **Publiceren**. Het dialoogvenster Publiceren wordt weergegeven.
 
-Kopieer de inhoud volgend op **CN=** in het PowerShell-venster toen u de bovenstaande opdracht `Import-PfxCertificate` uitvoerde en voeg er poort `19000` aan toe. Bijvoorbeeld `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Kopieer dit naar het veld **Verbindingseindpunt**. Onthoud deze waarde, want u hebt deze nodig in een toekomstige stap.
+Kopieer de inhoud volgend op **CN=** in het PowerShell-venster toen u de bovenstaande opdracht `Import-PfxCertificate` uitvoerde en voeg er poort `19000` aan toe. Bijvoorbeeld `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Kopieer dit naar het veld **Verbindingseindpunt**. Vergeet niet dat deze waarde omdat u hebt deze nodig in een toekomstige stap.
 
 Klik op **Geavanceerde verbindingsparameters** en controleer de informatie van de verbindingsparameters.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat is geïnstalleerd toen u `Import-PfxCertificate` uitvoerde in de vorige stap.
 
@@ -150,7 +150,7 @@ Klik op **Geavanceerde verbindingsparameters** en controleer de informatie van d
 
 Klik op **Publish**.
 
-Elke toepassing in het cluster moet een unieke naam hebben. Als er een naamconflict is, wijzigt u de naam van het Visual Studio-project en voert u de implementatie opnieuw uit.
+Elke toepassing in het cluster moet een unieke naam hebben. Als er een naamconflict is, wijzig de naam van de Visual Studio-project en implementeer opnieuw.
 
 Open een browser en navigeer naar het adres dat u in de vorige stap in het veld **Verbindingseindpunt** hebt ingevoerd. U kunt de URL eventueel vooraf laten gaan door de schema-id, `http://`, en de poort, `:80`, aan het einde toevoegen. Bijvoorbeeld: http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 

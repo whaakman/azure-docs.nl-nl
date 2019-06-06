@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540156"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734485"
 ---
 # <a name="what-is-authentication"></a>Wat is verificatie?
 
@@ -85,14 +85,11 @@ Het volgende diagram toont een vereenvoudigde identiteitsplatform van Microsoft 
 
 De inrichtingsstroom verloopt als volgt:
 
-|   |   |
-|---|---|
-| 1 | Een gebruiker van de tenant B wil zich aanmelden met de app. |
-| 2 | De gebruikersreferenties worden verkregen en geverifieerd |
-| 3 | De gebruiker wordt gevraagd de app toestemming te geven om toegang te verkrijgen tot tenant B |
-| 4 | Microsoft identity-platform gebruikt het toepassingsobject in A als een blauwdruk voor het maken van een service principal in tenant B |
-| 5 | De gebruiker ontvangt de aangevraagde token |
-|   |   |
+1. Een gebruiker van de tenant die b wil zich aanmelden met de app, de autorisatie-eindpunt vraagt een token voor de toepassing.
+1. De gebruikersreferenties zijn verkregen en gecontroleerd voor verificatie
+1. De gebruiker wordt gevraagd op te geven van toestemming voor de app toegang te krijgen tot tenant B
+1. Microsoft identity-platform gebruikt het toepassingsobject in tenant A als een blauwdruk voor het maken van een service principal in tenant B
+1. De gebruiker ontvangt de aangevraagde token
 
 U kunt dit proces zo vaak herhalen als u wilt (voor andere tenants, zoals C, D, enzovoort). Tenant A behoudt de blauwdruk voor de app (toepassingsobject). De gebruikers en beheerders van de andere tenants waarvoor de app toestemming heeft, behouden controle over wat de toepassing mag doen. Dit kan worden beheerd met het bijbehorende service-principalobject in elke tenant. Zie voor meer informatie, [toepassing en service-principalobjecten in Microsoft identity-platform](app-objects-and-service-principals.md).
 

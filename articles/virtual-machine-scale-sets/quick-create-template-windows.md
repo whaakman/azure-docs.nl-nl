@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 8124f2236b37f72741c16dad8f1649d08963542e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a91bbceb3cb55cf3e7f8e0f84581af07f1ffb80d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614766"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728914"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Quickstart: Een virtuele-machineschaalset in Windows maken met een Azure-sjabloon
 
@@ -29,7 +29,7 @@ Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines m
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="define-a-scale-set-in-a-template"></a>Een schaalset definiëren in een sjabloon
@@ -42,7 +42,7 @@ Met een sjabloon wordt de configuratie voor elk resourcetype gedefinieerd. Een r
 | Eigenschap                     | Beschrijving van eigenschap                                  | Voorbeeldwaarde van sjabloon                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | type                         | Azure-resourcetype dat moet worden gemaakt                            | Microsoft.Compute/virtualMachineScaleSets |
-| naam                         | De naam van de schaalset                                       | myScaleSet                                |
+| name                         | De naam van de schaalset                                       | myScaleSet                                |
 | location                     | De locatie voor het maken van de schaalset                     | US - oost                                   |
 | sku.name                     | De VM-grootte voor elke instantie van de schaalset                  | Standard_A1                               |
 | sku.capacity                 | Het aantal VM-instanties dat in het begin moet worden gemaakt           | 2                                         |

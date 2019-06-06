@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 14793d7f787780bfc8604e4af11eb05f1ff0d937
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8c82e3d2c978a7980d02bc686346acdcb21dd591
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170531"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425743"
 ---
 |  | **Point-to-Site** | **Site-to-Site** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Door Azure ondersteunde services** |Cloudservices en virtuele machines |Cloudservices en virtuele machines |[Lijst met services](../articles/expressroute/expressroute-faqs.md#supported-services) |
 | **Typische bandbreedten** |Gebaseerd op de gateway-SKU |Doorgaans < 1 Gbps gecombineerd |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
-| **Ondersteunde protocollen** |Secure Sockets Tunneling Protocol (SSTP) en IPsec |IPsec |Directe verbinding via VLAN's, NSP’s VPN-technologieën (MPLS, VPLS,...) |
+| **Ondersteunde protocollen** |Secure Sockets Tunneling Protocol (SSTP), OpenVPN en IPsec |IPsec |Directe verbinding via VLAN's, NSP’s VPN-technologieën (MPLS, VPLS,...) |
 | **Routering** |RouteBased (dynamisch) |We ondersteunen PolicyBased (statische routering) en RouteBased (dynamische routering via VPN) |BGP |
 | **Verbindingstolerantie** |actief-passief |actief-passief of actief-actief |actief-actief |
 | **Typische gebruiksscenario's** |Maken van een prototype, dev/testen/labscenario's voor cloudservices en virtuele machines |Dev/testen/labscenario's en kleinschalige productie-workloads voor cloudservices en virtuele machines |Toegang tot alle Azure-services (gevalideerde lijst), workloads op bedrijfsniveau en bedrijfskritieke taken, back-up, Big Data, Azure als een DR-site |

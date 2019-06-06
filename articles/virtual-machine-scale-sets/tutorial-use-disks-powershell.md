@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 92f2a07ae47621b4d42bb74da5f62447f86eb5ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329515"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728585"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie: Schijven met virtuele-machineschaalset maken en gebruiken met Azure PowerShell
 
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="default-azure-disks"></a>Standaard Azure-schijven
@@ -86,7 +86,7 @@ Premium-schijven worden ondersteund door hoogwaardige SSD-schijven met een lage 
 |Schijftype voor Premium Storage | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Schijfgrootte (afronden) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
-| Max. aantal IOP's per schijf | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
+| Max. aantal IOP's per schijf | 120 | 240 | 500 | 2,300 | 5.000 | 7.500 | 7,500 |
 Doorvoer per schijf | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 In de bovenstaande tabel wordt het max. IOP's per schijf aangegeven, maar er kan een hoger prestatieniveau worden bereikt door striping van meerdere gegevensschijven. Een virtuele machine van het type Standard_GS5 kan bijvoorbeeld maximaal 80.000 IOPS bereiken. Zie [Windows VM-grootten](../virtual-machines/windows/sizes.md) voor gedetailleerde informatie over het maximum aantal IOP's per VM.

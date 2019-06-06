@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 06/05/2019
 ms.author: lbosq
-ms.openlocfilehash: b81cedc9376b33b27f3a742fbe5d7410535fa727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31c2846c628553e74eff5ea9a9627c871f4f810c
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60891458"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734555"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Een Node.js-toepassing ontwikkelen met het Gremlin-API-account van Azure Cosmos DB
 
@@ -140,13 +140,9 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand app.js.
 
 2. Vul in config.js voor de sleutel `config.endpoint` de **Gremlin URI**-waarde in van de pagina **Overzicht** in Azure Portal. 
 
-    `config.endpoint = "GRAPHENDPOINT";`
+    `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-graph-nodejs/gremlin-uri.png)
-
-   Als er geen **Gremlin URI**-waarde wordt opgegeven, kunt u de waarde genereren met behulp van de waarde op de pagina **Sleutels** in de portal. Gebruik de **URI**-waarde, verwijder https:// en wijzig documenten in gremlin.cosmosdb. Als uw grafiekaccount is gemaakt vóór 20 december 2017, wijzigt u documenten in grafieken. 
-
-   Het Gremlin-eindpunt moet alleen de hostnaam zijn zonder het protocol-/poortnummer, zoals `mygraphdb.gremlin.cosmosdb.azure.com` (niet `https://mygraphdb.gremlin.cosmosdb.azure.com` of `mygraphdb.gremlin.cosmosdb.azure.com:433`).
 
 3. Vul in config.js voor de waarde config.primaryKey de waarde van de **Primaire sleutel** in van de pagina **Sleutels** in Azure Portal. 
 
@@ -162,7 +158,7 @@ Hier volgt een voorbeeld van hoe het voltooide bestand config.js eruit moet zien
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "testgraphacct.gremlin.cosmosdb.azure.com";
+config.endpoint = "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"; 
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"

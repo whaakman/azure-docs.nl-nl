@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714277"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688725"
 ---
 # <a name="what-is-azure-backup"></a>Wat is Azure Backup?
 
@@ -32,7 +32,7 @@ Azure Backup biedt deze belangrijke voordelen:
     - Als u met de Azure Import/Exportservice een offline eerste back-up uitvoert voor het importeren van grote hoeveelheden gegevens, zijn er kosten verbonden aan inkomende gegevens.  [Meer informatie](backup-azure-backup-import-export.md).
 - **Gegevens veilig houden**: Azure Backup biedt oplossingen voor het beveiligen van gegevens in-transit en in rust.
 - **App-consistente back-ups**: Een app-consistente back-up betekent dat een herstelpunt alle vereiste gegevens heeft om de back-up te kunnen herstellen. Azure Backup biedt toepassingsconsistente back-ups, om ervoor te zorgen dat er geen aanvullende correcties nodig zijn om de gegevens te herstellen. Herstellen van toepassingsconsistente gegevens verkort de hersteltijd, zodat u snel weer normaal aan het werk kunt.
-- **Korte- en langetermijngegevens bewaren**: u kunt de Recovery Services-kluizen gebruiken voor het bewaren van gegevens voor de korte en de lange termijn. Azure heeft geen beperkingen voor hoelang gegevens bewaard blijven in een Recovery Services-kluis. U kunt gegevens zo lang bewaren als u wilt. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. [Lees meer](backup-introduction-to-azure-backup.md#backup-and-retention) over de invloed van deze limiet op uw back-upbehoeften.
+- **Korte- en langetermijngegevens bewaren**: u kunt de Recovery Services-kluizen gebruiken voor het bewaren van gegevens voor de korte en de lange termijn. Azure heeft geen beperkingen voor hoelang gegevens bewaard blijven in een Recovery Services-kluis. U kunt gegevens zo lang bewaren als u wilt. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. 
 - **Automatisch opslagbeheer**: voor hybride omgevingen is vaak heterogene opslag vereist, soms on-premises en soms in de cloud. Met Azure Backup zijn er geen kosten voor het gebruik van on-premises opslagapparaten. De back-upopslag wordt automatisch door Azure Backup toegewezen en beheerd en u betaalt naar gebruik. Dat betekent dat u alleen betaalt voor de opslag die u verbruikt. [Lees meer](https://azure.microsoft.com/pricing/details/backup) over prijzen.
 - **Meerdere opslagopties**: Azure Backup biedt twee typen replicatie om uw opslag/gegevens maximaal beschikbaar te houden.
     - Met [lokaal redundante opslag LRS](../storage/common/storage-redundancy-lrs.md) worden uw gegevens drie keer gerepliceerd (er worden drie kopieën gemaakt van uw gegevens) in een opslagschaaleenheid in een datacenter. Alle kopieën van de gegevens komen binnen dezelfde regio voor. LRS is een goedkope optie voor het beschermen van uw gegevens tegen lokale hardwarefouten.
@@ -109,6 +109,25 @@ Lees meer [hoe back-up werkt](backup-architecture.md#architecture-back-up-to-dpm
 **Ik wil een back-up maken van apps die on-premises worden uitgevoerd** | Voor app-bewuste back-ups moeten machines worden beveiligd door DPM of MABS.
 **Ik wil gedetailleerde en flexibele back-up- en herstelinstellingen voor virtuele Azure-machines** | Bescherm Azure-VM's met MABS/DPM in Azure voor extra flexibiliteit voor back-upplanning en volledige flexibiliteit voor het beschermen en herstellen van bestanden, mappen, volumes, apps en systeemstatus.
 
+## <a name="backup-and-retention"></a>Back-up en retentie
+
+Azure Backup heeft een limiet van 9999 herstelpunten, ook wel back-ups of momentopnamen genoemd, *per beveiligd exemplaar*.
+
+- Een beveiligd exemplaar is een computer, een server (fysiek of virtueel) of een werkbelasting die is geconfigureerd voor het opslaan van back-ups van gegevens in Azure. Een exemplaar is beveiligd zodra er een back-up van de gegevens is opgeslagen.
+- De back-up van de gegevens biedt beveiliging. Als de brongegevens verloren gaan of beschadigd raken, kunt u met de back-up de brongegevens herstellen.
+
+De volgende tabel wordt de maximale back-upfrequentie voor elk onderdeel. De configuratie van uw back-upbeleid bepaalt hoe snel u de herstelpunten verbruikt. Als u bijvoorbeeld één herstelpunt per dag maakt, kunt u 27 jaar gebruikmaken van herstelpunten voordat ze opraken. Als u één herstelpunt per maand maakt, duurt het maar liefst 833 jaar voordat uw herstelpunten op zijn. In de Backup-service worden geen verlooptijden ingesteld voor herstelpunten.
+
+|  | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
+| --- | --- | --- | --- | --- |
+| Back-upfrequentie<br/> (naar de Recovery Services-kluis) |Drie back-ups per dag |Twee back-ups per dag |Twee back-ups per dag |Eén back-up per dag |
+| Back-upfrequentie<br/> (naar schijf) |Niet van toepassing |Om de 15 minuten voor SQL Server<br/><br/> Elk uur voor andere workloads |Om de 15 minuten voor SQL Server<br/><br/> Elk uur voor andere workloads |Niet van toepassing |
+| Bewaaropties |Dagelijks, wekelijks, maandelijks, jaarlijks |Dagelijks, wekelijks, maandelijks, jaarlijks |Dagelijks, wekelijks, maandelijks, jaarlijks |Dagelijks, wekelijks, maandelijks, jaarlijks |
+| Maximumaantal herstelpunten per beveiligd exemplaar |9999|9999|9999|9999|
+| Maximale bewaarperiode |Afhankelijk van back-upfrequentie |Afhankelijk van back-upfrequentie |Afhankelijk van back-upfrequentie |Afhankelijk van back-upfrequentie |
+| Herstelpunten op lokale schijf |Niet van toepassing | 64 voor bestandsservers<br/><br/> 448 voor toepassingsservers | 64 voor bestandsservers<br/><br/> 448 voor toepassingsservers |Niet van toepassing |
+| Herstelpunten op tape |Niet van toepassing |Onbeperkt |Niet van toepassing |Niet van toepassing |
+
 ## <a name="how-does-azure-backup-work-with-encryption"></a>Hoe werkt Azure Backup met versleuteling?
 
 **Versleuteling** | **Back-up van on-premises** | **Back-ups maken van Azure-VM's** | **Back-up van SQL op Azure Virtual machines**
@@ -119,7 +138,7 @@ Versleuteling tijdens overdracht<br/> (Versleuteling van gegevens van de ene loc
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Bekijk](backup-architecture.md) de architectuur en componenten voor verschillende back-upscenario's.
-- [Controleer](backup-support-matrix.md) ondersteunde functies en instellingen voor back-up.
+- [Controleer of](backup-support-matrix.md) vereisten en beperkingen voor ondersteuning voor back-up en [Azure VM backup](backup-support-matrix-iaas.md).
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
