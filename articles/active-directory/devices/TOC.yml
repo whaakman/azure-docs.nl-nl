@@ -1,8 +1,8 @@
-- name: Documentatie over apparaatbeheer
+- name: Documentatie over apparaatidentiteiten
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is apparaatbeheer in Azure AD?
+    - name: Wat is een apparaat-id?
       href: overview.md
     - name: Wat is Enterprise State Roaming?
       href: enterprise-state-roaming-overview.md
@@ -29,7 +29,7 @@
 - name: Handleidingen
   expanded: true
   items:
-    - name: Apparaten beheren met de Azure-portal
+    - name: Apparaatidentiteit beheren
       href: device-management-azure-portal.md
     - name: Verlopen apparaten beheren
       href: manage-stale-devices.md

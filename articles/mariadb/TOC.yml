@@ -105,6 +105,10 @@
           href: howto-server-parameters.md
         - name: Azure-CLI
           href: howto-configure-server-parameters-cli.md
+    - name: Opslag automatisch vergroten
+      items:
+        - name: Azure Portal
+          href: howto-auto-grow-storage-portal.md
     - name: Serverlogboeken openen
       items:
         - name: Azure Portal

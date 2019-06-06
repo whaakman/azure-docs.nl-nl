@@ -63,6 +63,8 @@
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Een model voor gezichtsherkenning opgeven
       href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: Een model voor gezichtsdetectie opgeven
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: De functie Grootschalig gebruiken
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Video's in realtime analyseren

@@ -73,6 +73,8 @@
           href: waf-overview.md
         - name: WAF-configuratie
           href: application-gateway-waf-configuration.md
+        - name: Aangepaste regels
+          href: custom-waf-rules-overview.md
     - name: Statuscontrole
       items:
         - name: Statustest
@@ -141,6 +143,12 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure-CLI
           href: application-gateway-customize-waf-rules-cli.md
+    - name: Aangepaste WAF-regels
+      items:
+        - name: Voorbeelden van aangepaste regels
+          href: create-custom-waf-rules.md
+        - name: WAF configureren met aangepaste regels
+          href: configure-waf-custom-rules.md
     - name: Routeren met URL
       items:
         - name: Azure PowerShell
