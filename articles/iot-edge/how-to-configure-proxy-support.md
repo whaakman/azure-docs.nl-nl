@@ -4,32 +4,51 @@ description: Klik hier voor meer informatie over het configureren van de Azure I
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 03/20/2019
+ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 883f6022f3d0f609de2d8f33b0285d8c40b7bee9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c0da1a768b894f543b9089643622c31d6a8758d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142127"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730151"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Een IoT Edge-apparaat om te communiceren via een proxyserver configureren
 
 IoT Edge-apparaten verzenden HTTPS-aanvragen om te communiceren met IoT Hub. Als uw apparaat is verbonden met een netwerk dat gebruikmaakt van een proxyserver, moet u de IoT Edge-runtime om te communiceren via de-server configureren. Proxy-servers kunnen ook van invloed op afzonderlijke IoT Edge-modules als ze HTTP of HTTPS-aanvragen die niet worden doorgestuurd via de IoT Edge hub. 
 
-Een IoT Edge-apparaat om te werken met een proxyserver configureren, volgt deze eenvoudige stappen: 
+Dit artikel helpt bij de volgende vier stappen voor het configureren en vervolgens beheren een IoT Edge-apparaat achter een proxyserver: 
 
-1. IoT Edge-runtime installeren op uw apparaat. 
-2. Configureer de Docker-daemon en de IoT Edge-daemon op uw apparaat om de proxyserver te gebruiken.
-3. Configureer de edgeAgent-eigenschappen in het bestand config.yaml op uw apparaat.
-4. Omgevingsvariabelen worden ingesteld voor de IoT Edge-runtime en andere IoT-Edge modules in het manifest van de implementatie.
+1. **IoT Edge-runtime installeren op uw apparaat.**
+
+   De IoT Edge-installatiescripts pull-pakketten en bestanden van het internet, zodat het apparaat moet communiceren via de proxy-server om deze aanvragen te maken. Zie voor gedetailleerde stappen de [installeren van de runtime via een proxy](#install-the-runtime-through-a-proxy) sectie van dit artikel. Voor Windows-apparaten, biedt het script voor installatie ook een [Offline-installatie](how-to-install-iot-edge-windows.md#offline-installation) optie. 
+
+   Deze stap is een eenmalige proces dat wordt uitgevoerd op het IoT Edge-apparaat als u deze eerst van instelt. De dezelfde verbindingen zijn ook vereist wanneer u de IoT Edge-runtime bijwerken. 
+
+2. **Configureer de Docker-daemon en de IoT Edge-daemon op uw apparaat.**
+
+   IoT Edge maakt gebruik van twee daemons op het apparaat, die beide nodig hebt om webaanvragen via de proxy-server te maken. De IoT Edge-daemon is verantwoordelijk voor communicatie met IoT Hub. De daemon Moby is verantwoordelijk voor het containerbeheer van de, dus communiceert met container Registry. Zie voor gedetailleerde stappen de [configureren de daemons](#configure-the-daemons) sectie van dit artikel. 
+
+   Deze stap is een eenmalige proces dat wordt uitgevoerd op het IoT Edge-apparaat als u deze eerst van instelt.
+
+3. **Configureer de eigenschappen van de IoT Edge-agent in het bestand config.yaml op uw apparaat.**
+
+   De IoT Edge-daemon Start de module edgeAgent in eerste instantie, maar vervolgens de edgeAgent-module is zelf verantwoordelijk voor het ophalen van het manifest van de implementatie van IoT-Hub en starten van de modules. Voor de IoT Edge-agent op de eerste verbinding maken met IoT Hub, de edgeAgent module omgevingsvariabelen configureren handmatig op het apparaat zelf. U kunt de module edgeAgent op afstand configureren na de eerste verbinding. Zie voor gedetailleerde stappen de [configureren van de IoT Edge-agent](#configure-the-iot-edge-agent) sectie van dit artikel.
+
+   Deze stap is een eenmalige proces dat wordt uitgevoerd op het IoT Edge-apparaat als u deze eerst van instelt.
+
+4. **Voor alle toekomstige module-implementaties, omgevingsvariabelen voor elke module die communiceren via de proxy worden ingesteld.**
+
+   Zodra uw IoT Edge-apparaat is ingesteld en met IoT Hub via de proxy-server verbonden, moet u de verbinding in alle toekomstige module implementaties behouden. Zie voor gedetailleerde stappen de [configureren implementatie manifesten](#configure-deployment-manifests) sectie van dit artikel. 
+
+   Deze stap is een continu proces op afstand worden uitgevoerd zodat elke nieuwe update van de module of implementatie van het apparaat de mogelijkheid om te communiceren via de proxy-server onderhoudt. 
 
 ## <a name="know-your-proxy-url"></a>De URL van uw proxy weet
 
-Voor het configureren van de Docker-daemon en de IoT Edge op uw apparaat, moet u de URL van uw proxy kent.
+Voordat u begint met een van de stappen in dit artikel, moet u de URL van uw proxy weet.
 
 Proxy-URL's worden de volgende indeling: **protocol**://**proxy_host**:**proxy_poort**.
 
@@ -39,11 +58,19 @@ Proxy-URL's worden de volgende indeling: **protocol**://**proxy_host**:**proxy_p
 
 * De **proxy_poort** is de netwerkpoort waarop de proxy op netwerkverkeer reageert.
 
-## <a name="install-the-runtime"></a>De runtime installeren
+## <a name="install-the-runtime-through-a-proxy"></a>Installeer de runtime via een proxy
+
+Of uw IoT Edge-apparaat op Windows of Linux wordt uitgevoerd, moet u toegang tot de van installatiepakketten via de proxy-server. Volg de stappen voor het installeren van de IoT Edge-runtime via een proxyserver, afhankelijk van uw besturingssysteem. 
+
+### <a name="linux"></a>Linux
 
 Als u de IoT Edge-runtime op een Linux-apparaat installeert, configureert u de package manager om te gaan via de proxyserver voor toegang tot het installatiepakket. Bijvoorbeeld, [apt-get ingesteld voor het gebruik van een http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Zodra uw pakketmanager is geconfigureerd, volg de instructies in [installeren Azure IoT Edge-runtime op Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) of [Azure IoT Edge-runtime installeren in Linux (x64)](how-to-install-iot-edge-linux.md) zoals gebruikelijk.
 
-Als u de IoT Edge-runtime op een Windows-apparaat installeert, moet u twee keer doorlopen van de proxyserver. De eerste verbinding is het downloaden van het installatiebestand van het script en de tweede verbinding is tijdens de installatie om de benodigde onderdelen te downloaden. U kunt configureren van proxy-informatie in de Windows-instellingen of het opnemen van uw proxy-informatie rechtstreeks in de PowerShell-opdrachten. De volgende stappen laten zien van een voorbeeld van een windows-installatie met de `-proxy` argument:
+### <a name="windows"></a>Windows
+
+Als u de IoT Edge-runtime op een Windows-apparaat installeert, moet u twee keer doorlopen van de proxyserver. De eerste verbinding downloadt het script installer-bestand en de tweede verbinding is tijdens de installatie om de benodigde onderdelen te downloaden. U kunt configureren van proxy-informatie in de Windows-instellingen of het opnemen van uw proxy-informatie rechtstreeks in de PowerShell-opdrachten. 
+
+De volgende stappen laten zien van een voorbeeld van een windows-installatie met de `-proxy` argument:
 
 1. De opdracht Invoke-WebRequest moet proxy-informatie voor toegang tot het installatiescript. De opdracht implementeren IoTEdge moet vervolgens de proxy-informatie voor het downloaden van de installatiebestanden. 
 
@@ -64,13 +91,13 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-Zie voor meer informatie over proxyparameters [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Zie voor meer informatie over de installatieopties voor Windows, [installeren Azure IoT Edge-runtime op Windows](how-to-install-iot-edge-windows.md).
-
-Wanneer de IoT Edge-runtime is geïnstalleerd, gebruikt u de volgende sectie te configureren met uw proxy-informatie. 
+Zie voor meer informatie over proxyparameters [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Zie voor meer informatie over de installatieopties voor Windows, met inbegrip van offline-installatie, [installeren Azure IoT Edge-runtime op Windows](how-to-install-iot-edge-windows.md).
 
 ## <a name="configure-the-daemons"></a>De daemons configureren
 
-De Moby en IoT Edge-daemons die worden uitgevoerd op uw IoT Edge-apparaat moeten worden geconfigureerd voor het gebruik van de proxyserver. De daemon Moby maakt webaanvragen voor pull-containerinstallatiekopieën van container Registry. De daemon IoT Edge maakt webaanvragen om te communiceren met IoT Hub.
+IoT Edge is afhankelijk van twee daemons die worden uitgevoerd op het IoT Edge-apparaat. De daemon Moby maakt webaanvragen voor pull-containerinstallatiekopieën van container Registry. De daemon IoT Edge maakt webaanvragen om te communiceren met IoT Hub.
+
+Zowel de Moby en de IoT Edge-daemons moeten worden geconfigureerd voor het gebruik van de proxyserver voor de functionaliteit voor actieve apparaten. Deze stap vindt plaats op het IoT Edge-apparaat tijdens de initiële installatie. 
 
 ### <a name="moby-daemon"></a>Moby daemon
 
@@ -85,7 +112,9 @@ Kies het artikel dat van toepassing op het besturingssysteem van uw IoT Edge-app
 
 ### <a name="iot-edge-daemon"></a>IoT Edge-daemon
 
-De IoT Edge-daemon is geconfigureerd in een soortgelijke manier als in de daemon Moby. HTTPS gebruikt voor alle aanvragen die IoT Edge naar IoT Hub verzendt. Gebruik de volgende stappen uit om in te stellen van een omgevingsvariabele voor de service, op basis van uw besturingssysteem. 
+De IoT Edge-daemon is geconfigureerd in een soortgelijke manier als in de daemon Moby. Gebruik de volgende stappen uit om in te stellen van een omgevingsvariabele voor de service, op basis van uw besturingssysteem. 
+
+De daemon IoT Edge maakt altijd gebruik van HTTPS om aanvragen te verzenden naar IoT Hub.
 
 #### <a name="linux"></a>Linux
 
@@ -138,47 +167,49 @@ Restart-Service iotedge
 
 De IoT Edge-agent is de eerste module te starten op elk IoT Edge-apparaat. Deze gestart voor het eerst op basis van de informatie in de IoT Edge config.yaml-bestand. De IoT Edge-agent maakt vervolgens verbinding met IoT Hub om op te halen van implementatie-manifesten die welke andere modules moeten worden geïmplementeerd op het apparaat.
 
-Open het bestand config.yaml op uw IoT Edge-apparaat. Op Linux-systemen, dit bestand bevindt zich in **/etc/iotedge/config.yaml**. Op Windows-systemen, dit bestand bevindt zich in **C:\ProgramData\iotedge\config.yaml**. Het configuratiebestand is beveiligd, moet u de Administrator-bevoegdheden om deze te openen. Op Linux-systemen, betekent dit dat met behulp van de `sudo` opdracht voor het openen van het bestand in uw favoriete teksteditor. Op Windows betekent dat een teksteditor zoals Kladblok als administrator uitvoeren en vervolgens het bestand te openen. 
+Deze stap vindt plaats één keer op het IoT Edge-apparaat tijdens de initiële installatie. 
 
-Zoek in het bestand config.yaml de **Edge Agent-module spec** sectie. De definitie van de IoT Edge-agent bevat een **env** parameter waar u omgevingsvariabelen kunt toevoegen. 
+1. Open het bestand config.yaml op uw IoT Edge-apparaat. Op Linux-systemen, dit bestand bevindt zich in **/etc/iotedge/config.yaml**. Op Windows-systemen, dit bestand bevindt zich in **C:\ProgramData\iotedge\config.yaml**. Het configuratiebestand is beveiligd, moet u de Administrator-bevoegdheden om deze te openen. Op Linux-systemen, gebruikt u de `sudo` opdracht voor het openen van het bestand in uw favoriete teksteditor. Open een teksteditor zoals Kladblok als administrator op Windows, en open vervolgens het bestand. 
 
-<!--
-![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
--->
+2. Zoek in het bestand config.yaml de **Edge Agent-module spec** sectie. De definitie van de IoT Edge-agent bevat een **env** parameter waar u omgevingsvariabelen kunt toevoegen. 
 
-Verwijder de accolades die tijdelijke aanduidingen voor de parameter env zijn, en voeg de nieuwe variabele op een nieuwe regel toe. Houd er rekening mee dat streepjes in YAML twee spaties zijn. 
+3. Verwijder de accolades die tijdelijke aanduidingen voor de parameter env zijn, en voeg de nieuwe variabele op een nieuwe regel toe. Houd er rekening mee dat streepjes in YAML twee spaties zijn. 
 
-```yaml
-https_proxy: "<proxy URL>"
-```
-
-IoT Edge-runtime gebruikt AMQP standaard om te communiceren met IoT Hub. Sommige proxyservers blokkeren AMQP poorten. Als dat het geval is, klikt u vervolgens moet u ook het configureren van edgeAgent voor het gebruik van AMQP via WebSocket. Een tweede omgevingsvariabele toevoegen.
-
-```yaml
-UpstreamProtocol: "AmqpWs"
-```
-
-![edgeAgent definitie met omgevingsvariabelen](./media/how-to-configure-proxy-support/edgeagent-edited.png)
-
-Sla de wijzigingen in config.yaml en sluit de editor. Start opnieuw op IoT Edge om de wijzigingen te laten treden. 
-
-* Linux: 
-
-   ```bash
-   sudo systemctl restart iotedge
+   ```yaml
+   https_proxy: "<proxy URL>"
    ```
 
-* Windows:
+4. IoT Edge-runtime gebruikt AMQP standaard om te communiceren met IoT Hub. Sommige proxyservers blokkeren AMQP poorten. Als dat het geval is, klikt u vervolgens moet u ook het configureren van edgeAgent voor het gebruik van AMQP via WebSocket. Een tweede omgevingsvariabele toevoegen.
 
-   ```powershell
-   Restart-Service iotedge
+   ```yaml
+   UpstreamProtocol: "AmqpWs"
    ```
+
+   ![edgeAgent definitie met omgevingsvariabelen](./media/how-to-configure-proxy-support/edgeagent-edited.png)
+
+5. Sla de wijzigingen in config.yaml en sluit de editor. Start opnieuw op IoT Edge om de wijzigingen te laten treden. 
+
+   * Linux: 
+
+      ```bash
+      sudo systemctl restart iotedge
+      ```
+
+   * Windows:
+
+      ```powershell
+      Restart-Service iotedge
+      ```
 
 ## <a name="configure-deployment-manifests"></a>Manifesten implementatie configureren  
 
-Nadat uw IoT Edge-apparaat is geconfigureerd om te werken met uw proxy-server, moet u daarmee doorgaan om aan te geven van de omgevingsvariabelen in de toekomst implementatie manifesten. Configureer altijd twee runtimemodules, edgeAgent en edgeHub, om te communiceren via de proxy-server, zodat ze een verbinding met IoT Hub kunnen onderhouden. Andere IoT Edge-modules die verbinding met internet maken moeten worden geconfigureerd voor de proxyserver. Modules die hun via doorsturen edgeHub of die alleen communiceren met andere modules op het apparaat hoeft echter niet de gegevens van de proxy-server. 
+Nadat uw IoT Edge-apparaat is geconfigureerd om te werken met uw proxy-server, moet u daarmee doorgaan om aan te geven van de omgevingsvariabelen in de toekomst implementatie manifesten. U kunt bewerken implementatie manifesten mogelijk maken via de wizard voor Azure portal of door te bewerken van een implementatie manifest van de JSON-bestand. 
 
-U kunt implementatie manifesten met behulp van de Azure portal of handmatig door het bewerken van een JSON-bestand maken. 
+Configureer altijd twee runtimemodules, edgeAgent en edgeHub, om te communiceren via de proxy-server, zodat ze een verbinding met IoT Hub kunnen onderhouden. Als u de proxy-informatie uit de module edgeAgent verwijdert, is de enige manier om de verbinding opnieuw tot stand door het bewerken van het bestand config.yaml op het apparaat, zoals beschreven in de vorige sectie. 
+
+Andere IoT Edge-modules die verbinding met internet maken moeten worden geconfigureerd om te communiceren via de proxy-server. Modules die hun via doorsturen edgeHub of die alleen communiceren met andere modules op het apparaat hoeft echter niet de gegevens van de proxy-server. 
+
+Deze stap is continue gedurende de levensduur van het IoT Edge-apparaat. 
 
 ### <a name="azure-portal"></a>Azure Portal
 

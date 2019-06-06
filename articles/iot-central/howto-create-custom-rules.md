@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805979"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742419"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Azure IoT Central uitbreiden met aangepaste regels die meldingen verzenden
 
@@ -41,8 +41,8 @@ Maken van een IoT Central-toepassing van de [Azure IoT Central - mijn toepassing
 | Instelling | Value |
 | ------- | ----- |
 | Betalingsschema | Betalen per gebruik |
-| Toepassingsjabloon | Voorbeeld-Contoso |
-| Toepassingsnaam | Accepteer de standaardwaarde of Kies uw eigen naam |
+| Toepassingsjabloon | Contoso-voorbeeld |
+| De naam van de toepassing | Accepteer de standaardwaarde of Kies uw eigen naam |
 | URL | Accepteer de standaardwaarde of Kies uw eigen unieke URL-voorvoegsel |
 | Directory | Uw Azure Active Directory-tenant |
 | Azure-abonnement | Uw Azure-abonnement |
@@ -61,7 +61,7 @@ Gebruik de [Azure portal om te maken van een Event Hubs-naamruimte](https://port
 | Instelling | Waarde |
 | ------- | ----- |
 | Name    | Kies de naamruimtenaam van uw |
-| Prijscategorie | Basis |
+| Prijscategorie | Basic |
 | Abonnement | Uw abonnement |
 | Resourcegroep | DetectStoppedDevices |
 | Locatie | US - oost |
@@ -80,20 +80,20 @@ Gebruik de [Azure portal om te maken van een Stream Analytics-taak](https://port
 | Hostingomgeving | Cloud |
 | Streaming-eenheden | 3 |
 
-### <a name="function-app"></a>Functie-app
+### <a name="function-app"></a>Function App
 
 Gebruik de [Azure portal om te maken van een functie-app](https://portal.azure.com/#create/Microsoft.FunctionApp) met de volgende instellingen:
 
 | Instelling | Value |
 | ------- | ----- |
-| App-naam    | Kies de naam van uw functie-app |
+| Naam van app    | Kies de naam van uw functie-app |
 | Abonnement | Uw abonnement |
 | Resourcegroep | DetectStoppedDevices |
 | OS | Windows |
 | Hostingabonnement | Verbruiksabonnement |
 | Locatie | US - oost |
 | Runtimestack | .NET |
-| Storage | Nieuw |
+| Opslag | Nieuwe maken |
 
 ### <a name="sendgrid-account"></a>SendGrid-account
 
@@ -152,7 +152,7 @@ De portal maakt een standaardfunctie met de naam **HttpTrigger1**:
 
 Voor het verzenden van e-mailberichten met SendGrid, moet u de bindingen voor uw functie als volgt configureren:
 
-1. Selecteer **integreren**, kiest u de uitvoer **HTTP ($return)**, en selecteer vervolgens **verwijderen**.
+1. Selecteer **integreren**, kiest u de uitvoer **HTTP ($return)** , en selecteer vervolgens **verwijderen**.
 1. Kies **+ nieuwe uitvoer**, en kies vervolgens **SendGrid**, en kies vervolgens **Selecteer**. Kies **installeren** de SendGrid-extensie installeren.
 1. Wanneer de installatie is voltooid, selecteert u **retourwaarde van functie gebruiken**. Voeg een geldig **naar adres** voor het ontvangen van e-mailmeldingen.  Toevoegen van een geldige **verzendadres** om te gebruiken als de afzender voor e-mailbericht.
 1. Selecteer **nieuwe** naast **App-instelling voor SendGrid API-sleutel**. Voer **SendGridAPIKey** als de sleutel en de SendGrid-API-sleutel die u eerder hebt genoteerd als de waarde. Selecteer vervolgens **Maken**.
@@ -244,7 +244,7 @@ Deze oplossing maakt gebruik van een Stream Analytics-query om te detecteren wan
     | ------- | ----- |
     | Invoeralias | centraltelemetry |
     | Abonnement | Uw abonnement |
-    | Event Hub-naamruimte | Uw Event Hub-naamruimte |
+    | Event hub-naamruimte | Uw Event Hub-naamruimte |
     | Event Hub-naam | Gebruik bestaande - **centralexport** |
 
 1. Onder **taken topologie**, selecteer **uitvoer**, kiest u **+ toevoegen**, en kies vervolgens **Azure-functie**.
@@ -254,7 +254,7 @@ Deze oplossing maakt gebruik van een Stream Analytics-query om te detecteren wan
     | ------- | ----- |
     | Uitvoeralias | EmailNotification |
     | Abonnement | Uw abonnement |
-    | Functie-app | Uw functie-app |
+    | Function App | Uw functie-app |
     | Function  | HttpTrigger1 |
 
 1. Onder **taken topologie**, selecteer **Query** en vervang de bestaande query door de volgende SQL:
@@ -312,7 +312,7 @@ Navigeer naar de [IoT Central-toepassing](https://aka.ms/iotcentral) u gemaakt o
 
     | Instelling | Value |
     | ------- | ----- |
-    | Weergavenaam | Exporteren naar Event Hubs |
+    | Weergavenaam | Exporteren naar Eventhubs |
     | Enabled | Aan |
     | Event Hubs-naamruimte | De naam van uw Event Hubs-naamruimte |
     | Event Hub | centralexport |
@@ -353,4 +353,4 @@ In deze handleiding, hebt u geleerd hoe u:
 * Een Stream Analytics-query die wordt gedetecteerd wanneer een apparaat is gestopt met het verzenden van gegevens maken.
 * Een e-mail verzenden met behulp van de Azure Functions en SendGrid-services.
 
-Nu dat u hoe u aangepaste regels en meldingen maakt weet, wordt de voorgestelde volgende stap is te leren hoe u [visualiseren en analyseren van uw Azure IoT Central-gegevens in Power BI-dashboard](howto-connect-powerbi.md).
+Nu dat u hoe u aangepaste regels en meldingen maakt weet, wordt de voorgestelde volgende stap is te leren hoe u [uitbreiden Azure IoT Central met aangepaste analytics](howto-create-custom-analytics.md).

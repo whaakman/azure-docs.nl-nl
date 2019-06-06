@@ -3,7 +3,7 @@ title: Identiteit en toegang bewaken in Azure Security Center | Microsoft Docs
 description: Lees hoe u de functies voor identiteit en toegang in Azure Security Center gebruikt om problemen met de toegang en identiteit van uw gebruikers te bewaken.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 05/30/2018
+ms.author: monhaber
+ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389477"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428415"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
@@ -42,7 +42,6 @@ Door identiteitsactiviteiten te bewaken, kunt u proactieve maatregelen treffen v
 > [!NOTE]
 > Als uw abonnement meer dan 600 accounts heeft, kan Security Center om uit te voeren van de identiteit aanbevelingen op basis van uw abonnement. Aanbevelingen die niet worden uitgevoerd, worden vermeld onder 'niet-beschikbare evaluaties' Dit wordt hieronder beschreven.
 Security Center is niet de identiteit aanbevelingen uitvoeren in een Cloud Solution Provider (CSP)-partner admin agents.
->
 >
 
 Zie [aanbevelingen](security-center-identity-access.md#recommendations) voor een lijst van de aanbevelingen voor identiteits- en toegangsbeheer die door Security Center.
@@ -111,23 +110,20 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 
 |Resourcetype|Beveiligingsscore|Aanbeveling|Description|
 |----|----|----|----|
-|Abonnement|50|MFA inschakelen voor de App voor Azure-accounts met eigenaarsmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met administrator-bevoegdheden om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
-|Abonnement|50|Security center voor uw abonnementen inschakelen |Security center op al uw abonnementen voor geavanceerde detectie van bedreigingen, JIT, opname in de whitelist en geavanceerde aanbevelingen inschakelen |
-|Abonnement|50|Security center standard-laag van uw abonnementen inschakelen |Security center Standard-laag op al uw abonnementen voor geavanceerde detectie van bedreigingen, JIT, opname in de whitelist en geavanceerde aanbevelingen inschakelen.|
-|Abonnement|40|MFA inschakelen voor de App voor Azure-accounts met schrijfmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
-|Abonnement|30|Externe accounts met eigenaarsmachtigingen van uw abonnement verwijderen|Externe accounts met eigenaarsmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
-|Abonnement|30|MFA inschakelen voor de App voor Azure-accounts met leesmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
-|Abonnement|25|Externe accounts met schrijfmachtigingen verwijderen van uw abonnement|Externe accounts met schrijfmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
-|Abonnement|20|Afgeschafte accounts met eigenaarsmachtigingen van uw abonnement verwijderen|Afgeschafte accounts met eigenaarsmachtigingen verwijderen van uw abonnementen. Afgeschafte accounts zijn de accounts voor die aanmelding is geblokkeerd in Azure AD.|
-|Abonnement|5|Afgeschafte accounts verwijderen van uw abonnement|Afgeschafte accounts verwijderen van uw abonnementen voor toegang tot alleen actieve gebruikers. Afgeschafte accounts zijn de accounts voor die aanmelding is geblokkeerd in Azure AD.|
-|Abonnement|5|Meer dan één eigenaar van uw abonnement opgeven|Meer dan één abonnementseigenaar aanwijzen om de beheerder toegang redundantie.|
-|Abonnement|5|Maximaal 3 eigenaren voor uw abonnement opgeven|Minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar.|
-|Key Vault|5|Schakel diagnostische logboeken in Key Vault|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
-|Abonnement|15|Externe accounts met leesmachtigingen verwijderen van uw abonnement|Externe accounts met leesmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.|
-|Abonnement|1|Contactgegevens voor beveiliging verstrekken|Neem contact op met de beveiligingsgegevens voor al uw abonnementen bevatten. Contactgegevens is een e-mailadres en telefoonnummer getal. De informatie wordt gebruikt om contact met u als beveiligingsteam vindt dat uw resources zijn aangetast|
+|Abonnement|50|MFA moet worden ingeschakeld voor accounts met eigenaarsmachtigingen voor uw abonnement|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met administrator-bevoegdheden om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
+|Abonnement|40|MFA moet worden ingeschakeld voor uw abonnementsaccounts met schrijfmachtigingen|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
+|Abonnement|30|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd van uw abonnement|Externe accounts met eigenaarsmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.|
+|Abonnement|30|MFA moet worden ingeschakeld voor uw abonnementsaccounts met leesmachtigingen|Schakel multi-factor Authentication (MFA) voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd accounts of resources.|
+|Abonnement|25|Externe accounts met schrijven machtigingen moeten worden verwijderd van uw abonnement|Externe accounts met schrijfmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen. |
+|Abonnement|20|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement|Afgeschafte accounts met eigenaarsmachtigingen verwijderen van uw abonnementen.|
+|Abonnement|5|Afgeschafte accounts moeten worden verwijderd uit uw abonnement|Afgeschafte accounts verwijderen van uw abonnementen voor toegang tot alleen actieve gebruikers. |
+|Abonnement|5|Er moet meer dan één eigenaar toegewezen aan uw abonnement|Meer dan één abonnementseigenaar aanwijzen om de beheerder toegang redundantie.|
+|Abonnement|5|Maximaal 3 eigenaars moet worden aangeduid voor uw abonnement|Minder dan 3 abonnementseigenaren aanwijzen om te reduceren van de mogelijkheden voor inbreuk op een gecomprimeerde eigenaar.|
+|Key Vault|5|Diagnostische logboeken in Key Vault moeten worden ingeschakeld|Logboeken inschakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd. |
+|Abonnement|15|Externe accounts met leesmachtigingen moeten worden verwijderd van uw abonnement|Externe accounts met leesmachtigingen verwijderen uit uw abonnement om onbewaakte toegang te voorkomen.| 
 
-> ! [OPMERKING] Als u een beleid voor voorwaardelijke toegang die MFA vereist, maar stel uitsluitingen heeft gemaakt, de evaluatie van Security Center MFA aanbeveling rekening gehouden met het beleid voor niet-compatibel, omdat hij Hiermee sommige gebruikers zich aanmelden bij Azure zonder MFA.
->
+> [!NOTE]
+> Als u een beleid voor voorwaardelijke toegang die MFA vereist, maar stel uitsluitingen heeft gemaakt, de evaluatie van Security Center MFA aanbeveling rekening gehouden met het beleid voor niet-compatibel, omdat hij Hiermee sommige gebruikers zich aanmelden bij Azure zonder MFA.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende onderwerpen voor meer informatie over aanbevelingen die betrekking hebben op andere typen Azure-resources:

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602063"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479998"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -46,7 +46,7 @@ Maak het hoofddoel in overeenstemming met de volgende richtlijnen voor de groott
 - **Aanvullende schijfgrootte voor bewaarstation**: 1 TB
 - **CPU-kernen**: 4 kernen of meer
 
-De volgende ondersteunde Ubuntu-kernels worden ondersteund.
+De volgende Ubuntu-kernels worden ondersteund.
 
 
 |Kernel Series  |Ondersteuning voor maximaal  |
@@ -245,7 +245,7 @@ Gebruik de volgende stappen uit om te maken van een bewaarschijf:
 
     ![Multipath-ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatteer de schijf, en maak vervolgens een bestandssysteem op het nieuwe station: **mkfs.ext4 /dev/mapper/< multipath-id van de bewaarschijf >**.
+3. Formatteer de schijf, en maak vervolgens een bestandssysteem op het nieuwe station: **mkfs.ext4 /dev/mapper/< multipath-id van de bewaarschijf >** .
     
     ![Bestandssysteem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 

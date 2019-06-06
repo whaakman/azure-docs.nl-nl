@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709917"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475199"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabelen voor regels-engine van Azure CDN
 HTTP-variabelen bieden de mogelijkheid waarmee u HTTP-aanvraag en respons metagegevens kunt ophalen. Deze metagegevens kunt vervolgens worden gebruikt om een aanvraag of antwoord dynamisch wijzigen. Het gebruik van HTTP-variabelen is beperkt tot de volgende regels-engine-functies:
 
-- [Cache-sleutel opnieuw schrijven](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [Client-aanvraagheader wijzigen](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [Client-Reactieheader wijzigen](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [URL-omleiding](cdn-rules-engine-reference-features.md#url-redirect)
-- [Herschrijven van URL](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Cache-sleutel opnieuw schrijven](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [Client-aanvraagheader wijzigen](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [Client-Reactieheader wijzigen](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [URL-omleiding](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [Herschrijven van URL](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>Definities
 De volgende tabel beschrijft de ondersteunde HTTP-variabelen. Een lege waarde wordt geretourneerd wanneer GEO-metagegevens (bijvoorbeeld postcode) niet beschikbaar voor een bepaalde aanvraag is.
@@ -102,7 +102,7 @@ De scheidingstekens worden beschreven in de volgende tabel.
 | / | Een HTTP-variabele of een patroon begrenst. |
 | // | Zoeken en vervangen van alle exemplaren van het opgegeven patroon. |
 | /= | Zoeken, kopiëren en opnieuw schrijven van alle instanties van het opgegeven patroon. |
-| ,  | De waarde die is gekoppeld aan de variabele HTTP naar kleine letters geconverteerd. |
+| , | De waarde die is gekoppeld aan de variabele HTTP naar kleine letters geconverteerd. |
 | ^ | De waarde die is gekoppeld aan de HTTP-variabele in hoofdletters omzetten. |
 | ,, | Converteert alle exemplaren van het opgegeven teken in de waarde die is gekoppeld aan de variabele HTTP naar kleine letters. |
 | ^^ | Alle exemplaren van het opgegeven teken in de waarde die is gekoppeld aan de HTTP-variabele in hoofdletters worden geconverteerd. |
@@ -113,7 +113,7 @@ De volgende tabel beschrijft de omstandigheden waaronder de opgegeven tekst word
 | Voorwaarde | Description | Voorbeeld |
 | --------- | ----------- | --------|
 | Aanhalingstekens % symbool | Het percentagesymbool kan worden voorafgegaan door het gebruik van een backslash. <br />De Voorbeeldwaarde aan de rechterkant wordt beschouwd als een letterlijke waarde en niet als een HTTP-variabele.| \%{host} |
-| Onbekende variabelen | Een lege tekenreeks geretourneerd altijd voor onbekende variabelen. | % {unknownvariable} |
+| Onbekende variabelen | Een lege tekenreeks geretourneerd altijd voor onbekende variabelen. | %{unknown_variable} |
 | Ongeldige tekens of syntaxis | Variabelen die ongeldige tekens of syntaxis bevatten worden behandeld als letterlijke waarden. <br /><br /># 1 De opgegeven waarde bevat een ongeldig teken (bijvoorbeeld-). <br /><br />Voorbeeld #2: De opgegeven waarde bevat een dubbele set accolades. <br /><br />Voorbeeld #3: De opgegeven waarde is een sluitaccolade ontbreekt.<br /> | Voorbeeld #1: % {resp_user-agent} <br /><br />Voorbeeld #2: % {{host}} <br /><br />Voorbeeld #3: % {host |
 | De naam van variabele ontbreekt | Een NULL-waarde wordt altijd geretourneerd wanneer een variabele is niet opgegeven. | %{} |
 | Volgtekens | Tekens die doorlopen van een variabele worden behandeld als letterlijke waarden. <br />De Voorbeeldwaarde aan de rechterkant bevat een afsluitende accolade die zullen worden behandeld als een letterlijke waarde. | % {host}} |
@@ -127,9 +127,9 @@ De volgende tabel wordt beschreven hoe u een standaardwaarde definiëren.
 
 | Voorwaarde | Syntaxis | Voorbeeld | Description |
 | --------- | ------ | --------| ----------- |
-| Een header ingesteld op een standaardwaarde wanneer deze voldoet aan een van de volgende voorwaarden: <br /><br />-Koptekst ontbreekt <br /><br />-Header-waarde is ingesteld op NULL.| %{Variable:=Value} | %{http_referer:=unspecified} | De verwijzende koptekst wordt alleen worden ingesteld op *niet nader omschreven* wanneer het zich in ontbreekt of is ingesteld op NULL. Er is geen actie vindt plaats als deze eenmaal is ingesteld. |
-| Een header ingesteld op een standaardwaarde als deze ontbreekt. | %{Variable=Value} | %{http_referer=unspecified} | De verwijzende koptekst wordt alleen worden ingesteld op *niet nader omschreven* als deze ontbreekt. Er is geen actie vindt plaats als deze eenmaal is ingesteld. |
-| De header ingesteld op een standaardwaarde wanneer deze niet voldoet aan een van de volgende voorwaarden: <br /><br />-Ontbreekt<br /><br /> -Instellen op NULL. | % {Variabele: + waarde} | %{http_referer:+unspecified} | De verwijzende koptekst wordt alleen worden ingesteld op *niet nader omschreven* wanneer een waarde is toegewezen aan deze. Er is geen actie vindt plaats als deze ontbreekt of is ingesteld op NULL. |
+| Een header ingesteld op een standaardwaarde wanneer deze voldoet aan een van de volgende voorwaarden: <br /><br />-Koptekst ontbreekt <br /><br />-Header-waarde is ingesteld op NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | De verwijzende koptekst wordt alleen worden ingesteld op *niet nader omschreven* wanneer het zich in ontbreekt of is ingesteld op NULL. Er is geen actie vindt plaats als deze eenmaal is ingesteld. |
+| Een header ingesteld op een standaardwaarde als deze ontbreekt. | %{Variable=Value} | %{http_referrer=unspecified} | De verwijzende koptekst wordt alleen worden ingesteld op *niet nader omschreven* als deze ontbreekt. Er is geen actie vindt plaats als deze eenmaal is ingesteld. |
+| De header ingesteld op een standaardwaarde wanneer deze niet voldoet aan een van de volgende voorwaarden: <br /><br />-Ontbreekt<br /><br /> -Instellen op NULL. | % {Variabele: + waarde} | %{http_referrer:+unspecified} | De verwijzende koptekst wordt alleen worden ingesteld op *niet nader omschreven* wanneer een waarde is toegewezen aan deze. Er is geen actie vindt plaats als deze ontbreekt of is ingesteld op NULL. |
 
 ## <a name="manipulating-variables"></a>Variabelen bewerken
 Variabelen kunnen worden bewerkt in de volgende manieren:

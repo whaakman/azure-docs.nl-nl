@@ -2,18 +2,17 @@
 title: Gebruik Azure Monitor-logboeken voor het bewaken van Azure HDInsight-clusters
 description: Informatie over het gebruik van Azure Monitor-logboeken voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/03/2019
+ms.openlocfilehash: 16659a335ef6126e75f5a9a99784e71afa056bef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203681"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479260"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Gebruik Azure Monitor-logboeken voor het controleren van HDInsight-clusters
 
@@ -49,21 +48,15 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 In deze sectie configureert u een bestaand HDInsight Hadoop-cluster voor het gebruik van een Azure Log Analytics-werkruimte voor het bewaken van taken, logboeken voor foutopsporing, enz.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Uit de [Azure-portal](https://portal.azure.com/), selecteert u uw cluster.  Zie [clusters tonen en vermelden](./hdinsight-administer-use-portal-linux.md#showClusters) voor instructies. Het cluster wordt in een nieuwe portal-pagina geopend.
 
-2. Selecteer in het menu links **alle services**.
+1. Aan de linkerkant, onder **bewaking**, selecteer **Operations Management Suite**.
 
-3. Onder **ANALYTICS**, selecteer **HDInsight-clusters**.
+1. In de hoofdweergave onder **OMS-controle**, selecteer **inschakelen**.
 
-4. Selecteer uw cluster in de lijst.
+1. Uit de **een werkruimte selecteren** vervolgkeuzelijst, selecteert u een bestaande Log Analytics-werkruimte.
 
-5. Aan de linkerkant, onder **bewaking**, selecteer **Operations Management Suite**.
-
-6. In de hoofdweergave onder **OMS-controle**, selecteer **inschakelen**.
-
-7. Uit de **een werkruimte selecteren** vervolgkeuzelijst, selecteert u een bestaande Log Analytics-werkruimte.
-
-8. Selecteer **Opslaan**.  Het duurt een paar minuten om op te slaan van de instelling.
+1. Selecteer **Opslaan**.  Het duurt een paar minuten om op te slaan van de instelling.
 
     ![Schakel de bewaking voor HDInsight-clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Schakel bewaking voor HDInsight-clusters")
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299185"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494349"
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
 
@@ -114,10 +114,10 @@ MP4-bestanden, waarin de audio die is gecodeerd met biedt ondersteuning voor dyn
     * DTS Express (dtse)
     * DTS-HD zonder verlies (geen core) (dtsl)
 
-### <a name="hls-support"></a>Ondersteuning voor HLS
+### <a name="multi-audio-tracks"></a>Alle audionummers
 
-Ondersteuning voor dynamische pakketten HLS (versie 4 of hoger) voor activa met meerdere met meerdere codecs en talen audiosporen.
-
+Bij het streamen van activa met meerdere met meerdere codecs en talen audiosporen, dynamische pakketten meerdere audionummers ondersteunt voor de uitvoer HLS (versie 4 of hoger).
+ 
 ### <a name="not-supported"></a>Niet ondersteund
 
 Bestanden met biedt geen ondersteuning voor dynamische pakketten [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (dit is een verouderde codec).

@@ -1,28 +1,28 @@
 ---
-title: 'Snelstart: Gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer'
-description: In deze snelstart leert u hoe u gegevens opneemt (laadt) in Azure Data Explorer met behulp van Node.js.
+title: Gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer
+description: In dit artikel leert u hoe u voor het opnemen van gegevens (laden) in Azure Data Explorer met behulp van Node.js.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/25/2018
-ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800424"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494481"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Snelstart: Gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Gegevens opnemen met behulp van de Node-bibliotheek voor Azure Data Explorer
 
-Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt twee clientbibliotheken voor Node: een [ingest library](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) en een [data library](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data) (beide Engelstalig). Met deze bibliotheken kunt u gegevens opnemen (laden) in een cluster en gegevens bevragen vanuit uw code. In deze snelstart maakt u eerst een tabel en gegevenstoewijzing in een testcluster. Vervolgens plaatst u op te nemen gegevens in de wachtrij en valideert u de resultaten.
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt twee clientbibliotheken voor Node: een [ingest library](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) en een [data library](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data) (beide Engelstalig). Met deze bibliotheken kunt u gegevens opnemen (laden) in een cluster en gegevens bevragen vanuit uw code. In dit artikel maakt u eerst een tabel en de gegevenstoewijzing van de in een testcluster. Vervolgens plaatst u op te nemen gegevens in de wachtrij en valideert u de resultaten.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Naast een Azure-abonnement hebt u het volgende nodig om deze snelstart te voltooien:
+Naast een Azure-abonnement moet u het volgende om te voltooien in dit artikel:
 
 * [Een cluster en database voor testdoeleinden](create-cluster-database-portal.md)
 
@@ -158,7 +158,7 @@ Voer de volgende opdracht uit om de status op te vragen van alle bewerkingen voo
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u onze andere snelstarts en zelfstudies wilt volgen, behoudt u de gemaakte resources. Voer anders de volgende opdracht uit in uw database om de tabel `StormEvents` op te schonen.
+Als u van plan bent om te volgen van onze andere artikelen, moet u de resources die u hebt gemaakt. Voer anders de volgende opdracht uit in uw database om de tabel `StormEvents` op te schonen.
 
 ```Kusto
 .drop table StormEvents
@@ -166,5 +166,4 @@ Als u onze andere snelstarts en zelfstudies wilt volgen, behoudt u de gemaakte r
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Query's schrijven](write-queries.md)
+* [Query's schrijven](write-queries.md)

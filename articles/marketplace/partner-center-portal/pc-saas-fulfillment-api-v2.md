@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ae477068e2413678d5dd755cb5a7334f85655c74
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 1aba0ab7083c437210166d2d5a2d77e7a657afe9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259252"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474581"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS vervulling API's versie 2 
 
@@ -774,26 +774,35 @@ De uitgever moet een webhook in deze SaaS-service om proactief te waarschuwen ge
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
+
 }
 ```
-
 Actie kan waar een van de volgende zijn: 
-- `Subscribe`  (Wanneer de resource is geactiveerd)
-- `Unsubscribe` (Wanneer de resource is verwijderd)
-- `ChangePlan` (Wanneer de wijziging plan-bewerking is voltooid)
-- `ChangeQuantity` (Wanneer de wijziging hoeveelheid-bewerking is voltooid)
-- `Suspend` (Wanneer de resource is onderbroken)
-- `Reinstate` (Als bron heeft is hersteld na onderbreking)
+- `Subscribe`, (Wanneer de resource is geactiveerd)
+- `Unsubscribe`, (Wanneer de resource is verwijderd)
+- `ChangePlan`, (Wanneer de wijziging plan-bewerking is voltooid)
+- `ChangeQuantity`, (Wanneer de wijziging hoeveelheid bewerking is voltooid),
+- `Suspend`, (Als bron is onderbroken)
+- `Reinstate`, (Als bron heeft is hersteld na onderbreking)
 
+Waar kan status van een van de volgende zijn: <br>
+        -Niet begonnen, <br>
+        -Wordt uitgevoerd, <br>
+        -Voltooid <br>
+        -Is mislukt, <br>
+        -Conflict <br>
+
+Bruikbare statussen zijn geslaagd en mislukt in een webhook-melding. Levenscyclus van een bewerking is van NotStarted naar een definitieve status heeft, zoals geslaagd/mislukt/Conflict. Als u niet gestart ontvangt of in behandeling is, ga dan naar de status opvragen via GET-bewerking API totdat de bewerking wordt een definitieve status bereikt voordat een actie wordt ondernomen. 
 
 ## <a name="mock-api"></a>Mock API
 

@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: d2312fac64515756f5ed2e0feb22fdc6b7205376
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125185"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735225"
 ---
-**Laatste update document**: 14 mei 2019 10:00 AM PST.
+**Laatste update document**: 4 juni 2019 3:00 uur PST.
 
 De vermelding van een [nieuwe klasse van CPU-beveiligingsproblemen](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) die bekend staat als speculatieve uitvoering van side-channel aanvallen heeft geresulteerd in vragen van klanten om meer duidelijkheid te zoeken.  
 
@@ -49,7 +49,7 @@ Tijdens een update van het besturingssysteem niet vereist is voor het isoleren v
 | Aanbieding | Aanbevolen actie  |
 |----------|---------------------|
 | Azure Cloud Services  | Schakel [automatische updates](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) of zorg ervoor dat u het nieuwste Gast-besturingssysteem worden uitgevoerd. |
-| Virtuele Linux-machines in Azure | Updates van de provider van uw besturingssysteem geïnstalleerd. Zie voor meer informatie, [Linux](#linux) verderop in dit document. |
+| Virtuele Azure Linux-Machines | Updates van de provider van uw besturingssysteem geïnstalleerd. Zie voor meer informatie, [Linux](#linux) verderop in dit document. |
 | Windows Azure virtuele Machines  | Installeer de meest recente updatepakket van beveiliging.
 | Andere Azure PaaS-Services | Er is geen actie nodig is voor klanten die gebruikmaken van deze services. Azure blijft automatisch uw versies van het besturingssysteem up-to-date. |
 
@@ -77,7 +77,7 @@ Als u niet-vertrouwde code uitvoert, kunt u aanvullende beveiligingsfuncties die
 Het beoogde besturingssysteem moet worden bijgewerkt zodat deze aanvullende beveiligingsfuncties. Hoewel talrijke speculatieve uitvoering kant kanaal oplossingen zijn standaard ingeschakeld, wordt de aanvullende functies die hier worden beschreven handmatig moeten zijn ingeschakeld en kunnen ertoe leiden dat een prestatie-impact. 
 
 
-**Stap 1: Hyperthreading is op de virtuele machine uitschakelen** - klanten die niet-vertrouwde code uitvoeren op een virtuele machine moet hyperthreading is uitgeschakeld of verplaatsen naar een niet-hyperthreaded VM-grootte hyperthreaded. Als u wilt controleren of uw virtuele machine hyperthreading is ingeschakeld heeft, raadpleegt u het onderstaande script met de Windows-opdrachtregel uit vanuit de virtuele machine.
+**Stap 1: Hyper-threading op de virtuele machine uitschakelen** -klanten die niet-vertrouwde code uitvoeren op een hyper-threaded VM moet uitschakelen hyper-threading of verplaatsen naar een niet-hyper-threaded VM-grootte. Naslaginformatie over [dit document](https://docs.microsoft.com/azure/virtual-machines/windows/acu) voor een overzicht van hyper-threaded VM-grootten (verhouding van vCPU Core is 2:1). Als u wilt controleren of uw virtuele machine hyper-threading ingeschakeld heeft, raadpleegt u het onderstaande script met de Windows-opdrachtregel uit vanuit de virtuele machine.
 
 Type `wmic` in te voeren van de interactieve interface. Typ vervolgens de onderstaande om weer te geven van de hoeveelheid fysieke en logische processors op de virtuele machine.
 
@@ -85,7 +85,7 @@ Type `wmic` in te voeren van de interactieve interface. Typ vervolgens de onders
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-Als het aantal logische processors groter is dan de fysieke processors (kernen), is hyperthreading is ingeschakeld.  Als u een hyperthreaded VM uitvoert, moet u [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) om op te halen hyperthreading is uitgeschakeld.  Als hyperthreading is uitgeschakeld, **ondersteuning moet een volledige VM opnieuw wordt opgestart**. 
+Als het aantal logische processors groter is dan de fysieke processors (kernen), is klikt u vervolgens hyperthreading ingeschakeld.  Als u een virtuele hyper-threaded machine uitvoert, moet u [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) ophalen-hyperthreading uitgeschakeld.  Als hyperthreading is uitgeschakeld, **ondersteuning moet een volledige VM opnieuw wordt opgestart**. Raadpleeg [aantal Core](#core-count) om te begrijpen waarom het aantal VM-kernen worden verlaagd.
 
 
 **Stap 2**: Volg de instructies in parallel aan stap 1, [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om te controleren of beveiliging zijn ingeschakeld met behulp van de [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell-module.
@@ -123,14 +123,14 @@ Als de uitvoer ziet u `MDS mitigation is enabled: False`, meldt [Neem contact op
 <a name="linux"></a>Het inschakelen van de reeks aanvullende beveiligingsfuncties in is vereist dat het gebruikte besturingssysteem volledig up-to-date zijn. Sommige oplossingen wordt standaard ingeschakeld. De volgende sectie beschrijft de functies die uitgeschakeld, standaard en/of vertrouwen op hardware-ondersteuning (microcode zijn). Inschakelen van deze functies mogelijk invloed op de prestaties. Verwijzen naar de documentatie van de provider van uw besturingssysteem voor verdere instructies
 
 
-**Stap 1: Hyperthreading is op de virtuele machine uitschakelen** - klanten die niet-vertrouwde code uitvoeren op een virtuele machine moet hyperthreading is uitgeschakeld of verplaatsen naar de virtuele machine een niet-hyperthreaded hyperthreaded.  Uitvoeren als u wilt controleren of u een hyperthreaded VM wordt uitgevoerd, de `lscpu` opdracht in de Linux-VM. 
+**Stap 1: Hyper-threading op de virtuele machine uitschakelen** -klanten die niet-vertrouwde code uitvoeren op een hyper-threaded VM moet uitschakelen hyper-threading of verplaatsen naar een niet-hyper-threaded-virtuele machine.  Naslaginformatie over [dit document](https://docs.microsoft.com/azure/virtual-machines/linux/acu) voor een overzicht van hyper-threaded VM-grootten (verhouding van vCPU Core is 2:1). Als u wilt controleren of u een virtuele hyper-threaded machine wordt uitgevoerd, voer de `lscpu` opdracht in de Linux-VM. 
 
-Als `Thread(s) per core = 2`, en vervolgens hyperthreading is ingeschakeld. 
+Als `Thread(s) per core = 2`, klikt u vervolgens hyperthreading is ingeschakeld. 
 
-Als `Thread(s) per core = 1`, en vervolgens hyperthreading is uitgeschakeld. 
+Als `Thread(s) per core = 1`, klikt u vervolgens hyperthreading is uitgeschakeld. 
 
  
-Voorbeeld van uitvoer voor een virtuele machine waarop hyperthreading is ingeschakeld: 
+Voorbeeld van uitvoer voor een virtuele machine met hyper-threading ingeschakeld: 
 
 ```console
 CPU Architecture:      x86_64
@@ -145,7 +145,8 @@ NUMA node(s):          1
 
 ```
 
-Als u een hyperthreaded VM uitvoert, moet u [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) om op te halen hyperthreading is uitgeschakeld.  Als hyperthreading is uitgeschakeld, **ondersteuning moet een volledige VM opnieuw wordt opgestart**.
+Als u een virtuele hyper-threaded machine uitvoert, moet u [Neem contact op met ondersteuning voor Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) ophalen-hyperthreading uitgeschakeld.  Als hyperthreading is uitgeschakeld, **ondersteuning moet een volledige VM opnieuw wordt opgestart**. Raadpleeg [aantal Core](#core-count) om te begrijpen waarom het aantal VM-kernen worden verlaagd.
+
 
 
 **Stap 2**: Bescherming tegen een van de onderstaande speculatieve uitvoering van side-channel beveiligingsproblemen, raadpleegt u de documentatie van de provider van uw besturingssysteem:   
@@ -153,6 +154,11 @@ Als u een hyperthreaded VM uitvoert, moet u [Neem contact op met ondersteuning v
 - [RedHat en CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### <a name="core-count"></a>Aantal kernen
+
+Wanneer een virtuele hyper-threaded machine wordt gemaakt, Azure toewijst 2 threads per kern - deze vcpu's worden genoemd. Wanneer hyper-threading is uitgeschakeld, wordt in Azure een thread en oppervlakken van één threaded kernen (fysieke kernen) verwijderd. De verhouding van vCPU aan CPU 2:1 is, dus eenmaal hyperthreading is uitgeschakeld, de CPU tellen in de virtuele machine wordt weergegeven met de helft is verminderd. Een VM D8_v3 is bijvoorbeeld een hyper-threaded VM wordt uitgevoerd op 8 vcpu's (2 threads per core x 4 cores).  Als hyperthreading is uitgeschakeld, doorlaat CPU's op 4 fysieke kernen met 1 thread per kern. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

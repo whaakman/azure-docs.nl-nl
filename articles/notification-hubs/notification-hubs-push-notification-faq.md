@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925869"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730451"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 
@@ -56,7 +56,7 @@ Voor de lagen Basic en Standard Notification Hubs kunnen correct geconfigureerde
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hoe ik upgraden en downgraden van mijn hub of de naamruimte naar een andere laag?
 
-Ga naar de  **[Azure Portal]** > **Notification Hubs-naamruimten** of **Notification Hubs**. Selecteer de resource die u wilt bijwerken, en Ga naar **prijscategorie**. Houd rekening met de volgende vereisten:
+Ga naar de  **[Azure Portal]**  > **Notification Hubs-naamruimten** of **Notification Hubs**. Selecteer de resource die u wilt bijwerken, en Ga naar **prijscategorie**. Houd rekening met de volgende vereisten:
 
 * De bijgewerkte prijscategorie is van toepassing op *alle* hubs in de naamruimte die u samenwerkt.
 * Als het aantal apparaten de limiet van de laag die u overschrijdt naar downgraden wilt, moet u de apparaten verwijderen voordat u downgraden.
@@ -69,17 +69,17 @@ Server SDK's zijn beschikbaar voor .NET, Java, Node.js, PHP en Python. Notificat
 
 ### <a name="which-client-platforms-do-you-support"></a>Welke clientplatforms ondersteund?
 
-Pushmeldingen worden ondersteund voor [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via de Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) en Android, [Chrome-Apps](notification-hubs-chrome-push-notifications-get-started.md), en [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Voor meer informatie gaat u naar de [Notification Hubs aan de slag-zelfstudies] pagina.
+Pushmeldingen worden ondersteund voor [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via de Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) en Android, en [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Voor meer informatie gaat u naar de [Notification Hubs aan de slag-zelfstudies] pagina.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Ondersteund SMS-bericht, e-mail of web meldingen?
 
 Notification Hubs is met name bedoeld voor het verzenden van meldingen voor mobiele apps. Biedt geen e-mailadres of tekst zijn. Echter platforms van derden die deze mogelijkheden kunnen worden geïntegreerd met Notification Hubs voor het verzenden van native pushmeldingen met behulp van [Mobile Apps].
 
-Notification Hubs beschikt niet over een in de browser push notification service voor de levering buiten het vak. Klanten kunnen deze functie met SignalR boven op de ondersteunde platforms voor serverzijde implementeren. Als u wilt voor het verzenden van meldingen in de sandbox Chrome-browser-Apps, Zie de [Zelfstudie voor chrome-Apps].
+Notification Hubs beschikt niet over een in de browser push notification service voor de levering buiten het vak. Klanten kunnen deze functie met SignalR boven op de ondersteunde platforms voor serverzijde implementeren. 
 
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Hoe worden Mobile Apps en Azure Notification Hubs die betrekking hebben en wanneer gebruik ik deze?
 
-Als u een bestaande back-end mobiele apps hebt en u wilt toevoegen, alleen de mogelijkheid om pushmeldingen te verzenden, kunt u Azure Notification Hubs. Als u instellen van de back-end van uw mobiele app helemaal wilt, kunt u overwegen de functie Mobile Apps van Azure App Service. Een mobiele app wordt automatisch een notification hub inricht, zodat u eenvoudig pushmeldingen vanuit de mobiele back-end verzenden kunt. Prijzen voor Mobile Apps bevat de basiskosten in rekening gebracht voor een notification hub. U betaalt alleen wanneer u de opgenomen pushes overschrijdt. Voor meer informatie over kosten, gaat u naar de [App Service-prijzen] pagina.
+Als u een bestaande back-end mobiele apps hebt en u wilt toevoegen, alleen de mogelijkheid om pushmeldingen te verzenden, kunt u Azure Notification Hubs. Als u instellen van de back-end van uw mobiele app helemaal wilt, kunt u overwegen de functie Mobile Apps van Azure App Service. Een mobiele app wordt automatisch een notification hub inricht, zodat u eenvoudig pushmeldingen vanuit de mobiele back-end verzenden kunt. Prijzen voor Mobile Apps bevat de basiskosten in rekening gebracht voor een notification hub. U betaalt alleen wanneer u de opgenomen pushes overschrijdt. Voor meer informatie over kosten, gaat u naar de [Prijzen van app-services] pagina.
 
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Het aantal apparaten kan ik ondersteuning als ik pushmeldingen via Notification Hubs verzenden?
 
@@ -210,7 +210,6 @@ U kunt ook programmatisch toegang tot metrische gegevens. Raadpleeg voor meer in
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST-API 's]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs aan de slag-zelfstudies]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Zelfstudie voor chrome-Apps]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Registratie van de back-end-richtlijnen]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Richtlijnen voor back-end-registratie 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
@@ -222,4 +221,4 @@ U kunt ook programmatisch toegang tot metrische gegevens. Raadpleeg voor meer in
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
-[App Service-prijzen]: https://azure.microsoft.com/pricing/details/app-service/
+[Prijzen van app-services]: https://azure.microsoft.com/pricing/details/app-service/

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 63630f5c4799e9272601f431671abc78ec86a238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622359"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428227"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Een Node.js-toepassing hosten in Azure Service Fabric
 
@@ -27,7 +27,7 @@ In deze snelstartgids wordt uitgelegd hoe u een bestaande toepassing (Node.js in
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started.md). Dit omvat het installeren van de Service Fabric SDK en Visual Studio 2017 of 2015.
+Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started.md). Dit omvat het installeren van de Service Fabric SDK en Visual Studio 2019 of 2015.
 
 U moet ook beschikken over een bestaande Node.js-toepassing voor implementatie. Deze snelstartgids maakt gebruik van een eenvoudige Node.js-website die [hier][download-sample] kan worden gedownload. Pak dit bestand uit in de map `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` nadat u het project in de volgende stap hebt gemaakt.
 
@@ -66,7 +66,7 @@ Druk op **OK**.
 
 Visual Studio maakt het toepassingsproject en het actorserviceproject en geeft deze weer in Solution Explorer.
 
-Het toepassingsproject (**MyGuestApp**) bevat geen directe code. Het verwijst naar een reeks serviceprojecten. Daarnaast bevat het project drie andere typen inhoud:
+Het toepassingsproject (**MyGuestApp**) bevat geen code rechtstreeks. Het project verwijst naar een reeks serviceprojecten. Het bevat ook drie andere typen inhoud:
 
 * **Profielen publiceren**  
 Hulpprogrammavoorkeuren voor verschillende omgevingen.
@@ -83,7 +83,7 @@ Zie [Aan de slag met Reliable Services](service-fabric-reliable-services-quick-s
 
 De voorbeeld-Node.js-app die we implementeren gebruikt poort **80** en we moeten Service Fabric doorgeven dat deze poort open moet zijn.
 
-Open het bestand **ServiceManifest.xml** in het project. Onder aan het manifest is er een `<Resources> \ <Endpoints>` met een vermelding die al is gedefinieerd. Wijzig deze vermelding om `Port`, `Protocol` en `Type` toe te voegen. 
+Open het bestand **ServiceManifest.xml** in het project. Aan de onderkant van het manifest, er is een `<Resources> \ <Endpoints>` met een vermelding die al gedefinieerd. Wijzig deze vermelding om `Port`, `Protocol` en `Type` toe te voegen. 
 
 ```xml
   <Resources>
@@ -98,7 +98,7 @@ Open het bestand **ServiceManifest.xml** in het project. Onder aan het manifest 
 
 ## <a name="deploy-to-azure"></a>Implementeren in Azure
 
-Als u op **F5** drukt en het project uitvoert, is dit al geïmplementeerd in het lokale cluster. Echter, we gaan in plaats daarvan implementeren in Azure.
+Als u druk op **F5** en voer het project, dit wordt geïmplementeerd voor het lokale cluster. Echter, we gaan in plaats daarvan implementeren in Azure.
 
 Klik met de rechtermuisknop op het project en kies **Publiceren...** Er wordt een dialoogvenster geopend waarin u kunt aangeven dat u naar Azure wilt publiceren.
 
@@ -108,13 +108,13 @@ Selecteer het doelprofiel **PublishProfiles\Cloud.xml**.
 
 Kies een Azure-account waarnaar u wilt implementeren als u dit nog niet hebt gedaan. Als u er nog geen hebt, [meldt u zich er voor een aan][create-account].
 
-Selecteer onder **Verbindingseindpunt** het Service Fabric-cluster waarin u wilt implementeren. Als u er geen hebt, selecteert u  **&lt;Nieuw cluster maken... &gt;**. Er wordt dan een browservenster naar Azure Portal geopend. Zie [Een cluster maken in de portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) voor meer informatie. 
+Selecteer onder **Verbindingseindpunt** het Service Fabric-cluster waarin u wilt implementeren. Als u niet hebt, selecteert u **&lt;nieuw Cluster maken... &gt;** waarmee u opent een browservenster naar de Azure-portal. Zie [Een cluster maken in de portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) voor meer informatie. 
 
 Wanneer u de Service Fabric-cluster maakt, zorg er dan voor dat u de **Aangepaste eindpunten** instelt op **80**.
 
 ![Service Fabric-knooppuntconfiguratie met aangepast eindpunt][custom-endpoint]
 
-Het maken van een nieuw Service Fabric-cluster neemt enige tijd in beslag. Zodra dit is gemaakt, gaat u terug naar het dialoogvenster Publiceren en selecteert u **&lt;Vernieuwen&gt;**. Het nieuwe cluster wordt vermeld in de vervolgkeuzelijst; selecteer het.
+Het maken van een nieuw Service Fabric-cluster neemt enige tijd in beslag. Zodra dit is gemaakt, gaat u terug naar het dialoogvenster Publiceren en selecteert u **&lt;Vernieuwen&gt;** . Het nieuwe cluster wordt vermeld in de vervolgkeuzelijst; selecteer het.
 
 Druk op **Publiceren** en wacht tot de implementatie is voltooid.
 
@@ -130,11 +130,11 @@ Controleer de overzichtsblade van het serviceadres. Gebruik de domeinnaam van de
 
 ![Overzichtsblade van Service Fabric in Azure Portal][overview]
 
-Navigeer naar dit adres, waar u de reactie `HELLO WORLD` ziet.
+Navigeer naar dit adres u ziet, de `HELLO WORLD` antwoord.
 
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
-Vergeet niet alle resources die u hebt gemaakt voor deze snelstartgids te verwijderen, aangezien er kosten in rekening worden gebracht voor die resources.
+Vergeet niet alle resources die u hebt gemaakt voor deze snelstartgids verwijderen als u kosten in voor deze resources gebracht rekening.
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over [door gast uitvoerbare bestanden](service-fabric-guest-executables-introduction.md).

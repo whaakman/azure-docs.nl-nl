@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709323"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479221"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Kritieke-bedrijfslaag - Azure SQL Database
 
@@ -49,6 +49,7 @@ Zakelijke kritieke-laag is ontworpen voor de toepassingen waarvoor lage latentie
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- Resource-kenmerken (aantal kernen, i/o, geheugen) van de laag bedrijfskritiek in [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), één database in [vCore-model](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) of [DTU-model](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), of elastische een pool [vCore-model](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) en [DTU-model](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Meer informatie over [algemeen](sql-database-service-tier-general-purpose.md) en [grootschalige](sql-database-service-tier-hyperscale.md) lagen.
 - Meer informatie over [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Zie voor meer opties voor hoge beschikbaarheid en herstel na noodgevallen [bedrijfscontinuïteit](sql-database-business-continuity.md).

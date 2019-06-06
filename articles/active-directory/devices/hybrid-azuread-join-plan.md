@@ -17,16 +17,16 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 64dd8067654246f7c9a077d027c068df820f439d
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190496"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688697"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedure: Uw hybride Azure Active Directory join-implementatie plannen
 
-Net zoals een gebruiker, wordt een apparaat ook een identiteit die u wilt beschermen en die u wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen met een van de volgende methoden:
+Een apparaat is op een soortgelijke manier aan een gebruiker een andere core-identiteit die u wilt beveiligen en gebruiken om uw resources beveiligen op elk gewenst moment en vanaf elke locatie. U kunt dit doel te bereiken door te halen en het beheren van apparaat-id's in Azure AD met behulp van een van de volgende methoden:
 
 - Azure AD-koppeling
 - Hybride Azure AD-koppeling
@@ -34,11 +34,11 @@ Net zoals een gebruiker, wordt een apparaat ook een identiteit die u wilt besche
 
 Door uw apparaten naar Azure AD te brengen, optimaliseert u de productiviteit van uw gebruikers via eenmalige aanmelding (SSO) bij al uw on-premises bronnen en cloudbronnen. Tegelijk kunt u de toegang tot uw on-premises bronnen en cloudbronnen beveiligen met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
 
-Als u een on-premises Active Directory-omgeving hebt en u uw domein-gekoppelde apparaten aan Azure AD wilt koppelen, kunt u dit doen door hybride Azure AD-gekoppelde apparaten te configureren. Dit artikel vindt u met de bijbehorende stappen voor het implementeren van een hybride Azure AD join in uw omgeving. 
+Als u een on-premises Active Directory (AD)-omgeving hebt en u wilt dat uw AD-domein computers toevoegen aan Azure AD, kunt u dit doen met hybride Azure AD join uitvoeren. Dit artikel vindt u met de bijbehorende stappen voor het implementeren van een hybride Azure AD join in uw omgeving. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-In dit artikel wordt ervan uitgegaan dat u bekend met bent de [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md).
+In dit artikel wordt ervan uitgegaan dat u bekend met bent de [Inleiding tot identiteit Apparaatbeheer in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
 > De minimaal vereiste functionele domein en forest functionele niveaus voor Windows 10 hybride Azure AD join Windows Server 2008 R2 is.
@@ -51,8 +51,9 @@ Als u wilt uw hybride Azure AD-implementatie te plannen, moet u vertrouwd raken 
 | --- | --- |
 | ![Selecteren][1] | Apparaten controleren die worden ondersteund |
 | ![Selecteren][1] | Lees wat die u moet weten |
-| ![Selecteren][1] | Lees hoe u de hybride Azure AD join van uw apparaten beheren |
-| ![Selecteren][1] | Selecteer uw scenario |
+| ![Selecteren][1] | Gecontroleerde validatie van hybride Azure AD join controleren |
+| ![Selecteren][1] | Selecteer uw scenario op basis van uw infrastructuur voor identiteiten |
+| ![Selecteren][1] | Beoordeling on-premises AD UPN-ondersteuning voor hybride Azure AD join |
 
 ## <a name="review-supported-devices"></a>Apparaten controleren die worden ondersteund
 
@@ -64,12 +65,12 @@ Hybride Azure AD join ondersteunt een breed bereik van de Windows-apparaten. Omd
 - Windows Server 2016
 - Windows Server 2019
 
-Voor apparaten met het besturingssysteem voor Windows-bureaublad, de ondersteunde versie is de Windows 10 Jubileumupdate (versie 1607) of hoger. Als een best practice, een upgrade uitvoeren naar de nieuwste versie van Windows 10.
+Voor apparaten met het besturingssysteem voor Windows-bureaublad, de ondersteunde versie worden vermeld in dit artikel [release-informatie voor Windows 10](https://docs.microsoft.com/windows/release-information/). Als een best practice raadt Microsoft dat u een upgrade uitvoert naar de nieuwste versie van Windows 10.
 
 ### <a name="windows-down-level-devices"></a>Windows downlevel-apparaten
 
 - Windows 8.1
-- Windows 7
+- Windows 7. Lees dit artikel voor meer informatie over Windows 7, [beëindigt de ondersteuning voor Windows 7](https://www.microsoft.com/en-us/windowsforbusiness/end-of-windows-7-support)
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2
@@ -78,61 +79,66 @@ U moet als eerste stap planning uw omgeving controleren en bepalen of u nodig he
 
 ## <a name="review-things-you-should-know"></a>Lees wat die u moet weten
 
-U kunt een hybride Azure AD join niet gebruiken als uw omgeving bestaat uit één forest die identiteitsgegevens in meer dan één Azure AD-tenant gesynchroniseerd.
+Hybride Azure AD join is momenteel niet ondersteund als uw omgeving bestaat uit één AD-forest synchroniseren van identiteitsgegevens met meer dan één Azure AD-tenant.
 
-Als u het hulpprogramma voor systeemvoorbereiding (Sysprep) zijn afhankelijk, zorg ervoor dat installatiekopieën die zijn gemaakt op basis van een installatie van Windows 10-1803 of eerder zijn niet geconfigureerd voor de hybride Azure AD join.
+Hybride Azure AD join is momenteel niet ondersteund bij het gebruik van virtuele desktopinfrastructuur (VDI).
 
-Als u al op de momentopname van een virtuele Machine (VM vertrouwen,) te maken van aanvullende virtuele machines, zorg er dan voor dat u een momentopname van een virtuele machine die niet is geconfigureerd voor de hybride Azure AD join.
+Hybrid Azure AD wordt niet ondersteund voor FIPS-compatibele TPM's. Als uw apparaten FIPS-compatibele TPM's hebt, moet u deze uitschakelen voordat u doorgaat met Hybrid Azure AD join. Microsoft biedt niet alle hulpprogramma's voor het uitschakelen van FIPS-modus voor TPM's, zoals dit afhankelijk van de TPM-fabrikant is. Neem contact op met uw OEM-hardware voor ondersteuning.
 
-Hybrid Azure AD join van Windows downlevel-apparaten:
+Hybride Azure AD join wordt niet ondersteund voor Windows Server met de rol van domeincontroller (DC).
 
-- **Is** ondersteund in omgevingen met niet-gefedereerde [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- **Is niet** ondersteund bij het gebruik van Azure AD Pass-through-verificatie zonder naadloze eenmalige aanmelding.
-- **Is niet** ondersteund bij gebruik van zwervende referenties of gebruikersprofiel voor roaming of bij het gebruik van virtuele desktopinfrastructuur (VDI).
+Hybride Azure AD join wordt niet ondersteund op Windows downlevel-apparaten bij het gebruik van zwervende referenties of gebruiker profiel roaming.
 
-De registratie van Windows Server met de rol van domeincontroller (DC) wordt niet ondersteund.
+Als u het hulpprogramma voor systeemvoorbereiding (Sysprep) zijn afhankelijk en als u een **vóór Windows 10 1809** installatiekopie voor de installatie, zorg ervoor dat de installatiekopie is niet van een apparaat dat is al geregistreerd bij Azure AD als Hybrid Azure AD join.
 
-Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers succesvol kunnen verifiëren bij de uitgaande proxy. Omdat Windows 10-computers apparaatregistratie uitvoeren via machinecontext, moet u verificatie van een uitgaande proxy configureren via machinecontext.
-
-Hybride Azure AD join is een proces naar uw on-premises domein apparaten automatisch wordt geregistreerd bij Azure AD. Er zijn gevallen waarin u niet wilt dat al uw apparaten automatisch te registreren. Als dit het geval is, raadpleegt u [over het beheren van de hybride Azure AD join van uw apparaten](hybrid-azuread-join-control.md).
+Als u al op de momentopname van een virtuele Machine (VM vertrouwen,) te maken van aanvullende virtuele machines, zorg er dan voor dat die momentopname is niet afkomstig van een virtuele machine die is al geregistreerd bij Azure AD als Hybrid Azure AD join.
 
 Als uw Windows 10 domein apparaten al zijn [geregistreerd bij Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) uw tenant, is het raadzaam deze status verwijderen voordat u Hybrid Azure AD join inschakelt. Van Windows 10 1809 release, zijn de volgende wijzigingen aangebracht om te voorkomen dat deze twee status:
 
 - Eventuele bestaande geregistreerd bij Azure AD-status zou worden automatisch verwijderd nadat het apparaat is toegevoegd aan Hybrid Azure AD.
 - U kunt voorkomen dat uw apparaat dat lid is domein wordt Azure AD geregistreerd door toe te voegen deze registersleutel - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001.
-- Deze wijziging is nu beschikbaar voor Windows 10-1803 release met KB4489894.
+- Deze wijziging is nu beschikbaar voor Windows 10-1803 release met KB4489894 toegepast. De gebruiker is echter vereist voor het re-setup Windows Hello voor bedrijven na de status van de dubbele opschonen hebt u Windows Hello voor bedrijven die zijn geconfigureerd.
 
-FIPS-compatibele TPM's worden niet ondersteund voor hybride Azure AD join. Als uw apparaten FIPS-compatibele TPM's hebt, moet u deze uitschakelen voordat u doorgaat met Hybrid Azure AD join. Microsoft biedt niet alle hulpprogramma's voor het uitschakelen van FIPS-modus voor TPM's, zoals dit afhankelijk van de TPM-fabrikant is. Neem contact op met uw OEM-hardware voor ondersteuning.
 
-## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Lees hoe u de hybride Azure AD join van uw apparaten beheren
+## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Gecontroleerde validatie van hybride Azure AD join controleren
 
-Hybride Azure AD join is een proces naar uw on-premises domein apparaten automatisch wordt geregistreerd bij Azure AD. Er zijn gevallen waarin u niet wilt dat al uw apparaten automatisch te registreren. Dit is voor voorbeeld true, wordt tijdens de initiële implementatie om te controleren of alles werkt zoals verwacht.
+Wanneer alle van de vereisten gemaakt zijn, wordt automatisch Windows-apparaten registreren als apparaten in uw Azure AD-tenant. De status van deze apparaat-id's in Azure AD wordt verwezen als hybride Azure AD join. Meer informatie over de concepten die in dit artikel vindt u in de artikelen [Inleiding tot identiteit Apparaatbeheer in Azure Active Directory](overview.md) en [uw hybride Azure Active Directory join plannen implementatie](hybrid-azuread-join-plan.md).
 
-Zie voor meer informatie, [de hybride Azure AD join van uw apparaten beheren](hybrid-azuread-join-control.md)
+Organisaties kunnen wilt een gecontroleerde validatie van hybride Azure AD join voordat u dit inschakelt in de hele organisatie in één keer te doen. Lees het artikel [beheerd validatie van hybride Azure AD join](hybrid-azuread-join-control.md) om te begrijpen hoe u deze uitvoert.
 
-## <a name="select-your-scenario"></a>Selecteer uw scenario
 
-U kunt lid worden van hybride Azure AD voor de volgende scenario's kunt configureren:
+## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selecteer uw scenario op basis van uw infrastructuur voor identiteiten
 
-- Beheerde domeinen
-- Federatieve domeinen  
+Hybride Azure AD join werkt met zowel beheerde als federatieve omgevingen.  
 
-Als uw omgeving heeft beheerde domeinen, ondersteunt hybride Azure AD join:
+### <a name="managed-environment"></a>Beheerde omgeving
 
-- Doorgeven van verificatie (PTA)
-- Synchronisatie van Wachtwoordhashes (WHS)
+Een beheerde omgeving kan worden geïmplementeerd via [wachtwoord hash-synchronisatie (WHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) of [doorgeven via verificatie (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) met [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
+
+Deze scenario's hoeft u niet een federatieserver voor verificatie te configureren.
+
+### <a name="federated-environment"></a>Federatieve omgeving
+
+Een federatieve omgeving moet beschikken over een id-provider die ondersteuning biedt voor de volgende vereisten:
+
+- **WS-Trust-protocol:** Dit protocol is vereist voor het verifiëren van Windows huidige hybride Azure AD gekoppelde apparaten met Azure AD.
+- **WIAORMULTIAUTHN claim:** Deze claim is vereist voor het doen van hybride Azure AD join voor Windows downlevel-apparaten.
+
+Hebt u een federatieve omgeving met behulp van Active Directory Federation Services (AD FS), worden al de bovenstaande vereisten ondersteund.
 
 > [!NOTE]
 > Azure AD biedt geen ondersteuning voor smartcards of certificaten in beheerde domeinen.
 
-Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-koppeling te configureren. Met de wizard kunt u het configuratieproces aanzienlijk vereenvoudigen. Zie voor meer informatie:
+Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-koppeling te configureren. Met de wizard kunt u het configuratieproces aanzienlijk vereenvoudigen. Als het installeren van de vereiste versie van Azure AD Connect kan niet worden gebruikt voor u, raadpleegt u [het handmatig configureren van device Registration service](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
-- [Hybride Azure Active Directory-deelname configureren voor federatieve domeinen](hybrid-azuread-join-federated-domains.md)
-- [Hybride Azure Active Directory-deelname configureren voor beheerde domeinen](hybrid-azuread-join-managed-domains.md)
+Op basis van het scenario dat overeenkomt met uw infrastructuur voor identiteiten, Zie:
 
- Als het installeren van de vereiste versie van Azure AD Connect kan niet worden gebruikt voor u, raadpleegt u [het handmatig configureren van device Registration service](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
+- [Lid worden van hybride Azure Active Directory voor federatieve omgeving configureren](hybrid-azuread-join-federated-domains.md)
+- [Lid worden van hybride Azure Active Directory voor beheerde omgeving configureren](hybrid-azuread-join-managed-domains.md)
 
-## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Ondersteuning voor on-premises AD UPN in hybride Azure AD join
+
+
+## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Beoordeling ondersteuning voor on-premises AD UPN voor Hybrid Azure AD join
 
 Soms, uw on-premises AD UPN's kunnen afwijken van uw Azure AD UPN's. In dergelijke gevallen, Windows 10 Hybrid Azure AD join geeft beperkte ondersteuning voor on-premises AD UPN's op basis van de [verificatiemethode](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domeintype en Windows 10-versie. Er zijn twee typen van on-premises AD UPN's die in uw omgeving optreden kunnen:
 
@@ -143,16 +149,16 @@ De volgende tabel biedt details over ondersteuning voor deze on-premises AD UPN'
 
 | Type van de on-premises AD UPN | Domeintype | Windows 10-versie | Description |
 | ----- | ----- | ----- | ----- |
-| Routeerbaar | Federatief | Vanaf versie 1703 | Algemeen beschikbaar |
-| Routeerbaar | Managed | Vanaf versie 1709 | Momenteel in private preview. Azure AD SSPR wordt niet ondersteund. |
-| Niet-routeerbare | Federatief | Vanaf versie 1803 | Algemeen beschikbaar |
+| Routeerbaar | Federatieve | Vanaf versie 1703 | Algemeen beschikbaar |
+| Niet-routeerbare | Federatieve | Vanaf versie 1803 | Algemeen beschikbaar |
+| Routeerbaar | Managed | Niet ondersteund | |
 | Niet-routeerbare | Managed | Niet ondersteund | |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Configure hybride Azure Active Directory join voor federatieve domeinen](hybrid-azuread-join-federated-domains.md)
-> [configureren hybride Azure Active Directory join voor beheerde domeinen](hybrid-azuread-join-managed-domains.md)
+> [Configure hybride Azure Active Directory join voor federatieve omgeving](hybrid-azuread-join-federated-domains.md)
+> [configureren hybride Azure Active Directory join voor beheerde omgeving](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

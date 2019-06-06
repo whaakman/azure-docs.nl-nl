@@ -11,19 +11,19 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66155249"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480427"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE-omgevingen die worden ondersteund door Azure Data Factory
 In dit artikel vindt u verschillende rekenomgevingen die u kunt gebruiken voor gegevens verwerken en transformeren. Het biedt ook meer informatie over de verschillende configuraties (op aanvraag en voeg uw eigen) ondersteund door Data Factory bij het configureren van gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
 
 De volgende tabel bevat een lijst met compute-omgevingen wordt ondersteund door Data Factory en de activiteiten die kunnen worden uitgevoerd op deze. 
 
-| Compute-omgeving                                          | activiteiten                                                   |
+| Compute-omgeving                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight-cluster](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Aangepaste](transform-data-using-dotnet-custom-activity.md)     |
@@ -485,15 +485,16 @@ U kunt maken **Azure Databricks gekoppelde service** Databricks-werkruimte die u
 
 | Eigenschap             | Description                              | Vereist                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| naam                 | Naam van de gekoppelde Service               | Ja   |
+| name                 | Naam van de gekoppelde Service               | Ja   |
 | type                 | De eigenschap type moet worden ingesteld op: **AzureDatabricks**. | Ja                                      |
-| domein               | Geef de Azure-regio dienovereenkomstig op basis van de regio van de Databricks-werkruimte. Voorbeeld: https://eastus.azuredatabricks.net | Ja                                 |
+| Domein               | Geef de Azure-regio dienovereenkomstig op basis van de regio van de Databricks-werkruimte. Voorbeeld: https://eastus.azuredatabricks.net | Ja                                 |
 | accessToken          | Het toegangstoken is vereist voor Data Factory om te verifiëren met Azure Databricks. Toegangstoken moet worden gegenereerd op basis van de databricks-werkruimte. Meer gedetailleerde stappen voor het vinden van het toegangstoken vindt [hier](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Ja                                       |
 | existingClusterId    | ID van een bestaand cluster alle taken uitvoeren op dit cluster. Dit moet een gemaakte interactieve-Cluster. Mogelijk moet u het cluster handmatig opnieuw starten als deze niet meer reageert. Databricks voorstellen uitgevoerde op nieuwe clusters voor een grotere betrouwbaarheid. U vindt de Cluster-ID van een interactieve-Cluster op Databricks-werkruimte ->-Clusters interactieve Clusternaam > -> configuratieserver -> Tags. [Meer informatie](https://docs.databricks.com/user-guide/clusters/tags.html) | Nee 
 | newClusterVersion    | De Spark-versie van het cluster. Er wordt een taakcluster maken in databricks. | Nee  |
 | newClusterNumOfWorker| Het aantal worker-knooppunten die dit cluster moet hebben. Een cluster heeft een Spark-stuurprogramma en num_workers Executor voor een totaal van num_workers + 1 knooppunten van Spark. Een tekenreeks opgemaakt Int32, zoals "1" betekent numOfWorker is 1 of '1:10 ' betekent dat automatisch schalen van 1 als min en 10 als max.  | Nee                |
 | newClusterNodeType   | Dit veld codeert via één waarde, de beschikbare resources voor elk van de Spark-knooppunten in dit cluster. Bijvoorbeeld, de Spark-knooppunten kunnen worden ingericht en geoptimaliseerd voor geheugen of berekenen van intensieve workloads dit veld is vereist voor het nieuwe cluster                | Nee               |
 | newClusterSparkConf  | een set van optionele, door de gebruiker opgegeven Spark configuratie sleutel / waarde-paren. Gebruikers kunnen ook doorgeven in een tekenreeks met extra JVM-opties voor het stuurprogramma en de Executor via spark.driver.extraJavaOptions en spark.executor.extraJavaOptions respectievelijk. | Nee  |
+| newClusterInitScripts| een set van de van de optionele, door de gebruiker gedefinieerde initialisatiescripts voor het nieuwe cluster. De DBFS-pad naar de init-scripts op te geven. | Nee  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Een gekoppelde Azure SQL Database-service

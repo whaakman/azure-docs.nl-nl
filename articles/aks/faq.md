@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6bfcd11dd6bfd31583fb2d0cd3f4229d3dd70065
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887362"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514493"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
@@ -66,7 +66,7 @@ Als u resources voor gebruik met uw AKS-cluster maakt, plaats zoals storage-acco
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Kan ik mijn eigen naam op voor de resourcegroep van de AKS-infrastructuur bieden?
 
-Ja. Standaard wordt de resourceprovider AKS automatisch een secundaire resourcegroep (zoals *MC_myResourceGroup_myAKSCluster_eastus*) tijdens de implementatie. U kunt uw eigen naam voor dit beheerde cluster opgeven om te voldoen aan het bedrijfsbeleid, (*MC_*) resourcegroep.
+Ja. Standaard wordt de resourceprovider AKS automatisch een secundaire resourcegroep (zoals *MC_myResourceGroup_myAKSCluster_eastus*) tijdens de implementatie. U kunt uw eigen naam voor dit beheerde cluster opgeven om te voldoen aan het bedrijfsbeleid, (*MC_* ) resourcegroep.
 
 Als u uw eigen Resourcegroepnaam, installeert de [aks-preview] [ aks-preview-cli] versie van de Azure CLI-extensie *0.3.2* of hoger. Wanneer u een AKS-cluster maakt met behulp van de [az aks maken] [ az-aks-create] opdracht, gebruikt u de *--knooppunt-resource-group* parameter en geef een naam voor de resourcegroep. Als u [u een Azure Resource Manager-sjabloon] [ aks-rm-template] voor het implementeren van een AKS-cluster, kunt u de naam van de resource met behulp van de *nodeResourceGroup* eigenschap.
 
@@ -120,7 +120,7 @@ In een service-level agreement (SLA) stemt de provider in met het betalen van de
 
 In AKS, stelt u de `maxPods` waarde wanneer u het cluster maakt met behulp van de Azure CLI en Azure Resource Manager-sjablonen. Echter Kubenet zowel Azure CNI vereist een *minimumwaarde* (gevalideerd tijdens de aanmaak):
 
-| Netwerk | Minimum | Maximum |
+| Netwerken | Minimum | Maximum |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
@@ -128,6 +128,10 @@ In AKS, stelt u de `maxPods` waarde wanneer u het cluster maakt met behulp van d
 Omdat AKS een beheerde service is, we implementeren en beheren-invoegtoepassingen en schillen als onderdeel van het cluster. In het verleden gebruikers kunnen definieert een `maxPods` waarde lager is dan de waarde die de beheerde schillen vereist om uit te voeren (bijvoorbeeld, 30). Het minimale aantal schillen in AKS nu worden berekend op basis van deze formule: ((maxPods of (maxPods * vm_count)) > beheerde invoegtoepassingen schillen minimum.
 
 De minimale kunnen gebruikers niet overschrijven `maxPods` validatie.
+
+## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Kan ik Azure-reservering kortingen toepassen op mijn agentknooppunten AKS?
+
+AKS-agent-knooppunten worden in rekening gebracht als standaard Azure virtual machines, dus als u hebt aangeschaft [Azure reserveringen] [ reservation-discounts] voor de VM-grootte die u in AKS gebruikt deze kortingen automatisch worden toegepast.
 
 <!-- LINKS - internal -->
 
@@ -145,6 +149,7 @@ De minimale kunnen gebruikers niet overschrijven `maxPods` validatie.
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 
 <!-- LINKS - external -->
 

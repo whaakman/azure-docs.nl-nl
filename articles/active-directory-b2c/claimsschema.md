@@ -2,20 +2,20 @@
 title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Geef het ClaimsSchema-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721742"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511852"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -48,12 +48,12 @@ De **ClaimType** element bevat het volgende kenmerk:
 
 De **ClaimType** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | De titel die wordt weergegeven voor gebruikers op verschillende schermen. De waarde kan zijn [gelokaliseerde](localization.md). |
 | Gegevenstype | 0:1 | Het type van de claim. De gegevenstypen van Booleaanse waarde, datum, datum/tijd, int, long, string, stringCollection, alternativeSecurityIdCollection kan worden gebruikt. |
 | DefaultPartnerClaimTypes | 0:1 | De standaardwaarde partner claim typen om te gebruiken voor een opgegeven protocol. De waarde kan worden overschreven de **PartnerClaimType** opgegeven in de **InputClaim** of **OutputClaim** elementen. Dit element gebruiken om op te geven van de standaardnaam voor een protocol.  |
-| Masker | 0:1 | Een optionele tekenreeks van het maskeren van tekens die kunnen worden toegepast bij het weergeven van de claim. Het aantal 324-232-4343 telefoon kan bijvoorbeeld als XXX-XXX-4343 worden gemaskeerd. |
+| masker | 0:1 | Een optionele tekenreeks van het maskeren van tekens die kunnen worden toegepast bij het weergeven van de claim. Het aantal 324-232-4343 telefoon kan bijvoorbeeld als XXX-XXX-4343 worden gemaskeerd. |
 | UserHelpText | 0:1 | Een beschrijving van het claimtype die handig is voor gebruikers om te begrijpen van het doel zijn. De waarde kan zijn [gelokaliseerde](localization.md). |
 | UserInputType | 0:1 | Het type besturingselement voor invoer die beschikbaar voor de gebruiker zijn moet bij het handmatig invoeren van de claimgegevens voor het claimtype. Zie de gebruiker invoertypen gedefinieerd verderop in deze pagina. |
 | Beperking | 0:1 | De beperkingen van de waarde voor deze claim, zoals een reguliere expressie (reguliere expressie) of een lijst met geldige waarden. De waarde kan zijn [gelokaliseerde](localization.md). |
@@ -63,7 +63,7 @@ PredicateValidationReference| 0:1 | Een verwijzing naar een **PredicateValidatio
 
 De **DefaultPartnerClaimTypes** mag het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | Protocol | 0: n | Lijst met protocollen met hun standaardpartner de naam van claim. |
 
@@ -100,7 +100,7 @@ Als gevolg hiervan de JWT-token dat is uitgegeven door Azure AD B2C, verzendt de
 }
 ```
 
-### <a name="mask"></a>Masker
+### <a name="mask"></a>masker
 
 De **masker** element bevat de volgende kenmerken:
 
@@ -150,7 +150,7 @@ De **beperking** element mag het volgende kenmerk:
 
 De **beperking** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | Opsomming | 1: n | De beschikbare opties in de gebruikersinterface voor de gebruiker selecteert voor een claim, zoals een waarde in een vervolgkeuzelijst. |
 | Patroon | 1:1 | De reguliere expressie te gebruiken. |
@@ -354,7 +354,7 @@ De **Readonly** type gebruikersinvoer wordt gebruikt voor een alleen-lezenveld o
 ```
 
 
-### <a name="paragraph"></a>Alinea
+### <a name="paragraph"></a>Lid
 
 De **alinea** type gebruikersinvoer wordt gebruikt voor een veld waarin de tekst wordt alleen in een alineatag. Bijvoorbeeld, &lt;p&gt;tekst&lt;/p&gt;.
 

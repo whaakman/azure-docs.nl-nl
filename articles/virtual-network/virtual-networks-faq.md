@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508409"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497110"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -180,17 +180,18 @@ Ja. Alle virtuele machines en Cloud Services-rolexemplaren die binnen een VNet z
 ## <a name="azure-services-that-connect-to-vnets"></a>Azure-services die verbinding met VNets maken
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Kan ik Azure App Service Web Apps met een VNet gebruiken?
-Ja. U kunt Web-Apps binnen een VNet met behulp van een as-omgeving (App Service Environment) implementeren. Als u een punt-naar-site-verbinding geconfigureerd voor uw VNet hebt, kunnen veilig alle Web-Apps verbinding maken en toegang tot bronnen in het VNet. Raadpleeg voor meer informatie de volgende artikelen:
+Ja. U kunt Web-Apps binnen een VNet met behulp van een as-omgeving (App Service Environment) implementeert, verbinding maken met de back-end van uw apps in uw VNets met VNet-integratie en het vergrendelen van het binnenkomende verkeer naar uw app service-eindpunten. Raadpleeg voor meer informatie de volgende artikelen:
 
+* [App Service-functies voor netwerkbeheer](../app-service/networking-features.md)
 * [Web-Apps maken in een App Service-omgeving](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Uw app integreren met een Azure-netwerk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Met behulp van VNet-integratie en hybride verbindingen met Web-Apps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [Beperkingen voor App Service-toegang](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Kan ik Cloud Services implementeren met web- en werkrollen (PaaS) in een VNet?
 Ja. (Optioneel) kunt u Cloud Services-rolexemplaren in vnet's implementeren. Om dit te doen, geeft u de VNet-naam en de rol/subnet-toewijzingen in de sectie netwerk configuratie van de configuratie van uw service. U hoeft niet een van de binaire bestanden bijwerken.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>Kan ik een virtuele Machine schaal ingesteld (VMSS) verbinden met een VNet?
-Ja. U moet een VMSS verbinding maken met een VNet.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>Kan ik een virtuele-machineschaalset met een VNet verbinden?
+Ja. U moet verbinding maken met een virtuele-machineschaalset met een VNet.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Er is dat een volledig overzicht van Azure-services dat ik resources uit in een VNet implementeren kan?
 Ja, voor meer informatie, Zie [integratie van virtuele netwerken voor Azure-services](virtual-network-for-azure-services.md).
@@ -219,7 +220,7 @@ Ja. Zie voor meer informatie, [overzicht van Azure Network Security](../security
 ## <a name="apis-schemas-and-tools"></a>API's, schema's en hulpprogramma 's
 
 ### <a name="can-i-manage-vnets-from-code"></a>Kan ik vnet's beheren vanuit code?
-Ja. U kunt de REST-API's gebruiken voor vnet's in de [Azure Resource Manager](/rest/api/virtual-network) en [klassieke (Service Management)](https://go.microsoft.com/fwlink/?LinkId=296833) implementatiemodellen.
+Ja. U kunt de REST-API's gebruiken voor vnet's in de [Azure Resource Manager](/rest/api/virtual-network) en [klassieke](https://go.microsoft.com/fwlink/?LinkId=296833) implementatiemodellen.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Is er ondersteuning voor hulpprogramma's voor VNets?
 Ja. Meer informatie over het gebruik van:
@@ -239,18 +240,18 @@ Ja. Wereldwijde VNet-peering, kunt u peer-VNets in verschillende regio's. Wereld
 Als de twee virtuele netwerken zich in verschillende regio's (wereldwijde VNet-Peering), kunt u geen verbinding maken met bronnen die gebruikmaken van de basisversie van Load Balancer. U kunt verbinding maken met bronnen die gebruikmaken van Standard Load Balancer.
 De volgende bronnen gebruiken Basic Load Balancers, wat betekent dat u aan hen kan niet communiceren via het wereldwijde VNet-Peering:
 - Virtuele machines achter de basisversie van Load Balancers
-- VM-Schaalsets met basisversie van Load Balancers 
-- Redis-cache 
+- Virtuele-machineschaalsets met de Basic Load Balancers 
+- Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
 - SQL MI
 - API Management
 - Active Directory Domain Services (ADDS)
 - Logic Apps
-- HD Insight
+- HDInsight
 -   Azure Batch
 - AKS
-- App Service Environment
+- App Service-omgeving
 
 U kunt verbinding maken met deze resource via ExpressRoute of VNet-naar-VNet via VNet-Gateways.
 
@@ -285,7 +286,7 @@ Nee. Transitieve peering wordt niet ondersteund. U moet het peer-VNetA en c. voo
 Nee. VNet-peering, lokaal of globaal, legt bandbreedtebeperkingen voor. Bandbreedte wordt alleen beperkt door de virtuele machine of de compute-resource.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Hoe kan ik VNet-Peering problemen oplossen?
-Hier volgt een [gids voor problemen oplossen] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) kunt u proberen.
+Hier volgt een [problemen oplossen handleiding](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) kunt u proberen.
 
 ## <a name="virtual-network-tap"></a>Virtual Network TAP
 

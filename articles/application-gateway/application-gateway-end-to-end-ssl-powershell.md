@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d9851f6b3e32d0c7ab0d7774458ba5bc4d9ba823
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786286"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729680"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>End-to-end SSL configureren met behulp van Application Gateway met PowerShell
 
@@ -44,7 +44,7 @@ In dit scenario wordt:
 
 Voor het end-to-end SSL configureren met een application gateway, een certificaat is vereist voor de gateway en certificaten zijn vereist voor de back-endservers. Het gatewaycertificaat wordt gebruikt voor het afleiden van een symmetrische sleutel volgens de specificatie van de SSL-protocol. De symmetrische sleutel wordt vervolgens gebruikt versleutelen en ontsleutelen van het verkeer dat wordt verzonden naar de gateway. Het gatewaycertificaat moet zich in Personal Information Exchange (PFX)-indeling. De bestandsindeling kunt u exporteert de persoonlijke sleutel die is vereist voor de toepassingsgateway om uit te voeren van de versleuteling en ontsleuteling van verkeer.
 
-Voor end-to-end SSL-versleuteling moet de back-end in de whitelist opgenomen met de application gateway. Upload het openbare certificaat van de back-endservers aan de toepassingsgateway. Het certificaat toe te voegen, zorgt u ervoor dat de application gateway communiceert alleen met bekende back-end-exemplaren. Dit verder beveiligt de end-to-end communicatie.
+Voor end-to-end SSL-versleuteling, moet de back-end expliciet zijn toegestaan door de toepassingsgateway. Upload het openbare certificaat van de back-endservers aan de toepassingsgateway. Het certificaat toe te voegen, zorgt u ervoor dat de application gateway communiceert alleen met bekende back-end-exemplaren. Dit verder beveiligt de end-to-end communicatie.
 
 Het configuratieproces wordt beschreven in de volgende secties.
 
@@ -170,7 +170,7 @@ Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Vo
    > Als u van hostheaders en Servernaamindicatie (SNI) op de back-end gebruikmaakt, is de opgehaalde openbare sleutel mogelijk niet de gewenste site aan welke verkeersstromen. Als u niet zeker bent, gaat u naar https://127.0.0.1/ op de back-endservers om te bevestigen welk certificaat wordt gebruikt voor de *standaard* SSL-binding. Gebruik de openbare sleutel van de aanvraag die in deze sectie. Als u van host-headers en SNI op HTTPS-bindingen gebruikmaakt en u geen ontvangt een reactie en een certificaat van de aanvraag van een handmatige browser aan https://127.0.0.1/ op de back-end-servers, moet u een standaard SSL-binding op deze instellen. Als u niet doet dit, mislukt de tests en de back-end is niet opgenomen in de whitelist.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]

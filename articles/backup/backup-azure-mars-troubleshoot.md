@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243439"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743144"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure Recovery Services (MARS)-Agent oplossen
 
@@ -82,7 +82,15 @@ Is het beter om u de onderstaande validatie, voordat u begint het oplossen van M
 Als de geplande back-ups niet automatisch ophalen geactiveerd terwijl er een handmatige back-ups zonder problemen werkt, probeert u de volgende acties:
 
 - Zorg ervoor dat Windows Server back-upschema niet in strijd is met Azure-bestanden en mappen back-upschema.
-- Ga naar **Configuratiescherm** > **Systeembeheer** > **Task Scheduler**. Vouw **Microsoft**, en selecteer **Online back-up**. Dubbelklik op **Microsoft OnlineBackup**, en Ga naar de **Triggers** tabblad. Zorg ervoor dat de status is ingesteld op **ingeschakeld**. Als dit niet, selecteer **bewerken**, en selecteer de **ingeschakeld** selectievakje in en klikt u op **OK**. Op de **algemene** tabblad, Ga naar **beveiligingsopties** en zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak een **SYSTEM** of **lokale De beheerdersgroep** op de server.
+
+- Zorg ervoor dat de status van de Online back-up is ingesteld op **inschakelen**. Om te controleren of het uitvoeren van de status van de hieronder:
+
+  - Ga naar **Configuratiescherm** > **Systeembeheer** > **Task Scheduler**.
+    - Vouw **Microsoft**, en selecteer **Online back-up**.
+  - Dubbelklik op **Microsoft OnlineBackup**, en Ga naar de **Triggers** tabblad.
+  - Controleer of als de status is ingesteld op **ingeschakeld**. Als dit niet, selecteer **bewerken**, en selecteer de **ingeschakeld** selectievakje in en klikt u op **OK**.
+
+- Zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak is **SYSTEM** of **lokale beheerdersgroep** op de server. Als u wilt controleren of het gebruikersaccount, gaat u naar de **algemene** tabblad en controleer de **beveiligingsopties**.
 
 - Zie als PowerShell 3.0 of hoger is geïnstalleerd op de server. Voer de volgende opdracht uit om te controleren of de PowerShell-versie, en controleer de *belangrijke* versienummer is gelijk aan of groter is dan 3.
 
@@ -98,6 +106,15 @@ Als de geplande back-ups niet automatisch ophalen geactiveerd terwijl er een han
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
+- Zorg ervoor dat de server opnieuw is opgestart na de installatie van de backup-agent
+
+- Zorg ervoor dat er geen ontbreekt of beschadigd **PowerShell** module **MSonlineBackup**. Wanneer er een bestand ontbreekt of is beschadigd, om op te lossen het probleem uitvoeren van de hieronder:
+
+  - Vanaf een andere computer (Windows 2008 R2), met de MARS-agent werkt goed, Kopieer de map MSOnlineBackup van *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* pad.
+  - Plak deze in de problematische machine in hetzelfde pad *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* .
+  - Als **MSOnlineBackup** map is al bestaat in de machine plakken/vervangen de inhoudsbestanden in het.
+
+
 > [!TIP]
 > Om ervoor te zorgen dat wijzigingen consequent worden toegepast, start u de server opnieuw na het uitvoeren van de bovenstaande stappen.
 
@@ -108,7 +125,7 @@ Azure Backup kan is niet het herstelvolume, zelfs na enkele minuten koppelen. Mo
 
 1.  Het annuleren lopende koppelen, als deze actief is geweest gedurende enkele minuten.
 
-2.  Zien als u op de nieuwste versie van de Backup-Agent. Om de versie van het, de **acties** deelvenster van de MARS-console, selecteer **over Microsoft Azure Recovery Services Agent**. Bevestig dat de **versie** getal gelijk is aan of hoger is dan de versie vermeld in [in dit artikel](https://go.microsoft.com/fwlink/?linkid=229525). U kunt de meest recente versie van downloaden [hier](https://go.microsoft.com/fwLink/?LinkID=288905).
+2.  Zien als u op de nieuwste versie van de Backup-Agent. Om de versie van het, de **acties** deelvenster van de MARS-console, selecteer **over Microsoft Azure Recovery Services Agent**. Bevestig dat de **versie** getal gelijk is aan of hoger is dan de versie vermeld in [in dit artikel](https://go.microsoft.com/fwlink/?linkid=229525). U kunt de nieuwste versie [hier](https://go.microsoft.com/fwLink/?LinkID=288905) downloaden.
 
 3.  Ga naar **Apparaatbeheer** > **opslagcontrollers**, en Ga naar **Microsoft iSCSI-Initiator**. Als u deze vinden kunt, gaat u verder met stap 7.
 

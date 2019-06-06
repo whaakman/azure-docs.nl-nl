@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385149"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688643"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -36,11 +36,18 @@ Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Se
 
 ## <a name="may-2019"></a>Mei 2019
 
-### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 en hoger-ondersteuning in dynamische verpakking 
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure Monitor-ondersteuning voor Media Services diagnostische logboeken en metrische gegevens
 
-HLS toegevoegd (versie 4 of hoger) in dynamische verpakking van activa met meerdere met meerdere codecs en talen audiosporen ondersteund.
+U kunt nu Azure Monitor gebruiken om telemetrie gegevens emmited door Media Services weer te geven.
 
-Zie voor meer informatie, [dynamische verpakking](dynamic-packaging-overview.md).
+* De diagnostische logboeken van Azure Monitor gebruiken om te controleren van aanvragen die worden verzonden door het eindpunt voor de levering van Media Services-sleutel. 
+* Metrische gegevens die door Media Services controleren [Streaming-eindpunten](streaming-endpoint-concept.md).   
+
+Zie voor meer informatie, [Media-Services controleren metrische gegevens en logboeken met diagnostische gegevens](media-services-metrics-diagnostic-logs.md).
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Ondersteuning voor meerdere audionummers in dynamische verpakking 
+
+Bij het streamen van activa met meerdere met meerdere codecs en -talen audiosporen [dynamische verpakking](dynamic-packaging-overview.md) ondersteunt nu meerdere audionummers voor de uitvoer HLS (versie 4 of hoger).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>Korea regionaal paar is geopend voor Media Services 
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2de945d2ef1d87b47ea81aac034916466d3c9bda
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258847"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735162"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Bericht enrichments voor IoT Hub apparaat-naar-cloud-berichten (preview)
 
@@ -49,6 +49,8 @@ De berichten kunnen afkomstig zijn van een gegevensbron wordt ondersteund door [
 
 U kunt enrichments toevoegen aan de berichten die naar het ingebouwde eindpunt van een IoT-Hub of berichten die worden doorgestuurd naar aangepaste eindpunten, zoals Azure Blob storage, een Service Bus-wachtrij of een Service Bus-onderwerp.
 
+U kunt ook enrichments toevoegen op berichten die worden gepubliceerd naar Event Grid door te selecteren van het eindpunt als Event Grid. Zie voor meer informatie, [Iot-Hub en Event Grid](iot-hub-event-grid.md).
+
 Enrichments worden toegepast per eindpunt. Als u vijf enrichments om te worden geautoriseerd voor een bepaald eindpunt opgeeft, worden alle berichten die naar dit eindpunt met de dezelfde vijf enrichments stempel.
 
 Zie voor meer informatie over voor het uitproberen van bericht enrichments, de [bericht enrichments zelfstudie](tutorial-message-enrichments.md)
@@ -75,7 +77,7 @@ Bericht enrichments zijn beschikbaar voor zonder extra kosten. Op dit moment in 
 
 ## <a name="availability"></a>Beschikbaarheid
 
-Deze mogelijkheid is beschikbaar in preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/).
+Deze mogelijkheid is beschikbaar in preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china/china-welcome), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

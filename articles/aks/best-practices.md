@@ -2,18 +2,17 @@
 title: Aanbevolen procedures voor Azure Kubernetes Service (AKS)
 description: Verzameling van de cluster-operator en developer best practices om te bouwen en beheren van toepassingen in Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 12/07/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/07/2018
+ms.author: iainfou
+ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467150"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514564"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Cluster-operator en developer aanbevolen procedures voor het bouwen en beheren van toepassingen in Azure Kubernetes Service (AKS)
 
@@ -27,21 +26,21 @@ Als een cluster-operator, werkt u samen met toepassingseigenaren van en ontwikke
 
 **Multitenancy**
 
-* [Aanbevolen procedures voor het cluster-isolatie](operator-best-practices-cluster-isolation.md)
+* [Aanbevolen procedures voor clusterisolatie](operator-best-practices-cluster-isolation.md)
     * Bevat kernonderdelen van multitenancy en logische isolatie met naamruimten.
-* [Aanbevolen procedures voor basic scheduler-functies](operator-best-practices-scheduler.md)
+* [Aanbevolen procedures voor standaard Scheduler-functies](operator-best-practices-scheduler.md)
     * Omvat het gebruik van resourcequota en pod onderbreking budgetten.
-* [Aanbevolen procedures voor geavanceerde scheduler-functies](operator-best-practices-advanced-scheduler.md)
+* [Aanbevolen procedures voor geavanceerde Scheduler-functies](operator-best-practices-advanced-scheduler.md)
     * Omvat het gebruik van taints en tolerations, knooppunt selectoren en affiniteit, en de affiniteit tussen pod en anti-affiniteit.
 * [Aanbevolen procedures voor verificatie en autorisatie](operator-best-practices-identity.md)
     * Integratie met Azure Active Directory, met behulp van op rollen gebaseerd toegangsbeheer (RBAC) en pod-id's bevat.
 
 **Beveiliging**
 
-* [Aanbevolen procedures voor beveiliging van clusters en upgrades](operator-best-practices-cluster-security.md)
+* [Aanbevolen procedures voor beveiliging en upgrades van clusters](operator-best-practices-cluster-security.md)
     * Bevat het beveiligen van toegang tot de API-server, beperken van toegang tot de container en beheren van upgrades en knooppunt opnieuw wordt opgestart.
 * [Aanbevolen procedures voor het beheer van container-installatiekopie en beveiliging](operator-best-practices-container-image-management.md)
-    * Bevat de installatiekopie en verbeteren, met behulp van vertrouwde registers en geautomatiseerde builds basisinstallatiekopie updates beveiligen...
+    * Bevat de installatiekopie en runtimes en geautomatiseerde builds basisinstallatiekopie updates beveiligen.
 * [Best practices voor beveiliging van de schil](developer-best-practices-pod-security.md)
     * Beveiligen van toegang tot resources, referentieblootstelling te beperken en het gebruik van de schil identiteiten en digitale sleutelkluizen bevat.
 

@@ -4,26 +4,26 @@ description: Gegevens migreren van een on-premises HDFS gegevensopslag naar Azur
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 03/01/2019
+ms.date: 06/05/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9a42135df38cde91cc6626a3f7d0328334af0a5d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939269"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729042"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box gebruiken om gegevens te migreren vanuit een on-premises HDFS gegevensopslag naar Azure Storage
 
-U kunt gegevens migreren van een on-premises HDFS gegevensopslag van uw Hadoop-cluster in Azure Storage (blob-opslag of Data Lake Storage Gen2) met behulp van een Data Box-apparaat.
+U kunt gegevens migreren van een on-premises HDFS gegevensopslag van uw Hadoop-cluster in Azure Storage (blob-opslag of Data Lake Storage Gen2) met behulp van een Data Box-apparaat. U kunt kiezen uit een 80 TB Data Box of een grote 770 TB Data Box.
 
 Dit artikel helpt u deze taken uit te voeren:
 
-:heavy_check_mark: Uw gegevens kopiëren naar een Data Box-apparaat.
+:heavy_check_mark: Uw gegevens kopiëren naar een Data Box of een Data Box zware apparaat.
 
-:heavy_check_mark: De Data Box-apparaat naar Microsoft verzenden.
+:heavy_check_mark: Het apparaat terug naar Microsoft verzenden.
 
 :heavy_check_mark: De gegevens naar uw Data Lake Storage Gen2 storage-account verplaatsen.
 
@@ -37,10 +37,10 @@ U moet deze dingen om de migratie te voltooien.
 
 * Een on-premises Hadoop-cluster met de brongegevens.
 
-* Een [Azure Data Box-apparaat](https://azure.microsoft.com/services/storage/databox/). 
+* Een [Azure Data Box-apparaat](https://azure.microsoft.com/services/storage/databox/).
 
-    - [Uw Data Box bestellen](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered). Terwijl uw Box te bestellen, vergeet niet dat een opslagaccount kiezen **niet** hiërarchische naamruimten die zijn ingeschakeld op deze hebben. Dit komt doordat Data Box biedt nog geen ondersteuning voor directe opname in Azure Data Lake Storage Gen2. U moet te kopiëren naar een opslagaccount en klikt u vervolgens een tweede exemplaar bij het Gen2 ADLS-account. Instructies hiervoor staan vermeld in de onderstaande stappen.
-    - [Bekabelen en verbinding maken met uw Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) naar een on-premises netwerk.
+    - [Uw Data Box bestellen](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) of [Data Box-zwaar](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). Tijdens het ordenen van uw apparaat, vergeet niet dat een opslagaccount kiezen **niet** hiërarchische naamruimten die zijn ingeschakeld op deze hebben. Dit komt doordat Data Box-apparaten bieden nog geen ondersteuning voor directe opname in Azure Data Lake Storage Gen2. U moet te kopiëren naar een opslagaccount en klikt u vervolgens een tweede exemplaar bij het Gen2 ADLS-account. Instructies hiervoor staan vermeld in de onderstaande stappen.
+    - Bekabelen en verbinding maken met uw [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) of [Data Box zware](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) naar een on-premises netwerk.
 
 Als u klaar bent, laten we beginnen.
 
@@ -48,12 +48,12 @@ Als u klaar bent, laten we beginnen.
 
 Als u wilt de gegevens van uw on-premises HDFS gegevensopslag kopiëren naar een Data Box-apparaat, moet u een aantal dingen instellen en vervolgens met de [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) hulpprogramma.
 
-Als de hoeveelheid gegevens die u wilt kopiëren van meer dan de capaciteit van een enkel Data Box is, moet u splitst u uw gegevensset in de grootten die in de vakken van uw gegevens passen.
+Als de hoeveelheid gegevens die u wilt kopiëren meer dan de capaciteit van een enkel Data Box of die van één knooppunt op gegevens in het zware is, splitst u uw gegevensset in de grootten die in uw apparaten passen.
 
-Volg deze stappen voor het kopiëren van gegevens via de REST API's van de Blob/objectopslag naar uw Data Box. De REST-API-interface maakt de Data Box worden weergegeven als een HDFS-archief met uw cluster. 
+Volg deze stappen voor het kopiëren van gegevens via de REST API's van de Blob/objectopslag naar uw Data Box-apparaat. De interface van de REST-API maakt het apparaat weergegeven als een HDFS-archief met uw cluster. 
 
 
-1. Voordat u de gegevens via REST kopieert, Identificeer de beveiliging en verbinding primitieven verbinding maken met de REST-interface op de Data Box. Aanmelden bij de lokale web-UI van Data Box en gaat u naar **verbinding maken en kopiëren** pagina. Op basis van de Azure storage-account voor uw Data Box, onder **toegang krijgen tot instellingen**, zoek en selecteer **REST(Preview)**.
+1. Voordat u de gegevens via REST kopiëren, de beveiliging en verbinding primitieven verbinding maken met de REST-interface op de Data Box of de gegevens in het zware identificeren Aanmelden bij de lokale web-UI van Data Box en gaat u naar **verbinding maken en kopiëren** pagina. Op basis van de Azure storage-account voor het apparaat onder **toegang krijgen tot instellingen**, zoek en selecteer **REST**.
 
     ![De pagina "Verbinding maken en kopiëren"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -63,7 +63,7 @@ Volg deze stappen voor het kopiëren van gegevens via de REST API's van de Blob/
 
      ![Het dialoogvenster "Toegang tot opslagaccount en gegevens uploaden"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Het eindpunt en de gegevens in het IP-adres toevoegen `/etc/hosts` op elk knooppunt.
+3. Het eindpunt en de Data Box of zware van gegevens in het knooppunt IP-adres toevoegen `/etc/hosts` op elk knooppunt.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -122,22 +122,30 @@ Volg deze stappen voor het kopiëren van gegevens via de REST API's van de Blob/
   
 Voor het verbeteren van de snelheid kopiëren:
 - Wijzig het aantal mappers. (Maakt gebruik van het bovenstaande voorbeeld `m` = 4 mappers.)
-- Probeer uit te voeren van meerdere `distcp` parallel.
-- Houd er rekening mee dat grote bestanden beter dan kleine bestanden uitvoeren.       
+- Probeer uit te voeren meerdere `distcp` parallel.
+- Houd er rekening mee dat grote bestanden beter dan kleine bestanden uitvoeren.
     
 ## <a name="ship-the-data-box-to-microsoft"></a>De Data Box naar Microsoft verzenden
 
 Volg deze stappen voor het voorbereiden en verzenden van de Data Box-apparaat naar Microsoft.
 
-1. Nadat het kopiëren van gegevens voltooid is, voert u [voorbereiding voor verzending](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) op uw Data Box. Nadat de voorbereiding van het apparaat voltooid is, moet u de stuklijst-bestanden downloaden. U gaat deze stuklijst gebruiken of manifest van de bestanden later om te controleren of de gegevens geüpload naar Azure. Het apparaat uitschakelen en verwijderen van de kabels. 
-2.  Plannen van een ophalen met UPS [uw Data Box terug naar Azure verzenden](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
-3.  Nadat Microsoft het apparaat ontvangt, is verbonden met het netwerk-datacenter en gegevens worden geüpload naar het opslagaccount dat u hebt opgegeven (met hiërarchische naamruimten uitgeschakeld) wanneer u de Data Box gerangschikt. Controleer of op basis van de bestanden stuklijst dat al uw gegevens is geüpload naar Azure. Nu kunt u deze gegevens verplaatsen naar een Data Lake Storage Gen2 storage-account.
+1. Nadat het kopiëren van gegevens voltooid is, worden uitgevoerd:
+    
+    - [Voorbereiding voor verzending op uw Data Box of de gegevens in het zware](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+    - Nadat de voorbereiding van het apparaat voltooid is, moet u de stuklijst-bestanden downloaden. U gaat deze stuklijst gebruiken of manifest van de bestanden later om te controleren of de gegevens geüpload naar Azure. 
+    - Het apparaat uitschakelen en verwijderen van de kabels.
+2.  Een ophalen met UPS plannen. Volg de instructies voor:
+
+    - [Verzenden van uw Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) 
+    - [Verzenden van uw Data Box-zwaar](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+3.  Nadat Microsoft het apparaat ontvangt, is verbonden met het netwerk van datacenters en de gegevens wordt geüpload naar het opslagaccount dat u (met hiërarchische naamruimten uitgeschakeld opgeeft) wanneer u de bestelling heeft geplaatst apparaat. Controleer of op basis van de bestanden stuklijst dat al uw gegevens is geüpload naar Azure. Nu kunt u deze gegevens verplaatsen naar een Data Lake Storage Gen2 storage-account.
+
 
 ## <a name="move-the-data-onto-your-data-lake-storage-gen2-storage-account"></a>De gegevens naar uw Data Lake Storage Gen2 storage-account verplaatsen
 
 Deze stap is nodig als u Azure Data Lake Storage Gen2 als uw gegevensarchief. Als u alleen een blob storage-account zonder hiërarchische naamruimte als uw gegevensopslag gebruikt, hoeft u niet te doen in deze stap.
 
-U kunt dit doen in 2 manieren. 
+U kunt dit op twee manieren doen.
 
 - Gebruik [Azure Data Factory om gegevens te verplaatsen naar ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). U moet opgeven **Azure Blob Storage** als de bron.
 

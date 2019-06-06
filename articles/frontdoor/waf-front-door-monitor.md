@@ -8,22 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/31/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: 5368ed8d1e60a646366065e2cf617fb2f3735b53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ba6cca679ce4910ea941d9578939721514b2ec
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459732"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478966"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Azure-web application firewall, controle en logboekregistratie 
 
 Azure-web application firewall (WAF) bewaking en logboekregistratie worden geleverd via logboekregistratie en integratie met Azure Monitor en Azure Monitor Logboeken.
-
-> [!IMPORTANT]
-> De WAF controle en logboekregistratie onderdeel voordeur voor Azure is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

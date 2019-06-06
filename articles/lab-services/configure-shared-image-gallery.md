@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 51b394043f88789865edea5be6376ae536f88848
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: fba969b70ae052c928f33888d3c93eb7683ae9f7
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420436"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455779"
 ---
-# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Een galerie met installatiekopieën van de gedeelde configureren in Azure DevTest Labs
-DevTest Labs nu ondersteunt de [gedeelde afbeeldingengalerie](/virtual-machines/windows/shared-image-galleries.md) functie. Deze kan labgebruikers toegang krijgen tot afbeeldingen uit een gedeelde locatie tijdens het maken van de labresources. Ook kunt u structuur en de organisatie om uw aangepaste beheerde VM-installatiekopieën. De galerie met installatiekopieën van gedeelde functie ondersteunt:
+# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Een gedeelde galerie met installatiekopieën configureren in Azure DevTest Labs
+DevTest Labs nu ondersteunt de [gedeelde afbeeldingengalerie](/virtual-machines/windows/shared-image-galleries.md) functie. Hiermee kunnen labgebruikers toegang krijgen tot installatiekopieën vanaf een gedeelde locatie terwijl ze labresources maken. Het zorgt ook voor structuur en organisatie in uw aangepaste, beheerde VM-installatiekopieën. De galerie met installatiekopieën van gedeelde functie ondersteunt:
 
-- Beheerde globale replicatie van afbeeldingen
-- Versiebeheer en groepering van beelden voor eenvoudiger beheer
-- Uw installatiekopieën maximaal beschikbaar met Zone-redundante opslag (ZRS)-accounts maken in regio's die ondersteuning voor beschikbaarheidszones. ZRS biedt betere tolerantie tegen fouten in de zonegebonden.
-- Delen tussen abonnementen en zelfs tussen tenants, met behulp van op rollen gebaseerd toegangsbeheer (RBAC).
+- Beheerde globale replicatie van installatiekopieën
+- Versiebeheer en groepering van installatiekopieën voor eenvoudiger beheer
+- Maak uw installatiekopieën optimaal beschikbaar met ZRS-accounts (Zone Redundant Storage) in regio's die beschikbaarheidszones ondersteunen. ZRS biedt een betere veerkracht tegen zonegebonden fouten.
+- Installatiekopieën delen binnen abonnementen en zelfs tenants met toegangsbeheer op basis van rollen van Azure (RBAC).
 
 Zie voor meer informatie, [gedeelde afbeeldingengalerie documentatie](../virtual-machines/windows/shared-image-galleries.md). 
  
-Als u een groot aantal beheerde installatiekopieën die u moet onderhouden en wil graag zodat ze beschikbaar zijn in uw organisatie hebt, kunt u een galerie met installatiekopieën van de gedeelde als een opslagplaats waarmee u eenvoudig om te werken en het delen van uw afbeeldingen. Als de eigenaar van een lab, kunt u een bestaande gedeelde afbeeldingengalerie koppelen aan uw testomgeving. Zodra deze galerie is gekoppeld, worden labgebruikers kunnen machines met deze nieuwste installatiekopieën maken. Een belangrijk voordeel van deze functie is dat de DevTest Labs van nu duren het voordeel voordat kan van het delen van afbeeldingen tussen labs, meerdere abonnementen, en regio's. 
+Als u een groot aantal beheerde installatiekopieën hebt dat u moet onderhouden en deze beschikbaar wilt maken binnen uw bedrijf, kunt u een gedeelde installatiekopiegalerie gebruiken als een opslagplaats waar u uw installatiekopieën eenvoudig kunt bijwerken en delen. Als labeigenaar kunt u een bestaande gedeelde installatiekopiegalerie koppelen aan uw lab. Zodra deze galerie is gekoppeld, kunnen labgebruikers machines maken met deze nieuwste installatiekopieën. Een groot voordeel van deze functie is dat DevTest Labs nu kunnen profiteren van het delen van installatiekopieën in labs, in abonnementen en in regio's. 
 
 ## <a name="considerations"></a>Overwegingen
 - U kunt alleen een gedeelde afbeeldingengalerie koppelen aan een lab tegelijk. Als u wilt een andere galerie toevoegen, moet u het bestaande bestand loskoppelen en koppelt een andere. 
@@ -46,10 +46,17 @@ Als u een groot aantal beheerde installatiekopieën die u moet onderhouden en wi
 1. Selecteer in de lijst met labs, uw **lab**.
 1. Selecteer **configuratie en het beleid** in de **instellingen** sectie in het menu links.
 1. Selecteer **gedeelde Afbeeldingsgalerieën** onder **virtuele machine bases** in het menu links.
+
+    ![Gedeelde Afbeeldingsgalerieën menu](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
 1. Een bestaande gedeelde afbeeldingengalerie koppelen aan uw testomgeving door te klikken op de **Attach** knop en de galerie selecteren in de vervolgkeuzelijst.
+
+    ![Koppelen](./media/configure-shared-image-gallery/attach-options.png)
 1. Ga naar de galerie met gekoppelde en configureer de galerie in op **in- of uitschakelen** Gedeelde afbeeldingen voor het maken van virtuele machine.
+
+    ![Inschakelen of uitschakelen](./media/configure-shared-image-gallery/enable-disable.png)
 1. Labgebruikers kunnen vervolgens met de ingeschakelde installatiekopieën door te klikken op een virtuele machine maken **+ toevoegen** en het vinden van de afbeelding in de **Kies uw base** pagina.
 
+    ![Labgebruikers](./media/configure-shared-image-gallery/lab-users.png)
 ## <a name="use-azure-resource-manager-template"></a>Azure Resource Manager-sjabloon gebruiken
 
 ### <a name="attach-a-shared-image-gallery-to-your-lab"></a>Een galerie met installatiekopieën van de gedeelde koppelen aan uw testomgeving

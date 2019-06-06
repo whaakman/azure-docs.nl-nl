@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d0921761b565d9e61374bf340f812af4d43f192a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025131"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66426754"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Het gebruik van Azure Search via een .NET-toepassing
 
@@ -33,14 +33,14 @@ De andere NuGet-pakketten in de SDK zijn:
  
   - `Microsoft.Azure.Search.Data`: Dit pakket gebruiken als u een .NET-toepassing met behulp van Azure Search ontwikkelt en u alleen hoeft opvragen of bijwerken van de documenten in uw indexen. Als u ook wilt maken of bijwerken van indexen, synoniementoewijzingen of andere service level-resources, gebruikt de `Microsoft.Azure.Search` in plaats daarvan het pakket.
   - `Microsoft.Azure.Search.Service`: Dit pakket gebruiken als u automation in .NET voor het beheren van Azure Search-index, synoniementoewijzingen, indexeerfuncties, gegevensbronnen of andere bronnen serviceniveau ontwikkelt. Als u alleen query- of update-documenten in uw indexen moet, gebruikt u de `Microsoft.Azure.Search.Data` in plaats daarvan het pakket. Als u de functionaliteit van Azure Search nodig hebt, gebruikt u de `Microsoft.Azure.Search` in plaats daarvan het pakket.
-  - `Microsoft.Azure.Search.Common`: Algemene typen die nodig zijn voor de Azure Search .NET-bibliotheken. U hoeft niet op het gebruik van dit pakket rechtstreeks in uw toepassing. Het is alleen bedoeld als een afhankelijkheid moet worden gebruikt.
+  - `Microsoft.Azure.Search.Common`: Algemene typen die nodig zijn voor de Azure Search .NET-bibliotheken. U hoeft niet te gebruiken van dit pakket rechtstreeks in uw toepassing. Het is alleen bedoeld als een afhankelijkheid moet worden gebruikt.
 
 De clientbibliotheken van verschillende klassen, zoals definiëren `Index`, `Field`, en `Document`, evenals bewerkingen, zoals `Indexes.Create` en `Documents.Search` op de `SearchServiceClient` en `SearchIndexClient` klassen. Deze klassen zijn ingedeeld in de volgende naamruimten:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-De huidige versie van de Azure Search .NET SDK is nu algemeen beschikbaar. Als u feedback geven voor ons om op te nemen in de volgende versie wilt, gaat u naar onze [feedbackpagina](https://feedback.azure.com/forums/263029-azure-search/).
+De huidige versie van de Azure Search .NET SDK is nu algemeen beschikbaar. Als u graag uw feedback voor ons te nemen in de volgende versie, raadpleegt u onze [feedbackpagina](https://feedback.azure.com/forums/263029-azure-search/).
 
 De .NET-SDK biedt ondersteuning voor versie `2017-11-11` van de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). Deze versie biedt nu ondersteuning voor synoniemen, evenals incrementele verbeteringen aan indexeerfuncties. 
 
@@ -50,7 +50,7 @@ Deze SDK biedt geen ondersteuning voor [beheerbewerkingen](https://docs.microsof
 Als u al een oudere versie van de Azure Search .NET SDK gebruikt en u wilt upgraden naar de nieuwe algemeen beschikbare versie [in dit artikel](search-dotnet-sdk-migration-version-5.md) wordt uitgelegd hoe.
 
 ## <a name="requirements-for-the-sdk"></a>Vereisten voor de SDK
-1. Visual Studio 2017.
+1. Visual Studio 2017 of later.
 2. Uw eigen Azure Search-service. Als u wilt gebruiken in de SDK, moet u de naam van uw service en een of meer API-sleutels. [Maken van een service in de portal](search-create-service-portal.md) helpt u tijdens de volgende stappen.
 3. De Azure Search .NET SDK downloaden [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Search) met behulp van 'NuGet-pakketten beheren' in Visual Studio. Naam van het pakket zoeken `Microsoft.Azure.Search` op NuGet.org (of een van de andere bovenstaande namen verpakken als u alleen een subset van de functionaliteit hoeft).
 
@@ -63,7 +63,7 @@ Er zijn verschillende dingen die u in uw zoektoepassing moet doen. In deze zelfs
 * Invullen van de index met behulp van documenten
 * Zoeken naar documenten met behulp van zoeken in volledige tekst en filters
 
-De volgende voorbeeldcode ziet u elk van deze. U kunt de codefragmenten in uw eigen toepassing gebruiken.
+De volgende voorbeeldcode illustreert elk van deze scenario's. U kunt de codefragmenten in uw eigen toepassing gebruiken.
 
 ### <a name="overview"></a>Overzicht
 De voorbeeldtoepassing die we u worden verkennen maakt u een nieuwe index met de naam "hotels", gevuld met een aantal documenten en bepaalde zoekquery's wordt uitgevoerd. Hier is het belangrijkste programma, met de algehele stroom:
@@ -130,7 +130,7 @@ Console.WriteLine("{0}", "Creating index...\n");
 CreateHotelsIndex(serviceClient);
 ```
 
-Vervolgens moet de index wordt gevuld. Om dit te doen, moeten we een `SearchIndexClient`. Er zijn twee manieren een ophalen: door deze of door het aanroepen van `Indexes.GetClient` op de `SearchServiceClient`. We gebruiken deze om u te helpen.
+Vervolgens moet de index wordt gevuld. Als u wilt de index te vullen, moeten we een `SearchIndexClient`. Er zijn twee manieren een ophalen: door deze of door het aanroepen van `Indexes.GetClient` op de `SearchServiceClient`. We gebruiken deze om u te helpen.
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
@@ -141,7 +141,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 > 
 > 
 
-Nu dat we hebben een `SearchIndexClient`, kunnen we de index te vullen. Dit wordt gedaan door een andere methode die we later bekijken.
+Nu dat we hebben een `SearchIndexClient`, kunnen we de index te vullen. Populatie van de index wordt uitgevoerd door een andere methode die we later bekijken.
 
 ```csharp
 Console.WriteLine("{0}", "Uploading documents...\n");
@@ -171,7 +171,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 
 Nu we een querysleutel gebruiken omdat we niet de toegang voor schrijven naar de index hoeft. U kunt deze informatie in de `appsettings.json` -bestand van de [voorbeeldtoepassing](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Als u deze toepassing met een geldige servicenaam en API-sleutels uitvoert, moet de uitvoer er als volgt:
+Als u deze toepassing met een geldige servicenaam en API-sleutels uitvoert, wordt de uitvoer moet eruitzien zoals in dit voorbeeld:
 
     Deleting index...
     
@@ -206,7 +206,7 @@ De volledige broncode van de toepassing wordt geleverd aan het einde van dit art
 Vervolgens, we zullen eens nader bekijken voor elk van de methoden aangeroepen door `Main`.
 
 ### <a name="creating-an-index"></a>Een index te maken
-Na het maken van een `SearchServiceClient`, `Main` Hiermee verwijdert u de index "hotels" Als deze al bestaat. Dat is gebeurd door de volgende methode:
+Na het maken van een `SearchServiceClient`, `Main` Hiermee verwijdert u de index "hotels" Als deze al bestaat. Deze verwijdering wordt uitgevoerd door de volgende methode:
 
 ```csharp
 private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
@@ -247,10 +247,10 @@ Deze methode maakt u een nieuwe `Index` object met een lijst met `Field` objecte
 >
 > 
 
-Naast de velden, kunt u ook scoreprofielen, suggesties en CORS-opties toevoegen aan de Index (deze worden weggelaten uit het voorbeeld kort te houden). U vindt meer informatie over de Index-object en de bijbehorende onderdelen in de [SDK-referentie](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), alsmede in de [Azure Search REST API-verwijzingen](https://docs.microsoft.com/rest/api/searchservice/).
+Naast de velden, kunt u ook scoreprofielen, suggesties en CORS-opties toevoegen aan de Index (deze parameters worden weggelaten uit het voorbeeld kort te houden). U vindt meer informatie over de Index-object en de bijbehorende onderdelen in de [SDK-referentie](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), alsmede in de [Azure Search REST API-verwijzingen](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>De index vullen
-De volgende stap in de `Main` is om de zojuist gemaakte index te vullen. Dit doet u in de volgende methode:
+De volgende stap in de `Main` is om de zojuist gemaakte index te vullen. De populatie van deze index wordt uitgevoerd in de volgende methode:
 
 ```csharp
 private static void UploadDocuments(ISearchIndexClient indexClient)
@@ -325,7 +325,7 @@ Het tweede gedeelte maakt u een `IndexBatch` met de documenten. Geeft u de bewer
 > 
 > 
 
-Het derde deel van deze methode is een catch-blok die verantwoordelijk is voor een belangrijke foutaanvraag voor indexering. Als uw Azure Search-service geen index van een aantal documenten in de batch kan maken, wordt een `IndexBatchException` verstuurd door `Documents.Index`. Dit kan gebeuren als u documenten indexeert terwijl uw service zwaar wordt belast. **Wij raden u aan deze aanvraag expliciet in uw code te behandelen.** U kunt de indexering van documenten die niet zijn geïndexeerd vertragen en vervolgens opnieuw uitvoeren, maar u kunt ook een logboek maken en doorgaan zoals in het voorbeeld. U kunt ook een andere bewerking uitvoeren, afhankelijk van de vereisten omtrent de gegevensconsistentie van de toepassing.
+Het derde deel van deze methode is een catch-blok die verantwoordelijk is voor een belangrijke foutaanvraag voor indexering. Als uw Azure Search-service geen index van een aantal documenten in de batch kan maken, wordt een `IndexBatchException` verstuurd door `Documents.Index`. Deze uitzondering kan gebeuren als u documenten indexeert terwijl uw service zwaar belast wordt. **Wij raden u aan deze aanvraag expliciet in uw code te behandelen.** U kunt de indexering van documenten die niet zijn geïndexeerd vertragen en vervolgens opnieuw uitvoeren, maar u kunt ook een logboek maken en doorgaan zoals in het voorbeeld. U kunt ook een andere bewerking uitvoeren, afhankelijk van de vereisten omtrent de gegevensconsistentie van de toepassing.
 
 > [!NOTE]
 > U kunt de [ `FindFailedActionsToRetry` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) methode voor het maken van een nieuwe batch met alleen de acties die niet in een vorige aanroep aan `Index`. Er is een discussie over het gebruik ervan goed [op StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
@@ -393,14 +393,14 @@ public partial class Hotel
 }
 ```
 
-Het eerste dat opvalt is dat elke openbare eigenschap van `Hotel` overeenkomt met een veld in de indexdefinitie, maar met één cruciaal verschil: De naam van elk veld begint met een kleine letter ('camelCase'), terwijl de naam van elke openbare eigenschap van `Hotel` begint met een hoofdletter ('Pascal case'). Dit is een algemeen scenario in .NET-toepassingen die gegevens koppelen waarbij het doelschema buiten de controle van de ontwikkelaar van de toepassing valt. In plaats van het schenden van de .NET-naamgevingsregels door een eigenschap met bijvoorbeeld de naam "kamelen" te maken, kunt u instellen dat de SDK de eigenschapsnamen automatisch moet toewijzen aan het `[SerializePropertyNamesAsCamelCase]`-kenmerk.
+Het eerste dat opvalt is dat elke openbare eigenschap van `Hotel` overeenkomt met een veld in de indexdefinitie, maar met één cruciaal verschil: De naam van elk veld begint met een kleine letter ('camelCase'), terwijl de naam van elke openbare eigenschap van `Hotel` begint met een hoofdletter ('Pascal case'). In dit scenario is gebruikelijk in .NET-toepassingen die gegevens koppelen waarbij het doelschema buiten het besturingselement van de ontwikkelaar van de toepassing is. In plaats van het schenden van de .NET-naamgevingsregels door een eigenschap met bijvoorbeeld de naam "kamelen" te maken, kunt u instellen dat de SDK de eigenschapsnamen automatisch moet toewijzen aan het `[SerializePropertyNamesAsCamelCase]`-kenmerk.
 
 > [!NOTE]
 > De Azure Search .NET SDK maakt gebruik van de [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm)-bibliotheek voor het serialiseren en deserialiseren van uw aangepaste modelobjecten naar en van JSON. U kunt deze serialisatie indien nodig aanpassen. Zie voor meer informatie, [aangepaste serialisatie met JSON.NET](#JsonDotNet).
 > 
 > 
 
-De tweede dat opvalt, is de kenmerken die elke openbare eigenschap opmaken (zoals `IsFilterable`, `IsSearchable`, `Key`, en `Analyzer`). Deze kenmerken wijzen rechtstreeks naar de [bijbehorende kenmerken van de Azure Search-index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). De `FieldBuilder` klasse gebruikt deze velddefinities voor de index te maken.
+De tweede dat opvalt, is de kenmerken die elke openbare eigenschap opmaken (zoals `IsFilterable`, `IsSearchable`, `Key`, en `Analyzer`). Deze kenmerken wijzen rechtstreeks naar de [bijbehorende kenmerken van de Azure Search-index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). De `FieldBuilder` klasse maakt gebruik van deze eigenschappen velddefinities voor de index te maken.
 
 Het derde belangrijkste over de `Hotel` klasse is de gegevenstypen van de openbare eigenschappen. De .NET-typen van deze eigenschappen worden toegewezen aan de gelijkwaardige veldtypen in de indexdefinitie. De tekenreekseigenschap `Category` is bijvoorbeeld toegewezen aan het veld `category` van type `Edm.String`. Er zijn vergelijkbare type toewijzingen tussen `bool?` en `Edm.Boolean`, `DateTimeOffset?` en `Edm.DateTimeOffset`, enzovoort. De specifieke regels voor de toewijzing van het type worden gedocumenteerd met de methode `Documents.Get` in de [Azure Search .NET SDK-verwijzing](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). De `FieldBuilder` klasse zorgt dat deze toewijzing voor u, maar kan nog steeds nuttig om te begrijpen als u het oplossen van serialisatieproblemen zijn.
 
@@ -424,7 +424,7 @@ Daarom wordt u aangeraden nullbare typen in uw modelklassen te gebruiken.
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>Aangepaste serialisatie met JSON.NET
-De SDK gebruikt JSON.NET voor het serialiseren en deserialiseren van documenten. U kunt aanpassen serialisatie en deserialisatie indien nodig door het definiëren van uw eigen `JsonConverter` of `IContractResolver` (Zie de [JSON.NET documentatie](https://www.newtonsoft.com/json/help/html/Introduction.htm) voor meer informatie). Dit kan nuttig zijn wanneer u een bestaande modelklasse van uw toepassing voor gebruik met Azure Search en andere meer geavanceerde scenario's aan te passen. Met aangepaste serialisatie kunt u bijvoorbeeld:
+De SDK gebruikt JSON.NET voor het serialiseren en deserialiseren van documenten. U kunt aanpassen serialisatie en deserialisatie indien nodig door het definiëren van uw eigen `JsonConverter` of `IContractResolver`. Zie voor meer informatie de [JSON.NET documentatie](https://www.newtonsoft.com/json/help/html/Introduction.htm). Dit kan nuttig zijn wanneer u een bestaande modelklasse van uw toepassing voor gebruik met Azure Search en andere meer geavanceerde scenario's aan te passen. Met aangepaste serialisatie kunt u bijvoorbeeld:
 
 * Opnemen of uitsluiten van bepaalde eigenschappen van uw modelklasse als documentvelden worden opgeslagen.
 * Koppeling tussen de namen van eigenschappen in uw code en veldnamen in uw index.
@@ -433,7 +433,7 @@ De SDK gebruikt JSON.NET voor het serialiseren en deserialiseren van documenten.
 Hier vindt u voorbeelden van de implementatie van aangepaste serialisatie in de eenheidstests voor de Azure Search .NET SDK op GitHub. Is een goed uitgangspunt [deze map](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). Deze bevat klassen die worden gebruikt door de aangepaste serialisatie-tests.
 
 ### <a name="searching-for-documents-in-the-index"></a>Zoeken naar documenten in de index
-De laatste stap in de voorbeeldtoepassing is om te zoeken naar een aantal documenten in de index. De volgende methode doet dit:
+De laatste stap in de voorbeeldtoepassing is om te zoeken naar een aantal documenten in de index:
 
 ```csharp
 private static void RunQueries(ISearchIndexClient indexClient)
@@ -492,9 +492,9 @@ private static void RunQueries(ISearchIndexClient indexClient)
 }
 ```
 
-Elke keer dat deze een query wordt uitgevoerd, met deze methode maakt eerst een nieuwe `SearchParameters` object. Dit wordt gebruikt om op te geven aanvullende opties voor de query, zoals sorteren, filteren, wisselbestand en op meerdere niveaus. Bij deze methode instellen we de `Filter`, `Select`, `OrderBy`, en `Top` eigenschap voor verschillende query's. Alle de `SearchParameters` eigenschappen zijn gedocumenteerd [hier](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
+Elke keer dat deze een query wordt uitgevoerd, met deze methode maakt eerst een nieuwe `SearchParameters` object. Dit object wordt gebruikt om op te geven aanvullende opties voor de query, zoals sorteren, filteren, wisselbestand en op meerdere niveaus. Bij deze methode instellen we de `Filter`, `Select`, `OrderBy`, en `Top` eigenschap voor verschillende query's. Alle de `SearchParameters` eigenschappen zijn gedocumenteerd [hier](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
 
-De volgende stap is het daadwerkelijk uitvoeren van de zoekquery. Dit wordt gedaan met behulp van de `Documents.Search` methode. Voor elke query, geven we de zoektekst te gebruiken als een tekenreeks (of `"*"` als er geen zoektekst), plus de zoekparameters eerder hebt gemaakt. We ook opgeven `Hotel` als het typeparameter voor `Documents.Search`, waarin staat dat de SDK voor het deserialiseren van documenten in de lijst met zoekresultaten in objecten van het type `Hotel`.
+De volgende stap is het daadwerkelijk uitvoeren van de zoekquery. Uitvoeren van de zoekopdracht wordt uitgevoerd met behulp van de `Documents.Search` methode. Voor elke query, geven we de zoektekst te gebruiken als een tekenreeks (of `"*"` als er geen zoektekst), plus de zoekparameters eerder hebt gemaakt. We ook opgeven `Hotel` als het typeparameter voor `Documents.Search`, waarin staat dat de SDK voor het deserialiseren van documenten in de lijst met zoekresultaten in objecten van het type `Hotel`.
 
 > [!NOTE]
 > U vindt meer informatie over de zoeksyntaxis van de query-expressie [hier](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).

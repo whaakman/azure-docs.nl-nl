@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978882"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475214"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Een aangepaste domeinnaam voor Azure App Service kopen
 
@@ -55,7 +55,7 @@ U ziet de beheerpagina van de App Service-app.
 
 ### <a name="check-the-pricing-tier"></a>Controleer de prijscategorie
 
-Schuif in de navigatiebalk links van de app-pagina naar de sectie **Instellingen** en selecteer **Opschalen (App Service-plan)**.
+Schuif in de navigatiebalk links van de app-pagina naar de sectie **Instellingen** en selecteer **Opschalen (App Service-plan)** .
 
 ![Menu Opschalen](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -79,7 +79,7 @@ Wanneer u de volgende melding ziet, is de schaalbewerking voltooid.
 
 ## <a name="buy-the-domain"></a>Het domein kopen
 
-### <a name="pricing-information"></a>Prijsgegevens
+### <a name="pricing-information"></a>Informatie over prijzen
 Voor informatie over prijzen Azure App Service-domeinen, gaat u naar de [pagina met prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) en blader naar beneden naar App Service-domein.
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
@@ -138,13 +138,17 @@ Klik in de **App Service-domein** pagina, klikt u op **OK**. Terwijl de bewerkin
 
 ### <a name="test-the-hostnames"></a>De hostnamen testen
 
-Als u standaard hostnamen aan uw app hebt toegewezen, ziet u ook een melding van slagen voor elke geselecteerde hostnaam. 
+Als u standaard hostnamen aan uw app hebt toegewezen, ziet u ook een melding van slagen voor elke geselecteerde hostnaam.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-U ziet ook de geselecteerde hostnamen in de **aangepaste domeinen** pagina, in de **aangepaste hostnamen** sectie. 
+U ziet ook de geselecteerde hostnamen in de **aangepaste domeinen** pagina, in de **aangepaste hostnamen** sectie.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> Een **Opmerking Secure** label voor uw aangepaste domein-betekent dat deze nog niet gebonden aan een SSL-certificaat en een HTTPS-aanvraag vanuit een browser naar uw aangepaste domein ontvangt en fout of waarschuwing, afhankelijk van de browser. Zie configureren van SSL-binding [kopen en configureren van een SSL-certificaat voor Azure App Service](web-sites-purchase-ssl-web-site.md).
+>
 
 Als u wilt de hostnamen testen, gaat u naar de vermelde hostnamen in de browser. In het voorbeeld in de vorige schermafbeelding, gaat u naar _kontoso.net_ en _www\.kontoso.net_.
 

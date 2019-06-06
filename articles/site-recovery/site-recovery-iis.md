@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280387"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480290"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Herstel na noodgevallen instellen voor een meerdere lagen op basis van een IIS-webtoepassing
 
@@ -63,7 +63,7 @@ Scenario | Op een secundaire site | In Azure
 Hyper-V | Ja | Ja
 VMware | Ja | Ja
 Fysieke server | Nee | Ja
-Azure|N.v.t.|Ja
+Azure|N.V.T.|Ja
 
 ## <a name="replicate-virtual-machines"></a>Virtuele machines repliceren
 
@@ -109,7 +109,7 @@ Als de verbindingsreeks naar de database virtuele machine verwijst met behulp va
         </connectionStrings>
         </configuration>
 
-Voor het bijwerken van de verbindingsreeks in de weblaag, Voeg een [script voor het bijwerken van IIS-verbinding](https://aka.ms/asr-update-webtier-script-classic) na 3 van de groep in het herstelplan te gaan.
+Voor het bijwerken van de verbindingsreeks in de weblaag, Voeg een [script voor het bijwerken van IIS-verbinding](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) na 3 van de groep in het herstelplan te gaan.
 
 #### <a name="site-bindings-for-the-application"></a>Sitebindingen voor de toepassing
 Elke site bestaat uit de bindingsgegevens. De bindingsgegevens bevatten de aard van de binding, het IP-adres waarop de IIS-server naar aanvragen voor de site en het poortnummer dat de hostnamen voor de site luistert. Tijdens de failover moet u mogelijk deze bindingen bijwerken als er een wijziging in de IP-adres dat is gekoppeld aan deze.

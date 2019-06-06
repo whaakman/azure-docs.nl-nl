@@ -9,22 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 903405c8fada6165b79e780a7828c6de3b95163e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387339"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478918"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Een web application tarief limiet firewallregel configureren met behulp van Azure PowerShell
 De Azure-web application firewall (WAF) tarief limiet regel voor Azure voordeur bepaalt het aantal aanvragen dat is toegestaan in een enkele client-IP-adres tijdens een duur van één minuut.
 In dit artikel laat zien hoe het configureren van een WAF tarief limiet regel die bepaalt het aantal aanvragen dat is toegestaan in een enkele client naar een webtoepassing met */promo* in de URL met behulp van Azure PowerShell.
-
-> [!IMPORTANT]
-> De functie voor WAF tarief limiet regel voordeur voor Azure is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

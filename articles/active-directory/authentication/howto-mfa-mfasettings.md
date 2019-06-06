@@ -5,24 +5,24 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359119"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496750"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
-In dit artikel helpt u bij het beheren van instellingen van de multi-factor Authentication in Azure portal. Het bevat informatie over verschillende onderwerpen waarmee u optimaal gebruikmaken van Azure multi-factor Authentication. Niet alle functies zijn beschikbaar in elke [versie van Azure multi-factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
+In dit artikel helpt u bij het beheren van instellingen van de multi-factor Authentication in Azure portal. Het bevat informatie over verschillende onderwerpen waarmee u optimaal gebruikmaken van Azure multi-factor Authentication. Niet alle functies zijn beschikbaar in elke versie van Azure multi-factor Authentication.
 
-U hebt toegang tot de instellingen in verband met multi-factor Authentication van Azure portal door te bladeren naar **Azure Active Directory** > **MFA**.
+U kunt toegang krijgen tot instellingen met betrekking tot de Azure multi-factor Authentication van Azure portal door te bladeren naar **Azure Active Directory** > **MFA**.
 
 ![Azure portal - Azure AD multi-factor Authentication-instellingen](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -30,17 +30,17 @@ U hebt toegang tot de instellingen in verband met multi-factor Authentication va
 
 Sommige van deze instellingen gelden voor MFA-Server en/of de Azure MFA.
 
-| Functie | Beschrijving |
+| Functie | Description |
 | ------- | ----------- |
 | Accountvergrendeling | Tijdelijk Vergrendel accounts in de multi-factor authentication-service als er te veel verificatiepogingen in een rij geweigerd. Deze functie is alleen van toepassing op gebruikers die een pincode om te verifiëren. (MFA-Server) |
-| [Gebruikers blokkeren/deblokkeren](#block-and-unblock-users) | Gebruikt voor het blokkeren van bepaalde gebruikers op de MFA-Server (on-premises) geen multi-factor Authentication-aanvragen worden ontvangen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Gebruikers blijven geblokkeerd gedurende 90 dagen vanaf het moment dat ze worden geblokkeerd. |
+| [Gebruikers blokkeren/deblokkeren](#block-and-unblock-users) | Gebruikt voor het blokkeren van bepaalde gebruikers geen multi-factor Authentication-aanvragen worden ontvangen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Gebruikers blijven geblokkeerd gedurende 90 dagen vanaf het moment dat ze worden geblokkeerd. |
 | [Fraudewaarschuwing](#fraud-alert) | Configureren van instellingen in verband met de gebruikers de mogelijkheid voor het rapporteren van frauduleuze controle aanvragen |
 | Meldingen | Meldingen van gebeurtenissen van MFA-Server inschakelen. |
 | [OATH-tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | In de cloud-Azure MFA-omgevingen gebruikt voor het beheren van OATH-tokens voor gebruikers. |
 | [Instellingen van telefoongesprekken](#phone-call-settings) | Configureer instellingen met betrekking tot telefoongesprekken en begroeting voor cloud en on-premises omgevingen. |
 | Providers | Hiermee wordt een bestaande verificatieproviders weergegeven dat u mogelijk hebt gekoppeld aan uw account. Nieuwe verificatieproviders kunnen niet worden gemaakt vanaf 1 September 2018 |
 
-## <a name="manage-mfa-server"></a>MFA-server beheren
+## <a name="manage-mfa-server"></a>MFA-Server beheren
 
 Instellingen in deze sectie zijn alleen voor MFA-Server.
 
@@ -49,9 +49,9 @@ Instellingen in deze sectie zijn alleen voor MFA-Server.
 | Serverinstellingen | MFA-Server downloaden en activeringsreferenties voor het initialiseren van uw omgeving te genereren |
 | [Eenmalige bypass](#one-time-bypass) | Toestaan dat een gebruiker verifiëren zonder verificatie in twee stappen uitvoeren voor een beperkte periode. |
 | [Regels voor caching](#caching-rules) |  Opslaan in cache wordt voornamelijk gebruikt wanneer de on-premises systemen, zoals VPN, verzenden meerdere aanvragen voor verificatie, terwijl de eerste aanvraag nog steeds uitgevoerd wordt. Deze functie kunt de volgende aanvragen voor het automatisch uitgevoerd nadat de gebruiker is geslaagd voor de eerste verificatie wordt uitgevoerd. |
-| Serverstatus | Zie de status van uw on-premises MFA-servers met inbegrip van versie, status, IP-adres, en laatste communicatie tijd en datum. |
+| Status van de server | Zie de status van uw on-premises MFA-servers met inbegrip van versie, status, IP-adres, en laatste communicatie tijd en datum. |
 
-## <a name="activity-report"></a>Activiteitenrapport
+## <a name="activity-report"></a>Het rapport computeractiviteit
 
 Het reporting beschikbaar hier is specifiek voor MFA-Server (on-premises). Voor Azure MFA (cloud) ziet rapporten het rapport aanmeldingen in Azure AD.
 
@@ -89,7 +89,7 @@ Configureer de _fraudewaarschuwing_ functie zodat uw gebruikers frauduleuze prob
 ### <a name="configuration-options"></a>Configuratie-opties
 
 * **Gebruiker blokkeren wanneer fraude wordt gemeld**: Als een gebruiker fraude wordt gemeld, wordt hun account geblokkeerd gedurende 90 dagen of tot een beheerder beter hun account zicht. Een beheerder kan aanmeldingen met behulp van het rapport bekijken en passende maatregelen nemen om toekomstige fraude te voorkomen. Een beheerder kan vervolgens [deblokkeren](#unblock-a-user) account van de gebruiker.
-* **Code voor het melden van fraude tijdens de eerste begroeting**: Wanneer gebruikers een telefonische oproep om uit te voeren van verificatie in twee stappen ontvangen, ze normaal gesproken drukt u op **#** om te bevestigen het aanmelden. Fraude, de gebruiker krijgt een code voor te drukken **#**. Deze code is **0** standaard, maar u kunt deze aanpassen.
+* **Code voor het melden van fraude tijdens de eerste begroeting**: Wanneer gebruikers een telefonische oproep om uit te voeren van verificatie in twee stappen ontvangen, ze normaal gesproken drukt u op **#** om te bevestigen het aanmelden. Fraude, de gebruiker krijgt een code voor te drukken **#** . Deze code is **0** standaard, maar u kunt deze aanpassen.
 
    >[!NOTE]
    >De standaard gesproken begroetingen van Microsoft vertelt u gebruikers op **0#** een fraudewaarschuwing te verzenden. Als u wilt gebruiken een andere waarde dan **0**, vastleggen en uploaden van uw eigen aangepaste gesproken begroetingen met de juiste instructies voor uw gebruikers.
@@ -100,7 +100,7 @@ Configureer de _fraudewaarschuwing_ functie zodat uw gebruikers frauduleuze prob
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **Azure Active Directory** > **aanmeldingen**. Het rapport fraude maakt nu deel uit van de standaardrapporten voor Azure AD-aanmeldingen.
 
-## <a name="phone-call-settings"></a>Instellingen voor telefoongesprek
+## <a name="phone-call-settings"></a>Instellingen van telefoongesprekken
 
 ### <a name="caller-id"></a>Beller-ID
 
@@ -162,7 +162,7 @@ De _eenmalig overslaan_ functie kunt u een gebruiker zich één keer verifiëren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Blader naar **Azure Active Directory** > **MFA** > **eenmalig overslaan**.
 
-## <a name="caching-rules"></a>Regels voor opslaan in cache
+## <a name="caching-rules"></a>Regels voor caching
 
 U kunt instellen dat een bepaalde periode om toe te staan verificatiepogingen nadat een gebruiker is geverifieerd met behulp van de _caching_ functie. Latere verificatiepogingen voor de gebruiker binnen de opgegeven voltooid periode automatisch. Opslaan in cache wordt voornamelijk gebruikt wanneer de on-premises systemen, zoals VPN, verzenden meerdere aanvragen voor verificatie, terwijl de eerste aanvraag nog steeds uitgevoerd wordt. Deze functie kunt de volgende aanvragen voor het automatisch uitgevoerd nadat de gebruiker is geslaagd voor de eerste verificatie wordt uitgevoerd.
 
@@ -266,7 +266,7 @@ Als uw organisatie de NPS-extensie implementeert voor MFA on-premises toepassing
 | Azure AD-tenant-type | Vertrouwde IP-adressen functieopties |
 |:--- |:--- |
 | Managed |**Specifieke IP-adressen**: Beheerders opgeven voor een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet.|
-| Federatief |**Alle federatieve gebruikers**: Alle federatieve gebruikers die zich aanmelden vanaf binnen de organisatie kunnen verificatie in twee stappen overslaan. De gebruikers omzeilen verificatie met behulp van een claim dat is uitgegeven door Active Directory Federation Services (AD FS).<br/>**Specifieke IP-adressen**: Beheerders opgeven voor een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet. |
+| Federatieve |**Alle federatieve gebruikers**: Alle federatieve gebruikers die zich aanmelden vanaf binnen de organisatie kunnen verificatie in twee stappen overslaan. De gebruikers omzeilen verificatie met behulp van een claim dat is uitgegeven door Active Directory Federation Services (AD FS).<br/>**Specifieke IP-adressen**: Beheerders opgeven voor een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet. |
 
 De goedgekeurde IP-adressen overslaan werkt alleen in het bedrijfsintranet. Als u selecteert de **alle federatieve gebruikers** optie en een gebruiker zich aanmeldt via buiten het bedrijfsintranet, de gebruiker heeft om te verifiëren met behulp van verificatie in twee stappen. Het proces is hetzelfde, zelfs als de gebruiker een AD FS claim geeft. 
 
@@ -336,9 +336,9 @@ Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registr
 | Methode | Description |
 |:--- |:--- |
 | Bellen naar telefoon |Plaatst een geautomatiseerd telefoongesprek. De gebruiker beantwoordt het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren. Het telefoonnummer is niet gesynchroniseerd met on-premises Active Directory. |
-| Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is afgeschaft en wordt niet ondersteund na 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen worden automatisch overgeschakeld naar de _oproep naar telefoon_ verificatie op dat moment.|
+| SMS-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is afgeschaft en wordt niet ondersteund na 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen worden automatisch overgeschakeld naar de _oproep naar telefoon_ verificatie op dat moment.|
 | Melding via mobiele app |Verzendt een pushmelding naar uw telefoon of geregistreerd apparaat. De gebruiker de melding weergaven en **controleren** om verificatie te voltooien. De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verificatiecode uit de mobiele app of hardwaretoken |De Microsoft Authenticator-app genereert een nieuwe OATH-verificatiecode elke 30 seconden. De gebruiker voert de verificatiecode in de interface van aanmelding. De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verificatiecode via mobiele app of hardware-token |De Microsoft Authenticator-app genereert een nieuwe OATH-verificatiecode elke 30 seconden. De gebruiker voert de verificatiecode in de interface van aanmelding. De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>In- en uitschakelen van verificatiemethoden
 
@@ -351,7 +351,7 @@ Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registr
 
 Meer informatie over het gebruik van verificatiemethoden kunnen u vinden in het artikel [wat verificatiemethoden zijn](concept-authentication-methods.md).
 
-## <a name="remember-multi-factor-authentication"></a>Multi-Factor Authentication onthouden
+## <a name="remember-multi-factor-authentication"></a>Multi-factor Authentication onthouden
 
 De _multi-factor Authentication onthouden_ functie voor apparaten en browsers die worden vertrouwd door de gebruiker is een gratis functie voor alle gebruikers van multi-factor Authentication. Gebruikers kunnen achteraf gedurende een opgegeven aantal dagen, nadat ze hebben is aangemeld op een apparaat met behulp van multi-factor Authentication overslaan. De functie verbetert de bruikbaarheid door het minimaliseren van het aantal keren dat die een gebruiker heeft verificatie in twee stappen uitvoeren op hetzelfde apparaat.
 

@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/05/2019
+ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393530"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734763"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL-Database zonder server (preview)
 
 ## <a name="serverless-compute-tier"></a>Serverloze compute-laag
 
-SQL-Database zonder server (preview) is een compute-laag die facturen voor het bedrag van compute die worden gebruikt door een individuele database op basis van per seconde. Zonder server is geoptimaliseerd voor individuele databases met onregelmatige, onvoorspelbare gebruikspatronen waarvoor het niet erg enige vertraging in compute warmen na gebruik van niet-actieve perioden van prijs-prestatieverhouding.
+SQL-Database zonder server (preview) is een individuele database rekenlaag dat automatisch wordt geschaald compute en kosten in rekening voor de hoeveelheid rekenkracht die per seconde wordt gebruikt gebracht. 
 
 Een database in de laag serverless Computing met parameters door het compute-bereik dat kan worden gebruikt en een vertraging autopause.
 
@@ -31,7 +31,7 @@ Een database in de laag serverless Computing met parameters door het compute-ber
 
 ### <a name="performance"></a>Prestaties
 
-- `MinVcore` en `MaxVcore` configureerbare parameters die het bereik van de rekencapaciteit die beschikbaar zijn voor de database te definiëren. Geheugen en i/o-limieten zijn in verhouding met het vCore-bereik dat is opgegeven.  
+- Het aantal vCores minimale en maximale vCores zijn configureerbare parameters die het bereik van de rekencapaciteit die beschikbaar zijn voor de database te definiëren. Geheugen en i/o-limieten zijn in verhouding met het vCore-bereik dat is opgegeven.  
 - De vertraging autopause is een configureerbare parameter waarmee wordt gedefinieerd welke periode die de database inactief zijn moet voordat deze automatisch is onderbroken. De database wordt automatisch hervat wanneer de volgende aanmelding plaatsvindt.
 
 ### <a name="pricing"></a>Prijzen
@@ -43,19 +43,19 @@ Facturering voor compute is gebaseerd op de hoeveelheid vCores gebruikt en het g
 
 ## <a name="scenarios"></a>Scenario's
 
-Zonder server is geoptimaliseerd voor individuele databases met onregelmatige, onvoorspelbare gebruikspatronen waarvoor het niet erg enige vertraging in compute warmen na gebruik van niet-actieve perioden van prijs-prestatieverhouding. Daarentegen is de ingerichte Computing-laag prijs-prestatieverhouding geoptimaliseerd voor één of gegroepeerde databases met een hogere Gemiddeld gebruik dat geen enkele eventuele vertragingen in compute warmen.
+Zonder server is geoptimaliseerd voor individuele databases met onregelmatige, onvoorspelbare gebruikspatronen waarvoor het niet erg enige vertraging in compute warmen na gebruik van niet-actieve perioden van prijs-prestatieverhouding. Daarentegen is de ingerichte Computing-laag prijs-prestatieverhouding geoptimaliseerd voor individuele databases of meerdere databases in elastische pools met hogere Gemiddeld gebruik dat geen enkele eventuele vertragingen in compute warmen.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Scenario's die zeer geschikt voor serverless Computing
 
-- Individuele databases met onregelmatige, onvoorspelbare gebruik patronen afgewisseld met perioden van inactiviteit kunnen profiteren van prijs besparingen op basis van facturering per seconde voor de hoeveelheid rekenkracht die wordt gebruikt.
-- Individuele databases met de vraag naar resources die moeilijk te voorspellen en klanten die liever delegeren compute schaling naar de service.
-- Individuele databases in de ingerichte Computing-laag van de prestatieniveaus die vaak worden gewijzigd.
+- Individuele databases met onregelmatige, onvoorspelbare gebruikspatronen afgewisseld met perioden van inactiviteit en lagere gemiddelde compute-gebruik na verloop van tijd.
+- Individuele databases in de ingerichte Computing-laag die zijn vaak schaal gebracht weglating en klanten die liever delegeren compute schaling aanpassen aan de service.
+- Nieuwe individuele databases zonder gebruiksgeschiedenis waar compute-grootte is moeilijk of onmogelijk is om in te schatten voorafgaand aan de implementatie in SQL-Database.
 
 ### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scenario's die zeer geschikt voor de ingerichte Computing
 
-- Individuele databases met meer normale en meer ingrijpende compute-gebruik na verloop van tijd.
+- Individuele databases met meer reguliere, voorspelbare gebruikspatronen en hogere gemiddelde compute-gebruik na verloop van tijd.
 - Databases die kunnen tolereren prestaties wisselwerking resultaat zijn van meer geheugen bijsnijden frequente of vertraging in autoresuming van de status onderbroken ingeschakeld.
-- Meerdere databases met onregelmatige, onvoorspelbare gebruikspatronen die kunnen worden samengevoegd tot één server en het gebruik van elastische pools voor betere prijsoptimalisatie.
+- Meerdere databases met onregelmatige, onvoorspelbare gebruikspatronen die kunnen worden geconsolideerd in elastische pools voor betere prijs-prestatieverhouding optimalisatie.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Vergelijking met ingerichte Computing-laag
 
@@ -63,7 +63,7 @@ De volgende tabel geeft een overzicht van de verschillen tussen de serverloze co
 
 | | **Serverless Computing** | **Ingerichte Computing** |
 |:---|:---|:---|
-|**Typische gebruiksscenario**| Databases met onregelmatige, onvoorspelbare gebruik afgewisseld met inactieve perioden. | Databases of elastische pools met meer normale gebruik.|
+|**Gebruikspatroon van de database**| Onregelmatige, onvoorspelbare gebruik met lagere gemiddelde compute-gebruik na verloop van tijd. |  Meer reguliere gebruikspatronen met hogere gemiddelde compute-gebruik gedurende de tijd of meerdere databases met behulp van elastische pools.|
 | **Prestaties management inspanning** |Lagere|Hogere|
 |**COMPUTE schalen**|Automatisch|Handmatig|
 |**COMPUTE-reactietijd**|Lagere na inactieve perioden|Direct|
@@ -77,7 +77,7 @@ SQL-Database zonder server is momenteel alleen ondersteund in de categorie Algem
 
 ### <a name="scaling-responsiveness"></a>Reactiesnelheid schalen
 
-In het algemeen databases worden uitgevoerd op een computer met onvoldoende capaciteit om te voldoen aan de vraag naar resources zonder onderbreking voor elke hoeveelheid compute aangevraagd binnen de grenzen van de `maxVcores` waarde. Taakverdeling automatisch gebeurt af en toe als de computer kan niet voldoen aan de vraag naar resources binnen een paar minuten. De database blijft online tijdens de taakverdeling, met uitzondering van een korte periode aan het einde van de bewerking wanneer verbindingen worden verwijderd.
+In het algemeen worden serverloze databases uitgevoerd op een computer met onvoldoende capaciteit om te voldoen aan de vraag naar resources zonder onderbreking voor elke hoeveelheid compute aangevraagd binnen de grenzen van de maximale vCores-waarde. Taakverdeling automatisch gebeurt af en toe als de computer kan niet voldoen aan de vraag naar resources binnen een paar minuten. Bijvoorbeeld, als de vraag naar resources 4 vCores is, maar alleen 2 vCores beschikbaar zijn, kan klikt u vervolgens het duren met een paar minuten om taken te verdelen voordat 4 vCores zijn opgegeven. De database blijft online tijdens de taakverdeling, met uitzondering van een korte periode aan het einde van de bewerking wanneer verbindingen worden verwijderd.
 
 ### <a name="memory-management"></a>Geheugenbeheer van
 
@@ -90,7 +90,7 @@ In tegenstelling tot databases, ingerichte Computing en geheugen van de SQL-cach
 - Gebruik van de cache wordt beschouwd als laag wanneer de totale grootte van de meest cache vermeldingen valt onder de drempelwaarde voor een bepaalde periode recent.
 - Wanneer het vrijmaken van de cache wordt geactiveerd, de grootte van de doel-cache is incrementeel verkort tot een fractie van de vorige grootte en vrijmaken alleen als u gebruik laag blijft blijft.
 - Wanneer er cache vrijmaken optreedt, is het beleid voor het selecteren van vermeldingen in de cache onbeschikbaar maken hetzelfde beleid selecteren als die voor de ingerichte Computing databases als geheugendruk hoog is.
-- De cachegrootte is nooit verkleind onder de minimale geheugenhoeveelheid zoals gedefinieerd door de minimale vCores, die kan worden geconfigureerd.
+- De cachegrootte is nooit verkleind onder de min-geheugenlimiet zoals gedefinieerd door min vCores die kan worden geconfigureerd.
 
 Compute-databases, cache vermeldingen kunnen worden verwijderd als alle beschikbare geheugen wordt gebruikt in zowel zonder server en is ingericht.
 
@@ -102,31 +102,41 @@ De SQL-cache neemt toe naarmate er gegevens worden opgehaald van de schijf op de
 
 ### <a name="autopause"></a>Autopause
 
-Autopause wordt geactiveerd als alle volgende voorwaarden waar voor de duur van de vertraging autopause zijn:
+Autopausing wordt geactiveerd als alle volgende voorwaarden waar voor de duur van de vertraging autopause zijn:
 
 - Aantal sessies = 0
-- CPU = 0 (voor de werkbelasting voor gebruikers die worden uitgevoerd in de groep gebruikers)
+- CPU = 0 voor de werkbelasting van de gebruiker die wordt uitgevoerd in de groep gebruikers
 
-Een optie wordt geboden om uit te schakelen autopause indien gewenst.
+Een optie wordt geboden om uit te schakelen autopausing indien gewenst.
+
+De volgende functies bieden geen ondersteuning voor autopausing.  Dat wil zeggen, als een van de volgende functies worden gebruikt, blijft klikt u vervolgens de database online, ongeacht de duur van inactiviteit van de database:
+
+- Geo-replicatie (actieve geo-replicatie en automatische failover-groepen).
+- Langetermijnretentie (LTR).
+- De synchronisatiedatabase die wordt gebruikt in SQL data sync.
+
+Autopausing wordt tijdelijk voorkomen tijdens de implementatie van een service-updates waarvoor dat de database online zijn.  In dergelijke gevallen wordt autopausing toegestaan opnieuw zodra de service-update is voltooid.
 
 ### <a name="autoresume"></a>Autoresume
 
-Autoresume wordt geactiveerd als een van de volgende voorwaarden voldaan op elk gewenst moment wordt:
+Autoresuming wordt geactiveerd als een van de volgende voorwaarden voldaan op elk gewenst moment wordt:
 
 |Functie|Autoresume trigger|
 |---|---|
 |Verificatie en autorisatie|Aanmelden|
-|Detectie van bedreigingen|Threat detection-instellingen in-/ uitschakelen op het niveau van de database of server<br>Threat detection-instellingen op het niveau van de database of server wijzigen|
+|Detectie van bedreigingen|Threat detection-instellingen op het niveau van de database of server inschakelen/uitschakelen.<br>Wijzigen van instellingen voor bedreigingsdetectie op het niveau van de database of server.|
 |Gegevensdetectie en -classificatie|Toevoegen, wijzigen, verwijderen of de gevoeligheidslabels weergeven|
-|Controleren|Controle records weergeven.<br>Bij te werken of weergeven van controlebeleid|
+|Controleren|Controle records weergeven.<br>Bij te werken of weergeven van controlebeleid.|
 |Gegevensmaskering|Toevoegen, wijzigen, verwijderen of gegevensmaskering regels weergeven|
 |Transparent Data Encryption|Status weergeven of de status van transparante gegevensversleuteling|
 |Gegevensarchief query (prestaties)|Wijzigen of weergeven van instellingen voor query store; automatisch afstemmen|
 |Autotuning|Toepassings- en controle van autotuning aanbevelingen, zoals automatisch indexeren|
-|Database kopiëren|-Database als kopie maken<br>Exporteren naar een BACPAC-bestand|
+|Database kopiëren|Database maken als kopie.<br>Exporteren naar een BACPAC-bestand.|
 |SQL data sync|Synchronisatie tussen hub en lid van de databases die worden uitgevoerd op een configureerbaar schema of handmatig worden uitgevoerd|
-|Metagegevens van een bepaalde database wijzigen|Nieuwe database labels toe te voegen<br>Maximale vCores, min vCores, autopause vertraging wijzigen|
+|Metagegevens van een bepaalde database wijzigen|Nieuwe database-labels toe te voegen.<br>Maximale vCores, min vCores of autopause vertraging wijzigen.|
 |SQL Server Management Studio (SSMS)|Met behulp van SSMS versie 18 en openen van een nieuw queryvenster voor elke database op de server wordt elke database automatisch onderbroken op dezelfde server hervat. Dit probleem treedt niet als met behulp van SSMS versie 17.9.1 met IntelliSense uitgeschakelde.|
+
+Autoresuming wordt ook tijdens de implementatie van een service-updates waarvoor dat de database online worden geactiveerd.
 
 ### <a name="connectivity"></a>Connectiviteit
 
@@ -134,16 +144,7 @@ Als een database zonder servers wordt onderbroken, wordt de eerste aanmelding de
 
 ### <a name="latency"></a>Latentie
 
-De latentie autopause of autoresume een serverloze database is algemeen orde van grootte 1 minuut.
-
-### <a name="feature-support"></a>Ondersteuning van functies
-
-De volgende functies ondersteunen geen autopausing en autoresuming. Dat wil zeggen, als een van de volgende functies worden gebruikt, blijft klikt u vervolgens de database online, ongeacht de duur van inactiviteit van de database:
-
-- Geo-replicatie (actieve geo-replicatie en automatische failover-groepen)
-- Langetermijnretentie (LTR)
-- De synchronisatiedatabase die wordt gebruikt in SQL data sync.
-
+De latentie autoresume en autopause een database zonder servers is doorgaans om van 1 minuut autoresume en 1-10 minuten autopause.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding naar serverloze compute-laag
 
@@ -157,11 +158,11 @@ Het maken van een nieuwe database of het verplaatsen van dat een bestaande datab
    |GP_S_Gen5_2|Algemeen doel|Gen5|2|
    |GP_S_Gen5_4|Algemeen doel|Gen5|4|
 
-2. (Optioneel) Geef de minimale vCores en autopause vertraging als u wilt wijzigen, hun standaardwaarden. De volgende tabel toont de beschikbare waarden voor deze parameters.
+2. Geef desgewenst de min-vCores en autopause vertraging als u wilt wijzigen, hun standaardwaarden. De volgende tabel toont de beschikbare waarden voor deze parameters.
 
    |Parameter|Opties voor waarde|Standaardwaarde|
    |---|---|---|---|
-   |Minimum vCores|Een van de {0,5, 1, 2, 4} niet meer dan max vCores|0,5 vCores|
+   |Min vCores|Een van de {0,5, 1, 2, 4} niet meer dan max vCores|0,5 vCores|
    |Autopause vertraging|Min: 360 minuten (6 uur)<br>Max.: 10080 minuten (7 dagen)<br>Stappen: 60 minuten<br>Autopause uitschakelen: -1|360 minuten|
 
 > [!NOTE]
@@ -175,8 +176,6 @@ Zie [Quickstart: Een individuele database maken in Azure SQL Database met behulp
 
 Het volgende voorbeeld wordt een nieuwe database in de serverloze compute-laag gedefinieerd door de servicedoelstelling GP_S_Gen5_4 met standaardwaarden met de naam voor de min-vCores en autopause vertraging.
 
-Zonder server vereist een nieuwere versie van PowerShell is momenteel in de galerie, dus voeren `Update-Module Az.Sql` om op te halen van de meest recente serverloze ingeschakeld-cmdlets.
-
 ```powershell
 New-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
@@ -187,7 +186,7 @@ New-AzSqlDatabase `
   -ComputeGeneration Gen5 `
   -MinVcore 0.5 `
   -MaxVcore 2 `
-  -AutoPauseDelay 720
+  -AutoPauseDelayInMinutes 720
 ```
 
 ### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Ingerichte Computing-database verplaatsen naar serverloze compute-laag
@@ -204,7 +203,7 @@ Set-AzSqlDatabase
   -ComputeGeneration Gen5 `
   -MinVcore 1 `
   -MaxVcore 4 `
-  -AutoPauseDelay 1440
+  -AutoPauseDelayInMinutes 1440
 ```
 
 ### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Serverloze database verplaatsen naar de ingerichte Computing-laag
@@ -219,11 +218,11 @@ Wijzigen van de maximale vCores is uitgevoerd met behulp van de [Set AzSqlDataba
 
 ### <a name="minimum-vcores"></a>Minimum vCores
 
-Wijzigen van de minimale vCores wordt uitgevoerd met behulp van de [Set AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) opdracht in PowerShell met behulp van de `MinVcore` argument.
+Wijzigen van de min-vCores wordt uitgevoerd met behulp van de [Set AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) opdracht in PowerShell met behulp van de `MinVcore` argument.
 
 ### <a name="autopause-delay"></a>Autopause vertraging
 
-Wijzigen van de vertraging autopause wordt uitgevoerd met behulp van de [Set AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) opdracht in PowerShell met behulp van de `AutoPauseDelay` argument.
+Wijzigen van de vertraging autopause wordt uitgevoerd met behulp van de [Set AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) opdracht in PowerShell met behulp van de `AutoPauseDelayInMinutes` argument.
 
 ## <a name="monitoring"></a>Bewaking
 
@@ -279,7 +278,7 @@ Zie voor de resourcelimieten, [Serverloze compute-laag](sql-database-vCore-resou
 De hoeveelheid rekenkracht in rekening gebracht, is het maximum van CPU-gebruik en het geheugen gebruikt per seconde. Als de hoeveelheid CPU gebruikt en gebruikt geheugen kleiner dan het minimum aan nodige ingericht voor elk is, klikt u vervolgens het ingerichte bedrag wordt in rekening gebracht. Als u wilt vergelijken CPU met geheugen voor factureringsdoeleinden, geheugen genormaliseerd in eenheden van vCores door schaling aanpassen van de hoeveelheid geheugen in GB met 3 GB per vCore.
 
 - **Resource in rekening gebracht**: CPU en geheugen
-- **Bedrag in rekening gebracht ($)** : de prijs per eenheid vCore * max (min vCores, vCores gebruikt, min memory GB * geheugen van 1/3 GB gebruikt * 1/3) 
+- **Gefactureerd bedrag**: eenheidsprijs vCore * max (min vCores, vCores gebruikt, min memory GB * geheugen van 1/3 GB gebruikt * 1/3) 
 - **Factureringsfrequentie**: Per seconde
 
 De prijs van de eenheid vCore in de kosten per vCore per seconde. Raadpleeg de [pagina met prijzen van Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) voor specifieke eenheidsprijzen in een bepaalde regio.
@@ -292,25 +291,25 @@ De hoeveelheid rekenkracht in rekening gebracht, wordt weergegeven met de volgen
 
 Deze hoeveelheid wordt berekend per seconde en meer dan 1 minuut geaggregeerd.
 
-Houd rekening met een serverloze database die is geconfigureerd met 1 minuut vCore en 4 maximale vCores.  Dit komt overeen met ongeveer 3 GB min geheugen en het maximale geheugen van 12 GB.  Stel de vertraging automatisch onderbreken is ingesteld op 6 uur en de werkbelasting van de database actief is gedurende de eerste 2 uur van een periode van 24 uur en anders niet actief.    
+Houd rekening met een serverloze database die is geconfigureerd met 1 minuut vCore en 4 maximale vCores.  Dit komt overeen met ongeveer 3 GB min geheugen en het maximale geheugen van 12 GB.  Stel de vertraging automatisch onderbreken is ingesteld op 6 uur en de werkbelasting van de database actief is gedurende de eerste 2 uur van een periode van 24 uur en anders niet actief.    
 
-In dit geval wordt de database wordt in rekening gebracht voor rekenen en opslag in de eerste 8 uur.  Hoewel de database niet actief gestart na het tweede uur is, wordt dit nog steeds gefactureerd voor Computing in de volgende zes uur op basis van de minimale compute terwijl de database online is ingericht.  Alleen in rekening gebracht tijdens de rest van de periode van 24 uur tijdens de database is onderbroken.
+In dit geval wordt de database wordt in rekening gebracht voor rekenen en opslag in de eerste 8 uur.  Hoewel de database niet actief gestart na het tweede uur is, wordt dit nog steeds gefactureerd voor Computing in de volgende zes uur op basis van de minimale compute terwijl de database online is ingericht.  Alleen in rekening gebracht tijdens de rest van de periode van 24 uur tijdens de database is onderbroken.
 
 Preciezer nog, wordt de compute-factuur in dit voorbeeld als volgt berekend:
 
 |Tijdsinterval|vCores gebruikt per seconde|GB per seconde gebruikt|COMPUTE-dimensie kosten in rekening gebracht|vCore seconden kosten in rekening gebracht via tijdsinterval|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores gebruikt|4 vCores * 3600 seconden = 14400 vCore seconden|
-|1:00-2:00|1|12|Gebruikt geheugen|12 Gb * 1/3 * 3600 seconden = 14400 vCore-seconden|
-|2:00-8:00|0|0|Min memory ingericht|3 Gb * 1/3 * 21600 seconden = 21600 vCore-seconden|
+|1:00-2:00|1|12|Gebruikt geheugen|12 GB * 1/3 * 3600 seconden = 14400 vCore-seconden|
+|2:00-8:00|0|0|Min memory ingericht|3 GB * 1/3 * 21600 seconden = 21600 vCore-seconden|
 |8:00-24:00|0|0|Er zijn geen kosten in rekening gebracht terwijl onderbroken compute|seconden van 0 vCore|
 |Totaal aantal vCore seconden meer dan 24 uur in rekening gebracht||||50400 vCore seconden|
 
-Stel de compute-eenheidsprijs $0.000073/vCore/second is.  Klik aan de rekenresources in rekening gebracht voor deze periode van 24 uur het product van de compute-eenheid prijs- en vCore seconden kosten in rekening gebracht is: $0.000073/vCore/second * 50400 vCore seconden = $3,68
+Stel de compute-eenheidsprijs $0.000073/vCore/second is.  Klik aan de rekenresources in rekening gebracht voor deze periode van 24 uur het product van de compute-eenheid prijs- en vCore seconden kosten in rekening gebracht is: $0.000073/vCore/second * 50400 vCore seconden = $3,68
 
 ## <a name="available-regions"></a>Beschikbare regio's
 
-De serverloze compute-laag is beschikbaar in alle regio's behalve de volgende regio's: Australië-centraal, China-Oost, China-Noord, Frankrijk-Zuid, Duitsland-centraal, Duitsland-Noordoost, West-India, Zuid-Korea, Zuid-Afrika West, UK-Noord, UK-Zuid, UK-West en West-Centraal VS.
+De serverloze compute-laag is wereldwijd beschikbaar, met uitzondering van de volgende regio's: Australië-centraal, China-Oost, China-Noord, Frankrijk-Zuid, Duitsland-centraal, Duitsland-Noordoost, West-India, Zuid-Korea, Zuid-Afrika West, UK-Noord, UK-Zuid, UK-West en West-Centraal VS.
 
 ## <a name="next-steps"></a>Volgende stappen
 

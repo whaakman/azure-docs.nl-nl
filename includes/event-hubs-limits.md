@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3f3b60c3744ce9dea61054b3fa0aaccfea27d784
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238150"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735966"
 ---
 De volgende tabel geeft een lijst van quota en limieten specifiek zijn voor [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Zie voor meer informatie over prijzen van Event Hubs [prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -39,11 +39,11 @@ De aanbieding Event Hubs Dedicated wordt in rekening gebracht tegen een vaste ma
 | --- | ---|
 | Bandbreedte |  20 Cu 's |
 | Naamruimten | 50 per Capaciteitseenheid |
-| Event Hubs |  Geen limiet voor event hubs/onderwerpen |
+| Event Hubs |  1000 per naamruimte |
 | Ingangsgebeurtenissen | Inbegrepen |
 | Berichtgrootte | 1 Million Bytes |
 | Partities | 2000 per Capaciteitseenheid |
 | Consumergroepen | Geen limiet per Capaciteitseenheid, 1000 per event hub |
 | Brokered Connections | 100 K inbegrepen |
-| Bewaartermijn voor berichten | 90 dagen, 10 TB, inbegrepen per Capaciteitseenheid |
+| Bewaartermijn voor berichten | Omhoog tot 7 dagen (90 dagen bewaard binnenkort beschikbaar), inbegrepen 10 TB per Capaciteitseenheid |
 | Capture | Inbegrepen |

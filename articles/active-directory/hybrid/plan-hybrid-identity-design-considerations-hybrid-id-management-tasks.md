@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918506"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472962"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan voor de levenscyclus van hybride identiteit
 Identiteit is een van de fundamenten van uw strategie voor enterprise mobility en de toepassing. Of u zich op uw mobiele apparaat of de SaaS-app, is uw identiteit de sleutel tot het verkrijgen van toegang tot alles. Op het hoogste niveau omvat een oplossing voor identiteitsbeheer werking en synchronisatie tussen uw opslagplaatsen voor identiteit, waaronder automatiseren en het proces van inrichting van resources te centraliseren. De oplossing voor identiteit moet de identiteit van een gecentraliseerde via on-premises en cloud en een vorm van identiteitsfederatie ook gebruiken om te onderhouden centrale verificatie en veilig delen en samenwerken met externe gebruikers en bedrijven. Bronnen variëren van besturingssystemen en toepassingen naar mensen in of gekoppeld aan een organisatie. Organisatiestructuur kan worden gewijzigd om te voldoen aan de inrichting beleidsregels en procedures.
@@ -48,22 +48,23 @@ Tijdens het definiëren van deze vereisten, zorg ervoor dat ten minste de volgen
   
   * Wordt de licentie voor beheer van hybride identiteit oplossing verwerkt?
     * Zo ja, is welke mogelijkheden zijn beschikbaar?
-* De oplossing wordt verwerkt op basis van een groep Licentiebeheer in? 
+  * De oplossing wordt verwerkt op basis van een groep Licentiebeheer in? 
   
-      - Zo ja, is het mogelijk een beveiligingsgroep toewijzen aan deze? 
-       - Als u Ja kiest, wordt de clouddirectory automatisch licenties toewijzen aan alle leden van de groep? 
-        - Wat gebeurt er als een gebruiker wordt vervolgens toegevoegd aan of verwijderd uit de groep, wordt een licentie worden automatisch toegewezen of verwijderd, zoals toepasselijk? 
+    * Zo ja, is het mogelijk een beveiligingsgroep toewijzen aan deze? 
+    * Als u Ja kiest, wordt de clouddirectory automatisch licenties toewijzen aan alle leden van de groep? 
+    * Wat gebeurt er als een gebruiker wordt vervolgens toegevoegd aan of verwijderd uit de groep, wordt een licentie worden automatisch toegewezen of verwijderd, zoals toepasselijk? 
 * Integratie met andere externe id-providers:
-* Kan deze hybride oplossing worden geïntegreerd met externe id-providers voor het implementeren van eenmalige aanmelding?
-* Is het mogelijk om alle andere id-providers in een samenhangend identiteitssysteem?
-* Zo ja, hoe en zijn ze en welke mogelijkheden zijn beschikbaar?
+  * Kan deze hybride oplossing worden geïntegreerd met externe id-providers voor het implementeren van eenmalige aanmelding?
+  * Is het mogelijk om alle andere id-providers in een samenhangend identiteitssysteem?
+  * Zo ja, hoe en zijn ze en welke mogelijkheden zijn beschikbaar?
 
 ## <a name="synchronization-management"></a>Synchronisatie Management
 Een van de doelstellingen van een id-beheer, kunnen alle id-providers en houdt deze gesynchroniseerd. Behouden van de gegevens worden gesynchroniseerd op basis van een gezaghebbende master id-provider. In een hybride identiteitsscenario, met een model gesynchroniseerde management alle gebruiker en apparaat-id's in een on-premises server beheren en synchroniseren van de accounts en, optioneel, wachtwoorden naar de cloud. De gebruiker voert de dezelfde on-premises wachtwoord als ze in de cloud doen, en bij het aanmelden, het wachtwoord wordt geverifieerd door de oplossing voor identiteit. Dit model maakt gebruik van een hulpprogramma voor directory-synchronisatie.
 
-![Directory-synchronisatie](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) om juiste ontwerp de synchronisatie van uw oplossing voor hybride identiteit te controleren dat de volgende vragen worden beantwoord: • wat zijn de synchronisatie-oplossingen beschikbaar zijn voor de oplossing voor hybride identiteit?
-• Wat zijn de mogelijkheden die beschikbaar zijn voor eenmalige aanmelding?
-• Wat zijn de opties voor identiteitsfederatie tussen B2B en B2C?
+![Directory-synchronisatie](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) om juiste ontwerp de synchronisatie van uw oplossing voor hybride identiteit te controleren dat de volgende vragen worden beantwoord:
+*    Wat zijn de synchronisatie-oplossingen beschikbaar zijn voor de oplossing voor hybride identiteit?
+*    Wat zijn de mogelijkheden die beschikbaar zijn voor eenmalige aanmelding?
+*    Wat zijn de opties voor identiteitsfederatie tussen B2B en B2C?
 
 ## <a name="next-steps"></a>Volgende stappen
 [Acceptatiestrategie voor hybride identiteit management bepalen](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234fc94a0a2ad3d3bee49853cf1dfc6a805a0166
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825404"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742373"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Fout op de pagina na de aanmelding van een toepassing
 
@@ -67,9 +67,11 @@ Als u wilt toevoegen een kenmerk in de Azure AD-configuratie in het antwoord van
 
 Volgende keer dat de gebruiker zich aanmeldt bij de toepassing Azure AD verzenden het nieuwe kenmerk in het SAML-antwoord.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>De toepassing wordt verwacht dat de indeling of een andere gebruikers-id-waarde
+## <a name="the-application-doesnt-identify-the-user"></a>De toepassing identificeren de gebruiker niet
 
-De aanmelding bij de toepassing is mislukt omdat het SAML-antwoord, kenmerken, zoals rollen ontbreekt of omdat de toepassing een andere indeling voor het kenmerk id van de entiteit wordt verwacht.
+De aanmelding bij de toepassing is mislukt omdat het SAML-antwoord, kenmerken, zoals rollen ontbreekt of omdat de toepassing is er een andere indeling of een waarde voor het kenmerk id van de entiteit wordt verwacht.
+
+Als u [Azure AD geautomatiseerde gebruikersinrichting](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) wilt maken, onderhouden en te verwijderen van gebruikers in de toepassing. Controleer vervolgens of dat de gebruiker met succes is ingericht voor de SaaS-toepassing. Zie voor meer informatie, [geen gebruikers worden ingericht tot een toepassing met Azure AD-galerie](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
 
 ## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Een kenmerk in de configuratie van de Azure AD-toepassing toevoegen:
 

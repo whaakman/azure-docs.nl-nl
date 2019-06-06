@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 1001e6aec7ba2f6ce62eb267d218149296048bb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 574cc0c41ce645c71302178afcf6e7deaec69d8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394338"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476080"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Geef een resourcegroep voor de virtuele machines in Azure DevTest Labs
 
@@ -29,6 +29,9 @@ Als de eigenaar van een lab, kunt u uw lab-virtuele machines worden gemaakt in e
 - Consolideren van uw labresources binnen een enkele resourcegroep voor het vereenvoudigen van deze resources tracking en toepassen van [beleid](../governance/policy/overview.md) om resources op het niveau van de resource te beheren.
 
 Met deze functie kunt u een script gebruiken om op te geven van een nieuwe of bestaande resourcegroep in uw Azure-abonnement voor alle uw lab VM's. Azure DevTest Labs ondersteunt momenteel deze functie via een API.
+
+> [!NOTE]
+> Alle abonnementen van toepassing wanneer u labs in DevTest Labs maken. Een lab beschouwen als een andere resource in uw abonnement. In het geval van resourcegroepen, de limiet is [980 resourcegroepen per abonnement](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
 
 ## <a name="use-azure-portal"></a>Azure Portal gebruiken
 Volg deze stappen voor het opgeven van een resourcegroep voor alle virtuele machines die zijn gemaakt in het lab. 

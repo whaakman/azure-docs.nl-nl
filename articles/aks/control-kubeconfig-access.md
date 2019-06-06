@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143008"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475608"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure op rollen gebaseerd toegangsbeheer gebruiken om te definiëren de toegang tot het Kubernetes-configuratiebestand in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ In dit artikel wordt beschreven hoe u RBAC-rollen toewijzen die beperken aan wie
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-In dit artikel is ook vereist dat u de Azure CLI versie 2.0.53 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+In dit artikel is ook vereist dat u de Azure CLI versie 2.0.65 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="available-cluster-roles-permissions"></a>Rolmachtigingen beschikbare cluster
 
@@ -45,9 +45,9 @@ Deze RBAC-rollen kunnen worden toegepast op een Azure Active Directory (AD)-gebr
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>Rolmachtigingen toewijzen aan een gebruiker of groep
 
-Als u wilt toewijzen aan een van de beschikbare rollen, moet u de resource-ID van het AKS-cluster en de ID van de Azure AD-gebruikersaccount of de groep. De volgende voorbeeldopdrachten Voer de volgende stappen uit:
+Als u wilt toewijzen aan een van de beschikbare rollen, moet u de resource-ID van het AKS-cluster en de ID van de Azure AD-gebruikersaccount of de groep. De volgende voorbeeldopdrachten:
 
-* Haalt de cluster resource ID via de [az aks show] [ az-aks-show] opdracht voor het cluster met de naam *myAKSCluster* in de *myResourceGroup* resourcegroep. Geef de naam van uw eigen cluster en de resource-groep, zoals die nodig zijn.
+* De cluster resource ID met behulp van de [az aks show] [ az-aks-show] opdracht voor het cluster met de naam *myAKSCluster* in de *myResourceGroup* resourcegroep. Geef de naam van uw eigen cluster en de resource-groep, zoals die nodig zijn.
 * Maakt gebruik van de [az account show] [ az-account-show] en [az ad-gebruiker weergeven] [ az-ad-user-show] opdrachten voor het ophalen van uw gebruikers-ID.
 * Ten slotte wijst een rol met de [az roltoewijzing maken] [ az-role-assignment-create] opdracht.
 
@@ -69,7 +69,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Als u machtigingen toewijzen aan een Azure AD-groep wilt, werkt de `--assignee` parameter met de object-ID voor de groep in plaats van een gebruiker, zoals wordt weergegeven in het vorige voorbeeld. Voor de object-ID voor een groep verkrijgen, gebruikt u de [az ad group show] [ az-ad-group-show] opdracht. Het volgende voorbeeld wordt de object-ID voor de Azure AD-groep met de naam *appdev*: `az ad group show --group appdev --query objectId -o tsv`
+> Als u machtigingen toewijzen aan een Azure AD-groep wilt, werkt de `--assignee` parameter die wordt weergegeven in het vorige voorbeeld met de object-ID voor de *groep* in plaats van een *gebruiker*. Voor de object-ID voor een groep verkrijgen, gebruikt u de [az ad group show] [ az-ad-group-show] opdracht. Het volgende voorbeeld wordt de object-ID voor de Azure AD-groep met de naam *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Kunt u de vorige toewijzing aan de *Cluster gebruikersrol* indien nodig.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400016"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471441"
 ---
 # <a name="about-recovery-plans"></a>Over herstelplannen
 
@@ -37,10 +37,10 @@ Een herstelplan helpt u bij het definiëren van een systematische herstelproces 
 
 U kunt plannen en maken van een groep voor gegevensherstel om vast te leggen van de app-specifieke eigenschappen. Als een voorbeeld laten we eens een typische toepassing met drie lagen met een SQL server-back-end, middleware en een web-front. Normaal gesproken aanpassen u het herstelplan te gaan zodat de machines in elke laag in de juiste volgorde worden gestart na een failover.
 
-    - De SQL-back-end moet eerst de middleware beginnen volgende en ten slotte de webfrontend.
-    - Deze volgorde start zorgt ervoor dat de app werkt op het moment dat de laatste machine wordt gestart.
-    - Deze volgorde zorgt ervoor dat wanneer de middleware wordt gestart en probeert verbinding maken met de SQL Server-laag, de SQL Server-laag wordt al uitgevoerd. 
-    - Deze volgorde zorgt er ook dat de front-endwebserver laatste is gestart, zodat eindgebruikers geen verbinding maken met de URL van de app voordat alle onderdelen zijn en die wordt uitgevoerd en de app is gereed om aanvragen te accepteren.
+- De SQL-back-end moet eerst de middleware beginnen volgende en ten slotte de webfrontend.
+- Deze volgorde start zorgt ervoor dat de app werkt op het moment dat de laatste machine wordt gestart.
+- Deze volgorde zorgt ervoor dat wanneer de middleware wordt gestart en probeert verbinding maken met de SQL Server-laag, de SQL Server-laag wordt al uitgevoerd. 
+- Deze volgorde zorgt er ook dat de front-endwebserver laatste is gestart, zodat eindgebruikers geen verbinding maken met de URL van de app voordat alle onderdelen zijn en die wordt uitgevoerd en de app is gereed om aanvragen te accepteren.
 
 Voor het maken van deze volgorde, kunt u groepen toevoegen aan de groep voor gegevensherstel en computers in de groepen toevoegen.
 - Wanneer de order is opgegeven, wordt sequentiëren gebruikt. Acties parallel worden uitgevoerd indien van toepassing, voor het verbeteren van RTO-toepassing herstellen.

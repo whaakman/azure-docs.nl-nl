@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ecf6d04056a91f1f9dd62a5238f60177d2bf59
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420586"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473396"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Wat is een primaire Refresh Token?
 
@@ -111,8 +111,11 @@ Wanneer een gebruiker de interactie van een browser start, roept de browser (of 
 Een PRT krijgen een claim multi-factor authentication (MFA) in specifieke scenario's. Wanneer een PRT gebaseerd op meervoudige verificatie wordt gebruikt om aan te vragen van tokens voor toepassingen, worden de MFA-claim wordt overgebracht naar de app-tokens. Deze functionaliteit biedt een naadloze ervaring voor gebruikers door te voorkomen dat de MFA-controle voor elke app die vereist is. Een PRT krijgen een MFA-claim in de volgende manieren:
 
 * **Aanmelden met Windows Hello voor bedrijven**: Windows Hello voor bedrijven vervangt wachtwoorden, en maakt gebruik van cryptografische sleutels voor sterke verificatie met twee factoren. Windows Hello voor bedrijven is specifiek voor een gebruiker op een apparaat, en zelf MFA is vereist om in te richten. Wanneer een gebruiker zich aanmeldt met Windows Hello voor bedrijven, krijgt de PRT van de gebruiker een MFA-claim. In dit scenario geldt ook voor gebruikers die zich heeft aangemeld met smartcards als smartcardverificatie een MFA-claim van AD FS produceert.
+   * Als Windows Hello voor bedrijven wordt beschouwd als meervoudige verificatie, wordt de MFA-claim bijgewerkt wanneer de PRT zelf wordt vernieuwd, zodat de MFA-duur voortdurend uitbreiden wordt wanneer gebruikers zich aanmelden met WIndows Hello voor bedrijven
 * **MFA tijdens WAM interactieve aanmelding in**: Tijdens een tokenaanvraag via WAM als een gebruiker vereist is voor MFA voor toegang tot de app is de PRT dat is vernieuwd tijdens deze interactie met een MFA-claim gedrukt.
+   * In dit geval is de MFA-claim niet voortdurend bijgewerkt, zodat de MFA-duur is gebaseerd op de levensduur ingesteld op de map.
 * **MFA tijdens het registreren van apparaten**: Als een beheerder de apparaatinstellingen van hun is geconfigureerd in Azure AD [MFA om apparaten te registreren vereisen](device-management-azure-portal.md#configure-device-settings), de gebruiker moet doen MFA om de registratie te voltooien. Tijdens dit proces is de PRT die wordt verleend aan de gebruiker de MFA-claim verkregen tijdens de registratie. Deze mogelijkheid geldt alleen voor de gebruiker die de join-bewerking, niet voor andere gebruikers die zich komt aanmelden bij dat apparaat.
+   * Net als bij de WAM interactieve aanmelding, de MFA-claim is niet voortdurend bijgewerkt, zodat de MFA-duur is gebaseerd op de levensduur ingesteld op de map.
 
 Windows 10 onderhoudt een gepartitioneerde lijst PRTs voor elke referentie. Er is dus een PRT voor elk van Windows Hello voor bedrijven, wachtwoord of smartcard. Deze partitioneren zorgt ervoor dat MFA claims zijn geïsoleerd op basis van de referentie gebruikt en niet door elkaar tijdens token aanvragen.
 

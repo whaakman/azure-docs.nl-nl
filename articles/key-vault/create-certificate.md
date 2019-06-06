@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7eb4d80933e06b9eceb072bee93e2b127cfa9ffe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727434"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427832"
 ---
 # <a name="certificate-creation-methods"></a>Methoden voor het maken van certificaten
 
@@ -82,7 +82,7 @@ Maken van het certificaat kan worden voltooid handmatig of via een 'zelf' verlen
 |Provider|Certificaattype|  
 |--------------|----------------------|  
 |DigiCert|Key Vault biedt OV of VW SSL-certificaten met DigiCert|
-|GlobalCert|Key Vault biedt OV of VW SSL-certificaten met GlobalSign|
+|GlobalCert|Key Vault biedt OV of VW SSL-certificaten met Globaltrust |
 
  Een certificaatverlener is een entiteit in Azure Key Vault (KV) als een resource CertificateIssuer weergegeven. Deze wordt gebruikt voor informatie over de oorzaak van een certificaat KV; naam van verlener, provider, referenties en andere administratieve informatie.
 

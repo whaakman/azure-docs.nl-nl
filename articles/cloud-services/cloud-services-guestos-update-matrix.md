@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 71f66129aeec4f4c8b470a421caade22960d2d64
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473205"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743017"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -42,6 +42,9 @@ Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases
 Weet over het bijwerken van het Gastbesturingssysteem? Controleer [dit] [ cloud updates] uit.
 
 ## <a name="news-updates"></a>Nieuws
+
+###### <a name="june-6-2019"></a>**6 juni 2019**
+Het Gastbesturingssysteem kan heeft uitgegeven.
 
 ###### <a name="may-7-2019"></a>**7 mei 2019**
 Het Gastbesturingssysteem April heeft uitgegeven.
@@ -70,7 +73,7 @@ Het Gastbesturingssysteem oktober is uitgebracht.
 ###### <a name="october-12-2018"></a>**12 oktober 2018**
 Het Gastbesturingssysteem September heeft uitgegeven.
 
-## <a name="releases"></a>Versies
+## <a name="releases"></a>Releases
 
 ## <a name="family-6-releases"></a>Familie 6-versies
 **Windows Server 2019**
@@ -90,10 +93,11 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 >
 
 
-| Configuratietekenreeks | Uitgebracht op | Datum uitschakelen |
+| Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-6.7_201905-01 |6 juni 2019 |Post 6,9 |
 | WA-GUEST-OS-6.6_201904-01 |7 mei 2019 |Post 6,8 |
-| WA-GUEST-OS-6.5_201903-01 |26 maart 2019 |Post 6.7 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 februari 2019 |26 maart 2019 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |24 januari 2019 |12 maart 2019 |
@@ -109,10 +113,11 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 >
 
 
-| Configuratietekenreeks | Uitgebracht op | Datum uitschakelen |
+| Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-5.31_201905-01 |6 juni 2019 |Post 5.33 |
 | WA-GUEST-OS-5.30_201904-01 |7 mei 2019 |Post 5.32 |
-| WA-GUEST-OS-5.29_201903-01 |26 maart 2019 |Post 5.31 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 februari 2019 |26 maart 2019 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |7 januari 2019 |12 maart 2019 |
@@ -125,10 +130,11 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 
 .NET framework is geïnstalleerd: 3.5, 4.5.1
 
-| Configuratietekenreeks | Uitgebracht op | Datum uitschakelen |
+| Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-4.66_201905-01 |6 juni 2019 |Post 4,68 |
 | WA-GUEST-OS-4.65_201904-01 |7 mei 2019 |Post 4,67 |
-| WA-GUEST-OS-4.64_201903-01 |26 maart 2019 |Post 4,66 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 februari 2019 |26 maart 2019 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |7 januari 2019 |12 maart 2019 |
@@ -141,10 +147,11 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 
 .NET framework is geïnstalleerd: 3.5, 4.5
 
-| Configuratietekenreeks | Uitgebracht op | Datum uitschakelen |
+| Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-3.73_201905-01 |Juni 67 2019 |Post 3,75 |
 | WA-GUEST-OS-3.72_201904-01 |7 mei 2019 |Post 3,74 |
-| WA-GUEST-OS-3.71_201903-01 |26 maart 2019 |Post 3,73 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 februari 2019 |26 maart 2019 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |7 januari 2019 |12 maart 2019 |
@@ -157,10 +164,11 @@ Het Gastbesturingssysteem September heeft uitgegeven.
 
 .NET framework is geïnstalleerd: 3.5 (inclusief 2.0 en 3.0)
 
-| Configuratietekenreeks | Uitgebracht op | Datum uitschakelen |
+| Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-2.86_201905-01 |6 juni 2019 |Post 2,88 |
 | WA-GUEST-OS-2.85_201904-01 |7 mei 2019 |Post 2.87 |
-| WA-GUEST-OS-2.84_201903-01 |26 maart 2019 |Post 2.86 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |26 maart 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 maart 2019 |7 mei 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 februari 2019 |26 maart 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 januari 2019 |12 maart 2019 |

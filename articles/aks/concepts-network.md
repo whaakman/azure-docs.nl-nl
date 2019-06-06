@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074054"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431313"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Netwerkconcepten voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -99,6 +99,8 @@ Wanneer u een Load Balancer-type Service maakt, wordt een onderliggende Azure-lo
 U kunt in AKS, een inkomend-resource, bijvoorbeeld met NGINX maken of gebruiken van de functie AKS HTTP-routering. Wanneer u inschakelt dat HTTP-toepassingsroutering voor een AKS-cluster, het Azure-platform wordt gemaakt van de controller voor binnenkomend verkeer en een *externe DNS* controller. Nadat er nieuwe resources voor inkomend verkeer zijn gemaakt in Kubernetes, worden de vereiste DNS A-records gemaakt in een cluster-specifieke DNS-zone. Zie voor meer informatie, [implementeren HTTP-toepassingsroutering][aks-http-routing].
 
 Een andere algemene functie van inkomend verkeer is SSL/TLS-beëindiging. Op grote webtoepassingen benaderd via HTTPS, kan het TLS-beëindiging worden verwerkt door de resource met inkomend verkeer in plaats van in de toepassing zelf. U kunt de resource met inkomend verkeer voor het gebruik van providers, zoals we versleutelen configureren voor het automatisch genereren van de TLS-certificering en de configuratie. Zie voor meer informatie over het configureren van een NGINX-ingangscontroller met we versleutelen [inkomend verkeer en TLS][aks-ingress-tls].
+
+U kunt ook de controller voor binnenkomend verkeer voor het behouden van de bron-IP van client bij aanvragen voor containers in uw AKS-cluster configureren. Wanneer een aanvraag van een client wordt doorgestuurd naar een container in uw AKS-cluster via de controller voor binnenkomend verkeer, is de oorspronkelijke bron-ip van het verzoek niet beschikbaar voor de doelcontainer. Als u activeert *client bron-IP-bewaring*, de bron-IP voor de client is beschikbaar in de aanvraagheader onder *X doorgestuurd voor*. Als u van client bron-IP-behoud op de controller voor binnenkomend verkeer gebruikmaakt, kunt u SSL Pass Through-query niet gebruiken. Behoud van client bron-IP- en SSL Pass Through-query kunnen worden gebruikt met andere services, zoals de *LoadBalancer* type.
 
 ## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
 

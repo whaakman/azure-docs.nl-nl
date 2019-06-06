@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0256396cd228898f3852772b113e6064a0656746
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4d385f1e8c883453b4153ca4c9119d3be0a608bb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237655"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495563"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>De Azure IoT Central gebruikersinterface aanpassen 
 
@@ -75,6 +75,5 @@ U kunt ook nieuwe vermeldingen toevoegen aan het menu help en standaardvermeldin
 
 Nu dat u hebt geleerd over het aanpassen van de gebruikersinterface in uw toepassing IoT Central, hier enkele Voorgestelde volgende stappen te volgen:
 
-> [!div class="nextstepaction"]
-> [Beheren van uw toepassing](./howto-administer.md)
-> [configureren van het dashboard](./howto-configure-homepage.md)
+- [Uw toepassing beheren](./howto-administer.md)
+- [Configureren van het dashboard](./howto-configure-homepage.md)

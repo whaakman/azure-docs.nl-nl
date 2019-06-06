@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c80b821d6bd0263473ba0178eea148f7a2d5773
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123936"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479099"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-serie VM's waarop Linux wordt uitgevoerd
 
@@ -187,8 +187,8 @@ Een SSH-verbinding maken met elke virtuele machine voor het installeren van stuu
 
    sudo apt-get dist-upgrade -y
 
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
+   sudo apt-get install build-essential ubuntu-desktop -y
+   ```
 3. Het uitschakelen van het stuurprogramma van de kernel Nouveau, dit incompatibel met het NVIDIA-stuurprogramma is. (Gebruik alleen het NVIDIA-stuurprogramma op NV of NVv2 VM's.) Om dit te doen, maakt u een bestand in `/etc/modprobe.d` met de naam `nouveau.conf` met de volgende inhoud:
 
    ```

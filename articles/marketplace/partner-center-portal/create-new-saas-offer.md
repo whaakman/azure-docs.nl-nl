@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243324"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455695"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
-Om te beginnen met het maken van Software, zoals een Service (SaaS) biedt, zorg ervoor dat u eerste [maken van een Partner Center-account](./create-account.md) en open de [commerciële Marketplace-dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), met de **biedt** tabblad is geselecteerd. 
+Om te beginnen met het maken van Software, zoals een Service (SaaS) biedt, zorg ervoor dat u eerste [maken van een Partner Center-account](./create-account.md) en open de [commerciële Marketplace-dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), met de **overzicht** tabblad is geselecteerd.
 
-![Commerciële Marketplace-dashboard op Partnercentrum](./media/commercial-marketplace-offers.png)
+![Commerciële Marketplace-dashboard op Partnercentrum](./media/new-offer-overview.png)
 
 Selecteer de + **maakt u een nieuw...** knop en selecteer vervolgens de **Software als een Service** menu-item. 
 
 Als u een van de andere aanbiedingstypen selecteert, wordt u omgeleid naar de oudere [Cloud Partner-Portal](https://cloudpartner.azure.com/).  Alleen SaaS-aanbiedingen zijn beschikbaar in de portal commerciële Marketplace op Partner Center op dit moment. 
 
-![Venster van de aanbieding op Partner Center maken](./media/new-offer.png)
+![Venster van de aanbieding op Partner Center maken](./media/new-offer-click.png)
 
+De **nieuwe aanbieding** in het dialoogvenster wordt weergegeven. 
 
-De **nieuwe aanbieding** in het dialoogvenster wordt weergegeven. ![Dialoogvenster nieuwe aanbieding](./media/new-offer-popup.png)
+![Dialoogvenster nieuwe aanbieding](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>Aanbiedings-ID en naam

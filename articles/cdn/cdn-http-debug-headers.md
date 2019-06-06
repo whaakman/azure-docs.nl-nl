@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736969"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475283"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EG-Debug HTTP-headers voor regels-engine van Azure CDN
 De aanvraagheader foutopsporing cache `X-EC-Debug`, biedt aanvullende informatie over het cache-beleid dat wordt toegepast op de aangevraagde asset. Deze headers zijn specifiek voor **Azure CDN Premium van Verizon** producten.
@@ -27,7 +27,7 @@ De aanvraagheader foutopsporing cache `X-EC-Debug`, biedt aanvullende informatie
 ## <a name="usage"></a>Gebruik
 Het antwoord van de POP-servers worden verzonden naar een gebruiker bevat de `X-EC-Debug` header alleen wanneer de volgende voorwaarden wordt voldaan:
 
-- De [fouten opsporen in Cache antwoordheaders functie](cdn-rules-engine-reference-features.md#debug-cache-response-headers) is ingeschakeld op de regelengine voor de opgegeven aanvraag.
+- De [fouten opsporen in Cache antwoordheaders functie](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) is ingeschakeld op de regelengine voor de opgegeven aanvraag.
 - De opgegeven aanvraag definieert de set foutopsporing cache antwoordheaders die worden opgenomen in het antwoord.
 
 ## <a name="requesting-debug-cache-information"></a>Aanvragen van cache-informatie voor foutopsporing
@@ -118,7 +118,7 @@ Het volgende voorbeeld response-header geeft aan of de gevraagde inhoud kan zijn
 ## <a name="cache-key-response-header"></a>Cache-sleutel response-header
 De `X-EC-Debug: x-ec-cache-key` response-header geeft aan dat de fysieke cache-sleutel die is gekoppeld aan de gevraagde inhoud. Een fysieke Cachesleutel bestaat uit een pad dat geeft u een asset voor de doeleinden van caching. Met andere woorden, worden de servers wordt gecontroleerd op een in cache opgeslagen versie van een asset op basis van het pad ervan zoals gedefinieerd in de cache-sleutel.
 
-Deze fysieke cache-sleutel begint met een dubbele schuine streep (/ /) gevolgd door het protocol dat wordt gebruikt om aan te vragen van de inhoud (HTTP of HTTPS). Dit protocol wordt gevolgd door het relatieve pad naar het aangevraagde activa die met het punt toegang tot inhoud begint (bijvoorbeeld _/000001/_).
+Deze fysieke cache-sleutel begint met een dubbele schuine streep (/ /) gevolgd door het protocol dat wordt gebruikt om aan te vragen van de inhoud (HTTP of HTTPS). Dit protocol wordt gevolgd door het relatieve pad naar het aangevraagde activa die met het punt toegang tot inhoud begint (bijvoorbeeld _/000001/_ ).
 
 HTTP-platformen zijn standaard geconfigureerd voor gebruik *standard-cache*, wat betekent dat de query-tekenreeks worden genegeerd door het mechanisme voor opslaan in cache. Dit type configuratie wordt voorkomen dat de cache-sleutel met inbegrip van gegevens voor query-tekenreeks.
 
@@ -151,7 +151,7 @@ De termen die worden gebruikt in de bovenstaande syntaxis van de antwoord-header
 
 - MATimePeriod: Zet de max-age-waarde (dat wil zeggen, MASeconds) om in ongeveer het equivalent van een grotere eenheid (bijvoorbeeld, in dagen). 
 
-- UnixTime: Geeft aan dat het tijdstempel van de cache van de gevraagde inhoud in de Unix-tijd (ook wel) POSIX tijd of Unix-epoche). De tijdstempel van de cache geeft aan dat de eerste datum en tijd op basis waarvan de TTL van een asset worden berekend. 
+- UnixTime: Geeft aan dat het tijdstempel van de cache van de gevraagde inhoud in de Unix-tijd (ook wel bekend als POSIX tijd of Unix-epoche). De tijdstempel van de cache geeft aan dat de eerste datum en tijd op basis waarvan de TTL van een asset worden berekend. 
 
     Als de oorspronkelijke server geen gebruik van een derde partij HTTP-server of als server niet in de antwoordheader van de leeftijd resulteert caching, klikt u vervolgens in de tijdstempel van de cache altijd de datum en tijd wanneer de activa is opgehaald of opnieuw gevalideerd zijn. Anders wordt de POP-servers het veld leeftijd gebruiken voor het berekenen van de asset TTL als volgt: Voor het ophalen/RevalidateDateTime - leeftijd.
 

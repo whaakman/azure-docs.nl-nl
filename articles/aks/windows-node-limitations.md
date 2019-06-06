@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304398"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475397"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Huidige beperkingen voor Windows Server-knooppuntgroepen en werkbelastingen van toepassingen in Azure Kubernetes Service (AKS)
 
@@ -45,6 +45,7 @@ De volgende upstream beperkingen voor Windows Server-containers in Kubernetes zi
 De volgende beperkingen zijn van toepassing op Windows Server-knooppunt groep ondersteuning in AKS:
 
 - Een AKS-cluster bevat altijd een knooppuntgroep Linux als het eerste knooppunt van toepassingen. Deze eerste op basis van Linux-knooppuntgroep kan niet worden verwijderd tenzij het AKS-cluster zelf wordt verwijderd.
+- AKS ondersteunt momenteel alleen de basisversie van load balancer, waardoor slechts één back-endpool, de standaardgroep van de Linux-knooppunt. Als gevolg hiervan, uitgaand verkeer van Windows-schillen altijd worden [vertaald naar een Azure-beheerde openbare IP-adres][azure-outbound-traffic]. Omdat dit IP-adres kan niet worden geconfigureerd, is het niet op dit moment mogelijk aan de whitelist verkeer dat afkomstig is van Windows-schillen. 
 - AKS-clusters, moeten het model Azure CNI (Geavanceerd) voor netwerken gebruiken.
     - Kubenet (basis)-netwerken wordt niet ondersteund. U kunt een AKS-cluster dat gebruik maakt van kubenet niet maken. Zie voor meer informatie over de verschillen in de netwerk-modellen [netwerk concepten voor toepassingen in AKS][azure-network-models].
     - Het model van Azure CNI netwerk vergt extra planning en overwegingen voor het beheer van IP-adres. Zie voor meer informatie over het plannen en implementeren van Azure CNI [netwerken van Azure CNI configureren in AKS][configure-azure-cni].
@@ -87,3 +88,4 @@ Aan de slag met Windows Server-containers in AKS, [maken van een knooppunt van t
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat

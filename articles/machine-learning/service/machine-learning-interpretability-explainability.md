@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398537"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430853"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Model interpretability met Azure Machine Learning-service
 
@@ -462,7 +462,7 @@ De uitleg samen met het oorspronkelijke model kan worden geïmplementeerd en kan
 
 Geautomatiseerde machine learning bevat-pakketten voor de functie belangrijk voor het automatisch getrainde modellen interpreteren. Bovendien kunnen classificatie scenario's u om op te halen op klasseniveau functie belang. Er zijn twee methoden voor het inschakelen van dit gedrag in geautomatiseerde machine learning:
 
-* Om in te schakelen belang van de functie voor een model getrainde ensembles, gebruikt u de [ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) functie.
+* Om in te schakelen belang van de functie voor een model getrainde ensembles, gebruikt u de [ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) functie.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -471,7 +471,7 @@ Geautomatiseerde machine learning bevat-pakketten voor de functie belangrijk voo
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* Om in te schakelen functie belang voor elke afzonderlijke uitvoering voordat een training, stel de `model_explainability` parameter `True` in de `AutoMLConfig` -object, samen met validatiegegevens levert. Gebruik vervolgens de [ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) functie.
+* Om in te schakelen functie belang voor elke afzonderlijke uitvoering voordat een training, stel de `model_explainability` parameter `True` in de `AutoMLConfig` -object, samen met validatiegegevens levert. Gebruik vervolgens de [ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) functie.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation

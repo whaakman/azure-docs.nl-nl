@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e91d55c29d325301b8ac70ddc63fb408961fbb2c
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852599"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742968"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Uw App Service-toepassing configureren voor het gebruik van Facebook-aanmelding
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,19 +30,14 @@ Dit onderwerp ziet u hoe u Azure App Service configureren voor Facebook gebruike
 U moet een Facebook-account met een geverifieerde e-mailadres en een mobiel telefoonnummer hebben voor de procedure in dit onderwerp. Voor het maken van een nieuwe Facebook-account, gaat u naar [facebook.com].
 
 ## <a name="register"> </a>Uw toepassing registreren met Facebook
-1. Meld u aan bij de [Azure Portal], en navigeer naar uw toepassing. Kopieer uw **URL**. U gebruikt deze om uw Facebook-app te configureren.
-2. Navigeer in een ander browservenster naar de [Facebook-ontwikkelaars] website en aanmelden met uw Facebook-accountreferenties.
-3. (Optioneel) Als u nog niet hebt geregistreerd, klikt u op **Apps** > **registreren als een ontwikkelaar**, accepteert u het beleid en volg de registratiestappen.
-4. Klik op **mijn Apps** > **toevoegen van een nieuwe App**.
+1. Navigeer naar de [Facebook-ontwikkelaars] website en aanmelden met uw Facebook-accountreferenties.
+3. (Optioneel) Als u een Facebook voor ontwikkelaars-account hebt, klikt u op **aan de slag** en volg de registratiestappen.
+4. Klik op **mijn Apps** > **nieuwe App toevoegen**.
 5. In **weergavenaam**, typ een unieke naam voor uw app. Bieden ook uw **Neem contact op met e-mailadres**, en klik vervolgens op **App-ID maken** en voltooi de beveiligingscontrole. Hiermee gaat u naar het dashboard voor ontwikkelaars voor uw nieuwe Facebook-app.
-6. Onder **aanmelden via Facebook**, klikt u op **instellen**, en kies vervolgens **instellingen** in de linkernavigatiebalk onder **aanmelden via Facebook**.
-7. Toevoegen van uw toepassing **omleidings-URI** naar **geldig OAuth omleidings-URI's**, klikt u vervolgens op **wijzigingen opslaan**.
-   
-   > [!NOTE]
-   > Uw omleidings-URI de URL van uw toepassing met het pad, het achtervoegsel is */.auth/login/facebook/callback*. Bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Zorg ervoor dat u van het HTTPS-schema gebruikmaakt.
-   > 
-   > 
-8. Klik in de navigatiebalk links op **instellingen** > **Basic**. Op de **Appgeheim** veld, klikt u op **weergeven**, Geef uw wachtwoord als aangevraagd, noteer de waarden van **App-ID** en **Appgeheim** . Met deze later kunt u uw toepassing configureren in Azure.
+6. Klik op **Dashboard** > **aanmelden via Facebook** > **instellen** > **Web**.
+1. In de linkernavigatiebalk onder **aanmelden via Facebook**, klikt u op **instellingen**.
+1. In **geldig OAuth omleidings-URI's**, type `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` en vervang  *\<app-naam >* met de naam van uw app in Azure App Service. Klik op **Wijzigingen opslaan**.
+8. Klik in de navigatiebalk links op **instellingen** > **Basic**. Op de **Appgeheim** veld, klikt u op **weergeven**. Kopieer de waarden van **App-ID** en **Appgeheim**. Met deze later kunt u uw App Service-app kunt configureren in Azure.
    
    > [!IMPORTANT]
    > De app-geheim is een belangrijke beveiligingsreferentie. Niet dit geheim met iedereen delen en distribueren binnen een clienttoepassing.
@@ -51,7 +46,7 @@ U moet een Facebook-account met een geverifieerde e-mailadres en een mobiel tele
 9. De Facebook-account dat is gebruikt voor het registreren van de toepassing is een beheerder van de app. Op dit moment kunnen alleen beheerders zich bij deze toepassing. Als u wilt andere Facebook-accounts worden geverifieerd, klikt u op **App-revisie** en in te schakelen **maken \<uw app-naam > openbare** aan het algemene publiek toegang met behulp van de Facebook-authenticatie inschakelen.
 
 ## <a name="secrets"> </a>Facebook-gegevens toevoegen aan uw toepassing
-1. Klik in de [Azure Portal], gaat u naar uw toepassing. Klik op **instellingen** > **verificatie / autorisatie**, en zorg ervoor dat **App Service-verificatie** is **op**.
+1. Aanmelden bij de [Azure Portal] en navigeer naar uw App Service-app. Klik op **instellingen** > **verificatie / autorisatie**, en zorg ervoor dat **App Service-verificatie** is **op**.
 2. Klik op **Facebook**, plakken in de App-ID en App-geheim waarden die u eerder hebt verkregen, eventueel alle scopes die nodig zijn voor uw toepassing inschakelen en vervolgens klikt u op **OK**.
    
     ![][0]

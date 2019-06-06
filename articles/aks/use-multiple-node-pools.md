@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235759"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475452"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Preview - maken en beheren van meerdere knooppuntgroepen voor een cluster in Azure Kubernetes Service (AKS)
 
@@ -74,6 +74,7 @@ De volgende beperkingen zijn van toepassing wanneer u maken en beheren van AKS-c
 * U kunt het eerste knooppunt van toepassingen niet verwijderen.
 * De HTTP-aanvraag routering invoegtoepassing kan niet worden gebruikt.
 * U kunt geen knooppuntgroepen toevoegen, bijwerken en verwijderen met behulp van een bestaande Resource Manager-sjabloon net als bij de meeste bewerkingen. In plaats daarvan [een afzonderlijke Resource Manager-sjabloon gebruiken](#manage-node-pools-using-a-resource-manager-template) wijzigingen aanbrengen in groepen in een AKS-cluster.
+* Het cluster automatisch schalen (momenteel in preview in AKS) kan niet worden gebruikt.
 
 Hoewel deze functie nog in preview, gelden de volgende aanvullende beperkingen:
 
@@ -222,7 +223,7 @@ Het duurt een paar minuten de knooppunten en het knooppunt-pool te verwijderen.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Geef een VM-grootte voor een knooppunt van toepassingen
 
-In de vorige voorbeelden om de knooppuntgroep van een te maken, is een standaard-VM-grootte voor de knooppunten die zijn gemaakt in het cluster gebruikt. Een veelvoorkomende scenario is waarmee u kunt groepen maken met andere VM-grootten en mogelijkheden. U kunt bijvoorbeeld een knooppuntgroep met knooppunten met een grote hoeveelheid CPU of geheugen of een knooppunt van toepassingen die ondersteuning bieden voor GPU maken. In de volgende stap maakt u [Gebruik taints en tolerations][#schedule-pods-using-taints-and-tolerations] in het Kubernetes-scheduler hoe om te beperken van toegang tot schillen die kunnen worden uitgevoerd op deze knooppunten.
+In de vorige voorbeelden om de knooppuntgroep van een te maken, is een standaard-VM-grootte voor de knooppunten die zijn gemaakt in het cluster gebruikt. Een veelvoorkomende scenario is waarmee u kunt groepen maken met andere VM-grootten en mogelijkheden. U kunt bijvoorbeeld een knooppuntgroep met knooppunten met een grote hoeveelheid CPU of geheugen of een knooppunt van toepassingen die ondersteuning bieden voor GPU maken. In de volgende stap maakt u [taints en tolerations](#schedule-pods-using-taints-and-tolerations) in het Kubernetes-scheduler hoe om te beperken van toegang tot schillen die kunnen worden uitgevoerd op deze knooppunten.
 
 In het volgende voorbeeld maakt u een knooppunt op basis van GPU pool die gebruikmaakt van de *Standard_NC6* VM-grootte. Deze VM's worden aangestuurd door de NVIDIA Tesla R80-kaart. Zie voor meer informatie over beschikbare VM-grootten [grootten voor virtuele Linux-machines in Azure][vm-sizes].
 
@@ -332,7 +333,7 @@ Alleen schillen waarvoor deze beïnvloeding toegepast kunnen worden gepland op k
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Beheren van groepen met behulp van een Resource Manager-sjabloon
 
-Wanneer u een Azure Resource Manager-sjabloon gebruikt om te maken en beheerde resources, kunt u doorgaans de instellingen in uw sjabloon en opnieuw implementeren voor het bijwerken van de resource bijwerken. Met nodepools in AKS kan niet het eerste nodepool-profiel worden bijgewerkt nadat het AKS-cluster is gemaakt. Dit gedrag betekent dat u kan niet bijwerken van een bestaande Resource Manager-sjabloon, een wijziging in het knooppuntgroepen aanbrengt en opnieuw implementeren. In plaats daarvan moet u een afzonderlijke Resource Manager-sjabloon die alleen de agentpools voor een bestaand AKS-cluster worden bijgewerkt.
+Wanneer u een Azure Resource Manager-sjabloon gebruikt om te maken en beheerde resources, kunt u doorgaans de instellingen in uw sjabloon en opnieuw implementeren voor het bijwerken van de resource bijwerken. Met groepen in AKS, kan het profiel van de groep Beginaantal knooppunten kan niet worden bijgewerkt nadat het AKS-cluster is gemaakt. Dit gedrag betekent dat u kan niet bijwerken van een bestaande Resource Manager-sjabloon, een wijziging in het knooppuntgroepen aanbrengt en opnieuw implementeren. In plaats daarvan moet u een afzonderlijke Resource Manager-sjabloon die alleen de agentpools voor een bestaand AKS-cluster worden bijgewerkt.
 
 Maak een sjabloon, zoals `aks-agentpools.json` en plak het volgende voorbeeld-manifest. Deze voorbeeldsjabloon configureert u de volgende instellingen:
 

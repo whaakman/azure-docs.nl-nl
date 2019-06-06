@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 06/03/2019
 ms.author: banders
-ms.openlocfilehash: 235d93de56289bb2daaa661ee9806732da3b6d6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417604"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480237"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Uw abonnement voor Azure annuleren
 
@@ -29,6 +29,7 @@ Voordat u uw abonnement annuleert:
 * Uw services afsluiten. Ga naar de [resources pagina in de beheerportal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), en **stoppen** alle virtuele machines, toepassingen of andere services.
 * Houd rekening met uw gegevens migreren. Zie [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md).
 * U moet alle resources en alle resourcegroepen verwijderen. Deze worden verwijderd is vereist voordat u een abonnement kunt annuleren. Elke resourcegroep moet afzonderlijk worden verwijderd. Tijdens het verwijderen van de resource, moet u de verwijdering bevestigt door de naam van de resourcegroep.
+* Hebt u geen aangepaste rollen die verwijzen naar dit abonnement in `AssignableScopes`, moet u deze aangepaste rollen voor het verwijderen van het abonnement bijwerken. Als u probeert een aangepaste rol bijwerken nadat u een abonnement opzegt, krijgt u mogelijk een fout. Zie voor meer informatie, [oplossen van problemen met aangepaste rollen](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) en [aangepaste rollen voor Azure-resources](../role-based-access-control/custom-roles.md).
 
 Als u een betaald ondersteuningsabonnement voor Azure annuleert, wordt u nog steeds gefactureerd voor de rest van het abonnement. Zie voor meer informatie, [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/support/plans/).
 
@@ -43,11 +44,9 @@ Als u een betaald ondersteuningsabonnement voor Azure annuleert, wordt u nog ste
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Wat gebeurt er wanneer ik mijn abonnement annuleren?
 
-Wanneer u annuleert, wordt de facturering wordt onmiddellijk gestopt. Echter kunt duurt maximaal tien minuten voor de annulering om weer te geven in de portal.
+Nadat u annuleert, wordt de facturering wordt onmiddellijk gestopt. Echter kunt duurt maximaal tien minuten voor de annulering om weer te geven in de portal. Als u in het midden van een factureringsperiode annuleert, sturen we de uiteindelijk factuur op uw normale factuurdatum na afloop van de periode.
 
-Daarna worden uw services zijn uitgeschakeld. Dit betekent dat uw virtuele machines zijn toewijzing ongedaan, tijdelijke IP-adressen worden vrijgegeven en opslag is alleen-lezen.
-
-Als u in het midden van een factureringsperiode annuleert, sturen we de uiteindelijk factuur op uw normale factuurdatum na afloop van de periode.
+Nadat u annuleert, worden uw services zijn uitgeschakeld. Dit betekent dat uw virtuele machines zijn toewijzing ongedaan, tijdelijke IP-adressen worden vrijgegeven en opslag is alleen-lezen.
 
 We wacht 90 dagen definitief verwijderd van uw gegevens in het geval u nodig hebt om deze te openen of u van gedachten verandert. We niet in rekening gebracht die de gegevens bewaren. Zie voor meer informatie, [Microsoft Trust Center - hoe we uw gegevens beheren](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 

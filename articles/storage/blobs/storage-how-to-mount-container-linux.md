@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 2/1/2019
 ms.author: normesta
 ms.reviewer: seguler
-ms.openlocfilehash: 261fd9f820f3e5421d9d0f4f7c9220ec31003283
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148444"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473442"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Over het koppelen van Blob-opslag als een bestandssysteem met blobfuse
 
 ## <a name="overview"></a>Overzicht
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is een stuurprogramma voor het virtuele bestandssysteem voor Azure Blob Storage. Blobfuse kunt u uw bestaande blok-blobgegevens in uw storage-account via het bestandssysteem van Linux. Azure Blob-opslag heeft is een object storage-service en een hiërarchische naamruimte. Blobfuse biedt deze naamruimte met behulp van het schema van de virtuele map met de slashes (/) als scheidingsteken.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is een stuurprogramma voor het virtuele bestandssysteem voor Azure Blob Storage. Blobfuse kunt u uw bestaande blok-blobgegevens in uw storage-account via het bestandssysteem van Linux. Blobfuse maakt gebruik van het schema van de virtuele map met de slashes (/) als scheidingsteken.  
 
 Deze handleiding wordt beschreven hoe u blobfuse gebruikt, en het koppelen van een Blob storage-container op Linux- en toegang tot gegevens. Lees de details in voor meer informatie over blobfuse [de opslagplaats blobfuse](https://github.com/Azure/azure-storage-fuse).
 

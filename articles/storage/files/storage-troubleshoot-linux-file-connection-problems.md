@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987711"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472408"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
@@ -110,14 +110,13 @@ De functie versleuteling voor SMB 3.0 voor Linux is ingevoerd in de 4.11 kernel.
 
 Als uw Linux SMB-client biedt geen ondersteuning voor versleuteling, bestanden koppelen van Azure met behulp van SMB 2.1 van een Azure Linux VM die zich in hetzelfde datacenter als de bestandsshare. Controleer de [veilige overdracht vereist]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) instelling is uitgeschakeld op het storage-account. 
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fout 'Toegang geweigerd' bij het bladeren naar een Azure-bestandsshare in de portal
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>'Autorisatie-fout' Fout bij het bladeren naar een Azure-bestandsshare in de portal
 
 Wanneer u naar een Azure-bestandsshare in de portal bladert, wordt de volgende fout:
 
-Toegang geweigerd  
-U hebt geen toegang  
-Hebt u geen toegang tot deze inhoud. Als u toegang wilt, neem contact op met de eigenaar.  
+Autorisatiefout  
+U hebt geen toegang
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>1 oorzaak: Uw gebruikersaccount heeft geen toegang tot het opslagaccount
 
@@ -223,7 +222,7 @@ De Linux-kernel een upgrade naar de volgende versies die een oplossing voor dit 
 - 4.12.11+
 - Alle versies die groter zijn dan of gelijk zijn aan 4.13
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Kan geen maken symbolische koppelingen - ln: is mislukt voor het maken van de symbolische koppeling 't': Bewerking niet ondersteund
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Kan geen maken symbolische koppelingen - ln: is mislukt voor het maken van de symbolische koppeling 't': Deze bewerking wordt niet ondersteund
 
 ### <a name="cause"></a>Oorzaak
 Standaard biedt geen Azure-bestandsshares koppelen in Linux met behulp van CIFS ondersteuning voor inschakelen symbolische koppelingen (symlinks). Er is een fout als volgt:

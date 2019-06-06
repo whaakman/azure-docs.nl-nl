@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298808"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473787"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Naslagdocumentatie voor PowerShell-ADConnectivityTools
 
@@ -35,7 +35,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>BESCHRIJVING
 
-Lokale DNS-connectiviteit testen uitgevoerd. Als u wilt de Active Directory-connector configureert, moet de gebruiker beide naamomzetting voor het forest dat ze verbinding proberen te maken naar ook zoals in de domeincontrollers die zijn gekoppeld aan dit forest.
+Lokale DNS-connectiviteit testen uitgevoerd.
+Als u wilt de Active Directory-connector configureert, moet de gebruiker beide resolutionthe naam voor het forest ze probeert verbinding maken met ook zoals in de domeincontrollers die zijn gekoppeld aan dit forest hebben.
 
 ### <a name="examples"></a>VOORBEELDEN
 
@@ -308,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Als gebruikers niet met behulp van DNS-services geleverd door de AD-Site / Logon DC, en ze mogelijk wilt controleren of poort 53 overslaan.
-Gebruiker moet nog steeds mogelijk om op te lossen _.ldap._tcp. \<forestfqdn\> in volgorde voor de configuratie van Active Directory-Connector te voltooien.
+Als de gebruiker niet met behulp van DNS-services geleverd door de AD-Site / Logon DC, en ze mogelijk wilt controleren of poort 53 overslaan.
+De gebruiker moet nog steeds mogelijk om op te lossen _.ldap._tcp. \<forestfqdn\> in volgorde voor de configuratie van Active Directory-Connector te voltooien.
 
 ```yml
 Type: SwitchParameter

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502232"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427511"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Gegevens verkennen en visualiseren hulpprogramma's op de Data Science Virtual Machine
 
-Er is een belangrijke stap in de data science om te begrijpen van de gegevens. Visualisatie en hulpprogramma's kunnen inzicht in gegevens te versnellen. Hier volgen enkele hulpprogramma's op de DSVM die het eenvoudiger maken van deze belangrijke stap. 
+Er is een belangrijke stap in de data science om te begrijpen van de gegevens. Visualisatie en hulpprogramma's kunnen inzicht in gegevens te versnellen. Hier volgen enkele hulpprogramma's op de DSVM dat u deze sleutel stap gemakkelijker. 
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
@@ -56,12 +56,12 @@ Er is een belangrijke stap in de data science om te begrijpen van de gegevens. V
 | Koppelingen naar voorbeelden      | [Rammelaar](https://togaware.com/onepager/) |
 | Meer hulpprogramma's op de DSVM      |LightGBM, Weka, Xgboost   |
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Interactieve gegevensvisualisatie en BI-hulpprogramma    |
 | Ondersteunde DSVM-versies      | Windows  |
 | Wordt doorgaans gebruikt      |  Gegevensvisualisatie en het bouwen van Dashboards   |
 | Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Meer hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Meer hulpprogramma's op de DSVM      |   2019 van Visual Studio, Visual Studio Code, Juno      |
 

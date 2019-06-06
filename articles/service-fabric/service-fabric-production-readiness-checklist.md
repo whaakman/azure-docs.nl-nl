@@ -12,28 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
+ms.date: 6/05/2019
 ms.author: aljo
-ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726584"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729866"
 ---
 # <a name="production-readiness-checklist"></a>Controlelijst voor productiegereedheid
 
 Uw toepassing en het cluster gereed is voor productieverkeer? Uitvoeren en testen van uw toepassing en het cluster noodzakelijkerwijs niet dat deze klaar is voor gebruik in productie. Houd uw toepassing en cluster die probleemloos werken door te gaan via de volgende controlelijst. Wij raden deze items om te worden ingeschakeld. U kunt uiteraard alternatieve oplossingen gebruiken voor een bepaalde regelitem (bijvoorbeeld uw eigen frameworks diagnostische gegevens).
 
 
-## <a name="pre-requisites-for-production"></a>Vereisten voor productie
-1. [Aanbevolen procedures van Azure Service Fabric-beveiliging](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) zijn: 
-1. Gebruik van x.509-certificaten
-1. Beveiligingsbeleid configureren
-1. SSL configureren voor Azure Service Fabric
-1. Netwerkisolatie en beveiliging met Azure Service Fabric gebruiken
-1. Azure Key Vault instellen voor beveiliging
-1. Microsoft.Network/loadBalancersAssign gebruikers aan rollen
+## <a name="prerequisites-for-production"></a>Vereisten voor productie
+1. Aanbevolen procedures van Azure Service Fabric: [Toepassingsontwerp](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [netwerken](./service-fabric-best-practices-networking.md), [capaciteitsplanning en schaling](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as Code](./service-fabric-best-practices-infrastructure-as-code.md), en [bewaking en diagnose](./service-fabric-best-practices-monitoring.md). 
 1. De beveiligingsconfiguratie Reliable Actors implementeren als de actoren programmeermodel
 1. Voor clusters met meer dan 20 kernen of 10 knooppunten, maakt u een toegewezen primaire knooppunttype van systeemservices. Voeg [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) reserveren van het primaire knooppunttype van systeemservices.
 1. Gebruik een D2v2 of een hogere SKU voor het primaire knooppunttype. Het verdient aanbeveling een SKU kiezen met ten minste 50 GB harde schijfcapaciteit.

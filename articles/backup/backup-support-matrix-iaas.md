@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399680"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743182"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines (VM's). In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen wanneer u back-up van virtuele Azure-machines met Azure Backup.
@@ -54,6 +54,8 @@ Back-ups per dag (via DPM/MABS) | Twee geplande back-ups per dag.
 Maandelijkse/jaarlijkse back-up   | Niet ondersteund wanneer de back-ups maken met Azure VM-extensie. Alleen wordt dagelijkse en wekelijkse ondersteund.<br/><br/> U kunt het beleid zo instellen dat er dagelijks/wekelijks back-ups behouden voor de bewaarperiode van de maandelijkse/jaarlijkse.
 Automatische clock correctie | Wordt niet ondersteund.<br/><br/> Azure Backup wordt niet automatisch aanpassen voor wintertijd wanneer back-ups van een virtuele machine.<br/><br/>  Het beleid zo nodig handmatig wijzigen.
 [Beveiligingsfuncties voor hybride back-up](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  Uitschakelen van beveiligingsfuncties wordt niet ondersteund.
+Back-up van de virtuele machine waarvan tijd op de computer is gewijzigd | Wordt niet ondersteund.<br/><br/> Als de tijd op de computer is gewijzigd in een toekomstige datum en tijd na het inschakelen van back-up voor die VM; Maar zelfs als de tijdwijziging is teruggezet, goede back-up is niet noodzakelijkerwijs.  
+
 
 ## <a name="operating-system-support-windows"></a>Ondersteuning voor besturingssysteem (Windows)
 
@@ -146,7 +148,7 @@ Maak een back-up van virtuele machines in [beschikbaarheidssets](https://docs.mi
 Maak een back-up van virtuele machines in [beschikbaarheidszones](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Wordt niet ondersteund.
 Maak een back-up van virtuele machines die zijn geïmplementeerd met [Hybrid Use Benefit (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Ondersteund.
 Maak een back-up van virtuele machines die zijn geïmplementeerd in een [schaalset](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  Wordt niet ondersteund.
-Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Gepubliceerd door Microsoft, van derden) |  Ondersteund.<br/><br/> De virtuele machine moet worden uitgevoerd als een ondersteund besturingssysteem.<br/><br/> Tijdens het herstellen van bestanden op de virtuele machine, kunt u alleen naar een compatibel besturingssysteem (niet een besturingssysteem ouder of hoger) herstellen.
+Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit de [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Gepubliceerd door Microsoft, van derden) |  Ondersteund.<br/><br/> De virtuele machine moet worden uitgevoerd als een ondersteund besturingssysteem.<br/><br/> Tijdens het herstellen van bestanden op de virtuele machine, kunt u alleen naar een compatibel besturingssysteem (niet een besturingssysteem ouder of hoger) herstellen. We moet de Azure Marketplace VM's ondersteund als virtuele machines, zoals deze behoeften informatie over het aanschaffen, maar alleen als schijven niet herstellen.
 Maak een back-up van virtuele machines die zijn geïmplementeerd vanuit een aangepaste installatiekopie (derde) |   Ondersteund.<br/><br/> De virtuele machine moet worden uitgevoerd als een ondersteund besturingssysteem.<br/><br/> Tijdens het herstellen van bestanden op de virtuele machine, kunt u alleen naar een compatibel besturingssysteem (niet een besturingssysteem ouder of hoger) herstellen.
 Maak een back-up van virtuele machines die worden gemigreerd naar Azure  | Ondersteund.<br/><br/> Als u wilt back-up van de virtuele machine, moet de VM-agent worden geïnstalleerd op de gemigreerde machine.
 Back-up van Multi-VM-consistentie | Azure Backup biedt geen consistentie van gegevens en toepassingen op meerdere virtuele machines.

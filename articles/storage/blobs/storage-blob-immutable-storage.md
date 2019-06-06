@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 60cf37e5f6375d08e73241f6e357ac39ea665e9b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192538"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492760"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
@@ -34,9 +34,9 @@ Typische toepassingen zijn onder andere:
 
 Onveranderbare storage ondersteunt het volgende:
 
-- **[Ondersteuning voor op tijd gebaseerd bewaren groepsbeleid](#time-based-retention)**: Gebruikers kunnen beleid voor het opslaan van gegevens voor een opgegeven interval instellen. Wanneer een op tijd gebaseerd bewaarbeleid is kunnen ingesteld, blobs worden gemaakt en lezen, maar niet gewijzigd of verwijderd. Nadat de bewaarperiode is verlopen, blobs kunnen worden verwijderd, maar niet overschreven.
+- **[Ondersteuning voor op tijd gebaseerd bewaren groepsbeleid](#time-based-retention)** : Gebruikers kunnen beleid voor het opslaan van gegevens voor een opgegeven interval instellen. Wanneer een op tijd gebaseerd bewaarbeleid is kunnen ingesteld, blobs worden gemaakt en lezen, maar niet gewijzigd of verwijderd. Nadat de bewaarperiode is verlopen, blobs kunnen worden verwijderd, maar niet overschreven.
 
-- **[Ondersteuning van Groepsbeleid juridisch](#legal-holds)**: Als de retentie-interval dat is niet bekend zijn, kunnen gebruikers juridische bewaring voor het opslaan van gegevens immutably totdat de juridische bewaring is uitgeschakeld ingesteld.  Wanneer een beleid voor juridische bewaring is ingesteld, kunnen blobs worden gemaakt en lezen, maar niet gewijzigd of verwijderd. Elke juridische bewaring is gekoppeld aan een gebruiker gedefinieerde alfanumerieke code (zoals een case-ID, gebeurtenisnaam van de, enzovoort) die wordt gebruikt als een tekenreeks-id. 
+- **[Ondersteuning van Groepsbeleid juridisch](#legal-holds)** : Als de retentie-interval dat is niet bekend zijn, kunnen gebruikers juridische bewaring voor het opslaan van gegevens immutably totdat de juridische bewaring is uitgeschakeld ingesteld.  Wanneer een beleid voor juridische bewaring is ingesteld, kunnen blobs worden gemaakt en lezen, maar niet gewijzigd of verwijderd. Elke juridische bewaring is gekoppeld aan een gebruiker gedefinieerde alfanumerieke code (zoals een case-ID, gebeurtenisnaam van de, enzovoort) die wordt gebruikt als een tekenreeks-id. 
 
 - **Ondersteuning voor alle lagen blob**: WORM beleidsregels zijn onafhankelijk van de Azure Blob storage-laag en zijn van toepassing op alle lagen: hot, cool en archive Storage. Gebruikers kunnen gegevens naar de prijscategorie meest kosten geoptimaliseerd voor hun workloads overgang behoud van gegevens onveranderbaarheid.
 
@@ -53,7 +53,7 @@ Container en accountverwijdering zijn ook niet toegestaan als er blobs die zijn 
 ### <a name="time-based-retention"></a>Tijd gebaseerd bewaren
 
 > [!IMPORTANT]
-> Een op tijd gebaseerd bewaarbeleid moet *vergrendeld* voor de blob in een onveranderbare (schrijven en verwijderen die zijn beveiligd) staat voor seconde 17a-4(f) en andere voorschriften. Het is raadzaam dat u het beleid in een redelijk tijdsbestek, meestal binnen 24 uur vergrendelen. U kunt beter geen de *ontgrendeld* staat voor enig doel dan op korte termijn functie proefversies.
+> Een op tijd gebaseerd bewaarbeleid moet *vergrendeld* voor de blob in een compatibele onveranderbare (schrijven en verwijderen die zijn beveiligd) staat voor seconde 17a-4(f) en andere voorschriften. Het is raadzaam dat u het beleid in een redelijke tijd, meestal minder dan 24 uur vergrendelen. De initiële status van een toegepast op tijd gebaseerd bewaarbeleid is *ontgrendeld*, zodat u kunt de functie testen en wijzigingen aanbrengen aan het beleid voordat u het vergrendelen. Terwijl de *ontgrendeld* status onveranderbaarheid beveiliging bevat, wordt niet aangeraden de *ontgrendeld* staat voor enig doel dan op korte termijn functie proefversies. 
 
 Wanneer een op tijd gebaseerd bewaarbeleid wordt toegepast op een container, alle blobs in de container blijft in de onveranderbare staat voor de duur van de *effectieve* bewaarperiode. De daadwerkelijke bewaarperiode voor bestaande blobs is gelijk aan het verschil tussen de tijd van de blob-wijziging en de gebruiker opgegeven retentie-interval.
 
@@ -65,6 +65,8 @@ Voor nieuwe blobs is de effectieve retentieperiode gelijk aan de door de gebruik
 > De bestaande blob in die container, _testblob1_, één jaar geleden is gemaakt. De daadwerkelijke bewaarperiode voor _testblob1_ vier jaar is.
 >
 > Een nieuwe blob _testblob2_, nu is geüpload naar de container. De daadwerkelijke bewaarperiode voor deze nieuwe blob is vijf jaar.
+
+Een niet-vergrendelde op tijd gebaseerd bewaarbeleid wordt alleen aanbevolen voor testen van de functie en een beleid moet worden vergrendeld om te voldoen met SEC 17a-4(f) en andere voorschriften. Nadat een op tijd gebaseerd bewaarbeleid is vergrendeld, wordt het beleid kan niet worden verwijderd en een maximum van 5 nemen toe naar de daadwerkelijke bewaarperiode is toegestaan. Zie voor meer informatie over het instellen en een vergrendeling op tijd gebaseerd bewaarbeleid de [aan de slag](#getting-started) sectie.
 
 ### <a name="legal-holds"></a>Juridische bewaring
 
@@ -124,7 +126,7 @@ De meest recente versies van de [Azure-portal](https://portal.azure.com), [Azure
 
     De initiële status van het beleid is ontgrendeld zodat u kunt de functie testen en wijzigingen aanbrengen aan het beleid voordat u het vergrendelen. Vergrendeling van het beleid is van essentieel belang voor u voldoet aan regelgeving zoals SEC 17 bis-4.
 
-5. Vergrendelen van het beleid. Met de rechtermuisknop op het weglatingsteken (**...** ), en de volgende menu wordt weergegeven met aanvullende acties:
+5. Vergrendelen van het beleid. Met de rechtermuisknop op het weglatingsteken ( **...** ), en de volgende menu wordt weergegeven met aanvullende acties:
 
     !['Vergrendelen beleid' in het menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
@@ -169,7 +171,7 @@ De volgende clientbibliotheken bieden ondersteuning voor onveranderbare opslag v
 
 **Kunt u de documentatie van de naleving van de WORM geven?**
 
-Ja. Naleving van het document, Microsoft een toonaangevende onafhankelijke beoordeling-bedrijf dat is gespecialiseerd in records beheers- en bestuur Cohasset Associates, Azure onveranderbare Blob Storage en de compatibiliteit met specifieke vereisten evalueren behouden op de financiële dienstverleningssector. Cohasset gevalideerd dat Azure onveranderbare Blob Storage, wanneer gebruikt voor het behouden van Blobs op basis van tijd in een status WORM, voldoet aan de relevante opslagvereisten CFTC regel 1.31(c)-(d) FINRA regel 4511 en SEC regel 17 bis-4. Microsoft gericht deze reeks regels, zoals zij de meest uitgebreide richtlijnen voor records bewaartermijn voor financiële instellingen vertegenwoordigen. Het rapport Cohasset is beschikbaar in de [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage).
+Ja. Naleving van het document, Microsoft een toonaangevende onafhankelijke beoordeling-bedrijf dat is gespecialiseerd in records beheers- en bestuur Cohasset Associates, Azure onveranderbare Blob Storage en de compatibiliteit met specifieke vereisten evalueren behouden op de financiële dienstverleningssector. Cohasset gevalideerd dat Azure onveranderbare Blob Storage, wanneer gebruikt voor het behouden van Blobs op basis van tijd in een status WORM, voldoet aan de relevante opslagvereisten CFTC regel 1.31(c)-(d) FINRA regel 4511 en SEC regel 17 bis-4. Microsoft gericht deze reeks regels, zoals zij de meest uitgebreide richtlijnen voor records bewaartermijn voor financiële instellingen vertegenwoordigen. Het rapport Cohasset is beschikbaar in de [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). Neem contact op met ondersteuning van Azure om aan te vragen een verklaring van de attestation van Microsoft met betrekking tot naleving WORM.
 
 **Is de functie voor alleen blok-blobs, of voor pagina- en toevoeg-blobs ook toepassing?**
 
@@ -186,6 +188,10 @@ Ja, kan een container zowel een juridische bewaring en een op tijd gebaseerd bew
 **Beleid voor juridische bewaring zijn alleen bedoeld voor gerechtelijke procedure of zijn er andere scenario's voor gebruiken?**
 
 Nee, juridische houdt, is alleen de algemene term die wordt gebruikt voor een bewaarbeleid voor niet-op basis van tijd. Het hoeft niet alleen worden gebruikt voor rechtszaak procedures die betrekking hebben. Juridische bewaring beleidsregels zijn handig voor het uitschakelen van overschrijven en verwijderen voor het beveiligen van belangrijke enterprise WORM gegevens, waar de bewaarperiode is onbekend. U kunt deze als een enterprise-beleid aan uw WORM bedrijfskritieke beveiligen of gebruiken als een faseringsbeleid voordat een trigger voor de aangepaste gebeurtenis het gebruik van een op tijd gebaseerd bewaarbeleid vereist. 
+
+**Kan ik verwijderen een *vergrendeld* op tijd gebaseerd bewaarbeleid of juridische bewaring?**
+
+Alleen niet-vergrendelde op tijd gebaseerd bewaarbeleid kunnen worden verwijderd uit een container. Wanneer een op tijd gebaseerd bewaarbeleid is vergrendeld, kan niet worden verwijderd; alleen effectieve bewaarperiode extensies zijn toegestaan. Juridische bewaring tags kunnen worden verwijderd. Wanneer alle juridische tags worden verwijderd, wordt de juridische bewaring verwijderd.
 
 **Wat gebeurt er als ik een container probeer te verwijderen die een *vergrendeld* retentiebeleid op basis van tijd of een juridische bewaring heeft?**
 
@@ -375,12 +381,12 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
-Een beleid voor Onveranderbaarheid van verwijderen (add - Force voor het verwijderen van de prompt):
+Verwijderen van een beleid voor niet-vergrendelde onveranderbaarheid (add - Force voor het verwijderen van de prompt):
 ```powershell
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736136"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428485"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Verbinding maken met de API van Media Services v3 - .NET
 
@@ -27,7 +27,7 @@ Dit artikel ziet u hoe u verbinding maken met de .NET-SDK van Azure Media Servic
 ## <a name="prerequisites"></a>Vereisten
 
 - [Een Azure Media Services-account maken](create-account-cli-how-to.md). Zorg ervoor dat u de naam van de resourcegroep en de naam van de Media Services-account
-- Installeer het hulpprogramma die u wilt gebruiken voor .NET-ontwikkeling. De stappen in dit artikel laten zien hoe u [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). U kunt Visual Studio Code gebruikt, Zie [werken met C# ](https://code.visualstudio.com/docs/languages/csharp). Of u kunt een andere code-editor gebruiken.
+- Installeer het hulpprogramma die u wilt gebruiken voor .NET-ontwikkeling. De stappen in dit artikel laten zien hoe u [Community Edition van Visual Studio 2019](https://www.visualstudio.com/downloads/). U kunt Visual Studio Code gebruikt, Zie [werken met C# ](https://code.visualstudio.com/docs/languages/csharp). Of u kunt een andere code-editor gebruiken.
 
 ## <a name="create-a-console-application"></a>Een consoletoepassing maken
 

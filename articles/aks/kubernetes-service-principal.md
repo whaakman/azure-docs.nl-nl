@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786398"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475623"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Service-principals met AKS (Azure Kubernetes Service)
 
@@ -95,7 +95,7 @@ In de volgende secties wordt meer uitleg gegeven over algemene machtigingen die 
 
 Als u gebruikmaakt van Azure Container Registry (ACR) als opslagplaats voor installatiekopieën, moet u machtigingen aan uw AKS-cluster afgeven voor het lezen en ophalen van installatiekopieën. De service-principal van het AKS-cluster moet worden overgedragen aan de rol *Lezer* in het register. Zie [Toegang tot AKS verlenen in ACR][aks-to-acr] voor gedetailleerde stappen.
 
-### <a name="networking"></a>Netwerk
+### <a name="networking"></a>Netwerken
 
 U kunt gebruikmaken van geavanceerde netwerkmogelijkheden als het virtuele netwerk en het subnet of de openbare IP-adressen zich in een andere resourcegroep bevinden. Wijs een van de volgende sets rolmachtigingen toe:
 
@@ -107,7 +107,7 @@ U kunt gebruikmaken van geavanceerde netwerkmogelijkheden als het virtuele netwe
   - *Microsoft.Network/publicIPAddresses/join/action*
 - U kunt ook de ingebouwde rol [Inzender voor netwerken][rbac-network-contributor] gebruiken in het subnet of in het virtuele netwerk
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 Mogelijk hebt u toegang nodig tot bestaande schijfresources in een andere resourcegroep. Wijs een van de volgende sets rolmachtigingen toe:
 
@@ -126,7 +126,7 @@ Houd rekening met het volgende wanneer u werkt met AKS en Azure AD-service-princ
 
 - De service-principal voor Kubernetes is een onderdeel van de configuratie van het cluster. Gebruik echter niet de id voor het implementeren van het cluster.
 - Standaard zijn de referenties voor de service-principal geldig voor één jaar. U kunt [bijwerken of de referenties voor de service-principal draaien] [ update-credentials] op elk gewenst moment.
-- Elke service-principal is gekoppeld aan een Azure AD-toepassing. De service-principal voor een Kubernetes-cluster kan zijn gekoppeld aan elke geldige Azure AD-toepassingsnaam (bijvoorbeeld *https://www.contoso.org/example*). De URL van de toepassing hoeft geen echt eindpunt te zijn.
+- Elke service-principal is gekoppeld aan een Azure AD-toepassing. De service-principal voor een Kubernetes-cluster kan zijn gekoppeld aan elke geldige Azure AD-toepassingsnaam (bijvoorbeeld *https://www.contoso.org/example* ). De URL van de toepassing hoeft geen echt eindpunt te zijn.
 - Gebruik bij het opgeven van de **client-id** van de service-principal de waarde van de `appId`.
 - Op de agent knooppunt VM's in het Kubernetes-cluster, de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`
 - Wanneer u de opdracht [az aks create][az-aks-create] gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/aksServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
@@ -136,6 +136,24 @@ Houd rekening met het volgende wanneer u werkt met AKS en Azure AD-service-princ
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>Problemen oplossen
+
+De referenties voor de service-principal voor een AKS-cluster in de cache opgeslagen door de Azure CLI. Als deze referenties zijn verlopen, kunt u problemen fouten bij het implementeren van AKS-clusters. De volgende strekking weergegeven bij het uitvoeren van [az aks maken] [ az-aks-create] kan duiden op een probleem met de referenties voor de cache service-principal:
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+Controleer de leeftijd van het bestand met de volgende opdracht:
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+De verlooptijd van de standaard voor de referenties voor de service-principal is één jaar. Als uw *aksServicePrincipal.json* bestand is ouder dan één jaar, verwijdert u het bestand en probeer het opnieuw implementeren van een AKS-cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7c896356b67de185c55396e98aa6bb2e61dd004d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113260"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472910"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gasttoegang beheren met Azure AD toegangsbeoordelingen
 
@@ -41,7 +41,7 @@ Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](a
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Maken en een toegangscontrole uitvoeren voor gasten
 
-Eerst wordt als een globale beheerder of Gebruikerbeheerder, gaat u naar de [pagina toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) om ervoor te zorgen dat toegangsbeoordelingen gereed is voor uw organisatie.
+Eerst wordt als een globale beheerder of Gebruikerbeheerder, gaat u naar de [Identiteitsbestuur pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) om ervoor te zorgen dat toegangsbeoordelingen gereed is voor uw organisatie.
 
 Azure AD kunt verschillende scenario's voor het controleren van gastgebruikers.
 

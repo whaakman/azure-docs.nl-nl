@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989625"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472797"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -128,7 +128,7 @@ Ten slotte uw on-premises toepassing zo instellen dat gebruikers leestoegang heb
 2. Selecteer **overgedragen machtigingen** > **gebruiker** > **User.Read**.
 3. Selecteer **Toepassingsmachtigingen** > **toepassing** > **Application.ReadWrite.All**.
 4. Selecteer **machtigingen toevoegen**.
-5. In de **API-machtigingen** weergeeft, schakelt **beheerder toestemming voor \<de directorynaam van uw >**.
+5. In de **API-machtigingen** weergeeft, schakelt **beheerder toestemming voor \<de directorynaam van uw >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Voor de stappen PingAccess informatie verzamelen
 
@@ -158,9 +158,9 @@ Voor het verzamelen van deze informatie:
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>Update GraphAPI voor het verzenden van aangepaste velden (optioneel)
 
-Zie voor een lijst van beveiligingstokens die Azure AD wordt verzonden voor verificatie, [Microsoft identity-platform-ID-tokens](../develop/id-tokens.md). Als u een aangepaste claim waarmee andere tokens worden verzonden, stel de `acceptMappedClaims` Toepassingsveld `True`. U kunt Graph Explorer of een manifest van de toepassing van de Azure AD-portal om deze wijziging te maken.
+Als u een aangepaste claim die andere-tokens binnen verzendt het access_token door PingAccess verbruikt, stelt u de `acceptMappedClaims` Toepassingsveld `True`. U kunt Graph Explorer of een manifest van de toepassing van de Azure AD-portal om deze wijziging te maken.
 
-In dit voorbeeld maakt gebruik van Graph Explorer:
+**In dit voorbeeld maakt gebruik van Graph Explorer:**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,7 +170,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-In dit voorbeeld wordt de [Azure Active Directory-portal](https://aad.portal.azure.com/) om bij te werken de `acceptMappedClaims` veld:
+**In dit voorbeeld wordt de [Azure Active Directory-portal](https://aad.portal.azure.com/) om bij te werken de `acceptMappedClaims` veld:**
 
 1. Aanmelden bij de [Azure Active Directory-portal](https://aad.portal.azure.com/) als een beheerder van de toepassing.
 2. Selecteer **Azure Active Directory** > **App-registraties**. Er wordt een lijst weergegeven van toepassingen.
@@ -179,7 +179,28 @@ In dit voorbeeld wordt de [Azure Active Directory-portal](https://aad.portal.azu
 5. Zoek de `acceptMappedClaims` veld en wijzig de waarde in `True`.
 6. Selecteer **Opslaan**.
 
-### <a name="use-a-custom-claim-optional"></a>Gebruik een aangepaste claim (optioneel)
+
+### <a name="use-of-optional-claims-optional"></a>Gebruik van optionele claims (optioneel)
+Optionele claims kunt u om toe te voegen standard-but-not-included-by-default claims die aan elke gebruiker en de tenant is. U kunt optioneel claims voor uw toepassing configureren door het wijzigen van het toepassingsmanifest. Zie voor meer informatie de [inzicht krijgen in het manifest artikel voor Azure AD-toepassing](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+Voorbeeld van e-mailadres opnemen in de access_token die PingAccess gebruiken:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>Gebruik van claims toewijzen van beleid (optioneel)
+[Toewijzen van beleid (preview) claims](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) voor kenmerken die niet aanwezig zijn in AzureAD. Claimtoewijzing kunnen u oude on-premises apps migreren naar de cloud door het toevoegen van aanvullende aangepaste claims die worden ondersteund door uw AD FS- of gebruikersobjecten
 
 Als u wilt dat uw toepassing met een aangepaste claim en aanvullende velden opnemen, zorg ervoor dat u hebt ook [een aangepaste claims toewijzen van beleid gemaakt en toegewezen aan de toepassing](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -187,6 +208,16 @@ Als u wilt dat uw toepassing met een aangepaste claim en aanvullende velden opne
 > Voor het gebruik van een aangepaste claim, moet u ook een aangepast beleid gedefinieerd en toegewezen aan de toepassing hebben. Dit beleid moet alle vereiste aangepaste kenmerken bevatten.
 >
 > U kunt doen beleidsdefinitie en de toewijzing via PowerShell, Azure AD Graph Explorer of Microsoft Graph. Als u ze in PowerShell doet, moet u mogelijk eerst met `New-AzureADPolicy` en deze vervolgens toewijzen aan de toepassing met `Add-AzureADServicePrincipalPolicy`. Zie voor meer informatie, [Claims toewijzing beleidstoewijzing](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+Voorbeeld:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>PingAccess voor het gebruik van aangepaste claims (optioneel, maar vereist als u verwacht de toepassing dat gebruiken voor aanvullende claims) inschakelen
+Als u PingAccess in de volgende stap configureert, de websessie maakt u (instellingen -> toegang websessies ->) moet **aanvragen profiel** is uitgeschakeld en **gebruikerskenmerken vernieuwen** ingesteld op **Nee**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>PingAccess downloaden en configureren van uw toepassing
 

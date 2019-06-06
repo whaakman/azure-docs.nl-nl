@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: Azure-blobs opnemen in Azure Data Explorer'
-description: In deze snelstartgids leert u hoe u storage-account om gegevens te verzenden naar Azure Data Explorer met behulp van een Event Grid-abonnement.
+title: Azure-blobs opnemen in Azure Data Explorer
+description: In dit artikel leert u hoe u storage-account om gegevens te verzenden naar Azure Data Explorer met behulp van een Event Grid-abonnement.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/30/2019
-ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446375"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494751"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Quickstart: Blobs worden opgenomen in Azure Data Explorer door u te abonneren op meldingen voor Event Grid
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Blobs worden opgenomen in Azure Data Explorer door u te abonneren op meldingen voor Event Grid
 
 Azure Data Explorer is een snelle en schaalbare data exploration service voor logboek-en telemetrie. Het biedt continue opname (het laden van gegevens) van blobs die zijn geschreven naar het blob-containers. 
 
-In deze snelstartgids leert u hoe u om in te stellen een [Azure Event Grid](/azure/event-grid/overview) -abonnement en gebeurtenissen van de route naar de Azure Data Explorer via een event hub. Als u wilt beginnen, hebt u een opslagaccount met een event grid-abonnement waarmee waarschuwingsmeldingen worden verzonden naar Azure Event Hubs. Vervolgens de gegevensverbinding van een Event Grid maakt en u de gegevens bekijken in de stroom in het hele systeem.
+In dit artikel leert u hoe u om in te stellen een [Azure Event Grid](/azure/event-grid/overview) -abonnement en gebeurtenissen van de route naar de Azure Data Explorer via een event hub. Als u wilt beginnen, hebt u een opslagaccount met een event grid-abonnement waarmee waarschuwingsmeldingen worden verzonden naar Azure Event Hubs. Vervolgens de gegevensverbinding van een Event Grid maakt en u de gegevens bekijken in de stroom in het hele systeem.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -50,7 +50,7 @@ In deze snelstartgids leert u hoe u om in te stellen een [Azure Event Grid](/azu
 
 1. Selecteer het tabblad **Extra functies** als u bestanden uit een specifieke container wilt bijhouden. Stel de filters voor de meldingen als volgt in:
     * **Onderwerp begint met** veld is de *letterlijke* voorvoegsel van de blob-container. Als het patroon toegepast is *startswith*, kan er meerdere containers omvatten. Er zijn geen jokertekens zijn toegestaan.
-     Het veld *moet* als volgt zijn ingesteld: *`/blobServices/default/containers/`*[container-voorvoegsel]
+     Het veld *moet* als volgt zijn ingesteld: *`/blobServices/default/containers/`* [container-voorvoegsel]
     * Het veld **Onderwerp eindigt met** veld is het *letterlijke* achtervoegsel van de blob. Er zijn geen jokertekens zijn toegestaan.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Een doeltabel maken in Azure Data Explorer
@@ -89,7 +89,7 @@ Nu verbinding maken met event grid van Azure Data Explorer, zodat de gegevens di
 
     ![Gegevensopname](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  Selecteer het verbindingstype: **Blob Storage**.
+1.  Selecteer het verbindingstype: **BLOB Storage**.
 
 1. Vul het formulier in met de volgende informatie en selecteer **maken**.
 
@@ -157,7 +157,7 @@ Sla de gegevens in een bestand en upload het met dit script:
 > [!NOTE]
 > Azure Data Explorer is een aggregatie (batchverwerking)-beleid voor gegevensopname die zijn ontworpen om de gegevensopname optimaliseren.
 Standaard is het beleid geconfigureerd op vijf minuten.
-U moet mogelijk zijn om te wijzigen van het beleid op een later tijdstip, indien nodig. Verwacht in deze quickstart een latentie van een paar minuten.
+U moet mogelijk zijn om te wijzigen van het beleid op een later tijdstip, indien nodig. In dit artikel kunt u verwachten dat een latentie van een paar minuten.
 
 1. In de Azure-portal, onder uw Event Grid, ziet u de piek in activiteit terwijl de app wordt uitgevoerd.
 
@@ -196,5 +196,4 @@ Als u niet van plan bent de Event Grid opnieuw te gebruiken, wist u de **test-hu
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+* [Query uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

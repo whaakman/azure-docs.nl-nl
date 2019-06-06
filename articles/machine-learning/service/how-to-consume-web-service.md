@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8fd7af7c2a075258e337b51c3aaca3da9e3d497f
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023820"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692857"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
@@ -486,3 +486,11 @@ De geretourneerde resultaten zijn vergelijkbaar met de volgende JSON-document:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+## <a name="consume-the-service-from-power-bi"></a>De Power BI-service gebruiken
+
+Power BI biedt ondersteuning voor gebruik van Azure Machine Learning-webservices te verrijken van de gegevens in Power BI met voorspellingen. 
+
+Het schema moet de indeling die vereist voor Power BI ondersteuning voor het genereren van een webservice die wordt ondersteund voor gebruik in Power BI. [Informatie over het maken van een Power BI-ondersteund schema](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI).
+
+Wanneer de web-service is geïmplementeerd, is het verbruikbare van Power BI-gegevensstromen. [Meer informatie over het gebruiken van een Azure Machine Learning-webservice uit Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

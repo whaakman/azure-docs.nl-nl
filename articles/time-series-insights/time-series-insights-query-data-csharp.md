@@ -10,18 +10,18 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244098"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728955"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Opvragen van gegevens uit de Azure Time Series Insights GA omgeving gebruikenC#
 
-Dit C# voorbeeld ziet u hoe u gegevens opvraagt uit de omgeving Azure Time Series Insights algemeen beschikbaar. 
+Dit C# voorbeeld ziet u hoe u gegevens opvraagt uit de omgeving Azure Time Series Insights algemeen beschikbaar.
 
 Er worden enkele eenvoudige voorbeelden voor het gebruik van de API-query gegeven:
 
@@ -31,7 +31,7 @@ Er worden enkele eenvoudige voorbeelden voor het gebruik van de API-query gegeve
 1. Er worden gebeurtenissamenvoegingsgegevens opgevraagd voor de belangrijkste omgeving als voorbeeld van een web socket-aanvraag. Er worden gegevens opgevraagd voor het volledige tijdsbereik van de beschikbaarheid.
 
 > [!NOTE]
-> De voorbeeldcode is beschikbaar op [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> De voorbeeldcode is beschikbaar op [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Afhankelijkheden van project
 

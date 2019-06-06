@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a0ff97eb17dcf2625e1bb75dabf3e4a9686b5b85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725709"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427836"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Aan de slag met Key Vault-certificaten
 De volgende scenario's worden enkele van de primaire gebruik van Key Vault de certificate management-service met inbegrip van de extra stappen vereist voor het maken van uw eerste certificaat in uw key vault.
@@ -39,8 +39,7 @@ Certificaten worden samengesteld uit drie onderling verbonden resources samen al
 -   Toevoegen als de IT-beheerder, beheerder van de PKI of iedereen beheren van accounts met CA's voor een opgegeven bedrijf (ex.) Contoso) is een vereiste voor het gebruik van Key Vault-certificaten.  
     De volgende CA's zijn de huidige hebben providers met Key Vault:  
     -   DigiCert - Key Vault biedt OV SSL-certificaten met DigiCert.  
-    -   GlobalSign - Key Vault biedt OV SSL-certificaten met GlobalSign  
-    -   WoSign - Key Vault biedt OV SSL of VW SSL-certificaten met WoSign op basis van de instelling die is geconfigureerd door de klant in hun WoSign-account in de portal WoSign.  
+    -   Globaltrust - Key Vault biedt OV SSL-certificaten met Globaltrust.  
 
 **Stap 2** -een accountbeheerder voor een CA-provider maakt referenties op die moeten worden gebruikt door Key Vault om te schrijven, vernieuwen en SSL-certificaten via Key Vault gebruiken.
 

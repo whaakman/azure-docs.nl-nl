@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 05/30/2019
+ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159289"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455611"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
 Stream Analytics is een uitstekende integratie met Azure-gegevensstromen als invoer van drie soorten resources:
+
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 
@@ -26,22 +26,26 @@ Stream Analytics is een uitstekende integratie met Azure-gegevensstromen als inv
 Deze invoer resources kunnen bevinden zich in hetzelfde Azure-abonnement als uw Stream Analytics-taak of een ander abonnement.
 
 ### <a name="compression"></a>Compressie
-Stream Analytics biedt ondersteuning voor compressie voor alle stream input gegevensbronnen. Van de momenteel ondersteunde compressietypen zijn: None, GZip, en Deflate-compressie. Ondersteuning voor compressie is niet beschikbaar voor referentiegegevens. Als de invoerindeling Avro-gegevens die zijn gecomprimeerd is, wordt dit transparant verwerkt. U hoeft niet te geven van compressietype met Avro-serialisatie. 
+
+Stream Analytics biedt ondersteuning voor compressie voor alle stream input gegevensbronnen. Van de ondersteunde compressietypen zijn: None, GZip, en Deflate-compressie. Ondersteuning voor compressie is niet beschikbaar voor referentiegegevens. Als de invoerindeling Avro-gegevens die zijn gecomprimeerd is, wordt dit transparant verwerkt. U hoeft niet te geven van compressietype met Avro-serialisatie. 
 
 ## <a name="create-edit-or-test-inputs"></a>Maken, bewerken of invoer testen
-U kunt de [Azure-portal](https://portal.azure.com) naar [nieuwe invoer maken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) en weergeven of bewerken van bestaande invoer op uw streaming-taak. U kunt ook de invoer-verbindingen testen en [query's testen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) van voorbeeldgegevens. Wanneer u een query schrijven, wordt een lijst van de invoer in de component FROM. U krijgt de lijst met beschikbare invoer van de **Query** pagina in de portal. Als u gebruiken van meerdere invoergegevens wilt, kunt u `JOIN` ze of meerdere schrijven `SELECT` query's.
+
+U kunt de [Azure-portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), en [Visual Studio Code](quick-create-vs-code.md) toevoegen en weergeven of bewerken van bestaande invoer op uw streaming-taak. U kunt ook de invoer-verbindingen testen en [query's testen](stream-analytics-manage-job.md#test-your-query) van voorbeeldgegevens uit Azure portal, [Visual Studio](stream-analytics-vs-tools-local-run.md), en [Visual Studio Code](vscode-local-run.md). Wanneer u een query schrijven, kunt u de invoer in de component FROM weergeven. U krijgt de lijst met beschikbare invoer van de **Query** pagina in de portal. Als u gebruiken van meerdere invoergegevens wilt, kunt u `JOIN` ze of meerdere schrijven `SELECT` query's.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Gegevens streamen vanuit Event Hubs
 
-Azure Event Hubs biedt zeer schaalbare gebeurtenis ingestors publiceren / abonneren. Een event hub kunt verzamelen van miljoenen gebeurtenissen per seconde, zodat u kunt verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door uw verbonden apparaten en toepassingen. Samen bieden Event Hubs en Stream Analytics u een end-to-end oplossing voor realtime analyses. Eventhubs kunt u gebeurtenissen feed in Azure in realtime, en deze gebeurtenissen in realtime kunnen worden verwerkt door Stream Analytics-taken. Bijvoorbeeld, kunt u web klikken, sensorwaarden, serverlogs, of online gebeurtenissen verzenden naar Event Hubs. Vervolgens kunt u Stream Analytics-taken voor het gebruik van Event Hubs als de invoer-gegevensstromen voor realtime filteren, aggregeren en correlatie.
+Azure Event Hubs biedt zeer schaalbare gebeurtenis ingestors publiceren / abonneren. Een event hub kan miljoenen gebeurtenissen per seconde verzamelen, zodat u kunt verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door uw verbonden apparaten en toepassingen. Samen bieden Event Hubs en Stream Analytics u een end-to-end oplossing voor realtime analyses. Eventhubs kunt u gebeurtenissen feed in Azure in realtime, en deze gebeurtenissen in realtime kunnen worden verwerkt door Stream Analytics-taken. Bijvoorbeeld, kunt u web klikken, sensorwaarden, serverlogs, of online gebeurtenissen verzenden naar Event Hubs. Vervolgens kunt u Stream Analytics-taken voor het gebruik van Event Hubs als de invoer-gegevensstromen voor realtime filteren, aggregeren en correlatie.
 
 `EventEnqueuedUtcTime` de tijdstempel van de aankomst van een gebeurtenis in een event hub en de standaard-tijdstempel van gebeurtenissen die afkomstig zijn van Gebeurtenishubs met Stream Analytics. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) trefwoord.
 
-### <a name="consumer-groups"></a>Consumergroepen
-Configureer elke Stream Analytics event hub-gegevens invoeren in een eigen consumentengroep hebben. Wanneer een taak bevat een self-join of is van meerdere invoergegevens, sommige invoer kan worden gelezen door meer dan één lezer downstream. Deze situatie heeft gevolgen voor het aantal lezers in een enkele consumergroep. Om te voorkomen dat de Event Hubs-limiet van vijf gebruikers per consumergroep per partitie, maar het is een aanbevolen procedure om een consumentengroep voor elke Stream Analytics-taak toe te wijzen. Er is ook een limiet van 20 consumergroepen per event hub. Zie voor meer informatie, [oplossen Azure Stream Analytics-invoer](stream-analytics-troubleshoot-input.md).
+### <a name="event-hubs-consumer-groups"></a>Event Hubs-Consumer-groepen
 
-### <a name="stream-data-from-event-hubs"></a>Gegevens streamen vanuit Event Hubs
+Configureer elke Stream Analytics event hub-gegevens invoeren in een eigen consumentengroep hebben. Wanneer een taak bevat een self-join of is van meerdere invoergegevens, sommige invoer kan worden gelezen door meer dan één lezer downstream. Deze situatie heeft gevolgen voor het aantal lezers in een enkele consumergroep. Om te voorkomen dat de Event Hubs-limiet van vijf gebruikers per consumergroep per partitie, maar het is een aanbevolen procedure om een consumentengroep voor elke Stream Analytics-taak toe te wijzen. Er is ook een limiet van 20 consumergroepen voor een Standard-laag event hub. Zie voor meer informatie, [oplossen Azure Stream Analytics-invoer](stream-analytics-troubleshoot-input.md).
+
+### <a name="create-an-input-from-event-hubs"></a>Invoer van Event Hubs maken
+
 De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagina in de Azure portal op de invoer van de stream-gegevens van een event hub:
 
 | Eigenschap | Description |
@@ -79,14 +83,17 @@ FROM Input
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Stream-gegevens van IoT Hub
-Azure Iot Hub is een zeer schaalbare publish-subscribe abonnementsgebeurtenissen die zijn geoptimaliseerd voor IoT-scenario's.
+
+Azure IoT Hub is een zeer schaalbare publish-subscribe abonnementsgebeurtenissen die zijn geoptimaliseerd voor IoT-scenario's.
 
 De standaard-tijdstempel van gebeurtenissen die afkomstig zijn van een IoT-Hub in Stream Analytics is de tijdstempel die de gebeurtenis in de IoT-Hub die is ontvangen `EventEnqueuedUtcTime`. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) trefwoord.
 
-### <a name="consumer-groups"></a>Consumergroepen
+### <a name="iot-hub-consumer-groups"></a>IOT Hub Consumer-groepen
+
 Configureer elke Stream Analytics IoT-Hub invoeren in een eigen consumentengroep hebben. Wanneer een taak een self-join bevat of wanneer er meerdere invoergegevens, kan sommige invoer worden gelezen door meer dan één lezer downstream. Deze situatie heeft gevolgen voor het aantal lezers in een enkele consumergroep. Om te voorkomen dat de Azure IoT Hub-limiet van vijf gebruikers per consumergroep per partitie, is het een aanbevolen procedure om een consumentengroep voor elke Stream Analytics-taak toe te wijzen.
 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Een IoT-Hub configureren als een gegevensstroom invoer
+
 De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagina in de Azure portal als u een IoT-Hub als een stream input configureert.
 
 | Eigenschap | Description |
@@ -124,13 +131,10 @@ De verwerking van logboekbestanden is een veelgebruikte scenario voor het gebrui
 
 De standaard-tijdstempel van gebeurtenissen van Blob storage in Stream Analytics is het tijdstempel dat de blob het laatst is gewijzigd, dat is `BlobLastModifiedUtcTime`. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) trefwoord. Een Stream Analytics-taak haalt gegevens op uit Azure Blob storage invoer per seconde als de blobbestand beschikbaar is. Als de blob-bestand niet beschikbaar is, is er een exponentieel uitstel met een maximale vertraging van 90 seconden.
 
-CSV-indeling invoer *vereisen* een veldnamenrij voor het definiëren van velden voor de gegevensset en alle koptekstvelden rij moet uniek zijn.
-
-Stream Analytics biedt momenteel geen ondersteuning deserialiseren AVRO die zijn gegenereerd door het vastleggen van de Event Hub of Azure Storage-Container van IoT Hub aangepast eindpunt.
+CSV-indeling invoer moeten een veldnamenrij en geef de velden voor de gegevensset en alle koptekstvelden rij moeten uniek zijn.
 
 > [!NOTE]
 > Stream Analytics biedt geen ondersteuning voor inhoud toevoegen aan een bestaand blobbestand. Stream Analytics wordt elk bestand slechts één keer weergeven en eventuele wijzigingen die in het bestand plaatsvinden nadat de taak van de gegevens lezen niet worden verwerkt. Beste manier is om alle gegevens voor een blob-bestand tegelijk uploaden en vervolgens aanvullende nieuwere gebeurtenissen toevoegen aan een andere, nieuwe blob-bestand.
-> 
 
 Uploaden van een zeer groot aantal blobs in één keer kan leiden tot Stream Analytics voor het lezen van enkele blobs in zeldzame gevallen overslaan. Het verdient aanbeveling ten minste 2 seconden elkaar naar de Blob storage voor blobs uploaden. Als deze optie niet haalbaar is is, kunt u Event Hubs tot grote volumes van de stroom van gebeurtenissen. 
 

@@ -50,7 +50,7 @@ sections:
           - title: Migratie zonder uitvaltijd
             href: /azure/dms/tutorial-sql-server-to-managed-instance
             html: <p>Migreer een hele vloot van databases met minimale downtime met behulp van de Database Migration Service.</p>
-          - title: Prijs
+          - title: Prijzen
             href: 'https://azure.microsoft.com/pricing/hybrid-benefit/'
             html: <p>Bespaar tot 40% met Azure Hybrid Benefit (AHB) met uw bestaande on-premises licenties.</p>
           - title: PaaS-mogelijkheden
@@ -69,7 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '(Preview) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configureren tijdzone</a> tijdens het maken van het exemplaar.'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configureren van de tijdzone</a> tijdens het maken van het exemplaar.'
           - html: 'Maken van instanties met <a href="https://aka.ms/managed-instance-collation">sortering van uw keuze op serverniveau</a>.'
           - html: 'Functionaliteit voor geo-restore kunt u <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">de database herstellen naar een ander datacenter met behulp van PowerShell</a>.'
           - html: '(Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Opnieuw te maken verwijderde databases met behulp van PowerShell</a>'
@@ -164,7 +164,7 @@ sections:
           - html: 'Meer informatie over de storage-laag in <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">categorie Algemeen gebruik</a> en toe te passen <a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">storage aanbevolen procedures voor prestaties en overwegingen voor algemeen gebruik-servicelaag</a>.'
           - html: 'Zoek de best practices en aanbevelingen voor <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">beveiligen van uw exemplaar</a>.'
           - html: Meer informatie vinden <a href="sql-database-howto-managed-instance.md">instructies begeleidt</a> die kan helpen u bij het configureren van uw beheerde exemplaar.
-  - title: Verwijzing
+  - title: Referentie
     items:
       - type: list
         style: cards

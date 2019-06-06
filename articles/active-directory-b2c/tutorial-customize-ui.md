@@ -2,20 +2,20 @@
 title: 'Zelfstudie: aanpassen van de interface van gebruikerservaringen - Azure Active Directory B2C | Microsoft Docs'
 description: Informatie over het aanpassen van de gebruikersinterface van uw toepassingen in Azure Active Directory B2C met behulp van de Azure portal.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2a84bf72ab68937224ac93bd9ffd035e32c603d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702549"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512084"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Zelfstudie: De interface van de gebruikerservaring in Azure Active Directory B2C aanpassen
 
@@ -55,7 +55,7 @@ Hoewel u kunt uw bestanden opslaan op veel manieren voor deze zelfstudie, u ze i
 ### <a name="create-a-container"></a>Een container maken
 
 1. Selecteer op de overzichtspagina van het opslagaccount dat **Blobs**.
-2. Selecteer **Container**, voer een naam voor de container, kies **Blob (anonieme leestoegang voor alleen blobs)**, en klik vervolgens op **OK**.
+2. Selecteer **Container**, voer een naam voor de container, kies **Blob (anonieme leestoegang voor alleen blobs)** , en klik vervolgens op **OK**.
 
 ### <a name="enable-cors"></a>CORS inschakelen
 
@@ -138,7 +138,7 @@ In deze zelfstudie slaat u de bestanden die u in de storage-account hebt gemaakt
 ## <a name="update-the-user-flow"></a>De gebruikersstroom bijwerken
 
 1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-2. Selecteer **gebruikersstromen (beleid)**, en selecteer vervolgens de *B2C_1_signupsignin1* gebruikersstroom.
+2. Selecteer **gebruikersstromen (beleid)** , en selecteer vervolgens de *B2C_1_signupsignin1* gebruikersstroom.
 3. Selecteer **pagina-indelingen**, en klik vervolgens onder **Unified registreren of aanmelden pagina**, klikt u op **Ja** voor **aangepaste pagina-inhoud gebruiken**.
 4. In **aangepaste pagina URI**, voer de URI voor de *aangepaste ui.html* -bestand dat u eerder hebt genoteerd.
 5. Aan de bovenkant van de pagina, selecteer **opslaan**.

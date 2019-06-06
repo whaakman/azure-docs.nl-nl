@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e476f27e2a1945135bd90435078d5bcd47c4b3de
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073146"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743106"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamisch schalen database-resources met minimale downtime
 
@@ -55,6 +55,9 @@ Alle drie versies van Azure SQL Database bieden een mogelijkheid voor het dynami
 - Met een [individuele database](sql-database-single-database-scale.md), gebruikt u een [DTU](sql-database-dtu-resource-limits-single-databases.md) of [vCore](sql-database-vcore-resource-limits-single-databases.md) modellen voor het definiëren van de maximale hoeveelheid resources die worden toegewezen aan elke database.
 - Een [Managed Instance](sql-database-managed-instance.md) maakt gebruik van [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) modus en kunt u maximaal CPU-kernen en het maximumaantal opslag toegewezen aan uw exemplaar definiëren. Alle databases in de instantie delen de resources die zijn toegewezen aan het exemplaar.
 - [Elastische pools](sql-database-elastic-pool-scale.md) kunt u voor het definiëren van de maximale limiet is per groep databases in de groep.
+
+> [!NOTE]
+> U kunt verwachten dat het einde van een korte verbinding wanneer de schaal omhoog/omlaag schalen proces is voltooid. Als u hebt geïmplementeerd [Pogingslogica voor tijdelijke fouten standaard](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), dan zult u niet de failover.
 
 ## <a name="alternative-scale-methods"></a>Schaal van alternatieve methoden
 

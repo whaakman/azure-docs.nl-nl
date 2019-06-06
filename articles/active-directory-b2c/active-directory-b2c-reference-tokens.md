@@ -2,20 +2,20 @@
 title: Overzicht van tokens - Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over de tokens die worden gebruikt in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681898"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509084"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Overzicht van de tokens in Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ De volgende tabel bevat de claims die u kunt verwachten in de ID-tokens en token
 | Doelgroep | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Hiermee geeft u de beoogde ontvanger van het token. Voor Azure AD B2C is de doelgroep de toepassings-ID. Uw toepassing moet deze waarde te valideren en het token te negeren als deze niet overeenkomt met. Doelgroep is gelijk aan de resource. |
 | Verlener | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en het token retourneert. Het identificeert ook de map waarin de gebruiker is geverifieerd. Uw toepassing moet de claim van verlener om ervoor te zorgen dat het token afkomstig van het juiste eindpunt is valideren. |
 | Uitgegeven op | `iat` | `1438535543` | De tijd waarop het token is uitgegeven, weergegeven in epoche-tijd. |
-| Vervaltijd | `exp` | `1438539443` | De tijd waarop het token ongeldig is, wordt weergegeven in epoche-tijd. Deze claim moet in uw toepassing gebruiken om te controleren of de geldigheid van de levensduur van tokens. |
+| Verlooptijd | `exp` | `1438539443` | De tijd waarop het token ongeldig is, wordt weergegeven in epoche-tijd. Deze claim moet in uw toepassing gebruiken om te controleren of de geldigheid van de levensduur van tokens. |
 | Niet voor | `nbf` | `1438535543` | De tijd waarop het token geldig is, wordt weergegeven in epoche-tijd. Deze tijd is meestal hetzelfde als de tijd die het token is uitgegeven. Deze claim moet in uw toepassing gebruiken om te controleren of de geldigheid van de levensduur van tokens. |
 | Versie | `ver` | `1.0` | De versie van de ID-token, zoals gedefinieerd door Azure AD B2C. |
 | Code-hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Een code-hash is opgenomen in een ID-token dat alleen wanneer het token is uitgegeven, samen met een OAuth 2.0-autorisatiecode. Een code-hash kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html).  |
@@ -65,7 +65,7 @@ De volgende tabel bevat de claims die u kunt verwachten in de ID-tokens en token
 | Authentication context class reference | `acr` | Niet van toepassing | Alleen gebruikt met oudere beleid. |
 | Framework vertrouwensbeleid | `tfp` | `b2c_1_signupsignin1` | De naam van het beleid dat is gebruikt om de ID-token te verkrijgen. |
 | Verificatie-tijd | `auth_time` | `1438535543` | De tijd die een gebruiker laatste referenties ingevoerd weergegeven in epoche-tijd. |
-| Bereik | `scp` | `Read`| De machtigingen verleend aan de resource voor een toegangstoken. Meerdere toegekende machtigingen worden gescheiden door een spatie. |
+| Scope | `scp` | `Read`| De machtigingen verleend aan de resource voor een toegangstoken. Meerdere toegekende machtigingen worden gescheiden door een spatie. |
 | Geautoriseerde partij | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | De **toepassings-ID** van de clienttoepassing die de aanvraag wordt gestart. |
 
 ## <a name="configuration"></a>Configuratie

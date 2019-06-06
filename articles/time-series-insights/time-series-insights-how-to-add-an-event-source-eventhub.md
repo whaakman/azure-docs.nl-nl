@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8040368f4cbd6d264070aa3db0a8e6b07a866480
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8b39001481764eb955ab4535e8c6ea1752e0c012
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239030"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475722"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Een event hub-gebeurtenisbron toevoegen aan uw Time Series Insights-omgeving
 
 In dit artikel wordt beschreven hoe u de Azure portal gebruiken voor het toevoegen van een gebeurtenisbron die gegevens uit Azure Event Hubs op uw Azure Time Series Insights-omgeving leest.
 
 > [!NOTE]
-> De stappen in dit artikel beschreven gelden zowel de Time Series Insights algemeen beschikbaar en de Time Series Insights Preview omgevingen.
+> De stappen die in dit artikel worden beschreven gelden zowel de Time Series Insights algemeen beschikbaar en de Time Series Insights Preview omgevingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,7 +34,7 @@ In dit artikel wordt beschreven hoe u de Azure portal gebruiken voor het toevoeg
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Een consumentengroep toevoegen aan uw event hub
 
-Toepassingen gebruiken consumentengroepen gegevens wilt halen uit Azure Event Hubs. Geef een speciale klantengroep voor gebruik door deze Time Series Insights-omgeving, op een betrouwbare manier om gegevens te lezen uit uw event hub.
+Toepassingen gebruiken consumentengroepen gegevens wilt halen uit Azure Event Hubs. Om te lezen op betrouwbare wijze gegevens uit uw event hub, bieden een speciale klantengroep die alleen wordt gebruikt door deze Time Series Insights-omgeving.
 
 Om toe te voegen een nieuwe consumentengroep in uw event hub:
 
@@ -64,38 +64,40 @@ Om toe te voegen een nieuwe consumentengroep in uw event hub:
 
 1. Selecteer de juiste waarden voor **importoptie**:
    - Als u een bestaande event hub in een van uw abonnementen hebt, selecteert u **gebruik Event Hub uit de beschikbare abonnementen**. Deze optie is de eenvoudigste oplossing.
-   - Als de event hub bevindt zich buiten uw abonnementen of als u wilt geavanceerde opties selecteert, selecteert u **bieden Event Hub-instellingen handmatig**.
 
-   [![Voer in het deelvenster nieuwe gebeurtenis bron waarden voor de eerste drie parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
+       [![Voer in het deelvenster nieuwe gebeurtenis bron waarden voor de eerste drie parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
-1. De volgende tabel beschrijft de vereiste eigenschappen voor de **gebruik Event Hub uit de beschikbare abonnementen** optie:
 
-   [![Details van abonnement en de event hub](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+       [![Details van abonnement en de event hub](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
-   | Eigenschap | Description |
-   | --- | --- |
-   | Abonnements-id | Selecteer het abonnement waarin deze event hub is gemaakt.
-   | Service Bus-naamruimte | Selecteer de Azure Service Bus-naamruimte met de event hub.
-   | Naam van Event Hub | Selecteer de naam van de event hub.
-   | De naam van een Event hub-beleid | Selecteer het beleid voor gedeelde toegang. U kunt het beleid voor gedeelde toegang maken in de event hub **configureren** tabblad. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor uw gebeurtenisbron *moet* hebben **lezen** machtigingen.
-   | Beleidssleutel voor Event hub | Waarde van de sleutel mogelijk vooraf worden ingevuld.
-   | Event hub-consumentengroep | De consumentengroep die gebeurtenissen uit de event hub kan lezen. Het is raadzaam dat u een speciale klantengroep voor uw gebeurtenisbron gebruiken. |
-   | Serialisatie-indeling voor gebeurtenissen | JSON is momenteel de enige beschikbare serialisatie-indeling. Gebeurtenisberichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
-   | Naam van de eigenschap timestamp | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens die worden verzonden naar de event hub. Deze waarde is de **naam** van de eigenschap specifieke gebeurtenis in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaatsen** in de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+     De volgende tabel beschrijft de vereiste eigenschappen voor de **gebruik Event Hub uit de beschikbare abonnementen** optie:
 
-1. De volgende tabel beschrijft de vereiste eigenschappen voor de **bieden Event Hub-instellingen handmatig** optie:
+     | Eigenschap | Description |
+     | --- | --- |
+     | Abonnements-id | Selecteer het abonnement waarin deze event hub is gemaakt.
+     | Service Bus-naamruimte | Selecteer de Azure Service Bus-naamruimte met de event hub.
+     | Naam van Event Hub | Selecteer de naam van de event hub.
+     | De naam van een Event hub-beleid | Selecteer het beleid voor gedeelde toegang. U kunt het beleid voor gedeelde toegang maken in de event hub **configureren** tabblad. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor uw gebeurtenisbron *moet* hebben **lezen** machtigingen.
+     | Beleidssleutel voor Event hub | Waarde van de sleutel mogelijk vooraf worden ingevuld.
+     | Event hub-consumentengroep | De consumentengroep die gebeurtenissen uit de event hub kan lezen. Het is raadzaam dat u een speciale klantengroep voor uw gebeurtenisbron gebruiken. |
+     | Serialisatie-indeling voor gebeurtenissen | JSON is momenteel de enige beschikbare serialisatie-indeling. Gebeurtenisberichten moeten zich in deze indeling of gegevens kan niet worden gelezen. |
+     | Naam van de eigenschap timestamp | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens die worden verzonden naar de event hub. Deze waarde is de **naam** van de eigenschap specifieke gebeurtenis in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaatsen** in de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
-   | Eigenschap | Description |
-   | --- | --- |
-   | Abonnements-id | Het abonnement waarin deze event hub is gemaakt.
-   | Resourcegroep | De resourcegroep waarin deze event hub is gemaakt.
-   | Service Bus-naamruimte | Een Service Bus-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe event hub hebt gemaakt, is ook een Service Bus-naamruimte gemaakt.
-   | Naam van Event Hub | De naam van uw event hub. Wanneer u uw event hub hebt gemaakt, u deze ook een specifieke naam gegeven.
-   | De naam van een Event hub-beleid | Het beleid voor gedeelde toegang. U kunt een gedeeld toegangsbeleid maken in de event hub **configureren** tabblad. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor uw gebeurtenisbron *moet* hebben **lezen** machtigingen.
-   | Beleidssleutel voor Event hub | De gedeelde toegangssleutel die wordt gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
-   | Event hub-consumentengroep | De consumentengroep die gebeurtenissen uit de event hub kan lezen. Het is raadzaam dat u een speciale klantengroep voor uw gebeurtenisbron gebruiken.
-   | Serialisatie-indeling voor gebeurtenissen | JSON is momenteel de enige beschikbare serialisatie-indeling. Gebeurtenisberichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
-   | Naam van de eigenschap timestamp | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens die worden verzonden naar de event hub. Deze waarde is de **naam** van de eigenschap specifieke gebeurtenis in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaatsen** in de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+    - Als de event hub bevindt zich buiten uw abonnementen of als u wilt geavanceerde opties selecteert, selecteert u **bieden Event Hub-instellingen handmatig**.
+
+      De volgende tabel beschrijft de vereiste eigenschappen voor de **bieden Event Hub-instellingen handmatig** optie:
+ 
+      | Eigenschap | Description |
+      | --- | --- |
+      | Abonnements-id | Het abonnement waarin deze event hub is gemaakt.
+      | Resourcegroep | De resourcegroep waarin deze event hub is gemaakt.
+      | Service Bus-naamruimte | Een Service Bus-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe event hub hebt gemaakt, is ook een Service Bus-naamruimte gemaakt.
+      | Naam van Event Hub | De naam van uw event hub. Wanneer u uw event hub hebt gemaakt, u deze ook een specifieke naam gegeven.
+      | De naam van een Event hub-beleid | Het beleid voor gedeelde toegang. U kunt een gedeeld toegangsbeleid maken in de event hub **configureren** tabblad. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor uw gebeurtenisbron *moet* hebben **lezen** machtigingen.
+      | Beleidssleutel voor Event hub | De gedeelde toegangssleutel die wordt gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
+      | Event hub-consumentengroep | De consumentengroep die gebeurtenissen uit de event hub kan lezen. Het is raadzaam dat u een speciale klantengroep voor uw gebeurtenisbron gebruiken.
+      | Serialisatie-indeling voor gebeurtenissen | JSON is momenteel de enige beschikbare serialisatie-indeling. Gebeurtenisberichten moeten zich in deze indeling of gegevens kan niet worden gelezen. |
+      | Naam van de eigenschap timestamp | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens die worden verzonden naar de event hub. Deze waarde is de **naam** van de eigenschap specifieke gebeurtenis in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als dit veld leeg blijft, de **tijd van de gebeurtenis in de wachtrij plaatsen** in de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
 1. De toegewezen Time Series Insights consument groepsnaam die u hebt toegevoegd aan uw event hub toevoegen.
 

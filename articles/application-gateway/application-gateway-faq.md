@@ -6,18 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947072"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430882"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Hier volgen algemene vragen over Azure Application Gateway.
 
 ## <a name="general"></a>Algemeen
 
@@ -187,13 +189,18 @@ Zie [volgorde van de regels worden verwerkt](https://docs.microsoft.com/azure/ap
 
 Het Host-veld geeft de naam voor het verzenden van de test om te wanneer u hebt geconfigureerd met meerdere sites op Application Gateway. Gebruik anders '127.0.0.1'. Deze waarde verschilt van de hostnaam van de virtuele machine. De indeling \<protocol\>://\<host\>:\<poort\>\<pad\>.
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>Kan ik de lijst met toegestane adressen Application Gateway toegang tot slechts enkele bron-IP's?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan ik Application Gateway toegang tot slechts enkele bron IP-adressen toestaan?
 
-Ja. Zie [toegang beperken tot specifieke bron-IP-adressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Ja. Zie [toegang beperken tot specifieke bron-IP-adressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Kan ik dezelfde poort gebruiken voor zowel openbare als persoonlijke gerichte listeners?
 
 Nee.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Is er aanwijzingen die beschikbaar zijn voor het migreren van de v1-SKU op de v2-SKU?
+
+Ja. Zie voor meer informatie, [migreren Azure Application Gateway en Web Application Firewall van v1 in v2](migrate-v1-v2.md).
+
 
 ## <a name="configuration---ssl"></a>Configuratie - SSL
 
@@ -312,6 +319,10 @@ Zie voor meer informatie, [OWASP top 10 beveiligingslekken](https://www.owasp.or
 ### <a name="does-waf-support-ddos-protection"></a>Ondersteunt WAF DDoS protection?
 
 Ja. DDoS-beveiliging op het virtuele netwerk waar de application gateway is geïmplementeerd, kunt u inschakelen. Deze instelling zorgt ervoor dat de service Azure DDoS Protection ook de application gateway virtueel IP-adres (VIP beveiligt).
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Is er aanwijzingen die beschikbaar zijn voor het migreren van de v1-SKU op de v2-SKU?
+
+Ja. Zie voor meer informatie, [migreren Azure Application Gateway en Web Application Firewall van v1 in v2](migrate-v1-v2.md).
 
 ## <a name="diagnostics-and-logging"></a>Diagnostische gegevens en logboekregistratie
 

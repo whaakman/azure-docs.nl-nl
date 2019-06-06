@@ -2,20 +2,20 @@
 title: Claims toevoegen en aanpassen van gebruikersinvoer met behulp van aangepaste beleidsregels - Azure Active Directory B2C | Microsoft Docs
 description: Informatie over het aanpassen van de invoer van de gebruiker en claims voor de reis registreren of aanmelden toevoegen in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768011"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507566"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Claims toevoegen en aanpassen van gebruikersinvoer met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ De volgende elementen worden gebruikt voor het definiëren van de claim:
 - **UserHelpText** -helpt de gebruiker weten wat is vereist.
 - **UserInputType** -mag een tekstvak, een selectie van keuzerondje, een vervolgkeuzelijst of een meervoudige selectie.
 
-#### <a name="textbox"></a>TextBox
+#### <a name="textbox"></a>Tekstvak
 
 ```xml
 <ClaimType Id="city">
@@ -263,7 +263,7 @@ De volgende elementen worden gebruikt voor het definiëren van de claim:
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Zorg ervoor dat u de map met uw Azure AD-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map met uw Azure AD-tenant te kiezen.
 3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **App-registraties**.
-4. Selecteer **Identiteitservaring-Framework (Preview)**.
+4. Selecteer **Identiteitservaring-Framework (Preview)** .
 5. Selecteer **uploaden aangepast beleid**, en upload vervolgens het voor twee beleidsbestanden die u hebt gewijzigd.
 2. Selecteer het beleid voor registreren of aanmelden geüpload en klikt u op de **nu uitvoeren** knop.
 3. U zou het mogelijk om u te registreren met behulp van een e-mailadres.

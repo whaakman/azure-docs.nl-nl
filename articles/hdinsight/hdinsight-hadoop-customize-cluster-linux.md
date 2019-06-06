@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518895"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479461"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Azure HDInsight-clusters aanpassen met behulp van scriptacties
 
@@ -58,7 +58,7 @@ Een scriptactie is Bash-script dat wordt uitgevoerd op de knooppunten in een HDI
 
      * Voor clusters met ESP:
          
-         * De wasb [s] :// of http [s] :// URI's worden ondersteund.
+         * De wasb: / / of wasbs: / / of http [s] :// URI's worden ondersteund.
             
 * Als u wilt uitvoeren op alleen bepaalde knooppunttypen kan worden beperkt. Voorbeelden zijn hoofd- of worker-knooppunten.
 
@@ -173,7 +173,7 @@ Deze sectie wordt uitgelegd dat de verschillende manieren waarop u kunt scriptac
 
     | Eigenschap | Value |
     | --- | --- |
-    | Een script selecteren | Selecteer voor het gebruik van uw eigen script __aangepaste__. Anders selecteert u een van de geleverde scripts. |
+    | Selecteer een script | Selecteer voor het gebruik van uw eigen script __aangepaste__. Anders selecteert u een van de geleverde scripts. |
     | Name |Geef een naam voor de scriptactie. |
     | Bash-script-URI |Hiermee geeft u de URI van het script. |
     | HEAD/Worker/Zookeeper |Geef op de knooppunten waarop het script wordt uitgevoerd: **HEAD**, **Worker**, of **ZooKeeper**. |
@@ -255,7 +255,7 @@ Ga naar de [Azure-portal](https://portal.azure.com):
 
     | Eigenschap | Value |
     | --- | --- |
-    | Een script selecteren | Selecteer voor het gebruik van uw eigen script __aangepaste__. Selecteer anders een opgegeven script. |
+    | Selecteer een script | Selecteer voor het gebruik van uw eigen script __aangepaste__. Selecteer anders een opgegeven script. |
     | Name |Geef een naam voor de scriptactie. |
     | Bash-script-URI |Hiermee geeft u de URI van het script. |
     | HEAD/Worker/Zookeeper |Geef op de knooppunten waarop het script wordt uitgevoerd: **HEAD**, **Worker**, of **ZooKeeper**. |

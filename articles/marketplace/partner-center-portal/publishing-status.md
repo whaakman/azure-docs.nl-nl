@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806144"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474523"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Controleer de publicatiestatus van uw commerciële Marketplace-aanbieding
 
 U kunt uw huidige weergeven **publicatiestatus** op de **overzicht bieden** tabblad van de [commerciële Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
 
+Een van de volgende statusindicatoren moet worden weergegeven voor elke aanbieding.
+
+| **Status**    | **Beschrijving**  |
+| :---------- | :-------------------|
+| **Concept** | Aanbieding is gemaakt, maar is niet worden gepubliceerd. |
+| **Publiceren wordt uitgevoerd** | Abonnement/werkt eraan door de stappen van het publicatieproces. |
+| **Aandacht vereist** | Een belangrijk probleem is gedetecteerd tijdens de certificering door Microsoft of een van de publicatie stappen. |
+| **Preview** | Aanbieding is gecertificeerd door Microsoft en nu wacht op de laatste controle door de uitgever. Selecteer gaat u live om te maken van de aanbieding live. |
+| **Live** | Aanbieding kan is gepubliceerd in de marketplace en worden bekeken en overgenomen door klanten. |
+| **Verkopen in behandeling stoppen** | Uitgever "stop verkopen" geselecteerd op de aanbieding of van plan zijn, maar de actie is nog niet voltooid. |
+| **Niet beschikbaar in de marketplace** | Een eerder gepubliceerde aanbieding/plan in de marketplace is verwijderd. |
+
 ## <a name="automated-validation"></a>Geautomatiseerde validatie
 
 De eerste stap bij het publicatieproces is een reeks geautomatiseerde controles. Elke validatiestap komt overeen met een functie die u hebt gekozen om in te schakelen bij het maken van uw aanbieding. Als deze functie niet is ingeschakeld, slaat de validatie verder met de volgende stap in de publicatie. Elke validatiecontrole moet worden voltooid voordat de status van de publicatie is goedgekeurd.
 
-- **Aankoop stroom instellingen bieden (> 10 minuten)**
+- **Aankoop stroom instellingen bieden (< 10 minuten)**
 
 Wij garanderen dat uw aanbieding kan worden voldaan die door klanten via de Azure-portal worden gekocht in deze stap maakt. Deze stap is alleen van toepassing voor die worden verkocht via Microsoft-aanbiedingen.
 
@@ -34,11 +46,11 @@ In deze stap valideren we de gegevens die u hebt opgegeven in de proefrit techni
 
 In deze stap na de validatie van de gegevens en functionaliteit van uw test drive in de vorige stap, we implementeren en exemplaren van uw test drive repliceren, zodat ze gereed voor gebruik door de klant zijn.  Deze stap is alleen van toepassing op aanbiedingen met een test drive is ingeschakeld.
 
-- **Validatie van beheer en registratie leiden (> 15 minuten)**
+- **Validatie van beheer en registratie leiden (< 15 minuten)**
 
 In deze stap bevestigen we dat uw beheersysteem potentiële klant leads op basis van de informatie in de installatie van de aanbieding kan ontvangen. Deze stap is alleen van toepassing op aanbiedingen met leadbeheer is ingeschakeld.
 
-## <a name="certification"></a>Certification
+## <a name="certification"></a>Certificering
 
 Voordat het werd gepubliceerd, moeten de aanbiedingen die zijn verzonden naar de commerciële Marketplace in de Partner Center worden gecertificeerd. Verzonden aanbiedingen ondergaan uitvoerig getest, sommige geautomatiseerde en andere handmatige, waaronder een controle op basis van de [beleidsregels voor Azure Marketplace-certificering](https://docs.microsoft.com/legal/marketplace/general-policies). Bieden inzendingen moeten zijn gemarkeerd in aanmerking komen voor certificering voordat ze verdergaan naar de volgende stap in de publicatie stroom.
 

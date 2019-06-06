@@ -7,24 +7,24 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c3f31e8d260ea5e462e8782fadd9f61f34d03add
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b3032aa796b3c79572bbf8b2beb85efc252ff73b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307270"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497525"
 ---
-# <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix profiel containers en Azure files
+# <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profielcontainers en Azure Files
 
-De service Windows Virtual Desktop Preview raadt FSLogix profiel containers als een oplossing voor het profiel van gebruiker. FSLogix is ontworpen om u te laten zwerven-profielen in externe computeromgevingen, zoals virtuele Windows-bureaublad. Het profiel voor een volledige gebruiker worden opgeslagen in een enkele container. Bij het aanmelden, is de container dynamisch gekoppeld aan de computeromgeving systeemeigen, in de Gast virtuele hardeschijf (VHD) en Hyper-V virtuele harde schijf (VHDX) met services van Microsoft. Het gebruikersprofiel is onmiddellijk beschikbaar en wordt weergegeven in het systeem exact zo als een systeemeigen gebruikersprofiel.
+De service Windows Virtual Desktop Preview raadt FSLogix profiel containers als een oplossing voor het profiel van gebruiker. FSLogix is ontworpen om u te laten zwerven-profielen in externe computeromgevingen, zoals virtuele Windows-bureaublad. Het profiel voor een volledige gebruiker worden opgeslagen in een enkele container. Bij het aanmelden, is deze container dynamisch gekoppeld aan de computeromgeving met behulp van systeemeigen ondersteunde virtuele hardeschijf (VHD) en Hyper-V virtuele harde schijf (VHDX). Het gebruikersprofiel is onmiddellijk beschikbaar en wordt weergegeven in het systeem exact zo als een systeemeigen gebruikersprofiel.
 
 In dit artikel wordt beschreven FSLogix profiel containers gebruikt in combinatie met Azure Files. De informatie is in de context van Windows virtuele bureaublad, die was [aangekondigd op 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
 ## <a name="user-profiles"></a>Gebruikersprofielen
 
-Een gebruikersprofiel bevat gegevenselementen die over een persoon, met inbegrip van configuratie-informatie zoals bureaubladinstellingen, permanente netwerkverbindingen en toepassingsinstellingen. Windows maakt standaard een lokaal gebruikersprofiel dat is nauw geïntegreerd met het besturingssysteem.
+Een gebruikersprofiel bevat gegevenselementen die over een persoon, met inbegrip van configuratie-informatie, zoals bureaubladinstellingen, permanente netwerkverbindingen en toepassingsinstellingen. Windows maakt standaard een lokaal gebruikersprofiel dat is nauw geïntegreerd met het besturingssysteem.
 
-Een extern gebruikersprofiel biedt een partitie tussen gebruikersgegevens en het besturingssysteem. Hierdoor kan het besturingssysteem moet worden vervangen of gewijzigd zonder negatieve gevolgen voor de gebruikersgegevens. In het Remote Desktop Session Host (RDSH) en virtuele bureaublad infrastructuur (VDI), worden het besturingssysteem vervangen om de volgende redenen:
+Een extern gebruikersprofiel biedt een partitie tussen gebruikersgegevens en het besturingssysteem. Hierdoor kan het besturingssysteem moet worden vervangen of gewijzigd zonder de gebruikersgegevens. In het Remote Desktop Session Host (RDSH) en virtuele bureaublad infrastructuur (VDI), worden het besturingssysteem vervangen om de volgende redenen:
 
 - Een upgrade van het besturingssysteem
 - Vervanging van een bestaande virtuele Machine (VM)
@@ -67,7 +67,7 @@ S2D-clusters vereist een besturingssysteem dat is gevuld, bijgewerkt en onderhou
 
 ## <a name="fslogix-profile-containers"></a>FSLogix profiel containers
 
-19 November 2018 [Microsoft verkregen FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix adressen veel profiel container uitdagingen, sleutel daartussen zijn:
+19 November 2018 [Microsoft verkregen FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix uitdagingen veel profiel container. Sleutel daartussen zijn:
 
 - **Prestaties:** De [FSLogix profiel containers](https://fslogix.com/products/profile-containers) zijn hoge prestaties en oplossen van prestatieproblemen die in het verleden geblokkeerd in de cache opgeslagen exchange-modus.
 - **OneDrive:** Zonder FSLogix profiel containers, wordt OneDrive voor bedrijven niet ondersteund in niet-permanente RDSH of VDI-omgevingen. [OneDrive voor bedrijven en FSLogix aanbevolen procedures](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) wordt beschreven hoe ze werken. Zie voor meer informatie, [de synchronisatieclient gebruiken op virtuele bureaubladen](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).

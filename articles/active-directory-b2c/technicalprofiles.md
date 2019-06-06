@@ -2,20 +2,20 @@
 title: TechnicalProfiles | Microsoft Docs
 description: Geef het TechnicalProfiles-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da769093794a559e4b856f7ae4f211c3900632c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711048"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512281"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -80,9 +80,9 @@ De **TechnicalProfile** element bevat het volgende kenmerk:
 
 De **TechnicalProfile** bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
-| Domain | 0:1 | De domeinnaam voor het technische profiel. Bijvoorbeeld, als uw technisch profiel Hiermee geeft u de Facebook-id-provider, is de domeinnaam Facebook.com. |
+| Domein | 0:1 | De domeinnaam voor het technische profiel. Bijvoorbeeld, als uw technisch profiel Hiermee geeft u de Facebook-id-provider, is de domeinnaam Facebook.com. |
 | DisplayName | 0:1 | De naam van het technische profiel die kan worden weergegeven aan gebruikers. |
 | Description | 0:1 | De beschrijving van het technische profiel die kan worden weergegeven aan gebruikers. |
 | Protocol | 0:1 | Het protocol dat wordt gebruikt voor de communicatie met de andere partij. |
@@ -115,7 +115,7 @@ De **Protocol** element bevat de volgende kenmerken:
 
 Een **metagegevens** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | Item | 0: n | De metagegevens die is gekoppeld aan het technische profiel. Elk type van het technische profiel heeft een andere set metagegevensitems. Zie het gedeelte van een technisch profiel typen, voor meer informatie. |
 
@@ -131,7 +131,7 @@ De **Item** element van de **metagegevens** element bevat de volgende kenmerken:
 
 De **CryptographicKeys** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | Sleutel | 1: n | Een cryptografische sleutel die wordt gebruikt in dit technisch profiel. |
 
@@ -148,7 +148,7 @@ De **sleutel** element bevat het volgende kenmerk:
 
 De **InputClaimsTransformations** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1: n | De id van een claimtransformatie die moet worden uitgevoerd voordat er claims worden verzonden naar de claimprovider of de relying party. Een claimtransformatie kan worden gebruikt om claims van bestaande ClaimsSchema wijzigen of nieuwe labels te genereren. |
 
@@ -164,7 +164,7 @@ De **InputClaimsTransformation** element bevat het volgende kenmerk:
 
 De **InputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | InputClaim | 1: n | Een verwachte invoer claimtype. |
 
@@ -182,7 +182,7 @@ De **InputClaim** element bevat de volgende kenmerken:
 
 De **PersistedClaims** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1: n | Het claimtype om vast te leggen. |
 
@@ -200,7 +200,7 @@ De **PersistedClaim** element bevat de volgende kenmerken:
 
 De **OutputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1: n | Verwachte uitvoer claimtype. |
 
@@ -219,7 +219,7 @@ De **OutputClaim** element bevat de volgende kenmerken:
 
 De **OutputClaimsTransformations** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1: n | De id's van claimtransformaties die moeten worden uitgevoerd voordat er claims worden verzonden naar de claimprovider of de relying party. Een claimtransformatie kan worden gebruikt om claims van bestaande ClaimsSchema wijzigen of nieuwe labels te genereren. |
 
@@ -235,7 +235,7 @@ De **OutputClaimsTransformation** element bevat het volgende kenmerk:
 
 De **ValidationTechnicalProfiles** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Exemplaren | Description |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1: n | De id's van technische profielen die worden gebruikt valideren sommige of alle van de uitvoerclaims van de verwijzende technisch profiel. Alle van de invoer claims van de waarnaar wordt verwezen, technisch profiel moet worden weergegeven in de uitvoerclaims van de verwijzende technisch profiel. |
 

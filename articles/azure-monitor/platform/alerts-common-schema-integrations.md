@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: b51b9f08819a4c496e051d375f6d52aaa985c8e6
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394129"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734893"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Over het integreren van het algemene schema van de waarschuwing met Logic Apps
 
@@ -21,7 +21,7 @@ In dit artikel wordt beschreven hoe u een logische app die gebruikmaakt van het 
 
 ## <a name="overview"></a>Overzicht
 
-De [algemene waarschuwing schema](https://aka.ms/commonAlertSchemaDocs) biedt een gestandaardiseerde en uitbreidbare JSON-schema voor alle uw verschillende typen waarschuwingen. Het algemene schema van de waarschuwing is vooral nuttig zijn bij het programmatisch – via webhooks, runbooks en logic apps gebruikt. In dit artikel laten we zien hoe een enkele logische app voor het afhandelen van al uw waarschuwingen worden geschreven. Dezelfde principes kunnen worden toegepast op andere programmatische methoden. De logische app die wordt beschreven in dit artikel maakt u goed gedefinieerde variabelen voor de ['essentiële' velden](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), en ook wordt beschreven hoe u kunt verwerken [type waarschuwing]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') specifieke logica.
+De [algemene waarschuwing schema](https://aka.ms/commonAlertSchemaDocs) biedt een gestandaardiseerde en uitbreidbare JSON-schema voor alle uw verschillende typen waarschuwingen. Het algemene schema van de waarschuwing is vooral nuttig zijn bij het programmatisch – via webhooks, runbooks en logic apps gebruikt. In dit artikel laten we zien hoe een enkele logische app voor het afhandelen van al uw waarschuwingen worden geschreven. Dezelfde principes kunnen worden toegepast op andere programmatische methoden. De logische app die wordt beschreven in dit artikel maakt u goed gedefinieerde variabelen voor de ['essentiële' velden](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), en ook wordt beschreven hoe u kunt verwerken [type waarschuwing](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) specifieke logica.
 
 
 ## <a name="prerequisites"></a>Vereisten 
@@ -125,7 +125,7 @@ In dit artikel wordt ervan uitgegaan dat de lezer bekend bent met
 
     ![Logische app expressie](media/alerts-common-schema-integrations/logic-app-expressions.png "Logic app-expressie")
     
-     De ['monitoringService' veld]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') kunt u voor het aanduiden van het type waarschuwing op basis van dat u de voorwaardelijke logica kunt maken.
+     De ['monitoringService' veld](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) kunt u voor het aanduiden van het type waarschuwing op basis van dat u de voorwaardelijke logica kunt maken.
 
     
     Bijvoorbeeld, het onderstaande codefragment controleert als de waarschuwing waarschuwing voor een Application Insights op basis van is en als dit het geval is de lijst met zoekresultaten afgedrukt. Else, it prints 'NA'.

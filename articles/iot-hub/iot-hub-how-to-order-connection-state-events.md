@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015260"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743287"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Order apparaat connection-gebeurtenissen van Azure IoT Hub met behulp van Azure Cosmos DB
 
@@ -266,13 +266,13 @@ In deze sectie configureert u de IoT-hub voor het publiceren van gebeurtenissen 
 
 4. Vul in **abonnement Gebeurtenisdetails**: Geef een beschrijvende naam op en selecteer **gebeurtenisschema in het raster**.
 
-5. Vul de **gebeurtenistypen** velden. Schakel het selectievakje **abonneren op alle gebeurtenistypen** en selecteer **apparaat aangesloten** en **apparaat losgekoppeld** in het menu.
+5. Vul de **gebeurtenistypen** velden. In de vervolgkeuzelijst, selecteer alleen **apparaat aangesloten** en **apparaat losgekoppeld** in het menu. Klik ergens anders zijn op het scherm sluit u de lijst en opslaan van uw selecties.
 
    ![Gebeurtenistypen instellen om te zoeken](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. Voor **eindpuntdetails**, selecteert u Eindpunttype als **Webhook** en klik op selecteren eindpunt en plak de URL die u hebt gekopieerd uit uw logische app en Bevestig de selectie.
 
-   ![eindpunt-url selecteren](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![eindpunt-url selecteren](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. Het formulier moet er nu uitzien zoals in het volgende voorbeeld:
 
@@ -302,11 +302,9 @@ Nu het gebeurtenisabonnement is ingesteld, gaan we testen door verbinding te mak
 
    ![ConnectionString voor apparaat](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>Starten van de simulator Raspberry Pi
 
-1. We gebruiken de Raspberry Pi-websimulator apparaatverbinding simuleren.
+We gebruiken de Raspberry Pi-websimulator apparaatverbinding simuleren.
 
 [Starten van de simulator Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -340,7 +338,7 @@ In plaats van de [Azure-portal](https://portal.azure.com), kunt u de stappen van
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-In deze zelfstudie zijn resources gebruikt die kosten voor uw Azure-abonnement met zich meebrengen. Wanneer u klaar bent met de zelfstudie en het testen van de resultaten, moet u daarom de resources uitschakelen of verwijderen die u niet wilt behouden.
+In deze zelfstudie zijn resources gebruikt die kosten voor uw Azure-abonnement met zich meebrengen. Wanneer u klaar bent proberen van de zelfstudie en testen van uw resultaten, uitschakelen of verwijderen van resources die u niet wilt behouden.
 
 Als u het werk aan uw logische app wilt behouden, kunt u de app uitschakelen in plaats van verwijderen.
 

@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 06/03/2019
+ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990541"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479279"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
@@ -34,7 +34,7 @@ Microsoft biedt de volgende hulpprogramma's voor het schalen van clusters:
 |[Azure-CLI](hdinsight-administer-use-command-line.md)|Azure hdinsight-cluster formaat \<clusterName > \<doel exemplaren > |
 |[Azure Portal](https://portal.azure.com)|Uw HDInsight-cluster deelvenster te openen, selecteert u **clustergrootte** in het menu links en vervolgens in het deelvenster van de grootte van Cluster, typt u in het aantal worker-knooppunten en selecteer opslaan.|  
 
-![Cluster schalen](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Schaal cluster aanpassen](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Met behulp van een van deze methoden, kunt u uw HDInsight-cluster omhoog of omlaag schalen binnen enkele minuten.
 
@@ -58,13 +58,12 @@ Om te voorkomen dat uw taken die worden uitgevoerd mislukken tijdens een bewerki
 1. De taken handmatig beëindigen.
 1. De taken opnieuw nadat de bewerking vergroten/verkleinen is gesloten.
 
-U ziet een lijst van in behandeling en taken die worden uitgevoerd, kunt u de YARN **ResourceManager UI**, volgende stappen:
+U ziet een lijst van in behandeling en taken die worden uitgevoerd, kunt u de YARN **Resource Manager UI**, volgende stappen:
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
-2. Aan de linkerkant, gaat u naar **alle services** > **Analytics** > **HDInsight-Clusters**, en selecteer vervolgens uw cluster.
-3. Vanuit de hoofdweergave, navigeert u naar **Clusterdashboards** > **Ambari home**. Voer de clusterreferenties van uw.
-4. Selecteer in de UI Ambari **YARN** in de lijst met services in het menu links.  
-5. Selecteer in de pagina YARN **snelkoppelingen** en beweeg de muisaanwijzer over de actieve hoofdknooppunt en selecteer vervolgens **ResourceManager UI**.
+1. Uit de [Azure-portal](https://portal.azure.com/), selecteert u uw cluster.  Zie [clusters tonen en vermelden](./hdinsight-administer-use-portal-linux.md#showClusters) voor instructies. Het cluster wordt in een nieuwe portal-pagina geopend.
+2. Vanuit de hoofdweergave, navigeert u naar **Clusterdashboards** > **Ambari home**. Voer de clusterreferenties van uw.
+3. Selecteer in de UI Ambari **YARN** in de lijst met services in het menu links.  
+4. Selecteer in de pagina YARN **snelkoppelingen** en beweeg de muisaanwijzer over de actieve hoofdknooppunt en selecteer vervolgens **ResourceManager UI**.
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 

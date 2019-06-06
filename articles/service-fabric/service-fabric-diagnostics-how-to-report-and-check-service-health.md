@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0db341a9e36d61761321821de5631a564adea050
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322001"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428172"
 ---
 # <a name="report-and-check-service-health"></a>Servicestatus rapporteren en controleren
 Wanneer uw services problemen optreden, afhankelijk van de mogelijkheid om te reageren op incidenten en storingen oplossen kunt gebruiken om de problemen snel te detecteren. Als u problemen en fouten aan de Azure Service Fabric health manager vanuit uw servicecode rapporteren, kunt u standaard voor health monitoring hulpprogramma's die Service Fabric biedt om te controleren of de status.
@@ -37,7 +37,7 @@ Dit artikel begeleidt u bij een voorbeeld waarin wordt de status van de code van
 ## <a name="prerequisites"></a>Vereisten
 U hebt het volgende zijn geïnstalleerd:
 
-* Visual Studio 2015 of Visual Studio 2017
+* Visual Studio 2015 of Visual Studio 2019
 * Service Fabric SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Een lokale veilige dev-cluster maken
@@ -65,7 +65,7 @@ U hebt het volgende zijn geïnstalleerd:
 De sjablonen van de Service Fabric-project in Visual Studio bevatten voorbeelden van code. De volgende stappen laten zien hoe kunt u aangepaste statusgebeurtenissen rapporteren vanuit uw servicecode. Deze rapporten wordt automatisch weergegeven in de standard-hulpprogramma's voor de statuscontrole biedt Service Fabric, zoals Service Fabric Explorer, de weergave van de gezondheid van Azure portal en PowerShell.
 
 1. Open de toepassing die u eerder hebt gemaakt in Visual Studio opnieuw of maak een nieuwe toepassing met behulp van de **Stateful Service** Visual Studio-sjabloon.
-1. Open het bestand Stateful1.cs en zoek de `myDictionary.TryGetValueAsync` aanroepen in de `RunAsync` methode. U kunt zien dat deze methode retourneert een `result` dat de huidige waarde van de teller bevat omdat de sleutel logica in deze toepassing te houden van een aantal die wordt uitgevoerd. Als dit een echte toepassing zijn, en als het ontbreken van het resultaat van een fout weergegeven, zou u markering waarmee wordt aangegeven dat de gebeurtenis.
+1. Open het bestand Stateful1.cs en zoek de `myDictionary.TryGetValueAsync` aanroepen in de `RunAsync` methode. U kunt zien dat deze methode retourneert een `result` dat de huidige waarde van de teller bevat omdat de sleutel logica in deze toepassing te houden van een aantal die wordt uitgevoerd. Als deze toepassing is een echte toepassing, en als het ontbreken van het resultaat van een fout weergegeven, zou u markering waarmee wordt aangegeven dat de gebeurtenis.
 1. Als een statusgebeurtenis wanneer het ontbreken van resultaat staat voor een fout wilt melden, voeg de volgende stappen uit.
    
     a. Voeg de `System.Fabric.Health` naamruimte naar het bestand Stateful1.cs.
@@ -124,7 +124,7 @@ De sjablonen van de Service Fabric-project in Visual Studio bevatten voorbeelden
     }
     ```
    Deze code wordt het statusrapport geactiveerd telkens wanneer `RunAsync` wordt uitgevoerd. Nadat u de wijziging hebt aangebracht, druk op **F5** de toepassing uit te voeren.
-1. Nadat de toepassing wordt uitgevoerd, opent u de Service Fabric Explorer om te controleren of de status van de toepassing. Deze keer ziet Service Fabric Explorer u dat de toepassing niet in orde is. Dit is vanwege de fout die is gerapporteerd vanuit de code die we eerder toegevoegd.
+1. Nadat de toepassing wordt uitgevoerd, opent u de Service Fabric Explorer om te controleren of de status van de toepassing. Deze keer ziet Service Fabric Explorer u dat de toepassing niet in orde is. De toepassing wordt als niet in orde omdat de fout die is gerapporteerd vanuit de code die we eerder hebt toegevoegd.
    
     ![Beschadigde toepassing in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 1. Als u de primaire replica in de structuurweergave van Service Fabric Explorer selecteert, ziet u dat **status** te geeft aan dat een fout. Service Fabric Explorer geeft ook de details van het health-rapport die zijn toegevoegd aan de `HealthInformation` parameter in de code. Hier ziet u de dezelfde statusrapporten in PowerShell en Azure portal.

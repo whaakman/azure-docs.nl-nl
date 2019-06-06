@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768152"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425622"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Die u moet weten:
 
 ## <a name="data-integration-units"></a>Eenheden van de integratie van gegevens
 
-Een **gegevens integratie eenheid (DIU)** (voorheen bekend als Cloud Data Movement Unit of DMU) is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in Data Factory. **DIU is alleen van toepassing op [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, maar niet [zelfgehoste Cloudintegratieruntime](concepts-integration-runtime.md#self-hosted-integration-runtime).
+Een **gegevens integratie eenheid (DIU)** (voorheen bekend als Cloud Data Movement Unit of DMU) is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in Data Factory. **DIU is alleen van toepassing op [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** , maar niet [zelfgehoste Cloudintegratieruntime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
 **De minimale eenheden van de integratie van gegevens om te kopiëren activiteit die wordt uitgevoerd is twee.** Indien niet opgegeven, bevat de volgende tabel de standaard-DIUs gebruikt in scenario's voor verschillende kopiëren:
 
@@ -93,7 +93,7 @@ Als u wilt deze standaardwaarde onderdrukken, Geef een waarde op voor de **dataI
 Hier ziet u de daadwerkelijk gebruikte eenheden van de integratie van gegevens voor elk exemplaar dat wordt uitgevoerd in de kopieeractiviteit uitvoer bij het bewaken van een activiteit die wordt uitgevoerd. Informatie over de details van [kopiëren activiteitenbewaking](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Instellen van DIUs **groter is dan 4** op dit moment werkt alleen als u **meerdere bestanden kopiëren van Blob-opslag/Data Lake Storage/Amazon S3/cloud FTP/cloud SFTP naar een andere cloudgegevens worden opgeslagen.**.
+> Instellen van DIUs **groter is dan 4** is momenteel van toepassing alleen wanneer u **meerdere bestanden kopiëren van Azure Storage/de Data Lake-opslag/Amazon S3/Google Cloud Storage/cloud FTP/cloud SFTP naar een andere cloudgegevensopslag**.
 >
 
 **Voorbeeld:**

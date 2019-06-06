@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242426"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480054"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -162,6 +162,9 @@ Wanneer u een training uitgevoerd waarbij de bronmap is een lokale Git-opslagpla
 ## <a name="snapshot"></a>Momentopname
 
 Wanneer u een uitvoering verzendt, wordt de map die het script als een zip-bestand bevat en verzendt dit naar de compute-doel in Azure Machine Learning gecomprimeerd. Het zip-bestand wordt vervolgens opgehaald en wordt er in het script worden uitgevoerd. Azure Machine Learning worden ook het zip-bestand opgeslagen als een momentopname als onderdeel van de record die uitvoeren. Iedereen met toegang tot de werkruimte kan een uitvoerregistratie bladeren en downloaden van de momentopname.
+
+> [!NOTE]
+> Om te voorkomen dat onnodige bestanden worden opgenomen in de momentopname, moet u een bestand negeren (.gitignore of .amlignore). Plaats dit bestand in de momentopname-map en voeg de bestandsnamen moeten worden genegeerd in deze toe. Het bestand .amlignore maakt gebruik van dezelfde [syntaxis en patronen als het bestand .gitignore](https://git-scm.com/docs/gitignore). Als beide bestanden bestaat, wordt het bestand .amlignore voorrang.
 
 ## <a name="activity"></a>Activiteit
 

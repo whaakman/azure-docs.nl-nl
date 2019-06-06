@@ -8,16 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209582"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497580"
 ---
 # <a name="vlans-and-subnets-overview"></a>Overzicht van VLAN's en subnetten
 
 CloudSimple biedt een netwerk per regio waar uw CloudSimple-service is geïmplementeerd.  Het netwerk is een één TCP-laag-3-adresruimte met routering is standaard ingeschakeld.  Alle persoonlijke clouds en subnetten zijn gemaakt in deze regio kunnen met elkaar communiceren zonder extra configuratie.  U kunt gedistribueerde poortgroepen maken op de vCenter-met behulp van de VLAN's.
+
+![CloudSimple Network Topology](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN 's
 
@@ -35,11 +37,15 @@ Een Privécloud is gemaakt als een geïsoleerde VMware-stack (ESXi-hosts, vCente
 
 Minimale vSphere/vSAN subnetten CIDR-bereik voorvoegsel: **/24** Maximum vSphere/vSAN subnetten CIDR-bereik voorvoegsel:   **/21**
 
+> [!CAUTION]
+> IP-adressen in de CIDR-bereik vSphere/vSAN zijn gereserveerd voor gebruik door Private Cloud-infrastructuur. Gebruik een IP-adres niet in dit bereik op een virtuele machine.
+
+
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/vSAN subnetten CIDR-bereik limieten
 
 Selecteren van vSphere/vSAN subnetten CIDR-bereik grootte, heeft een invloed op de grootte van uw Privécloud.  De onderstaande tabel ziet u het maximum aantal knooppunten die u kan zijn gebaseerd op de grootte van vSphere/vSAN subnetten CIDR.
 
-| Opgegeven vSphere/vSAN subnetten CIDR voorvoegsellengte | Maximumaantal knooppunten |
+| Opgegeven vSphere/vSAN subnetten CIDR voorvoegsellengte | Maximum aantal knooppunten |
 |---------------------------------------------------|-------------------------|
 | /24 | 26 |
 | /23 | 58 |

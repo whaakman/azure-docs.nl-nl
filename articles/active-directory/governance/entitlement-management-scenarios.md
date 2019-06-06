@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918478"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473115"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Algemene scenario's in Azure AD waar u recht op beheer (Preview)
 
@@ -47,10 +47,10 @@ Er zijn verschillende manieren waarop u recht management voor uw organisatie kun
 > | Stappen | Voorbeeld |
 > | --- | --- |
 > | **1.** [Maak een nieuwe toegang-pakket in een catalogus](entitlement-management-access-package-create.md#start-new-access-package) | ![Een pakket toegang maken](./media/entitlement-management-scenarios/access-package.png) |
-> | **2.** [Resource-rollen voor toegang tot pakket toevoegen](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Groepen</li><li>Applicaties</li><li>SharePoint-sites</li></ul> | ![Resource-rollen toevoegen](./media/entitlement-management-scenarios/resource-roles.png) |
+> | **2.** [Resource-rollen voor toegang tot pakket toevoegen](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Groepen</li><li>Toepassingen</li><li>SharePoint-sites</li></ul> | ![Resource-rollen toevoegen](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [Een beleid toevoegen](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>Voor gebruikers in uw directory</li><li>Goedkeuring vereisen</li><li>Instellingen voor het verloop</li></ul> | ![Beleid toevoegen](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Ik wilt toestaan dat gebruikers van mijn zakelijke partners (inclusief gebruikers nog niet in mijn map) toegang vragen tot groepen, toepassingen of SharePoint-sites
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Ik wilt toestaan dat gebruikers van mijn zakelijke partners directory (inclusief gebruikers nog niet in mijn map) toegang vragen tot groepen, toepassingen of SharePoint-sites
 
 > [!div class="mx-tableFixed"]
 > | Stappen | Voorbeeld |
@@ -83,7 +83,7 @@ Er zijn verschillende manieren waarop u recht management voor uw organisatie kun
 > | --- | --- |
 > | [Gebruikersrapport van de toewijzingen te bekijken](entitlement-management-reports.md)<ul><li>Weergave wanneer ze aangevraagd en wie heeft goedgekeurd</li></ul> |  |
 
-## <a name="approvers"></a>Goedkeurders
+## <a name="approvers"></a>Fiatteurs
 
 ### <a name="i-want-to-approve-requests-to-access-groups-applications-or-sharepoint-sites"></a>Ik wil goedkeuren van aanvragen voor toegang tot groepen, toepassingen of SharePoint-sites
 
@@ -124,4 +124,4 @@ Er zijn verschillende manieren waarop u recht management voor uw organisatie kun
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Zelfstudie: Uw eerste toegang-pakket maken](entitlement-management-access-package-first.md)
-- [Bewerken en beheren van een bestaand pakket met toegang](entitlement-management-access-package-edit.md)
+- [Een bestaand toegangspakket bewerken en beheren](entitlement-management-access-package-edit.md)

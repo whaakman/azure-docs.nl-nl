@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356418"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455806"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -58,7 +58,7 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
 6.  Voer de volgende opdracht om voor te bereiden op de schijf. **Afhankelijk van de gegevensgrootte, kan dit enkele uren duren tot dagen.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
     ```
     Er wordt een logboekbestand gemaakt in dezelfde map waar u het hulpprogramma hebt uitgevoerd. Worden ook twee andere bestanden gemaakt: een *.xml* bestand (map waar u het hulpprogramma uitvoeren) en een *station manifest.xml* bestand (map waar de gegevens zich bevinden).
     
@@ -72,6 +72,7 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
     |/bk:     |De BitLocker-sleutel voor het station. Het wachtwoord van de numerieke uit de uitvoer van `manage-bde -protectors -get D:`      |
     |/srcdir:     |De stationsletter van de schijf om te worden verzonden, gevolgd door `:\`. Bijvoorbeeld `D:\`.         |
     |/dstdir:     |De naam van de doelcontainer in Azure Storage.         |
+    |/blobtype:     |Deze optie geeft het type van de blobs die u wilt de gegevens te importeren. Dit is voor blok-blobs, `BlockBlob` en voor pagina-blobs, is het `PagaBlob`.         |
     |/skipwrite:     |De optie die aangeeft dat er geen nieuwe gegevens die nodig zijn om te worden gekopieerd en de bestaande gegevens op de schijf moet worden voorbereid.          |
     |/enablecontentmd5:     |De optie ingeschakeld, zorgt u ervoor dat MD5 wordt berekend tijdens het uploaden van blok-blobs naar Azure.          |
 7. Herhaal de vorige stap voor elke schijf die moet worden verzonden. Een logboekbestand met de opgegeven naam is gemaakt voor elke uitvoering van de opdrachtregel.

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f02d2eed2030a5d2f54b3bee85885bbb572ac762
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230072"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476668"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Lokaal fouten opsporen in PowerShell Azure Functions
 
@@ -95,15 +95,28 @@ Met `Wait-Debugger` aanwezig is, kunt u nu de functies die met behulp van Visual
 
 ## <a name="debug-in-visual-studio-code"></a>Problemen oplossen in Visual Studio Code
 
-Als u wilt fouten opsporen in uw PowerShell-functies in Visual Studio Code, moet u de volgende extensies hebben voor Visual Studio Code:
+Als u wilt fouten opsporen in uw PowerShell-functies in Visual Studio Code, hebt u het volgende zijn geïnstalleerd:
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions](functions-create-first-function-vs-code.md)
+* [PowerShell-extensie voor Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
+* [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md) (Azure Functions-extensie voor Visual Studio Code)
+* [PowerShell Core 6.2 of hoger](/powershell/scripting/install/installing-powershell#powershell-core)
 
-De extensies PowerShell en Azure Functions laden na de installatie van een bestaande functie-app-project. U kunt ook [een Functions-project maken](functions-create-first-function-vs-code.md).
+Na de installatie van deze afhankelijkheden laden van een bestaande PowerShell-Functions-project, of [uw eerste PowerShell-Functions-project maakt](functions-create-first-function-powershell.md).
 
 >[!NOTE]
 > Moet uw project niet de benodigde configuratiebestanden hebt, wordt u gevraagd te toe te voegen.
+
+### <a name="set-the-powershell-version"></a>De PowerShell-versie instellen
+
+PowerShell Core installeert naast Windows PowerShell. PowerShell Core instellen als de PowerShell-versie moet worden gebruikt met de PowerShell-extensie voor Visual Studio Code.
+
+1. Druk op F1 om weer te geven van de opdracht palet en te zoeken naar `Session`.
+
+1. Kies **PowerShell: Sessie-Menu weergeven**.
+
+1. Als uw **huidige sessie** is niet **PowerShell Core 6**, kiest u **overschakelen naar: PowerShell Core 6**.
+
+Wanneer u een PowerShell-bestand opent, ziet u de versie die in het groen aan de onderkant rechts van het venster weergegeven. De sessie-menu selecteren van deze tekst ook worden weergegeven. Zie voor meer informatie, de [kiezen van een versie van PowerShell gebruiken met de extensie](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
 ### <a name="start-the-function-app"></a>De functie-app te starten
 
@@ -140,7 +153,7 @@ Nadat u doorgaan en volledig uw script te starten, ziet u dat:
 * De PowerShell-console die u hebt de `Invoke-RestMethod` heeft een resultaat geretourneerd
 * De geïntegreerde PowerShell-Console in Visual Studio Code wordt gewacht tot een script dat moet worden uitgevoerd
 
-Volgende keer wanneer u dezelfde functie, de foutopsporing in PowerShell extensie regeleinden juiste na aanroepen de `Wait-Debugger`.
+Later wanneer u dezelfde functie, de foutopsporing in PowerShell-uitbreiding aanroepen regeleinden juiste na de `Wait-Debugger`.
 
 ## <a name="debugging-in-a-powershell-console"></a>Foutopsporing in een PowerShell-Console
 

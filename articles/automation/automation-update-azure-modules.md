@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/13/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2f55891ddd383ea15da499495909b56ffb0e06d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786154"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427481"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
-Bijwerken van de Azure-modules in uw Automation-Account dat u wilt gebruiken de [bijwerken Azure-modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), deze is beschikbaar als open source. Aan de slag met de **Update AutomationAzureModulesForAccount** runbook bijwerken van uw Azure-modules downloaden via de [bijwerken Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) op GitHub. U kunt vervolgens importeren in uw Automation-Account of als een script uitvoeren. De instructies hiervoor vindt u de [Update Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).
+Bijwerken van de Azure-modules in uw Automation-Account dat u wilt gebruiken de [bijwerken Azure-modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), deze is beschikbaar als open source. Aan de slag met de **Update AutomationAzureModulesForAccount** runbook bijwerken van uw Azure-modules downloaden via de [bijwerken Azure-modules runbook opslagplaats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) op GitHub. U kunt vervolgens importeren in uw Automation-Account of als een script uitvoeren. Zie voor informatie over het importeren van een runbook in uw Automation-Account, [een runbook importeert](manage-runbooks.md#import-a-runbook).
 
 De meest voorkomende AzureRM PowerShell-modules worden geboden door standaard in elk Automation-account. Het Azure-team werkt de Azure-modules regelmatig, daarom naar up-to-date te houden u wilt gebruiken de [Update AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook om bij te werken van de modules in uw Automation-accounts.
 

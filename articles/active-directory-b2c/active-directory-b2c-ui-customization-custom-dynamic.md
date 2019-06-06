@@ -2,20 +2,20 @@
 title: De Azure Active Directory B2C-gebruikersinterface (UI) dynamisch aanpassen met behulp van aangepast beleid | Microsoft Docs
 description: Ondersteuning voor meerdere huisstijl ervaringen met HTML5/CSS-inhoud die dynamisch worden gewijzigd tijdens runtime.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c655a1ed7cefcc7af8a22ed1d869b1a2e8b81715
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708874"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507781"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: De gebruikersinterface met dynamische inhoud configureren met behulp van aangepaste beleidsregels
 
@@ -68,7 +68,7 @@ In dit scenario maakt u:
 
 1. Maak in Visual Studio een project door te selecteren **bestand** > **nieuw** > **Project**.
 
-2. In de **nieuw Project** venster **Visual C#** > **Web** > **ASP.NET Core-webtoepassing (.NET Core)**.
+2. In de **nieuw Project** venster **Visual C#**  > **Web** > **ASP.NET Core-webtoepassing (.NET Core)** .
 
 3. Noem de toepassing (bijvoorbeeld *Contoso.AADB2C.UI*), en selecteer vervolgens **OK**.
 

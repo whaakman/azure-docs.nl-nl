@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130467"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472603"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Azure Monitor inschakelen voor virtuele machines (preview)-overzicht
 
@@ -40,6 +40,7 @@ Voordat u begint, zorg ervoor dat u weet dat de informatie in de volgende sectie
 Azure Monitor voor virtuele machines ondersteunt een Log Analytics-werkruimte in de volgende regio's:
 
 - US - west-centraal
+- VS-West 2<sup>1</sup>
 - US - oost
 - Canada centraal<sup>1</sup>
 - UK-Zuid<sup>1</sup>
@@ -74,7 +75,7 @@ Voor het configureren van uw werkruimte voor het scenario op schaal, kunt u conf
 
 De volgende tabel bevat de Windows- en Linux-besturingssystemen die worden ondersteund met Azure Monitor voor virtuele machines. Een volledige lijst die details van de primaire en secundaire versie voor Linux-besturingssysteem en de ondersteunde kernelversies wordt verderop in deze sectie.
 
-|Versie van het besturingssysteem |Prestaties |Kaarten |Gezondheidszorg |
+|Versie van het besturingssysteem |Prestaties |Kaarten |Status |
 |-----------|------------|-----|-------|
 |Windows Server 2019 | X | X | X |
 |WindowsServer 2016 1803 | X | X | X |
@@ -163,7 +164,7 @@ De agent voor afhankelijkheden kan worden gedownload van de volgende locaties:
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
-## <a name="role-based-access-control"></a>Role-based access control
+## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
 Als u wilt inschakelen en toegang tot de functies in Azure Monitor voor virtuele machines, moet u de volgende rollen voor toegang worden toegewezen:
 

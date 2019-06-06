@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0e592c03da222e5265ed53aab8ef73f3b477f33a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955738"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475859"
 ---
 # <a name="security-in-azure-app-service"></a>Beveiliging in Azure App Service
 
@@ -113,7 +113,6 @@ U kunt ook uw App Service-app met integreren [Azure Key Vault](/azure/key-vault/
 
 Met uitzondering van de **geïsoleerd** prijscategorie, alle lagen uw apps uitgevoerd op de gedeelde netwerkinfrastructuur in App Service. Bijvoorbeeld, worden het openbare IP-adressen en front-load balancers gedeeld met andere tenants. De **geïsoleerd** laag biedt u volledige netwerkisolatie door het uitvoeren van de apps in een toegewezen [App Service-omgeving](environment/intro.md). Een App Service-omgeving wordt uitgevoerd in uw eigen exemplaar van [Azure Virtual Network](/azure/virtual-network/). Hiermee kunt u: 
 
-- Beperken van toegang tot het netwerk met [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Uw apps via een toegewezen openbare eindpunt, met speciale front-ends fungeren.
 - Interne toepassing via een interne load balancer (ILB), waarmee alleen toegankelijk is vanaf binnen uw Azure Virtual Network kunt leveren. De ILB heeft een IP-adres van uw privé-subnet waarmee de totale isolatie van uw apps vanaf het internet.
 - [Gebruik een ILB achter een web application firewall (WAF)](environment/integrate-with-application-gateway.md). De WAF biedt beveiliging voor uw openbare-toepassingen, zoals DDoS protection, URI filteren en SQL-injectie preventie op ondernemingsniveau.

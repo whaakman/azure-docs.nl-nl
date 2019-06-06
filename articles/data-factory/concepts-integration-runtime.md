@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232423"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427149"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integration Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
@@ -114,11 +114,11 @@ De locatie van de IR definieert de locatie van de back-endrekenkracht en in weze
 ### <a name="azure-ir-location"></a>Locatie van Azure IR
 U kunt een bepaalde locatie van een Azure IR instellen, in welk geval de gegevensverplaatsing of verzendactiviteit in die specifieke regio plaatsvindt. 
 
-Als u ervoor kiest de Azure IR voor automatisch oplossen te gebruiken (de standaardwaarde), gebeurt het volgende, 
+Als u wilt gebruiken de **Azure IR automatisch oplossen** die is de standaardoptie. 
 
 - Voor kopieeractiviteit probeert ADF om automatisch uw sink- en brongegevensopslag te detecteren om de beste locatie te vinden in dezelfde regio, indien beschikbaar, of in de dichtstbijzijnde regio in dezelfde geografie. Indien niet detecteerbaar, wordt de regio van de data factory gebruikt.
 
-- Voor de uitvoering van de activiteit Lookup/GetMetadata en verzending van transformatie-activiteiten gebruikt ADF de IR in de regio van de data factory.
+- Voor de Lookup, GetMetadata en verwijderen activiteit uitvoering (ook wel bekend als pijplijnactiviteiten), transformatieactiviteit verzonden met codepad-(ook wel bekend als externe activiteiten) en ontwerpen van bewerkingen (testverbinding, lijst met mappen bladeren en overzicht van de tabel, een voorbeeld van gegevens), ADF gebruikt de IR in de regio voor gegevensfactory.
 
 - Voor de gegevensstroom, ADF de IR gebruikt in de regio voor gegevensfactory. 
 

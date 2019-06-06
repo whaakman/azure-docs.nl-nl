@@ -3,24 +3,24 @@ title: Registreren van een nieuw apparaat vanuit Visual Studio Code - Azure IoT 
 description: Visual Studio Code gebruiken om te maken van een nieuwe IoT Edge-apparaat in uw Azure-IoT-hub en de verbindingsreeks ophalen
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 01/03/2019
-ms.date: 01/28/2019
+ms.author: kgremban
+ms.date: 06/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2b851e7f2ebdbff08fa09002765fbd7d7927deba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.custom: seodec18
+ms.openlocfilehash: c8fce104d48acc3a562599c65eb15cb0a66657b7
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126287"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495286"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registreer een nieuwe Azure IoT Edge-apparaat vanuit Visual Studio Code
 
-Voordat u uw IoT-apparaten met Azure IoT Edge gebruiken kunt, moet u hen registreert bij uw IoT-hub. Wanneer u een apparaat hebt geregistreerd, ontvangt u een verbindingsreeks die kan worden gebruikt voor het instellen van uw apparaat voor Edge-werkbelastingen. 
+Voordat u uw IoT-apparaten met Azure IoT Edge gebruiken kunt, moet u hen registreert bij uw IoT-hub. Wanneer u een apparaat hebt geregistreerd, ontvangt u een verbindingsreeks die kan worden gebruikt voor het instellen van uw apparaat voor IoT Edge-werkbelastingen.
 
-In dit artikel bevat informatie over het registreren van een nieuwe IoT Edge-apparaat met behulp van Visual Studio Code (VS-Code). Er zijn meerdere manieren om uit te voeren van de meeste bewerkingen in VS Code. In dit artikel wordt gebruikgemaakt van de Explorer, maar u kunt ook het Opdrachtenpalet gebruiken voor de meeste van de stappen uitvoeren. 
+In dit artikel bevat informatie over het registreren van een nieuwe IoT Edge-apparaat met behulp van Visual Studio Code (VS-Code). Er zijn meerdere manieren om uit te voeren van de meeste bewerkingen in VS Code. In dit artikel wordt gebruikgemaakt van de Explorer, maar u kunt ook het Opdrachtenpalet gebruiken om uit te voeren van de stappen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -30,39 +30,39 @@ In dit artikel bevat informatie over het registreren van een nieuwe IoT Edge-app
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Meld u aan voor toegang tot uw IoT-hub
 
-De Azure IoT-uitbreidingen voor Visual Studio Code kunt u bewerkingen uitvoeren met uw IoT-hub. Voor deze bewerkingen om te werken, moet u zich aanmelden bij uw Azure-account en selecteer de IoT-hub die u bezig bent.
+De Azure IoT-uitbreidingen voor Visual Studio Code kunt u bewerkingen uitvoeren met uw IoT-hub. Voor deze bewerkingen om te werken, moet u zich aanmelden bij uw Azure-account en selecteer uw IoT-hub.
 
 1. Open in Visual Studio Code, de **Explorer** weergeven.
 
-2. Vouw aan de onderkant van de Verkenner van de **Azure IoT Hub-apparaten** sectie. 
+1. Vouw aan de onderkant van de Verkenner van de **Azure IoT Hub** sectie.
 
    ![Vouw de sectie Azure IoT Hub-apparaten](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. Klik op de **...**  in de **Azure IoT Hub-apparaten** sectiekop. Als u het beletselteken niet ziet, klikt u op of Beweeg de muisaanwijzer over de header. 
+1. Klik op de **...**  in de **Azure IoT Hub** sectiekop. Als u het beletselteken niet ziet, klikt u op of Beweeg de muisaanwijzer over de header.
 
-4. Kies **IoT-Hub selecteren**.
+1. Kies **IoT-Hub selecteren**.
 
-5. Als u niet bent aangemeld bij uw Azure-account, volg de aanwijzingen om dit te doen. 
+1. Als u niet worden aangemeld bij uw Azure-account, volg de aanwijzingen om dit te doen.
 
-6. Selecteer uw Azure-abonnement. 
+1. Selecteer uw Azure-abonnement.
 
-7. Selecteer uw IoT-hub. 
+1. Selecteer uw IoT-hub.
 
 ## <a name="create-a-device"></a>Een apparaat maken
 
-1. Vouw in de VS Code Explorer de **Azure IoT Hub-apparaten** sectie. 
+1. Vouw in de VS Code Explorer de **Azure IoT Hub-apparaten** sectie.
 
-2. Klik op de **...**  in de **Azure IoT Hub-apparaten** sectiekop. Als u het beletselteken niet ziet, klikt u op of Beweeg de muisaanwijzer over de header. 
+1. Klik op de **...**  in de **Azure IoT Hub-apparaten** sectiekop. Als u het beletselteken niet ziet, klikt u op of Beweeg de muisaanwijzer over de header.
 
-3. Selecteer **IoT Edge-apparaat maken**. 
+1. Selecteer **IoT Edge-apparaat maken**.
 
-4. Geef in het tekstvak dat wordt geopend, uw apparaat een ID. 
+1. Geef in het tekstvak dat wordt geopend, uw apparaat een ID.
 
-In het uitvoerscherm ziet u het resultaat van de opdracht. De apparaatgegevens wordt afgedrukt, waaronder de **deviceId** die u hebt opgegeven en de **connectionString** waarmee u kunt uw fysieke apparaat verbinden met uw IoT-hub. 
+In het uitvoerscherm ziet u het resultaat van de opdracht. De apparaatgegevens wordt afgedrukt, waaronder de **deviceId** die u hebt opgegeven en de **connectionString** waarmee u kunt uw fysieke apparaat verbinden met uw IoT-hub.
 
 ## <a name="view-all-devices"></a>Alle apparaten weergeven
 
-Alle apparaten die verbinding met uw IoT-hub maken worden vermeld in de **Azure IoT Hub-apparaten** sectie van de Visual Studio Code Explorer. IoT Edge-apparaten worden onderscheiden van niet-Edge-apparaten met een ander pictogram en het feit dat ze kunnen worden uitgebreid om weer te geven van de modules die zijn geïmplementeerd op elk apparaat. 
+Alle apparaten die verbinding met uw IoT-hub maken worden vermeld in de **Azure IoT Hub** sectie van de Visual Studio Code Explorer. IoT Edge-apparaten worden onderscheiden van niet-Edge-apparaten met een ander pictogram en het feit dat de **$edgeAgent** en **$edgeHub** modules op elk IoT Edge-apparaat zijn geïmplementeerd.
 
    ![Alle IoT Edge-apparaten in uw IoT-hub bekijken](./media/how-to-register-device-vscode/view-devices.png)
 
@@ -70,13 +70,13 @@ Alle apparaten die verbinding met uw IoT-hub maken worden vermeld in de **Azure 
 
 Wanneer u klaar bent om uw apparaat instellen, moet u de verbindingsreeks die is gekoppeld aan uw fysieke apparaat met de identiteit van de IoT-hub.
 
-1. Met de rechtermuisknop op de ID van uw apparaat in de **Azure IoT Hub-apparaten** sectie. 
-2. Selecteer **Apparaatverbindingsreeks kopiëren**.
+1. Met de rechtermuisknop op de ID van uw apparaat in de **Azure IoT Hub** sectie.
 
-   De verbindingsreeks is naar het Klembord gekopieerd. 
+1. Selecteer **Apparaatverbindingsreeks kopiëren**.
 
-U kunt ook selecteren **apparaatgegevens ophalen** in het contextmenu om te zien van alle apparaat-informatie, met inbegrip van de verbindingsreeks in het uitvoervenster weergegeven. 
+   De verbindingsreeks is naar het Klembord gekopieerd.
 
+U kunt ook selecteren **apparaatgegevens ophalen** in het contextmenu om te zien van alle apparaat-informatie, met inbegrip van de verbindingsreeks in het uitvoervenster weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

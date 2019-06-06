@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/04/2019
 ms.author: twhitney
-ms.openlocfilehash: 6b5ebbab717a3db7c9b50549d2762df61c274131
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307345"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688630"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Verbinden met RDP naar Azure Kubernetes Service (AKS) Windows Server-clusterknooppunten voor onderhoud of probleemoplossing
 
@@ -32,7 +32,18 @@ U ook moet de Azure CLI versie 2.0.61 of later geïnstalleerd en geconfigureerd.
 
 De Windows Server-knooppunten van uw AKS-cluster hebben niet extern toegankelijk IP-adressen. Als u een RDP-verbinding, kunt u een virtuele machine met een openbaar IP-adres op hetzelfde subnet bevindt als uw Windows Server-knooppunten implementeren.
 
-Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* in de *myResourceGroup* resourcegroep. Vervang *$SUBNET_ID* met de ID van het subnet dat wordt gebruikt door de groep van uw Windows Server-knooppunt.
+Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* in de *myResourceGroup* resourcegroep.
+
+Haal eerst het subnet dat wordt gebruikt door de groep van uw Windows Server-knooppunt. Als u de subnet-id, moet u de naam van het subnet. Als u de naam van het subnet, moet u de naam van het vnet. Haal de naam vnet door het opvragen van uw cluster voor de lijst met netwerken. Om te vragen het cluster, moet u de naam ervan. U kunt al deze waarden door te voeren van het volgende in de Azure Cloud Shell krijgen:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+VNET_NAME=$(az network vnet list -g $CLUSTER_RG --query [0].name -o tsv)
+SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
+SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
+```
+
+Nu dat u de SUBNET_ID hebt, moet u de volgende opdracht uitvoeren in hetzelfde Azure Cloud Shell-venster om de VM te maken:
 
 ```azurecli-interactive
 az vm create \

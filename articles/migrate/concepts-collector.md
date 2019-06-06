@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728021"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428479"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -111,7 +111,7 @@ De connectiviteitscontrole is gevalideerd door verbinding te maken met een lijst
 --- | --- | ---
 *.portal.azure.com | Van toepassing op Azure wereldwijd. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
 *.portal.azure.us | Alleen van toepassing op Azure Government. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Voor het downloaden van de PowerShell-module voor vCenter PowerCLI. | Toegang tot URL's is vereist.<br/><br/> Controle van vereisten wordt niet mislukken.<br/><br/> Installatie van de automatische module op de Collector-VM mislukt. U moet de module handmatig installeren op een computer die verbinding heeft met internet en kopieer vervolgens de modules naar het apparaat. [Meer informatie door te gaan naar stap 4 in deze handleiding voor probleemoplossing](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | Voor het downloaden van de PowerShell-module voor vCenter PowerCLI. | Toegang tot URL's is vereist.<br/><br/> Controle van vereisten wordt niet mislukken.<br/><br/> Installatie van de automatische module op de Collector-VM mislukt. U moet de module handmatig installeren op een computer die verbinding heeft met internet en kopieer vervolgens de modules naar het apparaat. [Meer informatie door te gaan naar stap 4 in deze handleiding voor probleemoplossing](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>VMware PowerCLI-module handmatig installeren
@@ -120,7 +120,7 @@ De connectiviteitscontrole is gevalideerd door verbinding te maken met een lijst
 2. Als de Collector-VM is offline en installeren op de module op een andere computer met toegang tot internet, moet u de bestanden te kopiëren VMware.* vanaf deze computer met de Collector-VM.
 3. U kunt de controles op vereisten om te controleren of PowerCLI is geïnstalleerd opnieuw na de installatie.
 
-### <a name="connect-to-vcenter-server"></a>Verbinding maken met vCenter Server
+### <a name="connect-to-vcenter-server"></a>Verbinding maken met vCenter-Server
 
 De Collector verbinding maakt met de vCenter-Server en query's voor VM-metagegevens en prestatiemeteritems. Dit is wat u nodig hebt voor de verbinding.
 
@@ -184,7 +184,7 @@ De volledige lijst met items van VMware die zijn verzameld door Azure Migrate vi
 
 **Categorie** |  **Metadata** | **vCenter datapoint**
 --- | --- | ---
-MachineDetails | Id van de VM | vm.Config.InstanceUuid
+MachineDetails | VM-ID | vm.Config.InstanceUuid
 MachineDetails | VM-naam | vm.Config.Name
 MachineDetails | vCenter Server-ID | VMwareClient.InstanceUuid
 MachineDetails |  Beschrijving van de virtuele machine |  vm.Summary.Config.Annotation

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826583"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515923"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics oplossen met behulp van logboeken met diagnostische gegevens
 
@@ -46,7 +46,7 @@ Activiteitenlogboeken zijn standaard ingeschakeld en geef op hoog niveau inzicht
 
    ![Stream Analytics activiteit bewerking samenvatting log](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Schuif omlaag naar de **eigenschappen** sectie van de JSON, waarmee u details van de fout waardoor de mislukte bewerking. In dit voorbeeld wordt de uitvoering is mislukt met een runtime-fout zelfs waarden voor breedtegraad gebonden.
+4. Schuif omlaag naar de **eigenschappen** sectie van de JSON, waarmee u details van de fout waardoor de mislukte bewerking. In dit voorbeeld wordt de uitvoering is mislukt met een runtime-fout zelfs waarden voor breedtegraad gebonden. Verschil in de gegevens die wordt verwerkt door een Stream Analytics-taak veroorzaakt een gegevensfout die. U kunt meer informatie over verschillende [en uitvoergegevens fouten en waarom ze zich voordoen](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
    ![Details van de JSON-fout](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 

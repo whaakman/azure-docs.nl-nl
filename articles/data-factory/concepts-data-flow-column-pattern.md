@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155239"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430750"
 ---
 # <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory toewijzingsgegevens stromen kolom patronen
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Verschillende transformaties gegevensstroom van Azure Data Factory ondersteunt het idee van "Kolommen patronen" zodat u kunt sjabloon kolommen op basis van patronen in plaats van de namen van vastgelegde kolommen maken. U kunt deze functie binnen de opbouwfunctie voor expressies gebruiken voor het definiëren van patronen zodat deze overeenkomen met kolommen voor transformatie in plaats van dat xact, specifieke veldnamen. Patronen zijn handig als binnenkomende bronvelden vaak wijzigen, met name voor het wijzigen van kolommen in de tekstbestanden of NoSQL-databases. Deze voorwaarde wordt ook wel 'Schema Drift' genoemd.
+Verschillende transformaties gegevensstroom van Azure Data Factory ondersteunt het idee van "Kolommen patronen" zodat u kunt sjabloon kolommen op basis van patronen in plaats van de namen van vastgelegde kolommen maken. U kunt deze functie binnen de opbouwfunctie voor expressies gebruiken voor het definiëren van patronen zodat deze overeenkomen met kolommen voor transformatie in plaats van exacte, specifieke veldnamen vereisen. Patronen zijn handig als binnenkomende bronvelden vaak wijzigen, met name voor het wijzigen van kolommen in de tekstbestanden of NoSQL-databases. Deze voorwaarde wordt ook wel 'Schema Drift' genoemd.
 
 ![kolom patronen](media/data-flow/columnpattern2.png "kolom patronen")
 
@@ -27,6 +27,6 @@ Als u een expressie toevoegt aan een transformatie die patronen accepteert, moet
 
 Bij het bouwen van sjabloon kolom patronen, gebruikt u `$$` in de expressie voor een verwijzing naar elke overeenkomende veld van de stroom inkomende gegevens.
 
-Als u ervoor kiest een van de functies van de reguliere expressie opbouwfunctie voor expressies te gebruiken, kunt u vervolgens later gebruiken $1, $2, $3... om te verwijzen naar de afbakenen om overeenkomende uit de regex-expressie toe.
+Als u ervoor kiest een van de functies van de reguliere expressie opbouwfunctie voor expressies te gebruiken, kunt u vervolgens later gebruiken $1, $2, $3... komt overeen met van de regex-expressie om te verwijzen naar de onderliggende patronen.
 
-Een voorbeeld van kolom patroon scenario wordt gebruik van een som met een reeks binnenkomende velden. De totale som-berekeningen zijn in het aggregaat transformatie. U kunt vervolgens OPTELLEN op elke overeenkomst van veldtypen dat overeen "getal" en vervolgens met $ om te verwijzen naar elke overeenkomst in de expressie.
+Een voorbeeld van kolom patroon scenario wordt gebruik van een som met een reeks binnenkomende velden. De totale som-berekeningen zijn in het aggregaat transformatie. U kunt vervolgens som gebruiken op elke overeenkomst van veldtypen die overeenkomen met 'geheel getal zijn' en $ vervolgens gebruiken om te verwijzen naar elke overeenkomst in de expressie.

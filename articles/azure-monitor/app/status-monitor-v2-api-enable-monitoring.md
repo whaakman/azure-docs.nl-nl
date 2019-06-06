@@ -1,6 +1,6 @@
 ---
-title: 'Status van Azure Monitor v2 API-verwijzing: Schakel de bewaking | Microsoft Docs'
-description: Status Monitor v2 ApplicationInsightsMonitoring-API-verwijzing inschakelen. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET-web-apps die on-premises worden gehost, die in virtuele machines worden gehost en die via Azure worden gehost.
+title: 'Azure Status Monitor v2 API-verwijzing: Schakel de bewaking | Microsoft Docs'
+description: Status Monitor v2 API-verwijzing. Enable-ApplicationInsightsMonitoring. Websiteprestaties controleren zonder de website opnieuw te implementeren. Werkt met ASP.NET web-apps die on-premises, in virtuele machines, of op Azure worden gehost.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,61 +12,58 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 0a443df0c55dc916ef6d12d53811e9d9932370e7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: e87bfad11eee5b86d35e6b4f2846b094c467e0ef
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66255904"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734168"
 ---
 # <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.2.1-alfa)
 
-Dit document beschrijft een cmdlet die wordt geleverd als een lid van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Dit artikel wordt beschreven voor een cmdlet die deel uitmaakt van de [Az.ApplicationMonitor PowerShell-module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is momenteel in openbare preview.
-> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
-> Zie voor meer informatie, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Deze preview-versie wordt geleverd zonder een service level agreement, en wordt niet aanbevolen voor productieworkloads. Sommige functies mogelijk niet ondersteund, en sommige mogelijk beperkt.
+> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="description"></a>Description
 
-Inschakelen zonder code koppelen bewaking van IIS-toepassingen op een doelcomputer.
+Zonder code kunt koppelen aan bewaking van IIS-apps op een doelcomputer.
+
 Deze cmdlet wordt de IIS-applicationHost.config wijzigen en bepaalde registersleutels instellen.
-Deze cmdlet maakt ook een applicationinsights.ikey.config, waarmee wordt gedefinieerd welke instrumentatiesleutel door welke toepassing wordt gebruikt.
-IIS laadt de RedfieldModule bij het opstarten de Application Insights SDK in toepassingen invoeren wordt zoals deze toepassingen worden opgestart.
+Het maakt ook een bestand applicationinsights.ikey.config, waarin de instrumentatiesleutel die worden gebruikt door elke app.
+IIS kan de RedfieldModule bij het opstarten, die de Application Insights-SDK wordt worden invoeren in toepassingen zoals het starten van de toepassingen wordt geladen.
 Start IIS opnieuw om uw wijzigingen te laten treden.
 
-Na het inschakelen van bewaking, wordt u aangeraden [Live Metrics](live-stream.md) snel in acht nemen als uw toepassing ons telemetriegegevens verzendt.
+Nadat u bewaking hebt ingeschakeld, raden wij aan dat u [Live Metrics](live-stream.md) om snel te controleren als uw app ons telemetriegegevens verzendt.
 
 
 > [!NOTE] 
-> Als u wilt beginnen, moet u een instrumentatiesleutel hebben. Lees voor meer informatie, [maken van nieuwe resource](create-new-resource.md#copy-the-instrumentation-key).
-
+> - Als u wilt beginnen, moet u een instrumentatiesleutel. Zie voor meer informatie, [een resource maken](create-new-resource.md#copy-the-instrumentation-key).
+> - Deze cmdlet is vereist dat u lees en accepteer van onze licentie en privacy-instructie.
 
 > [!IMPORTANT] 
-> Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen en met een beleid voor uitvoering met verhoogde bevoegdheden vereist. Lezen [hier](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy) voor meer informatie.
-
-> [!NOTE] 
-> Deze cmdlet, moet u lees en accepteer de licentie- en privacy-instructie.
-
+> Deze cmdlet is een PowerShell-sessie met beheerdersmachtigingen en een beleid voor uitvoering met verhoogde bevoegdheden vereist. Zie voor meer informatie, [PowerShell uitvoeren als beheerder met een beleid voor uitvoering met verhoogde bevoegdheden](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
 ## <a name="examples"></a>Voorbeelden
 
-### <a name="example-with-single-instrumentation-key"></a>Voorbeeld met één instrumentatiesleutel
-In dit voorbeeld wordt een enkele instrumentatiesleutel op alle toepassingen op de huidige machine worden toegewezen.
+### <a name="example-with-a-single-instrumentation-key"></a>Voorbeeld met een enkele instrumentatiesleutel
+In dit voorbeeld worden alle apps op de huidige computer een enkel instrumentatiesleutel toegewezen.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### <a name="example-with-instrumentation-key-map"></a>Voorbeeld van belangrijke instrumentatie-kaart
-In dit voorbeeld 
-- `MachineFilter` komt overeen met de huidige machine met de `'.*'` jokertekens.
-- `AppFilter='WebAppExclude'` biedt een `null` InstrumentationKey. Kan deze app wordt niet geïmplementeerd.
-- `AppFilter='WebAppOne'` wordt toegewezen deze specifieke app een unieke instrumentatiesleutel.
-- `AppFilter='WebAppTwo'` wordt deze specifieke app een unieke instrumentatiesleutel ook toewijzen.
-- Ten slotte `AppFilter` gebruikt ook de `'.*'` jokerteken zodat deze overeenkomt met alle andere WebApps niet overeenkomt met de eerdere regels en een standaard-instrumentatiesleutel wordt toegewezen.
-- Ruimten toegevoegd voor de leesbaarheid alleen.
+### <a name="example-with-an-instrumentation-key-map"></a>Voorbeeld van een sleutel instrumentatie-kaart
+In dit voorbeeld:
+- `MachineFilter` komt overeen met de huidige computer met behulp van de `'.*'` jokertekens.
+- `AppFilter='WebAppExclude'` biedt een `null` instrumentatiesleutel. Kan de opgegeven app wordt niet geïmplementeerd.
+- `AppFilter='WebAppOne'` de opgegeven app een unieke instrumentatiesleutel toegewezen.
+- `AppFilter='WebAppTwo'` de opgegeven app een unieke instrumentatiesleutel toegewezen.
+- Ten slotte `AppFilter` gebruikt ook de `'.*'` jokerteken zodat deze overeenkomt met alle web-apps die zijn niet overeenkomt met de eerdere regels en toewijzen van een standaard-instrumentatiesleutel.
+- Spaties zijn toegevoegd voor de leesbaarheid.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
@@ -78,41 +75,44 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>Parameters 
+## <a name="parameters"></a>Parameters
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Vereist.** Gebruik deze parameter om op te geven van een enkele iKey voor gebruik door alle toepassingen op de doelcomputer.
+**Vereist.** Gebruik deze parameter om op te geven van een enkele instrumentatiesleutel voor gebruik door alle apps op de doelcomputer.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Vereist.** Gebruik deze parameter om op te geven meerdere ikeys en een toewijzing van welke apps u wilt gebruiken, welke ikey. U kunt een script voor één installatie voor meerdere machines maken door in te stellen de MachineFilter. 
+**Vereist.** Gebruik deze parameter om op te geven meerdere instrumentatiesleutels en een toewijzing van de instrumentatiesleutels die worden gebruikt door elke app.
+U kunt een script voor één installatie voor meerdere computers maken door in te stellen `MachineFilter`.
 
-> [!IMPORTANT] 
-> Toepassingen overeen met de regels in de volgorde waarin ze zijn opgegeven. Daarom moet u de meest specifieke regels eerst opgeven en de meest algemene regels laatste.
+> [!IMPORTANT]
+> Apps overeen met de regels in de volgorde die de regels worden verstrekt. Daarom moet u de meest specifieke regels eerst opgeven en de meest algemene regels laatste.
 
 #### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter** is een vereiste c#-regex van de naam van de computer of virtuele machine.
+- **MachineFilter** is een vereiste C# reguliere expressie van de computer of VM-naam.
     - '. *' komt overeen met alle
-    - "Computernaam" komt overeen met alleen computers met de exacte naam.
-- **AppFilter** is een vereiste c#-regex van de naam van de computer of virtuele machine.
+    - "Computernaam" komt overeen met alleen computers met de exacte naam die is opgegeven.
+- **AppFilter** is een vereiste C# reguliere expressie van de computer of VM-naam.
     - '. *' komt overeen met alle
-    - 'ApplicationName' komt overeen met alleen IIS-toepassingen met de exacte naam.
-- **InstrumentationKey** is vereist voor het inschakelen van bewaking van de toepassingen die overeenkomen met de bovenstaande twee filters.
-    - Laat deze waarde leeg als u definiëren van regels wilt voor het uitsluiten van bewaking
+    - 'ApplicationName' wordt alleen IIS apps overeen met de exacte naam die is opgegeven.
+- **InstrumentationKey** is vereist voor het inschakelen van bewaking van apps die overeenkomen met de voorgaande twee filters.
+    - Laat deze waarde leeg als u definiëren van regels wilt voor het uitsluiten van bewaking.
 
 
 ### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Optioneel.** Gebruik deze switch zodat de instrumentatie-Engine voor het verzamelen van gebeurtenissen en -berichten van wat tijdens het uitvoeren van een beheerd proces gebeurt er. Inclusief maar niet beperkt tot de resultaatcodes afhankelijkheid, HTTP-termen en SQL-opdrachttekst. De Engine Instrumentation extra overhead wordt toegevoegd en is standaard uitgeschakeld.
+**Optioneel.** Gebruik deze switch zodat de instrumentatie-engine voor het verzamelen van gebeurtenissen en -berichten over wat tijdens het uitvoeren van een beheerd proces gebeurt er. Deze gebeurtenissen en -berichten zijn resultaatcodes afhankelijkheid, HTTP-termen en SQL-opdrachttekst.
+
+De engine instrumentation overhead toegevoegd en is standaard uitgeschakeld.
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **Optioneel.** Gebruik deze switch te accepteren van de licentie- en privacy-instructie in ' headless '-installaties.
 
 ### <a name="-verbose"></a>-Verbose
-**Common Parameter.** Gebruik deze switch naar gedetailleerde logboeken uitvoer.
+**Algemene parameter.** Gebruik deze switch om gedetailleerde logboeken weer te geven.
 
 ### <a name="-whatif"></a>-WhatIf 
-**Common Parameter.** Gebruik deze schakeloptie om te testen en valideren van de invoerparameters zonder daadwerkelijk inschakelen van de controle.
+**Algemene parameter.** Gebruik deze schakeloptie om te testen en valideren van de invoerparameters zonder daadwerkelijk inschakelen van de controle.
 
 ## <a name="output"></a>Uitvoer
 
@@ -153,15 +153,15 @@ Successfully enabled Application Insights Status Monitor
 ## <a name="next-steps"></a>Volgende stappen
 
   Uw telemetrie weergeven:
- - [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) om de prestaties en het gebruik te bewaken
-- [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren
-- [Gebruik analyses](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's
-- [Maak dashboards](../../azure-monitor/app/overview-dashboard.md)
+ - [Verken de metrische gegevens](../../azure-monitor/app/metrics-explorer.md) prestaties controleren en gebruik.
+- [Doorzoek gebeurtenissen en logboeken](../../azure-monitor/app/diagnostic-search.md) om problemen te diagnosticeren.
+- [Analytics gebruiken](../../azure-monitor/app/analytics.md) voor meer geavanceerde query's.
+- [Maak dashboards](../../azure-monitor/app/overview-dashboard.md).
  
  Meer telemetrie toevoegen:
  - [Maak webtests](monitor-web-app-availability.md) om ervoor te zorgen dat uw site actief blijft.
-- [Voeg telemetrie van de webclient](../../azure-monitor/app/javascript.md) zien welke uitzonderingen webpaginacode en traceringsaanroepen in te voegen.
-- [Application Insights SDK toevoegen aan uw code](../../azure-monitor/app/asp-net.md) zodat u kunt invoegen van trace en logboekaanroepen
+- [Voeg telemetrie van de webclient](../../azure-monitor/app/javascript.md) om te zien welke uitzonderingen webpaginacode en om in te schakelen trace-aanroepen.
+- [Voeg de Application Insights SDK toe aan uw code](../../azure-monitor/app/asp-net.md) zodat u kunt invoegen van trace en logboekaanroepen.
  
  Doe meer met Status Monitor v2:
  - Gebruik onze handleiding voor [oplossen](status-monitor-v2-troubleshoot.md) Status Monitor v2.

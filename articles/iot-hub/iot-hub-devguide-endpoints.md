@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fe913f057d00fd18b1b163f124d9dd0b83abf0de
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925885"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477985"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referentie - IoT-Hub-eindpunten
 
@@ -75,20 +75,20 @@ U kunt bestaande Azure-services in uw abonnement koppelen aan uw IoT-hub om te f
 
 IoT Hub ondersteunt momenteel de volgende Azure-services als extra eindpunten:
 
-* Azure-opslagcontainers
+* Azure Storage-containers
 * Event Hubs
 * Service Bus-wachtrijen
 * Service Bus-onderwerpen
 
 Zie voor de grenzen van het aantal eindpunten die u kunt toevoegen, [quota en beperkingen](iot-hub-devguide-quotas-throttling.md).
 
-U kunt de REST-API gebruiken [ophalen eindpunt Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) om op te halen van de status van de eindpunten. Wordt u aangeraden de [metrische gegevens van IoT-Hub](iot-hub-metrics.md) met betrekking tot routering bericht latentie om te bepalen en fouten opsporen, wanneer de status van het eindpunt dode of niet in orde is.
+U kunt de REST-API gebruiken [ophalen eindpunt Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) om op te halen van de status van de eindpunten. Wordt u aangeraden de [metrische gegevens van IoT-Hub](iot-hub-metrics.md) met betrekking tot routering bericht latentie om te bepalen en fouten opsporen, wanneer de status van het eindpunt is dode of niet in orde, zoals we verwachten latentie dat moet hoger zijn, wanneer het eindpunt in een van deze statussen is.
 
-|Status|Description|
+|De integriteitsstatus van de|Description|
 |---|---|
-|in orde|Het eindpunt is berichten geaccepteerd zoals verwacht.|
+|In orde|Het eindpunt is berichten geaccepteerd zoals verwacht.|
 |Niet in orde|Het eindpunt is geen berichten geaccepteerd zoals verwacht en IoT Hub wordt opnieuw geprobeerd om gegevens te verzenden naar dit eindpunt. De status van een eindpunt niet in orde wordt bijgewerkt op in orde wanneer IoT Hub heeft een uiteindelijke consistente status van de gezondheid van tot stand worden gebracht.|
-|onbekend|IoT Hub is een verbinding met het eindpunt is niet ingesteld. Er zijn geen berichten zijn die worden geleverd aan of afgewezen op dit eindpunt.|
+|Onbekend|IoT Hub is een verbinding met het eindpunt is niet ingesteld. Er zijn geen berichten zijn die worden geleverd aan of afgewezen op dit eindpunt.|
 |Dead|Het eindpunt accepteert geen berichten, na het IoT-Hub opnieuw verzenden van berichten voor de periode retrial uitgevoerd.|
 
 ## <a name="field-gateways"></a>Veldgateways

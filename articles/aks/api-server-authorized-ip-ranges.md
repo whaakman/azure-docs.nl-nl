@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243586"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475156"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Preview - beveiligde toegang tot de API-server met gemachtigd IP-adresbereiken in Azure Kubernetes Service (AKS)
 
@@ -74,8 +74,6 @@ De volgende beperkingen zijn van toepassing wanneer u API server gemachtigd IP-a
 De Kubernetes API-server is hoe de onderliggende Kubernetes APIs worden weergegeven. Dit onderdeel biedt de interactie van beheerhulpprogramma's, zoals `kubectl` of het Kubernetes-dashboard. AKS biedt een cluster met één tenant-model, met een eigen API-server. Standaard, openbaar IP-adres is toegewezen door de API-server en u moet de toegang met behulp van op rollen gebaseerd toegangsbeheer (RBAC).
 
 Beveiligde toegang tot het anders openbaar toegankelijke AKS besturingselement vlak / -API-server die u kunt inschakelen en gebruiken gemachtigd IP-bereiken. Deze gemachtigde IP-adresbereiken staan alleen de gedefinieerde IP-adresbereiken om te communiceren met de API-server. Een aanvraag aan de API-server vanaf een IP-adres die geen deel uitmaakt van deze toegestane IP-adresbereiken is geblokkeerd. U moet nog steeds gebruikmaken van RBAC vervolgens autoriseren van gebruikers en de acties die zij aanvragen.
-
-De toegestane IP-bereik-functionaliteit wilt gebruiken, wordt een openbaar IP-adres op de knooppuntgroep blootgesteld door het implementeren van een eenvoudige NGINX-service. De API-server communiceert met de knooppuntgroep via deze geautoriseerde openbare IP-adres. Vervolgens definieert u extra IP-adresbereiken dat toegang heeft tot de API-server.
 
 Zie voor meer informatie over de API-server en andere clusteronderdelen [Kubernetes-concepten voor AKS core][concepts-clusters-workloads].
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782919"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431223"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeksfuncties voor Azure Resource Manager-sjablonen
 
@@ -530,7 +530,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
 
-## <a name="empty"></a>Leeg
+## <a name="empty"></a>leeg zijn
 
 `empty(itemToTest)`
 
@@ -713,7 +713,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | arrayOutput | String | één |
 | stringOutput | String | O |
 
-## <a name="format"></a>Indeling
+## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
@@ -1015,7 +1015,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
-## <a name="length"></a>Lengte
+## <a name="length"></a>length
 
 `length(string)`
 
@@ -1259,7 +1259,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1272,9 +1272,9 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| secondOutput | String | 123-123-xxxx |
 
-## <a name="skip"></a>overslaan
+## <a name="skip"></a>Overslaan
 
 `skip(originalValue, numberToSkip)`
 
@@ -1550,7 +1550,7 @@ Retourneert een subtekenreeks die begint op de positie van het opgegeven teken e
 |:--- |:--- |:--- |:--- |
 | stringToParse |Ja |string |De oorspronkelijke tekenreeks waaruit de subtekenreeks wordt opgehaald. |
 | startIndex |Nee |int |De op nul gebaseerde beginpositie voor de subtekenreeks. |
-| Lengte |Nee |int |Het aantal tekens in voor de subtekenreeks. Moet verwijzen naar een locatie in de tekenreeks. Moet nul of groter zijn. |
+| length |Nee |int |Het aantal tekens in voor de subtekenreeks. Moet verwijzen naar een locatie in de tekenreeks. Moet nul of groter zijn. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1893,7 +1893,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-## <a name="uri"></a>uri
+## <a name="uri"></a>URI
 
 `uri (baseUri, relativeUri)`
 
@@ -2077,7 +2077,7 @@ Retourneert de huidige datum/tijd-waarde van (UTC) in de indeling die is opgegev
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Indeling |Nee |string |Waarde moet worden geconverteerd naar een tekenreeks met de URI-codering. Gebruik een [standard opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of [tekenreeksen met aangepaste notatie](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Nee |string |Waarde moet worden geconverteerd naar een tekenreeks met de URI-codering. Gebruik een [standard opmaaktekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of [tekenreeksen met aangepaste notatie](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Opmerkingen
 

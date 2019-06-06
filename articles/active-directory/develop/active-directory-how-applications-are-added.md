@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 06/04/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cc9d0a951ac6f7ed18ad6558ae9edb2d1f9c8f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544617"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688750"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hoe en waarom worden toepassingen toegevoegd aan Azure AD
 
@@ -32,9 +32,9 @@ Er zijn twee manieren van toepassingen in Azure AD:
 * [Service-principals](app-objects-and-service-principals.md#service-principal-object) -kunnen worden beschouwd als een exemplaar van een toepassing. Service-principals in het algemeen verwijzen naar een toepassingsobject en een toepassingsobject kan worden verwezen door meerdere service-principals in mappen.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Wat zijn toepassingsobjecten en waar komen ze vandaan?
-U kunt beheren [toepassingsobjecten](app-objects-and-service-principals.md#application-object) in Azure portal via de [App-registraties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) optreden. Toepassingsobjecten beschrijven de toepassing naar Azure AD en kunnen worden beschouwd als de definitie van de toepassing, zodat de service wilt weten hoe tokens uitgeven aan de toepassing op basis van de instellingen. Het toepassingsobject alleen aanwezig in de oorspronkelijke directory, zelfs als het een toepassing met meerdere tenants ondersteunen van service-principals in andere directory's. Het toepassingsobject omvat mogelijk een van de volgende (als goed als aanvullende informatie die hier niet worden vermeld):
+U kunt beheren [toepassingsobjecten](app-objects-and-service-principals.md#application-object) in Azure portal via de [App-registraties](https://aka.ms/appregistrations) optreden. Toepassingsobjecten beschrijven de toepassing naar Azure AD en kunnen worden beschouwd als de definitie van de toepassing, zodat de service wilt weten hoe tokens uitgeven aan de toepassing op basis van de instellingen. Het toepassingsobject alleen aanwezig in de oorspronkelijke directory, zelfs als het een toepassing met meerdere tenants ondersteunen van service-principals in andere directory's. Het toepassingsobject omvat mogelijk een van de volgende (als goed als aanvullende informatie die hier niet worden vermeld):
 * De naam, logo en uitgever
-* Antwoord-URL's
+* Omleidings-URI 's
 * Geheimen (symmetrische en/of asymmetrische sleutels gebruikt voor het verifiëren van de toepassing)
 * API-afhankelijkheden (OAuth)
 * Gepubliceerde API's / resources/bereiken (OAuth)
@@ -74,7 +74,7 @@ Net als objecten van de toepassing, worden service-principals ook gemaakt via me
   * Wanneer u zich op Office 365 abonneert of een proefversie starten, worden een of meer service-principals zijn gemaakt in de map voor de verschillende services die worden gebruikt om alle functionaliteit die is gekoppeld aan Office 365.
   * Sommige Office 365-services, zoals SharePoint maken service-principals regelmatig zodat beveiligde communicatie mogelijk tussen onderdelen, met inbegrip van werkstromen.
 * Wanneer een beheerder een toepassing toevoegt in de app-galerie (dit wordt ook een onderliggende app-object gemaakt)
-* Een toepassing toevoegen aan het gebruik van de [Azure AD-toepassingsproxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Een toepassing toevoegen aan het gebruik van de [Azure AD-toepassingsproxy](/azure/active-directory/manage-apps/application-proxy)
 * Verbinding maken met een toepassing voor eenmalige aanmelding over het gebruik van SAML of het wachtwoord van de eenmalige aanmelding (SSO)
 * Via een programma via de Azure AD Graph API of PowerShell
 
@@ -101,8 +101,8 @@ Toepassingen die u zelf toevoegen (weergegeven als **App (u)** in het diagram) o
   * Claims transformatie regels
   * Kenmerktoewijzingen (inrichten van gebruikers)
 * Zie voor meer gedetailleerde informatie over de service-principal en objecten voor toepassingen, de Azure AD Graph REST API-referentiedocumentatie:
-  * [Toepassing](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Service Principal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Toepassing](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Service Principal](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Waarom toepassingen integreren met Azure AD?
 Toepassingen worden toegevoegd aan Azure AD gebruikmaken van een of meer van de services die het biedt, met inbegrip van:

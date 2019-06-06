@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66143396"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427565"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat implementeren
 
@@ -88,13 +88,14 @@ In deze sectie configureert u Docker voor het laden van de bestanden voor het mo
 1. Kopieer de bestanden van de bestaande apparaatstuurprogramma-model van de container naar de nieuwe locatie. Zoek eerst de container-ID voor de container van de simulatie van apparaat:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Kopieer de bestanden voor het model van apparaat naar de **tmp** map in de virtuele machine. De volgende opdracht wordt ervan uitgegaan dat de container-ID's c378d6878407--Vervang deze waarde door uw apparaat simulatie container-ID:
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     Houd de **bash** -venster met de SSH-sessie geopend.
@@ -116,13 +117,13 @@ In deze sectie configureert u Docker voor het laden van de bestanden voor het mo
     Als u zien van de status van de actieve Docker-containers en hun container-id's wilt, gebruikt u de volgende opdracht uit:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Als u zien van het logboek van de container van de simulatie van apparaat wilt, de volgende opdracht uitvoeren. De container-ID vervangen door de ID van uw apparaat simuleren-container:
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>Simulatie uitvoeren

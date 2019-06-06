@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e38e1479c1e094f691e8f22f0a48f9342cae5cf3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001704"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475079"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Beveiligingskenmerken voor Azure App Service
 
@@ -51,7 +51,7 @@ In dit artikel worden de algemene beveiligingskenmerken die zijn ingebouwd in Az
 
 | Beveiligingskenmerk | Ja/Nee | Opmerkingen|
 |---|---|--|
-| Verificatie| Ja | Klanten kunnen toepassingen bouwen in App Service die automatisch zijn geïntegreerd met [Azure Active Directory (Azure AD)](../active-directory/index.md) en andere compatibele id-providers die OAuth; Zie [verificatie en autorisatie in Azure App Service](overview-authentication-authorization.md). Voor van beheertoegang tot App Service-activa, worden alle toegang wordt beheerd door een combinatie van Azure AD geverifieerd principal en Azure Resource Manager RBAC-rollen. |
+| Verificatie| Ja | Klanten kunnen toepassingen bouwen in App Service die automatisch zijn geïntegreerd met [Azure Active Directory (Azure AD)](../active-directory/index.yml) en andere compatibele id-providers die OAuth; Zie [verificatie en autorisatie in Azure App Service](overview-authentication-authorization.md). Voor van beheertoegang tot App Service-activa, worden alle toegang wordt beheerd door een combinatie van Azure AD geverifieerd principal en Azure Resource Manager RBAC-rollen. |
 | Autorisatie| Ja | Voor van beheertoegang tot App Service-activa, worden alle toegang wordt beheerd door een combinatie van Azure AD geverifieerd principal en Azure Resource Manager RBAC-rollen.  |
 
 

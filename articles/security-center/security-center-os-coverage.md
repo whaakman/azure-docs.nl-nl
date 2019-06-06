@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258695"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480537"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die worden ondersteund door Azure Security Center
 
@@ -93,7 +93,7 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Evaluatie van de schijf-versleuteling|✔|✔|X|✔|✔|X|Gratis|
 |Implementatie van derden|✔|X|X|✔|X|X|Gratis|
-|Evaluatie van de nsg 's|✔|✔|X|✔|✔|X|Gratis|
+|NSG-evaluatie|✔|✔|X|✔|✔|X|Gratis|
 |Detectie van bedreigingen fileless|✔|✔|✔|X|X|X|Standard|
 |Netwerktoewijzingen|✔|✔|X|✔|✔|X|Standard|
 |Besturingselementen voor adaptieve netwerk|✔|✔|X|✔|✔|X|Standard|
@@ -129,7 +129,7 @@ Zie voor meer informatie over wanneer aanbevelingen worden gegenereerd voor elk 
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob storage-accounts *|✔| ✔|
+|Azure Blob storage-accounts|✔| ✔|
 |App-services|✔| ✔|
 |Cloud Services|✔| X|
 |Vnet 's|✔| N.V.T.|
@@ -137,7 +137,6 @@ Zie voor meer informatie over wanneer aanbevelingen worden gegenereerd voor elk 
 |NIC’s|✔| N.V.T.|
 |NSG's|✔| N.V.T.|
 |Abonnement|✔ **| ✔|
-|App Service|✔| N.V.T.|
 |Batch|✔| N.V.T.|
 |Service Fabric|✔| N.V.T.|
 |Automation-account|✔| N.V.T.|
@@ -147,14 +146,9 @@ Zie voor meer informatie over wanneer aanbevelingen worden gegenereerd voor elk 
 |Stream Analytics|✔| N.V.T.|
 |Event Hub|✔| N.V.T.|
 |Logische apps|✔| N.V.T.|
-|Subnet|✔| N.V.T.|
-|Vnet|✔| N.V.T.|
 |Storage-account|✔| N.V.T.|
 |Redis|✔| N.V.T.|
-|SQL|✔| N.V.T.|
 |Data lake analytics|✔| N.V.T.|
-|Storage-account|✔| N.V.T.|
-|Abonnement|✔| N.V.T.|
 |Key Vault|✔| N.V.T.|
 
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000974"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476030"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Herschrijf de HTTP-headers met Application Gateway
 
@@ -153,11 +153,11 @@ U kunt een HTTP-aanvraag of antwoord-header voor de aanwezigheid van een variabe
 
 ## <a name="limitations"></a>Beperkingen
 
+- Als een antwoord meer dan één kopteksten met dezelfde naam bevat, resulteert vervolgens herschrijven van de waarde van een van deze headers in de andere headers verwijderen in het antwoord. Dit kan meestal gebeuren met Set-Cookie-header, omdat u meer dan één Set-Cookie-header in een antwoord kan hebben. Een dergelijke scenario is wanneer u van een appservice met een application gateway gebruikmaakt en cookies gebaseerde sessieaffiniteit op de application gateway hebt geconfigureerd. In dit geval het antwoord bevat 2 Set-Cookie headers: gebruikt door de appservice, dat wil zeggen, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` en een andere voor relatie met application gateway, dat wil zeggen, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Een van de Set-Cookie-headers in dit scenario voor het herschrijven kan resulteren in de andere Set-Cookie-header verwijderen uit het antwoord.
+
 - De verbinding, Upgrade en Host-headers voor het herschrijven wordt momenteel niet ondersteund.
 
 - Naam van de header mag alfanumerieke tekens en symbolen zoals gedefinieerd in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Het onderstrepingsteken momenteel niet ondersteund (\_) speciaal teken in naam van de Header.
-
-- Als een antwoord meerdere kopteksten met dezelfde naam bevat, resulteert vervolgens herschrijven van de waarde van een van deze headers in de andere headers verwijderen in het antwoord.
 
 ## <a name="next-steps"></a>Volgende stappen
 

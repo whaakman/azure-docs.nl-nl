@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb10378d890c2b7156b6764321e177a22ffc538a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359132"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472757"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Zonder wachtwoord aanmelden via telefoon met de Microsoft Authenticator-app (preview-versie)
 
@@ -82,12 +82,12 @@ Wanneer een gebruiker heeft de referentie op die geen wachtwoord meer Microsoft 
 
 Eindgebruikers die zijn ingeschakeld voor MFA via on-premises Azure MFA-server van een organisatie kan nog steeds maken en een eenmalige aanmelding telefoon aanmelden referentie gebruiken. Als de gebruiker probeert om meerdere installaties (5 +) van de Microsoft Authenticator met de referenties van een upgrade uitvoert, kan deze wijziging resulteert in een fout.  
 
-### <a name="device-registration"></a>Apparaatregistratie
+### <a name="device-registration"></a>Device Registration service
 
 Een van de vereisten voor het maken van deze referentie nieuw, sterk is dat het apparaat waarop deze zich bevindt in de Azure AD-tenant aan een afzonderlijke gebruiker is geregistreerd. Vanwege beperkingen van de registratie van apparaten, kan een apparaat slechts in één tenant worden geregistreerd. Deze limiet betekent dat slechts één account voor werk of school in de Microsoft Authenticator-app kan worden ingeschakeld voor de aanmelding via telefoon.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Meer informatie over het registreren van apparaten](../devices/overview.md#getting-devices-under-the-control-of-azure-ad)
+[Meer informatie over het registreren van apparaten](../devices/overview.md#getting-devices-in-azure-ad)
 
 [Meer informatie over Azure multi-factor Authentication](../authentication/howto-mfa-getstarted.md)

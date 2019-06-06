@@ -1,6 +1,6 @@
 ---
 title: Afdwingen van naamgeving van Groepsbeleid voor Office 365-groepen - Azure Active Directory | Microsoft Docs
-description: Over het instellen van het naamgevingsbeleid voor Office 365-groepen in Azure Active Directory (preview)
+description: Over het instellen van het naamgevingsbeleid voor Office 365-groepen in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0c13b95028975c5463217455c940bb84c3867899
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605544"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734791"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Een naamgevingsbeleid op Office 365-groepen in Azure Active Directory afdwingen
 
@@ -73,15 +73,15 @@ Geselecteerde beheerders kunnen worden uitgesloten van deze beleidsregels voor a
 - Globale beheerder
 - Laag 1-ondersteuning voor partner
 - Laag 2-ondersteuning voor partner
-- Gebruikersbeheerder
-- Adreslijstschrijvers
+- Gebruikerbeheerder
+- Schrijvers van mappen
 
-## <a name="configure-naming-policy-in-azure-portal-preview"></a>Naamgevingsbeleid configureren in Azure portal (preview)
+## <a name="configure-naming-policy-in-azure-portal"></a>Naamgevingsbeleid configureren in Azure portal
 
 1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een administrator-account van gebruiker.
 1. Selecteer **groepen**en selecteer vervolgens **naamgevingsbeleid** de Naming beleid-pagina te openen.
 
-    ![Open de pagina van de Naming-beleid in het beheercentrum](./media/groups-naming-policy/policy-preview.png)
+    ![Open de pagina van de Naming-beleid in het beheercentrum](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Weergeven of bewerken van het naamgevingsbeleid van voorvoegsel-achtervoegsel
 
@@ -94,7 +94,7 @@ Geselecteerde beheerders kunnen worden uitgesloten van deze beleidsregels voor a
 
 1. Op de **naamgevingsbeleid** weergeeft, schakelt **woorden geblokkeerd**.
 
-    ![bewerken en uploaden van de lijst met geblokkeerde woorden voor de naamgeving van beleid](./media/groups-naming-policy/blockedwords-preview.png)
+    ![bewerken en uploaden van de lijst met geblokkeerde woorden voor de naamgeving van beleid](./media/groups-naming-policy/blockedwords.png)
 
 1. Weergeven of bewerken van de huidige lijst met geblokkeerde dan speciale woorden hiervoor **downloaden**.
 1. Upload een nieuwe lijst met geblokkeerde dan speciale woorden door het bestandspictogram te selecteren.
@@ -198,7 +198,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Een naamgevingsbeleid verwijderen
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Verwijder het naming beleid met behulp van Azure portal (preview)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Verwijder het naming beleid met behulp van Azure portal
 
 1. Op de **naamgevingsbeleid** weergeeft, schakelt **beleid verwijderen**.
 1. Nadat u de verwijdering bevestigt, het naamgevingsbeleid wordt verwijderd, inclusief alle voorvoegsel-achtervoegsel naamgeving van beleid en eventuele aangepaste geblokkeerde woorden.

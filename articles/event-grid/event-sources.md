@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257954"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735011"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Bronnen van gebeurtenissen in Azure Event Grid
 
@@ -140,6 +140,15 @@ Abonneren op gebeurtenissen van de Azure-kaarten om te reageren op gebeurtenisse
 | [Reageren op gebeurtenissen van Azure Maps met behulp van Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overzicht van Azure Maps integreren met Event Grid. |
 | [Zelfstudie: Instellen van een geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | In deze zelfstudie doorloopt u de basisstappen voor het instellen van geofence met behulp van Azure Maps. Met Azure Event Grid kunt u de resultaten van de geofence streamen en het instellen van een melding op basis van de resultaten van de geofence bevindt. |
 | [Gebeurtenisschema](event-schema-azure-maps.md) | Velden worden weergegeven in Azure Maps-gebeurtenissen. |
+
+## <a name="app-configuration"></a>App Configuration
+Abonneren op gebeurtenissen van Azure App-configuratie om te reageren op gebeurtenissen van sleutel / waarde-aanpassing.
+
+|Titel | Description |
+|---------|---------|
+| [Reageren op gebeurtenissen van Azure App-configuratie met behulp van Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overzicht van de integratie van Azure App-configuratie met Event Grid. |
+| [Snelstartgids: Azure App-configuratie gebeurtenissen routeren naar een aangepaste web-eindpunt met Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Laat zien hoe u Azure CLI gebruiken voor het verzenden van gebeurtenissen van Azure App-configuratie naar een WebHook. |
+| [Gebeurtenisschema](event-schema-app-configuration.md) | Velden weergegeven in Azure App-Configuratiegebeurtenissen. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

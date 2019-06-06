@@ -1,34 +1,34 @@
 ---
-title: Beheren van Azure Data Box via Azure portal | Microsoft Docs
-description: Beschrijft hoe u de Azure-portal gebruikt om uw Azure Data Box te beheren.
+title: Azure Data Box, Azure Data Box zware via Azure portal beheren | Microsoft Docs
+description: Beschrijft hoe u Azure portal gebruiken om uw Azure Data Box en Azure Data Box zware te beheren.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 31909e1f13d211aa87f13547218a6967d8e195ac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950614"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427716"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>De Azure portal gebruiken voor het beheren van uw Azure Data Box
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>De Azure portal gebruiken voor het beheren van uw Azure Data Box en Azure Data Box-zwaar
 
-In dit artikel worden enkele van de complexe werkstromen en beheertaken uitvoeren die kunnen worden uitgevoerd op de Azure Data Box beschreven. U kunt de Data Box beheren via de Azure-portal of via de lokale webinterface.
+In dit artikel is van toepassing op Azure Data Box en het Azure Data Box zware. In dit artikel worden enkele van de complexe werkstromen en beheertaken die kunnen worden uitgevoerd op het Azure Data Box-apparaat beschreven. U kunt beheren van de Data Box-apparaat via de Azure-portal of via de lokale webgebruikersinterface.
 
-Dit artikel richt zich op de taken die u kunt uitvoeren met behulp van de Azure-portal. Gebruik de Azure-portal voor het beheren van orders, het beheren van Data Box en het bijhouden van de status van de order totdat deze is voltooid.
+Dit artikel richt zich op de taken die u kunt uitvoeren met behulp van de Azure-portal. De Azure portal gebruiken voor het beheren van orders, Data Box-apparaat beheren en bijhouden van de status van de volgorde zoals deze wordt voortgezet tot voltooiing.
 
 
 ## <a name="cancel-an-order"></a>Een order annuleren
 
-Soms moet u een order om een bepaalde reden annuleren nadat u deze hebt geplaatst. U kunt de order alleen annuleren als deze nog niet is verwerkt. Zodra de order is verwerkt en Data Box is voorbereid, kan de order niet meer worden geannuleerd. 
+Soms moet u een order om een bepaalde reden annuleren nadat u deze hebt geplaatst. U kunt de order alleen annuleren als deze nog niet is verwerkt. Zodra de bestelling is verwerkt en Data Box-apparaat is voorbereid, is het niet mogelijk om te annuleren de order.
 
 Voer de volgende stappen uit om een order te annuleren.
 
-1.  Ga naar **Overzicht > Annuleren**. 
+1.  Ga naar **Overzicht > Annuleren**.
 
     ![Order annuleren 1](media/data-box-portal-admin/cancel-order1.png)
 
@@ -36,11 +36,11 @@ Voer de volgende stappen uit om een order te annuleren.
 
     ![Order annuleren 2](media/data-box-portal-admin/cancel-order2.png)
 
-3.  Zodra de order is geannuleerd, werkt de portal de status van de order bij naar **Geannuleerd**. 
+3.  Zodra de order is geannuleerd, werkt de portal de status van de order bij naar **Geannuleerd**.
 
 ## <a name="clone-an-order"></a>Een order klonen
 
-Klonen is handig in bepaalde situaties. Een voorbeeld: Een gebruiker heeft Data Box gebruikt om wat gegevens over te dragen. Naarmate er meer gegevens worden gegenereerd, is er nog een Data Box nodig om die gegevens naar Azure over te dragen. In dit geval kan dezelfde order gewoon worden gekloond.
+Klonen is handig in bepaalde situaties. Een voorbeeld: Een gebruiker heeft Data Box gebruikt om wat gegevens over te dragen. Als u meer gegevens worden gegenereerd, is er behoefte hebt aan een andere Data Box-apparaat om over te dragen van die gegevens naar Azure. In dit geval kan dezelfde order gewoon worden gekloond.
 
 Voer de volgende stappen uit om een order te klonen.
 
@@ -69,7 +69,7 @@ U kunt alleen orders verwijderen die zijn voltooid of geannuleerd. Voer de volge
 
 ## <a name="download-shipping-label"></a>Verzendlabel downloaden
 
-Als het E-ink-scherm van uw Data Box niet werkt en het verzendlabel voor retourzending niet weergeeft, kunt u het verzendlabel downloaden. 
+Als het E-ink-scherm van uw Data Box niet werkt en het verzendlabel voor retourzending niet weergeeft, kunt u het verzendlabel downloaden. Er is geen E-ink worden weergegeven op de Data Box-zwaar en kan daarom deze werkstroom is niet van toepassing op gegevens in het zware.
 
 Voer de volgende stappen uit om een verzendlabel te downloaden.
 
@@ -120,7 +120,7 @@ Voer de volgende stappen uit om de ordergeschiedenis te downloaden.
 
     ![Ordergeschiedenis downloaden](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Klik op **Ordergeschiedenis downloaden**. In de downloadgeschiedenis ziet u een record met logboeken voor tracering van de koerier. Als u naar de onderkant van dit logboek bladert, kunt u koppelingen zien naar:
+2. Klik op **Ordergeschiedenis downloaden**. In de downloadgeschiedenis ziet u een record met logboeken voor tracering van de koerier. Er zijn twee sets van logboek overeenkomt met de twee knooppunten in een Data Box-zwaar. Als u naar de onderkant van dit logboek bladert, kunt u koppelingen zien naar:
     
    - **Logboeken kopiëren**: hier vindt u de lijst met bestanden met fouten tijdens het kopiëren van gegevens van de Data Box naar uw Azure Storage-account.
    - **Auditlogboeken**: hier vindt u informatie over het inschakelen en delen van toegang tot de Data Box wanneer deze zich buiten het Azure-datacenter bevindt.
@@ -215,4 +215,4 @@ Wanneer de apparaatstatus in de portal verandert, wordt u per e-mail op de hoogt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Leren hoe u [problemen met Data Box oplost](data-box-faq.md).
+- Meer informatie over het [problemen oplossen van Data Box en gegevens in het zware](data-box-troubleshoot.md).

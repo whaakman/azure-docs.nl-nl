@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872768"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496868"
 ---
 # <a name="vpn-gateways-overview"></a>Overzicht van VPN-gateways
 
@@ -36,6 +36,8 @@ Voor site-naar-site VPN-verbinding van use cases zijn onder andere:
 * Gebruik van uw on-premises Active Directory als de bron van een vCenter-identiteit.
 * Handige overdracht van VM-sjablonen, ISO's en andere bestanden van uw on-premises resources met de vCenter-privécloud.
 * Toegankelijkheid van workloads die worden uitgevoerd op uw privécloud van uw on-premises netwerk.
+
+![Site-naar-Site VPN-verbinding-topologie](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### <a name="cryptographic-parameters"></a>Cryptografische parameters
 

@@ -3,18 +3,18 @@ title: Het genereren van aangepaste gegevens op een rasterafbeeldingen van Azure
 description: Aangepaste gegevens op een rasterafbeeldingen van Azure Maps worden weergegeven.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 46f08aaa33563f620e7a011620730249e903f7b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9fed8464bd19c4b8a32e37c8c97698f0a2d9503
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794571"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734306"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Aangepaste gegevens op een kaart raster weergeven
 
@@ -42,7 +42,7 @@ Voer de volgende stappen uit voor het renderen van punaises met labels en een aa
 
 2. Selecteer voor het maken van de aanvraag, **nieuw** opnieuw. In de **nieuw** venster **aanvragen**. Voer een **Aanvraagnaam** voor de punaises, selecteert u de verzameling die u in de vorige stap hebt gemaakt als de locatie voor de aanvraag opslaan en selecteer vervolgens **opslaan**.
     
-    ![Maken van een aanvraag in Postman](./media/tutorial-geofence/postman-new.png)
+    ![Maken van een aanvraag in Postman](./media/how-to-render-custom-data/postman-new.png)
 
 3. Selecteer de GET HTTP-methode op het tabblad builder en voer de volgende URL voor het maken van een GET-aanvraag.
 
@@ -145,7 +145,7 @@ U kunt ook de locatie-informatie van het pad en de pincode verkrijgen met behulp
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
-6. Dit is de afbeelding:
+    Dit is de installatiekopie van het antwoord:
 
     ![Gegevens ophalen uit Azure Maps-gegevensopslag](./media/how-to-render-custom-data/uploaded-path.png)
 
@@ -164,9 +164,9 @@ U kunt het uiterlijk van een polygoon wijzigen met behulp van de stijl van param
     &subscription-key={subscription--key}
     ```
 
-Dit is de afbeelding:
+    Dit is de installatiekopie van het antwoord:
 
-![Een ondoorzichtige veelhoek weergeven](./media/how-to-render-custom-data/opaque-polygon.png)
+    ![Een ondoorzichtige veelhoek weergeven](./media/how-to-render-custom-data/opaque-polygon.png)
 
 
 ## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Een cirkel- en punaises met aangepaste labels weergeven
@@ -186,9 +186,9 @@ Volg deze stappen voor het renderen van een cirkel- en punaises met aangepaste l
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-Dit is de afbeelding:
+    Dit is de installatiekopie van het antwoord:
 
-![Een cirkel met aangepaste punaises weergeven](./media/how-to-render-custom-data/circle-custom-pins.png)
+    ![Een cirkel met aangepaste punaises weergeven](./media/how-to-render-custom-data/circle-custom-pins.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

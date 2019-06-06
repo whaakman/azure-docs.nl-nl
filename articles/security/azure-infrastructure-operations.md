@@ -1,8 +1,8 @@
 ---
-title: -Azure-productiebewerkingen en beheer
-description: Dit artikel bevat een algemene beschrijving van het beheer en het gebruik van de Azure-productienetwerk.
+title: Beheer van Azure productienetwerk - Microsoft Azure
+description: Dit artikel wordt beschreven hoe Microsoft beheert en werkt de Azure-productienetwerk voor het beveiligen van de Azure-datacenters.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591477"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428259"
 ---
-# <a name="azure-production-operations-and-management"></a>-Azure-productiebewerkingen en beheer    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Beheer en werking van de Azure-productienetwerk    
+Dit artikel wordt beschreven hoe Microsoft beheert en werkt de Azure-productienetwerk voor het beveiligen van de Azure-datacenters.
+
+## <a name="monitor-log-and-report"></a>Controleren, logboeken en rapport
+
 Het beheer en de werking van de Azure-productienetwerk is een gecoördineerde inspanningen tussen de operations-teams van Azure en Azure SQL Database. De teams gebruiken verschillende systeem- en bewaking van toepassingsprestaties-hulpprogramma's in de omgeving. En ze de juiste hulpprogramma's gebruiken voor het bewaken van netwerkapparaten, servers, services en processen van toepassingen.
 
 De operations-teams implementeren om ervoor te zorgen de veilige uitvoering van de services die worden uitgevoerd in de Azure-omgeving, meerdere niveaus van controle, logboekregistratie en rapportage, met inbegrip van de volgende acties:

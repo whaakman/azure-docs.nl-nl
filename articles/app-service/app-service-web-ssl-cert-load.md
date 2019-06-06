@@ -11,56 +11,77 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 763aadc50a8760b4265dbfc21e9278f909b68433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ead1892062912840c9931ae60d11c90975ad26ac
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851092"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475120"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Een SSL-certificaat in de code van uw toepassing in Azure App Service gebruiken
 
-In deze gebruiksaanwijzing ziet u hoe u SSL-certificaten kan gebruiken, die u hebt geüpload of geïmporteerd in uw App Service-app in de code van uw toepassing. Een voorbeeld van deze use-case is dat uw app toegang heeft tot een externe service die certificaatverificatie vereist. 
+In deze gebruiksaanwijzing laat zien hoe het gebruik van openbare of persoonlijke certificaten in de code van uw toepassing. Een voorbeeld van deze use-case is dat uw app toegang heeft tot een externe service die certificaatverificatie vereist.
 
-Deze aanpak voor het gebruik van SSL-certificaten in uw code maakt gebruik van de SSL-functionaliteit in App Service, die vereist dat uw app in de **Basic** laag of hoger zit. Een alternatief is het opnemen van het certificaatbestand in de toepassingsmap en rechtstreeks laden (Zie [alternatieve: laad certificaat als een bestand](#file)). Maar, dit alternatief laat u niet toe om de persoonlijke sleutel in het certificaat te verbergen van de toepassingscode of de ontwikkelaar. Bovendien, als de code van uw toepassing zich in een open-source-opslagplaats bevindt, is een certificaat met een persoonlijke sleutel in de opslagplaats geen optie.
+Deze aanpak voor het gebruik van certificaten in uw code wordt gebruikgemaakt van het SSL-functionaliteit in App Service, die vereist uw app dat zich in **Basic** laag of hoger. U kunt ook [het certificaatbestand in de opslagplaats van uw app opnemen](#load-certificate-from-file), maar het is niet aanbevolen voor persoonlijke certificaten.
 
 Als u App Service uw SSL-certificaten laat beheren, kunt u de certificaten afzonderlijk houden van de code van uw toepassing en zo uw gevoelige gegevens beschermen.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="upload-a-private-certificate"></a>Een persoonlijk certificaat uploaden
 
-Om deze gebruiksaanwijzing te voltooien:
+Voordat u een persoonlijk certificaat uploadt, zorg ervoor dat [deze voldoet aan alle vereisten](app-service-web-tutorial-custom-ssl.md#prepare-a-private-certificate), behalve dat hoeft niet te worden geconfigureerd voor verificatie van de Server.
 
-- [Een App Service-app maken](/azure/app-service/)
-- [Een aangepaste DNS-naam aan uw web-app toewijzen](app-service-web-tutorial-custom-domain.md)
-- [Een SSL-certificaat uploaden](app-service-web-tutorial-custom-ssl.md) of [importeren van een App Service Certificate](web-sites-purchase-ssl-web-site.md) aan uw web-app
+Wanneer u klaar om te uploaden bent, voert u de volgende opdracht uit in de <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
+```azurecli-interactive
+az webapp config ssl upload --name <app-name> --resource-group <resource-group-name> --certificate-file <path-to-PFX-file> --certificate-password <PFX-password> --query thumbprint
+```
 
-## <a name="load-your-certificates"></a>Laden van uw certificaten
+Kopieer de certificaatvingerafdruk van het en Zie [toegankelijk maken van het certificaat](#make-the-certificate-accessible).
 
-Voor het gebruik van een certificaat dat is geüpload naar of geïmporteerd in App Service, maakt u deze eerst toegankelijk voor uw toepassingscode. U doet dit met de `WEBSITE_LOAD_CERTIFICATES` app-instelling.
+## <a name="upload-a-public-certificate"></a>Een openbaar certificaat uploaden
 
-In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, opent u de web-app-pagina.
+Openbare certificaten worden ondersteund in de *.cer* indeling. Het uploaden van een openbaar certificaat, de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, en Ga naar de app.
 
-Klik in het linkernavigatievenster op **SSL-certificaten**.
+Klik op **SSL-instellingen** > **openbare certificaten (.cer)**  > **openbaar certificaat uploaden** in de linkernavigatiebalk van uw app.
 
-![Het certificaat is geüpload](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
+In **naam**, typ een naam voor het certificaat. In **CER-certificaatbestand**, selecteert u het CER-bestand.
 
-Alle geüploade en geïmporteerde SSL-certificaten voor deze web-app worden hier weergegeven met de vingerafdrukken. Kopieer de vingerafdruk van het certificaat dat u wilt gebruiken.
+Klik op **Uploaden**.
 
-Klik in het linkernavigatievenster op **Toepassingsinstellingen**.
+![Openbaar certificaat uploaden](./media/app-service-web-ssl-cert-load/private-cert-upload.png)
 
-Voeg een app-instelling toe met de naam `WEBSITE_LOAD_CERTIFICATES` en stel de waarde in van de vingerafdruk van het certificaat. Om meerdere certificaten toegankelijk te maken kan u de vingerafdrukken door komma's scheiden. Om alle certificaten toegankelijk te maken, kunt u de waarde instellen op `*`. Let op, hiermee plaatst u het certificaat in de `CurrentUser\My`.
+Zodra het certificaat is geüpload, Kopieer de certificaatvingerafdruk van het en Zie [toegankelijk maken van het certificaat](#make-the-certificate-accessible).
+
+## <a name="import-an-app-service-certificate"></a>Een App Service-certificaat importeren
+
+Zie [kopen en configureren van een SSL-certificaat voor Azure App Service](web-sites-purchase-ssl-web-site.md).
+
+Zodra het certificaat is geïmporteerd, Kopieer de certificaatvingerafdruk van het en Zie [toegankelijk maken van het certificaat](#make-the-certificate-accessible).
+
+## <a name="make-the-certificate-accessible"></a>Het certificaat toegankelijk maken
+
+Voor het gebruik van een certificaat geüpload of geïmporteerd in uw app-code, moet u de vingerafdruk toegankelijk zijn met de `WEBSITE_LOAD_CERTIFICATES` app-instelling met de volgende opdracht de <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
+```
+
+Als u al uw certificaten toegankelijk is, kunt u de waarde instelt op `*`.
+
+> [!NOTE]
+> Deze instelling wordt de opgegeven certificaten in de [huidige User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) store voor de meeste Prijscategorieën, maar in de **geïsoleerd** laag (dat wil zeggen app wordt uitgevoerd in een [App Service Environment](environment/intro.md)), wordt de certificaten in de [lokale Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) opslaan.
+>
 
 ![App-instelling configureren](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 
 Wanneer u klaar bent, klikt u op **Opslaan**.
 
-Het geconfigureerde certificaat is nu klaar om gebruikt te worden door uw code.
+De geconfigureerde certificaten zijn nu gereed om te worden gebruikt door uw code.
 
-## <a name="use-certificate-in-c-code"></a>Certificaat gebruiken in C#-code
+## <a name="load-the-certificate-in-code"></a>Laden van het certificaat in de code
 
 Wanneer uw certificaat toegankelijk is, kunt u het benaderen in C#-code door de vingerafdruk van het certificaat. De volgende code laadt een certificaat met de vingerafdruk `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
@@ -88,11 +109,17 @@ certStore.Close();
 ```
 
 <a name="file"></a>
-## <a name="alternative-load-certificate-as-a-file"></a>Alternatief: certificaat als een bestand laden
+## <a name="load-certificate-from-file"></a>Belasting-certificaat uit bestand
 
-In deze sectie wordt beschreven hoe u een certificaatbestand inlaad dat zich in de toepassingsmap bevindt. 
+Als u laden bestand van een certificaat uit de toepassingsdirectory van uw wilt, is het beter om te uploaden met behulp van [FTPS](deploy-ftp.md) in plaats van [Git](deploy-local-git.md), bijvoorbeeld. Houd rekening met gevoelige gegevens, zoals een persoonlijk certificaat buiten het besturingselement.
 
-Het volgende C#-voorbeeld laadt een certificaat in met de naam `mycert.pfx` uit de `certs` map van de opslagplaats van uw app.
+Hoewel u het bestand rechtstreeks in uw .NET-code laadt, verifieert de bibliotheek nog steeds als de huidige gebruikersprofiel wordt geladen. Voor het laden van het huidige profiel instellen de `WEBSITE_LOAD_USER_PROFILE` app-instelling met de volgende opdracht in de <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+```
+
+Zodra deze instelling is ingesteld, worden de volgende C# voorbeeld wordt een certificaat met de naam geladen `mycert.pfx` uit de `certs` map van de opslagplaats van uw app.
 
 ```csharp
 using System;
@@ -105,4 +132,3 @@ string certPath = Server.MapPath("~/certs/mycert.pfx");
 X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
 ...
 ```
-

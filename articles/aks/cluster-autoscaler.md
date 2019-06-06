@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234166"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475641"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Voorbeeld - automatisch schalen van een cluster om te voldoen aan de eisen van de toepassing in Azure Kubernetes Service (AKS)
 
@@ -28,11 +28,11 @@ Dit artikel laat u het inschakelen en beheren van het cluster automatisch schale
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel is vereist dat u de Azure CLI versie 2.0.55 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+In dit artikel is vereist dat u de Azure CLI versie 2.0.65 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks-preview CLI-extensie installeren
 
-AKS-clusters die ondersteuning bieden voor het cluster automatisch schalen moeten het gebruik van virtuele-machineschaalsets en Kubernetes-versie uitvoeren *1.12.4* of hoger. Deze scale set-ondersteuning is in preview. Aanmelden en maken van clusters met schaalsets gebruiken, installeert u eerst de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen] [ az-extension-add] opdracht, zoals wordt weergegeven in de volgende Voorbeeld:
+AKS-clusters die ondersteuning bieden voor het cluster automatisch schalen moeten het gebruik van virtuele-machineschaalsets en Kubernetes-versie uitvoeren *1.12.7* of hoger. Deze scale set-ondersteuning is in preview. Aanmelden en maken van clusters met schaalsets gebruiken, installeert u eerst de *aks-preview* Azure CLI-extensie met de [az-extensie toevoegen] [ az-extension-add] opdracht, zoals wordt weergegeven in de volgende Voorbeeld:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -63,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Beperkingen
 
-De volgende beperkingen zijn van toepassing wanneer u maken en beheren van AKS-clusters die gebruikmaken van virtuele-machineschaalsets:
+De volgende beperkingen zijn van toepassing wanneer u maken en beheren van AKS-clusters die gebruikmaken van het cluster automatisch schalen:
 
 * De HTTP-aanvraag routering invoegtoepassing kan niet worden gebruikt.
+* Meerdere groepen (momenteel in preview in AKS) kunnen niet op dat moment gebruikt.
 
 ## <a name="about-the-cluster-autoscaler"></a>Over het cluster automatisch schalen
 
