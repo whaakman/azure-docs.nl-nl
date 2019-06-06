@@ -50,13 +50,13 @@ Gebeurtenissen worden verzonden door de IoT-objecten (zoals apparaten en sensore
 | Kenmerk | Type | Description |
 | --- | --- | --- |
 | id | string | De unieke id voor de gebeurtenis. |
-| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| gegevens | object | De gegevens van de gebeurtenis is specifiek voor de resourceprovider. |
+| subject | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| data | object | De gegevens van de gebeurtenis is specifiek voor de resourceprovider. |
 | eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
 | eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
-| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
+| topic | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
 
 Voor meer informatie over de Event Grid-gebeurtenisschema:
 
