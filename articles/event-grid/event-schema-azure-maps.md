@@ -104,12 +104,12 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| topic | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| subject | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
 | eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
 | eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | id | string | De unieke id voor de gebeurtenis. |
-| gegevens | object | Met Geofencing gebeurtenisgegevens. |
+| data | object | Met Geofencing gebeurtenisgegevens. |
 | dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
@@ -119,7 +119,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | -------- | ---- | ----------- |
 | apiCategory | string | De categorie van de API van de gebeurtenis. |
 | apiName | string | API-naam van de gebeurtenis. |
-| Problemen met | object | Geeft een lijst van fouten die optreden tijdens de verwerking. Als er problemen zijn geretourneerd, wordt er geen geometrie geretourneerd met het antwoord. |
+| issues | object | Geeft een lijst van fouten die optreden tijdens de verwerking. Als er problemen zijn geretourneerd, wordt er geen geometrie geretourneerd met het antwoord. |
 | responseCode | getal | HTTP-responscode |
 | geometrie | object | Een lijst met de omheining geometrie die de coördinaat bevatten positie of overlappen de searchBuffer rond de positie. |
 
@@ -147,8 +147,8 @@ Het object geometrie, geeft een lijst van geometrie-id's van de geofences die te
 
 | Eigenschap | Type | Description |
 |:-------- |:---- |:----------- |
-| apparaat-id | string | ID van het apparaat. |
-| afstand | string | <p>De afstand tussen de coördinaat naar de dichtstbijzijnde rand van de geofence bevindt. Positief betekent dat de coördinaat is buiten de geofence bevindt. Als de coördinaat buiten de geofence bevindt, maar hoger dan de waarde van searchBuffer weg van de dichtstbijzijnde rand van de geofence bevindt is, is de waarde 999. Negatieve betekent de coördinaat binnen de geofence bevindt. Als de coördinaat binnen de veelhoek, maar hoger dan de waarde van searchBuffer weg van de dichtstbijzijnde geofencing rand is, is de waarde-999. Een waarde van 999 betekent dat er meer vertrouwen is de coördinaat is ook buiten de geofence bevindt. Een waarde van-999 betekent dat er meer vertrouwen is de coördinaat is ook binnen de geofence bevindt.<p> |
+| deviceid | string | ID van het apparaat. |
+| distance | string | <p>De afstand tussen de coördinaat naar de dichtstbijzijnde rand van de geofence bevindt. Positief betekent dat de coördinaat is buiten de geofence bevindt. Als de coördinaat buiten de geofence bevindt, maar hoger dan de waarde van searchBuffer weg van de dichtstbijzijnde rand van de geofence bevindt is, is de waarde 999. Negatieve betekent de coördinaat binnen de geofence bevindt. Als de coördinaat binnen de veelhoek, maar hoger dan de waarde van searchBuffer weg van de dichtstbijzijnde geofencing rand is, is de waarde-999. Een waarde van 999 betekent dat er meer vertrouwen is de coördinaat is ook buiten de geofence bevindt. Een waarde van-999 betekent dat er meer vertrouwen is de coördinaat is ook binnen de geofence bevindt.<p> |
 | geometryid |string | De unieke id identificeert de geometrie geofence bevindt. |
 | nearestlat | getal | De breedtegraad van het dichtstbijzijnde punt van de geometrie. |
 | nearestlon | getal | De lengtegraad van het dichtstbijzijnde punt van de geometrie. |
