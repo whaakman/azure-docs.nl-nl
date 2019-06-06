@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load data
-ms.date: 04/17/2018
+ms.date: 05/31/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: f1bfd6a9f7b5d6b7622b3fc79848b986172ff746
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1b5af710feb743a30ac4a2af94b6e7e8b6c56595
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240846"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479890"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het laden van gegevens in Azure SQL Data Warehouse
 
@@ -102,7 +102,9 @@ Als u de hele dag door duizenden of meerdere enkele gegevens wilt invoeren, voeg
 
 ## <a name="creating-statistics-after-the-load"></a>Statistieken maken na het laden
 
-Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd.  Zie [statistieken](sql-data-warehouse-tables-statistics.md) voor gedetailleerde uitleg van statistieken. In het volgende voorbeeld worden statistieken in vijf kolommen van de tabel Customer_Speed aangemaakt.
+Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd.  Dit kan handmatig worden gedaan of u kunt inschakelen [statustics automatisch maakt](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+
+Zie [statistieken](sql-data-warehouse-tables-statistics.md) voor gedetailleerde uitleg van statistieken. Het volgende voorbeeld ziet hoe u handmatig maakt statistieken in vijf kolommen van de tabel customer_speed aangemaakt.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

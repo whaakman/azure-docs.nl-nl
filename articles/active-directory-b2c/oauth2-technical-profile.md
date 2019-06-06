@@ -2,20 +2,20 @@
 title: Een technisch profiel OAuth2 definiëren in een aangepast beleid in Azure Active Directory B2C | Microsoft Docs
 description: Een technisch profiel OAuth2 definiëren in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65634cb6573a0f163f7a0ca07bf26af9512e240b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 80b196b34e8eee99ed77c3c8a914f89fa68d87b8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683892"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512941"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel OAuth2 definiëren in een aangepast beleid voor Azure Active Directory B2C
 

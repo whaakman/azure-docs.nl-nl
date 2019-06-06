@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: cc65d6d3f7e7dcc08ea29ecc8a299b556563135b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236328"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735018"
 ---
 # <a name="get-started-with-azcopy"></a>Aan de slag met AzCopy
 
@@ -28,7 +28,7 @@ AzCopy is een opdrachtregelprogramma waarmee u kunt blobs of bestanden kopiëren
 
 ## <a name="download-azcopy"></a>AzCopy downloaden
 
-Download eerst het uitvoerbare bestand van AzCopy V10 naar een map op uw computer. Voor het gemak, houd rekening met de locatie van de AzCopy-map toe te voegen aan het systeempad staat voor gebruiksgemak.
+Download eerst het uitvoerbare bestand van AzCopy V10 naar een map op uw computer. 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -39,13 +39,15 @@ Download eerst het uitvoerbare bestand van AzCopy V10 naar een map op uw compute
 
 ## <a name="run-azcopy"></a>AzCopy uitvoert
 
-Navigeer naar de map waarnaar u het bestand gedownload vanaf een opdrachtprompt.
+Voor het gemak, houd rekening met de Active directory-locatie van het uitvoerbare bestand van AzCopy toe te voegen aan het systeempad staat voor gebruiksgemak. Op die manier kunt u typen `azcopy` uit een map op uw systeem.
 
-Als u een lijst met AzCopy-opdrachten, typt `azCopy`, en druk vervolgens op de ENTER-toets.
+Als u niet de AzCopy-map toevoegen aan uw path, hebt u mappen wijzigen naar de locatie van het uitvoerbare bestand van AzCopy en hetzelfde type `azcopy` of `.\azcopy` in Windows PowerShell-opdracht wordt gevraagd.
 
-Typ voor meer informatie over een specifieke opdracht `azCopy` gevolgd door de naam van de opdracht.
+Een lijst met opdrachten wilt bekijken, typt u `azcopy -h` en druk vervolgens op de ENTER-toets.
 
-Bijvoorbeeld, voor meer informatie over de `copy` typen `azcopy copy`, en druk vervolgens op de ENTER-toets.
+Voor meer informatie over een specifieke opdracht, de naam van de opdracht NET bevatten (bijvoorbeeld: `azcopy list -h`).
+
+![Inline-hulp](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 Voordat u iets zinvolle met AzCopy doen kunt, moet u bepalen hoe u autorisatiereferenties om de storage-service te bieden.
 
@@ -81,7 +83,7 @@ Deze rollen kunnen worden toegewezen aan uw identiteit in een van deze bereiken:
 
 Zie voor meer informatie over het controleren en toewijzen van rollen, [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-U hoeft niet beschikken over een van deze rollen toegewezen aan uw identiteit als je identiteit wordt toegevoegd aan de toegangsbeheerlijst (ACL) van de doelcontainer of de map. Uw identiteit moet in de ACL-machtiging voor de doelmap schrijven en uitvoeren van machtiging op de container en de bovenliggende map.
+U hoeft niet beschikken over een van deze rollen toegewezen aan uw identiteit als je identiteit wordt toegevoegd aan de toegangsbeheerlijst (ACL) van de doelcontainer of map. In de ACL moet je identiteit schrijfmachtiging hebben voor de doelmap en voert u de machtigingen op de container en de bovenliggende map.
 
 Zie voor meer informatie, [toegangsbeheer in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
@@ -102,7 +104,7 @@ Deze rollen kunnen worden toegewezen aan uw identiteit in een van deze bereiken:
 
 Zie voor meer informatie over het controleren en toewijzen van rollen, [toegang verlenen tot Azure blob- en wachtrijservices gegevens met RBAC in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-U hoeft niet beschikken over een van deze rollen toegewezen aan uw identiteit als je identiteit wordt toegevoegd aan de toegangsbeheerlijst (ACL) van de doelcontainer of de map. Uw identiteit moet in de ACL-leesmachtiging hebt in de doelmap en voert u de machtigingen op de container en de bovenliggende map.
+U hoeft niet beschikken over een van deze rollen toegewezen aan uw identiteit als je identiteit wordt toegevoegd aan de toegangsbeheerlijst (ACL) van de doelcontainer of map. Uw identiteit moet in de ACL-leesmachtiging hebt in de doelmap en voert u de machtigingen op de container en de bovenliggende map.
 
 Zie voor meer informatie, [toegangsbeheer in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 

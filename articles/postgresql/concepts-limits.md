@@ -5,16 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 01133662ca3a7364efd362f6db99d33243b2ad4b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 06/05/2019
+ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073546"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732865"
 ---
 # <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Beperkingen in Azure Database voor PostgreSQL - één Server
-De volgende secties beschrijven de capaciteits- en functionele limieten in de database-service.
+De volgende secties beschrijven de capaciteits- en functionele limieten in de database-service. Als u wilt meer informatie over de lagen van de resource (berekenen, geheugen, opslag), raadpleegt u de [Prijscategorieën](concepts-pricing-tiers.md) artikel.
+
 
 ## <a name="maximum-connections"></a>Maximum aantal verbindingen
 Het maximum aantal verbindingen per prijscategorie en vCores zijn als volgt: 

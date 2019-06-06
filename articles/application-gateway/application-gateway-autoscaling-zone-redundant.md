@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/22/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65986876"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431192"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatisch schalen en Zone-redundante Application Gateway 
 
@@ -26,8 +26,8 @@ De nieuwe v2-SKU bevat de volgende verbeteringen:
   Zoneredundantie is beschikbaar alleen waar Zones van Azure beschikbaar zijn. In andere regio's, worden alle andere functies ondersteund. Zie voor meer informatie, [wat zijn Beschikbaarheidszones in Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statische VIP**: Application gateway v2 SKU ondersteunt de statische VIP Typ exclusief. Dit zorgt ervoor dat het VIP-adres dat is gekoppeld aan application-gateway niet voor de levenscyclus van de implementatie, zelfs na het opnieuw opstarten verandert.
 - **Koptekst herschrijven**: Application Gateway kunt u toevoegen, verwijderen of bijwerken van HTTP-aanvraag- en reactieheaders met v2-SKU. Zie voor meer informatie, [Herschrijf de HTTP-headers met Application Gateway](rewrite-http-headers.md)
-- **Key Vault-integratie (preview)**: Application Gateway v2 ondersteunt de integratie met Key Vault (in openbare preview) voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners. Zie voor meer informatie, [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md).
-- **Azure Kubernetes Service Controller voor binnenkomend verkeer (preview)**: De Controller voor binnenkomend verkeer van Application Gateway v2 kunt de Azure Application Gateway moet worden gebruikt als de ingang voor een Azure Kubernetes Service (AKS) wel AKS-Cluster. Zie voor meer informatie de [documentatiepagina](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Key Vault-integratie (preview)** : Application Gateway v2 ondersteunt de integratie met Key Vault (in openbare preview) voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners. Zie voor meer informatie, [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md).
+- **Azure Kubernetes Service Controller voor binnenkomend verkeer (preview)** : De Controller voor binnenkomend verkeer van Application Gateway v2 kunt de Azure Application Gateway moet worden gebruikt als de ingang voor een Azure Kubernetes Service (AKS) wel AKS-Cluster. Zie voor meer informatie de [documentatiepagina](https://azure.github.io/application-gateway-kubernetes-ingress/).
 - **Prestatieverbeteringen**: De v2-SKU biedt maximaal 5 X betere SSL-offload prestaties in vergelijking met de standaard/WAF-SKU.
 - **Snellere implementatie en update** de v2-SKU biedt snellere implementatie en update in vergelijking met Standard/WAF-SKU. Dit omvat ook configuratiewijzigingen van WAF.
 
@@ -37,7 +37,7 @@ De nieuwe v2-SKU bevat de volgende verbeteringen:
 
 De Standard_v2 en WAF_v2 SKU is beschikbaar in de volgende regio's: Noord-centraal VS, Zuid-centraal VS, VS-West, VS-West 2, VS-Oost, VS-Oost 2, VS-midden, Noord-Europa, West-Europa, Zuidoost-Azië, Frankrijk-centraal, VK West, Japan-Oost, Japan-West. Extra regio's wordt in de toekomst worden toegevoegd.
 
-## <a name="pricing"></a>Prijs
+## <a name="pricing"></a>Prijzen
 
 Met de v2-SKU, het prijsmodel wordt aangedreven door verbruik en niet meer is gekoppeld aan het aantal instanties of grootten. De prijzen van v2 SKU bestaat uit twee onderdelen:
 
@@ -54,6 +54,8 @@ COMPUTE-eenheid richtlijnen:
 > [!NOTE]
 > Elke instantie kan op dit moment ongeveer 10 capaciteitseenheden ondersteunen.
 > Het aantal aanvragen dat is een rekeneenheid kan worden verwerkt, is afhankelijk van verschillende criteria zoals TLS-certificaat-sleutelgrootte, algoritme voor sleuteluitwisseling, header regeneraties, en in het geval van WAF binnenkomende aanvraaggrootte. Het is raadzaam om dat u bij het uitvoeren van tests van de toepassing om te bepalen van de snelheid van aanvragen per rekeneenheid. Zowel capaciteitseenheid als rekeneenheid wordt beschikbaar gesteld als een metrische waarde voor de facturering wordt gestart.
+
+De volgende tabel ziet u bijvoorbeeld prijzen en zijn alleen ter illustratie.
 
 **Prijzen in VS Oost**:
 
@@ -106,11 +108,11 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
 
 |                                                   | V1-SKU   | v2-SKU   |
 | ------------------------------------------------- | -------- | -------- |
-| Automatisch schaal aanpassen                                       |          | &#x2713; |
+| Automatisch schalen                                       |          | &#x2713; |
 | Zoneredundantie                                   |          | &#x2713; |
 | Statische VIP                                        |          | &#x2713; |
 | Azure Kubernetes Service (AKS) ingangscontroller |          | &#x2713; |
-| Integratie van Azure Key Vault                       |          | &#x2713; |
+| Integratie van Azure Sleutelkluis                       |          | &#x2713; |
 | Herschrijf de headers van HTTP (S)                           |          | &#x2713; |
 | URL-gebaseerde routering                                 | &#x2713; | &#x2713; |
 | Hosting van meerdere sites                             | &#x2713; | &#x2713; |
@@ -136,12 +138,15 @@ De volgende tabel vergelijkt de functies die beschikbaar zijn met elke SKU.
 |Gebruiker gedefinieerde Route (UDR) op Application Gateway-subnet|Niet ondersteund|
 |NSG voor binnenkomende poortbereik| -65200 tot en met 65535 voor Standard_v2 SKU<br>-65503 tot 65534 voor standaard-SKU.<br>Zie voor meer informatie de [Veelgestelde vragen over](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestatielogboeken in Azure diagnostics|Wordt niet ondersteund.<br>Metrische gegevens van Azure moet worden gebruikt.|
-|Facturering|De facturering is gepland om te beginnen op 1 juli 2019.|
+|Billing|De facturering is gepland om te beginnen op 1 juli 2019.|
 |FIPS-modus|Deze worden momenteel niet ondersteund.|
 |Alleen ILB-modus|Dit wordt momenteel niet ondersteund. Openbare en samen ILB-modus wordt ondersteund.|
 |Integratie van het netwerk controleren|Wordt niet ondersteund.|
 |Integratie van Azure-ondersteuning|Nog niet beschikbaar.
 
+## <a name="migrate-from-v1-to-v2"></a>Migreren van v1 naar v2
+
+Een Azure PowerShell-script is beschikbaar in de PowerShell gallery kunt u vanaf uw v1 Application Gateway/WAF migreren naar de v2-automatisch schalen SKU. Met dit script helpt u bij het kopiëren van de configuratie van uw gateway v1. Verkeer migratie is nog steeds uw eigen verantwoordelijkheid. Zie voor meer informatie, [migreren Azure Application Gateway van v1 in v2](migrate-v1-v2.md).
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Snelstart: Directe webverkeer met Azure Application Gateway - Azure portal](quick-create-portal.md)

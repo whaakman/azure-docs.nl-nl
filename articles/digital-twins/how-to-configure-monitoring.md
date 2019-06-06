@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 3c35633c9b25eafdb738ed591c7c7022fbd8149a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967818"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730323"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Bewaking in Azure, digitale dubbels configureren
 
@@ -40,17 +40,17 @@ Activiteit logboekregistratie voor digitale dubbels van Azure is standaard inges
 1. Uw digitale dubbels Azure-exemplaar selecteren.
 1. Kiezen **activiteitenlogboek** om het deelvenster weergeven:
 
-    ![Activiteitenlogboek][1]
+    [![Activiteitenlogboek](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 Voor geavanceerde logboekregistratie voor activiteit:
 
 1. Selecteer de **logboeken** optie om weer te geven de **overzicht voor analyse van activiteit**:
 
-    ![Selectie][2]
+    [![Selectie](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
 1. De **overzicht voor analyse van activiteit** bevat een overzicht van gegevens van een essentiële activiteitenlogboek:
 
-    ![Overzicht voor analyse van activiteit][3]
+    [![Overzicht voor analyse van activiteit]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
 >Gebruik **activiteitenlogboeken** snel inzicht krijgen in gebeurtenissen op abonnementsniveau.
@@ -70,12 +70,12 @@ Diagnostische logboeken voor een exemplaar inschakelen:
 1. Open de resource in Azure portal.
 1. Klik op **diagnostische instellingen**:
 
-    ![Diagnostische instellingen][4]
+    [![Diagnostische instellingen](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
 1. Klik op **diagnostische gegevens inschakelen** voor het verzamelen van gegevens (indien niet eerder ingeschakeld).
 1. Vul de vereiste velden in en selecteer hoe en waar gegevens worden opgeslagen:
 
-    ![Diagnostische instellingen twee][5]
+    [![Diagnostische instellingen twee](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
     Diagnostische logboeken zijn vaak opgeslagen met [Azure File Storage](../storage/files/storage-files-deployment-guide.md) en gedeeld met [logboeken van Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Beide opties kunnen worden geselecteerd.
 
@@ -99,24 +99,24 @@ Volledige logboek uitvoeren van query's wordt geboden via [logboeken van Azure M
 1. Zoeken naar **Log Analytics** in Azure portal.
 1. U ziet uw beschikbare **Log Analytics-werkruimte** exemplaren. Kies een en selecteer **logboeken** query:
 
-    ![Logboekanalyse][6]
+    [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. Als u nog geen een **Log Analytics-werkruimte** exemplaar, kunt u een werkruimte maken door te klikken op de **toevoegen** knop:
 
-    ![OMS maken][7]
+    [![OMS maken](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
 Zodra uw **Log Analytics-werkruimte** exemplaar is ingericht, mag u krachtige query's naar items zoeken in Logboeken veelvouden of zoeken met behulp van specifieke criteria, met behulp van **Log Management**:
 
-   ![Logboekbeheer][8]
+   [![Logboekbeheer](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
 Zie voor meer informatie over krachtige querybewerkingen [aan de slag met query's](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Een vertraging van 5 minuten kunnen optreden bij het verzenden van gebeurtenissen naar **Log Analytics-werkruimte** voor de eerste keer.
 
-Logboeken in Azure Monitor biedt ook krachtige fout en waarschuwingsmeldingen services, dat kunnen worden weergegeven door te klikken op **vaststellen en oplossen van problemen met**:
+Azure Monitor-logboeken bieden ook krachtige fout en waarschuwingsmeldingen services, dat kunnen worden weergegeven door te klikken op **vaststellen en oplossen van problemen met**:
 
-   ![Waarschuwing en fout-meldingen][9]
+   [![Waarschuwing en fout-meldingen](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
 >Gebruik **Log Analytics-werkruimte** naar query log geschiedenisgegevens voor meerdere app-functies, abonnementen of -services.
@@ -132,14 +132,3 @@ Azure van digitale dubbels biedt ook ondersteuning voor toepassingsspecifieke lo
 - Duik dieper in Azure diagnostische instellingen lezen een [overzicht van diagnostische logboeken](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 - Meer informatie over [logboeken van Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
-
-<!-- Images -->
-[1]: media/how-to-configure-monitoring/activity-log.png
-[2]: media/how-to-configure-monitoring/activity-log-select.png
-[3]: media/how-to-configure-monitoring/log-analytics-overview.png
-[4]: media/how-to-configure-monitoring/diagnostic-settings-one.png
-[5]: media/how-to-configure-monitoring/diagnostic-settings-two.png
-[6]: media/how-to-configure-monitoring/log-analytics.png
-[7]: media/how-to-configure-monitoring/log-analytics-oms.png
-[8]: media/how-to-configure-monitoring/log-analytics-management.png
-[9]: media/how-to-configure-monitoring/log-analytics-notifications.png

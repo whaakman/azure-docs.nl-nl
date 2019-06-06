@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463635"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430793"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppelen of een Azure-abonnement toevoegen aan uw Azure Active Directory-tenant
 
@@ -42,6 +42,7 @@ Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitv
     - Gebruikers die zijn toegewezen aan rollen met RBAC verliest de toegang
     - Servicebeheerder en Medebeheerders verliest toegang
     - Als u alle sleutelkluizen hebt, ze niet toegankelijk zijn en u hebt deze na de koppeling oplossen
+    - Als u geen beheerde identiteiten voor resources zoals virtuele Machines of Logic Apps hebt, hebt u opnieuw in te schakelen of ze na de koppeling opnieuw maken
     - Als u een geregistreerde Azure Stack hebt, hebt u opnieuw registreren na de koppeling
 
 1. Meld u aan met een account dat:
@@ -76,7 +77,9 @@ Nadat u een abonnement op een andere map hebt gekoppeld, is er mogelijk extra st
 
 1. Als u alle sleutelkluizen hebt, moet u een tenant-id in de vorm van de sleutelkluis. Zie voor meer informatie, [een tenant-ID van key vault wijzigen na een verplaatsing van een abonnement](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Als u een Azure-Stack met behulp van dit abonnement hebt geregistreerd, moet u opnieuw registreren. Zie voor meer informatie, [Azure Stack registreren met Azure](/azure-stack/operator/azure-stack-registration).
+2. Als u het systeem toegewezen beheerde identiteiten voor resources, moet u deze opnieuw inschakelen. Als u gebruiker toegewezen identiteiten voor beheerde gebruikt, moet u deze opnieuw maken. Na het opnieuw in te schakelen of opnieuw maken van de identiteiten beheerd, moet u de machtigingen worden toegewezen aan deze identiteiten opnieuw maken. Zie voor meer informatie [wat is beheerde identiteiten voor Azure-resources?](../managed-identities-azure-resources/overview.md).
+
+3. Als u een Azure-Stack met behulp van dit abonnement hebt geregistreerd, moet u opnieuw registreren. Zie voor meer informatie, [Azure Stack registreren met Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

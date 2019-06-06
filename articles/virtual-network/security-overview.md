@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731658"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478863"
 ---
 # <a name="security-groups"></a>Beveiligingsgroepen
 <a name="network-security-groups"></a>
@@ -72,7 +72,7 @@ Uitgebreide beveiligingsregels vereenvoudigen de beveiligingsdefinitie voor virt
 * **AzureContainerRegistry** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure Container Registry aangeduid. Als u *AzureContainerRegistry* opgeeft als waarde, wordt verkeer naar AzureContainerRegistry toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot AzureContainerRegistry in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling AzureContainerRegistry.[regionaam] specificeren. 
 * **AppService** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure App Service aangeduid. Als u *AppService* opgeeft als waarde, wordt verkeer naar AppService toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot AppService in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling AppService.[regionaam] specificeren. 
 * **AppServiceManagement** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service App-servicebeheer van Azure aangeduid. Als u *AppServiceManagement* opgeeft als waarde, wordt verkeer naar AppServiceManagement toegestaan of geweigerd. 
-* **ApiManagement** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure API Management aangeduid. Als u *ApiManagement* opgeeft als waarde, wordt verkeer naar ApiManagement toegestaan of geweigerd.  
+* **ApiManagement** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure API Management aangeduid. Als u opgeeft *ApiManagement* voor de waarde moet verkeer wordt toegestaan of geweigerd in de beheerinterface van de ApiManagement.  
 * **AzureConnectors** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure-connectors aangeduid. Als u *AzureConnectors* opgeeft als waarde, wordt verkeer naar AzureConnectors toegestaan of geweigerd. Als u alleen toegang wilt toestaan tot AzureConnectors in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio in de volgende indeling AzureConnectors.[regionaam] specificeren. 
 * **GatewayManager** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Gatewaybeheer van Azure aangeduid. Als u *GatewayManager* opgeeft als waarde, wordt verkeer naar GatewayManager toegestaan of geweigerd.  
 * **AzureDataLake** (alleen Resource Manager): Met deze tag worden de adresvoorvoegsels van de service Azure Data Lake aangeduid. Als u *AzureDataLake* opgeeft als waarde, wordt verkeer naar AzureDataLake toegestaan of geweigerd. 
@@ -96,39 +96,39 @@ Azure maakt de volgende standaardregels in elke netwerkbeveiligingsgroep die u m
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioriteit|Bron|Bronpoorten|Doel|Doelpoorten|Protocol|Access|
+|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alle|Toestaan|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioriteit|Bron|Bronpoorten|Doel|Doelpoorten|Protocol|Access|
+|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alle|Toestaan|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioriteit|Bron|Bronpoorten|Doel|Doelpoorten|Protocol|Access|
+|Prioriteit|Source|Bronpoorten|Bestemming|Doelpoorten|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alle|Weigeren|
 
-### <a name="outbound"></a>Uitgaand
+### <a name="outbound"></a>Uitgaande
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alle | Toestaan |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alle | Toestaan |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alle | Weigeren |
 
@@ -148,7 +148,7 @@ In de vorige afbeelding zijn *NIC1* en *NIC2* leden van de toepassingsbeveiligin
 
 Deze regel is vereist om verkeer van internet naar de webservers te laten lopen. Binnenkomend verkeer van internet wordt geweigerd door de standaardbeveiligingsregel [DenyAllInbound](#denyallinbound). Daarom is er geen extra regel nodig voor de toepassingsbeveiligingsgroepen *AsgLogic* of *AsgDb*.
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Toestaan |
 
@@ -156,7 +156,7 @@ Deze regel is vereist om verkeer van internet naar de webservers te laten lopen.
 
 De standaardbeveiligingsregel [AllowVNetInBound](#allowvnetinbound) staat communicatie toe tussen resources in hetzelfde virtuele netwerk. Daarom is deze regel vereist voor het weigeren van verkeer dat van een willekeurige resource afkomstig is.
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Alle | Weigeren |
 
@@ -164,7 +164,7 @@ De standaardbeveiligingsregel [AllowVNetInBound](#allowvnetinbound) staat commun
 
 Deze regel staat verkeer toe van de toepassingsbeveiligingsgroep *AsgLogic* naar de toepassingsbeveiligingsgroep *AsgDb*. De prioriteit voor deze regel is hoger dan de prioriteit voor de regel *Deny-Database-All*. Als gevolg hiervan wordt deze regel verwerkt vóór de regel *Deny-Database-All*, zodat verkeer van de toepassingsbeveiligingsgroep *AsgLogic* wordt toegestaan, terwijl al het andere verkeer wordt geblokkeerd.
 
-|Prioriteit|Bron|Bronpoorten| Doel | Doelpoorten | Protocol | Access |
+|Prioriteit|Source|Bronpoorten| Bestemming | Doelpoorten | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Toestaan |
 
@@ -219,7 +219,7 @@ U kunt eenvoudig de cumulatieve regels bekijken die op een netwerkinterface word
 ## <a name="azure-platform-considerations"></a>Overwegingen bij het Azure-platform
 
 - **Virtueel IP-adres van het hostknooppunt**: Basisinfrastructuurservices zoals DHCP, DNS, IMDS en statuscontrole worden geleverd via de gevirtualiseerde host-IP-adressen 168.63.129.16 en 169.254.169.254. Deze IP-adressen zijn van Microsoft en zijn de enige gevirtualiseerde IP-adressen die in alle regio's voor dit doel worden gebruikt.
-- **Licentieverlening (Key Management Service)**: Voor alle Windows installatiekopieën die op virtuele machines worden uitgevoerd, is een licentie vereist. Hiervoor wordt een licentieaanvraag verstuurd naar de Key Management Service-hostservers waarop dergelijke query's worden afgehandeld. De uitgaande aanvraag wordt gedaan via poort. 1688. Voor implementaties die gebruikmaken van een configuratie met de [standaardroute 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), wordt deze platformregel uitgeschakeld.
+- **Licentieverlening (Key Management Service)** : Voor alle Windows installatiekopieën die op virtuele machines worden uitgevoerd, is een licentie vereist. Hiervoor wordt een licentieaanvraag verstuurd naar de Key Management Service-hostservers waarop dergelijke query's worden afgehandeld. De uitgaande aanvraag wordt gedaan via poort. 1688. Voor implementaties die gebruikmaken van een configuratie met de [standaardroute 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), wordt deze platformregel uitgeschakeld.
 - **Virtuele machines in groepen met gelijke taakverdeling**: De bronpoort en het bronadresbereik die worden toegepast, zijn die van de oorspronkelijke computer, niet van de load balancer. De doelpoort en het doeladresbereik zijn die van de doelcomputer, niet van de load balancer.
 - **Azure-service-exemplaren**: Exemplaren van verschillende Azure-services, zoals HDInsight, toepassingsserviceomgevingen en Virtual Machine Scale Sets, worden geïmplementeerd in virtuele netwerksubnetten. Zie [Virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) voor een volledige lijst met services die u in virtuele netwerken kunt implementeren. Zorg ervoor dat u vertrouwd raakt met de poortvereisten voor elke service voordat u een netwerkbeveiligingsgroep toepast op het subnet waarin de resource is geïmplementeerd. Als u poorten weigert die vereist zijn voor de service, werkt de service niet naar behoren.
 - **Uitgaande e-mail verzenden**: Microsoft raadt u aan om geverifieerde SMTP-relayservices te gebruiken (doorgaans verbonden via TCP-poort 587, maar ook vaak andere) om e-mail vanaf Azure Virtual Machines te verzenden. SMTP-relayservices leggen zich toe op de reputatie van de afzender, om zo de kans dat e-mailproviders van derden berichten weigeren, tot het uiterste terug te dringen. Dergelijke SMTP-relayservices omvatten, maar beperken zich niet tot Exchange Online Protection en SendGrid. Het gebruik van de SMTP-relayservices wordt in Azure op geen enkele wijze beperkt, ongeacht welk type abonnement u hebt. 
@@ -227,7 +227,7 @@ U kunt eenvoudig de cumulatieve regels bekijken die op een netwerkinterface word
   Als u uw Azure-abonnement vóór 15 november 2017 hebt gemaakt, kunt u naast de mogelijkheid om gebruik te maken van SMTP-relayservices ook rechtstreeks e-mail verzenden via TCP-poort 25. Als u uw abonnement na 15 november 2017 hebt gemaakt kunt u mogelijk geen e-mail rechtstreeks via poort 25 verzenden. Hoe uitgaande communicatie via poort 25 verloopt, hangt als volgt samen met het type abonnement dat u hebt:
 
      - **Enterprise Overeenkomst**: Uitgaande communicatie via poort 25 is toegestaan. U kunt uitgaande e-mail rechtstreeks vanaf virtuele machines naar externe e-mailproviders verzenden, zonder dat daar beperkingen voor gelden op grond van het Azure-platform. 
-     - **Betalen per gebruik**: Uitgaande communicatie via poort 25 is voor alle resources geblokkeerd. Als u e-mail vanaf een virtuele machine rechtstreeks naar de externe e-mailproviders wilt verzenden (niet via een geverifieerde SMTP-relay), kunt u een aanvraag indienen om de beperking op te heffen. Het is aan Microsoft om te bepalen of aanvragen worden gecontroleerd en goedgekeurd, en aanvragen worden alleen toegekend nadat er controles ter voorkoming van fraude zijn uitgevoerd. Als u een aanvraag wilt indienen, opent u een ondersteuningsaanvraag met het probleemtype *Technisch*, *Virtuele netwerkverbinding*, *Kan geen e-mail verzenden (SMTP/poort 25)*. Vermeld in uw ondersteuningsaanvraag informatie zoals waarom uw abonnement e-mail rechtstreeks naar e-mailproviders moet kunnen verzenden in plaats van via een geverifieerde SMTP-relay. Als de aanvraag voor uw abonnement wordt toegekend, kunnen alleen de virtuele machines die na de toekenningsdatum zijn gemaakt poort 25 voor uitgaande communicatie gebruiken.
+     - **Betalen per gebruik**: Uitgaande communicatie via poort 25 is voor alle resources geblokkeerd. Als u e-mail vanaf een virtuele machine rechtstreeks naar de externe e-mailproviders wilt verzenden (niet via een geverifieerde SMTP-relay), kunt u een aanvraag indienen om de beperking op te heffen. Het is aan Microsoft om te bepalen of aanvragen worden gecontroleerd en goedgekeurd, en aanvragen worden alleen toegekend nadat er controles ter voorkoming van fraude zijn uitgevoerd. Als u een aanvraag wilt indienen, opent u een ondersteuningsaanvraag met het probleemtype *Technisch*, *Virtuele netwerkverbinding*, *Kan geen e-mail verzenden (SMTP/poort 25)* . Vermeld in uw ondersteuningsaanvraag informatie zoals waarom uw abonnement e-mail rechtstreeks naar e-mailproviders moet kunnen verzenden in plaats van via een geverifieerde SMTP-relay. Als de aanvraag voor uw abonnement wordt toegekend, kunnen alleen de virtuele machines die na de toekenningsdatum zijn gemaakt poort 25 voor uitgaande communicatie gebruiken.
      - **MSDN, Azure Pass, Azure in Open, Education, BizSpark en gratis proefversie**: Uitgaande communicatie via poort 25 is voor alle resources geblokkeerd. Er kunnen geen aanvragen worden ingediend voor het opheffen van de beperking, omdat zulke aanvragen niet worden toegekend. Als u e-mail moet verzenden vanaf uw virtuele machine, dient u een SMTP-relayservice te gebruiken.
      - **Cloudserviceprovider**: Klanten die Azure-resources via een cloudserviceprovider gebruiken, kunnen een ondersteuningsaanvraag maken bij hun cloudserviceprovider. Zij kunnen vervolgens aanvragen dat de provider namens hen een blokkering opheft, als er geen beveiligde SMTP-relay kan worden gebruikt.
 

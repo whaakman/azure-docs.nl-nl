@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869412"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472153"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Beveiligen van Azure CDN-assets met tokenverificatie
 
@@ -173,17 +173,17 @@ Het volgende stroomdiagram wordt beschreven hoe een clientaanvraag door Azure CD
 3. Onder **HTTP grote**, selecteer **regels-Engine**. U de regelengine gebruiken voor het definiëren van paden voor het toepassen van de functie, de functie tokenverificatie inschakelen en extra token verificatie-gerelateerde functies inschakelen. Zie voor meer informatie, [verwijzing regelengine](cdn-rules-engine-reference.md).
 
    1. Selecteer een bestaande regel of een nieuwe regel voor het definiëren van de asset of het pad voor die u wilt toepassen van tokenverificatie maken. 
-   2. Als tokenverificatie voor een regel, schakelt **[Token Authentication](cdn-rules-engine-reference-features.md#token-auth)** uit de **functies** lijst en selecteer vervolgens **ingeschakeld**. Selecteer **Update** als u een regel wilt bijwerken of **toevoegen** als u een regel wilt maken.
+   2. Als tokenverificatie voor een regel, schakelt **[Token Authentication](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** uit de **functies** lijst en selecteer vervolgens **ingeschakeld**. Selecteer **Update** als u een regel wilt bijwerken of **toevoegen** als u een regel wilt maken.
         
       ![Voorbeeld van CDN regels-engine tokenverificatie inschakelen](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. U kunt ook aanvullende verificatie-gerelateerde functies token inschakelen in de regelengine. Als u wilt inschakelen op een van de volgende functies, selecteert u deze in de **functies** lijst en selecteer vervolgens **ingeschakeld**.
     
-   - **[Autorisatiecode denial-of token](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Bepaalt het type van de reactie die aan een gebruiker wordt geretourneerd wanneer een aanvraag wordt geweigerd. Hier regels overschrijven de responscode instellen in de **aangepaste denial-of verwerking** sectie op de verificatiepagina op basis van tokens.
+   - **[Autorisatiecode denial-of token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Bepaalt het type van de reactie die aan een gebruiker wordt geretourneerd wanneer een aanvraag wordt geweigerd. Hier regels overschrijven de responscode instellen in de **aangepaste denial-of verwerking** sectie op de verificatiepagina op basis van tokens.
 
-   - **[Auth-token is hoofdlettergevoeligheid niet URL](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Hiermee bepaalt u of de URL die wordt gebruikt voor het valideren van het token hoofdlettergevoelig is.
+   - **[Auth-token is hoofdlettergevoeligheid niet URL](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Hiermee bepaalt u of de URL die wordt gebruikt voor het valideren van het token hoofdlettergevoelig is.
 
-   - **[De Auth Parameter-token](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Naam van het token Authentication queryreeks-parameter die wordt weergegeven in de aangevraagde URL. 
+   - **[De Auth Parameter-token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Naam van het token Authentication queryreeks-parameter die wordt weergegeven in de aangevraagde URL. 
         
      ![Voorbeeld van instellingen voor tokenverificatie CDN de regelengine](./media/cdn-token-auth/cdn-rules-engine2.png)
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919107"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496726"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Een strategie voor hybride identiteit ingebruikname definiëren
 In deze taak definieert u de acceptatiestrategie voor hybride identiteit voor uw oplossing voor hybride identiteit om te voldoen aan de zakelijke vereisten die zijn beschreven in:
@@ -199,8 +199,7 @@ Hoewel u mogelijk hebt gekozen voor een oplossing voor uw strategie voor, moet u
 | On-premises AD |Multi-Factor Authentication-server |
 
 > [!NOTE]
-> U moet er ook voor zorgen dat de functies die vereist voor uw ontwerp zijn biedt ondersteuning voor de optie voor het ontwerp van multi-factor authentication die u hebt geselecteerd.  Lees voor meer informatie [kiest u de multi-factor-beveiligingsoplossing voor u](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> U moet er ook voor zorgen dat de functies die vereist voor uw ontwerp zijn biedt ondersteuning voor de optie voor het ontwerp van multi-factor authentication die u hebt geselecteerd.  Lees voor meer informatie [kiest u de multi-factor-beveiligingsoplossing voor u](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Multi-Factor Auth Provider

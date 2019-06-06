@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b881a645a42d92407aa39d0f4896629f799e6928
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524030"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66426919"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Suggesties of automatisch aangevulde toevoegen aan uw Azure Search-toepassing
 
@@ -46,7 +46,7 @@ Een Azure Search-service is optioneel voor deze oefening omdat de oplossing maak
 
 * Download de [DotNetHowToAutoComplete voorbeeld](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
-Het voorbeeld is uitgebreid, dekking biedt suggesties, automatisch aanvullen, meervoudige navigatie en caching aan clientzijde. U wordt aangeraden de Leesmij-bestand en opmerkingen voor een volledige beschrijving van wat het voorbeeld te bieden.
+Het voorbeeld is uitgebreid, dekking biedt suggesties, automatisch aanvullen, meervoudige navigatie en caching aan clientzijde. Bekijk de Leesmij-bestand en opmerkingen voor een volledige beschrijving van wat het voorbeeld te bieden.
 
 ## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
@@ -70,7 +70,7 @@ Open de **Index.cshtml** bestand onder de map \Views\Home om de code weer te gev
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Dit is een eenvoudige invoertekstvak met een klasse voor stijl, een ID worden verwezen door JavaScript, en de tijdelijke aanduiding voor tekst.  De Magic-pakket is in de ingesloten JavaScript.
+In dit voorbeeld is een eenvoudige invoertekstvak met een klasse voor stijl, een ID worden verwezen door JavaScript, en de tijdelijke aanduiding voor tekst.  De Magic-pakket is in de ingesloten JavaScript.
 
 De C# taal voorbeeld gebruikt JavaScript in Index.cshtml gebruikmaken van de [jQuery automatisch aanvullen van UI-bibliotheek](https://jqueryui.com/autocomplete/). Deze bibliotheek wordt de ervaring voor automatisch aanvullen toegevoegd aan het zoekvak door asynchrone aanroepen naar de MVC-controller om op te halen van suggesties. De versie van de JavaScript-taal is in IndexJavaScript.cshtml. Dit omvat het volgende script voor de zoekbalk typt, evenals de REST-API-aanroepen naar Azure Search.
 
@@ -95,7 +95,7 @@ De bovenstaande code wordt uitgevoerd in de browser laden van de pagina jQuery g
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-De bovenstaande regel weet de functie van de gebruikersinterface automatisch aanvullen jQuery waar om op te halen van de lijst met items om weer te geven onder het zoekvak. Omdat dit een MVC-project, wordt de functie voorstellen in HomeController.cs die de logica bevat voor het retourneren van Querysuggesties (informatie over suggesties in de volgende sectie). Deze functie worden ook enkele parameters doorgegeven aan het besturingselement hoogtepunten, zoeken bij benadering en termijn. Door de JavaScript-API voor automatisch aanvullen wordt de parameter 'term' toegevoegd.
+De bovenstaande regel weet de functie van de gebruikersinterface automatisch aanvullen jQuery waar om op te halen van de lijst met items om weer te geven onder het zoekvak. Aangezien dit project een MVC-project is, wordt de functie voorstellen in HomeController.cs die de logica bevat voor het retourneren van Querysuggesties (informatie over suggesties in de volgende sectie). Deze functie worden ook enkele parameters doorgegeven aan het besturingselement hoogtepunten, zoeken bij benadering en termijn. Door de JavaScript-API voor automatisch aanvullen wordt de parameter 'term' toegevoegd.
 
 ### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Het voorbeeld uitbreiden om ondersteuning te bieden voor zoeken bij benadering
 
@@ -162,7 +162,7 @@ Nu we de JavaScript-code voor de webpagina hebt doorgenomen, laten we bekijken d
 
 Open de **HomeController.cs** bestand in de map domeincontrollers. 
 
-Het eerste wat u ziet misschien ook is een methode aan de bovenkant van de klasse met de naam `InitSearch`. Hiermee wordt een geverifieerde HTTP-indexclient voor de Azure Search-service gemaakt. Zie voor meer informatie, [over het gebruik van Azure Search via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Het eerste wat u ziet misschien ook is een methode aan de bovenkant van de klasse met de naam `InitSearch`. Deze methode maakt u een geverifieerde client van HTTP-index met de Azure Search-service. Zie voor meer informatie, [over het gebruik van Azure Search via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 U ziet de suggesties-functie op regel 41. Deze is gebaseerd op de [DocumentsOperationsExtensions.Suggest methode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
@@ -271,7 +271,7 @@ $(function () {
 });
 ```
 
-Als u dit vergelijkt met het bovenstaande voorbeeld waarbij de begincontroller wordt aangeroepen, ziet u verschillende overeenkomsten.  De configuratie voor automatisch aanvullen voor `minLength` en `position` zijn identiek. 
+Als u dit voorbeeld in het bovenstaande voorbeeld die de begincontroller aanroept vergelijkt, ziet u verschillende overeenkomsten.  De configuratie voor automatisch aanvullen voor `minLength` en `position` zijn identiek. 
 
 De belangrijke wijziging hier is de bron. In plaats van de aanbevolen methode aanroept in de oorspronkelijke domeincontroller, een REST-aanvraag in een JavaScript-functie wordt gemaakt en uitgevoerd met behulp van Ajax. De reactie wordt vervolgens verwerkt in 'geslaagd' en als bron gebruikt.
 
@@ -302,7 +302,7 @@ Tot nu toe hebt u de gehoste NYCJobs demo index gebruikt. Als u wilt dat volledi
 
 1. Open in de map DataLoader van de voorbeeldcode NYCJobs **DataLoader.sln** in Visual Studio.
 
-1. De verbindingsgegevens voor uw Azure Search-service toevoegen. Open App.config in het project DataLoader en wijzig de app-instellingen TargetSearchServiceName en TargetSearchServiceApiKey zodat deze verwijzen naar uw Azure Search-service en Azure Search Service API-sleutel. Deze vindt u in Azure Portal.
+1. De verbindingsgegevens voor uw Azure Search-service toevoegen. Open App.config in het project DataLoader en wijzig de app-instellingen TargetSearchServiceName en TargetSearchServiceApiKey zodat deze verwijzen naar uw Azure Search-service en Azure Search Service API-sleutel. Deze informatie kan worden gevonden in de Azure-portal.
 
 1. Druk op F5 om de toepassing, twee indexen te maken en de voorbeeldgegevens NYCJob importeren te starten.
 

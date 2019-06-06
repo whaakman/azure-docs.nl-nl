@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 4376db8cdfa90b8d29ecd9b210e683848b4c94b4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072589"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742801"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele-knooppunten in de Azure-portal
 
@@ -69,6 +69,7 @@ Virtuele knooppunten functionaliteit is sterk afhankelijk van de ACI-functieset.
 * [Host-aliassen](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumenten](../container-instances/container-instances-exec.md#restrictions) voor exec in ACI
 * [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) distribueert schillen niet aan de virtuele-knooppunt
+* [Windows Server-knooppunten (momenteel in preview in AKS)](windows-container-cli.md) worden niet ondersteund en virtuele knooppunten. U kunt virtuele-knooppunten gebruiken voor het plannen van Windows Server-containers zonder de noodzaak voor Windows Server-knooppunten in een AKS-cluster.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -196,7 +197,7 @@ Installeer `curl` in de schil met `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Nu toegang tot het adres van het gebruik van uw schil `curl`, zoals *http://10.241.0.4*. Geef uw eigen interne IP-adres wordt weergegeven in de vorige `kubectl get pods` opdracht:
+Nu toegang tot het adres van het gebruik van uw schil `curl`, zoals *http://10.241.0.4* . Geef uw eigen interne IP-adres wordt weergegeven in de vorige `kubectl get pods` opdracht:
 
 ```azurecli-interactive
 curl -L http://10.241.0.4

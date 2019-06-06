@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242309"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492703"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions-Premium-abonnement (preview)
 
@@ -56,7 +56,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>Verbinding met het particuliere netwerk
 
-Azure Functions geïmplementeerd naar een Premium-abonnement profiteert van [nieuwe VNet-integratie voor web-apps](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  Wanneer geconfigureerd, wordt uw app kan communiceren met resources in uw VNet of beveiligd via service-eindpunten.  IP-beperkingen zijn ook beschikbaar in de app om te beperken van inkomend verkeer.
+Azure Functions geïmplementeerd naar een Premium-abonnement profiteert van [nieuwe VNet-integratie voor web-apps](../app-service/web-sites-integrate-with-vnet.md).  Wanneer geconfigureerd, wordt uw app kan communiceren met resources in uw VNet of beveiligd via service-eindpunten.  IP-beperkingen zijn ook beschikbaar in de app om te beperken van inkomend verkeer.
 
 Bij het toewijzen van een subnet aan uw functie-app in een Premium-abonnement, moet u een subnet met voldoende IP-adressen voor elke mogelijke instantie. Hoewel het maximum aantal exemplaren tijdens de Preview-versie variëren kan, moet een IP-Adresblok met ten minste 100 beschikbare adressen.
 

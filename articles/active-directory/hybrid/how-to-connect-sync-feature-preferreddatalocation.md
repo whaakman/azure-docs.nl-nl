@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor meerdere geografische gebieden mogelijkheden configureren in Office 365 | Microsoft Docs'
+title: 'Azure AD Connect: Gewenste gegevenslocatie voor Office 365-resources configureren'
 description: Hierin wordt beschreven hoe u de resources van uw Office 365-gebruiker dicht bij de gebruiker met Azure Active Directory Connect-synchronisatie.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348180"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473019"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor Office 365-resources configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het kenmerk voor de gewenste gegevenslocatie configureren in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand maakt gebruik van meerdere geografische gebieden mogelijkheden in Office 365, gebruikt u dit kenmerk om de geo-locatie van Office 365-gegevens van de gebruiker toe te wijzen. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -131,13 +131,13 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
     | Verbonden systeem | *Kies de on-premises Active Directory-Connector* |  |
     | Verbonden systeem objecttype | **User** |  |
     | Metaverse-objecttype | **Person** |  |
-    | Type koppeling | **Koppelen** |  |
+    | Koppelingstype | **Koppelen** |  |
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatieregels. Een waarde die wordt gebruikt door een andere regel voor synchronisatie niet verzamelen. |
 
 5. Houd de **Scoping filter** leeg is, om op te nemen van alle objecten. U moet mogelijk de bereikfilter op basis van uw Azure AD Connect-implementatie aanpassen.
 6. Ga naar de **transformatie tabblad**, en implementeren van de volgende transformatieregel:
 
-    | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
+    | Type gebruikersstroom | Doelkenmerk | Source | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
     |Direct | preferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
 
@@ -160,7 +160,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
     | Verbonden systeem | *Selecteer de Azure AD-Connector* ||
     | Verbonden systeem objecttype | **User** ||
     | Metaverse-objecttype | **Person** ||
-    | Type koppeling | **Koppelen** ||
+    | Koppelingstype | **Koppelen** ||
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatieregels. Een waarde die wordt gebruikt door een andere regel voor synchronisatie niet verzamelen. |
 
 5. Ga naar de **Scoping filter** tabblad en toevoegen van een enkel bereik filtergroep met twee componenten:
@@ -174,7 +174,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 
 6. Ga naar de **transformatie** tabblad en implementeren van de volgende transformatieregel:
 
-    | Type gebruikersstroom | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
+    | Type gebruikersstroom | Doelkenmerk | Source | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
     | Direct | preferredDataLocation | preferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
 

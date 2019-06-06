@@ -1,23 +1,18 @@
 ---
 title: Veilige implementatiemethoden in regio's - Azure Deployment Manager
 description: Beschrijft hoe u een service implementeren via een groot aantal regio's met Azure Deployment Manager. Hier ziet u veilige implementatiemethoden om te controleren of de stabiliteit van uw implementatie te bevestigen voordat het uitrollen van naar alle regio's.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/13/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595785"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431165"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (openbare preview) inschakelen
 
@@ -25,7 +20,7 @@ Voor het implementeren van uw service in veel regio's en zorg ervoor dat deze wo
 
 Deployment Manager is een functie van Resource Manager. Hiermee wordt uw mogelijkheden tijdens de implementatie. Deployment Manager gebruiken wanneer u een complexe service die moet worden geïmplementeerd voor meerdere regio's. Door de implementatie van uw service te faseren, kunt u potentiële problemen opsporen voordat de service is geïmplementeerd voor alle regio's. Als u niet de extra voorzorgsmaatregelen van een gefaseerde implementatie nodig hebt, gebruikt u de standaard [implementatieopties](resource-group-template-deploy-portal.md) voor Resource Manager. Deployment Manager integreert naadloos met alle bestaande hulpprogramma's van derden die ondersteuning bieden voor Resource Manager-implementaties, zoals continue integratie en continue levering (CI/CD)-aanbiedingen. 
 
-Azure Deployment Manager bevindt zich in beperkte preview. Voer voor het gebruik van Azure Deployment Manager, de [aanmeldingsformulier hebt ingevuld](https://aka.ms/admsignup). Help-informatie van de functie verbeteren door [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager is in preview. Help ons te verbeteren van de functie door op te geven [feedback](https://aka.ms/admfeedback).
 
 Deployment Manager wilt gebruiken, moet u vier bestanden maken:
 

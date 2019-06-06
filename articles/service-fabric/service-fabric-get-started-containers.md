@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: dbc8363052556f29633c069bcd82af5249a3406f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306878"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428111"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 
@@ -38,7 +38,7 @@ Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in
 ## <a name="prerequisites"></a>Vereisten
 
 * Een ontwikkelcomputer waarop wordt uitgevoerd:
-  * Visual Studio 2015 of Visual Studio 2017.
+  * Visual Studio 2015 of Visual Studio 2019.
   * [Service Fabric SDK en hulpprogramma's](service-fabric-get-started.md).
   *  Docker voor Windows. [Download Docker CE voor Windows (stabiel)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Nadat u Docker hebt geïnstalleerd en gestart, klikt u met de rechtermuisknop op het systeemvakpictogram en selecteert u **Overschakelen naar Windows-containers**. Deze stap is vereist voor het uitvoeren van Docker-installatiekopieën onder Windows.
 
@@ -482,7 +482,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server-containers zijn niet compatibel in alle versies van een host-besturingssysteem. Bijvoorbeeld:
  
 - Windows Server-containers die zijn gebouwd met behulp van Windows Server versie 1709 werken niet op een host met Windows Server 2016-versie. 
-- Windows Server-containers die zijn gebouwd met behulp van Windows Server 2016 werkt in Hyper-v-isolatiemodus alleen op een host met Windows Server versie 1709. 
+- Windows Server-containers die zijn gebouwd met behulp van Windows Server 2016 werkt in Hyper-V-isolatiemodus alleen op een host met Windows Server versie 1709. 
 - Met Windows Server-containers die zijn gebouwd met behulp van Windows Server 2016, kan het nodig zijn om ervoor te zorgen dat de revisie van de OS-container en de host met hetzelfde zijn als in de isolatiemodus wordt uitgevoerd op een host met Windows Server 2016.
  
 Zie voor meer informatie, [Windows Container versiecompatibiliteit](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).

@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242521"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734522"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Problemen vaststellen en oplossen van problemen bij het gebruik van Azure Cosmos DB-Trigger in Azure Functions
 
@@ -88,6 +88,12 @@ Als u merkt dat sommige wijzigingen zijn niet helemaal ontvangen door de trigger
 Bovendien kan worden gevalideerd op het scenario, als u weet hoeveel exemplaren van de Azure Function-App die u hebt uitgevoerd. Als u uw container leases inspecteren en het aantal items van de lease binnen de afzonderlijke waarden van telt de `Owner` eigenschap erin moet gelijk zijn aan het aantal exemplaren van uw functie-App. Als er meer eigenaren dan de bekende Azure Function-App-instanties, betekent dit dat deze extra eigenaren van een 'stelen' van de wijzigingen zijn.
 
 Een eenvoudige manier om tijdelijke oplossing deze situatie is om toe te passen een `LeaseCollectionPrefix/leaseCollectionPrefix` naar de functie met een nieuwe/andere waarde of u kunt ook testen met een nieuwe container van de leases.
+
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Binding kan alleen worden uitgevoerd met IReadOnlyList<Document> of JArray
+
+Deze fout treedt op als uw Azure Functions-project (of een project waarnaar wordt verwezen) een handmatige NuGet-verwijzing naar de Azure Cosmos DB-SDK met een andere versie dan die is opgegeven bevat door de [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+
+Tijdelijke oplossing deze situatie, verwijder de handmatige NuGet-verwijzing die is toegevoegd en de Azure Cosmos DB SDK-verwijzing laten oplossen via de Azure Functions Cosmos DB Extension-pakket.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,36 +12,36 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/31/2019
 ms.author: jowargo
-ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239421"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431252"
 ---
-# <a name="security-model-of-azure-notification-hubs"></a>Beveiligingsmodel van Azure Notification Hubs
+# <a name="notification-hubs-security"></a>Notification Hubs-beveiliging
 
 ## <a name="overview"></a>Overzicht
 
-Dit onderwerp beschrijft het beveiligingsmodel van Azure Notification Hubs. Omdat Notification Hubs een Service Bus-entiteit, implementeert ze de dezelfde beveiligingsmodel als Service Bus. Zie voor meer informatie de [Service Bus-verificatie](https://msdn.microsoft.com/library/azure/dn155925.aspx) onderwerpen.
+Dit onderwerp beschrijft het beveiligingsmodel van Azure Notification Hubs.
 
 ## <a name="shared-access-signature-security-sas"></a>Shared Access Signature Security (SAS)
 
 Notification Hubs implementeert een schema op entiteitsniveau security SAS (Shared Access Signature) genoemd. In dit schema kunt messaging-entiteiten op te geven tot 12 autorisatieregels in de beschrijving die verlenen van rechten voor die entiteit.
 
-Elke regel bevat een naam, de waarde van een sleutel (gedeelde geheim genoemd) en een set rechten, zoals wordt beschreven in de sectie "Beveiligingsclaims." Bij het maken van een Notification Hub, twee regels worden automatisch gemaakt: één met Listen-rechten (die gebruikmaakt van de client-app) en één met alle rechten (die gebruikmaakt van de back-end).
+Elke regel bevat een naam, de waarde van een sleutel (gedeelde geheim genoemd) en een set rechten, zoals uitgelegd in [beveiligingsclaims](#security-claims). Bij het maken van een Notification Hub, twee regels worden automatisch gemaakt: één met **luisteren** rechten (die gebruikmaakt van de client-app) en één met **alle** rechten (die gebruikmaakt van de back-end).
 
 Bij het uitvoeren van registratiebeheer van de van de client-apps, als de gegevens worden verzonden via meldingen is geen gevoelige (bijvoorbeeld updates weer), een veelgebruikte manier voor toegang tot een Meldingshub die is de waarde van de sleutel van de regel luisteren naar alleen-lezen toegang geven tot de client-app en de waarde van de sleutel van de regel voor volledige toegang geven tot de back-end.
 
-Het is niet raadzaam dat u de sleutelwaarde in Windows Store-client-apps insluiten. Een manier om te voorkomen dat de sleutelwaarde insluiten is dat de client-app vanuit de back-end bij het opstarten worden opgehaald.
+Apps niet de sleutelwaarde in Windows Store-client-apps insluiten, moet in plaats daarvan de client-app vanuit de back-end bij het opstarten worden opgehaald.
 
-Het is belangrijk om te begrijpen dat de sleutel met luisteren toegang kan een client-app te registreren voor een label. Als uw app moet registraties beperken tot specifieke labels voor specifieke clients (bijvoorbeeld wanneer tags vertegenwoordigt een gebruikers-id's), moet de registraties uitvoeren op de back-end van uw app. Zie voor meer informatie, beheer van de registratie. Houd er rekening mee dat op deze manier kan de client-app wordt geen directe toegang tot Notification Hubs.
+De sleutel met de **luisteren** toegang zorgt dat een client-app te registreren voor een label. Als uw app moet registraties beperken tot specifieke labels voor specifieke clients (bijvoorbeeld wanneer tags vertegenwoordigt een gebruikers-id's), moet de back-end van uw app de registraties uitvoeren. Zie voor meer informatie, [registratiebeheer](notification-hubs-push-notification-registration-management.md). Houd er rekening mee dat op deze manier kan de client-app wordt geen directe toegang tot Notification Hubs.
 
 ## <a name="security-claims"></a>Beveiligingsclaims
 
-Net als bij andere entiteiten, Notification Hub-bewerkingen zijn toegestaan voor drie beveiligingsclaims: Luisteren, verzenden en beheren.
+Net als bij andere entiteiten, Notification Hub-bewerkingen zijn toegestaan voor drie beveiligingsclaims: **Luisteren**, **verzenden**, en **beheren**.
 
 | Claim   | Description                                          | Toegestane bewerkingen |
 | ------- | ---------------------------------------------------- | ------------------ |

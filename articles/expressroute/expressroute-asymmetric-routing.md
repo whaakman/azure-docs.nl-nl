@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
 ms.custom: seodec18
-ms.openlocfilehash: 6ece48d892f46a4f8bbeb66d3ebda9f532b621b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b2b678cad50e45660fb763c2a1f9194500edf8d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367756"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730208"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrische routering met meerdere netwerkpaden
 In dit artikel wordt uitgelegd hoe uitgaand en binnenkomend netwerkverkeer verschillende routes kan nemen wanneer er meerdere paden beschikbaar zijn tussen netwerkbron en -bestemming.
@@ -50,7 +50,7 @@ Om te begrijpen welk effect deze twee wijzigingen op een netwerk hebben, gaan we
 
 Vervolgens schakelt u ExpressRoute in, en gebruikt u services die door Microsoft worden aangeboden nu via ExpressRoute. Alle andere services van Microsoft worden via internet gebruikt. U implementeert een afzonderlijke firewall aan de rand die is verbonden met ExpressRoute. Microsoft kondigt voor specifieke services specifiekere voorvoegsels naar het netwerk via ExpressRoute aan. De routeringsinfrastructuur kiest ExpressRoute als het voorkeurspad voor die voorvoegsels. Als u uw openbare IP-adressen niet bij Microsoft aankondigt via ExpressRoute, zal Microsoft via internet met uw openbare IP-adressen communiceren. Voorwaarts verkeer van uw netwerk naar Microsoft gebruikt dus ExpressRoute, en terugkerend verkeer van Microsoft maakt gebruik van internet. Wanneer de firewall aan de rand een antwoordpakket ziet voor een stroom die niet wordt gevonden in de statustabel, wordt het retourverkeer verwijderd.
 
-Als u ervoor kiest om dezelfde NAT-pool (Network Address Translation) te gebruiken voor ExpressRoute en voor internet, treden er vergelijkbare problemen op met de clients in uw netwerk met persoonlijke IP-adressen. Aanvragen voor services zoals Windows Update verlopen via internet omdat IP-adressen voor deze services niet worden verzonden via ExpressRoute. Het retourverkeer keert echter terug via ExpressRoute. Als Microsoft een IP-adres met hetzelfde subnetmasker van internet en ExpressRoute ontvangt, verkiest het ExpressRoute boven internet. Als een firewall of een ander stateful apparaat aan de rand van uw netwerk en gericht op ExpressRoute geen eerdere informatie over de stroom heeft, worden de pakketten die behoren tot deze gegevensstroom verwijderd.
+Als u kiest voor het adverteren van dezelfde netwerk address translation (NAT) groep voor ExpressRoute en voor Internet, ziet u vergelijkbare problemen met de clients in uw netwerk op privé-IP-adressen. Aanvragen voor services zoals Windows Update verlopen via internet omdat IP-adressen voor deze services niet worden verzonden via ExpressRoute. Het retourverkeer keert echter terug via ExpressRoute. Als Microsoft een IP-adres met hetzelfde subnetmasker van internet en ExpressRoute ontvangt, verkiest het ExpressRoute boven internet. Als een firewall of een ander stateful apparaat aan de rand van uw netwerk en gericht op ExpressRoute geen eerdere informatie over de stroom heeft, worden de pakketten die behoren tot deze gegevensstroom verwijderd.
 
 ## <a name="asymmetric-routing-solutions"></a>Oplossingen voor asymmetrische routering
 Er zijn in feite twee oplossingen voor het probleem van asymmetrische routering. De ene is routering en de andere is het gebruik van brongebaseerde NAT (SNAT).

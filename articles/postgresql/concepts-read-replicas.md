@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242282"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734657"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Lezen-replica's in Azure Database for PostgreSQL - één Server
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 Voer het wachtwoord voor het gebruikersaccount dat bij de prompt.
 
 ## <a name="monitor-replication"></a>Monitor voor replicatie
-Azure Database voor PostgreSQL biedt de **maximale vertraging voor replica's** metrische gegevens in Azure Monitor. Met deze metriek is beschikbaar op de hoofdserver. De metrische gegevens geeft de vertraging in bytes tussen de hoofd- en de meeste achtergebleven-replica. 
+Azure Database voor PostgreSQL biedt twee metrische gegevens voor het bewaken van replicatie. De twee metrische gegevens zijn **maximale vertraging voor replica's** en **Replica Lag**. Zie voor informatie over het weergeven van deze metrische gegevens, de **bewaken van een replica** sectie van de [artikel met instructies replica lezen](howto-read-replicas-portal.md).
 
-Azure Database voor PostgreSQL biedt ook de **Replica Lag** metrische gegevens in Azure Monitor. Met deze metriek is beschikbaar voor alleen replica's. 
+De **maximale vertraging voor replica's** ziet u de vertraging in bytes tussen de hoofd- en de meeste achtergebleven-replica. Met deze metriek is beschikbaar op de hoofdserver.
 
-De metrische gegevens wordt berekend op basis van de `pg_stat_wal_receiver` weergeven:
+De **Replica Lag** metrische gegevens geeft de tijd sinds de laatste replay transactie. Als er geen transacties plaatsvinden op de hoofd-server, geeft de metriek deze vertraging. Met deze metriek is beschikbaar voor replica-servers. Replica Lag wordt berekend op basis van de `pg_stat_wal_receiver` weergeven:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-De Replica Lag ziet u de tijd sinds de laatste herhaalde transactie. Als er geen transacties plaatsvinden op de hoofd-server, geeft de metriek deze vertraging.
 
 Stel een waarschuwing om u te informeren wanneer de vertraging replica een waarde die niet acceptabel voor uw workload is bereikt. 
 

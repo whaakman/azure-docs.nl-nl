@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16d100256f9252b478500488c2dc5a01c7e6a0b5
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418056"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515568"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
@@ -155,11 +155,11 @@ U kunt met Azure Machine Learning, geautomatiseerde ML gebruiken om te maken van
 
 Geautomatiseerde ML is ook beschikbaar in andere Microsoft-oplossingen, zoals:
 
-|Integraties|Description
-|------------|-----------
-|ML.NET|Automatische modelselectie en training in .NET-apps met behulp van Visual Studio en Visual Studio Code met ML.NET geautomatiseerde ML (Preview). [Meer informatie](https://docs.microsoft.com/dotnet/machine-learning/automl-overview).
-|HDIsnight|Scale-out uw geautomatiseerde ML-trainingstaken op Spark in HDInsight-clusters tegelijk. [Meer informatie](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md).
-|PowerBI|Machine learning-modellen rechtstreeks in Power BI (Preview) worden aangeroepen. [Meer informatie](https://docs.microsoft.com/power-bi/service-machine-learning-automated).
+|Integraties|Description|
+|------------|-----------|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatische modelselectie en training in .NET-apps met behulp van Visual Studio en Visual Studio Code met ML.NET geautomatiseerde ML (Preview).|
+|[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Scale-out uw geautomatiseerde ML-trainingstaken op Spark in HDInsight-clusters tegelijk.|
+|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Machine learning-modellen rechtstreeks in Power BI (Preview) worden aangeroepen.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

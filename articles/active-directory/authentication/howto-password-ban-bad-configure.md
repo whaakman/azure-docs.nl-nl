@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f6dbc869db4a0a444d09a2dc234e171758c706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414853"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742295"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>De lijst met aangepaste uitgesloten wachtwoorden configureren
 
@@ -24,7 +24,7 @@ Veel organisaties zien dat gebruikers maken met behulp van algemene lokale woord
 
 ## <a name="add-to-the-custom-list"></a>Aan de aangepaste lijst toevoegen
 
-De lijst met aangepaste uitgesloten wachtwoorden configureren, is een Azure Active Directory Premium P1 of P2-licentie vereist. Zie voor meer informatie over de licentieverlening voor Azure Active Directory, de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory/). |
+De lijst met aangepaste uitgesloten wachtwoorden configureren, is een Azure Active Directory Premium P1 of P2-licentie vereist. Zie voor meer informatie over de licentieverlening voor Azure Active Directory, de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en blader naar **Azure Active Directory**, **verificatiemethoden**, klikt u vervolgens **wachtwoordbeveiliging**.
 1. Stel de optie **afdwingen aangepaste lijst**naar **Ja**.

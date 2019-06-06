@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967527"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730176"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>De bewaking op afstand oplossingsversnellers implementeren lokaal - Visual Studio Code
 
@@ -62,13 +62,14 @@ dotnet build -c Release
 De volgende stappen laten zien hoe u de microservices bewaking op afstand uitvoeren in Visual Studio Code:
 
 1. Start Visual Studio Code.
-1. Open de **azure-iot-pcs-remote-monitoring-dotnet** module op basis van de lokale kopie in VS Code.
-1. Kopieer de bestanden **launch.json** en **tasks.json** van scripts\local\launch\idesettings\vscode\. Maak een nieuwe map **azure-iot-pcs-remote-monitoring-dotnet\.vscode** en plak er de bestanden.
-1. Open het deelvenster Foutopsporing in VS Code en voer de **alle microservices worden uitgevoerd** configuratie. Deze configuratie wordt uitgevoerd de simulatie apparaat microservices in Docker en voert de andere microservices in het foutopsporingsprogramma.
+1. Open in Visual Studio Code, de **azure-iot-pcs-remote-monitoring-dotnet** map.
+1. Maak een nieuwe map met de naam **.vscode** in de **azure-iot-pcs-remote-monitoring-dotnet** map.
+1. Kopieer de bestanden **launch.json** en **tasks.json** van services\scripts\local\launch\idesettings\vscode naar de **.vscode** map die u zojuist hebt gemaakt.
+1. Open de **foutopsporing deelvenster** in VS Code en voer de **alles uitvoeren microservices** configuratie. Deze configuratie wordt uitgevoerd de simulatie apparaat microservices in Docker en voert de andere microservices in het foutopsporingsprogramma.
 
-Een voorbeeld: de uitvoer voor **Auth** service in de **Foutopsporingsconsole** er als volgt uit:
+De uitvoer van uitgevoerd **alles uitvoeren microsoervices** in de Foutopsporingsconsole ziet eruit als het volgende:
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Uitvoeren van de web-UI
 

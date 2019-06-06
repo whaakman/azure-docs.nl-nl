@@ -1,29 +1,25 @@
 ---
-title: Aanroepen, triggeren of nesten van werkstromen met HTTP-eindpunten - Azure Logic Apps | Microsoft Docs
+title: Aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten - Azure Logic Apps
 description: HTTP-eindpunten aanroepen, trigger of nesten van werkstromen voor Azure Logic Apps instellen
 services: logic-apps
-keywords: werkstromen, HTTP-eindpunten
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304163"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495045"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Oproepen, trigger of geneste werkstromen met HTTP-eindpunten in Azure Logic Apps
 
 U kunt systeemeigen synchrone HTTP-eindpunten weergeven als triggers voor logic apps, zodat u kunt activeren of uw logische apps via een URL aanroepen. Ook kunt u werkstromen in uw logische apps met behulp van een patroon van aanroepbare eindpunten nesten.
 
@@ -245,11 +241,11 @@ U kunt meer dan één kop- en elk type inhoud opnemen in de hoofdtekst van de re
 
 Antwoorden op hebben deze eigenschappen:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | statusCode |Hiermee geeft u de HTTP-statuscode voor het reageren op de inkomende aanvraag. Deze code kan geen geldige statuscode die met 2xx, 4xx of 5xx begint zijn. 3xx statuscodes zijn echter niet toegestaan. |
 | Headers |Hiermee definieert u een willekeurig aantal headers om op te nemen in het antwoord. |
-| hoofdtekst |Hiermee geeft u een instantie-object dat kan bestaan uit een tekenreeks, een JSON-object of zelfs binaire inhoud waarnaar wordt verwezen in een vorige stap. |
+| De hoofdtekst |Hiermee geeft u een instantie-object dat kan bestaan uit een tekenreeks, een JSON-object of zelfs binaire inhoud waarnaar wordt verwezen in een vorige stap. |
 
 Hier volgt de JSON-schema eruit nu voor de **antwoord** actie:
 

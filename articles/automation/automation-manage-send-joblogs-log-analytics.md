@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200622"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430781"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Taakstatus en taakstromen van Automation doorsturen naar de logboeken van Azure Monitor
 
@@ -96,7 +96,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 | Caller_s |Wie de bewerking heeft gestart. Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken. |
 | Tenant_g | De GUID die de tenant voor de oproepende functie identificeert. |
 | JobId_g |De GUID die de id van de runbooktaak is. |
-| ResultType |De status van de runbooktaak. Mogelijke waarden zijn:<br>-Nieuwe<br>- Gestart<br>- Gestopt<br>- Onderbroken<br>- Mislukt<br>-Voltooid |
+| ResultType |De status van de runbooktaak. Mogelijke waarden zijn:<br>-Nieuwe<br>-Gemaakt<br>- Gestart<br>- Gestopt<br>- Onderbroken<br>- Mislukt<br>-Voltooid |
 | Category | Classificatie van het type gegevens. Voor Automation is de waarde JobLogs. |
 | OperationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd. Voor Automation is is de waarde van taak. |
 | Resource | Naam van het Automation-account |

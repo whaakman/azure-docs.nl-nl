@@ -9,12 +9,12 @@ ms.date: 05/27/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 96a67a9a593655b3b187fe1bb0decfc7252d2d10
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253060"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474777"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Visual Studio 2019 gebruiken om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge (Preview)
 
@@ -95,20 +95,19 @@ Nadat uw Visual Studio-2019 klaar is, moet u ook de volgende hulpprogramma's en 
 
 De Azure IoT Edge-projectsjabloon in Visual Studio maakt een project dat kan worden geïmplementeerd op Azure IoT Edge-apparaten in Azure IoT Hub. U maakt eerst een Azure IoT Edge-oplossing, en vervolgens het genereren van de eerste module in die oplossing. Elke IoT Edge-oplossing kan meer dan één module bevatten.
 
-1. In Visual Studio het dialoogvenster Nieuw project, zoek en selecteer **Azure IoT Edge**, voer een naam in voor uw project en geef de locatie en selecteer vervolgens **OK**. De standaardnaam van het project is **AzureIoTEdgeApp1**.
+1. In Visual Studio het dialoogvenster Nieuw project, zoek en selecteer **Azure IoT Edge** project en klik op **volgende**. Voer een naam voor uw project in project configuratie-venster en geef de locatie en selecteer vervolgens **maken**. De standaardnaam van het project is **AzureIoTEdgeApp1**.
 
-1. In de **IoT Edge-toepassing toevoegen en Module** venster **Linux Amd64**, **Windows-Amd64**, of beide als het platform voor toepassingen. Als u beide selecteert, maakt u een oplossing waarbij twee projecten of elk verwijzen naar de standaard-codemodule.
+   ![Nieuw Project maken](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-   > [!TIP]
-   > De Azure IoT Edge-extensie voor Visual Studio ondersteunt momenteel niet maken projecten voor de ARM-platform. Raadpleeg deze [IoT Developer-blogbericht](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) voor een voorbeeld van het gebruik van Visual Studio Code voor het ontwikkelen van een oplossing voor ARM32v7/armhf.
+1. In de **IoT Edge-toepassing toevoegen en Module** venster, selecteert u  **C# Module** of **C Module** en geef vervolgens de modulenaam en -module-opslagplaats voor installatiekopieën. Visual Studio autopopulates de module met naam **localhost:5000 / < modulenaam van uw\>** . Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als * **\<registernaam\>*. azurecr.io**. Het vervangen van slechts de **localhost:5000** deel uitmaakt van de tekenreeks, zodat het uiteindelijke resultaat ziet als eruit * *\<* registernaam *\>.azurecr.io/* \<de modulenaam van uw\>***. De standaardnaam van de module is **IoTEdgeModule1**
 
-1. Selecteer een  **C# Module** of **C Module** en geef vervolgens de modulenaam en -module-opslagplaats voor installatiekopieën. Visual Studio autopopulates de module met naam **localhost:5000 / < modulenaam van uw\>** . Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als * **\<registernaam\>*. azurecr.io**. Het vervangen van slechts de **localhost:5000** deel uitmaakt van de tekenreeks, zodat het uiteindelijke resultaat ziet als eruit * *\<* registernaam *\>.azurecr.io/* \<de modulenaam van uw\>***. De standaardnaam van de module is **IoTEdgeModule1**
+   ![Toepassings- en -Module toevoegen](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
 1. Selecteer **OK** voor het maken van de Azure IoT Edge-oplossing met een module die gebruikmaakt van een C# of C.
 
-Nu u hebt een **AzureIoTEdgeApp1.Linux.Amd64** project of een **AzureIoTEdgeApp1.Windows.Amd64** project, of beide, en ook een **IoTEdgeModule1** project in uw oplossing. Elke **AzureIoTEdgeApp1** project heeft een `deployment.template.json` -bestand, dat bepaalt de modules die u voor uw IoT Edge-oplossing wilt bouwen en implementeren, en ook bepaalt de routes tussen modules. De standaardoplossing heeft een **tempSensor** module en een **IoTEdgeModule1** module. De **tempSensor** module genereert gesimuleerde gegevens naar de **IoTEdgeModule1** -module, terwijl de standaard-code in de **IoTEdgeModule1** module rechtstreeks pipes ontvangen berichten naar Azure IoT Hub.
+Nu u hebt een **AzureIoTEdgeApp1.Linux.Amd64** project of een **AzureIoTEdgeApp1.Windows.Amd64** project, en ook een **IoTEdgeModule1** project in uw oplossing. Elke **AzureIoTEdgeApp1** project heeft een `deployment.template.json` -bestand, dat bepaalt de modules die u voor uw IoT Edge-oplossing wilt bouwen en implementeren, en ook bepaalt de routes tussen modules. De standaardoplossing heeft een **tempSensor** module en een **IoTEdgeModule1** module. De **tempSensor** module genereert gesimuleerde gegevens naar de **IoTEdgeModule1** -module, terwijl de standaard-code in de **IoTEdgeModule1** module rechtstreeks pipes ontvangen berichten naar Azure IoT Hub.
 
-De **IoTEdgeModule1** project is een .NET Core 2.1-consoletoepassing. Het bevat de vereiste Docker-bestanden die u nodig hebt voor uw IoT Edge-apparaat met een Windows-container- of Linux-container uitgevoerd. De `module.json` bestand beschrijft de metagegevens van een module. De werkelijke module-code, waarbij Azure IoT Device SDK als een afhankelijkheid is gevonden in de `Program.cs` of `main.c` bestand.
+De **IoTEdgeModule1** project is een consoletoepassing .NET Core 2.1 als gaat het om een C# module. Het bevat de vereiste Docker-bestanden die u nodig hebt voor uw IoT Edge-apparaat met een Windows-container- of Linux-container uitgevoerd. De `module.json` bestand beschrijft de metagegevens van een module. De werkelijke module-code, waarbij Azure IoT Device SDK als een afhankelijkheid is gevonden in de `Program.cs` of `main.c` bestand.
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
@@ -122,7 +121,7 @@ Wanneer u klaar bent om de module-sjabloon met uw eigen code aanpassen, gebruikt
 
    ![Edge-apparaat-verbindingsreeks kopiëren](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. Ga naar **extra** > **hulpprogramma's voor Azure IoT Edge** > **Setup IoT Edge Simulator**, pasten de connection string en klikt u op **OK** .
+1. Ga naar **extra** > **hulpprogramma's voor Azure IoT Edge** > **Setup IoT Edge Simulator**, plak de verbindingsreeks en klikt u op **OK**.
 
    ![Venster tekenreeks Edge-verbinding instellen openen](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 

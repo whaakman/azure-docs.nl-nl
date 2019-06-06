@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 527e9979b624970dd55b4300fe63c27386640ac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a293f0b656c075ae3b21ccf98e602e43ed761958
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560488"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428453"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Zelfstudie: Gelokaliseerde pushmeldingen naar iOS-apparaten met Azure Notification Hubs
 
@@ -27,7 +27,7 @@ ms.locfileid: "60560488"
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-Deze zelfstudie leert u hoe u de [sjablonen](notification-hubs-templates-cross-platform-push-messages.md) functie van Azure Notification Hubs om belangrijke nieuwsfeiten gelokaliseerde taal en het apparaat. In deze zelfstudie begint u met de iOS-app gemaakt in [Notification Hubs gebruiken om belangrijk nieuws te verzenden]. Als u klaar bent, kunt u zich registreren voor categorieën waarin u geïnteresseerd bent, Geef een taal waarin u om de meldingen te ontvangen en alleen pushmeldingen ontvangen voor de geselecteerde categorieën in die taal.
+Deze zelfstudie leert u hoe u de [sjablonen](notification-hubs-templates-cross-platform-push-messages.md) functie van Azure Notification Hubs om belangrijke nieuwsfeiten gelokaliseerde taal en het apparaat. In deze zelfstudie begint u met de iOS-app gemaakt in [Notification Hubs gebruiken om belangrijk nieuws te verzenden]. Als u klaar bent, kunt u registreren voor de categorieën die u geïnteresseerd bent in, Geef een taal waarin u om de meldingen te ontvangen en alleen pushmeldingen ontvangen voor de geselecteerde categorieën in die taal.
 
 Er zijn twee onderdelen voor dit scenario:
 
@@ -49,7 +49,7 @@ In [Notification Hubs gebruiken om belangrijk nieuws te verzenden], u een app di
 > [!NOTE]
 > Eén manier om gelokaliseerde meldingen te verzenden is het maken van meerdere versies van elk label. Bijvoorbeeld, ter ondersteuning van Engels, Frans en Mandarijn, moet u drie verschillende codes voor wereldnieuws dat is: "world_en", "world_fr" en 'world_ch'. Vervolgens moet u een gelokaliseerde versie van de wereldnieuws dat is verzonden naar elk van deze tags. In dit onderwerp, kunt u sjablonen gebruiken om te voorkomen dat de verspreiding van tags en de vereiste om meerdere berichten te verzenden.
 
-Sjablonen zijn op een hoog niveau een manier om op te geven hoe een specifiek apparaat ontvangt een melding. De sjabloon bepaalt de exacte indeling van de payload door te verwijzen naar eigenschappen die deel uitmaken van het bericht dat is verzonden door uw back-endapp. In het geval is verzendt u een landinstelling bericht met alle ondersteunde talen:
+Sjablonen zijn een manier om op te geven hoe een specifiek apparaat ontvangt een melding. De sjabloon bepaalt de exacte indeling van de payload door te verwijzen naar eigenschappen die deel uitmaken van het bericht dat is verzonden door uw back-endapp. In het geval is verzendt u een landinstelling bericht met alle ondersteunde talen:
 
 ```json
 {
@@ -74,7 +74,7 @@ Zie voor meer informatie over sjablonen [sjablonen](notification-hubs-templates-
 ## <a name="prerequisites"></a>Vereisten
 
 * Voltooi de [Pushmeldingen verzenden naar specifieke iOS-apparaten](notification-hubs-ios-xplat-segmented-apns-push-notification.md) zelfstudie en hebben de code die beschikbaar is, omdat deze zelfstudie is gebaseerd rechtstreeks op die code.
-* Visual Studio 2017 is optioneel.
+* Visual Studio 2019 is optioneel.
 
 ## <a name="update-the-app-user-interface"></a>De gebruikersinterface van de app bijwerken
 
@@ -90,7 +90,7 @@ Controleer of een IBOutlet in uw ViewController.h toevoegen, zoals wordt weergeg
 
 ## <a name="build-the-ios-app"></a>De iOS-app bouwen
 
-1. In uw `Notification.h` toevoegen de `retrieveLocale` methode, en wijzig de store en abonneren methoden, zoals wordt weergegeven in de volgende code:
+1. In uw `Notification.h`, voeg de `retrieveLocale` methode, en wijzig de store en abonneren methoden, zoals wordt weergegeven in de volgende code:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

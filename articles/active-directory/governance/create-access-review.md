@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113500"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734568"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Maken van een toegangscontrole van groepen of toepassingen in Azure AD-toegangsbeoordelingen
 
@@ -31,14 +31,13 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 ## <a name="prerequisites"></a>Vereisten
 
 - Azure AD Premium P2
-- [Toegangsbeoordelingen ingeschakeld](access-reviews-overview.md)
 - Globale beheerder of Gebruikerbeheerder
 
 Zie voor meer informatie, [welke gebruikers moeten beschikken over licenties?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-one-or-more-access-reviews"></a>Maken van een of meer toegangsbeoordelingen
 
-1. Aanmelden bij Azure portal en open de [pagina toegangsbeoordelingen](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Aanmelden bij Azure portal en open de [Identiteitsbestuur pagina](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Klik in het menu links op **Toegangsbeoordelingen**.
 

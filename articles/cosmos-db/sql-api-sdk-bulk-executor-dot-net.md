@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627147"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471419"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET bulksgewijs Executor-bibliotheek: Informatie downloaden 
 
@@ -42,6 +42,18 @@ ms.locfileid: "60627147"
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+
+* Er is ondersteuning toegevoegd voor graph bulksgewijs executor ttl voor hoekpunten en randen accepteren
+
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+
+* Een probleem, die uitzonderingen veroorzaakt tijdens het elastisch schalen van Azure Cosmos DB bij het uitvoeren van in de modus van de Gateway is opgelost. Deze oplossing is functioneel equivalent met 1.4.1 release.
+
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+
+* Toegevoegde bij bulkverwijdering ondersteuning voor SQL-API-accounts te accepteren van de partitiesleutel en document-id tuples te verwijderen. Deze wijziging is functioneel equivalent met 1.4.0 release.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Met inbegrip van MongoBulkExecutor tot ondersteuning voor .NET Standard 2.0. Deze functie kunt u functioneel equivalent met 1.3.0 loslaat, met de toevoeging van ondersteuning van .NET Standard 2.0 als doelframework.
@@ -50,10 +62,24 @@ ms.locfileid: "60627147"
 
 * Toegevoegde .NET Standard 2.0 als een van de ondersteunde frameworks waarmee de BulkExecutor-bibliotheek werken met .NET Core-toepassingen.
 
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* De bulksgewijs Executor voor het gebruik van de meest recente versie van de Azure Cosmos DB .NET-SDK (2.4.0) nu bijgewerkt
+
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+
+* Er is ondersteuning toegevoegd voor graph bulksgewijs executor ttl voor hoekpunten en randen accepteren
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+* Een probleem, die uitzonderingen veroorzaakt tijdens het elastisch schalen van Azure Cosmos DB bij het uitvoeren van in de modus van de Gateway is opgelost.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+* Toegevoegde bij bulkverwijdering ondersteuning voor SQL-API-accounts te accepteren van de partitiesleutel en document-id tuples te verwijderen.
+
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-* Een overbelasting van de bewerking bij bulkverwijdering voor SQL-API-accounts te accepteren van de partitiesleutel en document-id tuples verwijderen toegevoegd.
-* Toegevoegd een overbelasting van de bewerking bij bulkverwijdering voor SQL-API-accounts te accepteren RequestOptions met de partitiesleutel die de waarde van de partitiesleutel, naast het gebruik van deze als een filter in de invoer voor de query op te geven documenten te verwijderen.
 * Er is een probleem, wat de oorzaak van een opmaak probleem in de gebruikersagent die worden gebruikt door BulkExecutor opgelost.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0

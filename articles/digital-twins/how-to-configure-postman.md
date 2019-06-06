@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 06/05/2019
 ms.author: v-adgera
-ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 31944c08bad503c20832ea7e4e682c0063ab0f9f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967781"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735039"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Postman voor digitale dubbels voor Azure configureren
 
@@ -27,7 +27,7 @@ In dit artikel wordt beschreven hoe het configureren van de Postman-REST-client 
 
 Aan de slag op digitale dubbels van Azure met behulp van een REST-clienthulpprogramma, zoals [Postman](https://www.getpostman.com/) voorbereiden van uw lokale omgeving voor testen. De Postman-client helpt snel complexe HTTP-aanvragen kunt maken. De bureaubladversie van de Postman-client downloaden door te gaan naar [www.getpostman.com/apps](https://www.getpostman.com/apps).
 
-[Postman](https://www.getpostman.com/) is een op REST hulpprogramma waarmee belangrijke functies van HTTP-aanvraag in een handig desktop en GUI-invoegtoepassing op basis van testen. 
+[Postman](https://www.getpostman.com/) is een op REST hulpprogramma waarmee belangrijke functies van HTTP-aanvraag in een handig desktop en GUI-invoegtoepassing op basis van testen.
 
 Via de Postman-client, oplossingen voor ontwikkelaars kunnen opgeven welk type HTTP-aanvraag (*POST*, *ophalen*, *UPDATE*, *PATCH*, en  *Verwijder*), API-eindpunt om aan te roepen, en het gebruik van SSL. Postman biedt ook ondersteuning voor HTTP-aanvraagheaders toe te voegen, parameters, formuliergegevens en instanties.
 
@@ -39,15 +39,15 @@ Configureer uw app in Azure Active Directory voor het gebruik van de stroom van 
 
 1. Onder **vereiste machtigingen**, selecteer **toevoegen** en voer **Azure digitale dubbels** onder **API-toegang toevoegen**. Als de API met uw zoekopdracht niet wordt gevonden, zoekt u in plaats daarvan **Azure Smart Spaces**. Selecteer **machtigingen verlenen > gedelegeerde machtigingen** en **gedaan**.
 
-    ![Azure Active Directory-app-registraties toevoegen api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+    [![Azure Active Directory-app-registraties toevoegen api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
 1. Klik op **Manifest** manifest voor de toepassing voor uw app te openen. Stel *oauth2AllowImplicitFlow* naar `true`.
 
-      ![Azure Active Directory-impliciete stroom][1]
+    [![Azure Active Directory-impliciete stroom](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
 1. Configureer een **antwoord-URL** naar `https://www.getpostman.com/oauth2/callback`.
 
-      ![Azure Active Directory-antwoord-URL][2]
+    [![Azure Active Directory-antwoord-URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. Kopiëren en houd de **toepassings-ID** van uw app in Azure Active Directory. Het wordt gebruikt in de volgende stappen.
 
@@ -80,7 +80,7 @@ Vervolgens instellen en configureren van Postman als u wilt een Azure Active Dir
 
 1. De client wordt nu weergegeven als:
 
-   ![Voorbeeld van de postman-client][3]
+    [![Voorbeeld van de postman-client](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Selecteer **Token aanvragen**.
 
@@ -98,13 +98,13 @@ Na het voltooien van de vorige stappen, Postman als u wilt maken van een geverif
 
 1. Onder de **Header** tabblad, voegt u een HTTP-aanvraagheader sleutel **Content-Type** met waarde `multipart/mixed`.
 
-   ![Inhoudstype meerdelig/gemengd][4]
+   [![Inhoudstype meerdelig/gemengd](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Niet-tekstuele gegevens serialiseren naar bestanden. JSON-gegevens wordt opgeslagen als JSON-bestand.
 1. Onder de **hoofdtekst** tabblad, voegt u elk bestand door toe te wijzen een **sleutel** naam selecteren `file` of `text`.
 1. Selecteer vervolgens elk bestand via de **bestand kiezen** knop.
 
-   ![Voorbeeld van de postman-client][5]
+   [![Voorbeeld van de postman-client](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * De Postman-client vereist niet dat meerdelige segmenten een handmatig toegewezen hebben **Content-Type** of **Content-Disposition**.
@@ -120,10 +120,3 @@ Na het voltooien van de vorige stappen, Postman als u wilt maken van een geverif
 - Gebruik meerdelige aanvragen voor [blobs toevoegen aan Azure digitale dubbels entiteiten](./how-to-add-blobs.md).
 
 - Lees voor meer informatie over verificatie met de Management API's, [verifiëren met API's](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/how-to-configure-postman/implicit-flow.png
-[2]: media/how-to-configure-postman/reply-url.png
-[3]: media/how-to-configure-postman/postman-oauth-token.png
-[4]: media/how-to-configure-postman/content-type.png
-[5]: media/how-to-configure-postman/form-body.png

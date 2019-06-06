@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720465"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479158"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Opties voor opslag voor gebruik met Azure HDInsight-clusters vergelijken
 
@@ -26,12 +26,12 @@ Dit artikel bevat een overzicht van deze opslagtypen en de bijbehorende unieke f
 
 De volgende tabel geeft een overzicht van de Azure Storage-services die worden ondersteund met verschillende versies van HDInsight:
 
-| Opslagservice | Accounttype | Namespace-Type | Ondersteunde services | Ondersteunde prestatielagen | Ondersteunde toegangslagen | HDInsight-versie | Clustertype |
+| Storage-service | Accounttype | Namespace-Type | Ondersteunde services | Ondersteunde prestatielagen | Ondersteunde toegangslagen | HDInsight-versie | Clustertype |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Algemeen gebruik V2 | Hiërarchisch (bestandssysteem) | Blob | Standard | Hot, Cool en Archive | 3.6 + | Alle |
 |Azure Storage| Algemeen gebruik V2 | Object | Blob | Standard | Hot, Cool en Archive | 3.6 + | Alle |
 |Azure Storage| Algemeen gebruik V1 | Object | Blob | Standard | N/A | Alle | Alle |
-|Azure Storage| BLOB Storage ** | Object | Blok-blob | Standard | Hot, Cool en Archive | Alle | Alle |
+|Azure Storage| BLOB Storage ** | Object | Blok-Blob | Standard | Hot, Cool en Archive | Alle | Alle |
 |Azure Data Lake Storage Gen1| N/A | Hiërarchisch (bestandssysteem) | N/A | N/A | N/A | Alleen 3.6 | Overal behalve HBase |
 
 ** Raadpleeg voor HDInsight-clusters kunnen van type het BlobStorage alleen secundaire storage-accounts zijn.
@@ -137,7 +137,7 @@ HDInsight biedt toegang tot het Distributed File System dat lokaal wordt gekoppe
 
 Tot en met HDInsight kunt u ook toegang tot gegevens in Azure Storage. De syntaxis is als volgt:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Wanneer een Azure Storage-account gebruiken met HDInsight-clusters, houd rekening met de volgende principes:
 

@@ -6,40 +6,38 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924853"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735190"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in door de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
-In dit artikel bevat een overzicht van hoe u kunt vaststellen en oplossen van de gebruiker gedefinieerde functies. Vervolgens wordt enkele van de meest voorkomende scenario's gevonden tijdens het opsporen van fouten in deze geïdentificeerd.
+In dit artikel bevat een overzicht van hoe u kunt vaststellen en oplossen van de gebruiker gedefinieerde functies in Azure, digitale dubbels. Vervolgens wordt enkele van de meest voorkomende scenario's gevonden tijdens het opsporen van fouten in deze geïdentificeerd.
 
 >[!TIP]
 > Lezen [bewaking en logboekregistratie configureren](./how-to-configure-monitoring.md) voor meer informatie over het instellen van het foutopsporingsprogramma's in Azure digitale dubbels met activiteitenlogboeken, diagnostische logboeken en Azure Monitor.
 
 ## <a name="debug-issues"></a>Spoor fouten op
 
-Weten hoe u eventuele problemen die in uw exemplaar van Azure digitale dubbels optreden vaststelt, helpt u het probleem, de oorzaak van het probleem en een oplossing effectief te identificeren.
+Weet hoe u problemen identificeren binnen Azure digitale Twins, kunt u effectief problemen wilt analyseren, de oorzaken van problemen identificeren en passende oplossingen leveren voor deze.
 
-### <a name="enable-log-analytics-for-your-instance"></a>Log analytics voor uw exemplaar inschakelen
+Tal van logboekregistratie, analyses en diagnostische hulpprogramma's vindt u wat dat betreft.
 
-Logboeken en metrische gegevens voor uw exemplaar van Azure digitale dubbels worden weergegeven in Azure Monitor. Deze documentatie wordt ervan uitgegaan dat u hebt gemaakt een [logboeken van Azure Monitor](../azure-monitor/log-query/log-query-overview.md) werkruimte via de [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), tot en met [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), of via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+### <a name="enable-logging-for-your-instance"></a>Logboekregistratie inschakelen voor uw exemplaar
 
-> [!NOTE]
-> Een vijf minuten vertraging kan optreden bij het verzenden van gebeurtenissen naar Azure Monitor-logboeken voor de eerste keer.
+Azure van digitale dubbels biedt ondersteuning voor robuuste logboekregistratie, controle en analyse. Oplossingen voor ontwikkelaars kunnen Azure Monitor-Logboeken, diagnostische logboeken, activiteitenlogboeken en andere services gebruiken ter ondersteuning van de behoeften van complexe bewaking van een IoT-app. Opties voor logboekregistratie kunnen worden gecombineerd om opvragen of records weergeven binnen diverse services en om gedetailleerde logboekregistratie dekking voor veel services.
 
-Voor het configureren van bewaking en logboekregistratie voor digitale dubbels Azure-resources, Lees [bewaking en logboekregistratie configureren](./how-to-configure-monitoring.md).
+* Lees voor de configuratie van de logboekregistratie is specifiek voor Azure digitale dubbels, [bewaking en logboekregistratie configureren](./how-to-configure-monitoring.md).
+* Raadpleeg de de [Azure Monitor](../azure-monitor/overview.md) overzicht voor meer informatie over krachtige logboekinstellingen via Azure Monitor wordt ingeschakeld.
+* Lees het artikel [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md) voor het configureren van instellingen voor diagnostische logboeken in Azure van digitale dubbels via Azure Portal, Azure CLI of PowerShell.
 
-Lees het artikel [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../azure-monitor/platform/diagnostic-logs-overview.md) voor het configureren van instellingen voor diagnostische logboeken in Azure van digitale dubbels via Azure Portal, Azure CLI of PowerShell.
-
->[!IMPORTANT]
-> Zorg ervoor dat alle logboekcategorieën, metrische gegevens en uw Azure Log Analytics-werkruimte te selecteren.
+Wanneer geconfigureerd, moet u mogelijk zijn voor het selecteren van alle logboekcategorieën, metrische gegevens en krachtige Azure Monitor log analytics-werkruimten gebruiken ter ondersteuning van uw foutopsporing.
 
 ### <a name="trace-sensor-telemetry"></a>Sensor-tracetelemetrie
 
@@ -209,4 +207,6 @@ Als u diagnostische instellingen inschakelen, kunt u deze algemene uitzonderinge
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het inschakelen [bewaking en logboeken](../azure-monitor/platform/activity-logs-overview.md) in digitale dubbels van Azure.
+- Meer informatie over het inschakelen [bewaking en logboeken](./how-to-configure-monitoring.md) in digitale dubbels van Azure.
+
+- Lees de [overzicht van Azure Activity log](../azure-monitor/platform/activity-logs-overview.md) artikel voor meer Azure opties voor logboekregistratie.

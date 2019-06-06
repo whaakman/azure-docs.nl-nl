@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76177972cbd002793f5d9fc4ab8bbe6ef2121e91
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ce1d2aaed85f61e2e18f696d749219a1b951c862
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106688"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474242"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory gekoppelde downlevel-apparaten 
 
@@ -87,7 +87,7 @@ Als het apparaat niet toegevoegd aan hybrid Azure AD is, kunt u proberen te doen
     
   - Autoworkplace.exe is niet op de achtergrond verifiëren met Azure AD of AD FS. Dit wordt mogelijk veroorzaakt door ontbrekende of verkeerd geconfigureerd AD FS (voor federatieve domeinen) of ontbreekt of is onjuist geconfigureerde Azure AD naadloze eenmalige aanmelding (voor beheerde domeinen) of netwerkproblemen. 
     
-    - Het kan zijn dat multi-factor authentication (MFA) ingeschakeld/geconfigureerd voor de gebruiker is en WIAORMUTLIAUTHN niet is geconfigureerd op de AD FS-server. 
+    - Het kan zijn dat multi-factor authentication (MFA) ingeschakeld/geconfigureerd voor de gebruiker is en WIAORMULTIAUTHN niet is geconfigureerd op de AD FS-server. 
      
     - Een andere mogelijkheid is dat thuisdomein detectie (HRD)-pagina wordt gewacht tot tussenkomst van de gebruiker, waardoor **autoworkplace.exe** uit op de achtergrond aanvragen van een token.
      

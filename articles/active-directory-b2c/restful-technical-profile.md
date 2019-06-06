@@ -2,20 +2,20 @@
 title: Een RESTful technisch profiel definiëren in een aangepast beleid in Azure Active Directory B2C | Microsoft Docs
 description: Definieer een RESTful technisch profiel in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705299"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512748"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een RESTful technisch profiel definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Het technische profiel retourneert ook claims, die niet zijn geretourneerd door 
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ServiceUrl | Ja | De URL van de REST API-eindpunt. | 
-| AuthenticationType | Ja | Het type verificatie wordt uitgevoerd door de RESTful-claims-provider. Mogelijke waarden: `None`, `Basic`, of `ClientCertificate`. De `None` waarde geeft aan dat de REST-API is niet anoniem. De `Basic` waarde geeft aan dat de REST-API is beveiligd met HTTP-basisverificatie. Alleen geverifieerde gebruikers, met inbegrip van Azure AD B2C, hebben toegang tot uw API. De `ClientCertificate` (aanbevolen) waarde geeft aan dat de REST-API toegang wordt beperkt tot met clientverificatie via certificaat. Alleen services die u de juiste certificaten, zoals Azure AD B2C hebt hebben toegang tot uw service. | 
+| authenticationType | Ja | Het type verificatie wordt uitgevoerd door de RESTful-claims-provider. Mogelijke waarden: `None`, `Basic`, of `ClientCertificate`. De `None` waarde geeft aan dat de REST-API is niet anoniem. De `Basic` waarde geeft aan dat de REST-API is beveiligd met HTTP-basisverificatie. Alleen geverifieerde gebruikers, met inbegrip van Azure AD B2C, hebben toegang tot uw API. De `ClientCertificate` (aanbevolen) waarde geeft aan dat de REST-API toegang wordt beperkt tot met clientverificatie via certificaat. Alleen services die u de juiste certificaten, zoals Azure AD B2C hebt hebben toegang tot uw service. | 
 | SendClaimsIn | Nee | Hiermee geeft u op hoe de invoer claims worden verzonden naar de RESTful-claims-provider. Mogelijke waarden: `Body` (standaard), `Form`, `Header`, of `QueryString`. De `Body` waarde is de invoer claim die wordt verzonden in de hoofdtekst van de aanvraag in JSON-indeling. De `Form` waarde is de invoer claim die wordt verzonden in de hoofdtekst van de aanvraag in een en-teken ' &' gescheiden sleutelwaarde-indeling. De `Header` waarde is de invoer claim die in de aanvraagheader is verzonden. De `QueryString` waarde is de invoer claim die in de querytekenreeks van de aanvraag is verzonden. | 
 | ClaimsFormat | Nee | Hiermee geeft u de indeling voor de uitvoerclaims. Mogelijke waarden: `Body` (standaard), `Form`, `Header`, of `QueryString`. De `Body` waarde is de uitvoerclaim die wordt verzonden in de hoofdtekst van de aanvraag in JSON-indeling. De `Form` waarde is de uitvoerclaim die wordt verzonden in de hoofdtekst van de aanvraag in een en-teken ' &' gescheiden sleutelwaarde-indeling. De `Header` waarde is de uitvoerclaim die in de aanvraagheader is verzonden. De `QueryString` waarde is de uitvoerclaim die in de querytekenreeks van de aanvraag is verzonden. | 
 | DebugMode | Nee | Het technische profiel uitgevoerd in de foutopsporingsmodus. De REST-API kunt meer informatie retourneren in de foutopsporingsmodus. Zie de sectie retourneert fout. | 
@@ -159,7 +159,7 @@ De REST-API moet mogelijk een foutbericht retourneren, zoals 'de gebruiker is ni
 
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| versie | Ja | 1.0.0 | 
+| version | Ja | 1.0.0 | 
 | status | Ja | 409 | 
 | code | Nee | Een foutcode op basis van de RESTful-eindpunt-provider die wordt weergegeven wanneer `DebugMode` is ingeschakeld. | 
 | requestId | Nee | Een aanvraag-id van de RESTful-eindpunt-provider die wordt weergegeven wanneer `DebugMode` is ingeschakeld. | 

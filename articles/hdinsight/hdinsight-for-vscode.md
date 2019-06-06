@@ -1,20 +1,18 @@
 ---
-title: Azure HDInsight-Tools - Visual Studio Code gebruiken voor Hive, LLAP of PySpark | Microsoft Docs
+title: Azure HDInsight-Tools - Visual Studio Code gebruiken voor Hive, LLAP of PySpark
 description: Informatie over het gebruik van de Azure HDInsight Tools voor Visual Studio Code maken en verzenden van query's en scripts.
-Keywords: Visual Studio Code, Azure HDInsight-hulpprogramma's, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681752"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427686"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken
 
@@ -71,12 +69,12 @@ Voordat u scripts naar HDInsight-clusters vanuit Visual Studio Code verzendt kun
 
     ![HDInsight Tools voor Visual Studio Code-aanmelding](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Volg de instructies aanmelden in de **uitvoer** deelvenster.
+2. Ga als volgt het teken in de instructies in de **uitvoer** deelvenster.
     + Voor wereldwijde Azure-omgeving, **HDInsight: Aanmelding** opdracht wordt geactiveerd **aanmelden bij Azure** actie in het HDInsight-Verkenner en vice versa.
 
         ![Meld u instructies voor azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
-    + Volg de instructies aanmelden voor andere omgevingen.
+    + Ga als volgt het aanmelden instructies voor andere omgevingen.
 
         ![Meld u instructies voor de andere omgeving](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
@@ -219,7 +217,7 @@ Met HDInsight Tools for Visual Studio Code, kunt u interactieve Hive-query's ind
 
 8. Het hulpprogramma ondersteunt ook de **SQL-component** query.
 
-   ![Python resultaat taak indienen](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) de verzending van de status wordt weergegeven aan de linkerkant van de status van de onderste balk wanneer u query's uitvoert. Geen andere query's verzenden wanneer de status **PySpark-Kernel (bezet)**.  
+   ![Python resultaat taak indienen](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) de verzending van de status wordt weergegeven aan de linkerkant van de status van de onderste balk wanneer u query's uitvoert. Geen andere query's verzenden wanneer de status **PySpark-Kernel (bezet)** .  
 
 >[!NOTE]  
 >De clusters kunnen sessiegegevens onderhouden. De gedefinieerde variabele, de functie en de bijbehorende waarden worden bewaard in de sessie, zodat ze kunnen worden verwezen door meerdere serviceaanroepen voor hetzelfde cluster. 
@@ -306,15 +304,15 @@ Een bestand verzendt, ziet u dat de map .vscode wordt automatisch toegevoegd aan
     **POST /batches**   
     Aanvraagtekst
 
-    | naam | description | type | 
+    | name | description | type | 
     | :- | :- | :- | 
-    | bestand | Bestand met de toepassing uit te voeren | pad (vereist) | 
+    | Bestand | Bestand met de toepassing uit te voeren | pad (vereist) | 
     | proxyUser | Gebruiker imiteren bij het uitvoeren van de taak | string | 
     | className | Toepassing Java/Spark-hoofdklasse | string |
     | argumenten | Opdrachtregelargumenten voor de toepassing | lijst met tekenreeksen | 
     | JAR-bestanden | JAR-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen | 
     | pyFiles | Python-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen |
-    | bestanden weergeven | bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
+    | Bestanden | bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
     | driverMemory | Hoeveelheid geheugen die moet worden gebruikt voor het stuurprogramma-proces | string |
     | driverCores | Aantal kernen moet worden gebruikt voor het stuurprogramma-proces | int |
     | executorMemory | Hoeveelheid geheugen per executorproces gebruiken | string |
@@ -322,18 +320,18 @@ Een bestand verzendt, ziet u dat de map .vscode wordt automatisch toegevoegd aan
     | numExecutors | Aantal Executor voor deze sessie starten | int |
     | archiefbestanden | Archief moet worden gebruikt in deze sessie | Lijst met tekenreeksen |
     | wachtrij | De naam van de YARN-wachtrij waarnaar verzonden | string |
-    | naam | De naam van deze sessie | string |
+    | name | De naam van deze sessie | string |
     | conf | Spark-configuratie-eigenschappen | Kaart van sleutel = val |
 
-    Hoofdtekst van de reactie   
+    De hoofdtekst van antwoord   
     Het gemaakte object van de Batch.
 
-    | naam | description | type | 
+    | name | description | type | 
     | :- | :- | :- | 
     | id | De sessie-id | int | 
     | appId | De toepassings-id van deze sessie |  String |
     | appInfo | De gedetailleerde toepassingsinfo | Kaart van sleutel = val |
-    | logboek | De regels van het logboek | lijst met tekenreeksen |
+    | log | De regels van het logboek | lijst met tekenreeksen |
     | state |   De batch-status | string |
 
 >[!NOTE]
@@ -356,7 +354,7 @@ Een bestand verzendt, ziet u dat de map .vscode wordt automatisch toegevoegd aan
    ![Azure HDInsight-cluster](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 
-## <a name="additional-features"></a>Aanvullende functies
+## <a name="additional-features"></a>Extra functies
 
 HDInsight voor Visual Studio Code ondersteunt de volgende functies:
 
@@ -380,7 +378,7 @@ HDInsight voor Visual Studio Code ondersteunt de volgende functies:
 
 ## <a name="logout"></a>Afmelden  
 
-Navigeer naar de in de menubalk van **weergave** > **Command Palette...** , en voer vervolgens **HDInsight: Afmelden**.  Er is een pop-upvenster in de onderste rechter hoek met de mededeling **afmelden met succes!**.
+Navigeer naar de in de menubalk van **weergave** > **Command Palette...** , en voer vervolgens **HDInsight: Afmelden**.  Er is een pop-upvenster in de onderste rechter hoek met de mededeling **afmelden met succes!** .
 
 
 ## <a name="next-steps"></a>Volgende stappen

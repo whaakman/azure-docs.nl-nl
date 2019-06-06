@@ -2,20 +2,20 @@
 title: Over claim resolvers in aangepaste beleidsregels voor Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over hoe claims resolvers worden gebruikt in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f4bb5deb0c30ba113f315c69393e92bddfe0d27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a13d4b0b44c51f78a068b1619fe083a08756af6b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703461"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511612"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Over claim resolvers in Azure Active Directory B2C aangepast beleid
 
@@ -48,7 +48,7 @@ De volgende secties worden de beschikbare claim resolvers.
 | Claim | Description | Voorbeeld |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | ISO-code voor de taal van de twee letters. | nl |
-| {Cultuur: LCID}   | De LCID van taal. | 19 |
+| {Cultuur: LCID}   | De LCID van taal. | 1033 |
 | {Cultuur: RegionName} | ISO-code voor de regio van de twee letters. | VS |
 | {Culture:RFC5646} | De taalcode RFC5646. | en-US |
 

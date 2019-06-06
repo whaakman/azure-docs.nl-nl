@@ -1,6 +1,6 @@
 ---
 title: Disk encryption inschakelen voor Azure Service Fabric Windows-clusters | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u schijfversleuteling voor Service Fabric-clusterknooppunten in Azure inschakelen met behulp van Azure Resource Manager, Azure Key Vault.
+description: In dit artikel wordt beschreven hoe u het inschakelen van disk encryption voor Azure Service Fabric-clusterknooppunten met behulp van Azure Key Vault in Azure Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,47 +13,53 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
-ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c31fc43729bcb58c755959db0c8bc5185b8197f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119161"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471412"
 ---
-# <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Schijfversleuteling voor service fabric Windows-clusterknooppunten inschakelen 
+# <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Inschakelen van disk encryption voor Azure Service Fabric-clusterknooppunten in Windows 
 > [!div class="op_single_selector"]
 > * [Schijfversleuteling voor Windows](service-fabric-enable-azure-disk-encryption-windows.md)
 > * [Schijfversleuteling voor Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 >
 >
 
-Volg de stappen hieronder om schijfversleuteling voor de Service Fabric Windows-clusterknooppunten inschakelen. U moet doen dit voor elk van de knooppunt typen/virtuele-machineschaalsets. Voor het versleutelen van de knooppunten, zullen we gebruikmaken van de Azure Disk Encryption-mogelijkheid op schaalsets voor virtuele machines.
+In deze zelfstudie leert u hoe u om in te schakelen schijfversleuteling voor de Service Fabric-clusterknooppunten in Windows. U moet als volgt te werk voor elk van de knooppunttypen en virtuele-machineschaalsets. Voor het versleutelen van de knooppunten, gebruiken we de mogelijkheid van Azure Disk Encryption voor virtuele-machineschaalsets.
 
-De handleiding wordt ingegaan op de volgende procedures:
+De handleiding wordt ingegaan op de volgende onderwerpen:
 
-* Belangrijkste concepten die u nodig hebt om te worden uitgeschakeld op de hoogte om in te schakelen schijfversleuteling voor de virtuele-machineschaalset voor Service Fabric Windows-Cluster ingesteld.
-* Vereisten stappen worden gevolgd voordat u inschakelt schijfversleuteling voor de virtuele-machineschaalset van Service Fabric Windows-Cluster.
-* Stappen worden gevolgd om in te schakelen schijfversleuteling voor de virtuele-machineschaalset voor Service Fabric Windows-Cluster ingesteld.
+* Belangrijkste concepten rekening mee moet houden wanneer inschakelen schijfversleuteling voor de virtuele-machineschaalset voor Service Fabric-cluster wordt ingesteld in Windows.
+* Stappen worden gevolgd voordat u inschakelt schijfversleuteling voor de Service Fabric-clusterknooppunten in Windows.
+* Stappen voor het inschakelen van schijfversleuteling op Service Fabric-clusterknooppunten in Windows worden gevolgd.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-* **Zelfregistratie** : als u wilt gebruiken, VM scale set schijf versleuteling preview zelfregistratie is vereist
-* U kunt uw abonnement zelf registreren door het uitvoeren van de volgende stappen uit: 
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-```
-* Wacht ongeveer 10 minuten totdat de status als 'Registered'. U kunt de status controleren door de volgende opdracht uit: 
-```powershell
-Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-* **Azure Key Vault** -een Key Vault maakt in hetzelfde abonnement en dezelfde regio als de schaal ingesteld en het toegangsbeleid 'EnabledForDiskEncryption' voor de Sleutelkluis met behulp van de PS-cmdlet. U kunt ook het beleid met de KeyVault-UI in Azure portal instellen: 
-```powershell
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
-```
-* Installeer de meest recente [Azure CLI](/cli/azure/install-azure-cli) , heeft de nieuwe opdrachten voor versleuteling.
-* Installeer de nieuwste versie van [Azure-SDK van Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Hieronder vindt u de virtuele-machineschaalset ade-cmdlets om in te schakelen ([instellen](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) codering ophalen ([ophalen](/powershell/module/az.compute/get-azvmssvmdiskencryption)) status voor schijfversleuteling en verwijderen ([uitschakelen](/powershell/module/az.compute/disable-azvmssdiskencryption)) codering in de schaalset het exemplaar.
+
+**Zelfregistratie** 
+
+De preview van de schijf versleuteling voor de virtuele-machineschaalset is vereist voor zelfregistratie. Voer de volgende stappen uit: 
+
+1. Voer eerst de volgende opdracht uit:
+    ```powershell
+    Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+    ```
+2. Wacht ongeveer 10 minuten totdat de status *geregistreerde*. U kunt de status controleren met de volgende opdracht: 
+    ```powershell
+    Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+    ```
+**Azure Key Vault** 
+
+1. Maak een key vault in hetzelfde abonnement en dezelfde regio bevinden als de schaalset en selecteer vervolgens de **EnabledForDiskEncryption** toegangsbeleid voor de sleutelkluis met behulp van de PowerShell-cmdlet. U kunt ook het beleid instellen met behulp van de Key Vault-gebruikersinterface in Azure portal met de volgende opdracht:
+    ```powershell
+    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+    ```
+2. Installeer de nieuwste versie van de [Azure CLI](/cli/azure/install-azure-cli), heeft de nieuwe opdrachten voor versleuteling.
+3. Installeer de nieuwste versie van de [Azure-SDK van Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Hieronder vindt u de Azure Disk Encryption-cmdlets voor virtuele-machineschaalset ([ingesteld](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) codering ophalen ([ophalen](/powershell/module/az.compute/get-azvmssvmdiskencryption)) status voor schijfversleuteling en verwijderen ([uitschakelen](/powershell/module/az.compute/disable-azvmssdiskencryption)) versleuteling op schaal exemplaar instellen.
 
 | Opdracht | Versie |  Source  |
 | ------------- |-------------| ------------|
@@ -66,17 +72,17 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Ondersteunde scenario's voor schijfversleuteling
-* Virtual machine scale set versleuteling wordt alleen ondersteund voor schaalsets met beheerde schijven gemaakt en niet ondersteund voor systeemeigen (of niet-beheerde) schijf schaalsets.
-* Virtual machine scale set versleuteling wordt ondersteund voor besturingssysteem en volumes voor Windows-virtuele-machineschaalset. Schakel versleuteling wordt ondersteund voor besturingssysteem en volumes voor Windows-schaalset.
-* Virtuele-machineschaalset terugzetten van de virtuele machine en upgrade bewerkingen worden niet ondersteund in de huidige Preview-versie.
+* Versleuteling voor virtuele-machineschaalsets wordt alleen ondersteund voor schaalsets met beheerde schijven die zijn gemaakt. Het wordt niet ondersteund voor systeemeigen (of niet-beheerde) schijf schaalsets.
+* Versleuteling wordt ondersteund voor het besturingssysteem en gegevensvolumes in virtuele-machineschaalset wordt ingesteld in Windows. Schakel versleuteling wordt ook ondersteund voor het besturingssysteem en Hiermee stelt u de gegevensvolumes voor virtuele-machineschaalset in Windows.
+* Virtuele machine terugzetten van een installatiekopie en upgrade-bewerkingen voor virtuele-machineschaalsets worden niet ondersteund in de huidige Preview-versie.
 
 
-### <a name="create-new-cluster-and-enable-disk-encryption"></a>Nieuw cluster maken en inschakelen van versleuteling van schijf
+## <a name="create-a-new-cluster-and-enable-disk-encryption"></a>Een nieuw cluster maken en inschakelen van versleuteling van schijf
 
-De volgende opdrachten gebruiken voor het cluster maken en inschakelen van versleuteling van de schijf met behulp van Azure Resource Manager-sjabloon & zelfondertekend certificaat.
+Gebruik de volgende opdrachten in een cluster maken en inschakelen van schijfversleuteling met behulp van een Azure Resource Manager-sjabloon en een zelfondertekend certificaat.
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
-
+Meld u aan met de volgende opdrachten:
 ```powershell
 Login-AzAccount
 Set-AzContext -SubscriptionId <guid>
@@ -90,11 +96,11 @@ az account set --subscription $subscriptionId
 
 ```
 
-#### <a name="use-the-custom-template-that-you-already-have"></a>Gebruik de aangepaste sjabloon die u al hebt 
+### <a name="use-the-custom-template-that-you-already-have"></a>Gebruik de aangepaste sjabloon die u al hebt 
 
-Als u maken van een aangepaste sjabloon wilt voor uw behoeften, het is raadzaam dat u begint met een van de sjablonen die beschikbaar zijn op de [voorbeeldsjablonen van azure service fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Volg de richtlijnen en uitleg [aanpassen van de clustersjabloon] [ customize-your-cluster-template] onderstaande sectie.
+Als u maken van een aangepaste sjabloon wilt voor uw behoeften, is het raadzaam dat u begint met een van de sjablonen die beschikbaar zijn op de [voorbeeldsjablonen van Azure Service Fabric-cluster maken](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) pagina. Naar [aanpassen van de clustersjabloon] [ customize-your-cluster-template] sectie, raadpleegt u de volgende richtlijnen.
 
-Als u al een aangepaste sjabloon hebt, zorg ervoor dat zijn aan Controleer, dat alle drie certificaat-gerelateerde parameters in de sjabloon en het parameterbestand zijn als volgt de naam en -waarden null als volgt.
+Als u al een aangepaste sjabloon hebt, Controleer u dat alle drie certificaat-gerelateerde parameters in de sjabloon en de parameter-bestand zijn met de naam als volgt en dat waarden null als volgt zijn:
 
 ```Json
    "certificateThumbprint": {
@@ -143,11 +149,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ```
 
-#### <a name="deploy-application-to-windows-service-fabric-cluster"></a>Toepassing implementeren in Windows Service Fabric-cluster
-Volg de stappen en richtlijnen voor het [toepassing implementeren in uw cluster](service-fabric-deploy-remove-applications.md)
+### <a name="deploy-an-application-to-a-service-fabric-cluster-in-windows"></a>Een toepassing implementeren in een Service Fabric-cluster in Windows
+Volg de instructies en richtlijnen op voor het implementeren van een toepassing in het cluster, [implementeren en remove-toepassingen met behulp van PowerShell](service-fabric-deploy-remove-applications.md).
 
 
-#### <a name="enable-disk-encryption-for-service-fabric-cluster-virtual-machine-scale-set-created-above"></a>Inschakelen van disk encryption voor Service Fabric-Cluster virtuele-machineschaalset die eerder is gemaakt
+### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Schijfversleuteling inschakelen voor de virtuele-machineschaalsets eerder hebt gemaakt
+
+Hiermee stelt u hebt gemaakt door de vorige stappen, voer de volgende opdrachten uit om in te schakelen schijfversleuteling voor de virtuele-machineschaalset:
  
 ```powershell
 
@@ -169,9 +177,8 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 ```
 
 
-#### <a name="validate-if-disk-encryption-enabled-for-windows-virtual-machine-scale-set"></a>Valideren als schijfversleuteling is ingeschakeld voor virtuele-machineschaalset in Windows is ingesteld.
-Status van een hele virtuele-machineschaalset of met een instantie ophalen in de schaalset. Zie de onderstaande opdrachten.
-Daarnaast kan gebruiker zich aanmelden bij de virtuele machine in de schaalset en zorg ervoor dat stations zijn versleuteld
+### <a name="validate-if-disk-encryption-is-enabled-for-a-virtual-machine-scale-set-in-windows"></a>Valideren of schijfversleuteling is ingeschakeld voor een virtuele-machineschaalset in Windows
+Haal de status van een hele virtuele-machineschaalset of met een instantie in een schaalset door het uitvoeren van de volgende opdrachten.
 
 ```powershell
 
@@ -190,8 +197,10 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 ```
 
 
-#### <a name="disable-disk-encryption-for-service-fabric-cluster-virtual-machine-scale-set"></a>Schijfversleuteling voor Service Fabric-Cluster virtuele-machineschaalset uitschakelen 
-Uitschakelen schijfversleuteling geldt voor de hele virtuele-machineschaalset en niet door exemplaar 
+Bovendien kunt u zich aanmeldt bij de virtuele-machineschaalset en zorg ervoor dat de stations zijn versleuteld.
+
+### <a name="disable-disk-encryption-for-a-virtual-machine-scale-set-in-a-service-fabric-cluster"></a>Schijfversleuteling voor een virtuele-machineschaalset in een Service Fabric-cluster uitschakelen 
+Schijfversleuteling voor een virtuele-machineschaalset door de volgende opdrachten uit te schakelen. Houd er rekening mee dat uitschakelen schijfversleuteling wordt toegepast op de hele virtuele-machineschaalset en niet een afzonderlijke exemplaar.
 
 ```powershell
 
@@ -209,6 +218,6 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Op dit moment hebt u een beveiligd cluster met het inschakelen/uitschakelen disk encryption voor virtuele-machineschaalset van Service Fabric-Cluster. Volgende [schijfversleuteling voor Linux](service-fabric-enable-azure-disk-encryption-linux.md) 
+Op dit moment moet u een beveiligd cluster hebt en weet hoe u inschakelen en uitschakelen van schijfversleuteling voor Service Fabric-clusterknooppunten en virtuele-machineschaalsets. Zie voor vergelijkbare begeleiding voor het Service Fabric-clusterknooppunten in Linux, [schijfversleuteling voor Linux](service-fabric-enable-azure-disk-encryption-linux.md).
 
 [customize-your-cluster-template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure#creating-a-custom-arm-template

@@ -4,14 +4,14 @@ description: Azure Resource Manager en Azure PowerShell gebruiken om resources t
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779963"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476977"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Resources implementeren met Resource Manager-sjablonen en Azure PowerShell
 
@@ -35,6 +35,8 @@ Om te implementeren op een **abonnement**, gebruikt u [New-AzDeployment](/powers
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
+Beheer implementaties worden momenteel alleen ondersteund via de REST-API. Zie [resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](resource-group-template-deploy-rest.md).
+
 De voorbeelden in dit artikel gebruikt brongroepimplementaties. Zie voor meer informatie over de implementatie van abonnement [maken van resourcegroepen en resources op het abonnementsniveau](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Vereisten
@@ -44,7 +46,7 @@ U moet een sjabloon te implementeren. Als u dit niet al hebt, downloaden en slaa
 Tenzij u de Azure Cloud shell gebruiken om sjablonen te implementeren, moet u Azure PowerShell installeren en verbinding maken met Azure:
 
 - **Azure PowerShell-cmdlets installeren op uw lokale computer.** Zie [Aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps) voor meer informatie.
-- **Verbinding maken met Azure met behulp van [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Als u meerdere Azure-abonnementen hebt, mogelijk moet u ook om uit te voeren [Set AzContext](/powershell/module/Az.Accounts/Set-AzContext). Zie voor meer informatie, [meerdere Azure-abonnementen gebruiken](/powershell/azure/manage-subscriptions-azureps).
+- **Verbinding maken met Azure met behulp van [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Als u meerdere Azure-abonnementen hebt, mogelijk moet u ook om uit te voeren [Set AzContext](/powershell/module/Az.Accounts/Set-AzContext). Zie voor meer informatie, [meerdere Azure-abonnementen gebruiken](/powershell/azure/manage-subscriptions-azureps).
 
 ## <a name="deploy-local-template"></a>Lokale sjabloon implementeren
 

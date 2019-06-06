@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146111"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492725"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Alleen-lezen-replica's te verdelen alleen-lezen query workloads
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 Als onderdeel van de [architectuur voor hoge beschikbaarheid](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), elke database in de servicelaag Premium, bedrijfskritiek of zeer grootschalige automatisch wordt geleverd met een primaire replica en meerdere secundaire replica's. De secundaire replica's worden ingericht met de dezelfde compute groot is als de primaire replica. De **Read Scale-Out** functie kunt u taakverdeling op SQL-Database alleen-lezen-werkbelastingen met behulp van de capaciteit van een van de alleen-lezen replica's in plaats van het delen van de replica voor lezen / schrijven. Op deze manier de alleen-lezen-werkbelasting worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. De functie is bedoeld voor de toepassingen die logisch gescheiden alleen-lezen-werkbelastingen, zoals analytics bevatten. Ze kunnen krijgen prestatievoordelen met behulp van deze extra capaciteit zonder extra kosten.
 

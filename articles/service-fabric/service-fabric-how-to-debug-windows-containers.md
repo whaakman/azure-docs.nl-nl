@@ -1,6 +1,6 @@
 ---
 title: Fouten opsporen in Windows-containers met Service Fabric en Visual Studio | Microsoft Docs
-description: Leer hoe u fouten opsporen in Windows-containers in Azure Service Fabric met behulp van Visual Studio 2017.
+description: Leer hoe u fouten opsporen in Windows-containers in Azure Service Fabric met behulp van Visual Studio 2019.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
-ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482640"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428145"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedure: Fouten opsporen in Windows-containers in Azure Service Fabric met behulp van Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procedure: Fouten opsporen in Windows-containers in Azure Service Fabric met behulp van Visual Studio 2019
 
-Met Visual Studio 2017 Update 7 (15,7), kunt u .NET-toepassingen in containers foutopsporing als Service Fabric-services. Dit artikel ziet u hoe u uw omgeving te configureren en vervolgens fouten opsporen in een .NET-toepassing in een container die wordt uitgevoerd in een lokaal Service Fabric-cluster.
+Met Visual Studio 2019, kunt u .NET-toepassingen in containers foutopsporing als Service Fabric-services. Dit artikel ziet u hoe u uw omgeving te configureren en vervolgens fouten opsporen in een .NET-toepassing in een container die wordt uitgevoerd in een lokaal Service Fabric-cluster.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,7 +34,7 @@ Met Visual Studio 2017 Update 7 (15,7), kunt u .NET-toepassingen in containers f
 
 1. Zorg ervoor dat de Docker voor Windows-service wordt uitgevoerd voordat u doorgaat met de volgende stap.
 
-1. Ter ondersteuning van DNS-omzetting tussen containers, wordt u voor het instellen van uw lokale ontwikkelcluster, hebben de computernaam. Deze stappen zijn ook nodig als u adresservices via de omgekeerde proxy wilt.
+1. Ter ondersteuning van DNS-omzetting tussen containers, hebt u voor het instellen van uw lokale ontwikkelcluster, met behulp van de naam van de machine. Deze stappen zijn ook nodig als u adresservices via de omgekeerde proxy wilt.
    1. Open PowerShell als beheerder
    2. Navigeer naar de installatiemap van de SDK-Cluster, doorgaans `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
    3. Het script uitvoeren `DevClusterSetup.ps1`
@@ -53,19 +53,19 @@ Met Visual Studio 2017 Update 7 (15,7), kunt u .NET-toepassingen in containers f
 
 Hieronder volgt een lijst met bekende beperkingen met foutopsporing containers in Service Fabric en mogelijke oplossingen:
 
-* Met behulp van ' localhost ' voor ClusterFQDNorIP wordt geen ondersteuning voor DNS-omzetting in containers.
+* Met behulp van ' localhost ' voor ClusterFQDNorIP wordt niet ondersteuning voor DNS-omzetting in containers.
     * Oplossing: Instellen van het lokale cluster met behulp van de naam van de computer (Zie hierboven)
-* Windows10 uitgevoerd in een virtuele Machine, krijgt geen DNS-antwoord terug naar de container.
+* Windows10 uitgevoerd in een virtuele Machine wordt niet DNS-antwoord terug naar de container ophalen.
     * Oplossing: UDP-controlesom-offload voor IPv4 op de NIC van de virtuele Machines uitschakelen
-    * Houd er rekening mee dat netwerken prestaties op de machine afnemen.
+    * Uitvoeren van Windows10 afnemen netwerken prestaties op de machine.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * Het omzetten van services in dezelfde toepassing met behulp van DNS werkt servicenaam niet op Windows10, als de toepassing is geïmplementeerd met behulp van Docker Compose
     * Oplossing: Servicename.applicationname gebruiken voor het omzetten van service-eindpunten
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Als u IP-adres voor ClusterFQDNorIP, wordt wijzigen van de primaire IP-adres op de host DNS-functionaliteit verbroken.
-    * Oplossing: Maak het cluster met behulp van het nieuwe primaire IP-adres op de host opnieuw of gebruik van de naam van de computer. Dit is standaard.
-* Als het cluster is gemaakt met FQDN-naam niet omgezet in het netwerk is, mislukt DNS.
-    * Oplossing: Maak het lokale cluster met behulp van de primaire IP-adres van de host opnieuw. Dit is standaard.
+    * Oplossing: Maak het cluster met behulp van het nieuwe primaire IP-adres op de host opnieuw of gebruik van de naam van de computer. Deze breuk is standaard.
+* Als het cluster is gemaakt met FQDN-naam kan niet worden opgelost op het netwerk, mislukt de DNS.
+    * Oplossing: Maak het lokale cluster met behulp van de primaire IP-adres van de host opnieuw. Deze fout is standaard.
 * Bij het opsporen van fouten in een container, docker-logboeken worden pas beschikbaar in het uitvoervenster van Visual Studio, niet via de Service Fabric-API's, met inbegrip van Service Fabric Explorer
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Fouten opsporen in een .NET-toepassing uitvoeren in docker-containers in Service Fabric
@@ -81,4 +81,4 @@ Hieronder volgt een lijst met bekende beperkingen met foutopsporing containers i
     Visual Studio biedt ondersteuning voor console- en ASP.NET-projecttypen voor .NET en .NET Core.
 
 ## <a name="next-steps"></a>Volgende stappen
-Volg deze koppeling voor meer informatie over de mogelijkheden van Service Fabric en containers: [Overzicht van service Fabric-containers](service-fabric-containers-overview.md).
+Zie voor meer informatie over de mogelijkheden van Service Fabric en containers, Service Fabric-containers overview](service-fabric-containers-overview.md).

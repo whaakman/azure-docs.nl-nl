@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 8eb924b3dc6ff912db402596c763dd69b85147a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2c4bd7bffd923430d0817cb6ea975f4c1596623
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390712"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729167"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Transparent Data Encryption in een beheerd exemplaar met behulp van uw eigen sleutel uit Azure Key Vault (Preview) beheren
 
@@ -29,7 +29,7 @@ Met dit PowerShell-voorbeeldscript configureert transparante gegevensversleuteli
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Met behulp van beide PowerShell lokaal of met behulp van Azure Cloud Shell vereist 1.1.1-preview AZ PowerShell of een latere versie van de Preview-versie. Als u upgraden wilt, raadpleegt u [Azure PowerShell-module installeren](/powershell/azure/install-az-ps), of Voer de onderstaande voorbeeld van een script om de module te installeren.
 

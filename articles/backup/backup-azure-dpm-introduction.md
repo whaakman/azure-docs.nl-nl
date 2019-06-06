@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 82e4278a130bb67a1af61ead981259d7bb4e1aa7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111249"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427432"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Voorbereiden op back-up van workloads naar Azure met System Center DPM
 
@@ -54,6 +54,7 @@ Ondersteunde bestandstypen | Deze bestandstypen kunnen een back-worden gemaakt m
 Niet-ondersteunde bestandstypen | Servers op hoofdlettergevoelige bestandssystemen; vaste koppelingen (overgeslagen); reparsepunten (overgeslagen); versleuteld en gecomprimeerd (overgeslagen); versleuteld en sparse (overgeslagen); Gecomprimeerde stream; stream parseren.
 Lokale opslag | Elke machine die u back wilt-up moet lokale vrije opslagruimte die ten minste 5% van de grootte van de gegevens die back-up hebben. Bijvoorbeeld, vereist back-ups van 100 GB aan gegevens een minimum van 5 GB aan vrije ruimte in de nieuwe locatie.
 Kluis-opslag | Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up naar een Azure Backup-kluis, maar de grootte van een gegevensbron (bijvoorbeeld een virtuele machine of een database) mag niet groter zijn dan 54400 GB.
+ExpressRoute van Azure | Als Azure ExpressRoute met persoonlijke of Microsoft-peering is geconfigureerd, kan deze niet worden gebruikt voor back-up van de gegevens naar Azure.<br/><br/> Als Azure ExpressRoute met openbare Peering is geconfigureerd, kan deze worden gebruikt om back-up van de gegevens naar Azure.<br/><br/> **Opmerking:** Openbare Peering is afgeschaft voor nieuwe circuits.
 Azure Backup-agent | Als DPM wordt uitgevoerd op System Center 2012 SP1, installeert u updatepakket 2 of hoger voor DPM SP1. Dit is vereist voor de installatie van agent.<br/><br/> In dit artikel wordt beschreven hoe u de nieuwste versie van de Azure Backup-agent, ook wel bekend als de Microsoft Azure Recovery Service agent (MARS) implementeren. Hebt u een eerdere versie is geïmplementeerd, kunt u bijwerken naar de nieuwste versie om ervoor te zorgen dat back-up werkt zoals verwacht.
 
 Voordat u begint, moet u een Azure-account met de Azure Backup-functie is ingeschakeld. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Meer informatie over [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).

@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met websockets voor hybride verbindingen in Azure Relay in .NET | Microsoft Docs
-description: Schrijf een consoletoepassing in C# voor websockets voor hybride verbindingen van Azure Relay.
+title: Aan de slag met Azure Relay Hybrid Connections WebSockets in .NET | Microsoft Docs
+description: Schrijf een C# consoletoepassing voor Azure Relay Hybrid Connections WebSockets.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749694"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428355"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Aan de slag met websockets voor hybride verbindingen in Azure Relay in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ Maak in Visual Studio een C#-consoletoepassing om berichten naar de Relay te stu
 
     ![actieve-toepassingen](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Gefeliciteerd, u hebt een end-to-end toepassing met hybride verbindingen gemaakt.
+Gefeliciteerd, u hebt een complete toepassing met hybride verbindingen gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze snelstart hebt u .NET toepassingen gemaakt voor afzenders en ontvangers waarmee berichten worden verzonden en ontvangen met behulp van websockets. De hybride verbindingsfunctie van Azure Relay ondersteunt tevens HTTP voor het verzenden en ontvangen van berichten. Zie de [snelstart over HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md) voor informatie over het gebruik van HTTP met hybride verbindingen van Azure Relay.

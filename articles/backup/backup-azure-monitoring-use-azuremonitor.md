@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Log Analytics; Azure back-up. Waarschuwingen; Diagnostische instellingen. Actiegroepen
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190505"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734875"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Bewaking op schaal met Azure Monitor
 
@@ -46,7 +46,7 @@ U kunt een werkruimte LA selecteren vanuit een ander abonnement als het doel. *A
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Oplossing implementeren naar Log Analytics-werkruimte
 
-Wanneer de gegevens in de werkruimte LA [een github-sjabloon implementeren](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) naar LA om de gegevens te visualiseren. Zorg ervoor dat u de dezelfde resourcegroep bevinden, Werkruimtenaam en de locatie van de werkruimte wordt herkend en vervolgens installeren met deze sjabloon op het geven.
+Wanneer de gegevens in de werkruimte LA [een GitHub-sjabloon implementeren](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) naar LA om de gegevens te visualiseren. Zorg ervoor dat u de dezelfde resourcegroep bevinden, Werkruimtenaam en de locatie van de werkruimte wordt herkend en vervolgens installeren met deze sjabloon op het geven.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Azure Backup-gegevens met behulp van Log Analytics (LA) weergeven
 
@@ -242,13 +242,13 @@ De filters weergegeven in de volgende afbeelding om te controleren of u activite
 
 ![Activiteitenlogboeken voor back-ups van virtuele Azure-machine](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-U kunt klikken op het segment 'JSON' voor meer informatie en bekijken door te kopiëren-plakken deze naar een teksteditor. De details van de kluis moet worden weergegeven en het item dat de activiteit geactiveerd melden dat wil zeggen, de back-upitem.
+Klik op de naam van de bewerking wordt weergegeven de werking en de relevante gegevens.
 
-Klik vervolgens op 'Een waarschuwing voor activiteitenlogboek toevoegen' waarschuwingen voor alle deze logboeken worden gegenereerd.
+![Nieuwe waarschuwingsregel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-U kunt klikken op 'Add waarschuwing voor activiteitenlogboek' hierboven wordt weergegeven en wordt het scherm voor het maken van waarschuwingen die vergelijkbaar is met het maken van waarschuwingen scherm geopend [, zoals hierboven beschreven](#create-alerts-using-log-analytics).
+Klik op **nieuwe waarschuwingsregel** te openen de **regel maken** scherm, hier kunt u maken met behulp van de stappen die worden beschreven in deze waarschuwing [artikel](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-De resource als volgt de kluis RS zelf en daarom moet u dezelfde actie voor alle kluizen waarin u een melding via activiteitenlogboeken wilt herhalen. De voorwaarde wordt een drempelwaarde, de periode, de frequentie niet hebben, omdat dit een waarschuwing op basis van gebeurtenissen is. Zodra het relevante activiteitenlogboek wordt gegenereerd, wordt de waarschuwing wordt geactiveerd.
+De resource als volgt de Recovery Services-kluis zelf en daarom moet u dezelfde actie voor alle kluizen waarin u een melding via activiteitenlogboeken wilt herhalen. De voorwaarde wordt een drempelwaarde, de periode, de frequentie niet hebben, omdat dit een waarschuwing op basis van gebeurtenissen is. Zodra het relevante activiteitenlogboek wordt gegenereerd, wordt de waarschuwing wordt geactiveerd.
 
 ## <a name="recommendation"></a>Aanbeveling
 

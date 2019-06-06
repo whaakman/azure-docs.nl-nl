@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389026"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735246"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure-seriële Console voor Linux
 
@@ -47,6 +47,7 @@ Zie voor de seriële Console-documentatie voor Windows, [seriële Console voor W
 
 - Zie voor specifieke instellingen voor Linux-distributies, [seriële console van beschikbaarheid van de Linux-distributie](#serial-console-linux-distribution-availability).
 
+- Uw virtuele machine of virtuele machine-exemplaar schaalset moet worden geconfigureerd voor seriële uitvoer op `ttys0`. Dit is de standaardinstelling voor installatiekopieën van Azure, maar u zult dubbele om dit te controleren op aangepaste installatiekopieën. Details [hieronder](#custom-linux-images).
 
 
 ## <a name="get-started-with-the-serial-console"></a>Aan de slag met de seriële Console
@@ -84,6 +85,9 @@ Seriële Console is beschikbaar op basis van afzonderlijke instanties voor virtu
 ## <a name="serial-console-linux-distribution-availability"></a>Seriële Console Linux-distributie-beschikbaarheid
 Voor de seriële console te laten functioneren, moet het gastbesturingssysteem worden geconfigureerd om te lezen en schrijven van consoleberichten naar de seriële poort. De meeste [goedgekeurd Azure Linux-distributies](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hebben van de seriële console standaard geconfigureerd. Selecteren **seriële console** in de **ondersteuning en probleemoplossing** sectie van de Azure-portal biedt toegang tot de seriële console.
 
+> [!NOTE]
+> Als u in de seriële console niet ziet, zorg er dan voor dat de diagnostische gegevens over die opstarten is ingeschakeld op de virtuele machine. Bereikt **Enter** wordt vaak problemen opgelost waarbij niets wordt weergegeven in de seriële console.
+
 Distributie      | Toegang tot seriële console
 :-----------|:---------------------
 Red Hat Enterprise Linux    | Seriële console-toegang is standaard ingeschakeld.
@@ -92,10 +96,13 @@ Ubuntu      | Seriële console-toegang is standaard ingeschakeld.
 CoreOS      | Seriële console-toegang is standaard ingeschakeld.
 SUSE        | Nieuwere SLES-installatiekopieën die beschikbaar zijn op Azure hebt seriële console-toegang standaard ingeschakeld. Als u van oudere versies (10 of eerder) van SLES op Azure gebruikmaakt, raadpleegt u de [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) seriële console inschakelen.
 Oracle Linux        | Seriële console-toegang is standaard ingeschakeld.
-Aangepaste Linux-installatiekopieën     | Als u de seriële console voor uw aangepaste Linux-VM-installatiekopie, wilt inschakelen toegang tot de console in het bestand */etc/inittab* om uit te voeren van een terminal op `ttyS0`. Bijvoorbeeld: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Zie voor meer informatie over het maken van aangepaste installatiekopieën correct [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd). Als u een aangepaste kernel bouwt, kunt u overwegen deze vlaggen kernel inschakelen: `CONFIG_SERIAL_8250=y` en `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Het configuratiebestand bevindt zich doorgaans de */boot/* pad.
 
-> [!NOTE]
-> Als u in de seriële console niet ziet, zorg er dan voor dat de diagnostische gegevens over die opstarten is ingeschakeld op de virtuele machine. Bereikt **Enter** wordt vaak problemen opgelost waarbij niets wordt weergegeven in de seriële console.
+### <a name="custom-linux-images"></a>Aangepaste Linux-installatiekopieën
+Als u de seriële console voor uw aangepaste Linux-VM-installatiekopie, wilt inschakelen toegang tot de console in het bestand */etc/inittab* om uit te voeren van een terminal op `ttyS0`. Bijvoorbeeld: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+
+Ook wilt ttys0 toevoegen als de bestemming voor seriële uitvoer. Zie voor meer informatie over het configureren van een aangepaste installatiekopie om te werken met de seriële console, de algemene systeemvereisten op [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+
+Als u een aangepaste kernel bouwt, kunt u overwegen deze vlaggen kernel inschakelen: `CONFIG_SERIAL_8250=y` en `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Het configuratiebestand bevindt zich doorgaans de */boot/* pad. |
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Algemene scenario's voor het openen van de seriële Console
 
@@ -201,6 +208,7 @@ Tekst van de seriële console duurt slechts een gedeelte van de schermgrootte (v
 Lange tekenreeksen plakken werkt niet. | De seriële console beperkt de lengte van tekenreeksen in de terminal naar 2048 tekens om te voorkomen dat de seriële poort-bandbreedte overbelasten geplakt.
 Seriële console werkt niet met een firewall voor storage-account. | Standaard de seriële console werkt niet met een storage-account Firewall ingeschakeld op het opslagaccount van de diagnostische gegevens over opstarten.
 Seriële console werkt niet met een opslagaccount met behulp van Azure Data Lake Storage Gen2 met hiërarchische naamruimten. | Dit is een bekend probleem met hiërarchische naamruimten. Als u wilt oplossen, zorg ervoor dat van de virtuele machine opstarten diagnostische gegevens van storage-account niet is gemaakt met behulp van Azure Data Lake Storage Gen2. Deze optie kan alleen worden ingesteld bij het opslagaccount is gemaakt. U moet een diagnostische gegevens over de afzonderlijke opstarten storage-account maken zonder Azure Data Lake Storage Gen2 ingeschakeld om dit probleem te verhelpen.
+Onverwachte toetsenbordinvoer in SLES BYOS afbeeldingen. Toetsenbordinvoer wordt slechts sporadisch herkend. | Dit is een probleem met het pakket Plymouth. Plymouth moet niet worden uitgevoerd in Azure als u een welkomstscherm niet nodig en Plymouth de platform-mogelijkheid verstoort om met de seriële Console. Verwijderen van Plymouth met `sudo zypper remove plymouth` en vervolgens opnieuw opstarten. U kunt ook de kernel-regel van de GRUB-configuratie wijzigen door toe te voegen `plymouth.enable=0` aan het einde van de regel. U kunt dit doen door [de opstartvermelding bewerken bij het opstarten](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), of door te bewerken van de regel GRUB_CMDLINE_LINUX in `/etc/default/grub`, opnieuw opbouwen met van WORMGATEN `grub2-mkconfig -o /boot/grub2/grub.cfg`, en vervolgens opnieuw op te starten.
 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen

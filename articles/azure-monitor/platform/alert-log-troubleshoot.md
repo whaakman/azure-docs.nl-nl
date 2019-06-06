@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 03a6ea45577b4a4bf57501b1834f91438feb4e2b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399187"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477874"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Oplossen van waarschuwingen in Azure Monitor  
 
 Dit artikel laat u over het oplossen van veelvoorkomende problemen die kunnen ontstaan tijdens het instellen van waarschuwingen in Azure Monitor. Het biedt ook oplossingen voor veelvoorkomende problemen met de functie of de configuratie van waarschuwingen. 
 
-De term *waarschuwingen voor activiteitenlogboeken* beschrijving van waarschuwingen die worden gestart op basis van een query voor in een [Azure Log Analytics-werkruimte](../learn/tutorial-viewdata.md) of in [Azure Application Insights](../../azure-monitor/app/analytics.md). Meer informatie over functies, -terminologie en -typen in [waarschuwingen voor activiteitenlogboeken in Azure Monitor](../platform/alerts-unified-log.md).
+De term *waarschuwingen voor activiteitenlogboeken* beschrijven regels die worden gestart op basis van een query voor in een [Azure Log Analytics-werkruimte](../learn/tutorial-viewdata.md) of in [Azure Application Insights](../../azure-monitor/app/analytics.md). Meer informatie over functies, -terminologie en -typen in [waarschuwingen voor activiteitenlogboeken in Azure Monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > In dit artikel geen rekening gehouden met gevallen waarbij de Azure-portal ziet u een waarschuwingsregel geactiveerd en een melding wordt niet uitgevoerd met een bijbehorende actiegroep. Zie de details in voor dergelijke gevallen [maken en beheren van actiegroepen in Azure portal](../platform/action-groups.md).

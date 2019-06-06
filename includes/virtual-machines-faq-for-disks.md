@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248882"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482313"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -143,7 +143,7 @@ GPT partitioneren kan alleen op gegevensschijven, niet de OS-schijven worden geb
 
 **Welke schijftypen ondersteuning voor momentopnamen?**
 
-Premium SSD-, standard-SSD- en standard-SSD ondersteuning voor momentopnamen, zonder een maximale grootte. U kunt dus momentopname grote schijven (maximaal 32 TiB). Ultra SSD's bieden geen ondersteuning voor momentopnamen.
+Premium SSD, standard-SSD en HDD standaard ondersteuning voor momentopnamen. Voor deze drie schijftypen worden momentopnamen ondersteund voor alle schijfgrootten (inclusief de schijven maximaal 32 TiB in grootte). Ultra SSD's bieden geen ondersteuning voor momentopnamen.
 
 ## <a name="standard-ssd-disks"></a>Standard-SSD-schijven
 

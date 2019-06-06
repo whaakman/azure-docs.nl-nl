@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023610"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428430"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Voorbeeld: Een aangepaste vaardigheden met behulp van de tekst vertalen API maken
 
-In dit voorbeeld wordt informatie over het maken van een web API aangepaste vaardigheden die tekst in een andere taal wordt geaccepteerd en wordt omgezet in het Engels. Het voorbeeld wordt een [Azure Function](https://azure.microsoft.com/services/functions/) het verpakken van de [vertalen tekst-API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) zodat deze de aangepaste vaardigheden-interface implementeert.
+In dit voorbeeld wordt informatie over het maken van een web API-aangepaste vaardigheden. Deze vaardigheid tekst in elke taal worden geaccepteerd en wordt omgezet in het Engels. Het voorbeeld wordt een [Azure Function](https://azure.microsoft.com/services/functions/) het verpakken van de [vertalen tekst-API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) zodat deze de aangepaste vaardigheden-interface implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -27,7 +27,7 @@ In dit voorbeeld wordt informatie over het maken van een web API aangepaste vaar
 
 + [Aanmelden voor de Translator Text-API](../cognitive-services/translator/translator-text-how-to-signup.md), en ontvang een API-sleutel gebruikt.
 
-+ Installeer [Visual Studio 2017 versie 15.5](https://www.visualstudio.com/vs/) of hoger, waaronder de Azure-ontwikkelworkload.
++ Installeer [Visual Studio 2019](https://www.visualstudio.com/vs/) of hoger, waaronder de Azure-ontwikkelworkload.
 
 ## <a name="create-an-azure-function"></a>Een Azure-functie maken
 
@@ -37,9 +37,9 @@ Hoewel dit voorbeeld wordt een Azure-functie voor het hosten van een web-API geb
 
 1. Selecteer in Visual Studio, **nieuw** > **Project** in het menu bestand.
 
-1. Selecteer in het dialoogvenster Nieuw Project **geïnstalleerde**, vouw **Visual C#** > **Cloud**, selecteer **Azure Functions**, typ een Naam voor uw project en selecteer **OK**. De functie-appnaam moet geldig zijn als een C#-naamruimte. Gebruik dus geen onderstrepingstekens, afbreekstreepjes of andere niet-alfanumerieke tekens.
+1. Selecteer in het dialoogvenster Nieuw Project **geïnstalleerde**, vouw **Visual C#**  > **Cloud**, selecteer **Azure Functions**, typ een Naam voor uw project en selecteer **OK**. De functie-appnaam moet geldig zijn als een C#-naamruimte. Gebruik dus geen onderstrepingstekens, afbreekstreepjes of andere niet-alfanumerieke tekens.
 
-1. Selecteer **Azure Functions-v2 (.NET Core)**. U kunt het ook doen met versie 1, maar de code hieronder is gebaseerd op de v2-sjabloon.
+1. Selecteer **Azure Functions-v2 (.NET Core)** . U kunt het ook doen met versie 1, maar de code hieronder is gebaseerd op de v2-sjabloon.
 
 1. Selecteer het type moet **HTTP-Trigger**
 
@@ -195,7 +195,7 @@ In dit voorbeeld is een eenvoudige enricher die alleen geschikt is voor één re
 
 ## <a name="test-the-function-from-visual-studio"></a>Test de functie vanuit Visual Studio
 
-Druk op **F5** om uit te voeren van het gedrag van de functie programma en test. In dit geval gebruiken we de functie hieronder om te vertalen tekst in het Spaans naar het Engels. Postman of Fiddler gebruiken om uit te geven van een aanroep, zoals hieronder wordt weergegeven:
+Druk op **F5** om uit te voeren van het gedrag van de functie programma en test. In dit geval gebruikt we de functie hieronder om te vertalen tekst in het Spaans naar het Engels. Postman of Fiddler gebruiken om uit te geven van een aanroep, zoals hieronder wordt weergegeven:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-Dit moet een soortgelijk resultaat op die u eerder hebt gezien bij het uitvoeren van de functie in de lokale omgeving produceren.
+In dit voorbeeld moet een soortgelijk resultaat op die u eerder hebt gezien bij het uitvoeren van de functie in de lokale omgeving produceren.
 
 ## <a name="connect-to-your-pipeline"></a>Verbinding maken met uw pijplijn
 Nu dat u een nieuwe aangepaste vaardigheden hebt, kunt u deze kunt toevoegen aan uw vaardigheden uit. Het volgende voorbeeld ziet u over het aanroepen van de kwalificatie. Omdat de kwalificatie geen batches verwerkt, toevoegen van een instructie voor het maximale batchgrootte moet alleen ```1``` documenten voor het verzenden van een op een tijdstip.

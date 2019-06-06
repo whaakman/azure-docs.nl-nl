@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835041"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735265"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
 WORMGATEN is het eindtotaal Unified Bootloader, dit waarschijnlijk het eerste wat dat u ziet is wanneer u een virtuele machine wordt opgestart. Omdat deze wordt weergegeven voordat het besturingssysteem is gestart, is het niet toegankelijk via SSH. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere.
@@ -184,7 +184,7 @@ Toegang tot WORMGATEN in SLES vereist bootloader configuratie via YaST. U doet d
 U wordt automatisch verwijderd in noodgevallen shell als SLES niet normaal mag opstarten. Als u wilt de noodgevallen shell handmatig invoeren, gebruikt u de volgende instructies:
 
 1. Van WORMGATEN, drukt u op 'e' uw opstartvermelding (de SLES-vermelding) bewerken
-1. Zoek de regel van de kernel die wordt gestart met `linux`
+1. Zoek de regel kernel - deze met start `linux`
 1. Toevoeg- `systemd.unit=emergency.target` aan het einde van de regel
 1. Druk op Ctrl + X op te starten met de volgende instellingen en noodgevallen shell invoeren
    > Houd er rekening mee dat u wordt verwijderd in noodgevallen shell met een _alleen-lezen_ bestandssysteem. Als u maken van alle wijzigingen aan alle bestanden wilt, moet u te koppelen van het bestandssysteem met machtigingen voor lezen / schrijven. U doet dit door Voer `mount -o remount,rw /` in shell

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 72d3455f37d0ccef0dd5b7d8882f70670de07572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44343f6bc6f48a6caa056f3336af55613a1e74d0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755421"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476799"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Beheren van toegang, kracht en verbindingsmodus voor uw Azure Data Box-Gateway
 
@@ -41,7 +41,7 @@ Volg deze stappen in de gebruikersinterface van de lokale wachtwoord van het app
 
 3. Klik op **wachtwoord wijzigen**.
  
-### <a name="reset-device-password"></a>Apparaatwachtwoord opnieuw instellen
+### <a name="reset-device-password"></a>Wachtwoord van apparaat opnieuw instellen
 
 De werkstroom opnieuw instellen is niet vereist voor de gebruiker aan de hand van het oude wachtwoord en is handig als u het wachtwoord is verloren gegaan. Deze werkstroom wordt uitgevoerd in Azure portal.
 
@@ -53,6 +53,48 @@ De werkstroom opnieuw instellen is niet vereist voor de gebruiker aan de hand va
 2. Voer het nieuwe wachtwoord en bevestigt u dit. Het opgegeven wachtwoord moet tussen 8 en 16 tekens lang zijn. Het wachtwoord moet bestaan 3 van de volgende tekens bevatten: hoofdletters, kleine letters, cijfers en speciale tekens. Klik op **opnieuw**.
 
     ![Wachtwoord opnieuw instellen](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+
+## <a name="manage-resource-access"></a>Toegang tot resources beheren
+
+Voor het maken van uw gegevens in Edge/Data Box Gateway, IoT-Hub en Azure Storage-resource, moet u machtigingen als Inzender of hoger op het niveau van een resource. U moet ook de bijbehorende resourceproviders worden geregistreerd. Voor alle bewerkingen die betrekking hebben op de activeringscode en referenties, zijn ook machtigingen voor Azure Active Directory Graph API vereist. Deze worden beschreven in de volgende secties.
+
+### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Microsoft Azure Active Directory Graph API-machtigingen beheren
+
+Bij het genereren van activeringscode voor de gegevens in het Edge-apparaat of het uitvoeren van bewerkingen die referenties vereist, moet u machtigingen voor Azure Active Directory Graph API. De bewerkingen die referenties nodig kunnen zijn:
+
+-  Het maken van een share met een gekoppelde storage-account.
+-  Het maken van een gebruiker aan wie toegang heeft tot de shares op het apparaat.
+
+U moet beschikken over een `User` toegang krijgen tot op Active Directory-tenant, als u nodig hebt om te kunnen `Read all directory objects`. U kunt een gastgebruiker kan niet als ze niet gemachtigd om te `Read all directory objects`. Als u een gast en vervolgens de bewerkingen zoals het genereren van een activeringscode, het maken van een share op uw gegevens in het Edge-apparaat, mislukt het maken van een gebruiker alle.
+
+Zie voor meer informatie over het bieden van toegang voor gebruikers voor Azure Active Directory Graph API [standaard toegang voor beheerders, gebruikers en gastgebruikers](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
+### <a name="register-resource-providers"></a>Registreren van resourceproviders
+
+Voor het inrichten van een resource in Azure (in de Azure Resource Manager-model), moet u een resourceprovider die ondersteuning biedt voor het maken van die resource. Bijvoorbeeld, voor het inrichten van een virtuele machine, moet u een 'Microsoft.Compute-resourceprovider beschikbaar in het abonnement hebt.
+ 
+Resourceproviders worden geregistreerd op het niveau van het abonnement. Een nieuw Azure-abonnement is standaard, vooraf geregistreerd met een lijst met veelgebruikte resourceproviders. De resourceprovider voor 'Microsoft.DataBoxEdge' is niet opgenomen in deze lijst.
+
+U hoeft niet te verlenen van machtigingen voor toegang tot het abonnement voor gebruikers mogelijk te maken van resources, zoals 'Microsoft.DataBoxEdge' binnen de resourcegroepen die beschikken over eigenaarsrechten, zolang de resourceproviders voor deze resources is al geregistreerd.
+
+Voordat u probeert te maken van een resource, ervoor zorgen dat de resourceprovider is geregistreerd in het abonnement. Als de resourceprovider niet is geregistreerd, moet u om ervoor te zorgen dat de gebruiker die de nieuwe resource maakt heeft onvoldoende rechten om de vereiste resourceprovider op abonnementsniveau te registreren. Als u dit ook nog niet hebt gedaan, ziet u de volgende fout:
+
+*Het abonnement <Subscription name> geen machtigingen voor het registreren van resourceproviders: Microsoft.DataBoxEdge.*
+
+
+Als u een lijst met geregistreerde resourceproviders in het huidige abonnement, moet u de volgende opdracht uitvoeren:
+
+```PowerShell
+Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
+```
+
+Voor gegevens in het Edge-apparaat, `Microsoft.DataBoxEdge` moeten worden geregistreerd. Om u te registreren `Microsoft.DataBoxEdge`, beheerder van abonnement moet de volgende opdracht uitvoeren:
+
+```PowerShell
+Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
+```
+
+Zie voor meer informatie over het registreren van een resourceprovider [oplossen voor registratie van de resourceprovider](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="manage-connectivity-mode"></a>Verbindingsmodus beheren
 
@@ -80,7 +122,7 @@ Apparaatmodus, Ga als volgt te werk:
 
 ## <a name="manage-power"></a>Energiebeheer
 
-U kunt afsluiten of opnieuw opstarten van uw fysieke en virtuele apparaten met behulp van de lokale webgebruikersinterface. We raden u aan de shares vóór de herstart offline te zetten op de host en vervolgens op het apparaat. Deze actie wordt geminimaliseerd een mogelijkheid van beschadiging van gegevens.
+U kunt afsluiten of opnieuw opstarten van uw virtuele apparaat met behulp van de lokale webgebruikersinterface. We raden u aan de shares vóór de herstart offline te zetten op de host en vervolgens op het apparaat. Deze actie wordt geminimaliseerd een mogelijkheid van beschadiging van gegevens.
 
 1. Ga in de lokale webgebruikersinterface naar **onderhoud > energie-instellingen**.
 2. Klik op **afsluiten** of **opnieuw** , afhankelijk van wat u van plan bent om te doen.

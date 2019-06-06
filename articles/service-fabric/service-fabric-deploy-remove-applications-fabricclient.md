@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: eb131e07b0cf561f3156744472660852bbd69ec4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b2d88004696515169ffde96b50d2771bcc1a669
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393284"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428123"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementeren en verwijderen van toepassingen met behulp van FabricClient
 > [!div class="op_single_selector"]
@@ -39,15 +39,15 @@ Zodra een [toepassingstype is ingepakt][10], deze gereed is voor implementatie i
 3. Het toepassingspakket verwijderen uit de installatiekopieopslag
 4. Exemplaar van de toepassing maken
 
-Nadat een toepassing wordt geïmplementeerd en een exemplaar in het cluster wordt uitgevoerd, kunt u een exemplaar van de toepassing en het bijbehorende toepassingstype verwijderen. Als u wilt een toepassing volledig te verwijderen uit het cluster omvat de volgende stappen uit:
+Nadat u een toepassing implementeert en een exemplaar in het cluster wordt uitgevoerd, kunt u exemplaar van de toepassing en het bijbehorende toepassingstype verwijderen. Een toepassing uit het cluster volledig verwijderen door de volgende stappen:
 
 1. Verwijderen (of verwijderen) op de actieve toepassingsexemplaar
 2. Registratie van het toepassingstype ongedaan maken als u deze niet meer nodig hebt
 
-Als u Visual Studio gebruikt voor het implementeren en opsporen van fouten in toepassingen op uw lokale ontwikkelcluster, worden automatisch de voorgaande stappen verwerkt via een PowerShell-script.  Met dit script wordt gevonden de *Scripts* map van het project voor een toepassing. In dit artikel bevat achtergrondinformatie over wat dit script doet zodat u dezelfde bewerkingen buiten Visual Studio kunt uitvoeren. 
+Als u Visual Studio gebruikt voor het implementeren en opsporen van fouten in toepassingen op uw lokale ontwikkelcluster, worden automatisch de voorgaande stappen verwerkt via een PowerShell-script.  Met dit script wordt gevonden de *Scripts* map van het project voor een toepassing. In dit artikel bevat achtergrondinformatie over wat dit script doet zodat u dezelfde bewerkingen buiten Visual Studio kunt doen. 
  
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
-Verbinding maken met het cluster met het maken van een [FabricClient](/dotnet/api/system.fabric.fabricclient) exemplaar voordat u een van de codevoorbeelden in dit artikel uitvoert. Voor voorbeelden van het verbinding maken met een lokaal ontwikkelcluster of een extern cluster of het cluster is beveiligd met behulp van Azure Active Directory, X509 certificaten of raadpleegt u de Active Directory Windows [verbinding maken met een beveiligd cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Voor verbinding met het lokale ontwikkelcluster, voert u het volgende uit:
+Verbinding maken met het cluster met het maken van een [FabricClient](/dotnet/api/system.fabric.fabricclient) exemplaar voordat u een van de codevoorbeelden in dit artikel uitvoert. Voor voorbeelden van het verbinding maken met een lokaal ontwikkelcluster of een extern cluster of het cluster is beveiligd met behulp van Azure Active Directory, X509 certificaten of raadpleegt u de Active Directory Windows [verbinding maken met een beveiligd cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Voor verbinding met het lokale ontwikkelcluster, moet u het volgende voorbeeld uitvoert:
 
 ```csharp
 // Connect to the local cluster.
@@ -55,9 +55,9 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Het toepassingspakket uploaden
-Stel dat u maken en een toepassing met de naam *MyApplication* in Visual Studio. Standaard is de naam van het toepassingen die worden vermeld in de ApplicationManifest.xml 'MyApplicationType'.  De, dit toepassingspakket de benodigde toepassingsmanifest, servicemanifesten en code/config/gegevenspakketten bevat, bevindt zich in *C:\Users\&lt; gebruikersnaam&gt;\Documents\Visual Studio 2017\Projects\ MyApplication\MyApplication\pkg\Debug*.
+Stel dat u maken en een toepassing met de naam *MyApplication* in Visual Studio. Standaard is de naam van het toepassingen die worden vermeld in de ApplicationManifest.xml 'MyApplicationType'.  De, dit toepassingspakket de benodigde toepassingsmanifest, servicemanifesten en code/config/gegevenspakketten bevat, bevindt zich in *C:\Users\&lt; gebruikersnaam&gt;\Documents\Visual Studio 2019\Projects\ MyApplication\MyApplication\pkg\Debug*.
 
-Uploaden van het toepassingspakket is ondergebracht in een locatie die toegankelijk is voor de interne Service Fabric-onderdelen. Service Fabric wordt gecontroleerd of het toepassingspakket tijdens de registratie van het toepassingspakket. Als u wilt controleren of het toepassingspakket lokaal (dat wil zeggen, voordat het uploaden van), gebruikt de [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
+Uploaden van het toepassingspakket is ondergebracht in een locatie die toegankelijk is voor de interne Service Fabric-onderdelen. Service Fabric wordt gecontroleerd of het toepassingspakket tijdens de registratie van het toepassingspakket. Echter, als u wilt controleren of het toepassingspakket op een lokaal (dat wil zeggen, voordat u uploadt), gebruikt u de [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
 
 De [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API het toepassingspakket uploadt naar de installatiekopieopslag van het cluster. 
 
@@ -83,7 +83,7 @@ Meerdere exemplaren van een toepassing kunnen worden gemaakt voor een bepaalde v
 Om te zien die met de naam toepassingen en services worden uitgevoerd in het cluster, voert u de [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) en [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) API's.
 
 ## <a name="create-a-service-instance"></a>Een service-exemplaar maken
-U kunt exemplaar maken van een service van een service met behulp van de [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Als de service is gedeclareerd als een standaardservice in het toepassingsmanifest, wordt de service wordt gestart wanneer de toepassing wordt gestart.  Aanroepen van de [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API voor een service die al wordt geïnstantieerd een uitzondering van het type FabricException met een foutcode met een waarde van FabricErrorCode.ServiceAlreadyExists wordt geretourneerd.
+U kunt exemplaar maken van een service van een service met behulp van de [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Als de service is gedeclareerd als een standaardservice in het toepassingsmanifest, wordt de service wordt gestart wanneer de toepassing wordt gestart.  Aanroepen van de [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API voor een service die al wordt geïnstantieerd een uitzondering van het type FabricException wordt geretourneerd. De uitzondering wordt een foutcode met een waarde van FabricErrorCode.ServiceAlreadyExists bevatten.
 
 ## <a name="remove-a-service-instance"></a>Een service-exemplaar verwijderen
 Wanneer een service-exemplaar niet meer nodig hebt is, kunt u deze verwijderen uit de actieve exemplaar van de toepassing door het aanroepen van de [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API.  
@@ -98,7 +98,7 @@ Wanneer een exemplaar van de toepassing niet meer nodig hebt is, kunt u permanen
 > Met deze bewerking kan niet ongedaan worden gemaakt en de status van toepassing kan niet worden hersteld.
 
 ## <a name="unregister-an-application-type"></a>Registratie van een toepassingstype
-Wanneer een bepaalde versie van een toepassingstype niet meer nodig hebt is, moet u wel een registratie ongedaan maken die bepaalde versie van de toepassing met behulp van de [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Registratie van niet-gebruikte versies van toepassingstypen opslagruimte die wordt gebruikt door de installatiekopieopslag worden vrijgegeven. Een versie van een toepassingstype kan ongedaan worden, zolang er zijn geen toepassingen zijn gemaakt op basis van die versie van het toepassingstype en geen in behandeling toepassingsupgrades verwijzen naar deze versie van het toepassingstype.
+Wanneer een bepaalde versie van een toepassingstype niet meer nodig hebt is, moet u wel een registratie ongedaan maken die bepaalde versie van de toepassing met behulp van de [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Registratie van niet-gebruikte versies van toepassingstypen opslagruimte die wordt gebruikt door de installatiekopieopslag worden vrijgegeven. Een versie van een toepassingstype kan ongedaan worden, zolang er zijn geen toepassingen zijn gemaakt op basis van die versie van het toepassingstype. Het toepassingstype hebben ook, kan geen aanvraag in behandeling upgrades verwijzen naar deze versie van het toepassingstype.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Kopiëren-ServiceFabricApplicationPackage vraagt om een ImageStoreConnectionString
@@ -141,7 +141,7 @@ Als de client-computer in een andere regio dan het cluster, kunt u met behulp va
 
 Probleem: Uploaden van pakket is voltooid, maar [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API een time-out optreedt. Probeer:
 - [Comprimeren van het pakket](service-fabric-package-apps.md#compress-a-package) voordat u kopieert naar de installatiekopieopslag.
-De compressie vermindert de grootte en het aantal bestanden, die op zijn beurt wordt de hoeveelheid netwerkverkeer en werken die Service Fabric moet uitvoeren. De uploadbewerking mogelijk langzamer (met name als u de tijd compressie opnemen), maar het register en het toepassingstype opheffen van de registratie sneller zijn.
+De compressie vermindert de grootte en het aantal bestanden, die op zijn beurt wordt de hoeveelheid netwerkverkeer en werken die Service Fabric moet uitvoeren. De uploadbewerking mogelijk langzamer (met name als u de tijd compressie opnemen), maar registreren en de registratie van de toepassing sneller zijn.
 - Geef een hogere time-out voor [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API met `timeout` parameter.
 
 ### <a name="deploy-application-package-with-many-files"></a>Toepassingspakket implementeren met veel bestanden
@@ -151,7 +151,7 @@ Probeer:
 - Geef een hogere time-out voor [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) met `timeout` parameter.
 
 ## <a name="code-example"></a>Voorbeeld van code
-Het volgende voorbeeld een toepassingspakket worden gekopieerd naar de installatiekopieopslag, richt het toepassingstype exemplaar van een toepassing maakt, maakt u een service-exemplaar, Hiermee verwijdert u het exemplaar van de toepassing, ongedaan maken-bepalingen voor het toepassingstype en Hiermee verwijdert u de toepassingspakket uit de installatiekopieopslag.
+Het volgende voorbeeld een toepassingspakket worden gekopieerd naar de installatiekopieopslag en bepalingen van het toepassingstype. Vervolgens in het voorbeeld maakt u een exemplaar van de toepassing en maakt u een service-exemplaar. Ten slotte in het voorbeeld verwijdert u het exemplaar van de, het toepassingstype unprovisions en Hiermee verwijdert u het toepassingspakket uit de installatiekopieopslag.
 
 ```csharp
 using System;
@@ -179,7 +179,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2019\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 387f1e0bf6461b5e87da1de35e74c5e49c5dc632
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305532"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474201"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -39,6 +39,192 @@ Deze pagina wordt maandelijks bijgewerkt, dus regelmatig bezoekt. Als u naar ite
 
 ---
 
+## <a name="may-2019"></a>Mei 2019
+
+### <a name="service-change-future-support-for-only-tls-12-protocols-on-the-application-proxy-service"></a>Service wijzigen: Toekomstige ondersteuning voor alleen de protocollen TLS 1.2 op de service voor toepassingsproxy
+
+**Type:** Plan voor wijziging  
+**Categorie van de service:** App-Proxy  
+**Product-mogelijkheid:** Toegangsbeheer
+
+U kunt de best mogelijke codering voor onze klanten, zijn we mailtoegang beperken tot alleen de protocollen TLS 1.2 op de Application Proxy-service. Deze wijziging wordt geleidelijk worden geïmplementeerd voor klanten die al alleen TLS 1.2-protocollen, zodat u al dan niet mogen zien welke wijzigingen zijn.
+
+Afschaffing van TLS 1.0 en 1.1 TLS zijn uitgevoerd op 31 augustus 2019, maar bieden we extra van tevoren, zodat u tijd om voor te bereiden voor deze wijziging hebt. Om voor te bereiden voor deze wijziging Zorg ervoor dat uw combinaties van client / server- en browser-server, met inbegrip van alle clients die uw gebruikers gebruiken voor toegang tot apps die zijn gepubliceerd via toepassingsproxy, worden bijgewerkt voor het gebruik van het TLS 1.2-protocol voor het onderhouden van de verbinding met de toepassing Proxy-service. Zie voor meer informatie, [toevoegen van een on-premises toepassing voor externe toegang via Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#before-you-begin).
+
+---
+
+### <a name="use-the-usage-and-insights-report-to-view-your-app-related-sign-in-data"></a>Het rapport gebruik en informatie gebruiken om uw gegevens met betrekking tot app aanmelden weer te geven
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** Bewaking en rapportage
+
+U kunt nu het rapport gebruiks- en inzichten, zich in de **bedrijfstoepassingen** gebied van de Azure-portal om een toepassingsgerichte weergave van uw aanmelding gegevens, inclusief informatie over:
+
+- Top apps voor uw organisatie gebruikt
+
+- Apps met de meeste mislukte aanmeldingen
+
+- Bovenste aanmelden fouten voor elke app
+
+Zie voor meer informatie over deze functie [gebruiks- en inzichten rapport in de Azure Active Directory-portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report)
+
+---
+
+### <a name="automate-your-user-provisioning-to-cloud-apps-using-azure-ad"></a>Automatiseer uw gebruikers inrichten voor cloud-apps met behulp van Azure AD
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** Bewaking en rapportage
+
+Volg deze nieuwe zelfstudies voor het gebruik van de Azure AD-inrichtingsservice om automatisch te maken, verwijderen, en het bijwerken van gebruikersaccounts voor de volgende cloud-gebaseerde apps:
+
+- [Comeet](https://docs.microsoft.com/azure/active-directory/saas-apps/comeet-recruiting-software-provisioning-tutorial)
+
+- [DynamicSignal](https://docs.microsoft.com/azure/active-directory/saas-apps/dynamic-signal-provisioning-tutorial)
+
+- [KeeperSecurity](https://docs.microsoft.com/azure/active-directory/saas-apps/keeper-password-manager-digitalvault-provisioning-tutorial)
+
+U kunt ook volgen dit nieuwe [Dropbox zelfstudie](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), waarmee u informatie over het inrichten van de groepsobjecten worden weergegeven.
+
+Zie voor meer informatie over hoe uw organisatie via het inrichten van geautomatiseerde gebruikersaccounts beter kunt beveiligen, [automatisch gebruikers inrichten voor SaaS-toepassingen met Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+
+---
+
+### <a name="identity-secure-score-is-now-available-in-azure-ad-general-availability"></a>Beveiligde score identiteit is nu beschikbaar in Azure AD (algemene beschikbaarheid)
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** N/A  
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
+
+U kunt nu controleren en verbeteren van uw identiteit beveiligingspostuur met behulp van de identiteit van de score functie beveiligen in Azure AD. De identiteit van de beveiligde score functie gebruikt een dashboard om u te helpen:
+
+- Objectief meten het beveiligingspostuur van uw identiteit, op basis van een score 1 tot 223 op.
+
+- Uw identiteit verbeteringen in de beveiliging plannen
+
+- Het succes van uw verbeteringen in de beveiliging controleren
+
+Zie voor meer informatie over de identiteit score beveiligingsfunctie [wat is de beveiligde score identiteit in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score).
+
+---
+
+### <a name="new-app-registrations-experience-is-now-available-general-availability"></a>Nieuwe App-registraties ervaring is nu beschikbaar (algemene beschikbaarheid)
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Verificaties (aanmeldingen)  
+**Product-mogelijkheid:** Ervaring voor ontwikkelaars
+
+De nieuwe [App-registraties](https://aka.ms/appregistrations) ervaring is nu algemeen beschikbaar. Deze nieuwe ervaring omvat de belangrijkste functies die u bekend met van de Azure-portal en de toepassing-registratieportal bent en verbeterd via:
+
+- **Betere app-beheer.** In plaats van uw apps in andere portals ziet, kunt u nu al uw apps op één locatie bekijken.
+
+- **Eenvoudiger app-registratie.** Uit de verbeterde navigatie-ervaring in de manier waarop nieuwe machtiging selectie is het nu gemakkelijker om te registreren en beheren van uw apps.
+
+- **Meer gedetailleerde informatie.** U vindt meer informatie over uw app, inclusief snelstartgidsen en nog veel meer.
+
+Zie voor meer informatie, [identiteitsplatform van Microsoft](https://docs.microsoft.com/azure/active-directory/develop/) en de [App-registraties ervaring is nu algemeen beschikbaar.](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) aankondiging blog.
+
+---
+
+### <a name="new-capabilities-available-in-the-risky-users-api-for-identity-protection"></a>Nieuwe mogelijkheden beschikbaar in de riskante gebruikers-API voor Identity Protection
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Identiteitsbeveiliging  
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging
+
+We zijn trots aan u kunt nu de riskante gebruikers-API gebruiken om te halen van de geschiedenis van gebruikers risico, negeren riskante gebruikers en om te bevestigen van gebruikers, zoals aangetast. Deze wijziging kunt u efficiënter werken de status van de risico's van uw gebruikers en inzicht in de geschiedenis van hun risico.
+
+Zie voor meer informatie de [riskante gebruikers API-referentiedocumentatie](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2019"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - mei 2019
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Zakelijke Apps  
+**Product-mogelijkheid:** 3e partij integratie
+
+In mei 2019, hebben we deze 21 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
+
+[Freedcamp](https://docs.microsoft.com/azure/active-directory/saas-apps/freedcamp-tutorial), [echte koppelingen](https://docs.microsoft.com/azure/active-directory/saas-apps/real-links-tutorial), [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/), [eenvoudige aanmelding](https://docs.microsoft.com/azure/active-directory/saas-apps/simple-sign-tutorial), [Braze](https://docs.microsoft.com/azure/active-directory/saas-apps/braze-tutorial), [Displayr](https://docs.microsoft.com/azure/active-directory/saas-apps/displayr-tutorial), [Templafy](https://docs.microsoft.com/azure/active-directory/saas-apps/templafy-tutorial), [Marketo verkoop betrekken](https://toutapp.com/login), [ACLP](https://docs.microsoft.com/azure/active-directory/saas-apps/aclp-tutorial), [OutSystems](https://docs.microsoft.com/azure/active-directory/saas-apps/outsystems-tutorial), [Meta4 globale HR](https://docs.microsoft.com/azure/active-directory/saas-apps/meta4-global-hr-tutorial), [Quantum werkplek](https://docs.microsoft.com/azure/active-directory/saas-apps/quantum-workplace-tutorial), [kobalt](https://docs.microsoft.com/azure/active-directory/saas-apps/cobalt-tutorial), [webMethods API Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [RedFlag](https://pocketstop.com/redflag/), [Whatfix](https://docs.microsoft.com/azure/active-directory/saas-apps/whatfix-tutorial), [Besturingselement](https://docs.microsoft.com/azure/active-directory/saas-apps/control-tutorial), [JOBHUB](https://docs.microsoft.com/azure/active-directory/saas-apps/jobhub-tutorial), [NEOGOV](https://docs.microsoft.com/azure/active-directory/saas-apps/neogov-tutorial), [Foodee](https://docs.microsoft.com/azure/active-directory/saas-apps/foodee-tutorial), [MyVR](https://docs.microsoft.com/azure/active-directory/saas-apps/myvr-tutorial)
+
+Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Active Directory](https://aka.ms/appstutorial). Zie voor meer informatie over het aanbieden van uw toepassing in de Azure AD-app-galerie [uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="improved-groups-creation-and-management-experiences-in-the-azure-ad-portal"></a>Ervaringen met verbeterde groepen maken en beheren in de Azure AD-portal
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Groepsbeheer  
+**Product-mogelijkheid:** Samenwerking
+
+We hebben verbeteringen aangebracht in de ervaringen met betrekking tot groepen in de Azure AD-portal. Deze verbeteringen kunnen beheerders om lijsten met groepen, leden lijsten, beter te beheren en om het maken van extra opties te bieden.
+
+Verbeteringen zijn onder andere:
+
+- Standaardfilters toepassen door het lidmaatschapstype en het groepstype.
+
+- Toevoeging van nieuwe kolommen zoals bron- en e-mailadres.
+
+- Meervoudige selectie groepen, leden en de eigenaar van een lijst met voor eenvoudig verwijderen.
+
+- De mogelijkheid om te kiezen van een e-mailadres en eigenaren toevoegen tijdens het maken van beveiligingsgroepen.
+
+Zie voor meer informatie, [een basic-groep maken en leden met Azure Active Directory toevoegen](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+
+---
+
+### <a name="configure-a-naming-policy-for-office-365-groups-in-azure-ad-portal-general-availability"></a>Een naamgevingsbeleid voor Office 365-groepen configureren in Azure AD-portal (algemene beschikbaarheid)
+
+**Type:** Gewijzigde functie  
+**Categorie van de service:** Groepsbeheer  
+**Product-mogelijkheid:** Samenwerking
+
+Beheerders kunnen nu een naamgevingsbeleid voor Office 365-groepen, met behulp van de Azure AD-portal configureren. Deze wijziging helpt bij het afdwingen van consistente naamconventies voor Office 365-groepen gemaakt of bewerkt door gebruikers in uw organisatie.
+
+U kunt naamgevingsbeleid voor Office 365-groepen op twee verschillende manieren configureren:
+
+- Voorvoegsels of achtervoegsels, die automatisch worden toegevoegd aan de naam van een groep definiëren.
+
+- Upload een aangepaste set geblokkeerde woorden voor uw organisatie, deze zijn niet toegestaan in de namen van groepen (bijvoorbeeld "CEO, salarisadministratie, HR").
+
+Zie voor meer informatie, [naamgeving van beleid voor Office 365-groepen afdwingen](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-naming-policy).
+
+---
+
+### <a name="microsoft-graph-api-endpoints-are-now-available-for-azure-ad-activity-logs-general-availability"></a>Microsoft Graph API-eindpunten zijn nu beschikbaar voor Azure AD-activiteitenlogboeken (algemene beschikbaarheid)
+
+**Type:** Gewijzigde functie  
+**Categorie van de service:** Rapportage  
+**Product-mogelijkheid:** Bewaking en rapportage
+
+We kondigen de algemene beschikbaarheid van ondersteuning voor Microsoft Graph API-eindpunten voor Azure AD-activiteit de functie voor Logboeken. Met deze release kunt u nu gebruik versie 1.0 van de Azure AD controleren Logboeken, evenals de logboeken aanmelden API's.
+
+Zie voor meer informatie, [overzicht van Azure AD audit log API](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0).
+
+---
+
+### <a name="administrators-can-now-use-conditional-access-for-the-combined-registration-process-public-preview"></a>Beheerders kunnen nu voorwaardelijke toegang gebruiken voor het gecombineerde registratieproces (openbare preview)
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Voorwaardelijke toegang  
+**Product-mogelijkheid:** Identiteitbeveiliging en -beveiliging  
+
+Beheerders kunnen nu beleidsregels voor voorwaardelijke toegang voor gebruik door de registratiepagina van de gecombineerde maken. Dit omvat het toepassen van beleid voor het toestaan van inschrijving als:
+
+- Gebruikers zijn op een vertrouwd netwerk.
+
+- Gebruikers zijn een laag risico aanmelden.
+
+- Gebruikers zijn op een beheerd apparaat.
+
+- Gebruikers komen overeen met de voorwaarden van de organisatie van gebruik (gebruiksvoorwaarden).
+
+Voor meer informatie over voorwaardelijke toegang en het wachtwoord opnieuw instellen, ziet u de [voorwaardelijke toegang voor de Azure AD MFA gecombineerd en wachtwoord opnieuw instellen van registratie-ervaring-blogbericht](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348). Zie voor meer informatie over beleid voor voorwaardelijke toegang voor het gecombineerde registratieproces [beleid voor voorwaardelijke toegang voor de registratie van de gecombineerde](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration). Zie voor meer informatie over de Azure AD-termen van functie gebruiken, [Azure Active Directory gebruiksrechtovereenkomst gebruiken functie](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
+
+---
+
 ## <a name="april-2019"></a>April 2019
 
 ### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>Nieuwe Azure AD-bedreigingsdetectie intelligence is nu beschikbaar in vernieuwd Azure AD Identity Protection
@@ -53,7 +239,7 @@ Zie voor meer informatie over de vernieuwde versie van Azure AD Identity Protect
 
 ---
 
-### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure Active Directory (Azure AD) waar u recht op management is nu beschikbaar (openbare preview)
+### <a name="azure-ad-entitlement-management-is-now-available-public-preview"></a>Beheer van de rechten van een Azure AD is nu beschikbaar (openbare preview)
 
 **Type:** Nieuwe functie  
 **Categorie van de service:** Identiteitsbeheer  
@@ -69,7 +255,7 @@ Beheer van rechten voor Azure AD, nu helpt in openbare preview, klanten bij het 
 **Categorie van de service:** Groepsbeheer  
 **Product-mogelijkheid:** Samenwerking
 
-Beheerders kunnen nu een naamgevingsbeleid voor Office 365-groepen, met behulp van de Azure AD-portal configureren. Deze wijziging helpt bij het afdwingen van consistente naamconventies voor Office 365-groepen gemaakt of bewerkt door gebruikers in uw organisatie. 
+Beheerders kunnen nu een naamgevingsbeleid voor Office 365-groepen, met behulp van de Azure AD-portal configureren. Deze wijziging helpt bij het afdwingen van consistente naamconventies voor Office 365-groepen gemaakt of bewerkt door gebruikers in uw organisatie.
 
 U kunt naamgevingsbeleid voor Office 365-groepen op twee verschillende manieren configureren:
 
@@ -388,10 +574,10 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
 **Type:** Gewijzigde functie  
 **Categorie van de service:** Selfservice voor wachtwoord opnieuw instellen  
 **Product-mogelijkheid:** Gebruikersverificatie
- 
+
 In reactie op feedback van klanten, hebben we de gecombineerde MFA/SSPR-registratie preview-ervaring, uitgebreid uw gebruikers helpen bij het sneller hun beveiligingsgegevens registreren voor MFA en SSPR. 
 
-**Als u wilt inschakelen op de verbeterde ervaring voor uw gebruikers vandaag, de volgende stappen uit:**
+**Om in te schakelen op de verbeterde ervaring voor uw gebruikers nu als volgt te werk:**
 
 1. Als een globale beheerder of Gebruikerbeheerder, moet u zich aanmelden bij de Azure-portal en gaat u naar **Azure Active Directory > Instellingen > instellingen voor toegang tot deelvenster preview-functies beheren**. 
 
@@ -752,59 +938,5 @@ In November 2018, hebben we deze 26 nieuwe apps met Federatie ondersteuning aan 
 [CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial), [grijs Pe](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial), [eHour](https://getehour.com/try-now), [Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial), [Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [oneindige Campus](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial), [Alaya](https://alayagood.com/en/demo/), [ HeyBuddy](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial), [Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial), [Drift](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial), [Zenegy voor bedrijven centrale 365](https://accounting.zenegy.com/), [Everbridge lid Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial), [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial), [Plex Apps: Klassieke Test](https://test.plexonline.com/signon), [Plex Apps – klassiek](https://www.plexonline.com/signon), [Plex Apps - UX Test](https://test.cloud.plex.com/sso), [Plex Apps – UX](https://cloud.plex.com/sso), [Plex Apps – IAM](https://accounts.plex.com/), [KNUTSELEN - kinderopvang Records, aanwezigheid en financiële volgsysteem](https://getcrafts.ca/craftsregistration) 
 
 Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Active Directory](https://aka.ms/appstutorial). Zie voor meer informatie over het aanbieden van uw toepassing in de Azure AD-app-galerie [uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie](https://aka.ms/azureadapprequest).
-
----
-
-## <a name="october-2018"></a>Oktober 2018
-
-### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Logboeken in Azure AD werkt nu met Azure Log Analytics (preview-versie)
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Bewaking en rapportage
-
-We zijn trots te kunnen aankondigen dat u nu uw Azure AD-logboeken naar Azure Log Analytics doorsturen kunt. Deze functie meest gevraagde helpt u nog beter toegang geven tot analytics voor uw bedrijf, bewerkingen, en beveiliging, evenals een manier om u te helpen bij het beheren van uw infrastructuur. Zie voor meer informatie de [Azure Active Directory activiteitenlogboeken in Azure Log Analytics nu beschikbaar](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blog.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - oktober 2018
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Zakelijke Apps  
-**Product-mogelijkheid:** 3e partij integratie
- 
-In oktober 2018, hebben we deze 14 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
-
-[Mijn punten Award](https://docs.microsoft.com/azure/active-directory/saas-apps/myawardpoints-tutorial), [Vibe HCM](https://docs.microsoft.com/azure/active-directory/saas-apps/vibehcm-tutorial), ambyint, [MyWorkDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/myworkdrive-tutorial), [BorrowBox](https://docs.microsoft.com/azure/active-directory/saas-apps/borrowbox-tutorial), kiesvenster, [ON24 virtuele omgeving](https://docs.microsoft.com/azure/active-directory/saas-apps/on24-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial), [Zscaler drie](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-three-tutorial), [Phraseanet](https://docs.microsoft.com/azure/active-directory/saas-apps/phraseanet-tutorial), [Appraisd](https://docs.microsoft.com/azure/active-directory/saas-apps/appraisd-tutorial), [Workspot besturingselement](https://docs.microsoft.com/azure/active-directory/saas-apps/workspotcontrol-tutorial), [Shuccho Navi](https://docs.microsoft.com/azure/active-directory/saas-apps/shucchonavi-tutorial), [Glassfrog](https://docs.microsoft.com/azure/active-directory/saas-apps/glassfrog-tutorial)
-
-Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Active Directory](https://aka.ms/appstutorial). Zie voor meer informatie over het aanbieden van uw toepassing in de Azure AD-app-galerie [uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie](https://aka.ms/azureadapprequest).
-
----
-
-### <a name="azure-ad-domain-services-email-notifications"></a>Azure AD Domain Services-e-mailmeldingen
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Azure AD Domain Services  
-**Product-mogelijkheid:** Azure AD Domain Services
-
-Azure AD Domain Services biedt waarschuwingen in Azure portal over onjuiste configuraties of problemen met uw beheerde domein. Deze waarschuwingen bevatten stapsgewijze handleidingen, zodat u de problemen kunt oplossen kunt zonder dat contact opnemen met ondersteuning.
-
-Met ingang van oktober, zal het mogelijk om aan te passen van de meldingsinstellingen voor uw beheerde domein dus wanneer er nieuwe waarschuwingen optreden, een e-mailbericht is verzonden naar een aangewezen groep mensen, hoeft u niet voortdurend controleren van de portal voor updates.
-
-Zie voor meer informatie, [meldingsinstellingen in Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
-
----
-
-### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Azure AD portal ondersteunt het gebruik van het domein ForceDelete API voor aangepaste domeinen verwijderen 
-
-**Type:** Gewijzigde functie  
-**Categorie van de service:** Mapbeheer  
-**Product-mogelijkheid:** Directory
-
-We zijn trots aan u kunt nu het domein ForceDelete API gebruiken om te verwijderen van uw aangepaste domeinnamen asynchroon naam van referenties, zoals gebruikers, groepen en apps van uw aangepaste domeinnaam (contoso.com) terug naar de naam van de initiële standaard-domein ( Contoso.onmicrosoft.com).
-
-Deze wijziging kunt u snel uw aangepaste domeinnamen als uw organisatie de naam niet meer gebruikt, of te verwijderen als u nodig hebt voor het gebruik van de domeinnaam met een andere Azure AD.
-
-Zie voor meer informatie, [verwijderen van een aangepaste domeinnaam](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name).
 
 ---

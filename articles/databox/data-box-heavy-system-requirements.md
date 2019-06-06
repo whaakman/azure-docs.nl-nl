@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd2f96954cde367eb99d89e89bcf672b53dd590
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247992"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427736"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Azure Data Box zware systeemvereisten
+# <a name="azure-data-box-heavy-system-requirements-preview"></a>Azure Data Box zware systeemvereisten (preview)
 
 Dit artikel beschrijft de belangrijke systeemvereisten voor uw Azure Data Box zware apparaat en de clients die verbinding maken met het apparaat. Het is raadzaam om dat u de informatie zorgvuldig controleren voordat u uw Data Box-zwaar implementeert, en vervolgens terug naar deze zo nodig tijdens de implementatie en het volgende gebruik verwijzen.
 

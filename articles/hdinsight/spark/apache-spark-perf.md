@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724365"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476099"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark-taken optimaliseren
 
@@ -59,10 +59,10 @@ Wanneer u een nieuw Spark-cluster maakt, hebt u de optie voor het selecteren van
 
 | Store-Type | Bestandssysteem | Snelheid | Tijdelijke | Gebruiksvoorbeelden |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb [s]:**//url/ | **Standard** | Ja | Tijdelijke cluster |
-| Azure Data Lake Storage Gen 2| **abfs [s]:**//url/ | **Faster** | Ja | Tijdelijke cluster |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Faster** | Ja | Tijdelijke cluster |
-| Lokale HDFS | **hdfs:**//url/ | **Fastest** | Nee | Interactieve 24/7-cluster |
+| Azure Blob Storage | **wasb:** //url/ | **Standard** | Ja | Tijdelijke cluster |
+| Azure Data Lake Storage Gen 2| **abfs [s]:** //url/ | **Faster** | Ja | Tijdelijke cluster |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Faster** | Ja | Tijdelijke cluster |
+| Lokale HDFS | **hdfs:** //url/ | **Fastest** | Nee | Interactieve 24/7-cluster |
 
 ## <a name="use-the-cache"></a>De cache gebruiken
 
