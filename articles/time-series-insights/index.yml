@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/23/2019
+  ms.date: 06/03/2019
   ms.author: anshan
 abstract:
   description: 'Welkom bij Azure Time Series Insights. Azure Time Series Insights biedt krachtige hulpprogramma''s voor gegevensverkenning en telemetrie om u te helpen uw operationele analyse te verbeteren. In deze documentatie wordt de service beschreven, hoe u werkt met de vele functies, de client-SDK en de krachtige Time Series Insights-API''s. De informatie wordt voor twee versies gepresenteerd: een die al algemeen beschikbaar is (Time Series Insights GA) en een grote serviceupdate die nog in preview is (Time Series Insights Preview).'
@@ -46,9 +46,9 @@ sections:
         className: cardsD
         items:
           - title: Azure Time Series Insights GA
-            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Een omgeving maken</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Een web-app met één pagina maken</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">De JavaScript-clientbibliotheek verkennen</a></p>
+            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Een Azure Time Series Insights-omgeving maken</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Een web-app met één pagina maken</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">De JavaScript-clientbibliotheek verkennen</a></p>
           - title: Azure Time Series Insights preview
-            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Preview-zelfstudie</a></p>
+            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Een Time Series Insights Preview-omgeving instellen</a></p>
   - title: Naslaginformatie
     items:
       - type: list
@@ -56,6 +56,8 @@ sections:
         className: cardsD
         items:
           - title: Time Series Insights GA-API's
-            html: <p><a href="/rest/api/time-series-insights-management">Resource Management-API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Query-API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Querysyntaxis</a></p>
+            html: <p><a href="rest/api/time-series-insights/ga">Gegevenstoegang</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Query-API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Querysyntaxis</a></p>
           - title: Time Series Insights preview-API's
             html: <p><a href="/rest/api/time-series-insights/preview-query">Query-API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Model-API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Omgevings-API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Time Series-expressie-API</a></p>
+          - title: Client-SDK
+            html: '<p><a href="https://github.com/microsoft/tsiclient/blob/master/docs/API.md">JavaScript-client-SDK</a></p>'

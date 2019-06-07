@@ -1,7 +1,11 @@
 - name: Overzicht
   items:
-    - name: Overwegingen voor virtuele Oracle-machines
-      href: oracle-considerations.md
+    - name: Overzicht van Oracle-oplossingen
+      href: oracle-overview.md
+    - name: Oplossingen in Azure-VM's
+      href: oracle-vm-solutions.md
+    - name: Oplossingen met OCI - preview
+      href: oracle-oci-overview.md
 - name: Snelstartgidsen
   items:
     - name: Een Oracle-DB maken
@@ -10,7 +14,7 @@
   items:
     - name: Oracle ASM configureren
       href: configure-oracle-asm.md
-    - name: Oracle DataGuard configureren
+    - name: Oracle Data Guard configureren
       href: configure-oracle-dataguard.md
     - name: Oracle GoldenGate configureren
       href: configure-oracle-golden-gate.md

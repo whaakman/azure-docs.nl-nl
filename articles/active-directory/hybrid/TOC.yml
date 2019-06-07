@@ -18,6 +18,10 @@
       href: tutorial-phs-backup.md
 - name: Concepten
   items:
+    - name: Hybride identiteit
+      items:
+        - name: Beheer van on-premises workloads in de cloud
+          href: cloud-governed-management-for-on-premises.md
     - name: Azure AD Connect en Connect Health
       items:
         - name: Wat zijn Azure AD Connect en Connect Health?

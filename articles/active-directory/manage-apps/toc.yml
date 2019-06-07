@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overzicht
   items:
-    - name: Over toepassingsbeheer
+    - name: Wat is toepassingsbeheer?
       href: what-is-application-management.md
+    - name: Wat is toepassingsproxy?
+      href: what-is-application-proxy.md
 - name: Snelstartgidsen
   expanded: true
   items:

@@ -42,6 +42,8 @@
           href: render-coverage.md
         - name: Dekking voor routering
           href: routing-coverage.md
+        - name: Mobility-dekking
+          href: mobility-coverage.md
     - name: Lokalisatieondersteuning
       href: supported-languages.md
     - name: Ondersteunde kaartstijlen
@@ -50,6 +52,8 @@
       href: supported-browsers.md
     - name: Zoomniveaus en tegelraster
       href: zoom-levels-and-tile-grid.md
+    - name: Gegevensstructuur van de Mobility Service
+      href: mobility-service-data-structure.md
 - name: Handleidingen
   items:
     - name: Maps-accounts beheren
@@ -70,6 +74,10 @@
           href: how-to-use-best-practices-for-search.md
         - name: Aangepaste gegevens weergeven op een statische kaart
           href: how-to-render-custom-data.md
+        - name: Openbare doorvoerroutes aanvragen
+          href: how-to-request-transit-data.md
+        - name: Realtime openbare doorvoergegevens aanvragen
+          href: how-to-request-real-time-data.md
     - name: Ontwikkelen met de Web SDK
       items:
         - name: Kaartbesturingselement
