@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 32e92cb8cd6cd5d16ea8d38d178bb440420e6784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa423fc441c50c774a9670feec64d0f844a4f5ec
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712114"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755271"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Zelfstudie: Een virtuele Windows-machine bewaken en bijwerken in Azure
 
@@ -168,29 +168,25 @@ Als u updates wilt installeren, plant u een implementatie na uw release-planning
 
 Plan een nieuwe update-implementatie voor de VM door te klikken op **Update-implementatie plannen** boven aan het scherm **Updatebeheer**. Geef de volgende gegevens op in het scherm **Nieuwe update-implementatie**:
 
-* **Naam**: geef een unieke naam op voor het identificeren van de update-implementatie.
-* **Updateclassificatie**: selecteer de typen software die de update-implementatie moet opnemen in de implementatie. De classificatietypen zijn:
-  * Essentiële updates
-  * Beveiligingsupdates
-  * Updatepakketten
-  * Functiepakketten
-  * Servicepacks
-  * Definitie-updates
-  * Hulpprogramma's
-  * Updates
+Voor het maken van een nieuwe update-implementatie selecteert **update-implementatie plannen**. De **nieuwe update-implementatie** pagina wordt geopend. Voer waarden in voor de eigenschappen die worden beschreven in de volgende tabel en klik vervolgens op **maken**:
 
-* **Schema-instellingen**: u kunt de standaarddatum en -tijd accepteren (30 minuten na de huidige tijd) of een andere tijd opgeven.
-  U kunt ook opgeven of de implementatie eenmaal moet worden uitgevoerd of een planning met meerdere implementaties instellen. Klik op de optie Terugkerend onder Terugkeerpatroon om een terugkerende planning in te stellen.
+| Eigenschap | Description |
+| --- | --- |
+| Name |Unieke naam voor het identificeren van de update-implementatie. |
+|Besturingssysteem| Linux of Windows|
+| Groepen om bij te werken |Voor machines in Azure, door een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie te definiëren. </br></br>Selecteer een bestaand opgeslagen zoekopdracht om te selecteren van een groep met niet-Azure-machines om op te nemen in de implementatie voor niet-Azure-machines. </br></br>Zie [Dynamische groepen](../../automation/automation-update-management.md#using-dynamic-groups) voor meer informatie|
+| Bij te werken computers |selecteer een opgeslagen zoekopdracht of geïmporteerde groep, of kies Computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Azure Monitorlogboeken](../../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Azure Monitor-logboeken |
+|Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
+|Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](../../automation/automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt |
+|Schema-instellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
+| Scripts die voorafgaan aan en scripts die volgen|Selecteer de scripts worden uitgevoerd vóór en na de implementatie|
+| Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde mag niet kleiner zijn dan 30 minuten en niet meer dan 6 uur |
+| Opnieuw opstarten van besturingselement| Bepaalt hoe vaak opnieuw opstarten moeten worden verwerkt. De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
 
-  ![Scherm met instellingen voor de updateplanning](./media/tutorial-monitoring/manageupdates-schedule-win.png)
-
-* **Onderhoudsvenster (minuten)**: geef op binnen welke periode de update-implementatie moet plaatsvinden.  Dit zorgt ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde servicevensters.
+Update-implementaties kunnen ook programmatisch worden gemaakt. Zie voor meer informatie over het maken van een Update-implementatie met de REST-API, [configuraties van Software-Update - maken](/rest/api/automation/softwareupdateconfigurations/create). Er is ook een voorbeeldrunbook dat kan worden gebruikt om een wekelijkse Update-implementatie te maken. Zie voor meer informatie over dit runbook, [een wekelijkse update-implementatie voor een of meer virtuele machines in een resourcegroep maken](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 Nadat u klaar bent met het configureren van de planning, klikt u op de knop **Maken** en gaat u terug naar het statusdashboard.
 U ziet dat de tabel **Gepland** de implementatieplanning weergeeft die u hebt gemaakt.
-
-> [!WARNING]
-> Voor updates waarvoor opnieuw opstarten is vereist, wordt de VM automatisch opnieuw opgestart.
 
 ### <a name="view-results-of-an-update-deployment"></a>Resultaten van een update-implementatie weergeven
 

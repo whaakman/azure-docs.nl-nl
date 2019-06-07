@@ -61,19 +61,18 @@
       href: security-center-policies-overview.md
     - name: Basislijnen vergelijken met Bestandsintegriteit controleren
       href: security-center-file-integrity-monitoring-baselines.md
-      items:
-        - name: Gegevensverzameling
-          href: security-center-enable-data-collection.md
-        - name: Ingebouwd beveiligingsbeleid
-          href: security-center-policy-definitions.md
-        - name: E-mailmeldingen
-          href: security-center-provide-security-contact-details.md
-        - name: Prijscategorie
-          href: security-center-pricing.md
-        - name: Beveiligingsconfiguraties
-          href: security-center-customize-os-security-config.md
-        - name: Tenant-brede zichtbaarheid
-          href: security-center-management-groups.md
+    - name: Gegevensverzameling
+      href: security-center-enable-data-collection.md
+    - name: Ingebouwd beveiligingsbeleid
+      href: security-center-policy-definitions.md
+    - name: E-mailmeldingen
+      href: security-center-provide-security-contact-details.md
+    - name: Prijscategorie
+      href: security-center-pricing.md
+    - name: Beveiligingsconfiguraties
+      href: security-center-customize-os-security-config.md
+    - name: Tenant-brede zichtbaarheid
+      href: security-center-management-groups.md
     - name: Aanbevelingen voor beveiliging implementeren
       href: security-center-recommendations.md
       items:

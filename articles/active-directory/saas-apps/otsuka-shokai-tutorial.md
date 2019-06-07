@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481157"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752461"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Zelfstudie: Otsuka Shokai integreren met Azure Active Directory
 
@@ -79,14 +79,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. Op de pagina **Eenmalige aanmelding instellen met SAML** voert u de volgende stappen uit:
-
-    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-    > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem contact op met [Otsuka Shokai Client ondersteuningsteam](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+1. Op de **instellen van eenmalige aanmelding met SAML** pagina, de toepassing is vooraf geconfigureerd en de vereiste URL's al vooraf zijn ingevuld met Azure. De gebruiker moet de configuratie op te slaan door te klikken op de **opslaan** knop.
 
 1. Otsuka Shokai toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende schermafbeelding ziet u de lijst met standaardkenmerken, waar u als **nameidentifier** is toegewezen met **user.userprincipalname**. Otsuka Shokai toepassing verwacht **nameidentifier** worden toegewezen met **user.objectid**, dus u de kenmerktoewijzing van het bewerken moet door te klikken op **Bewerken**  pictogram en wijzig de kenmerktoewijzing.
 
@@ -139,7 +132,7 @@ In deze sectie maakt u een testgebruiker in Azure portal B. Simon genoemd.
 1. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 1. In de **gebruiker** eigenschappen als volgt te werk:
    1. Voer in het veld **Naam** `B. Simon` in.  
-   1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `BrittaSimon@contoso.com`.
+   1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `B.Simon@contoso.com`.
    1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
    1. Klik op **Create**.
 
@@ -163,7 +156,7 @@ In deze sectie schakelt u B. Simon Azure eenmalige aanmelding door toegang te ve
 
 ### <a name="create-otsuka-shokai-test-user"></a>Otsuka Shokai testgebruiker maken
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Otsuka Shokai. Werken met [Otsuka Shokai ondersteuningsteam](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) om toe te voegen de gebruikers in het Otsuka Shokai-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie maakt u een gebruiker met de naam van B.Simon in Otsuka Shokai. Werken met [Otsuka Shokai ondersteuningsteam](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) om toe te voegen de gebruikers in het Otsuka Shokai-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-sso"></a>Test eenmalige aanmelding
 
