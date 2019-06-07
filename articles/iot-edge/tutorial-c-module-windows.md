@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 79f3b125a4cb88b3555cf13aa4d4bc5c430df166
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 49f853341edab7c7dc92f72472b81f7fb22c0ad8
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303903"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808757"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Zelfstudie: Een C IoT Edge-module voor Windows-apparaten ontwikkelen
 
@@ -104,29 +104,33 @@ Het manifest implementatie deelt de referenties voor uw container registry met d
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. Sla het bestand deployment.template.json op. 
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>De module bijwerken met aangepaste code
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+De code van de standaard-module ontvangt berichten van een wachtrij en geeft ze via een uitvoerwachtrij. We gaan enkele aanvullende code toevoegen zodat de module berichten aan de rand worden verwerkt voordat ze worden doorgestuurd naar IoT Hub. De module bijwerken zodat deze de temperatuurgegevens in elk bericht analyseert en alleen het bericht naar IoT Hub verzonden als de temperatuur van een bepaalde drempelwaarde overschrijdt. 
 
 
-1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
+1. De gegevens van de sensor in dit scenario worden in JSON-indeling aangeleverd. Als u berichten wilt filteren in een JSON-indeling, moet u een JSON-bibliotheek voor C importeren. In deze zelfstudie wordt Parson gebruikt.
 
-   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
+   1. Download de [Parson GitHub-opslagplaats](https://github.com/kgabis/parson). Kopieer de **parson.c** en **parson.h** bestanden in de **CModule** project.
 
-   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
+   2. Open in Visual Studio, de **CMakeLists.txt** -bestand van de projectmap CModule. Importeer boven in het bestand de Parson-bestanden als een bibliotheek met de naam **my_parson**.
 
       ```
-      add_library(my_parson        parson.c        parson.h    )
+      add_library(my_parson
+          parson.c
+          parson.h
+      )
       ```
 
-   3. Add **my_parson** to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
+   3. Voeg **my_parson** aan de lijst met bibliotheken in de **target_link_libraries** sectie van het bestand CMakeLists.txt.
 
-   4. Save the **CMakeLists.txt** file.
+   4. Sla het bestand **CMakeLists.txt** op.
 
-   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. Open **CModule** > **main.c**. Onder aan de lijst met instructies, toevoegen van een nieuw account om op te nemen `parson.h` voor JSON-ondersteuning:
 
       ```c
       #include "parson.h"

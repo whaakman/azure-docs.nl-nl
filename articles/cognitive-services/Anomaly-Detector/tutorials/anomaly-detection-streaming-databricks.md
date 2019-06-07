@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: d1808bb88ac1bb27f2fd0652585521fbb2abdf56
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734668"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807481"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Zelfstudie: Detectie van afwijkingen in streaming-gegevens met behulp van Azure Databricks
 
-[Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) is een snel, eenvoudig en gezamenlijke op basis van Apache Spark analytics-service. De API voor Afwijkingsdetectie Detector, onderdeel van Azure Cognitive Services, biedt een manier om uw time series-gegevens controleren. Gebruik deze handleiding om detectie van afwijkingen op een stream met gegevens in bijna-realtime uitgevoerd met behulp van Azure Databricks. U twitter-gegevens met Azure Event Hubs opnemen, en ze importeren in Azure Databricks met behulp van de Spark Event Hubs-connector. Daarna gebruikt u de API voor het detecteren van afwijkingen op de gestreamde gegevens. 
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) is een snel, eenvoudig en gezamenlijke op basis van Apache Spark analytics-service. De API voor Afwijkingsdetectie Detector, onderdeel van Azure Cognitive Services, biedt een manier om uw time series-gegevens controleren. Gebruik deze handleiding om detectie van afwijkingen op een stream met gegevens in bijna-realtime uitgevoerd met behulp van Azure Databricks. U twitter-gegevens met Azure Event Hubs opnemen, en ze importeren in Azure Databricks met behulp van de Spark Event Hubs-connector. Daarna gebruikt u de API voor het detecteren van afwijkingen op de gestreamde gegevens. 
 
 In de volgende afbeelding wordt de stroom van de toepassing weergegeven:
 

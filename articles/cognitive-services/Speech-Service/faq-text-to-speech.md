@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: d93de4ff3f6dd00ac049ea9d83aebb7aad07137e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539006"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751620"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Veelgestelde vragen over de tekst naar spraak
 
@@ -33,7 +33,7 @@ Als u geen antwoorden op uw vragen in deze Veelgestelde vragen vinden, bekijk da
 
 **V: Als ik wil een aangepaste spraak-model gebruiken, is de API hetzelfde als de waarde die wordt gebruikt voor standard stemmen?**
 
-**A**: Als een aangepaste spraak-model wordt gemaakt en geïmplementeerd, krijgt u een unieke eindpunt voor uw model. Voor het gebruik van de stem te spreken in uw apps, moet u het eindpunt opgeven in de HTTP-aanvragen. Dezelfde functionaliteit die beschikbaar is in de REST-API voor de Text to Speech-service is beschikbaar voor uw aangepast eindpunt. Meer informatie over het [maken en gebruiken van uw aangepast eindpunt](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**A**: Als een aangepaste spraak-model wordt gemaakt en geïmplementeerd, krijgt u een unieke eindpunt voor uw model. Voor het gebruik van de stem te spreken in uw apps, moet u het eindpunt opgeven in de HTTP-aanvragen. Dezelfde functionaliteit die beschikbaar is in de REST-API voor de Text to Speech-service is beschikbaar voor uw aangepast eindpunt. Meer informatie over het [maken en gebruiken van uw aangepast eindpunt](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
 
 **V: Heb ik nodig om voor te bereiden van de trainingsgegevens aangepaste gesproken om modellen te maken op mijn eigen?**
 
@@ -41,7 +41,7 @@ Als u geen antwoorden op uw vragen in deze Veelgestelde vragen vinden, bekijk da
 
 Een verzameling spraakgegevens is vereist voor het maken van een aangepaste spraak-model. Deze verzameling bestaat uit een set van audio-bestanden van opnamen van spraak en een tekstbestand met de schrijffouten van elk bestand audio. Het resultaat van uw digitale stem is sterk afhankelijk van de kwaliteit van uw trainingsgegevens. Voor het produceren van een goede tekst-naar-spraak, is het belangrijk dat de opnamen die worden aangebracht in een stille ruimte met een hoge kwaliteit, permanente microfoon. Een consistente volume spreken snelheid en spreekstijl inspiratie en zelfs consistentie in expressieve gebaren van spraak zijn essentieel voor het bouwen van een geweldige digitale stem. Wij raden de stemmen op te nemen in een opname-studio.
 
-We niet op dit moment bieden ondersteuning voor online registratie of registratie studio aanbevelingen hebt. Zie voor de vereiste indeling [voorbereiden opnamen en transcripties](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+We niet op dit moment bieden ondersteuning voor online registratie of registratie studio aanbevelingen hebt. Zie voor de vereiste indeling [voorbereiden opnamen en transcripties](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
 
 **V: Welke scripts moet ik gebruiken om vast te leggen van de gegevens die via spraak voor aangepaste gesproken training?**
 

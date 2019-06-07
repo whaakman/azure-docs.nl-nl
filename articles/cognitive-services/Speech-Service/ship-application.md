@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 9bb721221f8f90a39b1c84bcdd66429bbd628494
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65912663"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808455"
 ---
 # <a name="ship-an-application"></a>Verzenden van een toepassing
 
@@ -30,8 +30,8 @@ De Cognitive Services Speech SDK is getest op Windows 10 en Windows Server 2016.
 
 De Cognitive Services Speech SDK vereist de [Microsoft Visual C++ Redistributable voor Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) op het systeem. U kunt downloaden installatieprogramma's voor de nieuwste versie van de `Microsoft Visual C++ Redistributable for Visual Studio 2019` hier:
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 Als uw toepassing gebruikmaakt van beheerde code, de `.NET Framework 4.6.1` of hoger is vereist op de doelcomputer.
 

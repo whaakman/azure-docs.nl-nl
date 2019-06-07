@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: wellsi
-ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237938"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751809"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Opmerkingen bij de release van Cognitive Services spraak Devices SDK
 De volgende secties lijst met wijzigingen in de meest recente versies.
@@ -49,7 +49,7 @@ De volgende secties lijst met wijzigingen in de meest recente versies.
 
 **Belangrijke wijzigingen** 
 
-*   [Installeren van een woord wake](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) is vereenvoudigd, het is nu onderdeel van de app en hiervoor hoeft geen afzonderlijke installatie op het apparaat.
+*   [Installeren van een woord wake](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) is vereenvoudigd, het is nu onderdeel van de app en hiervoor hoeft geen afzonderlijke installatie op het apparaat.
 *   De opname van wake word is gewijzigd en twee gebeurtenissen worden ondersteund.
     - RecognizingKeyword, geeft aan dat het resultaat van spraak (niet-geverifieerde) sleutelwoord tekst bevat.
     - RecognizedKeyword, geeft aan dat sleutelwoord de opname voltooid herkennen van het opgegeven trefwoord.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad211eef673731a856c4db99fe0b4712217b23e5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66139475"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808482"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Zelfstudie: Een ASP.NET Core en SQL Database-app in Azure App Service maken
 
@@ -148,7 +148,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 
 ### <a name="create-connection-string"></a>Verbindingsreeks maken
 
-Vervang de volgende reeks door de waarden *\<server_name>*, *\<db_username>* en *\<db_password>* die u eerder hebt gebruikt.
+Vervang de volgende reeks door de waarden *\<server_name>* , *\<db_username>* en *\<db_password>* die u eerder hebt gebruikt.
 
 ```
 Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
@@ -182,7 +182,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Vervolgens stelt u de instelling voor de app `ASPNETCORE_ENVIRONMENT` in op _Productie_. Deze instelling betekent dat u de app in Azure uitvoert omdat u SQLite gebruikt voor uw lokale ontwikkelomgeving en SQL Database voor uw Azure-omgeving.
 
-In het volgende voorbeeld wordt de app-instelling `ASPNETCORE_ENVIRONMENT` in de Azure-app geconfigureerd. Vervang de tijdelijke aanduiding *\<app_name>*.
+In het volgende voorbeeld wordt de app-instelling `ASPNETCORE_ENVIRONMENT` in de Azure-app geconfigureerd. Vervang de tijdelijke aanduiding *\<app_name>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -371,7 +371,7 @@ Alle bestaande taakitems worden nog steeds weergegeven. Als u de .NET Core-app o
 
 Terwijl uw ASP.NET Core-app wordt uitgevoerd in Azure App Service, kunt u de consolelogboeken doorsluizen naar de Cloud Shell. Op die manier krijgt u de dezelfde diagnostische berichten om toepassingsfouten op te sporen.
 
-Het voorbeeldproject volgt al de instructies in [ASP.NET Core-logboekregistratie in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) met twee configuratiewijzigingen:
+Het voorbeeldproject volgt al de instructies in [ASP.NET Core-logboekregistratie in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) met twee configuratiewijzigingen:
 
 - Bevat een verwijzing naar `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
 - Roept `loggerFactory.AddAzureWebAppDiagnostics()` aan in *Startup.cs*.

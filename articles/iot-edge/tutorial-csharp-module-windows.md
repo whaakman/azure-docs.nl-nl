@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303937"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808768"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Zelfstudie: Ontwikkel een C# IoT Edge-module voor Windows-apparaten
 
@@ -104,16 +104,17 @@ Het manifest implementatie deelt de referenties voor uw container registry met d
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. Sla het bestand deployment.template.json op. 
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>De module bijwerken met aangepaste code
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+De code van de standaard-module ontvangt berichten van een wachtrij en geeft ze via een uitvoerwachtrij. We gaan enkele aanvullende code toevoegen zodat de module berichten aan de rand worden verwerkt voordat ze worden doorgestuurd naar IoT Hub. De module bijwerken zodat deze de temperatuurgegevens in elk bericht analyseert en alleen het bericht naar IoT Hub verzonden als de temperatuur van een bepaalde drempelwaarde overschrijdt. 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. Open in Visual Studio, **CSharpModule** > **Program.cs**.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. Voeg bovenaan de naamruimte **CSharpModule** drie **using**-instructies toe voor typen die later worden gebruikt:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

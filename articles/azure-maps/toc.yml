@@ -154,6 +154,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/data'
         - name: Geolocatie-service
           href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: Mobility-service
+          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Service voor rendering
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Routeservice
