@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455695"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751896"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
@@ -74,7 +74,7 @@ Om de lijst met Software als een Service (SaaS) met commerciële Marketplace op 
 
 - Uw aanbod moet compatibel zijn met Azure-clients. (Vaak SaaS-apps worden gehost op Azure voor optimale prestaties en compatibiliteit, maar dit is geen vereiste.) 
 - Uw aanbieding moet gebruiken [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) voor de verificatie en identiteitsbeheer.
-- Uw aanbieding moet gebruiken [SaaS-API's voor vervulling](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) om te integreren met de Azure Marketplace.
+- Uw aanbieding moet gebruiken [SaaS-API's voor vervulling](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) om te integreren met de Azure Marketplace.
 
 #### <a name="billing-infrastructure-costs"></a>Infrastructuurkosten voor facturering
 SaaS-aanbiedingen, u, als de uitgever moet rekening houden voor de infrastructuur van Azure-gebruikskosten en softwarelicentiekosten als een item eenmalige kosten. Deze kosten wordt weergegeven als een vaste maandelijkse kosten voor de klant. Gebruik Azure-infrastructuur wordt beheerd en kosten in rekening gebracht, kunt u de partner direct. Werkelijke infrastructuur gebruikskosten zijn niet zichtbaar voor de klant. Uitgevers is doorgaans ervoor kiezen te bundelen gebruikskosten voor Azure-infrastructuur in de software-licentie prijzen. 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400233"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753173"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Geautomatiseerde ML experimenten in Python configureren
 
@@ -158,7 +158,7 @@ Aangepaste validatie-gegevensset als willekeurige splitsen niet geaccepteerd wor
 
 Vervolgens kunt u bepalen waar u het model wordt getraind. Een geautomatiseerde machine learning-trainingsexperiment kunt uitvoeren op de volgende compute-opties:
 *   Uw lokale machine, zoals een lokale desktop of laptop – algemeen wanneer u kleine gegevensset hebt en u bent nog steeds in de fase verkennen.
-*   Een externe computer in de cloud, [Azure Machine Learning-beheerd Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) is een beheerde service die het mogelijk om te trainen op clusters virtuele machines van Azure machine learning-modellen.
+*   Een externe computer in de cloud, [Azure Machine Learning-beheerd Compute](concept-compute-target.md#amlcompute) is een beheerde service die het mogelijk om te trainen op clusters virtuele machines van Azure machine learning-modellen.
 
 Zie de [GitHub-site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) bijvoorbeeld-notebooks met lokale en externe compute-doelen.
 

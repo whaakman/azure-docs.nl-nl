@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: cdf2a1a730be657b41c7a4b2daf2f178661394b4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 2a494b924107baeabbcf412af7e1bbdb1db0f753
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947112"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752020"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Wat is er nieuw in Azure Application Gateway?
 
@@ -27,6 +27,7 @@ Azure Application Gateway wordt regelmatig bijgewerkt. Als u wilt bijhouden met 
 
 |Functie  |Description  |Datum toegevoegd  |
 |---------|---------|---------|
+|Aangepaste WAF-regels |Applicaiton Gateway WAF_v2 now supports creating custom rules. Zie [aangepaste regels voor Application Gateway](custom-waf-rules-overview.md). |Juni 2019 |
 |Automatisch schalen, zoneredundantie, ondersteuning voor statische VIP algemeen beschikbaar |Algemene beschikbaarheid voor de v2-SKU die ondersteunt automatisch schalen, zoneredundantie, betere prestaties, statische VIP's, Key Vault, Header herschrijven. Zie [Application Gateway-documentatie voor automatisch schalen](application-gateway-autoscaling-zone-redundant.md). |April 2019 |
 |Key Vault-integratie |Application Gateway ondersteunt nu de integratie met Key Vault (in openbare preview) voor certificaten die zijn gekoppeld aan de HTTPS-functionaliteit listeners. Zie [SSL-beëindiging met Key Vault-certificaten](key-vault-certs.md). |April 2019 |
 |Koptekst CRUD/Regeneraties     |U kunt nu de HTTP-headers herschrijven. Zie [zelfstudie: Een toepassingsgateway maken en te herschrijven van HTTP-headers](tutorial-http-header-rewrite-powershell.md) voor meer informatie.|December 2018|

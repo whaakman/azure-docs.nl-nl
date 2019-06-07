@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480054"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753188"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Hoe werkt de Azure Machine Learning-service: Architectuur en concepten
 
@@ -27,7 +27,7 @@ Meer informatie over de architectuur, de concepten en de werkstroom voor Azure M
 
 De machine learning-werkstroom volgt in het algemeen in deze reeks:
 
-1. Machine learning-scripts in Trainingen ontwikkelen **Python**.
+1. Machine learning-scripts in Trainingen ontwikkelen **Python** of met de visuele interface.
 1. Maken en configureren van een **compute-doel**.
 1. **Verzenden van de scripts** naar de geconfigureerde compute-doel om uit te voeren in die omgeving. Tijdens de training, de scripts kunnen lezen of schrijven naar **gegevensopslag**. En worden de records van de uitvoering van opgeslagen als **wordt uitgevoerd** in de **werkruimte** en gegroepeerd onder **experimenten**.
 1. **Query uitvoeren op het experiment** geregistreerde voor metrische gegevens van de huidige en eerdere uitvoeringen. Als de metrische gegevens een gewenste resultaat geven, lus terug naar stap 1 en ze opnieuw testen op uw scripts.
@@ -107,34 +107,7 @@ De Python SDK-API of de Azure Machine Learning CLI gebruiken voor het opslaan en
 
 ## <a name="compute-target"></a>COMPUTE-doel
 
-Een compute-doel is de compute-resource die u kunt uw trainingsscript uitgevoerd of host voor uw service-implementatie. De ondersteunde compute-doelen zijn:
-
-| COMPUTE-doel | Training | Implementatie |
-| ---- |:----:|:----:|
-| Uw lokale computer | ✓ | &nbsp; |
-| Azure Machine Learning-Computing | ✓ | &nbsp; |
-| Een virtuele Linux-machine in Azure</br>(zoals de Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics | ✓ | &nbsp; |
-| Apache Spark voor HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| Field-programmable gate array (FPGA) | &nbsp; | ✓ |
-
-COMPUTE-doelen zijn gekoppeld aan een werkruimte. COMPUTE-doelen dan de lokale computer worden gedeeld door gebruikers van de werkruimte.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>Beheerde en onbeheerde compute-doelen
-
-* **Beheerde**: COMPUTE-doelen die worden gemaakt en beheerd door Azure Machine Learning-service. Deze compute-doelen zijn geoptimaliseerd voor workloads van machine learning. Azure Machine Learning-Computing is de enige beheerde compute-doel vanaf 4 December 2018. Aanvullende beheerde compute-doelen kunnen in de toekomst worden toegevoegd.
-
-    U kunt machine learning maken rekenprocessen rechtstreeks via de werkruimte met behulp van de Azure portal, de Azure Machine Learning-SDK of de Azure CLI. Alle andere compute-doelen moeten worden gemaakt buiten de werkruimte en vervolgens gekoppeld.
-
-* **Niet-beheerde**: COMPUTE-doelen die zijn *niet* beheerd door Azure Machine Learning-service. Mogelijk moet u ze buiten Azure Machine Learning te maken en koppelt u ze aan uw werkruimte vóór gebruik. Niet-beheerde compute-doelen kunnen extra stappen moeten worden voor u te houden of om de prestaties voor machine learning-workloads te verbeteren.
-
-Zie voor meer informatie over het selecteren van een compute-doel voor de training [selecteren en gebruiken van een compute-doel aan uw model te trainen](how-to-set-up-training-targets.md).
-
-Zie voor meer informatie over het selecteren van een compute-doel voor de implementatie van de [Implementeer modellen met Azure Machine Learning-service](how-to-deploy-and-where.md).
+Een [compute-doel](concept-compute-target.md) kunt u om op te geven van de compute-resource waar u uw service-implementatie uw trainingsscript of de host uitvoeren. Deze locatie mogelijk op uw lokale computer of een cloud-gebaseerde compute-resource. COMPUTE-doelen kunnen eenvoudig uw compute-omgeving wijzigen zonder uw code te wijzigen. 
 
 ## <a name="training-script"></a>Trainingsscript
 

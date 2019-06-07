@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121498"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752555"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -279,7 +279,7 @@ De volgende tabel geeft een lijst van en beschrijft integratiescenario's:
 |[Overzicht van de toepassing](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Bekijk de onderdelen van uw app met belangrijke metrische gegevens en waarschuwingen.|
 |[Diagnostische gegevens over zoeken bijvoorbeeld gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| U kunt zoeken naar gebeurtenissen, zoals aanvragen, uitzonderingen, afhankelijkheidsaanroepen, logboektraceringen en paginaweergaven en deze gegevens ook filteren.|
 |[Metrics Explorer voor cumulatieve gegevens](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Verken, filter en segmenteer cumulatieve gegevens, zoals aantallen aanvragen, fouten en uitzonderingen, reactietijden en paginalaadtijden.|
-|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combineer gegevens van meerdere resources tot een mash-up en deel deze met anderen. Ideaal voor toepassingen met meerdere onderdelen en om continu weer te geven in de teamkamer.|
+|[Dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|Combineer gegevens van meerdere resources tot een mash-up en deel deze met anderen. Ideaal voor toepassingen met meerdere onderdelen en om continu weer te geven in de teamkamer.|
 |[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Wanneer u een nieuwe build implementeert, kunt u kijken naar deze 'near-realtime' prestatie-indicatoren om te controleren of dat alles naar verwachting werkt.|
 |[Analytische gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Beantwoord moeilijke vragen over de prestaties en het gebruik van uw app met behulp van deze krachtige querytaal.|
 |[Automatische en handmatige waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatische waarschuwingen Anticipeer op de normale patronen van telemetrie van uw app en worden geactiveerd wanneer er iets buiten het normale patroon. U kunt ook waarschuwingen instellen voor bepaalde niveaus van aangepaste functies of standaardfuncties voor het verzamelen van metrische gegevens.|
@@ -330,7 +330,7 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 
 | Service | Resourcetype | Logboeken | Metrische gegevens | Oplossing |
 | :------ | :------------ | :--- | :------ | :------- |
-|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnostiek|Diagnostiek|    [Azure-toepassing](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnostiek|Diagnostiek|    [Azure-toepassing](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     Connector|  Connector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (Preview)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Azure Automation-accounts| Microsoft.Automation/<br>AutomationAccounts|    Diagnostiek||       [Meer informatie](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Azure Batch-accounts|  Microsoft.Batch/<br>batchAccounts|  Diagnostiek|    Diagnostiek||
@@ -338,20 +338,20 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 |Cognitive Services|    Microsoft.CognitiveServices/<br>accounts|       Diagnostiek|||
 |Azure Data Lake Analytics| Microsoft.DataLakeAnalytics/<br>accounts|   Diagnostiek|||
 |Azure Data Lake Store| Microsoft.DataLakeStore/<br>accounts|   Diagnostiek|||
-|Azure Event Hub-naamruimte| Microsoft.EventHub/<br>naamruimten|  Diagnostiek|    Diagnostiek||
+|Azure Event Hub-naamruimte| Microsoft.EventHub/<br>Naamruimten|  Diagnostiek|    Diagnostiek||
 |Azure IoT Hub| Microsoft.Devices/<br>IotHubs||     Diagnostiek||
 |Azure Key Vault|   Microsoft.KeyVault/<br>Kluizen|  Diagnostiek  || [Key Vault-analyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnostiek|||
 |Azure Logic Apps|  Microsoft.Logic/<br>Werkstromen|  Diagnostiek|    Diagnostiek||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Azure Network Security Group analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Azure Network Security Group analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |Recovery-kluizen|   Microsoft.RecoveryServices/<br>Kluizen|||[Azure Recovery Services-analyse (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Services zoeken|   Microsoft.Search/<br>searchServices|    Diagnostiek|    Diagnostiek||
-|Service Bus-naamruimte| Microsoft.ServiceBus/<br>naamruimten|    Diagnostiek|Diagnostiek|    [Service Bus-analyse (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Bus-naamruimte| Microsoft.ServiceBus/<br>Naamruimten|    Diagnostiek|Diagnostiek|    [Service Bus-analyse (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Storage||    [Service Fabric-analyse (Preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servers /<br>databases||       Diagnostiek||
 ||Microsoft.Sql/<br>servers /<br>elasticPools||||
-|Storage|||         Script| [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
+|Opslag|||         Script| [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |Azure Virtual Machines|    Microsoft.Compute/<br>virtualMachines|  Toestelnummer|  Toestelnummer||
 ||||Diagnostiek||
 |Virtuele-machineschaalsets|    Microsoft.Compute/<br>virtualMachines    ||Diagnostiek||

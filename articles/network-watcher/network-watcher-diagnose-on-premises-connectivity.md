@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713780"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754059"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnose van on-premises connectiviteit via VPN-gateways
 
@@ -36,7 +36,7 @@ U wilt een site-naar-site-verbinding tussen Azure en on-premises configureren me
 
 1. Virtuele netwerkgateway - de VPN-Gateway op Azure
 1. Lokale netwerkgateway - de [on-premises VPN-Gateway (FortiGate)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) weergeven in Azure-cloud
-1. Site-naar-site-verbinding (op basis van route) - [verbinding tussen de VPN-Gateway en de on-premises router](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Site-naar-site-verbinding (op basis van route) - [verbinding tussen de VPN-Gateway en de on-premises router](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [FortiGate configureren](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Gedetailleerde stapsgewijze instructies voor het configureren van een Site-naar-Site-configuratie kan worden gevonden door naar de pagina: [Een VNet maken met een Site-naar-Site-verbinding met de Azure-portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

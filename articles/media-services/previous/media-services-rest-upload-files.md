@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817695"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752885"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Bestanden uploaden naar een Media Services-account met behulp van REST  
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Nu dat u de upload-URL hebt, moet u het schrijven van code met behulp van de Azu
 
 - [Met behulp van de Azure Storage REST-API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Blob plaatsen](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Blobs uploaden naar Blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Blobs uploaden naar Blob-opslag](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Upload een bestand met Postman
 

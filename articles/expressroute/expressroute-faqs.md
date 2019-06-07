@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/06/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257967"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754741"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -288,7 +288,7 @@ Ja. ExpressRoute premium kosten gelden boven op de kosten voor ExpressRoute-circ
 
 ## <a name="expressroute-local"></a>ExpressRoute-lokaal
 ### <a name="what-is-expressroute-local"></a>Wat is het lokale ExpressRoute?
-Lokale ExpressRoute is een SKU van ExpressRoute-circuit. Een belangrijke functie van de lokale is dat een lokale circuit aan een ExpressRoute peeringlocatie u biedt toegang tot slechts aan één of twee Azure-regio's in- of in de buurt van de dezelfde metro. Daarentegen biedt een standaardcircuit u toegang tot alle Azure-regio's in een geopolitieke gebied en een Premium-circuit tot alle Azure-regio's wereldwijd. 
+Lokale ExpressRoute is een SKU van ExpressRoute-circuit beschikbaar op [ExpressRoute Direct](expressroute-erdirect-about.md). Een belangrijke functie van de lokale is dat een lokale circuit aan een ExpressRoute peeringlocatie u biedt toegang tot slechts aan één of twee Azure-regio's in- of in de buurt van de dezelfde metro. Daarentegen biedt een standaardcircuit u toegang tot alle Azure-regio's in een geopolitieke gebied en een Premium-circuit tot alle Azure-regio's wereldwijd. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Wat zijn de voordelen van de lokale ExpressRoute?
 Terwijl u nodig hebt om te betalen van uitgaande gegevensoverdracht voor uw Standard of Premium ExpressRoute-circuit, u geen uitgaande gegevensoverdracht dan apart betalen voor uw lokale ExpressRoute-circuit. De prijs van ExpressRoute lokale is met andere woorden, inclusief kosten voor gegevensoverdracht. Lokale ExpressRoute is een meer betaalbare oplossing als u enorme hoeveelheden gegevens over te dragen en u uw gegevens via een persoonlijke verbinding met een ExpressRoute-peering locatie in de buurt van uw gewenste Azure-regio's onderbrengen kunt. 

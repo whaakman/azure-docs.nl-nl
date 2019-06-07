@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523099"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753933"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search-versleuteling door de klant beheerde sleutels in Azure Key Vault
 
@@ -227,7 +227,7 @@ Een AAD-toepassing maken in de portal:
 
 1. [Een Azure Active Directory-toepassing maken](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [De sleutel van de toepassing ID en verificatiesleutel ophalen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) zoals die vereist zijn voor het maken van een versleutelde index. U moet opgeven waarden zijn onder andere **toepassings-ID** en **verificatiesleutel**.
+1. [De sleutel van de toepassing ID en verificatiesleutel ophalen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) zoals die vereist zijn voor het maken van een versleutelde index. U moet opgeven waarden zijn onder andere **toepassings-ID** en **verificatiesleutel**.
 
 >[!Important]
 > Wanneer u bepaalt een AAD-toepassing van verificatie gebruiken in plaats van een beheerde identiteit, houd rekening met het feit dat Azure Search is niet gemachtigd voor het beheren van uw AAD-toepassing uit uw naam en het is aan u voor het beheren van uw AAD-toepassing, zoals periodieke rotatie van de verificatiesleutel van de toepassing.

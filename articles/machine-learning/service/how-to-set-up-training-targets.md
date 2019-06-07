@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475978"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752968"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen 
 
@@ -37,18 +37,8 @@ In dit artikel leert u hoe u met verschillende compute-doelen voor modeltraining
 
 Azure Machine Learning-service heeft verschillende ondersteuning voor verschillende compute-doelen. Een typische model ontwikkelingscyclus begint met dev/experimenten op een kleine hoeveelheid gegevens. In deze fase, wordt u aangeraden een lokale omgeving. Bijvoorbeeld, de lokale computer of een cloud-gebaseerde VM. Als u uw training voor grotere gegevenssets opschalen of gedistribueerde training doen, wordt u aangeraden een één of meerdere node cluster maken dat automatisch wordt geschaald telkens wanneer die u een uitvoering verzenden met Azure Machine Learning-Computing. U kunt ook uw eigen compute-resource koppelen, hoewel ondersteuning voor verschillende scenario's als variëren kunnen hieronder uitgelegd:
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|Training &nbsp;doelen| GPU-ondersteuning |Geautomatiseerde machine learning | Machine learning-pijplijnen | Visuele interface
-|----|:----:|:----:|:----:|:----:|
-|[Lokale computer](#local)| Misschien | ja | &nbsp; | &nbsp; |
-|[Azure Machine Learning-Computing](#amlcompute)| ja | Ja & <br/>hyperparameter&nbsp;tuning | ja | ja |
-|[Externe virtuele machine](#vm) |ja | Ja & <br/>hyperparameter afstemmen | ja | &nbsp; |
-|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | ja | ja | &nbsp; |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | ja | &nbsp; |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | ja | &nbsp; |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | ja | &nbsp; |
-
-**Alle compute-doelen kunnen worden hergebruikt voor meerdere trainingstaken**. Bijvoorbeeld, wanneer u een externe VM aan uw werkruimte koppelen, u deze opnieuw kunt gebruiken voor meerdere taken.
 
 > [!NOTE]
 > Azure Machine Learning-Computing kan worden gemaakt als een permanente resource of dynamisch gemaakt wanneer u een uitvoering aanvragen. Maken op basis van het uitvoeren van het Hiermee verwijdert u de compute-doel nadat de training-uitvoering voltooid, is zodat u niet opnieuw van compute-doelen op deze manier gemaakt gebruiken.

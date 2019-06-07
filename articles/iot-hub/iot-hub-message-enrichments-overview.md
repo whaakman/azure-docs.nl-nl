@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735162"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754560"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Bericht enrichments voor IoT Hub apparaat-naar-cloud-berichten (preview)
 
@@ -77,7 +77,7 @@ Bericht enrichments zijn beschikbaar voor zonder extra kosten. Op dit moment in 
 
 ## <a name="availability"></a>Beschikbaarheid
 
-Deze mogelijkheid is beschikbaar in preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china/china-welcome), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/).
+Deze mogelijkheid is beschikbaar in preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

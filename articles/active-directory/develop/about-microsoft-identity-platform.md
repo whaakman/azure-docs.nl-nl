@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ead81dfec5c98e810abfe4b88accb9aa9092fc90
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472713"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751911"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolutie van het Microsoft Identity Platform
 
@@ -58,7 +58,7 @@ De **application-API in Microsoft Graph** is momenteel in preview. Gebruik deze 
 
 ### <a name="msal-libraries"></a>MSAL-bibliotheken
 
-De MSAL-bibliotheek kunt u toepassingen bouwen die alle Microsoft-identiteit verifiëren. De MSAL-bibliotheken in .NET zijn algemeen beschikbaar. MSAL-bibliotheken voor JavaScript, iOS en Android zijn in preview en geschikt zijn voor gebruik in een productieomgeving. We bieden de dezelfde productie-ondersteuning voor MSAL-bibliotheken in preview als wij doen voor versies van MSAL en ADAL die algemeen beschikbaar.
+De MSAL-bibliotheek kunt u toepassingen bouwen die alle Microsoft-identiteit verifiëren. De MSAL-bibliotheken in .NET en JavaScript zijn algemeen beschikbaar. MSAL-bibliotheken voor iOS en Android zijn in preview en geschikt zijn voor gebruik in een productieomgeving. We bieden de dezelfde productie-ondersteuning voor MSAL-bibliotheken in preview als wij doen voor versies van MSAL en ADAL die algemeen beschikbaar.
 
 U kunt ook de MSAL-bibliotheken aan uw toepassing integreren met Azure AD B2C.
 

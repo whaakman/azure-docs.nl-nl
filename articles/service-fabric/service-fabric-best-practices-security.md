@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 449dbb04d58fe7980c845b8c5bc8d837b643c1be
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386736"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753784"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-beveiliging 
 
@@ -205,7 +205,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Het is raadzaam dat u een industriestandaard-configuratie die is grotendeels bekende en goed geteste, zoals Microsoft basisbeveiliging, in plaats van het maken van een basislijn zelf implementeren](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); een optie voor het inrichten van deze op uw virtuele Machine Scale Sets is het gebruik van handler voor de extensie Azure Desired State Configuration (DSC), het configureren van de virtuele machines als ze weer online komt, zodat ze de productie-software worden uitgevoerd.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Firewall van Azure is een beheerde, cloud-gebaseerde beveiliging netwerkservice die worden beveiligd met uw Azure Virtual Network-resources. Er is een volledig stateful firewall als een service met ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. ](https://docs.microsoft.com/azure/firewall/overview); dit is het mogelijk om te beperken van uitgaand HTTP/S-verkeer naar een opgegeven lijst met volledig gekwalificeerde domeinnamen (FQDN), met inbegrip van jokertekens. Deze functie vereist geen SSL-beëindiging. Het aanbevolen dat u gebruikmaken van [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) voor Windows-Updates en waarmee netwerkverkeer naar Microsoft Windows Update eindpunten door uw firewall kunnen stromen. [Firewall van Azure met behulp van een sjabloon implementeren](https://docs.microsoft.com/azure/firewall/deploy-template) bevat een voorbeeld dat voor de resourcedefinitie sjabloon Microsoft.Network/azureFirewalls.
+[Firewall van Azure is een beheerde, cloud-gebaseerde beveiliging netwerkservice die worden beveiligd met uw Azure Virtual Network-resources. Er is een volledig stateful firewall als een service met ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. ](https://docs.microsoft.com/azure/firewall/overview); dit is het mogelijk om te beperken van uitgaand HTTP/S-verkeer naar een opgegeven lijst met volledig gekwalificeerde domeinnamen (FQDN), met inbegrip van jokertekens. Deze functie vereist geen SSL-beëindiging. Het aanbevolen dat u gebruikmaken van [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) voor Windows-Updates en waarmee netwerkverkeer naar Microsoft Windows Update eindpunten door uw firewall kunnen stromen. [Firewall van Azure met behulp van een sjabloon implementeren](https://docs.microsoft.com/azure/firewall/deploy-template) bevat een voorbeeld dat voor de resourcedefinitie sjabloon Microsoft.Network/azureFirewalls. Twee firewallregels voor Service Fabric-toepassingen is om uw netwerk clusters om te communiceren met * download.microsoft.com, en * servicefabric.azure.com; voor het ophalen van Windows-Updates en Service Fabric-Compute-VM extensiecode.
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)

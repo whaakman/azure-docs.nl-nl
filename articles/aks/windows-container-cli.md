@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/06/2019
 ms.author: twhitney
-ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305305"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752389"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Voorbeeld: maken van een Windows Server-container op een Azure Kubernetes Service (AKS)-cluster met behulp van de Azure CLI
 
@@ -86,7 +86,6 @@ Hoewel deze functie nog in preview, gelden de volgende aanvullende beperkingen:
 * Het AKS-cluster kan maximaal acht knooppuntgroepen hebben.
 * Het AKS-cluster kan maximaal 400 knooppunten hebt in die pools acht knooppunten.
 * De pool-naam van het Windows Server-knooppunt heeft een limiet van 6 tekens.
-* Windows Server-knooppuntgroepen zijn niet beschikbaar in regio's Canada op dit moment.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 

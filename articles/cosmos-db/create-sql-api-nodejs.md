@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: dech
-ms.openlocfilehash: 1927717062b4da7b077e80f36f1498b578c49ad5
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: ec6f676933f5c275c49fa4da1af0e1c3084dab89
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979114"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754579"
 ---
 # <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een Node.js-app maken met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Deze snelstart laat zien hoe u een [SQL API](sql-api-introduction.md)-account va
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Een verzameling toevoegen
+## <a name="add-a-container"></a>Een container toevoegen
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -133,7 +133,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand **app.js**.
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Klik in [Azure Portal](https://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en primaire sleutel in het bestand `config.js` te kopiëren.
+1. In de [Azure-portal](https://portal.azure.com/), in uw Azure Cosmos-account, klik in het linker navigatiegedeelte op **sleutels**, en klik vervolgens op **sleutels voor lezen / schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en primaire sleutel in het bestand `config.js` te kopiëren.
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-dotnet/keys.png)
 
@@ -164,7 +164,7 @@ U kunt nu teruggaan naar Data Explorer en deze nieuwe gegevens bekijken, wijzige
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hoe u een verzameling kunt maken met Data Explorer en hebt u een app uitgevoerd. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
+In deze snelstartgids hebt u geleerd hoe u een Azure Cosmos-account maken, maken van een container met de Data Explorer en een app uitvoeren. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)

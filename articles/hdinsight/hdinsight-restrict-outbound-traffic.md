@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743250"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754586"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configureren van uitgaand netwerkverkeer voor Azure HDInsight-clusters met behulp van de Firewall (Preview)
 
@@ -162,7 +162,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Uw Azure-Firewall integreren met Azure Monitor-Logboeken is handig als eerst aan een toepassing werkt wanneer u zich niet bewust bent van alle van de afhankelijkheden van toepassing. U kunt meer informatie over Azure Monitor-logboeken van [analyseren logboekgegevens in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 ## <a name="access-to-the-cluster"></a>Toegang tot het cluster
-Nadat de installatie van de firewall is er, kunt u het interne eindpunt (https://<clustername>-int.azurehdinsight.net) voor toegang tot de Ambari van binnen het VNET. Gebruik het openbare eindpunt (https://<clustername>. azurehdinsight.net) of ssh eindpunt (<clustername>-ssh.azurehdinsight.net), zorg ervoor dat u hebt de juiste routes in de routetabel en NSG-regels instellen om te voorkomen dat de asymetric routeringsprobleem uitgelegd [hier](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Nadat de installatie van de firewall is er, kunt u het interne eindpunt (`https://<clustername>-int.azurehdinsight.net`) voor toegang tot de Ambari van binnen het VNET. Gebruik het openbare eindpunt (`https://<clustername>.azurehdinsight.net`) of ssh eindpunt (`<clustername>-ssh.azurehdinsight.net`), zorg ervoor dat u hebt de juiste routes in de routetabel en NSG-regels instellen om te voorkomen dat de asymetric routeringsprobleem uitgelegd [hier](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configureren van een ander virtueel netwerkapparaat
 

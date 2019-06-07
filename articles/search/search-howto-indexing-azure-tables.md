@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024788"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755083"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Table storage met Azure Search-index
 In dit artikel laat zien hoe Azure Search gebruiken om gegevens te indexeren die zijn opgeslagen in Azure Table storage.
@@ -114,6 +114,8 @@ Nadat de index en gegevensbron zijn gemaakt, bent u klaar om te maken van de ind
 Deze indexeerfunctie wordt elke twee uur uitgevoerd. (De schema-interval is ingesteld op 'PT2H'.) Als u wilt een indexeerfunctie om de 30 minuten uitvoeren, moet u het interval aan 'PT30M' instellen. Het kortste ondersteunde interval is vijf minuten. Het schema is optioneel. Als u dit weglaat, wordt er een indexeerfunctie uitgevoerd slechts eenmaal wanneer deze gemaakt. U kunt echter een indexeerfunctie uitvoeren op aanvraag op elk gewenst moment.   
 
 Zie voor meer informatie over de indexeerfunctie maken API [indexeerfunctie maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Zie voor meer informatie over het definiëren van indexeerfunctie planningen [indexeerfuncties plannen voor Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Omgaan met verschillende veldnamen
 De namen van de velden in uw bestaande index zijn soms verschillen van de namen van eigenschappen in de tabel. Veldtoewijzingen kunt u de namen van eigenschappen uit de tabel aan de veldnamen worden toegewezen in uw search-index. Zie voor meer informatie over veldtoewijzingen [veldtoewijzingen voor Azure Search-indexeerfunctie overbruggen de verschillen tussen gegevensbronnen en zoekindexen](search-indexer-field-mappings.md).

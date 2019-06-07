@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e65f7ca0a01e0ceee6448ea49e1d6d6da696cf6
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417075"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752238"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Beheerdersrollen door admin-taak in Azure Active Directory
 
@@ -56,6 +56,9 @@ Maken, lezen, bijwerken en verwijderen van de kenmerken van gebruiker | Globale 
 Maken, lezen, bijwerken en verwijderen van gebruikers | Globale beheerder ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
 Alle configuratie lezen | Globale beheerder | 
 Lezen B2C-auditlogboeken | Globale beheerder ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+
+> [!NOTE]
+> Globale beheerders van Azure AD B2C hoeft niet dezelfde machtigingen als globale beheerders van Azure AD. Als u Azure AD B2C globale beheerder-bevoegdheden hebt, zorg ervoor dat u zich in een Azure AD B2C-map en niet in een Azure AD-directory.
 
 ## <a name="company-branding"></a>Huisstijl van bedrijf
 

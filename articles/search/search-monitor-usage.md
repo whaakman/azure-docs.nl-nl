@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797383"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755071"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Resource verbruik en query-activiteiten in Azure Search controleren
 
@@ -175,7 +175,7 @@ Zowel de Azure Search REST-API en de .NET SDK bieden programmatisch toegang tot 
 * [Aantal documenten](/rest/api/searchservice/count-documents)
 * [Status van de indexeerfunctie ophalen](/rest/api/searchservice/get-indexer-status)
 
-Zie de documentatie om in te schakelen met behulp van PowerShell of Azure CLI, [hier](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+Zie de documentatie om in te schakelen met behulp van PowerShell of Azure CLI, [hier](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Volgende stappen
 

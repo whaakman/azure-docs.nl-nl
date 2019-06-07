@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 05/22/2019
-ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303199"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755043"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL-Database beheerd exemplaar resourcebeperkingen
 
@@ -38,8 +38,8 @@ Beheerd exemplaar voor Azure SQL-Database kan worden geïmplementeerd op twee ha
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3-processors 2,4 GHz (Haswell) gekoppeld SSD vCore = 1 PP (fysieke kernen) | Intel E5-2673 v4-processors 2,3 GHz (Broadwell) snel NVMe SSD, vCore = 1 LP (hyper-thread) |
 | vCores | 8, 16, 24 vCores | 8, 16, 24 uur per dag, 32, 40, 64, 80 vCores |
-| Geheugen | 7 GB per vCore | 5.1 GB per vCore |
-| Maximum aantal In-Memory OLTP-geheugen | 3 GB per vCore | 2.6 GB per vCore |
+| Geheugen (geheugen/core-verhouding) | 7 GB per vCore | 5.1 GB per vCore |
+| Maximum aantal In-Memory OLTP-geheugen | Limiet voor exemplaar: 3 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 8GB per database<br/> -16-core: 20GB per database<br/> -24-core: 36GB per database | Limiet voor exemplaar: 2,5 GB per vCore<br/>Limieten voor databases:<br/> -8-core: 13GB per database<br/> -16-core: 32GB per database |
 | Max instance storage (Algemeen) |  8 TB | 8 TB |
 | Maximale exemplaar opslag (Business-kritische) | 1 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
 
@@ -50,14 +50,14 @@ Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en bedrijfskritiek. 
 | **Functie** | **Algemeen gebruik** | **Bedrijfskritiek** |
 | --- | --- | --- |
 | Het aantal vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Geheugen | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
+| Geheugen (geheugen/core-verhouding) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
 | Maximumgrootte van het exemplaar-opslag | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>-1 TB voor 8, 16 vcores uitvoert<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
 | Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
 | Gegevens/Log IOPS (bij benadering) | 500 - 7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
 | Logboek-doorvoer | 3 MB/s per vCore<br/>Max 22 MB/s per exemplaar | 4 MB/s per vCore<br/>Max 48 MB/s per exemplaar|
-| Doorvoer van gegevens (bij benadering) | 100 - 250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
+| Doorvoer van gegevens (bij benadering) | 100 - 250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
 | Maximumgrootte van tempDB | 192 - 1,920 GB (24 GB per vCore) | Er zijn geen beperkingen - beperkt door de grootte van de maximale sessie |
 | Maximum aantal sessies | 30.000 | 30.000 |

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 6/5/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b1763e7c24ea75a698c3718ab5e205dcc3e0c8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 4b33174b20cdf42e29cdb5b4786122513d2c6080
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495805"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753731"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -62,7 +62,7 @@ Alle uitgaande IP-adressen van virtueel netwerkverkeer worden geconverteerd naar
 
 ### <a name="inbound-dnat-support"></a>Ondersteuning voor inkomende DNAT
 
-Het inkomende netwerkverkeer op het openbare IP-adres van de firewall wordt omgezet (Destination Network Address Translation) en gefilterd op het privé-IP-adres in uw virtuele netwerken. 
+Het inkomende netwerkverkeer op het openbare IP-adres van de firewall wordt omgezet (Destination Network Address Translation) en gefilterd op het privé-IP-adres in uw virtuele netwerken.
 
 ### <a name="azure-monitor-logging"></a>Logboekregistratie van Azure Monitor
 
@@ -82,8 +82,7 @@ Netwerkfilterregels voor niet-TCP/UDP-protocollen (bijvoorbeeld ICMP) werken nie
 |Poortbereik in netwerk- en toepassingsregels|Het aantal poorten is beperkt tot 64.000 omdat hoge poorten zijn gereserveerd voor beheer en statustests. |Er wordt geprobeerd om deze beperking te versoepelen.|
 |Waarschuwingen van Threat intelligence mogelijk ophalen gemaskeerd.|Netwerkregels met doel 80/443 voor uitgaande filteren maskers threat intelligence waarschuwingen wanneer geconfigureerd voor de waarschuwing alleen-modus.|Maak met behulp van regels voor het toepassen van 80/443 uitgaande filteren. Of wijzig de modus threat intelligence voor **waarschuwen en weigeren**.|
 |Firewall van Azure maakt gebruik van Azure DNS alleen voor het omzetten van|Firewall van Azure wordt omgezet FQDN-namen alleen met behulp van Azure DNS. Een aangepaste DNS-server wordt niet ondersteund. Er is geen invloed op DNS-omzetting in andere subnetten.|Er wordt geprobeerd om deze beperking te versoepelen.|
-|Azure Firewall SNAT/DNAT werkt niet voor persoonlijke IP-bestemmingen|Ondersteuning van Azure Firewall SNAT/DNAT is beperkt tot Internet uitgaand/inkomende. SNAT/DNAT werkt momenteel niet voor persoonlijke IP-doelen. Bijvoorbeeld, spoke-knooppunt.|Dit wordt onderzocht.
-
+|Azure Firewall SNAT/DNAT werkt niet voor persoonlijke IP-bestemmingen|Ondersteuning van Azure Firewall SNAT/DNAT is beperkt tot Internet uitgaand/inkomende. SNAT/DNAT werkt momenteel niet voor persoonlijke IP-doelen. Bijvoorbeeld, spoke-knooppunt.|Dit staat op het overzicht voor een toekomstige update.
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Zelfstudie: Azure Firewall implementeren en configureren met Azure Portal](tutorial-firewall-deploy-portal.md)

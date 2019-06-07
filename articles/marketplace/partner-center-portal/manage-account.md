@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806189"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752858"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Over het beheren van uw commerciële Marketplace-account in Partnercentrum 
 
@@ -279,7 +279,7 @@ Als u wilt dat Partner Center toegang verlenen tot een gloednieuwe Azure AD-toep
 1.  Uit de **gebruikers** pagina (onder **Accountinstellingen**), selecteer **Azure AD-toepassingen toevoegen**.
 2.  Selecteer op de volgende pagina **New Azure AD-toepassing**.
 3.  Voer de **antwoord-URL** voor de nieuwe Azure AD-toepassing. Dit is de URL waar gebruikers kunnen zich aanmelden en gebruikt uw Azure AD-toepassing (soms ook wel bekend als de App-URL of de aanmeldings-URL genoemd). De **antwoord-URL** mag niet langer zijn dan 256 tekens bestaan en moet uniek zijn binnen uw directory.
-4.  Voer de **App ID URI** voor de nieuwe Azure AD-toepassing. Dit is een logische id voor de Azure AD-toepassing die wordt weergegeven wanneer een aanvraag voor eenmalige aanmelding wordt verzonden naar Azure AD. Houd er rekening mee dat de **App ID URI** moet uniek zijn voor elke Azure AD-toepassing in uw directory. Deze ID kan niet langer zijn dan 256 tekens. Zie voor meer informatie over de URI van de App-ID [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+4.  Voer de **App ID URI** voor de nieuwe Azure AD-toepassing. Dit is een logische id voor de Azure AD-toepassing die wordt weergegeven wanneer een aanvraag voor eenmalige aanmelding wordt verzonden naar Azure AD. Houd er rekening mee dat de **App ID URI** moet uniek zijn voor elke Azure AD-toepassing in uw directory. Deze ID kan niet langer zijn dan 256 tekens. Zie voor meer informatie over de URI van de App-ID [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  In de **rollen** sectie, geeft u de rollen zijn of aangepaste machtigingen voor de Azure AD-toepassing.
 6.  Selecteer **Opslaan**.
 
@@ -313,9 +313,9 @@ Houd er rekening mee Azure Active Directory (AAD) tenant functies omvatten globa
 |      |• Maken van ondersteuningstickets voor het Partnercentrum
 ||• Weergave overeenkomsten, prijslijsten en aanbiedingen
 ||• Weergave maken en beheren van gebruikers van partnerorganisaties|
-|Beheer|• Toegang tot alle functies van Microsoft-account met uitzondering van de belasting en betalings-instellingen
+|Manager|• Toegang tot alle functies van Microsoft-account met uitzondering van de belasting en betalings-instellingen
 |      |• Kunnen gebruikers, rollen, beheren en werkaccounts (tenants)|
-|Ontwikkelaar|• Kunt uploaden pakketten, apps en invoegtoepassingen indienen en het gebruiksrapport voor telemetrie over weergeven
+|Developer|• Kunt uploaden pakketten, apps en invoegtoepassingen indienen en het gebruiksrapport voor telemetrie over weergeven
 |      |• Geen toegang tot financiële informatie of account-instellingen|
 |Inzender voor bedrijven|• Kunnen toegang krijgen tot financiële gegevens en stel prijsinformatie
 |      |• Niet maken of nieuwe apps en invoegtoepassingen|

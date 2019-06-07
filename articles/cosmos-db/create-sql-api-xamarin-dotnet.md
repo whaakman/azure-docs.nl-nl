@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860887"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754720"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een taken-app maken met Xamarin met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Als u een Mac gebruikt, kunt u **gratis** [Visual Studio voor Mac](https://www.v
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Een verzameling toevoegen
+## <a name="add-a-container"></a>Een container toevoegen
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -184,7 +184,7 @@ Laten we nog eens kort bekijken hoe de app met Azure Cosmos DB communiceert.
     }
     ```
 
-    Hier is een nieuwe URI nodig als unieke ID voor het document dat moet worden vervangen. Deze wordt verkregen door `UriFactory.CreateDocumentUri` te gebruiken en de namen van de database en verzameling en de ID van het document eraan door te geven.
+    Hier wordt een nieuwe URI nodig voor het aanduiden van het document dat moet worden vervangen en wordt verkregen met behulp van `UriFactory.CreateDocumentUri` door de namen van de database en verzameling en de ID van het document.
 
     De `DocumentClient.ReplaceDocumentAsync` vervangt het document dat door de URI is geïdentificeerd door het document dat als parameter is opgegeven.
 
@@ -245,7 +245,7 @@ Met de volgende stappen wordt gedemonstreerd hoe u de app uitvoert met behulp va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken en hebt u een verzameling gemaakt met de Data Explorer en een Xamarin-app ontwikkeld en geïmplementeerd. Nu kunt u aanvullende gegevens in uw Azure Cosmos DB-account importeren.
+In deze Quick Start, u hebt geleerd hoe u een Azure Cosmos-account maken, het maken van een container met de Data Explorer en bouwen en implementeren van een Xamarin-app. U kunt nu aanvullende gegevens in uw Azure Cosmos-account importeren.
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305017"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754763"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Eventhubs - Geo-noodherstel 
 
@@ -98,7 +98,7 @@ Houd rekening met de volgende punten moet rekening houden met deze release:
  
 2. Het feit dat er geen gegevens worden gerepliceerd, betekent dat momenteel actieve sessies worden niet gerepliceerd. Detectie van duplicaten en geplande berichten mag bovendien niet werken. Nieuwe sessies, geplande berichten en nieuwe duplicaten werkt. 
 
-3. Failover wordt uitgevoerd een complexe gedistribueerde infrastructuur moet [uitgetest](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) ten minste één keer. 
+3. Failover wordt uitgevoerd een complexe gedistribueerde infrastructuur moet [uitgetest](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) ten minste één keer. 
 
 4. Synchroniseren van entiteiten kan enige tijd duren, ongeveer 50-100 entiteiten per minuut.
 

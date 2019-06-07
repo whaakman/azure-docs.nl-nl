@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: cb4ad20067783d8d6bd649710950fea51a22a454
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: c97b974919c5aec4c902867604d207cda11e8594
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979142"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754293"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Quickstart: een Java-app maken met behulp van een SQL API-account van Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.locfileid: "65979142"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-In deze quickstart wordt getoond hoe u resources van een Azure Cosmos DB [SQL API](sql-api-introduction.md)-account met behulp van een Java-toepassing kunt maken en beheren. Eerst maakt u een Azure Cosmos DB SQL API-account via de Azure-portal, dan maakt u een Java-app met behulp van de [SQL Java SDK](sql-api-sdk-async-java.md) en voegt u met de Java-toepassing resources toe aan uw Cosmos DB-account. De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. Als u deze quickstart hebt voltooid, weet u hoe u Cosmos DB-databases kunt maken en wijzigen, met behulp van verzamelingen in de UI of via een programma, afhankelijk van uw voorkeur.
+In deze quickstart wordt getoond hoe u resources van een Azure Cosmos DB [SQL API](sql-api-introduction.md)-account met behulp van een Java-toepassing kunt maken en beheren. Eerst maakt u een Azure Cosmos DB SQL API-account via de Azure-portal, dan maakt u een Java-app met behulp van de [SQL Java SDK](sql-api-sdk-async-java.md) en voegt u met de Java-toepassing resources toe aan uw Cosmos DB-account. De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. Na het voltooien van deze Quick Start is het waarschijnlijk dat u bekend bent met het maken en wijzigen van Cosmos DB-databases, containers in de gebruikersinterface of via een programma, afhankelijk van wat uw voorkeur.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -48,7 +48,7 @@ Voordat u een documentdatabase kunt maken, moet u een SQL-API-account maken met 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Een verzameling toevoegen
+## <a name="add-a-container"></a>Een container toevoegen
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -75,7 +75,7 @@ Nu gaan we werken met code. We gaan nu een SQL API-app klonen vanaf GitHub, de v
 
 Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code worden gemaakt, kunt u de volgende codefragmenten bekijken. Sla dit anders over en ga naar [De app uitvoeren](#run-the-app). 
 
-* Initialisatie van `AsyncDocumentClient`. De [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) biedt een logische representatie aan de clientzijde voor de databaseservice van Azure Cosmos DB. Deze client wordt gebruikt om aanvragen aan de service te configureren en uitvoeren.
+* Initialisatie van `AsyncDocumentClient`. De [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) logische representatie van de clientzijde voor de Azure Cosmos-database-service biedt. Deze client wordt gebruikt om aanvragen aan de service te configureren en uitvoeren.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -204,7 +204,7 @@ Ga nu terug naar de Azure-portal om de verbindingsreeksgegevens op te halen en s
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u een Azure Cosmos DB-account, documentdatabase en verzameling kunt maken met behulp van Data Explorer, en hoe u een app kunt uitvoeren die hetzelfde doet via een programma. Nu kunt u aanvullende gegevens in uw Microsoft Azure Cosmos DB-verzameling importeren. 
+In deze snelstartgids hebt u geleerd over het maken van een Azure Cosmos-account, een documentdatabase en een container met behulp van Data Explorer en een app hetzelfde doen via een programma kunt uitvoeren. U kunt nu de aanvullende gegevens importeren in uw Azure Cosmos-container. 
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)

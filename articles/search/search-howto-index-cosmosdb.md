@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522840"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754002"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexeren van Cosmos DB met behulp van een Azure Search-indexeerfunctie
 
@@ -282,6 +282,8 @@ Zodra de index en gegevensbron zijn gemaakt, bent u klaar om te maken van de ind
 Deze indexeerfunctie wordt uitgevoerd elke twee uur (schema-interval is ingesteld op 'PT2H'). Als u wilt een indexeerfunctie om de 30 minuten uitvoeren, moet u het interval aan 'PT30M' instellen. Het kortste ondersteunde interval is 5 minuten. Het schema is optioneel: als u dit weglaat, een indexeerfunctie wordt uitgevoerd slechts eenmaal wanneer deze gemaakt. U kunt echter een indexeerfunctie op aanvraag uitvoeren op elk gewenst moment.   
 
 Bekijk voor meer informatie over de indexeerfunctie maken API [indexeerfunctie maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Zie voor meer informatie over het definiëren van indexeerfunctie planningen [indexeerfuncties plannen voor Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="use-net"></a>.NET gebruiken
 

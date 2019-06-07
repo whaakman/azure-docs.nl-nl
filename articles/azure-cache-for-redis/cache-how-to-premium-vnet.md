@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831065"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752071"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Over het configureren van Virtual Network-ondersteuning voor een Premium Azure Cache voor Redis
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. Een VNet is een particulier netwerk in de cloud. Wanneer een Azure-Cache voor Redis-exemplaar is geconfigureerd met een VNet, is niet openbaar toegankelijk en kunnen alleen worden geopend van virtuele machines en toepassingen binnen het VNet. In dit artikel wordt beschreven hoe het configureren van virtual network-ondersteuning voor een premium Azure Cache voor Redis-exemplaar.
@@ -112,15 +112,18 @@ Er zijn zeven vereisten van de uitgaande poort.
 
 | Poort(en) | Direction | Transportprotocol | Doel | Lokaal IP | Extern IP |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |Uitgaand |TCP |Redis-afhankelijkheden op Azure Storage/PKI (Internet) | (Redis subnet) |* |
-| 53 |Uitgaand |TCP/UDP |Redis-afhankelijkheden van DNS (Internet/VNet) | (Redis subnet) |* |
-| 8443 |Uitgaand |TCP |Interne communicatie voor Redis | (Redis subnet) | (Redis subnet) |
-| 10221-10231 |Uitgaand |TCP |Interne communicatie voor Redis | (Redis subnet) | (Redis subnet) |
-| 20226 |Uitgaand |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
-| 13000-13999 |Uitgaand |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
-| 15000-15999 |Uitgaand |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
-| 6379-6380 |Uitgaand |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
+| 80, 443 |Uitgaande |TCP |Redis-afhankelijkheden op Azure Storage/PKI (Internet) | (Redis subnet) |* |
+| 53 |Uitgaande |TCP/UDP |Redis-afhankelijkheden van DNS (Internet/VNet) | (Redis subnet) | 168.63.129.16 en 169.254.169.254 <sup>1</sup> en een aangepaste DNS-server voor het subnet <sup>3</sup> |
+| 8443 |Uitgaande |TCP |Interne communicatie voor Redis | (Redis subnet) | (Redis subnet) |
+| 10221-10231 |Uitgaande |TCP |Interne communicatie voor Redis | (Redis subnet) | (Redis subnet) |
+| 20226 |Uitgaande |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
+| 13000-13999 |Uitgaande |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
+| 15000-15999 |Uitgaande |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
+| 6379-6380 |Uitgaande |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
 
+<sup>1</sup> deze IP-adressen die eigendom zijn van Microsoft worden gebruikt om op te lossen van de VM-Host dat Azure DNS.
+
+<sup>3</sup> niet die nodig zijn voor subnetten met geen aangepaste DNS-server, of nieuwere redis-caches die aangepaste DNS negeren.
 
 #### <a name="inbound-port-requirements"></a>Vereisten voor binnenkomende poort
 

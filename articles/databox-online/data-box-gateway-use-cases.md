@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: cdc1b07b93386c0225c1e6c5f570ea1247e450b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924397"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754175"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Use cases voor Azure Data Box-Gateway
 
@@ -50,7 +50,7 @@ Voordat u begint, zorg ervoor dat u een actief Data Box-Gateway-apparaat hebt. V
 - Nadat het uploaden is voltooid, moet u verplaatsen naar de Archive-laag. U kunt de blob-laag instellen op twee manieren: Azure PowerShell-script of een Azure Storage Lifecycle Management-beleid.  
     - Als u met behulp van Azure PowerShell, volgt u deze [stappen](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) verplaatsen van de gegevens naar de Archive-laag.
     - Als Azure Lifecycle Management, volgt u deze stappen voor het verplaatsen van de gegevens naar de Archive-laag.
-        - [Registreren](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) voor de preview van Blob Lifecycle management-service te gebruiken van Archive-laag.
+        - [Registreren](/azure/storage/common/storage-lifecycle-management-concepts) voor de preview van Blob Lifecycle management-service te gebruiken van Archive-laag.
         - Gebruik het volgende beleid [opname van gegevens archiveren op](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - Zodra de blobs zijn gemarkeerd als archiveren, ze kunnen niet meer worden gewijzigd door de gateway, tenzij ze worden verplaatst naar de laag warm of koud. Als het bestand zich in de lokale opslag, worden alle wijzigingen aan de lokale kopie (inclusief verwijderingen) niet als u wilt archiveren laag geüpload.
 - Als u wilt lezen van gegevens in Archive storage, moet deze gereactiveerd door het veranderen van de blob-laag naar warm of koud. [Vernieuwen van de share](data-box-gateway-manage-shares.md#refresh-shares) op de gateway de blob niet rehydrate.

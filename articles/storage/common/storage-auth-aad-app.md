@@ -1,77 +1,77 @@
 ---
-title: Verifiëren met Azure Active Directory voor toegang tot blob- en wachtrijservices gegevens uit uw toepassingen | Microsoft Docs
-description: Gebruik Azure Active Directory om te verifiëren vanaf binnen een toepassing en autorisatie van aanvragen voor blobs en wachtrijen.
+title: Verifiëren met Azure Active Directory voor toegang tot blob- en wachtrijservices gegevens vanuit de clienttoepassing
+description: Gebruik Azure Active Directory om te verifiëren vanaf een clienttoepassing in, een OAuth 2.0-token ophalen en autoriseren van aanvragen voor Azure Blob storage en Queue storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 979019da60c1129c6c6ef0bec42d9f9096735c1b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e45fe20e93d81c1cfd1f868b40f76743558758bb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926041"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754923"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen
 
-Een groot voordeel van het gebruik van Azure Active Directory (Azure AD) met Azure Storage is dat uw referenties niet meer nodig hebt om te worden opgeslagen in uw code. U kunt in plaats daarvan een OAuth 2.0-toegangstoken aanvragen bij Azure AD. Azure AD de verificatie van de beveiligings-principal (een gebruiker, groep of service-principal) wordt de toepassing wordt uitgevoerd. Als de verificatie slaagt, Azure AD retourneert het toegangstoken voor de toepassing en de toepassing vervolgens het toegangstoken kunt gebruiken om aanvragen naar Azure Storage te autoriseren.
+Een groot voordeel van het gebruik van Azure Active Directory (Azure AD) met Azure Blob-opslag of Queue storage is dat uw referenties niet meer nodig hebt om te worden opgeslagen in uw code. U kunt in plaats daarvan een OAuth 2.0-toegangstoken aanvragen bij de Microsoft identity-platform (voorheen Azure AD). Azure AD verifieert de beveiligings-principal (een gebruiker, groep of service-principal) waarop de toepassing wordt uitgevoerd. Als de verificatie slaagt, Azure AD retourneert het toegangstoken voor de toepassing en de toepassing vervolgens het toegangstoken kunt gebruiken om aanvragen naar Azure Blob-opslag of Queue storage te autoriseren.
 
-In dit artikel laat zien hoe uw toepassing configureren voor verificatie met Azure AD. De code voorbeeld onderdelen .NET, maar andere talen gebruiken een soortgelijke benadering.
+In dit artikel laat zien hoe het configureren van uw systeemeigen toepassing of de web-App voor verificatie met Azure AD. De code voorbeeld onderdelen .NET, maar andere talen gebruiken een soortgelijke benadering.
 
-Voordat u een beveiligings-principal van uw Azure Storage-toepassing verifiëren, op rollen gebaseerd beheer (RBAC) toegangsinstellingen configureren voor deze beveiligings-principal. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
-
-Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [autoriseren de toegang tot Azure Active Directory web-apps met behulp van de OAuth 2.0-code verlenen stroom](../../active-directory/develop/v1-protocols-oauth-code.md).
-
-U moet HTTPS gebruiken voor het autoriseren van blob- en wachtrijservices bewerkingen met een OAuth-token.
+Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [autoriseren de toegang tot Azure Active Directory web-apps met behulp van de OAuth 2.0-code verlenen stroom](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Een RBAC-rol toewijzen aan een beveiligings-principal voor Azure AD
 
-Als u wilt een beveiligings-principal van uw Azure Storage-toepassing verifiëren, moet u eerst op basis van rollen (RBAC) instellingen voor toegangsbeheer voor deze beveiligings-principal configureren. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren toegangsrechten tot Azure BLOB Storage en Queue gegevens met RBAC](storage-auth-aad-rbac.md).
+Als u wilt een beveiligings-principal van uw Azure Storage-toepassing verifiëren, moet u eerst op basis van rollen (RBAC) instellingen voor toegangsbeheer voor deze beveiligings-principal configureren. Azure Storage definieert ingebouwde RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren toegangsrechten tot Azure BLOB Storage en Queue gegevens met RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Uw toepassing registreren bij een Azure AD-tenant
 
-De eerste stap bij het gebruik van Azure AD toegang verlenen aan de storage-resources is bezig met het registreren van uw clienttoepassing in een Azure AD-tenant. Registreren van uw toepassing, kunt u voor het aanroepen van de Azure [Active Directory Authentication Library](../../active-directory/active-directory-authentication-libraries.md) (ADAL) vanuit uw code. De ADAL-bibliotheek biedt een API voor verificatie met Azure AD van uw toepassing. Registreren van uw toepassing kunt u toestaan van aanroepen van toepassing bij naar Azure Storage-API's met een toegangstoken.
+De eerste stap bij het gebruik van Azure AD toegang verlenen aan de storage-resources met een Azure AD-tenant van uw clienttoepassing registreert de [Azure-portal](https://portal.azure.com). Als u uw clienttoepassing registreert, kunt u informatie over de toepassing naar Azure AD opgeven. Vervolgens Azure AD biedt een client-ID (ook wel een *toepassings-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de client-ID, [toepassing en service-principalobjecten in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD biedt een client-ID (ook wel een *toepassings-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de client-ID, [toepassing en service-principalobjecten in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
-
-Voor het registreren van uw Azure Storage-toepassing, volg de stappen in de [toevoegen van een toepassing](../../active-directory/develop/quickstart-register-app.md) in sectie [toepassingen integreren met Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. De waarde hoeft niet te worden geen echt eindpunt.
+Volg de stappen die worden weergegeven voor het registreren van uw Azure Storage-toepassing, [Quick Start: Een toepassing registreren met het Microsoft identity-platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). De volgende afbeelding ziet u algemene instellingen voor het registreren van een web-App:
 
 ![Schermopname die laat zien hoe u uw storage-toepassing registreren bij Azure AD](./media/storage-auth-aad-app/app-registration.png)
+
+> [!NOTE]
+> Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. Systeemeigen toepassing maakt, heeft deze waarde geen een echte URL. Voor webtoepassingen moet de omleidings-URI een geldige URI, omdat hiermee de URL die tokens worden geleverd.
 
 Nadat u uw toepassing hebt geregistreerd, ziet u de toepassings-ID (of de client-ID) onder **instellingen**:
 
 ![Schermopname van de client-ID](./media/storage-auth-aad-app/app-registration-client-id.png)
 
-Zie voor meer informatie over het registreren van een toepassing met Azure AD [toepassingen integreren met Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). 
+Zie voor meer informatie over het registreren van een toepassing met Azure AD [toepassingen integreren met Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
 
 ## <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Uw geregistreerde app-machtigingen verlenen voor Azure Storage
 
-Vervolgens moet u uw toepassing machtigen voor het aanroepen van Azure Storage-API's. Deze stap kan uw toepassing autoriseren aanroepen naar Azure Storage met Azure AD.
+Vervolgens uw Toepassingsmachtigingen verlenen voor Azure Storage-API's aanroepen. Deze stap kan uw toepassing om aanvragen naar Azure Storage met Azure AD te autoriseren.
 
-1. Kies in het linker navigatiedeelvenster van de Azure-portal **alle services**, en zoek naar de **App-registraties**.
-2. Zoeken naar de naam van de geregistreerde toepassing die u in de vorige stap hebt gemaakt.
-3. Selecteer uw geregistreerde app en klikt u op **instellingen**. In de **API-toegang** sectie, selecteer **vereiste machtigingen**.
-4. In de **vereiste machtigingen** blade, klikt u op de **toevoegen** knop.
-5. Onder **Select an API**, zoek naar 'Azure-opslag' en selecteer **Azure Storage** uit de lijst met resultaten.
+1. Op de **overzicht** -pagina voor uw geregistreerde toepassing selecteert **API weergavemachtigingen**.
+1. In de **API-machtigingen** sectie, selecteer **toevoegen van een machtiging** en kies **API's maakt gebruik van mijn organisatie**.
+1. Onder de **API's maakt gebruik van mijn organisatie** sectie, zoek naar 'Azure-opslag' en selecteer **Azure Storage** uit de lijst met resultaten om weer te geven de **aanvragen API-machtigingen** deelvenster.
 
     ![Schermopname die laat zien machtigingen voor opslag](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-6. Onder **machtigingen selecteren**, schakel het selectievakje in naast **toegang tot Azure Storage**, en klikt u op **Selecteer**.
-7. Klik op **Gereed**.
+1. Onder **wat voor soort machtigingen is uw toepassing vereist?** , houd er rekening mee dat de beschikbare machtigingstype **overgedragen machtigingen**. Deze optie is standaard geselecteerd voor u.
+1. In de **machtigingen selecteren** sectie van de **aanvragen API-machtigingen** in het deelvenster het selectievakje naast **user_impersonation**, klikt u vervolgens op **toevoegen machtigingen**.
+1. De **API-machtigingen** deelvenster ziet nu dat uw Azure AD-toepassing toegang tot zowel Microsoft Graph en Azure Storage heeft. Machtigingen worden toegekend aan Microsoft Graph automatisch wanneer u uw app eerst bij Azure AD registreren.
 
-De **vereiste machtigingen** windows nu ziet u dat uw Azure AD-toepassing toegang heeft tot zowel Azure Active Directory en Azure Storage. Machtigingen worden toegekend aan Azure AD automatisch wanneer u eerst uw app registreren bij Azure AD.
+    ![Schermopname van registreren app-machtigingen](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
-![Schermopname van registreren app-machtigingen](media/storage-auth-aad-app/registered-app-permissions-2.png)
+## <a name="libraries-for-token-acquisition"></a>Bibliotheken voor het ophalen van tokens
+
+Zodra u uw toepassing geregistreerd en deze machtigingen voor toegang tot gegevens in Azure Blob-opslag of Queue storage, kunt u code toevoegen aan uw toepassing een beveiligings-principal verifiëren en verkrijgen van een OAuth 2.0-token. Om te verifiëren en verkrijgen van het token, kunt u een van de [verificatiebibliotheken van Microsoft identity-platform](../../active-directory/develop/reference-v2-libraries.md) of een andere open-source-bibliotheek die ondersteuning biedt voor OpenID Connect 1.0. Uw toepassing kunt vervolgens het toegangstoken gebruiken om een aanvraag indient voor Azure Blob-opslag of Queue storage.
+
+Zie voor een lijst met scenario's waarvoor verkrijgen van tokens wordt ondersteund, de [scenario's](https://aka.ms/msal-net-scenarios) sectie van de [Microsoft Authentication Library (MSAL) voor .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub-opslagplaats.
 
 ## <a name="net-code-example-create-a-block-blob"></a>Voorbeeld van .NET-code: Een blok-blob maken
 
 Het codevoorbeeld toont hoe u een token uit Azure AD. Het toegangstoken wordt gebruikt voor het verifiëren van de opgegeven gebruiker en klikt u vervolgens autoriseren een aanvraag voor het maken van een blok-blob. Als u dit voorbeeld werkt, volgt u eerst de stappen die worden beschreven in de voorgaande secties.
 
 > [!NOTE]
-> Als een eigenaar van uw Azure Storage-account, zijn u machtigingen voor toegang tot gegevens niet automatisch toegewezen. U moet zelf expliciet een RBAC-rol toewijzen voor Azure Storage. U kunt deze op het niveau van uw abonnement, resourcegroep, opslagaccount of container of wachtrij toewijzen. 
+> Als een eigenaar van uw Azure Storage-account, zijn u machtigingen voor toegang tot gegevens niet automatisch toegewezen. U moet zelf expliciet een RBAC-rol toewijzen voor Azure Storage. U kunt deze op het niveau van uw abonnement, resourcegroep, opslagaccount of container of wachtrij toewijzen.
 >
 > Bijvoorbeeld, voor het uitvoeren van de voorbeeldcode op een storage-account waarvan u eigenaar bent en onder uw eigen gebruikers-id moet u de RBAC-rol voor inzenders van Blob-gegevens naar uzelf. Anders mislukt de aanroep voor het maken van de blob met de HTTP-statuscode 403 (verboden). Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
 
@@ -85,11 +85,11 @@ Voor de openbare cloud van Microsoft, de base Azure AD-instantie is als volgt, w
 
 `https://login.microsoftonline.com/<tenant-id>/`
 
-De tenant-ID geeft de Azure AD-tenant te gebruiken voor verificatie. Als u wilt ophalen van de tenant-ID, volg de stappen **ophalen van de tenant-ID voor uw Azure Active Directory**.
+De tenant-ID geeft de Azure AD-tenant te gebruiken voor verificatie. Als u wilt ophalen van de tenant-ID, volg de stappen in de sectie met de titel **ophalen van de tenant-ID voor uw Azure Active Directory**.
 
 #### <a name="storage-resource-id"></a>Storage-resource-ID
 
-Gebruik de Azure Storage-resource-ID voor een token verkrijgen voor het verifiëren van aanvragen voor Azure Storage:
+De Azure Storage-resource-ID gebruiken om een token voor het verlenen van aanvragen voor Azure Storage te verkrijgen:
 
 `https://storage.azure.com/`
 
@@ -103,94 +103,131 @@ Als u de tenant-ID, de volgende stappen uit:
 
 ![Schermopname van het kopiëren van de tenant-ID](./media/storage-auth-aad-app/aad-tenant-id.png)
 
+## <a name="set-up-a-basic-web-app-to-authenticate-to-azure-ad"></a>Een eenvoudige web-app instellen voor verificatie met Azure AD
+
+Wanneer uw toepassing toegang heeft tot Azure storage, daarbij op andere gebruikers van de gebruiker. Als u wilt dit codevoorbeeld uitproberen, moet u een web-toepassing die de gebruiker wordt gevraagd, kan zich aanmelden met behulp van een Azure AD-identiteit. U kunt dit downloaden [codevoorbeeld](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) voor het testen van een eenvoudige webtoepassing die wordt geverifieerd met uw Azure AD-account.
+
+### <a name="completed-sample"></a>Voltooide voorbeeld
+
+Een volledig werkende versie van de voorbeeldcode die wordt weergegeven in dit artikel kan worden gedownload vanaf [GitHub](http://aka.ms/aadstorage). Controleren en het uitvoeren van het complete voorbeeld kunnen handig zijn voor het begrijpen van de codevoorbeelden zijn.
+
 ### <a name="add-references-and-using-statements"></a>Verwijzingen toevoegen en met behulp van instructies  
 
-Installeer de Azure Storage-clientbibliotheek vanuit Visual Studio. Uit de **extra** in het menu **Nuget Package Manager**, klikt u vervolgens **Package Manager Console**. Typ de volgende opdracht uit in de console voor het installeren van de meest recente versie van de clientbibliotheek voor .NET:
+Installeer de Azure Storage-clientbibliotheek vanuit Visual Studio. Uit de **extra** in het menu **Nuget Package Manager**, klikt u vervolgens **Package Manager Console**. Typ de volgende opdrachten in het consolevenster het nodig om pakketten te installeren vanuit de Azure Storage-clientbibliotheek voor .NET:
 
-```
-Install-Package WindowsAzure.Storage
-```
-
-Installeer ook de nieuwste versie van ADAL:
-
-```
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+```console
+Install-Package Microsoft.Azure.Storage.Blob
+Install-Package Microsoft.Azure.Storage.Common
 ```
 
-Voeg vervolgens de volgende using-instructies toe aan uw code:
+Voeg vervolgens de volgende using-instructies toe aan het bestand HomeController.cs:
 
-```dotnet
-using System.Globalization;
-using Microsoft.IdentityModel.Clients.ActiveDirectory; //ADAL client library for getting the access token
+```csharp
+using System;
+using Microsoft.Identity.Client; //MSAL library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-### <a name="get-an-oauth-token-from-azure-ad"></a>Een OAuth-token ophalen uit Azure AD
+### <a name="create-a-block-blob"></a>Een blok-blob maken
 
-Vervolgens voegt u een methode die een token van Azure AD aanvraagt toe. Aanroepen voor het aanvragen van het token, de [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync) methode. Zorg ervoor dat u hebt de volgende waarden van de stappen die u eerder hebt uitgevoerd:
+Voeg het volgende codefragment voor het maken van een blok-blob:
 
-- Tenant (directory)-ID
-- ID van de client (toepassing)
-- Client doorstuur-URI
-
-```dotnet
-static string GetUserOAuthToken()
+```csharp
+private static async Task<string> CreateBlob(string accessToken)
 {
-    const string ResourceId = "https://storage.azure.com/";
-    const string AuthInstance = "https://login.microsoftonline.com/{0}/";
-    const string TenantId = "<tenant-id>"; // Tenant or directory ID
+    // Create a blob on behalf of the user
+    TokenCredential tokenCredential = new TokenCredential(accessToken);
+    StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
-    // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 
-    string authority = string.Format(CultureInfo.InvariantCulture, AuthInstance, TenantId);
-    AuthenticationContext authContext = new AuthenticationContext(authority);
-
-    // Acquire an access token from Azure AD. 
-    AuthenticationResult result = authContext.AcquireTokenAsync(ResourceId, 
-                                                                "<client-id>", 
-                                                                new Uri(@"<client-redirect-uri>"), 
-                                                                new PlatformParameters(PromptBehavior.Auto)).Result;
-
-    return result.AccessToken;
+    // Replace the URL below with your storage account URL
+    CloudBlockBlob blob =
+        new CloudBlockBlob(
+            new Uri("https://<storage-account>.blob.core.windows.net/sample-container/Blob1.txt"),
+            storageCredentials);
+    await blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
+    return "Blob successfully created";
 }
 ```
 
-### <a name="create-the-block-blob"></a>De blok-blob maken
-
-Ten slotte het toegangstoken gebruiken om te maken van nieuwe storage-referenties, en deze referenties gebruiken om de blob te maken. Houd er rekening mee dat voor het autoriseren van blob- en wachtrijservices bewerkingen met een OAuth-token, moet u HTTPS.:
-
-```dotnet
-// Get the access token.
-string accessToken = GetUserOAuthToken();
-
-// Use the access token to create the storage credentials.
-TokenCredential tokenCredential = new TokenCredential(accessToken);
-StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
-
-// Create a block blob using those credentials
-CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
-
-blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
-```
-
 > [!NOTE]
-> Azure AD-integratie met Azure Storage is vereist dat u HTTPS voor Azure Storage-bewerkingen gebruiken.
+> U moet HTTPS gebruiken voor het autoriseren van blob- en wachtrijservices bewerkingen met een OAuth 2.0-token.
 
-In het bovenstaande voorbeeld worden de .NET-clientbibliotheek verwerkt de autorisatie van de aanvraag voor het maken van de blok-blob. Andere storage-clientbibliotheken worden ook de autorisatie van de aanvraag voor u verwerkt. Echter, als u een Azure Storage-bewerking met een OAuth-token met behulp van de REST-API aanroept, klikt u vervolgens u moet autoriseren van de aanvraag met het OAuth-token.   
+In het bovenstaande voorbeeld worden de .NET-clientbibliotheek verwerkt de autorisatie van de aanvraag voor het maken van de blok-blob. Azure Storage-clientbibliotheken voor andere talen worden ook de autorisatie van de aanvraag voor u verwerkt. Echter, als u een Azure Storage-bewerking met een OAuth-token met behulp van de REST-API aanroept, klikt u vervolgens u moet autoriseren van de aanvraag met het OAuth-token.
 
 Voor het aanroepen van Blob en Queue-service-bewerkingen met behulp van OAuth-toegangstokens, geeft u het toegangstoken in de **autorisatie** koptekst met behulp van de **Bearer** -schema en geeft u een serviceversie van 2017-11-09 of hoger, als in het volgende voorbeeld weergegeven:
 
-```
+```https
 GET /container/file.txt HTTP/1.1
 Host: mystorageaccount.blob.core.windows.net
 x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-Zie voor meer informatie over het machtigen van Azure Storage-bewerkingen van REST [verifiëren met Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
+### <a name="get-an-oauth-token-from-azure-ad"></a>Een OAuth-token ophalen uit Azure AD
+
+Vervolgens voegt u een methode die een token van Azure AD aanvraagt toe. Het token dat u aanvragen worden namens de gebruiker en gebruiken we de GetTokenOnBehalfOfUser-methode.
+
+Om aan te vragen het token, moet u de volgende waarden van de registratie van uw app,
+
+- Tenant (of een map)-ID
+- ID van client (of de toepassing)
+- Client doorstuur-URI
+
+Houd er rekening mee dat als u net hebt aangemeld, en vraagt u een token voor de `storage.azure.com` resource, moet u de gebruiker met een gebruikersinterface waarin de gebruiker toestemming om namens hen een dergelijke actie te geven kan presenteren. Om dat u nodig hebt om af te vangen de `MsalUiRequiredException` en voeg de functionaliteit om aan te vragen de toestemming van de gebruiker, zoals weergegeven in het volgende voorbeeld:
+
+```csharp
+public async Task<IActionResult> Blob()
+{
+    var scopes = new string[] { "https://storage.azure.com/user_impersonation" };
+    try
+    {
+        var accessToken =
+            await _tokenAcquisition.GetAccessTokenOnBehalfOfUser(HttpContext, scopes);
+        ViewData["Message"] = await CreateBlob(accessToken);
+        return View();
+    }
+    catch (MsalUiRequiredException ex)
+    {
+        AuthenticationProperties properties = BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
+        return Challenge(properties);
+    }
+}
+```
+
+Toestemming is het proces van een gebruiker toestemming om een toepassing te krijgen tot beveiligde bronnen namens hen te verlenen. Het Microsoft identity-platform 2.0 ondersteunt incrementele toestemming te geven, wat betekent dat een beveiligings-principal kan in eerste instantie een minimale set machtigingen aanvragen en machtigingen na verloop van tijd, toevoegen indien nodig. Wanneer uw code een toegangstoken vraagt, geeft u het bereik van de machtigingen die uw app moet op een bepaald moment door in de `scope` parameter. De volgende methode wordt de verificatie-eigenschappen voor het aanvragen van incrementele toestemming:
+
+```csharp
+private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes, MsalUiRequiredException ex)
+{
+    AuthenticationProperties properties = new AuthenticationProperties();
+
+    // Set the scopes, including the scopes that ADAL.NET / MSAL.NET need for the Token cache.
+    string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
+    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope, scopes.Union(additionalBuildInScopes).ToList());
+
+    // Attempt to set the login_hint so that the logged-in user is not presented with an account selection dialog.
+    string loginHint = HttpContext.User.GetLoginHint();
+    if (!string.IsNullOrWhiteSpace(loginHint))
+    {
+        properties.SetParameter<string>(OpenIdConnectParameterNames.LoginHint, loginHint);
+
+        string domainHint = HttpContext.User.GetDomainHint();
+        properties.SetParameter<string>(OpenIdConnectParameterNames.DomainHint, domainHint);
+    }
+
+    // Specify any additional claims that are required (for instance, MFA).
+    if (!string.IsNullOrEmpty(ex.Claims))
+    {
+        properties.Items.Add("claims", ex.Claims);
+    }
+
+    return properties;
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- Zie voor meer informatie over het Microsoft identity-platform, [identiteitsplatform van Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 - Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC](storage-auth-aad-rbac.md).
 - Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren van toegang tot blobs en wachtrijen met Azure Active Directory en beheerde identiteiten voor Azure-Resources](storage-auth-aad-msi.md).
-- Zie voor meer informatie over Azure CLI en PowerShell-opdrachten uitvoeren met Azure AD-referenties, [uitvoeren op Azure CLI of PowerShell-opdrachten met Azure AD-referenties voor toegang tot gegevens voor blob of een wachtrij](storage-auth-aad-script.md).

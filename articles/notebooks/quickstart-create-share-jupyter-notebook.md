@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239844"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751796"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Quickstart: Een notebook maken en delen
 
@@ -41,11 +41,11 @@ ms.locfileid: "60239844"
 
      ![Nieuw Project met ingevulde details](media/quickstarts/new-project-popup.png)
 
-1. Na enkele ogenblikken navigeert Azure notitieblokken u naar het nieuwe project. Een notitieblok toevoegen aan het project door het selecteren van de **+ nieuw** vervolgkeuzelijst (die mogelijk weergegeven als alleen **+**), vervolgens de optie **Notebook**:
+1. Na enkele ogenblikken navigeert Azure notitieblokken u naar het nieuwe project. Een notitieblok toevoegen aan het project door het selecteren van de **+ nieuw** vervolgkeuzelijst (die mogelijk weergegeven als alleen **+** ), vervolgens de optie **Notebook**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "Een nieuw, leeg project en laptop opdracht toe te voegen")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. In de **nieuwe Notebook maken** pop-upvenster dat wordt weergegeven, Geef een bestandsnaam voor uw laptop, zoals *HelloWorldInPython.ipynb* (*.ipynb* betekent dat de Notebook v Ironpythonu (Jupyter) ), en selecteer **Python 3.6** voor de taal (ook wel de *kernel*):
+1. In de **nieuwe Notebook maken** pop-upvenster dat wordt weergegeven, Geef een bestandsnaam voor uw laptop, zoals *HelloWorldInPython.ipynb* ( *.ipynb* betekent dat de Notebook v Ironpythonu (Jupyter) ), en selecteer **Python 3.6** voor de taal (ook wel de *kernel*):
 
     ![Het pop-upvenster voor de nieuwe Notebook maken](media/quickstarts/new-notebook-popup.png)
 

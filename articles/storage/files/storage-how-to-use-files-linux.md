@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 73ed98bf950f7c9f52e2b8eeb431fe4b36bfe324
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427920"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754835"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure Files gebruiken met Linux
 
@@ -75,7 +75,10 @@ ms.locfileid: "66427920"
 
     Gebruik de juiste package manager in een andere distributie of [compileren van bron](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Besluit op de map/bestand machtigingen van de gekoppelde share**: In de voorbeelden hieronder de machtiging `0777` wordt gebruikt om te voorzien van lezen, schrijven en uitvoeren van machtigingen voor alle gebruikers. U kunt deze vervangen door andere [chmod machtigingen](https://en.wikipedia.org/wiki/Chmod) naar wens.
+* **Besluit op de map/bestand machtigingen van de gekoppelde share**: In de voorbeelden hieronder de machtiging `0777` wordt gebruikt om te voorzien van lezen, schrijven en uitvoeren van machtigingen voor alle gebruikers. U kunt deze vervangen door andere [chmod machtigingen](https://en.wikipedia.org/wiki/Chmod) naar wens, hoewel dit betekent dat toegang mogelijk te beperken. Als u andere machtigingen gebruikt, moet u overwegen ook uid en groeps-id als u wilt behouden toegang tot lokale groepen van uw keuze.
+
+> [!NOTE]
+> Als u machtigingen voor map- en met dir_mode en file_mode niet expliciet toewijst, zullen ze 0755 standaard.
 
 * **Zorg ervoor dat poort 445 open is**: SMB communiceert via TCP-poort 445 - controleer of de TCP-poort 445 van de clientcomputer niet door uw firewall wordt geblokkeerd.
 
@@ -89,7 +92,7 @@ ms.locfileid: "66427920"
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **Gebruik de koppelopdracht om de Azure-bestandsshare koppelen**: Vervang **< naam_opslagaccount >** , **< sharenaam > hebben**, **< smb_version >** , **< storage_account_key >** , en **< mount_point >** met de juiste informatie voor uw omgeving. Als uw Linux-distributie biedt ondersteuning voor SMB 3.0 met-codering (Zie [clientvereisten voor informatie over SMB](#smb-client-reqs) voor meer informatie), gebruikt u **3.0** voor **< smb_version >** . Voor Linux-distributies die bieden geen ondersteuning voor SMB 3.0 met versleuteling, gebruikt u **2.1** voor **< smb_version >** . Een Azure-bestandsshare kan alleen worden gekoppeld buiten een Azure-regio (met inbegrip van on-premises of in een andere Azure-regio) met SMB 3.0. 
+1. **Gebruik de koppelopdracht om de Azure-bestandsshare koppelen**: Vervang **< naam_opslagaccount >** , **< sharenaam > hebben**, **< smb_version >** , **< storage_account_key >** , en **< mount_point >** met de juiste informatie voor uw omgeving. Als uw Linux-distributie biedt ondersteuning voor SMB 3.0 met-codering (Zie [clientvereisten voor informatie over SMB](#smb-client-reqs) voor meer informatie), gebruikt u **3.0** voor **< smb_version >** . Voor Linux-distributies die bieden geen ondersteuning voor SMB 3.0 met versleuteling, gebruikt u **2.1** voor **< smb_version >** . Een Azure-bestandsshare kan alleen worden gekoppeld buiten een Azure-regio (met inbegrip van on-premises of in een andere Azure-regio) met SMB 3.0. Als u dat wilt, kunt u de map- en machtigingen van de gekoppelde share maar dit betekent dat de toegang beperken.
 
     ```bash
     sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino

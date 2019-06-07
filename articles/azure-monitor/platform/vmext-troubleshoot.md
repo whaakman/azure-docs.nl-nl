@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd5e0749116ef335887ea634b9d2790c63bf171d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61341208"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751922"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Het oplossen van de Log Analytics VM-extensie in Azure Monitor
 Dit artikel bevat informatie over het oplossen van fouten die u mogelijk ondervindt met de Log Analytics VM-extensie voor Windows en Linux virtuele machines die worden uitgevoerd op Microsoft Azure en duidt op mogelijke oplossingen om op te lossen.
@@ -45,16 +45,11 @@ Als de *Microsoft Monitoring Agent* VM-extensie is niet geïnstalleerd of rappor
    * U kunt ook het logboekbestand van de VM-agent bekijken `C:\WindowsAzure\logs\WaAppAgent.log`
    * Als het logboek niet bestaat, wordt de VM-agent is niet geïnstalleerd.
    * [De Azure VM-Agent installeren](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. Controleer of dat de Microsoft Monitoring Agent-extensie heartbeat-taak wordt uitgevoerd met behulp van de volgende stappen uit:
-   * Meld u aan bij de virtuele machine
-   * Open de Taakplanner en zoek de `update_azureoperationalinsight_agent_heartbeat` taak
-   * Controleer of de taak is ingeschakeld en wordt elke minuut uitgevoerd
-   * Controleer het logboekbestand heartbeat in `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
-3. Bekijk de logboekbestanden van de Microsoft Monitoring Agent-VM-extensie in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
-4. Zorg ervoor dat de virtuele machine kunt u PowerShell-scripts uitvoeren
-5. Controleer of de machtigingen op C:\Windows\temp nog niet is gewijzigd
-6. De status van de Microsoft Monitoring Agent weergeven door het volgende te typen in een verhoogde PowerShell-venster op de virtuele machine `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
-7. Bekijk de logboekbestanden voor setup van Microsoft Monitoring Agent in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
+2. Bekijk de logboekbestanden van de Microsoft Monitoring Agent-VM-extensie in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
+3. Zorg ervoor dat de virtuele machine kunt u PowerShell-scripts uitvoeren
+4. Controleer of de machtigingen op C:\Windows\temp nog niet is gewijzigd
+5. De status van de Microsoft Monitoring Agent weergeven door het volgende te typen in een verhoogde PowerShell-venster op de virtuele machine `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. Bekijk de logboekbestanden voor setup van Microsoft Monitoring Agent in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 Zie voor meer informatie, [Windows-extensies oplossen](../../virtual-machines/extensions/oms-windows.md).
 

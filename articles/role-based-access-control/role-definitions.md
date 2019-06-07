@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950003"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754903"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informatie over roldefinities voor Azure-resources
 
@@ -136,7 +136,7 @@ Eigenaar
 &nbsp;&nbsp;&nbsp;&nbsp;Acties<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Bijdrager voor opslagblobgegevens
+Gegevensbijdrager voor Blob
 
 &nbsp;&nbsp;&nbsp;&nbsp;Acties<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -187,7 +187,7 @@ De `Actions` machtiging Hiermee geeft u de beheerbewerkingen die de rol kan word
 | `Microsoft.Compute/virtualMachines/*` | Verleent toegang tot alle bewerkingen van virtuele machines en het onderliggende resourcetypen.|
 | `microsoft.web/sites/restart/Action` | Verleent toegang tot een WebApp opnieuw te starten.|
 
-## <a name="notactions"></a>NotActions
+## <a name="notactions"></a>notActions
 
 De `NotActions` machtiging Hiermee geeft u de beheerbewerkingen die zijn uitgesloten van het toegestane aantal `Actions`. Gebruik de `NotActions` machtiging als de reeks bewerkingen die u wilt toestaan dat eenvoudiger door uit te sluiten van beperkte bewerkingen is gedefinieerd. De toegang wordt verleend door een rol (effectieve machtigingen) wordt berekend door af te trekken van de `NotActions` bewerkingen uit de `Actions` bewerkingen.
 
@@ -216,7 +216,7 @@ De `NotDataActions` machtiging Hiermee geeft u de bewerkingen voor gegevens die 
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-De `AssignableScopes` -eigenschap geeft de scopes (abonnementen, resourcegroepen of resources) dat de functie beschikbaar voor toewijzing is. U kunt de rol beschikbaar maken voor toewijzing in alleen de abonnementen of resourcegroepen die nodig, en niet de gebruiker overbodige items hebben ervaring voor de rest van de abonnementen of resourcegroepen. Moet u ten minste één abonnement, resourcegroep of resource-ID.
+De `AssignableScopes` -eigenschap geeft de scopes (abonnementen, resourcegroepen of bronnen) die deze roldefinitie die beschikbaar zijn. U kunt de rol beschikbaar voor toewijzing te maken in alleen de abonnementen of resourcegroepen die moeten worden opgeslagen en niet door elkaar op de gebruikerservaring voor de rest van de abonnementen of resourcegroepen. Moet u ten minste één abonnement, resourcegroep of resource-ID.
 
 Ingebouwde rollen hebben een `AssignableScopes` ingesteld op het bereik van de hoofdmap (`"/"`). Het bereik van de hoofdmap geeft aan dat de functie beschikbaar voor toewijzing in alle bereiken is. Voorbeelden van geldige toewijsbare bereiken zijn:
 

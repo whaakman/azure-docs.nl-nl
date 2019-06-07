@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410568"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755125"
 ---
 # <a name="automatically-scale-session-hosts"></a>Sessiehosts automatisch schalen
 
@@ -26,7 +26,7 @@ De omgeving waarin u het script uitvoert, moet de volgende zaken:
 
 - Een virtuele Windows-bureaublad-tenant en -account of een service-principal met machtigingen om op te vragen die tenant (zoals Inzender voor extern bureaublad-services).
 - Sessie host pool-VM's geconfigureerd en geregistreerd bij de virtuele Windows-bureaublad-service.
-- Een extra virtuele machine die de geplande taak wordt uitgevoerd via Taakplanner en heeft toegang tot het netwerk voor hosts van de sessie. Dit is reffered naar verderop in dit document als scaler VM.
+- Een extra virtuele machine die de geplande taak wordt uitgevoerd via Taakplanner en heeft toegang tot het netwerk voor hosts van de sessie. Dit wordt genoemd in het document later scaler VM.
 - De [Microsoft Azure Resource Manager PowerShell-module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) geïnstalleerd op de virtuele machine waarop de geplande taak wordt uitgevoerd.
 - De [Windows virtuele bureaublad PowerShell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) geïnstalleerd op de virtuele machine waarop de geplande taak wordt uitgevoerd.
 

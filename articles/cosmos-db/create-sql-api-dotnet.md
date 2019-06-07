@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/20/2019
-ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/06/2019
+ms.openlocfilehash: e39440a46228d82b0722f7d9d349d11fb2417b42
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954553"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754662"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Quickstart: Een .NET-web-app met behulp van de SQL API-account in Azure Cosmos DB maken
 
@@ -43,7 +43,7 @@ Een Azure-abonnement of een gratis proefversie Azure Cosmos DB-account
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-an-azure-cosmos-db-account"></a>Een Azure Cosmos DB-account maken
+## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -52,33 +52,32 @@ Een Azure-abonnement of een gratis proefversie Azure Cosmos DB-account
 
 U kunt Data Explorer in Azure portal om te maken van een database en verzameling. 
 
-1.  Selecteer **Data Explorer** pagina in de linkernavigatiebalk op uw Azure Cosmos DB-account en selecteer vervolgens **nieuwe verzameling**. 
+1.  Selecteer **Data Explorer** pagina in de linkernavigatiebalk op uw Azure Cosmos DB-account en selecteer vervolgens **nieuwe Container**. 
     
-    U moet mogelijk naar rechts scrollen om te zien de **verzameling toevoegen** gebied.
+    U moet mogelijk naar rechts scrollen om te zien de **Container toevoegen** venster.
     
     ![Azure Portal Data Explorer, deelvenster Verzameling toevoegen](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  Geef op de pagina **Verzameling toevoegen** de instellingen voor de nieuwe verzameling op.
+1.  In de **toevoegen container** deelvenster, geef de instellingen voor de nieuwe verzameling.
     
     |Instelling|Voorgestelde waarde|Description
     |---|---|---|
-    |**Database-id**|Takenlijst|Voer *ToDoList* als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/, \\, #, ?` bevatten en mogen niet eindigen met een spatie.|
-    |**Verzamelings-id**|Items|Voer *Items* in als de naam voor de nieuwe verzameling. Verzameling-ID's hebben dezelfde tekenvereisten als voor databasenamen.|
-    |**Partitiesleutel**| /category| In het voorbeeld dat wordt beschreven in dit artikel wordt *Category* als de partitiesleutel.|
+    |**Database-id**|Takenlijst|Voer *ToDoList* als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/, \\, #, ?` bevatten en mogen niet eindigen met een spatie. Controleer de **inrichten database doorvoer** optie, het kunt u de doorvoer die is ingericht met de database in de containers in de database delen. Deze optie helpt ook bij de kosten te besparen. |
     |**Doorvoer**|400|Laat de doorvoer in 400 aanvraageenheden per seconde (RU/s). U kunt de doorvoer later opschalen als u de latentie wilt beperken.| 
+    |**Container-ID**|Items|Voer *Items* in als de naam voor de nieuwe verzameling. Verzameling-ID's hebben dezelfde tekenvereisten als voor databasenamen.|
+    |**Partitiesleutel**| /category| In het voorbeeld dat wordt beschreven in dit artikel wordt *Category* als de partitiesleutel.|
+
     
     Voeg niet **unieke sleutels** voor dit voorbeeld. Unieke sleutels kunnen u een laag van de integriteit van gegevens toevoegen aan de database door ervoor te zorgen dat een of meer waarden per partitiesleutel. Zie voor meer informatie, [unieke sleutels in Azure Cosmos DB](unique-keys.md).
     
-1.  Selecteer **OK**. 
-    In Data Explorer worden de nieuwe database en verzameling weergegeven.
+1.  Selecteer **OK**. De Data Explorer worden weergegeven voor de nieuwe database en de container die u hebt gemaakt.
     
-    ![Data Explorer in Azure Portal, met de nieuwe database en tabel](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ## <a name="add-data-to-your-database"></a>Gegevens toevoegen aan uw database
 
 Gegevens toevoegen aan uw nieuwe database met behulp van Data Explorer.
 
-1. In **Data Explorer**, de nieuwe database wordt weergegeven in de **verzamelingen** deelvenster. Vouw de **ToDoList** database, vouw de **Items** verzameling, selecteer **documenten**, en selecteer vervolgens **Nieuw Document**. 
+1. In **Data Explorer**, vouw de **ToDoList** database uit en vouw de **Items** container. Selecteer vervolgens **Items**, en selecteer vervolgens **Nieuw Item**. 
    
    ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
@@ -108,7 +107,7 @@ Gegevens toevoegen aan uw nieuwe database met behulp van Data Explorer.
 
 Als u wilt zien hoe eenvoudig het is om te werken met uw Azure Cosmos DB-gegevens via een programma, kloon de voorbeeld-web-app voor SQL-API .NET vanuit GitHub, de verbindingsreeks bijwerken en de app voor het bijwerken van uw gegevens uitvoeren. 
 
-U kunt ook de database en verzameling maken met behulp van de .NET-voorbeeldcode. Zie voor meer informatie, [bekijkt u de .NET-code](#review-the-net-code).
+U kunt ook de database en de container maken met behulp van de .NET-voorbeeldcode. Zie voor meer informatie, [bekijkt u de .NET-code](#review-the-net-code).
 
 ### <a name="clone-the-sample-app"></a>De voorbeeld-app klonen
 
@@ -148,7 +147,7 @@ Kloon eerst een C# [SQL API-app](https://github.com/Azure-Samples/documentdb-dot
       `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
        
-1. Zorg ervoor dat de database en verzameling waarden in de *web.config* overeenkomen met de namen die u eerder hebt gemaakt. 
+1. Zorg ervoor dat de database en verzameling (ook wel container) waarden in de *web.config* overeenkomen met de namen die u eerder hebt gemaakt. 
 
    ```csharp
    <add key="database" value="ToDoList"/>
@@ -163,7 +162,7 @@ Kloon eerst een C# [SQL API-app](https://github.com/Azure-Samples/documentdb-dot
 
 1. Typ in het NuGet-vak **Bladeren** *DocumentDB*.
 
-1. Installeer vanuit de resultaten de **Microsoft.Azure.DocumentDB** bibliotheek als nog niet is geïnstalleerd. Hiermee installeert u de [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) pakket en alle afhankelijkheden.
+1. Installeer vanuit de resultaten de **2.2.3 versie** van **Microsoft.Azure.DocumentDB** bibliotheek als nog niet is geïnstalleerd. Hiermee installeert u de [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) pakket en alle afhankelijkheden.
    
    Als de NuGet Package Manager een bericht weergegeven wordt dat sommige pakketten niet aanwezig in de oplossing zijn, selecteert u **herstellen** ze te installeren uit interne bronnen. 
 
@@ -177,7 +176,7 @@ U kunt teruggaan naar Data Explorer in de Azure portal om te zien, query, wijzig
 
 ## <a name="review-the-net-code"></a>De .NET-code bekijken
 
-Deze stap is optioneel. In deze quickstart maakt u een database en een verzameling hebt gemaakt in Azure portal en voorbeeldgegevens toegevoegd met behulp van de .NET-voorbeeld. U kunt de database en de verzameling ook maken met behulp van de .NET-voorbeeld. De volgende codefragmenten bekijken als u geïnteresseerd bent in hoe de database-resources worden gemaakt in de code. De codefragmenten zijn allemaal afkomstig uit de *DocumentDBRepository.cs* -bestand in de **todo** project.
+Deze stap is optioneel. In deze snelstartgids hebt u een database en een container gemaakt in Azure portal en voorbeeldgegevens toegevoegd met behulp van de .NET-voorbeeld. U kunt de database en de container ook maken met behulp van de .NET-voorbeeld. De volgende codefragmenten bekijken als u geïnteresseerd bent in hoe de database-resources worden gemaakt in de code. De codefragmenten zijn allemaal afkomstig uit de *DocumentDBRepository.cs* -bestand in de **todo** project.
 
 * Deze code initialiseert de `DocumentClient`: 
 
@@ -230,7 +229,7 @@ Deze stap is optioneel. In deze quickstart maakt u een database en een verzameli
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u een Azure Cosmos DB-account maken, het maken van een database en verzameling met de Data Explorer en het uitvoeren van een .NET-web-app voor het bijwerken van uw gegevens. Nu kunt u aanvullende gegevens in uw Azure Cosmos DB-account importeren. 
+In deze snelstartgids hebt u geleerd hoe u een Azure Cosmos DB-account maken, het maken van een database en een container met behulp van Data Explorer en het uitvoeren van een .NET-web-app voor het bijwerken van uw gegevens. Nu kunt u aanvullende gegevens in uw Azure Cosmos DB-account importeren. 
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)

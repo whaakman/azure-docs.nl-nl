@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742961"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753088"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -92,14 +92,7 @@ Zie voor meer informatie de documentatie bij de [Modelklasse](https://docs.micro
 
 De volgende compute-doelen, of compute-resources, kunnen worden gebruikt voor het hosten van uw implementatie van de webservice. 
 
-| COMPUTE-doel | Gebruik | Description |
-| ----- | ----- | ----- |
-| [Lokale webservice](#local) | Testing/debug | Goed voor beperkte testen en problemen oplossen.
-| [Azure Kubernetes Service (AKS)](#aks) | Realtime Deductie | Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
-| [Azure Container Instances (ACI)](#aci) | Testen | Goed voor lage schaal, op basis van CPU-werkbelastingen. |
-| [Azure Machine Learning-Computing](how-to-run-batch-predictions.md) | Batch Deductie | Batch Deductie worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en met lage prioriteit VM's. |
-| [Azure IoT Edge](#iotedge) | (Preview) IoT-module | Implementeren en bedienen ML-modellen op IoT-apparaten. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Implementatie voorbereiden
 

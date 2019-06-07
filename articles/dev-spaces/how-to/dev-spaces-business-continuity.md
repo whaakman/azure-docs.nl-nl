@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69f5bdd80e4cf10db6a530ddfa08a1f26cd42ca0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686968"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754415"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Zakelijke continuïteit en herstel na noodgevallen in ruimten voor het ontwikkelen van Azure
 
@@ -27,7 +27,7 @@ Azure Dev opslagruimten is een functie van Azure Kubernetes Service (AKS). U moe
 
 Dev-ruimten in AKS-clusters in verschillende regio's inschakelen, kunt u ontwikkelen opslagruimten direct na de storing van een Azure-regio blijven gebruiken.
 
-Raadpleeg voor algemene informatie over implementaties in meerdere regio's van AKS [plannen voor implementatie in meerdere regio's](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)
+Raadpleeg voor algemene informatie over implementaties in meerdere regio's van AKS [plannen voor implementatie in meerdere regio's](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
 Zie voor meer informatie over het implementeren van een AKS-cluster dat compatibel is met Azure Dev spaties [maken van een Kubernetes-cluster met behulp van Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
 

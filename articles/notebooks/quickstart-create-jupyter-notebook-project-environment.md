@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240627"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754022"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Quickstart: Een project met een aangepaste omgeving maken
 
@@ -43,7 +43,7 @@ Een project in notitieblokken van Azure is een verzameling van bestanden, zoals 
     - **Openbare project**: (uitgeschakeld)
     - **Maken van een README.md**: (uitgeschakeld)
 
-1. Na enkele ogenblikken navigeert Azure notitieblokken u naar het nieuwe project. Een notitieblok toevoegen aan het project door het selecteren van de **+ nieuw** vervolgkeuzelijst (die mogelijk weergegeven als alleen **+**), vervolgens de optie **Notebook**.
+1. Na enkele ogenblikken navigeert Azure notitieblokken u naar het nieuwe project. Een notitieblok toevoegen aan het project door het selecteren van de **+ nieuw** vervolgkeuzelijst (die mogelijk weergegeven als alleen **+** ), vervolgens de optie **Notebook**.
 
 1. Geef een naam, zoals op de notebook *aangepaste environment.ipynb*, selecteer **Python 3.6** voor de taal en selecteer **nieuw**.
 
