@@ -7,18 +7,14 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 62259749e04d66d78206a0bba77ce88f2c08c82f
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688999"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752024"
 ---
 # <a name="custom-rules-for-web-application-firewall"></a>Aangepaste regels voor Web Application Firewall
-
-> [!IMPORTANT]
-> Azure Application Gateway WAF aangepaste regels is momenteel een preview-versie. **Aangepaste regels zijn alleen beschikbaar voor de SKU WAF_v2**.
-> Deze openbare preview-versie wordt aangeboden zonder serviceovereenkomst en moet niet worden gebruikt voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar op alle Azure-locaties. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 De Azure Application Gateway web application firewall (WAF) wordt geleverd met een vooraf geconfigureerde, platform beheerde ruleset die beveiliging tegen veel verschillende soorten aanvallen biedt. Deze aanvallen omvatten cross-site scripting, SQL-injectie en anderen. Als u een WAF-beheerder bent, kunt u schrijven eigen regels voor het verbeteren van de regel core (CRS) regels instellen. Uw regels kunnen blokkeren of toestaan aangevraagde verkeer op basis van die overeenkomen met criteria.
 
