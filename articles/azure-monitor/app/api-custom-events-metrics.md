@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299254"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478413"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 De telemetrie is beschikbaar in de `customEvents` in tabel [Application Insights Analytics](analytics.md). Elke rij vertegenwoordigt een aanroep van `trackEvent(..)` in uw app.
 
-Als [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen van trackEvent(), het proces steekproeven alleen een van beide overgedragen. Als u het juiste aantal aangepaste gebeurtenissen, moet u daarom code gebruiken zoals `customEvents | summarize sum(itemCount)`.
+Als [steekproeven](../../azure-monitor/app/sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen van trackEvent(), het proces steekproeven alleen een van beide overgedragen. Als u het juiste aantal aangepaste gebeurtenissen, u moet daarom code gebruiken zoals `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 

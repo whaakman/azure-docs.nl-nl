@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045270"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478851"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Het Team Data Science Process in actie: met behulp van SQL Data Warehouse
 In deze zelfstudie, we begeleidt u bij het bouwen en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar beschikbare gegevensset--de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset. De binaire classificeringsmodel samengesteld voorspelt al dan niet een tip wordt betaald voor een reis, en modellen voor multiklassen classificatie- en regressiemodellen worden ook besproken die het distributiepunt voor de betaalde bedragen tip voorspellen.
@@ -366,7 +366,7 @@ Deze query's bieden een snelle controle van het aantal rijen en kolommen in de t
 **De uitvoer:** U moet 173,179,759 rijen en 14 kolommen.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>Verkennen: Verdeling naar reis straten
-In dit voorbeeld van een query identificeert de medallions (nummers over taxi's) die meer dan 100 trips voltooid binnen een opgegeven periode. De query veel voordeel hebben van de toegang tot de gepartitioneerde tabel nadat deze zijn afhankelijk van het partitieschema van **ophalen\_datum-/**. Uitvoeren van query's de volledige gegevensset maakt ook gebruik van de gepartitioneerde tabel en/of index-scan.
+In dit voorbeeld van een query identificeert de medallions (nummers over taxi's) die meer dan 100 trips voltooid binnen een opgegeven periode. De query veel voordeel hebben van de toegang tot de gepartitioneerde tabel nadat deze zijn afhankelijk van het partitieschema van **ophalen\_datum-/** . Uitvoeren van query's de volledige gegevensset maakt ook gebruik van de gepartitioneerde tabel en/of index-scan.
 
     SELECT medallion, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -584,11 +584,11 @@ Als u al een AzureML-werkruimte hebt ingesteld, kunt u rechtstreeks in het voorb
 
 Om uit te voeren van het voorbeeld IPython Notebook of het Python-scriptbestand, de volgende Python pakketten zijn vereist. Als u van de AzureML IPython Notebook-service gebruikmaakt, zijn deze pakketten vooraf geïnstalleerd.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 De aanbevolen volgorde bij het bouwen van geavanceerde analytische oplossingen in AzureML met grote hoeveelheden gegevens is het volgende:
 

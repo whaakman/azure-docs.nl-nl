@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 8ed7d144b886cc29592418007b9103b4aa94e8ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b09182ef06c708e9c606173f02b006e7802f29ed
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331050"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477820"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
@@ -33,7 +33,7 @@ Met SQL Server op een Azure-machine ook kunnen een asymmetrische sleutel uit Key
 
 ## <a name="service-managed-transparent-data-encryption"></a>Beheerde service transparante gegevensversleuteling
 
-In Azure is de standaardinstelling voor transparante gegevensversleuteling of de databaseversleutelingssleutel wordt beveiligd door een ingebouwde servercertificaat. Het certificaat van de ingebouwde is uniek voor elke server. Als een database in een relatie geo-replicatie, wordt de primaire en geo-secundaire database worden beveiligd door de primaire database bovenliggende SLC-sleutel. Als twee databases zijn verbonden met dezelfde server, delen ze ook ingebouwde hetzelfde certificaat. Microsoft draait automatisch deze certificaten in overeenstemming met het interne beveiligingsbeleid en de hoofd-sleutel wordt beveiligd door een Microsoft store voor interne geheim.
+In Azure is de standaardinstelling voor transparante gegevensversleuteling of de databaseversleutelingssleutel wordt beveiligd door een ingebouwde servercertificaat. Het certificaat van de ingebouwde is uniek voor elke server. Als een database in een relatie geo-replicatie, wordt de primaire en geo-secundaire database worden beveiligd door de primaire database bovenliggende SLC-sleutel. Als twee databases zijn verbonden met dezelfde server, delen ze ook ingebouwde hetzelfde certificaat. Microsoft draait automatisch deze certificaten in overeenstemming met het interne beveiligingsbeleid en de hoofd-sleutel wordt beveiligd door een Microsoft store voor interne geheim.  Klanten kunnen controleren of de SQL-Database en de naleving interne beveiligingsbeleid in onafhankelijke externe controlerapporten die beschikbaar zijn op de [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 Microsoft ook naadloos worden verplaatst en de sleutels indien nodig voor geo-replicatie wordt beheerd en worden hersteld.
 
@@ -112,7 +112,7 @@ Gebruik de volgende cmdlets voor Azure SQL Database en Data Warehouse:
 
 Verbinding maken met de database met behulp van een aanmelding die is een beheerder of lid zijn van de **dbmanager** rol in de database master.
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | Aan van/op VERSLEUTELING uit ingesteld worden versleuteld of een database wordt ontsleuteld |
 | [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Retourneert informatie over de status van de versleuteling van een database en de bijbehorende database versleutelingssleutels |

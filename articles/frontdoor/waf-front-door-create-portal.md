@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/8/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460213"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479048"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Een WAF-beleid voor de voordeur voor Azure maken met behulp van Azure portal
 
@@ -63,17 +63,19 @@ Als u wilt WAF in actie zien, kunt u de instellingen voor de modus van **detecti
 
  ![Wijziging WAF-beleidsmodus](./media/waf-front-door-create-portal/policy.png)
 
+### <a name="custom-rules"></a>Aangepaste regels
+
+U kunt een aangepaste regel maken door te selecteren **aangepaste regel toevoegen** onder de **aangepaste regels** sectie. Hiermee wordt de configuratiepagina van de aangepaste regel gestart. Hieronder volgt een voorbeeld van het configureren van een aangepaste regel voor het blokkeren van een aanvraag als de query-tekenreeks bevat **blockme**.
+
+![Wijziging WAF-beleidsmodus](./media/waf-front-door-create-portal/customquerystring2.png)
+
 ### <a name="default-rule-set-drs"></a>Standaard-regelset (DRS)
 
 Standaard regelset Azure beheerde is standaard ingeschakeld. Als u wilt een afzonderlijke regel in een regelgroep uitschakelt, vouw de regels in die regelgroep, selecteer de **selectievakje** in het zicht van het regelnummer van de en selecteer **uitschakelen** op het tabblad hierboven. Wijzigen van typen acties voor afzonderlijke regels in de regel ingesteld, schakel het selectievakje in het zicht van het regelnummer van de en selecteer vervolgens de **actie wijzigen** hierboven een tab.
 
- ![WAF-regelset wijzigen](./media/waf-front-door-create-portal/managed.png)
+ ![WAF-regelset wijzigen](./media/waf-front-door-create-portal/managed2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [Azure web application firewall](waf-overview.md).
 - Meer informatie over [Azure voordeur](front-door-overview.md).
-
-
-
-

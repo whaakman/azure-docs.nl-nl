@@ -2,20 +2,20 @@
 title: Instellen van aanmelden voor een Azure Active Directory-organisatie - Azure Active Directory B2C | Microsoft Docs
 description: Instellen van de aanmelding voor een specifieke Azure Active Directory-organisatie in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bae5759beb6a817c411ee52d7eb27dbff4cfe01c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 28dbf0382ac151857e72d4bb59e207f07c8ad3f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785253"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508427"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Aanmelden voor een specifieke Azure Active Directory-organisatie in Azure Active Directory B2C instellen
 
@@ -54,7 +54,7 @@ Om in te schakelen aanmelding voor gebruikers van een specifieke Azure AD-organi
 2. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 3. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 4. Voer een **naam**. Geef bijvoorbeeld `Contoso Azure AD` op.
-5. Selecteer **type id-provider**, selecteer **Open ID Connect (Preview)**, en klik vervolgens op **OK**.
+5. Selecteer **type id-provider**, selecteer **Open ID Connect (Preview)** , en klik vervolgens op **OK**.
 6. Selecteer **deze id-provider instellen**
 7. Voor **metagegevens-url**, voer de volgende URL vervangt `your-AD-tenant-domain` met de domeinnaam van uw Azure AD-tenant. Bijvoorbeeld `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/03/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417860"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496345"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Het gebruik en kosten met Azure Monitor logboeken beheren
 
@@ -58,6 +58,9 @@ Log Analytics kosten worden toegevoegd aan uw Azure-factuur. U kunt details van 
 Een dagelijkse limiet configureren en de dagelijkse opname van gegevens voor uw werkruimte beperken, maar wees voorzichtig als het doel mag geen aan de dagelijkse limiet bereikt.  Anders verliest u de gegevens voor de rest van de dag die invloed kan zijn op andere Azure-services en oplossingen waarvan functionaliteit mogelijk afhankelijk van de meest recente gegevens beschikbaar worden gesteld in de werkruimte.  Als gevolg hiervan de mogelijkheid om te zien en krijg een waarschuwing wanneer de voorwaarden van de status van resources ondersteuning van IT-services worden beïnvloed.  De dagelijkse limiet is bedoeld om te worden gebruikt als een manier voor het beheren van de onverwachte toename in aantal gegevens van beheerde resources en blijf binnen uw limiet, of als u wilt niet-geplande kosten in rekening gebracht voor uw werkruimte beperken.  
 
 Wanneer de dagelijkse limiet is bereikt, stopt het verzamelen van factureerbare gegevenstypen voor de rest van de dag. De banner van een waarschuwing wordt weergegeven aan de bovenkant van de pagina voor de geselecteerde Log Analytics-werkruimte en een bewerkingsgebeurtenis wordt verzonden naar de *bewerking* tabel onder **LogManagement** categorie. Het verzamelen van gegevens wordt hervat nadat de tijd voor opnieuw instellen die zijn gedefinieerd onder *dagelijkse limiet wordt ingesteld op*. Het is raadzaam om het definiëren van een waarschuwingsregel op basis van deze bewerkingsgebeurtenis, geconfigureerd om te melden wanneer de dagelijkse limiet is bereikt. 
+
+> [!NOTE]
+> De dagelijkse limiet, stopt niet het verzamelen van gegevens van Azure Security Center.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificeren welke dagelijkse limiet voor gegevens definiëren
 
@@ -105,7 +108,7 @@ De volgende stappen wordt beschreven hoe u configureren hoe lang logboek gegeven
 
 ## <a name="legacy-pricing-tiers"></a>Oudere Prijscategorieën
 
-Klanten met een Enterprise overeenkomst ondertekend voor 1 juli 2018 of die al een Log Analytics-werkruimte in een abonnement hebt gemaakt, u nog steeds toegang hebben tot de *gratis* plan. Als uw abonnement is niet gekoppeld aan een bestaande EA-inschrijving, het *gratis* laag is niet beschikbaar wanneer u een werkruimte in een nieuw abonnement na 2 April 2018 maken.  Gegevens zijn beperkt tot zeven dagen retentie voor de *gratis* laag.  Voor de verouderde *zelfstandige* of *Per knooppunt* lagen, evenals de huidige 2018 één prijscategorie, gegevens die zijn verzameld is beschikbaar voor de afgelopen 31 dagen. De *gratis* laag dagelijkse opname-limiet van 500 MB heeft, en als u merkt dat u consistent meer bedragen dan de toegestane volume, kunt u uw werkruimte wijzigen in een ander schema voor het verzamelen van gegevens buiten deze limiet. 
+Abonnementen die een Log Analytics-werkruimte of Application Insights-resource in het had vóór 2 April 2018, of zijn gekoppeld aan een Enterprise Agreement die is gestart op 1 februari 2019, blijven toegang hebben tot de oudere Prijscategorieën: Gratis, zelfstandig (Per GB) en Per knooppunt (OMS).  Toegang tot werkruimten in de prijscategorie gratis heeft de dagelijkse opname van gegevens beperkt tot 500 MB (met uitzondering van de gegevenstypen die worden verzameld door Azure Security Center) en het bewaren van gegevens is beperkt tot 7 dagen. De prijscategorie gratis is alleen bedoeld voor evaluatiedoeleinden. Toegang tot werkruimten in de zelfstandige of Per Prijscategorieën van knooppunten hebben toegang tot het bewaren van gegevens van 2 jaar. 
 
 > [!NOTE]
 > Kies de Log Analytics voor het gebruik van de rechten die horen bij de aanschaf van OMS E1-Suite, OMS E2 Suite of OMS-invoegtoepassing voor System Center, *Per knooppunt* prijscategorie.
@@ -131,7 +134,9 @@ Als u verplaatsen van uw werkruimte in de huidige prijscategorie wilt, moet u wi
 
 Als u zich op de oude gratis-laag en meer dan 500 MB aan gegevens op een dag hebt verzonden, stopt het verzamelen van gegevens voor de rest van de dag. De dagelijkse limiet wordt bereikt, is een veelvoorkomende reden die Log Analytics stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.  Log Analytics maakt een gebeurtenis van het type bewerking wanneer het verzamelen van gegevens wordt gestart en gestopt. Voer de volgende query in het zoekvak om te controleren als u de dagelijkse limiet is bereikt en er gegevens ontbreken: 
 
-`Operation | where OperationCategory == 'Data Collection Status'`
+```kusto
+Operation | where OperationCategory == 'Data Collection Status'
+```
 
 Wanneer het verzamelen van gegevens stopt, is het de OperationStatus **waarschuwing**. Wanneer het verzamelen van gegevens wordt gestart, is het de OperationStatus **geslaagd**. De volgende tabel beschrijft de redenen die het verzamelen van gegevens gestopt en een voorgestelde actie voor het verzamelen van gegevens hervatten:  
 
@@ -153,51 +158,63 @@ Hoger gebruik wordt veroorzaakt door een of beide volgende oorzaken:
 
 Voor meer informatie over het aantal computers die rapporteren heartbeats elke dag in de afgelopen maand, gebruik
 
-`Heartbeat | where TimeGenerated > startofday(ago(31d))
+```kusto
+Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
-| render timechart`
+| render timechart
+```
 
 Als u een lijst met computers wordt gefactureerd als knooppunten als de werkruimte in het knooppunt voor verouderde is Per prijscategorie, zoek naar knooppunten die worden verzonden **kosten in rekening gebracht gegevenstypen** (bepaalde gegevenstypen zijn gratis). U doet dit door gebruik van de `_IsBillable` [eigenschap](log-standard-properties.md#_isbillable) en gebruikt het meest linkse veld van de volledig gekwalificeerde domeinnaam. Hiermee wordt de lijst met computers met de gegevens worden gefactureerd:
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
 
 Het aantal factureerbare knooppunten die kan worden geschat als: 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| billableNodes=dcount(computerName)`
+| billableNodes=dcount(computerName)
+```
 
 > [!NOTE]
 > Gebruik deze `union withsource = tt *` spaarzaam scans in verschillende gegevenstypen zijn duur in het uitvoeren van query's. Deze query vervangt de oude manier van het uitvoeren van query's informatie per-computer met het gegevenstype van het gebruik.  
 
 Er is een meer nauwkeurige berekening van wat wordt daadwerkelijk in rekening gebracht om op te halen van het aantal computers per uur worden gefactureerd gegevenstypen worden verzonden. (Voor toegang tot werkruimten in de verouderde prijscategorie Per knooppunt, Log Analytics berekend het aantal knooppunten die moeten worden gefactureerd op uurbasis.) 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ## <a name="understanding-ingested-data-volume"></a>Inzicht in het opgenomen gegevensvolume
 
 Op de **gebruik en geschatte kosten** pagina, de *opname van gegevens per oplossing* grafiek toont de totale hoeveelheid gegevens die worden verzonden en hoeveel er worden verzonden door elke oplossing. Hiermee kunt u bepalen trends, zoals of de algehele gegevensgebruik (of het gebruik door een bepaalde oplossing) groeit, stabiel blijft of afneemt. De query die wordt gebruikt voor het genereren van dit is
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 Houd er rekening mee dat de component "waar IsBillable = true" gegevenstypen van bepaalde oplossingen waarvoor er geen kosten opname zijn filtert. 
 
 U kunt inzoomen verder Zie gegevenstrends voor specifieke gegevenstypen, bijvoorbeeld als u wilt kijken naar de gegevens vanwege een IIS-logboeken:
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 ### <a name="data-volume-by-computer"></a>Gegevensvolume per computer
 

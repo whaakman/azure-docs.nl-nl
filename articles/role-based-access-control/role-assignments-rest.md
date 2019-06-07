@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357061"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472744"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Beheer de toegang tot Azure-resources met behulp van RBAC en de REST-API
 
@@ -52,9 +52,9 @@ In RBAC, de toegang van de lijst, u lijst maken met de roltoewijzingen. Lijst va
 
     | Filteren | Description |
     | --- | --- |
-    | `$filter=atScope()` | Roltoewijzingen voor alleen het opgegeven bereik niet inclusief de roltoewijzingen weergegeven bij subscopes lijst. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Lijst met roltoewijzingen voor een opgegeven gebruiker, groep of service-principal. |
-    | `$filter=assignedTo('{objectId}')` | Lijst-roltoewijzingen voor een opgegeven gebruiker, inclusief overgenomen van groepen. |
+    | `$filter=atScope()` | Geeft een lijst van de roltoewijzing voor alleen het opgegeven bereik niet inclusief de roltoewijzingen weergegeven bij subscopes. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Geeft een lijst van roltoewijzingen voor een opgegeven gebruiker, groep of service-principal. |
+    | `$filter=assignedTo('{objectId}')` | Geeft een lijst van roltoewijzingen voor een opgegeven gebruiker of service-principal. Als de gebruiker lid is van een groep waarvoor een roltoewijzing is, wordt deze roltoewijzing ook weergegeven. Dit filter is transitieve voor groepen, wat betekent dat als de gebruiker een lid van een groep is en die groep is lid van een andere groep met een roltoewijzing, die de roltoewijzing wordt ook vermeld. Dit filter accepteert alleen een object-id voor een gebruiker of een service-principal. U kunt een object-id niet doorgeven voor een groep. |
 
 ## <a name="grant-access"></a>Toegang verlenen
 

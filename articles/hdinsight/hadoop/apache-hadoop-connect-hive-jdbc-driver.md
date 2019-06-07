@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 56a2b89277cbf8866c1992a6738bd80106ef3313
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906511"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480005"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive query via het JDBC-stuurprogramma in HDInsight
 
@@ -28,7 +28,6 @@ Zie voor meer informatie over het Hive JDBC-Interface, [HiveJDBCInterface](https
 * Een HDInsight Hadoop-cluster. Zie voor het maken van een [aan de slag met Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 * De [Java Developer Kit (JDK) versie 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) of hoger.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is een JDBC-clienttoepassing.
-
 
 ## <a name="jdbc-connection-string"></a>JDBC-verbindingsreeks
 
@@ -54,20 +53,12 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
 1. Maak een map bepaalde bestanden moeten worden gekopieerd van het cluster bevatten.
 
-2. Vervang in het volgende script `sshuser` met de accountnaam van de SSH-gebruiker voor het cluster.  Vervang `CLUSTERNAME` met de naam van het HDInsight-cluster.  Voer de volgende opdracht om bestanden te kopiëren vanuit een HDInsight-cluster vanaf een opdrachtregel:
+2. Vervang in het volgende script `sshuser` met de accountnaam van de SSH-gebruiker voor het cluster.  Vervang `CLUSTERNAME` met de naam van het HDInsight-cluster.  Wijzigen van de directory van uw werk in de in de vorige stap hebt gemaakt vanaf een opdrachtregel en voer de volgende opdracht uit om bestanden te kopiëren vanuit een HDInsight-cluster:
 
-    ```bash
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-codec*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libfb*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+    ```cmd
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/{hadoop-auth.jar,hadoop-common.jar,lib/log4j-*.jar,lib/slf4j-*.jar} .
+
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/{commons-codec*.jar,commons-logging-*.jar,hive-*-1.2*.jar,httpclient-*.jar,httpcore-*.jar,libfb*.jar,libthrift-*.jar} .
     ```
 
 3. De SQuirreL SQL-toepassing te starten. Selecteer in de linkerkant van het venster **stuurprogramma's**.
@@ -82,7 +73,7 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
     * **Naam**: Hive
     * **Voorbeeld-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Extra klasse pad**: Gebruik de knop toevoegen om toe te voegen van alle eerder hebt gedownload jar-bestanden
+    * **Extra klasse pad**: Gebruik de **toevoegen** om toe te voegen van de jar-bestanden al eerder hebt gedownload
     * **Naam klasse**: org.apache.hive.jdbc.HiveDriver
 
    ![stuurprogramma-dialoogvenster toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)

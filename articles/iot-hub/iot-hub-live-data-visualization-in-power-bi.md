@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780014"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479865"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Real-time sensorgegevens uit Azure IoT Hub met behulp van Power BI visualiseren
 
@@ -25,7 +25,7 @@ ms.locfileid: "60780014"
 
 ## <a name="what-you-learn"></a>Wat u leert
 
-U informatie over het visualiseren van realtime-sensorgegevens die uw Azure-IoT-hub ontvangt via Power BI. Als u wilt proberen toe visualiseren van de gegevens in uw IoT-hub met Web-Apps, raadpleegt u [gebruik Azure Web Apps voor het visualiseren van realtime-sensorgegevens uit Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+U informatie over het visualiseren van realtime-sensorgegevens die uw Azure-IoT-hub ontvangt via Power BI. Als u wilt proberen toe visualiseren van de gegevens in uw IoT-hub met een web-app, raadpleegt u [een web-app gebruiken voor het visualiseren van realtime-sensorgegevens uit Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
@@ -179,6 +179,6 @@ Microsoft biedt ook de [mobiele Power BI-apps](https://powerbi.microsoft.com/en-
 
 U hebt Power BI is gebruikt voor het visualiseren van realtime-sensorgegevens uit uw Azure-IoT-hub.
 
-Er is een alternatieve manier om gegevens van Azure IoT Hub te visualiseren. Zie [gebruik Azure Web Apps voor het visualiseren van realtime-sensorgegevens uit Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+Zie voor een andere manier om gegevens van Azure IoT Hub te visualiseren, [een web-app gebruiken voor het visualiseren van realtime-sensorgegevens uit Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

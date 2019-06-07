@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2f6b693e11ccbb759b59c949b24690e8a2054f94
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132412"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472292"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -39,7 +39,7 @@ De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensi
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="encoding"></a>Codering
+## <a name="encoding"></a>Encoding
 Functies verwacht een *base64* gecodeerde tekenreeks. Alle aanpassingen van het type codering (als u wilt voorbereiden van gegevens als een *base64* gecodeerde tekenreeks) moet worden geïmplementeerd in de aanroepende-service.
 
 ## <a name="trigger"></a>Trigger
@@ -566,7 +566,7 @@ In deze sectie beschrijft de globale configuratie-instellingen beschikbaar voor 
 
 |Eigenschap  |Standaard | Description |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|Het maximale interval tussen de wachtrij worden opgevraagd. Minimaal is 00:00:00.100 (100 ms). |
+|maxPollingInterval|00:00:01|Het maximale interval tussen de wachtrij worden opgevraagd. Minimale 00:00:00.100 (100 ms) is en wordt verhoogd tot 00:01:00 uur (1 min). |
 |visibilityTimeout|00:00:00|Het tijdsinterval tussen nieuwe pogingen bij het verwerken van een bericht is mislukt. |
 |batchSize|16|Het aantal Wachtrijberichten waarmee de Functions-runtime gelijktijdig worden opgehaald en parallel worden verwerkt. Als het getal dat wordt verwerkt opgehaald omlaag naar de `newBatchThreshold`, de runtime opgehaald van een andere batch en start deze berichten worden verwerkt. Zodat het maximum aantal gelijktijdige berichten worden verwerkt per functie `batchSize` plus `newBatchThreshold`. Deze limiet geldt afzonderlijk voor elke wachtrij-geactiveerde functie. <br><br>Als u voorkomen dat de parallelle uitvoering voor berichten in een wachtrij ontvangen wilt, kunt u instellen `batchSize` op 1. Deze instelling elimineert echter gelijktijdigheid alleen zo lang uw functie-app wordt uitgevoerd op een enkele virtuele machine (VM). Als de functie-app wordt geschaald naar meerdere virtuele machines, kan één exemplaar van elke wachtrij-geactiveerde functie uitvoeren in elke virtuele machine.<br><br>De maximale `batchSize` is 32. |
 |maxDequeueCount|5|Het aantal keren dat probeert een bericht verwerken voordat u deze verplaatst naar de wachtrij onverwerkbare.|

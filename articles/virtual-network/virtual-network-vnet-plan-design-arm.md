@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575421"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478604"
 ---
 # <a name="plan-virtual-networks"></a>Virtuele netwerken plannen
 
@@ -41,7 +41,7 @@ Alle Azure-resources worden gemaakt in een Azure-regio en een abonnement. Een re
 
 U kunt zo veel virtuele netwerken als vereiste binnen elk abonnement maximaal implementeren de [limiet](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Sommige organisaties hebben bijvoorbeeld verschillende abonnementen voor verschillende afdelingen. Zie voor meer informatie en overwegingen over abonnementen, [abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
-## <a name="segmentation"></a>Segmentatie
+## <a name="segmentation"></a>Segmentering
 
 U kunt meerdere virtuele netwerken per abonnement of per regio maken. U kunt meerdere subnetten in elk virtueel netwerk maken. De overwegingen die volgen, kunt u bepalen hoeveel virtuele netwerken en subnetten die u nodig:
 
@@ -77,7 +77,7 @@ U kunt het netwerkverkeer naar en van resources in een virtueel netwerk met behu
 - Als verschillende virtuele machines binnen een subnet verschillende beveiligingsregels worden toegepast moeten, kunt u de netwerkinterface op de virtuele machine aan een of meer beveiligingsgroepen voor toepassing koppelen. Een beveiligingsregel kunt u een toepassingsbeveiligingsgroep opgeven in de bron of bestemming. Deze regel vervolgens geldt alleen voor de netwerkinterfaces die lid van de toepassingsbeveiligingsgroep zijn. Meer informatie over [netwerkbeveiligingsgroepen](security-overview.md) en [toepassingsbeveiligingsgroepen](security-overview.md#application-security-groups).
 - Azure maakt verschillende standaard beveiligingsregels binnen elke netwerkbeveiligingsgroep. Een standaardregel kunt alle verkeer toe tussen alle resources in een virtueel netwerk. Dit gedrag negeren, gebruikt u netwerkbeveiliging groepen, aangepaste routering om verkeer te routeren naar een NVA, of beide. Het wordt aanbevolen dat u vertrouwd met alle Azure raakt [standaard beveiligingsregels](security-overview.md#default-security-rules) en te begrijpen hoe regels voor netwerkbeveiligingsgroepen worden toegepast op een resource.
 
-Vindt u voorbeeld ontwerpen voor het implementeren van een perimeternetwerk (ook wel een DMZ genoemd) tussen Azure en het internet via een [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) of [netwerkbeveiligingsgroepen](virtual-networks-dmz-nsg.md).
+Vindt u voorbeeld ontwerpen voor het implementeren van een perimeternetwerk (ook wel een DMZ genoemd) tussen Azure en het internet via een [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### <a name="traffic-routing"></a>Routering van verkeer
 

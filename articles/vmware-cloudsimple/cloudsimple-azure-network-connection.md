@@ -8,22 +8,27 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ea98d6493b824bfa232ef8193388e93b97c506b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f2ab82b6c1b4b373c186019eaf96f9864861b9d9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576998"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497639"
 ---
-# <a name="azure-network-connection-overview"></a>Verbinding met Azure-netwerk-overzicht
+# <a name="azure-network-connections-overview"></a>Overzicht van de verbindingen van Azure-netwerk
 
 Wanneer u een service CloudSimple in een regio en maakt het:
 
-* Azure ExpressRoute-circuit gemaakt en gekoppeld aan de service in deze regio
-* Uw regio CloudSimple netwerk verbindt met uw Azure-netwerk of uw on-premises netwerk met behulp van Azure ExpressRoute
-* Biedt toegang tot services die worden uitgevoerd in uw Azure-abonnement of uw on-premises-netwerk van uw persoonlijke cloudomgeving
+* Hiermee maakt u een Azure ExpressRoute-circuit en gekoppeld aan de service in deze regio
+* Kan de verbinding van uw regio CloudSimple netwerk naar uw Azure-netwerk of uw on-premises netwerk met behulp van Azure ExpressRoute
+* Biedt toegang tot services die worden uitgevoerd in uw Azure-abonnement of uw on-premises-netwerk van uw omgeving Private Cloud
 
-Deze verbinding is een hoge bandbreedte met lage latentie.
+De verbinding is:
+
+* Beveiligen
+* Privé
+* Hoge bandbreedte
+* Lage latentie
 
 ## <a name="benefits"></a>Voordelen
 
@@ -33,19 +38,19 @@ Azure-netwerkverbinding kunt u:
 * KMS-servers in uw Azure-abonnement voor het versleutelen van uw virtueel SAN Private Cloud datastore implementeren.
 * Hybride toepassingen waar de weblaag van de toepassing wordt uitgevoerd in de openbare cloud terwijl de toepassing en databaselagen uitvoeren in uw Privécloud gebruiken.
 
+## <a name="azure-virtual-network-connection"></a>Azure virtuele netwerkverbinding
+
+Privéclouds kunnen worden verbonden met uw Azure-resources met behulp van ExpressRoute.  U kunt deze verbinding gebruiken voor toegang tot andere resources in uw Azure-abonnement van uw Privécloud uitgevoerd.  Deze verbinding kunt u uitbreiden u Private Cloud-netwerk met uw Azure-netwerk.
+
+![Azure ExpressRoute-verbinding met virtual network](media/cloudsimple-azure-network-connection.png)
+
 ## <a name="expressroute-connection-to-on-premises-network"></a>ExpressRoute-verbinding met on-premises netwerk
 
-U kunt uw bestaande Azure ExpressRoute-circuit voor uw regio CloudSimple verbinden. ExpressRoute globaal bereik functie wordt gebruikt om de twee circuits met elkaar verbinding te maken.  Een verbinding tot stand is gebracht tussen on-premises en CloudSimple ExpressRoute-circuits.
+U kunt uw bestaande Azure ExpressRoute-circuit voor uw regio CloudSimple verbinden. ExpressRoute globaal bereik functie wordt gebruikt om de twee circuits met elkaar verbinding te maken.  Een verbinding tot stand is gebracht tussen de on-premises en CloudSimple ExpressRoute-circuits.  Deze verbinding kunt u uw on-premises netwerken met Private Cloud netwerk uitbreiden.
 
-Deze methode maakt een verbinding tussen de twee omgevingen die is:
-
-* Beveiligen
-* Privé
-* Hoge bandbreedte
-* Lage latentie
-
-Het maken van een ExpressRoute-verbinding met een on-premises netwerk [contact op met ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+![On-premises ExpressRoute-verbinding - wereldwijd bereik](media/cloudsimple-global-reach-connection.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Instellen van virtuele netwerkverbinding](https://docs.azure.cloudsimple.com/virtual-network-connection)
+* [Peering informatie voor Azure-netwerk op CloudSimple verbinding verkrijgen](https://docs.azure.cloudsimple.com/virtual-network-connection)
+* [Verbinding maken tussen on-premises en CloudSimple met behulp van ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)

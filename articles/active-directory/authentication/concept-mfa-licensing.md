@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a1ee55dd3aebca869da47bbc994f546aa4fe528
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415678"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496773"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
 
@@ -30,11 +30,11 @@ Als het gaat om het beveiligen van uw accounts, moet verificatie in twee stappen
 
 De volgende tabel beschrijft de verschillen tussen de drie versies van multi-factor authentication:
 
-| Version | Beschrijving |
+| Versie | Description |
 | --- | --- |
-| Multi-factor Authentication voor Office 365 <br> Microsoft 365 Business |Deze versie werkt met Office 365-toepassingen en wordt beheerd via de Office 365 of Microsoft 365-portal. Beheerders kunnen [beveiligen van Office 365-resources met verificatie in twee stappen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van een abonnement op Office 365 of Microsoft 365 Business. |
-| Multi-factor Authentication voor Azure AD-beheerders | Gebruikers die zijn toegewezen de rol globale beheerder van Azure AD in Azure AD-tenants kunt verificatie in twee stappen zonder extra kosten.|
-| Azure Multi-Factor Authentication | Azure multi-factor Authentication is vaak aangeduid als de 'volledige' versie, biedt de uitgebreidste set mogelijkheden. Het biedt aanvullende configuratie-opties via de [Azure-portal](https://portal.azure.com), geavanceerde rapportage en ondersteuning voor een bereik van on-premises en cloudtoepassingen. Azure multi-factor Authentication is een functie van [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features), en kan worden geïmplementeerd in de cloud of on-premises. |
+| Multi-factor Authentication voor Office 365 <br> Microsoft 365 Business | Deze versie wordt beheerd via de Office 365 of Microsoft 365-portal. Beheerders kunnen [beveiligen van Office 365-resources met verificatie in twee stappen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van een abonnement op Office 365 of Microsoft 365 Business. |
+| Multi-factor Authentication voor Azure AD-beheerders | Gebruikers die zijn toegewezen de rol globale beheerder van Azure AD in Azure AD-tenants kunt verificatie in twee stappen zonder extra kosten. |
+| Azure Multi-Factor Authentication | Azure multi-factor Authentication is vaak aangeduid als de 'volledige' versie, biedt de uitgebreidste set mogelijkheden. Het biedt aanvullende configuratie-opties via de [Azure-portal](https://portal.azure.com), geavanceerde rapportage en ondersteuning voor een bereik van on-premises en cloudtoepassingen. Azure multi-factor Authentication is een functie van [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features). |
 
 > [!NOTE]
 > Nieuwe klanten kunnen niet meer Azure multi-factor Authentication aanschaffen als zelfstandige aanbieding met 1 September 2018. Meervoudige verificatie blijft beschikbaar als een functie in Azure AD Premium-licenties.
@@ -55,7 +55,7 @@ De volgende tabel geeft een lijst van de functies die beschikbaar in de verschil
 | SMS als een tweede factor |● |● |● |
 | App-wachtwoorden voor clients die geen ondersteuning voor MFA bieden |● |● |● |
 | Beheerdercontrole over verificatiemethoden |● |● |● |
-| Beveiligen van niet-beheerdersaccounts met MFA |● (alleen voor Office 365-toepassingen) | |● |
+| Beveiligen van niet-beheerdersaccounts met MFA |● | |● |
 | Pincodemodus | | |● |
 | Fraudewaarschuwing | | |● |
 | MFA-rapporten | | |● |
@@ -75,15 +75,11 @@ Gebruikers die zijn toegewezen de rol globale beheerder in Azure AD-tenants kunt
 
 ## <a name="how-to-purchase-azure-multi-factor-authentication"></a>Over het aanschaffen van Azure multi-factor Authentication
 
-Als u de volledige functionaliteit van Azure multi-factor Authentication, zijn er verschillende opties:
+Licenties die Azure multi-factor Authentication, zoals Azure Active Directory Premium of een licentie-bundel met Azure AD Premium of voorwaardelijke toegang en deze toewijzen aan uw gebruikers in Azure Active Directory.
 
-### <a name="option-1---licenses-that-include-mfa"></a>Optie 1 - licenties met MFA
+### <a name="consumption-based-licensing"></a>Licentieverlening op basis van gebruik
 
-Koop-licenties met Azure multi-factor Authentication, zoals Azure Active Directory Premium of een licentie-bundel met Azure AD Premium, en deze toewijzen aan uw gebruikers in Azure Active Directory.
-
-### <a name="option-2---mfa-consumption-based-model"></a>Optie 2 - MFA consumptie gebaseerd model
-
-Deze optie is niet meer beschikbaar voor nieuwe klanten vanaf 1 September 2018.
+Licenties op basis van verbruik van is niet meer beschikbaar voor nieuwe klanten vanaf 1 September 2018.
 
 Vanaf 1 September 2018 nieuwe auth-providers kunnen niet meer worden gemaakt. Bestaande auth-providers kunnen nog steeds worden gebruikt en bijgewerkt. Meervoudige verificatie wordt nog steeds een beschikbare functie in Azure AD Premium-licenties.
 

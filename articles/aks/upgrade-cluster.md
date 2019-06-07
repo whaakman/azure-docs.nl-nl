@@ -5,22 +5,24 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 59d52db8c3f5f8968eae1a544abe1e5c6bbaacca
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2cadd4b33cb52307599ce1e83eee8370ef9850fe
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072747"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692773"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Een cluster Azure Kubernetes Service (AKS) upgraden
 
-Als onderdeel van de levenscyclus van een AKS-cluster moet u vaak upgraden naar de nieuwste versie van Kubernetes. Het is belangrijk u de meest recente versies van de Kubernetes-beveiliging toepassen, of een upgrade voor de nieuwste functies. Dit artikel ziet u hoe u een bestaand AKS-cluster upgraden.
+Als onderdeel van de levenscyclus van een AKS-cluster moet u vaak upgraden naar de nieuwste versie van Kubernetes. Het is belangrijk u de meest recente versies van de Kubernetes-beveiliging toepassen, of een upgrade voor de nieuwste functies. Dit artikel ziet u een upgrade uitvoeren van de master-onderdelen of als één knooppunt standaardgroep in een AKS-cluster.
+
+Zie voor AKS clusters die gebruikmaken van meerdere groepen of Windows Server-knooppunten (zowel momenteel in preview in AKS), [een knooppuntgroep in AKS Upgrade][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel is vereist dat u de Azure CLI versie 2.0.56 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+In dit artikel is vereist dat u de Azure CLI versie 2.0.65 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Controleren op beschikbare upgrades voor AKS-cluster
 
@@ -31,24 +33,26 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Wanneer u een upgrade uitvoert van een AKS-cluster, kunnen niet secundaire versies van Kubernetes worden overgeslagen. Bijvoorbeeld, voert een upgrade tussen *1.10.x* -> *1.11.x* of *1.11.x* -> *1.12.x* zijn toegestaan, maar *1.10.x* -> *1.12.x* niet.
+> Wanneer u een upgrade uitvoert van een AKS-cluster, kunnen niet secundaire versies van Kubernetes worden overgeslagen. Bijvoorbeeld, voert een upgrade tussen *1.11.x* -> *1.12.x* of *1.12.x* -> *1.13.x* zijn toegestaan, maar *1.11.x* -> *1.13.x* niet.
 >
-> Om bij te werken van *1.10.x* -> *1.12.x*, eerst een upgrade uitvoeren voor *1.10.x* -> *1.11.x*, vervolgens een upgrade uitvoeren van *1.11.x* -> *1.12.x*.
+> Om bij te werken van *1.11.x* -> *1.13.x*, eerst een upgrade uitvoeren voor *1.11.x* -> *1.12.x*, vervolgens een upgrade uitvoeren van *1.12.x* -> *1.13.x*.
 
-De volgende voorbeelduitvoer ziet u dat het cluster kan worden bijgewerkt naar versie *1.11.5* of *1.11.6*:
+De volgende voorbeelduitvoer ziet u dat het cluster kan worden bijgewerkt naar versie *1.12.7* of *1.12.8*:
 
 ```console
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.10.12          1.10.12            1.11.5, 1.11.6
+Name     ResourceGroup    MasterVersion  NodePoolVersion  Upgrades
+-------  ---------------  -------------  ---------------  --------------
+default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Een AKS-cluster upgraden
 
-Een lijst met beschikbare versies voor uw AKS-cluster, gebruikt u de [az aks upgrade] [ az-aks-upgrade] opdracht uit om te upgraden. Tijdens het upgradeproces AKS voegt een nieuw knooppunt aan het cluster vervolgens zorgvuldig [cordon en afneemt] [ kubernetes-drain] één knooppunt tegelijk om onderbreking actieve toepassingen te minimaliseren. Het volgende voorbeeld wordt een cluster bijgewerkt naar versie *1.11.6*:
+Een lijst met beschikbare versies voor uw AKS-cluster, gebruikt u de [az aks upgrade] [ az-aks-upgrade] opdracht uit om te upgraden. Tijdens het upgradeproces AKS een nieuw knooppunt toevoegt aan het cluster met de opgegeven versie van Kubernetes, klikt u vervolgens zorgvuldig [cordon en afneemt] [ kubernetes-drain] een van de oude knooppunten om onderbreking aan die wordt uitgevoerd te minimaliseren toepassingen. Wanneer het nieuwe knooppunt wordt bevestigd dat deze toepassingspods wordt uitgevoerd, wordt het oude knooppunt verwijderd. Dit proces wordt herhaald totdat alle knooppunten in het cluster zijn bijgewerkt.
+
+Het volgende voorbeeld wordt een cluster bijgewerkt naar versie *1.12.8*:
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.6
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.12.8
 ```
 
 Het duurt een paar minuten om het cluster, afhankelijk van hoeveel knooppunten die u hebt te upgraden.
@@ -59,12 +63,12 @@ Als u wilt controleren of de upgrade voltooid is, gebruikt u de [az aks show] [ 
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-De volgende voorbeelduitvoer ziet u dat wordt nu het cluster uitgevoerd *1.11.6*:
+De volgende voorbeelduitvoer ziet u dat wordt nu het cluster uitgevoerd *1.12.8*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.12.8               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -83,3 +87,4 @@ In dit artikel hebt u een upgrade uitvoeren van een bestaand AKS-cluster. Zie vo
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

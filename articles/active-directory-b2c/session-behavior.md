@@ -2,20 +2,20 @@
 title: Configureren van sessiegedrag - Azure Active Directory B2C | Microsoft Docs
 description: Sessiegedrag van de configureren in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700989"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512551"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Sessiegedrag configureren in Azure Active Directory B2C
 
@@ -51,10 +51,10 @@ De volgende gevallen gebruik worden ingeschakeld met behulp van deze eigenschapp
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map met uw Azure AD B2C-tenant te kiezen.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
-4. Selecteer **gebruikersstromen (beleid)**.
+4. Selecteer **gebruikersstromen (beleid)** .
 5. Open het beleid dat u eerder hebt gemaakt. 
 6. Selecteer **eigenschappen**.
-7. Configureer **Web-appsessie (minuten)**, **Web-appsessie**, **configuratie voor eenmalige aanmelding**, en **id-Token vereisen in afmeldingsaanvragen**  indien nodig.
+7. Configureer **Web-appsessie (minuten)** , **Web-appsessie**, **configuratie voor eenmalige aanmelding**, en **id-Token vereisen in afmeldingsaanvragen**  indien nodig.
 
     ![Sessiegedrag configureren](./media/session-behavior/session-behavior.png)
     

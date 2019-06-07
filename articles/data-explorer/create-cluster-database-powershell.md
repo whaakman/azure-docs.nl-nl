@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Een cluster van Azure Data Explorer en -database maken met behulp van PowerShell'
+title: Een cluster van Azure Data Explorer en -database maken met behulp van PowerShell
 description: Informatie over het maken van een cluster van Azure Data Explorer en -database met behulp van PowerShell
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 28785bb99dcdb767a64ae977e8326b80130fb135
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 85c8cc81b3c61e2faf65bf8a06c69ca7f2b906c9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240193"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497328"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Een cluster van Azure Data Explorer en -database maken met behulp van PowerShell
 
@@ -24,7 +24,7 @@ ms.locfileid: "66240193"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalyses waarmee grote hoeveelheden gegevens van toepassingen, websites, IoT-apparaten en dergelijke in real-time kunnen worden geanalyseerd. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In deze snelstartgids maakt u een cluster en een database met behulp van Powershell. U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure Cloud Shell](../cloud-shell/overview.md) met [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) maken en configureren van Azure Data Explorer-clusters en databases.
+Azure Data Explorer is een snelle, volledig beheerde service voor gegevensanalyses waarmee grote hoeveelheden gegevens van toepassingen, websites, IoT-apparaten en dergelijke in real-time kunnen worden geanalyseerd. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In dit artikel maakt u een cluster en een database met behulp van Powershell. U kunt PowerShell-cmdlets en scripts uitvoeren in Windows, Linux, of in [Azure Cloud Shell](../cloud-shell/overview.md) met [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) maken en configureren van Azure Data Explorer-clusters en databases.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,7 +34,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de Azure CLI lokaal te installeren en te gebruiken, moet u voor deze quickstart versie 2.0.4 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om uw versie te controleren. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Als u ervoor kiest om te installeren en de Azure CLI lokaal gebruikt, in dit artikel gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om uw versie te controleren. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-parameters"></a>Parameters configureren
 
@@ -107,7 +107,7 @@ U hebt nu een cluster en een database.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-* Als u onze andere snelstarts en zelfstudies wilt volgen, behoudt u de gemaakte resources.
+* Als u van plan bent om te volgen van onze andere artikelen, moet u de resources die u hebt gemaakt.
 * Als u resources wilt opschonen, moet u het cluster verwijderen. Wanneer u een cluster verwijdert, worden alle databases hierin ook verwijderd. Gebruik de volgende opdracht om uw cluster te verwijderen:
 
     ```azurepowershell-interactive
@@ -117,4 +117,4 @@ U hebt nu een cluster en een database.
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Aanvullende Az.Kusto opdrachten](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
-* [Snelstart: Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+* [Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)

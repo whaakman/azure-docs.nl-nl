@@ -1,136 +1,102 @@
 ---
-title: De hybride Azure AD join van uw apparaten beheren | Microsoft Docs
-description: Meer informatie over het beheren van de hybride Azure AD join van uw apparaten in Azure Active Directory.
+title: Gecontroleerde validatie van hybride Azure AD join - Azure AD
+description: Meer informatie over het uitvoeren van een gecontroleerde validatie van hybride Azure AD join voordat u dit inschakelt in de hele organisatie in één keer
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 05/30/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5b388f92a875fb2635037a6eae3ff3b6a95793
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353105"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513291"
 ---
-# <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>De hybride Azure AD-deelname van uw apparaten beheren
+# <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Gecontroleerde validatie van hybride Azure AD-deelname
 
-Lid worden van hybride Azure Active Directory (Azure AD) is een proces naar uw on-premises domein apparaten automatisch wordt geregistreerd bij Azure AD. Er zijn gevallen waarin u niet wilt dat al uw apparaten automatisch worden geregistreerd. Dit geldt, bijvoorbeeld tijdens de initiële implementatie om te controleren of alles werkt zoals verwacht.
+Wanneer alle van de vereisten gemaakt zijn, wordt automatisch Windows-apparaten registreren als apparaten in uw Azure AD-tenant. De status van deze apparaat-id's in Azure AD wordt verwezen als hybride Azure AD join. Meer informatie over de concepten die in dit artikel vindt u in de artikelen [Inleiding tot Apparaatbeheer in Azure Active Directory](overview.md) en [uw hybride Azure Active Directory join-implementatie plannen ](hybrid-azuread-join-plan.md).
 
-In dit artikel bevat richtlijnen voor hoe u hybride Azure AD join van uw apparaten kunt beheren. 
+Organisaties kunnen wilt een gecontroleerde validatie van hybride Azure AD join voordat u dit inschakelt in de hele organisatie in één keer te doen. In dit artikel wordt uitgelegd hoe u kunt een gecontroleerde validatie van hybride Azure AD join uitvoeren.
 
-
-## <a name="prerequisites"></a>Vereisten
-
-In dit artikel wordt ervan uitgegaan dat u bekend met bent:
-
--  [Inleiding tot apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
- 
--  [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
-
--  [Configure hybride Azure Active Directory join voor beheerde domeinen](hybrid-azuread-join-managed-domains.md) of [configureren hybride Azure Active Directory join voor federatieve domeinen](hybrid-azuread-join-federated-domains.md)
-
-
-
-## <a name="control-windows-current-devices"></a>Huidige Windows-apparaten beheren
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Gecontroleerde validatie van hybride Azure AD join op huidige Windows-apparaten
 
 Voor apparaten met het besturingssysteem voor Windows-bureaublad, de ondersteunde versie is de Windows 10 Jubileumupdate (versie 1607) of hoger. Als een best practice, een upgrade uitvoeren naar de nieuwste versie van Windows 10.
 
-Alle Windows huidige apparaten automatisch wordt geregistreerd bij Azure AD op het apparaat start of de gebruiker zich aanmelden. U kunt dit gedrag beheren met behulp van een groepsbeleidsobject (GPO) of de System Center Configuration Manager.
+Als u wilt een gecontroleerde validatie van hybride Azure AD join op huidige Windows-apparaten doen, moet u naar:
 
-Voor het beheren van huidige Windows-apparaten, moet u naar: 
-
-
-1.  **Op alle apparaten**: Uitschakelen van automatische device Registration service.
-2.  **Aan geselecteerde apparaten**: Automatische apparaatregistratie inschakelen.
-
-Nadat u hebt gecontroleerd dat alles werkt zoals verwacht, u kunt automatische apparaatregistratie voor alle apparaten opnieuw inschakelen.
+1. Schakel de Service Connection Point (SCP) vermelding in Active Directory (AD) indien aanwezig
+1. Client-side-registerinstelling voor SCP op uw domein computers met behulp van een groepsbeleidsobject (GPO) configureren
+1. Als u AD FS gebruikt, moet u ook de client-side-registerinstelling voor SCP configureren op de AD FS-server met behulp van een groepsbeleidsobject  
 
 
 
-### <a name="group-policy-object"></a>Group Policy Object 
+### <a name="clear-the-scp-from-ad"></a>Schakel het SCP uit Active Directory
 
-U kunt het gedrag van de registratie van apparaten van uw apparaten beheren met de volgende GPO implementeren: **Aan domein gekoppelde computers registreren als apparaten**.
+Gebruik de Active Directory Services Interfaces Editor (ADSI bewerken) om de SCP-objecten in AD.
 
-Om in te stellen het groepsbeleidsobject:
+1. Start de **ADSI Edit** bureaubladtoepassing uit en werkstation voor beheer of een domeincontroller als een Enterprise-beheerder.
+1. Verbinding maken met de **naamgevingscontext configuratie** van uw domein.
+1. Blader naar **CN = configuratie, DC = contoso, DC = com** > **CN = Services** > **CN = registratie apparaatconfiguratie**
+1. Klik met de rechtermuisknop op de leaf-object onder **CN = registratie apparaatconfiguratie** en selecteer **eigenschappen**
+   1. Selecteer **trefwoorden** uit de **Kenmerkeditor** venster en klikt u op **bewerken**
+   1. Selecteer de waarden van **azureADId** en **azureADName** (één op een tijdstip) en klikt u op **verwijderen**
+1. Sluiten **ADSI bewerken**
 
-1.  Open **Serverbeheer**, en ga vervolgens naar **extra** > **Group Policy Management**.
 
-2.  Ga naar het knooppunt van het domein dat overeenkomt met het domein waar u de automatische registratie in-of uitschakelen.
+### <a name="configure-client-side-registry-setting-for-scp"></a>Client-side-registerinstelling voor SCP configureren
 
-3.  Met de rechtermuisknop op **Group Policy Objects**, en selecteer vervolgens **nieuw**.
+Gebruik het volgende voorbeeld om te maken van een groepsbeleidsobject (GPO) voor het implementeren van een instelling in het register configureren van een SCP-vermelding in het register van uw apparaten.
 
-4.  Voer een naam (bijvoorbeeld **Hybrid Azure AD join**) voor de Group Policy Object. 
+1. Open een Group Policy Management console en maak een nieuwe Group Policy Object in uw domein.
+   1. Geef uw nieuwe groepsbeleidsobject een naam (bijvoorbeeld ClientSideSCP).
+1. Bewerk het GPO en zoekt u het volgende pad: **Computerconfiguratie** > **voorkeuren** > **Windows-instellingen** > **register**
+1. Met de rechtermuisknop op het register en selecteer **nieuw** > **registeritem**
+   1. Op de **algemene** tabblad, configureer de volgende
+      1. Actie: **Update**
+      1. Component: **HKEY_LOCAL_MACHINE**
+      1. Sleutelpad: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Waardenaam: **TenantId**
+      1. Waardetype: **REG_SZ**
+      1. Waardegegevens: De GUID of **map-ID** van uw Azure AD-exemplaar (deze waarde kan worden gevonden de **Azure-portal** > **Azure Active Directory**  >   **Eigenschappen** > **map-ID**)
+   1. Klik op **OK**
+1. Met de rechtermuisknop op het register en selecteer **nieuw** > **registeritem**
+   1. Op de **algemene** tabblad, configureer de volgende
+      1. Actie: **Update**
+      1. Component: **HKEY_LOCAL_MACHINE**
+      1. Sleutelpad: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Waardenaam: **TenantName**
+      1. Waardetype: **REG_SZ**
+      1. Waardegegevens: Uw geverifieerde **domeinnaam** in Azure AD (bijvoorbeeld `contoso.onmicrosoft.com` of andere geverifieerde domeinnaam op in uw directory)
+   1. Klik op **OK**
+1. Sluit de editor voor het nieuwe groepsbeleidsobject
+1. Het nieuwe groepsbeleidsobject koppelen aan de gewenste organisatie-eenheid met domein computers die deel uitmaken van uw beheerde implementatie populatie
 
-5.  Selecteer **OK**.
+### <a name="configure-ad-fs-settings"></a>AD FS-instellingen configureren
 
-6.  Met de rechtermuisknop op uw nieuwe groepsbeleidsobject en selecteer vervolgens **bewerken**.
+Als u AD FS gebruikt, moet u eerst aan de clientzijde SCP met behulp van de instructies die hierboven worden vermeld, maar het groepsbeleidsobject koppelen aan uw AD FS-servers configureren. Deze configuratie is vereist voor AD FS tot stand brengen van de bron voor apparaat-id's als Azure AD.
 
-7.  Ga naar **Computerconfiguratie** > **beleid** > **Beheersjablonen** > **Windows Onderdelen** > **Device Registration service**. 
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Gecontroleerde validatie van hybride Azure AD join op Windows downlevel-apparaten
 
-8.  Met de rechtermuisknop op **Domeincomputers registreren als apparaten**, en selecteer vervolgens **bewerken**.
+Voor het registreren van Windows downlevel-apparaten, organisaties moeten installeren [Microsoft Workplace Join voor Windows 10-computers](https://www.microsoft.com/download/details.aspx?id=53554) beschikbaar is op het Microsoft Download Center.
 
-    > [!NOTE] 
-    > Deze sjabloon Groepsbeleid is gewijzigd van eerdere versies van de console Groepsbeleidsbeheer. Als u een eerdere versie van de-console gebruikt, gaat u naar **Computerconfiguratie** > **beleid** > **Beheersjablonen**  >  **Windows-onderdelen** > **Device Registration service** > **computer als apparaat van een domein registreren**. 
+U kunt het pakket implementeren met behulp van een software-distributiesysteem zoals [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Het pakket biedt ondersteuning voor de standaard installatie op de achtergrond-opties met de stille parameter. De huidige vertakking van Configuration Manager biedt voordelen ten opzichte van eerdere versies, zoals de mogelijkheid voor het bijhouden van voltooide registraties.
 
-9.  Selecteer een van de volgende instellingen en selecteer vervolgens **toepassen**:
+Het installatieprogramma maakt een geplande taak op het systeem die wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met Azure AD.
 
-    - **Uitgeschakelde**: Om te voorkomen dat automatische apparaatregistratie.
-    - **Ingeschakeld**: Automatische apparaatregistratie inschakelen.
+Voor het beheren van de device Registration service, moet u het Windows Installer-pakket implementeren op de geselecteerde groep Windows downlevel-apparaten.
 
-10. Selecteer **OK**.
+> [!NOTE]
+> Als een SCP niet is geconfigureerd in AD, dan dezelfde benadering volgt zoals beschreven op [configureren van client-side-registerinstelling voor SCP](#configure-client-side-registry-setting-for-scp)) op uw domein computers met behulp van een groepsbeleidsobject (GPO).
 
-U moet het groepsbeleidsobject koppelen aan een andere locatie van uw keuze. Bijvoorbeeld, u dit beleid voor alle domein huidige apparaten instellen in uw organisatie, het groepsbeleidsobject koppelen aan het domein. Als u wilt een gecontroleerde implementatie doen, moet u dit beleid instellen op domein Windows huidige apparaten die deel uitmaken van een organisatie-eenheid of een beveiligingsgroep.
 
-### <a name="configuration-manager-controlled-deployment"></a>Implementatie van Configuration Manager beheerd 
-
-U kunt het gedrag van de registratie van apparaten van uw huidige apparaten beheren door het configureren van de volgende clientinstelling: **Nieuwe Windows 10 domein apparaten automatisch wordt geregistreerd bij Azure Active Directory**.
-
-De client-instelling configureren:
-
-1.  Open **Configuration Manager**, selecteer **beheer**, en ga vervolgens naar **clientinstellingen**.
-
-2.  Open de eigenschappen voor **Standaardclientinstellingen** en selecteer **Cloudservices**.
-
-3.  Onder **apparaatinstellingen**, selecteer een van de volgende instellingen voor **nieuwe Windows 10 domein apparaten automatisch wordt geregistreerd bij Azure Active Directory**:
-
-    - **Geen**: Om te voorkomen dat automatische apparaatregistratie.
-    - **Ja**: Automatische apparaatregistratie inschakelen.
-
-4.  Selecteer **OK**.
-
-U moet deze clientinstelling instelt op een locatie van uw keuze te koppelen. Bijvoorbeeld, voor het configureren van deze client-instelling voor alle huidige Windows-apparaten in uw organisatie, koppelt u de clientinstelling voor het domein. Als u wilt een gecontroleerde implementatie doen, kunt u de clientinstelling voor Windows domein apparaten die deel uitmaken van een organisatie-eenheid of een beveiligingsgroep configureren.
-
-> [!Important]
-> Hoewel de configuratie van de voorgaande zorgt dat bestaande domein Windows 10-apparaten, mogelijk nog steeds probeert uit te voeren van de hybride Azure AD join vanwege de mogelijke vertraging in de toepassing van Groepsbeleid apparaten die nieuw lid van het domein worden zijn of Configuration Manager-instellingen op de apparaten. 
->
-> Om dit te voorkomen, wordt u aangeraden dat u een nieuwe Sysprep-afbeelding maakt (als voorbeeld voor een inrichtingsmethode gebruikt). Het maken van een apparaat dat nooit eerder hebt toegevoegd aan hybrid Azure AD join en heeft al het Groepsbeleid instellen is of Configuration Manager client-instelling wordt toegepast. U moet de nieuwe installatiekopie ook gebruiken voor het inrichten van nieuwe computers die lid worden van domein van uw organisatie. 
-
-## <a name="control-windows-down-level-devices"></a>Downlevel Windows-apparaten beheren
-
-Voor het registreren van Windows downlevel-apparaten die u wilt downloaden en installeren van de Windows Installer-pakket (.msi) van Download Center op de [Microsoft Workplace Join voor Windows 10-computers](https://www.microsoft.com/download/details.aspx?id=53554) pagina.
-
-U kunt het pakket implementeren met behulp van een software-distributiesysteem zoals [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Het pakket biedt ondersteuning voor de standaard installatie op de achtergrond-opties met de stille parameter. De huidige vertakking van Configuration Manager biedt voordelen ten opzichte van eerdere versies, zoals de mogelijkheid voor het bijhouden van voltooide registraties.
-
-Het installatieprogramma maakt een geplande taak op het systeem dat wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met Azure AD.
-
-Voor het beheren van de device Registration service, moet u het Windows Installer-pakket implementeren alleen op een geselecteerde groep Windows downlevel-apparaten. Als u hebt gecontroleerd dat alles werkt zoals verwacht, u kunt het pakket op alle downlevel-apparaten worden uitgerold.
-
+Nadat u hebt gecontroleerd dat alles werkt zoals verwacht, kunt u de rest van uw Windows-apparaten voor huidige en eerdere automatisch registreren met Azure AD door [SCP met Azure AD Connect configureren](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Inleiding tot apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
-
-
-
+[De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)

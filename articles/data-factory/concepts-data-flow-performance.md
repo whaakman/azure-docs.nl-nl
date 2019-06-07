@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297707"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480412"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Toewijzing van gegevensstromen prestaties en afstemmen van de handleiding
 
@@ -29,15 +29,28 @@ Azure Data Factory toewijzing gegevens stromen bieden een browserinterface zonde
 
 ![Fouten opsporen in knop](media/data-flow/debugb1.png "foutopsporing")
 
+## <a name="monitor-data-flow-performance"></a>De prestaties van de stroom gegevens controleren
+
+Tijdens het ontwerpen van uw kaartgegevens in de browser stromen, kunt u op test jednotky elke afzonderlijke transformatie door te klikken op het tabblad voor het voorbeeld van gegevens in het deelvenster onder instellingen voor elke transformatie. De volgende stap die moet u rekening houden is het testen van uw gegevensstroom end-to-end in de pijplijnontwerper. Toevoegen van een activiteit uitvoeren van de gegevensstroom en gebruik van de knop foutopsporing voor het testen van de prestaties van de gegevensstroom. In het onderste deelvenster van de pijplijn-venster ziet u een pictogram eyeglass onder 'acties':
+
+![Data Flow Monitor](media/data-flow/mon002.png "Data Flow Monitor 2")
+
+Als u dit pictogram te klikken op weergegeven de uitvoeringsplan en latere prestatieprofiel van de gegevensstroom. U kunt deze informatie gebruiken om te schatten van de prestaties van de gegevensstroom op basis van verschillende grootte gegevensbronnen. Houd er rekening mee dat u ervan uitgaan 1 minuut van de cluster taak uitvoeringstijd instellen in de algehele prestaties berekeningen dat kunt en als u van de standaard Azure Integration Runtime gebruikmaakt, moet u mogelijk om toe te voegen van 5 minuten hiervan ook cluster kringveld-up-tijd.
+
+![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitor 3")
+
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimaliseren voor Azure SQL Database en Azure SQL datawarehouse
 
 ![Deel de gegevensbron](media/data-flow/sourcepart2.png "deel uit van bron")
 
-### <a name="you-can-match-spark-data-partitioning-to-your-source-database-partitioning-based-on-a-database-table-column-key-in-the-source-transformation"></a>U kunt Spark partitioneren van gegevens naar uw bron database partitioneren op basis van een database tabelsleutel kolom in de bron-transformatie vergelijken
+### <a name="partition-your-source-data"></a>Partities voor uw brongegevens
 
 * Ga naar 'Optimaliseren' en 'Bron' selecteren. Ingesteld op een specifieke kolom of een type in een query.
 * Als u 'kolom' kiest, kies dan de partitiekolom.
 * Ook het maximum aantal verbindingen instellen met uw Azure SQL DB. U kunt een hogere instelling om te krijgen van parallelle verbindingen met uw database. Sommige gevallen kunnen echter leiden tot snellere prestaties met een beperkt aantal verbindingen.
+* Uw database brontabellen hoeft te worden gepartitioneerd.
+* Instellen van een query in uw bron-transformatie die overeenkomt met het partitieschema van de databasetabel kunt de database-engine van de gegevensbron gebruikmaken van partitie opheffing.
+* Als de bron niet al is gepartitioneerd, worden gegevens partitioneren in de Spark gegevenstransformatie-omgeving op basis van de sleutel die u in de bron-transformatie selecteert nog steeds gebruiken door ADF.
 
 ### <a name="set-batch-size-and-query-on-source"></a>Batchgrootte en query's uitvoeren op de bron instellen
 
@@ -51,7 +64,7 @@ Azure Data Factory toewijzing gegevens stromen bieden een browserinterface zonde
 
 ![Sink](media/data-flow/sink4.png "Sink")
 
-* Instellen om te voorkomen dat per rij verwerking van uw gegevens floes, de 'batchgrootte' in de sinkinstellingen voor Azure SQL-database. Dit vertelt dat ADF met proces-database worden geschreven in batches op basis van de opgegeven grootte.
+* Instellen om te voorkomen dat per rij verwerking van de gegevensstromen van uw, de 'batchgrootte' in de sink-instellingen voor Azure SQL DB. Dit vertelt dat ADF met proces-database worden geschreven in batches op basis van de opgegeven grootte.
 
 ### <a name="set-partitioning-options-on-your-sink"></a>Set opties voor de sink partitioneren
 
@@ -84,7 +97,7 @@ Azure Data Factory toewijzing gegevens stromen bieden een browserinterface zonde
 
 ### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Fasering gebruiken om gegevens in één bulkbewerking met Polybase te laden
 
-* Om te voorkomen dat per rij verwerking van uw gegevens floes, de optie "Staging" in de Sink-instellingen zo instellen dat ADF kan gebruikmaken van Polybase om te voorkomen dat per rij invoegen in DW. Dit vertelt u ADF het gebruik van Polybase, zodat gegevens kunnen worden geladen in één bulkbewerking.
+* Om te voorkomen dat per rij verwerking van de gegevensstromen van uw, de optie "Staging" in de Sink-instellingen zo instellen dat ADF kan gebruikmaken van Polybase om te voorkomen dat per rij invoegen in DW. Dit vertelt u ADF het gebruik van Polybase, zodat gegevens kunnen worden geladen in één bulkbewerking.
 * Wanneer u uw gegevens stroomactiviteit controleren van een pijplijn, met fasering ingeschakeld, moet u om de locatie van de Blob-archief van uw tijdelijke gegevens voor bulksgewijs laden te selecteren.
 
 ### <a name="increase-the-size-of-your-azure-sql-dw"></a>Verhoog de grootte van uw Azure SQL DW
@@ -113,4 +126,4 @@ Zie de andere gegevensstroom artikelen:
 
 - [Overzicht van stroom](concepts-data-flow-overview.md)
 - [Gegevens Stroomactiviteit controleren](control-flow-execute-data-flow-activity.md)
-
+- [Gegevensoverdracht-prestaties bewaken](concepts-data-flow-monitoring.md)

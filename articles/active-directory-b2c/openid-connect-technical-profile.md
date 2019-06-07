@@ -2,20 +2,20 @@
 title: Een technisch OpenId Connect-profiel te definiëren in een aangepast beleid in Azure Active Directory B2C | Microsoft Docs
 description: Definieer een technische OpenId Connect-profiel in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ec323d4596c866da33c4a8ff5499bf2ad92a8bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710323"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512921"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch OpenId Connect-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 

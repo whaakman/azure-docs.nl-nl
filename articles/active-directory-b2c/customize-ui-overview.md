@@ -2,20 +2,20 @@
 title: Over aanpassingen van de gebruikersinterface in Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over het aanpassen van de gebruikersinterface voor uw toepassingen die gebruikmaken van Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 26dea1b636fce9e7f5defddd5cf4bc4c7d78d5da
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682022"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511176"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Over aanpassingen van de gebruikersinterface in Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Wanneer u uw eigen HTML en CSS-bestanden voor het aanpassen van de gebruikersint
 
 Voor de gebruikersstromen v2 kunt u een vooraf ontworpen sjabloon die de standaard-pagina's geeft een beter overzicht en fungeert als een goede basis voor uw eigen aanpassing.
 
-In het menu links onder **aanpassen**, selecteer **pagina-indelingen**. Selecteer vervolgens **sjabloon (Preview)**.
+In het menu links onder **aanpassen**, selecteer **pagina-indelingen**. Selecteer vervolgens **sjabloon (Preview)** .
 
 ![Kies een sjabloon voor pagina-indeling](media/customize-ui-overview/template.png)
 
