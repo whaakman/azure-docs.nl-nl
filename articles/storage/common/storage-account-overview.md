@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236752"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755004"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -62,7 +62,11 @@ Hoewel voor algemeen gebruik v2-accounts in de meeste gevallen aanbevolen zijn, 
 
 ### <a name="block-blob-storage-accounts"></a>Block blob storage-accounts
 
-Een block blob storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde objectgegevens als blok-blobs of toevoeg-blobs. Block blob storage-accounts bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [toegangslagen voor blok-blobgegevens](#access-tiers-for-block-blob-data).
+Een block blob storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde objectgegevens als blok-blobs. Dit opslagaccount Typ ondersteunt blok-blobs en toevoeg-blobs, maar geen pagina-blobs, tabellen of wachtrijen.
+
+Vergeleken met voor algemeen gebruik v2 en blob storage-accounts, bieden block blob storage-accounts laag en consistente wachttijden en hogere transactietarieven.
+
+Block blob storage-accounts ondersteunen geen op dit moment lagen voor warm, koud of archief toegangslagen.
 
 ### <a name="filestorage-preview-storage-accounts"></a>FileStorage (preview) storage-accounts
 
@@ -75,12 +79,16 @@ Neem de volgende regels in acht als u het opslagaccount een naam geeft:
 - Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
 - De naam van uw opslagaccount moet uniek zijn binnen Azure. Een opslagaccount kan niet dezelfde naam hebben als een ander opslagaccount.
 
-## <a name="general-purpose-performance-tiers"></a>Prestatielagen voor algemeen gebruik
+## <a name="performance-tiers"></a>Prestatielagen
 
 Algemene opslagaccounts kunnen worden geconfigureerd voor een van de volgende prestatielagen:
 
 * Een standard-prestatielaag voor het opslaan van blobs, bestanden, tabellen, wachtrijen en schijven van de virtuele machine van Azure.
 * Een premium-prestatielaag voor het opslaan van alleen niet-beheerde VM-schijven.
+
+Block blob storage-accounts bieden een premium-prestatielaag voor het opslaan van blok-blobs en toevoeg-blobs.
+
+Een premium-prestatielaag bieden FileStorage (preview) storage-accounts voor Azure-bestandsshares.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Toegangslagen voor blok-blob-gegevens
 
@@ -90,7 +98,7 @@ De laag beschikbaar zijn:
 
 * De **warm** toegangslaag, die is geoptimaliseerd voor frequente toegang krijgen tot objecten in de storage-account. Toegang tot gegevens in de warme laag is meest rendabele, terwijl de kosten voor opslag hoger zijn. Nieuwe storage-accounts worden gemaakt in de warme laag standaard.
 * De **Cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is echter duurder dan toegang tot gegevens in de warme laag toegang tot die gegevens kan worden.
-* De **archief** laag, die alleen beschikbaar voor afzonderlijke blok-blobs is. De Archive-laag is geoptimaliseerd voor gegevens die enkele uren latentie bij het ophalen kan tolereren en blijven in de Archive-laag voor ten minste 180 dagen. De Archive-laag is de meest voordelige optie zijn voor het opslaan van gegevens, maar toegang tot die gegevens is duurder dan de toegang tot gegevens in de warme of koude laag.
+* De **archief** laag, die alleen beschikbaar voor afzonderlijke blok-blobs is. De archive-laag is geoptimaliseerd voor gegevens die enkele uren latentie bij het ophalen kan tolereren en blijven in de Archive-laag voor ten minste 180 dagen. De archive-laag is de meest voordelige optie zijn voor het opslaan van gegevens, maar toegang tot die gegevens is duurder dan de toegang tot gegevens in de warme als koude opslaglagen.
 
 Als er een wijziging in het gebruikspatroon van uw gegevens is, kunt u schakelen tussen deze toegangslagen op elk gewenst moment. Zie voor meer informatie over de toegangslagen, [Azure Blob storage: hot, cool en archive toegangslagen](../blobs/storage-blob-storage-tiers.md).
 
@@ -119,7 +127,7 @@ Bijvoorbeeld, als de naam van uw opslagaccount voor algemeen gebruik *mystoragea
 * Azure Files: http://*mystorageaccount*. file.core.windows.net
 
 > [!NOTE]
-> Een Blob storage-account wordt aangegeven dat alleen het eindpunt van Blob service.
+> Blok-blob en blob storage-accounts tonen alleen het eindpunt van blob service.
 
 De URL voor het openen van een object in een opslagaccount wordt samengesteld door de locatie van het object in het opslagaccount naar het eindpunt toe te voegen. Een blobadres kan bijvoorbeeld de volgende indeling hebben: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
@@ -177,5 +185,6 @@ De Import/Export-service kan ook worden gebruikt voor gegevensoverdracht van Azu
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het maken van een Azure storage-account, [een opslagaccount maken](storage-quickstart-create-account.md).
+* Zie voor meer informatie over het maken van een algemeen Azure storage-account, [een opslagaccount maken](storage-quickstart-create-account.md).
+* Zie voor meer informatie over het maken van een block blob storage-account, [een block blob storage-account maken](../blobs/storage-blob-create-account-block-blob.md).
 * Als u wilt beheren of verwijderen van een bestaand opslagaccount, Zie [beheren Azure storage-accounts](storage-account-manage.md).

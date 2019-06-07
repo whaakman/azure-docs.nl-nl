@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025344"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755095"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Verbinding maken met en inhoud met behulp van Azure Search-indexeerfuncties van Azure SQL Database indexeren
 
@@ -158,23 +158,7 @@ Ook kunt u instellen dat de indexeerfunctie periodiek wordt uitgevoerd volgens e
 
 De **interval** parameter is vereist. Het interval verwijst naar de tijd tussen het begin van de twee opeenvolgende indexeerfunctie uitvoeringen. De minimaal toegestane interval is 5 minuten. het langste is één dag. Deze moet zijn opgemaakt als een "dayTimeDuration" XSD-waarde (een beperkte subset van een [duur van de ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) waarde). Het patroon hiervoor is: `P(nD)(T(nH)(nM))`. Voorbeelden: `PT15M` voor elke 15 minuten, `PT2H` voor elke 2 uur.
 
-De optionele **startTime** geeft aan wanneer de geplande uitvoeringen moeten beginnen. Als deze wordt weggelaten, wordt de huidige UTC-tijd gebruikt. Deze tijd kan worden in het verleden – waarin geval de eerste uitvoering is gepland als de indexeerfunctie continu sinds de startTime actief is geweest.  
-
-Slechts één uitvoering van een indexeerfunctie kunt uitvoeren op een tijdstip. Als een indexeerfunctie wordt uitgevoerd wanneer de uitvoering ervan is gepland, wordt de uitvoering is uitgesteld totdat de volgende tijdstip geplande.
-
-Laten we eens een voorbeeld waarmee dit meer concrete. Stel dat we de volgende planning per uur geconfigureerd:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Dit is wat er gebeurt:
-
-1. De eerste uitvoering van de indexeerfunctie wordt gestart op of omstreeks vanaf 1 maart 2015 12:00 uur UTC.
-2. Wordt ervan uitgegaan dat deze uitvoering duurt 20 minuten (of elk gewenst moment minder dan 1 uur).
-3. De tweede uitvoering gestart op of omstreeks vanaf 1 maart 2015 1:00 uur
-4. Stel nu dat deze tot uitvoering van meer dan een uur – bijvoorbeeld 70 minuten – duurt zodat deze ongeveer 2:10 uur is voltooid
-5. Het is nu 2:00 uur, tijd voor het derde uitvoeren om te starten. Echter, omdat de tweede uitvoering van 1 uur nog steeds uitgevoerd, is de derde uitvoering is overgeslagen. De derde uitvoering begint bij 3 uur.
-
-U kunt toevoegen, wijzigen of verwijderen van een schema voor een bestaande indexeerfunctie met behulp van een **PUT indexeerfunctie** aanvraag.
+Zie voor meer informatie over het definiëren van indexeerfunctie planningen [indexeerfuncties plannen voor Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 

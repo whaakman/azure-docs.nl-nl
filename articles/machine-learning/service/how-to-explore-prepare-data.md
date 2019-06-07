@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146301"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753056"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Verken en voorbereiden van gegevens met de gegevensset-klasse (Preview)
 
@@ -117,20 +117,20 @@ sample_dataset.to_pandas_dataframe()
 dataset.get_profile()
 ```
 
-||Type|Min|Max|Count|Ontbrekend aantal|Niet-ontbrekend aantal|Ontbrekend percentage|Aantal fouten|Leeg aantal|0,1%-kwantiel|1%-kwantiel|5%-kwantiel|25%-kwantiel|50%-kwantiel|75%-kwantiel|95%-kwantiel|99%-kwantiel|99,9%-kwantiel|Gemiddelde|Standaardafwijking|Variantie|Asymmetrie|Kurtosis
+||Type|Min.|Max.|Count|Ontbrekend aantal|Niet-ontbrekend aantal|Ontbrekend percentage|Aantal fouten|Leeg aantal|0,1%-kwantiel|1%-kwantiel|5%-kwantiel|25%-kwantiel|50%-kwantiel|75%-kwantiel|95%-kwantiel|99%-kwantiel|99,9%-kwantiel|Gemiddelde|Standaardafwijking|Variantie|Asymmetrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 Id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
 Nummer van de aanvraag|FieldType.STRING|HZ239907|HZ278872|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
-Blok|FieldType.STRING|004XX S KILBOURN OPSLAAN|113XX S PRAIRIE OPSLAAN|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Blokkeren|FieldType.STRING|004XX S KILBOURN OPSLAAN|113XX S PRAIRIE OPSLAAN|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0,0|10.0|0,0|0,0|0,0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Het primaire Type|FieldType.STRING|MISLEIDENDE PRAKTIJK|DIEFSTAL|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Description|FieldType.STRING|ONJUISTE SELECTIEVAKJE|VIA $500|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Beschrijving van locatie|FieldType.STRING||SCHOOL, OPENBAAR, HET BOUWEN VAN|10.0|0,0|10.0|0,0|0,0|1.0||||||||||||||
-Aanhoudingsbevel|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
-Binnenlandse|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Aanhoudingsbevel|FieldType.BOOLEAN|False|False|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Binnenlandse|FieldType.BOOLEAN|False|False|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Heartbeat|FieldType.INTEGER|531|2433|10.0|0,0|10.0|0,0|0,0|0,0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
-Regio|FieldType.INTEGER|5|24|10.0|0,0|10.0|0,0|0,0|0,0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
+District|FieldType.INTEGER|5|24|10.0|0,0|10.0|0,0|0,0|0,0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
 Ward|FieldType.INTEGER|1|48|10.0|0,0|10.0|0,0|0,0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Community-gebied|FieldType.INTEGER|4|77|10.0|0,0|10.0|0,0|0,0|0,0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 Code van de FBI|FieldType.INTEGER|6|11|10.0|0,0|10.0|0,0|0,0|0,0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
@@ -148,7 +148,7 @@ In gegevenssets, null-waarden, van NaN en waarden die geen inhoud bevatten die w
 
 Van het profiel voor een gegevensset gegenereerd in de vorige sectie, zien we dat `Latitude` en `Longitude` kolommen hebben een hoog percentage van de ontbrekende waarden. In dit voorbeeld we berekent het gemiddelde en worden toegerekend ontbrekende waarden voor deze twee kolommen.
 
-Haal eerst de meest recente definitie van de gegevensset met [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) en de gegevens met verkleinen [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), zodat we alleen de kolommen die we adres willen weergeven.
+Haal eerst de meest recente definitie van de gegevensset met [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) en de gegevens met verkleinen [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow), zodat we alleen de kolommen die we adres willen weergeven.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -164,9 +164,9 @@ ds_def.head(3)
 
 ||Id|Aanhoudingsbevel| Breedtegraad|Lengtegraad|
 -|---------|-----|---------|----------|
-|0|10498554|Onwaar|41.692834|-87.604319|
-|1|10516598|Onwaar| 41.744107 |-87.664494|
-|2|10519196|Onwaar| NaN|NaN|
+|0|10498554|False|41.692834|-87.604319|
+|1|10516598|False| 41.744107 |-87.664494|
+|2|10519196|False| NaN|NaN|
 
 Controleer vervolgens de `MEAN` waarde van de breedtegraad kolom met behulp van de [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) functie. Deze functie accepteert een matrix van kolommen in de `group_by_columns` parameter opgeven voor het aggregatieniveau van. De `summary_columns` parameter accepteert de `SummaryColumnsValue` functie, die Hiermee geeft u de huidige kolomnaam, de nieuwe naam voor het berekende veld en de `SummaryFunction` om uit te voeren.
 
@@ -181,7 +181,7 @@ lat_mean.head(1)
 
 ||Aanhoudingsbevel|Latitude_MEAN|
 --|-----|--------|
-|0|Onwaar|41.780049|
+|0|False|41.780049|
 
 Zodra we controleren of de waarden die moeten worden toegerekend, gebruikt u [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) voor meer informatie over een vaste-expressie die de kolommen met een van beide een berekende imputes `MIN`, `MAX`, `MEAN` waarde, of een `CUSTOM` waarde. Wanneer `group_by_columns` is opgegeven, worden ontbrekende waarden worden toegeschreven per groep met `MIN`, `MAX`, en `MEAN` berekend per groep.
 
@@ -217,9 +217,9 @@ Zoals u in de volgende uitvoertabel, de ontbrekende breedtegraad is toegerekende
 
 ||Id|Aanhoudingsbevel|Breedtegraad|Lengtegraad
 -|---------|-----|---------|----------
-0|10498554|Onwaar|41.692834|-87.604319
-1|10516598|Onwaar|41.744107|-87.664494
-2|10519196|Onwaar|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 Bijwerken van de definitie van de gegevensset, [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) te houden van de transformatiestappen uitgevoerd.
 
@@ -230,9 +230,9 @@ dataset.head(3)
 
 ||Id|Aanhoudingsbevel|Breedtegraad|Lengtegraad
 -|---------|-----|---------|----------
-0|10498554|Onwaar|41.692834|-87.604319
-1|10516598|Onwaar|41.744107|-87.664494
-2|10519196|Onwaar|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 ## <a name="create-assertion-rules"></a>Bewering regels maken
 
@@ -256,10 +256,10 @@ ds_def = ds_def.assert_value('Longitude', (value <= 180) & (value >= -87), error
 ds_def.get_profile()
 ```
 
-||Type|Min|Max|Count|Ontbrekend aantal|Niet-ontbrekend aantal|Ontbrekend percentage|Aantal fouten|Leeg aantal|0,1%-kwantiel|1%-kwantiel|5%-kwantiel|25%-kwantiel|50%-kwantiel|75%-kwantiel|95%-kwantiel|99%-kwantiel|99,9%-kwantiel|Gemiddelde|Standaardafwijking|Variantie|Asymmetrie|Kurtosis
+||Type|Min.|Max.|Count|Ontbrekend aantal|Niet-ontbrekend aantal|Ontbrekend percentage|Aantal fouten|Leeg aantal|0,1%-kwantiel|1%-kwantiel|5%-kwantiel|25%-kwantiel|50%-kwantiel|75%-kwantiel|95%-kwantiel|99%-kwantiel|99,9%-kwantiel|Gemiddelde|Standaardafwijking|Variantie|Asymmetrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 Id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e + 07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e + 07|12302.7|1.51358e+08|-0.495701|-1.02814
-Aanhoudingsbevel|FieldType.BOOLEAN|Onwaar|Onwaar|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Aanhoudingsbevel|FieldType.BOOLEAN|False|False|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Breedtegraad|FieldType.DECIMAL|41.6928|41.9032|10.0|0,0|10.0|0,0|0,0|0,0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
 Lengtegraad|FieldType.INTEGER|-87|-87|10.0|0,0|10.0|0,0|3.0|0,0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
@@ -288,13 +288,13 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||Id|Nummer van de aanvraag|Date|Blok|...|
+||Id|Nummer van de aanvraag|Date|Blokkeren|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD OPSLAAN|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO OPSLAAN|...
 
-Stel dat u wilt transformeren van de datum en tijd-indeling naar ' 2016-04-04 10 PM - 12 AM'. In de [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) argument, vindt u voorbeelden van de gewenste uitvoer in de `example_data` parameter in deze indeling: *(oorspronkelijke uitvoer, gewenste uitvoer)*.
+Stel dat u wilt transformeren van de datum en tijd-indeling naar ' 2016-04-04 10 PM - 12 AM'. In de [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) argument, vindt u voorbeelden van de gewenste uitvoer in de `example_data` parameter in deze indeling: *(oorspronkelijke uitvoer, gewenste uitvoer)* .
 
 De volgende code ziet u twee voorbeelden van de gewenste uitvoer. (' 2016-04-04 23:56:00 ', ' 2016-04-04 10 uur-12 AM ") en (' 2016-04-15 17:00:00 ', ' 2016-04-15 16: 00 - 18: 00 uur ')
 

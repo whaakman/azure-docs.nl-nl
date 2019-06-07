@@ -7,18 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 1d7e130d619f580aeb82939e19ea5abf680ff039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61333613"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754473"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Verifiëren met Azure Container Registry uit Azure Kubernetes Service
 
 Wanneer u Azure Container Registry (ACR) met Azure Kubernetes Service (AKS), moet een verificatiemethode tot stand worden gebracht. Dit artikel worden de aanbevolen configuraties voor verificatie tussen deze twee Azure-services.
 
-In dit artikel wordt ervan uitgegaan dat u al een AKS-cluster hebt gemaakt en u kunt toegang tot het cluster met de `kubectl` -opdrachtregelclient. 
+U moet alleen een van deze verificatiemethoden configureren. De meest voorkomende aanpak is het [met behulp van de AKS-service-principal toegang verlenen](#grant-aks-access-to-acr). Als u specifieke vereisten hebt, kunt u eventueel [verlenen van toegang met behulp van Kubernetes geheimen](#access-with-kubernetes-secret).
+
+In dit artikel wordt ervan uitgegaan dat u al een AKS-cluster hebt gemaakt en u kunt toegang tot het cluster met de `kubectl` -opdrachtregelclient.
 
 ## <a name="grant-aks-access-to-acr"></a>GRANT AKS toegang naar ACR
 

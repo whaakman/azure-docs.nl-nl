@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a3cb6e1b20e405cedddae8684a4b91fcb8a5514a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f25840c21ec64ca8d8e9e17eb39637cff7524c76
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695351"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755260"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -52,10 +52,10 @@ Bij het maken van een virtuele machine met behulp van de Azure portal, wordt de 
     |Name|Ja|De naam moet uniek zijn binnen de resourcegroep die u selecteert. Na verloop van tijd u waarschijnlijk hebt meerdere netwerkinterfaces in uw Azure-abonnement. Zie voor suggesties bij het maken van een naamgevingsconventie voor het beheer van meerdere netwerkinterfaces gemakkelijker, [naamconventies](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). De naam kan niet worden gewijzigd nadat de netwerkinterface is gemaakt.|
     |Virtueel netwerk|Ja|Selecteer het virtuele netwerk voor de netwerkinterface. U kunt alleen een netwerkinterface toewijzen aan een virtueel netwerk dat zich in hetzelfde abonnement en dezelfde locatie als de netwerkinterface. Zodra een netwerkinterface is gemaakt, kunt u het virtuele netwerk dat is toegewezen aan niet wijzigen. De virtuele machine toevoegen van de netwerkinterface moet tevens aanwezig zijn in dezelfde locatie en abonnement als de netwerkinterface.|
     |Subnet|Ja|Selecteer een subnet binnen het virtuele netwerk dat u hebt geselecteerd. Het subnet dat de netwerkinterface is toegewezen aan nadat deze gemaakt, kunt u wijzigen.|
-    |Toewijzing van privé IP-adres|Ja| In deze instelling is kiest u de toewijzingsmethode voor het IPv4-adres. Kies in de volgende toewijzingsmethoden: **Dynamische:** Wanneer u deze optie selecteert, wijst Azure automatisch de eerstvolgende beschikbare adres van de adresruimte van het subnet dat u hebt geselecteerd. **Statische:** Wanneer u deze optie selecteert, moet u handmatig een beschikbaar IP-adres in de adresruimte van het geselecteerde subnet toewijzen. Statische en dynamische adressen veranderen niet totdat u deze wijzigen of de netwerkinterface wordt verwijderd. U kunt de toewijzingsmethode wijzigen nadat de netwerkinterface is gemaakt. De Azure DHCP-server wijst dit adres toe aan de netwerkinterface binnen het besturingssysteem van de virtuele machine.|
+    |Privé-IP-adrestoewijzing|Ja| In deze instelling is kiest u de toewijzingsmethode voor het IPv4-adres. Kies in de volgende toewijzingsmethoden: **Dynamische:** Wanneer u deze optie selecteert, wijst Azure automatisch de eerstvolgende beschikbare adres van de adresruimte van het subnet dat u hebt geselecteerd. **Statische:** Wanneer u deze optie selecteert, moet u handmatig een beschikbaar IP-adres in de adresruimte van het geselecteerde subnet toewijzen. Statische en dynamische adressen veranderen niet totdat u deze wijzigen of de netwerkinterface wordt verwijderd. U kunt de toewijzingsmethode wijzigen nadat de netwerkinterface is gemaakt. De Azure DHCP-server wijst dit adres toe aan de netwerkinterface binnen het besturingssysteem van de virtuele machine.|
     |Netwerkbeveiligingsgroep|Nee| Laat de eigenschap ingesteld op **geen**, selecteer een bestaande [netwerkbeveiligingsgroep](security-overview.md), of [maken van een netwerkbeveiligingsgroep](tutorial-filter-network-traffic.md). Netwerkbeveiligingsgroepen kunnen u filteren van netwerkverkeer naar en uit een netwerkinterface. U kunt nul of één netwerkbeveiligingsgroep toepassen op een netwerkinterface. Nul of één netwerkbeveiligingsgroep kan ook worden toegepast op het subnet dat de netwerkinterface wordt toegewezen aan. Wanneer een netwerkbeveiligingsgroep is toegepast op een netwerkinterface en het subnet dat aan de netwerkinterface is toegewezen, wordt soms onverwachte resultaten optreden. Zie voor het oplossen van netwerkbeveiligingsgroepen die zijn toegepast op netwerkinterfaces en subnetten, [problemen met netwerkbeveiligingsgroepen oplossen](diagnose-network-traffic-filter-problem.md).|
     |Abonnement|Ja|Selecteer een van uw Azure [abonnementen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). De virtuele machine die u koppelt een netwerkinterface en het virtuele netwerk dat u deze met verbindt moeten zich in hetzelfde abonnement.|
-    |Privé IP-adres (IPv6)|Nee| Als u dit selectievakje inschakelt, wordt een IPv6-adres toegewezen aan de netwerkinterface, naast het IPv4-adres toegewezen aan de netwerkinterface. Zie de IPv6-sectie van dit artikel voor belangrijke informatie over het gebruik van IPv6 met netwerkinterfaces. U kunt een methode voor het toewijzen van het IPv6-adres niet selecteren. Als u ervoor kiest om toe te wijzen een IPv6-adres, wordt deze toegewezen met de dynamische methode.
+    |Privé-IP-adres (IPv6)|Nee| Als u dit selectievakje inschakelt, wordt een IPv6-adres toegewezen aan de netwerkinterface, naast het IPv4-adres toegewezen aan de netwerkinterface. Zie de IPv6-sectie van dit artikel voor belangrijke informatie over het gebruik van IPv6 met netwerkinterfaces. U kunt een methode voor het toewijzen van het IPv6-adres niet selecteren. Als u ervoor kiest om toe te wijzen een IPv6-adres, wordt deze toegewezen met de dynamische methode.
     |IPv6-naam (alleen weergegeven wanneer de **privé-IP-adres (IPv6)** selectievakje is ingeschakeld) |Ja, als de **privé-IP-adres (IPv6)** selectievakje is ingeschakeld.| Deze naam wordt toegewezen aan een secundaire IP-configuratie voor de netwerkinterface. Zie voor meer informatie over IP-configuraties, [netwerkinterface-instellingen weergeven](#view-network-interface-settings).|
     |Resourcegroep|Ja|Selecteer een bestaande [resourcegroep](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) of er een maken. Een netwerkinterface kan bestaan in de dezelfde of een andere resourcegroep dan de virtuele machine die u het koppelt, of het virtuele netwerk dat u deze verbinding.|
     |Locatie|Ja|De virtuele machine als u een netwerkinterface om te koppelen en het virtuele netwerk dat u deze met verbindt moet bestaan in dezelfde [locatie](https://azure.microsoft.com/regions), ook wel een regio.|
@@ -111,6 +111,8 @@ De DNS-server wordt toegewezen door de Azure DHCP-server aan de netwerkinterface
 4. Selecteer een:
    - **Overnemen van virtueel netwerk**: Selecteer deze optie overgenomen van de DNS-serverinstellingen voor het virtuele netwerk dat de netwerkinterface wordt toegewezen aan gedefinieerd. Op het niveau van het virtuele netwerk, is een aangepaste DNS-server of de Azure DNS-server gedefinieerd. De Azure DNS-server kan omzetten van hostnamen voor resources die zijn toegewezen aan hetzelfde virtuele netwerk. FQDN-naam moet worden gebruikt om op te lossen voor resources in verschillende virtuele netwerken zijn toegewezen.
    - **Aangepast**: U kunt uw eigen DNS-server voor het omzetten van namen aan meerdere virtuele netwerken configureren. Voer het IP-adres van de server die u wilt gebruiken als een DNS-server. Het adres van de DNS-server u geeft alleen voor deze netwerkinterface wordt toegewezen, en overschrijft alle DNS-instellingen voor het virtuele netwerk dat de netwerkinterface wordt toegewezen aan.
+     >[!Note]
+     >Als de virtuele machine gebruikmaakt van een NIC die deel uitmaakt van een beschikbaarheidsset, worden alle DNS-servers die zijn opgegeven voor elk van de VM's uit alle NIC's die deel van de beschikbaarheidsset uitmaken wordt overgenomen.
 5. Selecteer **Opslaan**.
 
 **Opdrachten**
@@ -254,7 +256,7 @@ Om uit te voeren taken op netwerkinterfaces, moet uw account worden toegewezen a
 | Microsoft.Network/networkInterfaces/read                                   | Ophalen van de netwerkinterface                                     |
 | Microsoft.Network/networkInterfaces/write                                  | Maken of bijwerken van de netwerkinterface                        |
 | Microsoft.Network/networkInterfaces/join/action                            | Een netwerkinterface koppelen aan een virtuele machine           |
-| Microsoft.Network/networkInterfaces/delete                                 | De netwerkinterface verwijderen                                  |
+| Microsoft.Network/networkInterfaces/delete                                 | Verwijderen van netwerkinterface                                  |
 | Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Een resource toevoegen aan een netwerkinterface via een servi...     |
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Network interface effectieve routetabel ophalen               |
 | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Network interface effectieve beveiligingsgroepen ophalen           |

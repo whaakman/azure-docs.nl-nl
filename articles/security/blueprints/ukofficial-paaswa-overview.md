@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109324"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753848"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -85,7 +85,7 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 - Door gebruik te maken van [Azure Active Directory voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) klanten aanvullende beveiligingscontroles op toegang tot apps of gebruikers in hun omgeving op basis van specifieke voorwaarden, zoals locatie, apparaat, status en meld u kunnen afdwingen in de risico's.
 - [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) gecombineerd met aanbevolen procedures voor ontwerp van toepassingen, biedt beveiliging tegen DDoS-aanvallen, met het verkeer altijd bewaken, en realtime beperken van de algemene op netwerkniveau aanvallen. Met een architectuur voor PaaS, platform-niveau van DDoS protection is transparant voor de klant en opgenomen in het platform, maar het is belangrijk te weten dat de toepassing security ontwerp verantwoordelijkheid wordt veroorzaakt door de klant.
 
-#### <a name="data-in-transit"></a>Gegevens die onderweg zijn
+#### <a name="data-in-transit"></a>Actieve gegevens
 
 Gegevens zijn van doorvoer van buiten en tussen Azure-onderdelen worden beschermd met behulp van [Transport Layer Security/Secure Sockets Layer (TLS/SSL)](https://www.microsoft.com/TrustCenter/Security/Encryption), waarbij symmetrische cryptographie op basis van een gedeeld geheim voor het versleutelen van communicatie als ze worden gebruikt via het netwerk worden verzonden. Standaard wordt het netwerkverkeer beveiligd met behulp van TLS 1.2.
 
@@ -145,7 +145,7 @@ Deze sjabloon maakt gebruik van de volgende onderdelen van Azure Storage:
 - [Storage-Serviceversleuteling](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 
 - Alleen HTTPS-verbindingen toestaan
 
-#### <a name="data-at-rest"></a>Data-at-rest
+#### <a name="data-at-rest"></a>Inactieve gegevens
 
 Via [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) alle gegevens die zijn geschreven naar Azure Storage worden versleuteld met 256-bits AES-versleuteling, een van de krachtigste blokversleutelingsmethoden die. U kunt Microsoft beheerde sleutels gebruiken met SSE of kunt u [uw eigen versleutelingssleutels](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
@@ -191,7 +191,7 @@ Deze sjabloon maakt gebruik van de volgende Application Insights-onderdelen:
 
 #### <a name="azure-activity-logs"></a>Azure-activiteitenlogboeken
 
-[Azure-activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log) controlelaag gebeurtenissen voor uw abonnementen voert een controle uit. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor (PUT, POST, DELETE schrijfbewerkingen) die wordt gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen.
+[Azure-activiteitenlogboek](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) controlelaag gebeurtenissen voor uw abonnementen voert een controle uit. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor (PUT, POST, DELETE schrijfbewerkingen) die wordt gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 

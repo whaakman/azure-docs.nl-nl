@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f3d7f916d31a03d7b868749026f541dd646459f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 79af90d1c2c5b698ee7394f7fb20486b3069038c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732515"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751938"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Afhandeling van fouten in duurzame functies (Azure Functions)
 
-Duurzame functie indelingen zijn geïmplementeerd in de code en de mogelijkheden voor foutafhandeling van de programmeertaal kunnen gebruiken. Met deze waarmee u rekening moet er echt zijn niet alle nieuwe concepten die u meer informatie wilt over wanneer foutafhandeling en compensatie opnemen in uw indelingen. Er zijn echter enkele problemen die u moet rekening houden met.
+Duurzame functie indelingen zijn geïmplementeerd in de code en de mogelijkheden voor foutafhandeling van de programmeertaal kunnen gebruiken. Met deze waarmee u rekening moet er echt zijn niet alle nieuwe concepten die u nodig hebt voor meer informatie over het afhandelen van fouten en compensatie opnemen in uw indelingen. Er zijn echter enkele problemen die u moet rekening houden met.
 
 ## <a name="errors-in-activity-functions"></a>Fouten in de activiteitsfuncties
 

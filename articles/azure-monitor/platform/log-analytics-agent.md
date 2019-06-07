@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916365"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751976"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Verzamelen van logboekgegevens met de Azure Log Analytics-agent
 
@@ -59,7 +59,8 @@ Beginnen met versies die na augustus 2018 wordt uitgebracht, maken we de volgend
 * Nieuwe versies van AMI worden niet ondersteund.  
 * Alleen versies met SSL 1.x standaard worden ondersteund.
 
-Als u een distributie of een versie die wordt momenteel niet ondersteund en wordt niet afgestemd op onze ondersteuningsmodel gebruikt, raden wij dat u deze opslagplaats splitst, waarmee wordt bevestigd dat Microsoft-ondersteuning geen hulp bij gesplitste agent versies geeft.
+>[!NOTE]
+>Als u een distributie of een versie die wordt momenteel niet ondersteund en wordt niet afgestemd op onze ondersteuningsmodel gebruikt, raden wij dat u deze opslagplaats splitst, waarmee wordt bevestigd dat Microsoft-ondersteuning geen hulp bij gesplitste agent versies geeft.
 
 * Amazon Linux 2017.09 (x 64)
 * CentOS Linux 6 (x86/x64) en 7 (x 64)  
@@ -73,6 +74,21 @@ Als u een distributie of een versie die wordt momenteel niet ondersteund en word
 >OpenSSL 1.1.0 wordt alleen ondersteund op x86_x64 platforms (64-bits) en OpenSSL ouder dan 1.x wordt niet ondersteund op elk platform.
 >
 
+### <a name="agent-prerequisites"></a>Vereisten voor clientagents
+
+De volgende tabel ziet u de pakketten zijn vereist voor de ondersteunde Linux-distributies die de agent worden geïnstalleerd op.
+
+|Vereist pakket |Description |Minimale versie |
+|-----------------|------------|----------------|
+|Glibc |    GNU C-bibliotheek | 2.5-12 
+|openssl    | OpenSSL-bibliotheken | 1.0.x of 1.1.x |
+|Curl | cURL webclient | 7.15.5 |
+|Python-ctypes | | 
+|PAM | Pluggable Authentication Modules | | 
+
+>[!NOTE]
+>Rsyslog of syslog-ng het volgende zijn vereist voor het verzamelen van syslog-berichten. De standaard syslog-daemon op versie 5 van Red Hat Enterprise Linux, CentOS en Oracle Linux-versie (sysklog) wordt niet ondersteund voor de verzameling van syslog. Voor het verzamelen van syslog-gegevens in deze versie van deze distributies, moet de rsyslog-daemon worden geïnstalleerd en geconfigureerd ter vervanging van sysklog.
+
 ## <a name="tls-12-protocol"></a>TLS 1.2-protocol
 Als u wilt controleren of de beveiliging van gegevens die onderweg zijn naar Azure Monitor-Logboeken, we raden u aan de agent configureren voor het gebruik van ten minste Transport Layer Security (TLS) 1.2. Oudere versies van TLS/Secure Sockets Layer (SSL) kwetsbaar zijn gevonden en hoewel ze op dit moment nog steeds werken om toe te staan achterwaartse compatibiliteit, zijn ze onderling **niet aanbevolen**.  Raadpleeg voor meer informatie, [verzenden van gegevens veilig gebruik TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
@@ -81,10 +97,10 @@ Gegevens van de onderstaande lijst de proxy- en firewallinstellingen configurati
 
 |Agentresource|Poorten |Richting |HTTPS-controle overslaan|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Poort 443 |Uitgaand|Ja |  
-|*.oms.opinsights.azure.com |Poort 443 |Uitgaand|Ja |  
-|*.blob.core.windows.net |Poort 443 |Uitgaand|Ja |  
-|*.azure-automation.net |Poort 443 |Uitgaand|Ja |  
+|*.ods.opinsights.azure.com |Poort 443 |Uitgaande|Ja |  
+|*.oms.opinsights.azure.com |Poort 443 |Uitgaande|Ja |  
+|*.blob.core.windows.net |Poort 443 |Uitgaande|Ja |  
+|*.azure-automation.net |Poort 443 |Uitgaande|Ja |  
 
 Zie voor firewall-informatie is vereist voor Azure Government, [beheer van Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 

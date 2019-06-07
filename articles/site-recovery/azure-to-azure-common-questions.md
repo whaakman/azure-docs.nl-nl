@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925674"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753769"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Veelgestelde vragen: Herstel na noodgevallen van Azure naar Azure
 
@@ -143,7 +143,7 @@ Ja. Als u de bewaarperiode van 24 uur tot 72 uur verhoogt, kan Site Recovery wor
 Dit betekent dat ervoor te zorgen dat het herstelpunt dat consistent voor alle gerepliceerde virtuele machines is.
 Site Recovery biedt een optie van ' Multi-VM-consistentie,' die, wanneer u selecteert, maakt een replicatiegroep om alle machines samen repliceren die deel uitmaken van de groep.
 Alle virtuele machines hebben gedeelde crash-consistente en toepassingsconsistente herstelpunten wanneer ze bent failover.
-Lees de zelfstudie voor [Multi-VM-consistentie inschakelen](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Lees de zelfstudie voor [Multi-VM-consistentie inschakelen](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Kan ik één virtuele machine in de replicatiegroep van een Multi-VM-consistentie failover?
 Als u de optie "Multi-VM-consistentie" selecteert, worden u aangeeft dat de toepassing is afhankelijk van de virtuele machines binnen een groep. Daarom kan de failover van één virtuele machine is niet toegestaan.
@@ -195,7 +195,7 @@ U kunt een failover wordt geactiveerd nadat de onderbreking. Site Recovery hoeft
 ### <a name="what-is-a-rto-of-a-vm-failover-"></a>Wat is een RTO van een VM-failover?
 Site Recovery heeft een [RTO SLA van twee uur](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). De meeste van de tijd, mislukt Site Recovery echter failover van virtuele machines binnen enkele minuten. U kunt de RTO berekenen door te gaan naar de failover taken waarin de tijd die nodig was voor de virtuele machine openen. Plan voor herstel RTO, raadpleegt u onderstaande sectie.
 
-## <a name="recovery-plans"></a>Herstelplannen
+## <a name="recovery-plans"></a>Plannen voor herstel
 
 ### <a name="what-is-a-recovery-plan"></a>Wat is een herstelplan?
 Een plan voor herstel in Site Recovery coördineert het failoverherstel van virtuele machines. Dit maakt het herstel consistente wijze nauwkeurige, herhaalbare en geautomatiseerde. Een plan voor herstel worden de volgende behoeften voor de gebruiker:

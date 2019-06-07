@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420706"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755574"
 ---
 Opslag geoptimaliseerde VM-grootten bieden een snelle doorvoer van schijfgegevens en IO- en zijn ideaal voor Big Data, SQL, NoSQL-databases, gegevensopslag en grote transactionele databases.  Voorbeelden zijn onder meer Cassandra, MongoDB, Cloudera en Redis. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals lokale opslag en doorvoer netwerkbandbreedte voor elke grootte geoptimaliseerde.
 
@@ -57,7 +57,7 @@ Premium Storage opslaan in cache: Niet ondersteund
 - SLES 12 SP2 of hoger
 - RHEL of CentOS-versie 6.7 t/m 6.10, met Microsoft beschikbaar LIS pakket 4.3.1 (of hoger) geïnstalleerd
 - RHEL of CentOS-versie 7.3, met een pakket van Microsoft beschikbaar LIS 4.2.1 (of hoger) geïnstalleerd
-- RHEL of CentOS-versie 7.4 of hoger
+- RHEL of CentOS-versie 7,6 of hoger
 - Oracle Linux met UEK4 of hoger
 - Debian 9 met de kernel backports, Debian, 10 of hoger
 - CoreOS met een 4.14 kernel of hoger

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f08845dbf4168627d0198e81d2092a1fe56c6c89
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733874"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754768"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reageren op gebeurtenissen van IoT-Hub met behulp van Event Grid om acties starten
 
@@ -25,7 +25,7 @@ Azure IoT Hub kan worden geïntegreerd met Azure Event Grid, zodat u kunt meldin
 
 ## <a name="regional-availability"></a>Regionale beschikbaarheid
 
-De Event Grid-integratie is beschikbaar voor IoT-hubs in de regio's waar Event Grid wordt ondersteund. Alle apparaatgebeurtenissen, met uitzondering van apparaat telemetriegebeurtenissen zijn algemeen beschikbaar. Apparaat telemetrie gebeurtenis is in openbare preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china/china-welcome), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/). Zie voor de meest recente lijst met regio's, [een inleiding tot Azure Event Grid](../event-grid/overview.md).
+De Event Grid-integratie is beschikbaar voor IoT-hubs in de regio's waar Event Grid wordt ondersteund. Alle apparaatgebeurtenissen, met uitzondering van apparaat telemetriegebeurtenissen zijn algemeen beschikbaar. Apparaat telemetrie gebeurtenis is in openbare preview en is beschikbaar in alle regio's behalve VS-Oost, VS-West, West-Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), en [Azure Duitsland](https://azure.microsoft.com/global-infrastructure/germany/). Zie voor de meest recente lijst met regio's, [een inleiding tot Azure Event Grid](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Gebeurtenistypen
 

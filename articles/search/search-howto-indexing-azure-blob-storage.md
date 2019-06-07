@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f60146e4e11e50b2f2254a0d8d7f59c01ba74464
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479946"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753976"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob-opslag met Azure Search indexeren
 Dit artikel wordt beschreven hoe u met Azure Search index documenten (zoals PDF-bestanden en Microsoft Office-documenten en enkele andere algemene indelingen) die zijn opgeslagen in Azure Blob-opslag. Eerst wordt de basisbeginselen van het instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens, biedt een diepergaand onderzoek van problemen en scenario's kunt u waarschijnlijk optreden.
@@ -116,6 +116,8 @@ Deze indexeerfunctie wordt elke twee uur (schema-interval is ingesteld op 'PT2H'
 
 Bekijk voor meer informatie over de indexeerfunctie maken API [indexeerfunctie maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
+Zie voor meer informatie over het definiëren van indexeerfunctie planningen [indexeerfuncties plannen voor Azure Search](search-howto-schedule-indexers.md).
+
 ## <a name="how-azure-search-indexes-blobs"></a>Hoe blobs worden geïndexeerd in Azure Search
 
 Afhankelijk van de [configuratie van de indexeerfunctie](#PartsOfBlobToIndex), de blob-indexeerfunctie kunt u alleen de opslagmetagegevens indexeren (dit is nuttig wanneer u alleen de metagegevens van de interessante en hoeft niet te indexeren van de inhoud van blobs), opslag en metagegevens, of beide metagegevens en tekstuele inhoud. Standaard haalt de indexeerfunctie zowel de metagegevens als de inhoud.
@@ -139,7 +141,8 @@ Afhankelijk van de [configuratie van de indexeerfunctie](#PartsOfBlobToIndex), d
   * **metagegevens\_opslag\_laatste\_gewijzigd** (Edm.DateTimeOffset) - tijdstempel voor de blob voor het laatst gewijzigd. Azure Search gebruikt deze timestamp om te identificeren van gewijzigde blobs, om te voorkomen dat alles indexeren na de eerste indexering.
   * **metagegevens\_opslag\_grootte** (Edm.Int64) - blob-grootte in bytes.
   * **metagegevens\_opslag\_inhoud\_md5** (Edm.String) - MD5-hash van de inhoud van de blob, indien beschikbaar.
-  * **metagegevens\_opslag\_sas\_token** (Edm.String) - een tijdelijke token die kan worden gebruikt door [aangepaste vaardigheden](cognitive-search-custom-skill-interface.md) rechts toegang krijgen tot de blob. Deze sas-token mag niet worden opgeslagen voor later gebruik omdat deze mogelijk verlopen.
+  * **metagegevens\_opslag\_sas\_token** (Edm.String) - een tijdelijke SAS-token dat kan worden gebruikt door [aangepaste vaardigheden](cognitive-search-custom-skill-interface.md) toegang te krijgen tot de blob. Dit token moet niet worden opgeslagen voor later gebruik omdat deze mogelijk verlopen.
+
 * Eigenschappen van metagegevens specifiek zijn voor elk documentindeling zijn uitgepakt in de velden die worden vermeld [hier](#ContentSpecificMetadata).
 
 U hoeft niet te definiëren van velden voor alle van de bovenstaande eigenschappen in uw search-index: alleen vastleggen van de eigenschappen die u nodig hebt voor uw toepassing.

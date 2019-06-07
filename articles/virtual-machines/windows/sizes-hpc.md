@@ -3,7 +3,7 @@ title: 'Azure Windows VM-grootten: HPC | Microsoft Docs'
 description: Geeft een lijst van de verschillende grootten beschikbaar voor Windows high performance computing-virtuele machines in Azure. Bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslag en doorvoer netwerkbandbreedte voor grootten die in deze reeks.
 services: virtual-machines-windows
 documentationcenter: ''
-author: jonbeck7
+author: vermagit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
-ms.author: jonbeck
-ms.openlocfilehash: 58d4ced041b6f5cf767b45191e28a4b395f584b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: jonbeck;amverma
+ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540478"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755318"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>High performance computing VM-grootten
 
@@ -35,20 +35,29 @@ ms.locfileid: "60540478"
 
 * **MPI** -Microsoft MPI (MS-MPI) 2012 R2 of hoger, Intel MPI bibliotheek 5.x
 
-  De Microsoft Network Direct interface ondersteunde MPI-implementaties gebruiken om te communiceren tussen instanties. 
+  Op niet-SR-IOV ingeschakeld virtuele machines, ondersteunde MPI-implementaties de Microsoft Network Direct (ND)-interface gebruiken om te communiceren tussen instanties. De SR-IOV ingeschakeld VM-grootten (HB en HC-serie) op Azure vrijwel elke versie van de MPI kunnen moet worden gebruikt met Mellanox OFED. 
 
-* **De adresruimte van de RDMA-netwerk** -de RDMA-netwerk in Azure reserveert de ruimte adres 172.16.0.0/16. Voor het uitvoeren van MPI-toepassingen op exemplaren zijn geïmplementeerd in een Azure-netwerk, zorg ervoor dat de adresruimte van het virtuele netwerk niet het RDMA-netwerk overlapt.
+* **InfiniBandDriverWindows VM-extensie** - op RDMA-compatibele virtuele machines, voeg de extensie InfiniBandDriverWindows om in te schakelen InfiniBand toe. Deze Windows-VM-extensie wordt geïnstalleerd voor Windows Network Direct stuurprogramma's (op niet-SR-IOV-VM's) of OFED Mellanox-stuurprogramma's (op virtuele machines SR-IOV) voor RDMA verbinding.
+In sommige implementaties van A8 en A9-instanties, wordt de extensie HpcVmDrivers automatisch toegevoegd. Houd er rekening mee dat de HpcVmDrivers VM-extensie wordt afgeschaft; het wordt niet bijgewerkt. De VM-extensie toevoegen aan een virtuele machine, kunt u [Azure PowerShell](/powershell/azure/overview) cmdlets. 
 
-* **HpcVmDrivers VM-extensie** - op RDMA-compatibele virtuele machines, voeg de extensie HpcVmDrivers voor het installeren van Windows network apparaatstuurprogramma's voor RDMA verbinding toe. (In sommige implementaties van A8 en A9-instanties, de HpcVmDrivers-extensie wordt automatisch toegevoegd.) De VM-extensie toevoegen aan een virtuele machine, kunt u [Azure PowerShell](/powershell/azure/overview) cmdlets. 
-
-  
-  De volgende opdracht wordt de meest recente versie 1.1 HpcVMDrivers-extensie geïnstalleerd op een bestaande RDMA-compatibele virtuele machine met de naam *myVM* geïmplementeerd in de resourcegroep met de naam *myResourceGroup* in de  *VS-West* regio:
+  De volgende opdracht wordt de meest recente versie 1.0 InfiniBandDriverWindows-extensie geïnstalleerd op een bestaande RDMA-compatibele virtuele machine met de naam *myVM* geïmplementeerd in de resourcegroep met de naam *myResourceGroup* in de  *VS-West* regio:
 
   ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  ```
+  VM-extensies kunnen ook worden opgenomen in Azure Resource Manager-sjablonen voor een gemakkelijke implementatie, met de volgende JSON-element:
+  ```json
+  "properties":{
+  "publisher": "Microsoft.HpcCompute",
+  "type": "InfiniBandDriverWindows",
+  "typeHandlerVersion": "1.0",
+  } 
   ```
   
   Zie voor meer informatie, [extensies voor virtuele machines en functies](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). U kunt ook werken met de extensies voor virtuele machines die worden geïmplementeerd de [klassieke implementatiemodel](classic/manage-extensions.md).
+
+* **De adresruimte van de RDMA-netwerk** -de RDMA-netwerk in Azure reserveert de ruimte adres 172.16.0.0/16. Voor het uitvoeren van MPI-toepassingen op exemplaren zijn geïmplementeerd in een Azure-netwerk, zorg ervoor dat de adresruimte van het virtuele netwerk niet het RDMA-netwerk overlapt.
+
 
 ### <a name="cluster-configuration-options"></a>Cluster-configuratie-opties
 
@@ -56,7 +65,7 @@ Azure biedt verschillende opties voor het maken van clusters van Windows HPC-VM'
 
 * **Virtuele machines** -de RDMA-compatibele HPC-VM's implementeren in dezelfde beschikbaarheidsset (bij gebruik van het implementatiemodel Azure Resource Manager). Als u het klassieke implementatiemodel, implementeert u de virtuele machines in dezelfde cloudservice. 
 
-* **Virtuele-machineschaalsets** - In een VM-schaalset instellen, zorgt u ervoor dat u de implementatie beperken tot één plaatsingsgroep. Bijvoorbeeld in een Resource Manager-sjabloon instellen de `singlePlacementGroup` eigenschap `true`. 
+* **Virtuele-machineschaalsets** - In een virtuele-machineschaalset instellen, zorgt u ervoor dat u de implementatie beperken tot één plaatsingsgroep. Bijvoorbeeld in een Resource Manager-sjabloon instellen de `singlePlacementGroup` eigenschap `true`. 
 
 * **Azure CycleCloud** -maken van een HPC-cluster in [Azure CycleCloud](/azure/cyclecloud/) aan MPI-opdrachten uitvoeren op Windows-knooppunten.
 
@@ -79,7 +88,3 @@ Azure biedt verschillende opties voor het maken van clusters van Windows HPC-VM'
 - Zie voor het gebruik van rekenintensieve instanties bij het uitvoeren van MPI-toepassingen met Azure Batch, [taken met meerdere instanties gebruiken voor het uitvoeren van Message Passing Interface (MPI) applications in Azure Batch](../../batch/batch-mpi.md).
 
 - Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
-
-
-
-
