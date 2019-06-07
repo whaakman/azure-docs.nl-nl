@@ -1,23 +1,22 @@
 ---
-title: Analyseren en verwerken van JSON-documenten met Apache Hive - Azure HDInsight
-description: Meer informatie over het gebruik van JSON-documenten en analyseren met behulp van Apache Hive in Azure HDInsight
+title: Analyseren en verwerken van JSON-documenten met Apache Hive in Azure HDInsight
+description: Informatie over het gebruik van JSON-documenten en analyseren met behulp van Apache Hive in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4ba77c04f1e7976f2843bbe7117de63c376960b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/03/2019
+ms.openlocfilehash: 904a6a2af4c92c374d5afe4148f50e853e5d1fb2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717833"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479607"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Verwerken en analyseren van JSON-documenten met behulp van Apache Hive in Azure HDInsight
 
-Informatie over het verwerken en analyseren van JavaScript Object Notation (JSON)-bestanden met behulp van Apache Hive in Azure HDInsight. Deze zelfstudie wordt gebruikgemaakt van de volgende JSON-document:
+Informatie over het verwerken en analyseren van JavaScript Object Notation (JSON)-bestanden met behulp van Apache Hive in Azure HDInsight. In dit artikel wordt het volgende JSON-document:
 
 ```json
 {
@@ -56,7 +55,7 @@ Informatie over het verwerken en analyseren van JavaScript Object Notation (JSON
 }
 ```
 
-Het bestand kan worden gevonden op **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. Zie voor meer informatie over het gebruik van Azure Blob storage met HDInsight [gebruik HDFS-compatibele Azure Blob-opslag met Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). U kunt het bestand kopiëren naar de standaardcontainer van uw cluster.
+Het bestand kan worden gevonden op `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Zie voor meer informatie over het gebruik van Azure Blob storage met HDInsight [gebruik HDFS-compatibele Azure Blob-opslag met Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). U kunt het bestand kopiëren naar de standaardcontainer van uw cluster.
 
 In deze zelfstudie gebruikt u de Apache Hive-console. Zie voor instructies over het openen van de Hive-console, [gebruik Apache Ambari Hive-weergave met Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
@@ -82,7 +81,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-De onbewerkte JSON-bestand bevindt zich op **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. De **StudentsRaw** Hive-tabel verwijst naar de onbewerkte JSON-document dat niet wordt afgevlakt.
+De onbewerkte JSON-bestand bevindt zich op `wasb://processjson@hditutorialdata.blob.core.windows.net/`. De **StudentsRaw** Hive-tabel verwijst naar de onbewerkte JSON-document dat niet wordt afgevlakt.
 
 De **StudentsOneLine** Hive-tabel de gegevens worden opgeslagen in het HDInsight-standaardbestandssysteem onder de **/json/studenten/** pad.
 
@@ -92,7 +91,7 @@ De **Selecteer** instructie slechts één rij wordt geretourneerd.
 
 Hier volgt de uitvoer van de **Selecteer** instructie:
 
-![Het JSON-document maken][image-hdi-hivejson-flatten]
+![Het JSON-document maken](./media/using-json-in-hive/flatten.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>JSON-documenten in Hive analyseren
 Hive biedt drie verschillende mechanismen voor het uitvoeren van query's op JSON-documenten, of schrijf uw eigen:
@@ -100,7 +99,7 @@ Hive biedt drie verschillende mechanismen voor het uitvoeren van query's op JSON
 * Gebruik de get_json_object gebruiker gedefinieerde functie (UDF's).
 * Gebruik de json_tuple UDF.
 * Gebruik de aangepaste Serializer/Deserializer (serde-schrijfbewerking).
-* Schrijf uw eigen UDF met behulp van Python of andere talen. Zie voor meer informatie over het uitvoeren van uw eigen code Python met Hive [Python-UDF met Apache Hive en Apache Pig][hdinsight-python].
+* Schrijf uw eigen UDF met behulp van Python of andere talen. Zie voor meer informatie over het uitvoeren van uw eigen code Python met Hive [Python-UDF met Apache Hive en Apache Pig] [hdinsight-python].
 
 ### <a name="use-the-getjsonobject-udf"></a>Gebruik de get_json_object UDF
 Hive biedt een ingebouwde UDF met de naam [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) die JSON query's uitvoeren tijdens runtime kunt uitvoeren. Deze methode neemt twee argumenten--de tabelnaam en de naam van de methode, met de platte JSON-document en het JSON-veld dat moet worden geparseerd. We bekijken een voorbeeld te zien hoe deze UDF werkt.
@@ -116,7 +115,7 @@ FROM StudentsOneLine;
 
 Hier volgt de uitvoer wanneer u deze query in het consolevenster uitvoert:
 
-![get_json_object UDF][image-hdi-hivejson-getjsonobject]
+![get_json_object UDF](./media/using-json-in-hive/getjsonobject.png)
 
 Er zijn beperkingen van de get_json_object UDF:
 
@@ -137,12 +136,12 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 De uitvoer van dit script in de Hive-console:
 
-![json_tuple UDF][image-hdi-hivejson-jsontuple]
+![json_tuple UDF](./media/using-json-in-hive/jsontuple.png)
 
 De json_tuple UDF maakt gebruik van de [weergave laterale](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) -syntaxis in Hive, waarmee json\_tuple een virtuele-tabel maken door de functie UDT toepassen op elke rij van de oorspronkelijke tabel. Complexe onhandig te vanwege het herhaaldelijk gebruik van de betreffende JSON's **LATERALE weergave**. Bovendien **JSON_TUPLE** geneste betreffende JSON's kan niet worden verwerkt.
 
 ### <a name="use-a-custom-serde"></a>Gebruik een aangepaste serde-schrijfbewerking
-Serde-schrijfbewerking is de beste keuze voor het parseren van geneste JSON-documenten. Hiermee kunt u het JSON-schema definiëren en kunt u het schema gebruiken voor het parseren van de documenten. Zie voor instructies [over het gebruik van een aangepaste JSON serde-schrijfbewerking met Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+Serde-schrijfbewerking is de beste keuze voor het parseren van geneste JSON-documenten. Hiermee kunt u het JSON-schema definiëren en kunt u het schema gebruiken voor het parseren van de documenten. Zie voor instructies [over het gebruik van een aangepaste JSON serde-schrijfbewerking met Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## <a name="summary"></a>Samenvatting
 Het type van de JSON-operator in Hive die u kiest is Kortom, afhankelijk van uw scenario. Als u een eenvoudige JSON-document hebt en u slechts één veld hebt op opzoeken, kunt u de get_json_object UDF Hive gebruiken. Als u meer dan één sleutel om te zoeken op hebt, kunt u json_tuple gebruiken. Als u een geneste document hebt, moet u de JSON-serde-schrijfbewerking gebruiken.
@@ -154,18 +153,3 @@ Zie voor verwante artikelen:
 * [Apache Hive en HiveQL gebruiken met Apache Hadoop in HDInsight kunt u een voorbeeldbestand van de Apache-log4j analyseren](../hdinsight-use-hive.md)
 * [Gegevens over vertraagde vluchten analyseren met behulp van Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
 * [Twitter-gegevens analyseren met behulp van Apache Hive in HDInsight](../hdinsight-analyze-twitter-data-linux.md)
-
-[hdinsight-python]:python-udf-hdinsight.md
-
-[image-hdi-hivejson-flatten]: ./media/using-json-in-hive/flatten.png
-[image-hdi-hivejson-getjsonobject]: ./media/using-json-in-hive/getjsonobject.png
-[image-hdi-hivejson-jsontuple]: ./media/using-json-in-hive/jsontuple.png
-[image-hdi-hivejson-jdk]: ./media/hdinsight-using-json-in-hive/jdk.png
-[image-hdi-hivejson-maven]: ./media/hdinsight-using-json-in-hive/maven.png
-[image-hdi-hivejson-serde]: ./media/hdinsight-using-json-in-hive/serde.png
-[image-hdi-hivejson-addjar]: ./media/hdinsight-using-json-in-hive/addjar.png
-[image-hdi-hivejson-serde_query1]: ./media/hdinsight-using-json-in-hive/serde_query1.png
-[image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
-[image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
-[image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
-

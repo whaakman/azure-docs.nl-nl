@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256309"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478324"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure cloud services
 [Application Insights] [ start] kunt bewaken [Azure cloud service-apps](https://azure.microsoft.com/services/cloud-services/) voor beschikbaarheid, prestaties, fouten en gebruik door het combineren van gegevens uit Application Insights-SDK's met [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) gegevens van uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -194,18 +194,18 @@ U kunt uitzonderingen op twee manieren kunt bijhouden voor werkrollen:
 ## <a name="performance-counters"></a>Prestatiemeteritems
 Voor de volgende prestatiemeteritems worden gegevens verzameld:
 
-    * \Process(??APP_WIN32_PROC??)\% Processor Time
-    * \Memory\Available Bytes
-    * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
-    * \Process(??APP_WIN32_PROC??)\Private Bytes
-    * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * \Processor(_Total)\% Processor Time
+* \Process(??APP_WIN32_PROC??)\% Processor Time
+* \Memory\Available Bytes
+* \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
+* \Process(??APP_WIN32_PROC??)\Private Bytes
+* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
+* \Processor(_Total)\% Processor Time
 
 Voor webrollen worden ook gegevens verzameld voor de volgende prestatiemeteritems:
 
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 U kunt extra aangepaste prestatiemeteritems of andere Windows-prestatiemeteritems opgeven door te bewerken *ApplicationInsights.config* [zoals wordt weergegeven in dit voorbeeld](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
