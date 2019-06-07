@@ -151,11 +151,11 @@ Alle gebeurtenissen bevatten de dezelfde gegevens op het hoogste niveau:
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | id | string | De unieke id voor de gebeurtenis. |
-| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| Onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| topic | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| subject | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
 | eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
 | eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| Gegevens | object | Gebeurtenisgegevens van de IoT Hub.  |
+| data | object | Gebeurtenisgegevens van de IoT Hub.  |
 | dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
@@ -190,7 +190,7 @@ Voor **apparaat gemaakt** en **apparaat verwijderd** IoT Hub-gebeurtenissen, het
 | -------- | ---- | ----------- |
 | twin | object | Informatie over het dubbele apparaat, de cloud-weergave van de metagegevens van apparaten van toepassing is. | 
 | deviceID | string | De unieke id van het dubbele apparaat. | 
-| ETag | string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatdubbel. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. |  
+| etag | string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatdubbel. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. |  
 | deviceEtag| string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatregister. Elke deviceEtag is gegarandeerd uniek per apparaatregister. |
 | status | string | Of het dubbele apparaat is ingeschakeld of uitgeschakeld. | 
 | statusUpdateTime | string | De ISO8601-timestamp van de laatste status van het dubbele apparaat bijwerken. |
@@ -202,8 +202,8 @@ Voor **apparaat gemaakt** en **apparaat verwijderd** IoT Hub-gebeurtenissen, het
 | primaryThumbprint | string | Primaire vingerafdruk voor de x509 certificaat. |
 | secondaryThumbprint | string | Secundaire vingerafdruk voor de x509 certificaat. | 
 | version | geheel getal | Een geheel getal dat wordt verhoogd door één voor elke keer dat het apparaat dubbele wordt bijgewerkt. |
-| gewenste | object | Een gedeelte van de eigenschappen die kunnen worden alleen door de back-endtoepassing geschreven en gelezen door het apparaat. | 
-| gerapporteerd | object | Een gedeelte van de eigenschappen die kunnen worden alleen door het apparaat geschreven en gelezen door back-end van de toepassing. |
+| desired | object | Een gedeelte van de eigenschappen die kunnen worden alleen door de back-endtoepassing geschreven en gelezen door het apparaat. | 
+| reported | object | Een gedeelte van de eigenschappen die kunnen worden alleen door het apparaat geschreven en gelezen door back-end van de toepassing. |
 | lastUpdated | string | De ISO8601-timestamp van de laatste dubbele eigenschap bijwerken. | 
 
 ## <a name="next-steps"></a>Volgende stappen
