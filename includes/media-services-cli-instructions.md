@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155716"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66814917"
 ---
 ## <a name="cli-shell"></a>CLI Shell
 
 Het verdient aanbeveling gebruik [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) CLI-opdrachten uitvoeren. **Cloud Shell** is een gratis, interactieve shell die u gebruiken kunt om uit te voeren van de stappen in dit artikel. Er zijn vooraf algemene Azure-hulpprogramma's geïnstalleerd en geconfigureerd in Cloud Shell die u kunt gebruiken bij uw account. Het biedt de flexibiliteit van het kiezen van de shell-ervaring die het beste bij de manier waarop die u werkt. Linux-gebruikers kunnen voor een Bash-ervaring kiezen en voor Windows-gebruikers is PowerShell beschikbaar.
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+U kunt ook de CLI lokaal installeren. Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) voor instructies voor uw platform.
 
-### <a name="login"></a>Aanmelden
+### <a name="sign-in"></a>Aanmelden
 
-Aan de slag met de CLI-shell (in de cloud of lokaal), voer `az login` voor het maken van een verbinding met Azure.
+Met behulp van een lokale installatie van de CLI, moet aanmelden bij Azure. Deze stap is niet vereist voor Azure Cloud Shell. Meld u aan met de `az login` opdracht.
 
 Als de CLI uw standaardbrowser kan openen, gebeurt dat ook en wordt er een aanmeldingspagina gedownload. Anders moet u een browserpagina openen en volg de instructies op de opdrachtregel voor het invoeren van een autorisatiecode na het navigeren naar https://aka.ms/devicelogin in uw browser.
 

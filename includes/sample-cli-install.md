@@ -1,16 +1,16 @@
 ---
 author: sptramer
-ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 05/31/2019
 ms.author: sttramer
-ms.openlocfilehash: ebdfadcb70cc9788a3d18fa99261412506889764
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c4bc5a6befaf684cd07fb3b6799ba00099627132
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110332"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66814720"
 ---
-Controleer of de nieuwste versie van de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is geïnstalleerd voordat u dit voorbeeld uitvoert. Voer eerst `az login` uit om een verbinding op te zetten met Azure.
+Als u wilt uitvoeren in dit voorbeeld, installeer de nieuwste versie van de [Azure CLI](/cli/azure/install-azure-cli). Voer eerst `az login` uit om een verbinding op te zetten met Azure.
 
-Dit voorbeeld werkt in een Bash-shell. Zie [De Azure CLI installeren in Windows](/cli/azure/install-azure-cli-windows) voor opties voor het uitvoeren van Azure CLI-scripts in de Windows-client.
+Voorbeelden voor Azure CLI zijn geschreven voor de `bash` shell. Als u wilt uitvoeren in dit voorbeeld in Windows PowerShell of Command Prompt, wellicht u elementen van het script wijzigen.
+
