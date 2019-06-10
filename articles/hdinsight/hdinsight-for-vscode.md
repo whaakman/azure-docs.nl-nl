@@ -306,20 +306,20 @@ Een bestand verzendt, ziet u dat de map .vscode wordt automatisch toegevoegd aan
 
     | name | description | type | 
     | :- | :- | :- | 
-    | Bestand | Bestand met de toepassing uit te voeren | pad (vereist) | 
+    | file | Bestand met de toepassing uit te voeren | pad (vereist) | 
     | proxyUser | Gebruiker imiteren bij het uitvoeren van de taak | string | 
     | className | Toepassing Java/Spark-hoofdklasse | string |
-    | argumenten | Opdrachtregelargumenten voor de toepassing | lijst met tekenreeksen | 
-    | JAR-bestanden | JAR-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen | 
+    | args | Opdrachtregelargumenten voor de toepassing | lijst met tekenreeksen | 
+    | jars | JAR-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen | 
     | pyFiles | Python-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen |
-    | Bestanden | bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
+    | files | bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
     | driverMemory | Hoeveelheid geheugen die moet worden gebruikt voor het stuurprogramma-proces | string |
     | driverCores | Aantal kernen moet worden gebruikt voor het stuurprogramma-proces | int |
     | executorMemory | Hoeveelheid geheugen per executorproces gebruiken | string |
     | executorCores | Aantal kernen moet worden gebruikt voor elke executor | int |
     | numExecutors | Aantal Executor voor deze sessie starten | int |
-    | archiefbestanden | Archief moet worden gebruikt in deze sessie | Lijst met tekenreeksen |
-    | wachtrij | De naam van de YARN-wachtrij waarnaar verzonden | string |
+    | archives | Archief moet worden gebruikt in deze sessie | Lijst met tekenreeksen |
+    | queue | De naam van de YARN-wachtrij waarnaar verzonden | string |
     | name | De naam van deze sessie | string |
     | conf | Spark-configuratie-eigenschappen | Kaart van sleutel = val |
 
