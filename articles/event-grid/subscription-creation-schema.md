@@ -42,7 +42,7 @@ Naam van het abonnement van de gebeurtenis moet 3 tot 64 tekens lang zijn en mag
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| EndpointType | string | Het type van het eindpunt voor het abonnement (webhook/HTTP, Event Hub of wachtrij). | 
+| endpointType | string | Het type van het eindpunt voor het abonnement (webhook/HTTP, Event Hub of wachtrij). | 
 | endpointUrl | string | De doel-URL voor gebeurtenissen in dit gebeurtenisabonnement. | 
 
 ### <a name="filter-object"></a>Filter-object
