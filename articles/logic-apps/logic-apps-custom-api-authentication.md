@@ -191,9 +191,9 @@ Open de definitie van uw logische app in de weergave van code, gaat u naar de **
 | Element | Vereist | Description | 
 | ------- | -------- | ----------- | 
 | tenant | Ja | De GUID voor de Azure AD-tenant | 
-| Doelgroep | Ja | De GUID voor de doelresource die u openen wilt, die de client-id van de toepassings-id voor uw web-app of API-app | 
+| audience | Ja | De GUID voor de doelresource die u openen wilt, die de client-id van de toepassings-id voor uw web-app of API-app | 
 | clientId | Ja | De GUID voor de client aanvragen van toegang, die de client-id van de toepassings-id voor uw logische app | 
-| geheim | Ja | De sleutel of het wachtwoord van de toepassings-id voor de client die het toegangstoken wordt aangevraagd | 
+| secret | Ja | De sleutel of het wachtwoord van de toepassings-id voor de client die het toegangstoken wordt aangevraagd | 
 | type | Ja | Het verificatietype. De waarde voor ActiveDirectoryOAuth verificatie, heeft `ActiveDirectoryOAuth`. | 
 |||| 
 

@@ -75,10 +75,10 @@ De volgende gegevenstypen worden ondersteund in modellen die zijn gemaakt met de
 | Int32\_t |32-bits geheel getal zijn |
 | int64\_t |64-bits geheel getal zijn |
 | bool |booleaans |
-| ASCII\_char\_ptr |ASCII-tekenreeks |
-| EDM\_DATUM\_TIJD\_OFFSET |datum time-offset |
+| ascii\_char\_ptr |ASCII-tekenreeks |
+| EDM\_DATE\_TIME\_OFFSET |datum time-offset |
 | EDM\_GUID |GUID |
-| EDM\_BINAIRE |binary |
+| EDM\_BINARY |binary |
 | DECLARE\_STRUCT |Complex gegevenstype |
 
 Laten we beginnen met het laatste gegevenstype. De **DECLARE\_STRUCT** kunt u complexe gegevenstypen, groeperingen van de andere primitieve typen definiëren. Deze groeperingen kunnen we voor het definiëren van een model dat er als uitzien volgt:
