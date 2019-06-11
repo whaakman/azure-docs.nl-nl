@@ -38,7 +38,7 @@ Gebruik de volgende HTTP PUT-aanvraag te maken van een nieuwe Azure Basic Load B
 |subscriptionId   |  pad       |  True       |   string      |  De referenties van het abonnement die unieke identificatie van de Microsoft Azure-abonnement. De abonnements-ID maakt deel uit van de URI voor elke Serviceaanroep.      |
 |resourceGroupName     |     pad    | True        |  string       |   De naam van de resourcegroep.     |
 |loadBalancerName     |  pad       |      True   |    string     |    De naam van de load balancer.    |
-|API-versie    |   query     |  True       |     string    |  Client-API-versie.      |
+|api-version    |   query     |  True       |     string    |  Client-API-versie.      |
 
 
 
