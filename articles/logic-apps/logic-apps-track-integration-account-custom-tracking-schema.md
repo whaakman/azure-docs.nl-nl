@@ -59,8 +59,8 @@ Dit artikel bevat aangepaste code die u in de lagen buiten uw logische app gebru
 | Eigenschap | Type | Description |
 | --- | --- | --- |
 | sourceType |   | Het type van de bron-uitvoeren. Toegestane waarden zijn **Microsoft.Logic/workflows** en **aangepaste**. (Verplicht) |
-| Bron |   | Als het brontype is **Microsoft.Logic/workflows**, de informatie van de gegevensbron moet volgen dit schema. Als het brontype is **aangepaste**, het schema is een JToken. (Verplicht) |
-| systeem-id | String | Logische app systeem-ID. (Verplicht) |
+| source |   | Als het brontype is **Microsoft.Logic/workflows**, de informatie van de gegevensbron moet volgen dit schema. Als het brontype is **aangepaste**, het schema is een JToken. (Verplicht) |
+| systemId | String | Logische app systeem-ID. (Verplicht) |
 | runId | String | Logische app-id. (Verplicht) |
 | operationName | String | Naam van de bewerking (bijvoorbeeld: actie of trigger). (Verplicht) |
 | repeatItemScopeName | String | Herhaal de itemnaam als de actie binnen een `foreach` / `until` lus. (Verplicht) |
