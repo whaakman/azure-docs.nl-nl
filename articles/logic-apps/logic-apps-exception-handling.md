@@ -75,7 +75,7 @@ U kunt ook handmatig opgeven het beleid voor opnieuw proberen in de `inputs` sec
 |-------|------|-------------|
 | <*retry-policy-type*> | String | Het beleidstype dat u wilt gebruiken: `default`, `none`, `fixed`, of `exponential` | 
 | <*retry-interval*> | String | Het interval voor opnieuw proberen waarbij de waarde moet gebruiken [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Het minimale interval is standaard `PT5S` en de maximale interval `PT1D`. Wanneer u het beleid voor exponentieel interval gebruikt, kunt u verschillende minimale en maximale waarden opgeven. | 
-| <*retry-attempts*> | Geheel getal | Het aantal nieuwe pogingen tussen 1 en 90 moet | 
+| <*retry-attempts*> | Integer | Het aantal nieuwe pogingen tussen 1 en 90 moet | 
 ||||
 
 *Optioneel*
