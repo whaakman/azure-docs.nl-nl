@@ -120,15 +120,15 @@ Deze stappen beschrijven de gedetailleerde procedure die voor het uploaden van g
    | Logic Apps vragen header-veld | Value | Type | Description |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | gesegmenteerde overdrachtscodering | String | Geeft aan dat de inhoud in segmenten is geüpload |
-   | **x-ms-content-length** | <*content-length*> | Geheel getal | De volledige inhoud grootte in bytes vóór logische groepen te verdelen |
+   | **x-ms-content-length** | <*content-length*> | Integer | De volledige inhoud grootte in bytes vóór logische groepen te verdelen |
    ||||
 
 2. Het eindpunt reageert met de statuscode voor '200' geslaagd en deze optionele informatie:
 
    | Veld voor eindpunt response-header | Type | Vereist | Description |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Geheel getal | Nee | De voorgestelde chunkgrootte in bytes |
-   | **Locatie** | String | Nee | De URL-locatie waar u het vullen van de HTTP-berichten verzenden |
+   | **x-ms-chunk-size** | Integer | Nee | De voorgestelde chunkgrootte in bytes |
+   | **Location** | String | Nee | De URL-locatie waar u het vullen van de HTTP-berichten verzenden |
    ||||
 
 3. Uw logische app maakt en follow-up vullen van de HTTP-berichten - allemaal zijn voorzien van deze gegevens verzendt:
