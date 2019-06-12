@@ -63,7 +63,7 @@ Om te controleren van geslaagd, fouten en eigenschappen van berichten voor busin
 | as2To | String | AS2-bericht ontvanger naam van de headers van het AS2-bericht. (Verplicht) |
 | as2From | String | Naam van de afzender AS2-bericht, van de headers van het AS2-bericht. (Verplicht) |
 | agreementName | String | De naam van de AS2-overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
-| richting | String | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| direction | String | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | messageId | String | AS2-bericht-ID, uit de headers van de AS2-bericht (optioneel) |
 | dispositionType |String | Waarde voor brontype Message Disposition-Notification (MDN) toestand. (Optioneel) |
 | fileName | String | Bestandsnaam van de koptekst van het AS2-bericht. (Optioneel) |
@@ -116,7 +116,7 @@ Om te controleren van geslaagd, fouten en eigenschappen van berichten voor busin
 | as2To | String | Partnernaam die het AS2-bericht ontvangt. (Verplicht) |
 | as2From | String | Partnernaam die het AS2-bericht verzendt. (Verplicht) |
 | agreementName | String | De naam van de AS2-overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
-| richting |String | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| direction |String | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | messageId | String | AS2-bericht-ID. (Optioneel) |
 | originalMessageId |String | AS2 oorspronkelijke bericht-ID. (Optioneel) |
 | dispositionType | String | MDN toestand typewaarde. (Optioneel) |
