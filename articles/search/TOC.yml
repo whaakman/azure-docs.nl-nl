@@ -163,25 +163,29 @@
       items:
         - name: Overzicht van indexeerfuncties
           href: search-indexer-overview.md
-        - name: Indexeerfunctie voor Blob-opslag
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Indexeerfunctie voor Table-opslag
+        - name: Indexeerfunctie voor Azure Table Storage
           href: search-howto-indexing-azure-tables.md
-        - name: Indexeerfunctie voor SQL DB
+        - name: Indexeerfunctie voor Azure SQL DB
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Indexeerfunctie voor Cosmos DB
+        - name: Indexeerfunctie voor Azure Cosmos DB
           href: search-howto-index-cosmosdb.md
-        - name: Een-op-veel-blob-indexering
-          href: search-howto-index-one-to-many-blobs.md
-        - name: Blob-indexering met CSV
-          href: search-howto-index-csv-blobs.md
-        - name: Blob-indexering met JSON
-          href: search-howto-index-json-blobs.md
+        - name: Indexeerfunctie voor Azure Blob Storage
+          items:
+            - name: Een indexeerfunctie voor blob instellen
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Een-op-veel-blobs indexeren
+              href: search-howto-index-one-to-many-blobs.md
+            - name: CSV-blobs indexeren
+              href: search-howto-index-csv-blobs.md
+            - name: JSON-blobs indexeren
+              href: search-howto-index-json-blobs.md
+        - name: Indexeerfuncties inplannen
+          href: search-howto-schedule-indexers.md
+        - name: Velden toewijzen
+          href: search-indexer-field-mappings.md
         - name: Verbinding maken met SQL Server-VM's
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Veldtoewijzingen
-          href: search-indexer-field-mappings.md
-        - name: Algemene problemen oplossen
+        - name: Algemene problemen
           href: search-indexer-troubleshooting.md
     - name: Verrijken met AI
       items:

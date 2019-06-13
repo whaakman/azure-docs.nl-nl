@@ -86,24 +86,27 @@
     - name: Werkruimte
       displayName: concept definitions architecture
       href: concept-workspace.md
+    - name: Rekendoel
+      displayName: concept definitions architecture
+      href: concept-compute-target.md
     - name: Visuele interface
       displayName: concept
       href: ui-concept-visual-interface.md
-    - name: Geautomatiseerde Machine Learning
+    - name: Geautomatiseerde machine learning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
     - name: Modelbeheer (MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
+    - name: Herbruikbare ML-pijplijnen
+      href: concept-ml-pipelines.md
     - name: Interpreteerbaarheid van modellen
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: Versnellen met FPGA's
+    - name: Overzicht van FPGA's
       href: concept-accelerate-with-fpgas.md
-    - name: Optimaliseren met ONNX en ONNX Runtime
+    - name: ONNX en ONNX Runtime
       href: concept-onnx.md
-    - name: Machine Learning-pijplijnen
-      href: concept-ml-pipelines.md
     - name: Beveiliging
       items:
         - name: Overzicht van Enterprise-beveiliging

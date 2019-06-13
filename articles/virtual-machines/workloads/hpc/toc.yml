@@ -1,0 +1,30 @@
+- name: Documentatie over High Performance Computing
+  items:
+    - name: Overzicht
+      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+    - name: Configuratie
+      items:
+        - name: Optimalisatie voor Linux
+          href: configure.md
+        - name: Infiniband inschakelen
+          href: enable-infiniband.md
+    - name: MPI instellen
+      href: setup-mpi.md
+    - name: Toepassingen vergroten/verkleinen
+      href: compiling-scaling-applications.md
+    - name: Virtuele machines
+      items:
+        - name: HB-serie
+          items:
+            - name: Overzicht
+              href: hb-series-overview.md
+            - name: Prestaties
+              href: hb-series-performance.md
+        - name: HC-serie
+          items:
+            - name: Overzicht
+              href: hc-series-overview.md
+            - name: Prestaties
+              href: hc-series-performance.md
+        - name: Bekende problemen met VM's uit de HB-serie en HC-serie
+          href: hb-hc-known-issues.md

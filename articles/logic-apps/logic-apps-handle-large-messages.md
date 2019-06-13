@@ -57,7 +57,7 @@ Als een eindpunt is ingeschakeld voor downloads of uploads logische groepen te v
 
 Ook als een HTTP-actie niet al logische groepen te verdelen inschakelt, moet u ook instellen van logische groepen te verdelen in van de actie `runTimeConfiguration` eigenschap. U kunt deze eigenschap in de actie kunt instellen, hetzij rechtstreeks in de weergave-editor zoals later wordt beschreven, hetzij in de Logic Apps Designer zoals hier wordt beschreven:
 
-1. Kies in de rechterbovenhoek van de HTTP-actie, de knop met het weglatingsteken (**...** ), en kies vervolgens **instellingen**.
+1. Kies in de rechterbovenhoek van de HTTP-actie, de knop met het weglatingsteken ( **...** ), en kies vervolgens **instellingen**.
 
    ![Open het instellingenmenu op de actie.](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -128,7 +128,7 @@ Deze stappen beschrijven de gedetailleerde procedure die voor het uploaden van g
    | Veld voor eindpunt response-header | Type | Vereist | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Nee | De voorgestelde chunkgrootte in bytes |
-   | **Location** | String | Nee | De URL-locatie waar u het vullen van de HTTP-berichten verzenden |
+   | **Locatie** | String | Nee | De URL-locatie waar u het vullen van de HTTP-berichten verzenden |
    ||||
 
 3. Uw logische app maakt en follow-up vullen van de HTTP-berichten - allemaal zijn voorzien van deze gegevens verzendt:
