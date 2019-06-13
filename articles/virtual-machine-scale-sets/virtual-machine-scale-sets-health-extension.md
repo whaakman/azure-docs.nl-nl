@@ -66,7 +66,7 @@ De volgende JSON ziet u het schema voor de extensie van de status van de toepass
 | Name | Waarde / voorbeeld | Gegevenstype
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| Uitgever | `Microsoft.ManagedServices` | string |
+| publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
@@ -75,7 +75,7 @@ De volgende JSON ziet u het schema voor de extensie van de status van de toepass
 | Name | Waarde / voorbeeld | Gegevenstype
 | ---- | ---- | ----
 | protocol | `http` of `tcp` | string |
-| poort | Optioneel als het protocol `http`, verplicht als het protocol `tcp` | int |
+| port | Optioneel als het protocol `http`, verplicht als het protocol `tcp` | int |
 | requestPath | Verplicht als het protocol `http`, niet toegestaan als het protocol `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>De extensie van de status van de toepassing implementeren
