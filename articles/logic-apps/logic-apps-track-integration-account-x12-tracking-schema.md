@@ -66,7 +66,7 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | receiverQualifier | String | De kwalificatie van de partner ontvangt. (Verplicht) |
 | receiverIdentifier | String | Partner-id ontvangen. (Verplicht) |
 | agreementName | String | Naam van de X12 overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
-| richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| direction | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | String | Uitwisselingscontrolenummer. (Optioneel) |
 | functionalGroupControlNumber | String | Functionele controlenummer. (Optioneel) |
 | transactionSetControlNumber | String | Transactiereekscontrolenummer. (Optioneel) |
@@ -122,7 +122,7 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | receiverQualifier | String | De kwalificatie van de partner ontvangt. (Verplicht) |
 | receiverIdentifier | String | Partner-id ontvangen. (Verplicht) |
 | agreementName | String | Naam van de X12 overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
-| richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| direction | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | String | Uitwisselingscontrolenummer van de functionele bevestiging. Waarde vult alleen voor de verzendkant waar functionele bevestiging is ontvangen voor de berichten die worden verzonden naar partner. (Optioneel) |
 | functionalGroupControlNumber | String | Functionele groepscontrolenummer van de functionele bevestiging. Waarde vult alleen voor de verzendkant waar functionele bevestiging is ontvangen voor de berichten die worden verzonden naar partner. (Optioneel) |
 | isaSegment | String | Het ISA-segment van het bericht. Waarde vult alleen voor de verzendkant waar functionele bevestiging is ontvangen voor de berichten die worden verzonden naar partner. (Optioneel) |
@@ -180,7 +180,7 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | receiverQualifier | String | De kwalificatie van de partner ontvangt. (Verplicht) |
 | receiverIdentifier | String | Partner-id ontvangen. (Verplicht) |
 | agreementName | String | Naam van de X12 overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
-| richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| direction | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | String | Uitwisselingscontrolenummer. (Optioneel) |
 | isaSegment | String | Bericht ISA-segment. (Optioneel) |
 | isTechnicalAcknowledgmentExpected | Boolean | Of de technische bevestiging is geconfigureerd in de X12 overeenkomst. (Verplicht) |
@@ -231,7 +231,7 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | receiverQualifier | String | De kwalificatie van de partner ontvangt. (Verplicht) |
 | receiverIdentifier | String | Partner-id ontvangen. (Verplicht) |
 | agreementName | String | Naam van de X12 overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
-| richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| direction | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | String | Uitwisselingscontrolenummer van de technische ontvangstbevestiging die worden ontvangen van partners. (Optioneel) |
 | isaSegment | String | Het ISA-segment voor de technische bevestiging dat ontvangen van partners. (Optioneel) |
 | respondingInterchangeControlNumber |String | Uitwisselingscontrolenummer voor de technische bevestiging dat ontvangen van partners. (Optioneel) |
@@ -284,7 +284,7 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | receiverQualifier | String | De kwalificatie van de partner ontvangt. (Verplicht) |
 | receiverIdentifier | String | Partner-id ontvangen. (Verplicht) |
 | agreementName | String | Naam van de X12 overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
-| richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| direction | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | String | Uitwisselingscontrolenummer. (Optioneel) |
 | functionalGroupControlNumber | String | Functionele controlenummer. (Optioneel) |
 | gsSegment | String | GS-berichtsegment. (Optioneel) |
@@ -340,7 +340,7 @@ Om u te helpen succes van de monitor, fouten en eigenschappen van berichten voor
 | receiverQualifier | String | De kwalificatie van de partner ontvangt. (Verplicht) |
 | receiverIdentifier | String | Partner-id ontvangen. (Verplicht) |
 | agreementName | String | Naam van de X12 overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
-| richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| direction | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | String | De uitwisselingscontrolenummer gevuld voor de verzendkant wanneer een technische bevestiging is ontvangen van partners. (Optioneel) |
 | functionalGroupControlNumber | String | Functionele groepscontrolenummer van de technische acceptatie gevuld voor de verzendkant wanneer een technische bevestiging is ontvangen van partners. (Optioneel) |
 | isaSegment | String | Hetzelfde als uitwisseling aantal, maar alleen in bepaalde gevallen ingevuld bepalen. (Optioneel) |
