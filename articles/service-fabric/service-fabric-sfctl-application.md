@@ -28,26 +28,26 @@ Maken, verwijderen en beheren van toepassingen en de soorten toepassingen.
 
 |Opdracht|Description|
 | --- | --- |
-| maken | Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschrijving. |
+| create | Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschrijving. |
 | delete | Hiermee verwijdert u een bestaande Service Fabric-toepassing. |
-| geïmplementeerd | Hiermee haalt u de informatie over een toepassing is geïmplementeerd op een Service Fabric-knooppunt. |
-| -en statusbewaking geïmplementeerd | Hiermee haalt u de informatie over de status van een toepassing is geïmplementeerd op een Service Fabric-knooppunt. |
-| lijst met geïmplementeerd | Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric-knooppunt. |
-| gezondheidszorg | Hiermee haalt u de status van de service fabric-toepassing. |
-| informatie | Hiermee haalt u informatie over een Service Fabric-toepassing. |
+| deployed | Hiermee haalt u de informatie over een toepassing is geïmplementeerd op een Service Fabric-knooppunt. |
+| deployed-health | Hiermee haalt u de informatie over de status van een toepassing is geïmplementeerd op een Service Fabric-knooppunt. |
+| deployed-list | Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric-knooppunt. |
+| health | Hiermee haalt u de status van de service fabric-toepassing. |
+| info | Hiermee haalt u informatie over een Service Fabric-toepassing. |
 | list | Hiermee haalt u de lijst met toepassingen die in de Service Fabric-cluster gemaakt die overeenkomen met de opgegeven filters. |
-| laden | Haalt informatie over een Service Fabric-toepassing te laden. |
-| Het manifest | Hiermee haalt u het manifest met een beschrijving van een toepassingstype. |
-| inrichten | Bepalingen of registers typt u een Service Fabric-toepassing met het cluster met behulp van het pakket .sfpkg in de externe opslag of het toepassingspakket in archief van de installatiekopie. |
-| rapport-en statusbewaking | Verzendt een statusrapport over de Service Fabric-toepassing. |
+| load | Haalt informatie over een Service Fabric-toepassing te laden. |
+| manifest | Hiermee haalt u het manifest met een beschrijving van een toepassingstype. |
+| provision | Bepalingen of registers typt u een Service Fabric-toepassing met het cluster met behulp van het pakket .sfpkg in de externe opslag of het toepassingspakket in archief van de installatiekopie. |
+| report-health | Verzendt een statusrapport over de Service Fabric-toepassing. |
 | type | Hiermee haalt u de lijst met typen in het Service Fabric-cluster die overeenkomt met precies de opgegeven naam. |
 | type-list | Hiermee haalt de lijst met typen in het Service Fabric-cluster. |
-| inrichting verwijderen | Hiermee verwijdert u of de registratie van een type Service Fabric-toepassing uit het cluster. |
+| unprovision | Hiermee verwijdert u of de registratie van een type Service Fabric-toepassing uit het cluster. |
 | upgrade | Hiermee start u een upgrade van een toepassing in de Service Fabric-cluster. |
 | upgrade-resume | Hervat een upgrade van een toepassing in de Service Fabric-cluster. |
 | upgrade-rollback | Start het terugdraaien van de momenteel continue upgrade van een toepassing in de Service Fabric-cluster. |
 | upgrade-status | Hiermee haalt details voor de meest recente upgrade uitgevoerd voor deze toepassing. |
-| uploaden | Een Service Fabric-toepassingspakket kopiëren naar de installatiekopieopslag. |
+| upload | Een Service Fabric-toepassingspakket kopiëren naar de installatiekopieopslag. |
 
 ## <a name="sfctl-application-create"></a>sfctl-toepassing maken
 Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschrijving.
