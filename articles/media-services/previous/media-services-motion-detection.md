@@ -94,21 +94,21 @@ De volgende tabel beschrijft de elementen van de uitvoer-JSON-bestand.
 
 | Element | Description |
 | --- | --- |
-| Versie |Dit verwijst naar de versie van de Video-API. De huidige versie is 2. |
-| Tijdschaal |'Tikken"per seconde van de video. |
+| Version |Dit verwijst naar de versie van de Video-API. De huidige versie is 2. |
+| Timescale |'Tikken"per seconde van de video. |
 | Offset |De time-offset voor tijdstempels in "tikken." Versie 1.0 van Video-API's, wordt dit altijd 0 zijn. In de toekomst scenario's die wordt ondersteund, deze waarde kan worden gewijzigd. |
-| Framesnelheid |Aantal frames per seconde video. |
-| Breedte, hoogte |Verwijst naar de breedte en hoogte van de video in pixels. |
-| Starten |De tijdstempel begin in 'maatstreepjes'. |
-| Duur |De lengte van de gebeurtenis, in 'maatstreepjes'. |
+| Framerate |Aantal frames per seconde video. |
+| Width, Height |Verwijst naar de breedte en hoogte van de video in pixels. |
+| Start |De tijdstempel begin in 'maatstreepjes'. |
+| Duration |De lengte van de gebeurtenis, in 'maatstreepjes'. |
 | Interval |Het interval van elk item in de gebeurtenis, in 'maatstreepjes'. |
-| Gebeurtenissen |Elke gebeurtenis fragment bevat de beweging gedetecteerd binnen deze tijdsduur. |
+| Events |Elke gebeurtenis fragment bevat de beweging gedetecteerd binnen deze tijdsduur. |
 | Type |In de huidige versie is dit altijd '2' voor algemene beweging. Dit label biedt Video-API's de flexibiliteit voor het categoriseren van beweging in toekomstige versies. |
 | RegionID |Zoals hierboven is uitgelegd, is dit altijd 0 in deze versie. Dit label biedt Video-API de flexibiliteit om te zoeken beweging in verschillende regio's in toekomstige versies. |
-| Regio's |Verwijst naar het gebied in uw video waarin u geïnteresseerd beweging bent. <br/><br/>-het gebied van de regio 'id' aangeeft: in deze versie er is slechts één ID 0. <br/>-"type" vertegenwoordigt de vorm van de regio die u het belangrijkst voor beweging. Op dit moment worden "rechthoek" en 'veelhoek' ondersteund.<br/> Als u "rechthoek" hebt opgegeven, heeft de regio dimensies in X, Y, Width en Height. De X- en Y-coördinaten vertegenwoordigen de bovenste links XY-coördinaten van de regio in een genormaliseerde schaal van 0,0 en 1,0. De breedte en hoogte vertegenwoordigen de grootte van de regio in een genormaliseerde schaal van 0,0 en 1,0. In de huidige versie, zijn X, Y, Width en Height altijd vast bij 0, 0 en 1, 1. <br/>Als u 'veelhoek' hebt opgegeven, heeft de regio dimensies in punten. <br/> |
-| Fragmenten |De metagegevens wordt gesegmenteerde overdrachtscodering omhoog in verschillende segmenten fragmenten genoemd. Elk fragment bevat een start, een duur, een intervalnummer en een of meer gebeurtenissen. Een fragment met Nee gebeurtenissen kunnen geen beweging gedetecteerd tijdens de begintijd en duur. |
+| Regions |Verwijst naar het gebied in uw video waarin u geïnteresseerd beweging bent. <br/><br/>-het gebied van de regio 'id' aangeeft: in deze versie er is slechts één ID 0. <br/>-"type" vertegenwoordigt de vorm van de regio die u het belangrijkst voor beweging. Op dit moment worden "rechthoek" en 'veelhoek' ondersteund.<br/> Als u "rechthoek" hebt opgegeven, heeft de regio dimensies in X, Y, Width en Height. De X- en Y-coördinaten vertegenwoordigen de bovenste links XY-coördinaten van de regio in een genormaliseerde schaal van 0,0 en 1,0. De breedte en hoogte vertegenwoordigen de grootte van de regio in een genormaliseerde schaal van 0,0 en 1,0. In de huidige versie, zijn X, Y, Width en Height altijd vast bij 0, 0 en 1, 1. <br/>Als u 'veelhoek' hebt opgegeven, heeft de regio dimensies in punten. <br/> |
+| Fragments |De metagegevens wordt gesegmenteerde overdrachtscodering omhoog in verschillende segmenten fragmenten genoemd. Elk fragment bevat een start, een duur, een intervalnummer en een of meer gebeurtenissen. Een fragment met Nee gebeurtenissen kunnen geen beweging gedetecteerd tijdens de begintijd en duur. |
 | Vierkante haken] |Elke haakje vertegenwoordigt één interval in de gebeurtenis. Lege vierkante haken voor dat interval betekent dat er geen beweging is gedetecteerd. |
-| locaties |Deze nieuwe vermelding onder gebeurtenissen geeft een lijst van de locatie waar de beweging optreedt. Dit is ook specifieker dan de detectie van zones. |
+| locations |Deze nieuwe vermelding onder gebeurtenissen geeft een lijst van de locatie waar de beweging optreedt. Dit is ook specifieker dan de detectie van zones. |
 
 De volgende JSON-voorbeeld wordt de uitvoer weergegeven:
 
