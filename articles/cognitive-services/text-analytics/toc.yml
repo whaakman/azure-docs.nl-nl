@@ -8,6 +8,7 @@
     - name: Voorbeeldgebruikerscenario's
       href: text-analytics-user-scenarios.md
 - name: Snelstartgidsen
+  expanded: true
   items:
     - name: REST-API
       items:
@@ -33,6 +34,8 @@
           href: quickstarts/go-sdk.md
         - name: Ruby
           href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
 - name: Zelfstudies
   items:
     - name: Power BI integreren om klantenfeedback te analyseren

@@ -80,30 +80,23 @@
       href: environment-setup.md
       items:
         - name: Azure-opslagaccounts
-          href: ../../storage/common/storage-create-storage-account.md
-          maintainContext: true
+          href: /azure/storage/common/storage-create-storage-account?context=azure/machine-learning/team-data-science-process/context/ml-context
         - name: Platformen en hulpprogramma's
           href: platforms-and-tools.md
         - name: R en Python op HDInsight-clusters
           items:
             - name: Inleiding tot Spark in HDInsight
-              href: ../../hdinsight/spark/apache-spark-overview.md
-              maintainContext: true
+              href: /azure/hdinsight/spark/apache-spark-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Een Apache Spark-cluster maken in Azure HDInsight
-              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
-              maintainContext: true
+              href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: PySpark-kernels voor Jupyter Notebook
-              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
-              maintainContext: true
+              href: /azure/hdinsight/spark/apache-spark-jupyter-notebook-kernels?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: R Server op HDInsight
-              href: ../../hdinsight/r-server/r-server-overview.md
-              maintainContext: true
+              href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Aan de slag met R Server op HDInsight
-              href: ../../hdinsight/r-server/r-server-get-started.md
-              maintainContext: true
+              href: /azure/hdinsight/r-server/r-server-get-started?context=azure/machine-learning/team-data-science-process/context/ml-context
         - name: Azure Machine Learning-werkruimte
-          href: ../studio/create-workspace.md
-          maintainContext: true
+          href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Zakelijke behoeften analyseren
       items:
         - name: Uw scenario identificeren
@@ -124,8 +117,7 @@
                 - name: AzCopy gebruiken
                   href: move-data-to-azure-blob-using-azcopy.md
                 - name: Python gebruiken
-                  href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
-                  maintainContext: true
+                  href: /azure/storage/blobs/storage-python-how-to-use-blob-storage?context=azure/machine-learning/team-data-science-process/context/ml-context
                 - name: SSIS gebruiken
                   href: move-data-to-azure-blob-using-ssis.md
             - name: Verplaatsen naar SQL op een VM
@@ -193,11 +185,9 @@
         - name: Modellen maken en trainen
           items:
             - name: Algoritmen kiezen
-              href: ../studio/algorithm-choice.md
-              maintainContext: true
+              href: /azure/machine-learning/studio/algorithm-choice?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Overzichtskaart algoritmen
-              href: ../studio/algorithm-cheat-sheet.md
-              maintainContext: true
+              href: /azure/machine-learning/studio/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Modellen in de productieomgeving implementeren
       href: deploy-models-in-production.md
 - name: Verwant

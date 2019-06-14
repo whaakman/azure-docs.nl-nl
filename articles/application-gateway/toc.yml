@@ -217,6 +217,8 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: Fouten met ongeldige gateway (502)
           href: application-gateway-troubleshooting-502.md
+        - name: Web Application Firewall (WAF)
+          href: web-application-firewall-troubleshoot.md
     - name: Migreren van v1 naar v2
       href: migrate-v1-v2.md
 - name: Naslaginformatie
